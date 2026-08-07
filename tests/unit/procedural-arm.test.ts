@@ -5,17 +5,22 @@ import { createProceduralArm } from '@/components/three/procedural-arm';
 describe('createProceduralArm (URDF-missing fallback)', () => {
   it('builds a robot with exactly 3 revolute joints', () => {
     const robot = createProceduralArm();
-    const joints = Object.values(robot.joints);
+    const joints = Object.values(robot.joints).filter(
+      (joint) => joint.jointType === 'revolute',
+    );
     expect(joints).toHaveLength(3);
     for (const joint of joints) {
       expect(joint.jointType).toBe('revolute');
     }
   });
 
-  it('gives every joint a name and finite lower < upper limits', () => {
+  it('gives every revolute joint a name and finite lower < upper limits', () => {
     const robot = createProceduralArm();
-    for (const [name, joint] of Object.entries(robot.joints)) {
-      expect(name.length).toBeGreaterThan(0);
+    const revolute = Object.values(robot.joints).filter(
+      (joint) => joint.jointType === 'revolute',
+    );
+    for (const joint of revolute) {
+      expect(joint.name.length).toBeGreaterThan(0);
       expect(Number.isFinite(joint.limit.lower)).toBe(true);
       expect(Number.isFinite(joint.limit.upper)).toBe(true);
       expect(joint.limit.lower).toBeLessThan(joint.limit.upper);

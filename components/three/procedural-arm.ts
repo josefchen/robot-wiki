@@ -101,23 +101,33 @@ export function createProceduralArm(): URDFRobot {
   tip.position.z = 0.09;
   forearm.add(elbowServo, segment(0.09, 0.03), tip);
 
+  // Fixed tool frame at the tip, like the SO-101's gripper_frame_link: it
+  // gives IK a well-defined end effector past the elbow joint.
+  const toolTipJoint = makeJoint('tool_tip_joint', [0, 0, 0.09], 0, 0);
+  toolTipJoint.jointType = 'fixed';
+  const toolTip = makeLink('tool_tip');
+
   robot.add(shoulderPan);
   shoulderPan.add(shoulder);
   shoulder.add(shoulderLift);
   shoulderLift.add(upperArm);
   upperArm.add(elbowFlex);
   elbowFlex.add(forearm);
+  forearm.add(toolTipJoint);
+  toolTipJoint.add(toolTip);
 
   robot.joints = {
     shoulder_pan: shoulderPan,
     shoulder_lift: shoulderLift,
     elbow_flex: elbowFlex,
+    tool_tip_joint: toolTipJoint,
   };
   robot.links = {
     base_link: robot,
     shoulder_link: shoulder,
     upper_arm_link: upperArm,
     forearm_link: forearm,
+    tool_tip: toolTip,
   };
 
   return robot;

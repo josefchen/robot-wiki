@@ -10,6 +10,8 @@ export interface RobotInfo {
   kind: 'so101' | 'fallback';
   name: string;
   jointCount: number;
+  /** Name of the end-effector link used for FK readouts and IK. */
+  eeLink: string;
 }
 
 export interface LoadedRobot {
@@ -30,6 +32,7 @@ function fallbackRobot(): LoadedRobot {
       kind: 'fallback',
       name: robot.robotName,
       jointCount: countRevoluteJoints(robot),
+      eeLink: 'tool_tip',
     },
   };
 }
@@ -77,6 +80,7 @@ export function loadSo101Robot(): Promise<LoadedRobot> {
             kind: 'so101',
             name: loadedRobot.robotName,
             jointCount: countRevoluteJoints(loadedRobot),
+            eeLink: 'gripper_frame_link',
           },
         });
       } else {

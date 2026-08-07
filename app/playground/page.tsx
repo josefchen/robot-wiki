@@ -4,7 +4,7 @@ import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 export const metadata: Metadata = {
   title: '3D Kinematics Playground - robot-atlas',
   description:
-    'A SO-101 robot arm rendered from its URDF in the browser, with mouse orbit, zoom, and pan controls.',
+    'A SO-101 robot arm rendered from its URDF in the browser, with joint sliders for forward kinematics and click-to-reach inverse kinematics.',
 };
 
 export default function PlaygroundPage() {
@@ -18,7 +18,9 @@ export default function PlaygroundPage() {
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">
         A SO-101 follower arm loaded from its URDF and rendered client-side
-        with WebGL. Nothing here touches a server.
+        with WebGL. Move each joint with the sliders, or click the ground to
+        set a target and watch the damped-least-squares solver reach for it.
+        Nothing here touches a server.
       </p>
 
       <section aria-label="3D robot playground" className="mt-6">
@@ -26,7 +28,9 @@ export default function PlaygroundPage() {
       </section>
 
       <p className="mt-3 font-mono text-xs leading-relaxed text-text-dim">
-        Drag to orbit. Scroll to zoom. Right-drag to pan. Model: SO-101 from{' '}
+        Drag to orbit. Scroll to zoom. Right-drag to pan. Click the ground to
+        set an IK target, or type one into the target form. Model: SO-101
+        from{' '}
         <a
           href="https://github.com/TheRobotStudio/SO-ARM100"
           target="_blank"
