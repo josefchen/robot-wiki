@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Geist, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
+import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import './globals.css';
 
@@ -36,9 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <body>
         <SkipLink />
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
