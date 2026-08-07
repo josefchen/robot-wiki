@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     'playwright-report/**',
     'test-results/**',
     'research/**',
+    // Vendored third-party runtime assets (Draco decoder for GLTFLoader).
+    'public/draco/**',
   ]),
 ]);
 

@@ -1,37 +1,42 @@
 import type { Metadata } from 'next';
+import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 
 export const metadata: Metadata = {
   title: '3D Kinematics Playground - robot-atlas',
   description:
-    'A 3D robot kinematics playground: forward and inverse kinematics on a real arm, running client-side.',
+    'A SO-101 robot arm rendered from its URDF in the browser, with mouse orbit, zoom, and pan controls.',
 };
 
-/**
- * Placeholder shell for the playground route so navigation entry points
- * resolve while the full experience is built (milestone 2: R3F scene, SO-101
- * URDF, DLS IK solver, trajectory replay).
- */
 export default function PlaygroundPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-12">
+    <div className="mx-auto w-full max-w-6xl px-6 py-8">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
         Tool
       </p>
       <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
         3D Kinematics Playground
       </h1>
-      <p className="mt-3 leading-relaxed text-text-dim">
-        The playground is under construction. When it ships, this page loads a
-        SO-101 robot arm in the browser: joint sliders drive forward
-        kinematics in real time, click-to-reach runs a damped least-squares
-        inverse kinematics solver, and recorded trajectories replay with
-        easing.
+      <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">
+        A SO-101 follower arm loaded from its URDF and rendered client-side
+        with WebGL. Nothing here touches a server.
       </p>
-      <ul className="mt-6 space-y-2 border-t border-border pt-6 text-sm text-text-dim">
-        <li>Forward kinematics with one slider per revolute joint</li>
-        <li>Click-to-reach inverse kinematics with live residual readout</li>
-        <li>Trajectory record, replay, and JSON export</li>
-      </ul>
+
+      <section aria-label="3D robot playground" className="mt-6">
+        <PlaygroundCanvas />
+      </section>
+
+      <p className="mt-3 font-mono text-xs leading-relaxed text-text-dim">
+        Drag to orbit. Scroll to zoom. Right-drag to pan. Model: SO-101 from{' '}
+        <a
+          href="https://github.com/TheRobotStudio/SO-ARM100"
+          target="_blank"
+          rel="noopener"
+          className="text-text underline decoration-border underline-offset-2 transition-colors hover:decoration-accent"
+        >
+          TheRobotStudio/SO-ARM100
+        </a>{' '}
+        (Apache-2.0), meshes converted to GLB with Draco compression.
+      </p>
     </div>
   );
 }
