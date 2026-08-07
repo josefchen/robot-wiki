@@ -10,24 +10,98 @@ citations:
   - dagger-2011
   - act-aloha-2023
   - mobile-aloha-2024
+  - diffusion-policy-2023
   - real-time-chunking-2025
   - pi-real-time-chunking-blog-2025
 ---
 
-Behavior cloning fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Action chunking attacks this by shrinking the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
+import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
+import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
+
+Behavior cloning fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
+
+$$
+\underbrace{O(\varepsilon T^2)}_{\text{behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{DAgger}}
+$$
+
+where the second bound is what DAgger buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. Action chunking attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
 ## ACT: chunking with a CVAE
 
-Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a conditional variational autoencoder <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero. The published configuration predicts k=100 actions at 50 Hz, two seconds of motion per inference.
+Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a conditional variational autoencoder <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="chunk size k" value="100" note="2 s of motion per inference" />
+  <Stat label="control rate" value="50 Hz" />
+  <Stat label="policy parameters" value="~80M" note="ResNet-18 backbones plus transformer" />
+  <Stat label="success at k=100" value="44%" note="1% at k=1, same tasks" accent />
+</div>
+
+<Card title="ACT reference configuration" className="my-6">
+  <KeyValue
+    items={[
+      { key: 'observations', value: '4 RGB cameras plus joint positions' },
+      { key: 'action space', value: '14-dim continuous, two 7-DoF arms' },
+      { key: 'training objective', value: 'L1 reconstruction plus KL on the style latent' },
+      { key: 'test-time latent', value: 'z fixed to zero (deterministic decode)' },
+      { key: 'execution', value: 'temporal ensembling over overlapping chunks' },
+    ]}
+  />
+</Card>
+
+### The chunk-size dial
 
 Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the ALOHA insertion and transfer tasks, ACT measures roughly 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and compounding error returns; too large and the policy stops reacting to the world mid-chunk.
 
+<ChunkSizeCurve className="my-6" />
+
+<Callout variant="info">
+  Chunking does not reduce the per-decision error ε. It reduces the number of decisions, T divided by k, over which that error compounds. The bias you pay is commitment: the world can change inside a chunk, and the policy will not notice until the next inference.
+</Callout>
+
 ## Temporal ensembling and its limits
 
-ACT executes chunks with temporal ensembling: at each timestep, the actions predicted for that step by overlapping chunks are averaged with an exponential weighting. This smooths chunk boundaries, but it averages modes rather than choosing between them. When two overlapping chunks disagree about which way to move, the averaged action can belong to neither mode. Physical Intelligence documents this scheme failing outright once inference latency reaches 100 to 200 ms <Cite id="pi-real-time-chunking-blog-2025" />.
+ACT executes chunks with temporal ensembling: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where i counts how many chunks ago the prediction was issued. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
 
-Real-Time Chunking (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change.
+<Figure
+  src="/images/temporal-ensembling.svg"
+  alt="Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction."
+  caption="Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk."
+  sourceHref="https://arxiv.org/abs/2304.13705"
+  sourceLabel="Zhao et al. 2023 (ACT)"
+  width={640}
+  height={250}
+/>
+
+```python title="temporal_ensembling.py"
+# Temporal ensembling (ACT, arXiv:2304.13705). preds[i] is the prediction
+# for the current action made by the chunk issued i steps ago.
+def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
+    weights = np.exp(-m * np.arange(len(preds)))   # w_i = exp(-m * i)
+    weights /= weights.sum()
+    return np.tensordot(weights, np.stack(preds), axes=1)
+```
+
+<Callout variant="warn">
+  Temporal ensembling assumes inference is nearly free in wall-clock time. Once inference latency reaches 100 to 200 ms, the newest chunk in the average is always stale by a full round trip, and Physical Intelligence documents the scheme failing outright <Cite id="pi-real-time-chunking-blog-2025" />.
+</Callout>
+
+<Callout variant="error" title="Failure mode: neither left nor right">
+  When two overlapping chunks commit to different modes, say left versus right around an obstacle, the weighted average can be an action that belongs to neither mode. The robot drifts between strategies instead of committing to one.
+</Callout>
+
+<Aside title="Why idle segments freeze single-step policies">
+  Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and Diffusion Policy document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context, not a bigger backbone, is what fixes it.
+</Aside>
+
+Real-Time Chunking (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why later flow-matching policies adopt it over ensembling.
+
+## The lineage in numbers
+
+Chunking started as a fix for compounding error and became standard infrastructure. The table sorts the major policies by how far ahead they predict and how fast they run; weights marked <Badge variant="ok">open</Badge> can be downloaded, and the open releases stop at pi0.5. Cells marked n/a are undisclosed or embodiment-dependent, not zero.
+
+<PolicyChunkingTable className="my-6" />
 
 ## Where the idea travels next
 
-Chunking is now standard infrastructure. Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />. Later modules in this domain cover how diffusion policies and flow-matching models generate the chunks themselves, and how vision-language-action models schedule them at high control frequency.
+Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />. Later modules in this domain cover how diffusion policies and flow-matching models generate the chunks themselves, and how vision-language-action models schedule them at high control frequency.
