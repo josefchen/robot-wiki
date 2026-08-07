@@ -9,3 +9,6 @@ dist/
 *.log
 pagefind/
 public/pagefind/
+playwright-report/
+test-results/
+tsconfig.tsbuildinfo

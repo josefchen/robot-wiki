@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens land here (Tailwind v4 CSS-first) with the design-system
+ * feature. The scaffold sets only the dark base so the app renders sanely.
+ */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #0b0d0e;
+  color: #e8eaec;
+}
