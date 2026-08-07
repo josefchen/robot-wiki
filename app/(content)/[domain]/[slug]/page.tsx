@@ -52,7 +52,9 @@ export default async function ModulePage({ params }: { params: Params }) {
   const Content = mod.default;
 
   return (
-    <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    // data-pagefind-body scopes the prose search index to the module
+    // content (header + body) and excludes the surrounding nav chrome.
+    <article data-pagefind-body className="mx-auto w-full max-w-[65ch] px-6 py-12">
       <header className="mb-10 border-b border-border pb-6">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
           {DOMAIN_META[entry.domain].name}

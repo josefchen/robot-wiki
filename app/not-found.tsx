@@ -8,7 +8,10 @@ export const metadata: Metadata = {
 /** Themed 404: dark tokens, site chrome from the root layout, link home. */
 export default function NotFound() {
   return (
-    <div className="mx-auto flex min-h-[70dvh] w-full max-w-3xl flex-col justify-center px-6 py-12">
+    <div
+      data-pagefind-ignore
+      className="mx-auto flex min-h-[70dvh] w-full max-w-3xl flex-col justify-center px-6 py-12"
+    >
       <p className="font-mono text-sm text-accent">404</p>
       <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
         Page not found

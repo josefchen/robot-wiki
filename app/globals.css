@@ -260,3 +260,11 @@
   overflow-y: hidden;
   padding: 0.25rem 0;
 }
+
+/* Search result snippets: Pagefind wraps matched terms in <mark>. */
+.search-excerpt mark {
+  border-radius: var(--radius-xs);
+  background: color-mix(in srgb, var(--color-accent) 26%, transparent);
+  padding: 0 0.125em;
+  color: var(--color-text);
+}

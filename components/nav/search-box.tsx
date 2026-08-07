@@ -34,6 +34,7 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
   return (
     <form
       role="search"
+      aria-label="Site search"
       action="/search/"
       method="get"
       onSubmit={submit}
@@ -52,7 +53,7 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="compounding error, ACT, GR00T"
+          placeholder="temporal ensembling, ALOHA, chunk size"
           autoComplete="off"
           className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim/80"
         />

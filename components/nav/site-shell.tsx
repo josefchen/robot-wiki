@@ -61,6 +61,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       {/* Mobile top bar (drawer pattern below lg). */}
       <header
         inert={drawerOpen}
+        data-pagefind-ignore
         className="sticky top-0 z-40 flex items-center gap-3 border-b border-border bg-bg px-4 py-2.5 lg:hidden"
       >
         <button
@@ -85,6 +86,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       {/* Desktop sidebar: sticky, full-height, independently scrollable. */}
       <aside
         inert={drawerOpen}
+        data-pagefind-ignore
         className="hidden w-72 shrink-0 border-r border-border lg:block"
       >
         <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
@@ -115,6 +117,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
+          data-pagefind-ignore
           className="fixed inset-0 z-50 lg:hidden"
         >
           {/* Scrim: click-to-dismiss (keyboard users get Escape + close). */}
