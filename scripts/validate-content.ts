@@ -1,46 +1,33 @@
 /**
- * Build-time content validator.
+ * Build-time content validator (prebuild gate).
  *
- * The full pipeline (Zod frontmatter schemas, citation-ID resolution,
- * internal-link checks, draft-status exclusion) lands with the
- * foundation-content-pipeline feature. This scaffold version verifies the
- * one thing that exists today: every content MDX file carries a frontmatter
- * block. It passes vacuously when no content exists yet.
+ * Runs the checks in lib/validate-content.ts against the real registries and
+ * the content/ tree, and exits non-zero on any violation so `npm run build`
+ * fails before emitting a broken export.
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { validateContent } from '../lib/validate-content.ts';
+import { modules } from '../data/modules.ts';
+import { CITATIONS } from '../data/citations.ts';
 
-const contentRoot = join(import.meta.dirname, '..', 'content');
+const root = join(import.meta.dirname, '..');
 
-function listMdxFiles(dir: string): string[] {
-  const out: string[] = [];
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...listMdxFiles(full));
-    else if (entry.isFile() && /\.mdx?$/.test(entry.name)) out.push(full);
+const issues = validateContent({
+  contentRoot: join(root, 'content'),
+  publicDir: join(root, 'public'),
+  modules,
+  citations: CITATIONS,
+});
+
+if (issues.length > 0) {
+  console.error(`validate:content: FAILED (${issues.length} issue(s))`);
+  for (const issue of issues) {
+    console.error(`  ${issue.file ? `${issue.file}: ` : ''}${issue.message}`);
   }
-  return out;
-}
-
-if (!existsSync(contentRoot)) {
-  console.log('validate:content: no content/ directory yet, nothing to validate');
-  process.exit(0);
-}
-
-const files = listMdxFiles(contentRoot);
-const failures: string[] = [];
-
-for (const file of files) {
-  const source = readFileSync(file, 'utf8');
-  if (!source.startsWith('---\n') || source.indexOf('\n---', 4) === -1) {
-    failures.push(`${file}: missing frontmatter block`);
-  }
-}
-
-if (failures.length > 0) {
-  console.error('validate:content: FAILED');
-  for (const failure of failures) console.error(`  ${failure}`);
   process.exit(1);
 }
 
-console.log(`validate:content: OK (${files.length} content file(s) checked)`);
+const published = modules.filter((m) => m.status === 'published').length;
+console.log(
+  `validate:content: OK (${modules.length} registry modules, ${published} published, ${CITATIONS.length} citations)`,
+);

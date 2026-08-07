@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run validate:content",
     "build": "next build",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",

@@ -1,0 +1,33 @@
+---
+title: "Action Chunking (ACT and ALOHA)"
+description: "Predicting action sequences instead of single steps: the CVAE structure behind ACT, the chunk-size tradeoff, and why temporal ensembling breaks under latency."
+domain: manipulation
+slug: action-chunking
+order: 2
+status: published
+lastReviewed: "2026-08-07"
+citations:
+  - dagger-2011
+  - act-aloha-2023
+  - mobile-aloha-2024
+  - real-time-chunking-2025
+  - pi-real-time-chunking-blog-2025
+---
+
+Behavior cloning fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Action chunking attacks this by shrinking the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
+
+## ACT: chunking with a CVAE
+
+Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a conditional variational autoencoder <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero. The published configuration predicts k=100 actions at 50 Hz, two seconds of motion per inference.
+
+Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the ALOHA insertion and transfer tasks, ACT measures roughly 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and compounding error returns; too large and the policy stops reacting to the world mid-chunk.
+
+## Temporal ensembling and its limits
+
+ACT executes chunks with temporal ensembling: at each timestep, the actions predicted for that step by overlapping chunks are averaged with an exponential weighting. This smooths chunk boundaries, but it averages modes rather than choosing between them. When two overlapping chunks disagree about which way to move, the averaged action can belong to neither mode. Physical Intelligence documents this scheme failing outright once inference latency reaches 100 to 200 ms <Cite id="pi-real-time-chunking-blog-2025" />.
+
+Real-Time Chunking (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change.
+
+## Where the idea travels next
+
+Chunking is now standard infrastructure. Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />. Later modules in this domain cover how diffusion policies and flow-matching models generate the chunks themselves, and how vision-language-action models schedule them at high control frequency.
