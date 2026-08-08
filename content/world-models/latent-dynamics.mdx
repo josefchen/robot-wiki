@@ -1,0 +1,72 @@
+---
+title: "Latent-Dynamics World Models"
+description: "Dreamer, TD-MPC2, and DayDreamer: learn a compact latent state, predict how it evolves under actions, and train or plan entirely inside that imagination. The only world-model paradigm with a decade of evidence on sample-efficient control."
+domain: world-models
+slug: latent-dynamics
+order: 2
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - dreamer-2019
+  - dreamerv3-2023
+  - tdmpc-2022
+  - tdmpc2-2023
+  - daydreamer-2022
+  - robotic-world-model-2025
+  - dream-mpc-2026
+  - fast-wam-2026
+  - world-model-survey-2026
+---
+
+import { LatentImagination } from '@/components/interactive/latent-imagination';
+
+Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, latent dynamics is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
+  <Stat label="TD-MPC2 agent" value="317M" note="one agent, 104 tasks" />
+  <Stat label="DayDreamer" value="1 h" note="to walk from scratch" />
+  <Stat label="horizon" value="15-50" note="imagined steps, typical" />
+</div>
+
+## The RSSM: a state you can dream in
+
+Dreamer's core object is the Recurrent State-Space Model (RSSM). The agent's knowledge of the world lives in a state with two parts: a deterministic recurrent state that carries memory forward, and a stochastic latent (categorical in DreamerV3) that captures what the deterministic part cannot, the genuinely unpredictable content of each observation <Cite id="dreamer-2019" />. An encoder maps observations into the posterior over this state; during training a decoder reconstructs the observation, and separate heads predict reward and episode continuation.
+
+The payoff is where learning happens. The actor and the critic are trained purely on imagined latent rollouts: start from a real encoded state, unroll the learned dynamics for a short horizon, and backpropagate value gradients through the learned model to improve the policy <Cite id="dreamer-2019" />. No environment steps are consumed during this phase, which is the entire source of the sample efficiency. The environment is only needed to collect the experience the model is fitted to.
+
+## DreamerV3: one recipe across 150 tasks
+
+The original Dreamer worked, but each new domain meant retuning. DreamerV3's contribution is a set of normalization tricks that make one fixed hyperparameter set work across more than 150 tasks in 8 domains: symlog transforms of rewards, values, and returns to compress heavy-tailed magnitudes, two-hot reward encoding so the reward head regresses a distribution over discrete buckets instead of a raw scalar, free-bits KL balancing to keep the stochastic latent informative, and percentile return normalization <Cite id="dreamerv3-2023" />.
+
+The headline result is Minecraft. DreamerV3 was the first agent to collect diamonds in Minecraft from scratch, without human data or curricula, a task that requires a long chain of intermediate achievements (wood, tools, furnaces, iron, diamond) discovered through exploration <Cite id="dreamerv3-2023" />. The paper was published in Nature in 2025, which says something about how the field rates the result.
+
+## TD-MPC and TD-MPC2: drop the decoder, plan at every step
+
+The TD-MPC line takes the opposite position on the decoder. TD-MPC learns a task-oriented latent dynamics model trained only to support reward and value prediction, then plans at every control step by local trajectory optimization over a short horizon, with a learned terminal value function estimating the return beyond it <Cite id="tdmpc-2022" />. TD-MPC2 scales the recipe: still no decoder anywhere, so the model never spends capacity on visually irrelevant detail, and at every step it runs MPPI, sampling candidate action sequences in latent space, scoring them under the learned model, and warm-starting the sampling from a learned policy prior <Cite id="tdmpc2-2023" />.
+
+The reported result is a single 317M-parameter agent across 104 continuous-control tasks in 4 task domains, spanning multiple embodiments and action spaces, with consistent scaling behavior as model size grows <Cite id="tdmpc2-2023" />. Two contrasts with Dreamer matter more than the numbers. First, with no decoder there is no image to inspect: the model's beliefs are only visible through its scalar predictions. Second, action selection comes from per-step planning, not from the learned actor; the policy network is a prior that makes the planner faster, and the planner typically outperforms it.
+
+## DayDreamer: imagination on physical hardware
+
+The persistent criticism of this lineage is that it dreams in simulators. DayDreamer is the existence proof otherwise. It applies Dreamer online to four physical robots with no simulator at all, and the flagship result is a quadruped that learned to roll over, stand up, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />. One hour is the number to hold onto when comparing against the days of real-world data that model-free methods would need for the same behavior; it is the latent-imagination dividend paid in wall-clock time on hardware.
+
+## The horizon problem
+
+Imagination has a catch, and it is the same one that limits every paradigm in this domain: error compounds. Each imagined step conditions on the model's own previous prediction, so a one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout. In practice this caps usable imagination at roughly 15 to 50 steps <Cite id="world-model-survey-2026" />.
+
+The interactive below makes the compounding concrete. Extend the horizon and the deviation readout grows monotonically; raise the one-step model error and the whole curve steepens. The Dreamer mode shows what the drift does to decoded frames. The TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
+
+<LatentImagination className="my-6" />
+
+## Successors and open limits
+
+The lineage is still moving. The Robotic World Model work retargets latent imagination at robust robot control rather than benchmark RL, using a dual-autoregressive mechanism for long-horizon prediction under partial observability <Cite id="robotic-world-model-2025" />. Dream-MPC attacks the specific seam inside TD-MPC-style hybrids, the observation that the planner consistently outperforms the policy prior, by replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free MPC across 24 tasks <Cite id="dream-mpc-2026" />. And from the video-model side, Fast-WAM argues the imagination may only be needed at training time: it keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster <Cite id="fast-wam-2026" />.
+
+The honest limits, per the survey and the primary papers <Cite id="world-model-survey-2026" />:
+
+- **Own-data training.** These models are fitted to the agent's own experience. They do not inherit internet-scale priors, so they generalize poorly to genuinely novel scenes.
+- **Planning cost.** TD-MPC2's per-step MPPI is expensive relative to a single policy forward pass, which caps the control rate.
+- **No language story.** Nothing in this paradigm conditions on instructions or generalizes semantically. That gap, more than any benchmark, is why the field's attention moved to the generative-video paradigm covered in the next module.
+
+What the paradigm does have, and nothing else in this domain matches, is receipts: a decade of sample-efficiency results, one algorithm that walks a real quadruped in an hour, and one hyperparameter set that plays 150 games. If the question is control, latent dynamics is still the paradigm to beat.

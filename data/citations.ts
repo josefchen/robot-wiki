@@ -1657,6 +1657,76 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-08): 4 authors;
+    // the original Dreamer agent, behaviors learned purely by latent
+    // imagination (ICLR 2020).
+    id: 'dreamer-2019',
+    title: 'Dream to Control: Learning Behaviors by Latent Imagination',
+    authors: [
+      'Danijar Hafner',
+      'Timothy Lillicrap',
+      'Jimmy Ba',
+      'Mohammad Norouzi',
+    ],
+    year: 2019,
+    venue: 'ICLR 2020',
+    arxiv: '1912.01603',
+    url: 'https://arxiv.org/abs/1912.01603',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 3 authors, ICML
+    // 2022; the original TD-MPC, task-oriented latent dynamics plus local
+    // trajectory optimization with a terminal value function.
+    id: 'tdmpc-2022',
+    title: 'Temporal Difference Learning for Model Predictive Control',
+    authors: ['Nicklas Hansen', 'Xiaolong Wang', 'Hao Su'],
+    year: 2022,
+    venue: 'ICML 2022',
+    arxiv: '2203.04955',
+    url: 'https://arxiv.org/abs/2203.04955',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 3 authors;
+    // dual-autoregressive latent world model for robust robot policy
+    // optimization.
+    id: 'robotic-world-model-2025',
+    title:
+      'Robotic World Model: A Neural Network Simulator for Robust Policy Optimization in Robotics',
+    authors: ['Chenhao Li', 'Andreas Krause', 'Marco Hutter'],
+    year: 2025,
+    arxiv: '2501.10100',
+    url: 'https://arxiv.org/abs/2501.10100',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 2 authors, ICML
+    // 2026; gradient-based latent MPC, motivated by the policy-versus-MPC
+    // performance gap in TD-MPC2-style hybrids.
+    id: 'dream-mpc-2026',
+    title:
+      'Dream-MPC: Gradient-Based Model Predictive Control with Latent Imagination',
+    authors: ['Jonathan Spieler', 'Sven Behnke'],
+    year: 2026,
+    venue: 'ICML 2026',
+    arxiv: '2605.04568',
+    url: 'https://arxiv.org/abs/2605.04568',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 4 authors; keeps
+    // world modeling during training but skips future prediction at test
+    // time (190 ms latency, over 4x faster than imagine-then-execute).
+    id: 'fast-wam-2026',
+    title: 'Fast-WAM: Do World Action Models Need Test-time Future Imagination?',
+    authors: ['Tianyuan Yuan', 'Zibin Dong', 'Yicheng Liu', 'Hang Zhao'],
+    year: 2026,
+    arxiv: '2603.16666',
+    url: 'https://arxiv.org/abs/2603.16666',
+    type: 'paper',
+  },
+  {
     // Verified against the arXiv abs page (2026-08-08): 30 authors;
     // 1M+ hours of action-free video pretraining, 62 hours of robot video
     // for the action-conditioned post-training.

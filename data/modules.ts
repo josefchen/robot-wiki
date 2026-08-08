@@ -332,6 +332,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/sim2real-transfer',
   'rl-sim2real/why-rl-locomotion',
   'world-models/taxonomy',
+  'world-models/latent-dynamics',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
