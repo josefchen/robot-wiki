@@ -1182,6 +1182,116 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2411.11839',
     type: 'paper',
   },
+  {
+    id: 'miki-2022',
+    title:
+      'Learning Robust Perceptive Locomotion for Quadrupedal Robots in the Wild',
+    authors: [
+      'Takahiro Miki',
+      'Joonho Lee',
+      'Jemin Hwangbo',
+      'Lorenz Wellhausen',
+      'Vladlen Koltun',
+      'Marco Hutter',
+    ],
+    year: 2022,
+    venue: 'Science Robotics 7(62)',
+    arxiv: '2201.08117',
+    url: 'https://arxiv.org/abs/2201.08117',
+    type: 'paper',
+  },
+  {
+    // No arXiv version; the Science Robotics page is the primary source.
+    id: 'choi-2023',
+    title: 'Learning Quadrupedal Locomotion on Deformable Terrain',
+    authors: [
+      'Suyoung Choi',
+      'Gwanghyun Ji',
+      'Jeongsoo Park',
+      'Hyunwoo Kim',
+      'Juhwan Mun',
+      'Jun Ho Lee',
+      'Jemin Hwangbo',
+    ],
+    year: 2023,
+    venue: 'Science Robotics 8(74)',
+    url: 'https://www.science.org/doi/10.1126/scirobotics.ade2256',
+    type: 'paper',
+  },
+  {
+    id: 'h2o-2024',
+    title:
+      'Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation',
+    authors: [
+      'Tairan He',
+      'Zhengyi Luo',
+      'Wenli Xiao',
+      'Chong Zhang',
+      'Kris Kitani',
+      'Changliu Liu',
+      'Guanya Shi',
+    ],
+    year: 2024,
+    venue: 'IROS 2024',
+    arxiv: '2403.04436',
+    url: 'https://arxiv.org/abs/2403.04436',
+    type: 'paper',
+  },
+  {
+    id: 'mit-humanoid-rewards-2023',
+    title:
+      'Benchmarking Potential Based Rewards for Learning Humanoid Locomotion',
+    authors: ['Se Hwan Jeon', 'Steve Heim', 'Charles Khazoom', 'Sangbae Kim'],
+    year: 2023,
+    venue: 'ICRA 2023',
+    arxiv: '2307.10142',
+    url: 'https://arxiv.org/abs/2307.10142',
+    type: 'paper',
+  },
+  {
+    // RAI Institute demo page, 2025-03-19: Atlas RL policies tracking
+    // retargeted human motion, ~150M simulator runs, zero-shot to hardware.
+    id: 'rai-atlas-rl-2025',
+    title: 'Reinforcement Learning Accelerates Humanoid Behavior Production',
+    authors: ['Robotics and AI Institute'],
+    year: 2025,
+    url: 'https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/',
+    type: 'press',
+  },
+  {
+    id: 'park-2017-bounding',
+    title:
+      'High-Speed Bounding with the MIT Cheetah 2: Control Design and Experiments',
+    authors: ['Hae-Won Park', 'Patrick M. Wensing', 'Sangbae Kim'],
+    year: 2017,
+    venue: 'International Journal of Robotics Research 36(2)',
+    url: 'https://journals.sagepub.com/doi/10.1177/0278364917694244',
+    type: 'paper',
+  },
+  {
+    // Boston Dynamics blog, 2024: RL integrated into Spot's locomotion
+    // control system alongside the existing MPC stack.
+    id: 'bd-spot-rl-2024',
+    title: 'Starting on the Right Foot with Reinforcement Learning',
+    authors: ['Boston Dynamics'],
+    year: 2024,
+    url: 'https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/',
+    type: 'blog',
+  },
+  {
+    // Boston Dynamics + TRI blog, 2025-08: Large Behavior Models on Atlas.
+    id: 'bd-atlas-lbm-2025',
+    title: 'Large Behavior Models and Atlas Find New Footing',
+    authors: [
+      'Eric Cousineau',
+      'Scott Kuindersma',
+      'Lucas Manuelli',
+      'Pat Marion',
+    ],
+    year: 2025,
+    url: 'https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/',
+    type: 'blog',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
