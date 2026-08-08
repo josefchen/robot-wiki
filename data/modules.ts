@@ -318,6 +318,7 @@ const PUBLISHED = new Set([
   'manipulation/comparison-matrix',
   'manipulation/diffusion-policy',
   'manipulation/generalist-policies',
+  'manipulation/hierarchical',
   'manipulation/pi-line',
   'manipulation/vla-models',
 ]);
