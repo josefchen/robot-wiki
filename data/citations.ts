@@ -119,6 +119,25 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    id: 'training-time-rtc-2025',
+    title: 'Training-Time Action Conditioning for Efficient Real-Time Chunking',
+    authors: ['Physical Intelligence'],
+    year: 2025,
+    arxiv: '2512.05964',
+    url: 'https://arxiv.org/abs/2512.05964',
+    type: 'paper',
+  },
+  {
+    id: 'vla-perf-2026',
+    title:
+      'VLA-Perf: Systematic Latency Analysis of Vision-Language-Action Models on Edge and Cloud Hardware',
+    authors: ['NVIDIA Research'],
+    year: 2026,
+    arxiv: '2602.18397',
+    url: 'https://arxiv.org/abs/2602.18397',
+    type: 'paper',
+  },
+  {
     id: 'consistency-policy-2024',
     title:
       'Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation',
