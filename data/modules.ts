@@ -328,6 +328,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/humanoid-wbc',
   'rl-sim2real/legged-locomotion',
   'rl-sim2real/parallel-sim-rl',
+  'rl-sim2real/reward-design-mpc',
   'rl-sim2real/sim2real-transfer',
   'rl-sim2real/why-rl-locomotion',
 ]);

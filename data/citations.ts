@@ -1458,6 +1458,126 @@ export const CITATIONS: Citation[] = [
     url: 'https://github.com/NVlabs/GR00T-WholeBodyControl',
     type: 'docs',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 9 authors, ICLR 2024,
+    // 83% of 29 tasks and 52% average normalized improvement confirmed in the
+    // abstract.
+    id: 'eureka-2024',
+    title:
+      'Eureka: Human-Level Reward Design via Coding Large Language Models',
+    authors: [
+      'Yecheng Jason Ma',
+      'William Liang',
+      'Guanzhi Wang',
+      'De-An Huang',
+      'Osbert Bastani',
+      'Dinesh Jayaraman',
+      'Yuke Zhu',
+      'Linxi Fan',
+      'Anima Anandkumar',
+    ],
+    year: 2024,
+    venue: 'ICLR 2024',
+    arxiv: '2310.12931',
+    url: 'https://arxiv.org/abs/2310.12931',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): RLC 2026, VLM-based
+    // reward design agent that restates the Eureka loop as its baseline.
+    id: 'rda-2026',
+    title: 'RDA: Reward Design Agent for Reinforcement Learning',
+    authors: [
+      'Hojoon Lee',
+      'Ajay Subramanian',
+      'Ben Abbatematteo',
+      'Vijay Veerabadran',
+      'Pedro Matias',
+      'Karl Ridgeway',
+      'Nitin Kamra',
+    ],
+    year: 2026,
+    venue: 'RLC 2026',
+    arxiv: '2606.01672',
+    url: 'https://arxiv.org/abs/2606.01672',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors, T-RO 2024.
+    id: 'rewards-constraints-2024',
+    title:
+      'Not Only Rewards But Also Constraints: Applications on Legged Robot Locomotion',
+    authors: [
+      'Yunho Kim',
+      'Hyunsik Oh',
+      'Jeonghyun Lee',
+      'Jinhyeok Choi',
+      'Gwanghyeon Ji',
+      'Moonkyu Jung',
+      'Donghoon Youm',
+      'Jemin Hwangbo',
+    ],
+    year: 2024,
+    venue: 'IEEE Transactions on Robotics 2024',
+    arxiv: '2308.12517',
+    url: 'https://arxiv.org/abs/2308.12517',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): RSS 2025, ROGER
+    // online reward-gain adaptation.
+    id: 'gain-adaptation-2025',
+    title:
+      'Gain Tuning Is Not What You Need: Reward Gain Adaptation for Constrained Locomotion Learning',
+    authors: ['Arthicha Srisuchinnawong', 'Poramate Manoonpong'],
+    year: 2025,
+    venue: 'RSS 2025',
+    arxiv: '2510.10759',
+    url: 'https://arxiv.org/abs/2510.10759',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 5 authors, constrained
+    // multi-objective RL with per-stage rewards and costs.
+    id: 'stagewise-cmorl-2024',
+    title:
+      'Stage-Wise Reward Shaping for Acrobatic Robots: A Constrained Multi-Objective Reinforcement Learning Approach',
+    authors: [
+      'Dohyeong Kim',
+      'Hyeokjin Kwon',
+      'Junseok Kim',
+      'Gunmin Lee',
+      'Songhwai Oh',
+    ],
+    year: 2024,
+    arxiv: '2409.15755',
+    url: 'https://arxiv.org/abs/2409.15755',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 9 authors, ICRA 2026,
+    // iLQR with MuJoCo dynamics and finite-difference derivatives; abstract
+    // confirms "few sim-to-real considerations" and the three hardware
+    // experiments.
+    id: 'mujoco-ilqr-2026',
+    title: 'Whole-Body Model-Predictive Control of Legged Robots with MuJoCo',
+    authors: [
+      'John Z. Zhang',
+      'Taylor A. Howell',
+      'Zeji Yi',
+      'Chaoyi Pan',
+      'Guanya Shi',
+      'Guannan Qu',
+      'Tom Erez',
+      'Yuval Tassa',
+      'Zachary Manchester',
+    ],
+    year: 2026,
+    venue: 'ICRA 2026',
+    arxiv: '2503.04613',
+    url: 'https://arxiv.org/abs/2503.04613',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

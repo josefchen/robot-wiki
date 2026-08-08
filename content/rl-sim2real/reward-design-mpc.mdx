@@ -1,0 +1,103 @@
+---
+title: "Reward Design and the MPC Debate"
+description: "A locomotion reward is a dozen-plus hand-tuned terms whose weights fight each other. Eureka automates the tuning with LLM-written reward code, constrained RL abolishes the weights, and classical MPC asks why you needed learning at all."
+domain: rl-sim2real
+slug: reward-design-mpc
+order: 6
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - rudin-2021
+  - isaac-lab-2025
+  - openai-rubiks-cube-2019
+  - eureka-2024
+  - rda-2026
+  - rewards-constraints-2024
+  - gain-adaptation-2025
+  - stagewise-cmorl-2024
+  - mujoco-ilqr-2026
+  - lee-2020
+  - miki-2022
+  - bd-spot-rl-2024
+  - bd-atlas-lbm-2025
+  - gemini-robotics-2-2026
+  - state-of-simulation-2026
+---
+
+import { RewardShaping } from '@/components/interactive/reward-shaping';
+import { EurekaLoop } from '@/components/interactive/eureka-loop';
+import { MpcVsRl } from '@/components/interactive/mpc-vs-rl';
+import { MpcComparison } from '@/components/mdx/mpc-comparison';
+
+Every module so far in this domain assumed someone had already written the objective. The parallel-training module showed thousands of robots collecting reward in lockstep; the sim-to-real module showed how to make the resulting policy survive contact with hardware. This module is about where the reward comes from, and it closes with the argument the whole domain has been circling: whether you need a learned policy at all, when classical trajectory optimization keeps taking back ground.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="reward terms" value="12+" note="in a typical locomotion objective" accent />
+  <Stat label="Eureka wins" value="83%" note="of 29 tasks vs human rewards" />
+  <Stat label="iLQR MPC" value="real-time" note="whole-body, on hardware" />
+  <Stat label="MPC task data" value="0" note="demonstrations required" />
+</div>
+
+## The reward is the product
+
+The public story of locomotion RL is that the policy learns from reward. The private reality is that a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms, and the weights are much of the intellectual property. A canonical legged_gym-family objective contains, at minimum, tracking rewards for linear and angular velocity, penalties on vertical velocity and roll/pitch rates, penalties on joint torque, joint acceleration, action rate, joint limits, and undesired collisions, a base-height term, a foot air-time reward that induces an actual gait instead of shuffling, a foot-slip penalty, and a termination penalty <Cite id="rudin-2021" />. Each term has a weight. The weights interact: raise the torque penalty and the velocity tracking degrades; raise the air-time reward and the gait turns theatrical. Changing one weight usually means retuning two others.
+
+The failure modes are not random. They are attractors, and they are stable, which is why every locomotion team recognizes them on sight. Push the torque penalty too high and the optimal policy is to stand still: motion costs more than tracking pays. Push the foot air-time reward too high and the policy prances in place, maximizing swing time with zero forward progress. Drop the action-rate penalty too low and nothing prices step-to-step action changes, so the policy chatters the joints at control frequency, a motion that would destroy real actuators. The interactive below mounts the full term set on a behavior preview. The classification is an illustrative model, but the three attractors are the ones the literature and every lab's Slack channel describe.
+
+<RewardShaping className="my-6" />
+
+This tuning burden is where sim-to-real quietly fails. A reward that produces beautiful behavior in simulation can produce a policy that exploits contact-solver artifacts, and no automated method currently detects that before hardware. The KL-adaptive learning rate in the standard PPO configuration exists partly to absorb reward retuning without destabilizing training <Cite id="rudin-2021" />.
+
+## Three answers to weight tuning
+
+The field has responded to the tuning burden along three distinct lines, and they should not be conflated.
+
+The first abolishes the weights for the quantities that matter most. Constrained RL replaces penalty terms with explicit constraints: instead of pricing torque or foot-slip violations in the same currency as task progress, the formulation bounds them directly, and the optimizer enforces the bounds during learning. Kim et al. trained locomotion controllers across several legged platforms with, in their reporting, a single reward coefficient to tune, because the rest of the intent lived in the constraints <Cite id="rewards-constraints-2024" />. A constrained multi-objective variant takes the same idea to acrobatics, segmenting a task into stages with per-stage rewards and costs <Cite id="stagewise-cmorl-2024" />.
+
+The second keeps the weights but stops pretending they can be chosen offline. ROGER adapts reward gains online from the penalties received during training, arguing that any fixed offline choice cannot guarantee constraint satisfaction while the policy is still changing <Cite id="gain-adaptation-2025" />.
+
+The third outsources the writing to a language model. That one deserves its own section.
+
+## Eureka: the reward as code under evolution
+
+Eureka is the reference point for LLM-generated rewards, and its mechanism is more specific than "the LLM writes a reward." GPT-4 is given the environment source code as context and asked to write the reward function in Python. Candidate rewards train policies in Isaac Gym, candidates are selected on a task fitness function, and the LLM is then shown per-component reward statistics from training and asked to reflect and mutate its own code <Cite id="eureka-2024" />. This is evolutionary search over reward code with a learned mutation operator, and it works because massively parallel simulation makes each fitness evaluation cheap. Across a 29-task suite spanning 10 robot morphologies, Eureka's rewards outperformed human-expert rewards on 83% of tasks with an average normalized improvement of 52% <Cite id="eureka-2024" />.
+
+The panel below replays the loop on a walking task. Watch the reflection, not the code. Each generation's mutation is justified by what the training statistics showed: a policy that sprints and falls, then a policy that survives by standing still, then a policy that actually tracks the command. The reflection step is where the search gets its direction.
+
+<EurekaLoop className="my-6" />
+
+The limitations are structural, and the 2026 literature treats them as open. Eureka needs a fitness function, which is itself a reward-specification problem one level up. It needs cheap parallel training per candidate, so it inherits the locomotion-manipulation asymmetry from the first module in this domain. And LLM-written rewards are prone to specification gaming that only shows up on hardware; nobody has published a systematic study of whether they induce more or less contact-solver exploitation than human-written ones. The 2026 Reward Design Agent work restates the Eureka loop as the baseline and adds visual trajectory evaluation to catch instruction misalignment that scalar fitness misses, which is an admission that the loop as published optimizes what is measured, not what was meant <Cite id="rda-2026" />.
+
+## Curriculum: staying on the difficulty frontier
+
+Reward shaping decides what to optimize; curriculum decides in what order the policy is allowed to see difficulty. Three mechanisms dominate, and they are different enough to keep separate.
+
+Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />. Population-based training goes furthest: DexPBT evolves hyperparameters and reward weights across a population of learners, and Isaac Lab reproduces its 6D reposing result with 8 workers on one to two GPUs each, converging in about 16 hours on NVIDIA OVX L40 hardware <Cite id="isaac-lab-2025" />.
+
+Notice what all three assume: cheap, dense, parallel evaluation. Curriculum is a dividend of the throughput covered in the parallel-sim module, and it is one more reason the same machinery does not transfer to manipulation, where the [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion).
+
+## The classical baseline got stronger
+
+Everything above is about making learning work. The learning-vs-model-based debate asks whether it had to. The classical stack for legged control is three layers at three rates: a footstep and contact planner, an MPC layer optimizing a reduced-order model over a half-second to one-second horizon at 20 to 100 Hz, and a whole-body QP tracking the MPC output against full rigid-body dynamics, friction cones, and actuator limits at 500 to 1000 Hz. The reduced-order model in the middle layer existed because full-order MPC was assumed too slow to run online.
+
+The 2026 result that undercuts that assumption is Zhang et al., presented at ICRA 2026: plain iLQR with MuJoCo dynamics and finite-difference-approximated derivatives achieves real-time whole-body MPC on hardware, across dynamic quadruped locomotion, a quadruped walking on two legs, and full-sized humanoid bipedal locomotion, and the controllers generalize to the real world, in the paper's words, with few sim-to-real considerations <Cite id="mujoco-ilqr-2026" />. There is no learned component. The paper is explicitly framed as an easy-to-reproduce baseline, which is a quiet rebuke to a decade of "learning was necessary" claims that never named their classical comparison.
+
+The structural point is deeper than one paper. MPC has no sim-to-real gap in the RL sense: it re-solves against the measured state at every control step, so model error is rejected by feedback instead of being baked into weights. From this angle, domain randomization is an expensive workaround for not closing the loop on the model. And the industry's most watched controller program is hybrid, not either/or: Boston Dynamics added RL to Spot's MPC-based locomotion to handle variability rather than replacing the stack <Cite id="bd-spot-rl-2024" />, and Atlas's move to Large Behavior Models covers manipulation behavior with the controls stack underneath <Cite id="bd-atlas-lbm-2025" />.
+
+## The debate, steelmanned
+
+The honest comparison runs on the axes where the two stacks actually differ. The table states each; the interactive below it shows what the difference looks like when the ground stops being what either controller expected.
+
+<MpcComparison className="my-6" />
+
+The case for learning, at its strongest: locomotion is settled, and sim-RL controllers handle terrain, pushes, and hardware variation that hand-designed stacks never achieved, at the cost of one forward pass at deploy time <Cite id="lee-2020" /> <Cite id="miki-2022" />. Perception integrates naturally; there is no clean way to put an RGB image into a QP. Contact schedules emerge from exploration instead of being enumerated. And semantics exists only on the learned side: Gemini Robotics 2 controls three embodiments from one checkpoint, and no model-based stack does anything comparable <Cite id="gemini-robotics-2-2026" />.
+
+The case for model-based control, at its strongest: the strongest single 2026 result in legged control is not a learning result <Cite id="mujoco-ilqr-2026" />. Constraints are enforced, not penalized; a friction cone in a QP holds, a reward penalty merely advises. Data efficiency is infinite in the relevant sense, since MPC needs zero task data. The behavior is verifiable in ways a network is not. And contact fidelity is a modeling problem, which is why the learning stack spent 2025 and 2026 importing model-based contact research, hydroelastic pressure fields and contact-implicit optimization, into its simulators <Cite id="state-of-simulation-2026" />. The learning stack's current progress on manipulation is gated by better models, not better algorithms.
+
+<MpcVsRl className="my-6" />
+
+## Where the debate landed
+
+The field has mostly stopped arguing and hybridized along a clean division. Model-based control owns anything with a good analytic model, hard constraints, and a need for guarantees: whole-body torque control, force control, safety layers, and increasingly the low-level interface below a learned policy. Learning owns anything requiring perception, semantics, contact discovery, or generalization across embodiments. The newest position dissolves the boundary entirely: model-based methods as the training signal for learned ones, through differentiable simulation, MPC-as-teacher distillation, and learned models used as forward dynamics for planning.
+
+The genuinely contested question in 2026 is not learning or models. It is where the learned model lives: in the weights of a policy, in a latent dynamics model, in a video generator, or nowhere at all because you re-solve online. The world-models domain picks up that question next.
