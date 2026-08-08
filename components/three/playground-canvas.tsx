@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import type { Vec3 } from '@/lib/ik';
 import { isWebGLAvailable } from '@/lib/webgl';
 import { IkTargetForm } from './ik-target-form';
@@ -9,7 +9,9 @@ import { JointControls } from './joint-controls';
 import { loadSo101Robot, type LoadedRobot } from './load-robot';
 import { PlaygroundHud } from './playground-hud';
 import { SceneErrorBoundary } from './scene-error-boundary';
+import { TrajectoryPanel } from './trajectory-panel';
 import { usePlaygroundKinematics } from './use-playground-kinematics';
+import { useTrajectory } from './use-trajectory';
 import { WebGLUnavailable } from './webgl-unavailable';
 
 // Client-only: R3F must never render on the server (breaks static export).
@@ -48,8 +50,27 @@ export function PlaygroundCanvas() {
   }, [webgl]);
 
   const kinematics = usePlaygroundKinematics(loaded);
+  const trajectory = useTrajectory({
+    joints: kinematics.joints,
+    angles: kinematics.angles,
+    setPose: kinematics.setPose,
+  });
   const loading = webgl === true && loaded === null;
   const ready = loaded !== null && kinematics.ready;
+
+  // Manual pose input wins over an in-progress playback: moving a slider or
+  // resetting the pose stops the trajectory timer before writing.
+  const setJointManual = useCallback(
+    (name: string, radians: number) => {
+      trajectory.stopPlayback();
+      kinematics.setJoint(name, radians);
+    },
+    [trajectory, kinematics],
+  );
+  const resetPoseManual = useCallback(() => {
+    trajectory.stopPlayback();
+    kinematics.resetPose();
+  }, [trajectory, kinematics]);
 
   // The target form is prefilled with the home end-effector position (once,
   // not on every pose change) and then tracks explicitly placed targets.
@@ -138,8 +159,8 @@ export function PlaygroundCanvas() {
             <JointControls
               joints={kinematics.joints}
               angles={kinematics.angles}
-              onChange={kinematics.setJoint}
-              onReset={kinematics.resetPose}
+              onChange={setJointManual}
+              onReset={resetPoseManual}
             />
           </section>
           <section
@@ -152,6 +173,12 @@ export function PlaygroundCanvas() {
               onSolve={kinematics.placeTarget}
               onClear={kinematics.clearTarget}
             />
+          </section>
+          <section
+            aria-label="Trajectory recording and playback"
+            className="rounded-sm border border-border bg-surface p-4 lg:col-span-2"
+          >
+            <TrajectoryPanel controller={trajectory} />
           </section>
         </div>
       ) : null}

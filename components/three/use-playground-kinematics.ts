@@ -46,6 +46,8 @@ export interface PlaygroundKinematics {
   /** Iteration count of the last solve. */
   iterations: number | null;
   setJoint: (name: string, radians: number) => void;
+  /** Writes a whole pose at once (trajectory playback, keyframe jumps). */
+  setPose: (angles: Record<string, number>) => void;
   placeTarget: (targetScene: Vec3) => void;
   clearTarget: () => void;
   resetPose: () => void;
@@ -248,6 +250,23 @@ export function usePlaygroundKinematics(
     [joints, cancelSolve],
   );
 
+  const setPose = useCallback(
+    (next: Record<string, number>) => {
+      cancelSolve();
+      setAngles((previous) => {
+        const merged = { ...previous };
+        for (const joint of joints) {
+          const value = next[joint.name];
+          if (typeof value === 'number' && Number.isFinite(value)) {
+            merged[joint.name] = clamp(value, joint.lower, joint.upper);
+          }
+        }
+        return merged;
+      });
+    },
+    [joints, cancelSolve],
+  );
+
   const placeTarget = useCallback(
     (scenePoint: Vec3) => {
       if (!chain) return;
@@ -292,6 +311,7 @@ export function usePlaygroundKinematics(
     residualMm,
     iterations,
     setJoint,
+    setPose,
     placeTarget,
     clearTarget,
     resetPose,
