@@ -1,0 +1,102 @@
+---
+title: "Diffusion Policy"
+description: "Visuomotor control as a conditional denoising process over action sequences: multimodality without averaging, receding-horizon execution, CNN and transformer variants, and the distillation and flow-matching successors."
+domain: manipulation
+slug: diffusion-policy
+order: 3
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - diffusion-policy-2023
+  - act-aloha-2023
+  - consistency-policy-2024
+  - one-step-diffusion-2024
+  - pi0-2024
+  - real-time-chunking-2025
+---
+
+import { DenoisingLoop } from '@/components/interactive/denoising-loop';
+import { RecedingHorizon } from '@/components/interactive/receding-horizon';
+
+Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: not an action, but a conditional denoising process over a whole action sequence <Cite id="diffusion-policy-2023" />. The result was a reported average improvement of 46.9% over the prior state of the art across 15 tasks and 4 benchmarks, and the design became the default action-head recipe for the generalist policies that followed <Cite id="diffusion-policy-2023" />.
+
+## Denoising in action space
+
+The policy is a denoising diffusion probabilistic model (DDPM) conditioned on recent observations. Where a regression head computes $a_t = f_\theta(o_t)$, Diffusion Policy models the distribution $p(A_t \mid O_t)$ over the next $T_p$ actions. Inference starts from pure Gaussian noise and iteratively refines it: each step applies the learned denoiser $\epsilon_\theta$, which predicts the noise component of the current sample, and subtracts a fraction of it,
+
+$$
+A_t^{k-1} = \alpha \left( A_t^k - \gamma \, \epsilon_\theta(O_t, A_t^k, k) + \mathcal{N}(0, \sigma^2 I) \right)
+$$
+
+repeated until the sample lands on a valid action chunk <Cite id="diffusion-policy-2023" />. Training uses the standard noise-prediction MSE loss with a square-cosine schedule; sampling uses DDIM to cut the 100 training steps down to 10 inference steps, about 0.1 seconds per chunk on an RTX 3080 <Cite id="diffusion-policy-2023" />.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="observations T_o" value="2" note="most recent frames" />
+  <Stat label="prediction T_p" value="16" note="actions per chunk" />
+  <Stat label="execution T_a" value="8" note="committed before replan" accent />
+  <Stat label="DDIM steps" value="10" note="~0.1 s on an RTX 3080" />
+</div>
+
+Because sampling is stochastic, the policy can commit to a mode instead of averaging modes. Run the denoiser on a bimodal demonstration set and each sample lands on one strategy or the other; the distribution of samples reproduces the distribution of demonstrations.
+
+<DenoisingLoop className="my-6" />
+
+<Callout variant="info">
+  The step count is a speed knob, not a quality requirement. Training runs 100 DDPM steps; inference runs 10 DDIM steps with nearly identical results, and the successors below push the count far lower <Cite id="diffusion-policy-2023" />.
+</Callout>
+
+## Receding-horizon control
+
+Diffusion Policy does not execute the whole chunk it predicts. It commits the first $T_a$ of the $T_p$ predicted actions (8 of 16 in the standard configuration), then observes the world again and replans, warm-starting from the previous prediction <Cite id="diffusion-policy-2023" />. The tail of each chunk exists to make the committed part coherent; it is revised away before it ever runs.
+
+$T_a$ is the same dial as ACT's chunk size, named differently: large $T_a$ gives smooth, committed motion but a slow reaction to anything changing mid-chunk; small $T_a$ reacts quickly but re-samples often, and each new sample can pick a different mode mid-motion <Cite id="act-aloha-2023" />. The policy issues commands at 10 Hz, so $T_a = 8$ means the robot commits to each plan for 0.8 seconds.
+
+<RecedingHorizon className="my-6" />
+
+## CNN and transformer variants
+
+The paper ships two denoiser backbones <Cite id="diffusion-policy-2023" />:
+
+<Card title="Backbone variants" className="my-6">
+  <KeyValue
+    items={[
+      { key: 'CNN (default)', value: '1D temporal U-Net over the action sequence' },
+      { key: 'CNN conditioning', value: 'observations injected via FiLM' },
+      { key: 'transformer', value: 'time-series diffusion transformer (DiT)' },
+      { key: 'transformer conditioning', value: 'observation embedding via cross-attention' },
+      { key: 'visual encoder', value: 'ResNet-18 with GroupNorm, trained end-to-end' },
+    ]}
+  />
+</Card>
+
+The CNN variant is the recommended default: it trains stably and is robust to hyperparameter choices. The transformer variant handles high-frequency action changes better, because the CNN's temporal-convolution inductive bias smooths exactly the fast structure those tasks need, but it is finicky; the paper reports that simply adding depth sometimes made results worse <Cite id="diffusion-policy-2023" />.
+
+<Aside title="Why GroupNorm, not BatchNorm">
+  DDPM training keeps an exponential moving average of the network weights for sampling. BatchNorm's running statistics interact badly with EMA weights, so the visual encoder replaces every BatchNorm with GroupNorm <Cite id="diffusion-policy-2023" />.
+</Aside>
+
+## The successors: fewer steps, then flow matching
+
+Iterative denoising buys multimodality at the cost of sampling time. Ten network evaluations per chunk is fine on a workstation GPU; it is a problem on a mobile manipulator or a quadrotor. Two successor lines attack the cost differently.
+
+### Distillation: fewer steps
+
+Consistency Policy distills a trained Diffusion Policy into a consistency model that produces a chunk in 1 or 3 steps, targeting robots with edge GPUs, and reports robustness to the quality of the teacher (you do not need an extensively tuned one) <Cite id="consistency-policy-2024" />. One-Step Diffusion Policy goes further, distilling the chain into a single-step generator that lifts action prediction from 1.5 Hz to 62 Hz on real Franka tasks <Cite id="one-step-diffusion-2024" />.
+
+### Flow matching: a different formulation
+
+pi0 swapped the DDPM for conditional flow matching on a straight transport path: sample noise $\varepsilon$, form the interpolant
+
+$$
+A_t^\tau = \tau A_t + (1 - \tau)\varepsilon, \qquad u(A_t^\tau \mid A_t) = A_t - \varepsilon
+$$
+
+and train the network to predict the target vector field $u$, with the timestep $\tau$ drawn from a beta distribution weighted toward the noisy end <Cite id="pi0-2024" />. Sampling integrates the field from $\tau = 0$ to $\tau = 1$ with forward Euler in 10 steps. There is no noise schedule to tune, and the straight paths tolerate fewer integration steps than a DDPM trajectory.
+
+<Callout variant="warn" title="The honest caveat">
+  Frontier labs did not adopt one-step distillation. Instead of cutting step count, they cut *latency*: Real-Time Chunking treats the hand-off between consecutive chunks as an inpainting problem on the diffusion or flow trajectory and holds throughput flat out to +200 ms of injected inference delay, with no training-time change <Cite id="real-time-chunking-2025" />. Distillation matters most for on-robot edge deployment, not for cloud-served policies.
+</Callout>
+
+## Limitations
+
+The 2023 design is single-task and single-embodiment, with no language conditioning and no web-scale pretraining; conditioning a diffusion head on language and scaling it up is exactly what Octo, pi0, and their successors later did <Cite id="pi0-2024" />. Reactivity is bounded by $T_a$: whatever happens inside a committed segment, the policy will not respond until the next inference. And the sampling cost, though tamed by DDIM and the successor methods above, never disappears entirely. Later modules in this domain cover how vision-language-action models took the action head and dropped it onto web-pretrained backbones.

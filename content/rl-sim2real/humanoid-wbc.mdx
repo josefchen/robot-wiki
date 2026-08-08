@@ -1,0 +1,83 @@
+---
+title: "Humanoid Whole-Body Control"
+description: "Treating humanoid control as tracking a retargeted human motion: the PHC to GMT lineage, and the three decompositions shipping in 2026 from Figure, NVIDIA, and Google DeepMind."
+domain: rl-sim2real
+slug: humanoid-wbc
+order: 5
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - phc-2023
+  - h2o-2024
+  - omnih2o-2024
+  - humanplus-2024
+  - exbody2-2024
+  - asap-2025
+  - kungfubot-2025
+  - gmt-2025
+  - robust-tracking-2026
+  - leverb-2025
+  - helix-02-2026
+  - gr00t-n1-2025
+  - isaac-gr00t-repo-2026
+  - groot-wbc-2026
+  - gemini-robotics-2-2026
+---
+
+import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
+import { Gr2ResultsTable } from '@/components/mdx/gr2-results-table';
+
+The previous module covered how learned policies took over legged locomotion. This one covers the harder problem those same groups attacked next: making a full humanoid, legs through torso through arms through hands, do useful work without falling. The organizing idea across nearly all of it is motion tracking. Treat whole-body control as following a reference human motion, retargeted onto the robot's kinematics, and let reinforcement learning supply the physical feasibility that raw kinematic retargeting destroys. The human demonstration carries the intent; the policy solves balance, contact timing, and actuator limits.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Helix 02 S0" value="1 kHz" note="10M parameters, whole body" accent />
+  <Stat label="S0 training fleet" value="200,000+" note="parallel sim environments" />
+  <Stat label="Gemini Robotics 2" value="3" note="embodiments, one checkpoint" />
+  <Stat label="Dexterous hand" value="22 DoF" note="SharpaWave, under the same policy" />
+</div>
+
+## The tracking lineage
+
+PHC (Perpetual Humanoid Control) established that a simulated humanoid could track large motion libraries perpetually, recovering from falls and absorbing noisy pose input from video or language generators, by progressively adding network capacity as the motion set grew <Cite id="phc-2023" />. It lived in simulation, but it set the template: one policy tracking many motions, with no per-motion controller.
+
+H2O moved the template onto hardware. Retargeted human keypoints became a real-time whole-body teleoperation interface on the Unitree H1, with an RL policy in the loop precisely because the retargeted reference is not, by itself, dynamically feasible for the robot <Cite id="h2o-2024" />. OmniH2O generalized the interface: kinematic pose as a universal control abstraction, so the same tracking policy accepts VR teleoperation, RGB video, verbal instruction, or a frontier model as its upstream reference source, and supports both teleoperation and autonomous skill learning from teleoperated demonstrations <Cite id="omnih2o-2024" />.
+
+HumanPlus closed the loop back to data. A low-level RL shadowing policy lets the humanoid mirror a human in real time from a single RGB camera; operators then teleoperate through shadowing to collect whole-body demonstrations, and behavior cloning on that data produces autonomous skills <Cite id="humanplus-2024" />. Tracking stopped being the product and became the data engine.
+
+ExBody and ExBody2 diagnosed the lineage's characteristic failure. H2O-style global keypoint tracking couples every limb to the same objective, so one missed footstep corrupts the whole-body error and the failure cascades. ExBody2 decouples velocity tracking from landmark tracking and filters infeasible references through a teacher policy, producing controllers that walk, crouch, and dance on hardware <Cite id="exbody2-2024" />. ASAP then attacked the residual dynamics gap with the delta-action stage covered in the [sim-to-real module](/rl-sim2real/sim2real-transfer): train the tracking policy in sim, roll it out on the real Unitree G1, learn a correction model from the mismatch, and fine-tune against the corrected simulator. That produced jumps and sports-style motions on hardware <Cite id="asap-2025" />.
+
+The 2025 to 2026 work consolidated. KungfuBot pushed tracking to highly dynamic motions with adaptive tolerance curricula <Cite id="kungfubot-2025" />. GMT merged the per-skill policies into a single unified policy that tracks diverse motions in the real world, using adaptive sampling over easy and hard clips and a motion mixture-of-experts to specialize within one network <Cite id="gmt-2025" />. The 2026 robustness work targets what retargeting breaks: references that arrive noisy or locally infeasible in the robot's morphology get selectively aggregated through a dynamics-conditioned command encoder, with a fall-recovery curriculum, so the controller survives reference defects instead of amplifying them <Cite id="robust-tracking-2026" />.
+
+## Three decompositions ship in 2026
+
+The lineage above answers how to make a humanoid move like a reference. It does not answer where task-level intelligence plugs in. In 2026 all three frontier humanoid programs shipped whole-body control, and each drew the learning boundary in a different place.
+
+<WbcDecomposition className="my-6" />
+
+### A unified motion-tracking policy: Figure Helix 02 S0
+
+Figure kept the tracking decomposition and industrialized it. Helix 02 is a three-layer stack: S2 does semantic reasoning over scenes and language and emits latent goals; S1, a visuomotor transformer at 200 Hz, takes every sensor in (head cameras, palm cameras, fingertip tactile, full proprioception) and emits complete joint targets for the whole robot; S0, a 10M-parameter whole-body controller at 1 kHz, converts joint state and base motion into actuator commands. S0 was trained on over 1,000 hours of joint-level retargeted human motion plus sim-to-real RL across more than 200,000 parallel simulation environments, and Figure states it replaced 109,504 lines of hand-engineered C++ <Cite id="helix-02-2026" />. The architectural bet is the lineage's: learn one prior over how humans move while balancing, so the layers above never reason about footsteps. The headline demo, a 4-minute dishwasher unload of 61 loco-manipulation actions, is vendor-reported with no paper and no success rates.
+
+### A VLA above a learned controller: GR00T + GEAR-SONIC
+
+NVIDIA kept the VLA and the whole-body controller as separate learned systems with a narrow interface between them. GR00T N1.7, a 3B-parameter VLA with a Cosmos-Reason2 backbone and a flow-matching action head, predicts compact latent action tokens; the GEAR-SONIC whole-body controller, exposed as the `UNITREE_G1_SONIC` embodiment, decodes those tokens into full-body joint commands for legs, arms, and hands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. One language-conditioned policy thereby produces coordinated locomotion and manipulation without the VLA ever naming a joint. The academic versions of the same decomposition are explicit about the interface: LeVERB learns a latent vision-language verb vocabulary from rendered kinematic demonstrations and hands it to an RL whole-body controller <Cite id="leverb-2025" />, and WholeBodyVLA learns latent actions from action-free egocentric video for loco-manipulation. GR00T's bet is that a constrained interface is a feature: the VLA can be retrained or swapped without touching the controller, and the controller's dynamics stay out of the VLA's context. This is also the only one of the three stacks with public code (Apache-2.0) and released weights <Cite id="gr00t-n1-2025" />.
+
+### One VLA, feet to fingertips: Gemini Robotics 2
+
+Google DeepMind removed the boundary. Gemini Robotics 2 is a single frontier VLA controlling an Apptronik Apollo 2 from feet to fingertips under one policy, dynamically managing center of mass so the robot steps, squats, and bends instead of reaching from a static base, and driving a 22-DoF five-fingered SharpaWave hand as well as parallel grippers on a Franka Duo. The same checkpoint runs across Apollo 2 with SharpaWave hands, Apollo 2 with Inspire hands, and Franka Duo with Robotiq grippers, and the On-Device variant adapts to a new bi-arm embodiment in a few hours, typically with under 200 examples <Cite id="gemini-robotics-2-2026" />. The trade-off is opacity: the action representation, control frequency, and parameter counts are all undisclosed, so the decomposition can be verified only through its published behavior. The published numbers are where that verification starts.
+
+## The Gemini Robotics 2 numbers, as published
+
+DeepMind published per-task success rates with the announcement, and they are the most honest snapshot of where whole-body capability actually is. Whole-body picking works most of the time and fails differently by height: 76.3% from a shelf, 68.4% from a table, 45.7% from the floor, where getting down and back up is itself the hard part. Gripper-based precise insertion reaches 89.6%. Multi-finger dexterity spans 92% (unscrewing a bulb) down to 32% (sweeping with a dustpan), a 60-point spread on the same hand under the same policy <Cite id="gemini-robotics-2-2026" />.
+
+<Gr2ResultsTable className="my-6" />
+
+<Callout variant="warn" title="Vendor-reported, unreplicated">
+  Every figure in this table comes from the vendor's own announcement. No external lab has replicated these results, and no standardized humanoid benchmark exists to compare them against. DeepMind also flags movement speed as unsolved in the same post. Treat the table as the frontier's self-report: informative about the shape of the difficulty, not a verified measurement of the level.
+</Callout>
+
+## What tracking does not solve
+
+Three limits carry forward into everything built on this lineage. First, motion tracking inherits the human demonstrator's envelope. A tracking policy reproduces motion; it does not decide what task the motion should accomplish, and goal-directed loco-manipulation still has to come from somewhere upstream. Second, retargeting is lossy. Human kinematics are not robot kinematics, and morphologically infeasible references remain a persistent failure source, which is the explicit motivation of the 2026 robustness work <Cite id="robust-tracking-2026" />. Third, the frontier results are vendor communications. Helix 02's 61-action dishwasher run and Gemini Robotics 2's success table both lack papers, baselines, and external replication.
+
+There is also a structural question the three decompositions answer differently: whether balance and contact belong inside the foundation model or beneath it. Figure and NVIDIA both say beneath it, and disagree only on whether the interface is a tracked reference motion or a latent token. DeepMind says inside it, one policy for everything, and its own numbers show the cost: whole-body tasks succeed at 45.7 to 76.3% where specialized gripper insertion reaches 89.6%. Whether that gap closes with scale or is the price of the unified decomposition is the open empirical question. The final module in this domain takes up the objective-design side of all of this: reward shaping, LLM-written rewards, and the unresolved argument with classical whole-body MPC.

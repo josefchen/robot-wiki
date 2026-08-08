@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { notFoundProbeRoute } from '../helpers/draft-fixtures';
 
 const GROUPS = [
   'Manipulation & Learned Policies',
@@ -120,7 +121,10 @@ test.describe('navigation shell', () => {
   });
 
   test('themed not-found page renders for unknown routes', async ({ page }) => {
-    await page.goto('/manipulation/bc-foundations/');
+    // Registry-derived probe (tests/helpers/draft-fixtures.ts): the first
+    // draft route while drafts exist, a genuinely unknown route once every
+    // module has shipped. No manual re-point when a module publishes.
+    await page.goto(notFoundProbeRoute());
     await expect(
       page.getByRole('heading', { name: 'Page not found' }),
     ).toBeVisible();

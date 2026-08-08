@@ -1,0 +1,79 @@
+---
+title: "Generative Video World Models"
+description: "Cosmos 3, Genie 2 and 3, GR-1 and GR-2, 1X, and Odyssey: action-conditioned video prediction used as a neural simulator, the strongest evidence that it works, and the weak-conditioning problem that decides whether it counts as a world model at all."
+domain: world-models
+slug: generative-video
+order: 3
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - cosmos-3-2026
+  - genie-3-2025
+  - project-genie-2026
+  - gr-1-2023
+  - gr-2-2024
+  - 1x-world-model-lab-2026
+  - odyssey-2-2025
+  - interactive-world-simulator-2026
+  - roboworld-2026
+  - world-model-survey-2026
+---
+
+import { ActionConditioning } from '@/components/interactive/action-conditioning';
+
+The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Cosmos 3 Nano" value="16B" note="8B reasoner + 8B generator" accent />
+  <Stat label="Genie 3" value="24 fps" note="720p, a few minutes" />
+  <Stat label="IWS rollout" value=">10 min" note="15 FPS on one RTX 4090" />
+  <Stat label="RoboWorld r" value="0.989" note="Pearson vs real-robot eval" />
+</div>
+
+## Cosmos 3: the omni-model
+
+NVIDIA's 2025 Cosmos stack was a family: Predict for world generation, Transfer for controlled generation, Reason for scene understanding, Policy for action. Cosmos 3, launched at GTC Taipei in June 2026, collapses all of it into one omni-model <Cite id="cosmos-3-2026" />. The architecture is a Mixture-of-Transformers: each modality (text, image, video, audio, action) gets a dedicated encoder projected into a shared representation space, and the sequence splits into an autoregressive subsequence for reasoning and a diffusion subsequence for generation. The two subsequences carry separate parameter sets within each transformer layer but interact through joint attention, which is what lets a single checkpoint act as a VLM, a video generator, a forward-dynamics model, an inverse-dynamics model, or a policy without architectural change <Cite id="cosmos-3-2026" />.
+
+The routing is explicit in the release: action plus image plus text to video is a forward dynamics model, text plus video to action is an inverse dynamics model, and image plus text to video and action is a policy. Two sizes are public: Cosmos 3 Nano at 16B (an 8B reasoner and an 8B generator), aimed at a workstation, and Cosmos 3 Super at 64B for large-scale synthetic data generation <Cite id="cosmos-3-2026" />.
+
+## Genie 2 and Genie 3: interactive worlds with an honest limitation list
+
+DeepMind's Genie line approaches from play rather than from robots. The original Genie learned latent actions from video-game footage and generated 2D worlds at about one frame per second. Genie 2 (December 2024) moved to 3D at 360p with 10 to 20 second horizons. Genie 3 (August 2025) generates text-prompted worlds that are navigable in real time at 24 fps and 720p, and stays consistent for a few minutes <Cite id="genie-3-2025" />. It adds promptable world events, changing weather or inserting objects mid-rollout, which DeepMind frames as generating counterfactuals for agents. In the published demo the SIMA agent sends navigation actions to Genie 3 in pursuit of a goal the world model never sees; the model simply simulates the consequences <Cite id="genie-3-2025" />.
+
+Genie 3's own published limitation list is the most useful honest accounting in this area <Cite id="genie-3-2025" />:
+
+- **Limited action space.** Promptable events are environmental interventions, not actions performed by the agent; the range of direct agent actions is constrained.
+- **Other agents.** Multi-agent interaction is an open problem.
+- **No geographic accuracy.** Generated places do not correspond to real ones.
+- **Unreliable text rendering.**
+- **Limited interaction duration.** A few minutes, not hours.
+
+Deployment makes the duration constraint concrete. Project Genie, the consumer interface released in January 2026 for AI Ultra subscribers, caps sessions at 60 seconds per world because Genie 3 is autoregressive and dedicated compute makes longer sessions too expensive to scale <Cite id="project-genie-2026" />. Real time at 24 fps does not mean affordable at length.
+
+## GR-1 and GR-2: video pre-training pointed at manipulation
+
+The robotics-specific lineage started with GR-1, which established the pattern: large-scale video generative pre-training, then fine-tuning for multi-task language-conditioned manipulation, predicting future images and actions end to end. On CALVIN it moved the success rate from 88.9% to 94.9%, and in zero-shot unseen scenes from 53.3% to 85.4% <Cite id="gr-1-2023" />. GR-2 scaled the same idea: pre-training on 38 million internet video clips and over 50 billion tokens to capture world dynamics, then joint fine-tuning for video generation and action prediction on robot trajectories, with a reported 97.7% average success rate across more than 100 tasks <Cite id="gr-2-2024" />. In both systems the video prediction is not decorative. It is the mechanism that imports web-scale dynamics into a manipulation policy.
+
+## 1X and Odyssey: the commercial edges
+
+1X treats its world model as the route to self-learning humanoids. The company credits the model with letting NEO generalize to unseen tasks with zero-shot execution, and in June 2026 it launched a dedicated World Model Lab, led by Sam Sinha (previously a founding research scientist at Luma AI), to pre-train video foundation models on a mixture of web video, egocentric human data, simulation, teleoperated robot data, and on-policy NEO data <Cite id="1x-world-model-lab-2026" />.
+
+Odyssey is the clearest consumer expression of the paradigm. Odyssey-2 (October 2025) is a causal, autoregressive interactive video model: each frame is generated only from prior frames and user input, streamed in real time at a new frame every 50 ms (about 20 fps), and steerable with text as it plays <Cite id="odyssey-2-2025" />. The follow-ons push the same direction, with Starchild-1 adding audio alongside video and Agora-1 letting four participants share one simulation.
+
+## The conditioning problem
+
+A world model is useful for control only if its predictions change under the candidate action in a way that tracks physical consequence. The 2026 survey names weak action conditioning the top open challenge: many models are trained mostly from observation history and task intent, so their futures are "semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action" <Cite id="world-model-survey-2026" />.
+
+The failure is invisible in a demo reel, because a weakly conditioned model still renders sharp, realistic video. It just renders the same plausible future no matter which action you issue. The interactive below makes the distinction measurable. Two rollouts start from one shared initial frame under two different actions. Under strong conditioning the futures diverge and the action-sensitivity score clears the stated threshold. Under weak conditioning both futures collapse to the same intention-consistent outcome and the score drops to near zero, while the visual-realism score stays exactly where it was. Realism and action sensitivity are decoupled quantities, and only one of them tells you whether the model heard the action.
+
+<ActionConditioning className="my-6" />
+
+This is also why Genie 3's limited agent action space matters so much for robotics specifically: a world model whose controllable vocabulary is navigation and weather cannot score candidate grasps.
+
+## Does it work as a simulator? The evidence, both ways
+
+The positive results are recent and real. The Interactive World Simulator uses consistency models for both image decoding and latent dynamics prediction, which buys speed and stability: more than 10 minutes of stable interaction at 15 FPS on a single RTX 4090. Its headline result is that policies trained entirely on world-model-generated demonstrations perform comparably to policies trained on the same amount of real-world data, across rigid objects, deformables, and object piles <Cite id="interactive-world-simulator-2026" />. RoboWorld pairs a fast autoregressive video world model with a task-progress-aware VLM scorer and a Step Forcing scheme that cuts train-test mismatch in long rollouts; its world-model policy evaluations line up with real-robot evaluation at Pearson r = 0.989 and Spearman rho = 0.970 <Cite id="roboworld-2026" />.
+
+The negative evidence is structural. The survey's verdict on evaluation is blunt: visual plausibility is only a weak proxy for control utility, and action-grounded consistency and controllability are much more reliable indicators of downstream usefulness <Cite id="world-model-survey-2026" />. Beyond weak conditioning, the survey lists missing modalities (vision and proprioception cannot capture friction, stiffness, or contact stability, and it calls tactile integration indispensable) and cost (world-model-based policies are far more computationally intensive than VLAs, with diffusion denoising latency the specific culprit) <Cite id="world-model-survey-2026" />. Every positive result above also sits on quasi-static tabletop tasks. Nothing published shows a generative video model producing usable training signal for contact-rich assembly or locomotion.
+
+The net assessment, mid-2026: generative video world models are demonstrably useful today for policy evaluation, for synthetic demonstration generation, and for RL post-training in narrow, in-distribution task families. They are not a general replacement for a physics engine, and nobody credible claims they are. The gating property is the one in the interactive: whether the predicted future actually listens to the action. The JEPA module covers the camp that argues pixels are the wrong space to predict in at all.

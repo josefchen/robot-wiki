@@ -109,7 +109,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'rl-finetuning',
     'RL Fine-Tuning of Policies',
-    'DPPO, ConRFT, Recap, and HIL-SERL: closing the reliability gap with on-policy experience.',
+    'DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.',
   ],
   [
     'manipulation',
@@ -157,7 +157,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'rl-sim2real',
     'humanoid-wbc',
     'Humanoid Whole-Body Control',
-    'H2O, OmniH2O, HumanPlus, ExBody, and ASAP: three decompositions of full-body teleoperation.',
+    'Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.',
   ],
   [
     'rl-sim2real',
@@ -169,7 +169,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'taxonomy',
     'What Is a World Model?',
-    'Six paradigms share one name: latent dynamics, generative video, JEPA, unified world-action, and symbolic models disambiguated.',
+    'Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.',
   ],
   [
     'world-models',
@@ -312,7 +312,31 @@ const entries: Array<[Domain, string, string, string]> = [
 ];
 
 /** Publish status lives here, not in the tuple, to keep the taxonomy readable. */
-const PUBLISHED = new Set(['manipulation/action-chunking']);
+const PUBLISHED = new Set([
+  'manipulation/action-chunking',
+  'manipulation/bc-foundations',
+  'manipulation/comparison-matrix',
+  'manipulation/cross-embodiment',
+  'manipulation/diffusion-policy',
+  'manipulation/generalist-policies',
+  'manipulation/hierarchical',
+  'manipulation/knowledge-insulation',
+  'manipulation/pi-line',
+  'manipulation/realtime-execution',
+  'manipulation/rl-finetuning',
+  'manipulation/vla-models',
+  'rl-sim2real/humanoid-wbc',
+  'rl-sim2real/legged-locomotion',
+  'rl-sim2real/parallel-sim-rl',
+  'rl-sim2real/reward-design-mpc',
+  'rl-sim2real/sim2real-transfer',
+  'rl-sim2real/why-rl-locomotion',
+  'world-models/taxonomy',
+  'world-models/latent-dynamics',
+  'world-models/generative-video',
+  'world-models/jepa',
+  'world-models/generative-sim',
+]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
   ([domain, slug, title, summary]) => ({

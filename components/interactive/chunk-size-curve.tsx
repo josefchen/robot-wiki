@@ -167,7 +167,7 @@ export function ChunkSizeCurve({
             key={k}
             x={PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth}
             y={HEIGHT - 8}
-            textAnchor="middle"
+            textAnchor={k === MAX_CHUNK ? 'end' : 'middle'}
             fill="var(--color-text-dim)"
             fontSize={11}
             fontFamily="var(--font-mono)"

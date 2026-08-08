@@ -1,0 +1,67 @@
+---
+title: "Why RL Won Locomotion but Not Manipulation"
+description: "Sim-trained RL is the default for legged locomotion but not for general manipulation. The cause is not the RL algorithm; it is that the manipulation MDP, with its per-object geometry, friction, compliance, and millimeter-accurate contact, is not cheaply simulatable."
+domain: rl-sim2real
+slug: why-rl-locomotion
+order: 1
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - rudin-2021
+  - reality-gap-survey-2026
+  - isaac-lab-2025
+  - lin-humanoid-sim2real-2025
+  - openai-rubiks-cube-2019
+  - play2perfect-2026
+  - gemini-robotics-2-2026
+---
+
+import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { MdpComparison } from '@/components/mdx/mdp-comparison';
+
+In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id="rudin-2021" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Flat-terrain walk" value="< 4 min" note="sim RL training, one workstation GPU" accent />
+  <Stat label="Uneven terrain" value="20 min" note="ANYmal, game-inspired curriculum" />
+  <Stat label="GR2 multi-finger tasks" value="32-92%" note="success spread, Gemini Robotics 2" />
+  <Stat label="Manipulation equivalent" value="none" note="no four-minute number exists in 2026" />
+</div>
+
+## The asymmetry is in the MDP, not the algorithm
+
+The tempting explanation is that RL is somehow bad at manipulation. The reality-gap survey, the field's authoritative 2026 statement on sim-to-real, points somewhere else: the manipulation MDP is not cheaply simulatable <Cite id="reality-gap-survey-2026" />. Locomotion asks the simulator for proprioception, a terrain heightfield, and a decent actuator model, all of which physics engines handle well. Manipulation asks for per-object geometry, friction, compliance, and deformation, resolved to millimeter-accurate multi-point contact, plus a visual pipeline good enough to stand in for object state. Each of those is a known hard problem; a single task needs all of them at once.
+
+This one fact explains why the two literatures read so differently. The locomotion literature is "PPO, domain randomization, curriculum." The manipulation literature is "collect a hundred thousand demonstrations and train a diffusion transformer," because real demonstration data sidesteps the simulability problem entirely: a real trajectory needs no contact model at all (the [behavior cloning module](/manipulation/bc-foundations) covers what that choice costs elsewhere).
+
+## Six properties of the two MDPs
+
+The asymmetry decomposes into six specific properties. Each row is a place where the locomotion MDP is cheap to simulate faithfully and the manipulation MDP is not.
+
+<MdpComparison className="my-6 wide-measure" />
+
+The Isaac Lab team frames the dexterous case in the same terms: it "remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required," and the framework's answer is SDF collision, accurate contact modeling, and aggressive domain randomization <Cite id="isaac-lab-2025" />. The humanoid sim-to-real RL literature is blunter. Lin and colleagues note that previous successes in dexterous manipulation involved "much more laborious real-to-sim engineering effort" than the locomotion successes <Cite id="lin-humanoid-sim2real-2025" />.
+
+## Contact geometry is where the gap lives
+
+Row two of the table deserves its own look, because contact is the property that breaks simulators first. The interactive below injects a contact-model error, the simulator's idea of where a surface is being off by epsilon, into two scenes: a quadruped stance and a peg insertion. At the default error of 2 mm, the quadruped does not notice and the peg is already jammed. Push epsilon past 20 mm and locomotion finally fails, at forty times the error that kills the insertion.
+
+<ContactGeometry className="my-6" />
+
+Three things to take from it. First, contact count: four near-point foot contacts versus fourteen simultaneous distributed contacts, each one a place where a solver approximation becomes a wrong force. Second, patch character: a foot presses a near-point patch into a rigid substrate, while a peg slides through continuous wall contact that simple point-contact models do not represent. Third, irreversibility: the quadruped's gait is an attractor that high-bandwidth feedback pulls it back into, so a wrong contact force is corrected on the next step. A jammed peg has no next step.
+
+## It is a tendency, not a law
+
+Sim-to-real RL has produced real dexterous results, and honesty requires listing them. OpenAI solved a Rubik's cube with a five-fingered hand in 2019, trained entirely in simulation with automatic domain randomization <Cite id="openai-rubiks-cube-2019" />. Isaac Lab's DextrAH line distills a state-privileged RL teacher into a stereo-RGB student, the first system to map stereo images directly to dexterous grasping end to end <Cite id="isaac-lab-2025" />. Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />.
+
+What these results share is per-task engineering. The Rubik's cube run consumed a custom robot platform and a randomization curriculum tuned for that task. Play2Perfect's clearance number comes from a pipeline built around its task family. The correct statement of the asymmetry is not that manipulation sim-to-real fails; it is that manipulation sim-to-real requires engineering per task that locomotion gets for free, and that per-task cost is exactly what the MDP table prices.
+
+## The honest snapshot comes from the imitation side
+
+The sharpest 2026 evidence that manipulation remains the bottleneck is not an RL result at all. Gemini Robotics 2, the strongest frontier system with published task-level numbers, reports multi-finger household tasks spanning 32% (dustpan) to 92% (unscrewing a bulb), 89.6% on gripper-based precise insertion, and whole-body pick success of 68.4% from a table, 45.7% from the floor, and 76.3% from a shelf <Cite id="gemini-robotics-2-2026" />. A 32% task on the frontier's best system is what an unsolved MDP looks like.
+
+<Callout variant="warn" title="How to read this module">
+  The interactive's contact counts, patch radii, and scene geometry are illustrative renderings of the asymmetry, not measurements from a specific simulator. The sourced numbers are the Rudin wall-clock figures (under four minutes and twenty minutes), the Gemini Robotics 2 success rates, and the Play2Perfect clearance result. The tolerance values (20 mm absorbable gait error versus 0.5 mm insertion clearance) are representative physical scales, consistent with the cited systems, not a benchmark.
+</Callout>
+
+The rest of this domain works through the consequences: the GPU-parallel infrastructure that made the four-minute run possible, the transfer toolbox (domain randomization, teacher-student distillation, system identification, real-to-sim), the locomotion lineage itself, humanoid whole-body control, and the reward-design question that every one of these systems papers over.
