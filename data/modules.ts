@@ -334,6 +334,7 @@ const PUBLISHED = new Set([
   'world-models/taxonomy',
   'world-models/latent-dynamics',
   'world-models/generative-video',
+  'world-models/jepa',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

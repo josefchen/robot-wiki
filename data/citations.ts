@@ -1770,6 +1770,58 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors; the
+    // original V-JEPA, feature prediction as a stand-alone objective with
+    // no reconstruction, trained on 2M videos.
+    id: 'vjepa-2024',
+    title:
+      'Revisiting Feature Prediction for Learning Visual Representations from Video',
+    authors: [
+      'Adrien Bardes',
+      'Quentin Garrido',
+      'Jean Ponce',
+      'Xinlei Chen',
+      'Michael Rabbat',
+      'Yann LeCun',
+      'Mahmoud Assran',
+      'Nicolas Ballas',
+    ],
+    year: 2024,
+    arxiv: '2404.08471',
+    url: 'https://arxiv.org/abs/2404.08471',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 5 authors; shapes
+    // the JEPA representation space so embedding distance approximates the
+    // negative goal-conditioned value, improving planning.
+    id: 'jepa-value-planning-2026',
+    title: 'Value-guided action planning with JEPA world models',
+    authors: [
+      'Matthieu Destrade',
+      'Oumayma Bounou',
+      'Quentin Le Lidec',
+      'Jean Ponce',
+      'Yann LeCun',
+    ],
+    year: 2026,
+    arxiv: '2601.00844',
+    url: 'https://arxiv.org/abs/2601.00844',
+    type: 'paper',
+  },
+  {
+    // Verified against the TechCrunch article (2026-08-08): byline Anna
+    // Heim, 2026-03-09; $1.03B at a $3.5B pre-money valuation, CEO
+    // Alexandre LeBrun's buzzword quote.
+    id: 'ami-labs-2026',
+    title: "Yann LeCun's AMI Labs raises $1.03B to build world models",
+    authors: ['Anna Heim'],
+    year: 2026,
+    venue: 'TechCrunch',
+    url: 'https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/',
+    type: 'press',
+  },
+  {
     // NVIDIA Cosmos 3 omni-model technical report (2026), URL per
     // research/02 Part B2.
     id: 'cosmos-3-2026',

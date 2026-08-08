@@ -1,0 +1,72 @@
+---
+title: "JEPA and the Non-Generative Counterargument"
+description: "V-JEPA 2, the LeCun and AMI Labs case against generative pixel prediction, and the counterargument: plan in representation space by minimizing goal-embedding distance, with no pixel decoder anywhere in the loop."
+domain: world-models
+slug: jepa
+order: 4
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - vjepa-2024
+  - vjepa2-2025
+  - jepa-value-planning-2026
+  - ami-labs-2026
+  - world-model-survey-2026
+  - genie-3-2025
+  - cosmos-3-2026
+  - odyssey-2-2025
+  - interactive-world-simulator-2026
+  - fast-wam-2026
+---
+
+import { JepaPlanning } from '@/components/interactive/jepa-planning';
+
+The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. No pixel reconstruction appears anywhere, at training time or at planning time. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative world models. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="pretrain video" value="1M+" note="hours, action-free" accent />
+  <Stat label="robot video" value="<62" note="hours, unlabeled Droid" />
+  <Stat label="SSv2 top-1" value="77.3" note="Something-Something v2" />
+  <Stat label="AMI seed" value="$1.03B" note="March 2026 raise" />
+</div>
+
+## The argument: predict representations, not pixels
+
+The case against generative pixel prediction, stated as strongly as it can be:
+
+1. Most of the information in a video frame is irrelevant to control: leaf texture, exact sensor noise, the precise fold of a sleeve. A generative objective forces the model to spend capacity modeling all of it.
+2. The future is genuinely multimodal and partly unpredictable. A pixel-space model must either average over the possibilities, producing blur, or sample, committing to arbitrary detail. Predicting in representation space lets the model discard what it cannot predict, because the target is an embedding, not a frame.
+3. Planning wants an abstract state, not an image. If you have to decode to pixels and re-encode to plan, the decoder is pure overhead.
+
+The original V-JEPA showed the recipe works as a representation learner: a context encoder, an exponential-moving-average target encoder, and a predictor, trained by feature prediction alone on 2 million videos, with no reconstruction, no negative examples, no text, and no pretrained image encoder. The frozen backbone then performed well on both motion and appearance tasks without any adaptation of its parameters <Cite id="vjepa-2024" />.
+
+## V-JEPA 2: the argument's strongest artifact
+
+V-JEPA 2 turns the representation into a controller, in two stages <Cite id="vjepa2-2025" />.
+
+First, action-free pretraining: self-supervised masked latent prediction on over 1 million hours of internet video, plus images, at roughly 1B parameters, using mask denoising and 3D rotary position embeddings. This alone sets the state of the art on motion understanding, 77.3 top-1 on Something-Something v2, with strong human-action anticipation on Epic-Kitchens-100, and the same encoder serves a VLM competitively on video question answering <Cite id="vjepa2-2025" />.
+
+Second, action-conditioned post-training, producing V-JEPA 2-AC: freeze the encoder and train an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, with no rewards, no task-specific demonstrations, and no per-environment tuning. The result plans zero-shot on Franka arms in labs never seen during training. Control is energy minimization in latent space: specify a goal image, encode it once, search action sequences whose predicted final latent lands closest to the goal latent, execute the first action, observe, and replan. Reported tasks are reaching, grasping, and pick-and-place <Cite id="vjepa2-2025" />.
+
+The interactive below runs that loop in a 2-D projection of the embedding space. The goal image is a fixed point, the amber marker is the current latent, and each Plan step is one model-predictive-control iteration: the candidate fan is the searched action sequences, scored by predicted distance to the goal latent, and the readout contracts as steps execute. A larger search budget aligns the plan better with the true goal direction, so it reaches the goal in fewer steps. The predictor is imperfect on purpose, which is why the executed path wobbles off the planned one.
+
+<JepaPlanning className="my-6" />
+
+One follow-up makes the distance-as-value reading explicit: shaping the representation space during training so that embedding distance approximates the negative goal-conditioned value function significantly improves planning performance over standard JEPA models on simple control tasks <Cite id="jepa-value-planning-2026" />.
+
+## The institutional bet: AMI Labs
+
+The argument is no longer only a research position. LeCun left Meta in November 2025 and co-founded AMI Labs (Advanced Machine Intelligence), which raised \$1.03 billion at a \$3.5 billion pre-money valuation in March 2026, one of the largest seed rounds on record, explicitly to build world models rather than language models <Cite id="ami-labs-2026" />. CEO Alexandre LeBrun's own framing to TechCrunch was blunt: "'world models' will be the next buzzword. In six months, every company will call itself a world model to raise funding" <Cite id="ami-labs-2026" />.
+
+## The counterargument, stated fairly
+
+1. **Every currently usable interactive simulator is generative.** Genie 3, Cosmos 3, Odyssey-2, and the Interactive World Simulator all render pixels you can inspect and steer <Cite id="genie-3-2025" /><Cite id="cosmos-3-2026" /><Cite id="odyssey-2-2025" /><Cite id="interactive-world-simulator-2026" />. Nobody has shipped an interactive, inspectable, action-controllable JEPA environment.
+2. **Latent-only objectives are hard to validate.** Without a decoder you cannot see what the model believes, and a good world model and a collapsed one can look identical in the loss. Collapse prevention leans on architectural asymmetries, the EMA target encoder and stop-gradient, whose theory is still thin <Cite id="vjepa-2024" />.
+3. **The demonstrated tasks are short-horizon single-arm pick-and-place.** No contact-rich assembly, no deformables, no whole-body control <Cite id="vjepa2-2025" />.
+4. **It still needs action-conditioned post-training.** The "learns from observation alone" framing does rhetorical work; the controllability comes from the action-conditioned stage, and that stage needs robot data with action labels <Cite id="vjepa2-2025" />.
+5. **Empirically the camps are comparable, not one dominant.** In the 2026 survey's LIBERO table, latent-space world-model VLAs (VLA-JEPA at 97.2, JEPA-VLA at 96.4) sit alongside video-based ones (Cosmos Policy and LingBot-VA at 98.5, Say-Dream-ACT at 98.1) <Cite id="world-model-survey-2026" />. Nothing in the numbers adjudicates the architectural argument.
+6. **The generative camp partially concedes the efficiency point.** Latent-space models like LeWorldModel exist precisely to cut the cost of full high-dimensional generation, and Fast-WAM keeps world modeling as a training objective while dropping future prediction at inference entirely <Cite id="world-model-survey-2026" /><Cite id="fast-wam-2026" />. That is the JEPA argument arriving through the back door.
+
+## What would settle it
+
+Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators. The [latent-dynamics](/world-models/latent-dynamics) module covers the paradigm that sits between them: no decoder either, but trained on the agent's own experience rather than internet video.
