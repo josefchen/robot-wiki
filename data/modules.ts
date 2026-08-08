@@ -336,6 +336,7 @@ const PUBLISHED = new Set([
   'world-models/generative-video',
   'world-models/jepa',
   'world-models/generative-sim',
+  'data-hardware/data-bottleneck',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

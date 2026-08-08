@@ -2148,6 +2148,188 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.15536',
     type: 'paper',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 31 authors; first three listed.
+    id: 'gpt3-2020',
+    title: 'Language Models are Few-Shot Learners',
+    authors: ['Tom B. Brown', 'Benjamin Mann', 'Nick Ryder'],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2005.14165',
+    url: 'https://arxiv.org/abs/2005.14165',
+    type: 'paper',
+  },
+  {
+    // Verified against the live page (2026-08-08): over 15T pretraining tokens.
+    id: 'llama-3-2024',
+    title:
+      'Introducing Meta Llama 3: The most capable openly available LLM to date',
+    authors: ['Meta AI'],
+    year: 2024,
+    url: 'https://ai.meta.com/blog/meta-llama-3/',
+    type: 'blog',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    id: 'fineweb-2024',
+    title:
+      'The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale',
+    authors: [
+      'Guilherme Penedo',
+      'Hynek Kydlíček',
+      'Loubna Ben allal',
+      'Anton Lozhkov',
+      'Margaret Mitchell',
+      'Colin Raffel',
+      'Leandro Von Werra',
+      'Thomas Wolf',
+    ],
+    year: 2024,
+    venue: 'NeurIPS 2024',
+    arxiv: '2406.17557',
+    url: 'https://arxiv.org/abs/2406.17557',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
+    id: 'droid-2024',
+    title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset',
+    authors: ['Alexander Khazatsky', 'Karl Pertsch', 'Suraj Nair'],
+    year: 2024,
+    arxiv: '2403.12945',
+    url: 'https://arxiv.org/abs/2403.12945',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
+    // Science Robotics 2026 per research/03.
+    id: 'tri-lbm-2025',
+    title:
+      'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
+    authors: ['TRI LBM Team'],
+    year: 2025,
+    venue: 'Science Robotics 2026',
+    arxiv: '2507.05331',
+    url: 'https://arxiv.org/abs/2507.05331',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 6 authors.
+    // ICLR 2025 oral per research/03.
+    id: 'lin-data-scaling-laws-2024',
+    title: 'Data Scaling Laws in Imitation Learning for Robotic Manipulation',
+    authors: [
+      'Fanqi Lin',
+      'Yingdong Hu',
+      'Pingyue Sheng',
+      'Chuan Wen',
+      'Jiacheng You',
+      'Yang Gao',
+    ],
+    year: 2024,
+    venue: 'ICLR 2025',
+    arxiv: '2410.18647',
+    url: 'https://arxiv.org/abs/2410.18647',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 10 authors.
+    id: 'diversity-scaling-2025',
+    title: 'Is Diversity All You Need for Scalable Robotic Manipulation?',
+    authors: [
+      'Modi Shi',
+      'Li Chen',
+      'Jin Chen',
+      'Yuxiang Lu',
+      'Chiming Liu',
+      'Guanghui Ren',
+      'Ping Luo',
+      'Di Huang',
+      'Maoqing Yao',
+      'Hongyang Li',
+    ],
+    year: 2025,
+    arxiv: '2507.06219',
+    url: 'https://arxiv.org/abs/2507.06219',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 5 authors; ICLR 2026
+    // per the arXiv comments field.
+    id: 'egodex-2025',
+    title:
+      'EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video',
+    authors: [
+      'Ryan Hoque',
+      'Peide Huang',
+      'David J. Yoon',
+      'Mouli Sivapurapu',
+      'Jian Zhang',
+    ],
+    year: 2025,
+    venue: 'ICLR 2026',
+    arxiv: '2505.11709',
+    url: 'https://arxiv.org/abs/2505.11709',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 15 authors.
+    id: 'egoscale-2026',
+    title:
+      'EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data',
+    authors: [
+      'Ruijie Zheng',
+      'Dantong Niu',
+      'Yuqi Xie',
+      'Jing Wang',
+      'Mengda Xu',
+      'Yunfan Jiang',
+      'Fernando Castañeda',
+      'Fengyuan Hu',
+      'You Liang Tan',
+      'Letian Fu',
+      'Trevor Darrell',
+      'Furong Huang',
+      'Yuke Zhu',
+      'Danfei Xu',
+      'Linxi Fan',
+    ],
+    year: 2026,
+    arxiv: '2602.16710',
+    url: 'https://arxiv.org/abs/2602.16710',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    id: 'umi-2024',
+    title:
+      'Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots',
+    authors: [
+      'Cheng Chi',
+      'Zhenjia Xu',
+      'Chuer Pan',
+      'Eric Cousineau',
+      'Benjamin Burchfiel',
+      'Siyuan Feng',
+      'Russ Tedrake',
+      'Shuran Song',
+    ],
+    year: 2024,
+    arxiv: '2402.10329',
+    url: 'https://arxiv.org/abs/2402.10329',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 85 authors; first three listed.
+    id: 'ego4d-2022',
+    title: 'Ego4D: Around the World in 3,000 Hours of Egocentric Video',
+    authors: ['Kristen Grauman', 'Andrew Westbury', 'Eugene Byrne'],
+    year: 2022,
+    venue: 'CVPR 2022',
+    arxiv: '2110.07058',
+    url: 'https://arxiv.org/abs/2110.07058',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
