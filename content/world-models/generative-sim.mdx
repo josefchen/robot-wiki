@@ -1,0 +1,71 @@
+---
+title: "Generative Simulation"
+description: "RoboGen, Holodeck, and RoboCasa: foundation models that author the simulation instead of replacing it, and why generated content inside a real physics engine sidesteps the failure modes of generative dynamics."
+domain: world-models
+slug: generative-sim
+order: 5
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - robogen-2024
+  - holodeck-2024
+  - robocasa-2024
+  - robocasa365-2026
+  - grs-2024
+  - isaac-lab-2025
+  - world-model-survey-2026
+  - eureka-2024
+---
+
+import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
+
+The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a world model, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="kitchen scenes" value="120" note="RoboCasa, RSS 2024" accent />
+  <Stat label="tasks" value="100" note="systematic evaluation suite" />
+  <Stat label="3D objects" value="3,200+" note="150+ categories" />
+  <Stat label="RoboCasa365" value="2,500" note="kitchens, ICLR 2026" />
+</div>
+
+## The argument: generate content, not dynamics
+
+The [generative video](/world-models/generative-video) paradigm asks a model to learn physics from pixels. Its characteristic failures are physical-consistency failures: futures that look plausible but are not causally tied to the pending action. The 2026 world-model survey names weak action conditioning as the top open challenge in that line and warns that visual plausibility is only a weak proxy for control utility <Cite id="world-model-survey-2026" />. When the model's job is to produce the next frame, every error it makes is an error in the physics the policy will train on.
+
+Generative simulation moves the generative model off that critical path. The model produces content: a task specification, a scene layout, a mesh, a reward function. A real solver then executes that content. Physical consistency is no longer something the model has to learn; it is something the solver enforces on every step, by construction. A generated mug might have the wrong friction coefficient, but it will never fall upward, pass through the table, or teleport, because the engine does not allow it. The failure modes shrink from "the physics is wrong" to "the content is off-distribution", and the second is a much more tractable problem.
+
+This is why the approach is, today, the more reliable use of generative models in robot learning. The three systems below show the pattern at three scales: task generation, environment generation, and a full benchmark built from generated assets.
+
+## RoboGen: propose, generate, learn
+
+RoboGen closes the whole loop <Cite id="robogen-2024" />. Given a robot and a seed description, an LLM proposes a task worth learning. It then generates the scene configuration for that task: which objects to place, at what poses, with what articulation states, retrieving or generating the assets as needed. It writes the training supervision, a reward function or a success predicate. Finally it dispatches to a learning algorithm matched to the task type: reinforcement learning for locomotion and contact-rich skills, gradient-based trajectory optimization for soft-body manipulation, motion planning for pick-and-place. The result is a self-guided propose-generate-learn cycle that can be queried repeatedly, producing a stream of skills with minimal human supervision <Cite id="robogen-2024" />.
+
+Two design decisions carry the reliability argument. First, the LLM never touches the dynamics; it only writes the inputs to systems that already work, the simulator and the learning algorithms. Second, the learning algorithm is chosen per task, so no single method has to be good everywhere.
+
+## Holodeck: language-guided environment generation
+
+Holodeck targets a different bottleneck: the diversity of the environments themselves <Cite id="holodeck-2024" />. Embodied-AI benchmarks have historically relied on a small set of hand-built scenes, because building a convincing room takes expertise and hours of manual placement. Holodeck generates 3D environments from a language prompt: an LLM decides what a room should contain, selects objects from Objaverse, and proposes spatial-relational constraints between them (the mug goes on the desk, the chair faces the monitor). A constraint solver then optimizes the layout to satisfy those relations, which is what keeps generated rooms functional rather than merely plausible-sounding <Cite id="holodeck-2024" />. The system handles open-ended prompts, from arcades to "office of a professor who is a fan of Star Wars", and agents can be trained to navigate the generated scenes without any human-constructed data.
+
+## RoboCasa: a benchmark built from generated assets
+
+RoboCasa is the pattern at benchmark scale <Cite id="robocasa-2024" />. It ships 120 kitchen scenes built from architectural references, over 3,200 object assets across more than 150 categories, and 100 tasks, including composite tasks drafted with LLM guidance. Generative tools fill the content pipeline at every layer: object meshes come partly from text-to-3D models, and environment textures come from text-to-image models. For training data, RoboCasa pairs a small set of human demonstrations with automated trajectory generation, enlarging the dataset at minimal human cost, and its experiments show a clear scaling trend as synthetically generated demonstration data grows <Cite id="robocasa-2024" />.
+
+RoboCasa365 extends the same platform to 365 everyday tasks across 2,500 kitchen environments, with 600+ hours of human demonstrations and 1,600+ hours of synthetically generated demonstrations, and with explicit support for multi-task learning, foundation-model training, and lifelong-learning benchmarks <Cite id="robocasa365-2026" />. The same idea is productized elsewhere in the stack: Isaac Lab Mimic generates an effectively unbounded number of synthetic demonstrations from as little as one human demonstration, with parallelized environment execution for throughput <Cite id="isaac-lab-2025" />. And GRS runs the loop in the opposite direction, generating solvable simulation tasks from single real-world RGB-D images, real-to-sim task authoring rather than open-ended synthesis <Cite id="grs-2024" />.
+
+## The push test: appearance is not physics
+
+The interactive below reduces the whole argument to one scene with three layers. The appearance layer renders the mug and the table; it stands in for anything that only knows what the scene looks like, a neural reconstruction, a generated texture, a photorealistic video frame. The physics-proxy layer adds what a solver needs: collision geometry, a mass, a friction coefficient. The simulation layer shows the integrated result. Push the mug with only the appearance layer on. Nothing happens, and nothing can happen, because there is no dynamics to integrate. Turn the physics proxy on and the same push slides the mug by $d = v^2/(2\mu g)$, every time, deterministically.
+
+<AppearancePhysicsPush className="my-6" />
+
+This is the mechanical version of the taxonomy's verdict on 3DGS twins. A learned renderer gives you layer one. Generative video tries to learn layer three directly, and its errors land in the physics. Generative simulation generates layer one and borrows layers two and three from an engine that already has them.
+
+## Limitations, stated plainly
+
+1. **Generated scenes are only as physically correct as their asset parameters.** A text-to-3D mug looks like a mug; its mass, friction, and center of mass are estimates. Tuning simulated contact against real-world measurement remains manual work, which is why physically accurate simulation-ready assets are a commercial category rather than a solved problem.
+2. **LLM-authored reward functions inherit specification-gaming risk.** RoboGen writes reward functions with an LLM, and the [reward-design](/rl-sim2real/reward-design-mpc) module documents what that invites: Eureka's own accounting includes reward hacking and the need for human inspection of generated rewards <Cite id="eureka-2024" />.
+3. **Generated diversity reflects the generator's priors.** Holodeck rooms look like what GPT-4 thinks rooms look like; RoboCasa kitchens look like kitchen magazines. Whether that distribution covers the deployment distribution is an unquantified sim-to-real risk, the same gap that [domain randomization](/rl-sim2real/sim2real-transfer) exists to paper over.
+
+## Where this leaves the field
+
+None of this makes the generative world-model paradigms wrong. It makes them premature as simulators of record. The evidence summarized in the [generative video](/world-models/generative-video) module shows learned models earning narrow roles in evaluation and data generation, while every one of their physical-consistency failure modes is a problem that a real solver simply does not have. The pragmatic reading for 2026: use generative models where their failure is cheap, authoring tasks, scenes, assets, and supervision, and use engines where their failure is expensive, integrating what happens when a robot acts. RoboGen, Holodeck, and RoboCasa are what that division of labor looks like when it ships <Cite id="robogen-2024" /><Cite id="holodeck-2024" /><Cite id="robocasa-2024" />.

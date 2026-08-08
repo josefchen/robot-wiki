@@ -2043,6 +2043,111 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2308.04079',
     type: 'paper',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 9 authors, ICML 2024.
+    id: 'robogen-2024',
+    title:
+      'RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation',
+    authors: [
+      'Yufei Wang',
+      'Zhou Xian',
+      'Feng Chen',
+      'Tsun-Hsuan Wang',
+      'Yian Wang',
+      'Katerina Fragkiadaki',
+      'Zackory Erickson',
+      'David Held',
+      'Chuang Gan',
+    ],
+    year: 2024,
+    venue: 'ICML 2024',
+    arxiv: '2311.01455',
+    url: 'https://arxiv.org/abs/2311.01455',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 14 authors, CVPR 2024.
+    id: 'holodeck-2024',
+    title:
+      'Holodeck: Language Guided Generation of 3D Embodied AI Environments',
+    authors: [
+      'Yue Yang',
+      'Fan-Yun Sun',
+      'Luca Weihs',
+      'Eli VanderBilt',
+      'Alvaro Herrasti',
+      'Winson Han',
+      'Jiajun Wu',
+      'Nick Haber',
+      'Ranjay Krishna',
+      'Lingjie Liu',
+      'Chris Callison-Burch',
+      'Mark Yatskar',
+      'Aniruddha Kembhavi',
+      'Christopher Clark',
+    ],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2312.09067',
+    url: 'https://arxiv.org/abs/2312.09067',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors, RSS 2024.
+    id: 'robocasa-2024',
+    title:
+      'RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots',
+    authors: [
+      'Soroush Nasiriany',
+      'Abhiram Maddukuri',
+      'Lance Zhang',
+      'Adeet Parikh',
+      'Aaron Lo',
+      'Abhishek Joshi',
+      'Ajay Mandlekar',
+      'Yuke Zhu',
+    ],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2406.02523',
+    url: 'https://arxiv.org/abs/2406.02523',
+    type: 'paper',
+  },
+  {
+    // Verified against the robocasa.ai project page bibtex block
+    // (2026-08-08): 4 authors, ICLR 2026; no arXiv listing, so the entry
+    // links the hosted PDF.
+    id: 'robocasa365-2026',
+    title:
+      'RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots',
+    authors: [
+      'Soroush Nasiriany',
+      'Sepehr Nasiriany',
+      'Abhiram Maddukuri',
+      'Yuke Zhu',
+    ],
+    year: 2026,
+    venue: 'ICLR 2026',
+    url: 'https://robocasa.ai/assets/robocasa365_iclr26.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 6 authors.
+    id: 'grs-2024',
+    title: 'GRS: Generating Robotic Simulation Tasks from Real-World Images',
+    authors: [
+      'Alex Zook',
+      'Fan-Yun Sun',
+      'Josef Spjut',
+      'Valts Blukis',
+      'Stan Birchfield',
+      'Jonathan Tremblay',
+    ],
+    year: 2024,
+    arxiv: '2410.15536',
+    url: 'https://arxiv.org/abs/2410.15536',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

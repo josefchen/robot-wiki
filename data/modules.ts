@@ -335,6 +335,7 @@ const PUBLISHED = new Set([
   'world-models/latent-dynamics',
   'world-models/generative-video',
   'world-models/jepa',
+  'world-models/generative-sim',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
