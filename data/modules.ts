@@ -333,6 +333,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/why-rl-locomotion',
   'world-models/taxonomy',
   'world-models/latent-dynamics',
+  'world-models/generative-video',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

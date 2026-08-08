@@ -1845,6 +1845,136 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-08): 10 authors;
+    // consistency-model world simulator, >10 minutes of stable interaction
+    // at 15 FPS on one RTX 4090, policies trained only on generated
+    // demonstrations match real-data-trained ones.
+    id: 'interactive-world-simulator-2026',
+    title: 'Interactive World Simulator for Robot Policy Training and Evaluation',
+    authors: [
+      'Yixuan Wang',
+      'Rhythm Syed',
+      'Fangyu Wu',
+      'Mengchao Zhang',
+      'Aykut Onol',
+      'Jose Barreiros',
+      'Hooshang Nayyeri',
+      'Tony Dear',
+      'Huan Zhang',
+      'Yunzhu Li',
+    ],
+    year: 2026,
+    arxiv: '2603.08546',
+    url: 'https://arxiv.org/abs/2603.08546',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 7 authors;
+    // evaluation pipeline with Step Forcing, Pearson r = 0.989 and
+    // Spearman rho = 0.970 against real-robot evaluation.
+    id: 'roboworld-2026',
+    title:
+      'RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation',
+    authors: [
+      'Byeongguk Jeon',
+      'Seonghyeon Ye',
+      'JaeHyeok Doo',
+      'Sungdong Kim',
+      'Minjoon Seo',
+      'Hyungmok Son',
+      'Kimin Lee',
+    ],
+    year: 2026,
+    arxiv: '2607.01060',
+    url: 'https://arxiv.org/abs/2607.01060',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 9 authors;
+    // large-scale video generative pre-training then fine-tuning for
+    // multi-task manipulation (CALVIN 88.9 to 94.9).
+    id: 'gr-1-2023',
+    title:
+      'Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation',
+    authors: [
+      'Hongtao Wu',
+      'Ya Jing',
+      'Chilam Cheang',
+      'Guangzeng Chen',
+      'Jiafeng Xu',
+      'Xinghang Li',
+      'Minghuan Liu',
+      'Hang Li',
+      'Tao Kong',
+    ],
+    year: 2023,
+    arxiv: '2312.13139',
+    url: 'https://arxiv.org/abs/2312.13139',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 12 authors,
+    // alphabetical order; 38M video clips and 50B+ tokens of pre-training,
+    // 97.7% average success across 100+ tasks.
+    id: 'gr-2-2024',
+    title:
+      'GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation',
+    authors: [
+      'Chi-Lam Cheang',
+      'Guangzeng Chen',
+      'Ya Jing',
+      'Tao Kong',
+      'Hang Li',
+      'Yifeng Li',
+      'Yuxiao Liu',
+      'Hongtao Wu',
+      'Jiafeng Xu',
+      'Yichu Yang',
+      'Hanbo Zhang',
+      'Minzhao Zhu',
+    ],
+    year: 2024,
+    arxiv: '2410.06158',
+    url: 'https://arxiv.org/abs/2410.06158',
+    type: 'paper',
+  },
+  {
+    // Verified against the 1X blog (2026-08-08): dated June 2026;
+    // dedicated World Model Lab led by Sam Sinha (ex-Luma AI).
+    id: '1x-world-model-lab-2026',
+    title: '1X Launches World Model Lab to Scale Humanoid Intelligence',
+    authors: ['1X'],
+    year: 2026,
+    url: 'https://www.1x.tech/discover/1x-world-model-lab',
+    type: 'blog',
+  },
+  {
+    // Verified against the Odyssey blog (2026-08-08): byline Oliver
+    // Cameron, 2025-10-27; causal autoregressive interactive video
+    // streaming a new frame every 50 ms.
+    id: 'odyssey-2-2025',
+    title: 'Introducing Odyssey-2: A General-Purpose World Model',
+    authors: ['Oliver Cameron'],
+    year: 2025,
+    venue: 'Odyssey',
+    url: 'https://odyssey.ml/introducing-odyssey-2',
+    type: 'blog',
+  },
+  {
+    // Verified against Ars Technica (2026-08-08): Ryan Whitwam,
+    // 2026-01-29; Project Genie launch coverage reporting the 60-second
+    // per-world session cap. Press source (no first-party technical post
+    // documents the cap).
+    id: 'project-genie-2026',
+    title:
+      'Google Project Genie lets you create interactive worlds from a photo or prompt',
+    authors: ['Ryan Whitwam'],
+    year: 2026,
+    venue: 'Ars Technica',
+    url: 'https://arstechnica.com/google/2026/01/google-project-genie-lets-you-create-interactive-worlds-from-a-photo-or-prompt/',
+    type: 'press',
+  },
+  {
     // Verified against the arXiv abs page (2026-08-08): 4 authors,
     // ACM TOG 42(4) / SIGGRAPH 2023.
     id: '3dgs-2023',
