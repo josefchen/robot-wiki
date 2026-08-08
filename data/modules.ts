@@ -157,7 +157,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'rl-sim2real',
     'humanoid-wbc',
     'Humanoid Whole-Body Control',
-    'H2O, OmniH2O, HumanPlus, ExBody, and ASAP: three decompositions of full-body teleoperation.',
+    'Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.',
   ],
   [
     'rl-sim2real',
@@ -325,6 +325,7 @@ const PUBLISHED = new Set([
   'manipulation/realtime-execution',
   'manipulation/rl-finetuning',
   'manipulation/vla-models',
+  'rl-sim2real/humanoid-wbc',
   'rl-sim2real/legged-locomotion',
   'rl-sim2real/parallel-sim-rl',
   'rl-sim2real/sim2real-transfer',

@@ -1292,6 +1292,172 @@ export const CITATIONS: Citation[] = [
     url: 'https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/',
     type: 'blog',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-08). ICCV 2023.
+    id: 'phc-2023',
+    title: 'Perpetual Humanoid Control for Real-time Simulated Avatars',
+    authors: [
+      'Zhengyi Luo',
+      'Jinkun Cao',
+      'Alexander Winkler',
+      'Kris Kitani',
+      'Weipeng Xu',
+    ],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2305.06456',
+    url: 'https://arxiv.org/abs/2305.06456',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08). CoRL 2024.
+    id: 'omnih2o-2024',
+    title:
+      'OmniH2O: Universal and Dexterous Human-to-Humanoid Whole-Body Teleoperation and Learning',
+    authors: [
+      'Tairan He',
+      'Zhengyi Luo',
+      'Xialin He',
+      'Wenli Xiao',
+      'Chong Zhang',
+      'Weinan Zhang',
+      'Kris Kitani',
+      'Changliu Liu',
+      'Guanya Shi',
+    ],
+    year: 2024,
+    venue: 'CoRL 2024',
+    arxiv: '2406.08858',
+    url: 'https://arxiv.org/abs/2406.08858',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08).
+    id: 'humanplus-2024',
+    title: 'HumanPlus: Humanoid Shadowing and Imitation from Humans',
+    authors: [
+      'Zipeng Fu',
+      'Qingqing Zhao',
+      'Qi Wu',
+      'Gordon Wetzstein',
+      'Chelsea Finn',
+    ],
+    year: 2024,
+    arxiv: '2406.10454',
+    url: 'https://arxiv.org/abs/2406.10454',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08).
+    id: 'exbody2-2024',
+    title: 'ExBody2: Advanced Expressive Humanoid Whole-Body Control',
+    authors: [
+      'Mazeyu Ji',
+      'Xuanbin Peng',
+      'Fangchen Liu',
+      'Jialong Li',
+      'Ge Yang',
+      'Xuxin Cheng',
+      'Xiaolong Wang',
+    ],
+    year: 2024,
+    arxiv: '2412.13196',
+    url: 'https://arxiv.org/abs/2412.13196',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08). NeurIPS 2025.
+    id: 'kungfubot-2025',
+    title:
+      'KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills',
+    authors: [
+      'Weiji Xie',
+      'Jinrui Han',
+      'Jiakun Zheng',
+      'Huanyu Li',
+      'Xinzhe Liu',
+      'Jiyuan Shi',
+      'Weinan Zhang',
+      'Chenjia Bai',
+      'Xuelong Li',
+    ],
+    year: 2025,
+    venue: 'NeurIPS 2025',
+    arxiv: '2506.12851',
+    url: 'https://arxiv.org/abs/2506.12851',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08).
+    id: 'gmt-2025',
+    title: 'GMT: General Motion Tracking for Humanoid Whole-Body Control',
+    authors: [
+      'Zixuan Chen',
+      'Mazeyu Ji',
+      'Xuxin Cheng',
+      'Xuanbin Peng',
+      'Xue Bin Peng',
+      'Xiaolong Wang',
+    ],
+    year: 2025,
+    arxiv: '2506.14770',
+    url: 'https://arxiv.org/abs/2506.14770',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08).
+    id: 'robust-tracking-2026',
+    title: 'Robust and Generalized Humanoid Motion Tracking',
+    authors: [
+      'Yubiao Ma',
+      'Han Yu',
+      'Jiayin Xie',
+      'Changtai Lv',
+      'Qiang Luo',
+      'Chi Zhang',
+      'Yunpeng Yin',
+      'Boyang Xing',
+      'Xuemei Ren',
+      'Dongdong Zheng',
+    ],
+    year: 2026,
+    arxiv: '2601.23080',
+    url: 'https://arxiv.org/abs/2601.23080',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08).
+    id: 'leverb-2025',
+    title:
+      'LeVERB: Humanoid Whole-Body Control with Latent Vision-Language Instruction',
+    authors: [
+      'Haoru Xue',
+      'Xiaoyu Huang',
+      'Dantong Niu',
+      'Qiayuan Liao',
+      'Thomas Kragerud',
+      'Jan Tommy Gravdahl',
+      'Xue Bin Peng',
+      'Guanya Shi',
+      'Trevor Darrell',
+      'Koushil Sreenath',
+      'Shankar Sastry',
+    ],
+    year: 2025,
+    arxiv: '2506.13751',
+    url: 'https://arxiv.org/abs/2506.13751',
+    type: 'paper',
+  },
+  {
+    // NVIDIA GEAR-SONIC whole-body controller workflow repo; pairs with the
+    // Isaac GR00T N1.7 UNITREE_G1_SONIC embodiment tag.
+    id: 'groot-wbc-2026',
+    title: 'GR00T-WholeBodyControl (GEAR-SONIC whole-body controller workflow)',
+    authors: ['NVIDIA'],
+    year: 2026,
+    url: 'https://github.com/NVlabs/GR00T-WholeBodyControl',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
