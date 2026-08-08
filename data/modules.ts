@@ -320,6 +320,7 @@ const PUBLISHED = new Set([
   'manipulation/diffusion-policy',
   'manipulation/generalist-policies',
   'manipulation/hierarchical',
+  'manipulation/knowledge-insulation',
   'manipulation/pi-line',
   'manipulation/realtime-execution',
   'manipulation/rl-finetuning',
