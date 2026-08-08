@@ -858,6 +858,93 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2605.13105',
     type: 'paper',
   },
+  {
+    id: 'rudin-2021',
+    title:
+      'Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning',
+    authors: ['Nikita Rudin', 'David Hoeller', 'Philipp Reist', 'Marco Hutter'],
+    year: 2021,
+    venue: 'CoRL 2021',
+    arxiv: '2109.11978',
+    url: 'https://arxiv.org/abs/2109.11978',
+    type: 'paper',
+  },
+  {
+    id: 'reality-gap-survey-2026',
+    title:
+      'The Reality Gap in Robotics: Challenges, Solutions, and Best Practices',
+    authors: [
+      'Elie Aljalbout',
+      'Jiaxu Xing',
+      'Angel Romero',
+      'Iretiayo Akinola',
+      'Caelan Reed Garrett',
+      'Eric Heiden',
+      'Abhishek Gupta',
+      'Tucker Hermans',
+      'Yashraj Narang',
+      'Dieter Fox',
+      'Davide Scaramuzza',
+      'Fabio Ramos',
+    ],
+    year: 2025,
+    venue:
+      'Annual Review of Control, Robotics, and Autonomous Systems 2026 (accepted)',
+    arxiv: '2510.20808',
+    url: 'https://arxiv.org/abs/2510.20808',
+    type: 'paper',
+  },
+  {
+    id: 'isaac-lab-2025',
+    title:
+      'Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning',
+    authors: ['Mayank Mittal', 'NVIDIA'],
+    year: 2025,
+    arxiv: '2511.04831',
+    url: 'https://arxiv.org/abs/2511.04831',
+    type: 'paper',
+  },
+  {
+    id: 'lin-humanoid-sim2real-2025',
+    title:
+      'Sim-to-Real Reinforcement Learning for Vision-Based Dexterous Manipulation on Humanoids',
+    authors: [
+      'Toru Lin',
+      'Kartik Sachdev',
+      'Linxi Fan',
+      'Jitendra Malik',
+      'Yuke Zhu',
+    ],
+    year: 2025,
+    venue: 'CoRL 2025',
+    arxiv: '2502.20396',
+    url: 'https://arxiv.org/abs/2502.20396',
+    type: 'paper',
+  },
+  {
+    id: 'openai-rubiks-cube-2019',
+    title: "Solving Rubik's Cube with a Robot Hand",
+    authors: ['OpenAI', 'Ilge Akkaya', 'Marcin Andrychowicz'],
+    year: 2019,
+    arxiv: '1910.07113',
+    url: 'https://arxiv.org/abs/1910.07113',
+    type: 'paper',
+  },
+  {
+    id: 'play2perfect-2026',
+    title:
+      'Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly?',
+    authors: [
+      'Tyler Ga Wei Lum',
+      'Kushal Kedia',
+      'C. Karen Liu',
+      'Jeannette Bohg',
+    ],
+    year: 2026,
+    arxiv: '2606.26428',
+    url: 'https://arxiv.org/abs/2606.26428',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
