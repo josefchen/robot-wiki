@@ -316,6 +316,7 @@ const PUBLISHED = new Set([
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/diffusion-policy',
+  'manipulation/generalist-policies',
   'manipulation/pi-line',
   'manipulation/vla-models',
 ]);
