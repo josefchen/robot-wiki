@@ -119,6 +119,45 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    id: 'consistency-policy-2024',
+    title:
+      'Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation',
+    authors: [
+      'Aaditya Prasad',
+      'Kevin Lin',
+      'Jimmy Wu',
+      'Linqi Zhou',
+      'Jeannette Bohg',
+    ],
+    year: 2024,
+    arxiv: '2405.07503',
+    url: 'https://arxiv.org/abs/2405.07503',
+    type: 'paper',
+  },
+  {
+    id: 'one-step-diffusion-2024',
+    title:
+      'One-Step Diffusion Policy: Fast Visuomotor Policies via Diffusion Distillation',
+    authors: [
+      'Zhendong Wang',
+      'Zhaoshuo Li',
+      'Ajay Mandlekar',
+      'Zhenjia Xu',
+      'Jiaojiao Fan',
+      'Yashraj Narang',
+      'Linxi Fan',
+      'Yuke Zhu',
+      'Yogesh Balaji',
+      'Mingyuan Zhou',
+      'Ming-Yu Liu',
+      'Yu Zeng',
+    ],
+    year: 2024,
+    arxiv: '2410.21257',
+    url: 'https://arxiv.org/abs/2410.21257',
+    type: 'paper',
+  },
+  {
     id: 'hg-dagger-2019',
     title: 'HG-DAgger: Interactive Imitation Learning with Human Experts',
     authors: [

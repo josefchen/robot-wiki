@@ -315,6 +315,7 @@ const entries: Array<[Domain, string, string, string]> = [
 const PUBLISHED = new Set([
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
+  'manipulation/diffusion-policy',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
