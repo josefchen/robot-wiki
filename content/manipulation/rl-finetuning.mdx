@@ -1,0 +1,88 @@
+---
+title: "RL Fine-Tuning of Policies"
+description: "DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: the working recipes for closing the reliability gap with on-policy experience."
+domain: manipulation
+slug: rl-finetuning
+order: 9
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - dagger-2011
+  - dppo-2024
+  - conrft-2025
+  - pi-rl-2026
+  - pistar06-2025
+  - pistar06-blog-2025
+  - pi06-model-card-2025
+  - hil-serl-2024
+  - pld-2026
+  - rldg-2024
+  - rl-vla-generalization-2025
+  - pair-vla-2026
+---
+
+import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
+import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
+
+Imitation learning gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure rather than only from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="espresso throughput" value=">2x" note="Recap, vendor-reported" accent />
+  <Stat label="real-world training" value="1-2.5 h" note="HIL-SERL, near-perfect success" />
+  <Stat label="online fine-tune" value="45-90 min" note="ConRFT, 96.3% avg success" />
+  <Stat label="log-likelihood fix" value="2026" note="pi_RL: Flow-Noise and Flow-SDE" />
+</div>
+
+## The flow-matching log-likelihood problem
+
+Modern policies emit actions through diffusion or flow-matching heads, and that choice breaks the standard policy-gradient machinery. PPO-style updates need the log-likelihood of the action the policy actually took; for a flow-matching head the "action" is the endpoint of an ODE integration, and its likelihood under the model is intractable. For two years this was the standard argument for why RL could not touch the frontier VLAs directly. Three methods dissolve it in different ways <Cite id="dppo-2024" /> <Cite id="conrft-2025" /> <Cite id="pi-rl-2026" />.
+
+**DPPO** (Ren et al., 2024) sidesteps the likelihood of the final action by treating the entire denoising chain as part of the MDP. The environment step and each denoising step form a two-layer MDP, and PPO runs over both layers, with the likelihood computed per denoising transition rather than for the chunk as a whole. The paper packages this with a set of best practices and reports the strongest overall fine-tuning performance and efficiency for diffusion policies among the RL methods it compares <Cite id="dppo-2024" />.
+
+**ConRFT** (Chen et al., 2025) attacks the chain's length instead of its likelihood. A consistency policy collapses multi-step denoising into few-step generation, which makes RL tractable and the policy real-time. Training runs in two stages: an offline stage that combines behavior cloning with Q-learning over a small demonstration set, then an online stage with human interventions for safe exploration. On eight real-world tasks it reports 96.3% average success after 45 to 90 minutes of online fine-tuning, a 144% improvement in success rate over the supervised baselines it compares against <Cite id="conrft-2025" />.
+
+**pi_RL** (Chen et al., 2025; v3 January 2026) is the most complete treatment for flow-based VLAs of the pi0 class, and it solves the likelihood problem twice. **Flow-Noise** models denoising as a discrete-time MDP with a learnable noise network, which yields an exact action log-likelihood. **Flow-SDE** converts the sampling ODE into an SDE, so denoising and environment interaction merge into a two-layer MDP with genuine stochastic exploration. The paper reports significant gains over supervised fine-tuning both in-distribution and out-of-distribution <Cite id="pi-rl-2026" />. If you want to run PPO on a pi0.5-class model today, this is the recipe to read first.
+
+## Recap: conditioning instead of gradients
+
+Recap, the method behind pi*0.6, avoids the policy-gradient question entirely. Its structure mirrors how a person picks up a manual skill: **demonstrations** define the behavior, **coaching** supplies corrections (an expert teleoperator takes over mid-rollout when the policy errs), and **practice** is RL from autonomous experience <Cite id="pistar06-2025" />.
+
+The mechanism has three moving parts. First, a language-conditioned distributional value function is trained to predict (negative) steps-to-completion. This is what solves credit assignment, and the report's example makes the problem concrete: if a portafilter is grasped at a bad angle and the insertion fails 20 seconds later, the mistake was the grasp, and only a value function can attribute the failure back to it. Second, the advantage, an n-step change in value, is computed for each transition and **binarized**. Third, that binary tag is fed to the VLA as a conditioning input in the prefix. All data, good and bad, stays in training; the model is simply told which is which. At execution time you always condition on "high advantage" <Cite id="pistar06-2025" />.
+
+The theoretical basis is the KL-regularized RL solution, realized as conditioning rather than reweighting:
+
+$$\hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A(o, a) / \beta\right)$$
+
+This is what makes RL scale to a 5B-parameter flow-matching VLA: no gradients pass through the action head at RL time, so the whole apparatus rides on supervised-style training with an extra token <Cite id="pistar06-2025" /> <Cite id="pi06-model-card-2025" />.
+
+The interactive below walks one failed espresso episode. Scrub through it and watch the value trace: segments where the value rises are tagged high advantage, segments where it falls are tagged low, and the dashed arc shows the credit assignment, the failed insertion blamed on the grasp 20 seconds earlier. The other two views show what Recap does with those tags: at training time every transition is kept with its binary label, and at execution time the policy is conditioned on "high."
+
+<AdvantageScrubber className="my-6" />
+
+The reported results are strong: espresso throughput and success rate both more than doubled, failure rates were cut by 2x or more on the hardest tasks, and all three demonstrated applications (espresso, laundry, box assembly) exceeded 90% success, including continuous espresso operation from 5:30am to 11:30pm <Cite id="pistar06-2025" />. Two caveats apply. The numbers are vendor-reported in a lab report, not peer-reviewed, and the weights are closed. And the method targets long-horizon throughput at fleet scale; it requires reward labeling, human interveners, and many robots.
+
+## HIL-SERL: a human in the loop, RL on the robot
+
+HIL-SERL (Luo et al., 2024) remains the strongest real-world evidence that RL can exceed imitation on precise, dynamic, dual-arm tasks. The mechanism is sample-efficient off-policy RL (RLPD-style) with demonstrations seeded into the replay buffer, plus a human operator who takes over during failures. The takeovers do double duty: they enter the buffer as corrective data and they reshape the state distribution the policy experiences. Against imitation and prior RL baselines, all initialized with 200 demonstrations, HIL-SERL reaches near-perfect success rates within 1 to 2.5 hours of real-world training, with an average 2x improvement in success rate and 1.8x faster execution <Cite id="hil-serl-2024" />. Its limitation is exactly the human: one operator per robot does not scale to a fleet, which is precisely the gap Recap's coaching stage and the residual-RL line try to close.
+
+## Residual RL and distillation back into the generalist
+
+The dominant practical pattern in 2026 keeps the expensive generalist frozen. A small residual policy learns to add corrections to the base policy's actions, trained with sample-efficient off-policy RL. The trainable parameter count is tiny, the base policy's semantics survive, and exploration stays local by construction. **PLD** (Probe, Learn, Distill; Xiao et al., ICLR 2026) makes the loop explicit: residual actors probe the generalist to find where it fails, RL trains experts on those failure regions, and the residual-generated successes are distilled back into the generalist so the residual can be discarded. It reports 99% task success on LIBERO, gains of over 50% on SimplerEnv, and 100% success on its real Franka and YAM manipulation tasks <Cite id="pld-2026" />.
+
+A sibling pattern skips the residual and uses RL purely as a data engine. **RLDG** (Xu et al., 2024) trains task-specific RL policies, then fine-tunes the generalist on the trajectories those policies generate. On precise insertion and assembly tasks, generalists trained on RL-generated data consistently outperformed the same models trained on human demonstrations, by up to 40% higher success rates, because the RL trajectories are more consistent and cover the recovery states humans rarely demonstrate <Cite id="rldg-2024" />.
+
+## The six methods side by side
+
+<RlMethodsTable className="my-6 wide-measure" />
+
+Read the evidence column before the result column. Recap's numbers are the most impressive in the table and the least independently verified: they come from the lab's own report on its own hardware. HIL-SERL, ConRFT, and PLD report on public benchmarks or released-task suites with code available. pi_RL's gains are measured in simulation, and its code or weights are not disclosed.
+
+## What RL actually buys, and the caveats
+
+The systematic evidence is narrower than the hype. The NeurIPS 2025 empirical study of RL fine-tuning for VLAs finds that the gains concentrate in execution robustness and semantic understanding under distribution shift, exactly the compounding-error regime where imitation is weakest, rather than in broad new-task generalization; PPO outperformed LLM-derived objectives like DPO and GRPO in that study <Cite id="rl-vla-generalization-2025" />. A 2026 follow-up adds a negative result: RL-fine-tuned VLAs can become newly fragile to deployment-time visual perturbations, because the task reward says nothing about which visual changes matter <Cite id="pair-vla-2026" />.
+
+<Callout variant="warn" title="How to read these numbers">
+  Most RL fine-tuning results live on simulated benchmarks (LIBERO, SimplerEnv) or a handful of real tasks, so cross-paper comparisons are unreliable. Reward specification is unsolved: nearly every method uses a hand-written success detector or a VLM-based one, which is itself a reward-hacking surface. And the strongest real-world results, Recap's, are vendor-reported with closed weights. Treat the table above as a map of mechanisms, not a leaderboard.
+</Callout>
+
+The [comparison matrix](/manipulation/comparison-matrix) places these methods against the imitation-only baselines they build on, and [the pi line](/manipulation/pi-line) traces how Recap grew out of the pi0.6 architecture and was later distilled back into pi0.7's single generalist.

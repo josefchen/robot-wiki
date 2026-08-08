@@ -109,7 +109,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'rl-finetuning',
     'RL Fine-Tuning of Policies',
-    'DPPO, ConRFT, Recap, and HIL-SERL: closing the reliability gap with on-policy experience.',
+    'DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.',
   ],
   [
     'manipulation',
@@ -320,6 +320,7 @@ const PUBLISHED = new Set([
   'manipulation/generalist-policies',
   'manipulation/hierarchical',
   'manipulation/pi-line',
+  'manipulation/rl-finetuning',
   'manipulation/vla-models',
 ]);
 
