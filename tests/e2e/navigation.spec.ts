@@ -120,7 +120,9 @@ test.describe('navigation shell', () => {
   });
 
   test('themed not-found page renders for unknown routes', async ({ page }) => {
-    await page.goto('/manipulation/bc-foundations/');
+    // Must be a draft route; bc-foundations shipped, so this uses a draft
+    // adjacent module. Swap when it publishes.
+    await page.goto('/adjacent/space/');
     await expect(
       page.getByRole('heading', { name: 'Page not found' }),
     ).toBeVisible();

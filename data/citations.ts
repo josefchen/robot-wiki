@@ -15,6 +15,15 @@ export type { Citation } from './schemas/citation.ts';
 
 export const CITATIONS: Citation[] = [
   {
+    id: 'alvinn-1988',
+    title: 'ALVINN: An Autonomous Land Vehicle in a Neural Network',
+    authors: ['Dean A. Pomerleau'],
+    year: 1988,
+    venue: 'NeurIPS 1988',
+    url: 'https://papers.nips.cc/paper/95-alvinn-an-autonomous-land-vehicle-in-a-neural-network',
+    type: 'paper',
+  },
+  {
     id: 'dagger-2011',
     title:
       'A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning',
@@ -108,6 +117,29 @@ export const CITATIONS: Citation[] = [
     arxiv: '2506.07339',
     url: 'https://arxiv.org/abs/2506.07339',
     type: 'paper',
+  },
+  {
+    id: 'hg-dagger-2019',
+    title: 'HG-DAgger: Interactive Imitation Learning with Human Experts',
+    authors: [
+      'Michael Kelly',
+      'Chelsea Sidrane',
+      'Katherine Driggs-Campbell',
+      'Mykel J. Kochenderfer',
+    ],
+    year: 2019,
+    venue: 'ICRA 2019',
+    arxiv: '1810.02890',
+    url: 'https://arxiv.org/abs/1810.02890',
+    type: 'paper',
+  },
+  {
+    id: 'pistar06-blog-2025',
+    title: 'π*0.6: a VLA that Learns from Experience',
+    authors: ['Physical Intelligence'],
+    year: 2025,
+    url: 'https://www.pi.website/blog/pistar06',
+    type: 'blog',
   },
   {
     id: 'pi-real-time-chunking-blog-2025',

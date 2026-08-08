@@ -72,15 +72,19 @@ describe('NavTree', () => {
     await user.click(
       screen.getByRole('button', { name: 'Manipulation & Learned Policies' }),
     );
-    // The one published module is a link to its route.
+    // Published modules are links to their routes.
     expect(
       screen.getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' }),
     ).toHaveAttribute('href', '/manipulation/action-chunking');
-    // Drafts are plain rows marked planned, never links (would 404).
     expect(
-      screen.queryByRole('link', { name: 'Behavior Cloning Foundations' }),
+      screen.getByRole('link', { name: 'Behavior Cloning Foundations' }),
+    ).toHaveAttribute('href', '/manipulation/bc-foundations');
+    // Drafts are plain rows marked planned, never links (would 404).
+    // Swap to another draft when Comparison Matrix ships.
+    expect(
+      screen.queryByRole('link', { name: 'Comparison Matrix' }),
     ).not.toBeInTheDocument();
-    expect(screen.getByText('Behavior Cloning Foundations')).toBeInTheDocument();
+    expect(screen.getByText('Comparison Matrix')).toBeInTheDocument();
   });
 
   it('offers a domain overview link inside each expanded group', async () => {

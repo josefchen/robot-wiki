@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="Covariate shift diagram: a policy rollout drifting out of the expert demonstration corridor">
+  <rect width="640" height="250" fill="#121517"/>
+
+  <!-- Expert corridor (the states the demonstrations cover) -->
+  <path d="M40,104 C 180,44 300,164 600,94 L600,146 C 300,216 180,96 40,156 Z" fill="#181c1f" opacity="0.6"/>
+  <path d="M40,104 C 180,44 300,164 600,94" fill="none" stroke="#333a40" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M40,156 C 180,96 300,216 600,146" fill="none" stroke="#333a40" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Demonstration trajectories: tight around the center line -->
+  <path d="M40,126 C 180,72 300,184 600,124" fill="none" stroke="#9aa4ab" stroke-width="1" opacity="0.8"/>
+  <path d="M40,134 C 180,66 300,196 600,116" fill="none" stroke="#9aa4ab" stroke-width="1" opacity="0.55"/>
+  <path d="M40,130 C 180,80 300,176 600,132" fill="none" stroke="#9aa4ab" stroke-width="1" opacity="0.55"/>
+
+  <!-- Policy rollout: on-distribution at first, then drifting out -->
+  <path d="M40,130 C 140,84 220,150 300,196 C 380,242 480,238 566,226" fill="none" stroke="#f5a623" stroke-width="2.5"/>
+  <circle cx="566" cy="226" r="4" fill="#0b0d0e" stroke="#f5a623" stroke-width="2"/>
+
+  <!-- Where the rollout exits the corridor -->
+  <circle cx="300" cy="196" r="5" fill="none" stroke="#f5a623" stroke-width="1.5"/>
+  <line x1="306" y1="190" x2="352" y2="60" stroke="#f5a623" stroke-width="1" opacity="0.7"/>
+  <text x="358" y="56" font-family="ui-monospace, monospace" font-size="11" fill="#f5a623">leaves the training distribution</text>
+
+  <!-- Labels -->
+  <text x="48" y="76" font-family="ui-monospace, monospace" font-size="11" fill="#9aa4ab">expert demonstrations (training)</text>
+  <text x="430" y="212" font-family="ui-monospace, monospace" font-size="11" fill="#f5a623">policy rollout</text>
+  <text x="48" y="228" font-family="ui-monospace, monospace" font-size="10" fill="#9aa4ab">each small error moves the policy into states the expert never visited,</text>
+  <text x="48" y="241" font-family="ui-monospace, monospace" font-size="10" fill="#9aa4ab">where its next error is larger</text>
+</svg>
