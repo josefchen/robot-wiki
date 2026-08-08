@@ -5,7 +5,7 @@ domain: manipulation
 slug: action-chunking
 order: 2
 status: published
-lastReviewed: "2026-08-07"
+lastReviewed: "2026-08-08"
 citations:
   - dagger-2011
   - act-aloha-2023
@@ -16,6 +16,7 @@ citations:
 ---
 
 import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
+import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
 Behavior cloning fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
@@ -95,6 +96,10 @@ def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
 </Aside>
 
 Real-Time Chunking (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why later flow-matching policies adopt it over ensembling.
+
+The dial below injects inference delay into both execution strategies. Temporal ensembling holds while inference stays fast, then the averaged action drifts off the committed mode and the strategy fails inside the documented 100 to 200 ms window. RTC freezes the actions that will already have executed and stays on the in-flight mode, so its throughput line does not move <Cite id="real-time-chunking-2025" />.
+
+<LatencyComparison className="my-6" />
 
 ## The lineage in numbers
 
