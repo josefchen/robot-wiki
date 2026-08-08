@@ -1,0 +1,91 @@
+---
+title: "What Is a World Model?"
+description: "The term 'world model' names at least six architecturally distinct paradigms. They differ in what is predicted, in what space, and for what purpose. This module disambiguates them and sets the vocabulary for the rest of the domain."
+domain: world-models
+slug: taxonomy
+order: 1
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - world-model-survey-2026
+  - dreamerv3-2023
+  - tdmpc2-2023
+  - daydreamer-2022
+  - cosmos-3-2026
+  - genie-3-2025
+  - vjepa2-2025
+  - worldvla-2025
+  - occworld-2023
+  - mujoco-2012
+  - 3dgs-2023
+---
+
+import { WmTaxonomyTable } from '@/components/mdx/wm-taxonomy-table';
+import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
+
+Ask three labs what their world model is and you will get three different objects. One means a compact latent dynamics model trained on its own robot's experience, used to train a policy in imagination. One means a video generator conditioned on actions, used as a stand-in for the environment. One means an embedding-space predictor that never produces an image at all. All three are called world models in their papers, and they share almost nothing architecturally.
+
+The term denotes multiple architecturally distinct paradigms, and they differ along three axes: what is predicted, in what space the prediction lives, and what the prediction is for. Conflating them is the single most common source of sloppy writing in this area, and it is not harmless. A claim that is true of one paradigm ("world models are too slow for closed-loop control") is false of another, and benchmark results do not transfer across the boundary.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="paradigms" value="6" note="sharing one name" accent />
+  <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" />
+  <Stat label="TD-MPC2 params" value="317M" note="one agent, 80 tasks" />
+  <Stat label="V-JEPA 2 video" value="1M+" note="hours of action-free pretraining" />
+</div>
+
+## The functional cut
+
+The 2026 world-model survey draws the line that matters. A model is a world model only if its predictions change under the agent's action in a way that is useful for decision-making: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos" <Cite id="world-model-survey-2026" />.
+
+This criterion does real work. A video model that produces a beautiful rollout regardless of the action you feed it is a movie generator, not a world model, and it cannot be used to choose between actions. The survey's named top open challenge, weak action conditioning, is exactly this failure: many models are trained mostly on observation history and task intent, so their futures are semantically plausible but not faithful to the physical consequences of a candidate action <Cite id="world-model-survey-2026" />. Every paradigm below passes the functional cut in principle. They differ in how, and in what you can do with the prediction once you have it.
+
+## The six paradigms
+
+<WmTaxonomyTable className="my-6 wide-measure" />
+
+### Latent dynamics: predict a compact state, dream in it
+
+The oldest learned lineage and the only one with a decade of evidence on sample-efficient control. Dreamer learns a recurrent state-space model with a deterministic recurrent state and a stochastic latent, reconstructs observations during training, and trains its actor and critic entirely on imagined latent rollouts. DreamerV3's contribution was a set of normalization tricks (symlog transforms, two-hot reward encoding) that let one fixed hyperparameter set work across more than 150 tasks, and it was the first agent to collect diamonds in Minecraft from scratch <Cite id="dreamerv3-2023" />. DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />.
+
+### Decoder-free latent: no image, just value
+
+TD-MPC2 drops the reconstruction. Its latent is trained only to support reward and value prediction, so the model never spends capacity on visually irrelevant detail, and at every control step it runs trajectory optimization (MPPI) in latent space, warm-started from a learned policy prior. The headline result is a single 317M-parameter agent across 80 tasks spanning multiple task domains, embodiments, and action spaces <Cite id="tdmpc2-2023" />. The difference from Dreamer is not cosmetic: with no decoder there is no image to inspect, and planning replaces the learned actor as the source of action selection.
+
+### Generative video: predict the pixels
+
+These models predict future pixels from current frames plus an action or text condition, and they are where the money is. NVIDIA's Cosmos 3 folds understanding, generation, forward dynamics, inverse dynamics, and policy into one omni-model with separate autoregressive and diffusion subsequences sharing joint attention <Cite id="cosmos-3-2026" />. DeepMind's Genie 3 generates navigable worlds in real time at 24 fps and 720p, consistent for a few minutes, and its own published limitation list (constrained agent action space, few-minute interaction duration) is the most honest accounting in this area <Cite id="genie-3-2025" />. What these models are actually used for today is data generation, policy evaluation, and RL post-training in narrow task families, not general replacement of physics engines.
+
+### JEPA: predict the representation, never the pixels
+
+V-JEPA 2 pretrains action-free on over a million hours of internet video, then post-trains an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, and plans zero-shot on Franka arms it has never seen by searching action sequences whose predicted embedding lands closest to a goal image's embedding <Cite id="vjepa2-2025" />. Whether this beats generative prediction is a live argument with named proponents on both sides; the JEPA module in this domain gives it a full treatment.
+
+### Unified world-action: one backbone, two heads
+
+Here the world model and the policy fuse into one backbone that emits future frames and action chunks together, so world modeling acts as an auxiliary objective that shapes the representations the policy reads. WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other <Cite id="worldvla-2025" />; Cosmos Policy is the same idea on top of the Cosmos backbone. The prediction is real, but its job is to make the policy better, not to be inspected or rolled out interactively.
+
+### Symbolic and structured: predict predicates, not percepts
+
+These models predict transitions over predicates, object relations, or 3D occupancy instead of anything continuous. OccWorld, from autonomous driving, predicts how a scene's occupancy grid evolves and produces competitive planning results without instance or map supervision <Cite id="occworld-2023" />. The appeal is long-horizon: discrete relational state does not accumulate pixel-space error the way a 50-step video rollout does. The cost is that someone, or some perception stack, has to produce the symbols.
+
+## Two boundary cases
+
+Two systems are routinely called world models and deserve a precise verdict.
+
+### A physics engine is a world model
+
+MuJoCo is an explicit, hand-specified state-transition model: given a state and an action, it predicts the next state, and its predictions are nothing if not action-dependent <Cite id="mujoco-2012" />. It is simply not learned. This is not a pedantic point. TD-MPC2 and classical MPC are the same algorithm with one difference, whether the dynamics model is learned or derived, and much of the RL-versus-MPC debate in the locomotion domain reduces to that choice.
+
+### A 3D Gaussian Splatting twin is not
+
+A 3DGS reconstruction of a real scene is a learned renderer: it predicts what the scene looks like from a new camera pose <Cite id="3dgs-2023" />. When such a twin is used for robot training, the dynamics come from the physics engine the splats are bolted onto. Appearance is learned, physics is not, and a renderer alone fails the functional cut because it has no answer to what happens under an action.
+
+## What each paradigm is actually for
+
+The panel grid below draws what each paradigm predicts. Select a panel and the use row underneath shows which of the four functional roles the paradigm serves in practice. The pattern worth internalizing: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.
+
+<WmDisambiguator className="my-6" />
+
+## Reading world-model claims
+
+When a paper or a vendor says "world model," three questions disambiguate it: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks. The rest of this domain takes the paradigms in turn: latent dynamics, generative video, JEPA, and the generative-simulation alternative that keeps the physics real and generates the content instead.

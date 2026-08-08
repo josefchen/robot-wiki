@@ -169,7 +169,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'taxonomy',
     'What Is a World Model?',
-    'Six paradigms share one name: latent dynamics, generative video, JEPA, unified world-action, and symbolic models disambiguated.',
+    'Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.',
   ],
   [
     'world-models',
@@ -331,6 +331,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/reward-design-mpc',
   'rl-sim2real/sim2real-transfer',
   'rl-sim2real/why-rl-locomotion',
+  'world-models/taxonomy',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
