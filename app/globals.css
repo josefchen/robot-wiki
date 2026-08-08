@@ -268,3 +268,19 @@
   padding: 0 0.125em;
   color: var(--color-text);
 }
+
+/*
+ * Dense comparison surfaces (the comparison matrix, dataset and hardware
+ * tables) outgrow the 65ch prose measure. At lg+ this utility expands a
+ * direct child of the centered article symmetrically toward the main
+ * region's width: viewport minus the 18rem sidebar and 3rem of gutters,
+ * capped at 80rem. The element never exceeds the main region, so it cannot
+ * cause page-level horizontal scroll. Below lg the surface stays in-measure
+ * and scrolls horizontally inside its own container.
+ */
+@media (min-width: 1024px) {
+  .wide-measure {
+    width: min(80rem, calc(100vw - 18rem - 3rem));
+    margin-left: calc(50% - min(40rem, (100vw - 18rem - 3rem) / 2));
+  }
+}

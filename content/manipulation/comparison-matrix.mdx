@@ -1,0 +1,73 @@
+---
+title: "Comparison Matrix"
+description: "Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness."
+domain: manipulation
+slug: comparison-matrix
+order: 7
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - rt1-2022
+  - act-aloha-2023
+  - diffusion-policy-2023
+  - rt2-2023
+  - open-x-embodiment-2023
+  - octo-2024
+  - openvla-2024
+  - openvla-oft-2025
+  - pi0-2024
+  - pi0-fast-2025
+  - pi05-2025
+  - pi06-model-card-2025
+  - pi07-2026
+  - gemini-robotics-15-2025
+  - gemini-robotics-2-2026
+  - gr00t-n1-2025
+  - isaac-gr00t-repo-2026
+  - helix-02-2026
+  - agibot-go2-2026
+  - skild-series-c-2026
+  - real-time-chunking-2025
+  - knowledge-insulation-paper-2025
+---
+
+import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
+
+The preceding modules in this domain each followed one lineage at a time. This one lays them side by side. The table below covers 18 policies, from RT-1 in 2022 to the current frontier, across the eight axes that determine how a learned policy behaves in a control loop. Every value comes from a primary source: a paper, a model card, or the vendor's own documentation, and the row carries that source. Two honesty rules apply throughout. Cells the vendor has not published read "not disclosed" instead of a guessed value, and figures that circulate without verification, such as the RT-2 and OpenVLA control rates, are omitted rather than repeated <Cite id="rt2-2023" /> <Cite id="openvla-2024" />.
+
+## The eight axes
+
+**Action representation** is how the policy emits motor commands: continuous regression, discrete tokens decoded like text, or a generative head (diffusion or flow matching) that samples continuous chunks. This choice drives everything downstream, including inference cost and control rate.
+
+**Horizon** shows the planned chunk length $H$ against the steps actually executed $\hat{H}$ before the policy re-plans. The gap between the two numbers sets the policy's reactivity: Diffusion Policy predicts 16 steps but commits 8, and π0.7 predicts 50 but commits only 15 to 25 <Cite id="diffusion-policy-2023" /> <Cite id="pi07-2026" />.
+
+**Control frequency** is the policy-side rate, not the low-level controller's. ACT queries its transformer at 50 Hz and smooths with temporal ensembling <Cite id="act-aloha-2023" />; RT-1 managed 3 Hz <Cite id="rt1-2022" />. Dual-rate stacks report both rates in the cell note.
+
+**Backbone**, **conditioning**, and **cross-embodiment** describe what the model is built on, what signals it consumes, and whether one checkpoint serves multiple robot bodies. Cross-embodiment "yes" hides three different mechanisms, padded joint vectors in the π line, a shared relative end-effector frame in GR00T N1.7, and DeepMind's unnamed Motion Transfer recipe <Cite id="pi0-2024" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gemini-robotics-15-2025" />.
+
+**Hierarchy** marks whether a slow reasoning layer sits above the fast policy, and whether that layer lives inside one model (internal, as in π0.5's subtask prediction) or in a separate system (external, as when GR00T pairs with a whole-body controller) <Cite id="pi05-2025" />. **Weights** records whether you can download the model today.
+
+<ComparisonMatrix className="my-6 wide-measure" />
+
+## What the matrix shows
+
+Generative action heads displaced regression. ACT's deterministic CVAE decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples actions through diffusion, discrete tokens, or flow matching <Cite id="diffusion-policy-2023" /> <Cite id="pi0-2024" />. The discrete-token detour of RT-1, RT-2, and OpenVLA bought web-scale pretraining at the cost of autoregressive decode latency, and the field's answer was the flow-matching action expert: continuous chunks in a handful of denoising steps, trained behind a stop-gradient so the VLM backbone keeps its web knowledge <Cite id="knowledge-insulation-paper-2025" />. π0-FAST is the exception that tests the rule: it keeps the autoregressive recipe and makes it fast enough with DCT tokenization, at roughly twice the end-to-end latency of the flow head <Cite id="pi0-fast-2025" />.
+
+Chunks got long, then execution got selective. Horizon went from 1 step in RT-1 to 50 in the π line, but the newest rows shrink the *committed* horizon rather than the planned one. π0.7 executes 15 to 25 of its 50 predicted steps, and the real-time chunking work exists precisely to keep long-chunk policies responsive under inference latency <Cite id="pi07-2026" /> <Cite id="real-time-chunking-2025" />.
+
+Fifty hertz became the standard claim, and the note column shows what it costs. Temporal ensembling, parallel decoding, KV-cached prefixes, and five-step denoising all exist to make a multi-billion-parameter model answer inside a 20 ms budget <Cite id="openvla-oft-2025" /> <Cite id="pi06-model-card-2025" />. Helix 02's split is the extreme version: no single rate closes the loop, so a 200 Hz visuomotor policy hands off to a 1 kHz whole-body controller <Cite id="helix-02-2026" />.
+
+Hierarchy moved inside the model. From π0.5 onward the frontier rows all carry an internal high-level layer: subtask prediction in the π line, the ER orchestrator in Gemini Robotics, the S0/S1/S2 stack in Helix <Cite id="pi05-2025" /> <Cite id="gemini-robotics-2-2026" />. The external-hierarchy era of separate planners is covered in the next module.
+
+Finally, the weights column tells the access story in one glance. Everything downloadable, ACT through OpenVLA-OFT, π0 through π0.5, GR00T N1.7, sits at least one generation behind the closed frontier, and the closed rows are exactly the ones with the most "not disclosed" cells <Cite id="pi05-2025" /> <Cite id="gr00t-n1-2025" />.
+
+<Callout variant="warn" title="Read the closed rows with care">
+  Gemini Robotics 1.5 and 2, Helix 02, AgiBot GO-2, and Skild disclose
+  little or nothing about action representation, chunking, or control rate.
+  Their cells are marked "not disclosed" because that is the honest state of
+  the public record, and vendor demonstrations are not architecture
+  documentation. Where a claim is unverifiable, this atlas says so instead
+  of filling the gap with a plausible number <Cite id="skild-series-c-2026" />.
+</Callout>
+
+One comparison the table cannot make is frequency against frequency. ACT's 50 Hz, Helix's 200 Hz S1, and π0.7's 50 Hz with training-time latency compensation are three different measurement setups, not three points on one scale. Treat the Control Hz column as "the rate the source reports for the policy" and read the cell notes before ranking two rows against each other.

@@ -4,6 +4,7 @@ import { slugSchema } from './shared.ts';
 export const actionRepresentationSchema = z.enum([
   'continuous',
   'discrete',
+  'diffusion',
   'flow',
 ]);
 
@@ -20,13 +21,22 @@ export const methodSchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
   year: z.number().int().min(1980).max(2100).nullable(),
-  actionRepresentation: actionRepresentationSchema,
+  /** Null when the vendor has not disclosed the representation. */
+  actionRepresentation: actionRepresentationSchema.nullable(),
   /** Planned chunk length vs. steps actually executed before re-inference. */
   actionHorizon: z.object({
     planned: z.number().int().positive().nullable(),
     executed: z.number().int().positive().nullable(),
+    /** Range or qualifier a single integer cannot carry, e.g. "15-25". */
+    note: z.string().min(1).optional(),
   }),
   controlFrequencyHz: z.number().positive().nullable(),
+  /**
+   * Rate qualifier a single number cannot carry: dual-rate stacks
+   * ("S1 200 Hz, S0 1 kHz"), ranges ("25-50 Hz class"), or deployment
+   * caveats ("embodiment-dependent").
+   */
+  controlFrequencyNote: z.string().min(1).optional(),
   backbone: z.string().min(1).nullable(),
   conditioning: z.array(z.string().min(1)),
   crossEmbodiment: triStateSchema.nullable(),
@@ -35,5 +45,7 @@ export const methodSchema = z.object({
   /** Citation registry IDs backing this row. */
   sources: z.array(slugSchema).min(1),
 });
+
+export type ActionRepresentation = z.infer<typeof actionRepresentationSchema>;
 
 export type Method = z.infer<typeof methodSchema>;
