@@ -9,6 +9,18 @@ vi.mock('next/navigation', () => ({
 }));
 
 import { NavTree } from '@/components/nav/nav-tree';
+import { DOMAIN_META, modules } from '@/data/modules';
+import { firstDraftModule } from '@/tests/helpers/draft-fixtures';
+
+// Fixtures derive from the module registry (data/modules.ts) so publishing a
+// module never breaks them: the published-link assertions track the
+// manipulation group's published set, and the draft probe is the first
+// remaining draft (preferring manipulation, then any domain).
+const PROBE_DOMAIN = 'manipulation';
+const publishedProbeModules = modules.filter(
+  (m) => m.domain === PROBE_DOMAIN && m.status === 'published',
+);
+const draftProbe = firstDraftModule(PROBE_DOMAIN) ?? firstDraftModule();
 
 const GROUP_NAMES = [
   'Manipulation & Learned Policies',
@@ -66,26 +78,38 @@ describe('NavTree', () => {
     expect(target).toHaveAttribute('aria-expanded', 'false');
   });
 
-  it('links published modules and renders drafts as non-link planned rows', async () => {
+  it('links every published module in the manipulation group to its route', async () => {
     const user = userEvent.setup();
     render(<NavTree idPrefix="test" ariaLabel="Atlas taxonomy" />);
     await user.click(
-      screen.getByRole('button', { name: 'Manipulation & Learned Policies' }),
+      screen.getByRole('button', { name: DOMAIN_META[PROBE_DOMAIN].name }),
     );
-    // Published modules are links to their routes.
-    expect(
-      screen.getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' }),
-    ).toHaveAttribute('href', '/manipulation/action-chunking');
-    expect(
-      screen.getByRole('link', { name: 'Behavior Cloning Foundations' }),
-    ).toHaveAttribute('href', '/manipulation/bc-foundations');
-    // Drafts are plain rows marked planned, never links (would 404).
-    // Swap to another draft when Comparison Matrix ships.
-    expect(
-      screen.queryByRole('link', { name: 'Comparison Matrix' }),
-    ).not.toBeInTheDocument();
-    expect(screen.getByText('Comparison Matrix')).toBeInTheDocument();
+    expect(publishedProbeModules.length).toBeGreaterThan(0);
+    for (const m of publishedProbeModules) {
+      expect(screen.getByRole('link', { name: m.title })).toHaveAttribute(
+        'href',
+        `/${m.domain}/${m.slug}`,
+      );
+    }
   });
+
+  // Skips itself once every module in the registry has published.
+  it.runIf(draftProbe !== undefined)(
+    'renders the first draft module as a non-link planned row',
+    async () => {
+      if (draftProbe === undefined) return; // narrowing; runIf guards this
+      const user = userEvent.setup();
+      render(<NavTree idPrefix="test" ariaLabel="Atlas taxonomy" />);
+      await user.click(
+        screen.getByRole('button', { name: DOMAIN_META[draftProbe.domain].name }),
+      );
+      // Drafts are plain rows marked planned, never links (a link would 404).
+      expect(
+        screen.queryByRole('link', { name: draftProbe.title }),
+      ).not.toBeInTheDocument();
+      expect(screen.getByText(draftProbe.title)).toBeInTheDocument();
+    },
+  );
 
   it('offers a domain overview link inside each expanded group', async () => {
     const user = userEvent.setup();
