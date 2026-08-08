@@ -316,6 +316,7 @@ const PUBLISHED = new Set([
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/diffusion-policy',
+  'manipulation/vla-models',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

@@ -1,0 +1,80 @@
+---
+title: "Vision-Language-Action Models"
+description: "RT-1, RT-2, RT-X, Octo, and OpenVLA: how web-scale vision-language pretraining entered robot control, why actions became text tokens, and what that choice costs in throughput."
+domain: manipulation
+slug: vla-models
+order: 4
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - rt1-2022
+  - rt2-2023
+  - open-x-embodiment-2023
+  - octo-2024
+  - openvla-2024
+  - openvla-oft-2025
+  - knowledge-insulation-2025
+  - oxe-quality-critique-2026
+  - act-aloha-2023
+---
+
+import { ActionTokenization } from '@/components/interactive/action-tokenization';
+
+The modules so far covered policies trained from scratch on robot data alone: [behavior cloning](/manipulation/bc-foundations), [ACT](/manipulation/action-chunking), and [Diffusion Policy](/manipulation/diffusion-policy). The vision-language-action (VLA) line changes the starting point. Instead of training a policy from nothing, take a model that already understands images and language from web-scale pretraining, and teach it to emit robot actions. The design question that defines this lineage is how to get actions out of a model whose output space is text.
+
+## RT-1: actions become tokens
+
+RT-1, from Google in 2022, established the recipe <Cite id="rt1-2022" />. A FiLM-conditioned EfficientNet processes a 6-frame image history, with the language instruction modulating the vision backbone; a TokenLearner module compresses 81 visual tokens per image down to 8, giving 48 tokens total; an 8-layer decoder-only transformer (19M parameters, 35M for the full system) maps those tokens to actions. The load-bearing choice: each of the 11 action dimensions (7 arm, 3 base, 1 mode switch) is discretized into 256 uniform bins, so the policy can be trained as an ordinary next-token predictor.
+
+The model was trained on roughly 130k episodes spanning 700+ tasks, collected over 17 months by a fleet of 13 Everyday Robots mobile manipulators, and evaluated in 3,000 real-world trials <Cite id="rt1-2022" />. The central finding was that data diversity buys generalization: broad multi-task data transferred to new tasks and distractors better than narrow expert data.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="bins per dim" value="256" note="uniform quantization" accent />
+  <Stat label="action dims" value="11" note="7 arm, 3 base, 1 mode" />
+  <Stat label="episodes" value="~130k" note="700+ tasks, 13 robots" />
+  <Stat label="control rate" value="3 Hz" note="single-step actions" />
+</div>
+
+The limitations matter as much as the result. RT-1 runs at 3 Hz, too slow for contact-rich or dexterous work, and it emits one single-step action per inference, so it carries the full compounding-error exposure that [action chunking](/manipulation/action-chunking) was designed to avoid. And while it follows language, nothing in a 35M-parameter model trained on robot data alone contains much knowledge about the world.
+
+## RT-2: actions become text
+
+RT-2 (2023) attacked the knowledge problem directly <Cite id="rt2-2023" />. Rather than bolting a robot head onto a vision-language model, it expresses actions as strings in the VLM's existing vocabulary: each action dimension is discretized, and the bin indices are serialized into the token stream, reusing rarely-used text tokens as the action vocabulary. The backbone (PaLI-X or PaLM-E, up to 55B parameters) is then co-fine-tuned on a mixture of robot trajectories and the original web vision-language data. Co-fine-tuning, as opposed to fine-tuning on robot data alone, is what preserves the web knowledge; this recipe is the ancestor of every co-training scheme since <Cite id="rt2-2023" />.
+
+The payoff was emergent capability: generalization to objects never seen in robot data, commands requiring semantic interpretation, and rudimentary chain-of-thought reasoning (picking "the object that could be used as a hammer") <Cite id="rt2-2023" />. The cost was throughput. Every control step requires autoregressively decoding several text tokens through a multi-billion-parameter VLM, which caps the control rate in the low single-digit Hz. Physical Intelligence's later verdict on the representation: it "is not suitable for high-frequency, precise, or fluent motions ... it's a bit like controlling your arm by verbally saying which muscles should contract" <Cite id="knowledge-insulation-2025" />.
+
+## Open X-Embodiment and RT-X: pooling the data
+
+By 2023 every robot lab had its own small dataset in its own format, and no one could test whether one model could serve many robots. The Open X-Embodiment collaboration pooled 22 embodiments from 21 institutions into a single standardized format: over 1M real robot trajectories covering 527 skills (160,266 tasks) <Cite id="open-x-embodiment-2023" />. Models trained on the pool (RT-1-X, RT-2-X) outperformed their single-embodiment counterparts, the first large-scale evidence of positive cross-embodiment transfer <Cite id="open-x-embodiment-2023" />.
+
+Treat the dataset as infrastructure, not ground truth. The constituent datasets vary widely in action spaces and control frequencies, and by 2026 a common critique holds that much of the pooled data is low quality, with no good method for quantifying data quality in imitation learning <Cite id="oxe-quality-critique-2026" />. Nearly every generalist policy below trains on it anyway, for lack of an alternative.
+
+## Octo and OpenVLA: the open models
+
+Two 2024 releases made the VLA recipe reproducible outside Google.
+
+Octo is an open-source generalist policy built for fine-tuning to new robots <Cite id="octo-2024" />. A transformer trained from scratch (27M and 93M parameter versions) consumes observation tokens and task tokens (a language instruction or a goal image) under a block-wise attention mask; learned readout tokens attend to the sequence and feed a small diffusion head that produces the action chunk. The block-wise masking is the point: new cameras or new task specifications slot in as new token blocks without restructuring the model. Trained on 800k Open X-Embodiment trajectories, Octo has no web-scale vision-language pretraining, which makes it a large behavior model rather than a VLA in the strict sense, and its language following is correspondingly weaker than VLM-initialized models <Cite id="octo-2024" />.
+
+OpenVLA replicates the RT-2 recipe on public data <Cite id="openvla-2024" />. The backbone is Prismatic-7B: LLaMA-2-7B behind a fused DINOv2 + SigLIP vision encoder (DINOv2 contributes spatial features, SigLIP contributes semantics). Actions are 7-dimensional (6-DoF end-effector delta plus gripper), each dimension discretized into 256 bins mapped onto the 256 least-frequently-used tokens of the LLaMA tokenizer, emitted autoregressively. Trained on 970k Open X-Embodiment episodes, OpenVLA reportedly outperforms the 55B RT-2-X by 16.5% absolute across 29 evaluation tasks with 7x fewer parameters <Cite id="openvla-2024" />.
+
+## The discrete-token throughput problem
+
+The interactive below shows the mechanism. A continuous 7-dim action chunk is binned into 256 uniform bins per dimension, and each bin index becomes one vocabulary token. Scrub the control step and watch the assigned bin, the emitted token, and the reconstruction error update; note the reconstruction error is nonzero even in the best case, because uniform quantization throws away everything inside a bin.
+
+<ActionTokenization className="my-6" />
+
+The cost structure is visible in the token stream: because the tokens are produced autoregressively, one 7-dim action costs 7 sequential decode passes through the full model. For OpenVLA that is 7 passes through a 7B network per control step, which puts practical control rates in the single-digit Hz. Compare the 50 Hz loop of [ACT](/manipulation/action-chunking): a discrete-token VLA is an order of magnitude too slow for the control frequencies dexterous manipulation assumes.
+
+<Callout variant="warn" title="Unverified figures">
+  Two control-rate numbers circulate without a verifiable source. RT-2's control frequency is not clearly stated in the paper or on the project page. OpenVLA is commonly cited at ~6 Hz on an A100, but that figure is not stated in the paper text either. Both are flagged here as unverified rather than repeated as fact; the qualitative claim (single-digit Hz) follows directly from the architecture <Cite id="rt2-2023" /> <Cite id="openvla-2024" />.
+</Callout>
+
+OpenVLA-OFT (2025) is the cleanest demonstration that the representation, not the model quality, was the bottleneck <Cite id="openvla-oft-2025" />. Its fine-tuning recipe changes three things at once: parallel decoding replaces autoregressive generation with a single forward pass that produces all action tokens at once under bidirectional attention; action chunking predicts multiple future timesteps per call; and a continuous L1 regression head replaces the discrete tokens entirely (with FiLM language conditioning added for bimanual setups). The result on the LIBERO benchmark: average success rises from 76.5% to 97.1%, and action-generation throughput increases 26x, enough to run dexterous high-frequency tasks on a bimanual ALOHA <Cite id="openvla-oft-2025" />.
+
+<Aside title="The L1 result cuts deeper than the speedup">
+  Once chunking and parallel decoding were in place, plain L1 regression was competitive with a diffusion head in the OFT ablations <Cite id="openvla-oft-2025" />. That suggests part of the advantage earlier attributed to diffusion heads came from the chunking those heads happened to ship with, not from the probabilistic modeling itself. ACT made the same point from the other direction in 2023: its regression baseline improves dramatically once it predicts chunks <Cite id="act-aloha-2023" />.
+</Aside>
+
+## Where this leaves the field
+
+The 2022 to 2024 lineage settled two facts. Web-scale pretraining transfers to robot control (RT-2, OpenVLA), and pooled cross-embodiment data transfers positively (RT-X). It also isolated discrete action tokens as the weak point: expressive enough to train with language-model machinery, too slow to close a high-frequency control loop, and coarse at 256 bins. The next module in this domain covers the response: Physical Intelligence's pi line, which keeps the pretrained backbone but replaces the token head with a flow-matching action expert, then reintroduces discrete tokens as a training-time supervision signal.
