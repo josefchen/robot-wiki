@@ -325,6 +325,7 @@ const PUBLISHED = new Set([
   'manipulation/realtime-execution',
   'manipulation/rl-finetuning',
   'manipulation/vla-models',
+  'rl-sim2real/parallel-sim-rl',
   'rl-sim2real/why-rl-locomotion',
 ]);
 
