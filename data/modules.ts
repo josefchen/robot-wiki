@@ -316,6 +316,7 @@ const PUBLISHED = new Set([
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/comparison-matrix',
+  'manipulation/cross-embodiment',
   'manipulation/diffusion-policy',
   'manipulation/generalist-policies',
   'manipulation/hierarchical',

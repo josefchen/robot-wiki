@@ -601,6 +601,15 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Lab research page; no arXiv id as of 2026-08.
+    id: 'pi-human-to-robot-2025',
+    title: 'Emergent Human-to-Robot Transfer (pi.website research note)',
+    authors: ['Physical Intelligence'],
+    year: 2025,
+    url: 'https://www.pi.website/research/human_to_robot',
+    type: 'blog',
+  },
+  {
     id: 'pi-real-time-chunking-blog-2025',
     title: 'Real-Time Chunking',
     authors: ['Physical Intelligence'],

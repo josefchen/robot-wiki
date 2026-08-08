@@ -1,0 +1,62 @@
+---
+title: "Cross-Embodiment Transfer"
+description: "Padded action vectors, motion transfer, and shared relative end-effector frames: three incompatible answers to one question, and the live disagreement over whether transfer needs to be engineered at all."
+domain: manipulation
+slug: cross-embodiment
+order: 11
+status: published
+lastReviewed: "2026-08-08"
+citations:
+  - pi0-2024
+  - octo-2024
+  - open-x-embodiment-2023
+  - oxe-quality-critique-2026
+  - gemini-robotics-15-2025
+  - gemini-robotics-2-2026
+  - gr00t-n1-2025
+  - isaac-gr00t-repo-2026
+  - pi-human-to-robot-2025
+---
+
+import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
+
+A 7-DoF Franka emits 8 numbers per step. A bimanual ALOHA emits 14. A humanoid emits dozens, and a human hand in a video emits none, just keypoints. A generalist policy trained across all of these has to decide what an "action" even is before it can learn anything. Every frontier lab has answered this question, and they have answered it three different, incompatible ways. The choice is not a detail: it determines what data the policy can consume, and in particular whether the largest untapped data source in robotics, egocentric human video, can enter pretraining at all.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="pi0 pretraining" value="10K hours" note="7+ robot configurations, 68 tasks" accent />
+  <Stat label="OXE pool" value="22 embodiments" note="the data most generalists train on" />
+  <Stat label="EgoScale video" value="20K hours" note="enters GR00T N1.7 pretraining directly" />
+  <Stat label="PI transfer gain" value="~2x" note="from human video, no alignment mechanism" />
+</div>
+
+## Strategy one: pad everything into one vector
+
+The pi0 family and Octo use the simplest possible answer <Cite id="pi0-2024" /> <Cite id="octo-2024" />. Define a single action and state vector wide enough for the biggest robot in the training mix. A narrower robot occupies the leading dimensions and zero-pads the rest. Each embodiment gets its own normalization statistics, so a Franka's joint velocities and a mobile manipulator's base commands are scaled into comparable ranges before the model ever sees them. pi0 trained this way across more than 7 robot configurations and 68 tasks, roughly 10,000 hours of data, most of it pooled through the Open X-Embodiment mixture <Cite id="pi0-2024" /> <Cite id="open-x-embodiment-2023" />.
+
+The scheme works, and its weaknesses are known. Zero-padding wastes model capacity on dims that carry nothing. Per-embodiment normalization papers over real differences in action semantics and control frequency: one critique of the OXE pool argues that part of what looks like cross-embodiment transfer in pooled training is an artifact of the normalization scheme itself, on data whose quality is heterogeneous and largely unmeasured <Cite id="oxe-quality-critique-2026" /> <Cite id="open-x-embodiment-2023" />. And the vector has no slot for a human hand. Nothing about 3D hand keypoints tracked from a head-mounted camera fits a robot joint layout, so egocentric video stays outside the padded space.
+
+## Strategy two: motion transfer, mechanism undisclosed
+
+Gemini Robotics 1.5 trains across ALOHA 2, a bi-arm Franka, and the Apptronik Apollo humanoid using a named recipe called Motion Transfer, described as an architecture and training procedure that moves motion knowledge between very different robots <Cite id="gemini-robotics-15-2025" />. The published ablations are the interesting part: single-embodiment training underperforms, and multi-embodiment training without Motion Transfer also underperforms, so the recipe itself is carrying the transfer. Gemini Robotics On-Device 2 inherits it and reportedly adapts to a new bi-arm embodiment in a few hours with typically under 200 examples, across robots as different as the SO-101 and Dexmate <Cite id="gemini-robotics-2-2026" />.
+
+That is all the public record contains. The 1.5 report does not disclose the representation, the architecture, or whether human video participates. Motion Transfer is a demonstrated effect with an invisible mechanism, which is why the interactive below draws it as a schematic latent and flags the whole mode as under-specified rather than guessing at a structure.
+
+## Strategy three: one relative end-effector space for robots and humans
+
+GR00T N1.7 takes the engineered route <Cite id="isaac-gr00t-repo-2026" />. Instead of absolute joint targets, every embodiment acts in deltas from its current end-effector pose. A per-embodiment frame transform, the EmbodimentTag system carried over from N1 <Cite id="gr00t-n1-2025" />, maps each robot's body into that shared relative space. The payoff is the fourth row of the interactive: a human hand already lives in end-effector space. Track 3D hand keypoints from egocentric video, express them as deltas, and the video becomes training data in the same representation the robots use. That is the mechanism behind N1.7 pretraining on 20,000 hours of EgoScale human video alongside robot demonstrations, with no domain-adaptation step <Cite id="isaac-gr00t-repo-2026" />. NVIDIA's README calls the shared relative-EEF space a key factor in the model's cross-embodiment performance.
+
+The comparison below renders all three strategies on the same four data sources at identical geometry. Watch the bottom row: it is unusable in two modes and fully active in the third.
+
+<CrossEmbodimentStrategies className="my-6" />
+
+## The live disagreement
+
+Here the field splits, and both sides are on the record. NVIDIA's position is embodied in GR00T N1.7: transfer between human and robot data requires an engineered shared representation, so they built one <Cite id="isaac-gr00t-repo-2026" />. Physical Intelligence's competing finding, published December 2025, is that no alignment mechanism is needed at all <Cite id="pi-human-to-robot-2025" />. They treated egocentric human video as just another embodiment, with 3D hand positions as its actions, and trained on it directly. Transfer emerged anyway: roughly 2x improvement on generalization tasks, with feature-space analyses showing human and robot representations aligning only once robot pretraining was sufficiently large and diverse. On this account, alignment is something scale produces, not something you build.
+
+Nobody has run the head-to-head. It is possible both claims are true at once: an explicit shared space might be a cheaper route to the representation that enough scale would discover on its own, in which case the disagreement is about efficiency rather than possibility. It is also possible that the two findings depend on different regimes, different tasks, different video quality, different robot diversity, and will not reconcile cleanly. What an ML engineer should take from the module is not a winner but the fork: if you are building on open weights today, GR00T hands you the engineered answer and openpi's pi0.5 hands you the padded one, and the published evidence does not yet decide between them.
+
+<Callout variant="warn" title="How to read this module">
+  The padded-vector and relative-EEF mechanisms are documented in a paper and a public repository respectively. Motion Transfer is vendor-described with no disclosed mechanism, and the Gemini embodiment-adaptation figures are vendor-reported. The interactive's slot widths are an illustrative rendering; the sourced numbers are the humanoid's 29 dims (GR00T N1), the 20,000 EgoScale hours (N1.7 README), the 10,000 pi0 pretraining hours, and PI's roughly 2x transfer figure, which comes from a lab research note, not a peer-reviewed paper.
+</Callout>
+
+The [comparison matrix](/manipulation/comparison-matrix) tabulates which policy uses which strategy, and the [generalist policies module](/manipulation/generalist-policies) covers the labs' broader release landscape. The [pi line module](/manipulation/pi-line) traces how the pi family's own answer evolved from pi0 to pi0.7.
