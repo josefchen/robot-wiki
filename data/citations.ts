@@ -2148,6 +2148,695 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2410.15536',
     type: 'paper',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 31 authors; first three listed.
+    id: 'gpt3-2020',
+    title: 'Language Models are Few-Shot Learners',
+    authors: ['Tom B. Brown', 'Benjamin Mann', 'Nick Ryder'],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2005.14165',
+    url: 'https://arxiv.org/abs/2005.14165',
+    type: 'paper',
+  },
+  {
+    // Verified against the live page (2026-08-08): over 15T pretraining tokens.
+    id: 'llama-3-2024',
+    title:
+      'Introducing Meta Llama 3: The most capable openly available LLM to date',
+    authors: ['Meta AI'],
+    year: 2024,
+    url: 'https://ai.meta.com/blog/meta-llama-3/',
+    type: 'blog',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    id: 'fineweb-2024',
+    title:
+      'The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale',
+    authors: [
+      'Guilherme Penedo',
+      'Hynek Kydlíček',
+      'Loubna Ben allal',
+      'Anton Lozhkov',
+      'Margaret Mitchell',
+      'Colin Raffel',
+      'Leandro Von Werra',
+      'Thomas Wolf',
+    ],
+    year: 2024,
+    venue: 'NeurIPS 2024',
+    arxiv: '2406.17557',
+    url: 'https://arxiv.org/abs/2406.17557',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
+    id: 'droid-2024',
+    title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset',
+    authors: ['Alexander Khazatsky', 'Karl Pertsch', 'Suraj Nair'],
+    year: 2024,
+    arxiv: '2403.12945',
+    url: 'https://arxiv.org/abs/2403.12945',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 14 authors; first
+    // three listed. CoRL 2023 per the PMLR v229 proceedings entry (venue
+    // omitted from the entry: it duplicates the year in the chip tooltip).
+    // research/03 does not cover BridgeData V2; figures verified against the
+    // abs page and the project site (60,096 trajectories, 24 environments,
+    // 13 skills, CC BY 4.0).
+    id: 'bridgedata-v2-2023',
+    title: 'BridgeData V2: A Dataset for Robot Learning at Scale',
+    authors: ['Homer Walke', 'Kevin Black', 'Abraham Lee'],
+    year: 2023,
+    arxiv: '2308.12952',
+    url: 'https://arxiv.org/abs/2308.12952',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 37 authors; first
+    // three listed. RSS 2025 per the journal reference on the abs page.
+    id: 'robomind-2024',
+    title:
+      'RoboMIND: Benchmark on Multi-embodiment Intelligence Normative Data for Robot Manipulation',
+    authors: ['Kun Wu', 'Chengkai Hou', 'Jiaming Liu'],
+    year: 2024,
+    venue: 'RSS 2025',
+    arxiv: '2412.13877',
+    url: 'https://arxiv.org/abs/2412.13877',
+    type: 'paper',
+  },
+  {
+    // Dataset release page (research/03 ref [5]). Episode and hour counts
+    // are not published there as of August 2026; total file size 13.2 TB.
+    id: 'agibot-world-2026',
+    title: 'AgiBot World 2026 (dataset release)',
+    authors: ['AgiBot'],
+    year: 2026,
+    url: 'https://huggingface.co/datasets/agibot-world/AgiBotWorld2026',
+    type: 'docs',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
+    // Science Robotics 2026 per research/03.
+    id: 'tri-lbm-2025',
+    title:
+      'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
+    authors: ['TRI LBM Team'],
+    year: 2025,
+    venue: 'Science Robotics 2026',
+    arxiv: '2507.05331',
+    url: 'https://arxiv.org/abs/2507.05331',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 6 authors.
+    // ICLR 2025 oral per research/03.
+    id: 'lin-data-scaling-laws-2024',
+    title: 'Data Scaling Laws in Imitation Learning for Robotic Manipulation',
+    authors: [
+      'Fanqi Lin',
+      'Yingdong Hu',
+      'Pingyue Sheng',
+      'Chuan Wen',
+      'Jiacheng You',
+      'Yang Gao',
+    ],
+    year: 2024,
+    venue: 'ICLR 2025',
+    arxiv: '2410.18647',
+    url: 'https://arxiv.org/abs/2410.18647',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 10 authors.
+    id: 'diversity-scaling-2025',
+    title: 'Is Diversity All You Need for Scalable Robotic Manipulation?',
+    authors: [
+      'Modi Shi',
+      'Li Chen',
+      'Jin Chen',
+      'Yuxiang Lu',
+      'Chiming Liu',
+      'Guanghui Ren',
+      'Ping Luo',
+      'Di Huang',
+      'Maoqing Yao',
+      'Hongyang Li',
+    ],
+    year: 2025,
+    arxiv: '2507.06219',
+    url: 'https://arxiv.org/abs/2507.06219',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 5 authors; ICLR 2026
+    // per the arXiv comments field.
+    id: 'egodex-2025',
+    title:
+      'EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video',
+    authors: [
+      'Ryan Hoque',
+      'Peide Huang',
+      'David J. Yoon',
+      'Mouli Sivapurapu',
+      'Jian Zhang',
+    ],
+    year: 2025,
+    venue: 'ICLR 2026',
+    arxiv: '2505.11709',
+    url: 'https://arxiv.org/abs/2505.11709',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 15 authors.
+    id: 'egoscale-2026',
+    title:
+      'EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data',
+    authors: [
+      'Ruijie Zheng',
+      'Dantong Niu',
+      'Yuqi Xie',
+      'Jing Wang',
+      'Mengda Xu',
+      'Yunfan Jiang',
+      'Fernando Castañeda',
+      'Fengyuan Hu',
+      'You Liang Tan',
+      'Letian Fu',
+      'Trevor Darrell',
+      'Furong Huang',
+      'Yuke Zhu',
+      'Danfei Xu',
+      'Linxi Fan',
+    ],
+    year: 2026,
+    arxiv: '2602.16710',
+    url: 'https://arxiv.org/abs/2602.16710',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    id: 'umi-2024',
+    title:
+      'Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots',
+    authors: [
+      'Cheng Chi',
+      'Zhenjia Xu',
+      'Chuer Pan',
+      'Eric Cousineau',
+      'Benjamin Burchfiel',
+      'Siyuan Feng',
+      'Russ Tedrake',
+      'Shuran Song',
+    ],
+    year: 2024,
+    arxiv: '2402.10329',
+    url: 'https://arxiv.org/abs/2402.10329',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-08): 85 authors; first three listed.
+    id: 'ego4d-2022',
+    title: 'Ego4D: Around the World in 3,000 Hours of Egocentric Video',
+    authors: ['Kristen Grauman', 'Andrew Westbury', 'Eugene Byrne'],
+    year: 2022,
+    venue: 'CVPR 2022',
+    arxiv: '2110.07058',
+    url: 'https://arxiv.org/abs/2110.07058',
+    type: 'paper',
+  },
+  {
+    // Verified against the live repository (2026-08-09): SO-ARM100 BOM,
+    // SO-101 assembly and the $121.94 follower-arm parts table.
+    id: 'so-arm100-repo-2026',
+    title: 'SO-ARM100: Low-Cost Robot Arms for Everyone',
+    authors: ['TheRobotStudio'],
+    year: 2026,
+    url: 'https://github.com/TheRobotStudio/SO-ARM100',
+    type: 'docs',
+  },
+  {
+    // Verified against the live docs index (2026-08-09): supported robots
+    // (SO-101, LeKiwi, Koch v1.1), ACT / pi0 / SmolVLA policies.
+    id: 'lerobot-docs-2026',
+    title: 'LeRobot Documentation',
+    authors: ['Hugging Face'],
+    year: 2026,
+    url: 'https://huggingface.co/docs/lerobot/index',
+    type: 'docs',
+  },
+  {
+    // Community-compiled pricing table (June 2026), researched with sources
+    // listed at the bottom. Secondary compilation; used only for figures
+    // with no first-party page (Koch BOM, ALOHA 2, Reachy 2).
+    id: 'lerobot-pricing-2026',
+    title: 'LeRobot ecosystem and hardware pricing (June 2026)',
+    authors: ['alpibrusl'],
+    year: 2026,
+    url: 'https://github.com/alpibrusl/lex-robot/issues/3',
+    type: 'blog',
+  },
+  {
+    // Verified against the live product pages (2026-08-09): assembled kit
+    // $299, unassembled bundle $295, 5+1 DoF, 500 g payload.
+    id: 'seeed-so-arm101-pro-2026',
+    title: 'SO-ARM101 Pro Kits',
+    authors: ['Seeed Studio'],
+    year: 2026,
+    url: 'https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product line (2026-08-09): WidowX AI
+    // $2,995 (was $4,545.95) through Mobile AI $22,995 (was $33,695.95),
+    // 500 Hz CAN FD, LeRobot + OpenPI integration.
+    id: 'trossen-ai-2026',
+    title: 'Trossen AI Product Line (formerly ALOHA)',
+    authors: ['Trossen Robotics'],
+    year: 2026,
+    url: 'https://www.trossenrobotics.com/ai',
+    type: 'docs',
+  },
+  {
+    // Secondary aggregator ("38 Best Humanoid Robots in 2026"); authors
+    // state prices and specs were re-verified against manufacturer pages
+    // on 2026-07-13. Used only where no first-party page was reachable.
+    id: 'robozaps-humanoids-2026',
+    title: '38 Best Humanoid Robots in 2026',
+    authors: ['RoboZaps'],
+    year: 2026,
+    url: 'https://blog.robozaps.com/b/best-humanoid-robots',
+    type: 'press',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 1320 mm, ~35 kg,
+    // $13,500 base, 23 DoF base / 23-43 EDU, Dex3-1 hand specs.
+    id: 'unitree-g1-2026',
+    title: 'Unitree G1 Product Page',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/g1/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 1820 mm, ~70 kg,
+    // $29,900, 31 DoF breakdown, 360 N·m leg torque, dexterous hand options.
+    id: 'unitree-h2-2026',
+    title: 'Unitree H2 Product Page',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/H2/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): $20,000 or
+    // $499/month, $200 deposit, 168 cm, 30 kg, Jetson Thor onboard.
+    id: '1x-neo-2026',
+    title: '1X NEO Product Page',
+    authors: ['1X Technologies'],
+    year: 2026,
+    url: 'https://www.1x.tech/neo',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 56 DoF with
+    // continuous rotation, 50 kg instant payload, IP67, 2026 deployments
+    // committed to Hyundai and Google DeepMind.
+    id: 'bd-atlas-2026',
+    title: 'Atlas Product Page',
+    authors: ['Boston Dynamics'],
+    year: 2026,
+    url: 'https://bostondynamics.com/products/atlas/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live announcement (2026-08-09): fleet
+    // production, palm cameras, 2 kW wireless charging through foot coils.
+    id: 'figure-03-2025',
+    title: 'Introducing Figure 03',
+    authors: ['Figure AI'],
+    year: 2025,
+    url: 'https://www.figure.ai/news/introducing-figure-03',
+    type: 'blog',
+  },
+  {
+    // Verified against the arXiv abs page and the LEAP Hand project site
+    // (2026-08-09): 16 DoF, assembled in 4 hours at a cost of $2,000,
+    // one eighth the cost of the Allegro Hand. RSS 2023.
+    id: 'leap-hand-2023',
+    title:
+      'LEAP Hand: Low-Cost, Efficient, and Anthropomorphic Hand for Robot Learning',
+    authors: ['Kenneth Shaw', 'Ananye Agarwal', 'Deepak Pathak'],
+    year: 2023,
+    venue: 'RSS 2023',
+    arxiv: '2309.06440',
+    url: 'https://arxiv.org/abs/2309.06440',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): six authors,
+    // accepted to IEEE Transactions on Robotics.
+    id: 'tactile-outlook-2025',
+    title: 'Tactile Robotics: An Outlook',
+    authors: [
+      'Shan Luo',
+      'Nathan F. Lepora',
+      'Wenzhen Yuan',
+      'Kaspar Althoefer',
+      'Gordon Cheng',
+      'Ravinder Dahiya',
+    ],
+    year: 2025,
+    venue: 'IEEE Transactions on Robotics (accepted)',
+    arxiv: '2508.11261',
+    url: 'https://arxiv.org/abs/2508.11261',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 12 authors; the
+    // DIGIT fingertip sensor design, IEEE RA-L.
+    id: 'digit-sensor-2020',
+    title:
+      'DIGIT: A Novel Design for a Low-Cost Compact High-Resolution Tactile Sensor with Application to In-Hand Manipulation',
+    authors: [
+      'Mike Lambeta',
+      'Po-Wei Chou',
+      'Stephen Tian',
+      'Brian Yang',
+      'Benjamin Maloon',
+      'Victoria Rose Most',
+      'Dave Stroud',
+      'Raymond Santos',
+      'Ahmad Byagowi',
+      'Gregg Kammerer',
+      'Dinesh Jayaraman',
+      'Roberto Calandra',
+    ],
+    year: 2020,
+    venue: 'IEEE RA-L',
+    arxiv: '2005.14679',
+    url: 'https://arxiv.org/abs/2005.14679',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): six authors;
+    // magnetic skin with cross-instance policy generalization.
+    id: 'anyskin-2024',
+    title: 'AnySkin: Plug-and-play Skin Sensing for Robotic Touch',
+    authors: [
+      'Raunaq Bhirangi',
+      'Venkatesh Pattabiraman',
+      'Enes Erciyes',
+      'Yifeng Cao',
+      'Tess Hellebrekers',
+      'Lerrel Pinto',
+    ],
+    year: 2024,
+    arxiv: '2409.08276',
+    url: 'https://arxiv.org/abs/2409.08276',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Meta AI blog (2026-08-09): Digit 360 with
+    // GelSight, released Oct 2024.
+    id: 'meta-fair-touch-2024',
+    title:
+      'Advancing embodied AI through progress in touch perception, dexterity, and human-robot interaction',
+    authors: ['Meta AI'],
+    year: 2024,
+    url: 'https://ai.meta.com/blog/fair-robotics-open-source/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live product page (2026-08-09): T5000 2,070 FP4
+    // TFLOPS / 128 GB LPDDR5X / 40-130 W, T4000 1,200 TFLOPS / 64 GB,
+    // modules sold via NVIDIA partners.
+    id: 'jetson-thor-2026',
+    title: 'Jetson Thor: Advanced AI for Physical Robotics',
+    authors: ['NVIDIA'],
+    year: 2026,
+    url: 'https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/',
+    type: 'docs',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 5 authors. The
+    // full title ends "...for Robot Manipulators" (research/03 truncates
+    // it). Parts BOM under $300 and the ~30 min assembly come from the
+    // paper's project site (wuphilipp.github.io/gello/).
+    id: 'gello-2023',
+    title:
+      'GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators',
+    authors: ['Philipp Wu', 'Yide Shentu', 'Zhongke Yi', 'Xingyu Lin', 'Pieter Abbeel'],
+    year: 2023,
+    arxiv: '2309.13037',
+    url: 'https://arxiv.org/abs/2309.13037',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 5 authors, CoRL
+    // 2024 (venue omitted: it duplicates the entry year in the chip
+    // tooltip). research/03 lists Open TeleVision as [UNVERIFIED]; the
+    // paper was located and verified at arXiv 2407.01512.
+    id: 'open-television-2024',
+    title: 'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback',
+    authors: ['Xuxin Cheng', 'Jialong Li', 'Shiqi Yang', 'Ge Yang', 'Xiaolong Wang'],
+    year: 2024,
+    arxiv: '2407.01512',
+    url: 'https://arxiv.org/abs/2407.01512',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 8 authors. The
+    // full title carries "...for Imitation Learning" (research/03
+    // truncates it). Vision Pro launch price ($3,499) per Apple's
+    // January 2024 announcement, also carried by research/03.
+    id: 'bunny-visionpro-2024',
+    title:
+      'Bunny-VisionPro: Real-Time Bimanual Dexterous Teleoperation for Imitation Learning',
+    authors: [
+      'Runyu Ding',
+      'Yuzhe Qin',
+      'Jiyue Zhu',
+      'Chengzhe Jia',
+      'Shiqi Yang',
+      'Ruihan Yang',
+      'Xiaojuan Qi',
+      'Xiaolong Wang',
+    ],
+    year: 2024,
+    arxiv: '2407.03162',
+    url: 'https://arxiv.org/abs/2407.03162',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 9 authors, TRI and
+    // Princeton; accepted to RSS 2025 per the arXiv comments field. The
+    // near-optimal sequential test cuts evaluation trials by up to 32%
+    // while preserving statistical power.
+    id: 'optimal-stopping-2025',
+    title:
+      'Is Your Imitation Learning Policy Better than Mine? Policy Comparison with Near-Optimal Stopping',
+    authors: [
+      'David Snyder',
+      'Asher James Hancock',
+      'Apurva Badithela',
+      'Emma Dixon',
+      'Patrick Miller',
+      'Rares Andrei Ambrus',
+      'Anirudha Majumdar',
+      'Masha Itkina',
+      'Haruki Nishimura',
+    ],
+    year: 2025,
+    venue: 'RSS 2025',
+    arxiv: '2503.10966',
+    url: 'https://arxiv.org/abs/2503.10966',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page and the SIMPLER project site
+    // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
+    // DeepMind. research/03 misattributes this as an arXiv 2507.05331
+    // companion; the paper is arXiv 2405.05941. Visual matching and system
+    // identification close the visual and control gaps; ~1,500 paired
+    // sim-and-real episodes validate Pearson r and the Mean Maximum Rank
+    // Violation (MMRV) metric.
+    id: 'simpler-2024',
+    title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
+    authors: [
+      'Xuanlin Li',
+      'Kyle Hsu',
+      'Jiayuan Gu',
+      'Karl Pertsch',
+      'Oier Mees',
+      'Homer Rich Walke',
+      'Chuyuan Fu',
+      'Ishikaa Lunawat',
+      'Isabel Sieh',
+      'Sean Kirmani',
+      'Sergey Levine',
+      'Jiajun Wu',
+      'Chelsea Finn',
+      'Hao Su',
+      'Quan Vuong',
+      'Ted Xiao',
+    ],
+    year: 2024,
+    arxiv: '2405.05941',
+    url: 'https://arxiv.org/abs/2405.05941',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 7 authors. Four
+    // task suites, 130 tasks in total, with human-teleoperated
+    // demonstrations for every task. Venue omitted: the arXiv page lists
+    // no publication venue.
+    id: 'libero-2023',
+    title: 'LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning',
+    authors: [
+      'Bo Liu',
+      'Yifeng Zhu',
+      'Chongkai Gao',
+      'Yihao Feng',
+      'Qiang Liu',
+      'Yuke Zhu',
+      'Peter Stone',
+    ],
+    year: 2023,
+    arxiv: '2306.03310',
+    url: 'https://arxiv.org/abs/2306.03310',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 13 authors.
+    // Perturbations across seven dimensions drop models from 95% to below
+    // 30% success under modest camera-viewpoint and initial-state shifts,
+    // and the models largely ignore the language instructions.
+    id: 'libero-plus-2025',
+    title:
+      'LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models',
+    authors: [
+      'Senyu Fei',
+      'Siyin Wang',
+      'Junhao Shi',
+      'Zihao Dai',
+      'Jikun Cai',
+      'Pengfang Qian',
+      'Li Ji',
+      'Xinzhe He',
+      'Shiduo Zhang',
+      'Zhaoye Fei',
+      'Jinlan Fu',
+      'Jingjing Gong',
+      'Xipeng Qiu',
+    ],
+    year: 2025,
+    arxiv: '2510.13626',
+    url: 'https://arxiv.org/abs/2510.13626',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 32 authors across 7
+    // institutions. Crowd-sourced double-blind pairwise comparisons on the
+    // DROID platform: more than 600 pairwise real-robot episodes over 7
+    // generalist policies, aggregated into a policy ranking.
+    id: 'roboarena-2025',
+    title:
+      'RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies',
+    authors: [
+      'Pranav Atreya',
+      'Karl Pertsch',
+      'Tony Lee',
+      'Moo Jin Kim',
+      'Arhan Jain',
+      'Artur Kuramshin',
+      'Clemens Eppner',
+      'Cyrus Neary',
+      'Edward Hu',
+      'Fabio Ramos',
+      'Jonathan Tremblay',
+      'Kanav Arora',
+      'Kirsty Ellis',
+      'Luca Macesanu',
+      'Marcel Torne Villasevil',
+      'Matthew Leonard',
+      'Meedeum Cho',
+      'Ozgur Aslan',
+      'Shivin Dass',
+      'Jie Wang',
+      'William Reger',
+      'Xingfang Yuan',
+      'Xuning Yang',
+      'Abhishek Gupta',
+      'Dinesh Jayaraman',
+      'Glen Berseth',
+      'Kostas Daniilidis',
+      'Roberto Martin-Martin',
+      'Youngwoon Lee',
+      'Percy Liang',
+      'Chelsea Finn',
+      'Sergey Levine',
+    ],
+    year: 2025,
+    arxiv: '2506.18123',
+    url: 'https://arxiv.org/abs/2506.18123',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 37 authors in
+    // alphabetical order. An online evaluation system for large-scale
+    // real-robot testing of VLA models, benchmarked with the Table30 task
+    // suite. research/03 marks further details UNVERIFIED; only the
+    // abstract's claims are used.
+    id: 'robochallenge-2025',
+    title: 'RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies',
+    authors: [
+      'Adina Yakefu',
+      'Bin Xie',
+      'Chongyang Xu',
+      'Enwen Zhang',
+      'Erjin Zhou',
+      'Fan Jia',
+      'Haitao Yang',
+      'Haoqiang Fan',
+      'Haowei Zhang',
+      'Hongyang Peng',
+      'Jing Tan',
+      'Junwen Huang',
+      'Kai Liu',
+      'Kaixin Liu',
+      'Kefan Gu',
+      'Qinglun Zhang',
+      'Ruitao Zhang',
+      'Saike Huang',
+      'Shen Cheng',
+      'Shuaicheng Liu',
+      'Tiancai Wang',
+      'Tiezhen Wang',
+      'Wei Sun',
+      'Wenbin Tang',
+      'Yajun Wei',
+      'Yang Chen',
+      'Youqiang Gui',
+      'Yucheng Zhao',
+      'Yunchao Ma',
+      'Yunfei Wei',
+      'Yunhuan Yang',
+      'Yutong Guo',
+      'Ze Chen',
+      'Zhengyuan Du',
+      'Ziheng Zhang',
+      'Ziming Liu',
+      'Ziwei Yan',
+    ],
+    year: 2025,
+    arxiv: '2510.17950',
+    url: 'https://arxiv.org/abs/2510.17950',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

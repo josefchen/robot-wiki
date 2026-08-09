@@ -1,0 +1,66 @@
+---
+title: "The Evaluation Crisis"
+description: "A success rate compresses trial count, confidence width, task horizon, and scorer bias into one digit. The small-N statistics behind N-of-10 trials, SIMPLER's sim-to-real proxy, RoboArena's blind pairwise arena, and what careful evaluation costs."
+domain: data-hardware
+slug: evaluation-crisis
+order: 5
+status: published
+lastReviewed: "2026-08-09"
+citations:
+  - tri-lbm-2025
+  - diffusion-policy-2023
+  - optimal-stopping-2025
+  - libero-2023
+  - libero-plus-2025
+  - simpler-2024
+  - roboarena-2025
+  - robochallenge-2025
+  - droid-2024
+---
+
+import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
+
+A robot learning paper announces its headline result as a single number: the success rate. That number compresses several choices into one digit: how many times the task was attempted, how long each attempt was allowed to run, how the scene was arranged, and who scored the outcome. Two policies can both report 80% and sit an order of magnitude apart in real capability, because one number was earned over five decisions and the other over thirty. This module covers what the success rate hides, measured in three places: the statistics of small trial counts, the brittleness of clean benchmarks, and the bias of single-lab scoring. Each has a response now being built, and the responses are as much the story as the problem.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="typical trials" value="10-20" note="rollouts per condition in most papers" accent />
+  <Stat label="CI width at n=50" value="20-30pp" note="Clopper-Pearson, absolute success rate" />
+  <Stat label="pairwise episodes" value="600+" note="RoboArena, 7 institutions, blind scoring" />
+  <Stat label="benchmark collapse" value="<30%" note="LIBERO-Plus, from 95% under modest shifts" />
+</div>
+
+## What the success rate hides: the horizon
+
+A success rate is an episode-level outcome, and an episode is a chain of decisions. A policy that must make 30 correct decisions in a row, each succeeding 95% of the time, completes the whole task 0.95 to the power 30 of the time, which is 21.5%. The per-step number sounded strong; the task-level number is a coin flip weighted toward failure. The product is the deployment metric, because users experience whole tasks, and it is not what most tables report.
+
+<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} className="my-6" />
+
+The calculator above computes that product. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. The inverse reading matters too. Two tasks that both report 80% episode success demand different per-step reliabilities: over five steps, 80% implies about 95.6% per step, while over thirty steps it implies about 99.3%. Without the step count, the two results are not comparable, and the step count is frequently absent from the report.
+
+## Ten trials is noise
+
+The second thing the number hides is its own uncertainty. Toyota Research Institute's Large Behavior Model program took the opposite approach to scale. The models extend the Diffusion Policy recipe into multitask systems trained on about 1,700 hours of data: 468 hours of internally collected bimanual teleoperation, 45 hours from simulation, 32 hours of UMI handheld collection, and roughly 1,150 hours curated from Open X-Embodiment <Cite id="diffusion-policy-2023" /> <Cite id="tri-lbm-2025" />. The evaluation budget was the point of the exercise: 1,800 real-world rollouts and over 47,000 simulation rollouts, with 50 real and 200 simulated attempts per task, totaling 4,200 rollouts across 29 tasks for the pretrained models, scored in blind randomized A/B comparisons <Cite id="tri-lbm-2025" />.
+
+Even at that scale the statistics are uncomfortable. At 50 rollouts, the Clopper-Pearson 95% confidence interval spans 20 to 30 percentage points of absolute success rate <Cite id="tri-lbm-2025" />. Most published results are measured at 10 to 20 rollouts, where the interval is wider still. Differences of 10 to 15 points between methods, the kind that fill comparison tables, sit inside that noise floor, and without a reported interval the reader has no way to tell signal from noise. The TRI authors' conclusion is blunt: many robotics papers may be measuring statistical noise, because the evaluation is underpowered rather than because the methods are equivalent <Cite id="tri-lbm-2025" />.
+
+One response is to spend trials more carefully instead of simply running more of them. Snyder et al. built a sequential test for policy comparison in exactly this small-sample regime: it evaluates the evidence after each trial and stops once one policy is clearly ahead, cutting the trial count by up to 32% against fixed-budget baselines at the same statistical power <Cite id="optimal-stopping-2025" />. TRI's own real-world A/B scoring used a sequential hypothesis testing framework for the same reason <Cite id="tri-lbm-2025" />. The field's trial budgets are bounded by robot-hours, so statistical efficiency is a resource like data.
+
+## Clean benchmarks overstate
+
+The third hiding place is the benchmark itself. Simulation benchmarks are cheap and reproducible, which is why result tables fill with them. LIBERO, with 130 tasks across four suites and teleoperated demonstrations for every task, is a standard testbed for vision-language-action models <Cite id="libero-2023" />. LIBERO-Plus asked what those scores survive <Cite id="libero-plus-2025" />. The authors perturb the benchmark along seven dimensions: object layout, camera viewpoint, robot initial state, language instruction, lighting, background texture, and sensor noise. Models that score 95% on the clean benchmark fall below 30% under modest shifts of camera viewpoint or initial state. The language ablation cuts deeper: shuffle or remove the instruction and performance barely moves, evidence that the models were largely ignoring the language they appeared to be following <Cite id="libero-plus-2025" />. A high clean-benchmark score can coexist with no real task understanding, and the two are only distinguishable by evaluation under variation.
+
+## Simulation as an evaluation proxy
+
+If real rollouts are expensive and clean benchmarks overstate, the obvious middle ground is simulation. The question is whether simulated performance predicts real performance at all. SIMPLER was built to answer it <Cite id="simpler-2024" />. It identifies two gaps between a simulation and the rig it stands in for: a visual gap, because rendered images differ from camera images, and a control gap, because simulated dynamics respond differently to the same commands. Visual matching closes the first by matching renderer output to real scene appearance, and system identification closes the second by calibrating simulated dynamics against recorded real trajectories <Cite id="simpler-2024" />.
+
+The validation paired about 1,500 simulated episodes with real ones on Google Robot and WidowX setups and measured agreement with Pearson correlation and the Mean Maximum Rank Violation metric, which asks whether the simulator ranks policies the same way the real world does <Cite id="simpler-2024" />. The correlation held for some tasks and behavior modes, including sensitivity to distribution shifts. The caveat is the finding. Agreement is task-dependent, so a simulated score is a claim that must carry its correlation with it, and it does not substitute for real rollouts. Sim-to-real transfer as a training technique has its own module; see [Sim-to-Real Transfer](/rl-sim2real/sim2real-transfer).
+
+## Blind, distributed, pairwise
+
+The last bias is the room. A policy evaluated in one lab, in one scene, scored by the people who built it, inherits that lab's lighting, objects, and expectations. RoboArena distributes the evaluation instead <Cite id="roboarena-2025" />. It crowdsources scoring across seven academic institutions running the DROID Franka Panda platform <Cite id="droid-2024" />. Evaluators choose their own tasks and environments, which scales diversity, but must run double-blind pairwise comparisons: two policies attempt the same task, and the scorer does not know which is which. Over 600 pairwise real-robot episodes across seven generalist policies, the preferences aggregate into a ranking that the authors show is more accurate than conventional centralized evaluation, while being cheaper to scale <Cite id="roboarena-2025" />. RoboChallenge takes the complementary centralized route: an online evaluation system built for testing many models on many tasks, benchmarked with its standardized Table30 task suite <Cite id="robochallenge-2025" />. Distributed or standardized, both are attempts to stop a single lab's accident from being a result.
+
+## Reading a result table
+
+Five questions recover what the single number hides. How many rollouts produced it, and is there a confidence interval; below about 50 trials, a 10-point gap is not evidence <Cite id="tri-lbm-2025" />. How long is the task, because the same episode success implies different per-step reliabilities at different horizons, and the calculator above shows the arithmetic. What survives perturbation, because a clean-benchmark score needs a robustness counterpart before it means deployment <Cite id="libero-plus-2025" />. Who scored it and where, because blind multi-site comparison beats single-lab self-report <Cite id="roboarena-2025" />. And what correlation backs any simulation number, because sim agreement is task-dependent and must be measured, not assumed <Cite id="simpler-2024" />. The field's response to the crisis is exactly this instrumentation: sequential tests that spend trials efficiently, perturbation benchmarks that probe brittleness, sim proxies with stated correlations, and blind distributed arenas. Adoption remains partial, which is why the questions are still worth asking of every table you read.
+
+Where the trials come from is the data story: [The Data Bottleneck](/data-hardware/data-bottleneck) covers the hour-count arithmetic behind every rollout budget, and [Teleoperation Rigs](/data-hardware/teleop-rigs) covers the machines that produce the attempts. The training-side version of compounding, prediction error accumulating step by step, is [Behavior Cloning Foundations](/manipulation/bc-foundations).

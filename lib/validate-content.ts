@@ -15,6 +15,10 @@
  *      every published module declares at least one citation.
  *   6. Internal links in shipped content resolve to a known route (published
  *      module, declared static route, or a file in public/).
+ *   7. Currency hygiene: no unescaped dollar sign before a digit in MDX
+ *      prose. remark-math parses "$1.4B ... $14B" as an inline KaTeX span,
+ *      garbling the sentence and overflowing the mobile column; prices are
+ *      written \$1.4B instead (library/content-quality.md gotcha).
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -50,6 +54,32 @@ const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground'];
 
 const MD_LINK = /\[[^\]]*\]\(\s*(\/[^)\s"']+)[^)]*\)/g;
 const JSX_LINK = /\b(?:href|to)\s*=\s*["'](\/[^"']+)["']/g;
+
+// Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
+// and math spans, but never fenced code, inline code spans, or JSX attribute
+// strings, so those three are masked before scanning. An unescaped dollar
+// sign immediately followed by a digit is the currency pattern ($269, $1.4B,
+// $20,000); genuine math delimiters start with letters or symbols
+// ($O(\varepsilon T^2)$, $$...$$) and do not match.
+const FENCED_CODE = /```[\s\S]*?```/g;
+const INLINE_CODE = /`[^`\n]*`/g;
+const JSX_ATTR_STRING = /\b[A-Za-z_][\w-]*\s*=\s*(["'])[\s\S]*?\1/g;
+const UNESCAPED_CURRENCY = /(?<!\\)\$(?=\d)/g;
+
+/** 1-based line numbers of unescaped currency dollar signs in an MDX body. */
+export function unescapedCurrencyLines(body: string): number[] {
+  // Blank (not remove) masked regions so match indices keep their line numbers.
+  const blank = (match: string) => match.replace(/[^\n]/g, ' ');
+  const masked = body
+    .replace(FENCED_CODE, blank)
+    .replace(INLINE_CODE, blank)
+    .replace(JSX_ATTR_STRING, blank);
+  const lines: number[] = [];
+  for (const match of masked.matchAll(UNESCAPED_CURRENCY)) {
+    lines.push(masked.slice(0, match.index).split('\n').length);
+  }
+  return lines;
+}
 
 function listMdxFiles(dir: string): string[] {
   const out: string[] = [];
@@ -211,6 +241,13 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       if (!isValidInternalTarget(link)) {
         push(rel, `broken internal link: ${link}`);
       }
+    }
+
+    for (const line of unescapedCurrencyLines(body)) {
+      push(
+        rel,
+        `unescaped currency dollar sign at line ${line}: write prices as \\$ (remark-math parses unescaped $ amounts as inline KaTeX; see library/content-quality.md)`,
+      );
     }
   }
 
