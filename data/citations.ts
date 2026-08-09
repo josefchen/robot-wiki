@@ -2368,6 +2368,219 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2110.07058',
     type: 'paper',
   },
+  {
+    // Verified against the live repository (2026-08-09): SO-ARM100 BOM,
+    // SO-101 assembly and the $121.94 follower-arm parts table.
+    id: 'so-arm100-repo-2026',
+    title: 'SO-ARM100: Low-Cost Robot Arms for Everyone',
+    authors: ['TheRobotStudio'],
+    year: 2026,
+    url: 'https://github.com/TheRobotStudio/SO-ARM100',
+    type: 'docs',
+  },
+  {
+    // Verified against the live docs index (2026-08-09): supported robots
+    // (SO-101, LeKiwi, Koch v1.1), ACT / pi0 / SmolVLA policies.
+    id: 'lerobot-docs-2026',
+    title: 'LeRobot Documentation',
+    authors: ['Hugging Face'],
+    year: 2026,
+    url: 'https://huggingface.co/docs/lerobot/index',
+    type: 'docs',
+  },
+  {
+    // Community-compiled pricing table (June 2026), researched with sources
+    // listed at the bottom. Secondary compilation; used only for figures
+    // with no first-party page (Koch BOM, ALOHA 2, Reachy 2).
+    id: 'lerobot-pricing-2026',
+    title: 'LeRobot ecosystem and hardware pricing (June 2026)',
+    authors: ['alpibrusl'],
+    year: 2026,
+    url: 'https://github.com/alpibrusl/lex-robot/issues/3',
+    type: 'blog',
+  },
+  {
+    // Verified against the live product pages (2026-08-09): assembled kit
+    // $299, unassembled bundle $295, 5+1 DoF, 500 g payload.
+    id: 'seeed-so-arm101-pro-2026',
+    title: 'SO-ARM101 Pro Kits',
+    authors: ['Seeed Studio'],
+    year: 2026,
+    url: 'https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product line (2026-08-09): WidowX AI
+    // $2,995 (was $4,545.95) through Mobile AI $22,995 (was $33,695.95),
+    // 500 Hz CAN FD, LeRobot + OpenPI integration.
+    id: 'trossen-ai-2026',
+    title: 'Trossen AI Product Line (formerly ALOHA)',
+    authors: ['Trossen Robotics'],
+    year: 2026,
+    url: 'https://www.trossenrobotics.com/ai',
+    type: 'docs',
+  },
+  {
+    // Secondary aggregator ("38 Best Humanoid Robots in 2026"); authors
+    // state prices and specs were re-verified against manufacturer pages
+    // on 2026-07-13. Used only where no first-party page was reachable.
+    id: 'robozaps-humanoids-2026',
+    title: '38 Best Humanoid Robots in 2026',
+    authors: ['RoboZaps'],
+    year: 2026,
+    url: 'https://blog.robozaps.com/b/best-humanoid-robots',
+    type: 'press',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 1320 mm, ~35 kg,
+    // $13,500 base, 23 DoF base / 23-43 EDU, Dex3-1 hand specs.
+    id: 'unitree-g1-2026',
+    title: 'Unitree G1 Product Page',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/g1/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 1820 mm, ~70 kg,
+    // $29,900, 31 DoF breakdown, 360 N·m leg torque, dexterous hand options.
+    id: 'unitree-h2-2026',
+    title: 'Unitree H2 Product Page',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/H2/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): $20,000 or
+    // $499/month, $200 deposit, 168 cm, 30 kg, Jetson Thor onboard.
+    id: '1x-neo-2026',
+    title: '1X NEO Product Page',
+    authors: ['1X Technologies'],
+    year: 2026,
+    url: 'https://www.1x.tech/neo',
+    type: 'docs',
+  },
+  {
+    // Verified against the live product page (2026-08-09): 56 DoF with
+    // continuous rotation, 50 kg instant payload, IP67, 2026 deployments
+    // committed to Hyundai and Google DeepMind.
+    id: 'bd-atlas-2026',
+    title: 'Atlas Product Page',
+    authors: ['Boston Dynamics'],
+    year: 2026,
+    url: 'https://bostondynamics.com/products/atlas/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live announcement (2026-08-09): fleet
+    // production, palm cameras, 2 kW wireless charging through foot coils.
+    id: 'figure-03-2025',
+    title: 'Introducing Figure 03',
+    authors: ['Figure AI'],
+    year: 2025,
+    url: 'https://www.figure.ai/news/introducing-figure-03',
+    type: 'blog',
+  },
+  {
+    // Verified against the arXiv abs page and the LEAP Hand project site
+    // (2026-08-09): 16 DoF, assembled in 4 hours at a cost of $2,000,
+    // one eighth the cost of the Allegro Hand. RSS 2023.
+    id: 'leap-hand-2023',
+    title:
+      'LEAP Hand: Low-Cost, Efficient, and Anthropomorphic Hand for Robot Learning',
+    authors: ['Kenneth Shaw', 'Ananye Agarwal', 'Deepak Pathak'],
+    year: 2023,
+    venue: 'RSS 2023',
+    arxiv: '2309.06440',
+    url: 'https://arxiv.org/abs/2309.06440',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): six authors,
+    // accepted to IEEE Transactions on Robotics.
+    id: 'tactile-outlook-2025',
+    title: 'Tactile Robotics: An Outlook',
+    authors: [
+      'Shan Luo',
+      'Nathan F. Lepora',
+      'Wenzhen Yuan',
+      'Kaspar Althoefer',
+      'Gordon Cheng',
+      'Ravinder Dahiya',
+    ],
+    year: 2025,
+    venue: 'IEEE Transactions on Robotics (accepted)',
+    arxiv: '2508.11261',
+    url: 'https://arxiv.org/abs/2508.11261',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 12 authors; the
+    // DIGIT fingertip sensor design, IEEE RA-L.
+    id: 'digit-sensor-2020',
+    title:
+      'DIGIT: A Novel Design for a Low-Cost Compact High-Resolution Tactile Sensor with Application to In-Hand Manipulation',
+    authors: [
+      'Mike Lambeta',
+      'Po-Wei Chou',
+      'Stephen Tian',
+      'Brian Yang',
+      'Benjamin Maloon',
+      'Victoria Rose Most',
+      'Dave Stroud',
+      'Raymond Santos',
+      'Ahmad Byagowi',
+      'Gregg Kammerer',
+      'Dinesh Jayaraman',
+      'Roberto Calandra',
+    ],
+    year: 2020,
+    venue: 'IEEE RA-L',
+    arxiv: '2005.14679',
+    url: 'https://arxiv.org/abs/2005.14679',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): six authors;
+    // magnetic skin with cross-instance policy generalization.
+    id: 'anyskin-2024',
+    title: 'AnySkin: Plug-and-play Skin Sensing for Robotic Touch',
+    authors: [
+      'Raunaq Bhirangi',
+      'Venkatesh Pattabiraman',
+      'Enes Erciyes',
+      'Yifeng Cao',
+      'Tess Hellebrekers',
+      'Lerrel Pinto',
+    ],
+    year: 2024,
+    arxiv: '2409.08276',
+    url: 'https://arxiv.org/abs/2409.08276',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Meta AI blog (2026-08-09): Digit 360 with
+    // GelSight, released Oct 2024.
+    id: 'meta-fair-touch-2024',
+    title:
+      'Advancing embodied AI through progress in touch perception, dexterity, and human-robot interaction',
+    authors: ['Meta AI'],
+    year: 2024,
+    url: 'https://ai.meta.com/blog/fair-robotics-open-source/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live product page (2026-08-09): T5000 2,070 FP4
+    // TFLOPS / 128 GB LPDDR5X / 40-130 W, T4000 1,200 TFLOPS / 64 GB,
+    // modules sold via NVIDIA partners.
+    id: 'jetson-thor-2026',
+    title: 'Jetson Thor: Advanced AI for Physical Robotics',
+    authors: ['NVIDIA'],
+    year: 2026,
+    url: 'https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

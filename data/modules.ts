@@ -338,6 +338,7 @@ const PUBLISHED = new Set([
   'world-models/generative-sim',
   'data-hardware/data-bottleneck',
   'data-hardware/datasets',
+  'data-hardware/hardware-taxonomy',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
