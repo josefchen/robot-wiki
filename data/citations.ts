@@ -2581,6 +2581,56 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/',
     type: 'docs',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 5 authors. The
+    // full title ends "...for Robot Manipulators" (research/03 truncates
+    // it). Parts BOM under $300 and the ~30 min assembly come from the
+    // paper's project site (wuphilipp.github.io/gello/).
+    id: 'gello-2023',
+    title:
+      'GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators',
+    authors: ['Philipp Wu', 'Yide Shentu', 'Zhongke Yi', 'Xingyu Lin', 'Pieter Abbeel'],
+    year: 2023,
+    arxiv: '2309.13037',
+    url: 'https://arxiv.org/abs/2309.13037',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 5 authors, CoRL
+    // 2024 (venue omitted: it duplicates the entry year in the chip
+    // tooltip). research/03 lists Open TeleVision as [UNVERIFIED]; the
+    // paper was located and verified at arXiv 2407.01512.
+    id: 'open-television-2024',
+    title: 'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback',
+    authors: ['Xuxin Cheng', 'Jialong Li', 'Shiqi Yang', 'Ge Yang', 'Xiaolong Wang'],
+    year: 2024,
+    arxiv: '2407.01512',
+    url: 'https://arxiv.org/abs/2407.01512',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 8 authors. The
+    // full title carries "...for Imitation Learning" (research/03
+    // truncates it). Vision Pro launch price ($3,499) per Apple's
+    // January 2024 announcement, also carried by research/03.
+    id: 'bunny-visionpro-2024',
+    title:
+      'Bunny-VisionPro: Real-Time Bimanual Dexterous Teleoperation for Imitation Learning',
+    authors: [
+      'Runyu Ding',
+      'Yuzhe Qin',
+      'Jiyue Zhu',
+      'Chengzhe Jia',
+      'Shiqi Yang',
+      'Ruihan Yang',
+      'Xiaojuan Qi',
+      'Xiaolong Wang',
+    ],
+    year: 2024,
+    arxiv: '2407.03162',
+    url: 'https://arxiv.org/abs/2407.03162',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

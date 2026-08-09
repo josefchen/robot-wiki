@@ -339,6 +339,7 @@ const PUBLISHED = new Set([
   'data-hardware/data-bottleneck',
   'data-hardware/datasets',
   'data-hardware/hardware-taxonomy',
+  'data-hardware/teleop-rigs',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
