@@ -23,6 +23,16 @@ type ReliabilityCompoundingProps = {
   defaultSteps?: number;
   /** Longest episode the chart draws. Default 100. */
   maxSteps?: number;
+  /**
+   * Lowest selectable per-step success, in percent. Default 50; the
+   * evaluation-crisis module passes 0 so the 0% boundary is reachable.
+   */
+  minPerStepPercent?: number;
+  /**
+   * Highest selectable per-step success, in percent. Default 99.9; the
+   * evaluation-crisis module passes 100 so perfect reliability is reachable.
+   */
+  maxPerStepPercent?: number;
   className?: string;
 };
 
@@ -30,8 +40,8 @@ const WIDTH = 640;
 const HEIGHT = 260;
 const PAD = { top: 14, right: 18, bottom: 30, left: 48 };
 
-const MIN_PER_STEP_PERCENT = 50;
-const MAX_PER_STEP_PERCENT = 99.9;
+const DEFAULT_MIN_PER_STEP_PERCENT = 50;
+const DEFAULT_MAX_PER_STEP_PERCENT = 99.9;
 
 function formatPercent(value: number, digits = 1): string {
   return `${(value * 100).toFixed(digits)}%`;
@@ -41,6 +51,8 @@ export function ReliabilityCompounding({
   defaultPerStep = 0.95,
   defaultSteps = 30,
   maxSteps = 100,
+  minPerStepPercent = DEFAULT_MIN_PER_STEP_PERCENT,
+  maxPerStepPercent = DEFAULT_MAX_PER_STEP_PERCENT,
   className,
 }: ReliabilityCompoundingProps) {
   const [perStepPercent, setPerStepPercent] = useState(defaultPerStep * 100);
@@ -93,8 +105,8 @@ export function ReliabilityCompounding({
           <input
             id="rc-per-step"
             type="range"
-            min={MIN_PER_STEP_PERCENT}
-            max={MAX_PER_STEP_PERCENT}
+            min={minPerStepPercent}
+            max={maxPerStepPercent}
             step={0.1}
             value={perStepPercent}
             onChange={(e) => setPerStepPercent(Number(e.target.value))}

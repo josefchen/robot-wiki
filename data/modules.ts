@@ -340,6 +340,7 @@ const PUBLISHED = new Set([
   'data-hardware/datasets',
   'data-hardware/hardware-taxonomy',
   'data-hardware/teleop-rigs',
+  'data-hardware/evaluation-crisis',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

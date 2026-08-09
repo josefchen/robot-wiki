@@ -58,3 +58,34 @@ describe('clampProbability', () => {
     expect(clampProbability(Number.NaN)).toBe(0);
   });
 });
+
+describe('boundary behavior (evaluation-crisis calculator contract)', () => {
+  it('reads zero whole-task success at 0% per-step for any horizon >= 1', () => {
+    for (const n of [1, 2, 30, 60, 100]) {
+      expect(compoundedSuccessRate(0, n)).toBe(0);
+    }
+  });
+
+  it('reads perfect whole-task success at 100% per-step at any horizon', () => {
+    for (const n of [0, 1, 30, 60, 100]) {
+      expect(compoundedSuccessRate(1, n)).toBe(1);
+    }
+  });
+
+  it('reads exactly the per-step value at N=1', () => {
+    expect(compoundedSuccessRate(0.734, 1)).toBeCloseTo(0.734, 12);
+    expect(compoundedSuccessRate(0, 1)).toBe(0);
+    expect(compoundedSuccessRate(1, 1)).toBe(1);
+  });
+
+  it('stays finite and within [0, 1] across the full control range', () => {
+    for (let p = 0; p <= 1.0001; p += 0.05) {
+      for (const n of [1, 5, 30, 60, 100]) {
+        const v = compoundedSuccessRate(p, n);
+        expect(Number.isNaN(v)).toBe(false);
+        expect(v).toBeGreaterThanOrEqual(0);
+        expect(v).toBeLessThanOrEqual(1);
+      }
+    }
+  });
+});

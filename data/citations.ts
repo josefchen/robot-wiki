@@ -2631,6 +2631,212 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2407.03162',
     type: 'paper',
   },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 9 authors, TRI and
+    // Princeton; accepted to RSS 2025 per the arXiv comments field. The
+    // near-optimal sequential test cuts evaluation trials by up to 32%
+    // while preserving statistical power.
+    id: 'optimal-stopping-2025',
+    title:
+      'Is Your Imitation Learning Policy Better than Mine? Policy Comparison with Near-Optimal Stopping',
+    authors: [
+      'David Snyder',
+      'Asher James Hancock',
+      'Apurva Badithela',
+      'Emma Dixon',
+      'Patrick Miller',
+      'Rares Andrei Ambrus',
+      'Anirudha Majumdar',
+      'Masha Itkina',
+      'Haruki Nishimura',
+    ],
+    year: 2025,
+    venue: 'RSS 2025',
+    arxiv: '2503.10966',
+    url: 'https://arxiv.org/abs/2503.10966',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page and the SIMPLER project site
+    // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
+    // DeepMind. research/03 misattributes this as an arXiv 2507.05331
+    // companion; the paper is arXiv 2405.05941. Visual matching and system
+    // identification close the visual and control gaps; ~1,500 paired
+    // sim-and-real episodes validate Pearson r and the Mean Maximum Rank
+    // Violation (MMRV) metric.
+    id: 'simpler-2024',
+    title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
+    authors: [
+      'Xuanlin Li',
+      'Kyle Hsu',
+      'Jiayuan Gu',
+      'Karl Pertsch',
+      'Oier Mees',
+      'Homer Rich Walke',
+      'Chuyuan Fu',
+      'Ishikaa Lunawat',
+      'Isabel Sieh',
+      'Sean Kirmani',
+      'Sergey Levine',
+      'Jiajun Wu',
+      'Chelsea Finn',
+      'Hao Su',
+      'Quan Vuong',
+      'Ted Xiao',
+    ],
+    year: 2024,
+    arxiv: '2405.05941',
+    url: 'https://arxiv.org/abs/2405.05941',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 7 authors. Four
+    // task suites, 130 tasks in total, with human-teleoperated
+    // demonstrations for every task. Venue omitted: the arXiv page lists
+    // no publication venue.
+    id: 'libero-2023',
+    title: 'LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning',
+    authors: [
+      'Bo Liu',
+      'Yifeng Zhu',
+      'Chongkai Gao',
+      'Yihao Feng',
+      'Qiang Liu',
+      'Yuke Zhu',
+      'Peter Stone',
+    ],
+    year: 2023,
+    arxiv: '2306.03310',
+    url: 'https://arxiv.org/abs/2306.03310',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 13 authors.
+    // Perturbations across seven dimensions drop models from 95% to below
+    // 30% success under modest camera-viewpoint and initial-state shifts,
+    // and the models largely ignore the language instructions.
+    id: 'libero-plus-2025',
+    title:
+      'LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models',
+    authors: [
+      'Senyu Fei',
+      'Siyin Wang',
+      'Junhao Shi',
+      'Zihao Dai',
+      'Jikun Cai',
+      'Pengfang Qian',
+      'Li Ji',
+      'Xinzhe He',
+      'Shiduo Zhang',
+      'Zhaoye Fei',
+      'Jinlan Fu',
+      'Jingjing Gong',
+      'Xipeng Qiu',
+    ],
+    year: 2025,
+    arxiv: '2510.13626',
+    url: 'https://arxiv.org/abs/2510.13626',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 32 authors across 7
+    // institutions. Crowd-sourced double-blind pairwise comparisons on the
+    // DROID platform: more than 600 pairwise real-robot episodes over 7
+    // generalist policies, aggregated into a policy ranking.
+    id: 'roboarena-2025',
+    title:
+      'RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies',
+    authors: [
+      'Pranav Atreya',
+      'Karl Pertsch',
+      'Tony Lee',
+      'Moo Jin Kim',
+      'Arhan Jain',
+      'Artur Kuramshin',
+      'Clemens Eppner',
+      'Cyrus Neary',
+      'Edward Hu',
+      'Fabio Ramos',
+      'Jonathan Tremblay',
+      'Kanav Arora',
+      'Kirsty Ellis',
+      'Luca Macesanu',
+      'Marcel Torne Villasevil',
+      'Matthew Leonard',
+      'Meedeum Cho',
+      'Ozgur Aslan',
+      'Shivin Dass',
+      'Jie Wang',
+      'William Reger',
+      'Xingfang Yuan',
+      'Xuning Yang',
+      'Abhishek Gupta',
+      'Dinesh Jayaraman',
+      'Glen Berseth',
+      'Kostas Daniilidis',
+      'Roberto Martin-Martin',
+      'Youngwoon Lee',
+      'Percy Liang',
+      'Chelsea Finn',
+      'Sergey Levine',
+    ],
+    year: 2025,
+    arxiv: '2506.18123',
+    url: 'https://arxiv.org/abs/2506.18123',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 37 authors in
+    // alphabetical order. An online evaluation system for large-scale
+    // real-robot testing of VLA models, benchmarked with the Table30 task
+    // suite. research/03 marks further details UNVERIFIED; only the
+    // abstract's claims are used.
+    id: 'robochallenge-2025',
+    title: 'RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies',
+    authors: [
+      'Adina Yakefu',
+      'Bin Xie',
+      'Chongyang Xu',
+      'Enwen Zhang',
+      'Erjin Zhou',
+      'Fan Jia',
+      'Haitao Yang',
+      'Haoqiang Fan',
+      'Haowei Zhang',
+      'Hongyang Peng',
+      'Jing Tan',
+      'Junwen Huang',
+      'Kai Liu',
+      'Kaixin Liu',
+      'Kefan Gu',
+      'Qinglun Zhang',
+      'Ruitao Zhang',
+      'Saike Huang',
+      'Shen Cheng',
+      'Shuaicheng Liu',
+      'Tiancai Wang',
+      'Tiezhen Wang',
+      'Wei Sun',
+      'Wenbin Tang',
+      'Yajun Wei',
+      'Yang Chen',
+      'Youqiang Gui',
+      'Yucheng Zhao',
+      'Yunchao Ma',
+      'Yunfei Wei',
+      'Yunhuan Yang',
+      'Yutong Guo',
+      'Ze Chen',
+      'Zhengyuan Du',
+      'Ziheng Zhang',
+      'Ziming Liu',
+      'Ziwei Yan',
+    ],
+    year: 2025,
+    arxiv: '2510.17950',
+    url: 'https://arxiv.org/abs/2510.17950',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
