@@ -2201,6 +2201,44 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-09): 14 authors; first
+    // three listed. CoRL 2023 per the PMLR v229 proceedings entry (venue
+    // omitted from the entry: it duplicates the year in the chip tooltip).
+    // research/03 does not cover BridgeData V2; figures verified against the
+    // abs page and the project site (60,096 trajectories, 24 environments,
+    // 13 skills, CC BY 4.0).
+    id: 'bridgedata-v2-2023',
+    title: 'BridgeData V2: A Dataset for Robot Learning at Scale',
+    authors: ['Homer Walke', 'Kevin Black', 'Abraham Lee'],
+    year: 2023,
+    arxiv: '2308.12952',
+    url: 'https://arxiv.org/abs/2308.12952',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-09): 37 authors; first
+    // three listed. RSS 2025 per the journal reference on the abs page.
+    id: 'robomind-2024',
+    title:
+      'RoboMIND: Benchmark on Multi-embodiment Intelligence Normative Data for Robot Manipulation',
+    authors: ['Kun Wu', 'Chengkai Hou', 'Jiaming Liu'],
+    year: 2024,
+    venue: 'RSS 2025',
+    arxiv: '2412.13877',
+    url: 'https://arxiv.org/abs/2412.13877',
+    type: 'paper',
+  },
+  {
+    // Dataset release page (research/03 ref [5]). Episode and hour counts
+    // are not published there as of August 2026; total file size 13.2 TB.
+    id: 'agibot-world-2026',
+    title: 'AgiBot World 2026 (dataset release)',
+    authors: ['AgiBot'],
+    year: 2026,
+    url: 'https://huggingface.co/datasets/agibot-world/AgiBotWorld2026',
+    type: 'docs',
+  },
+  {
     // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
     // Science Robotics 2026 per research/03.
     id: 'tri-lbm-2025',

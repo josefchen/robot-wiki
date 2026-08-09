@@ -337,6 +337,7 @@ const PUBLISHED = new Set([
   'world-models/jepa',
   'world-models/generative-sim',
   'data-hardware/data-bottleneck',
+  'data-hardware/datasets',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
