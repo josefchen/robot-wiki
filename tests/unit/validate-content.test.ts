@@ -221,6 +221,79 @@ describe('validateContent (fixtures)', () => {
   });
 });
 
+describe('validateContent currency hygiene (remark-math gotcha)', () => {
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-atlas-currency-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function run() {
+    return validateContent({ contentRoot: root, modules: registry, citations });
+  }
+
+  function messages(): string {
+    return run()
+      .map((i) => i.message)
+      .join('\n');
+  }
+
+  it('fails on unescaped currency dollar signs in prose', () => {
+    writeModule(
+      `${frontmatter()}\nThe round cost $1.4B at a valuation above $14B.\n`,
+    );
+    expect(messages()).toContain('currency');
+  });
+
+  it('reports the line number of the offense', () => {
+    writeModule(`${frontmatter()}\nFirst line is clean.\nIt cost $269.\n`);
+    expect(messages()).toContain('line 3');
+  });
+
+  it('passes escaped currency (backslash-dollar)', () => {
+    writeModule(
+      `${frontmatter()}\nThe round cost \\$1.4B at a valuation above \\$14B.\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('passes real inline and display math', () => {
+    writeModule(
+      `${frontmatter()}\nThe bound is $O(\\varepsilon T^2)$ and:\n\n$$\nx_{k+1} = f(x_k)\n$$\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores currency inside inline code spans', () => {
+    writeModule(`${frontmatter()}\nThe shell sees \`$1.00\` as a variable.\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores currency inside fenced code blocks', () => {
+    writeModule(`${frontmatter()}\n\`\`\`bash\necho $1.00\n\`\`\`\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores currency inside JSX attribute strings', () => {
+    writeModule(`${frontmatter()}\n<Stat label="seed" value="$1.03B" note="March 2026" />\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('flags currency in JSX children text, which remark-math does see', () => {
+    writeModule(`${frontmatter()}\n<Callout>It cost $5 million.</Callout>\n`);
+    expect(messages()).toContain('currency');
+  });
+});
+
 describe('validateContent (real repo)', () => {
   it('passes on the shipped content tree', () => {
     const issues = validateContent({
