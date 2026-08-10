@@ -85,6 +85,8 @@ For the planar arm above the table is short. All motion stays in one plane, so e
 
 The convention earns its keep on real arms: four parameters per joint instead of six transform degrees of freedom, and a description compact enough to print on a datasheet. It has costs. Frame assignment is fiddly, and the parameters are discontinuous: as two consecutive joint axes drift toward parallel, the common normal they define can flip, so a small mechanical change can jump a table entry. The product-of-exponentials formulation avoids the discontinuity by describing each joint as a screw about a fixed axis, and it is the treatment Modern Robotics uses throughout <Cite id="modern-robotics-2017" />. The output of either notation is the same transform product; the convention is a choice of bookkeeping.
 
+<Image id="puma-560-nasa-ames" />
+
 Modern rigs rarely run DH at all. The 3D playground reads the SO-101 chain directly from its URDF, a tree of links and joints where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />. DH remains the common paper language for writing a robot's geometry down, which is why every datasheet you read will speak it.
 
 ## The Jacobian

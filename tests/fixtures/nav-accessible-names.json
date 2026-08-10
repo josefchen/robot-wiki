@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 40,
+  "linkCount": 41,
   "links": [
     {
       "href": "/",
@@ -166,6 +166,10 @@
     {
       "href": "/glossary/",
       "name": "Glossary"
+    },
+    {
+      "href": "/credits/",
+      "name": "Credits"
     }
   ]
 }

@@ -42,6 +42,8 @@ Miki and colleagues added exteroception back, carefully. A height scan of the te
 
 Rudin and colleagues collapsed the cost of the whole pipeline. Massive GPU parallelism plus a game-inspired terrain curriculum, where robots that succeed are promoted to harder terrain and robots that fail are demoted, trained ANYmal to walk on flat ground in under four minutes and on uneven terrain in twenty, on a single workstation GPU <Cite id="rudin-2021" />. The open-sourced `legged_gym` code became the reference implementation that most subsequent legged-RL work, academic and industrial, builds on.
 
+<Image id="anymal-anybotics-2022" />
+
 Choi and colleagues extended the recipe to ground that moves. Deformable terrain like sand defeats rigid-contact simulators, so they put a computationally cheap granular-media model inside the training loop and paired it with a controller that identifies terrain properties from feel as the robot walks. Their Raibo quadruped ran on soft beach sand at 3.03 m/s with its feet fully buried during stance <Cite id="choi-2023" />.
 
 ## A gait is a timing pattern

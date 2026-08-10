@@ -32,6 +32,16 @@
  *      citation registry. Every <Term id="..."> in an MDX body must resolve
  *      to a glossary entry; an unknown term id fails the build, naming the
  *      article and the id (VAL-GLOSS-008, VAL-GLOSS-010).
+ *  11. Imagery (when `images` is given): every entry is schema-valid with
+ *      a unique id, so a missing or unrecognised licence fails the build
+ *      naming the image id and the problem (VAL-IMG-007, VAL-IMG-008), and
+ *      every entry's file exists under public/. Every <Image id="..."> in
+ *      an MDX body (and in any extra scanned source, such as the home
+ *      page's tsx) must resolve to a registry entry; an unregistered id
+ *      fails the build naming the file and the id, and a registered image
+ *      no page references fails the build, so the registry, the rendered
+ *      set, and /credits cannot drift apart (VAL-IMG-006). Provenance
+ *      fields are scanned for synthesis markers (VAL-IMG-013).
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -50,7 +60,9 @@ import {
   glossaryTermSchema,
   type GlossaryTerm,
 } from '../data/schemas/glossary.ts';
+import { imageSchema, type SiteImage } from '../data/schemas/image.ts';
 import { internalLinkTargets, normalizeInternalPath } from './backlinks.ts';
+import { hasSynthesisMarker, referencedImageIds } from './images.ts';
 import { inlineCitationIds } from './references.ts';
 import { inlineTermIds } from './glossary.ts';
 
@@ -68,11 +80,19 @@ export interface ValidateContentOptions {
   citations: readonly Citation[];
   /** Glossary registry. When given, glossary hygiene and <Term> checks run. */
   terms?: readonly GlossaryTerm[];
+  /** Image registry. When given, imagery hygiene and <Image> checks run. */
+  images?: readonly SiteImage[];
+  /**
+   * Extra sources scanned for <Image>/<ImageRef> usages alongside the MDX
+   * tree (for example the home page's tsx). `label` names the file in
+   * failure messages.
+   */
+  imageSources?: ReadonlyArray<{ label: string; body: string }>;
   /** Non-module routes that internal links may target. */
   staticRoutes?: readonly string[];
 }
 
-const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground', '/glossary'];
+const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground', '/glossary', '/credits'];
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
 // and math spans, but never fenced code, inline code spans, or JSX attribute
@@ -184,6 +204,41 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     }
   }
 
+  // 11a. Imagery hygiene (VAL-IMG-007, VAL-IMG-008): schema-valid entries
+  // with unique ids. The schema's licence enum is the hard gate: a missing
+  // or unrecognised licence fails safeParse here, and the message names
+  // the image id and the rejected value. Each entry's file must exist
+  // under public/, and no provenance field may carry a synthesis marker
+  // (VAL-IMG-013).
+  const imageIds = new Set<string>();
+  const usedImageIds = new Set<string>();
+  for (const image of opts.images ?? []) {
+    const parsed = imageSchema.safeParse(image);
+    if (!parsed.success) {
+      push(
+        null,
+        `image ${image.id}: ${parsed.error.message}`,
+      );
+      continue;
+    }
+    if (imageIds.has(image.id)) {
+      push(null, `duplicate image id ${image.id}`);
+    }
+    imageIds.add(image.id);
+    if (opts.publicDir && !existsSync(join(opts.publicDir, image.file))) {
+      push(
+        null,
+        `image ${image.id}: file ${image.file} does not exist under public/`,
+      );
+    }
+    if (hasSynthesisMarker(image)) {
+      push(
+        null,
+        `image ${image.id}: provenance carries a synthesis marker; AI-generated imagery is not permitted`,
+      );
+    }
+  }
+
   // Routes that internal links may target.
   const moduleByKey = new Map(opts.modules.map((m) => [`${m.domain}/${m.slug}`, m]));
   const validRoutes = new Set<string>([
@@ -288,6 +343,19 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
+    // 11b. Unregistered image ids (VAL-IMG-006): every <Image id> used in
+    // the prose must resolve to the image registry, so a rendered image
+    // always has a licence record, a credit, and a /credits entry.
+    if (opts.images) {
+      for (const id of referencedImageIds(body)) {
+        if (!imageIds.has(id)) {
+          push(rel, `image id "${id}" is not in the image registry`);
+        } else {
+          usedImageIds.add(id);
+        }
+      }
+    }
+
     for (const link of internalLinkTargets(body)) {
       if (!isValidInternalTarget(link)) {
         push(rel, `broken internal link: ${link}`);
@@ -330,6 +398,33 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
   for (const entry of opts.modules) {
     if (entry.status === 'published' && !seenContentKeys.has(`${entry.domain}/${entry.slug}`)) {
       push(null, `published module ${entry.domain}/${entry.slug} has no content file`);
+    }
+  }
+
+  // 11c. Extra scanned sources (the home page's tsx, and any future tsx
+  // surface that renders registry images) get the same unregistered-id
+  // check as MDX bodies.
+  if (opts.images) {
+    for (const source of opts.imageSources ?? []) {
+      for (const id of referencedImageIds(source.body)) {
+        if (!imageIds.has(id)) {
+          push(source.label, `image id "${id}" is not in the image registry`);
+        } else {
+          usedImageIds.add(id);
+        }
+      }
+    }
+
+    // 11d. Stale-registry guard (VAL-IMG-006): a registered image that no
+    // page references would render on /credits but nowhere else, which is
+    // exactly the drift the three-way agreement check forbids.
+    for (const image of opts.images) {
+      if (imageIds.has(image.id) && !usedImageIds.has(image.id)) {
+        push(
+          null,
+          `image ${image.id} is registered but no page references it; /credits would list an image the site does not render`,
+        );
+      }
     }
   }
 

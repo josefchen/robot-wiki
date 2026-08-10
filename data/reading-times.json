@@ -1,10 +1,10 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1190,
+    "words": 1197,
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1274,
+    "words": 1282,
     "minutes": 6
   },
   "manipulation/diffusion-policy": {
@@ -60,7 +60,7 @@
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1434,
+    "words": 1472,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
@@ -100,7 +100,7 @@
     "minutes": 7
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2992,
+    "words": 3064,
     "minutes": 15
   },
   "data-hardware/teleop-rigs": {
@@ -112,7 +112,7 @@
     "minutes": 7
   },
   "classical/kinematics": {
-    "words": 2340,
+    "words": 2384,
     "minutes": 12
   }
 }

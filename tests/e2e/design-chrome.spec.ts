@@ -21,6 +21,7 @@ const AUDITED_ROUTES = [
   '/playground',
   '/search',
   '/glossary',
+  '/credits',
 ];
 
 /** The shared definitions from contract/design-integrity.md, in-page. */

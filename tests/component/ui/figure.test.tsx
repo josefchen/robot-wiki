@@ -23,17 +23,23 @@ describe('Figure', () => {
     expect(screen.getByText('Action chunking over a horizon k.')).toBeInTheDocument();
   });
 
-  it('renders a source link when provided', () => {
+  it('renders a source link when a credit carries a source URL', () => {
     render(
       <Figure
         src="/images/x.png"
         alt="Diagram"
         caption="Cap"
-        sourceHref="https://arxiv.org/abs/2304.13705"
-        sourceLabel="Zhao et al., 2023"
+        credit={{
+          kind: 'Photo',
+          creator: 'Zhao et al.',
+          sourceName: 'arXiv',
+          sourceUrl: 'https://arxiv.org/abs/2304.13705',
+          licenceLabel: 'CC BY 4.0',
+          licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
+        }}
       />,
     );
-    const link = screen.getByRole('link', { name: /Zhao et al\., 2023/ });
+    const link = screen.getByRole('link', { name: 'arXiv' });
     expect(link).toHaveAttribute('href', 'https://arxiv.org/abs/2304.13705');
   });
 });

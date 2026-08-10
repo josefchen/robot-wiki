@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     // Standalone tools and reference surfaces.
-    ...['/market-map/', '/playground/', '/search/', '/glossary/'].map((path) => ({
+    ...['/market-map/', '/playground/', '/search/', '/glossary/', '/credits/'].map((path) => ({
       url: `${SITE_URL}${path}`,
       changeFrequency: 'monthly' as const,
       priority: 0.6,

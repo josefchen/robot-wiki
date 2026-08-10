@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
+import { ImageRef } from '@/components/mdx/image-ref';
 import { DOMAINS, DOMAIN_META } from '@/data/modules';
 
 /**
@@ -93,6 +94,29 @@ export default function Home() {
           develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
+      </section>
+
+      {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
+      <section aria-labelledby="hardware-heading" className={`${container} mt-14`}>
+        <h2
+          id="hardware-heading"
+          className="font-sans text-xl font-semibold tracking-tight text-text"
+        >
+          Real hardware
+        </h2>
+        <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
+          The policies and controllers this wiki covers run on physical
+          machines. Every photograph and diagram on the site is licensed and
+          credited, and the full list lives on the{' '}
+          <Link
+            href="/credits"
+            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            credits page
+          </Link>
+          .
+        </p>
+        <ImageRef id="spot-raf-agile-liberty-2021" />
       </section>
 
       {/* Standalone tools, shown visually rather than described. */}

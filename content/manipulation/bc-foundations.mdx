@@ -31,15 +31,7 @@ $$
 
 The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the DAgger result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
 
-<Figure
-  src="/images/covariate-shift.svg"
-  alt="Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it."
-  caption="Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself."
-  sourceHref="https://arxiv.org/abs/1011.0686"
-  sourceLabel="Ross, Gordon and Bagnell 2011 (DAgger)"
-  width={640}
-  height={250}
-/>
+<Image id="covariate-shift" />
 
 ## Watch the error compound
 

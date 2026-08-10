@@ -68,15 +68,7 @@ Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the A
 
 ACT executes chunks with <Term id="temporal-ensembling">temporal ensembling</Term>: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where i counts how many chunks ago the prediction was issued. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
 
-<Figure
-  src="/images/temporal-ensembling.svg"
-  alt="Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction."
-  caption="Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk."
-  sourceHref="https://arxiv.org/abs/2304.13705"
-  sourceLabel="Zhao et al. 2023 (ACT)"
-  width={640}
-  height={250}
-/>
+<Image id="temporal-ensembling" />
 
 ```python title="temporal_ensembling.py"
 # Temporal ensembling (ACT, arXiv:2304.13705). preds[i] is the prediction
