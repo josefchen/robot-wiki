@@ -300,6 +300,137 @@ describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
   });
 });
 
+describe('validateContent seeAlso resolution (VAL-WIKI-009, VAL-WIKI-010)', () => {
+  // Extended registry: two more published modules to serve as valid
+  // seeAlso targets; the base registry's diffusion-policy stays a draft,
+  // which is what the draft-target test points at.
+  const seeAlsoRegistry: ModuleRegistryEntry[] = [
+    ...registry,
+    {
+      domain: 'manipulation',
+      slug: 'bc-foundations',
+      title: 'Behavior Cloning Foundations',
+      summary: 'Covariate shift and compounding error.',
+      order: 3,
+      status: 'published',
+    },
+    {
+      domain: 'manipulation',
+      slug: 'realtime-execution',
+      title: 'Real-Time Execution',
+      summary: 'Temporal ensembling and latency budgets.',
+      order: 4,
+      status: 'published',
+    },
+  ];
+
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-seealso-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    // Check 3 requires a content file for every published registry entry,
+    // and check 4 requires its frontmatter to match the registry, so the
+    // two extra seeAlso targets ship fixture files. That keeps every
+    // assertion below focused on seeAlso violations only.
+    writeTarget('bc-foundations', 'Behavior Cloning Foundations', 3);
+    writeTarget('realtime-execution', 'Real-Time Execution', 4);
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function writeTarget(slug: string, title: string, order: number) {
+    writeFileSync(
+      join(root, 'manipulation', `${slug}.mdx`),
+      `${frontmatter({ title, slug, order, citations: ['dagger-2011'] })}\nBody.\n`,
+    );
+  }
+
+  function issues() {
+    return validateContent({
+      contentRoot: root,
+      modules: seeAlsoRegistry,
+      citations,
+    });
+  }
+
+  function seeAlsoIssues(): string {
+    return issues()
+      .map((i) => `${i.file}: ${i.message}`)
+      .join('\n');
+  }
+
+  it('passes when every seeAlso entry resolves to a published module', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: [
+          'manipulation/bc-foundations',
+          'manipulation/realtime-execution',
+        ],
+      })}\nBody.\n`,
+    );
+    expect(seeAlsoIssues()).toBe('');
+  });
+
+  it('fails on an unresolvable seeAlso id, naming the article and the id', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/does-not-exist'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    expect(found.length).toBeGreaterThan(0);
+    const offense = found.find((i) => i.message.includes('does-not-exist'));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/seeAlso/);
+    expect(offense?.message).toMatch(/registry/);
+  });
+
+  it('fails on a seeAlso id pointing at a draft module', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/diffusion-policy'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    const offense = found.find((i) =>
+      i.message.includes('diffusion-policy'),
+    );
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/draft/);
+  });
+
+  it('fails on a self-referential seeAlso entry, naming the article', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/action-chunking'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    const offense = found.find((i) => /itself|self/.test(i.message));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toContain('manipulation/action-chunking');
+  });
+
+  it('fails on duplicate seeAlso entries', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/bc-foundations'],
+      })}\nBody.\n`,
+    );
+    expect(seeAlsoIssues()).toMatch(/duplicate/i);
+  });
+});
+
 describe('validateContent currency hygiene (remark-math gotcha)', () => {
   let root: string;
 

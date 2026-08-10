@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ComponentType } from 'react';
+import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
 import { References } from '@/components/article/references';
 import { getCitation } from '@/data/citations';
-import { DOMAIN_META, getModule, publishedModules } from '@/data/modules';
+import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
+import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
 
 // Fully static: only published modules get routes. Drafts (and everything
@@ -81,6 +83,20 @@ export default async function ModulePage({ params }: { params: Params }) {
   if (!mod) notFound();
   const Content = mod.default;
 
+  // See also: the curated frontmatter list resolved against the registry.
+  // Linked from: this article's inbound edges in the derived link graph
+  // (in-prose internal links plus seeAlso edges from other articles).
+  // Both render between the prose and the References bibliography; an
+  // empty list renders no section at all (VAL-WIKI-012).
+  const seeAlsoEntries = resolveArticleEntries(
+    mod.frontmatter?.seeAlso ?? [],
+    modules,
+  );
+  const linkedFromEntries = resolveArticleEntries(
+    publishedBacklinkGraph().get(`${domain}/${slug}`) ?? [],
+    modules,
+  );
+
   return (
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
@@ -103,6 +119,8 @@ export default async function ModulePage({ params }: { params: Params }) {
       <div data-pagefind-body className="prose">
         <Content />
       </div>
+      <SeeAlso entries={seeAlsoEntries} />
+      <LinkedFrom entries={linkedFromEntries} />
       <References entries={articleReferences(domain, slug, mod.frontmatter)} />
     </article>
   );

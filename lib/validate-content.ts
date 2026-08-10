@@ -23,6 +23,10 @@
  *      must be declared in that module's frontmatter citations list. An
  *      undeclared inline cite would render as a chip with no entry in the
  *      References bibliography (VAL-WIKI-005).
+ *   9. seeAlso curation: every seeAlso frontmatter entry must be a
+ *      registry key of a published module, never the article itself, with
+ *      no duplicates (VAL-WIKI-009, VAL-WIKI-010). The 2-4 entry bounds
+ *      are enforced by the frontmatter schema when the field is present.
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -37,6 +41,7 @@ import {
   type ModuleRegistryEntry,
 } from '../data/schemas/module.ts';
 import { citationSchema, type Citation } from '../data/schemas/citation.ts';
+import { internalLinkTargets, normalizeInternalPath } from './backlinks.ts';
 import { inlineCitationIds } from './references.ts';
 
 export interface ValidationIssue {
@@ -56,9 +61,6 @@ export interface ValidateContentOptions {
 }
 
 const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground'];
-
-const MD_LINK = /\[[^\]]*\]\(\s*(\/[^)\s"']+)[^)]*\)/g;
-const JSX_LINK = /\b(?:href|to)\s*=\s*["'](\/[^"']+)["']/g;
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
 // and math spans, but never fenced code, inline code spans, or JSX attribute
@@ -94,23 +96,6 @@ function listMdxFiles(dir: string): string[] {
     else if (entry.isFile() && /\.mdx?$/.test(entry.name)) out.push(full);
   }
   return out;
-}
-
-function normalizeInternalPath(raw: string): string {
-  const withoutQuery = raw.split('#')[0].split('?')[0];
-  if (withoutQuery.length > 1 && withoutQuery.endsWith('/')) {
-    return withoutQuery.slice(0, -1);
-  }
-  return withoutQuery;
-}
-
-function internalLinks(body: string): string[] {
-  const links: string[] = [];
-  for (const re of [MD_LINK, JSX_LINK]) {
-    re.lastIndex = 0;
-    for (const match of body.matchAll(re)) links.push(match[1]);
-  }
-  return links;
 }
 
 export function validateContent(opts: ValidateContentOptions): ValidationIssue[] {
@@ -255,9 +240,33 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    for (const link of internalLinks(body)) {
+    for (const link of internalLinkTargets(body)) {
       if (!isValidInternalTarget(link)) {
         push(rel, `broken internal link: ${link}`);
+      }
+    }
+
+    // 9. seeAlso curation (VAL-WIKI-009, VAL-WIKI-010): every entry is the
+    // registry key of a published module, never this article itself, with
+    // no duplicates. The 2-4 entry bounds are the schema's job; the
+    // renderer resolves these keys to titles and summaries, and the
+    // backlink graph unions them with in-prose links.
+    const seenSeeAlso = new Set<string>();
+    for (const id of fm.data.seeAlso ?? []) {
+      if (seenSeeAlso.has(id)) {
+        push(rel, `duplicate seeAlso entry "${id}"`);
+        continue;
+      }
+      seenSeeAlso.add(id);
+      if (id === key) {
+        push(rel, `seeAlso entry "${id}" references the article itself`);
+        continue;
+      }
+      const target = moduleByKey.get(id);
+      if (!target) {
+        push(rel, `seeAlso entry "${id}" does not resolve to a module in the registry`);
+      } else if (target.status !== 'published') {
+        push(rel, `seeAlso entry "${id}" points at a draft module; targets must be published`);
       }
     }
 

@@ -82,6 +82,48 @@ describe('moduleFrontmatterSchema', () => {
     delete rest.description;
     expect(moduleFrontmatterSchema.safeParse(rest).success).toBe(false);
   });
+
+  it('accepts frontmatter without seeAlso (optional until backfill)', () => {
+    expect(moduleFrontmatterSchema.safeParse(valid).success).toBe(true);
+  });
+
+  it('accepts a seeAlso list of 2 to 4 registry keys', () => {
+    for (const count of [2, 3, 4]) {
+      const seeAlso = Array.from(
+        { length: count },
+        (_, i) => `manipulation/related-${i + 1}`,
+      );
+      const parsed = moduleFrontmatterSchema.safeParse({ ...valid, seeAlso });
+      expect(parsed.success, `count ${count}`).toBe(true);
+    }
+  });
+
+  it('rejects a seeAlso list with a single entry', () => {
+    const parsed = moduleFrontmatterSchema.safeParse({
+      ...valid,
+      seeAlso: ['manipulation/related-1'],
+    });
+    expect(parsed.success).toBe(false);
+  });
+
+  it('rejects a seeAlso list with more than four entries', () => {
+    const seeAlso = Array.from(
+      { length: 5 },
+      (_, i) => `manipulation/related-${i + 1}`,
+    );
+    expect(moduleFrontmatterSchema.safeParse({ ...valid, seeAlso }).success).toBe(
+      false,
+    );
+  });
+
+  it('rejects empty-string seeAlso entries', () => {
+    expect(
+      moduleFrontmatterSchema.safeParse({
+        ...valid,
+        seeAlso: ['manipulation/related-1', ''],
+      }).success,
+    ).toBe(false);
+  });
 });
 
 describe('moduleRegistryEntrySchema', () => {

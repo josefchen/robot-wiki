@@ -78,10 +78,18 @@ test.describe('References bibliography', () => {
       // declaration order: nothing missing, nothing extra.
       expect(await renderedReferenceIds(page)).toEqual(declaredIds(domain, slug));
 
-      // References is the last major content section of the article region.
+      // References closes the article. See also and Linked from sections
+      // may precede it when the article declares seeAlso or has inbound
+      // links (wiki-seealso-backlinks), so the invariant is position, not
+      // section count.
       const article = page.locator('article');
-      await expect(article.locator('> section').last()).toContainText('References');
-      expect(await article.locator('> section').count()).toBe(1);
+      const sections = article.locator('> section');
+      await expect(sections.last()).toContainText('References');
+      const count = await sections.count();
+      for (let i = 0; i < count - 1; i += 1) {
+        const heading = await sections.nth(i).locator('h2').textContent();
+        expect(['See also', 'Linked from']).toContain(heading?.trim());
+      }
     });
 
     test(`chip and References agreement on ${route} (VAL-WIKI-004)`, async ({
