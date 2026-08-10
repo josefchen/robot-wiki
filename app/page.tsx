@@ -106,13 +106,14 @@ export default function Home() {
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <Link
             href="/playground"
-            className="group block rounded-md border border-border bg-surface p-5 transition-colors hover:border-border-strong"
+            className="group block"
           >
-            <svg
-              viewBox="0 0 320 112"
-              aria-hidden="true"
-              className="mb-4 block h-28 w-full"
-            >
+            <div className="mb-4 rounded-sm bg-surface px-4 py-3">
+              <svg
+                viewBox="0 0 320 112"
+                aria-hidden="true"
+                className="block h-28 w-full"
+              >
               {/* Schematic of the SO-101 arm reaching toward an IK target. */}
               <line
                 x1={16}
@@ -185,6 +186,7 @@ export default function Home() {
                 strokeWidth={1}
               />
             </svg>
+            </div>
             <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
               3D Kinematics Playground
             </h3>
@@ -196,13 +198,14 @@ export default function Home() {
           </Link>
           <Link
             href="/market-map"
-            className="group block rounded-md border border-border bg-surface p-5 transition-colors hover:border-border-strong"
+            className="group block"
           >
-            <svg
-              viewBox="0 0 320 112"
-              aria-hidden="true"
-              className="mb-4 block h-28 w-full"
-            >
+            <div className="mb-4 rounded-sm bg-surface px-4 py-3">
+              <svg
+                viewBox="0 0 320 112"
+                aria-hidden="true"
+                className="block h-28 w-full"
+              >
               {/* A bubble field in the spirit of the market map scatter view. */}
               <line
                 x1={24}
@@ -237,6 +240,7 @@ export default function Home() {
                 strokeDasharray="4 4"
               />
             </svg>
+            </div>
             <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
               Market Map
             </h3>
