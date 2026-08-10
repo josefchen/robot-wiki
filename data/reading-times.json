@@ -4,75 +4,75 @@
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1282,
+    "words": 1256,
     "minutes": 6
   },
   "manipulation/diffusion-policy": {
-    "words": 1427,
+    "words": 1409,
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1592,
+    "words": 1559,
     "minutes": 8
   },
   "manipulation/pi-line": {
-    "words": 2476,
+    "words": 2456,
     "minutes": 12
   },
   "manipulation/generalist-policies": {
-    "words": 1673,
+    "words": 1656,
     "minutes": 8
   },
   "manipulation/comparison-matrix": {
-    "words": 1400,
+    "words": 1389,
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1592,
+    "words": 1554,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
-    "words": 2098,
+    "words": 2064,
     "minutes": 10
   },
   "manipulation/realtime-execution": {
-    "words": 1737,
+    "words": 1704,
     "minutes": 9
   },
   "manipulation/cross-embodiment": {
-    "words": 1252,
+    "words": 1216,
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
-    "words": 1227,
+    "words": 1182,
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1217,
+    "words": 1175,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1443,
+    "words": 1411,
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1758,
+    "words": 1722,
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1472,
+    "words": 1457,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1787,
+    "words": 1761,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2387,
+    "words": 2379,
     "minutes": 12
   },
   "world-models/taxonomy": {
-    "words": 1649,
+    "words": 1620,
     "minutes": 8
   },
   "world-models/latent-dynamics": {
@@ -80,19 +80,19 @@
     "minutes": 6
   },
   "world-models/generative-video": {
-    "words": 1557,
+    "words": 1541,
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1206,
+    "words": 1183,
     "minutes": 6
   },
   "world-models/generative-sim": {
-    "words": 1469,
+    "words": 1470,
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {
-    "words": 1486,
+    "words": 1487,
     "minutes": 7
   },
   "data-hardware/datasets": {
@@ -100,19 +100,19 @@
     "minutes": 7
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3064,
+    "words": 3043,
     "minutes": 15
   },
   "data-hardware/teleop-rigs": {
-    "words": 1600,
+    "words": 1555,
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1491,
+    "words": 1447,
     "minutes": 7
   },
   "classical/kinematics": {
-    "words": 2384,
+    "words": 2386,
     "minutes": 12
   }
 }
