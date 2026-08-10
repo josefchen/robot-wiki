@@ -15,6 +15,29 @@ async function readoutValue(page: import('@playwright/test').Page): Promise<numb
   return value;
 }
 
+/**
+ * Set a range slider's value deterministically. Playwright's fill() assigns
+ * the value through the element's own (React-tracked) setter, so React's
+ * change detection can swallow the dispatched event and the handler never
+ * fires; going through the prototype setter leaves the tracker behind and
+ * always delivers the input event.
+ */
+async function setSlider(
+  slider: import('@playwright/test').Locator,
+  value: number,
+): Promise<void> {
+  await slider.focus();
+  await slider.evaluate((el, next) => {
+    const setter = Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      'value',
+    )?.set;
+    setter?.call(el, String(next));
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }, value);
+}
+
 test.describe('data-hardware evaluation-crisis module', () => {
   test('renders prose covering the three evaluation strands (VAL-DATA-021)', async ({
     page,
@@ -111,19 +134,19 @@ test.describe('data-hardware evaluation-crisis module', () => {
     const readout = page.getByTestId('episode-success-readout');
 
     // Anchor: 95% per-step over 30 steps lands near 21% (+/- 2pp).
-    await perStep.fill('95');
-    await page.getByRole('slider', HORIZON).fill('30');
+    await setSlider(perStep, 95);
+    await setSlider(page.getByRole('slider', HORIZON), 30);
     await expect(readout).toHaveText('21.5%');
     expect(await readoutValue(page)).toBeCloseTo(21.5, 0);
 
     // Monotone, direction-consistent response to the slider.
-    await perStep.fill('99');
+    await setSlider(perStep, 99);
     expect(await readoutValue(page)).toBeGreaterThan(70);
-    await perStep.fill('90');
+    await setSlider(perStep, 90);
     expect(await readoutValue(page)).toBeLessThan(10);
 
     // Keyboard operation: arrow keys move the readout in the right direction.
-    await perStep.fill('95');
+    await setSlider(perStep, 95);
     await expect(readout).toHaveText('21.5%');
     await perStep.focus();
     await page.keyboard.press('ArrowUp');
@@ -138,17 +161,17 @@ test.describe('data-hardware evaluation-crisis module', () => {
   }) => {
     await page.goto(ROUTE);
     const horizon = page.getByRole('slider', HORIZON);
-    await page.getByRole('slider', PER_STEP).fill('95');
+    await setSlider(page.getByRole('slider', PER_STEP), 95);
 
-    await horizon.fill('30');
+    await setSlider(horizon, 30);
     await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
     // 0.95^60 = 4.61%, contract tolerance +/-1pp.
-    await horizon.fill('60');
+    await setSlider(horizon, 60);
     await expect(page.getByTestId('episode-success-readout')).toHaveText('4.6%');
     // Decreasing N monotonically raises the readout.
-    await horizon.fill('10');
+    await setSlider(horizon, 10);
     await expect(page.getByTestId('episode-success-readout')).toHaveText('59.9%');
-    await horizon.fill('30');
+    await setSlider(horizon, 30);
     await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
   });
 
@@ -161,26 +184,26 @@ test.describe('data-hardware evaluation-crisis module', () => {
     const readout = page.getByTestId('episode-success-readout');
 
     // 100% per-step yields 100% at any horizon.
-    await perStep.fill('100');
-    await horizon.fill('30');
+    await setSlider(perStep, 100);
+    await setSlider(horizon, 30);
     await expect(readout).toHaveText('100.0%');
-    await horizon.fill('100');
+    await setSlider(horizon, 100);
     await expect(readout).toHaveText('100.0%');
 
     // 0% per-step yields 0% for any N >= 1.
-    await perStep.fill('0');
-    await horizon.fill('1');
+    await setSlider(perStep, 0);
+    await setSlider(horizon, 1);
     await expect(readout).toHaveText('0.0%');
-    await horizon.fill('100');
+    await setSlider(horizon, 100);
     await expect(readout).toHaveText('0.0%');
 
     // N=1 reads exactly the per-step value.
-    await horizon.fill('1');
-    await perStep.fill('73.4');
+    await setSlider(horizon, 1);
+    await setSlider(perStep, 73.4);
     await expect(readout).toHaveText('73.4%');
-    await perStep.fill('0');
+    await setSlider(perStep, 0);
     await expect(readout).toHaveText('0.0%');
-    await perStep.fill('100');
+    await setSlider(perStep, 100);
     await expect(readout).toHaveText('100.0%');
 
     // No NaN, blank, >100%, or <0% readout at any extreme.
@@ -194,8 +217,8 @@ test.describe('data-hardware evaluation-crisis module', () => {
 
   test('reset restores the anchor state', async ({ page }) => {
     await page.goto(ROUTE);
-    await page.getByRole('slider', PER_STEP).fill('0');
-    await page.getByRole('slider', HORIZON).fill('100');
+    await setSlider(page.getByRole('slider', PER_STEP), 0);
+    await setSlider(page.getByRole('slider', HORIZON), 100);
     await page.getByRole('button', { name: /reset/i }).click();
     await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
     await expect(page.getByRole('slider', PER_STEP)).toHaveValue('95');
