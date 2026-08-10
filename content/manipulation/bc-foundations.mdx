@@ -31,15 +31,7 @@ $$
 
 The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the DAgger result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
 
-<Figure
-  src="/images/covariate-shift.svg"
-  alt="Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it."
-  caption="Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself."
-  sourceHref="https://arxiv.org/abs/1011.0686"
-  sourceLabel="Ross, Gordon and Bagnell 2011 (DAgger)"
-  width={640}
-  height={250}
-/>
+<Image id="covariate-shift" />
 
 ## Watch the error compound
 
@@ -55,7 +47,7 @@ The interactive below simulates the mechanism. A policy with per-step error $\va
 
 Compounding error is the deployment problem. Three training-side problems compound it:
 
-**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem diffusion policies and flow-matching heads were built to solve <Cite id="diffusion-policy-2023" />.
+**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem <Term id="diffusion-policy">diffusion policies</Term> and flow-matching heads were built to solve <Cite id="diffusion-policy-2023" />.
 
 **Temporally correlated confounders.** Demonstrations contain pauses and idle segments that are unpredictable from a single Markovian state. A single-step policy cannot tell "waiting" from "acting," and both ACT and Diffusion Policy document robots freezing in place because of it <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. The fix is temporal context, not a larger backbone.
 

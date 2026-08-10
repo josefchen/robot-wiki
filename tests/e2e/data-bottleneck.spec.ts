@@ -42,7 +42,7 @@ test.describe('data-hardware data-bottleneck module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'Atlas taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Data Bottleneck' }),
     ).toHaveAttribute('aria-current', 'page');

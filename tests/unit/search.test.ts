@@ -23,7 +23,7 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-atlas' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
             excerpt: 'the <mark>chunk</mark> size tradeoff',
           }),
         ],
@@ -56,12 +56,12 @@ describe('toSearchHits', () => {
   it('handles a missing excerpt as an empty string', async () => {
     const hits = await toSearchHits(
       {
-        results: [fakeResult({ url: '/', meta: { title: 'robot-atlas' } })],
+        results: [fakeResult({ url: '/', meta: { title: 'robot-wiki' } })],
       },
-      'atlas',
+      'wiki',
     );
     expect(hits[0].excerpt).toBe('');
-    expect(hits[0].title).toBe('robot-atlas');
+    expect(hits[0].title).toBe('robot-wiki');
   });
 
   it('caps the hits at the result limit, preserving rank order', async () => {

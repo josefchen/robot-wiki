@@ -5,8 +5,10 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { validateContent } from '@/lib/validate-content';
 import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
+import { GLOSSARY } from '@/data/glossary';
 import type { ModuleRegistryEntry } from '@/data/schemas/module';
 import type { Citation } from '@/data/schemas/citation';
+import type { GlossaryTerm } from '@/data/schemas/glossary';
 
 const registry: ModuleRegistryEntry[] = [
   {
@@ -48,6 +50,17 @@ const citations: Citation[] = [
     url: 'https://arxiv.org/abs/2304.13705',
     type: 'paper',
   },
+  {
+    id: 'dagger-2011',
+    title:
+      'A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning',
+    authors: ['Stéphane Ross', 'Geoffrey J. Gordon', 'J. Andrew Bagnell'],
+    year: 2011,
+    venue: 'AISTATS 2011',
+    arxiv: '1011.0686',
+    url: 'https://arxiv.org/abs/1011.0686',
+    type: 'paper',
+  },
 ];
 
 function frontmatter(overrides: Record<string, unknown> = {}): string {
@@ -77,7 +90,7 @@ describe('validateContent (fixtures)', () => {
   let root: string;
 
   beforeEach(() => {
-    root = mkdtempSync(join(tmpdir(), 'robot-atlas-content-'));
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
     mkdirSync(join(root, 'manipulation'), { recursive: true });
   });
 
@@ -221,11 +234,210 @@ describe('validateContent (fixtures)', () => {
   });
 });
 
+describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-cites-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function issues() {
+    return validateContent({ contentRoot: root, modules: registry, citations });
+  }
+
+  it('fails when prose cites a registry id the frontmatter does not declare', () => {
+    // dagger-2011 exists in the registry but is missing from this module's
+    // frontmatter citations list: the chip would render with no References
+    // entry, so the build must fail and name the article and the id.
+    writeModule(
+      `${frontmatter()}\nDAgger relabels the visited states <Cite id="dagger-2011" />.\n`,
+    );
+    const found = issues();
+    expect(found.length).toBeGreaterThan(0);
+    const offense = found.find((i) => i.message.includes('dagger-2011'));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/not declared|undeclared/i);
+  });
+
+  it('fails for every undeclared id when there are several', () => {
+    writeModule(
+      `${frontmatter({ citations: [] })}\n<Cite id="dagger-2011" /> and <Cite id="act-aloha-2023" />.\n`,
+    );
+    const messages = issues()
+      .filter((i) => /not declared|undeclared/i.test(i.message))
+      .map((i) => i.message)
+      .join('\n');
+    expect(messages).toContain('dagger-2011');
+    expect(messages).toContain('act-aloha-2023');
+  });
+
+  it('passes when every inline cite is declared in frontmatter', () => {
+    writeModule(
+      `${frontmatter({
+        citations: ['act-aloha-2023', 'dagger-2011'],
+      })}\nChunking <Cite id="act-aloha-2023" /> beats compounding <Cite id="dagger-2011" />.\n`,
+    );
+    expect(
+      issues().filter((i) => /not declared|undeclared/i.test(i.message)),
+    ).toEqual([]);
+  });
+
+  it('ignores cite syntax shown inside code spans and fences', () => {
+    writeModule(
+      `${frontmatter()}\nAuthors write \`<Cite id="dagger-2011" />\` like so:\n\n\`\`\`mdx\n<Cite id="dagger-2011" />\n\`\`\`\n`,
+    );
+    expect(
+      issues().filter((i) => /not declared|undeclared/i.test(i.message)),
+    ).toEqual([]);
+  });
+});
+
+describe('validateContent seeAlso resolution (VAL-WIKI-009, VAL-WIKI-010)', () => {
+  // Extended registry: two more published modules to serve as valid
+  // seeAlso targets; the base registry's diffusion-policy stays a draft,
+  // which is what the draft-target test points at.
+  const seeAlsoRegistry: ModuleRegistryEntry[] = [
+    ...registry,
+    {
+      domain: 'manipulation',
+      slug: 'bc-foundations',
+      title: 'Behavior Cloning Foundations',
+      summary: 'Covariate shift and compounding error.',
+      order: 3,
+      status: 'published',
+    },
+    {
+      domain: 'manipulation',
+      slug: 'realtime-execution',
+      title: 'Real-Time Execution',
+      summary: 'Temporal ensembling and latency budgets.',
+      order: 4,
+      status: 'published',
+    },
+  ];
+
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-seealso-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    // Check 3 requires a content file for every published registry entry,
+    // and check 4 requires its frontmatter to match the registry, so the
+    // two extra seeAlso targets ship fixture files. That keeps every
+    // assertion below focused on seeAlso violations only.
+    writeTarget('bc-foundations', 'Behavior Cloning Foundations', 3);
+    writeTarget('realtime-execution', 'Real-Time Execution', 4);
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function writeTarget(slug: string, title: string, order: number) {
+    writeFileSync(
+      join(root, 'manipulation', `${slug}.mdx`),
+      `${frontmatter({ title, slug, order, citations: ['dagger-2011'] })}\nBody.\n`,
+    );
+  }
+
+  function issues() {
+    return validateContent({
+      contentRoot: root,
+      modules: seeAlsoRegistry,
+      citations,
+    });
+  }
+
+  function seeAlsoIssues(): string {
+    return issues()
+      .map((i) => `${i.file}: ${i.message}`)
+      .join('\n');
+  }
+
+  it('passes when every seeAlso entry resolves to a published module', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: [
+          'manipulation/bc-foundations',
+          'manipulation/realtime-execution',
+        ],
+      })}\nBody.\n`,
+    );
+    expect(seeAlsoIssues()).toBe('');
+  });
+
+  it('fails on an unresolvable seeAlso id, naming the article and the id', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/does-not-exist'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    expect(found.length).toBeGreaterThan(0);
+    const offense = found.find((i) => i.message.includes('does-not-exist'));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/seeAlso/);
+    expect(offense?.message).toMatch(/registry/);
+  });
+
+  it('fails on a seeAlso id pointing at a draft module', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/diffusion-policy'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    const offense = found.find((i) =>
+      i.message.includes('diffusion-policy'),
+    );
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/draft/);
+  });
+
+  it('fails on a self-referential seeAlso entry, naming the article', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/action-chunking'],
+      })}\nBody.\n`,
+    );
+    const found = issues();
+    const offense = found.find((i) => /itself|self/.test(i.message));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toContain('manipulation/action-chunking');
+  });
+
+  it('fails on duplicate seeAlso entries', () => {
+    writeModule(
+      `${frontmatter({
+        seeAlso: ['manipulation/bc-foundations', 'manipulation/bc-foundations'],
+      })}\nBody.\n`,
+    );
+    expect(seeAlsoIssues()).toMatch(/duplicate/i);
+  });
+});
+
 describe('validateContent currency hygiene (remark-math gotcha)', () => {
   let root: string;
 
   beforeEach(() => {
-    root = mkdtempSync(join(tmpdir(), 'robot-atlas-currency-'));
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-currency-'));
     mkdirSync(join(root, 'manipulation'), { recursive: true });
   });
 
@@ -294,6 +506,80 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
   });
 });
 
+describe('validateContent glossary checks (fixtures)', () => {
+  let root: string;
+
+  const terms: GlossaryTerm[] = [
+    {
+      id: 'action-chunking',
+      term: 'action chunking',
+      definition:
+        'Predicting a sequence of future actions in one inference instead of a single action per timestep.',
+      citations: ['act-aloha-2023'],
+    },
+  ];
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function run(termList: readonly GlossaryTerm[] = terms) {
+    return validateContent({
+      contentRoot: root,
+      modules: registry,
+      citations,
+      terms: termList,
+    });
+  }
+
+  it('passes when every inline <Term> id resolves to the glossary', () => {
+    writeModule(
+      `${frontmatter()}\n<Term id="action-chunking">Action chunking</Term> shrinks the horizon <Cite id="act-aloha-2023" />.\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('FAILS on an unknown <Term> id, naming the article and the id (VAL-GLOSS-008)', () => {
+    writeModule(
+      `${frontmatter()}\nAn <Term id="made-up-term">unknown term</Term> slips in <Cite id="act-aloha-2023" />.\n`,
+    );
+    const issues = run();
+    expect(issues).toHaveLength(1);
+    expect(issues[0].file).toBe('manipulation/action-chunking.mdx');
+    expect(issues[0].message).toContain('made-up-term');
+    expect(issues[0].message).toContain('<Term');
+  });
+
+  it('flags a glossary term whose citation id is not in the registry', () => {
+    const bad: GlossaryTerm[] = [
+      { ...terms[0], id: 'orphan-term', citations: ['no-such-citation'] },
+    ];
+    const issues = run(bad);
+    expect(issues.some((i) => i.message.includes('orphan-term'))).toBe(true);
+    expect(issues.some((i) => i.message.includes('no-such-citation'))).toBe(true);
+  });
+
+  it('flags a glossary term that fails the schema (duplicate ids also flagged)', () => {
+    const bad = [
+      terms[0],
+      { ...terms[0] }, // duplicate id
+    ] as GlossaryTerm[];
+    const issues = run(bad);
+    expect(issues.some((i) => i.message.includes('duplicate glossary term id'))).toBe(
+      true,
+    );
+  });
+});
+
 describe('validateContent (real repo)', () => {
   it('passes on the shipped content tree', () => {
     const issues = validateContent({
@@ -301,6 +587,7 @@ describe('validateContent (real repo)', () => {
       publicDir: join(import.meta.dirname, '..', '..', 'public'),
       modules,
       citations: CITATIONS,
+      terms: GLOSSARY,
     });
     expect(issues.map((i) => `${i.file}: ${i.message}`)).toEqual([]);
   });

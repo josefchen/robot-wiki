@@ -30,7 +30,7 @@ describe('SearchBox', () => {
       screen.getByRole('searchbox', { name: 'Search' }),
       'compounding error',
     );
-    await user.click(screen.getByRole('button', { name: 'Search the atlas' }));
+    await user.click(screen.getByRole('button', { name: 'Search the wiki' }));
     expect(mockPush).toHaveBeenCalledWith('/search?q=compounding%20error');
   });
 
@@ -45,7 +45,7 @@ describe('SearchBox', () => {
   it('navigates to bare /search for an empty query', async () => {
     const user = userEvent.setup();
     render(<SearchBox idPrefix="test" />);
-    await user.click(screen.getByRole('button', { name: 'Search the atlas' }));
+    await user.click(screen.getByRole('button', { name: 'Search the wiki' }));
     expect(mockPush).toHaveBeenCalledWith('/search');
   });
 
@@ -60,7 +60,7 @@ describe('SearchBox', () => {
     const user = userEvent.setup();
     const onNavigate = vi.fn();
     render(<SearchBox idPrefix="test" onNavigate={onNavigate} />);
-    await user.click(screen.getByRole('button', { name: 'Search the atlas' }));
+    await user.click(screen.getByRole('button', { name: 'Search the wiki' }));
     expect(onNavigate).toHaveBeenCalledTimes(1);
   });
 });

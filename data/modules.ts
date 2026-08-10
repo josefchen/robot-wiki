@@ -1,5 +1,5 @@
 /**
- * Module registry: the taxonomy backbone of robot-atlas.
+ * Module registry: the taxonomy backbone of robot-wiki.
  *
  * Source of truth for which modules exist, their domain, slug, order, and
  * publish status. Sidebar navigation, the MDX route's generateStaticParams,
@@ -341,6 +341,7 @@ const PUBLISHED = new Set([
   'data-hardware/hardware-taxonomy',
   'data-hardware/teleop-rigs',
   'data-hardware/evaluation-crisis',
+  'classical/kinematics',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

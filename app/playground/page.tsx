@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 
 export const metadata: Metadata = {
-  title: '3D Kinematics Playground - robot-atlas',
+  title: '3D Kinematics Playground',
   description:
     'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.',
 };
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 py-8">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-        Tool
-      </p>
-      <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+      <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
         3D Kinematics Playground
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">

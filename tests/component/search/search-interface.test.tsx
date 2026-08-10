@@ -31,7 +31,7 @@ function clientWith(
   return () => Promise.resolve({ search });
 }
 
-const INPUT_NAME = 'Search the atlas';
+const INPUT_NAME = 'Search the wiki';
 // A result link's accessible name is its full text content (title plus
 // snippet), so name queries match on the title prefix.
 const ACT_RESULT = /^Action Chunking \(ACT and ALOHA\)/;

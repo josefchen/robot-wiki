@@ -67,7 +67,7 @@ export function IkTargetForm({
 
   return (
     <div>
-      <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
+      <h2 className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
         IK target
       </h2>
       <p className="mt-2 text-xs leading-relaxed text-text-dim">

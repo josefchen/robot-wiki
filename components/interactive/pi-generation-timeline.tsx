@@ -266,7 +266,7 @@ export function PiGenerationTimeline({
             <span className="text-[10px] text-text-dim">{g.dateLabel}</span>
             <span
               className={cx(
-                'text-[10px] uppercase tracking-[0.1em]',
+                'text-[10px] uppercase tracking-[0.14em]',
                 g.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
@@ -293,7 +293,7 @@ export function PiGenerationTimeline({
           <span className="text-text-dim">{selected.dateLabel}</span>{' '}
           <span
             className={cx(
-              'whitespace-nowrap text-xs uppercase tracking-[0.1em]',
+              'whitespace-nowrap text-xs uppercase tracking-[0.14em]',
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >

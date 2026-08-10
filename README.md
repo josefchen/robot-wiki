@@ -1,4 +1,4 @@
-# robot-atlas
+# robot-wiki
 
 An encyclopedic, interactive, open-source guide to modern robotics for ML engineers.
 

@@ -39,7 +39,7 @@ test.describe('data-hardware teleop-rigs module', () => {
     expect(mainText).not.toContain('import {');
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
-    const nav = page.getByRole('navigation', { name: 'Atlas taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Teleoperation Rigs' }),
     ).toHaveAttribute('aria-current', 'page');
