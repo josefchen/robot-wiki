@@ -22,8 +22,8 @@ export default function NotFound() {
         Page not found
       </h1>
       <p className="mt-3 max-w-[55ch] leading-relaxed text-text-dim">
-        This page does not exist. If you followed a link to a module that is
-        still marked planned, it has not been published yet.
+        This page does not exist. The link may be out of date, or the address
+        may be mistyped.
       </p>
       <p className="mt-6">
         <Link

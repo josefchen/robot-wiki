@@ -75,11 +75,6 @@ export default function GlossaryPage() {
           );
         })}
       </ol>
-
-      <p className="mt-8 font-mono text-xs leading-relaxed text-text-dim">
-        Definitions are added as articles need them; an article using an
-        unregistered term fails the build.
-      </p>
     </div>
   );
 }

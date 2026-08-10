@@ -95,7 +95,7 @@ describe('NavTree', () => {
 
   // Skips itself once every module in the registry has published.
   it.runIf(draftProbe !== undefined)(
-    'renders the first draft module as a non-link planned row',
+    'excludes draft modules from the sidebar entirely',
     async () => {
       if (draftProbe === undefined) return; // narrowing; runIf guards this
       const user = userEvent.setup();
@@ -103,11 +103,13 @@ describe('NavTree', () => {
       await user.click(
         screen.getByRole('button', { name: DOMAIN_META[draftProbe.domain].name }),
       );
-      // Drafts are plain rows marked planned, never links (a link would 404).
+      // Drafts never appear: no link (a link would 404) and no placeholder
+      // row either (VAL-BUILD-001, VAL-DESIGN-001).
       expect(
         screen.queryByRole('link', { name: draftProbe.title }),
       ).not.toBeInTheDocument();
-      expect(screen.getByText(draftProbe.title)).toBeInTheDocument();
+      expect(screen.queryByText(draftProbe.title)).not.toBeInTheDocument();
+      expect(screen.queryByText(/planned/i)).not.toBeInTheDocument();
     },
   );
 

@@ -2,7 +2,8 @@
  * Registry-derived draft fixtures for tests.
  *
  * Some tests need a draft module as a probe: a route expected to 404, or a
- * "planned" sidebar row. Hard-coding a specific draft breaks the moment that
+ * title that must be absent from the sidebar and the domain landing page.
+ * Hard-coding a specific draft breaks the moment that
  * module publishes, so these helpers derive the probe from the module
  * registry (data/modules.ts) instead. Selection is the first draft in
  * registry order, which is deterministic for a given registry.

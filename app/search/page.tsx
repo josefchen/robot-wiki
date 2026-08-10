@@ -4,8 +4,7 @@ import { SearchInterface } from '@/components/search/search-interface';
 
 export const metadata: Metadata = {
   title: 'Search',
-  description:
-    'Search robot-wiki: full-text over the prose of every published module.',
+  description: 'Search robot-wiki: full-text over the prose of every article.',
 };
 
 /**
@@ -28,8 +27,8 @@ export default function SearchPage() {
         Search
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">
-        Full-text search over the prose of every published module. The index
-        is generated at build time and queries run locally in your browser.
+        Full-text search over the prose of every article. Queries run locally
+        in your browser.
       </p>
       <Suspense fallback={null}>
         <SearchInterface />

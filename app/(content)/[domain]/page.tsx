@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Badge } from '@/components/ui';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 
 /**
  * Domain landing view: the entry point every home card and sidebar overview
- * link resolves to. Lists every registry module in order; published modules
- * are links, drafts are marked planned. Domains without published modules
- * still get a real page, so no taxonomy entry point can 404.
+ * link resolves to. Lists the domain's published modules in registry order,
+ * each with its own summary. Drafts never appear in any form (VAL-BUILD-001,
+ * VAL-WIKI-021), and the page carries no progress counters: a reader sees
+ * what exists to read, not the state of the authoring pipeline
+ * (VAL-DESIGN-001/015).
  */
 export const dynamicParams = false;
 
@@ -50,8 +51,9 @@ export default async function DomainLandingPage({
   if (!domain) notFound();
 
   const meta = DOMAIN_META[domain];
-  const mods = modulesByDomain()[domain] ?? [];
-  const published = mods.filter((m) => m.status === 'published');
+  const published = (modulesByDomain()[domain] ?? []).filter(
+    (m) => m.status === 'published',
+  );
 
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
@@ -60,33 +62,23 @@ export default async function DomainLandingPage({
           {meta.name}
         </h1>
         <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>
-        <p className="mt-3 font-mono text-xs text-text-dim">
-          {published.length} of {mods.length} modules published
-        </p>
       </header>
       <ol>
-        {mods.map((m) => (
+        {published.map((m, index) => (
           <li
             key={m.slug}
             className="border-t border-border py-4 first:border-t-0"
           >
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="font-mono text-xs text-text-dim">
-                {String(m.order).padStart(2, '0')}
+                {String(index + 1).padStart(2, '0')}
               </span>
-              {m.status === 'published' ? (
-                <Link
-                  href={`/${m.domain}/${m.slug}`}
-                  className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
-                >
-                  {m.title}
-                </Link>
-              ) : (
-                <span className="font-sans text-base font-medium text-text-dim">
-                  {m.title}
-                </span>
-              )}
-              {m.status === 'draft' ? <Badge>planned</Badge> : null}
+              <Link
+                href={`/${m.domain}/${m.slug}`}
+                className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
+              >
+                {m.title}
+              </Link>
             </div>
             <p className="mt-1 pl-7 text-sm leading-relaxed text-text-dim">
               {m.summary}

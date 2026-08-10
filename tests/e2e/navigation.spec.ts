@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { notFoundProbeRoute } from '../helpers/draft-fixtures';
+import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
 
 const GROUPS = [
   'Manipulation & Learned Policies',
@@ -57,7 +57,7 @@ test.describe('navigation shell', () => {
     await expect(active).toHaveAttribute('aria-current', 'page');
   });
 
-  test('domain landing lists planned and published modules', async ({
+  test('domain landing lists published modules only, with no status markers', async ({
     page,
   }) => {
     await page.goto('/classical/');
@@ -68,7 +68,17 @@ test.describe('navigation shell', () => {
     await expect(
       main.getByText('Kinematics', { exact: true }),
     ).toBeVisible();
-    await expect(main.getByText('planned').first()).toBeVisible();
+    // No progress counters and no draft placeholders: the page reads as an
+    // index of what exists, not a project tracker (VAL-DESIGN-001/015,
+    // VAL-WIKI-021).
+    await expect(main.getByText(/\d+\s+of\s+\d+\s+modules?/i)).toHaveCount(0);
+    await expect(main.getByText(/planned/i)).toHaveCount(0);
+    const draft = firstDraftModule('classical');
+    if (draft) {
+      await expect(main.getByText(draft.title, { exact: true })).toHaveCount(
+        0,
+      );
+    }
   });
 
   test('mobile drawer opens, navigates, and closes', async ({ page }) => {

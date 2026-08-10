@@ -12,10 +12,12 @@ import { cx } from '@/lib/utils';
  * The taxonomy tree shared by the desktop sidebar and the mobile drawer.
  *
  * Seven collapsible groups (six core domains + adjacent) plus Market Map and
- * Playground as top-level entries. Only published modules render as links;
- * drafts render as non-link "planned" rows so no sidebar link can 404. The
- * group containing the current route is expanded on load and the active link
- * carries aria-current="page" with the amber accent (VAL-NAV-011/012).
+ * Playground as top-level entries. Only published modules render at all:
+ * drafts are excluded from the sidebar taxonomy entirely (VAL-BUILD-001), so
+ * no reader surface can hint at work that does not exist yet
+ * (VAL-DESIGN-001/015). The group containing the current route is expanded
+ * on load and the active link carries aria-current="page" with the amber
+ * accent (VAL-NAV-011/012).
  */
 type NavTreeProps = {
   /** Prefix for element ids so desktop and drawer instances never collide. */
@@ -168,8 +170,9 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                       Domain overview
                     </NavEntryLink>
                   </li>
-                  {mods.map((m) =>
-                    m.status === 'published' ? (
+                  {mods
+                    .filter((m) => m.status === 'published')
+                    .map((m) => (
                       <li key={m.slug}>
                         <NavEntryLink
                           href={`/${m.domain}/${m.slug}`}
@@ -180,17 +183,7 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                           {m.title}
                         </NavEntryLink>
                       </li>
-                    ) : (
-                      <li key={m.slug}>
-                        <span className="flex items-baseline justify-between gap-2 py-1 pl-7 pr-2 text-[13px] leading-snug text-text-dim">
-                          <span>{m.title}</span>
-                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-text-dim">
-                            planned
-                          </span>
-                        </span>
-                      </li>
-                    ),
-                  )}
+                    ))}
                 </ul>
               ) : null}
             </li>
