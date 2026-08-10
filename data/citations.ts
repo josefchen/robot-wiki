@@ -870,6 +870,31 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    id: 'ppo-2017',
+    title: 'Proximal Policy Optimization Algorithms',
+    authors: [
+      'John Schulman',
+      'Filip Wolski',
+      'Prafulla Dhariwal',
+      'Alec Radford',
+      'Oleg Klimov',
+    ],
+    year: 2017,
+    arxiv: '1707.06347',
+    url: 'https://arxiv.org/abs/1707.06347',
+    type: 'paper',
+  },
+  {
+    id: 'ng-reward-shaping-1999',
+    title:
+      'Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping',
+    authors: ['Andrew Y. Ng', 'Daishi Harada', 'Stuart Russell'],
+    year: 1999,
+    venue: 'ICML 1999',
+    url: 'https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf',
+    type: 'paper',
+  },
+  {
     id: 'isaac-gym-2021',
     title:
       'Isaac Gym: High Performance GPU-Based Physics Simulation for Robot Learning',

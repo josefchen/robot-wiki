@@ -48,8 +48,8 @@ describe('glossaryTermSchema', () => {
 
 describe('GLOSSARY coverage', () => {
   // Raised batch by batch as terms land; the feature target is 25+.
-  it('covers the recurring jargon: at least 14 cited terms', () => {
-    expect(GLOSSARY.length).toBeGreaterThanOrEqual(14);
+  it('covers the recurring jargon: at least 25 cited terms', () => {
+    expect(GLOSSARY.length).toBeGreaterThanOrEqual(25);
   });
 
   it('covers the recurring jargon harvested from published articles', () => {
@@ -60,6 +60,12 @@ describe('GLOSSARY coverage', () => {
       'open-x-embodiment',
       'teleoperation',
       'success-rate',
+      'ppo',
+      'parallel-simulation',
+      'reward-shaping',
+      'whole-body-control',
+      'legged-locomotion',
+      'mpc',
     ];
     for (const id of required) {
       expect(getTerm(id), `missing glossary term ${id}`).toBeDefined();

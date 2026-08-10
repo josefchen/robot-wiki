@@ -152,6 +152,48 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute\'s Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.',
     citations: ['tri-lbm-2025'],
   },
+  {
+    id: 'ppo',
+    term: 'PPO',
+    definition:
+      'Proximal policy optimization, the on-policy reinforcement learning algorithm the locomotion literature standardized on. Schulman and colleagues introduced it as a policy gradient method that alternates between sampling data through interaction with the environment and optimizing a surrogate objective with stochastic gradient ascent, where the surrogate is what allows several epochs of minibatch updates on each batch of samples instead of the single gradient step standard policy gradient takes. It keeps most of trust region policy optimization\'s reliability without the second-order machinery, and it pairs naturally with massively parallel simulation, where thousands of robots supply the enormous on-policy batches it consumes.',
+    citations: ['ppo-2017', 'rudin-2021'],
+  },
+  {
+    id: 'parallel-simulation',
+    term: 'parallel simulation',
+    definition:
+      'Running thousands of physics simulator instances at once on a single GPU so a reinforcement learning agent collects experience at a rate no CPU cluster matches. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',
+    citations: ['isaac-gym-2021', 'rudin-2021'],
+  },
+  {
+    id: 'reward-shaping',
+    term: 'reward shaping',
+    definition:
+      'Supplying extra training rewards on top of a task\'s base reward to guide the learning agent, usually to turn a sparse success signal into a denser one that learning can climb. Ng, Harada, and Russell asked exactly which modifications to a Markov decision process\'s reward function leave the optimal policy unchanged, and proved that a transition reward expressible as the difference of a potential function across the two states is sufficient, and effectively necessary, for that invariance. The theorem explains the classic shaping bugs, where the agent learns to harvest the bonus instead of doing the task: those bugs come from non-potential-based rewards, the kind the theorem rules out.',
+    citations: ['ng-reward-shaping-1999'],
+  },
+  {
+    id: 'whole-body-control',
+    term: 'whole-body control',
+    definition:
+      'Treating all of a robot\'s actuated degrees of freedom, legs, torso, arms, and hands, as one coupled control problem instead of stacking an arm controller on top of a separate locomotion controller. The model-based version optimizes against the full rigid-body dynamics at once: Zhang and colleagues ran whole-body model-predictive control in real time on hardware with plain iLQR and MuJoCo dynamics, across dynamic quadruped locomotion and full-sized humanoid walking. The learned version reframes the same problem as tracking a retargeted human motion, the route H2O took for real-time whole-body teleoperation, with reinforcement learning supplying the balance and contact feasibility that raw retargeting loses.',
+    citations: ['mujoco-ilqr-2026', 'h2o-2024'],
+  },
+  {
+    id: 'legged-locomotion',
+    term: 'legged locomotion',
+    definition:
+      'Moving by cycling legs through ground contact rather than rolling, the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack outright: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild, the template humanoid programs have since been rerunning on two legs.',
+    citations: ['lee-2020', 'miki-2022'],
+  },
+  {
+    id: 'mpc',
+    term: 'model predictive control',
+    definition:
+      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, which is why model-predictive controllers carry no sim-to-real gap of the learned-policy kind. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale on real hardware in 2026, when Zhang and colleagues ran iLQR with MuJoCo dynamics in real time across dynamic quadruped locomotion and full-sized humanoid walking.',
+    citations: ['mujoco-ilqr-2026'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));
