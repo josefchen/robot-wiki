@@ -52,6 +52,20 @@ describe('GLOSSARY coverage', () => {
     expect(GLOSSARY.length).toBeGreaterThanOrEqual(14);
   });
 
+  it('covers the recurring jargon harvested from published articles', () => {
+    const required = [
+      'knowledge-insulation',
+      'real-time-chunking',
+      'hierarchical-policy',
+      'open-x-embodiment',
+      'teleoperation',
+      'success-rate',
+    ];
+    for (const id of required) {
+      expect(getTerm(id), `missing glossary term ${id}`).toBeDefined();
+    }
+  });
+
   it('every entry passes the schema', () => {
     for (const term of GLOSSARY) {
       const result = glossaryTermSchema.safeParse(term);
