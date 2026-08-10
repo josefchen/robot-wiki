@@ -293,7 +293,7 @@ export function WmDisambiguator({
               <PanelArt id={p.id} />
               <span
                 className={cx(
-                  'mt-1.5 block font-mono text-[11px] uppercase tracking-[0.12em]',
+                  'mt-1.5 block font-mono text-[11px] uppercase tracking-[0.14em]',
                   active ? 'text-accent' : 'text-text-dim',
                 )}
               >

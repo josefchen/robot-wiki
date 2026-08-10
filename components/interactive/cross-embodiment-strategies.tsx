@@ -237,7 +237,7 @@ export function CrossEmbodimentStrategies({
         {strategy.underSpecified && (
           <p
             data-testid="underspecified-flag"
-            className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-warn"
+            className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-warn"
           >
             publicly under-specified
           </p>

@@ -33,7 +33,7 @@ export function JointControls({
   return (
     <div>
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
+        <h2 className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
           Joint angles
         </h2>
         <button

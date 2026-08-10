@@ -20,7 +20,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
   if (entries.length === 0) return null;
 
   return (
-    <section aria-labelledby="references-heading" className="mt-14 border-t border-border pt-8">
+    <section aria-labelledby="references-heading" className="mt-14">
       <h2
         id="references-heading"
         className="font-sans text-[1.375rem] font-semibold tracking-tight text-text"

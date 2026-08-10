@@ -6,7 +6,7 @@
 export function WebGLUnavailable() {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-3 px-6 py-12 text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
+      <p className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
         3D unavailable
       </p>
       <h2 className="font-sans text-lg font-semibold tracking-tight text-text">

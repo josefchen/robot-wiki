@@ -1,0 +1,171 @@
+{
+  "capturedFrom": "pre-change static export",
+  "route": "/",
+  "viewport": [
+    1440,
+    900
+  ],
+  "linkCount": 40,
+  "links": [
+    {
+      "href": "/",
+      "name": "robot-wiki"
+    },
+    {
+      "href": "/manipulation/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/manipulation/bc-foundations/",
+      "name": "Behavior Cloning Foundations"
+    },
+    {
+      "href": "/manipulation/action-chunking/",
+      "name": "Action Chunking (ACT and ALOHA)"
+    },
+    {
+      "href": "/manipulation/diffusion-policy/",
+      "name": "Diffusion Policy"
+    },
+    {
+      "href": "/manipulation/vla-models/",
+      "name": "Vision-Language-Action Models"
+    },
+    {
+      "href": "/manipulation/pi-line/",
+      "name": "The Pi Line"
+    },
+    {
+      "href": "/manipulation/generalist-policies/",
+      "name": "Other Generalist Policies"
+    },
+    {
+      "href": "/manipulation/comparison-matrix/",
+      "name": "Comparison Matrix"
+    },
+    {
+      "href": "/manipulation/hierarchical/",
+      "name": "Hierarchical Approaches"
+    },
+    {
+      "href": "/manipulation/rl-finetuning/",
+      "name": "RL Fine-Tuning of Policies"
+    },
+    {
+      "href": "/manipulation/realtime-execution/",
+      "name": "Real-Time Execution"
+    },
+    {
+      "href": "/manipulation/cross-embodiment/",
+      "name": "Cross-Embodiment Transfer"
+    },
+    {
+      "href": "/manipulation/knowledge-insulation/",
+      "name": "Knowledge Insulation"
+    },
+    {
+      "href": "/rl-sim2real/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/rl-sim2real/why-rl-locomotion/",
+      "name": "Why RL Won Locomotion but Not Manipulation"
+    },
+    {
+      "href": "/rl-sim2real/parallel-sim-rl/",
+      "name": "Massively Parallel Sim RL"
+    },
+    {
+      "href": "/rl-sim2real/sim2real-transfer/",
+      "name": "Sim-to-Real Transfer"
+    },
+    {
+      "href": "/rl-sim2real/legged-locomotion/",
+      "name": "Legged Locomotion Lineage"
+    },
+    {
+      "href": "/rl-sim2real/humanoid-wbc/",
+      "name": "Humanoid Whole-Body Control"
+    },
+    {
+      "href": "/rl-sim2real/reward-design-mpc/",
+      "name": "Reward Design and the MPC Debate"
+    },
+    {
+      "href": "/world-models/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/world-models/taxonomy/",
+      "name": "What Is a World Model?"
+    },
+    {
+      "href": "/world-models/latent-dynamics/",
+      "name": "Latent-Dynamics World Models"
+    },
+    {
+      "href": "/world-models/generative-video/",
+      "name": "Generative Video World Models"
+    },
+    {
+      "href": "/world-models/jepa/",
+      "name": "JEPA and the Non-Generative Counterargument"
+    },
+    {
+      "href": "/world-models/generative-sim/",
+      "name": "Generative Simulation"
+    },
+    {
+      "href": "/data-hardware/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/data-hardware/data-bottleneck/",
+      "name": "The Data Bottleneck"
+    },
+    {
+      "href": "/data-hardware/datasets/",
+      "name": "Major Datasets"
+    },
+    {
+      "href": "/data-hardware/hardware-taxonomy/",
+      "name": "Hardware Taxonomy"
+    },
+    {
+      "href": "/data-hardware/teleop-rigs/",
+      "name": "Teleoperation Rigs"
+    },
+    {
+      "href": "/data-hardware/evaluation-crisis/",
+      "name": "The Evaluation Crisis"
+    },
+    {
+      "href": "/classical/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/classical/kinematics/",
+      "name": "Kinematics"
+    },
+    {
+      "href": "/frontier/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/adjacent/",
+      "name": "Domain overview"
+    },
+    {
+      "href": "/market-map/",
+      "name": "Market Map"
+    },
+    {
+      "href": "/playground/",
+      "name": "Playground"
+    },
+    {
+      "href": "/glossary/",
+      "name": "Glossary"
+    }
+  ]
+}

@@ -60,7 +60,7 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
         <button
           type="submit"
           aria-label="Search the wiki"
-          className="flex items-center rounded-sm border border-border bg-surface-2 px-2.5 text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="flex items-center rounded-sm px-2.5 text-text-dim transition-colors hover:bg-surface-2 hover:text-text active:translate-y-[1px]"
         >
           <MagnifyingGlass size={16} aria-hidden />
         </button>

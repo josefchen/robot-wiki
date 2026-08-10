@@ -56,10 +56,7 @@ export default async function DomainLandingPage({
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
       <header className="mb-8 border-b border-border pb-6">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-          Domain
-        </p>
-        <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           {meta.name}
         </h1>
         <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>

@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 py-8">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-        Tool
-      </p>
-      <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+      <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
         3D Kinematics Playground
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">

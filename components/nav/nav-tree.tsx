@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CaretDown } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 import { cx } from '@/lib/utils';
@@ -48,10 +48,55 @@ function domainOf(pathname: string): Domain | null {
 }
 
 const linkBase =
-  'block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors';
+  'relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors';
 const linkIdle = 'text-text-dim hover:text-text';
-const linkActive =
-  'text-accent shadow-[inset_2px_0_0_0_var(--color-accent)]';
+const linkActive = 'text-accent';
+
+/**
+ * The active-route marker: a flat, full-height 2px rule pinned to the left
+ * edge of the link box. It replaces the previous inset box-shadow, which the
+ * link's rounded-sm corners clipped into a broken bracket (VAL-DESIGN-016).
+ * A real element (not a shadow) means zero radius on every corner, and
+ * because every category of entry renders it at the same offset from the
+ * rail, module links, Domain overview links and standalone entries all mark
+ * at one depth (VAL-DESIGN-017). aria-hidden and empty so it can never
+ * pollute the link's accessible name (VAL-DESIGN-022).
+ */
+function ActiveMarker() {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute left-0 top-0 h-full border-l-2 border-accent"
+    />
+  );
+}
+
+/** A sidebar entry link with the shared active-marker treatment. */
+function NavEntryLink({
+  href,
+  active,
+  onNavigate,
+  className,
+  children,
+}: {
+  href: string;
+  active: boolean;
+  onNavigate?: () => void;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      aria-current={active ? 'page' : undefined}
+      onClick={onNavigate}
+      className={className}
+    >
+      {active ? <ActiveMarker /> : null}
+      {children}
+    </Link>
+  );
+}
 
 export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeProps) {
   const pathname = usePathname();
@@ -74,11 +119,11 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
   }
 
   function linkClass(href: string) {
-    return cx(linkBase, activePath === normalize(href) ? linkActive : linkIdle);
+    return cx(linkBase, isActive(href) ? linkActive : linkIdle);
   }
 
-  function currentFor(href: string): 'page' | undefined {
-    return activePath === normalize(href) ? 'page' : undefined;
+  function isActive(href: string): boolean {
+    return activePath === normalize(href);
   }
 
   return (
@@ -111,35 +156,35 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
               {expanded ? (
                 <ul id={panelId} className="mt-0.5 mb-1.5 flex flex-col gap-0.5">
                   <li>
-                    <Link
+                    <NavEntryLink
                       href={`/${domain}`}
-                      aria-current={currentFor(`/${domain}`)}
-                      onClick={onNavigate}
+                      active={isActive(`/${domain}`)}
+                      onNavigate={onNavigate}
                       className={cx(
                         linkClass(`/${domain}`),
-                        'font-mono text-[11px] uppercase tracking-[0.12em]',
+                        'font-mono text-[11px] uppercase tracking-[0.14em]',
                       )}
                     >
                       Domain overview
-                    </Link>
+                    </NavEntryLink>
                   </li>
                   {mods.map((m) =>
                     m.status === 'published' ? (
                       <li key={m.slug}>
-                        <Link
+                        <NavEntryLink
                           href={`/${m.domain}/${m.slug}`}
-                          aria-current={currentFor(`/${m.domain}/${m.slug}`)}
-                          onClick={onNavigate}
+                          active={isActive(`/${m.domain}/${m.slug}`)}
+                          onNavigate={onNavigate}
                           className={linkClass(`/${m.domain}/${m.slug}`)}
                         >
                           {m.title}
-                        </Link>
+                        </NavEntryLink>
                       </li>
                     ) : (
                       <li key={m.slug}>
                         <span className="flex items-baseline justify-between gap-2 py-1 pl-7 pr-2 text-[13px] leading-snug text-text-dim">
                           <span>{m.title}</span>
-                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-wide text-text-dim">
+                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-text-dim">
                             planned
                           </span>
                         </span>
@@ -155,19 +200,19 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
       <ul className="mt-3 flex flex-col gap-0.5 border-t border-border pt-3">
         {TOP_LEVEL_ENTRIES.map((entry) => (
           <li key={entry.href}>
-            <Link
+            <NavEntryLink
               href={entry.href}
-              aria-current={currentFor(entry.href)}
-              onClick={onNavigate}
+              active={isActive(entry.href)}
+              onNavigate={onNavigate}
               className={cx(
-                'block rounded-sm px-2 py-1.5 font-sans text-sm font-medium transition-colors',
-                activePath === normalize(entry.href)
+                'relative block rounded-sm px-2 py-1.5 font-sans text-sm font-medium transition-colors',
+                isActive(entry.href)
                   ? linkActive
                   : 'text-text hover:bg-surface-2',
               )}
             >
               {entry.label}
-            </Link>
+            </NavEntryLink>
           </li>
         ))}
       </ul>

@@ -14,10 +14,7 @@ export const metadata: Metadata = {
 export default function MarketMapPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-        Tool
-      </p>
-      <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+      <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
         Market Map
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">

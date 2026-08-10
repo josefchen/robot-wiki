@@ -51,7 +51,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4">
-        <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
+        <h2 className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
           Trajectory
         </h2>
         <span

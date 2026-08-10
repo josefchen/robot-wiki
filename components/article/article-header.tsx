@@ -38,7 +38,7 @@ export function ArticleHeader({
 }: ArticleHeaderProps) {
   return (
     <header data-pagefind-body className="mb-10 border-b border-border pb-6">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
+      <p className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
         {DOMAIN_META[entry.domain].name}
       </p>
       <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">

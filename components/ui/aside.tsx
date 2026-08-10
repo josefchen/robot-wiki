@@ -7,10 +7,13 @@ type AsideProps = {
   children: ReactNode;
 };
 
-/** Marginal note inside prose: tangential context that is not load-bearing. */
+/** Marginal note inside prose: tangential context that is not load-bearing.
+ * Renders role="note" rather than <aside> so the desktop sidebar stays the
+ * document's only aside element (VAL-DESIGN-022). */
 export function Aside({ title, className, children }: AsideProps) {
   return (
-    <aside
+    <div
+      role="note"
       aria-label={title ?? 'Aside'}
       className={cx(
         'my-6 rounded-md border border-border bg-surface p-4',
@@ -28,6 +31,6 @@ export function Aside({ title, className, children }: AsideProps) {
       >
         {children}
       </div>
-    </aside>
+    </div>
   );
 }

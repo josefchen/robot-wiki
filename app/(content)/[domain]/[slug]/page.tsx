@@ -140,6 +140,15 @@ export default async function ModulePage({ params }: { params: Params }) {
   const readingTime =
     measured?.minutes ?? readingTimeMinutes(countWordsInMdxSource(body));
 
+  // One hairline separates the prose from the generated wiki apparatus
+  // (See also / Linked from / References); the apparatus sections divide
+  // themselves with spacing and heading hierarchy, not repeated rules, so
+  // an article carries at most two full-width rules (VAL-DESIGN-018).
+  const hasApparatus =
+    seeAlsoEntries.length > 0 ||
+    linkedFromEntries.length > 0 ||
+    references.length > 0;
+
   return (
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
@@ -154,6 +163,9 @@ export default async function ModulePage({ params }: { params: Params }) {
       <div data-pagefind-body className="prose">
         <Content />
       </div>
+      {hasApparatus ? (
+        <hr className="mt-14 border-border" />
+      ) : null}
       <SeeAlso entries={seeAlsoEntries} />
       <LinkedFrom entries={linkedFromEntries} />
       <References entries={references} />

@@ -200,7 +200,7 @@ export function SearchInterface({
           />
           <span
             aria-hidden
-            className="flex items-center rounded-sm border border-border bg-surface-2 px-3 text-text-dim"
+            className="flex items-center pr-1 text-text-dim"
           >
             <MagnifyingGlass size={16} />
           </span>

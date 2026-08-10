@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { List, X } from '@phosphor-icons/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { NavTree } from './nav-tree';
@@ -18,6 +19,7 @@ import { SearchBox } from './search-box';
  */
 export function SiteShell({ children }: { children: ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   // Set when the drawer closes via Escape, the close control, or the scrim:
@@ -71,7 +73,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           aria-controls="mobile-nav-drawer"
           aria-label="Open navigation menu"
           onClick={() => setDrawerOpen(true)}
-          className="flex items-center rounded-sm border border-border bg-surface p-1.5 text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+          className="flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]"
         >
           <List size={20} aria-hidden />
         </button>
@@ -92,6 +94,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
           <Link
             href="/"
+            aria-current={pathname === '/' ? 'page' : undefined}
             className="px-2 font-mono text-sm font-semibold tracking-tight text-text"
           >
             robot-wiki
@@ -126,7 +129,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
             onClick={closeDrawer}
             className="absolute inset-0 bg-bg/80"
           />
-          <div className="relative flex h-full w-[85vw] max-w-80 flex-col border-r border-border bg-bg">
+          {/* The 80% scrim already separates the panel from the page; a
+              border on top of it is a redundant edge (VAL-DESIGN-020). */}
+          <div className="relative flex h-full w-[85vw] max-w-80 flex-col bg-bg">
             <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
               <Link
                 href="/"
@@ -140,7 +145,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 type="button"
                 aria-label="Close navigation menu"
                 onClick={closeDrawer}
-                className="flex items-center rounded-sm border border-border bg-surface p-1.5 text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+                className="flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]"
               >
                 <X size={20} aria-hidden />
               </button>

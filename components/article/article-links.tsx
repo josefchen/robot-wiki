@@ -36,7 +36,7 @@ function ArticleLinkSection({
     <section
       aria-labelledby={headingId}
       data-section={section}
-      className="mt-14 border-t border-border pt-8"
+      className="mt-14"
     >
       <h2
         id={headingId}
