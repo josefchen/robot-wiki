@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 
 export const metadata: Metadata = {
-  title: '3D Kinematics Playground - robot-atlas',
+  title: '3D Kinematics Playground',
   description:
     'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.',
 };

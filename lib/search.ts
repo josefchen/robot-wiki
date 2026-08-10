@@ -28,7 +28,13 @@ export interface SearchClient {
 /** Cap on rendered prose results. Pagefind ranks by relevance. */
 export const RESULT_LIMIT = 20;
 
-const SITE_TITLE_SUFFIX = ' - robot-atlas';
+/**
+ * The site-name tail Pagefind appends to result titles, taken from the
+ * <title> template in app/layout.tsx ('%s - robot-wiki'). The two must stay
+ * in lockstep, or every search result renders with a visible site-name
+ * suffix.
+ */
+const SITE_TITLE_SUFFIX = ' - robot-wiki';
 
 /* The subset of the Pagefind runtime API this app consumes. */
 export interface PagefindResultData {

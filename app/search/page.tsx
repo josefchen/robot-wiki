@@ -3,9 +3,9 @@ import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
 
 export const metadata: Metadata = {
-  title: 'Search - robot-atlas',
+  title: 'Search',
   description:
-    'Search robot-atlas: full-text over the prose of every published module.',
+    'Search robot-wiki: full-text over the prose of every published module.',
 };
 
 /**

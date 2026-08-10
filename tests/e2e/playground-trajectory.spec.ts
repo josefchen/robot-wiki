@@ -339,6 +339,96 @@ test.describe('trajectory export and import', () => {
     expect(pageErrors).toEqual([]);
   });
 
+  test('imports a trajectory file exported before the rebrand', async ({
+    page,
+  }) => {
+    const { consoleErrors, pageErrors } = collectErrors(page);
+    await page.goto('/playground');
+    await waitForArm(page);
+
+    // A literal file exported by the app before the robot-atlas -> robot-wiki
+    // rename. The persisted format discriminator is data, not branding: it
+    // stays 'robot-atlas-trajectory' forever, so existing user files must
+    // keep importing after the rebrand (VAL-BRAND-013).
+    const preRebrandFile = JSON.stringify(
+      {
+        format: 'robot-atlas-trajectory',
+        version: 1,
+        jointNames: [
+          'shoulder_pan',
+          'shoulder_lift',
+          'elbow_flex',
+          'wrist_flex',
+          'wrist_roll',
+          'gripper',
+        ],
+        segmentSeconds: 1.2,
+        keyframes: [
+          {
+            angles: {
+              shoulder_pan: 0,
+              shoulder_lift: 0,
+              elbow_flex: 0,
+              wrist_flex: 0,
+              wrist_roll: 0,
+              gripper: 0,
+            },
+          },
+          {
+            angles: {
+              shoulder_pan: 0.5,
+              shoulder_lift: 0.3,
+              elbow_flex: -0.25,
+              wrist_flex: 0.2,
+              wrist_roll: 0.35,
+              gripper: 0.15,
+            },
+          },
+          {
+            angles: {
+              shoulder_pan: -0.4,
+              shoulder_lift: -0.2,
+              elbow_flex: 0.3,
+              wrist_flex: -0.15,
+              wrist_roll: -0.3,
+              gripper: 0.1,
+            },
+          },
+        ],
+      },
+      null,
+      2,
+    );
+
+    await page.getByTestId('trajectory-import-json').fill(preRebrandFile);
+    await page.getByTestId('trajectory-import').click();
+    await expect(page.getByTestId('trajectory-count')).toHaveText(
+      /^3 keyframes/,
+    );
+    await expect(page.getByTestId('trajectory-message')).toHaveText(
+      /imported 3 keyframes/i,
+    );
+
+    // Playback lands on the imported final pose within a degree per joint.
+    await page.getByTestId('trajectory-play').click();
+    await waitForPlaybackEnd(page);
+    const RAD_TO_DEG = 180 / Math.PI;
+    const finalPose: Record<string, number> = {
+      shoulder_pan: -0.4,
+      shoulder_lift: -0.2,
+      elbow_flex: 0.3,
+      wrist_flex: -0.15,
+      wrist_roll: -0.3,
+      gripper: 0.1,
+    };
+    for (const [joint, radians] of Object.entries(finalPose)) {
+      expect(await readoutDeg(page, joint)).toBeCloseTo(radians * RAD_TO_DEG, 0);
+    }
+
+    expect(consoleErrors).toEqual([]);
+    expect(pageErrors).toEqual([]);
+  });
+
   const BAD_IMPORTS: Array<[string, object | string, RegExp]> = [
     ['malformed JSON', '{not a trajectory', /not valid json/i],
     [

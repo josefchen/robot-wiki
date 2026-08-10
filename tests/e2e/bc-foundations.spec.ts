@@ -19,7 +19,7 @@ test.describe('bc-foundations module', () => {
       page.getByRole('img', { name: /covariate shift/i }),
     ).toBeVisible();
     // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'Atlas taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Behavior Cloning Foundations' }),
     ).toHaveAttribute('aria-current', 'page');

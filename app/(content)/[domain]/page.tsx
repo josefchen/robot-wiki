@@ -35,7 +35,7 @@ export async function generateMetadata({
   if (!domain) return {};
   const meta = DOMAIN_META[domain];
   return {
-    title: `${meta.name} - robot-atlas`,
+    title: meta.name,
     description: meta.description,
   };
 }

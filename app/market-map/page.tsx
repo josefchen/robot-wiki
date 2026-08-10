@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Market Map - robot-atlas',
+  title: 'Market Map',
   description:
     'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.',
 };

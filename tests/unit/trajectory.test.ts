@@ -158,6 +158,34 @@ describe('parseTrajectory validation', () => {
     [HOME, POSE_A],
   );
 
+  it('imports a trajectory file exported before the rebrand', () => {
+    // A literal file exported by the app before the robot-atlas -> robot-wiki
+    // rename. The persisted format discriminator is data, not branding: it
+    // stays 'robot-atlas-trajectory' forever, so existing user files must
+    // keep parsing after the rebrand (VAL-BRAND-013).
+    const preRebrandFile = `{
+  "format": "robot-atlas-trajectory",
+  "version": 1,
+  "jointNames": ["shoulder_pan", "shoulder_lift", "elbow_flex"],
+  "segmentSeconds": 1.2,
+  "keyframes": [
+    {
+      "angles": { "shoulder_pan": 0, "shoulder_lift": 0, "elbow_flex": 0 }
+    },
+    {
+      "angles": { "shoulder_pan": 0.5, "shoulder_lift": -0.25, "elbow_flex": 1 }
+    }
+  ]
+}`;
+    const result = parseTrajectory(preRebrandFile, JOINTS);
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.keyframes).toHaveLength(2);
+      expect(result.keyframes[1].angles.shoulder_pan).toBeCloseTo(0.5, 10);
+      expect(result.keyframes[1].angles.elbow_flex).toBeCloseTo(1, 10);
+    }
+  });
+
   it('rejects malformed JSON with a clear error', () => {
     const result = parseTrajectory('{not json', JOINTS);
     expect(result.ok).toBe(false);

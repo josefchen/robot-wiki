@@ -2,10 +2,10 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test.describe('home page smoke', () => {
-  test('renders the atlas heading', async ({ page }) => {
+  test('renders the robot-wiki wordmark heading', async ({ page }) => {
     await page.goto('/');
     await expect(
-      page.getByRole('heading', { level: 1, name: 'robot-atlas' }),
+      page.getByRole('heading', { level: 1, name: 'robot-wiki' }),
     ).toBeVisible();
   });
 

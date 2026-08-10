@@ -77,7 +77,7 @@ describe('validateContent (fixtures)', () => {
   let root: string;
 
   beforeEach(() => {
-    root = mkdtempSync(join(tmpdir(), 'robot-atlas-content-'));
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
     mkdirSync(join(root, 'manipulation'), { recursive: true });
   });
 
@@ -225,7 +225,7 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
   let root: string;
 
   beforeEach(() => {
-    root = mkdtempSync(join(tmpdir(), 'robot-atlas-currency-'));
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-currency-'));
     mkdirSync(join(root, 'manipulation'), { recursive: true });
   });
 

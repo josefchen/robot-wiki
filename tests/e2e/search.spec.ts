@@ -18,7 +18,7 @@ test.describe('search shell', () => {
     const main = page.locator('#main-content');
     const inputs = main.getByRole('searchbox');
     await expect(inputs).toHaveCount(1);
-    await expect(inputs.first()).toHaveAccessibleName('Search the atlas');
+    await expect(inputs.first()).toHaveAccessibleName('Search the wiki');
     await expect(
       main.getByText(/type a query to search/i),
     ).toBeVisible();
@@ -34,7 +34,7 @@ test.describe('search shell', () => {
     await expect(page).toHaveURL(/\/search\/?\?q=temporal%20ensembling/);
     const main = page.locator('#main-content');
     await expect(
-      main.getByRole('searchbox', { name: 'Search the atlas' }),
+      main.getByRole('searchbox', { name: 'Search the wiki' }),
     ).toHaveValue('temporal ensembling');
   });
 

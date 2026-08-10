@@ -2,7 +2,7 @@
 @import 'katex/dist/katex.min.css';
 
 /*
- * robot-atlas design tokens (Tailwind v4 CSS-first).
+ * robot-wiki design tokens (Tailwind v4 CSS-first).
  * Direction: "technical instrument". Dark-first, flat surfaces, 1px borders,
  * small radii, one locked amber accent. No gradients, no glassmorphism.
  * See library/design-system.md.

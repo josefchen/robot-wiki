@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const entry = getModule(domain, slug);
   if (!entry || entry.status !== 'published') return {};
   return {
-    title: `${entry.title} - robot-atlas`,
+    title: entry.title,
     description: entry.summary,
   };
 }

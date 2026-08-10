@@ -3,10 +3,10 @@ import { describe, expect, it } from 'vitest';
 import Home from '@/app/page';
 
 describe('Home page', () => {
-  it('renders the hero with the atlas name and a substantive overview', () => {
+  it('renders the hero with the wiki wordmark and a substantive overview', () => {
     render(<Home />);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'robot-atlas' }),
+      screen.getByRole('heading', { level: 1, name: 'robot-wiki' }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/encyclopedic, interactive guide to modern robotics/),
@@ -58,10 +58,10 @@ describe('Home page', () => {
     ).toHaveAttribute('href', '/playground');
   });
 
-  it('explains how to read the atlas and links into real content', () => {
+  it('explains how to read the wiki and links into real content', () => {
     render(<Home />);
     const howTo = screen.getByRole('region', {
-      name: /how to read this atlas/i,
+      name: /how to read this wiki/i,
     });
     expect(within(howTo).getByText(/citation chip/)).toBeInTheDocument();
     expect(

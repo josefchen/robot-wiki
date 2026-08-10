@@ -176,14 +176,14 @@ export function SearchInterface({
     <div className="mt-8">
       <form
         role="search"
-        aria-label="Search the atlas"
+        aria-label="Search the wiki"
         onSubmit={(event) => event.preventDefault()}
       >
         <label
           htmlFor="search-page-input"
           className="mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
         >
-          Search the atlas
+          Search the wiki
         </label>
         <div className="flex items-stretch gap-1.5">
           <input
@@ -224,7 +224,7 @@ export function SearchInterface({
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
             Type a query to search the prose of every published module.
             Structured lookups over the methods, companies, and datasets in
-            the atlas data layer arrive with the market map.
+            the wiki data layer arrive with the market map.
           </p>
           <p className="mt-3 font-mono text-xs text-text-dim">
             Try: temporal ensembling, ALOHA, chunk size

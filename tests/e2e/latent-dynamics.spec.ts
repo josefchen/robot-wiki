@@ -36,7 +36,7 @@ test.describe('world-models latent-dynamics module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'Atlas taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Latent-Dynamics World Models' }),
     ).toHaveAttribute('aria-current', 'page');

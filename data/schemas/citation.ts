@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { httpsUrlSchema, slugSchema } from './shared.ts';
 
 /**
- * Citation registry entry. Every non-obvious technical claim in the atlas
+ * Citation registry entry. Every non-obvious technical claim in the wiki
  * cites one of these via <Cite id="..."/> in MDX.
  */
 export const citationSchema = z.object({

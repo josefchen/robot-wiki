@@ -166,13 +166,16 @@ export function parseTrajectory(
   if (!isPlainObject(data)) {
     return {
       ok: false,
-      error: 'The JSON does not look like a robot-atlas trajectory file.',
+      error: 'The JSON does not look like a robot-wiki trajectory file.',
     };
   }
+  // The 'robot-atlas-trajectory' discriminator is the persisted file-format
+  // id from before the robot-wiki rename. It is data, not branding: files
+  // exported before the rebrand must keep importing, so it never changes.
   if ('format' in data && data.format !== 'robot-atlas-trajectory') {
     return {
       ok: false,
-      error: 'The JSON does not look like a robot-atlas trajectory file.',
+      error: 'The JSON does not look like a robot-wiki trajectory file.',
     };
   }
   if ('version' in data && data.version !== 1) {

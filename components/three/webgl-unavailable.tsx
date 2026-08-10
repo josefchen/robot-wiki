@@ -15,7 +15,7 @@ export function WebGLUnavailable() {
       <p className="max-w-md text-sm leading-relaxed text-text-dim">
         The playground renders the robot with WebGL, and this browser refused
         to create a WebGL context. That usually means hardware acceleration is
-        disabled or the GPU driver is blocked. The rest of robot-atlas is
+        disabled or the GPU driver is blocked. The rest of robot-wiki is
         static HTML and works without it.
       </p>
     </div>

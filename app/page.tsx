@@ -16,7 +16,7 @@ export default function Home() {
       {/* Hero: the premise, kept above the fold. */}
       <section aria-label="Introduction">
         <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
-          robot-atlas
+          robot-wiki
         </h1>
         <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-text-dim">
           An encyclopedic, interactive guide to modern robotics for ML
@@ -34,7 +34,7 @@ export default function Home() {
             href="#how-to-read"
             className="text-sm text-text-dim underline decoration-border-strong underline-offset-4 transition-colors hover:text-text"
           >
-            How to read this atlas
+            How to read this wiki
           </a>
         </div>
       </section>
@@ -146,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How to read this atlas. */}
+      {/* How to read this wiki. */}
       <section
         id="how-to-read"
         aria-labelledby="how-to-read-heading"
@@ -156,7 +156,7 @@ export default function Home() {
           id="how-to-read-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
         >
-          How to read this atlas
+          How to read this wiki
         </h2>
         <div className="mt-4 max-w-[65ch] space-y-4 leading-relaxed text-text-dim">
           <p>

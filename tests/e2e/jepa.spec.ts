@@ -36,7 +36,7 @@ test.describe('world-models jepa module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'Atlas taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     await expect(
       nav.getByRole('link', {
         name: 'JEPA and the Non-Generative Counterargument',

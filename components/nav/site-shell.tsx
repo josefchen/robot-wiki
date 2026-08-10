@@ -79,7 +79,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           href="/"
           className="font-mono text-sm font-semibold tracking-tight text-text"
         >
-          robot-atlas
+          robot-wiki
         </Link>
       </header>
 
@@ -94,10 +94,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
             href="/"
             className="px-2 font-mono text-sm font-semibold tracking-tight text-text"
           >
-            robot-atlas
+            robot-wiki
           </Link>
           <SearchBox idPrefix="sidebar" />
-          <NavTree idPrefix="sidebar" ariaLabel="Atlas taxonomy" />
+          <NavTree idPrefix="sidebar" ariaLabel="robot-wiki taxonomy" />
         </div>
       </aside>
 
@@ -133,7 +133,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 onClick={() => setDrawerOpen(false)}
                 className="font-mono text-sm font-semibold tracking-tight text-text"
               >
-                robot-atlas
+                robot-wiki
               </Link>
               <button
                 ref={closeButtonRef}
@@ -152,7 +152,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               />
               <NavTree
                 idPrefix="drawer"
-                ariaLabel="Atlas taxonomy drawer"
+                ariaLabel="robot-wiki taxonomy drawer"
                 onNavigate={() => setDrawerOpen(false)}
                 className="mt-5"
               />
