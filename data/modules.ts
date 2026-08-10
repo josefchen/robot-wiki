@@ -341,6 +341,7 @@ const PUBLISHED = new Set([
   'data-hardware/hardware-taxonomy',
   'data-hardware/teleop-rigs',
   'data-hardware/evaluation-crisis',
+  'classical/kinematics',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

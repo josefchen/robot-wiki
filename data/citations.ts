@@ -2837,6 +2837,82 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2510.17950',
     type: 'paper',
   },
+  {
+    // Verified against the ASME Digital Collection article page
+    // (2026-08-10): J. Appl. Mech. 22(2):215-221, June 1955. The paper that
+    // introduced the DH convention.
+    id: 'denavit-hartenberg-1955',
+    title: 'A Kinematic Notation for Lower-Pair Mechanisms Based on Matrices',
+    authors: ['J. Denavit', 'R. S. Hartenberg'],
+    year: 1955,
+    venue: 'ASME J. Applied Mechanics',
+    url: 'https://doi.org/10.1115/1.4011045',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore document page (2026-08-10): IEEE
+    // Trans. Man-Machine Systems 10(2):47-53, June 1969. Introduced resolved
+    // motion rate control, the Jacobian-velocity mapping used to command
+    // manipulators in task space.
+    id: 'whitney-1969',
+    title: 'Resolved Motion Rate Control of Manipulators and Human Prostheses',
+    authors: ['Daniel E. Whitney'],
+    year: 1969,
+    venue: 'IEEE Trans. Man-Machine Systems',
+    url: 'https://doi.org/10.1109/TMMS.1969.299896',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore document page (2026-08-10): IEEE
+    // Trans. Systems, Man, and Cybernetics 16(1):93-101, January 1986. The
+    // damped-least-squares IK formulation the 3D playground solver builds on.
+    id: 'wampler-1986',
+    title:
+      'Manipulator Inverse Kinematic Solutions Based on Vector Formulations and Damped Least-Squares Methods',
+    authors: ['Charles W. Wampler'],
+    year: 1986,
+    venue: 'IEEE Trans. Systems, Man, and Cybernetics',
+    url: 'https://doi.org/10.1109/TSMC.1986.289285',
+    type: 'paper',
+  },
+  {
+    // Verified against the publisher DOI record (2026-08-10): Quarterly of
+    // Applied Mathematics 2(2):164-168, 1944. The damping idea behind
+    // Levenberg-Marquardt-style IK solvers.
+    id: 'levenberg-1944',
+    title:
+      'A Method for the Solution of Certain Non-linear Problems in Least Squares',
+    authors: ['Kenneth Levenberg'],
+    year: 1944,
+    venue: 'Quarterly of Applied Mathematics',
+    url: 'https://doi.org/10.1090/qam/10666',
+    type: 'paper',
+  },
+  {
+    // Verified against the SIAM ePubs page (2026-08-10): J. Society for
+    // Industrial and Applied Mathematics 11(2):431-441, 1963. Adaptive
+    // damping for nonlinear least squares; paired with Levenberg in the
+    // Levenberg-Marquardt method.
+    id: 'marquardt-1963',
+    title: 'An Algorithm for Least-Squares Estimation of Nonlinear Parameters',
+    authors: ['Donald W. Marquardt'],
+    year: 1963,
+    venue: 'J. SIAM',
+    url: 'https://doi.org/10.1137/0111030',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Northwestern book site (2026-08-10): the
+    // official companion for Lynch and Park, Cambridge University Press,
+    // 2017, ISBN 9781107156302. Free full text and video lectures.
+    id: 'modern-robotics-2017',
+    title: 'Modern Robotics: Mechanics, Planning, and Control',
+    authors: ['Kevin M. Lynch', 'Frank C. Park'],
+    year: 2017,
+    venue: 'Cambridge University Press',
+    url: 'https://modernrobotics.northwestern.edu/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

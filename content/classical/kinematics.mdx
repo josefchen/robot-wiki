@@ -1,0 +1,144 @@
+---
+title: "Kinematics"
+description: "Forward and inverse kinematics as one map and its reverse: homogeneous transforms, the Denavit-Hartenberg convention, the Jacobian, singularities, and the damped least-squares solver behind the 3D playground."
+domain: classical
+slug: kinematics
+order: 1
+status: published
+lastReviewed: "2026-08-10"
+citations:
+  - denavit-hartenberg-1955
+  - whitney-1969
+  - wampler-1986
+  - levenberg-1944
+  - marquardt-1963
+  - modern-robotics-2017
+  - so-arm100-repo-2026
+  - act-aloha-2023
+  - isaac-gr00t-repo-2026
+---
+
+import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
+import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
+
+Kinematics describes robot motion without asking what causes it. No forces and no torques: just the geometry of the links, the angles of the joints, and where the end of the arm lands. Every other layer of the stack assumes it. A simulator integrates dynamics on top of a kinematic chain. A teleoperation rig maps the operator's hand into joint space through one. Every learned manipulation policy, whatever its size, eventually emits numbers that must make sense in some robot's kinematic coordinates.
+
+Two directions dominate. Forward kinematics takes joint angles and computes the end-effector pose. Inverse kinematics asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
+  <Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground" />
+  <Stat label="playground IK tolerance" value="±0.5mm" note="damped least-squares residual target" />
+  <Stat label="joints in the 2D demo" value="3" note="the planar chain below" />
+</div>
+
+## Forward kinematics
+
+A serial arm is a chain: a fixed base, then alternating rigid links and joints. Attach a coordinate frame to each link at its joint. Each joint contributes one rigid transform from the frame below it to the frame above it, parameterized by the joint variable, and multiplying the transforms in order carries the base frame to the tool frame.
+
+A rigid transform packages a rotation $R$ and a translation $p$ into one matrix:
+
+$$
+T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
+$$
+
+The forward-kinematics map is the ordered product, one factor per joint:
+
+$$
+T_0^{n}(q) = T_0^1(q_1)\,T_1^2(q_2)\,\cdots\,T_{n-1}^{n}(q_n)
+$$
+
+Evaluating it costs $n$ matrix multiplications. The map is deterministic and smooth in the joint angles, and one evaluation is cheap enough to run inside every control cycle. That is the entire forward problem <Cite id="modern-robotics-2017" />.
+
+In the plane the product collapses into something you can watch. Each link is a vector of length $l_i$ pointing along the cumulative angle $q_1 + \cdots + q_i$, and the end-effector position is the running sum of those vectors:
+
+$$
+x = \sum_{i=1}^{n} l_i \cos\left(q_1 + \cdots + q_i\right) \qquad y = \sum_{i=1}^{n} l_i \sin\left(q_1 + \cdots + q_i\right)
+$$
+
+The arm below evaluates exactly that expression. Three revolute joints, each angle measured relative to its parent link. Move any slider and every downstream link moves with it, because one joint angle enters every downstream position. Keep that dependence in mind; it is the seed of the Jacobian.
+
+<PlanarFkArm className="my-6" />
+
+## Denavit-Hartenberg parameters
+
+The transform product answers the question once the frames are fixed, but the frames still need assigning. Denavit and Hartenberg gave the standard answer in 1955 <Cite id="denavit-hartenberg-1955" />. Under their convention, exactly four scalars describe the geometry from one joint to the next. Two belong to the link: $a_i$, the distance between consecutive joint axes measured along their common normal, and $\alpha_i$, the twist angle between those axes. Two belong to the joint: $d_i$, the offset along the preceding axis, and $\theta_i$, the joint angle itself. For a revolute joint only $\theta_i$ varies; the other three are constants of the hardware.
+
+The per-joint transform is a fixed sequence of four elementary motions, rotation about $z$, translation along $z$, translation along $x$, rotation about $x$:
+
+$$
+A_i = \mathrm{Rot}_z(\theta_i)\,\mathrm{Trans}_z(d_i)\,\mathrm{Trans}_x(a_i)\,\mathrm{Rot}_x(\alpha_i)
+$$
+
+$$
+A_i = \begin{bmatrix}
+\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i \\
+\sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\
+0 & \sin\alpha_i & \cos\alpha_i & d_i \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+For the planar arm above the table is short. All motion stays in one plane, so every twist and offset is zero, and the whole chain reduces to three link lengths and three angles.
+
+<DhParameterTable className="my-6" />
+
+The convention earns its keep on real arms: four parameters per joint instead of six transform degrees of freedom, and a description compact enough to print on a datasheet. It has costs. Frame assignment is fiddly, and the parameters are discontinuous: as two consecutive joint axes drift toward parallel, the common normal they define can flip, so a small mechanical change can jump a table entry. The product-of-exponentials formulation avoids the discontinuity by describing each joint as a screw about a fixed axis, and it is the treatment Modern Robotics uses throughout <Cite id="modern-robotics-2017" />. The output of either notation is the same transform product; the convention is a choice of bookkeeping.
+
+Modern rigs rarely run DH at all. The 3D playground reads the SO-101 chain directly from its URDF, a tree of links and joints where each joint carries an origin transform and a rotation axis <Cite id="so-arm100-repo-2026" />. DH remains the common paper language for writing a robot's geometry down, which is why every datasheet you read will speak it.
+
+## The Jacobian
+
+Forward kinematics maps angles to pose. The Jacobian is the derivative of that map: the linear relation between joint velocities and end-effector velocity,
+
+$$
+\dot{x} = J(q)\,\dot{q}
+$$
+
+with one column per joint. For revolute joint $i$ with axis $z_i$ located at $p_i$, the column is the cross product of the axis with the vector from the joint to the end effector, stacked above the axis itself; a prismatic joint contributes its axis directly:
+
+$$
+J_i = \begin{bmatrix} z_i \times (p_\mathrm{ee} - p_i) \\ z_i \end{bmatrix}
+$$
+
+The same matrix does double duty in statics: the transpose maps a wrench at the end effector to the joint torques that balance it, $\tau = J^{T}(q)\,F$. Velocities map one way through $J$, forces the other way through $J^{T}$ <Cite id="modern-robotics-2017" />.
+
+The Jacobian depends on configuration, and it can lose rank. When the arm is fully extended, or when joint axes line up, columns become dependent and the velocity map stops covering every task-space direction. Those configurations are singularities. Near one, a modest end-effector speed can demand arbitrarily large joint speeds, because the inverse of a nearly rank-deficient matrix blows up. Any velocity-level controller has to say what happens there.
+
+Whitney's resolved motion rate control gave the classical answer in 1969: command a task-space velocity and invert the Jacobian to obtain joint rates <Cite id="whitney-1969" />,
+
+$$
+\dot{q} = J^{-1}(q)\,\dot{x}
+$$
+
+or, when the arm is redundant and $J$ is not square, use the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose extra degrees of freedom can absorb secondary objectives such as staying away from joint limits. The idea turned the Jacobian from a descriptive quantity into a control law, and it is still the skeleton of most task-space controllers.
+
+## Inverse kinematics
+
+Inverse kinematics asks for the preimage: given a target $x_d$, find $q$ with $k(q) = x_d$. Three facts make it hard. The map $k$ is nonlinear in $q$, so no single matrix inversion applies. It is many-to-one where it is onto: a point inside the workspace is usually reachable with several distinct configurations, elbow left or elbow right, and a redundant arm reaches the same pose through a continuum of postures. And it is not onto everywhere: targets outside the workspace have no solution at all, and a solver should say so rather than pretend otherwise.
+
+Closed-form solutions exist for special geometries, most famously six-revolute arms whose last three axes intersect at the wrist, but the general tool is iterative: linearize around the current configuration, take a step, repeat,
+
+$$
+\Delta x = J(q)\,\Delta q \qquad \Delta q = J^{+}(q)\,\Delta x
+$$
+
+Near a singularity this inherits the Jacobian's pathology. $JJ^{T}$ approaches singularity, and the pseudoinverse step blows up exactly where careful motion matters most. The standard fix stops inverting precisely and solves a regularized problem instead. Wampler's damped least squares replaces the inverse with
+
+$$
+\Delta q = J^{T}\left(JJ^{T} + \lambda^2 I\right)^{-1}\Delta x
+$$
+
+The damping term trades a small amount of position error for a bounded, well-conditioned step. Far from singularities it is nearly invisible; near one it is what keeps the joint rates finite. The trade is governed by a single scalar, $\lambda$ <Cite id="wampler-1986" />.
+
+Make the damping adaptive and you recover the Levenberg-Marquardt pattern from nonlinear least squares: take a trial step, keep it only if the residual shrinks, decrease $\lambda$ after success and increase it after failure <Cite id="levenberg-1944" /> <Cite id="marquardt-1963" />. Under that rule the residual decreases monotonically, the solver cannot chase an oscillation, and an unreachable target produces a plateau at the edge of the workspace instead of a false zero. That is precisely the behavior of the solver in this wiki's playground: damped least squares with Levenberg-Marquardt acceptance, plus joint-limit clamps on every step.
+
+<Callout variant="info" title="Drive the full solver">
+  The [3D kinematics playground](/playground) runs this solver on the SO-101 arm: joint sliders for forward kinematics, click-to-reach targets for inverse kinematics, and a live residual and iteration count in the HUD. The arm model comes from TheRobotStudio's SO-ARM100 project <Cite id="so-arm100-repo-2026" />.
+</Callout>
+
+## The same geometry, inside learned policies
+
+It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 7-DoF arms <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
+
+The forward direction is a product of transforms; the inverse direction is a damped iteration built on its derivative. Planning, control, and learning in the rest of this domain all run on top of those two operations.
