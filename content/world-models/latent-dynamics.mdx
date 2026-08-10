@@ -16,11 +16,15 @@ citations:
   - dream-mpc-2026
   - fast-wam-2026
   - world-model-survey-2026
+seeAlso:
+  - "world-models/taxonomy"
+  - "world-models/generative-video"
+  - "world-models/jepa"
 ---
 
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 
-Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, latent dynamics is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
+Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id="latent-dynamics">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
@@ -61,7 +65,7 @@ The interactive below makes the compounding concrete. Extend the horizon and the
 
 ## Successors and open limits
 
-The lineage is still moving. The Robotic World Model work retargets latent imagination at robust robot control rather than benchmark RL, using a dual-autoregressive mechanism for long-horizon prediction under partial observability <Cite id="robotic-world-model-2025" />. Dream-MPC attacks the specific seam inside TD-MPC-style hybrids, the observation that the planner consistently outperforms the policy prior, by replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free MPC across 24 tasks <Cite id="dream-mpc-2026" />. And from the video-model side, Fast-WAM argues the imagination may only be needed at training time: it keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster <Cite id="fast-wam-2026" />.
+The lineage is still moving. The Robotic World Model work retargets latent imagination at robust robot control rather than benchmark RL, using a dual-autoregressive mechanism for long-horizon prediction under partial observability <Cite id="robotic-world-model-2025" />. Dream-MPC attacks the specific seam inside TD-MPC-style hybrids, the observation that the planner consistently outperforms the policy prior, by replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free <Term id="mpc">MPC</Term> across 24 tasks <Cite id="dream-mpc-2026" />. And from the video-model side, Fast-WAM argues the imagination may only be needed at training time: it keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster <Cite id="fast-wam-2026" />.
 
 The honest limits, per the survey and the primary papers <Cite id="world-model-survey-2026" />:
 

@@ -14,6 +14,10 @@ citations:
   - openai-rubiks-cube-2019
   - play2perfect-2026
   - gemini-robotics-2-2026
+seeAlso:
+  - "rl-sim2real/parallel-sim-rl"
+  - "rl-sim2real/sim2real-transfer"
+  - "rl-sim2real/legged-locomotion"
 ---
 
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
@@ -30,9 +34,9 @@ In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground
 
 ## The asymmetry is in the MDP, not the algorithm
 
-The tempting explanation is that RL is somehow bad at manipulation. The reality-gap survey, the field's authoritative 2026 statement on sim-to-real, points somewhere else: the manipulation MDP is not cheaply simulatable <Cite id="reality-gap-survey-2026" />. Locomotion asks the simulator for proprioception, a terrain heightfield, and a decent actuator model, all of which physics engines handle well. Manipulation asks for per-object geometry, friction, compliance, and deformation, resolved to millimeter-accurate multi-point contact, plus a visual pipeline good enough to stand in for object state. Each of those is a known hard problem; a single task needs all of them at once.
+The tempting explanation is that RL is somehow bad at manipulation. The reality-gap survey, the field's authoritative 2026 statement on sim-to-real, points somewhere else: the manipulation MDP is not cheaply simulatable <Cite id="reality-gap-survey-2026" />. Locomotion asks the simulator for <Term id="proprioception">proprioception</Term>, a terrain heightfield, and a decent actuator model, all of which physics engines handle well. Manipulation asks for per-object geometry, friction, compliance, and deformation, resolved to millimeter-accurate multi-point contact, plus a visual pipeline good enough to stand in for object state. Each of those is a known hard problem; a single task needs all of them at once.
 
-This one fact explains why the two literatures read so differently. The locomotion literature is "PPO, domain randomization, curriculum." The manipulation literature is "collect a hundred thousand demonstrations and train a diffusion transformer," because real demonstration data sidesteps the simulability problem entirely: a real trajectory needs no contact model at all (the [behavior cloning module](/manipulation/bc-foundations) covers what that choice costs elsewhere).
+This one fact explains why the two literatures read so differently. The locomotion literature is "<Term id="ppo">PPO</Term>, <Term id="domain-randomization">domain randomization</Term>, <Term id="curriculum-learning">curriculum</Term>." The manipulation literature is "collect a hundred thousand demonstrations and train a diffusion transformer," because real demonstration data sidesteps the simulability problem entirely: a real trajectory needs no contact model at all (the [behavior cloning module](/manipulation/bc-foundations) covers what that choice costs elsewhere).
 
 ## Six properties of the two MDPs
 
@@ -63,5 +67,3 @@ The sharpest 2026 evidence that manipulation remains the bottleneck is not an RL
 <Callout variant="warn" title="How to read this module">
   The interactive's contact counts, patch radii, and scene geometry are illustrative renderings of the asymmetry, not measurements from a specific simulator. The sourced numbers are the Rudin wall-clock figures (under four minutes and twenty minutes), the Gemini Robotics 2 success rates, and the Play2Perfect clearance result. The tolerance values (20 mm absorbable gait error versus 0.5 mm insertion clearance) are representative physical scales, consistent with the cited systems, not a benchmark.
 </Callout>
-
-The rest of this domain works through the consequences: the GPU-parallel infrastructure that made the four-minute run possible, the transfer toolbox (domain randomization, teacher-student distillation, system identification, real-to-sim), the locomotion lineage itself, humanoid whole-body control, and the reward-design question that every one of these systems papers over.

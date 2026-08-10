@@ -17,16 +17,20 @@ citations:
   - mem-2026
   - pi07-2026
   - openpi-repo-2024
+seeAlso:
+  - "manipulation/vla-models"
+  - "manipulation/knowledge-insulation"
+  - "manipulation/realtime-execution"
 ---
 
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
 
-The [VLA module](/manipulation/vla-models) ended on a bottleneck: discrete action tokens let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a flow-matching action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including the point where the open weights stop.
+The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="action-tokenization">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id="flow-matching">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including the point where the open weights stop.
 
 ## π0: the action expert
 
-π0 grafts a second transformer onto a pretrained vision-language model <Cite id="pi0-2024" />. The first set of weights handles image and text tokens and is initialized from PaliGemma (3B). The second, the action expert, is initialized from scratch and adds 300M parameters, for 3.3B total. The structural point matters for anyone implementing one: the expert is a Mixture-of-Transformers, not an MLP head. It is a full transformer whose 50 action tokens attend into the backbone's activations at every layer through shared attention, with a bidirectional mask among themselves. Observations are 2 or 3 RGB images, tokenized language, and proprioceptive state; the output is a chunk of H = 50 actions, one second at the full 50 Hz control rate <Cite id="pi0-2024" />.
+π0 grafts a second transformer onto a pretrained <Term id="vision-language-model">vision-language model</Term> <Cite id="pi0-2024" />. The first set of weights handles image and text tokens and is initialized from PaliGemma (3B). The second, the action expert, is initialized from scratch and adds 300M parameters, for 3.3B total. The structural point matters for anyone implementing one: the expert is a Mixture-of-Transformers, not an MLP head. It is a full transformer whose 50 action tokens attend into the backbone's activations at every layer through shared attention, with a bidirectional mask among themselves. Observations are 2 or 3 RGB images, tokenized language, and proprioceptive state; the output is a chunk of H = 50 actions, one second at the full 50 Hz control rate <Cite id="pi0-2024" />.
 
 Where [Diffusion Policy](/manipulation/diffusion-policy) denoises with a DDPM, π0 trains the expert with conditional flow matching on a straight transport path. Sample noise $\varepsilon \sim \mathcal{N}(0, I)$, form the interpolant $A_t^\tau = \tau A_t + (1 - \tau)\varepsilon$, and regress the network $v_\theta$ onto the target vector field $u = A_t - \varepsilon$, with the training timestep $\tau$ drawn from a beta distribution weighted toward the noisy end. At inference, integrate from $\tau = 0$ to $\tau = 1$ with forward Euler in 10 steps; the image-text-state prefix is KV-cached once, so each step recomputes only the action-token suffix, which is what makes 10 steps affordable <Cite id="pi0-2024" />.
 
@@ -37,7 +41,7 @@ Where [Diffusion Policy](/manipulation/diffusion-policy) denoises with a DDPM, �
   <Stat label="training data" value="~10k h" note="7+ robots, 68 tasks + OXE" />
 </div>
 
-Cross-embodiment is handled crudely and effectively: one padded action and state vector sized for the widest robot, with per-embodiment normalization statistics, so a single checkpoint serves single-arm, bimanual, and mobile platforms <Cite id="pi0-2024" />. Training splits into broad pre-training and task-specific post-training, mirroring LLM practice. The limitations set the agenda for everything after: execution was synchronous (finish the chunk, pause for inference, start the next), language following was mediocre, and hard tasks like laundry folding were near-zero success without fine-tuning <Cite id="pi0-2024" />.
+<Term id="cross-embodiment">Cross-embodiment</Term> is handled crudely and effectively: one padded action and state vector sized for the widest robot, with per-embodiment normalization statistics, so a single checkpoint serves single-arm, bimanual, and mobile platforms <Cite id="pi0-2024" />. Training splits into broad pre-training and task-specific post-training, mirroring LLM practice. The limitations set the agenda for everything after: execution was synchronous (finish the chunk, pause for inference, start the next), language following was mediocre, and hard tasks like laundry folding were near-zero success without fine-tuning <Cite id="pi0-2024" />.
 
 ## Why ten steps is enough
 
@@ -59,7 +63,7 @@ FAST tokenizes the action chunk in the frequency domain instead. Apply a discret
 
 π0.5 targeted generalization rather than speed <Cite id="pi05-2025" />. The architecture keeps the π0 skeleton, but the training mixture adds hybrid multimodal examples that interleave image observations, language commands, object detections, semantic subtask predictions, and low-level actions in a single sequence. The subtask prediction makes the model internally hierarchical: at inference it first predicts a high-level language subtask at low frequency ("pick up the plate"), then conditions the action expert on that subtask at high frequency. There is no separate planner. The payoff was the first end-to-end system shown cleaning kitchens and bedrooms it had never seen, and the paper's ablation shows the non-action data is essential to that result, not incremental <Cite id="pi05-2025" />.
 
-The load-bearing training trick arrived shortly after, under an unglamorous name. Knowledge Insulation starts from a diagnosis: gradients from a from-scratch, continuous-generative action expert corrupt the pretrained backbone's language processing. The paper's example is a model told to put a spoon in the dish container that grabs the trash instead. The fix has three parts <Cite id="knowledge-insulation-paper-2025" />:
+The load-bearing training trick arrived shortly after, under an unglamorous name. <Term id="knowledge-insulation">Knowledge Insulation</Term> starts from a diagnosis: gradients from a from-scratch, continuous-generative action expert corrupt the pretrained backbone's language processing. The paper's example is a model told to put a spoon in the dish container that grabs the trash instead. The fix has three parts <Cite id="knowledge-insulation-paper-2025" />:
 
 1. Train the action expert with flow matching on the continuous actions that actually execute.
 2. Train the backbone with discrete FAST action tokens, cross-entropy on a representation the VLM's pretraining objective already likes, plus web vision-language data and subtask data.
@@ -83,7 +87,7 @@ All three are closed: no weights and no arXiv papers, only the model cards and l
 
 ## π0.7: generalization as a prompting problem
 
-π0.7 (April 2026) reframes the generalization problem: the bottleneck is underspecified prompts, not model capacity <Cite id="pi07-2026" />. The skeleton is π0.6 plus MEM at about 5B parameters, with two architectural tweaks worth noting: the flow timestep is injected through adaptive RMSNorm, and proprioceptive state enters through a linear projection rather than discretized text tokens. Training-time Real-Time Chunking with simulated delays of 0 to 12 timesteps lets the policy tolerate up to 240 ms of inference latency on a 50 Hz robot <Cite id="pi07-2026" />.
+π0.7 (April 2026) reframes the generalization problem: the bottleneck is underspecified prompts, not model capacity <Cite id="pi07-2026" />. The skeleton is π0.6 plus MEM at about 5B parameters, with two architectural tweaks worth noting: the flow timestep is injected through adaptive RMSNorm, and proprioceptive state enters through a linear projection rather than discretized text tokens. Training-time <Term id="real-time-chunking">Real-Time Chunking</Term> with simulated delays of 0 to 12 timesteps lets the policy tolerate up to 240 ms of inference latency on a 50 Hz robot <Cite id="pi07-2026" />.
 
 The actual contribution is the context every training example carries, with each component randomly dropped so any subset works at test time <Cite id="pi07-2026" />:
 
@@ -104,4 +108,4 @@ The openpi repository hosts π0, π0-FAST, and π0.5 <Cite id="openpi-repo-2024"
   Any capability claim built on openpi reflects π0.5 at best: no Knowledge-Insulation-scale training runs at 5B, no advantage conditioning, no memory, no multimodal prompting. The open/closed gap is nearly invisible on saturated simulation benchmarks and large on exactly the zero-shot, open-world behavior the later generations advertise. When a 2026 result matters to you, check which side of the divider it came from <Cite id="openpi-repo-2024" /> <Cite id="pi07-2026" />.
 </Callout>
 
-The arc of the line is a useful compression of the whole domain's recent history. π0 established the action expert as the standard unit. π0-FAST fixed tokenization and accidentally produced the objective that made the backbone trainable. π0.5 bought open-world generalization with heterogeneous co-training, and Knowledge Insulation made the recipe efficient. The closed generations then spent their budget on what the open line still lacks: reliability without fine-tuning, learning from experience, memory, and prompts rich enough to absorb suboptimal data. The next module steps outside one lab and surveys the other generalist policies, open and closed, competing with this line.
+The arc of the line is a useful compression of the whole domain's recent history. π0 established the action expert as the standard unit. π0-FAST fixed tokenization and accidentally produced the objective that made the backbone trainable. π0.5 bought open-world generalization with heterogeneous co-training, and Knowledge Insulation made the recipe efficient. The closed generations then spent their budget on what the open line still lacks: reliability without fine-tuning, learning from experience, memory, and prompts rich enough to absorb suboptimal data.

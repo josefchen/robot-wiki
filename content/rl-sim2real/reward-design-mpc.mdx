@@ -22,6 +22,10 @@ citations:
   - bd-atlas-lbm-2025
   - gemini-robotics-2-2026
   - state-of-simulation-2026
+seeAlso:
+  - "rl-sim2real/legged-locomotion"
+  - "rl-sim2real/humanoid-wbc"
+  - "rl-sim2real/parallel-sim-rl"
 ---
 
 import { RewardShaping } from '@/components/interactive/reward-shaping';
@@ -46,7 +50,7 @@ The failure modes are not random. They are attractors, and they are stable, whic
 
 <RewardShaping className="my-6" />
 
-This tuning burden is where sim-to-real quietly fails. A reward that produces beautiful behavior in simulation can produce a policy that exploits contact-solver artifacts, and no automated method currently detects that before hardware. The KL-adaptive learning rate in the standard PPO configuration exists partly to absorb reward retuning without destabilizing training <Cite id="rudin-2021" />.
+This tuning burden is where sim-to-real quietly fails. A reward that produces beautiful behavior in simulation can produce a policy that exploits contact-solver artifacts, and no automated method currently detects that before hardware. The KL-adaptive learning rate in the standard <Term id="ppo">PPO</Term> configuration exists partly to absorb reward retuning without destabilizing training <Cite id="rudin-2021" />.
 
 ## Three answers to weight tuning
 
@@ -70,7 +74,7 @@ The limitations are structural, and the 2026 literature treats them as open. Eur
 
 ## Curriculum: staying on the difficulty frontier
 
-Reward shaping decides what to optimize; curriculum decides in what order the policy is allowed to see difficulty. Three mechanisms dominate, and they are different enough to keep separate.
+<Term id="reward-shaping">Reward shaping</Term> decides what to optimize; <Term id="curriculum-learning">curriculum</Term> decides in what order the policy is allowed to see difficulty. Three mechanisms dominate, and they are different enough to keep separate.
 
 Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />. Population-based training goes furthest: DexPBT evolves hyperparameters and reward weights across a population of learners, and Isaac Lab reproduces its 6D reposing result with 8 workers on one to two GPUs each, converging in about 16 hours on NVIDIA OVX L40 hardware <Cite id="isaac-lab-2025" />.
 
@@ -78,11 +82,11 @@ Notice what all three assume: cheap, dense, parallel evaluation. Curriculum is a
 
 ## The classical baseline got stronger
 
-Everything above is about making learning work. The learning-vs-model-based debate asks whether it had to. The classical stack for legged control is three layers at three rates: a footstep and contact planner, an MPC layer optimizing a reduced-order model over a half-second to one-second horizon at 20 to 100 Hz, and a whole-body QP tracking the MPC output against full rigid-body dynamics, friction cones, and actuator limits at 500 to 1000 Hz. The reduced-order model in the middle layer existed because full-order MPC was assumed too slow to run online.
+Everything above is about making learning work. The learning-vs-model-based debate asks whether it had to. The classical stack for legged control is three layers at three rates: a footstep and contact planner, an <Term id="mpc">MPC</Term> layer optimizing a reduced-order model over a half-second to one-second horizon at 20 to 100 Hz, and a whole-body QP tracking the MPC output against full rigid-body dynamics, friction cones, and actuator limits at 500 to 1000 Hz. The reduced-order model in the middle layer existed because full-order MPC was assumed too slow to run online.
 
 The 2026 result that undercuts that assumption is Zhang et al., presented at ICRA 2026: plain iLQR with MuJoCo dynamics and finite-difference-approximated derivatives achieves real-time whole-body MPC on hardware, across dynamic quadruped locomotion, a quadruped walking on two legs, and full-sized humanoid bipedal locomotion, and the controllers generalize to the real world, in the paper's words, with few sim-to-real considerations <Cite id="mujoco-ilqr-2026" />. There is no learned component. The paper is explicitly framed as an easy-to-reproduce baseline, which is a quiet rebuke to a decade of "learning was necessary" claims that never named their classical comparison.
 
-The structural point is deeper than one paper. MPC has no sim-to-real gap in the RL sense: it re-solves against the measured state at every control step, so model error is rejected by feedback instead of being baked into weights. From this angle, domain randomization is an expensive workaround for not closing the loop on the model. And the industry's most watched controller program is hybrid, not either/or: Boston Dynamics added RL to Spot's MPC-based locomotion to handle variability rather than replacing the stack <Cite id="bd-spot-rl-2024" />, and Atlas's move to Large Behavior Models covers manipulation behavior with the controls stack underneath <Cite id="bd-atlas-lbm-2025" />.
+The structural point is deeper than one paper. MPC has no sim-to-real gap in the RL sense: it re-solves against the measured state at every control step, so model error is rejected by feedback instead of being baked into weights. From this angle, <Term id="domain-randomization">domain randomization</Term> is an expensive workaround for not closing the loop on the model. And the industry's most watched controller program is hybrid, not either/or: Boston Dynamics added RL to Spot's MPC-based locomotion to handle variability rather than replacing the stack <Cite id="bd-spot-rl-2024" />, and Atlas's move to Large Behavior Models covers manipulation behavior with the controls stack underneath <Cite id="bd-atlas-lbm-2025" />.
 
 ## The debate, steelmanned
 
@@ -100,4 +104,4 @@ The case for model-based control, at its strongest: the strongest single 2026 re
 
 The field has mostly stopped arguing and hybridized along a clean division. Model-based control owns anything with a good analytic model, hard constraints, and a need for guarantees: whole-body torque control, force control, safety layers, and increasingly the low-level interface below a learned policy. Learning owns anything requiring perception, semantics, contact discovery, or generalization across embodiments. The newest position dissolves the boundary entirely: model-based methods as the training signal for learned ones, through differentiable simulation, MPC-as-teacher distillation, and learned models used as forward dynamics for planning.
 
-The genuinely contested question in 2026 is not learning or models. It is where the learned model lives: in the weights of a policy, in a latent dynamics model, in a video generator, or nowhere at all because you re-solve online. The world-models domain picks up that question next.
+The genuinely contested question in 2026 is not learning or models. It is where the learned model lives: in the weights of a policy, in a latent dynamics model, in a video generator, or nowhere at all because you re-solve online.

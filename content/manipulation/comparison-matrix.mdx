@@ -29,6 +29,10 @@ citations:
   - skild-series-c-2026
   - real-time-chunking-2025
   - knowledge-insulation-paper-2025
+seeAlso:
+  - "manipulation/vla-models"
+  - "manipulation/pi-line"
+  - "manipulation/hierarchical"
 ---
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
@@ -37,13 +41,13 @@ The preceding modules in this domain each followed one lineage at a time. This o
 
 ## The eight axes
 
-**Action representation** is how the policy emits motor commands: continuous regression, discrete tokens decoded like text, or a generative head (diffusion or flow matching) that samples continuous chunks. This choice drives everything downstream, including inference cost and control rate.
+**Action representation** is how the policy emits motor commands: continuous regression, discrete tokens decoded like text, or a generative head (diffusion or <Term id="flow-matching">flow matching</Term>) that samples continuous chunks. This choice drives everything downstream, including inference cost and control rate.
 
 **Horizon** shows the planned chunk length $H$ against the steps actually executed $\hat{H}$ before the policy re-plans. The gap between the two numbers sets the policy's reactivity: Diffusion Policy predicts 16 steps but commits 8, and π0.7 predicts 50 but commits only 15 to 25 <Cite id="diffusion-policy-2023" /> <Cite id="pi07-2026" />.
 
-**Control frequency** is the policy-side rate, not the low-level controller's. ACT queries its transformer at 50 Hz and smooths with temporal ensembling <Cite id="act-aloha-2023" />; RT-1 managed 3 Hz <Cite id="rt1-2022" />. Dual-rate stacks report both rates in the cell note.
+**Control frequency** is the policy-side rate, not the low-level controller's. ACT queries its transformer at 50 Hz and smooths with <Term id="temporal-ensembling">temporal ensembling</Term> <Cite id="act-aloha-2023" />; RT-1 managed 3 Hz <Cite id="rt1-2022" />. Dual-rate stacks report both rates in the cell note.
 
-**Backbone**, **conditioning**, and **cross-embodiment** describe what the model is built on, what signals it consumes, and whether one checkpoint serves multiple robot bodies. Cross-embodiment "yes" hides three different mechanisms, padded joint vectors in the π line, a shared relative end-effector frame in GR00T N1.7, and DeepMind's unnamed Motion Transfer recipe <Cite id="pi0-2024" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gemini-robotics-15-2025" />.
+**Backbone**, **conditioning**, and **cross-embodiment** describe what the model is built on, what signals it consumes, and whether one checkpoint serves multiple robot bodies. <Term id="cross-embodiment">Cross-embodiment</Term> "yes" hides three different mechanisms, padded joint vectors in the π line, a shared relative <Term id="end-effector">end-effector</Term> frame in GR00T N1.7, and DeepMind's unnamed Motion Transfer recipe <Cite id="pi0-2024" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gemini-robotics-15-2025" />.
 
 **Hierarchy** marks whether a slow reasoning layer sits above the fast policy, and whether that layer lives inside one model (internal, as in π0.5's subtask prediction) or in a separate system (external, as when GR00T pairs with a whole-body controller) <Cite id="pi05-2025" />. **Weights** records whether you can download the model today.
 
@@ -51,13 +55,13 @@ The preceding modules in this domain each followed one lineage at a time. This o
 
 ## What the matrix shows
 
-Generative action heads displaced regression. ACT's deterministic CVAE decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples actions through diffusion, discrete tokens, or flow matching <Cite id="diffusion-policy-2023" /> <Cite id="pi0-2024" />. The discrete-token detour of RT-1, RT-2, and OpenVLA bought web-scale pretraining at the cost of autoregressive decode latency, and the field's answer was the flow-matching action expert: continuous chunks in a handful of denoising steps, trained behind a stop-gradient so the VLM backbone keeps its web knowledge <Cite id="knowledge-insulation-paper-2025" />. π0-FAST is the exception that tests the rule: it keeps the autoregressive recipe and makes it fast enough with DCT tokenization, at roughly twice the end-to-end latency of the flow head <Cite id="pi0-fast-2025" />.
+Generative action heads displaced regression. ACT's deterministic <Term id="cvae">CVAE</Term> decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples actions through diffusion, discrete tokens, or flow matching <Cite id="diffusion-policy-2023" /> <Cite id="pi0-2024" />. The discrete-token detour of RT-1, RT-2, and OpenVLA bought web-scale pretraining at the cost of autoregressive decode latency, and the field's answer was the flow-matching action expert: continuous chunks in a handful of denoising steps, trained behind a stop-gradient so the <Term id="vision-language-model">VLM</Term> backbone keeps its web knowledge <Cite id="knowledge-insulation-paper-2025" />. π0-FAST is the exception that tests the rule: it keeps the autoregressive recipe and makes it fast enough with DCT tokenization, at roughly twice the end-to-end latency of the flow head <Cite id="pi0-fast-2025" />.
 
-Chunks got long, then execution got selective. Horizon went from 1 step in RT-1 to 50 in the π line, but the newest rows shrink the *committed* horizon rather than the planned one. π0.7 executes 15 to 25 of its 50 predicted steps, and the real-time chunking work exists precisely to keep long-chunk policies responsive under inference latency <Cite id="pi07-2026" /> <Cite id="real-time-chunking-2025" />.
+Chunks got long, then execution got selective. Horizon went from 1 step in RT-1 to 50 in the π line, but the newest rows shrink the *committed* horizon rather than the planned one. π0.7 executes 15 to 25 of its 50 predicted steps, and the <Term id="real-time-chunking">real-time chunking</Term> work exists precisely to keep long-chunk policies responsive under inference latency <Cite id="pi07-2026" /> <Cite id="real-time-chunking-2025" />.
 
 Fifty hertz became the standard claim, and the note column shows what it costs. Temporal ensembling, parallel decoding, KV-cached prefixes, and five-step denoising all exist to make a multi-billion-parameter model answer inside a 20 ms budget <Cite id="openvla-oft-2025" /> <Cite id="pi06-model-card-2025" />. Helix 02's split is the extreme version: no single rate closes the loop, so a 200 Hz visuomotor policy hands off to a 1 kHz whole-body controller <Cite id="helix-02-2026" />.
 
-Hierarchy moved inside the model. From π0.5 onward the frontier rows all carry an internal high-level layer: subtask prediction in the π line, the ER orchestrator in Gemini Robotics, the S0/S1/S2 stack in Helix <Cite id="pi05-2025" /> <Cite id="gemini-robotics-2-2026" />. The external-hierarchy era of separate planners is covered in the next module.
+Hierarchy moved inside the model. From π0.5 onward the frontier rows all carry an internal high-level layer: subtask prediction in the π line, the ER orchestrator in Gemini Robotics, the S0/S1/S2 stack in Helix <Cite id="pi05-2025" /> <Cite id="gemini-robotics-2-2026" />.
 
 Finally, the weights column tells the access story in one glance. Everything downloadable, ACT through OpenVLA-OFT, π0 through π0.5, GR00T N1.7, sits at least one generation behind the closed frontier, and the closed rows are exactly the ones with the most "not disclosed" cells <Cite id="pi05-2025" /> <Cite id="gr00t-n1-2025" />.
 

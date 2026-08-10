@@ -16,12 +16,16 @@ citations:
   - pi-real-time-chunking-blog-2025
   - vla-perf-2026
   - consistency-policy-2024
+seeAlso:
+  - "manipulation/action-chunking"
+  - "manipulation/diffusion-policy"
+  - "manipulation/pi-line"
 ---
 
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
 import { ExecutionModes } from '@/components/interactive/execution-modes';
 
-A policy that needs 60 ms to think cannot run a 50 Hz robot. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated action chunking as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem, not an engineering afterthought: the way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
+A policy that needs 60 ms to think cannot run a 50 Hz robot. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem, not an engineering afterthought: the way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="pi0.6 per chunk" value="63 ms" note="5 denoising steps, 3 cameras, one H100" accent />
@@ -32,9 +36,9 @@ A policy that needs 60 ms to think cannot run a 50 Hz robot. The control period 
 
 ## Where the milliseconds go
 
-The Real-Time Chunking paper publishes the most detailed latency breakdown available for a deployed VLA system. On a mobile manipulator, the measured total was 139 ms per inference: 97 ms of model compute, 21 ms of network transit, 11 ms of image resizing, and 9.7 ms of everything else. On a static robot the total was 108 ms <Cite id="real-time-chunking-2025" />. Two things stand out. The model dominates, but not overwhelmingly: a fifth of the budget is spent moving and preparing data. And both totals are five to seven control periods long. A 50 Hz robot controlled this way is not closing a loop at 50 Hz; it is executing open-loop chunks and re-planning at 5 to 9 Hz.
+The <Term id="real-time-chunking">Real-Time Chunking</Term> paper publishes the most detailed latency breakdown available for a deployed <Term id="vision-language-action-model">VLA</Term> system. On a mobile manipulator, the measured total was 139 ms per inference: 97 ms of model compute, 21 ms of network transit, 11 ms of image resizing, and 9.7 ms of everything else. On a static robot the total was 108 ms <Cite id="real-time-chunking-2025" />. Two things stand out. The model dominates, but not overwhelmingly: a fifth of the budget is spent moving and preparing data. And both totals are five to seven control periods long. A 50 Hz robot controlled this way is not closing a loop at 50 Hz; it is executing open-loop chunks and re-planning at 5 to 9 Hz.
 
-NVIDIA's VLA-Perf study, the first systematic latency analysis of VLAs across edge and cloud hardware, adds the scaling picture <Cite id="vla-perf-2026" />. Its central finding is that denoising steps dominate inference time for diffusion and flow-based policies, while chunk size contributes negligibly. That is why the whole field spends its effort on step count and hand-off strategy rather than on shorter chunks.
+NVIDIA's VLA-Perf study, the first systematic latency analysis of VLAs across edge and cloud hardware, adds the scaling picture <Cite id="vla-perf-2026" />. Its central finding is that denoising steps dominate inference time for <Term id="diffusion-policy">diffusion</Term> and flow-based policies, while chunk size contributes negligibly. That is why the whole field spends its effort on step count and hand-off strategy rather than on shorter chunks.
 
 ## The hardware wall
 
@@ -52,7 +56,7 @@ Suppose inference takes d milliseconds. The policy has emitted a chunk, the robo
 
 **Naive switching** never waits: the instant the new chunk arrives, execution jumps to it. There is no dead time, but there is a discontinuity. The new chunk was inferred from an observation d milliseconds old, the world has moved since, and the two chunks disagree about what to do right now. The command steps by the full disagreement in a single control tick: a jerk event the hardware feels.
 
-**Temporal ensembling**, ACT's answer from 2023, queries the policy at every timestep and averages the overlapping predictions with exponential weights, newer observations dominating <Cite id="act-aloha-2023" />. At low latency this is smooth and reactive. At real VLA latencies it fails in a specific way: when two overlapping chunks commit to different modes (left of the obstacle versus right), the weighted average lands between the modes, in a place where no valid action exists. Physical Intelligence documents catastrophic failures at +100 ms and +200 ms of injected delay <Cite id="pi-real-time-chunking-blog-2025" />. The [action chunking module](/manipulation/action-chunking) has an interactive for that failure mode.
+**<Term id="temporal-ensembling">Temporal ensembling</Term>**, ACT's answer from 2023, queries the policy at every timestep and averages the overlapping predictions with exponential weights, newer observations dominating <Cite id="act-aloha-2023" />. At low latency this is smooth and reactive. At real VLA latencies it fails in a specific way: when two overlapping chunks commit to different modes (left of the obstacle versus right), the weighted average lands between the modes, in a place where no valid action exists. Physical Intelligence documents catastrophic failures at +100 ms and +200 ms of injected delay <Cite id="pi-real-time-chunking-blog-2025" />. The [action chunking module](/manipulation/action-chunking) has an interactive for that failure mode.
 
 **Real-Time Chunking** reframes the hand-off as inpainting, and it is the only option that pays neither cost <Cite id="real-time-chunking-2025" />. If inference takes d controller ticks, the first d actions of the new chunk can never be executed, because that time will already have passed; freeze them to the values from the old chunk that will actually have run. For the remaining overlap, apply partial attention, softly biasing the new chunk toward the old one, more strongly for earlier timesteps. The rest generates freely. Diffusion and flow models are natively good at inpainting, so RTC drops onto pi0 and pi0.5 with no training-time change. Measured throughput stays flat from +0 ms to +200 ms of injected delay, and RTC completed precise dynamic tasks, striking a match, plugging in an Ethernet cable, at over 300 ms of delay <Cite id="real-time-chunking-2025" />.
 
@@ -71,5 +75,3 @@ Since denoising steps dominate latency <Cite id="vla-perf-2026" />, the step cou
 <Callout variant="warn" title="How to read these numbers">
   The latency figures above come from two arXiv papers and one vendor model card; the pi0.6 figure is vendor-reported. Both interactives are models anchored to those published numbers, not re-runs of the experiments: the control-loop scaling between the two VLA-Perf anchors is illustrative, and the hand-off traces encode the published qualitative behaviors with a stated, illustrative jerk threshold. The sourced numbers themselves (52.57 ms, 63 ms, 108 and 139 ms, 240 ms) are measured or specified by their respective papers.
 </Callout>
-
-The [pi line module](/manipulation/pi-line) traces how the step count and the RTC machinery evolved across the pi0 family, and the [comparison matrix](/manipulation/comparison-matrix) puts the resulting inference costs next to the other method families.

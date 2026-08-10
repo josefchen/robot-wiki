@@ -14,11 +14,15 @@ citations:
   - isaac-lab-2025
   - newton-manipulation-blog-2026
   - state-of-simulation-2026
+seeAlso:
+  - "rl-sim2real/why-rl-locomotion"
+  - "rl-sim2real/sim2real-transfer"
+  - "rl-sim2real/reward-design-mpc"
 ---
 
 import { TrainingTimeChart } from '@/components/interactive/training-time-chart';
 
-The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) was not an algorithmic result. PPO was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. What changed between 2021 and 2026 was the infrastructure underneath the algorithm: physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module is about that infrastructure: what the throughput numbers actually are, and where the remaining bottleneck sits.
+The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) was not an algorithmic result. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. What changed between 2021 and 2026 was the infrastructure underneath the algorithm: physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module is about that infrastructure: what the throughput numbers actually are, and where the remaining bottleneck sits.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin 2021, one workstation GPU" accent />
@@ -31,9 +35,9 @@ The four-minute training run from the [previous module](/rl-sim2real/why-rl-loco
 
 Isaac Gym was the first demonstration of end-to-end RL for complex robot tasks running entirely on one GPU. PhysX simulated on the GPU and exposed the simulation state directly as PyTorch tensors, so the physics buffers and the policy network never round-tripped through the CPU. The authors report two to three orders of magnitude improvement over the conventional split of a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
 
-Rudin and colleagues turned that capability into the canonical locomotion result. Four thousand parallel ANYmal instances, a game-inspired terrain curriculum (robots that succeed get promoted to harder terrain tiles, robots that fail get demoted), and PPO: flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU <Cite id="rudin-2021" />. The open-sourced code, `legged_gym`, is still the reference lineage for the RSL-RL training stack most legged-robot groups use.
+Rudin and colleagues turned that capability into the canonical locomotion result. Four thousand parallel ANYmal instances, a game-inspired terrain <Term id="curriculum-learning">curriculum</Term> (robots that succeed get promoted to harder terrain tiles, robots that fail get demoted), and PPO: flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU <Cite id="rudin-2021" />. The open-sourced code, `legged_gym`, is still the reference lineage for the RSL-RL training stack most legged-robot groups use.
 
-The massively parallel regime inverts the usual PPO instincts. Rollouts are short (a few dozen steps per environment per iteration, with bootstrapping covering the rest), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target rather than following a fixed schedule. None of this works at 16 environments; all of it is stable at 4,096.
+The <Term id="parallel-simulation">massively parallel</Term> regime inverts the usual PPO instincts. Rollouts are short (a few dozen steps per environment per iteration, with bootstrapping covering the rest), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target rather than following a fixed schedule. None of this works at 16 environments; all of it is stable at 4,096.
 
 ## The JAX line: Brax, MJX, MuJoCo Playground
 
@@ -67,6 +71,4 @@ The contact story matters more than the solver list. Newton ships SDF-based coll
 
 ## The honest ledger
 
-A few caveats belong with the headline numbers. The Isaac Lab figures come from the framework's own paper, but the hardware, environment counts, and tasks are named, which makes them checkable. The Newton speedups are vendor-reported. NVIDIA itself names the CPU single-core bottleneck as a target for future releases, and domain randomization still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously <Cite id="isaac-lab-2025" />. Newton's differentiability is advertised, but its practical use for policy learning, as opposed to system identification and design optimization, is early. And Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput <Cite id="state-of-simulation-2026" />.
-
-The next module takes up what happens after the four-minute run finishes: getting the policy out of the simulator and onto hardware, through domain randomization, teacher-student distillation, system identification, and real-to-sim correction.
+A few caveats belong with the headline numbers. The Isaac Lab figures come from the framework's own paper, but the hardware, environment counts, and tasks are named, which makes them checkable. The Newton speedups are vendor-reported. NVIDIA itself names the CPU single-core bottleneck as a target for future releases, and <Term id="domain-randomization">domain randomization</Term> still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously <Cite id="isaac-lab-2025" />. Newton's differentiability is advertised, but its practical use for policy learning, as opposed to <Term id="system-identification">system identification</Term> and design optimization, is early. And Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput <Cite id="state-of-simulation-2026" />.

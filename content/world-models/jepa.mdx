@@ -17,11 +17,15 @@ citations:
   - odyssey-2-2025
   - interactive-world-simulator-2026
   - fast-wam-2026
+seeAlso:
+  - "world-models/taxonomy"
+  - "world-models/generative-video"
+  - "world-models/latent-dynamics"
 ---
 
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
 
-The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. No pixel reconstruction appears anywhere, at training time or at planning time. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative world models. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
+The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. No pixel reconstruction appears anywhere, at training time or at planning time. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative <Term id="world-model">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="pretrain video" value="1M+" note="hours, action-free" accent />
@@ -44,7 +48,7 @@ The original V-JEPA showed the recipe works as a representation learner: a conte
 
 V-JEPA 2 turns the representation into a controller, in two stages <Cite id="vjepa2-2025" />.
 
-First, action-free pretraining: self-supervised masked latent prediction on over 1 million hours of internet video, plus images, at roughly 1B parameters, using mask denoising and 3D rotary position embeddings. This alone sets the state of the art on motion understanding, 77.3 top-1 on Something-Something v2, with strong human-action anticipation on Epic-Kitchens-100, and the same encoder serves a VLM competitively on video question answering <Cite id="vjepa2-2025" />.
+First, action-free pretraining: self-supervised masked latent prediction on over 1 million hours of internet video, plus images, at roughly 1B parameters, using mask denoising and 3D rotary position embeddings. This alone sets the state of the art on motion understanding, 77.3 top-1 on Something-Something v2, with strong human-action anticipation on Epic-Kitchens-100, and the same encoder serves a <Term id="vision-language-model">VLM</Term> competitively on video question answering <Cite id="vjepa2-2025" />.
 
 Second, action-conditioned post-training, producing V-JEPA 2-AC: freeze the encoder and train an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, with no rewards, no task-specific demonstrations, and no per-environment tuning. The result plans zero-shot on Franka arms in labs never seen during training. Control is energy minimization in latent space: specify a goal image, encode it once, search action sequences whose predicted final latent lands closest to the goal latent, execute the first action, observe, and replan. Reported tasks are reaching, grasping, and pick-and-place <Cite id="vjepa2-2025" />.
 
@@ -69,4 +73,4 @@ The argument is no longer only a research position. LeCun left Meta in November 
 
 ## What would settle it
 
-Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators. The [latent-dynamics](/world-models/latent-dynamics) module covers the paradigm that sits between them: no decoder either, but trained on the agent's own experience rather than internet video.
+Two results would break the stalemate. The first is an interactive, inspectable, action-controllable JEPA environment: something a user can steer and probe the way Genie 3 can be steered today. Whether its absence is fundamental or an engineering gap is the crux of the debate. The second is a demonstrated JEPA advantage on contact-rich tasks, where the generative camp's best evidence and the JEPA camp's best evidence both currently run out. Until one of those lands, the honest summary is that the JEPA line has the cheapest demonstrated path from observation to zero-shot planning, and the [generative video](/world-models/generative-video) line has the only usable simulators.

@@ -15,11 +15,15 @@ citations:
   - isaac-lab-2025
   - world-model-survey-2026
   - eureka-2024
+seeAlso:
+  - "world-models/generative-video"
+  - "rl-sim2real/sim2real-transfer"
+  - "world-models/taxonomy"
 ---
 
 import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
 
-The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a world model, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it.
+The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a <Term id="world-model">world model</Term>, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="kitchen scenes" value="120" note="RoboCasa, RSS 2024" accent />
