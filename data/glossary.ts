@@ -7,11 +7,53 @@ import type { GlossaryTerm } from './schemas/glossary';
  * every cited id resolves and that no published article uses an unknown
  * term id.
  *
- * This is the seed set: eight terms, enough to prove the mechanism end to
- * end. Full coverage is a separate content effort; add terms here as
- * articles need them, each definition written from its cited source.
+ * Terms are added in batches as coverage grows; every definition is written
+ * from its cited source, and an id typo fails the build gate, so keep ids
+ * stable and kebab-case.
  */
 export const GLOSSARY: readonly GlossaryTerm[] = [
+  {
+    id: 'behavior-cloning',
+    term: 'behavior cloning',
+    definition:
+      'Training a policy by supervised learning on expert demonstrations: each recorded observation is an input, the action the expert took at that moment is the label, and the fitted mapping from state to action is the policy. The recipe predates deep learning; in 1988 ALVINN trained a three-layer network to steer a van from camera images, and the same approach, scaled to modern networks and datasets, still underlies most learned manipulation policies. Its known failure mode in closed loop is covariate shift.',
+    citations: ['alvinn-1988', 'dagger-2011'],
+  },
+  {
+    id: 'dagger',
+    term: 'DAgger',
+    definition:
+      'Dataset Aggregation, the iterative fix for behavior cloning\'s distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set, and retrain. Ross, Gordon, and Bagnell framed the procedure as a reduction of imitation learning to no-regret online learning, which replaces the quadratic dependence of total cost on episode length with a linear one.',
+    citations: ['dagger-2011'],
+  },
+  {
+    id: 'compounding-error',
+    term: 'compounding error',
+    definition:
+      'The accumulation of small per-step mistakes over the course of a sequential task: each error carries the robot into a state slightly outside its training data, where the next error is more likely, so total deviation grows faster than the per-step error rate. Ross, Gordon, and Bagnell bounded the effect for imitation learning with total cost quadratic in episode length, and action chunking attacks the same effect from the other side by shrinking the number of sequential decisions in an episode.',
+    citations: ['dagger-2011', 'act-aloha-2023'],
+  },
+  {
+    id: 'cvae',
+    term: 'CVAE',
+    definition:
+      'Conditional variational autoencoder: a generative model that learns a distribution over a latent variable instead of a single deterministic output. ACT trains its action-chunking policy as a CVAE. During training an encoder compresses the demonstrated action sequence into a latent style variable; at test time the decoder generates the chunk conditioned on camera images and joint positions with the latent clamped to the prior mean, which lets one policy cover varied demonstrations of the same task.',
+    citations: ['act-aloha-2023'],
+  },
+  {
+    id: 'vision-language-action-model',
+    term: 'vision-language-action model',
+    definition:
+      'A robot policy built by adapting a vision-language model, pretrained on web-scale image and text data, to output robot actions. RT-2 established the approach by representing actions as text tokens and co-fine-tuning on web and robot data together, showing that semantic knowledge from web pretraining transfers into control. The same recipe underlies OpenVLA and the π series of generalist policies.',
+    citations: ['rt2-2023'],
+  },
+  {
+    id: 'cross-embodiment',
+    term: 'cross-embodiment',
+    definition:
+      'Learning from, or transferring to, robots with different morphologies: different joint counts, action dimensions, and sensor suites. The Open X-Embodiment project pooled data from 22 robot embodiments into a single training mixture and showed that the resulting RT-X policies carry skills across platforms. The gain is not free, because each body defines its actions differently, and the field answers that mismatch with several incompatible conventions.',
+    citations: ['open-x-embodiment-2023'],
+  },
   {
     id: 'action-chunking',
     term: 'action chunking',

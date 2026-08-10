@@ -46,9 +46,10 @@ describe('glossaryTermSchema', () => {
   });
 });
 
-describe('GLOSSARY seed data', () => {
-  it('ships exactly 8 seed terms (the mechanism proof, not full coverage)', () => {
-    expect(GLOSSARY).toHaveLength(8);
+describe('GLOSSARY coverage', () => {
+  // Raised batch by batch as terms land; the feature target is 25+.
+  it('covers the recurring jargon: at least 14 cited terms', () => {
+    expect(GLOSSARY.length).toBeGreaterThanOrEqual(14);
   });
 
   it('every entry passes the schema', () => {
