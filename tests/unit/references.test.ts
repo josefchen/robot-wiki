@@ -102,4 +102,18 @@ describe('resolveReferences', () => {
     );
     expect(resolved.map((r) => r.citation.id)).toEqual(['act-aloha-2023']);
   });
+
+  it('gives the header citation count one source: the rendered entry list, not the raw frontmatter array (VAL-WIKI-014)', () => {
+    const declared = [
+      'dagger-2011',
+      'act-aloha-2023',
+      'dagger-2011', // duplicate frontmatter entry
+      'not-a-real-citation', // unresolved id
+    ];
+    const resolved = resolveReferences(declared, ['dagger-2011'], getCitation);
+    // The header count derives from resolved.length, which is exactly what
+    // <References> renders: duplicates and unresolved ids never inflate it.
+    expect(declared).toHaveLength(4);
+    expect(resolved).toHaveLength(2);
+  });
 });

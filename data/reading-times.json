@@ -1,0 +1,118 @@
+{
+  "manipulation/bc-foundations": {
+    "words": 1190,
+    "minutes": 6
+  },
+  "manipulation/action-chunking": {
+    "words": 1273,
+    "minutes": 6
+  },
+  "manipulation/diffusion-policy": {
+    "words": 1427,
+    "minutes": 7
+  },
+  "manipulation/vla-models": {
+    "words": 1592,
+    "minutes": 8
+  },
+  "manipulation/pi-line": {
+    "words": 2476,
+    "minutes": 12
+  },
+  "manipulation/generalist-policies": {
+    "words": 1673,
+    "minutes": 8
+  },
+  "manipulation/comparison-matrix": {
+    "words": 1400,
+    "minutes": 7
+  },
+  "manipulation/hierarchical": {
+    "words": 1592,
+    "minutes": 8
+  },
+  "manipulation/rl-finetuning": {
+    "words": 2098,
+    "minutes": 10
+  },
+  "manipulation/realtime-execution": {
+    "words": 1737,
+    "minutes": 9
+  },
+  "manipulation/cross-embodiment": {
+    "words": 1252,
+    "minutes": 6
+  },
+  "manipulation/knowledge-insulation": {
+    "words": 1227,
+    "minutes": 6
+  },
+  "rl-sim2real/why-rl-locomotion": {
+    "words": 1217,
+    "minutes": 6
+  },
+  "rl-sim2real/parallel-sim-rl": {
+    "words": 1443,
+    "minutes": 7
+  },
+  "rl-sim2real/sim2real-transfer": {
+    "words": 1758,
+    "minutes": 9
+  },
+  "rl-sim2real/legged-locomotion": {
+    "words": 1434,
+    "minutes": 7
+  },
+  "rl-sim2real/humanoid-wbc": {
+    "words": 1787,
+    "minutes": 9
+  },
+  "rl-sim2real/reward-design-mpc": {
+    "words": 2387,
+    "minutes": 12
+  },
+  "world-models/taxonomy": {
+    "words": 1649,
+    "minutes": 8
+  },
+  "world-models/latent-dynamics": {
+    "words": 1216,
+    "minutes": 6
+  },
+  "world-models/generative-video": {
+    "words": 1557,
+    "minutes": 8
+  },
+  "world-models/jepa": {
+    "words": 1206,
+    "minutes": 6
+  },
+  "world-models/generative-sim": {
+    "words": 1469,
+    "minutes": 7
+  },
+  "data-hardware/data-bottleneck": {
+    "words": 1486,
+    "minutes": 7
+  },
+  "data-hardware/datasets": {
+    "words": 1466,
+    "minutes": 7
+  },
+  "data-hardware/hardware-taxonomy": {
+    "words": 2992,
+    "minutes": 15
+  },
+  "data-hardware/teleop-rigs": {
+    "words": 1600,
+    "minutes": 8
+  },
+  "data-hardware/evaluation-crisis": {
+    "words": 1491,
+    "minutes": 7
+  },
+  "classical/kinematics": {
+    "words": 2340,
+    "minutes": 12
+  }
+}
