@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { validateContent } from '../lib/validate-content.ts';
 import { modules } from '../data/modules.ts';
 import { CITATIONS } from '../data/citations.ts';
+import { GLOSSARY } from '../data/glossary.ts';
 
 const root = join(import.meta.dirname, '..');
 
@@ -17,6 +18,7 @@ const issues = validateContent({
   publicDir: join(root, 'public'),
   modules,
   citations: CITATIONS,
+  terms: GLOSSARY,
 });
 
 if (issues.length > 0) {

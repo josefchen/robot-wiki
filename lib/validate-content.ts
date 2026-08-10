@@ -27,6 +27,11 @@
  *      registry key of a published module, never the article itself, with
  *      no duplicates (VAL-WIKI-009, VAL-WIKI-010). The 2-4 entry bounds
  *      are enforced by the frontmatter schema when the field is present.
+ *  10. Glossary (when `terms` is given): every entry is schema-valid with
+ *      a unique id, and every citation id it references resolves to the
+ *      citation registry. Every <Term id="..."> in an MDX body must resolve
+ *      to a glossary entry; an unknown term id fails the build, naming the
+ *      article and the id (VAL-GLOSS-008, VAL-GLOSS-010).
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -41,8 +46,13 @@ import {
   type ModuleRegistryEntry,
 } from '../data/schemas/module.ts';
 import { citationSchema, type Citation } from '../data/schemas/citation.ts';
+import {
+  glossaryTermSchema,
+  type GlossaryTerm,
+} from '../data/schemas/glossary.ts';
 import { internalLinkTargets, normalizeInternalPath } from './backlinks.ts';
 import { inlineCitationIds } from './references.ts';
+import { inlineTermIds } from './glossary.ts';
 
 export interface ValidationIssue {
   /** Content file the issue belongs to, or null for registry-level issues. */
@@ -56,11 +66,13 @@ export interface ValidateContentOptions {
   publicDir?: string;
   modules: readonly ModuleRegistryEntry[];
   citations: readonly Citation[];
+  /** Glossary registry. When given, glossary hygiene and <Term> checks run. */
+  terms?: readonly GlossaryTerm[];
   /** Non-module routes that internal links may target. */
   staticRoutes?: readonly string[];
 }
 
-const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground'];
+const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground', '/glossary'];
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
 // and math spans, but never fenced code, inline code spans, or JSX attribute
@@ -146,6 +158,30 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       push(null, `duplicate citation id ${citation.id}`);
     }
     citationIds.add(citation.id);
+  }
+
+  // 10a. Glossary hygiene (VAL-GLOSS-002): schema-valid entries with unique
+  // ids, and every citation id a definition leans on must resolve to the
+  // citation registry. The schema itself rejects uncited definitions.
+  const termIds = new Set<string>();
+  for (const term of opts.terms ?? []) {
+    const parsed = glossaryTermSchema.safeParse(term);
+    if (!parsed.success) {
+      push(null, `glossary term ${term.id}: ${parsed.error.message}`);
+      continue;
+    }
+    if (termIds.has(term.id)) {
+      push(null, `duplicate glossary term id ${term.id}`);
+    }
+    termIds.add(term.id);
+    for (const citationId of term.citations) {
+      if (!citationIds.has(citationId)) {
+        push(
+          null,
+          `glossary term ${term.id} cites "${citationId}", which is not in the citation registry`,
+        );
+      }
+    }
   }
 
   // Routes that internal links may target.
@@ -237,6 +273,18 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
           rel,
           `inline <Cite id="${id}"> is not declared in this module's frontmatter citations list, so it would render with no References entry`,
         );
+      }
+    }
+
+    // 10b. Unknown term ids (VAL-GLOSS-008, VAL-GLOSS-010): every <Term id>
+    // used in the prose must resolve to a glossary entry, so an inline
+    // definition always matches its glossary entry and a reader who follows
+    // a term to /glossary always finds it.
+    if (opts.terms) {
+      for (const id of inlineTermIds(body)) {
+        if (!termIds.has(id)) {
+          push(rel, `unknown <Term id="${id}">: no glossary entry with that id`);
+        }
       }
     }
 

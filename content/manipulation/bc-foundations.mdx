@@ -55,7 +55,7 @@ The interactive below simulates the mechanism. A policy with per-step error $\va
 
 Compounding error is the deployment problem. Three training-side problems compound it:
 
-**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem diffusion policies and flow-matching heads were built to solve <Cite id="diffusion-policy-2023" />.
+**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem <Term id="diffusion-policy">diffusion policies</Term> and flow-matching heads were built to solve <Cite id="diffusion-policy-2023" />.
 
 **Temporally correlated confounders.** Demonstrations contain pauses and idle segments that are unpredictable from a single Markovian state. A single-step policy cannot tell "waiting" from "acting," and both ACT and Diffusion Policy document robots freezing in place because of it <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. The fix is temporal context, not a larger backbone.
 

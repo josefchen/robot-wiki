@@ -162,6 +162,39 @@
   text-decoration-color: var(--color-accent);
 }
 
+/*
+ * Inline glossary terms (components/ui/term.tsx): a dotted-underline
+ * affordance in the text color, visually distinct from amber prose links.
+ * The scoped rules below override .prose a, which is unlayered and would
+ * otherwise beat the utility layer. The global :focus-visible amber
+ * outline still applies, and hover/focus reveal of the definition tooltip
+ * is handled by the component's group classes.
+ */
+.term-link {
+  color: var(--color-text);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-text-dim);
+  text-underline-offset: 3px;
+}
+
+.term-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+.prose a.term-link {
+  color: var(--color-text);
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-text-dim);
+  text-underline-offset: 3px;
+}
+
+.prose a.term-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
 .prose :where(ul, ol) {
   margin: 0 0 1.125rem;
   padding-left: 1.375rem;

@@ -23,7 +23,7 @@ import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
 Kinematics describes robot motion without asking what causes it. No forces and no torques: just the geometry of the links, the angles of the joints, and where the end of the arm lands. Every other layer of the stack assumes it. A simulator integrates dynamics on top of a kinematic chain. A teleoperation rig maps the operator's hand into joint space through one. Every learned manipulation policy, whatever its size, eventually emits numbers that must make sense in some robot's kinematic coordinates.
 
-Two directions dominate. Forward kinematics takes joint angles and computes the end-effector pose. Inverse kinematics asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
+Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the end-effector pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />

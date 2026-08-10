@@ -30,6 +30,7 @@ type NavTreeProps = {
 const TOP_LEVEL_ENTRIES = [
   { href: '/market-map', label: 'Market Map' },
   { href: '/playground', label: 'Playground' },
+  { href: '/glossary', label: 'Glossary' },
 ] as const;
 
 function normalize(pathname: string): string {

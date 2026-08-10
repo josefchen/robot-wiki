@@ -29,7 +29,7 @@ $$
 \underbrace{O(\varepsilon T^2)}_{\text{behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{DAgger}}
 $$
 
-where the second bound is what DAgger buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. Action chunking attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
+where the second bound is what DAgger buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
 ## ACT: chunking with a CVAE
 
@@ -66,7 +66,7 @@ Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the A
 
 ## Temporal ensembling and its limits
 
-ACT executes chunks with temporal ensembling: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where i counts how many chunks ago the prediction was issued. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
+ACT executes chunks with <Term id="temporal-ensembling">temporal ensembling</Term>: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where i counts how many chunks ago the prediction was issued. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
 
 <Figure
   src="/images/temporal-ensembling.svg"

@@ -78,13 +78,16 @@ test.describe('classical kinematics module', () => {
     ).toHaveAttribute('aria-current', 'page');
 
     const main = page.locator('#main-content');
-    // The four required strands are all present as rendered prose.
-    await expect(main.getByText(/forward kinematics/i).first()).toBeVisible();
-    await expect(main.getByText(/Denavit/i).first()).toBeVisible();
-    await expect(main.getByText(/Hartenberg/i).first()).toBeVisible();
-    await expect(main.getByText(/Jacobian/i).first()).toBeVisible();
-    await expect(main.getByText(/inverse kinematics/i).first()).toBeVisible();
-    await expect(main.getByText(/singularit/i).first()).toBeVisible();
+    // The four required strands are all present as rendered prose. The
+    // glossary <Term> markup adds hidden-at-rest tooltip copies of the
+    // FK/IK definitions to the DOM, so match the VISIBLE text, not the
+    // first DOM hit.
+    await expect(main.getByText(/forward kinematics/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(main.getByText(/Denavit/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(main.getByText(/Hartenberg/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(main.getByText(/Jacobian/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(main.getByText(/inverse kinematics/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(main.getByText(/singularit/i).filter({ visible: true }).first()).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
     const visibleText = await visibleArticleText(page);

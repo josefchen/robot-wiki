@@ -5,8 +5,10 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { validateContent } from '@/lib/validate-content';
 import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
+import { GLOSSARY } from '@/data/glossary';
 import type { ModuleRegistryEntry } from '@/data/schemas/module';
 import type { Citation } from '@/data/schemas/citation';
+import type { GlossaryTerm } from '@/data/schemas/glossary';
 
 const registry: ModuleRegistryEntry[] = [
   {
@@ -504,6 +506,80 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
   });
 });
 
+describe('validateContent glossary checks (fixtures)', () => {
+  let root: string;
+
+  const terms: GlossaryTerm[] = [
+    {
+      id: 'action-chunking',
+      term: 'action chunking',
+      definition:
+        'Predicting a sequence of future actions in one inference instead of a single action per timestep.',
+      citations: ['act-aloha-2023'],
+    },
+  ];
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function run(termList: readonly GlossaryTerm[] = terms) {
+    return validateContent({
+      contentRoot: root,
+      modules: registry,
+      citations,
+      terms: termList,
+    });
+  }
+
+  it('passes when every inline <Term> id resolves to the glossary', () => {
+    writeModule(
+      `${frontmatter()}\n<Term id="action-chunking">Action chunking</Term> shrinks the horizon <Cite id="act-aloha-2023" />.\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('FAILS on an unknown <Term> id, naming the article and the id (VAL-GLOSS-008)', () => {
+    writeModule(
+      `${frontmatter()}\nAn <Term id="made-up-term">unknown term</Term> slips in <Cite id="act-aloha-2023" />.\n`,
+    );
+    const issues = run();
+    expect(issues).toHaveLength(1);
+    expect(issues[0].file).toBe('manipulation/action-chunking.mdx');
+    expect(issues[0].message).toContain('made-up-term');
+    expect(issues[0].message).toContain('<Term');
+  });
+
+  it('flags a glossary term whose citation id is not in the registry', () => {
+    const bad: GlossaryTerm[] = [
+      { ...terms[0], id: 'orphan-term', citations: ['no-such-citation'] },
+    ];
+    const issues = run(bad);
+    expect(issues.some((i) => i.message.includes('orphan-term'))).toBe(true);
+    expect(issues.some((i) => i.message.includes('no-such-citation'))).toBe(true);
+  });
+
+  it('flags a glossary term that fails the schema (duplicate ids also flagged)', () => {
+    const bad = [
+      terms[0],
+      { ...terms[0] }, // duplicate id
+    ] as GlossaryTerm[];
+    const issues = run(bad);
+    expect(issues.some((i) => i.message.includes('duplicate glossary term id'))).toBe(
+      true,
+    );
+  });
+});
+
 describe('validateContent (real repo)', () => {
   it('passes on the shipped content tree', () => {
     const issues = validateContent({
@@ -511,6 +587,7 @@ describe('validateContent (real repo)', () => {
       publicDir: join(import.meta.dirname, '..', '..', 'public'),
       modules,
       citations: CITATIONS,
+      terms: GLOSSARY,
     });
     expect(issues.map((i) => `${i.file}: ${i.message}`)).toEqual([]);
   });
