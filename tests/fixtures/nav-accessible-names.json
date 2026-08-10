@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 41,
+  "linkCount": 42,
   "links": [
     {
       "href": "/",
@@ -154,6 +154,10 @@
     {
       "href": "/adjacent/",
       "name": "Domain overview"
+    },
+    {
+      "href": "/a-z/",
+      "name": "A-Z Index"
     },
     {
       "href": "/market-map/",

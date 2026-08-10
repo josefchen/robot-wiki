@@ -5,9 +5,10 @@ import { join } from 'node:path';
 import type { ComponentType } from 'react';
 import { ArticleHeader } from '@/components/article/article-header';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
+import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { References } from '@/components/article/references';
 import { getCitation } from '@/data/citations';
-import { getModule, modules, publishedModules } from '@/data/modules';
+import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
@@ -149,11 +150,34 @@ export default async function ModulePage({ params }: { params: Params }) {
     linkedFromEntries.length > 0 ||
     references.length > 0;
 
+  // The breadcrumb trail (VAL-WIKI-016/017): Home and the domain are real
+  // links (the domain crumb is what makes /<domain>/ reachable from every
+  // article), the article itself is the non-linked trailing crumb. The
+  // same trail is emitted as BreadcrumbList structured data.
+  const breadcrumbTrail = [
+    { label: 'Home', href: '/' },
+    { label: DOMAIN_META[entry.domain].name, href: `/${entry.domain}` },
+  ];
+  const breadcrumbJsonLdItems = [
+    { label: 'Home', href: '/' },
+    { label: DOMAIN_META[entry.domain].name, href: `/${entry.domain}/` },
+    { label: entry.title, href: `/${entry.domain}/${entry.slug}/` },
+  ];
+
   return (
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
     // the generated References bibliography.
     <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd(breadcrumbJsonLdItems),
+        }}
+      />
+      <Breadcrumbs
+        items={[...breadcrumbTrail, { label: entry.title }]}
+      />
       <ArticleHeader
         entry={entry}
         lastReviewed={mod.frontmatter?.lastReviewed}

@@ -92,7 +92,25 @@ export interface ValidateContentOptions {
   staticRoutes?: readonly string[];
 }
 
-const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground', '/glossary', '/credits'];
+// Non-module routes that internal links may target: the standalone tools
+// and reference surfaces, the A-Z index, and the seven generated domain
+// landing pages at /<domain> (the breadcrumb middle crumb's target).
+const DEFAULT_STATIC_ROUTES = [
+  '/',
+  '/search',
+  '/market-map',
+  '/playground',
+  '/glossary',
+  '/credits',
+  '/a-z',
+  '/manipulation',
+  '/rl-sim2real',
+  '/world-models',
+  '/data-hardware',
+  '/classical',
+  '/frontier',
+  '/adjacent',
+];
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
 // and math spans, but never fenced code, inline code spans, or JSX attribute

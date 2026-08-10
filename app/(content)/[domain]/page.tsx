@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 
@@ -57,6 +58,16 @@ export default async function DomainLandingPage({
 
   return (
     <div className="mx-auto w-full max-w-3xl px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { label: 'Home', href: '/' },
+            { label: meta.name, href: `/${domain}/` },
+          ]),
+        }}
+      />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />
       <header className="mb-8 border-b border-border pb-6">
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           {meta.name}
@@ -67,6 +78,7 @@ export default async function DomainLandingPage({
         {published.map((m, index) => (
           <li
             key={m.slug}
+            data-domain-article={`${m.domain}/${m.slug}`}
             className="border-t border-border py-4 first:border-t-0"
           >
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
