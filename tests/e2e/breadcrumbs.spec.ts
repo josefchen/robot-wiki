@@ -13,18 +13,25 @@ import { SITE_URL } from '../../lib/site';
  */
 
 const published = publishedModules();
+// One anchor article per domain that has published articles. The adjacent
+// domain currently has none (its four registry entries are drafts with no
+// content files), so the per-article breadcrumb checks sweep the six
+// domains that ship articles; the adjacent landing page itself is covered
+// by domain-landings.spec.ts. The moment an adjacent article publishes it
+// joins this sweep automatically.
 const anchorByDomain = new Map(
-  DOMAINS.map((domain) => [
-    domain,
-    published.find((m) => m.domain === domain)!,
-  ]),
+  DOMAINS.flatMap((domain) => {
+    const anchor = published.find((m) => m.domain === domain);
+    return anchor ? [[domain, anchor] as const] : [];
+  }),
 );
+const domainsWithArticles = [...anchorByDomain.keys()];
 
 test.describe('article breadcrumbs', () => {
   test('every domain renders Home > Domain > Article with the trailing crumb as non-link text (VAL-WIKI-016)', async ({
     page,
   }) => {
-    for (const domain of DOMAINS) {
+    for (const domain of domainsWithArticles) {
       const article = anchorByDomain.get(domain);
       expect(article, `published anchor article in ${domain}`).toBeDefined();
 
@@ -39,7 +46,8 @@ test.describe('article breadcrumbs', () => {
         const domainCrumb = nav.getByRole('link', {
           name: DOMAIN_META[domain].name,
         });
-        await expect(domainCrumb).toHaveAttribute('href', `/${domain}`);
+        // trailingSlash: true normalizes rendered hrefs to the slashed form.
+        await expect(domainCrumb).toHaveAttribute('href', `/${domain}/`);
         // The current article's title appears as the trailing crumb and is
         // not a link: exactly two links in the trail.
         await expect(nav.getByText(article!.title)).toBeVisible();
@@ -109,7 +117,7 @@ test.describe('article breadcrumbs', () => {
   test('the ancestor crumbs navigate: home to / and domain to its landing page (VAL-WIKI-017)', async ({
     page,
   }) => {
-    for (const domain of DOMAINS) {
+    for (const domain of domainsWithArticles) {
       const article = anchorByDomain.get(domain)!;
       await test.step(`${article.domain}/${article.slug}`, async () => {
         await page.goto(`/${article.domain}/${article.slug}/`);
