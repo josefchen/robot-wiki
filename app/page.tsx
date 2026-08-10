@@ -1,212 +1,81 @@
 import Link from 'next/link';
-import { Card } from '@/components/ui';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
-import { CORE_DOMAINS, DOMAIN_META, modulesByDomain } from '@/data/modules';
+import { DOMAINS, DOMAIN_META } from '@/data/modules';
 
-const grouped = modulesByDomain();
-
-function publishedCount(domain: string): number {
-  return (grouped[domain] ?? []).filter((m) => m.status === 'published')
-    .length;
-}
+/**
+ * Home: hero premise, the seven-domain typographic index, the live featured
+ * interactive as the visual anchor, visual entry points for the playground
+ * and market map, and the reading guidance folded into the page flow.
+ *
+ * Structure follows architecture.md 6c and the home page doctrine in
+ * library/design-system.md: the taxonomy appears exactly once in main (the
+ * index), never as a grid of equal bordered cards, and no build-progress
+ * metadata renders anywhere. The sections are direct children of <main> (no
+ * wrapper div) so each one is a distinct top-level section for the
+ * structural-signature checks in contract/design-integrity.md.
+ */
+const container = 'mx-auto w-full max-w-5xl px-6';
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 pt-14 pb-20 lg:pt-20">
+    <>
       {/* Hero: the premise, kept above the fold. */}
-      <section aria-label="Introduction">
+      <section aria-label="Introduction" className={`${container} pt-12 lg:pt-16`}>
         <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
           robot-wiki
         </h1>
-        <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-text-dim">
-          An encyclopedic, interactive guide to modern robotics for ML
-          engineers, from learned manipulation policies to the classical stack
-          underneath them.
+        <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-text-dim">
+          robot-wiki is an encyclopedia of modern robotics for engineers who
+          already know machine learning. It covers learned manipulation
+          policies, sim-to-real reinforcement learning, world models,
+          teleoperation data pipelines, and the classical control stack
+          underneath them, with every technical claim cited to a primary
+          source.
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-4">
+        <div className="mt-6">
           <Link
             href="/manipulation/action-chunking"
-            className="rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]"
+            className="inline-block rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]"
           >
             Start reading
           </Link>
-          <a
-            href="#how-to-read"
-            className="text-sm text-text-dim underline decoration-border-strong underline-offset-4 transition-colors hover:text-text"
-          >
-            How to read this wiki
-          </a>
         </div>
       </section>
 
-      {/* The six core domains. */}
-      <section aria-labelledby="core-domains" className="mt-16">
+      {/* The seven taxonomy entries as one dense typographic index. */}
+      <section aria-labelledby="domain-index-heading" className={`${container} mt-10`}>
         <h2
-          id="core-domains"
+          id="domain-index-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
         >
-          The six core domains
+          Domain index
         </h2>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {CORE_DOMAINS.map((domain) => {
+        <ul className="mt-3 divide-y divide-border border-t border-border">
+          {DOMAINS.map((domain) => {
             const meta = DOMAIN_META[domain];
-            const mods = grouped[domain] ?? [];
-            const published = publishedCount(domain);
             return (
-              <Card key={domain} href={`/${domain}/`} title={meta.name}>
-                <p>{meta.description}</p>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-text-dim">
-                  {published > 0
-                    ? `${published} of ${mods.length} modules published`
-                    : `${mods.length} modules planned`}
-                </p>
-              </Card>
+              <li key={domain}>
+                <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
+                  <Link
+                    href={`/${domain}/`}
+                    className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
+                  >
+                    {meta.name}
+                  </Link>
+                  <p className="text-sm leading-snug text-text-dim">
+                    {meta.description}
+                  </p>
+                </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </section>
 
-      {/* Adjacent domains: one distinguished strip with its four modules. */}
-      <section aria-labelledby="adjacent-domains" className="mt-14">
+      {/* Featured interactive: the page's visual anchor. */}
+      <section aria-labelledby="featured-heading" className={`${container} mt-12`}>
         <h2
-          id="adjacent-domains"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
-        >
-          Adjacent domains
-        </h2>
-        <Link
-          href="/adjacent"
-          className="group mt-5 block rounded-md border border-border bg-surface p-4 transition-colors hover:border-border-strong sm:p-5"
-        >
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
-              {DOMAIN_META.adjacent.name}
-            </h3>
-            <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-text-dim">
-              {(grouped.adjacent ?? []).length} modules planned
-            </span>
-          </div>
-          <p className="mt-1 text-sm text-text-dim">
-            {DOMAIN_META.adjacent.description}
-          </p>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            {(grouped.adjacent ?? []).map((m) => (
-              <li
-                key={m.slug}
-                className="rounded-sm border border-border bg-surface-2 px-3 py-2 text-sm text-text-dim"
-              >
-                {m.title}
-              </li>
-            ))}
-          </ul>
-        </Link>
-      </section>
-
-      {/* Standalone tools: market map and playground. */}
-      <section aria-labelledby="tools" className="mt-14">
-        <h2
-          id="tools"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
-        >
-          Interactive tools
-        </h2>
-        <div className="mt-5 grid gap-3 md:grid-cols-5">
-          <Link
-            href="/market-map"
-            className="group rounded-md border border-border bg-surface p-4 transition-colors hover:border-border-strong sm:p-5 md:col-span-3"
-          >
-            <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
-              Market Map
-            </h3>
-            <p className="mt-1 text-sm text-text-dim">
-              The embodied-AI industry as data: more than a hundred companies
-              across foundation models, humanoids, industrial systems, vertical
-              applications, simulation, and components, filterable by approach,
-              geography, stage, and funding.
-            </p>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-text-dim">
-              6 segments, 100+ companies
-            </p>
-          </Link>
-          <Link
-            href="/playground"
-            className="group rounded-md border border-border bg-surface p-4 transition-colors hover:border-border-strong sm:p-5 md:col-span-2"
-          >
-            <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
-              3D Kinematics Playground
-            </h3>
-            <p className="mt-1 text-sm text-text-dim">
-              Move a real robot arm: joint-slider forward kinematics,
-              click-to-reach inverse kinematics, and trajectory replay.
-            </p>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-text-dim">
-              FK, IK, replay
-            </p>
-          </Link>
-        </div>
-      </section>
-
-      {/* How to read this wiki. */}
-      <section
-        id="how-to-read"
-        aria-labelledby="how-to-read-heading"
-        className="mt-14 border-t border-border pt-10"
-      >
-        <h2
-          id="how-to-read-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
-        >
-          How to read this wiki
-        </h2>
-        <div className="mt-4 max-w-[65ch] space-y-4 leading-relaxed text-text-dim">
-          <p>
-            Six core domains form the spine:{' '}
-            <Link
-              href="/manipulation"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-            >
-              Manipulation &amp; Learned Policies
-            </Link>
-            , reinforcement learning and sim-to-real, world models, data,
-            hardware and evaluation,{' '}
-            <Link
-              href="/classical"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-            >
-              classical foundations
-            </Link>
-            , and the frontier of open problems. A seventh group, Adjacent
-            Domains, sketches vehicles, drones, surgical, and space robotics
-            in brief.
-          </p>
-          <p>
-            Modules stand alone, but within a domain they build on each other
-            in registry order. If you come from ML, start with the first
-            published module,{' '}
-            <Link
-              href="/manipulation/action-chunking"
-              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
-            >
-              Action Chunking (ACT and ALOHA)
-            </Link>
-            : precise prose, inline citations to primary sources, and a live
-            interactive you can manipulate. That is the format every module
-            follows. Every non-obvious claim carries a citation chip that
-            links to the paper, lab writeup, or official documentation behind
-            it.
-          </p>
-          <p>
-            Planned modules appear in the taxonomy before they are written, so
-            the sidebar doubles as the roadmap. Draft entries are marked
-            planned and go live as they are reviewed.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured interactive. */}
-      <section aria-labelledby="featured" className="mt-14 border-t border-border pt-10">
-        <h2
-          id="featured"
+          id="featured-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
         >
           Featured interactive
@@ -219,12 +88,214 @@ export default function Home() {
             href="/frontier"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
-            Frontier domain
+            frontier essays
           </Link>{' '}
-          develops the argument.
+          develop the argument.
         </p>
         <ReliabilityCompounding className="mt-5" />
       </section>
-    </div>
+
+      {/* Standalone tools, shown visually rather than described. */}
+      <section aria-labelledby="tools-heading" className={`${container} mt-14`}>
+        <h2
+          id="tools-heading"
+          className="font-sans text-xl font-semibold tracking-tight text-text"
+        >
+          Interactive tools
+        </h2>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <Link
+            href="/playground"
+            className="group block rounded-md border border-border bg-surface p-5 transition-colors hover:border-border-strong"
+          >
+            <svg
+              viewBox="0 0 320 112"
+              aria-hidden="true"
+              className="mb-4 block h-28 w-full"
+            >
+              {/* Schematic of the SO-101 arm reaching toward an IK target. */}
+              <line
+                x1={16}
+                y1={96}
+                x2={304}
+                y2={96}
+                stroke="var(--color-border)"
+                strokeWidth={1}
+              />
+              <rect
+                x={36}
+                y={88}
+                width={32}
+                height={8}
+                fill="var(--color-surface-2)"
+                stroke="var(--color-border-strong)"
+                strokeWidth={1}
+              />
+              <line
+                x1={52}
+                y1={88}
+                x2={82}
+                y2={52}
+                stroke="var(--color-text-dim)"
+                strokeWidth={3}
+              />
+              <line
+                x1={82}
+                y1={52}
+                x2={130}
+                y2={40}
+                stroke="var(--color-text-dim)"
+                strokeWidth={3}
+              />
+              <line
+                x1={130}
+                y1={40}
+                x2={168}
+                y2={58}
+                stroke="var(--color-text-dim)"
+                strokeWidth={3}
+              />
+              <circle cx={52} cy={88} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={82} cy={52} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={130} cy={40} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={168} cy={58} r={3.5} fill="var(--color-accent)" />
+              <circle
+                cx={196}
+                cy={44}
+                r={7}
+                fill="none"
+                stroke="var(--color-accent)"
+                strokeWidth={1}
+                strokeDasharray="3 3"
+              />
+              <line
+                x1={196}
+                y1={33}
+                x2={196}
+                y2={55}
+                stroke="var(--color-accent)"
+                strokeWidth={1}
+              />
+              <line
+                x1={185}
+                y1={44}
+                x2={207}
+                y2={44}
+                stroke="var(--color-accent)"
+                strokeWidth={1}
+              />
+            </svg>
+            <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
+              3D Kinematics Playground
+            </h3>
+            <p className="mt-1 text-sm text-text-dim">
+              Drive an SO-101 robot arm in the browser: joint-slider forward
+              kinematics, click-to-reach inverse kinematics, and trajectory
+              replay.
+            </p>
+          </Link>
+          <Link
+            href="/market-map"
+            className="group block rounded-md border border-border bg-surface p-5 transition-colors hover:border-border-strong"
+          >
+            <svg
+              viewBox="0 0 320 112"
+              aria-hidden="true"
+              className="mb-4 block h-28 w-full"
+            >
+              {/* A bubble field in the spirit of the market map scatter view. */}
+              <line
+                x1={24}
+                y1={96}
+                x2={304}
+                y2={96}
+                stroke="var(--color-border)"
+                strokeWidth={1}
+              />
+              <line
+                x1={24}
+                y1={96}
+                x2={24}
+                y2={12}
+                stroke="var(--color-border)"
+                strokeWidth={1}
+              />
+              <circle cx={52} cy={78} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={84} cy={60} r={8} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={112} cy={80} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={138} cy={48} r={10} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={166} cy={66} r={6} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={192} cy={36} r={9} fill="var(--color-accent)" opacity={0.85} />
+              <circle cx={218} cy={58} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={244} cy={28} r={7} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
+              <circle cx={270} cy={48} r={4} fill="var(--color-accent)" opacity={0.85} />
+              <path
+                d="M40 84 L280 26"
+                fill="none"
+                stroke="var(--color-border-strong)"
+                strokeWidth={1}
+                strokeDasharray="4 4"
+              />
+            </svg>
+            <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
+              Market Map
+            </h3>
+            <p className="mt-1 text-sm text-text-dim">
+              The embodied-AI industry as data: 112 companies across six
+              segments, filterable by approach, geography, stage, and funding.
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      {/* How to read this wiki: guidance woven into the flow, with links. */}
+      <section
+        id="how-to-read"
+        aria-labelledby="how-to-read-heading"
+        className={`${container} mt-14 border-t border-border pt-10 pb-20`}
+      >
+        <h2
+          id="how-to-read-heading"
+          className="font-sans text-xl font-semibold tracking-tight text-text"
+        >
+          How to read this wiki
+        </h2>
+        <div className="mt-4 max-w-[65ch] space-y-4 leading-relaxed text-text-dim">
+          <p>
+            Modules stand alone, but inside a domain they build on each other
+            in registry order: later entries assume the earlier ones. If you
+            come from machine learning rather than robotics, start with{' '}
+            <Link
+              href="/manipulation/action-chunking"
+              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            >
+              Action Chunking (ACT and ALOHA)
+            </Link>
+            . It shows the format every module follows: precise prose, inline
+            citations, and a live interactive you can manipulate.
+          </p>
+          <p>
+            The prerequisites are fluency in machine learning, not a robotics
+            background. When a module needs a classical result it says so and
+            links to the entry that derives it, so you can read forward and
+            backfill as needed. Terms of art are defined where they first
+            appear and collected in the{' '}
+            <Link
+              href="/glossary"
+              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            >
+              glossary
+            </Link>
+            .
+          </p>
+          <p>
+            Every non-obvious claim carries a citation chip that links to the
+            paper, lab writeup, or official documentation behind it, and the
+            full bibliography sits at the end of each module. Where serious
+            researchers disagree, the text names who holds which position.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
