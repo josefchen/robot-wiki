@@ -19,6 +19,10 @@
  *      prose. remark-math parses "$1.4B ... $14B" as an inline KaTeX span,
  *      garbling the sentence and overflowing the mobile column; prices are
  *      written \$1.4B instead (library/content-quality.md gotcha).
+ *   8. Inline citation declaration: every <Cite id="..."> in the MDX body
+ *      must be declared in that module's frontmatter citations list. An
+ *      undeclared inline cite would render as a chip with no entry in the
+ *      References bibliography (VAL-WIKI-005).
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -33,6 +37,7 @@ import {
   type ModuleRegistryEntry,
 } from '../data/schemas/module.ts';
 import { citationSchema, type Citation } from '../data/schemas/citation.ts';
+import { inlineCitationIds } from './references.ts';
 
 export interface ValidationIssue {
   /** Content file the issue belongs to, or null for registry-level issues. */
@@ -235,6 +240,19 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     }
     if (fm.data.status === 'published' && fm.data.citations.length === 0) {
       push(rel, 'published module declares no citations');
+    }
+
+    // 8. Inline citation declaration (VAL-WIKI-005): every <Cite id> used in
+    // the prose must be declared in frontmatter, or the chip would render
+    // with no matching References entry.
+    const declared = new Set(fm.data.citations);
+    for (const id of inlineCitationIds(body)) {
+      if (!declared.has(id)) {
+        push(
+          rel,
+          `inline <Cite id="${id}"> is not declared in this module's frontmatter citations list, so it would render with no References entry`,
+        );
+      }
     }
 
     for (const link of internalLinks(body)) {

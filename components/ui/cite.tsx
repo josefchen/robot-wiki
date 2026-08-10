@@ -11,26 +11,53 @@ type CiteProps = {
   title: string;
   /** Authors, venue, year. Shown under the title in the tooltip. */
   meta?: string;
+  /**
+   * Citation registry id, exposed as data-cite-id so chips and References
+   * entries can be reconciled. Omitted from the DOM when not given.
+   */
+  citeId?: string;
+  /**
+   * In-page anchor (#ref-<id>) of this citation's entry in the article's
+   * References section. When set, the chip grows a second affordance that
+   * jumps the reader to the full entry (VAL-WIKI-004).
+   */
+  referenceHref?: string;
 };
 
 /**
- * Inline citation chip. Links out to the source; a tooltip with the full
- * reference appears on hover and on keyboard focus (aria-describedby).
+ * Inline citation chip. The primary link goes out to the source; a tooltip
+ * with the full reference appears on hover and on keyboard focus
+ * (aria-describedby). With referenceHref set, a second in-chip affordance
+ * jumps to the article's References entry for the same id.
  */
-export function Cite({ href, label, title, meta }: CiteProps) {
+export function Cite({ href, label, title, meta, citeId, referenceHref }: CiteProps) {
   const tooltipId = useId();
 
   return (
-    <span className="group relative inline-block align-baseline">
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-describedby={tooltipId}
-        className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:border-accent hover:text-accent"
-      >
-        {label}
-      </a>
+    <span
+      {...(citeId ? { 'data-cite-id': citeId } : {})}
+      className="group relative inline-block align-baseline"
+    >
+      <span className="inline-flex items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-describedby={tooltipId}
+          className="inline-flex items-center px-1.5 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
+        >
+          {label}
+        </a>
+        {referenceHref ? (
+          <a
+            href={referenceHref}
+            aria-label={`Jump to the full reference for ${title}`}
+            className="inline-flex items-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
+          >
+            <span aria-hidden="true">↓</span>
+          </a>
+        ) : null}
+      </span>
       <span
         role="tooltip"
         id={tooltipId}

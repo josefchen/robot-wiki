@@ -20,10 +20,12 @@ export function CiteRef({ id }: { id: string }) {
   }
   return (
     <Cite
+      citeId={id}
       href={citation.url}
       label={citationLabel(citation)}
       title={citation.title}
       meta={citationMeta(citation)}
+      referenceHref={`#ref-${id}`}
     />
   );
 }

@@ -48,6 +48,17 @@ const citations: Citation[] = [
     url: 'https://arxiv.org/abs/2304.13705',
     type: 'paper',
   },
+  {
+    id: 'dagger-2011',
+    title:
+      'A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning',
+    authors: ['Stéphane Ross', 'Geoffrey J. Gordon', 'J. Andrew Bagnell'],
+    year: 2011,
+    venue: 'AISTATS 2011',
+    arxiv: '1011.0686',
+    url: 'https://arxiv.org/abs/1011.0686',
+    type: 'paper',
+  },
 ];
 
 function frontmatter(overrides: Record<string, unknown> = {}): string {
@@ -218,6 +229,74 @@ describe('validateContent (fixtures)', () => {
       })}\nWork in progress.\n`,
     );
     expect(run()).toEqual([]);
+  });
+});
+
+describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-cites-'));
+    mkdirSync(join(root, 'manipulation'), { recursive: true });
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function issues() {
+    return validateContent({ contentRoot: root, modules: registry, citations });
+  }
+
+  it('fails when prose cites a registry id the frontmatter does not declare', () => {
+    // dagger-2011 exists in the registry but is missing from this module's
+    // frontmatter citations list: the chip would render with no References
+    // entry, so the build must fail and name the article and the id.
+    writeModule(
+      `${frontmatter()}\nDAgger relabels the visited states <Cite id="dagger-2011" />.\n`,
+    );
+    const found = issues();
+    expect(found.length).toBeGreaterThan(0);
+    const offense = found.find((i) => i.message.includes('dagger-2011'));
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+    expect(offense?.message).toMatch(/not declared|undeclared/i);
+  });
+
+  it('fails for every undeclared id when there are several', () => {
+    writeModule(
+      `${frontmatter({ citations: [] })}\n<Cite id="dagger-2011" /> and <Cite id="act-aloha-2023" />.\n`,
+    );
+    const messages = issues()
+      .filter((i) => /not declared|undeclared/i.test(i.message))
+      .map((i) => i.message)
+      .join('\n');
+    expect(messages).toContain('dagger-2011');
+    expect(messages).toContain('act-aloha-2023');
+  });
+
+  it('passes when every inline cite is declared in frontmatter', () => {
+    writeModule(
+      `${frontmatter({
+        citations: ['act-aloha-2023', 'dagger-2011'],
+      })}\nChunking <Cite id="act-aloha-2023" /> beats compounding <Cite id="dagger-2011" />.\n`,
+    );
+    expect(
+      issues().filter((i) => /not declared|undeclared/i.test(i.message)),
+    ).toEqual([]);
+  });
+
+  it('ignores cite syntax shown inside code spans and fences', () => {
+    writeModule(
+      `${frontmatter()}\nAuthors write \`<Cite id="dagger-2011" />\` like so:\n\n\`\`\`mdx\n<Cite id="dagger-2011" />\n\`\`\`\n`,
+    );
+    expect(
+      issues().filter((i) => /not declared|undeclared/i.test(i.message)),
+    ).toEqual([]);
   });
 });
 
