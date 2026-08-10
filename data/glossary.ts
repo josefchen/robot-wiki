@@ -194,6 +194,125 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, which is why model-predictive controllers carry no sim-to-real gap of the learned-policy kind. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale on real hardware in 2026, when Zhang and colleagues ran iLQR with MuJoCo dynamics in real time across dynamic quadruped locomotion and full-sized humanoid walking.',
     citations: ['mujoco-ilqr-2026'],
   },
+  {
+    id: 'flow-matching',
+    term: 'flow matching',
+    definition:
+      'A generative modeling recipe that learns a time-dependent vector field carrying samples from a noise distribution to the data distribution, trained by regressing the model\'s field against the conditional flow rather than by estimating a score. pi0 brought it to robot control: a dedicated action expert is trained with the flow-matching objective to denoise continuous action chunks, and at inference the learned field is integrated as an ODE for a handful of steps, which keeps the policy fast enough for high-frequency control while keeping the multimodality that made diffusion policies attractive.',
+    citations: ['pi0-2024'],
+  },
+  {
+    id: 'world-model',
+    term: 'world model',
+    definition:
+      'A model of how an environment evolves that an agent can query to make decisions: given the current observation or state and a candidate action, it predicts what happens next, so a policy can be trained, evaluated, or planned against the model instead of the real world. The 2026 robotics survey draws the functional line: producing plausible future images is not enough, because a system qualifies only if its predictions change under the agent\'s action in a way that is useful for decision-making. The single name covers at least six architecturally distinct paradigms, from compact latent dynamics models to action-conditioned video generators.',
+    citations: ['world-model-survey-2026'],
+  },
+  {
+    id: 'end-effector',
+    term: 'end effector',
+    definition:
+      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose, and most action spaces in learned manipulation are defined as end-effector deltas rather than joint targets, because a task is specified in the space where the hand meets the world.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'jacobian',
+    term: 'Jacobian',
+    definition:
+      'The derivative of the forward-kinematics map: the matrix relating joint velocities to end-effector velocity at the current configuration, with one column per joint. It changes with configuration and can lose rank at singularities, where covering some task-space direction would demand unbounded joint speeds. The same matrix maps a wrench at the end effector back to the joint torques that balance it through its transpose, which makes it the working object of both velocity-level control and statics.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'proprioception',
+    term: 'proprioception',
+    definition:
+      'Sensing of the body\'s own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded, and the ETH Zurich line showed how far it goes: Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.',
+    citations: ['lee-2020', 'miki-2022'],
+  },
+  {
+    id: 'system-identification',
+    term: 'system identification',
+    definition:
+      'Measuring a real robot\'s dynamics and correcting the simulator\'s parameters to match, so the sim-to-real gap shrinks by calibration rather than by randomization. Hwangbo and colleagues replaced a miscalibrated analytic actuator model with a learned network mapping joint-command history to realized torque after identifying actuator error as the dominant transfer obstacle on ANYmal. The method attacks the dynamics component of the gap directly, where domain randomization only averages over it.',
+    citations: ['hwangbo-2019', 'reality-gap-survey-2026'],
+  },
+  {
+    id: 'retargeting',
+    term: 'retargeting',
+    definition:
+      'Mapping motion recorded on one body, usually a human\'s, onto a robot with different proportions and joint limits, so human demonstrations become references the robot can track. Raw retargeting ignores the robot\'s physical constraints and can produce references that are morphologically infeasible, which is why systems such as H2O and ASAP pair retargeted human motion with reinforcement learning that restores balance and contact feasibility on the real body.',
+    citations: ['h2o-2024', 'asap-2025'],
+  },
+  {
+    id: 'imitation-learning',
+    term: 'imitation learning',
+    definition:
+      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN steered a van this way in 1988, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
+    citations: ['dagger-2011', 'alvinn-1988'],
+  },
+  {
+    id: 'scaling-law',
+    term: 'scaling law',
+    definition:
+      'An empirical regularity between a system\'s performance and the resources it consumes, parameters, data, or compute, first made precise for language models and now measured for robot learning. Lin and colleagues fit imitation-learning success to the training data and found that generalization to new objects and environments tracks data diversity rather than raw hours. EgoScale extended the measurement to egocentric human video, reporting a log-linear relationship between hours of human data and dexterous-manipulation success across four orders of magnitude.',
+    citations: ['lin-data-scaling-laws-2024', 'egoscale-2026'],
+  },
+  {
+    id: 'vision-language-model',
+    term: 'vision-language model',
+    definition:
+      'A model pretrained jointly on web-scale image and text data, so visual recognition and language semantics live in one set of weights. RT-2\'s bet was that this pretraining is an asset for robot control: co-fine-tuning a vision-language model on robot trajectories and its original web data together transfers semantic knowledge, recognizing objects and following instructions the robot data never covered, into the policy. The vision-language-action models that followed all start from such a backbone.',
+    citations: ['rt2-2023'],
+  },
+  {
+    id: 'affordance',
+    term: 'affordance',
+    definition:
+      'In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot\'s own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model\'s estimate of how useful the skill is for the instruction and once by the affordance function\'s estimate of whether the robot can execute it here and now, and running the skill that scores well on both.',
+    citations: ['saycan-2022'],
+  },
+  {
+    id: 'curriculum-learning',
+    term: 'curriculum learning',
+    definition:
+      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues promoted ANYmal policies to rougher simulated terrain when they succeeded and demoted them when they failed, and the game-inspired schedule is part of what let one workstation GPU train flat-ground walking in under four minutes and uneven-terrain walking in twenty.',
+    citations: ['rudin-2021'],
+  },
+  {
+    id: 'teacher-student-distillation',
+    term: 'teacher-student distillation',
+    definition:
+      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA used the split for rapid adaptation to changing payloads and surfaces, and Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
+    citations: ['rma-2021', 'lee-2020'],
+  },
+  {
+    id: 'action-tokenization',
+    term: 'action tokenization',
+    definition:
+      'Expressing continuous robot actions as discrete tokens so a language model\'s machinery can produce them. RT-2 discretized each action dimension into 256 uniform bins and mapped the bin indices onto rarely used tokens of the model\'s existing vocabulary, which let the policy train with ordinary next-token prediction. The representation is simple and inherits the backbone\'s web knowledge, but 256 bins are coarse and autoregressive decoding is slow, the two weaknesses later work attacked with continuous experts and parallel decoding.',
+    citations: ['rt2-2023'],
+  },
+  {
+    id: 'latent-dynamics',
+    term: 'latent dynamics',
+    definition:
+      'A world-model paradigm that predicts in a compact learned latent space instead of in pixels: the model carries a recurrent latent state, forecasts how that state and the reward evolve under candidate actions, and the agent learns or plans entirely inside the imagined rollouts. Dreamer established the recipe of training an actor-critic purely on imagined trajectories, and TD-MPC2 showed the image decoder can be dropped altogether, scoring candidate action sequences under the latent model with a learned terminal value instead of reconstructing pixels.',
+    citations: ['dreamer-2019', 'tdmpc2-2023'],
+  },
+  {
+    id: 'degrees-of-freedom',
+    term: 'degrees of freedom',
+    definition:
+      'The number of independent coordinates needed to specify a mechanism\'s configuration. An arm\'s degree-of-freedom count is its number of independent joints, so a 7-DoF arm places its end effector with one coordinate to spare beyond the six a rigid pose needs, and that redundancy is what lets the elbow reconfigure while the hand stays put. More degrees of freedom buy dexterity and obstacle avoidance at the price of a larger control problem.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'denavit-hartenberg-parameters',
+    term: 'Denavit-Hartenberg parameters',
+    definition:
+      'The standard four-parameter bookkeeping for a robot arm\'s geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention\'s appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.',
+    citations: ['denavit-hartenberg-1955', 'modern-robotics-2017'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));
