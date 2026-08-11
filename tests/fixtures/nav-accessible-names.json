@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 44,
+  "linkCount": 45,
   "links": [
     {
       "href": "/",
@@ -154,6 +154,10 @@
     {
       "href": "/classical/control/",
       "name": "Control"
+    },
+    {
+      "href": "/classical/state-estimation/",
+      "name": "State Estimation"
     },
     {
       "href": "/frontier/",
