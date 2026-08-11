@@ -5,9 +5,15 @@ export const metadata: Metadata = {
   title: 'Page not found',
   // The root layout resolves './' against the internal /_not-found pathname;
   // point this route's canonical and og:url at the conventional /404/ path
-  // instead, which serves this page in the export.
+  // instead, which serves this page in the export. The full openGraph set is
+  // restated here: a route-level openGraph object replaces the layout's, so
+  // omitting siteName/type would silently drop those tags (VAL-BRAND-002).
   alternates: { canonical: '/404/' },
-  openGraph: { url: '/404/' },
+  openGraph: {
+    type: 'website',
+    url: '/404/',
+    siteName: 'robot-wiki',
+  },
 };
 
 /** Themed 404: dark tokens, site chrome from the root layout, link home. */
