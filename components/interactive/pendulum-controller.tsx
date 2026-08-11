@@ -42,9 +42,13 @@ import { cx } from '@/lib/utils';
 
 const WIDTH = 640;
 const HEIGHT = 380;
-const PIVOT = { x: 320, y: 318 };
-const ROD_PX = 232;
-const ARC_R = 46;
+// The pivot sits on a support post well above the ground line, so the pole
+// stays fully in frame in every regime: upright, hanging straight down, or
+// tumbling through.
+const GROUND_Y = 352;
+const PIVOT = { x: 320, y: 168 };
+const ROD_PX = 150;
+const ARC_R = 40;
 
 /** Round every rendered geometry value: SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
@@ -135,8 +139,8 @@ export function PendulumController({ className }: { className?: string }) {
     y: PIVOT.y - ARC_R * Math.cos(sim.theta),
   };
   const labelAt = {
-    x: PIVOT.x + 68 * Math.sin(sim.theta / 2),
-    y: PIVOT.y - 68 * Math.cos(sim.theta / 2),
+    x: PIVOT.x + 60 * Math.sin(sim.theta / 2),
+    y: PIVOT.y - 60 * Math.cos(sim.theta / 2),
   };
 
   const push = () => {
@@ -209,9 +213,9 @@ export function PendulumController({ className }: { className?: string }) {
         {/* Ground with hatch ticks */}
         <line
           x1={56}
-          y1={PIVOT.y + 0.5}
+          y1={GROUND_Y + 0.5}
           x2={584}
-          y2={PIVOT.y + 0.5}
+          y2={GROUND_Y + 0.5}
           stroke="var(--color-border-strong)"
           strokeWidth={1}
         />
@@ -219,19 +223,28 @@ export function PendulumController({ className }: { className?: string }) {
           <line
             key={x}
             x1={x}
-            y1={PIVOT.y + 0.5}
+            y1={GROUND_Y + 0.5}
             x2={x - 5}
-            y2={PIVOT.y + 7}
+            y2={GROUND_Y + 7}
             stroke="var(--color-border)"
             strokeWidth={1}
           />
         ))}
+        {/* Support post under the pivot */}
+        <line
+          x1={PIVOT.x}
+          y1={PIVOT.y + 6}
+          x2={PIVOT.x}
+          y2={GROUND_Y}
+          stroke="var(--color-border-strong)"
+          strokeWidth={2}
+        />
         {/* Upright setpoint */}
         <line
           x1={PIVOT.x}
           y1={PIVOT.y - 8}
           x2={PIVOT.x}
-          y2={PIVOT.y - ROD_PX - 18}
+          y2={PIVOT.y - ROD_PX - 14}
           stroke="var(--color-text-dim)"
           strokeWidth={1}
           strokeDasharray="3 4"
