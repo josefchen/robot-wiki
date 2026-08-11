@@ -20,7 +20,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Dean A. Pomerleau'],
     year: 1988,
     venue: 'NeurIPS 1988',
-    url: 'https://papers.nips.cc/paper/95-alvinn-an-autonomous-land-vehicle-in-a-neural-network',
+    url: 'https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html',
     type: 'paper',
   },
   {
