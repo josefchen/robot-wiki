@@ -13,11 +13,15 @@ citations:
   - pistar06-blog-2025
   - act-aloha-2023
   - diffusion-policy-2023
+seeAlso:
+  - "manipulation/action-chunking"
+  - "manipulation/diffusion-policy"
+  - "manipulation/rl-finetuning"
 ---
 
 import { CompoundingError } from '@/components/interactive/compounding-error';
 
-Behavior cloning is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. In 1988, ALVINN trained a three-layer network to steer a van from camera images <Cite id="alvinn-1988" />, and the same recipe, scaled up, still sits underneath most modern manipulation policies.
+<Term id="behavior-cloning">Behavior cloning</Term> is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. In 1988, ALVINN trained a three-layer network to steer a van from camera images <Cite id="alvinn-1988" />, and the same recipe, scaled up, still sits underneath most modern manipulation policies.
 
 The appeal is obvious: no reward function to design, no exploration to manage, just regression onto demonstrations. The failure mode is equally specific, and nearly every architectural innovation in learned manipulation since 2023 is a partial answer to it. Supervised learning assumes that test inputs come from the same distribution as training inputs. A robot running in closed loop violates that assumption with its own actions.
 
@@ -29,7 +33,7 @@ $$
 \underbrace{O(\varepsilon T^2)}_{\text{i.i.d. behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{on-policy supervision}}
 $$
 
-The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the DAgger result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
+The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the <Term id="dagger">DAgger</Term> result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
 
 <Image id="covariate-shift" />
 
@@ -45,13 +49,13 @@ The interactive below simulates the mechanism. A policy with per-step error $\va
 
 ## Fitting demonstrations is hard before deployment even starts
 
-Compounding error is the deployment problem. Three training-side problems compound it:
+<Term id="compounding-error">Compounding error</Term> is the deployment problem. Three training-side problems compound it:
 
-**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem <Term id="diffusion-policy">diffusion policies</Term> and flow-matching heads were built to solve <Cite id="diffusion-policy-2023" />.
+**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem <Term id="diffusion-policy">diffusion policies</Term> and <Term id="flow-matching">flow-matching</Term> heads were built to solve <Cite id="diffusion-policy-2023" />.
 
 **Temporally correlated confounders.** Demonstrations contain pauses and idle segments that are unpredictable from a single Markovian state. A single-step policy cannot tell "waiting" from "acting," and both ACT and Diffusion Policy document robots freezing in place because of it <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. The fix is temporal context, not a larger backbone.
 
-**The demonstration ceiling.** Behavior cloning can at best match the demonstrator. If the teleoperator is slow, cautious, or inconsistent, the policy inherits all of it, and the covariate-shift analysis above means it will usually do worse.
+**The demonstration ceiling.** Behavior cloning can at best match the demonstrator. If the teleoperator is slow, cautious, or inconsistent, the policy inherits all of it, and the <Term id="covariate-shift">covariate-shift</Term> analysis above means it will usually do worse.
 
 ## DAgger: relabel the states you actually visit
 
@@ -68,7 +72,7 @@ DAgger (Dataset Aggregation) attacks the quadratic bound directly <Cite id="dagg
   />
 </Card>
 
-Because the training set grows to cover the distribution of states the learned policy induces, the mismatch that drives compounding error shrinks each iteration. Formally, DAgger reduces imitation learning to no-regret online learning, which is where the $O(\varepsilon T)$ bound comes from <Cite id="dagger-2011" />.
+Because the training set grows to cover the distribution of states the learned policy induces, the mismatch that drives compounding error shrinks each iteration. Formally, DAgger reduces <Term id="imitation-learning">imitation learning</Term> to no-regret online learning, which is where the $O(\varepsilon T)$ bound comes from <Cite id="dagger-2011" />.
 
 The catch is the expert. Classic DAgger needs a supervisor who can look at an arbitrary mid-failure robot state and name the correct action, which is unnatural and slow for a human teleoperator. The variant that survives in practice is intervention-based: the operator watches the rollout and takes over only when the robot starts failing, as in HG-DAgger <Cite id="hg-dagger-2019" />. Fourteen years later, the same pattern shows up as the "coaching" stage of Physical Intelligence's Recap, where human corrections on visited states fine-tune a vision-language-action policy <Cite id="pistar06-blog-2025" />.
 

@@ -8,12 +8,14 @@
     "dev": "next dev",
     "prebuild": "npm run validate:content",
     "build": "next build && node scripts/measure-reading-times.ts && next build",
-    "postbuild": "node scripts/build-search.ts",
+    "postbuild": "node scripts/prune-not-found-artifact.ts && node scripts/build-search.ts",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts",
+    "check:links": "node scripts/check-citation-links.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },
   "dependencies": {

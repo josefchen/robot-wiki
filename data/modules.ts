@@ -342,6 +342,10 @@ const PUBLISHED = new Set([
   'data-hardware/teleop-rigs',
   'data-hardware/evaluation-crisis',
   'classical/kinematics',
+  'classical/motion-planning',
+  'classical/control',
+  'classical/state-estimation',
+  'classical/grasp-planning',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

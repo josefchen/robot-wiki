@@ -30,13 +30,18 @@ function renderHeader(props?: {
 }
 
 describe('ArticleHeader', () => {
-  it('renders the domain label, title and summary', () => {
+  it('renders the title and summary, with the domain carried by the breadcrumb trail instead of an eyebrow', () => {
     renderHeader();
     expect(
       screen.getByRole('heading', { level: 1, name: entry.title }),
     ).toBeVisible();
-    expect(screen.getByText('Manipulation & Learned Policies')).toBeVisible();
     expect(screen.getByText(entry.summary)).toBeVisible();
+    // The breadcrumb trail above the header names the domain, so the
+    // header does not repeat it (the eyebrow was removed with the
+    // breadcrumb feature).
+    expect(
+      screen.queryByText('Manipulation & Learned Policies'),
+    ).not.toBeInTheDocument();
   });
 
   it('formats the last-reviewed date unambiguously and keeps the ISO value machine-readable', () => {

@@ -18,12 +18,16 @@ citations:
   - occworld-2023
   - mujoco-2012
   - 3dgs-2023
+seeAlso:
+  - "world-models/latent-dynamics"
+  - "world-models/generative-video"
+  - "world-models/jepa"
 ---
 
 import { WmTaxonomyTable } from '@/components/mdx/wm-taxonomy-table';
 import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
 
-Ask three labs what their world model is and you will get three different objects. One means a compact latent dynamics model trained on its own robot's experience, used to train a policy in imagination. One means a video generator conditioned on actions, used as a stand-in for the environment. One means an embedding-space predictor that never produces an image at all. All three are called world models in their papers, and they share almost nothing architecturally.
+Ask three labs what their <Term id="world-model">world model</Term> is and you will get three different objects. One means a compact <Term id="latent-dynamics">latent dynamics</Term> model trained on its own robot's experience, used to train a policy in imagination. One means a video generator conditioned on actions, used as a stand-in for the environment. One means an embedding-space predictor that never produces an image at all. All three are called world models in their papers, and they share almost nothing architecturally.
 
 The term denotes multiple architecturally distinct paradigms, and they differ along three axes: what is predicted, in what space the prediction lives, and what the prediction is for. Conflating them is the single most common source of sloppy writing in this area, and it is not harmless. A claim that is true of one paradigm ("world models are too slow for closed-loop control") is false of another, and benchmark results do not transfer across the boundary.
 
@@ -74,7 +78,7 @@ Two systems are routinely called world models and deserve a precise verdict.
 
 ### A physics engine is a world model
 
-MuJoCo is an explicit, hand-specified state-transition model: given a state and an action, it predicts the next state, and its predictions are nothing if not action-dependent <Cite id="mujoco-2012" />. It is simply not learned. This is not a pedantic point. TD-MPC2 and classical MPC are the same algorithm with one difference, whether the dynamics model is learned or derived, and much of the RL-versus-MPC debate in the locomotion domain reduces to that choice.
+MuJoCo is an explicit, hand-specified state-transition model: given a state and an action, it predicts the next state, and its predictions are nothing if not action-dependent <Cite id="mujoco-2012" />. It is simply not learned. This is not a pedantic point. TD-MPC2 and classical <Term id="mpc">MPC</Term> are the same algorithm with one difference, whether the dynamics model is learned or derived, and much of the RL-versus-MPC debate in the locomotion domain reduces to that choice.
 
 ### A 3D Gaussian Splatting twin is not
 
@@ -88,4 +92,4 @@ The panel grid below draws what each paradigm predicts. Select a panel and the u
 
 ## Reading world-model claims
 
-When a paper or a vendor says "world model," three questions disambiguate it: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks. The rest of this domain takes the paradigms in turn: latent dynamics, generative video, JEPA, and the generative-simulation alternative that keeps the physics real and generates the content instead.
+When a paper or a vendor says "world model," three questions disambiguate it: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.

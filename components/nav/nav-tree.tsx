@@ -30,6 +30,7 @@ type NavTreeProps = {
 };
 
 const TOP_LEVEL_ENTRIES = [
+  { href: '/a-z', label: 'A-Z Index' },
   { href: '/market-map', label: 'Market Map' },
   { href: '/playground', label: 'Playground' },
   { href: '/glossary', label: 'Glossary' },

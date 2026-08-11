@@ -19,12 +19,16 @@ citations:
   - rldg-2024
   - rl-vla-generalization-2025
   - pair-vla-2026
+seeAlso:
+  - "manipulation/pi-line"
+  - "manipulation/bc-foundations"
+  - "data-hardware/evaluation-crisis"
 ---
 
 import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
 import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
-Imitation learning gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure rather than only from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
+<Term id="imitation-learning">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure rather than only from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="espresso throughput" value=">2x" note="Recap, vendor-reported" accent />
@@ -35,11 +39,11 @@ Imitation learning gets a policy that is good on the demonstration distribution 
 
 ## The flow-matching log-likelihood problem
 
-Modern policies emit actions through diffusion or flow-matching heads, and that choice breaks the standard policy-gradient machinery. PPO-style updates need the log-likelihood of the action the policy actually took; for a flow-matching head the "action" is the endpoint of an ODE integration, and its likelihood under the model is intractable. For two years this was the standard argument for why RL could not touch the frontier VLAs directly. Three methods dissolve it in different ways <Cite id="dppo-2024" /> <Cite id="conrft-2025" /> <Cite id="pi-rl-2026" />.
+Modern policies emit actions through diffusion or <Term id="flow-matching">flow-matching</Term> heads, and that choice breaks the standard policy-gradient machinery. <Term id="ppo">PPO</Term>-style updates need the log-likelihood of the action the policy actually took; for a flow-matching head the "action" is the endpoint of an ODE integration, and its likelihood under the model is intractable. For two years this was the standard argument for why RL could not touch the frontier VLAs directly. Three methods dissolve it in different ways <Cite id="dppo-2024" /> <Cite id="conrft-2025" /> <Cite id="pi-rl-2026" />.
 
 **DPPO** (Ren et al., 2024) sidesteps the likelihood of the final action by treating the entire denoising chain as part of the MDP. The environment step and each denoising step form a two-layer MDP, and PPO runs over both layers, with the likelihood computed per denoising transition rather than for the chunk as a whole. The paper packages this with a set of best practices and reports the strongest overall fine-tuning performance and efficiency for diffusion policies among the RL methods it compares <Cite id="dppo-2024" />.
 
-**ConRFT** (Chen et al., 2025) attacks the chain's length instead of its likelihood. A consistency policy collapses multi-step denoising into few-step generation, which makes RL tractable and the policy real-time. Training runs in two stages: an offline stage that combines behavior cloning with Q-learning over a small demonstration set, then an online stage with human interventions for safe exploration. On eight real-world tasks it reports 96.3% average success after 45 to 90 minutes of online fine-tuning, a 144% improvement in success rate over the supervised baselines it compares against <Cite id="conrft-2025" />.
+**ConRFT** (Chen et al., 2025) attacks the chain's length instead of its likelihood. A consistency policy collapses multi-step denoising into few-step generation, which makes RL tractable and the policy real-time. Training runs in two stages: an offline stage that combines <Term id="behavior-cloning">behavior cloning</Term> with Q-learning over a small demonstration set, then an online stage with human interventions for safe exploration. On eight real-world tasks it reports 96.3% average success after 45 to 90 minutes of online fine-tuning, a 144% improvement in <Term id="success-rate">success rate</Term> over the supervised baselines it compares against <Cite id="conrft-2025" />.
 
 **pi_RL** (Chen et al., 2025; v3 January 2026) is the most complete treatment for flow-based VLAs of the pi0 class, and it solves the likelihood problem twice. **Flow-Noise** models denoising as a discrete-time MDP with a learnable noise network, which yields an exact action log-likelihood. **Flow-SDE** converts the sampling ODE into an SDE, so denoising and environment interaction merge into a two-layer MDP with genuine stochastic exploration. The paper reports significant gains over supervised fine-tuning both in-distribution and out-of-distribution <Cite id="pi-rl-2026" />. If you want to run PPO on a pi0.5-class model today, this is the recipe to read first.
 
@@ -84,5 +88,3 @@ The systematic evidence is narrower than the hype. The NeurIPS 2025 empirical st
 <Callout variant="warn" title="How to read these numbers">
   Most RL fine-tuning results live on simulated benchmarks (LIBERO, SimplerEnv) or a handful of real tasks, so cross-paper comparisons are unreliable. Reward specification is unsolved: nearly every method uses a hand-written success detector or a VLM-based one, which is itself a reward-hacking surface. And the strongest real-world results, Recap's, are vendor-reported with closed weights. Treat the table above as a map of mechanisms, not a leaderboard.
 </Callout>
-
-The [comparison matrix](/manipulation/comparison-matrix) places these methods against the imitation-only baselines they build on, and [the pi line](/manipulation/pi-line) traces how Recap grew out of the pi0.6 architecture and was later distilled back into pi0.7's single generalist.

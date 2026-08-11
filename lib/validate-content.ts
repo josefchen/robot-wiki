@@ -23,7 +23,8 @@
  *      must be declared in that module's frontmatter citations list. An
  *      undeclared inline cite would render as a chip with no entry in the
  *      References bibliography (VAL-WIKI-005).
- *   9. seeAlso curation: every seeAlso frontmatter entry must be a
+ *   9. seeAlso curation: required on every published module (drafts may
+ *      omit it; VAL-WIKI-007), and every seeAlso frontmatter entry must be a
  *      registry key of a published module, never the article itself, with
  *      no duplicates (VAL-WIKI-009, VAL-WIKI-010). The 2-4 entry bounds
  *      are enforced by the frontmatter schema when the field is present.
@@ -92,7 +93,25 @@ export interface ValidateContentOptions {
   staticRoutes?: readonly string[];
 }
 
-const DEFAULT_STATIC_ROUTES = ['/', '/search', '/market-map', '/playground', '/glossary', '/credits'];
+// Non-module routes that internal links may target: the standalone tools
+// and reference surfaces, the A-Z index, and the seven generated domain
+// landing pages at /<domain> (the breadcrumb middle crumb's target).
+const DEFAULT_STATIC_ROUTES = [
+  '/',
+  '/search',
+  '/market-map',
+  '/playground',
+  '/glossary',
+  '/credits',
+  '/a-z',
+  '/manipulation',
+  '/rl-sim2real',
+  '/world-models',
+  '/data-hardware',
+  '/classical',
+  '/frontier',
+  '/adjacent',
+];
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
 // and math spans, but never fenced code, inline code spans, or JSX attribute
@@ -362,11 +381,19 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    // 9. seeAlso curation (VAL-WIKI-009, VAL-WIKI-010): every entry is the
+    // 9. seeAlso curation (VAL-WIKI-007, VAL-WIKI-009, VAL-WIKI-010):
+    // required on every published module since the backfill landed (the
+    // schema keeps the field optional so drafts may omit it; the 2-4
+    // entry bounds are the schema's job once present). Every entry is the
     // registry key of a published module, never this article itself, with
-    // no duplicates. The 2-4 entry bounds are the schema's job; the
-    // renderer resolves these keys to titles and summaries, and the
-    // backlink graph unions them with in-prose links.
+    // no duplicates. The renderer resolves these keys to titles and
+    // summaries, and the backlink graph unions them with in-prose links.
+    if (fm.data.status === 'published' && fm.data.seeAlso === undefined) {
+      push(
+        rel,
+        'published module must declare seeAlso (2-4 curated registry keys of related published articles)',
+      );
+    }
     const seenSeeAlso = new Set<string>();
     for (const id of fm.data.seeAlso ?? []) {
       if (seenSeeAlso.has(id)) {

@@ -20,7 +20,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Dean A. Pomerleau'],
     year: 1988,
     venue: 'NeurIPS 1988',
-    url: 'https://papers.nips.cc/paper/95-alvinn-an-autonomous-land-vehicle-in-a-neural-network',
+    url: 'https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html',
     type: 'paper',
   },
   {
@@ -867,6 +867,31 @@ export const CITATIONS: Citation[] = [
     venue: 'CoRL 2021',
     arxiv: '2109.11978',
     url: 'https://arxiv.org/abs/2109.11978',
+    type: 'paper',
+  },
+  {
+    id: 'ppo-2017',
+    title: 'Proximal Policy Optimization Algorithms',
+    authors: [
+      'John Schulman',
+      'Filip Wolski',
+      'Prafulla Dhariwal',
+      'Alec Radford',
+      'Oleg Klimov',
+    ],
+    year: 2017,
+    arxiv: '1707.06347',
+    url: 'https://arxiv.org/abs/1707.06347',
+    type: 'paper',
+  },
+  {
+    id: 'ng-reward-shaping-1999',
+    title:
+      'Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping',
+    authors: ['Andrew Y. Ng', 'Daishi Harada', 'Stuart Russell'],
+    year: 1999,
+    venue: 'ICML 1999',
+    url: 'https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf',
     type: 'paper',
   },
   {
@@ -2913,6 +2938,639 @@ export const CITATIONS: Citation[] = [
     url: 'https://modernrobotics.northwestern.edu/',
     type: 'docs',
   },
+  {
+    // Verified against the IEEE Xplore DOI record (2026-08-11): IEEE Trans.
+    // Computers C-32(2):108-120, February 1983. Introduced the configuration
+    // space formulation: shrink the robot to a point and grow the obstacles.
+    id: 'lozano-perez-1983',
+    title: 'Spatial Planning: A Configuration Space Approach',
+    authors: ['Tomás Lozano-Pérez'],
+    year: 1983,
+    venue: 'IEEE Trans. Computers',
+    url: 'https://doi.org/10.1109/TC.1983.1676196',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore DOI record (2026-08-11): IEEE Trans.
+    // Robotics and Automation 12(4):566-580, August 1996. The probabilistic
+    // roadmap paper, the multi-query half of sampling-based planning.
+    id: 'kavraki-1996',
+    title:
+      'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces',
+    authors: [
+      'Lydia E. Kavraki',
+      'Petr Svestka',
+      'Jean-Claude Latombe',
+      'Mark H. Overmars',
+    ],
+    year: 1996,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.508439',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's paper archive (2026-08-11): Computer
+    // Science Department TR 98-11, Iowa State University, October 1998. The
+    // original RRT report.
+    id: 'lavalle-1998',
+    title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning',
+    authors: ['Steven M. LaValle'],
+    year: 1998,
+    venue: 'Iowa State University TR 98-11',
+    url: 'https://lavalle.pl/papers/Lav98c.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's paper archive (2026-08-11): Int. J.
+    // Robotics Research 20(5):378-400, May 2001. The journal treatment of
+    // RRTs, including kinodynamic planning with dynamics constraints.
+    id: 'lavalle-kuffner-2001',
+    title: 'Randomized Kinodynamic Planning',
+    authors: ['Steven M. LaValle', 'James J. Kuffner'],
+    year: 2001,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://lavalle.pl/papers/LavKuf01.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abstract page (2026-08-11): IJRR 30(7),
+    // 2011. Proves RRT and PRM converge to non-optimal solutions and
+    // introduces the asymptotically optimal PRM* and RRT* variants.
+    id: 'karaman-frazzoli-2011',
+    title: 'Sampling-based Algorithms for Optimal Motion Planning',
+    authors: ['Sertac Karaman', 'Emilio Frazzoli'],
+    year: 2011,
+    venue: 'Int. J. Robotics Research',
+    arxiv: '1105.1186',
+    url: 'https://arxiv.org/abs/1105.1186',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abstract page (2026-08-11): IROS 2014,
+    // pp. 2997-3004. Focuses RRT* sampling on the prolate hyperspheroid of
+    // states that can still improve the current solution.
+    id: 'gammell-2014',
+    title:
+      'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
+    authors: [
+      'Jonathan D. Gammell',
+      'Siddhartha S. Srinivasa',
+      'Timothy D. Barfoot',
+    ],
+    year: 2014,
+    venue: 'IROS 2014',
+    arxiv: '1404.2334',
+    url: 'https://arxiv.org/abs/1404.2334',
+    type: 'paper',
+  },
+  {
+    // Verified against the CMU Robotics Institute publication page
+    // (2026-08-11): ICRA 2009, pp. 489-494. Covariant functional-gradient
+    // trajectory optimization against a signed-distance cost field.
+    id: 'ratliff-2009',
+    title:
+      'CHOMP: Gradient Optimization Techniques for Efficient Motion Planning',
+    authors: [
+      'Nathan Ratliff',
+      'Matthew Zucker',
+      'J. Andrew Bagnell',
+      'Siddhartha Srinivasa',
+    ],
+    year: 2009,
+    venue: 'ICRA 2009',
+    url: 'https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/',
+    type: 'paper',
+  },
+  {
+    // Verified against the open Robotics: Science and Systems proceedings
+    // (2026-08-11, pdftotext of p31.pdf): RSS 2013. The TrajOpt paper:
+    // sequential convex optimization with hinge-loss collision penalties
+    // and continuous-time collision checking.
+    id: 'schulman-2013',
+    title:
+      'Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization',
+    authors: [
+      'John Schulman',
+      'Jonathan Ho',
+      'Alex Lee',
+      'Ibrahim Awwal',
+      'Henry Bradlow',
+      'Pieter Abbeel',
+    ],
+    year: 2013,
+    venue: 'RSS 2013',
+    url: 'https://www.roboticsproceedings.org/rss09/p31.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's free web edition (2026-08-11): LaValle,
+    // Cambridge University Press, 2006. The standard textbook treatment of
+    // configuration space, sampling-based planning, and optimality.
+    id: 'lavalle-2006',
+    title: 'Planning Algorithms',
+    authors: ['Steven M. LaValle'],
+    year: 2006,
+    venue: 'Cambridge University Press',
+    url: 'https://lavalle.pl/planning/',
+    type: 'docs',
+  },
+  {
+    // Verified against the project site (2026-08-11): the Kavraki Lab's
+    // Open Motion Planning Library, the reference implementation of PRM,
+    // RRT, RRT*, and their descendants (Sucan, Moll, Kavraki, IEEE RAM
+    // 19(4), 2012).
+    id: 'ompl-2012',
+    title: 'The Open Motion Planning Library',
+    authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
+    year: 2012,
+    venue: 'IEEE Robotics & Automation Magazine',
+    url: 'https://ompl.kavrakilab.org/',
+    type: 'docs',
+  },
+  {
+    // Verified against the free second-edition PDF on the book site
+    // (2026-08-11): chapter 1 states "More than 95% of all industrial
+    // control problems are solved by PID control"; chapters 10-11 cover PID
+    // and chapter 7 state feedback with the algebraic Riccati equation.
+    id: 'astrom-murray-2008',
+    title: 'Feedback Systems: An Introduction for Scientists and Engineers',
+    authors: ['Karl Johan Åström', 'Richard M. Murray'],
+    year: 2008,
+    venue: 'Princeton University Press',
+    url: 'https://fbsbook.org/',
+    type: 'docs',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): the record is the 1993 JDSMC
+    // reprint of the 1942 Transactions of the ASME original (64:759-768),
+    // the classic relay tuning rules for PID gains.
+    id: 'ziegler-nichols-1942',
+    title: 'Optimum Settings for Automatic Controllers',
+    authors: ['John G. Ziegler', 'Nathaniel B. Nichols'],
+    year: 1942,
+    venue: 'Trans. ASME',
+    url: 'https://doi.org/10.1115/1.2899060',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref and IEEE Xplore (2026-08-11): the IEEE
+    // Press reprint (Control Theory: Twenty-Five Seminal Papers) of
+    // Kalman's 1960 Bol. Soc. Mat. Mexicana paper, which introduced the
+    // optimal state-feedback problem LQR solves.
+    id: 'kalman-1960',
+    title: 'Contributions to the Theory of Optimal Control',
+    authors: ['Rudolf E. Kalman'],
+    year: 1960,
+    venue: 'Bol. Soc. Mat. Mexicana',
+    url: 'https://doi.org/10.1109/9780470544334.ch8',
+    type: 'paper',
+  },
+  {
+    // Verified against the live MIT course site (2026-08-11): chapters on
+    // the pendulum and acrobot cover the nonlinear dynamics, the LQR
+    // balancing controller, and swing-up used in this module's demo.
+    id: 'tedrake-underactuated',
+    title: 'Underactuated Robotics',
+    authors: ['Russ Tedrake'],
+    year: 2024,
+    venue: 'MIT course notes',
+    url: 'https://underactuated.mit.edu/',
+    type: 'docs',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Automatica 25(3),
+    // 335-348. The canonical early survey of the industrial MPC lineage
+    // (DMC, QDMC) and its theory.
+    id: 'garcia-1989',
+    title: 'Model Predictive Control: Theory and Practice - A Survey',
+    authors: ['Carlos E. Garcia', 'David M. Prett', 'Manfred Morari'],
+    year: 1989,
+    venue: 'Automatica',
+    url: 'https://doi.org/10.1016/0005-1098(89)90002-2',
+    type: 'paper',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Automatica 36(6),
+    // 789-814. Establishes the stability conditions (terminal cost and
+    // constraint set) that made receding-horizon MPC a rigorous method.
+    id: 'mayne-2000',
+    title:
+      'Constrained Model Predictive Control: Stability and Optimality',
+    authors: [
+      'David Q. Mayne',
+      'James B. Rawlings',
+      'Christopher V. Rao',
+      'Pierre O. M. Scokaert',
+    ],
+    year: 2000,
+    venue: 'Automatica',
+    url: 'https://doi.org/10.1016/S0005-1098(99)00214-9',
+    type: 'paper',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Control
+    // Engineering Practice 11(7), 733-764. Survey of industrial MPC
+    // technology reporting thousands of installed applications, the
+    // majority in refining and petrochemicals.
+    id: 'qin-badgwell-2003',
+    title: 'A Survey of Industrial Model Predictive Control Technology',
+    authors: ['S. Joe Qin', 'Thomas A. Badgwell'],
+    year: 2003,
+    venue: 'Control Engineering Practice',
+    url: 'https://doi.org/10.1016/S0967-0661(02)00186-7',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore record (2026-08-11): IROS 2018.
+    // Convex MPC on the MIT Cheetah 3: single-rigid-body simplification,
+    // prediction horizons up to 0.5 s, QP solved in under 1 ms at 20-30 Hz.
+    id: 'di-carlo-2018',
+    title:
+      'Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control',
+    authors: [
+      'Jared Di Carlo',
+      'Patrick M. Wensing',
+      'Benjamin Katz',
+      'Gerardo Bledt',
+      'Sangbae Kim',
+    ],
+    year: 2018,
+    venue: 'IEEE/RSJ IROS',
+    url: 'https://doi.org/10.1109/IROS.2018.8594448',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): IEEE Journal on Robotics and
+    // Automation 3(1):43-53. The operational-space formulation that puts
+    // task-space dynamics at the center of manipulator force/motion
+    // control; ancestor of modern whole-body control.
+    id: 'khatib-1987',
+    title:
+      'A Unified Approach for Motion and Force Control of Robot Manipulators: The Operational Space Formulation',
+    authors: ['Oussama Khatib'],
+    year: 1987,
+    venue: 'IEEE J. Robotics and Automation',
+    url: 'https://doi.org/10.1109/JRA.1987.1087068',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): International Journal of
+    // Humanoid Robotics 2(4):505-518. Whole-body hierarchical control of
+    // task primitives under joint and postural constraints.
+    id: 'sentis-khatib-2005',
+    title:
+      'Synthesis of Whole-Body Behaviors through Hierarchical Control of Behavioral Primitives',
+    authors: ['Luis Sentis', 'Oussama Khatib'],
+    year: 2005,
+    venue: 'Int. J. Humanoid Robotics',
+    url: 'https://doi.org/10.1142/S0219843605000594',
+    type: 'paper',
+  },
+  {
+    // Verified 2026-08-11: the DOI resolves to the ASME Journal of Basic
+    // Engineering record (82(1):35-45, March 1960). ASME bot-walls curl
+    // (403) exactly like the other ASME DOIs already in this registry; the
+    // link is live in a browser. The recursive linear filter paper that the
+    // state-estimation module is built around.
+    id: 'kalman-1960-filter',
+    title: 'A New Approach to Linear Filtering and Prediction Problems',
+    authors: ['Rudolf E. Kalman'],
+    year: 1960,
+    venue: 'J. Basic Engineering',
+    url: 'https://doi.org/10.1115/1.3662552',
+    type: 'paper',
+  },
+  {
+    // Verified against the NTRS record (2026-08-11): NASA TM-86847,
+    // November 1985, NASA's own history of the filter's adoption. The
+    // "Extended Kalman Filter" section documents the Ames group's move
+    // from linearizing about a nominal trajectory to relinearizing about
+    // the current estimate, the modification Apollo navigation used.
+    id: 'mcgee-schmidt-1985',
+    title:
+      'Discovery of the Kalman Filter as a Practical Tool for Aerospace and Industry',
+    authors: ['Leonard A. McGee', 'Stanley F. Schmidt'],
+    year: 1985,
+    venue: 'NASA TM-86847',
+    url: 'https://ntrs.nasa.gov/citations/19860003843',
+    type: 'paper',
+  },
+  {
+    // The canonical textbook for the Bayes-filter framing (ch. 2) and the
+    // Kalman/EKF family (ch. 3). The book's own site was down at
+    // verification time; the MIT Press page bot-walls curl (403) but is
+    // live in a browser (2026-08-11), same handling as the bot-walled
+    // publisher DOIs in this registry.
+    id: 'thrun-2005',
+    title: 'Probabilistic Robotics',
+    authors: ['Sebastian Thrun', 'Wolfram Burgard', 'Dieter Fox'],
+    year: 2005,
+    venue: 'MIT Press',
+    url: 'https://mitpress.mit.edu/9780262201629/probabilistic-robotics/',
+    type: 'docs',
+  },
+  {
+    // Springer chapter DOI verified resolving (2026-08-11), in Autonomous
+    // Robot Vehicles, pp. 167-193. The canonical reference for reasoning
+    // about uncertain spatial relationships with covariance, the technical
+    // root of EKF-based mapping.
+    id: 'smith-1990',
+    title: 'Estimating Uncertain Spatial Relationships in Robotics',
+    authors: ['Randall C. Smith', 'Matthew Self', 'Peter Cheeseman'],
+    year: 1990,
+    venue: 'Autonomous Robot Vehicles',
+    url: 'https://doi.org/10.1007/978-1-4613-8997-2_14',
+    type: 'paper',
+  },
+  {
+    // SPIE proceedings DOI verified resolving (2026-08-11): Signal
+    // Processing, Sensor Fusion, and Target Recognition VI, 3068:182-193.
+    // Introduces the unscented transform: deterministic sigma points pushed
+    // through the true nonlinearity instead of analytic linearization.
+    id: 'julier-uhlmann-1997',
+    title: 'New Extension of the Kalman Filter to Nonlinear Systems',
+    authors: ['Simon J. Julier', 'Jeffrey K. Uhlmann'],
+    year: 1997,
+    venue: 'Proc. SPIE 3068',
+    url: 'https://doi.org/10.1117/12.280797',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Information Theory 47(2):498-519; DOI verified
+    // 2026-08-11 (IEEE answers bots with a 202 challenge page, live in a
+    // browser). The paper that unified inference on factor graphs under
+    // the sum-product algorithm.
+    id: 'kschischang-2001',
+    title: 'Factor Graphs and the Sum-Product Algorithm',
+    authors: [
+      'Frank R. Kschischang',
+      'Brendan J. Frey',
+      'Hans-Andrea Loeliger',
+    ],
+    year: 2001,
+    venue: 'IEEE Trans. Information Theory',
+    url: 'https://doi.org/10.1109/18.910572',
+    type: 'paper',
+  },
+  {
+    // IJRR 25(12):1181-1203; SAGE bot-walls curl (403) but the DOI is live
+    // in a browser (2026-08-11), same handling as the other SAGE entries.
+    // Reframes SLAM as smoothing: factor the information matrix once and
+    // the whole trajectory falls out.
+    id: 'dellaert-kaess-2006',
+    title:
+      'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
+    authors: ['Frank Dellaert', 'Michael Kaess'],
+    year: 2006,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364906072768',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 24(6):1365-1378; DOI verified 2026-08-11.
+    // Incremental smoothing: update only the part of the factorization a
+    // new measurement touches.
+    id: 'kaess-2008',
+    title: 'iSAM: Incremental Smoothing and Mapping',
+    authors: ['Michael Kaess', 'Ananth Ranganathan', 'Frank Dellaert'],
+    year: 2008,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2008.2006706',
+    type: 'paper',
+  },
+  {
+    // IJRR 31(2):216-235; SAGE bot-walls curl (403) but the DOI is live in
+    // a browser (2026-08-11). Organizes the factor graph into the Bayes
+    // tree so incremental updates stay local as the graph grows.
+    id: 'kaess-2012',
+    title: 'iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree',
+    authors: [
+      'Michael Kaess',
+      'Hordur Johannsson',
+      'Richard Roberts',
+      'Viorela Ila',
+      'John J. Leonard',
+      'Frank Dellaert',
+    ],
+    year: 2012,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364911430419',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 32(6):1309-1332; arXiv abs page verified
+    // 2026-08-11. The survey records the field's move from EKF-based SLAM
+    // to factor-graph smoothing and names the open problems.
+    id: 'cadena-2016',
+    title:
+      'Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age',
+    authors: [
+      'Cesar Cadena',
+      'Luca Carlone',
+      'Henry Carrillo',
+      'Yasir Latif',
+      'Davide Scaramuzza',
+      'Jose Neira',
+      'Ian Reid',
+      'John J. Leonard',
+    ],
+    year: 2016,
+    venue: 'IEEE Trans. Robotics',
+    arxiv: '1606.05830',
+    url: 'https://arxiv.org/abs/1606.05830',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 33(1):1-21; arXiv abs page verified 2026-08-11.
+    // On-manifold preintegration collapses the high-rate IMU stream
+    // between two keyframes into a single factor, which is what makes
+    // inertial data practical inside a factor graph.
+    id: 'forster-2017',
+    title:
+      'On-Manifold Preintegration for Real-Time Visual-Inertial Odometry',
+    authors: [
+      'Christian Forster',
+      'Luca Carlone',
+      'Frank Dellaert',
+      'Davide Scaramuzza',
+    ],
+    year: 2017,
+    venue: 'IEEE Trans. Robotics',
+    arxiv: '1512.02363',
+    url: 'https://arxiv.org/abs/1512.02363',
+    type: 'paper',
+  },
+  {
+    // Project site verified live (2026-08-11). GTSAM is the reference
+    // implementation of factor-graph smoothing and the Bayes tree, used
+    // across visual-inertial odometry and offline mapping.
+    id: 'gtsam-2026',
+    title: 'GTSAM: Georgia Tech Smoothing and Mapping',
+    authors: ['Frank Dellaert', 'GTSAM Contributors'],
+    year: 2026,
+    url: 'https://gtsam.org/',
+    type: 'docs',
+  },
+  {
+    // Author-hosted complete PDF verified live at cds.caltech.edu
+    // (2026-08-11). Chapter 5 is the primary source for the friction cone
+    // alpha = arctan(mu), the soft-finger torsional model, force closure as
+    // surjectivity of the grasp map, Nguyen's antipodal theorem (Theorem
+    // 5.6), and the Table 5.3 lower bounds on contact counts.
+    id: 'murray-li-sastry-1994',
+    title: 'A Mathematical Introduction to Robotic Manipulation',
+    authors: ['Richard M. Murray', 'Zexiang Li', 'S. Shankar Sastry'],
+    year: 1994,
+    venue: 'CRC Press',
+    url: 'https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
+    type: 'docs',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 7(1):3-16, 1988.
+    // Proves the antipodal grasp theorem: a planar two-contact frictional
+    // grasp is force closure exactly when the line through the contacts
+    // lies strictly inside both friction cones (also Murray, Li, and
+    // Sastry, Theorem 5.6). Sage bot-walls direct HEAD requests; the
+    // doi.org redirect resolves to journals.sagepub.com.
+    id: 'nguyen-1988',
+    title: 'Constructing Force-Closure Grasps',
+    authors: ['Van-Duc Nguyen'],
+    year: 1988,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836498800700301',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): ICRA 1992, pp. 2290-2295.
+    // Introduces the epsilon grasp-quality metric: the radius of the largest
+    // wrench ball around the origin inside the grasp wrench hull, equal to
+    // the minimum origin-to-facet distance. IEEE Xplore bot-walls direct
+    // HEAD requests (202); the doi.org redirect resolves to ieeexplore.
+    id: 'ferrari-canny-1992',
+    title: 'Planning Optimal Grasps',
+    authors: ['Carlo Ferrari', 'John F. Canny'],
+    year: 1992,
+    venue: 'ICRA 1992',
+    url: 'https://doi.org/10.1109/ROBOT.1992.219918',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 14(4):319-334, 1995.
+    // Unifies form and force closure under one closure framework and gives
+    // the contact-count bounds for frictionless grasps.
+    id: 'bicchi-1995',
+    title: 'On the Closure Properties of Robotic Grasping',
+    authors: ['Antonio Bicchi'],
+    year: 1995,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836499501400402',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Algorithmica 2:541-558,
+    // 1987. The classical lower-bound argument: frictionless force closure
+    // needs at least 4 contacts in the plane and 7 in space.
+    id: 'mishra-1987',
+    title: 'On the Existence and Synthesis of Multifingered Positive Grips',
+    authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
+    year: 1987,
+    venue: 'Algorithmica',
+    url: 'https://doi.org/10.1007/BF01840373',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 9(1):61-74, 1990.
+    // Sharpens the frictionless bounds: at most 6 contacts suffice in the
+    // plane and 12 in space. DOI ends 090102; the near-identical 090104 is
+    // a different paper in the same issue, an easy mis-citation.
+    id: 'markenscoff-1990',
+    title: 'The Geometry of Grasping',
+    authors: [
+      'Xanthippi Markenscoff',
+      'Luqun Ni',
+      'Christos H. Papadimitriou',
+    ],
+    year: 1990,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836499000900102',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IEEE Trans. Robotics and
+    // Automation 5(3):269-279, 1989. The grasp taxonomy (power vs.
+    // precision, and the Cutkosky grasp tree) used to choose a grasp before
+    // analyzing it.
+    id: 'cutkosky-1989',
+    title:
+      'On Grasp Choice, Grasp Models, and the Design of Hands for Manufacturing Tasks',
+    authors: ['Mark R. Cutkosky'],
+    year: 1989,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.34763',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): ICRA 2000, pp. 348-353.
+    // Review of contact models, grasp analysis, and quality metrics. DOI
+    // ends 844081; neighboring 844777 is a different ICRA 2000 paper.
+    id: 'bicchi-kumar-2000',
+    title: 'Robotic Grasping and Contact: A Review',
+    authors: ['Antonio Bicchi', 'Vijay Kumar'],
+    year: 2000,
+    venue: 'ICRA 2000',
+    url: 'https://doi.org/10.1109/ROBOT.2000.844081',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Springer Handbook of
+    // Robotics, 2nd ed., chapter 38, pp. 955-988, 2016. The modern handbook
+    // treatment of contact models, closure, and grasp quality.
+    id: 'prattichizzo-trinkle-2016',
+    title: 'Grasping',
+    authors: ['Domenico Prattichizzo', 'Jeffrey C. Trinkle'],
+    year: 2016,
+    venue: 'Springer Handbook of Robotics',
+    url: 'https://doi.org/10.1007/978-3-319-32552-1_38',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Autonomous Robots
+    // 38:65-88, 2015 (online first 2014). Reviews grasp quality metrics and
+    // benchmarks their behavior, including the epsilon metric's
+    // frame-dependence pitfall.
+    id: 'roa-suarez-2015',
+    title: 'Grasp Quality Measures: Review and Performance',
+    authors: ['Máximo A. Roa', 'Raúl Suárez'],
+    year: 2015,
+    venue: 'Autonomous Robots',
+    url: 'https://doi.org/10.1007/s10514-014-9402-3',
+    type: 'paper',
+  },
+  {
+    // arXiv metadata verified (2026-08-11): RSS 2017. Trains a GQ-CNN on
+    // 6.7M synthetic grasps scored with an analytic robustness metric
+    // (Ferrari-Canny-style epsilon under uncertainty): 93% success on eight
+    // known adversarial objects, 99% precision on forty novel household
+    // objects. The bridge from classical metrics to learned grasping.
+    id: 'dexnet-2-2017',
+    title:
+      'Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics',
+    authors: [
+      'Jeffrey Mahler',
+      'Jacky Liang',
+      'Sherdil Niyaz',
+      'Michael Laskey',
+      'Richard Doan',
+      'Xinyu Liu',
+      'Juan Aparicio Ojea',
+      'Ken Goldberg',
+    ],
+    year: 2017,
+    venue: 'RSS 2017',
+    arxiv: '1703.09312',
+    url: 'https://arxiv.org/abs/1703.09312',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -2924,7 +3582,13 @@ export function getCitation(id: string): Citation | undefined {
 /**
  * Inline chip label, e.g. "Zhao 2023". Organization authors
  * ("Physical Intelligence") keep their full name instead of a surname.
+ * SURNAME_OVERRIDES pins multi-word surnames that naive last-token
+ * splitting gets wrong ("Jared Di Carlo" -> "Di Carlo", not "Carlo").
+ * A particle heuristic is unsafe here: "Di Huang" keeps surname "Huang".
  */
+const SURNAME_OVERRIDES = new Map<string, string>([
+  ['Jared Di Carlo', 'Di Carlo'],
+]);
 const ORG_TOKENS = new Set([
   'Team',
   'Labs',
@@ -2945,7 +3609,7 @@ const ORG_TOKENS = new Set([
 export function citationLabel(citation: Citation): string {
   const firstAuthor = citation.authors[0];
   const tokens = firstAuthor.split(' ');
-  const surname = tokens.at(-1) ?? firstAuthor;
+  const surname = SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
   const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }

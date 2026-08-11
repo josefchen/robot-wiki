@@ -27,11 +27,12 @@ export const moduleFrontmatterSchema = z.object({
   citations: z.array(z.string().min(1)),
   /**
    * Curated "See also" targets: registry keys (`domain/slug`) of related
-   * published modules. Constrained to 2-4 entries when present; still
-   * optional at the schema level until every published article is
-   * backfilled (the wiki-backfill-articles feature). The prebuild
-   * validator additionally requires every entry to resolve to a published
-   * module, never this module itself, with no duplicates.
+   * published modules. Constrained to 2-4 entries when present. Optional
+   * at the schema level so drafts may omit it, but REQUIRED on every
+   * published module: the prebuild validator fails a published article
+   * without it (VAL-WIKI-007), and additionally requires every entry to
+   * resolve to a published module, never this module itself, with no
+   * duplicates.
    */
   seeAlso: z.array(z.string().min(1)).min(2).max(4).optional(),
 });

@@ -22,7 +22,7 @@ seeAlso:
 import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
-Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." Diffusion Policy, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: not an action, but a conditional denoising process over a whole action sequence <Cite id="diffusion-policy-2023" />. The result was a reported average improvement of 46.9% over the prior state of the art across 15 tasks and 4 benchmarks, and the design became the default action-head recipe for the generalist policies that followed <Cite id="diffusion-policy-2023" />.
+Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." <Term id="diffusion-policy">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: not an action, but a conditional denoising process over a whole action sequence <Cite id="diffusion-policy-2023" />. The result was a reported average improvement of 46.9% over the prior state of the art across 15 tasks and 4 benchmarks, and the design became the default action-head recipe for the generalist policies that followed <Cite id="diffusion-policy-2023" />.
 
 ## Denoising in action space
 
@@ -89,7 +89,7 @@ Consistency Policy distills a trained Diffusion Policy into a consistency model 
 
 ### Flow matching: a different formulation
 
-pi0 swapped the DDPM for conditional flow matching on a straight transport path: sample noise $\varepsilon$, form the interpolant
+pi0 swapped the DDPM for conditional <Term id="flow-matching">flow matching</Term> on a straight transport path: sample noise $\varepsilon$, form the interpolant
 
 $$
 A_t^\tau = \tau A_t + (1 - \tau)\varepsilon, \qquad u(A_t^\tau \mid A_t) = A_t - \varepsilon
@@ -98,9 +98,9 @@ $$
 and train the network to predict the target vector field $u$, with the timestep $\tau$ drawn from a beta distribution weighted toward the noisy end <Cite id="pi0-2024" />. Sampling integrates the field from $\tau = 0$ to $\tau = 1$ with forward Euler in 10 steps. There is no noise schedule to tune, and the straight paths tolerate fewer integration steps than a DDPM trajectory.
 
 <Callout variant="warn" title="The honest caveat">
-  Frontier labs did not adopt one-step distillation. Instead of cutting step count, they cut *latency*: Real-Time Chunking treats the hand-off between consecutive chunks as an inpainting problem on the diffusion or flow trajectory and holds throughput flat out to +200 ms of injected inference delay, with no training-time change <Cite id="real-time-chunking-2025" />. Distillation matters most for on-robot edge deployment, not for cloud-served policies.
+  Frontier labs did not adopt one-step distillation. Instead of cutting step count, they cut *latency*: <Term id="real-time-chunking">Real-Time Chunking</Term> treats the hand-off between consecutive chunks as an inpainting problem on the diffusion or flow trajectory and holds throughput flat out to +200 ms of injected inference delay, with no training-time change <Cite id="real-time-chunking-2025" />. Distillation matters most for on-robot edge deployment, not for cloud-served policies.
 </Callout>
 
 ## Limitations
 
-The 2023 design is single-task and single-embodiment, with no language conditioning and no web-scale pretraining; conditioning a diffusion head on language and scaling it up is exactly what Octo, pi0, and their successors later did <Cite id="pi0-2024" />. Reactivity is bounded by $T_a$: whatever happens inside a committed segment, the policy will not respond until the next inference. And the sampling cost, though tamed by DDIM and the successor methods above, never disappears entirely. Later modules in this domain cover how vision-language-action models took the action head and dropped it onto web-pretrained backbones.
+The 2023 design is single-task and single-embodiment, with no language conditioning and no web-scale pretraining; conditioning a diffusion head on language and scaling it up is exactly what Octo, pi0, and their successors later did <Cite id="pi0-2024" />. Reactivity is bounded by $T_a$: whatever happens inside a committed segment, the policy will not respond until the next inference. And the sampling cost, though tamed by DDIM and the successor methods above, never disappears entirely.

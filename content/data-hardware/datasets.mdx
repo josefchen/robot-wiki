@@ -15,11 +15,15 @@ citations:
   - robomind-2024
   - oxe-quality-critique-2026
   - diversity-scaling-2025
+seeAlso:
+  - "data-hardware/data-bottleneck"
+  - "manipulation/cross-embodiment"
+  - "data-hardware/teleop-rigs"
 ---
 
 import { DatasetTable } from '@/components/interactive/dataset-table';
 
-Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale. Open X-Embodiment federated existing data across 34 labs <Cite id="open-x-embodiment-2023" />. DROID sent one standardized rig to 13 institutions and collected for a year <Cite id="droid-2024" />. BridgeData V2 ran a multi-site academic effort on a low-cost arm <Cite id="bridgedata-v2-2023" />. AgiBot World pointed a corporate fleet at the problem <Cite id="agibot-world-2025" />. RoboMIND put four different robots through one collection protocol <Cite id="robomind-2024" />. The bet matters as much as the count, because it decides what the data can teach and who is allowed to use it.
+Five open datasets anchor robot learning in 2026, and each one is a different bet on how to collect at scale. <Term id="open-x-embodiment">Open X-Embodiment</Term> federated existing data across 34 labs <Cite id="open-x-embodiment-2023" />. DROID sent one standardized rig to 13 institutions and collected for a year <Cite id="droid-2024" />. BridgeData V2 ran a multi-site academic effort on a low-cost arm <Cite id="bridgedata-v2-2023" />. AgiBot World pointed a corporate fleet at the problem <Cite id="agibot-world-2025" />. RoboMIND put four different robots through one collection protocol <Cite id="robomind-2024" />. The bet matters as much as the count, because it decides what the data can teach and who is allowed to use it.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="largest pool" value="1M+" note="trajectories, Open X-Embodiment" accent />
@@ -36,21 +40,21 @@ Read the table with two caveats. First, episodes are not hours. A trajectory can
 
 ## Open X-Embodiment: breadth by federation
 
-OXE pooled 60 existing datasets from 34 labs into one standardized RLDS format: over a million trajectories spanning 22 robot embodiments, 527 skills, and 160,266 tasks <Cite id="open-x-embodiment-2023" />. It is the broadest cross-embodiment resource available, and the RT-X experiments showed what breadth buys: RT-1-X, trained on the pool, improved success rates by 50% over robot-specific baselines on in-distribution tasks and showed transfer to embodiments it barely saw <Cite id="open-x-embodiment-2023" />.
+OXE pooled 60 existing datasets from 34 labs into one standardized RLDS format: over a million trajectories spanning 22 robot embodiments, 527 skills, and 160,266 tasks <Cite id="open-x-embodiment-2023" />. It is the broadest <Term id="cross-embodiment">cross-embodiment</Term> resource available, and the RT-X experiments showed what breadth buys: RT-1-X, trained on the pool, improved success rates by 50% over robot-specific baselines on in-distribution tasks and showed transfer to embodiments it barely saw <Cite id="open-x-embodiment-2023" />.
 
-The cost of federation is heterogeneity. The constituent datasets vary wildly in action spaces, control frequencies, and camera setups, and the licensing is mixed per constituent, which complicates commercial use. By 2026 a common critique holds that much of the pooled data is low quality, with no good method for quantifying data quality in imitation learning <Cite id="oxe-quality-critique-2026" />. Most generalist policies train on it regardless, because nothing else is as broad (see [VLA models](/manipulation/vla-models)).
+The cost of federation is heterogeneity. The constituent datasets vary wildly in action spaces, control frequencies, and camera setups, and the licensing is mixed per constituent, which complicates commercial use. By 2026 a common critique holds that much of the pooled data is low quality, with no good method for quantifying data quality in <Term id="imitation-learning">imitation learning</Term> <Cite id="oxe-quality-critique-2026" />. Most generalist policies train on it regardless, because nothing else is as broad (see [VLA models](/manipulation/vla-models)).
 
 ## DROID: depth on one platform
 
 DROID is the largest open dataset collected on a single robot platform: 76,000 trajectories totaling 350 hours, across 564 scenes and 86 tasks, gathered by 50 operators at 13 institutions over 12 months <Cite id="droid-2024" />. Every trajectory came from the same rig, a Franka Panda with two ZED 2 cameras and a ZED Mini wrist camera, teleoperated through a Meta Quest 2. One platform means one action space and one camera geometry, which makes the data far easier to consume than a federation, at the price of embodiment lock-in.
 
-The payoff showed up in controlled comparisons: diffusion policies trained on DROID beat policies trained on the next-best dataset by 22% in-distribution and 17% out-of-distribution <Cite id="droid-2024" />. The project also maintains the data after release: improved camera calibrations for 36,000 episodes shipped in April 2025, and language annotations for 75,000 episodes in December 2024 <Cite id="droid-2024" />. The license is CC BY-NC 4.0, which rules out commercial training runs.
+The payoff showed up in controlled comparisons: <Term id="diffusion-policy">diffusion policies</Term> trained on DROID beat policies trained on the next-best dataset by 22% in-distribution and 17% out-of-distribution <Cite id="droid-2024" />. The project also maintains the data after release: improved camera calibrations for 36,000 episodes shipped in April 2025, and language annotations for 75,000 episodes in December 2024 <Cite id="droid-2024" />. The license is CC BY-NC 4.0, which rules out commercial training runs.
 
 ## BridgeData V2: the academic workhorse
 
 BridgeData V2 is the mid-scale counterpoint: 60,096 trajectories on a WidowX 250, a 6-DoF arm cheap enough for any lab to buy <Cite id="bridgedata-v2-2023" />. Of those, 50,365 are teleoperated demonstrations collected with a VR controller at 5 Hz, averaging 38 timesteps, about eight seconds per trajectory; the remaining 9,731 are scripted pick-and-place rollouts. The data spans 24 environments, mostly toy kitchens, and 13 skills from pick-and-place to cloth folding <Cite id="bridgedata-v2-2023" />.
 
-Two things keep BridgeData V2 on every shortlist. The license is CC BY 4.0, the most permissive in this table. And the paper shipped trained baselines, from goal-conditioned behavior cloning to ACT and an RT-1 fine-tune, which made the dataset a default benchmark pool for academic generalists <Cite id="bridgedata-v2-2023" />. Most of it also ships inside OXE as one of the 60 constituents, so policies trained on the pool have already seen it <Cite id="open-x-embodiment-2023" />.
+Two things keep BridgeData V2 on every shortlist. The license is CC BY 4.0, the most permissive in this table. And the paper shipped trained baselines, from goal-conditioned <Term id="behavior-cloning">behavior cloning</Term> to ACT and an RT-1 fine-tune, which made the dataset a default benchmark pool for academic generalists <Cite id="bridgedata-v2-2023" />. Most of it also ships inside OXE as one of the 60 constituents, so policies trained on the pool have already seen it <Cite id="open-x-embodiment-2023" />.
 
 ## AgiBot World: the corporate fleet
 

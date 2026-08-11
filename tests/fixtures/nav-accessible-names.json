@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 41,
+  "linkCount": 46,
   "links": [
     {
       "href": "/",
@@ -148,12 +148,32 @@
       "name": "Kinematics"
     },
     {
+      "href": "/classical/motion-planning/",
+      "name": "Motion Planning"
+    },
+    {
+      "href": "/classical/control/",
+      "name": "Control"
+    },
+    {
+      "href": "/classical/state-estimation/",
+      "name": "State Estimation"
+    },
+    {
+      "href": "/classical/grasp-planning/",
+      "name": "Grasp Planning"
+    },
+    {
       "href": "/frontier/",
       "name": "Domain overview"
     },
     {
       "href": "/adjacent/",
       "name": "Domain overview"
+    },
+    {
+      "href": "/a-z/",
+      "name": "A-Z Index"
     },
     {
       "href": "/market-map/",

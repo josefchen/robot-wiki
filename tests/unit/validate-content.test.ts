@@ -27,6 +27,25 @@ const registry: ModuleRegistryEntry[] = [
     order: 2,
     status: 'draft',
   },
+  // Two more published modules serving as valid seeAlso targets; every
+  // published module must declare seeAlso, so even the base fixtures need
+  // something legal to point at.
+  {
+    domain: 'manipulation',
+    slug: 'bc-foundations',
+    title: 'Behavior Cloning Foundations',
+    summary: 'Covariate shift and compounding error.',
+    order: 3,
+    status: 'published',
+  },
+  {
+    domain: 'manipulation',
+    slug: 'realtime-execution',
+    title: 'Real-Time Execution',
+    summary: 'Temporal ensembling and latency budgets.',
+    order: 4,
+    status: 'published',
+  },
   // Registry-level invariant: every core domain must be populated.
   ...(['rl-sim2real', 'world-models', 'data-hardware', 'classical', 'frontier'] as const).map(
     (domain) => ({
@@ -73,9 +92,11 @@ function frontmatter(overrides: Record<string, unknown> = {}): string {
     status: 'published',
     lastReviewed: '2026-08-07',
     citations: ['act-aloha-2023'],
+    seeAlso: ['manipulation/bc-foundations', 'manipulation/realtime-execution'],
     ...overrides,
   };
-  const lines = Object.entries(fm).map(([key, value]) => {
+  const lines = Object.entries(fm).flatMap(([key, value]) => {
+    if (value === undefined) return [];
     if (Array.isArray(value)) {
       if (value.length === 0) return `${key}: []`;
       return `${key}:\n${value.map((v) => `  - ${v}`).join('\n')}`;
@@ -86,12 +107,40 @@ function frontmatter(overrides: Record<string, unknown> = {}): string {
   return `---\n${lines.join('\n')}\n---\n`;
 }
 
+/**
+ * Check 3 requires a content file for every published registry entry, so
+ * the two published seeAlso targets in the base registry ship minimal
+ * fixture files in every fixture root. Keeps assertions elsewhere focused
+ * on the check under test rather than on check-3 noise.
+ */
+function seedSeeAlsoTargets(root: string) {
+  mkdirSync(join(root, 'manipulation'), { recursive: true });
+  writeFileSync(
+    join(root, 'manipulation', 'bc-foundations.mdx'),
+    `${frontmatter({
+      title: 'Behavior Cloning Foundations',
+      slug: 'bc-foundations',
+      order: 3,
+      seeAlso: ['manipulation/action-chunking', 'manipulation/realtime-execution'],
+    })}\nBody.\n`,
+  );
+  writeFileSync(
+    join(root, 'manipulation', 'realtime-execution.mdx'),
+    `${frontmatter({
+      title: 'Real-Time Execution',
+      slug: 'realtime-execution',
+      order: 4,
+      seeAlso: ['manipulation/action-chunking', 'manipulation/bc-foundations'],
+    })}\nBody.\n`,
+  );
+}
+
 describe('validateContent (fixtures)', () => {
   let root: string;
 
   beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
-    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    seedSeeAlsoTargets(root);
   });
 
   afterEach(() => {
@@ -239,7 +288,7 @@ describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
 
   beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), 'robot-wiki-cites-'));
-    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    seedSeeAlsoTargets(root);
   });
 
   afterEach(() => {
@@ -302,41 +351,16 @@ describe('validateContent inline citation declaration (VAL-WIKI-005)', () => {
   });
 });
 
-describe('validateContent seeAlso resolution (VAL-WIKI-009, VAL-WIKI-010)', () => {
-  // Extended registry: two more published modules to serve as valid
-  // seeAlso targets; the base registry's diffusion-policy stays a draft,
-  // which is what the draft-target test points at.
-  const seeAlsoRegistry: ModuleRegistryEntry[] = [
-    ...registry,
-    {
-      domain: 'manipulation',
-      slug: 'bc-foundations',
-      title: 'Behavior Cloning Foundations',
-      summary: 'Covariate shift and compounding error.',
-      order: 3,
-      status: 'published',
-    },
-    {
-      domain: 'manipulation',
-      slug: 'realtime-execution',
-      title: 'Real-Time Execution',
-      summary: 'Temporal ensembling and latency budgets.',
-      order: 4,
-      status: 'published',
-    },
-  ];
-
+describe('validateContent seeAlso resolution (VAL-WIKI-007, VAL-WIKI-009, VAL-WIKI-010)', () => {
   let root: string;
 
   beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), 'robot-wiki-seealso-'));
-    mkdirSync(join(root, 'manipulation'), { recursive: true });
     // Check 3 requires a content file for every published registry entry,
     // and check 4 requires its frontmatter to match the registry, so the
-    // two extra seeAlso targets ship fixture files. That keeps every
+    // two published seeAlso targets ship fixture files. That keeps every
     // assertion below focused on seeAlso violations only.
-    writeTarget('bc-foundations', 'Behavior Cloning Foundations', 3);
-    writeTarget('realtime-execution', 'Real-Time Execution', 4);
+    seedSeeAlsoTargets(root);
   });
 
   afterEach(() => {
@@ -347,17 +371,10 @@ describe('validateContent seeAlso resolution (VAL-WIKI-009, VAL-WIKI-010)', () =
     writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
   }
 
-  function writeTarget(slug: string, title: string, order: number) {
-    writeFileSync(
-      join(root, 'manipulation', `${slug}.mdx`),
-      `${frontmatter({ title, slug, order, citations: ['dagger-2011'] })}\nBody.\n`,
-    );
-  }
-
   function issues() {
     return validateContent({
       contentRoot: root,
-      modules: seeAlsoRegistry,
+      modules: registry,
       citations,
     });
   }
@@ -431,6 +448,26 @@ describe('validateContent seeAlso resolution (VAL-WIKI-009, VAL-WIKI-010)', () =
     );
     expect(seeAlsoIssues()).toMatch(/duplicate/i);
   });
+
+  it('fails when a published module omits seeAlso (VAL-WIKI-007)', () => {
+    // seeAlso was optional at the schema level only until the backfill
+    // landed; every published article now declares it, and the build must
+    // keep it that way (the schema's 2-4 bounds apply once present).
+    writeModule(`${frontmatter({ seeAlso: undefined })}\nBody.\n`);
+    const found = issues();
+    const offense = found.find(
+      (i) => i.message.includes('seeAlso') && /must declare/.test(i.message),
+    );
+    expect(offense).toBeDefined();
+    expect(offense?.file).toBe('manipulation/action-chunking.mdx');
+  });
+
+  it('allows a draft module to omit seeAlso', () => {
+    writeModule(
+      `${frontmatter({ status: 'draft', citations: [], seeAlso: undefined })}\nBody.\n`,
+    );
+    expect(seeAlsoIssues()).not.toMatch(/must declare seeAlso/);
+  });
 });
 
 describe('validateContent currency hygiene (remark-math gotcha)', () => {
@@ -438,7 +475,7 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
 
   beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), 'robot-wiki-currency-'));
-    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    seedSeeAlsoTargets(root);
   });
 
   afterEach(() => {
@@ -521,7 +558,7 @@ describe('validateContent glossary checks (fixtures)', () => {
 
   beforeEach(() => {
     root = mkdtempSync(join(tmpdir(), 'robot-wiki-content-'));
-    mkdirSync(join(root, 'manipulation'), { recursive: true });
+    seedSeeAlsoTargets(root);
   });
 
   afterEach(() => {

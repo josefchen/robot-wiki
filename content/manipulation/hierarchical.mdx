@@ -20,6 +20,10 @@ citations:
   - agibot-go2-2026
   - pi07-2026
   - mem-2026
+seeAlso:
+  - "manipulation/vla-models"
+  - "manipulation/knowledge-insulation"
+  - "manipulation/comparison-matrix"
 ---
 
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
@@ -35,13 +39,13 @@ Every long-horizon robot system has to answer the same organizational question: 
 
 ## SayCan: grounding a language model in what is physically possible
 
-SayCan (2022) is the canonical separate-planner system. An LLM scores how *useful* each skill in a fixed library is for the instruction; a learned affordance value function, trained per skill, scores how *possible* that skill is right now, given the scene and the robot's state. The two scores multiply, the argmax executes, and the loop repeats with the completed skill appended to the prompt <Cite id="saycan-2022" />.
+SayCan (2022) is the canonical separate-planner system. An LLM scores how *useful* each skill in a fixed library is for the instruction; a learned <Term id="affordance">affordance</Term> value function, trained per skill, scores how *possible* that skill is right now, given the scene and the robot's state. The two scores multiply, the argmax executes, and the loop repeats with the completed skill appended to the prompt <Cite id="saycan-2022" />.
 
 The affordance half is the contribution that survived. An LLM asked to "clean up the spill" will happily plan around a sponge that is not in the room; the value function is what ties the plan to the current scene. The limitation is the other half: the planner can only choose among skills someone already trained, and it re-plans one skill at a time, so recovery from a failed skill means another expensive pass through the loop.
 
 ## Code as Policies: the planner writes programs
 
-Code as Policies (2022) replaced skill selection with code generation. The LLM writes executable Python that calls perception and control APIs, recursively defining any function it references but has not been given. That buys loops, conditionals, arithmetic over spatial quantities, and composition of primitives, an expressiveness a flat skill selector cannot reach <Cite id="code-as-policies-2022" />. The failure modes moved too: the generated program is only as good as the APIs it calls, and a VLM's spatial estimates were the weakest link in the chain.
+Code as Policies (2022) replaced skill selection with code generation. The LLM writes executable Python that calls perception and control APIs, recursively defining any function it references but has not been given. That buys loops, conditionals, arithmetic over spatial quantities, and composition of primitives, an expressiveness a flat skill selector cannot reach <Cite id="code-as-policies-2022" />. The failure modes moved too: the generated program is only as good as the APIs it calls, and a <Term id="vision-language-model">VLM</Term>'s spatial estimates were the weakest link in the chain.
 
 ## The keypoint turn: VLMs emit geometry, not skill names
 
@@ -51,7 +55,7 @@ The 2024 line of work kept the separate-planner structure but changed the interf
 - **ReKep** has the VLM write Python functions over sets of semantic keypoints that evaluate to a numerical cost; a solver then optimizes robot actions subject to those constraints, across space and time. This is the most classical-robotics design of the three: the VLM specifies the optimization problem, not the motion <Cite id="rekep-2024" />.
 - **RoboPoint** fine-tunes a VLM specifically to predict spatial affordance points, trained on synthetic point-annotation data rather than real robot rollouts, and reports a 21.8% gain in affordance-prediction accuracy over GPT-4o with visual prompting <Cite id="robopoint-2024" />.
 
-The bridge between this line and what came next is ECoT (2024), which moved the reasoning *into* the VLA: the model interleaves subtask decomposition, bounding boxes for task-relevant objects, and 2D motion traces with its action prediction, improving OpenVLA's generalization success by 28% absolute with no extra robot data <Cite id="ecot-2024" />. Its weakness was speed, since autoregressive reasoning tokens are generated serially before every action. Making that internal reasoning cheap is what the 2025-2026 systems figured out.
+The bridge between this line and what came next is ECoT (2024), which moved the reasoning *into* the <Term id="vision-language-action-model">VLA</Term>: the model interleaves subtask decomposition, bounding boxes for task-relevant objects, and 2D motion traces with its action prediction, improving OpenVLA's generalization success by 28% absolute with no extra robot data <Cite id="ecot-2024" />. Its weakness was speed, since autoregressive reasoning tokens are generated serially before every action. Making that internal reasoning cheap is what the 2025-2026 systems figured out.
 
 ## 2026: hierarchy moved inside the network
 
@@ -79,5 +83,3 @@ Second: **the keypoint and affordance methods did not die; they moved from runti
 <Callout variant="info" title="How to read this synthesis">
   The supersession claim in this section is this wiki's own reading across five systems, not a quote from any one of them. The per-system facts underneath it (subtask prediction in π0.5, interleaved thinking in Gemini Robotics 1.5, the asynchronous split in GO-2, the S0/S1/S2 rates in Helix 02) are each cited to their primary source. If a 2027 system ships a competitive separate planner, this section is where the retraction goes.
 </Callout>
-
-The [comparison matrix](/manipulation/comparison-matrix) encodes this shift as the hierarchy axis across all of the methods in the wiki, and [the pi line](/manipulation/pi-line) traces how one lab moved from Hi Robot's two networks to π0.5's single pass in about a year.

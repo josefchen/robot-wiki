@@ -12,7 +12,7 @@ import {
 } from '../../lib/backlinks';
 
 /**
- * See also + Linked from (VAL-WIKI-008, VAL-WIKI-011, VAL-WIKI-012).
+ * See also + Linked from (VAL-WIKI-007, VAL-WIKI-008, VAL-WIKI-011, VAL-WIKI-012).
  *
  * Both sections are rendered by the shared article template from derived
  * data, never hand-written in MDX: "See also" resolves the frontmatter
@@ -151,6 +151,9 @@ test.describe('See also + Linked from', () => {
   test('every See also link navigates to a published article whose h1 matches the label (VAL-WIKI-008)', async ({
     page,
   }) => {
+    // The sweep clicks every edge in the published set: ~90 edges at
+    // roughly three navigations each, far past the 30s default.
+    test.setTimeout(300_000);
     const edges = articles.flatMap((article) =>
       (article.seeAlso ?? []).map((target) => ({ source: article.key, target })),
     );
@@ -256,9 +259,16 @@ test.describe('See also + Linked from', () => {
     page,
   }) => {
     const zeroInbound = articles.filter((a) => !expectedBacklinks.has(a.key));
-    // Sanity: the shipped wiki currently has zero-inbound articles, so this
-    // test exercises a real page rather than passing vacuously.
-    expect(zeroInbound.length).toBeGreaterThan(0);
+    // After the wiki-wide seeAlso backfill the curated graph is complete:
+    // every published article has at least one inbound edge, so this
+    // fixture class is currently empty and the test skips itself (the
+    // same self-skipping pattern as the registry-derived draft fixtures
+    // in tests/helpers/draft-fixtures.ts). If a future article ships with
+    // zero inbound links it lands here automatically.
+    test.skip(
+      zeroInbound.length === 0,
+      'no zero-inbound published articles in the current link graph',
+    );
     // All current zero-inbound articles still link out; the honesty rule is
     // about inbound edges, so sample two distinct ones as they are.
     expect(zeroInbound.some((a) => outboundArticleTargets(a).length > 0)).toBe(true);
@@ -280,24 +290,38 @@ test.describe('See also + Linked from', () => {
     }
   });
 
-  test('an article without seeAlso renders no See also heading', async ({
+  test('every published article renders 2 to 4 See also entries (VAL-WIKI-007)', async ({
     page,
   }) => {
-    // world-models/taxonomy has inbound links (Linked from renders) but
-    // declares no seeAlso: See also must be absent, not empty.
-    const article = articleByKey.get('world-models/taxonomy');
-    expect(article).toBeDefined();
-    expect(article?.seeAlso ?? []).toEqual([]);
-    if (!article) return;
-
-    await page.goto('/world-models/taxonomy/');
-    await expect(page.locator('section[data-section="see-also"]')).toHaveCount(0);
-    await expect(
-      page.locator('article').getByRole('heading', { name: 'See also' }),
-    ).toHaveCount(0);
-    await expect(
-      page.locator('section[data-section="linked-from"]'),
-    ).toBeVisible();
+    // seeAlso is required on published modules since the backfill (the
+    // prebuild validator enforces it), so the no-seeAlso empty state is
+    // unreachable in the shipped set. The meaningful registry-driven sweep
+    // is the curated-count contract: between 2 and 4 links per article,
+    // each labeled with the target article's title.
+    test.setTimeout(300_000);
+    expect(articles.length).toBeGreaterThan(0);
+    for (const article of articles) {
+      await test.step(article.key, async () => {
+        await page.goto(`/${article.key}/`);
+        const section = page.locator('section[data-section="see-also"]');
+        await expect(section).toBeVisible();
+        await expect(
+          section.getByRole('heading', { level: 2, name: 'See also' }),
+        ).toBeVisible();
+        const items = section.locator('li[data-article-key]');
+        const count = await items.count();
+        expect(count, `${article.key} See also count`).toBeGreaterThanOrEqual(2);
+        expect(count, `${article.key} See also count`).toBeLessThanOrEqual(4);
+        for (let i = 0; i < count; i += 1) {
+          const key = await items.nth(i).getAttribute('data-article-key');
+          const target = registryByKey.get(key ?? '');
+          expect(target, `registry entry ${key}`).toBeDefined();
+          await expect(items.nth(i).getByRole('link')).toHaveText(
+            target?.title ?? '',
+          );
+        }
+      });
+    }
   });
 
   test('zero axe violations with See also, Linked from and References all present', async ({

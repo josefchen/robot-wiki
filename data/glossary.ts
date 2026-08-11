@@ -152,6 +152,237 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute\'s Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.',
     citations: ['tri-lbm-2025'],
   },
+  {
+    id: 'ppo',
+    term: 'PPO',
+    definition:
+      'Proximal policy optimization, the on-policy reinforcement learning algorithm the locomotion literature standardized on. Schulman and colleagues introduced it as a policy gradient method that alternates between sampling data through interaction with the environment and optimizing a surrogate objective with stochastic gradient ascent, where the surrogate is what allows several epochs of minibatch updates on each batch of samples instead of the single gradient step standard policy gradient takes. It keeps most of trust region policy optimization\'s reliability without the second-order machinery, and it pairs naturally with massively parallel simulation, where thousands of robots supply the enormous on-policy batches it consumes.',
+    citations: ['ppo-2017', 'rudin-2021'],
+  },
+  {
+    id: 'parallel-simulation',
+    term: 'parallel simulation',
+    definition:
+      'Running thousands of physics simulator instances at once on a single GPU so a reinforcement learning agent collects experience at a rate no CPU cluster matches. Isaac Gym made the setup practical by keeping both physics and policy training on the GPU and passing data straight from physics buffers to PyTorch tensors, skipping the CPU round-trip entirely, which bought two to three orders of magnitude in throughput over a CPU simulator feeding a GPU learner. Rudin and colleagues showed what that buys: four thousand parallel ANYmal instances trained with PPO learned flat-terrain walking in under four minutes and uneven terrain in twenty, on one workstation GPU.',
+    citations: ['isaac-gym-2021', 'rudin-2021'],
+  },
+  {
+    id: 'reward-shaping',
+    term: 'reward shaping',
+    definition:
+      'Supplying extra training rewards on top of a task\'s base reward to guide the learning agent, usually to turn a sparse success signal into a denser one that learning can climb. Ng, Harada, and Russell asked exactly which modifications to a Markov decision process\'s reward function leave the optimal policy unchanged, and proved that a transition reward expressible as the difference of a potential function across the two states is sufficient, and effectively necessary, for that invariance. The theorem explains the classic shaping bugs, where the agent learns to harvest the bonus instead of doing the task: those bugs come from non-potential-based rewards, the kind the theorem rules out.',
+    citations: ['ng-reward-shaping-1999'],
+  },
+  {
+    id: 'whole-body-control',
+    term: 'whole-body control',
+    definition:
+      'Treating all of a robot\'s actuated degrees of freedom, legs, torso, arms, and hands, as one coupled control problem instead of stacking an arm controller on top of a separate locomotion controller. The model-based version optimizes against the full rigid-body dynamics at once: Zhang and colleagues ran whole-body model-predictive control in real time on hardware with plain iLQR and MuJoCo dynamics, across dynamic quadruped locomotion and full-sized humanoid walking. The learned version reframes the same problem as tracking a retargeted human motion, the route H2O took for real-time whole-body teleoperation, with reinforcement learning supplying the balance and contact feasibility that raw retargeting loses.',
+    citations: ['mujoco-ilqr-2026', 'h2o-2024'],
+  },
+  {
+    id: 'legged-locomotion',
+    term: 'legged locomotion',
+    definition:
+      'Moving by cycling legs through ground contact rather than rolling, the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack outright: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild, the template humanoid programs have since been rerunning on two legs.',
+    citations: ['lee-2020', 'miki-2022'],
+  },
+  {
+    id: 'mpc',
+    term: 'model predictive control',
+    definition:
+      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, which is why model-predictive controllers carry no sim-to-real gap of the learned-policy kind. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale on real hardware in 2026, when Zhang and colleagues ran iLQR with MuJoCo dynamics in real time across dynamic quadruped locomotion and full-sized humanoid walking.',
+    citations: ['mujoco-ilqr-2026'],
+  },
+  {
+    id: 'flow-matching',
+    term: 'flow matching',
+    definition:
+      'A generative modeling recipe that learns a time-dependent vector field carrying samples from a noise distribution to the data distribution, trained by regressing the model\'s field against the conditional flow rather than by estimating a score. pi0 brought it to robot control: a dedicated action expert is trained with the flow-matching objective to denoise continuous action chunks, and at inference the learned field is integrated as an ODE for a handful of steps, which keeps the policy fast enough for high-frequency control while keeping the multimodality that made diffusion policies attractive.',
+    citations: ['pi0-2024'],
+  },
+  {
+    id: 'world-model',
+    term: 'world model',
+    definition:
+      'A model of how an environment evolves that an agent can query to make decisions: given the current observation or state and a candidate action, it predicts what happens next, so a policy can be trained, evaluated, or planned against the model instead of the real world. The 2026 robotics survey draws the functional line: producing plausible future images is not enough, because a system qualifies only if its predictions change under the agent\'s action in a way that is useful for decision-making. The single name covers at least six architecturally distinct paradigms, from compact latent dynamics models to action-conditioned video generators.',
+    citations: ['world-model-survey-2026'],
+  },
+  {
+    id: 'end-effector',
+    term: 'end effector',
+    definition:
+      'The last link of a robot arm and whatever is attached to it: the gripper, hand, or tool whose pose the arm exists to place. Kinematics is conventionally written as the map from joint angles to the end-effector pose, and most action spaces in learned manipulation are defined as end-effector deltas rather than joint targets, because a task is specified in the space where the hand meets the world.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'jacobian',
+    term: 'Jacobian',
+    definition:
+      'The derivative of the forward-kinematics map: the matrix relating joint velocities to end-effector velocity at the current configuration, with one column per joint. It changes with configuration and can lose rank at singularities, where covering some task-space direction would demand unbounded joint speeds. The same matrix maps a wrench at the end effector back to the joint torques that balance it through its transpose, which makes it the working object of both velocity-level control and statics.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'proprioception',
+    term: 'proprioception',
+    definition:
+      'Sensing of the body\'s own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded, and the ETH Zurich line showed how far it goes: Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.',
+    citations: ['lee-2020', 'miki-2022'],
+  },
+  {
+    id: 'system-identification',
+    term: 'system identification',
+    definition:
+      'Measuring a real robot\'s dynamics and correcting the simulator\'s parameters to match, so the sim-to-real gap shrinks by calibration rather than by randomization. Hwangbo and colleagues replaced a miscalibrated analytic actuator model with a learned network mapping joint-command history to realized torque after identifying actuator error as the dominant transfer obstacle on ANYmal. The method attacks the dynamics component of the gap directly, where domain randomization only averages over it.',
+    citations: ['hwangbo-2019', 'reality-gap-survey-2026'],
+  },
+  {
+    id: 'retargeting',
+    term: 'retargeting',
+    definition:
+      'Mapping motion recorded on one body, usually a human\'s, onto a robot with different proportions and joint limits, so human demonstrations become references the robot can track. Raw retargeting ignores the robot\'s physical constraints and can produce references that are morphologically infeasible, which is why systems such as H2O and ASAP pair retargeted human motion with reinforcement learning that restores balance and contact feasibility on the real body.',
+    citations: ['h2o-2024', 'asap-2025'],
+  },
+  {
+    id: 'imitation-learning',
+    term: 'imitation learning',
+    definition:
+      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN steered a van this way in 1988, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
+    citations: ['dagger-2011', 'alvinn-1988'],
+  },
+  {
+    id: 'scaling-law',
+    term: 'scaling law',
+    definition:
+      'An empirical regularity between a system\'s performance and the resources it consumes, parameters, data, or compute, first made precise for language models and now measured for robot learning. Lin and colleagues fit imitation-learning success to the training data and found that generalization to new objects and environments tracks data diversity rather than raw hours. EgoScale extended the measurement to egocentric human video, reporting a log-linear relationship between hours of human data and dexterous-manipulation success across four orders of magnitude.',
+    citations: ['lin-data-scaling-laws-2024', 'egoscale-2026'],
+  },
+  {
+    id: 'vision-language-model',
+    term: 'vision-language model',
+    definition:
+      'A model pretrained jointly on web-scale image and text data, so visual recognition and language semantics live in one set of weights. RT-2\'s bet was that this pretraining is an asset for robot control: co-fine-tuning a vision-language model on robot trajectories and its original web data together transfers semantic knowledge, recognizing objects and following instructions the robot data never covered, into the policy. The vision-language-action models that followed all start from such a backbone.',
+    citations: ['rt2-2023'],
+  },
+  {
+    id: 'affordance',
+    term: 'affordance',
+    definition:
+      'In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot\'s own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model\'s estimate of how useful the skill is for the instruction and once by the affordance function\'s estimate of whether the robot can execute it here and now, and running the skill that scores well on both.',
+    citations: ['saycan-2022'],
+  },
+  {
+    id: 'curriculum-learning',
+    term: 'curriculum learning',
+    definition:
+      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues promoted ANYmal policies to rougher simulated terrain when they succeeded and demoted them when they failed, and the game-inspired schedule is part of what let one workstation GPU train flat-ground walking in under four minutes and uneven-terrain walking in twenty.',
+    citations: ['rudin-2021'],
+  },
+  {
+    id: 'teacher-student-distillation',
+    term: 'teacher-student distillation',
+    definition:
+      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA used the split for rapid adaptation to changing payloads and surfaces, and Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
+    citations: ['rma-2021', 'lee-2020'],
+  },
+  {
+    id: 'action-tokenization',
+    term: 'action tokenization',
+    definition:
+      'Expressing continuous robot actions as discrete tokens so a language model\'s machinery can produce them. RT-2 discretized each action dimension into 256 uniform bins and mapped the bin indices onto rarely used tokens of the model\'s existing vocabulary, which let the policy train with ordinary next-token prediction. The representation is simple and inherits the backbone\'s web knowledge, but 256 bins are coarse and autoregressive decoding is slow, the two weaknesses later work attacked with continuous experts and parallel decoding.',
+    citations: ['rt2-2023'],
+  },
+  {
+    id: 'latent-dynamics',
+    term: 'latent dynamics',
+    definition:
+      'A world-model paradigm that predicts in a compact learned latent space instead of in pixels: the model carries a recurrent latent state, forecasts how that state and the reward evolve under candidate actions, and the agent learns or plans entirely inside the imagined rollouts. Dreamer established the recipe of training an actor-critic purely on imagined trajectories, and TD-MPC2 showed the image decoder can be dropped altogether, scoring candidate action sequences under the latent model with a learned terminal value instead of reconstructing pixels.',
+    citations: ['dreamer-2019', 'tdmpc2-2023'],
+  },
+  {
+    id: 'degrees-of-freedom',
+    term: 'degrees of freedom',
+    definition:
+      'The number of independent coordinates needed to specify a mechanism\'s configuration. An arm\'s degree-of-freedom count is its number of independent joints, so a 7-DoF arm places its end effector with one coordinate to spare beyond the six a rigid pose needs, and that redundancy is what lets the elbow reconfigure while the hand stays put. More degrees of freedom buy dexterity and obstacle avoidance at the price of a larger control problem.',
+    citations: ['modern-robotics-2017'],
+  },
+  {
+    id: 'denavit-hartenberg-parameters',
+    term: 'Denavit-Hartenberg parameters',
+    definition:
+      'The standard four-parameter bookkeeping for a robot arm\'s geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention\'s appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.',
+    citations: ['denavit-hartenberg-1955', 'modern-robotics-2017'],
+  },
+  {
+    id: 'configuration-space',
+    term: 'configuration space',
+    definition:
+      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.',
+    citations: ['lozano-perez-1983', 'lavalle-2006'],
+  },
+  {
+    id: 'trajectory-optimization',
+    term: 'trajectory optimization',
+    definition:
+      'Motion planning as numerical optimization over a whole trajectory at once: the trajectory is the decision variable, a cost functional scores smoothness and obstacle clearance, and a solver descends that cost from an initial guess. CHOMP descends a smoothness-plus-obstacle objective with covariant functional gradients; TrajOpt instead convexifies the collision constraints and solves a sequence of convex programs. The family produces smooth, locally optimal motions in high dimensions but can stall in local minima, so it often refines paths that a sampling-based planner found first.',
+    citations: ['ratliff-2009', 'schulman-2013'],
+  },
+  {
+    id: 'kalman-filter',
+    term: 'Kalman filter',
+    definition:
+      'The recursive state estimator for linear systems with Gaussian noise: a predict step propagates the state estimate and its covariance through the motion model, and an update step fuses each new measurement with a gain that weighs the model\'s uncertainty against the sensor\'s. Kalman published the recursion in 1960, and it is the minimum-variance estimator for the linear-Gaussian case. When the dynamics or the measurement model is nonlinear, the extended Kalman filter linearizes both about the current estimate instead.',
+    citations: ['kalman-1960-filter', 'thrun-2005'],
+  },
+  {
+    id: 'factor-graph',
+    term: 'factor graph',
+    definition:
+      'A bipartite graph that displays the factorization of a probability distribution: variable nodes hold the unknown states, and factor nodes hold the measurements and motion constraints that tie groups of variables together. Kschischang, Frey, and Loeliger unified the inference algorithms on these graphs under the sum-product algorithm in 2001. In robotics, a factor graph over the whole trajectory turns smoothing and SLAM into one sparse least-squares problem, the formulation behind Square Root SAM and its incremental successors.',
+    citations: ['kschischang-2001', 'dellaert-kaess-2006'],
+  },
+  {
+    id: 'slam',
+    term: 'SLAM',
+    definition:
+      'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
+    citations: ['cadena-2016', 'dellaert-kaess-2006'],
+  },
+  {
+    id: 'friction-cone',
+    term: 'friction cone',
+    definition:
+      'The set of forces a frictional point contact can exert without slipping: all force vectors within an angle arctan(mu) of the surface normal, where mu is the Coulomb friction coefficient. A contact resists arbitrary tangential load only up to mu times its normal load, so the cone widens as friction grows and collapses to the normal ray when friction vanishes. In the plane the cone is a wedge bounded by two edge rays, which is what makes planar grasp analysis a convex-geometry problem.',
+    citations: ['murray-li-sastry-1994', 'prattichizzo-trinkle-2016'],
+  },
+  {
+    id: 'force-closure',
+    term: 'force closure',
+    definition:
+      'The property that a grasp can resist any externally applied wrench with feasible contact forces: every disturbance force and moment can be balanced by contacts pushing inside their friction cones. Equivalently, the convex hull of the primitive contact wrenches contains the origin of wrench space strictly in its interior. Nguyen showed that two frictional contacts achieve it exactly when the line through the contact points lies strictly inside both friction cones, the antipodal condition.',
+    citations: ['nguyen-1988', 'murray-li-sastry-1994'],
+  },
+  {
+    id: 'form-closure',
+    term: 'form closure',
+    definition:
+      'Force closure achieved by geometry alone, with frictionless contacts: the contact normals themselves positively span the wrench space, so the object is immobilized no matter how small the friction. Bicchi showed form closure is exactly frictionless force closure. It is demanding in contact count, needing at least four contacts in the plane and seven in space, which is why practical grasps lean on friction instead.',
+    citations: ['bicchi-1995', 'mishra-1987'],
+  },
+  {
+    id: 'grasp-wrench-space',
+    term: 'grasp wrench space',
+    definition:
+      'The set of net wrenches a grasp can apply to the object, built by mapping every admissible combination of contact forces through the grasp map. Because friction cones are convex, the wrench space is the convex hull of the primitive cone-edge wrenches, a polytope in force-moment space. Closure properties read off it geometrically: force closure is the origin lying strictly inside, and the Ferrari-Canny quality metric is the radius of the largest origin-centered ball that fits.',
+    citations: ['ferrari-canny-1992', 'bicchi-kumar-2000'],
+  },
+  {
+    id: 'antipodal-grasp',
+    term: 'antipodal grasp',
+    definition:
+      'A two-contact grasp in which the line through the contact points lies strictly inside both friction cones. Nguyen proved this geometric test is exactly force closure for a frictional pair in the plane: the contacts can squeeze along the line they share and generate torques of both signs. It is the workhorse of parallel-jaw grippers, and its strictness matters, because a line resting exactly on a cone edge resists everything except the one wrench that slides the object out.',
+    citations: ['nguyen-1988', 'murray-li-sastry-1994'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

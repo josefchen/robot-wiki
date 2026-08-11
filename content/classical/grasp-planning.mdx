@@ -1,0 +1,103 @@
+---
+title: "Grasp Planning"
+description: "Contact mechanics, friction cones, and the grasp wrench space: how to tell, from geometry alone, whether a set of finger placements can hold an object against any disturbance. Includes a live wrench-space lab where you slide contacts around an object and watch force closure break and recover."
+domain: classical
+slug: grasp-planning
+order: 5
+status: published
+lastReviewed: "2026-08-11"
+citations:
+  - murray-li-sastry-1994
+  - nguyen-1988
+  - mishra-1987
+  - markenscoff-1990
+  - cutkosky-1989
+  - ferrari-canny-1992
+  - bicchi-1995
+  - bicchi-kumar-2000
+  - prattichizzo-trinkle-2016
+  - roa-suarez-2015
+  - dexnet-2-2017
+seeAlso:
+  - "classical/kinematics"
+  - "classical/motion-planning"
+  - "rl-sim2real/why-rl-locomotion"
+  - "manipulation/diffusion-policy"
+---
+
+import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
+
+Every act of manipulation ends the same way: some part of the robot touches some part of the world, and the physics of that interface decides what happens next. [Kinematics](/classical/kinematics) can place the fingers and [motion planning](/classical/motion-planning) can route the arm, but once the fingers close, the question is mechanical. Will this hold, or will the object slip? Grasp planning is the discipline that answers that question from geometry: where to put the contacts, how hard to squeeze, and how to know before lifting that the grasp will survive the task.
+
+The answer turns out to be a convex polytope. Map everything the contacts can do into a space of forces and moments, take a convex hull, and ask whether the origin sits inside it. That one geometric fact, force closure, organizes most of classical grasp theory, and the distance from the origin to the hull's boundary became the field's standard quality metric.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Planar contacts, frictional" value="3" note="minimum for a generic object (Murray, Li, Sastry)" accent />
+  <Stat label="Spatial contacts, frictional" value="4" note="same bound in three dimensions" />
+  <Stat label="Frictionless spatial" value="7-12" note="Mishra's lower bound, Markenscoff's upper" />
+  <Stat label="Dex-Net 2.0 labels" value="6.7M" note="synthetic grasps scored by an analytic metric" />
+</div>
+
+## Contact models
+
+A contact model says which forces a fingertip can transmit. The simplest is the frictionless point contact: it pushes along the surface normal and nothing else. Real fingers have friction, and the standard point contact with friction obeys Coulomb's law: the tangential component of the contact force can grow to at most a fixed fraction $\mu$ of the normal component before the contact starts to slide <Cite id="murray-li-sastry-1994" />.
+
+$$
+\lVert f^t \rVert \le \mu \, f^n
+$$
+
+Geometrically, the admissible forces form a cone around the inward normal, the <Term id="friction-cone">friction cone</Term>, with half-angle $\alpha = \arctan \mu$ <Cite id="prattichizzo-trinkle-2016" />. In the plane the cone is a wedge bounded by two edge rays; in three dimensions it is a quadratic cone, usually approximated by a polyhedral one so the analysis stays linear. A soft-finger contact adds one more channel: a torsional moment about the contact normal, bounded by a torsional coefficient times the normal load, which models the small contact patch of a real fingertip <Cite id="murray-li-sastry-1994" />.
+
+One choice comes before any of this analysis: what kind of grasp you want at all. Cutkosky's taxonomy separates power grasps, which wrap the object and trade dexterity for stability, from precision grasps, which hold the object with the fingertips and trade stability for the ability to reorient it <Cite id="cutkosky-1989" />. The mechanics below applies to both, but the wrench budget a task demands depends heavily on which style you picked.
+
+## The grasp wrench space
+
+A force applied at a contact point does two things to the object: it pushes the center of mass, and it twists. Package both into one vector, the wrench. For a contact at position $r_i$ applying force $f_i$ about the object's reference frame, the wrench is the force stacked over its moment:
+
+$$
+w_i = \begin{bmatrix} f_i \\ r_i \times f_i \end{bmatrix}
+$$
+
+In the plane this is a three-vector $(f_x, f_y, \tau)$ with $\tau = r_x f_y - r_y f_x$. Every admissible contact force maps to a point in wrench space, and since a grasp's contacts act simultaneously, the net wrench the grasp can produce is the Minkowski sum of what each contact can produce. Friction cones are convex, so the sum is a convex hull: the <Term id="grasp-wrench-space">grasp wrench space</Term> is the convex hull of the primitive wrenches, the wrenches along the cone edges at unit normal force <Cite id="murray-li-sastry-1994" /> <Cite id="bicchi-kumar-2000" />.
+
+$$
+\mathcal{W} = \operatorname{conv}\left\{ w_{ij} \right\}, \qquad w_{ij} = \begin{bmatrix} n_i \pm \mu \, t_i \\ r_i \times (n_i \pm \mu \, t_i) \end{bmatrix}
+$$
+
+This construction is the whole trick. Questions about contact forces, which live on separate fingertips and interact through friction inequalities, become questions about one polytope.
+
+## Force closure
+
+A grasp has <Term id="force-closure">force closure</Term> when it can resist any externally applied wrench: push the object in any direction, twist it either way, and some feasible combination of contact forces inside the friction cones cancels the disturbance. In wrench space, resisting any direction means the hull must surround the zero wrench from every side. Force closure holds exactly when the origin lies strictly inside the grasp wrench hull <Cite id="nguyen-1988" /> <Cite id="murray-li-sastry-1994" />:
+
+$$
+\exists \, \varepsilon > 0 : \quad B_\varepsilon(0) \subset \mathcal{W}
+$$
+
+The strictness is load-bearing. An origin resting exactly on the hull's boundary means there is a wrench the grasp cannot quite resist, and since the task gets to choose the disturbance, "almost everywhere" is a failure mode, not a pass. This is why friction does so much work in practice. Without friction, the cone collapses to the normal ray, and the hull has no volume to spare: <Term id="form-closure">form closure</Term>, closure by geometry alone, demands at least four contacts in the plane and seven in space, a lower bound due to Mishra, Schwartz, and Sharir <Cite id="mishra-1987" />. Markenscoff, Ni, and Papadimitriou closed the bracket from above: six contacts always suffice in the plane and twelve in space, whatever the object's shape <Cite id="markenscoff-1990" /> <Cite id="bicchi-1995" />. Friction relaxes all of this: with point contacts with friction, three contacts are enough for a generic planar object and four in space <Cite id="murray-li-sastry-1994" />.
+
+The cleanest sufficient condition in the whole theory is Nguyen's <Term id="antipodal-grasp">antipodal grasp</Term> theorem: a planar two-fingered grasp with frictional contacts is force closure if and only if the line connecting the two contact points lies strictly inside both friction cones <Cite id="nguyen-1988" />. The proof sketch is worth keeping: either contact can lay off any force in the wedge where the two cones overlap, the partner squeezes harder along the shared line to absorb the excess, and because the line is interior the cone edges supply torques of both signs about the center. This is the theorem a parallel-jaw gripper runs every time it pinches opposite sides of a box, and its strictness is visible in hardware: grasp the box too close to an edge of the cone and a light sideways nudge slides it out.
+
+## Grasp quality: the epsilon metric
+
+Force closure is binary, but grasps are not. Two closed grasps can differ enormously in how much disturbance they absorb before a contact saturates. Ferrari and Canny turned the hull geometry into a number: the quality $\varepsilon$ is the radius of the largest ball centered at the origin that still fits inside the grasp wrench space <Cite id="ferrari-canny-1992" />.
+
+$$
+\varepsilon = \min_{F_k \in \partial \mathcal{W}} \; \operatorname{dist}\!\left( 0, F_k \right)
+$$
+
+Because the hull is a polytope, the largest inscribed ball touches a facet, so $\varepsilon$ is just the distance from the origin to the nearest hull facet. The unit-normal-force convention makes it concrete: $\varepsilon$ is the worst-case disturbance wrench, per unit of normal force at the contacts, that the grasp guarantees it can absorb. The metric is not the only one on offer. Roa and Suárez's review catalogs the proposed quality measures and benchmarks the main candidates against each other, and it records the epsilon metric's honest caveat: the number depends on where you place the torque reference frame and how you scale moments against forces, so comparisons across papers need care <Cite id="roa-suarez-2015" />.
+
+## The wrench space, live
+
+The lab below makes the hull concrete. The object is a square; contacts slide along its perimeter, and the friction slider sets $\mu$. On the left, the object with each contact's friction cone. On the right, the grasp wrench space projected from $(f_x, f_y, \tau)$: the hull of the primitive cone-edge wrenches, with the origin marked. The origin ring is green exactly when the grasp is force closure, and the readout reports $\varepsilon$.
+
+<GraspWrenchLab className="my-6" />
+
+The default tripod of top, right, and bottom contacts is force closure at $\mu = 0.7$. Remove the third contact and the remaining pair, one on the top edge and one on the right, fails Nguyen's test: the line between them sits at 45 degrees to each normal while the cones open only $\arctan 0.7 \approx 35$ degrees, and the hull collapses onto the origin. Now slide contact 2 down onto the bottom edge, opposite contact 1. The pair becomes antipodal, the connecting line is the shared normal, and the hull re-inflates around the origin for any positive friction at all. Finally, drag $\mu$ down and watch $\varepsilon$ fall: the metric is pricing the friction you just removed.
+
+## Where this meets the learned stack
+
+Analytic grasp metrics had an unglamorous second career as a labeling oracle. Dex-Net 2.0 generated 6.7 million synthetic grasps over thousands of 3D object models, scored each with a robust version of the epsilon metric, and trained a grasp quality convolutional network to predict the score from a depth image <Cite id="dexnet-2-2017" />. The resulting policy planned antipodal grasps at 93% success on eight known adversarial objects and 99% precision on a set of forty novel household objects <Cite id="dexnet-2-2017" />. The classical metric did not compete with the network; it became the network's teacher.
+
+That pattern generalizes. Modern learned manipulation, including the [diffusion policies](/manipulation/diffusion-policy) covered in the manipulation modules, rarely re-derives contact mechanics; it learns from data what the classical theory says a good contact looks like, and it inherits the theory's failure modes when it strays from the data. And the reason grasping resists the [sim-to-real recipe that conquered locomotion](/rl-sim2real/why-rl-locomotion) is precisely the physics of this module: millimeter-accurate contact geometry and friction coefficients are what simulators approximate worst. The classical stack, [kinematics](/classical/kinematics) through [control](/classical/control), ends here, at the interface where the robot finally touches the world.

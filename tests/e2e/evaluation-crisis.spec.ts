@@ -50,15 +50,31 @@ test.describe('data-hardware evaluation-crisis module', () => {
     ).toBeVisible();
     const main = page.locator('#main-content');
 
+    // Every getByText carries the visible filter: the article's <Term>
+    // tooltips repeat phrases like "confidence interval" and "system
+    // identification" in hidden-at-rest definition copy, and a bare
+    // .first() can latch onto the invisible tooltip (quirk 8).
     // Strand 1: small-N trial statistics and confidence-interval width.
-    await expect(main.getByText(/Clopper-Pearson/i).first()).toBeVisible();
-    await expect(main.getByText(/confidence interval/i).first()).toBeVisible();
+    await expect(
+      main.getByText(/Clopper-Pearson/i).filter({ visible: true }).first(),
+    ).toBeVisible();
+    await expect(
+      main.getByText(/confidence interval/i).filter({ visible: true }).first(),
+    ).toBeVisible();
     // Strand 2: SIMPLER-style sim-to-real evaluation correlation.
-    await expect(main.getByText(/SIMPLER/i).first()).toBeVisible();
-    await expect(main.getByText(/system identification/i).first()).toBeVisible();
+    await expect(
+      main.getByText(/SIMPLER/i).filter({ visible: true }).first(),
+    ).toBeVisible();
+    await expect(
+      main.getByText(/system identification/i).filter({ visible: true }).first(),
+    ).toBeVisible();
     // Strand 3: crowd-sourced pairwise evaluation (RoboArena).
-    await expect(main.getByText(/RoboArena/i).first()).toBeVisible();
-    await expect(main.getByText(/double-blind/i).first()).toBeVisible();
+    await expect(
+      main.getByText(/RoboArena/i).filter({ visible: true }).first(),
+    ).toBeVisible();
+    await expect(
+      main.getByText(/double-blind/i).filter({ visible: true }).first(),
+    ).toBeVisible();
 
     // No raw MDX or component syntax leaks into the rendered page.
     const mainText = (await main.textContent()) ?? '';

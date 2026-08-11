@@ -23,17 +23,17 @@ import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
 import { LatencyComparison } from '@/components/interactive/latency-comparison';
 import { PolicyChunkingTable } from '@/components/mdx/policy-chunking-table';
 
-Behavior cloning fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
+<Term id="behavior-cloning">Behavior cloning</Term> fails in closed loop for a precise reason: a policy with per-step error ε on the expert's state distribution can accumulate cost that grows quadratically with episode length, because each mistake carries the robot into states the expert never visited <Cite id="dagger-2011" />. Over a T-step episode the worst-case cost scales as
 
 $$
 \underbrace{O(\varepsilon T^2)}_{\text{behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{DAgger}}
 $$
 
-where the second bound is what DAgger buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
+where the second bound is what <Term id="dagger">DAgger</Term> buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
 ## ACT: chunking with a CVAE
 
-Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a conditional variational autoencoder <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero.
+Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a <Term id="cvae">conditional variational autoencoder</Term> <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="chunk size k" value="100" note="2 s of motion per inference" />
@@ -56,7 +56,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
 
 ### The chunk-size dial
 
-Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the ALOHA insertion and transfer tasks, ACT measures roughly 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and compounding error returns; too large and the policy stops reacting to the world mid-chunk.
+Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the ALOHA insertion and transfer tasks, ACT measures roughly 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
 
 <ChunkSizeCurve className="my-6" />
 
@@ -91,7 +91,7 @@ def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
   Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and Diffusion Policy document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context, not a bigger backbone, is what fixes it.
 </Aside>
 
-Real-Time Chunking (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why later flow-matching policies adopt it over ensembling.
+<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why later <Term id="flow-matching">flow-matching</Term> policies adopt it over ensembling.
 
 The dial below injects inference delay into both execution strategies. Temporal ensembling holds while inference stays fast, then the averaged action drifts off the committed mode and the strategy fails inside the documented 100 to 200 ms window. RTC freezes the actions that will already have executed and stays on the in-flight mode, so its throughput line does not move <Cite id="real-time-chunking-2025" />.
 
@@ -105,4 +105,4 @@ Chunking started as a fix for compounding error and became standard infrastructu
 
 ## Where the idea travels next
 
-Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />. Later modules in this domain cover how diffusion policies and flow-matching models generate the chunks themselves, and how vision-language-action models schedule them at high control frequency.
+Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially <Cite id="mobile-aloha-2024" />.

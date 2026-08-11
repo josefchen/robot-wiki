@@ -101,6 +101,10 @@ export function Term({ termId, term, definition, children }: TermProps) {
         role="tooltip"
         id={tooltipId}
         ref={tooltipRef}
+        // Hidden copy: excluded from the Pagefind index so search excerpts
+        // never fuse the definition onto the surrounding prose. Inert for
+        // assistive technology; the aria-describedby wiring is untouched.
+        data-pagefind-ignore
         style={{ marginLeft: placement.dx }}
         className={[
           'absolute left-0 z-20 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed text-text group-hover:block group-focus-within:block',

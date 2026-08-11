@@ -15,11 +15,15 @@ citations:
   - pi06-model-card-2025
   - pi07-2026
   - rt2-2023
+seeAlso:
+  - "manipulation/pi-line"
+  - "manipulation/vla-models"
+  - "manipulation/hierarchical"
 ---
 
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 
-For three years, the field framed action representation as a fork. The RT-1 and RT-2 generation discretized actions into bins and predicted them as tokens <Cite id="rt2-2023" />. pi0 went the other way, bolting a continuous flow-matching action expert onto a pretrained VLM <Cite id="pi0-2024" />. Knowledge Insulation, published by Physical Intelligence in 2025, is the paper that dissolved the fork: the modern recipe uses both representations at once, in different places, with a gradient barrier between them <Cite id="knowledge-insulation-paper-2025" />.
+For three years, the field framed action representation as a fork. The RT-1 and RT-2 generation discretized actions into bins and predicted them as tokens <Cite id="rt2-2023" />. pi0 went the other way, bolting a continuous <Term id="flow-matching">flow-matching</Term> action expert onto a pretrained <Term id="vision-language-model">VLM</Term> <Cite id="pi0-2024" />. <Term id="knowledge-insulation">Knowledge Insulation</Term>, published by Physical Intelligence in 2025, is the paper that dissolved the fork: the modern recipe uses both representations at once, in different places, with a gradient barrier between them <Cite id="knowledge-insulation-paper-2025" />.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Training steps" value="7.5x fewer" note="to a given bussing-task performance vs pi0" accent />
@@ -39,7 +43,7 @@ The observable symptom is that the robot stops listening. The paper's example: t
 Knowledge Insulation keeps both losses and gives each one a place where it does no harm <Cite id="knowledge-insulation-paper-2025" />:
 
 1. **The action expert trains with flow matching** on the continuous actions that actually execute. Nothing changes here; flow matching's fast, few-step inference is the property worth keeping.
-2. **The backbone trains on discrete FAST action tokens** via ordinary cross-entropy, plus web vision-language data and high-level subtask data. FAST compresses an action chunk through a DCT and byte-pair encoding into a short token stream <Cite id="pi0-fast-2025" />, so the backbone keeps learning about actions, but with the same kind of objective it was pretrained on.
+2. **The backbone trains on discrete FAST <Term id="action-tokenization">action tokens</Term>** via ordinary cross-entropy, plus web vision-language data and high-level subtask data. FAST compresses an action chunk through a DCT and byte-pair encoding into a short token stream <Cite id="pi0-fast-2025" />, so the backbone keeps learning about actions, but with the same kind of objective it was pretrained on.
 3. **A stop-gradient severs the backward pass at the interface.** In the forward pass the expert still attends into backbone activations at every layer, so it reads everything the backbone knows. In the backward pass, no gradient from the flow-matching loss reaches the backbone. The insulation is one-directional: information flows forward, damage does not flow back.
 
 The interactive below walks both passes through the two stacks. Run the backward pass with the stop-gradient off to see the failure mode the recipe exists to prevent.
@@ -62,10 +66,8 @@ The taxonomy consequence is worth stating flatly, because comparison tables keep
 
 ## The default recipe from pi0.5 onward
 
-Subsequent generations treat the recipe as settled infrastructure. pi0.5's open-world generalization results rest on it <Cite id="pi05-2025" />. pi0.6 scales it: a Gemma3 4B backbone with a SigLIP vision encoder, an 860M expert with the same layer count as the backbone, Knowledge Insulation end to end, and 5 denoising steps at inference <Cite id="pi06-model-card-2025" />. pi0.7 keeps the same structure and spends its training budget on richer conditioning context instead <Cite id="pi07-2026" />. When a new VLA paper reports that its backbone retains its VQA accuracy after action training, this is the mechanism doing the work.
+Subsequent generations treat the recipe as settled infrastructure. pi0.5's open-world generalization results rest on it <Cite id="pi05-2025" />. pi0.6 scales it: a Gemma3 4B backbone with a SigLIP vision encoder, an 860M expert with the same layer count as the backbone, Knowledge Insulation end to end, and 5 denoising steps at inference <Cite id="pi06-model-card-2025" />. pi0.7 keeps the same structure and spends its training budget on richer conditioning context instead <Cite id="pi07-2026" />. When a new <Term id="vision-language-action-model">VLA</Term> paper reports that its backbone retains its VQA accuracy after action training, this is the mechanism doing the work.
 
 <Callout variant="warn" title="How to read this module">
   The mechanism, ablations, and the 7.5x figure come from the Knowledge Insulation paper (NeurIPS 2025) and Physical Intelligence's research note. The interactive's 8-layer stacks and 0-100 language meter are illustrative renderings of a qualitative finding, not published measurements. The sourced numbers are the parameter counts (3B backbone, 300M expert in the paper's configuration; 4B and 860M in pi0.6) and the training-step ratio.
 </Callout>
-
-The [pi line module](/manipulation/pi-line) traces how this recipe arrived between pi0-FAST and pi0.5 and what the closed generations built on top of it. The [VLA models module](/manipulation/vla-models) covers the discrete-token generation that came before, including why naive binning fails at 50 Hz and what FAST changed.
