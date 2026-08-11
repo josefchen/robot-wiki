@@ -3411,6 +3411,166 @@ export const CITATIONS: Citation[] = [
     url: 'https://gtsam.org/',
     type: 'docs',
   },
+  {
+    // Author-hosted complete PDF verified live at cds.caltech.edu
+    // (2026-08-11). Chapter 5 is the primary source for the friction cone
+    // alpha = arctan(mu), the soft-finger torsional model, force closure as
+    // surjectivity of the grasp map, Nguyen's antipodal theorem (Theorem
+    // 5.6), and the Table 5.3 lower bounds on contact counts.
+    id: 'murray-li-sastry-1994',
+    title: 'A Mathematical Introduction to Robotic Manipulation',
+    authors: ['Richard M. Murray', 'Zexiang Li', 'S. Shankar Sastry'],
+    year: 1994,
+    venue: 'CRC Press',
+    url: 'https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
+    type: 'docs',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 7(1):3-16, 1988.
+    // Proves the antipodal grasp theorem: a planar two-contact frictional
+    // grasp is force closure exactly when the line through the contacts
+    // lies strictly inside both friction cones (also Murray, Li, and
+    // Sastry, Theorem 5.6). Sage bot-walls direct HEAD requests; the
+    // doi.org redirect resolves to journals.sagepub.com.
+    id: 'nguyen-1988',
+    title: 'Constructing Force-Closure Grasps',
+    authors: ['Van-Duc Nguyen'],
+    year: 1988,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836498800700301',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): ICRA 1992, pp. 2290-2295.
+    // Introduces the epsilon grasp-quality metric: the radius of the largest
+    // wrench ball around the origin inside the grasp wrench hull, equal to
+    // the minimum origin-to-facet distance. IEEE Xplore bot-walls direct
+    // HEAD requests (202); the doi.org redirect resolves to ieeexplore.
+    id: 'ferrari-canny-1992',
+    title: 'Planning Optimal Grasps',
+    authors: ['Carlo Ferrari', 'John F. Canny'],
+    year: 1992,
+    venue: 'ICRA 1992',
+    url: 'https://doi.org/10.1109/ROBOT.1992.219918',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 14(4):319-334, 1995.
+    // Unifies form and force closure under one closure framework and gives
+    // the contact-count bounds for frictionless grasps.
+    id: 'bicchi-1995',
+    title: 'On the Closure Properties of Robotic Grasping',
+    authors: ['Antonio Bicchi'],
+    year: 1995,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836499501400402',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Algorithmica 2:541-558,
+    // 1987. The classical lower-bound argument: frictionless force closure
+    // needs at least 4 contacts in the plane and 7 in space.
+    id: 'mishra-1987',
+    title: 'On the Existence and Synthesis of Multifingered Positive Grips',
+    authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
+    year: 1987,
+    venue: 'Algorithmica',
+    url: 'https://doi.org/10.1007/BF01840373',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IJRR 9(1):61-74, 1990.
+    // Sharpens the frictionless bounds: at most 6 contacts suffice in the
+    // plane and 12 in space. DOI ends 090102; the near-identical 090104 is
+    // a different paper in the same issue, an easy mis-citation.
+    id: 'markenscoff-1990',
+    title: 'The Geometry of Grasping',
+    authors: [
+      'Xanthippi Markenscoff',
+      'Luqun Ni',
+      'Christos H. Papadimitriou',
+    ],
+    year: 1990,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/027836499000900102',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): IEEE Trans. Robotics and
+    // Automation 5(3):269-279, 1989. The grasp taxonomy (power vs.
+    // precision, and the Cutkosky grasp tree) used to choose a grasp before
+    // analyzing it.
+    id: 'cutkosky-1989',
+    title:
+      'On Grasp Choice, Grasp Models, and the Design of Hands for Manufacturing Tasks',
+    authors: ['Mark R. Cutkosky'],
+    year: 1989,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.34763',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): ICRA 2000, pp. 348-353.
+    // Review of contact models, grasp analysis, and quality metrics. DOI
+    // ends 844081; neighboring 844777 is a different ICRA 2000 paper.
+    id: 'bicchi-kumar-2000',
+    title: 'Robotic Grasping and Contact: A Review',
+    authors: ['Antonio Bicchi', 'Vijay Kumar'],
+    year: 2000,
+    venue: 'ICRA 2000',
+    url: 'https://doi.org/10.1109/ROBOT.2000.844081',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Springer Handbook of
+    // Robotics, 2nd ed., chapter 38, pp. 955-988, 2016. The modern handbook
+    // treatment of contact models, closure, and grasp quality.
+    id: 'prattichizzo-trinkle-2016',
+    title: 'Grasping',
+    authors: ['Domenico Prattichizzo', 'Jeffrey C. Trinkle'],
+    year: 2016,
+    venue: 'Springer Handbook of Robotics',
+    url: 'https://doi.org/10.1007/978-3-319-32552-1_38',
+    type: 'paper',
+  },
+  {
+    // CrossRef metadata verified (2026-08-11): Autonomous Robots
+    // 38:65-88, 2015 (online first 2014). Reviews grasp quality metrics and
+    // benchmarks their behavior, including the epsilon metric's
+    // frame-dependence pitfall.
+    id: 'roa-suarez-2015',
+    title: 'Grasp Quality Measures: Review and Performance',
+    authors: ['Máximo A. Roa', 'Raúl Suárez'],
+    year: 2015,
+    venue: 'Autonomous Robots',
+    url: 'https://doi.org/10.1007/s10514-014-9402-3',
+    type: 'paper',
+  },
+  {
+    // arXiv metadata verified (2026-08-11): RSS 2017. Trains a GQ-CNN on
+    // 6.7M synthetic grasps scored with an analytic robustness metric
+    // (Ferrari-Canny-style epsilon under uncertainty): 93% success on eight
+    // known adversarial objects, 99% precision on forty novel household
+    // objects. The bridge from classical metrics to learned grasping.
+    id: 'dexnet-2-2017',
+    title:
+      'Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics',
+    authors: [
+      'Jeffrey Mahler',
+      'Jacky Liang',
+      'Sherdil Niyaz',
+      'Michael Laskey',
+      'Richard Doan',
+      'Xinyu Liu',
+      'Juan Aparicio Ojea',
+      'Ken Goldberg',
+    ],
+    year: 2017,
+    venue: 'RSS 2017',
+    arxiv: '1703.09312',
+    url: 'https://arxiv.org/abs/1703.09312',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

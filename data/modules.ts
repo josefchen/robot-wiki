@@ -345,6 +345,7 @@ const PUBLISHED = new Set([
   'classical/motion-planning',
   'classical/control',
   'classical/state-estimation',
+  'classical/grasp-planning',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 45,
+  "linkCount": 46,
   "links": [
     {
       "href": "/",
@@ -158,6 +158,10 @@
     {
       "href": "/classical/state-estimation/",
       "name": "State Estimation"
+    },
+    {
+      "href": "/classical/grasp-planning/",
+      "name": "Grasp Planning"
     },
     {
       "href": "/frontier/",

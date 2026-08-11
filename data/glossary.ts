@@ -348,6 +348,41 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
     citations: ['cadena-2016', 'dellaert-kaess-2006'],
   },
+  {
+    id: 'friction-cone',
+    term: 'friction cone',
+    definition:
+      'The set of forces a frictional point contact can exert without slipping: all force vectors within an angle arctan(mu) of the surface normal, where mu is the Coulomb friction coefficient. A contact resists arbitrary tangential load only up to mu times its normal load, so the cone widens as friction grows and collapses to the normal ray when friction vanishes. In the plane the cone is a wedge bounded by two edge rays, which is what makes planar grasp analysis a convex-geometry problem.',
+    citations: ['murray-li-sastry-1994', 'prattichizzo-trinkle-2016'],
+  },
+  {
+    id: 'force-closure',
+    term: 'force closure',
+    definition:
+      'The property that a grasp can resist any externally applied wrench with feasible contact forces: every disturbance force and moment can be balanced by contacts pushing inside their friction cones. Equivalently, the convex hull of the primitive contact wrenches contains the origin of wrench space strictly in its interior. Nguyen showed that two frictional contacts achieve it exactly when the line through the contact points lies strictly inside both friction cones, the antipodal condition.',
+    citations: ['nguyen-1988', 'murray-li-sastry-1994'],
+  },
+  {
+    id: 'form-closure',
+    term: 'form closure',
+    definition:
+      'Force closure achieved by geometry alone, with frictionless contacts: the contact normals themselves positively span the wrench space, so the object is immobilized no matter how small the friction. Bicchi showed form closure is exactly frictionless force closure. It is demanding in contact count, needing at least four contacts in the plane and seven in space, which is why practical grasps lean on friction instead.',
+    citations: ['bicchi-1995', 'mishra-1987'],
+  },
+  {
+    id: 'grasp-wrench-space',
+    term: 'grasp wrench space',
+    definition:
+      'The set of net wrenches a grasp can apply to the object, built by mapping every admissible combination of contact forces through the grasp map. Because friction cones are convex, the wrench space is the convex hull of the primitive cone-edge wrenches, a polytope in force-moment space. Closure properties read off it geometrically: force closure is the origin lying strictly inside, and the Ferrari-Canny quality metric is the radius of the largest origin-centered ball that fits.',
+    citations: ['ferrari-canny-1992', 'bicchi-kumar-2000'],
+  },
+  {
+    id: 'antipodal-grasp',
+    term: 'antipodal grasp',
+    definition:
+      'A two-contact grasp in which the line through the contact points lies strictly inside both friction cones. Nguyen proved this geometric test is exactly force closure for a frictional pair in the plane: the contacts can squeeze along the line they share and generate torques of both signs. It is the workhorse of parallel-jaw grippers, and its strictness matters, because a line resting exactly on a cone edge resists everything except the one wrench that slides the object out.',
+    citations: ['nguyen-1988', 'murray-li-sastry-1994'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));
