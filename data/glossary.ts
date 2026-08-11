@@ -327,6 +327,27 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Motion planning as numerical optimization over a whole trajectory at once: the trajectory is the decision variable, a cost functional scores smoothness and obstacle clearance, and a solver descends that cost from an initial guess. CHOMP descends a smoothness-plus-obstacle objective with covariant functional gradients; TrajOpt instead convexifies the collision constraints and solves a sequence of convex programs. The family produces smooth, locally optimal motions in high dimensions but can stall in local minima, so it often refines paths that a sampling-based planner found first.',
     citations: ['ratliff-2009', 'schulman-2013'],
   },
+  {
+    id: 'kalman-filter',
+    term: 'Kalman filter',
+    definition:
+      'The recursive state estimator for linear systems with Gaussian noise: a predict step propagates the state estimate and its covariance through the motion model, and an update step fuses each new measurement with a gain that weighs the model\'s uncertainty against the sensor\'s. Kalman published the recursion in 1960, and it is the minimum-variance estimator for the linear-Gaussian case. When the dynamics or the measurement model is nonlinear, the extended Kalman filter linearizes both about the current estimate instead.',
+    citations: ['kalman-1960-filter', 'thrun-2005'],
+  },
+  {
+    id: 'factor-graph',
+    term: 'factor graph',
+    definition:
+      'A bipartite graph that displays the factorization of a probability distribution: variable nodes hold the unknown states, and factor nodes hold the measurements and motion constraints that tie groups of variables together. Kschischang, Frey, and Loeliger unified the inference algorithms on these graphs under the sum-product algorithm in 2001. In robotics, a factor graph over the whole trajectory turns smoothing and SLAM into one sparse least-squares problem, the formulation behind Square Root SAM and its incremental successors.',
+    citations: ['kschischang-2001', 'dellaert-kaess-2006'],
+  },
+  {
+    id: 'slam',
+    term: 'SLAM',
+    definition:
+      'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
+    citations: ['cadena-2016', 'dellaert-kaess-2006'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

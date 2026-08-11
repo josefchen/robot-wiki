@@ -3226,6 +3226,191 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1142/S0219843605000594',
     type: 'paper',
   },
+  {
+    // Verified 2026-08-11: the DOI resolves to the ASME Journal of Basic
+    // Engineering record (82(1):35-45, March 1960). ASME bot-walls curl
+    // (403) exactly like the other ASME DOIs already in this registry; the
+    // link is live in a browser. The recursive linear filter paper that the
+    // state-estimation module is built around.
+    id: 'kalman-1960-filter',
+    title: 'A New Approach to Linear Filtering and Prediction Problems',
+    authors: ['Rudolf E. Kalman'],
+    year: 1960,
+    venue: 'J. Basic Engineering',
+    url: 'https://doi.org/10.1115/1.3662552',
+    type: 'paper',
+  },
+  {
+    // Verified against the NTRS record (2026-08-11): NASA TM-86847,
+    // November 1985, NASA's own history of the filter's adoption. The
+    // "Extended Kalman Filter" section documents the Ames group's move
+    // from linearizing about a nominal trajectory to relinearizing about
+    // the current estimate, the modification Apollo navigation used.
+    id: 'mcgee-schmidt-1985',
+    title:
+      'Discovery of the Kalman Filter as a Practical Tool for Aerospace and Industry',
+    authors: ['Leonard A. McGee', 'Stanley F. Schmidt'],
+    year: 1985,
+    venue: 'NASA TM-86847',
+    url: 'https://ntrs.nasa.gov/citations/19860003843',
+    type: 'paper',
+  },
+  {
+    // The canonical textbook for the Bayes-filter framing (ch. 2) and the
+    // Kalman/EKF family (ch. 3). The book's own site was down at
+    // verification time; the MIT Press page bot-walls curl (403) but is
+    // live in a browser (2026-08-11), same handling as the bot-walled
+    // publisher DOIs in this registry.
+    id: 'thrun-2005',
+    title: 'Probabilistic Robotics',
+    authors: ['Sebastian Thrun', 'Wolfram Burgard', 'Dieter Fox'],
+    year: 2005,
+    venue: 'MIT Press',
+    url: 'https://mitpress.mit.edu/9780262201629/probabilistic-robotics/',
+    type: 'docs',
+  },
+  {
+    // Springer chapter DOI verified resolving (2026-08-11), in Autonomous
+    // Robot Vehicles, pp. 167-193. The canonical reference for reasoning
+    // about uncertain spatial relationships with covariance, the technical
+    // root of EKF-based mapping.
+    id: 'smith-1990',
+    title: 'Estimating Uncertain Spatial Relationships in Robotics',
+    authors: ['Randall C. Smith', 'Matthew Self', 'Peter Cheeseman'],
+    year: 1990,
+    venue: 'Autonomous Robot Vehicles',
+    url: 'https://doi.org/10.1007/978-1-4613-8997-2_14',
+    type: 'paper',
+  },
+  {
+    // SPIE proceedings DOI verified resolving (2026-08-11): Signal
+    // Processing, Sensor Fusion, and Target Recognition VI, 3068:182-193.
+    // Introduces the unscented transform: deterministic sigma points pushed
+    // through the true nonlinearity instead of analytic linearization.
+    id: 'julier-uhlmann-1997',
+    title: 'New Extension of the Kalman Filter to Nonlinear Systems',
+    authors: ['Simon J. Julier', 'Jeffrey K. Uhlmann'],
+    year: 1997,
+    venue: 'Proc. SPIE 3068',
+    url: 'https://doi.org/10.1117/12.280797',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Information Theory 47(2):498-519; DOI verified
+    // 2026-08-11 (IEEE answers bots with a 202 challenge page, live in a
+    // browser). The paper that unified inference on factor graphs under
+    // the sum-product algorithm.
+    id: 'kschischang-2001',
+    title: 'Factor Graphs and the Sum-Product Algorithm',
+    authors: [
+      'Frank R. Kschischang',
+      'Brendan J. Frey',
+      'Hans-Andrea Loeliger',
+    ],
+    year: 2001,
+    venue: 'IEEE Trans. Information Theory',
+    url: 'https://doi.org/10.1109/18.910572',
+    type: 'paper',
+  },
+  {
+    // IJRR 25(12):1181-1203; SAGE bot-walls curl (403) but the DOI is live
+    // in a browser (2026-08-11), same handling as the other SAGE entries.
+    // Reframes SLAM as smoothing: factor the information matrix once and
+    // the whole trajectory falls out.
+    id: 'dellaert-kaess-2006',
+    title:
+      'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
+    authors: ['Frank Dellaert', 'Michael Kaess'],
+    year: 2006,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364906072768',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 24(6):1365-1378; DOI verified 2026-08-11.
+    // Incremental smoothing: update only the part of the factorization a
+    // new measurement touches.
+    id: 'kaess-2008',
+    title: 'iSAM: Incremental Smoothing and Mapping',
+    authors: ['Michael Kaess', 'Ananth Ranganathan', 'Frank Dellaert'],
+    year: 2008,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2008.2006706',
+    type: 'paper',
+  },
+  {
+    // IJRR 31(2):216-235; SAGE bot-walls curl (403) but the DOI is live in
+    // a browser (2026-08-11). Organizes the factor graph into the Bayes
+    // tree so incremental updates stay local as the graph grows.
+    id: 'kaess-2012',
+    title: 'iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree',
+    authors: [
+      'Michael Kaess',
+      'Hordur Johannsson',
+      'Richard Roberts',
+      'Viorela Ila',
+      'John J. Leonard',
+      'Frank Dellaert',
+    ],
+    year: 2012,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://doi.org/10.1177/0278364911430419',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 32(6):1309-1332; arXiv abs page verified
+    // 2026-08-11. The survey records the field's move from EKF-based SLAM
+    // to factor-graph smoothing and names the open problems.
+    id: 'cadena-2016',
+    title:
+      'Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age',
+    authors: [
+      'Cesar Cadena',
+      'Luca Carlone',
+      'Henry Carrillo',
+      'Yasir Latif',
+      'Davide Scaramuzza',
+      'Jose Neira',
+      'Ian Reid',
+      'John J. Leonard',
+    ],
+    year: 2016,
+    venue: 'IEEE Trans. Robotics',
+    arxiv: '1606.05830',
+    url: 'https://arxiv.org/abs/1606.05830',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 33(1):1-21; arXiv abs page verified 2026-08-11.
+    // On-manifold preintegration collapses the high-rate IMU stream
+    // between two keyframes into a single factor, which is what makes
+    // inertial data practical inside a factor graph.
+    id: 'forster-2017',
+    title:
+      'On-Manifold Preintegration for Real-Time Visual-Inertial Odometry',
+    authors: [
+      'Christian Forster',
+      'Luca Carlone',
+      'Frank Dellaert',
+      'Davide Scaramuzza',
+    ],
+    year: 2017,
+    venue: 'IEEE Trans. Robotics',
+    arxiv: '1512.02363',
+    url: 'https://arxiv.org/abs/1512.02363',
+    type: 'paper',
+  },
+  {
+    // Project site verified live (2026-08-11). GTSAM is the reference
+    // implementation of factor-graph smoothing and the Bayes tree, used
+    // across visual-inertial odometry and offline mapping.
+    id: 'gtsam-2026',
+    title: 'GTSAM: Georgia Tech Smoothing and Mapping',
+    authors: ['Frank Dellaert', 'GTSAM Contributors'],
+    year: 2026,
+    url: 'https://gtsam.org/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
