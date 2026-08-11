@@ -118,5 +118,9 @@
   "classical/motion-planning": {
     "words": 2074,
     "minutes": 10
+  },
+  "classical/control": {
+    "words": 2169,
+    "minutes": 11
   }
 }
