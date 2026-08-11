@@ -2938,6 +2938,155 @@ export const CITATIONS: Citation[] = [
     url: 'https://modernrobotics.northwestern.edu/',
     type: 'docs',
   },
+  {
+    // Verified against the IEEE Xplore DOI record (2026-08-11): IEEE Trans.
+    // Computers C-32(2):108-120, February 1983. Introduced the configuration
+    // space formulation: shrink the robot to a point and grow the obstacles.
+    id: 'lozano-perez-1983',
+    title: 'Spatial Planning: A Configuration Space Approach',
+    authors: ['Tomás Lozano-Pérez'],
+    year: 1983,
+    venue: 'IEEE Trans. Computers',
+    url: 'https://doi.org/10.1109/TC.1983.1676196',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore DOI record (2026-08-11): IEEE Trans.
+    // Robotics and Automation 12(4):566-580, August 1996. The probabilistic
+    // roadmap paper, the multi-query half of sampling-based planning.
+    id: 'kavraki-1996',
+    title:
+      'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces',
+    authors: [
+      'Lydia E. Kavraki',
+      'Petr Svestka',
+      'Jean-Claude Latombe',
+      'Mark H. Overmars',
+    ],
+    year: 1996,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.508439',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's paper archive (2026-08-11): Computer
+    // Science Department TR 98-11, Iowa State University, October 1998. The
+    // original RRT report.
+    id: 'lavalle-1998',
+    title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning',
+    authors: ['Steven M. LaValle'],
+    year: 1998,
+    venue: 'Iowa State University TR 98-11',
+    url: 'https://lavalle.pl/papers/Lav98c.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's paper archive (2026-08-11): Int. J.
+    // Robotics Research 20(5):378-400, May 2001. The journal treatment of
+    // RRTs, including kinodynamic planning with dynamics constraints.
+    id: 'lavalle-kuffner-2001',
+    title: 'Randomized Kinodynamic Planning',
+    authors: ['Steven M. LaValle', 'James J. Kuffner'],
+    year: 2001,
+    venue: 'Int. J. Robotics Research',
+    url: 'https://lavalle.pl/papers/LavKuf01.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abstract page (2026-08-11): IJRR 30(7),
+    // 2011. Proves RRT and PRM converge to non-optimal solutions and
+    // introduces the asymptotically optimal PRM* and RRT* variants.
+    id: 'karaman-frazzoli-2011',
+    title: 'Sampling-based Algorithms for Optimal Motion Planning',
+    authors: ['Sertac Karaman', 'Emilio Frazzoli'],
+    year: 2011,
+    venue: 'Int. J. Robotics Research',
+    arxiv: '1105.1186',
+    url: 'https://arxiv.org/abs/1105.1186',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abstract page (2026-08-11): IROS 2014,
+    // pp. 2997-3004. Focuses RRT* sampling on the prolate hyperspheroid of
+    // states that can still improve the current solution.
+    id: 'gammell-2014',
+    title:
+      'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
+    authors: [
+      'Jonathan D. Gammell',
+      'Siddhartha S. Srinivasa',
+      'Timothy D. Barfoot',
+    ],
+    year: 2014,
+    venue: 'IROS 2014',
+    arxiv: '1404.2334',
+    url: 'https://arxiv.org/abs/1404.2334',
+    type: 'paper',
+  },
+  {
+    // Verified against the CMU Robotics Institute publication page
+    // (2026-08-11): ICRA 2009, pp. 489-494. Covariant functional-gradient
+    // trajectory optimization against a signed-distance cost field.
+    id: 'ratliff-2009',
+    title:
+      'CHOMP: Gradient Optimization Techniques for Efficient Motion Planning',
+    authors: [
+      'Nathan Ratliff',
+      'Matthew Zucker',
+      'J. Andrew Bagnell',
+      'Siddhartha Srinivasa',
+    ],
+    year: 2009,
+    venue: 'ICRA 2009',
+    url: 'https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/',
+    type: 'paper',
+  },
+  {
+    // Verified against the open Robotics: Science and Systems proceedings
+    // (2026-08-11, pdftotext of p31.pdf): RSS 2013. The TrajOpt paper:
+    // sequential convex optimization with hinge-loss collision penalties
+    // and continuous-time collision checking.
+    id: 'schulman-2013',
+    title:
+      'Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization',
+    authors: [
+      'John Schulman',
+      'Jonathan Ho',
+      'Alex Lee',
+      'Ibrahim Awwal',
+      'Henry Bradlow',
+      'Pieter Abbeel',
+    ],
+    year: 2013,
+    venue: 'RSS 2013',
+    url: 'https://www.roboticsproceedings.org/rss09/p31.pdf',
+    type: 'paper',
+  },
+  {
+    // Verified against the author's free web edition (2026-08-11): LaValle,
+    // Cambridge University Press, 2006. The standard textbook treatment of
+    // configuration space, sampling-based planning, and optimality.
+    id: 'lavalle-2006',
+    title: 'Planning Algorithms',
+    authors: ['Steven M. LaValle'],
+    year: 2006,
+    venue: 'Cambridge University Press',
+    url: 'https://lavalle.pl/planning/',
+    type: 'docs',
+  },
+  {
+    // Verified against the project site (2026-08-11): the Kavraki Lab's
+    // Open Motion Planning Library, the reference implementation of PRM,
+    // RRT, RRT*, and their descendants (Sucan, Moll, Kavraki, IEEE RAM
+    // 19(4), 2012).
+    id: 'ompl-2012',
+    title: 'The Open Motion Planning Library',
+    authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
+    year: 2012,
+    venue: 'IEEE Robotics & Automation Magazine',
+    url: 'https://ompl.kavrakilab.org/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

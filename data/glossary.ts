@@ -313,6 +313,20 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'The standard four-parameter bookkeeping for a robot arm\'s geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention\'s appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.',
     citations: ['denavit-hartenberg-1955', 'modern-robotics-2017'],
   },
+  {
+    id: 'configuration-space',
+    term: 'configuration space',
+    definition:
+      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.',
+    citations: ['lozano-perez-1983', 'lavalle-2006'],
+  },
+  {
+    id: 'trajectory-optimization',
+    term: 'trajectory optimization',
+    definition:
+      'Motion planning as numerical optimization over a whole trajectory at once: the trajectory is the decision variable, a cost functional scores smoothness and obstacle clearance, and a solver descends that cost from an initial guess. CHOMP descends a smoothness-plus-obstacle objective with covariant functional gradients; TrajOpt instead convexifies the collision constraints and solves a sequence of convex programs. The family produces smooth, locally optimal motions in high dimensions but can stall in local minima, so it often refines paths that a sampling-based planner found first.',
+    citations: ['ratliff-2009', 'schulman-2013'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));
