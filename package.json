@@ -12,6 +12,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts",
     "postinstall": "node scripts/postinstall.mjs"

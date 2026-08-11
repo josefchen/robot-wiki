@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.next-probe/
 out/
 dist/
 .env*
