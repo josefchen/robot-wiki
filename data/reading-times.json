@@ -114,5 +114,9 @@
   "classical/kinematics": {
     "words": 2386,
     "minutes": 12
+  },
+  "classical/motion-planning": {
+    "words": 2074,
+    "minutes": 10
   }
 }
