@@ -120,7 +120,11 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2169,
+    "words": 2170,
     "minutes": 11
+  },
+  "classical/state-estimation": {
+    "words": 2452,
+    "minutes": 12
   }
 }
