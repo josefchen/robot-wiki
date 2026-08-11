@@ -343,6 +343,7 @@ const PUBLISHED = new Set([
   'data-hardware/evaluation-crisis',
   'classical/kinematics',
   'classical/motion-planning',
+  'classical/control',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

@@ -4,6 +4,7 @@ import {
   citationLabel,
   citationMeta,
   getCitation,
+  type Citation,
 } from '@/data/citations';
 import { citationSchema } from '@/data/schemas/citation';
 
@@ -44,6 +45,22 @@ describe('citation registry', () => {
     const org = getCitation('pi-real-time-chunking-blog-2025');
     expect(org).toBeDefined();
     expect(citationLabel(org!)).toBe('Physical Intelligence 2025');
+  });
+
+  it('citationLabel keeps multi-word surnames via override, without breaking lookalikes', () => {
+    const diCarlo = getCitation('di-carlo-2018');
+    expect(diCarlo).toBeDefined();
+    expect(citationLabel(diCarlo!)).toBe('Di Carlo 2018');
+    // "Di" as a given name must not be swallowed into the surname.
+    const lookalike: Citation = {
+      id: 'test-lookalike',
+      title: 'T',
+      authors: ['Di Huang'],
+      year: 2024,
+      url: 'https://example.com/',
+      type: 'paper',
+    };
+    expect(citationLabel(lookalike)).toBe('Huang 2024');
   });
 
   it('citationMeta lists authors, venue, and year', () => {

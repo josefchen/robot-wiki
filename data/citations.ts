@@ -3087,6 +3087,145 @@ export const CITATIONS: Citation[] = [
     url: 'https://ompl.kavrakilab.org/',
     type: 'docs',
   },
+  {
+    // Verified against the free second-edition PDF on the book site
+    // (2026-08-11): chapter 1 states "More than 95% of all industrial
+    // control problems are solved by PID control"; chapters 10-11 cover PID
+    // and chapter 7 state feedback with the algebraic Riccati equation.
+    id: 'astrom-murray-2008',
+    title: 'Feedback Systems: An Introduction for Scientists and Engineers',
+    authors: ['Karl Johan Åström', 'Richard M. Murray'],
+    year: 2008,
+    venue: 'Princeton University Press',
+    url: 'https://fbsbook.org/',
+    type: 'docs',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): the record is the 1993 JDSMC
+    // reprint of the 1942 Transactions of the ASME original (64:759-768),
+    // the classic relay tuning rules for PID gains.
+    id: 'ziegler-nichols-1942',
+    title: 'Optimum Settings for Automatic Controllers',
+    authors: ['John G. Ziegler', 'Nathaniel B. Nichols'],
+    year: 1942,
+    venue: 'Trans. ASME',
+    url: 'https://doi.org/10.1115/1.2899060',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref and IEEE Xplore (2026-08-11): the IEEE
+    // Press reprint (Control Theory: Twenty-Five Seminal Papers) of
+    // Kalman's 1960 Bol. Soc. Mat. Mexicana paper, which introduced the
+    // optimal state-feedback problem LQR solves.
+    id: 'kalman-1960',
+    title: 'Contributions to the Theory of Optimal Control',
+    authors: ['Rudolf E. Kalman'],
+    year: 1960,
+    venue: 'Bol. Soc. Mat. Mexicana',
+    url: 'https://doi.org/10.1109/9780470544334.ch8',
+    type: 'paper',
+  },
+  {
+    // Verified against the live MIT course site (2026-08-11): chapters on
+    // the pendulum and acrobot cover the nonlinear dynamics, the LQR
+    // balancing controller, and swing-up used in this module's demo.
+    id: 'tedrake-underactuated',
+    title: 'Underactuated Robotics',
+    authors: ['Russ Tedrake'],
+    year: 2024,
+    venue: 'MIT course notes',
+    url: 'https://underactuated.mit.edu/',
+    type: 'docs',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Automatica 25(3),
+    // 335-348. The canonical early survey of the industrial MPC lineage
+    // (DMC, QDMC) and its theory.
+    id: 'garcia-1989',
+    title: 'Model Predictive Control: Theory and Practice - A Survey',
+    authors: ['Carlos E. Garcia', 'David M. Prett', 'Manfred Morari'],
+    year: 1989,
+    venue: 'Automatica',
+    url: 'https://doi.org/10.1016/0005-1098(89)90002-2',
+    type: 'paper',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Automatica 36(6),
+    // 789-814. Establishes the stability conditions (terminal cost and
+    // constraint set) that made receding-horizon MPC a rigorous method.
+    id: 'mayne-2000',
+    title:
+      'Constrained Model Predictive Control: Stability and Optimality',
+    authors: [
+      'David Q. Mayne',
+      'James B. Rawlings',
+      'Christopher V. Rao',
+      'Pierre O. M. Scokaert',
+    ],
+    year: 2000,
+    venue: 'Automatica',
+    url: 'https://doi.org/10.1016/S0005-1098(99)00214-9',
+    type: 'paper',
+  },
+  {
+    // Verified via the publisher DOI record (2026-08-11): Control
+    // Engineering Practice 11(7), 733-764. Survey of industrial MPC
+    // technology reporting thousands of installed applications, the
+    // majority in refining and petrochemicals.
+    id: 'qin-badgwell-2003',
+    title: 'A Survey of Industrial Model Predictive Control Technology',
+    authors: ['S. Joe Qin', 'Thomas A. Badgwell'],
+    year: 2003,
+    venue: 'Control Engineering Practice',
+    url: 'https://doi.org/10.1016/S0967-0661(02)00186-7',
+    type: 'paper',
+  },
+  {
+    // Verified against the IEEE Xplore record (2026-08-11): IROS 2018.
+    // Convex MPC on the MIT Cheetah 3: single-rigid-body simplification,
+    // prediction horizons up to 0.5 s, QP solved in under 1 ms at 20-30 Hz.
+    id: 'di-carlo-2018',
+    title:
+      'Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control',
+    authors: [
+      'Jared Di Carlo',
+      'Patrick M. Wensing',
+      'Benjamin Katz',
+      'Gerardo Bledt',
+      'Sangbae Kim',
+    ],
+    year: 2018,
+    venue: 'IEEE/RSJ IROS',
+    url: 'https://doi.org/10.1109/IROS.2018.8594448',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): IEEE Journal on Robotics and
+    // Automation 3(1):43-53. The operational-space formulation that puts
+    // task-space dynamics at the center of manipulator force/motion
+    // control; ancestor of modern whole-body control.
+    id: 'khatib-1987',
+    title:
+      'A Unified Approach for Motion and Force Control of Robot Manipulators: The Operational Space Formulation',
+    authors: ['Oussama Khatib'],
+    year: 1987,
+    venue: 'IEEE J. Robotics and Automation',
+    url: 'https://doi.org/10.1109/JRA.1987.1087068',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref (2026-08-11): International Journal of
+    // Humanoid Robotics 2(4):505-518. Whole-body hierarchical control of
+    // task primitives under joint and postural constraints.
+    id: 'sentis-khatib-2005',
+    title:
+      'Synthesis of Whole-Body Behaviors through Hierarchical Control of Behavioral Primitives',
+    authors: ['Luis Sentis', 'Oussama Khatib'],
+    year: 2005,
+    venue: 'Int. J. Humanoid Robotics',
+    url: 'https://doi.org/10.1142/S0219843605000594',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -3098,7 +3237,13 @@ export function getCitation(id: string): Citation | undefined {
 /**
  * Inline chip label, e.g. "Zhao 2023". Organization authors
  * ("Physical Intelligence") keep their full name instead of a surname.
+ * SURNAME_OVERRIDES pins multi-word surnames that naive last-token
+ * splitting gets wrong ("Jared Di Carlo" -> "Di Carlo", not "Carlo").
+ * A particle heuristic is unsafe here: "Di Huang" keeps surname "Huang".
  */
+const SURNAME_OVERRIDES = new Map<string, string>([
+  ['Jared Di Carlo', 'Di Carlo'],
+]);
 const ORG_TOKENS = new Set([
   'Team',
   'Labs',
@@ -3119,7 +3264,7 @@ const ORG_TOKENS = new Set([
 export function citationLabel(citation: Citation): string {
   const firstAuthor = citation.authors[0];
   const tokens = firstAuthor.split(' ');
-  const surname = tokens.at(-1) ?? firstAuthor;
+  const surname = SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
   const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }

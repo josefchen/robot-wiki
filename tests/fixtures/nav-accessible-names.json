@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 43,
+  "linkCount": 44,
   "links": [
     {
       "href": "/",
@@ -150,6 +150,10 @@
     {
       "href": "/classical/motion-planning/",
       "name": "Motion Planning"
+    },
+    {
+      "href": "/classical/control/",
+      "name": "Control"
     },
     {
       "href": "/frontier/",

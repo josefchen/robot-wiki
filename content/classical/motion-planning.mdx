@@ -19,6 +19,7 @@ citations:
   - ompl-2012
 seeAlso:
   - "classical/kinematics"
+  - "classical/control"
   - "rl-sim2real/reward-design-mpc"
   - "manipulation/hierarchical"
 ---
@@ -110,4 +111,4 @@ The family's weakness is structural, not incidental. Descent methods find local 
 
 Classical planning did not disappear when learned policies arrived; it changed jobs. Sampling planners label demonstration data, verify that a proposed motion is feasible, and generate the diverse training scenes that [generative simulation](/world-models/generative-sim) pipelines rely on. Optimization survives inside model-predictive control, which replans a short horizon at every control cycle, a design whose tradeoffs against learned policies have their own module in [reward design and the MPC debate](/rl-sim2real/reward-design-mpc). And the hierarchical school of robot learning, from SayCan onward, is precisely the bet that a learned system should emit goals for a classical planner to execute, a bet the end-to-end camp answers by training the planning in.
 
-What end-to-end policies do not escape is the geometry. A diffusion policy's action chunk is a trajectory in configuration space; an RRT's path is a trajectory in configuration space. The difference is who computed it, a planner with an explicit collision model or a network with an implicit one. The modules that follow, control and state estimation, assume some such trajectory exists and ask how to track it and where the robot actually is while doing so.
+What end-to-end policies do not escape is the geometry. A diffusion policy's action chunk is a trajectory in configuration space; an RRT's path is a trajectory in configuration space. The difference is who computed it, a planner with an explicit collision model or a network with an implicit one. The modules that follow, [control](/classical/control) and state estimation, assume some such trajectory exists and ask how to track it and where the robot actually is while doing so.
