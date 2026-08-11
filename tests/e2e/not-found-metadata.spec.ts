@@ -5,32 +5,33 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 
 /**
  * Not-found page brand metadata (VAL-BRAND-002, VAL-BRAND-003).
- * Verified against the shipped artifact: the static export served on :3201
- * (the validation surface per AGENTS.md), not the dev server.
+ * Verified against the shipped artifact: the static export served locally
+ * (an OS-assigned free port; see static-export-server.ts), not the dev
+ * server.
  *
  * The export must satisfy three rules:
  *  1. The 404 page carries the full brand metadata set the rest of the
  *     site carries, including og:site_name = robot-wiki.
  *  2. No reachable route declares a canonical/og:url pointing at a
  *     different route. Next.js's internal /_not-found/ duplicate of the
- *     404 page is pruned from the export (scripts/prune-not-found-artifact.ts
+ *     404 page is pruned from the export (scripts/prune-export-artifacts.ts
  *     in postbuild) rather than papered over with a canonical.
  *  3. No two reachable routes share a <title>.
  */
 
-const PORT = 3201;
-const BASE = `http://localhost:${PORT}`;
 const OUT = join(process.cwd(), 'out');
 const SITE_ORIGIN = 'https://robot-wiki.com';
 
 let server: StaticExportServer | null = null;
+let BASE: string;
 
 test.beforeAll(async () => {
   expect(
     existsSync(join(OUT, 'index.html')),
     'out/ is missing or stale: run `npm run build` before the not-found-metadata spec',
   ).toBe(true);
-  server = await startStaticExportServer(OUT, PORT);
+  server = await startStaticExportServer(OUT);
+  BASE = `http://localhost:${server.port}`;
 });
 
 test.afterAll(async () => {

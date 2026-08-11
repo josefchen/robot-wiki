@@ -153,10 +153,11 @@ export default async function ModulePage({ params }: { params: Params }) {
   // The breadcrumb trail (VAL-WIKI-016/017): Home and the domain are real
   // links (the domain crumb is what makes /<domain>/ reachable from every
   // article), the article itself is the non-linked trailing crumb. The
-  // same trail is emitted as BreadcrumbList structured data.
+  // same trail is emitted as BreadcrumbList structured data, with the same
+  // trailing-slash hrefs (consistency nit, rebrand-wiki scrutiny).
   const breadcrumbTrail = [
     { label: 'Home', href: '/' },
-    { label: DOMAIN_META[entry.domain].name, href: `/${entry.domain}` },
+    { label: DOMAIN_META[entry.domain].name, href: `/${entry.domain}/` },
   ];
   const breadcrumbJsonLdItems = [
     { label: 'Home', href: '/' },
@@ -167,8 +168,11 @@ export default async function ModulePage({ params }: { params: Params }) {
   return (
     // data-pagefind-body scopes the prose search index to the module
     // content (header + body) and excludes the surrounding nav chrome and
-    // the generated References bibliography.
-    <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    // the generated References bibliography. data-prose-column is the
+    // named handle for the article's text column: validators measuring
+    // VAL-DESIGN-018's full-width rules resolve it here instead of by
+    // ancestor heuristics (library/design-system.md).
+    <article data-prose-column className="mx-auto w-full max-w-[65ch] px-6 py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

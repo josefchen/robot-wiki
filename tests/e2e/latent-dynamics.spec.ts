@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/world-models/latent-dynamics/';
 
@@ -73,12 +74,16 @@ test.describe('world-models latent-dynamics module', () => {
     const initial = await deviationReadout(page);
 
     // Extending the horizon increases the deviation readout monotonically.
+    // Relational reads poll: the readout is derived state, so the test
+    // waits for it to reflect each slider value (quirk 9).
     const horizon = page.getByRole('slider', {
       name: /imagination horizon/i,
     });
-    await horizon.fill('30');
+    await setSlider(horizon, 30);
+    await expect.poll(() => deviationReadout(page)).toBeGreaterThan(initial);
     const at30 = await deviationReadout(page);
-    await horizon.fill('50');
+    await setSlider(horizon, 50);
+    await expect.poll(() => deviationReadout(page)).toBeGreaterThan(at30);
     const at50 = await deviationReadout(page);
     expect(at30).toBeGreaterThan(initial);
     expect(at50).toBeGreaterThan(at30);
@@ -116,10 +121,10 @@ test.describe('world-models latent-dynamics module', () => {
     expect(await deviationReadout(page)).toBeGreaterThan(before);
 
     const errorSlider = page.getByRole('slider', { name: /model error/i });
-    await errorSlider.fill('6');
+    await setSlider(errorSlider, 6);
     const sloppy = await deviationReadout(page);
-    await errorSlider.fill('0.5');
-    expect(await deviationReadout(page)).toBeLessThan(sloppy);
+    await setSlider(errorSlider, 0.5);
+    await expect.poll(() => deviationReadout(page)).toBeLessThan(sloppy);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

@@ -179,23 +179,122 @@ test.describe('design chrome discipline', () => {
         page.locator('article').getByRole('heading', { name: heading }),
       ).toBeVisible();
     }
-    const rules = await page.evaluate(() => {
+    // The evaluator mirrors contract/design-integrity.md's shared
+    // definitions: each candidate is measured against ITS OWN text column
+    // (the data-prose-column hook first, then the ancestor heuristics), a
+    // rule is an <hr> or a single-axis horizontal border, and four-sided
+    // boxes and container roles (Callout, Aside) are never dividers. The
+    // previous version measured against <main>, which on a 1440px article
+    // route is ~1.75x the prose column, so it counted zero rules for any
+    // implementation and could never fail.
+    const analysis = await page.evaluate(() => {
       const main = document.querySelector('main');
-      if (!main) return [];
-      const mainW = main.getBoundingClientRect().width;
-      const out: string[] = [];
-      for (const el of main.querySelectorAll('*')) {
+      if (!main) return null;
+      const alpha = (color: string): number => {
+        const m = color.match(/rgba?\(([^)]+)\)/);
+        if (!m) return 1;
+        const parts = m[1].split(',').map((s) => parseFloat(s));
+        return parts.length === 4 ? parts[3] : 1;
+      };
+      const sideOn = (
+        cs: CSSStyleDeclaration,
+        side: 'top' | 'right' | 'bottom' | 'left',
+      ): boolean =>
+        parseFloat(cs.getPropertyValue(`border-${side}-width`)) >= 1 &&
+        alpha(cs.getPropertyValue(`border-${side}-color`)) > 0;
+      // "Text column" per the contract: the named hook first, then the
+      // nearest ancestor <article>, then the nearest ancestor with a
+      // computed max-width, else <main>.
+      const textColumnOf = (el: Element): Element => {
+        const hooked = el.closest('[data-prose-column]');
+        if (hooked) return hooked;
+        const article = el.closest('article');
+        if (article) return article;
+        let node = el.parentElement;
+        while (node) {
+          if (getComputedStyle(node).maxWidth !== 'none') return node;
+          node = node.parentElement;
+        }
+        return main;
+      };
+      const CONTAINER_ROLES = new Set(['note', 'alert', 'complementary']);
+      const describe = (el: Element) => ({
+        tag: el.tagName.toLowerCase(),
+        className: (el.getAttribute('class') ?? '').slice(0, 60),
+      });
+      const rules: Array<ReturnType<typeof describe> & { ratio: number }> = [];
+      const rejected: Array<ReturnType<typeof describe> & { reason: string }> =
+        [];
+      for (const el of Array.from(main.querySelectorAll('*'))) {
         const cs = getComputedStyle(el);
-        const r = el.getBoundingClientRect();
-        if (r.width < 0.8 * mainW) continue;
-        const opaque = (c: string) => !c.startsWith('rgba') || parseFloat(c.split(',')[3] ?? '1') > 0;
-        const top = parseFloat(cs.borderTopWidth) >= 1 && opaque(cs.borderTopColor);
-        const bottom = parseFloat(cs.borderBottomWidth) >= 1 && opaque(cs.borderBottomColor);
-        if (top || bottom) out.push(el.tagName);
+        const top = sideOn(cs, 'top');
+        const bottom = sideOn(cs, 'bottom');
+        const left = sideOn(cs, 'left');
+        const right = sideOn(cs, 'right');
+        const isHr = el.tagName === 'HR';
+        if (!isHr && !top && !bottom) continue;
+        if (
+          el.tagName === 'ASIDE' ||
+          CONTAINER_ROLES.has(el.getAttribute('role') ?? '')
+        ) {
+          rejected.push({ ...describe(el), reason: 'container role' });
+          continue;
+        }
+        // Table internals (rows, cells, captions) are separators WITHIN a
+        // single content block, not "section dividers painted between
+        // blocks" (the shared definition's first sentence); the table's
+        // own frame is excluded below as a four-sided box.
+        if (el.closest('table')) {
+          rejected.push({ ...describe(el), reason: 'table internal' });
+          continue;
+        }
+        if (top && bottom && left && right) {
+          rejected.push({ ...describe(el), reason: 'four-sided box' });
+          continue;
+        }
+        // A divider paints on the horizontal axis only; side borders make
+        // the element the edge of a box (a titled code block, a card).
+        if (!isHr && (left || right)) {
+          rejected.push({ ...describe(el), reason: 'side borders: box edge' });
+          continue;
+        }
+        const column = textColumnOf(el);
+        const columnWidth = column.getBoundingClientRect().width;
+        const ratio =
+          columnWidth === 0
+            ? 0
+            : el.getBoundingClientRect().width / columnWidth;
+        if (ratio < 0.8) {
+          rejected.push({
+            ...describe(el),
+            reason: `narrow: ${ratio.toFixed(2)} of its text column`,
+          });
+          continue;
+        }
+        rules.push({ ...describe(el), ratio: Math.round(ratio * 100) / 100 });
       }
-      return out;
+      return { rules, rejected };
     });
-    expect(rules.length).toBeLessThanOrEqual(2);
+    expect(analysis, 'main element present').not.toBeNull();
+    expect(
+      analysis!.rules.length,
+      `full-width rules: ${JSON.stringify(analysis!.rules)}`,
+    ).toBeLessThanOrEqual(2);
+    // The exclusions must actually fire on this dense article: it renders
+    // Callouts and an Aside (container roles), a bordered comparison
+    // table (table internals inside a four-sided frame), and boxed
+    // content, and each is evaluated and rejected rather than silently
+    // uncounted.
+    const reasons = new Set(analysis!.rejected.map((r) => r.reason));
+    expect(reasons, JSON.stringify(analysis!.rejected)).toContain(
+      'container role',
+    );
+    expect(reasons, JSON.stringify(analysis!.rejected)).toContain(
+      'four-sided box',
+    );
+    expect(reasons, JSON.stringify(analysis!.rejected)).toContain(
+      'table internal',
+    );
     // And visually: exactly two hairlines in the article column (header +
     // the apparatus divider), with the trailing sections rule-free.
     const sections = page.locator('article > section');

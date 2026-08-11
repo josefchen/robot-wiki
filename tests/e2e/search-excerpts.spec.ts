@@ -14,18 +14,17 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * aria-describedby, fully available to hover, keyboard focus and screen
  * readers.
  *
- * Verified against the shipped artifact (the static export served on :3201)
- * because the dev server never serves the Pagefind index. The assertion
+ * Verified against the shipped artifact (the static export served locally
+ * on an OS-assigned free port; see static-export-server.ts) because the
+ * dev server never serves the Pagefind index. The assertion
  * strings are chosen to exist ONLY inside hidden tooltip copy within the
  * indexed region (article header + prose): the glossary definitions live on
  * /glossary, which is not indexed, and the References bibliography is
  * outside data-pagefind-body.
  */
 
-const PORT = 3201;
-const BASE = `http://localhost:${PORT}`;
-
 let server: StaticExportServer | null = null;
+let BASE: string;
 
 test.beforeAll(async () => {
   const outDir = join(process.cwd(), 'out');
@@ -33,7 +32,8 @@ test.beforeAll(async () => {
     existsSync(join(outDir, 'pagefind', 'pagefind.js')),
     'out/ is missing or stale: run `npm run build` before the search-excerpts spec',
   ).toBe(true);
-  server = await startStaticExportServer(outDir, PORT);
+  server = await startStaticExportServer(outDir);
+  BASE = `http://localhost:${server.port}`;
 });
 
 test.afterAll(async () => {

@@ -39,20 +39,24 @@ export interface StaticExportServer {
 }
 
 /**
- * Serve `outDir` on `port`. Directory-style paths (the export uses
- * trailingSlash) resolve to their index.html; everything else is served
- * by exact path with a content type from the extension. Paths escaping
- * outDir are refused.
+ * Serve `outDir` on `port`. The default port 0 asks the OS for a free
+ * port; the bound port comes back on the returned handle. Specs must use
+ * it rather than hard-coding one: a fixed port collides with any leftover
+ * preview server and fails the whole spec file with EADDRINUSE, which
+ * masquerades as a broad regression (three occurrences, 2026-08-10/11).
+ * Directory-style paths (the export uses trailingSlash) resolve to their
+ * index.html; everything else is served by exact path with a content type
+ * from the extension. Paths escaping outDir are refused.
  */
 export async function startStaticExportServer(
   outDir: string,
-  port: number,
+  port = 0,
 ): Promise<StaticExportServer> {
   const root = resolve(outDir);
   const server = createServer(async (req, res) => {
     try {
       const pathname = decodeURIComponent(
-        new URL(req.url ?? '/', `http://localhost:${port}`).pathname,
+        new URL(req.url ?? '/', 'http://localhost').pathname,
       );
       const filePath = resolve(join(root, pathname));
       if (filePath !== root && !filePath.startsWith(root + '/')) {
@@ -85,8 +89,12 @@ export async function startStaticExportServer(
     server.listen(port, () => resolveListen());
   });
 
+  const address = server.address();
+  const boundPort =
+    typeof address === 'object' && address !== null ? address.port : port;
+
   return {
-    port,
+    port: boundPort,
     stop: () =>
       new Promise<void>((resolveStop, rejectStop) => {
         server.close((error) => (error ? rejectStop(error) : resolveStop()));

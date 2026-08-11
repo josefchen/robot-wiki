@@ -4,9 +4,14 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  // Isolated build dir for the draft-probe propagation test
-  // (tests/propagation/): its builds never clobber a running dev server's
-  // .next. Unset in every other context, so the default is unchanged.
+  // Draft-probe propagation test override (tests/propagation/): with
+  // output:'export', Next 16 treats a non-default distDir as the EXPORT
+  // output directory, so PROBE_DIST_DIR=.next-probe makes the probe's
+  // static export land in .next-probe/ instead of clobbering the canonical
+  // out/. The build cache and manifests still write to .next, so a probe
+  // build can still clobber a live dev server's cache; never run them
+  // concurrently. Unset in every other context, so the default is
+  // unchanged.
   distDir: process.env.PROBE_DIST_DIR ?? '.next',
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: { unoptimized: true },

@@ -8,7 +8,7 @@
  * route (or a self-canonical on a route that should not exist). Hosts do
  * not need it: Vercel and every static host serve `404.html` for missing
  * routes. So the artifact is pruned from `out/` in postbuild
- * (scripts/prune-not-found-artifact.ts) rather than papered over with
+ * (scripts/prune-export-artifacts.ts) rather than papered over with
  * metadata.
  *
  * Pure decision logic lives here for unit testing; the script carries the

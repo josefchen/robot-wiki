@@ -3614,10 +3614,23 @@ export function citationLabel(citation: Citation): string {
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }
 
+/**
+ * True when the venue string already states the entry's year ("RSS 2023"
+ * with year 2023). Renderers use this to print the year once instead of
+ * duplicating it ("..., RSS 2023." rather than "..., RSS 2023, 2023.").
+ * A venue whose year differs from the entry year ("RSS 2025" with year
+ * 2024, a paper published at a later venue) renders both, which is
+ * informative, and a venue without a year keeps the trailing year.
+ */
+export function venueStatesYear(citation: Citation): boolean {
+  return citation.venue?.includes(String(citation.year)) ?? false;
+}
+
 /** Tooltip metadata line: up to three authors, then venue and year. */
 export function citationMeta(citation: Citation): string {
   const shown = citation.authors.slice(0, 3);
   const suffix = citation.authors.length > 3 ? ' et al.' : '';
   const where = citation.venue ? `, ${citation.venue}` : '';
-  return `${shown.join(', ')}${suffix}${where}, ${citation.year}`;
+  const when = venueStatesYear(citation) ? '' : `, ${citation.year}`;
+  return `${shown.join(', ')}${suffix}${where}${when}`;
 }

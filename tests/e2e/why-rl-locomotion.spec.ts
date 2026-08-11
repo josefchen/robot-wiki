@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/rl-sim2real/why-rl-locomotion/';
 
@@ -84,7 +85,7 @@ test.describe('why-rl-locomotion module', () => {
     // Locomotion tolerates the same error until 20 mm.
     await page.getByRole('button', { name: 'Locomotion', exact: true }).click();
     await expect(page.getByTestId('outcome-readout')).toHaveText(/stable/i);
-    await slider.fill('25');
+    await setSlider(slider, 25);
     await expect(page.getByTestId('outcome-readout')).toHaveText(
       /support lost/i,
     );

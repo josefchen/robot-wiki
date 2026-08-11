@@ -153,10 +153,13 @@ test.describe('References bibliography', () => {
         expect(href ?? '').toMatch(/^https:\/\//);
 
         // The meta line is the registry record rendered verbatim: full
-        // author list, venue only when the registry records one, and year.
+        // author list, venue only when the registry records one, and the
+        // year, rendered once when the venue already states it ("RSS 2023."
+        // rather than "RSS 2023, 2023."). The derivation is inlined here so
+        // the spec does not grade the renderer with the renderer's own rule.
         const expectedMeta = `${citation.authors.join(', ')}${
-          citation.venue ? `, ${citation.venue},` : ','
-        } ${citation.year}.`;
+          citation.venue ? `, ${citation.venue}` : ''
+        }${citation.venue?.includes(String(citation.year)) ? '' : `, ${citation.year}`}.`;
         await expect(item.locator('p').first()).toHaveText(expectedMeta);
         if (!citation.venue) sawVenuelessEntry = true;
 

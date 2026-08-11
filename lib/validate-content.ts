@@ -40,9 +40,13 @@
  *      an MDX body (and in any extra scanned source, such as the home
  *      page's tsx) must resolve to a registry entry; an unregistered id
  *      fails the build naming the file and the id, and a registered image
- *      no page references fails the build, so the registry, the rendered
- *      set, and /credits cannot drift apart (VAL-IMG-006). Provenance
- *      fields are scanned for synthesis markers (VAL-IMG-013).
+ *      no PUBLISHED page references fails the build, so the registry, the
+ *      rendered set, and /credits cannot drift apart (VAL-IMG-006). The id
+ *      gate scans drafts too (an unknown id should fail before publish),
+ *      but only published modules and the static sources count as usage:
+ *      an image referenced only by a draft is invisible to readers and
+ *      must not satisfy the stale-registry guard (library/imagery.md).
+ *      Provenance fields are scanned for synthesis markers (VAL-IMG-013).
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -50,7 +54,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { CORE_DOMAINS } from '../data/domains.ts';
+import { CORE_DOMAINS, DOMAINS } from '../data/domains.ts';
 import {
   moduleFrontmatterSchema,
   moduleRegistryEntrySchema,
@@ -94,8 +98,10 @@ export interface ValidateContentOptions {
 }
 
 // Non-module routes that internal links may target: the standalone tools
-// and reference surfaces, the A-Z index, and the seven generated domain
-// landing pages at /<domain> (the breadcrumb middle crumb's target).
+// and reference surfaces as literals, plus the generated domain landing
+// pages at /<domain> (the breadcrumb middle crumb's target) DERIVED from
+// DOMAINS, so adding a domain to the taxonomy can never desynchronise the
+// prebuild validator's allowlist.
 const DEFAULT_STATIC_ROUTES = [
   '/',
   '/search',
@@ -104,13 +110,7 @@ const DEFAULT_STATIC_ROUTES = [
   '/glossary',
   '/credits',
   '/a-z',
-  '/manipulation',
-  '/rl-sim2real',
-  '/world-models',
-  '/data-hardware',
-  '/classical',
-  '/frontier',
-  '/adjacent',
+  ...DOMAINS.map((domain) => `/${domain}`),
 ];
 
 // Currency hygiene (check 7). remark-math sees MDX prose, JSX children text,
@@ -364,12 +364,16 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
 
     // 11b. Unregistered image ids (VAL-IMG-006): every <Image id> used in
     // the prose must resolve to the image registry, so a rendered image
-    // always has a licence record, a credit, and a /credits entry.
+    // always has a licence record, a credit, and a /credits entry. The id
+    // gate scans drafts too (an unknown id should fail before publish),
+    // but only a PUBLISHED module counts as usage for the stale-registry
+    // guard: an image referenced only by a draft is invisible to readers
+    // and must not satisfy it (library/imagery.md).
     if (opts.images) {
       for (const id of referencedImageIds(body)) {
         if (!imageIds.has(id)) {
           push(rel, `image id "${id}" is not in the image registry`);
-        } else {
+        } else if (fm.data.status === 'published') {
           usedImageIds.add(id);
         }
       }
@@ -443,13 +447,14 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     }
 
     // 11d. Stale-registry guard (VAL-IMG-006): a registered image that no
-    // page references would render on /credits but nowhere else, which is
-    // exactly the drift the three-way agreement check forbids.
+    // published page references would render on /credits but nowhere a
+    // reader can see, which is exactly the drift the three-way agreement
+    // check forbids.
     for (const image of opts.images) {
       if (imageIds.has(image.id) && !usedImageIds.has(image.id)) {
         push(
           null,
-          `image ${image.id} is registered but no page references it; /credits would list an image the site does not render`,
+          `image ${image.id} is registered but no published page references it; /credits would list an image readers never see`,
         );
       }
     }

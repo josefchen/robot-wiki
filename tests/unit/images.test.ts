@@ -209,9 +209,48 @@ describe('validateContent imagery check', () => {
       issues.some(
         (i) =>
           i.message.includes(validEntry.id) &&
-          i.message.includes('no page references'),
+          i.message.includes('no published page references'),
       ),
     ).toBe(true);
+  });
+
+  it('does not let draft-only usage satisfy the stale-registry guard (VAL-IMG-006)', () => {
+    // The published module references nothing; a DRAFT references the
+    // image. Readers never see a draft, so the registry entry is stale
+    // and the build must fail even though some MDX body uses the id.
+    writeArticle('no imagery here');
+    mkdirSync(join(root, 'rl-sim2real'), { recursive: true });
+    writeFileSync(
+      join(root, 'rl-sim2real', 'placeholder.mdx'),
+      [
+        '---',
+        'title: "Placeholder"',
+        'description: "Planned module."',
+        'domain: "rl-sim2real"',
+        'slug: "placeholder"',
+        'order: 1',
+        'status: "draft"',
+        'lastReviewed: "2026-08-10"',
+        'citations: []',
+        '---',
+        '',
+        `Draft body. <Image id="${validEntry.id}" />`,
+        '',
+      ].join('\n'),
+    );
+    const issues = validateContent(baseOpts());
+    expect(
+      issues.some(
+        (i) =>
+          i.message.includes(validEntry.id) &&
+          i.message.includes('no published page references'),
+      ),
+    ).toBe(true);
+    // The id gate still scanned the draft: a KNOWN id in a draft is not
+    // itself an unregistered-id error.
+    expect(
+      issues.some((i) => i.message.includes('not in the image registry')),
+    ).toBe(false);
   });
 
   it('passes when the reference and the registry agree', () => {

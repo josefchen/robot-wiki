@@ -10,14 +10,14 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * browser-side half): alt text, visible credits, credit links, the /credits
  * page and its chrome reachability, intrinsic dimensions and layout shift,
  * static-asset serving, no 404s, 375px responsiveness, and axe. Verified
- * against the shipped artifact: the static export served on :3201 (the
- * validation surface per AGENTS.md), not the dev server. The build-time
- * half (registry schema, three-way agreement, licence gate) lives in
- * tests/unit/images.test.ts and scripts/validate-content.ts.
+ * against the shipped artifact: the static export served locally (an
+ * OS-assigned free port; see static-export-server.ts), not the dev
+ * server. The build-time half (registry schema, three-way agreement,
+ * licence gate) lives in tests/unit/images.test.ts and
+ * scripts/validate-content.ts.
  */
 
-const PORT = 3201;
-const BASE = `http://localhost:${PORT}`;
+let BASE: string;
 
 /** Every route that renders at least one content image. */
 const IMAGE_ROUTES = [
@@ -41,7 +41,8 @@ test.beforeAll(async () => {
     existsSync(join(outDir, 'index.html')),
     'out/ is missing or stale: run `npm run build` before the imagery spec',
   ).toBe(true);
-  server = await startStaticExportServer(outDir, PORT);
+  server = await startStaticExportServer(outDir);
+  BASE = `http://localhost:${server.port}`;
 });
 
 test.afterAll(async () => {
@@ -232,10 +233,20 @@ test.describe('licensed imagery', () => {
             observer.observe({ type: 'layout-shift', buffered: true });
             // Images are already loaded by the time we observe (goto awaits
             // load); a buffered read catches the shifts that happened.
-            setTimeout(() => resolve(shift), 300);
+            // Resolve only after fonts settle: late font swaps are the
+            // observed source of sub-pixel shift noise under full-suite
+            // load (four sightings, all <= 0.0002, on migrating routes).
+            document.fonts.ready.then(() => {
+              setTimeout(() => resolve(shift), 300);
+            });
           }),
       );
-      expect(cls, `no layout shift on ${route}`).toBe(0);
+      // Sub-perceptual epsilon, not exact zero: 0.001 is 100x tighter than
+      // Lighthouse's "good" CLS threshold (0.1) and ~5x the largest noise
+      // ever observed here (0.000196). A genuine lazy-image reflow is
+      // orders of magnitude larger, so the assertion still fails on the
+      // defect VAL-IMG-009 exists to catch.
+      expect(cls, `no perceptible layout shift on ${route}`).toBeLessThan(0.001);
     }
   });
 

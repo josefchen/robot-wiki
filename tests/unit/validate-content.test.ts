@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { validateContent } from '@/lib/validate-content';
 import { modules } from '@/data/modules';
+import { DOMAINS } from '@/data/domains';
 import { CITATIONS } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
 import type { ModuleRegistryEntry } from '@/data/schemas/module';
@@ -216,6 +217,20 @@ describe('validateContent (fixtures)', () => {
       'manipulation',
       'action-chunking',
       `${frontmatter()}\n[home](/) and [search](/search) and [self](/manipulation/action-chunking) and [arxiv](https://arxiv.org/abs/2304.13705).\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('allowlists a landing route for every DOMAINS entry', () => {
+    // DEFAULT_STATIC_ROUTES derives the domain landings from DOMAINS, so
+    // this test fails the day a domain exists without a corresponding
+    // allowlisted route: the module links to every /<domain> landing and
+    // any desynchronised entry surfaces as a broken internal link.
+    const links = DOMAINS.map((domain) => `[${domain}](/${domain})`).join(' ');
+    writeModule(
+      'manipulation',
+      'action-chunking',
+      `${frontmatter()}\n${links}\n`,
     );
     expect(run()).toEqual([]);
   });

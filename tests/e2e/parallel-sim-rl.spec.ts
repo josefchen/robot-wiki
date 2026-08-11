@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/rl-sim2real/parallel-sim-rl/';
 
@@ -69,9 +70,9 @@ test.describe('parallel-sim-rl module', () => {
     const slider = page.getByRole('slider', {
       name: /parallel environments/i,
     });
-    await slider.fill('6');
+    await setSlider(slider, 6);
     await expect(page.getByTestId('wallclock-readout')).toHaveText(/h$/);
-    await slider.fill('14');
+    await setSlider(slider, 14);
     await expect(page.getByTestId('wallclock-readout')).toHaveText('1.5 min');
 
     // CPU bottleneck: wall-clock rises, reference curve appears.

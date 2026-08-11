@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/classical/grasp-planning/';
 
@@ -251,7 +252,7 @@ test.describe('classical grasp-planning module', () => {
     // Slide contact 2 onto the bottom edge: the pair is antipodal, the
     // shared normal lies strictly inside both cones, and closure recovers.
     const contact2 = page.getByRole('slider', { name: /contact 2 position/i });
-    await contact2.fill('0.63');
+    await setSlider(contact2, 0.63);
     await expect(page.getByTestId('grasp-closure-readout')).toHaveText('yes');
     expect(await epsilon()).toBeGreaterThan(0);
 
