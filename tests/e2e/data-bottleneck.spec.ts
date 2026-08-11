@@ -32,11 +32,14 @@ test.describe('data-hardware data-bottleneck module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    // Strand 3: EgoScale/EgoDex-style alternative data sources.
+    // Strand 3: EgoScale/EgoDex-style alternative data sources. The
+    // "success rate" jargon is wrapped in a <Term> tooltip, which splits
+    // the sentence across element boundaries, so assert text runs that
+    // stay inside a single text node (library/user-testing.md quirk 8).
     for (const name of [
       /829 hours of dexterous human manipulation/,
       /20,854 hours of action-labeled egocentric human video/,
-      /improved average success rate by 54%/,
+      /by 54% over a no-pretraining baseline/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),

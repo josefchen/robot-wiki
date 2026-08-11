@@ -236,7 +236,11 @@ test.describe('Inline <Term>', () => {
   }) => {
     await page.goto(`${BASE}/classical/kinematics/`);
     // Walk the tab order until a term link holds focus (bounded so a
-    // regression fails loudly instead of hanging).
+    // regression fails loudly instead of hanging). The first term in tab
+    // order is whichever jargon the article uses first (the wiki-wide
+    // backfill added teleoperation ahead of forward-kinematics), so the
+    // contract is that SOME term is keyboard-reachable and its tooltip
+    // opens on focus, not a specific id.
     let focused: string | null = null;
     for (let i = 0; i < 120; i += 1) {
       await page.keyboard.press('Tab');
@@ -248,8 +252,8 @@ test.describe('Inline <Term>', () => {
       });
       if (focused) break;
     }
-    expect(focused, 'a term link receives keyboard focus').toBe('forward-kinematics');
-    const tooltip = await tooltipFor(page, 'forward-kinematics');
+    expect(focused, 'a term link receives keyboard focus').not.toBeNull();
+    const tooltip = await tooltipFor(page, focused ?? '');
     await expect(tooltip).toBeVisible();
   });
 
