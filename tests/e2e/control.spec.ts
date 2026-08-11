@@ -114,14 +114,16 @@ test.describe('classical control module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
-    // A chip is keyboard-focusable and reveals its metadata on focus.
+    // A chip is keyboard-focusable and reveals its metadata on focus. The
+    // source is cited several times on the page, so scope the tooltip to
+    // the focused chip's own group (the tooltip is its following sibling).
     const pidChip = main.getByRole('link', { name: 'Åström 2008' }).first();
     await pidChip.focus();
-    await expect(
-      main
-        .locator('span[role="tooltip"]')
-        .filter({ hasText: 'Feedback Systems' }),
-    ).toBeVisible();
+    const tooltip = pidChip.locator(
+      'xpath=../following-sibling::span[@role="tooltip"]',
+    );
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('Feedback Systems');
   });
 
   test('KaTeX renders with no raw math delimiters (VAL-CLASS-017)', async ({

@@ -1,3 +1,4 @@
+import path from 'node:path';
 import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
 
@@ -27,6 +28,11 @@ const withMDX = createMDX({
       'rehype-slug',
       ['rehype-autolink-headings', { behavior: 'wrap' }],
       ['rehype-katex', { strict: false }],
+      // Local plugin, referenced by absolute path string: the MDX loader
+      // resolves bare strings from its own node_modules context, so a
+      // relative './lib/...' specifier is not found. Computed at config
+      // load, so the repo stays portable.
+      path.join(process.cwd(), 'lib/rehype-scrollable-math.mjs'),
       ['rehype-pretty-code', { theme: 'github-dark-dimmed', keepBackground: true }],
     ],
   },

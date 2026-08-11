@@ -234,10 +234,18 @@ export function applyPush(state: PendulumState): PendulumState {
  * fallen once the pole is past 60 degrees from upright, oscillating while
  * the window's peak-to-peak swing exceeds 8 degrees, settled when it is
  * under 1 degree, and settling in between.
+ *
+ * "Settled" additionally requires the window to span at least
+ * MIN_SETTLE_SPAN_S: a window that has barely started filling (the first
+ * ticks after Run) has near-zero swing by construction, and the pole is
+ * mid-recovery, not settled.
  */
+export const MIN_SETTLE_SPAN_S = 1.5;
+
 export function classifyStability(states: PendulumState[]): Stability {
   const last = states.at(-1);
-  if (!last) return 'settling';
+  const first = states[0];
+  if (!last || !first) return 'settling';
   if (Math.abs(last.theta) > FALL_RAD) return 'fallen';
   let min = Infinity;
   let max = -Infinity;
@@ -247,7 +255,9 @@ export function classifyStability(states: PendulumState[]): Stability {
   }
   const peakToPeak = max - min;
   if (peakToPeak > OSCILLATION_RAD) return 'oscillating';
-  if (peakToPeak <= SETTLED_RAD) return 'settled';
+  if (peakToPeak <= SETTLED_RAD) {
+    return last.t - first.t >= MIN_SETTLE_SPAN_S ? 'settled' : 'settling';
+  }
   return 'settling';
 }
 
