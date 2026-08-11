@@ -126,5 +126,9 @@
   "classical/state-estimation": {
     "words": 2452,
     "minutes": 12
+  },
+  "classical/grasp-planning": {
+    "words": 1985,
+    "minutes": 10
   }
 }
