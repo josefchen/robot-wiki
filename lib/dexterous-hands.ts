@@ -32,10 +32,14 @@ export type DexterousHand = {
   actuation: string;
   /** Tactile sensitivity as displayed; null when no figure is disclosed. */
   tactileDisplay: string | null;
+  /** Small-print second line under the tactile figure, e.g. a unit conversion. */
+  tactileNote?: string;
   /** Minimum detectable force in mN; lower means more sensitive. */
   tactileSort: number | null;
   /** Price as displayed; null when no price is disclosed. */
   costDisplay: string | null;
+  /** Small-print second line under the price, e.g. the year or scope. */
+  costNote?: string;
   /** Numeric sort key for cost in USD-equivalent; ordering only. */
   costSort: number | null;
   /** How the maker bets dexterity will be learned. */
@@ -89,7 +93,8 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     dofDisplay: '16',
     dofSort: 16,
     actuation: 'Actuation not disclosed',
-    tactileDisplay: '3 g (≈29 mN)',
+    tactileDisplay: '3 g',
+    tactileNote: '≈29 mN',
     tactileSort: 29.4,
     costDisplay: null,
     costSort: null,
@@ -131,7 +136,8 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     actuation: 'Tendon-driven electric, 20 DC motors, 24 joints',
     tactileDisplay: null,
     tactileSort: null,
-    costDisplay: '€110,000 (2022)',
+    costDisplay: '€110,000',
+    costNote: '2022',
     costSort: 110000,
     bet: 'research-platform',
     tradeoff:
@@ -151,7 +157,8 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     actuation: 'Electric',
     tactileDisplay: null,
     tactileSort: null,
-    costDisplay: '$29,900 (whole robot)',
+    costDisplay: '$29,900',
+    costNote: 'whole robot',
     costSort: 29900,
     bet: 'undisclosed',
     tradeoff:

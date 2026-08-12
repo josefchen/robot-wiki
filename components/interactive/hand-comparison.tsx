@@ -29,7 +29,18 @@ import { cx } from '@/lib/utils';
  */
 
 const HEADER_CELL =
-  'px-3 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+  'px-2 py-2.5 text-left font-mono text-[11px] font-medium tracking-[0.14em] text-text-dim';
+
+const CELL = 'px-2 py-2.5 align-top';
+
+/** Small-print second line under a spec figure, e.g. a unit conversion. */
+function CellNote({ children }: { children: string }) {
+  return (
+    <span className="mt-0.5 block font-sans text-[11px] text-text-dim">
+      {children}
+    </span>
+  );
+}
 
 const SORT_COLUMNS: Array<{ key: HandSortKey; label: string; ariaLabel: string }> =
   [
@@ -64,7 +75,7 @@ function SourceLink({ id, label }: { id: string; label: string }) {
       href={citation.url}
       target="_blank"
       rel="noopener"
-      className="whitespace-nowrap text-text-dim underline decoration-border underline-offset-2 transition-colors hover:text-text"
+      className="text-text-dim underline decoration-border underline-offset-2 transition-colors hover:text-text"
     >
       {label}
     </a>
@@ -141,7 +152,7 @@ export function HandComparison({ className }: { className?: string }) {
       </div>
 
       <div className="mt-4 overflow-x-auto">
-        <table className="w-full min-w-[640px] border-collapse text-left">
+        <table className="w-full min-w-[520px] border-collapse text-left">
           <thead>
             <tr className="border-b border-border">
               <th scope="col" className={HEADER_CELL}>
@@ -203,10 +214,7 @@ export function HandComparison({ className }: { className?: string }) {
                     isSelected && 'bg-surface-2/60',
                   )}
                 >
-                  <th
-                    scope="row"
-                    className="min-w-[190px] px-3 py-2.5 align-top"
-                  >
+                  <th scope="row" className={cx(CELL, 'min-w-[140px]')}>
                     <button
                       type="button"
                       aria-pressed={isSelected}
@@ -219,46 +227,60 @@ export function HandComparison({ className }: { className?: string }) {
                     >
                       {hand.name}
                     </button>
-                    <p className="mt-1 max-w-[28ch] font-sans text-[11px] leading-snug text-text-dim">
+                    <p className="mt-1 max-w-[24ch] font-sans text-[11px] leading-snug text-text-dim">
                       {hand.maker} · {hand.actuation}
                     </p>
                   </th>
-                  <td className="whitespace-nowrap px-3 py-2.5 align-top font-mono text-sm text-text">
+                  <td
+                    className={cx(
+                      CELL,
+                      'whitespace-nowrap font-mono text-sm text-text',
+                    )}
+                  >
                     {hand.dofDisplay}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-2.5 align-top font-mono text-sm">
+                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
                     {hand.tactileDisplay ? (
-                      <span className="text-accent">{hand.tactileDisplay}</span>
+                      <>
+                        <span className="text-accent">{hand.tactileDisplay}</span>
+                        {hand.tactileNote ? (
+                          <CellNote>{hand.tactileNote}</CellNote>
+                        ) : null}
+                      </>
                     ) : (
                       <span className="font-sans text-xs text-text-dim">
                         not disclosed
                       </span>
                     )}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-2.5 align-top font-mono text-sm">
+                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
                     {hand.costDisplay ? (
-                      <span className="text-text">{hand.costDisplay}</span>
+                      <>
+                        <span className="text-text">{hand.costDisplay}</span>
+                        {hand.costNote ? (
+                          <CellNote>{hand.costNote}</CellNote>
+                        ) : null}
+                      </>
                     ) : (
                       <span className="font-sans text-xs text-text-dim">
                         not disclosed
                       </span>
                     )}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-2.5 align-top font-sans text-xs text-text-dim">
+                  <td className={cx(CELL, 'font-sans text-[11px] text-text-dim')}>
                     {TRAINING_BET_LABEL[hand.bet]}
                   </td>
-                  <td className="px-3 py-2.5 align-top font-mono text-xs">
-                    <SourceLink id={hand.sourceId} label={hand.sourceLabel} />
+                  <td className={cx(CELL, 'font-mono text-[11px]')}>
+                    <span className="block">
+                      <SourceLink id={hand.sourceId} label={hand.sourceLabel} />
+                    </span>
                     {hand.secondarySourceId && hand.secondarySourceLabel ? (
-                      <>
-                        <span aria-hidden="true" className="text-text-dim">
-                          {' / '}
-                        </span>
+                      <span className="block">
                         <SourceLink
                           id={hand.secondarySourceId}
                           label={hand.secondarySourceLabel}
                         />
-                      </>
+                      </span>
                     ) : null}
                     <span className="mt-0.5 block whitespace-nowrap text-text-dim">
                       {hand.asOf}
