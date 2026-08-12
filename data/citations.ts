@@ -3571,6 +3571,67 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1703.09312',
     type: 'paper',
   },
+  {
+    id: 'rl-100-2025',
+    title:
+      'RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning',
+    authors: [
+      'Kun Lei',
+      'Huanyu Li',
+      'Dongjie Yu',
+      'Zhenyu Wei',
+      'Lingxiao Guo',
+      'Zhennan Jiang',
+      'Ziyu Wang',
+      'Shiyu Liang',
+      'Huazhe Xu',
+    ],
+    year: 2025,
+    arxiv: '2510.14830',
+    url: 'https://arxiv.org/abs/2510.14830',
+    type: 'paper',
+  },
+  {
+    // Investor analysis; carries the Lisa Yan reliability-gap quote and the
+    // 80%-to-99.9% framing this module anchors on.
+    id: 'bessemer-robotics-2026',
+    title: 'Bessemer Predicts: Robotics and physical AI',
+    authors: ['Bessemer Venture Partners'],
+    year: 2026,
+    url: 'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
+    type: 'blog',
+  },
+  {
+    // Press source: the deployment figures cross-check company statements,
+    // earnings calls, and filings; no first-party aggregate of verified
+    // humanoid deployment hours exists.
+    id: 'technology-org-deployed-2026',
+    title: 'Humanoid Robots in 2026: What Is Actually Deployed',
+    authors: ['Alius Noreika'],
+    year: 2026,
+    url: 'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/',
+    type: 'press',
+  },
+  {
+    // Dataset/evaluation harness page; no arXiv id as of 2026-08.
+    id: 'asimov-agentic-2026',
+    title: 'Asimov Agentic Safety Evaluation',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    url: 'https://huggingface.co/datasets/google/asimov_agentic',
+    type: 'docs',
+  },
+  {
+    // Press report of a vendor livestream; Figure published no technical
+    // writeup of the eight-hour shift itself.
+    id: 'figure-8hr-shift-2026',
+    title:
+      "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+    authors: ['Kyle Belmonte'],
+    year: 2026,
+    url: 'https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -3604,6 +3665,7 @@ const ORG_TOKENS = new Set([
   'Meta',
   'Toyota',
   'Figure',
+  'Partners',
 ]);
 
 export function citationLabel(citation: Citation): string {

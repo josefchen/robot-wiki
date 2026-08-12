@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 46,
+  "linkCount": 47,
   "links": [
     {
       "href": "/",
@@ -166,6 +166,10 @@
     {
       "href": "/frontier/",
       "name": "Domain overview"
+    },
+    {
+      "href": "/frontier/reliability-gap/",
+      "name": "The Reliability Gap"
     },
     {
       "href": "/adjacent/",

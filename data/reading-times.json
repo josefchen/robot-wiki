@@ -130,5 +130,9 @@
   "classical/grasp-planning": {
     "words": 1931,
     "minutes": 10
+  },
+  "frontier/reliability-gap": {
+    "words": 1499,
+    "minutes": 7
   }
 }

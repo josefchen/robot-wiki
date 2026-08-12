@@ -1,0 +1,70 @@
+---
+title: "The Reliability Gap"
+description: "80% task success is a demo; 99.9% is a product. The compounding arithmetic of per-step error, the methods closing the gap, and the deployment numbers that survive scrutiny."
+domain: frontier
+slug: reliability-gap
+order: 1
+status: published
+lastReviewed: "2026-08-12"
+citations:
+  - bessemer-robotics-2026
+  - pistar06-blog-2025
+  - rl-100-2025
+  - asimov-agentic-2026
+  - gemini-robotics-2-2026
+  - pi07-2026
+  - technology-org-deployed-2026
+  - figure-8hr-shift-2026
+seeAlso:
+  - "data-hardware/evaluation-crisis"
+  - "manipulation/rl-finetuning"
+  - "rl-sim2real/humanoid-wbc"
+---
+
+import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
+import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
+
+A robot that finishes a task 80% of the time is a demo. A robot that finishes it 99.9% of the time is a product. The distance between those numbers is the reliability gap: the difference between the <Term id="success-rate">success rates</Term> a system demonstrates in controlled settings and the rates that deployment requires. Bessemer's 2026 robotics analysis states the framing directly: getting from 80% task success to 99.9% is not a linear problem, and the last stretch requires fundamentally different approaches than the first <Cite id="bessemer-robotics-2026" />. This module covers why the gap is structural, what is closing it, and what the deployment record shows once claims are separated from verified numbers.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="95% per-step" value="21%" note="end-to-end over 30 steps" accent />
+  <Stat label="99% per-step" value="74%" note="end-to-end over 30 steps" />
+  <Stat label="99.9% per-step" value="97%" note="end-to-end over 30 steps" />
+  <Stat label="solved bar" value=">1,000h" note="documented MTBF; no system publishes one" />
+</div>
+
+## The arithmetic of compounding
+
+A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either.
+
+<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} className="my-6" />
+
+The calculator computes the product at any setting, and its sliders span the full range so the boundary cases stay honest: at 100% per-step the task always completes, at 0% it never does, and at a horizon of one step the readout equals the per-step value. Two refinements matter for reading real systems. First, the independence assumption is generous: a mistake carries the robot into a state outside its training distribution, where the next mistake is more likely, so <Term id="compounding-error">compounding error</Term> makes the true curve worse than the calculator's. Second, the inverse reading sets the engineering bar. Holding 99% end-to-end success on a 50-step task requires about 99.98% per-step reliability, a figure no generalist policy publishes.
+
+## Why the last stretch is different
+
+Moving per-step reliability from 95% to 99% is an engineering problem with known methods: more data, better models, targeted evaluation. Moving from 99% to 99.9% is a different kind of problem, because the remaining failures concentrate in the long tail: unusual object configurations, lighting, and contact dynamics that any finite training set underrepresents <Cite id="bessemer-robotics-2026" />. Lisa Yan, co-founder and CEO of Argus Systems and previously at Waymo, describes the deployment experience in Bessemer's analysis: closing the gap between 99% and 99.9% reliability is "a steep hill climb that takes longer than most people realize" <Cite id="bessemer-robotics-2026" />. Bessemer's own forecast is more optimistic about timing, arguing the field's ChatGPT moment is not years away, and the disagreement is about the slope of the improvement curve rather than the existence of the gap <Cite id="bessemer-robotics-2026" />.
+
+The classical safety toolbox does not close the gap either. Formal methods such as barrier functions and reachability analysis do not scale to high-dimensional manipulation with learned policies, and as of mid-2026 no deployed <Term id="vision-language-action-model">vision-language-action model</Term> publishes formal safety guarantees. Assurance in practice rests on empirical evaluation and runtime monitoring, which makes the reliability gap and the evaluation crisis the same problem seen at different altitudes: one is about making failure rare, the other about being able to measure how rare it is (see [The Evaluation Crisis](/data-hardware/evaluation-crisis)).
+
+## What is closing the gap
+
+Three methods are doing measurable work, each with a known ceiling.
+
+**RL from experience.** Physical Intelligence's π*0.6 with Recap trains on the robot's own deployment experience, cutting failure rates by 2x or more on hard tasks and reaching above 90% success on espresso, laundry, and box-assembly after on-robot RL, with a 2x throughput improvement <Cite id="pistar06-blog-2025" />. RL-100 goes further on its task set: 100% success across 1,000 episodes on 8 tasks, including 250 consecutive successes on one task, and a juicing robot that served customers in a shopping mall for about seven hours without failure <Cite id="rl-100-2025" />. The ceiling is that both are per-task specialist results earned through on-robot training, not generalist reliability. RL-100's own zero-shot figure under environmental and dynamics shifts is about 90%, which is the gap reasserting itself one distribution over <Cite id="rl-100-2025" />.
+
+**Runtime monitors.** Google's ASIMOV-Agentic benchmark evaluates the orchestration layer around the policy rather than the policy itself: whether an embodied reasoning agent refuses unsafe tool calls from the VLA, predicts whether a task is feasible, and requests human intervention when uncertain <Cite id="asimov-agentic-2026" />. DeepMind describes Gemini Robotics 2 as its safest robotics model to date on safety-constraint-following and human-proximity benchmarks, with the ability to detect nearby humans and trigger safe stops <Cite id="gemini-robotics-2-2026" />. Monitoring catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
+
+**Human in the loop.** π0.7 accepts step-by-step language coaching that steers it through tasks it has not seen, recovering from failures that would otherwise end the episode <Cite id="pi07-2026" />. Supervised operation bridges the gap for paying customers while the autonomy catches up, but a bridged gap is not a closed one: the reliability number that matters is the one with the coach removed.
+
+## What is actually deployed
+
+The gap is easiest to see in the deployment record, where claimed and verified numbers diverge. Circulating figures put Tesla's cumulative Optimus builds in the tens of thousands and Figure's deployments above ten thousand; neither figure comes from the companies they describe, and Tesla has never published a production count <Cite id="technology-org-deployed-2026" />. The verified record is narrower. Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities. Figure's eleven-month pilot at BMW Spartanburg logged more than 1,250 hours on a live assembly line. Unitree shipped roughly 5,500 humanoid units in 2025 at a price near \$16,000, though volume has not produced profit: Q1 2026 net profit fell 52% year over year <Cite id="technology-org-deployed-2026" />.
+
+<DeploymentDashboard className="my-6" />
+
+The dashboard keeps the two classes apart. A verified row is documented against company statements, filings, or named customers; a claimed row is a circulating figure without a company source, or a vendor-run demonstration without an independent audit. Figure's eight-hour autonomous shift of May 2026 sits in the claimed rows deliberately: the livestream was real, but a single task at a single site with no published success rate is a demonstration, not a deployment metric <Cite id="figure-8hr-shift-2026" />. The valuation context belongs here as well. Figure's private valuation of \$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \$38B, a distance that only closes if reliability does <Cite id="technology-org-deployed-2026" />.
+
+## What solved would look like
+
+A closed reliability gap has a measurable shape: a deployed system with a documented mean time between failures above 1,000 hours on real tasks, formal safety guarantees for human-robot interaction, and a published protocol for the failure modes that remain. No current system publishes any of the three. Until one does, the honest unit of progress is not the demo but the verified operating hour, and on that metric the field measures tens of thousands of hours against the millions that general-purpose deployment implies.
