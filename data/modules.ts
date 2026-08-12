@@ -348,6 +348,7 @@ const PUBLISHED = new Set([
   'classical/grasp-planning',
   'frontier/reliability-gap',
   'frontier/dexterity',
+  'frontier/generalization',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

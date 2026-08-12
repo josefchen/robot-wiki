@@ -69,6 +69,13 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     citations: ['dagger-2011'],
   },
   {
+    id: 'distribution-shift',
+    term: 'distribution shift',
+    definition:
+      'The mismatch between the data distribution a model is trained on and the distribution it must act on at deployment. Robot demonstrations come from a small number of labs with specific robots, cameras, and lighting, while deployment spans unseen homes, objects, and clutter, so a policy can score well on held-out data from its own training distribution and still fail in a new kitchen. Open-world evaluations measure performance under exactly this gap: pi0.5 was evaluated in three real homes absent from its training set, and Lin and colleagues measured how generalization to new environments and objects scales with the diversity of the training data rather than its raw volume.',
+    citations: ['pi05-2025', 'lin-data-scaling-laws-2024'],
+  },
+  {
     id: 'diffusion-policy',
     term: 'diffusion policy',
     definition:

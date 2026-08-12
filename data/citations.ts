@@ -577,6 +577,16 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
+    // Blog twin of pi07-2026; the air-fryer "reasonable attempt, part of the
+    // task, not finished fully" passage appears in the blog text, not the PDF.
+    id: 'pi07-blog-2026',
+    title: 'π0.7: a Steerable Model with Emergent Capabilities',
+    authors: ['Physical Intelligence'],
+    year: 2026,
+    url: 'https://www.pi.website/blog/pi07',
+    type: 'blog',
+  },
+  {
     id: 'openpi-repo-2024',
     title: 'openpi',
     authors: ['Physical Intelligence'],
@@ -3655,6 +3665,42 @@ export const CITATIONS: Citation[] = [
     year: 2022,
     venue: 'The Journal of Physiology',
     url: 'https://doi.org/10.1113/JP282846',
+    type: 'paper',
+  },
+  {
+    // Science Robotics editorial; the "100,000-year data gap" framing and
+    // the good-old-fashioned-engineering counterproposal. Science bot-walls
+    // direct fetches; title, author, and date verified through Crossref
+    // metadata (2026-08-12).
+    id: 'goldberg-data-gap-2025',
+    title:
+      'Good old-fashioned engineering can close the 100,000-year "data gap" in robotics',
+    authors: ['Ken Goldberg'],
+    year: 2025,
+    venue: 'Science Robotics',
+    url: 'https://doi.org/10.1126/scirobotics.aea7390',
+    type: 'paper',
+  },
+  {
+    // Position paper; the "missing pillars" critique of policy-scaling-only
+    // approaches. Title and author list verified against the live arXiv
+    // abstract page (2026-08-12).
+    id: 'karcini-position-2026',
+    title: 'Robots Need More than VLA and World Models',
+    authors: [
+      'Elis Karcini',
+      'Faisal Mehrban',
+      'Quang Nguyen',
+      'Mac Schwager',
+      'Arash Ajoudani',
+      'Cesar Cadena',
+      'Jan Peters',
+      'Marco Hutter',
+      'Haitham Bou-Ammar',
+    ],
+    year: 2026,
+    arxiv: '2606.06556',
+    url: 'https://arxiv.org/abs/2606.06556',
     type: 'paper',
   },
   {
