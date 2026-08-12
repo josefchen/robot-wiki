@@ -136,7 +136,11 @@
     "minutes": 7
   },
   "frontier/dexterity": {
-    "words": 2085,
+    "words": 2081,
+    "minutes": 10
+  },
+  "frontier/generalization": {
+    "words": 1900,
     "minutes": 10
   }
 }

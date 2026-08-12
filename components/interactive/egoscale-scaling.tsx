@@ -59,7 +59,12 @@ const PLOT = { left: 56, right: 588, top: 22, bottom: 274 } as const;
 
 const HOURS_LOG_MIN = 3; // 10^3 = 1k h
 const HOURS_LOG_MAX = 6; // 10^6 = 1M h
-const LOSS_MAX = 0.026;
+/**
+ * Loss axis ceiling. 0.030 keeps the measured law's 1k-hour start (0.024)
+ * clear of the solved bar, which sits at 0.90 on the completion axis; at
+ * 0.026 the two render 6px apart at the left edge and read as one line.
+ */
+const LOSS_MAX = 0.03;
 const SCORE_MAX = 1;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
@@ -90,7 +95,9 @@ function trace(
   const parts: string[] = [];
   for (let i = 0; i <= steps; i += 1) {
     const h = from * (to / from) ** (i / steps);
-    parts.push(`${i === 0 ? 'M' : 'L'}${xFor(h)},${yMap(f(fn(h)))}`);
+    // Round the pixel coordinate, never the data value: rounding the loss
+    // to 2 decimals quantizes 0.024..0.015 to a flat 0.02.
+    parts.push(`${i === 0 ? 'M' : 'L'}${xFor(h)},${f(yMap(fn(h)))}`);
   }
   return parts.join(' ');
 }
