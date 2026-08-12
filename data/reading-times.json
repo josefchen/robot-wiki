@@ -142,5 +142,9 @@
   "frontier/generalization": {
     "words": 1900,
     "minutes": 10
+  },
+  "frontier/competing-theses": {
+    "words": 2493,
+    "minutes": 12
   }
 }

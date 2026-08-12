@@ -216,7 +216,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
         </p>
 
         <div className="mt-4">
-          <h4 className={SECTION_LABEL}>Proponents</h4>
+          <p className={SECTION_LABEL}>Proponents</p>
           <ul className="mt-1.5 space-y-1">
             {selected.proponents.map((proponent) => (
               <li
@@ -231,9 +231,9 @@ export function ThesisExplorer({ className }: { className?: string }) {
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div>
-            <h4 id={`${selected.id}-for`} className={SECTION_LABEL}>
+            <p id={`${selected.id}-for`} className={SECTION_LABEL}>
               Evidence for
-            </h4>
+            </p>
             <div className="mt-1.5">
               <EvidenceList
                 items={selected.evidenceFor}
@@ -242,9 +242,9 @@ export function ThesisExplorer({ className }: { className?: string }) {
             </div>
           </div>
           <div>
-            <h4 id={`${selected.id}-against`} className={SECTION_LABEL}>
+            <p id={`${selected.id}-against`} className={SECTION_LABEL}>
               Evidence against
-            </h4>
+            </p>
             <div className="mt-1.5">
               <EvidenceList
                 items={selected.evidenceAgainst}
@@ -255,7 +255,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
         </div>
 
         <div className="mt-4">
-          <h4 className={SECTION_LABEL}>Falsification criterion</h4>
+          <p className={SECTION_LABEL}>Falsification criterion</p>
           <p className="mt-1.5 max-w-[65ch] font-sans text-xs leading-relaxed text-text">
             {selected.falsification}
           </p>
