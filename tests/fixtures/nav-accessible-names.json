@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 50,
+  "linkCount": 51,
   "links": [
     {
       "href": "/",
@@ -182,6 +182,10 @@
     {
       "href": "/frontier/competing-theses/",
       "name": "Competing Theses"
+    },
+    {
+      "href": "/frontier/bear-case/",
+      "name": "The Bear Case"
     },
     {
       "href": "/adjacent/",

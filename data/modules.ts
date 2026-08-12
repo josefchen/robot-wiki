@@ -350,6 +350,7 @@ const PUBLISHED = new Set([
   'frontier/dexterity',
   'frontier/generalization',
   'frontier/competing-theses',
+  'frontier/bear-case',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

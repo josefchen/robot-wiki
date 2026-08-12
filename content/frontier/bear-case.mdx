@@ -1,0 +1,94 @@
+---
+title: "The Bear Case"
+description: "Why this could be another robotics winter: the named skeptic record, the unit economics, the capital-cycle exposure, and the eight milestones that would prove the bears wrong."
+domain: frontier
+slug: bear-case
+order: 5
+status: published
+lastReviewed: "2026-08-12"
+citations:
+  - brooks-dexterity-2025
+  - brooks-scorecard-2026
+  - morgan-stanley-pr-problem-2026
+  - technology-org-deployed-2026
+  - unitree-profit-2026
+  - bessemer-robotics-2026
+  - computex-collapse-2026
+  - robotics-funding-23b-2026
+  - crunchbase-robotics-funding-2026
+  - goldberg-data-gap-2025
+  - pi05-2025
+  - rl-100-2025
+  - pistar06-2025
+  - roboarena-2025
+  - robochallenge-2025
+  - manipulationnet-2026
+  - sparsh-x-2025
+  - touchworld-2026
+  - reality-gap-survey-2026
+  - egoscale-2026
+seeAlso:
+  - "frontier/competing-theses"
+  - "frontier/reliability-gap"
+  - "frontier/generalization"
+  - "data-hardware/evaluation-crisis"
+---
+
+import { MilestonesWatchlist } from '@/components/interactive/milestones-watchlist';
+
+Every other module in this domain documents genuine progress, and the progress is real. This module gives the opposite reading the same evidentiary standard. The bear case says robotics is repeating the pattern that produced earlier AI winters: capital arrives on demonstrations, deployment evidence arrives late or never, and the funding window closes before the science closes the reliability gap. What follows is that case stated by its strongest named proponents. Every item is labeled evidence (a published position, a filing, a documented event) or speculation (a scenario about what happens next), and the module ends with the eight milestones whose outcomes would settle the argument either way.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="raised in H1 2026" value=">$23B" note="PitchBook tally, by early June" accent />
+  <Stat label="Unitree Q1 profit" value="−52%" note="year over year, Q1 2026" />
+  <Stat label="Figure valuation" value="$39B" note="vs $38B market projected for 2035" />
+  <Stat label="milestones met" value="0 of 8" note="watchlist below, Aug 2026" />
+</div>
+
+## The skeptic record
+
+Evidence: Rodney Brooks, co-founder of iRobot and Rethink Robotics and now running Robust.AI, is the field's most prominent named skeptic, and his claim is specific. His September 2025 essay calls the belief that current methods will produce practical humanoid dexterity within decades "pure fantasy thinking," on tactile grounds: vision-only training gives the robot no force channel, and Johansson's anesthetized-finger experiments show what humans become without one. [Dexterity](/frontier/dexterity) covers the argument in full <Cite id="brooks-dexterity-2025" />. His January 2026 predictions scorecard holds the line: deployable dexterity "will remain pathetic compared to human hands" beyond 2036, and walking humanoids stay too dangerous near people without new mechanical systems <Cite id="brooks-scorecard-2026" />. These are dated, falsifiable predictions from someone who has shipped robots for four decades, which is what separates them from ambient doubt.
+
+Evidence: Morgan Stanley's July 2026 note argues the industry has a "PR problem": humanoids are publicly framed as direct substitutes for workers rather than as tools for hazardous or labor-constrained tasks, so "the industry's social license to deploy may matter just as much as technical performance" <Cite id="morgan-stanley-pr-problem-2026" />. The same note says investors "are increasingly looking for tangible evidence of real-world return on investment" rather than polished videos, and flags the US ban on Chinese humanoid imports as an R&D cost increase. The bank kept its 50,000-unit China shipment estimate for 2026. This is not a short call; it is a bank telling clients the bottleneck has moved from capability to proof.
+
+## Unit economics
+
+Evidence: Unitree, the volume leader, shipped roughly 5,500 humanoids in 2025, more than any Western competitor <Cite id="technology-org-deployed-2026" />, and then saw Q1 2026 net profit fall 52% year over year <Cite id="unitree-profit-2026" />. Volume and profit are different variables, and the bear case starts there: the company winning the shipment race is not yet winning the income statement.
+
+Evidence: Figure's private valuation of \$39B (September 2025) exceeds Goldman Sachs' projection for the entire humanoid market in 2035, \$38B <Cite id="technology-org-deployed-2026" />. One private company is priced above the projected size of its whole market nine years out, so the valuation is a bet on the market outgrowing the projection, not on current revenue.
+
+Evidence: the inputs are expensive too. Bessemer estimates more than \$3B of aggregate robot data costs over the next two years and frames that spend as the moat <Cite id="bessemer-robotics-2026" />. A moat made of capital is also an exposure: the spending requirement that protects incumbents is the same burn rate the funding cycle has to keep feeding.
+
+Evidence: at Computex 2026, a Qualcomm-powered humanoid collapsed face-first during the live keynote, a failure attributed to a communication glitch, and was covered and carried off stage <Cite id="computex-collapse-2026" />. One fall says nothing about any single program. As a public datum about the distance between stage demos and floor reliability, it is on the record.
+
+## The demo-to-deployment gap
+
+[The Reliability Gap](/frontier/reliability-gap) documents the arithmetic: 80% per step is a demo, 99.9% is a product, and compounding makes the distance between them brutal at thirty steps. The bear case is that closing the gap takes longer than the capital lasts. Lisa Yan, quoted in Bessemer's own analysis from her Waymo experience, describes the climb from 99% to 99.9% as steep <Cite id="bessemer-robotics-2026" />. Morgan Stanley's ROI warning is the market making the same point from the other side <Cite id="morgan-stanley-pr-problem-2026" />. And the strongest verified deployment records, Agility's 65,000+ operating hours and Figure's 1,250+ hours at BMW Spartanburg, are supervised programs in narrow applications, which is what a bridge looks like before it becomes autonomy <Cite id="technology-org-deployed-2026" />. The [evaluation crisis](/data-hardware/evaluation-crisis) compounds the problem: when every demo is its own benchmark, even genuine progress is hard to underwrite.
+
+## The capital cycle
+
+Evidence: robotics startups raised more than \$23B globally in the first five months of 2026 by PitchBook's tally, closing in on the \$26B raised in all of 2025 <Cite id="robotics-funding-23b-2026" />. Crunchbase's narrower venture count puts the figure at \$18.8B, already past the \$14.1B peak set in 2021 <Cite id="crunchbase-robotics-funding-2026" />. The two tallies disagree about the number and agree about the shape: capital is arriving faster than deployment evidence.
+
+Whether that inflow constitutes a bubble is itself contested, and both sides are named. Bessemer Venture Partners argues there is "no robotics bubble" and that the sector is "structurally underinvested," while conceding that "not every company being funded will succeed" and that "some valuations are stretched" <Cite id="bessemer-robotics-2026" />. The skeptic reading, Brooks's timeline predictions and Morgan Stanley's demand for ROI evidence, takes the same inflow as too much capital chasing demonstrations <Cite id="brooks-scorecard-2026" /> <Cite id="morgan-stanley-pr-problem-2026" />. This module does not resolve the disagreement; [Competing Theses](/frontier/competing-theses) maps the technical version of it. The winter scenario needs only the disagreement itself: the market has not converged on how to value these companies, and unconverged valuations reprice violently.
+
+## How a winter would happen
+
+The mechanisms below are scenarios, not predictions. Each rests on the evidence above, and each is labeled accordingly.
+
+**Speculation:** the reliability gap outlasts investor patience. If 99.9% takes five more years of per-task engineering, the 2026 fund vintage marks to market against pilots rather than products, and the pullback slows every program, including the ones whose science is working.
+
+**Speculation:** the data thesis plateaus. If 10x more data stops buying <Term id="success-rate">success-rate</Term> gains, the fix is new science (tactile integration, contact-faithful simulation, world models), and science does not arrive on a fund's schedule. Ken Goldberg's 100,000-year data gap is the strongest statement of this premise <Cite id="goldberg-data-gap-2025" />.
+
+**Speculation:** the form factor is wrong. If task-specific systems keep winning cost per task, the humanoid thesis that most of the capital is priced on collapses and takes the funding cycle with it, even though warehouse automation keeps working. Brooks's "pure fantasy thinking" line is the named version of this scenario <Cite id="brooks-dexterity-2025" />.
+
+## The watchlist
+
+The eight milestones below are chosen so that each outcome moves the bear case regardless of who is right about everything else. Each row carries the question it settles, a current-status call with the published evidence behind it, and the observation that would flip it to met. Filter by status; select a row for the detail. As of August 2026 the board reads four not met, four partial, zero met.
+
+<MilestonesWatchlist className="my-6 wide-measure" />
+
+Several rows are closer than the labels suggest. π0.5 has already cleaned kitchens in homes it never trained on <Cite id="pi05-2025" />, RL-100 and π*0.6 hold the per-task reliability records <Cite id="rl-100-2025" /> <Cite id="pistar06-2025" />, and RoboArena, RoboChallenge, and ManipulationNet are converging on shared evaluation infrastructure <Cite id="roboarena-2025" /> <Cite id="robochallenge-2025" /> <Cite id="manipulationnet-2026" />. Others are early. Tactile foundation models such as Sparsh-X and TouchWorld exist but sit outside every major <Term id="vision-language-action-model">VLA</Term> pipeline <Cite id="sparsh-x-2025" /> <Cite id="touchworld-2026" />, contact-rich <Term id="sim-to-real-gap">sim-to-real</Term> remains the unsolved case in reality-gap surveys <Cite id="reality-gap-survey-2026" />, and EgoScale's <Term id="scaling-law">scaling law</Term> is measured on validation loss rather than real-world success rate <Cite id="egoscale-2026" />.
+
+## What would prove the bears wrong
+
+The bear case is falsifiable, which is what makes it worth taking seriously. A verified 10,000-unit deployment breaks the commercial-viability premise. One policy above 90% across more than ten unseen homes breaks the generalization premise, and [Generalization](/frontier/generalization) tracks how close the field is. A published cost-per-task parity analysis breaks the form-factor premise. A real-world success-rate scaling law breaks the plateau premise. Until those arrive, the honest summary is the board itself: zero of eight milestones met, four moving, and more than \$23B raised in five months against that scoreboard.

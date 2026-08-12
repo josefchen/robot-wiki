@@ -3965,6 +3965,123 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.pi.website/blog/olympics',
     type: 'blog',
   },
+  {
+    // Verified against the live scorecard (2026-08-12): "Deployable
+    // dexterity will remain pathetic compared to human hands beyond 2036"
+    // and the prediction that walking humanoids stay too unsafe for close
+    // proximity to humans without new mechanical systems.
+    id: 'brooks-scorecard-2026',
+    title: 'Predictions Scorecard, 2026 January 01',
+    authors: ['Rodney Brooks'],
+    year: 2026,
+    url: 'https://rodneybrooks.com/predictions-scorecard-2026-january-01/',
+    type: 'blog',
+  },
+  {
+    // Press report of a Morgan Stanley research note; no first-party
+    // publication of the note itself. Verified against the live article
+    // (2026-08-12): the "social license to deploy" and "tangible evidence
+    // of real-world return on investment" quotes, the retained 50,000-unit
+    // China shipment target, and the US import ban raising R&D costs.
+    id: 'morgan-stanley-pr-problem-2026',
+    title:
+      "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
+    authors: ['Joseph Wilkins'],
+    year: 2026,
+    venue: 'CNBC',
+    url: 'https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html',
+    type: 'press',
+  },
+  {
+    // Press source for the on-stage collapse; no first-party incident
+    // report exists. Verified against the live article (2026-08-12): the
+    // Qualcomm Dragonwing IQ10 humanoid fell face-first during the
+    // Computex 2026 keynote, attributed to a communication glitch, and was
+    // covered and carried off stage.
+    id: 'computex-collapse-2026',
+    title: 'Watch: Qualcomm-powered humanoid robot collapses during live keynote',
+    authors: ['Jijo Malayil'],
+    year: 2026,
+    venue: 'Interesting Engineering',
+    url: 'https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse',
+    type: 'press',
+  },
+  {
+    // Press writeup of PitchBook funding data; the broad tally. Verified
+    // against the live article (2026-08-12): more than $23B raised
+    // globally in 2026 by early June, closing in on the $26B raised in
+    // all of 2025.
+    id: 'robotics-funding-23b-2026',
+    title: 'Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025',
+    authors: ['Andre Savage'],
+    year: 2026,
+    venue: 'Market Briefs',
+    url: 'https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/',
+    type: 'press',
+  },
+  {
+    // Press writeup of Crunchbase venture data; the narrower tally.
+    // Verified against the live article (2026-08-12): $18.8B raised in
+    // 2026 to date against $15B in all of 2025 and the $14.1B 2021 peak.
+    id: 'crunchbase-robotics-funding-2026',
+    title:
+      'Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges To Record Numbers In 2026',
+    authors: ['Mary Ann Azevedo'],
+    year: 2026,
+    venue: 'Crunchbase News',
+    url: 'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
+    type: 'press',
+  },
+  {
+    // Press source for the Q1 2026 earnings move; Unitree's own filing
+    // figures were not publicly itemized at writing. Title verified
+    // against the live article (2026-08-12).
+    id: 'unitree-profit-2026',
+    title:
+      'Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale',
+    authors: ['Mireya Ramsey'],
+    year: 2026,
+    venue: 'TechTimes',
+    url: 'https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm',
+    type: 'press',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-12): a global
+    // benchmarking infrastructure with standardized hardware kits and two
+    // tracks, Physical Skills and Embodied Reasoning; 23 authors.
+    id: 'manipulationnet-2026',
+    title:
+      'ManipulationNet: An Infrastructure for Benchmarking Real-World Robot Manipulation with Physical Skill Challenges and Embodied Multimodal Reasoning',
+    authors: [
+      'Yiting Chen',
+      'Kenneth Kimble',
+      'Edward H. Adelson',
+      'Tamim Asfour',
+      'Podshara Chanrungmaneekul',
+      'Sachin Chitta',
+      'Yash Chitambar',
+      'Ziyang Chen',
+      'Ken Goldberg',
+      'Danica Kragic',
+      'Hui Li',
+      'Xiang Li',
+      'Yunzhu Li',
+      'Aaron Prather',
+      'Nancy Pollard',
+      'Maximo A. Roa-Garzon',
+      'Robert Seney',
+      'Shuo Sha',
+      'Shihefeng Wang',
+      'Yu Xiang',
+      'Kaifeng Zhang',
+      'Yuke Zhu',
+      'Kaiyu Hang',
+    ],
+    year: 2026,
+    arxiv: '2603.04363',
+    url: 'https://arxiv.org/abs/2603.04363',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
