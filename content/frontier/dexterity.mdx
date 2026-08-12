@@ -1,0 +1,92 @@
+---
+title: "Dexterity"
+description: "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and deformables: why the last centimeter of robotics is the hardest, and who is betting on touch to close it."
+domain: frontier
+slug: dexterity
+order: 2
+status: published
+lastReviewed: "2026-08-12"
+citations:
+  - brooks-dexterity-2025
+  - macefield-touch-2022
+  - holson-olympics-2025
+  - figure-go-big-2025
+  - figure-02-2024
+  - helix-02-2026
+  - figure-03-2025
+  - sanctuary-tactile-2025
+  - sanctuary-inhand-2024
+  - sanctuary-hydraulic-rl-2025
+  - robozaps-phoenix-2026
+  - shadow-dexterous-hand-2026
+  - shadow-hand-cost-2022
+  - droids-optimus-v3-hand-2026
+  - robozaps-unitree-h2-2026
+  - wikipedia-humanoid-hand-2026
+  - sparsh-x-2025
+  - touchworld-2026
+  - tactile-outlook-2025
+  - gemini-robotics-2-2026
+  - pi-olympics-2025
+  - pi07-2026
+  - rl-100-2025
+seeAlso:
+  - "frontier/reliability-gap"
+  - "manipulation/generalist-policies"
+  - "classical/grasp-planning"
+---
+
+import { HandComparison } from '@/components/interactive/hand-comparison';
+
+Robot manipulation is as old as artificial intelligence itself. By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks, and Rodney Brooks opens his essay on dexterity with that thesis to make the point that manipulation has been hard for every researcher since <Cite id="brooks-dexterity-2025" />. The reason is contact. A walking or driving robot moves through free space and senses the world at a distance. A hand has to close the loop through the object: grip force, slip, and contact geometry decide success, and most of that state becomes invisible to cameras the moment the fingers close around it. This module covers <Term id="contact-rich-manipulation">contact-rich manipulation</Term> and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: <Term id="in-hand-manipulation">in-hand manipulation</Term> and deformable objects.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="hand receptors" value="17,000" note="low-threshold mechanoreceptors, ~1,000 per fingertip" accent />
+  <Stat label="match lighting" value="7 s" note="with touch; four times as long anesthetized" />
+  <Stat label="best threshold" value="5 mN" note="Sanctuary's array; a human fingertip feels ~3 mN" />
+  <Stat label="research hand" value="€110k" note="Shadow Hand Plus, 2022, support included" />
+</div>
+
+## The tactile gap
+
+The human hand is a sensor first and a mechanism second. A review of Roland Johansson's work reports about 17,000 low-threshold <Term id="mechanoreceptor">mechanoreceptors</Term> in the glabrous skin of the hand, roughly 1,000 of them at each fingertip <Cite id="macefield-touch-2022" />. Johansson's match-lighting demonstration, which Brooks uses as the anchor of his argument, shows what that sensing buys. In the first video a woman picks a match out of a box and lights it; the task takes seven seconds. In the second video her fingertips are anesthetized. Her vision is intact, her <Term id="proprioception">proprioception</Term> is intact, and the same task takes her four times as long, with visible fumbling to get the match oriented between fingers she can no longer feel <Cite id="brooks-dexterity-2025" />. Nothing about her plan changed. What changed is the feedback channel the plan runs on.
+
+Today's humanoid training pipelines operate closer to the second video than the first. Benjie Holson, a veteran robot builder, cataloged the limitations of the learning-from-demonstration pipeline that produced the recent wave of laundry-folding demos: no force feedback at the wrists, limited finger control beyond open and close, no sense of touch, and roughly 1 to 3 cm of precision <Cite id="holson-olympics-2025" />. Each limitation is a tactile limitation. Contact dynamics make the missing channel expensive: stick flips to slip across a friction boundary, so a small sensing error at the fingertip becomes a large error at the task level, and the 2025 tactile robotics outlook identifies exactly this sensing and integration gap as the field's open problem <Cite id="tactile-outlook-2025" />. Brooks's conclusion is blunt: humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab <Cite id="brooks-dexterity-2025" />.
+
+## The bet against touch
+
+The strongest counterargument is the scaling one, and Brooks states it fairly before rejecting it: end-to-end learning transformed speech recognition, image labeling, and language modeling, so why not feed a learning system enough video of human hands and let dexterity fall out <Cite id="brooks-dexterity-2025" />. Two of the best-funded humanoid programs are running that experiment at full scale. Tesla has shifted Optimus training to a vision-only approach: workers wear camera rigs of helmets and backpacks with five cameras, record mundane tasks like folding a t-shirt, and the videos train the robot, according to an eWeek report Brooks quotes <Cite id="brooks-dexterity-2025" />. Figure's Project Go-Big trains its Helix model on 100% egocentric human video with no robot demonstrations at all, backed by a Brookfield partnership that opens more than 100,000 residential units to data collection, and Figure claims zero-shot transfer from human video to robot navigation as the first result <Cite id="figure-go-big-2025" />.
+
+The case for the bet is real. Video of humans manipulating objects is the only manipulation data that exists at internet scale, <Term id="teleoperation">teleoperation</Term> data is expensive and carries no force channel either, and every sensor added to a hand is cost, weight, wiring, and a new failure mode in a product that needs to be manufactured. If the bet pays off, the winners skip the tactile hardware problem entirely.
+
+## The bet on touch
+
+The other side argues the bet cannot pay off, because the information is not in the video. Jeremy Fishel, principal researcher at Sanctuary AI, puts it in one sentence: with video alone you do not know you have touched something until well after the collision has physically moved the object <Cite id="sanctuary-tactile-2025" />. Sanctuary's CEO James Wells calls touch the key enabler for human-level dexterity, and the company built its Phoenix hands around that position: hydraulic actuation, and fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip <Cite id="sanctuary-tactile-2025" /><Cite id="robozaps-phoenix-2026" />.
+
+The hardware is arriving regardless of which thesis wins. Figure 03 ships fingertip tactile sensors that detect forces as small as three grams, plus cameras in the palms, and its Helix 02 policy is the first Figure has shown that consumes touch directly <Cite id="helix-02-2026" /><Cite id="figure-03-2025" />. Shadow Robot's Dexterous Hand, the two-decade research benchmark, runs more than 100 sensors at 1 kHz <Cite id="shadow-dexterous-hand-2026" />. On the research flank, tactile foundation models now exist: Sparsh-X pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63% over an end-to-end model using raw tactile images <Cite id="sparsh-x-2025" />, and TouchWorld couples a tactile world model with a fast reflexive policy to reach 65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline <Cite id="touchworld-2026" />.
+
+The honest 2026 position is intermediate, and both camps occupy it. Tactile sensors ship on flagship hands, and even Figure, the loudest vision-data bet, now runs its newest policy on touch. What does not exist yet is a tactile training pipeline at anything like vision scale: the largest public tactile pretraining effort is built on about a million interactions, where vision pipelines consume billions of images. The results show the distance left. Google's Gemini Robotics 2 drives the 22-DoF SharpaWave hand, itself a tactile design <Cite id="gemini-robotics-2-2026" /><Cite id="robozaps-unitree-h2-2026" />, and reports 92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks, a spread DeepMind itself flags as the hard remainder <Cite id="gemini-robotics-2-2026" />. The question of whether dexterity needs touch will be settled less by argument than by which training pipeline reaches deployment-grade reliability first.
+
+## Five hands, five bets
+
+The hands on offer in 2026 span two orders of magnitude in price and no agreement on how dexterity will be learned. The table compares five of them on the specs their makers disclose, with the blanks left blank: a spec the maker has not published renders as "not disclosed" rather than as a guessed number.
+
+<HandComparison className="my-6" />
+
+The spread is the story. Tesla's 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> tendon design has the most articulation here and an admitted redesign behind it: days after the V3 hand patents surfaced, Musk said of the design, "this one didn't actually work" <Cite id="droids-optimus-v3-hand-2026" />. Sanctuary's hydraulic hand pairs the most sensitive disclosed touch with a working in-hand demo, and its maker has since pivoted to selling software <Cite id="robozaps-phoenix-2026" />. Shadow's hand remains the research benchmark at a lab price of €110,000 including support <Cite id="shadow-hand-cost-2022" />. Unitree lists the entire H2 robot at \$29,900, but the base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \$100,000 <Cite id="robozaps-unitree-h2-2026" />. Figure holds the middle: 16 degrees of freedom on the Figure 02 hand <Cite id="figure-02-2024" />, and on Figure 03 the most sensitive fingertip spec any maker has published directly.
+
+## In-hand manipulation
+
+<Term id="in-hand-manipulation">In-hand manipulation</Term> is the skill that separates a hand from a gripper: reorienting a held object without setting it down, the way you walk a key around between your fingers until it faces the lock. It is where the tactile gap bites hardest, because the fingers occlude exactly the contact that matters, so the policy has to run on touch and <Term id="proprioception">proprioception</Term> or not run at all. Holson's Robot Olympics makes it the gold-medal bar for tool use: the robot is handed a keyring and must align and turn the correct key without putting it down <Cite id="holson-olympics-2025" />.
+
+Progress here is real but narrow. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024 <Cite id="sanctuary-inhand-2024" />, then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result the company published itself <Cite id="sanctuary-hydraulic-rl-2025" />. Figure's Helix 02 uses its fingertip sensors and palm cameras on four tasks that were previously out of reach for its stack: unscrewing a bottle cap, extracting a single pill from an organizer, dispensing exactly 5 ml from a syringe, and singulating small metal parts from clutter <Cite id="helix-02-2026" />. Shadow's hand was designed for exactly this: each finger has independent side-to-side motion for in-hand work <Cite id="shadow-dexterous-hand-2026" />. None of these is the general skill. Each is a task or a task family with its own training run, and the key-in-lock gold medal sat unclaimed when Holson's list was last updated.
+
+## Deformables and the long tail
+
+Rigid objects are the easy case. A wooden block rests on one of six sides; a towel can be bunched up in more ways than any state estimator will ever enumerate, and that is before the task involves water, grease, or peanut butter <Cite id="holson-olympics-2025" />. Cloth, liquids, and compliant packaging dominate actual housework, which is why Holson's task list is full of them: hang a dress shirt that starts with one sleeve inside out, clean peanut butter off your own manipulator, wash a greasy pan.
+
+The measured record is thin but no longer empty. RL-100 folds cloth and ran a juicing robot in a shopping mall for about seven hours without failure, both per-task results earned through on-robot reinforcement learning <Cite id="rl-100-2025" />. Physical Intelligence's π0.7 does laundry and espresso tasks with language steering <Cite id="pi07-2026" />. The most informative datapoint is the Olympics scoreboard itself: Physical Intelligence fine-tuned its π0.6-based model on Holson's tasks and took gold in three of five categories with under nine hours of data per task, but averaged 52% success and 72% task progress, while a baseline VLM without robot pretraining managed 9% progress <Cite id="pi-olympics-2025" />. Two gold tasks were physically impossible for their gripper; peeling an orange needed a tool and did not count <Cite id="pi-olympics-2025" />. Read the number both ways: half-success on tasks chosen by a critic is real progress, and half-success is not a product.
+
+## What solved would look like
+
+Dexterity is solved when a single policy does Holson's fifteen tasks in unseen homes at human-competent speed, with no per-task data collection, and with the success rates published. Nobody is close: the best public scoreboard stands at 52% with per-task training, and the strongest multi-finger results from the largest labs sit between 32% and 92% per task. The open question is which data closes the gap. If Tesla or Figure reach household dexterity from video at scale, the tactile gap was a transitional hardware shortage. If touch-driven pipelines get there first, Brooks's conclusion holds and the vision-only years will read as a detour. The hands are shipping either way; watch the training pipelines.

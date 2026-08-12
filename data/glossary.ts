@@ -383,6 +383,34 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'A two-contact grasp in which the line through the contact points lies strictly inside both friction cones. Nguyen proved this geometric test is exactly force closure for a frictional pair in the plane: the contacts can squeeze along the line they share and generate torques of both signs. It is the workhorse of parallel-jaw grippers, and its strictness matters, because a line resting exactly on a cone edge resists everything except the one wrench that slides the object out.',
     citations: ['nguyen-1988', 'murray-li-sastry-1994'],
   },
+  {
+    id: 'mechanoreceptor',
+    term: 'mechanoreceptor',
+    definition:
+      'A sensory nerve ending that fires under mechanical stimuli such as pressure, vibration, or skin stretch. The glabrous skin of the human hand carries about 17,000 low-threshold mechanoreceptors, roughly 1,000 of them packed at each fingertip, in four varieties that trade spatial localization against temporal response. Robot tactile sensors are closing on raw force threshold but remain far sparser: the best documented arrays put seven sensing cells on a fingerpad where the human finger packs about a thousand receptors.',
+    citations: ['macefield-touch-2022', 'brooks-dexterity-2025'],
+  },
+  {
+    id: 'tactile-sensing',
+    term: 'tactile sensing',
+    definition:
+      'Sensing contact through the robot\'s skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary\'s micro-barometer arrays resolve about five millinewtons per cell against roughly three for a human fingertip, but coverage, durability, and integration into training pipelines remain the open problems.',
+    citations: ['tactile-outlook-2025', 'robozaps-phoenix-2026'],
+  },
+  {
+    id: 'in-hand-manipulation',
+    term: 'in-hand manipulation',
+    definition:
+      'Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. It is the skill that separates a hand from a gripper, and the one vision handles worst, because the fingers occlude exactly the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson\'s Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.',
+    citations: ['sanctuary-inhand-2024', 'holson-olympics-2025'],
+  },
+  {
+    id: 'contact-rich-manipulation',
+    term: 'contact-rich manipulation',
+    definition:
+      'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
+    citations: ['touchworld-2026', 'tactile-outlook-2025'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));
