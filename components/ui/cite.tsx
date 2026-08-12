@@ -49,9 +49,14 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
           {label}
         </a>
         {referenceHref ? (
+          // data-pagefind-ignore on THIS anchor only: the ↓ glyph is pure
+          // excerpt noise (search snippets read "2024↓."), while the chip
+          // label link above must stay indexed. Index-only hint — the
+          // anchor, its aria-label, and keyboard behavior are untouched.
           <a
             href={referenceHref}
             aria-label={`Jump to the full reference for ${title}`}
+            data-pagefind-ignore
             className="inline-flex items-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
           >
             <span aria-hidden="true">↓</span>

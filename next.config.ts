@@ -33,11 +33,15 @@ const withMDX = createMDX({
       'rehype-slug',
       ['rehype-autolink-headings', { behavior: 'wrap' }],
       ['rehype-katex', { strict: false }],
-      // Local plugin, referenced by absolute path string: the MDX loader
+      // Local plugins, referenced by absolute path strings: the MDX loader
       // resolves bare strings from its own node_modules context, so a
       // relative './lib/...' specifier is not found. Computed at config
       // load, so the repo stays portable.
       path.join(process.cwd(), 'lib/rehype-scrollable-math.mjs'),
+      // Runs after rehype-katex: excludes the MathML + TeX annotation span
+      // (.katex-mathml) from the Pagefind index so excerpts carry the
+      // rendered formula once instead of triplicated.
+      path.join(process.cwd(), 'lib/rehype-pagefind-math.mjs'),
       ['rehype-pretty-code', { theme: 'github-dark-dimmed', keepBackground: true }],
     ],
   },
