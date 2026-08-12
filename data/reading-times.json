@@ -134,5 +134,9 @@
   "frontier/reliability-gap": {
     "words": 1499,
     "minutes": 7
+  },
+  "frontier/dexterity": {
+    "words": 2085,
+    "minutes": 10
   }
 }
