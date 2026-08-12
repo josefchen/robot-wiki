@@ -244,6 +244,24 @@ test.describe('classical kinematics module', () => {
     expect(errors).toEqual([]);
   });
 
+  test('DH table headers keep the parameter glyphs in their written case', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const table = page.getByRole('table', { name: /Denavit-Hartenberg/i });
+    // innerText reflects the RENDERED text (the header row's uppercase
+    // transform applied). The prose header follows the convention; the four
+    // DH parameters are mathematical notation and must not be case-folded:
+    // pre-fix θi rendered as ΘI, and the ai and αi columns were visually
+    // indistinguishable ("AI" next to "ΑΙ").
+    const rendered = await table
+      .locator('thead th')
+      .evaluateAll((nodes) =>
+        nodes.map((n) => (n as HTMLElement).innerText),
+      );
+    expect(rendered).toEqual(['JOINT I', 'θi', 'di', 'ai', 'αi']);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

@@ -186,7 +186,12 @@ export function KalmanTracker({ className }: { className?: string }) {
               htmlFor={`kalman-${spec.id}`}
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
             >
-              {spec.id === 'sigmaQ' ? 'σq' : 'σr'} {spec.label}
+              <span>
+                <span className="normal-case tracking-normal">
+                  {spec.id === 'sigmaQ' ? 'σq' : 'σr'}
+                </span>{' '}
+                {spec.label}
+              </span>
               <span
                 className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
                 data-testid={`kalman-${spec.id.toLowerCase()}-value`}

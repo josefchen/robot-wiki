@@ -341,6 +341,30 @@ test.describe('classical state-estimation module', () => {
     await context.close();
   });
 
+  test('the noise labels render sigma glyphs, not uppercased lookalikes', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    // The slider labels keep the uppercase convention for their Latin text
+    // while the σq/σr symbols are exempted inside a normal-case span.
+    // innerText reflects the RENDERED text (text-transform applied), which
+    // textContent-based assertions cannot see: pre-fix these read "ΣQ ..."
+    // and "ΣR ..." even though the DOM always held σq/σr.
+    for (const [forId, glyph, lookalike, words] of [
+      ['kalman-sigmaQ', 'σq', 'ΣQ', 'PROCESS NOISE'],
+      ['kalman-sigmaR', 'σr', 'ΣR', 'MEASUREMENT NOISE'],
+    ] as const) {
+      const label = page.locator(`label[for="${forId}"]`);
+      await expect(label).toHaveCSS('text-transform', 'uppercase');
+      const rendered = await label.evaluate(
+        (el) => (el as HTMLElement).innerText,
+      );
+      expect(rendered).toContain(glyph);
+      expect(rendered).not.toContain(lookalike);
+      expect(rendered).toContain(words);
+    }
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },
