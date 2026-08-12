@@ -3704,6 +3704,60 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Brooks's rebuttal to Sutton, published the following week (March
+    // 2019). Verified against the live page (2026-08-12): CNN front ends
+    // as engineered priors, the traffic-sign example, and the
+    // total-cost-of-solution counterargument.
+    id: 'brooks-better-lesson-2019',
+    title: 'A Better Lesson',
+    authors: ['Rodney Brooks'],
+    year: 2019,
+    url: 'https://rodneybrooks.com/a-better-lesson/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live arXiv abstract page (2026-08-12): coding
+    // agents running a reset-execute-verify-refine loop reach 99% success
+    // on dexterous tasks (pin-box organizing, zip tie, tool use), faster
+    // with a robot fleet.
+    id: 'enpire-2026',
+    title: 'ENPIRE: Agentic Robot Policy Self-Improvement in the Real World',
+    authors: [
+      'Wenli Xiao',
+      'Jia Xie',
+      'Tonghe Zhang',
+      'Haotian Lin',
+      'Letian Fu',
+      'Haoru Xue',
+      'Jalen Lu',
+      'Yi Yang',
+      'Cunxi Dai',
+      'Zi Wang',
+      'Jimmy Wu',
+      'Guanzhi Wang',
+      'S. Shankar Sastry',
+      'Ken Goldberg',
+      'Linxi Fan',
+      'Yuke Zhu',
+      'Guanya Shi',
+    ],
+    year: 2026,
+    arxiv: '2606.19980',
+    url: 'https://arxiv.org/abs/2606.19980',
+    type: 'paper',
+  },
+  {
+    // Model page, verified against the live page (2026-08-12): ER 2 is
+    // "a high-level brain for robots" that plans multi-step tasks and
+    // hands motor execution to a lower-level VLA.
+    id: 'gemini-robotics-er2-2026',
+    title: 'Gemini Robotics ER 2',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    url: 'https://deepmind.google/models/gemini-robotics/embodied-reasoning/',
+    type: 'docs',
+  },
+  {
     // Verified against the live post (2026-08-12): the fifteen Robot
     // Olympics tasks, the four limitations of learning-from-demonstration
     // (no wrist force feedback, limited finger control, no sense of touch,

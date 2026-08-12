@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 49,
+  "linkCount": 50,
   "links": [
     {
       "href": "/",
@@ -178,6 +178,10 @@
     {
       "href": "/frontier/generalization/",
       "name": "Generalization"
+    },
+    {
+      "href": "/frontier/competing-theses/",
+      "name": "Competing Theses"
     },
     {
       "href": "/adjacent/",

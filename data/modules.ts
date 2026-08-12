@@ -349,6 +349,7 @@ const PUBLISHED = new Set([
   'frontier/reliability-gap',
   'frontier/dexterity',
   'frontier/generalization',
+  'frontier/competing-theses',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(
