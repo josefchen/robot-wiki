@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
@@ -63,10 +64,12 @@ test.describe('sim2real-transfer module', () => {
     await expect(page.getByTestId('real-line')).toBeVisible();
 
     // Drag the real-robot line far off the training friction: DR wins.
+    // setSlider (not fill) drives every range input: fill() can leave
+    // React's change tracking one event behind under load (quirk 9).
     const muSlider = page.getByRole('slider', {
       name: /real robot friction/i,
     });
-    await muSlider.fill('35');
+    await setSlider(muSlider, 35);
     await expect(page.getByTestId('real-mu-readout')).toHaveText('0.35');
     await expect(page.getByTestId('point-readout')).toHaveText('0%');
     await expect(page.getByTestId('delta-readout')).toHaveText(/DR \+\d+ pts/);
@@ -77,11 +80,11 @@ test.describe('sim2real-transfer module', () => {
     await expect(page.getByTestId('real-mu-readout')).toHaveText('0.36');
 
     // Widen the randomization range: the DR peak drops.
-    await muSlider.fill('80');
+    await setSlider(muSlider, 80);
     const rangeSlider = page.getByRole('slider', {
       name: /randomization half-width/i,
     });
-    await rangeSlider.fill('65');
+    await setSlider(rangeSlider, 65);
     await expect(page.getByTestId('dr-readout')).toHaveText('57%');
 
     // Reset restores everything.
@@ -101,14 +104,23 @@ test.describe('sim2real-transfer module', () => {
     const slider = page.getByRole('slider', {
       name: /proprioceptive degradation/i,
     });
-    await slider.fill('0');
+    await setSlider(slider, 0);
     await expect(page.getByTestId('divergence-readout')).toHaveText('0.00');
-    await slider.fill('40');
-    const mid = await page.getByTestId('divergence-readout').textContent();
-    await slider.fill('90');
-    const high = await page.getByTestId('divergence-readout').textContent();
-    expect(Number(high)).toBeGreaterThan(Number(mid));
-    expect(Number(mid)).toBeGreaterThan(0);
+    // Relational reads poll until the derived readout reflects the new
+    // slider value instead of assuming the change flushed synchronously.
+    const readout = page.getByTestId('divergence-readout');
+    await setSlider(slider, 40);
+    await expect
+      .poll(async () => Number(await readout.textContent()))
+      .toBeGreaterThan(0);
+    const mid = Number(await readout.textContent());
+    await setSlider(slider, 90);
+    await expect
+      .poll(async () => Number(await readout.textContent()))
+      .toBeGreaterThan(mid);
+    const high = Number(await readout.textContent());
+    expect(high).toBeGreaterThan(mid);
+    expect(mid).toBeGreaterThan(0);
   });
 
   test('zero axe violations', async ({ page }) => {

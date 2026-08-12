@@ -23,6 +23,19 @@
  * rendering-based, not accessibility-based, and KaTeX's visual layer is
  * aria-hidden yet visibly rendered. KaTeX formulas therefore contribute
  * both copies, once each, which is what innerText reports.
+ *
+ * One refinement inside KaTeX: the two rendered layers tokenize
+ * differently under innerText. The clipped MathML layer (`.katex-mathml`
+ * is position:absolute at 1px, so every element wraps onto its own line)
+ * reports one token per mi/mo/mn, which a per-tag split already matches.
+ * The visual layer (`.katex-html`) is normal inline flow: innerText fuses
+ * runs of plain inline atom spans ("bel(x" is one token) and breaks only
+ * at the positioning boxes (vlist tables, script-size sizing blocks,
+ * accent bodies) that carry scripts, fractions and accents. A per-tag
+ * split there counted every glyph span separately and overcounted the
+ * math-heavy classical modules by up to ~160 words against Chromium
+ * innerText (classical/control, measured 2026-08-11), so inside
+ * `.katex-html` — and nowhere else — inline atom runs merge.
  */
 
 /**
@@ -130,28 +143,78 @@ function hiddenAtRest(tagName: string, attrs: string): boolean {
   return false;
 }
 
+/**
+ * KaTeX visual-layer classes whose spans are plain inline runs for
+ * innerText: the TeX atom types, delimiter sizings, array column
+ * wrappers, the per-segment `base` wrapper (one formula can stack several
+ * bases and innerText fuses straight across them), and the always-empty
+ * spacing/strut boxes. KaTeX always puts the atom type first in the class
+ * list (font and size classes follow), and TeX's atom taxonomy is closed,
+ * so matching the first token is stable. Both naming generations are
+ * listed: the site renders through rehype-katex's bundled katex 0.16
+ * (`base`, `strut`, `sizing`) while the top-level katex 0.18 prefixes
+ * them (`katex-base`, `katex-strut`, `katex-sizing`). Everything else
+ * inside `.katex-html` (vlist tables, sizing blocks, accent bodies, svg)
+ * separates words, mirroring the line breaks innerText emits for those
+ * positioning boxes.
+ */
+const KATEX_HTML_FUSE_CLASSES = new Set([
+  'mord',
+  'mbin',
+  'mrel',
+  'mopen',
+  'mclose',
+  'mpunct',
+  'minner',
+  'mop',
+  'delimsizing',
+  'col-align-c',
+  'col-align-l',
+  'col-align-r',
+  'mspace',
+  'strut',
+  'pstrut',
+  'base',
+  'katex-base',
+  'katex-strut',
+]);
+
+function classTokensOf(attrs: string): string[] {
+  const classMatch = /class\s*=\s*"([^"]*)"/.exec(attrs);
+  if (!classMatch) return [];
+  return classMatch[1].split(/\s+/).filter(Boolean);
+}
+
 interface Frame {
   name: string;
   skipped: boolean;
+  /** True for the `.katex-html` subtree root (KaTeX's visual layer). */
+  katexHtml: boolean;
+  /** Inside `.katex-html`: true when this element is a fused inline run. */
+  fuses: boolean;
 }
 
 /**
  * The visible text of an HTML fragment: what a reader sees at rest on a
  * desktop viewport. Input is expected to be well-formed rendered markup
  * (react-dom/server output); text outside any skipped subtree is kept,
- * every tag boundary separates words, entities are decoded.
+ * entities are decoded, and tag boundaries separate words — with one
+ * scoped exception: inside KaTeX's `.katex-html` visual layer, boundaries
+ * between fused inline runs (see KATEX_HTML_FUSE_CLASSES) do not
+ * separate, matching how innerText tokenizes that subtree.
  *
  * Splitting at each tag boundary deliberately mirrors how innerText reads
- * this site's prose: the text-bearing inline elements here (KaTeX glyph
- * spans, citation chips, table cells, buttons) are CSS inline-block/flex
- * boxes that innerText reports as separate runs. Measured per article
- * against Chromium innerText, this stays within the reading-time
- * tolerance; the e2e header spec re-checks every published page.
+ * this site's prose: the text-bearing inline elements here (citation
+ * chips, table cells, buttons) are CSS inline-block/flex boxes that
+ * innerText reports as separate runs. Measured per article against
+ * Chromium innerText, this stays within the reading-time tolerance; the
+ * e2e header spec re-checks every published page.
  */
 export function visibleTextInMarkup(markup: string): string {
   const parts: string[] = [];
   const stack: Frame[] = [];
   const skipping = () => stack.some((frame) => frame.skipped);
+  const inKatexHtml = () => stack.some((frame) => frame.katexHtml);
 
   let i = 0;
   const n = markup.length;
@@ -162,11 +225,11 @@ export function visibleTextInMarkup(markup: string): string {
       break;
     }
     if (lt > i && !skipping()) parts.push(markup.slice(i, lt));
-    // A tag boundary always separates words, even for skipped subtrees;
-    // extra whitespace is harmless to the count.
-    parts.push(' ');
 
     if (markup.startsWith('<!--', lt)) {
+      // A tag boundary always separates words, even for skipped subtrees;
+      // extra whitespace is harmless to the count.
+      parts.push(' ');
       const end = markup.indexOf('-->', lt + 4);
       i = end === -1 ? n : end + 3;
       continue;
@@ -180,31 +243,64 @@ export function visibleTextInMarkup(markup: string): string {
     const tag = markup.slice(lt + 1, gt);
     i = gt + 1;
 
-    if (tag.startsWith('!')) continue; // doctype, CDATA markers
+    if (tag.startsWith('!')) {
+      parts.push(' ');
+      continue; // doctype, CDATA markers
+    }
 
     if (tag.startsWith('/')) {
       const name = tag.slice(1).trim().toLowerCase();
+      let closed: Frame | undefined;
       for (let s = stack.length - 1; s >= 0; s -= 1) {
         if (stack[s].name === name) {
+          closed = stack[s];
           stack.splice(s, 1);
           break;
         }
       }
+      // Closing a fused inline run inside the KaTeX visual layer does not
+      // separate words; every other tag boundary does.
+      if (!(closed?.fuses && inKatexHtml())) parts.push(' ');
       continue;
     }
 
     const nameMatch = /^([a-zA-Z][a-zA-Z0-9-]*)/.exec(tag);
-    if (!nameMatch) continue;
+    if (!nameMatch) {
+      parts.push(' ');
+      continue;
+    }
     const name = nameMatch[1].toLowerCase();
     const attrs = tag.slice(nameMatch[0].length);
     const selfClosing = tag.endsWith('/') || VOID_ELEMENTS.has(name);
     const skipped = skipping() || hiddenAtRest(name, attrs);
+    const classTokens = classTokensOf(attrs);
+    const katexHtml = classTokens.includes('katex-html');
+    // A classless span nested directly inside a fused run is a KaTeX
+    // italic-correction kern wrapper (e.g. \log renders as "lo" + a
+    // margined "g" span): innerText fuses straight across it. Classless
+    // spans elsewhere in the visual layer are the vlist positioning
+    // boxes, which must keep separating.
+    const parent = stack[stack.length - 1];
+    const fuses =
+      KATEX_HTML_FUSE_CLASSES.has(classTokens[0] ?? '') ||
+      (name === 'span' &&
+        classTokens.length === 0 &&
+        inKatexHtml() &&
+        parent?.fuses === true);
+    // The `.katex-html` opening tag itself still separates (the formula's
+    // boundary with the surrounding prose): its frame is pushed after
+    // this decision, so inKatexHtml() is false for it here.
+    if (!inKatexHtml() || !fuses) parts.push(' ');
     if (!selfClosing) {
-      stack.push({ name, skipped });
+      stack.push({ name, skipped, katexHtml, fuses });
     }
   }
 
-  return parts.join(' ').replace(/\s+/g, ' ').trim();
+  // Join with no separator: every tag boundary that should separate words
+  // already pushed its own ' ' part above, so a join separator would
+  // re-split the inline runs the KaTeX fusion just merged. Whitespace is
+  // normalized afterwards either way.
+  return parts.join('').replace(/\s+/g, ' ').trim();
 }
 
 /** Whitespace-separated token count. */

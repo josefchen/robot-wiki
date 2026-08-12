@@ -1,0 +1,84 @@
+---
+title: "Generalization"
+description: "What the pi0.5 and pi0.7 results demonstrate and what they do not: the open-world gap, the EgoScale scaling law and its limits, and the solved bar no system currently meets."
+domain: frontier
+slug: generalization
+order: 3
+status: published
+lastReviewed: "2026-08-12"
+citations:
+  - pi05-2025
+  - pi07-2026
+  - pi07-blog-2026
+  - egoscale-2026
+  - isaac-gr00t-repo-2026
+  - gemini-robotics-2-2026
+  - open-x-embodiment-2023
+  - lin-data-scaling-laws-2024
+  - goldberg-data-gap-2025
+  - brooks-dexterity-2025
+  - karcini-position-2026
+  - bessemer-robotics-2026
+seeAlso:
+  - "manipulation/pi-line"
+  - "data-hardware/data-bottleneck"
+  - "manipulation/cross-embodiment"
+  - "frontier/reliability-gap"
+---
+
+import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
+
+A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id="distribution-shift">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="human video" value="20,854" note="hours, EgoScale pretraining" accent />
+  <Stat label="scaling law" value="R²=0.9983" note="log-linear, validation loss" />
+  <Stat label="best measured" value="0.71" note="task completion at 20k hours" />
+  <Stat label="solved bar" value="&gt;90%" note="on N unseen homes; unmet" />
+</div>
+
+## What pi0.5 demonstrated
+
+The π0.5 result of April 2025 is the reference point for open-world manipulation: a single end-to-end <Term id="vision-language-action-model">vision-language-action model</Term> cleaning kitchens and bedrooms in homes that were entirely absent from its training data <Cite id="pi05-2025" />. The evaluation behind that claim is worth reading precisely, because its shape defines what the result does and does not say. The final evaluation ran in three real homes, three kitchens and three bedrooms, with ten trials per task on chores like clearing dishes into a sink and packing items into a drawer, each episode spanning minutes <Cite id="pi05-2025" />.
+
+The training recipe explains where the generality comes from. Only about 400 hours of the mixture is mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else, meaning other robots, laboratory task data, web vision-language data, and semantic subtask prediction <Cite id="pi05-2025" />. The ablations show this transfer is essential rather than incremental: strip the non-action data and the open-world result disappears. The most informative control in the paper is a model trained directly on data from the test homes. It scores about the same as the 104-location model that never saw them, the strongest published evidence that broad co-training closes the generalization gap on this task set <Cite id="pi05-2025" />.
+
+One distinction does a lot of work here. Web-scale vision-language pretraining buys semantic generalization: the model knows what "the spatula" is even in a new kitchen. It does not by itself buy motor generalization: how to grasp that spatula, with this gripper, in this geometry. The first comes free with the backbone; the second is what the robot data is for, and it is the harder half of the problem.
+
+## What pi0.7 adds
+
+π0.7 (April 2026) pushes on two axes beyond π0.5, and the architecture behind it is covered in [The Pi Line](/manipulation/pi-line); what matters here is the shape of the claims.
+
+The first is compositional generalization: recombining trained skills into tasks that were never trained. The headline example is loading a sweet potato into an air fryer, an appliance task with no robot demonstrations in the training set. Physical Intelligence's own account of the zero-shot attempt is the honest one: the model "makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully" <Cite id="pi07-blog-2026" />. With step-by-step language coaching the robot completes the task, and the coaching transcripts then fine-tune a high-level policy that runs the task autonomously, with no additional <Term id="teleoperation">teleoperation</Term> data collected <Cite id="pi07-2026" />. Short-horizon compositional tasks do work outright: pressing a french-press plunger, scooping rice into a cooker.
+
+The second is <Term id="cross-embodiment">cross-embodiment</Term> transfer. π0.7 folds laundry on a bimanual UR5e, a robot that was never trained on any laundry-folding task, and reaches 85.6% task progress and 80% success. The comparison baseline is a panel of expert teleoperators attempting the same task on the UR5e for the first time, operators ranked in the top 2% by experience with a mean of 375 hours of it; they managed 90.9% progress and 80.6% success <Cite id="pi07-2026" />. The transfer is not mimicry. On the bag-packing task, teleoperators on the source robot hold the bag open with one arm while inserting with the other; π0.7 on the taller UR5e instead discovers a single-arm pick-and-place suited to its reach <Cite id="pi07-2026" />. DeepMind reports a complementary result for Gemini Robotics 2, which adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure <Cite id="gemini-robotics-2-2026" />.
+
+## What these results do not demonstrate
+
+The limits are as much a part of the papers as the results, and they deserve the same plain statement.
+
+First, the air fryer attempt does not finish the task without coaching. Compositional generalization in π0.7 is emergent but not reliable: the authors themselves describe only "early signs of compositional task generalization," and the completed-task videos are coached or post-trained on coaching transcripts <Cite id="pi07-blog-2026" /> <Cite id="pi07-2026" />. A capability that needs a human walking the robot through the task is real, and it is not autonomy.
+
+Second, nothing here demonstrates high reliability across the full distribution of homes. π0.5's headline evaluation is three homes and ten trials per task; that is evidence of a genuine capability, not of a reliable one, and the difference between the two is the subject of [The Reliability Gap](/frontier/reliability-gap) and the measurement problems in [The Evaluation Crisis](/data-hardware/evaluation-crisis). No published result shows a generalist policy sustaining better than 95% <Term id="success-rate">success</Term> across a broad task distribution in unseen environments.
+
+Third, semantic generalization is not motor generalization, and the evaluations lean semantic. Following an instruction about an unseen object in a seen category is a different measurement from manipulating an object whose physics are new, which is where the tactile and contact problems covered in [Dexterity](/frontier/dexterity) take over.
+
+Fourth, transfer has a shape. It works best when source and target share task structure, grasp, move, place, and the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it <Cite id="pi07-2026" />. Transfer across fundamentally different morphologies, a parallel gripper to a dexterous hand, remains limited.
+
+## The scaling evidence, and what it measures
+
+The strongest argument that the open-world gap will close with data is a scaling law. NVIDIA's EgoScale trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times prior efforts, and found that held-out human-video validation loss follows a clean log-linear law in data scale, $L = 0.024 - 0.003 \ln D$ with $D$ in thousands of hours, fit over five scales from 1k to 20k hours at $R^2 = 0.9983$ <Cite id="egoscale-2026" />. The law is not only an offline metric: downstream robot performance after post-training rises monotonically with pretraining scale, from 0.30 average task completion at 1k hours to 0.71 at 20k, and the full recipe improves average success rate by 54% over a no-pretraining baseline on a 22-DoF dexterous hand <Cite id="egoscale-2026" />. The same corpus is already load-bearing elsewhere: 20K hours of EgoScale video enter GR00T N1.7 pretraining directly through the shared relative end-effector space described in [Cross-Embodiment Transfer](/manipulation/cross-embodiment) <Cite id="isaac-gr00t-repo-2026" />.
+
+The interactive below plots the law over its measured range and lets you do the thing the paper declines to do: extrapolate. Dragging the horizon toward 100k or 1M hours extends both series as dashed lines inside a shaded band that brackets two scenarios, the law holding or a plateau at the last measured value.
+
+<EgoScaleScaling className="my-6" />
+
+Three properties of the chart deserve attention. The measured range ends at 20k hours; everything right of the boundary is inference, and the paper's authors say so explicitly. The band is a pair of scenarios, not a confidence interval: nobody has measured the variance of a 100k-hour run. And the completion fit crosses 100% near 250k hours, which is impossible, so the curve must bend somewhere; the only question the chart cannot answer is where. Above all, the law is fit to validation loss, a proxy that correlates with real-robot performance but is not a <Term id="success-rate">success rate</Term> measured across unseen environments. No one has published a scaling law for that metric.
+
+Whether the proxy law is enough is a live, named disagreement. The scaling camp points to exactly this chart: EgoScale's law with no saturation in the explored regime, π0.7's compositional generalization from a deliberately diverse mixture, and investor analysis from Bessemer arguing the capability curve is steep <Cite id="egoscale-2026" /> <Cite id="pi07-2026" /> <Cite id="bessemer-robotics-2026" />. The structure camp answers that robotics has no internet-scale physical data source and never will: Ken Goldberg frames the shortfall as a 100,000-year data gap and argues good old-fashioned engineering, not pure scaling, closes it <Cite id="goldberg-data-gap-2025" />. Rodney Brooks argues the missing ingredient is tactile sensing and engineered priors, not more video <Cite id="brooks-dexterity-2025" />, and Karcini and co-authors argue policy scaling alone misses architectural pillars entirely <Cite id="karcini-position-2026" />. The observation that would settle it is precise: a 10x or 100x increase in data, with no architectural change, producing proportional gains in real-world success rate across unseen environments, or failing to.
+
+## What solved would look like
+
+Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens rather than three, with no per-site data collection or fine-tuning, over a broad distribution of tasks, objects, and configurations, reported in a published and reproducible evaluation. No current system has been evaluated this way. The strongest open-world result on record covers three homes with ten trials per task, and the strongest scaling evidence measures a proxy loss, not real-world success.
+
+The chart above makes the distance concrete. The solved bar sits at 0.90 on the completion axis; the best measured point is 0.71, on a friendlier metric, after post-training, on tasks the evaluators chose. The optimistic extrapolation crosses the bar only near 111k hours of human video, five times past the end of the measured range, deep inside the region where the honest answer is that we do not know. That is the open-world gap in one picture: the field can now measure the slope of progress, and still cannot tell you how far the slope carries.

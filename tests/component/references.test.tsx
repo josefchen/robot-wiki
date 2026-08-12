@@ -54,10 +54,12 @@ describe('References', () => {
     expect(titleLink.getAttribute('rel') ?? '').toContain('noopener');
 
     // Full author list (long form), venue and year: the meta line is the
-    // registry data verbatim, in full, with nothing added.
+    // registry data verbatim, in full, with nothing added. dagger-2011's
+    // venue ("AISTATS 2011") already states the year, so the year renders
+    // once rather than as "AISTATS 2011, 2011.".
     const [meta, url] = within(item).getAllByRole('paragraph');
     expect(meta.textContent).toBe(
-      `${dagger.authors.join(', ')}, ${dagger.venue}, ${dagger.year}.`,
+      `${dagger.authors.join(', ')}, ${dagger.venue}.`,
     );
     expect(url.textContent).toBe(dagger.url);
   });

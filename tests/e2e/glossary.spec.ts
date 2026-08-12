@@ -11,12 +11,12 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 
 /**
  * Glossary and inline <Term> definitions (VAL-GLOSS-001 through VAL-GLOSS-011).
- * Verified against the shipped artifact: the static export served on :3201
- * (the validation surface per AGENTS.md), not the dev server.
+ * Verified against the shipped artifact: the static export served locally
+ * (an OS-assigned free port; see static-export-server.ts), not the dev
+ * server.
  */
 
-const PORT = 3201;
-const BASE = `http://localhost:${PORT}`;
+let BASE: string;
 
 // Articles carrying the demo markup: every seeded term id appears inline in
 // at least one of these (first-use sites only).
@@ -36,7 +36,8 @@ test.beforeAll(async () => {
     existsSync(join(outDir, 'index.html')),
     'out/ is missing or stale: run `npm run build` before the glossary spec',
   ).toBe(true);
-  server = await startStaticExportServer(outDir, PORT);
+  server = await startStaticExportServer(outDir);
+  BASE = `http://localhost:${server.port}`;
 });
 
 test.afterAll(async () => {

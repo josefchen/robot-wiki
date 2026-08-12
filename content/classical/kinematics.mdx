@@ -67,7 +67,7 @@ The arm below evaluates exactly that expression. Three revolute joints, each ang
 
 ## Denavit-Hartenberg parameters
 
-The transform product answers the question once the frames are fixed, but the frames still need assigning. Denavit and Hartenberg gave the standard answer in 1955 <Cite id="denavit-hartenberg-1955" />. Under their convention, exactly four scalars describe the geometry from one joint to the next. Two belong to the link: $a_i$, the distance between consecutive joint axes measured along their common normal, and $\alpha_i$, the twist angle between those axes. Two belong to the joint: $d_i$, the offset along the preceding axis, and $\theta_i$, the joint angle itself. For a revolute joint only $\theta_i$ varies; the other three are constants of the hardware.
+The transform product answers the question once the frames are fixed, but the frames still need assigning. Denavit and Hartenberg gave the standard answer in 1955 <Cite id="denavit-hartenberg-1955" />: the <Term id="denavit-hartenberg-parameters">Denavit-Hartenberg convention</Term>, under which exactly four scalars describe the geometry from one joint to the next. Two belong to the link: $a_i$, the distance between consecutive joint axes measured along their common normal, and $\alpha_i$, the twist angle between those axes. Two belong to the joint: $d_i$, the offset along the preceding axis, and $\theta_i$, the joint angle itself. For a revolute joint only $\theta_i$ varies; the other three are constants of the hardware.
 
 The per-joint transform is a fixed sequence of four elementary motions, rotation about $z$, translation along $z$, translation along $x$, rotation about $x$:
 

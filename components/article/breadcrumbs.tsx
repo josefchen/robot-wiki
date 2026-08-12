@@ -32,12 +32,15 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
         {items.map((item, index) => {
           const last = index === items.length - 1;
           return (
-            <li key={`${item.label}-${index}`} className="flex items-baseline gap-2">
-              {index > 0 ? (
-                <span aria-hidden="true" className="text-text-dim">
-                  /
-                </span>
-              ) : null}
+            // The separator TRAILS its crumb inside the same <li>: the
+            // wrapping <ol> can only break between <li> units, so the "/"
+            // can never be orphaned at the start of a continuation line
+            // at 375px. The trailing crumb carries no separator and its
+            // title text still wraps normally.
+            <li
+              key={`${item.label}-${index}`}
+              className="flex items-baseline gap-2"
+            >
               {item.href && !last ? (
                 <Link
                   href={item.href}
@@ -48,6 +51,11 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
               ) : (
                 <span className="text-text">{item.label}</span>
               )}
+              {!last ? (
+                <span aria-hidden="true" className="text-text-dim">
+                  /
+                </span>
+              ) : null}
             </li>
           );
         })}

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import katex from 'katex';
 import {
   WORDS_PER_MINUTE,
   countVisibleWords,
@@ -166,6 +167,83 @@ describe('countVisibleWords', () => {
   it('returns zero for empty markup', () => {
     expect(countVisibleWords('')).toBe(0);
     expect(countVisibleWords('<div><span></span></div>')).toBe(0);
+  });
+
+  it('merges inline atom runs inside the KaTeX visual layer (innerText parity)', () => {
+    // Real rehype-katex 0.18 output shape for bel(x_t). Chromium innerText
+    // reports the aria-hidden visual layer as four tokens ("bel(x", "t",
+    // ZWSP, ")"): plain inline atom spans fuse into runs, and only the
+    // script positioning boxes (vlist/sizing) break them. A per-tag split
+    // counts every glyph span separately and overcounts math-heavy prose.
+    const markup =
+      '<span class="katex">' +
+      '<span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>e</mi><mi>l</mi><mo>(</mo><msub><mi>x</mi><mi>t</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">bel(x_t)</annotation></semantics></math></span>' +
+      '<span class="katex-html" aria-hidden="true"><span class="base">' +
+      '<span class="strut" style="height:1em"></span>' +
+      '<span class="mord mathnormal">b</span>' +
+      '<span class="mord mathnormal">e</span>' +
+      '<span class="mord mathnormal" style="margin-right:0.0197em">l</span>' +
+      '<span class="mopen">(</span>' +
+      '<span class="mord"><span class="mord mathnormal">x</span>' +
+      '<span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r">' +
+      '<span class="vlist" style="height:0.2806em"><span style="top:-2.55em">' +
+      '<span class="pstrut" style="height:2.7em"></span>' +
+      '<span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span>' +
+      '</span><span class="vlist-s">​</span></span></span>' +
+      '<span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span>' +
+      '</span></span></span>' +
+      '<span class="mclose">)</span>' +
+      '</span></span></span>';
+    // MathML layer: 7 tokens (one per mi/mo, annotation skipped).
+    // Visual layer: 4 tokens ("bel(x", "t", ZWSP, ")").
+    expect(countVisibleWords(markup)).toBe(11);
+  });
+
+  it('scopes inline-run merging to .katex-html subtrees only', () => {
+    // Identical atom-class markup outside a KaTeX visual layer keeps the
+    // walker's default per-tag split: non-math text handling is untouched.
+    expect(
+      countVisibleWords('<p><span class="mord">a</span><span class="mord">b</span></p>'),
+    ).toBe(2);
+    expect(
+      countVisibleWords(
+        '<span class="katex"><span class="katex-html" aria-hidden="true">' +
+          '<span class="base"><span class="mord">a</span><span class="mord">b</span></span>' +
+          '</span></span>',
+      ),
+    ).toBe(1);
+  });
+
+  it('matches Chromium innerText token counts across representative formulas', () => {
+    // Ground truth measured in headless Chromium (2026-08-11) by rendering
+    // each formula with katex.renderToString (the same call rehype-katex
+    // makes) and tokenizing the element's innerText. The walker must agree
+    // with the browser it approximates.
+    const cases: [string, number][] = [
+      ['bel(x_t)', 11],
+      ['x^{2}', 4],
+      ['T_0^n(q)', 11],
+      ['\\frac{a}{b}', 5],
+      ['c + \\frac{a_i}{b_i} + d', 17],
+      ['\\sqrt{x + 1}', 5],
+      ['\\sum_{k=0}^{N-1} x_k', 16],
+      ['\\min_{u} f(x, u)', 13],
+      ['x \\text{ if } y', 6],
+      ['\\mathrm{d}q', 3],
+      ['\\left( \\frac{p}{q} \\right)', 9],
+      ['\\ddot{q} + \\hat{x}', 11],
+      ['\\begin{bmatrix} R & p \\\\ 0 & 1 \\end{bmatrix}', 14],
+      ['\\int p(x_t \\mid u_t) \\, dx_t', 21],
+      ['\\mathbf{F} \\Sigma \\mathbf{F}^\\top', 6],
+      ['\\dot{q} = J(q)^{-1} v', 16],
+    ];
+    for (const [tex, innerTextTokens] of cases) {
+      const markup = katex.renderToString(tex, {
+        displayMode: false,
+        throwOnError: true,
+      });
+      expect(countVisibleWords(markup), `formula ${tex}`).toBe(innerTextTokens);
+    }
   });
 });
 

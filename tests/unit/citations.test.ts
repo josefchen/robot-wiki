@@ -82,4 +82,42 @@ describe('citation registry', () => {
     expect(meta).toContain('et al.');
     expect(meta).not.toContain('E Five');
   });
+
+  it('citationMeta renders the year once when the venue already states it', () => {
+    // act-aloha-2023: venue "RSS 2023", year 2023. The meta line must read
+    // "..., RSS 2023." rather than "..., RSS 2023, 2023.".
+    const zhao = getCitation('act-aloha-2023');
+    expect(zhao).toBeDefined();
+    const meta = citationMeta(zhao!);
+    expect(meta).toContain('RSS 2023');
+    expect(meta.match(/2023/g)).toHaveLength(1);
+  });
+
+  it('citationMeta keeps both years when the venue year differs from the entry year', () => {
+    // A paper published at a later venue ("RSS 2025" with year 2024)
+    // renders both years: dropping the entry year would lose information.
+    const meta = citationMeta({
+      id: 'x',
+      title: 't',
+      authors: ['A One'],
+      year: 2024,
+      venue: 'RSS 2025',
+      url: 'https://example.com',
+      type: 'paper',
+    });
+    expect(meta).toBe('A One, RSS 2025, 2024');
+  });
+
+  it('citationMeta keeps the trailing year when the venue has none', () => {
+    const meta = citationMeta({
+      id: 'x',
+      title: 't',
+      authors: ['A One'],
+      year: 2024,
+      venue: 'Science Robotics',
+      url: 'https://example.com',
+      type: 'paper',
+    });
+    expect(meta).toBe('A One, Science Robotics, 2024');
+  });
 });

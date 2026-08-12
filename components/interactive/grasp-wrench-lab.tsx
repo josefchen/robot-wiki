@@ -142,7 +142,10 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           htmlFor="grasp-mu"
           className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
         >
-          μ friction coefficient
+          <span>
+            <span className="normal-case tracking-normal">μ</span> friction
+            coefficient
+          </span>
           <span
             className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
             data-testid="grasp-mu-value"

@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { CORE_DOMAINS } from '../../data/domains';
 
 /**
  * Structural contract for the restructured home page (2026-08-10). Encodes
@@ -139,6 +140,37 @@ test.describe('home page', () => {
       expect(fullyBordered, 'index row must not be a bordered card').toBe(
         false,
       );
+    }
+  });
+
+  test('the six core domain entries click through to real domain pages (VAL-NAV-003)', async ({
+    page,
+  }) => {
+    // The index rows being links is necessary but not sufficient: a wrong
+    // href would ship green without following them. Each core entry is
+    // clicked; the destination URL must carry the domain segment, serve
+    // HTTP 200, and render the domain landing's own content rather than
+    // the 404 shell.
+    const core = DOMAIN_ENTRIES.filter(([, href]) =>
+      (CORE_DOMAINS as readonly string[]).includes(href.replaceAll('/', '')),
+    );
+    expect(core, 'DOMAIN_ENTRIES covers every core domain').toHaveLength(6);
+    for (const [name, href] of core) {
+      await test.step(`${name} -> ${href}`, async () => {
+        await page.goto('/');
+        const index = page.getByRole('region', { name: /domain index/i });
+        await index.getByRole('link', { name, exact: true }).click();
+        const segment = href.replaceAll('/', '');
+        await expect(page).toHaveURL(new RegExp(`/${segment}/?$`));
+        // Real content, not the 404 shell ("Page not found"): the domain
+        // landing's own h1 and description prose.
+        await expect(
+          page.getByRole('heading', { level: 1, name }),
+        ).toBeVisible();
+        const response = await page.reload();
+        expect(response, `main resource for ${href}`).not.toBeNull();
+        expect(response!.ok(), `${href} serves HTTP 200`).toBe(true);
+      });
     }
   });
 

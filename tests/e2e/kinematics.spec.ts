@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/classical/kinematics/';
 
@@ -23,27 +24,10 @@ function collectPageErrors(page: Page): string[] {
 }
 
 /**
- * Set a range slider's value deterministically. Playwright's fill() assigns
- * the value through the element's own (React-tracked) setter, so React's
- * change detection can swallow the dispatched event and the handler never
- * fires; going through the prototype setter leaves the tracker behind and
- * always delivers the input event.
+ * Range sliders are driven through the shared setSlider helper
+ * (tests/e2e/slider.ts): fill() can leave React's change tracking one
+ * event behind under load (quirk 9).
  */
-async function setSlider(
-  slider: import('@playwright/test').Locator,
-  value: number,
-): Promise<void> {
-  await slider.focus();
-  await slider.evaluate((el, next) => {
-    const setter = Object.getOwnPropertyDescriptor(
-      HTMLInputElement.prototype,
-      'value',
-    )?.set;
-    setter?.call(el, String(next));
-    el.dispatchEvent(new Event('input', { bubbles: true }));
-    el.dispatchEvent(new Event('change', { bubbles: true }));
-  }, value);
-}
 
 /**
  * The article's visible text. KaTeX keeps the original TeX source inside a
@@ -258,6 +242,24 @@ test.describe('classical kinematics module', () => {
     const sliders = page.getByRole('slider', { name: /joint angle, degrees/ });
     expect(await sliders.count()).toBeGreaterThanOrEqual(6);
     expect(errors).toEqual([]);
+  });
+
+  test('DH table headers keep the parameter glyphs in their written case', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const table = page.getByRole('table', { name: /Denavit-Hartenberg/i });
+    // innerText reflects the RENDERED text (the header row's uppercase
+    // transform applied). The prose header follows the convention; the four
+    // DH parameters are mathematical notation and must not be case-folded:
+    // pre-fix θi rendered as ΘI, and the ai and αi columns were visually
+    // indistinguishable ("AI" next to "ΑΙ").
+    const rendered = await table
+      .locator('thead th')
+      .evaluateAll((nodes) =>
+        nodes.map((n) => (n as HTMLElement).innerText),
+      );
+    expect(rendered).toEqual(['JOINT I', 'θi', 'di', 'ai', 'αi']);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

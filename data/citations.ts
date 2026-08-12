@@ -577,6 +577,16 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
+    // Blog twin of pi07-2026; the air-fryer "reasonable attempt, part of the
+    // task, not finished fully" passage appears in the blog text, not the PDF.
+    id: 'pi07-blog-2026',
+    title: 'π0.7: a Steerable Model with Emergent Capabilities',
+    authors: ['Physical Intelligence'],
+    year: 2026,
+    url: 'https://www.pi.website/blog/pi07',
+    type: 'blog',
+  },
+  {
     id: 'openpi-repo-2024',
     title: 'openpi',
     authors: ['Physical Intelligence'],
@@ -3571,6 +3581,507 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/1703.09312',
     type: 'paper',
   },
+  {
+    id: 'rl-100-2025',
+    title:
+      'RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning',
+    authors: [
+      'Kun Lei',
+      'Huanyu Li',
+      'Dongjie Yu',
+      'Zhenyu Wei',
+      'Lingxiao Guo',
+      'Zhennan Jiang',
+      'Ziyu Wang',
+      'Shiyu Liang',
+      'Huazhe Xu',
+    ],
+    year: 2025,
+    arxiv: '2510.14830',
+    url: 'https://arxiv.org/abs/2510.14830',
+    type: 'paper',
+  },
+  {
+    // Investor analysis; carries the Lisa Yan reliability-gap quote and the
+    // 80%-to-99.9% framing this module anchors on.
+    id: 'bessemer-robotics-2026',
+    title: 'Bessemer Predicts: Robotics and physical AI',
+    authors: ['Bessemer Venture Partners'],
+    year: 2026,
+    url: 'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
+    type: 'blog',
+  },
+  {
+    // Press source: the deployment figures cross-check company statements,
+    // earnings calls, and filings; no first-party aggregate of verified
+    // humanoid deployment hours exists.
+    id: 'technology-org-deployed-2026',
+    title: 'Humanoid Robots in 2026: What Is Actually Deployed',
+    authors: ['Alius Noreika'],
+    year: 2026,
+    url: 'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/',
+    type: 'press',
+  },
+  {
+    // Dataset/evaluation harness page; no arXiv id as of 2026-08.
+    id: 'asimov-agentic-2026',
+    title: 'Asimov Agentic Safety Evaluation',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    url: 'https://huggingface.co/datasets/google/asimov_agentic',
+    type: 'docs',
+  },
+  {
+    // Press report of a vendor livestream; Figure published no technical
+    // writeup of the eight-hour shift itself.
+    id: 'figure-8hr-shift-2026',
+    title:
+      "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
+    authors: ['Kyle Belmonte'],
+    year: 2026,
+    url: 'https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots',
+    type: 'press',
+  },
+  {
+    // Verified against the live essay (2026-08-12): the Johansson
+    // match-lighting videos (seven seconds with touch, four times as long
+    // with fingertips anesthetized), the 17,000-mechanoreceptor figure, and
+    // the Figure/Tesla vision-only training critique quoting eWeek.
+    id: 'brooks-dexterity-2025',
+    title: "Why Today's Humanoids Won't Learn Dexterity",
+    authors: ['Rodney Brooks'],
+    year: 2025,
+    url: 'https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/',
+    type: 'blog',
+  },
+  {
+    // Perspective on Johansson & Vallbo's work; the source Brooks cites for
+    // ~17,000 low-threshold mechanoreceptors per human hand, ~1,000 at each
+    // fingertip. Wiley bot-walls direct fetches; verified through Crossref
+    // content negotiation (2026-08-12).
+    id: 'macefield-touch-2022',
+    title: 'Why is our sense of touch so good at our fingertips?',
+    authors: ['Vaughan G. Macefield'],
+    year: 2022,
+    venue: 'The Journal of Physiology',
+    url: 'https://doi.org/10.1113/JP282846',
+    type: 'paper',
+  },
+  {
+    // Science Robotics editorial; the "100,000-year data gap" framing and
+    // the good-old-fashioned-engineering counterproposal. Science bot-walls
+    // direct fetches; title, author, and date verified through Crossref
+    // metadata (2026-08-12).
+    id: 'goldberg-data-gap-2025',
+    title:
+      'Good old-fashioned engineering can close the 100,000-year "data gap" in robotics',
+    authors: ['Ken Goldberg'],
+    year: 2025,
+    venue: 'Science Robotics',
+    url: 'https://doi.org/10.1126/scirobotics.aea7390',
+    type: 'paper',
+  },
+  {
+    // Position paper; the "missing pillars" critique of policy-scaling-only
+    // approaches. Title and author list verified against the live arXiv
+    // abstract page (2026-08-12).
+    id: 'karcini-position-2026',
+    title: 'Robots Need More than VLA and World Models',
+    authors: [
+      'Elis Karcini',
+      'Faisal Mehrban',
+      'Quang Nguyen',
+      'Mac Schwager',
+      'Arash Ajoudani',
+      'Cesar Cadena',
+      'Jan Peters',
+      'Marco Hutter',
+      'Haitham Bou-Ammar',
+    ],
+    year: 2026,
+    arxiv: '2606.06556',
+    url: 'https://arxiv.org/abs/2606.06556',
+    type: 'paper',
+  },
+  {
+    // Brooks's rebuttal to Sutton, published the following week (March
+    // 2019). Verified against the live page (2026-08-12): CNN front ends
+    // as engineered priors, the traffic-sign example, and the
+    // total-cost-of-solution counterargument.
+    id: 'brooks-better-lesson-2019',
+    title: 'A Better Lesson',
+    authors: ['Rodney Brooks'],
+    year: 2019,
+    url: 'https://rodneybrooks.com/a-better-lesson/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live arXiv abstract page (2026-08-12): coding
+    // agents running a reset-execute-verify-refine loop reach 99% success
+    // on dexterous tasks (pin-box organizing, zip tie, tool use), faster
+    // with a robot fleet.
+    id: 'enpire-2026',
+    title: 'ENPIRE: Agentic Robot Policy Self-Improvement in the Real World',
+    authors: [
+      'Wenli Xiao',
+      'Jia Xie',
+      'Tonghe Zhang',
+      'Haotian Lin',
+      'Letian Fu',
+      'Haoru Xue',
+      'Jalen Lu',
+      'Yi Yang',
+      'Cunxi Dai',
+      'Zi Wang',
+      'Jimmy Wu',
+      'Guanzhi Wang',
+      'S. Shankar Sastry',
+      'Ken Goldberg',
+      'Linxi Fan',
+      'Yuke Zhu',
+      'Guanya Shi',
+    ],
+    year: 2026,
+    arxiv: '2606.19980',
+    url: 'https://arxiv.org/abs/2606.19980',
+    type: 'paper',
+  },
+  {
+    // Model page, verified against the live page (2026-08-12): ER 2 is
+    // "a high-level brain for robots" that plans multi-step tasks and
+    // hands motor execution to a lower-level VLA.
+    id: 'gemini-robotics-er2-2026',
+    title: 'Gemini Robotics ER 2',
+    authors: ['Google DeepMind'],
+    year: 2026,
+    url: 'https://deepmind.google/models/gemini-robotics/embodied-reasoning/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live post (2026-08-12): the fifteen Robot
+    // Olympics tasks, the four limitations of learning-from-demonstration
+    // (no wrist force feedback, limited finger control, no sense of touch,
+    // 1-3 cm precision), and footnote 3 on Optimus's 22-DoF cable-driven
+    // hand.
+    id: 'holson-olympics-2025',
+    title: "Benjie's Humanoid Olympic Games",
+    authors: ['Benjie Holson'],
+    year: 2025,
+    url: 'https://generalrobots.substack.com/p/benjies-humanoid-olympic-games',
+    type: 'blog',
+  },
+  {
+    // First-party release, verified 2026-08-12: "4th generation hands ...
+    // 16 degrees of freedom and human-equivalent strength".
+    id: 'figure-02-2024',
+    title:
+      'Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics',
+    authors: ['Figure AI'],
+    year: 2024,
+    url: 'https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live post (2026-08-12): Helix trained on 100%
+    // egocentric human video with no robot demonstrations; Brookfield
+    // partnership for internet-scale pretraining data.
+    id: 'figure-go-big-2025',
+    title:
+      'Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer',
+    authors: ['Figure AI'],
+    year: 2025,
+    url: 'https://www.figure.ai/news/project-go-big',
+    type: 'blog',
+  },
+  {
+    // First-party PR, verified 2026-08-12: 21-DoF hydraulic hands,
+    // miniaturized valves tested past two billion cycles, zero-shot
+    // in-hand manipulation demo.
+    id: 'sanctuary-inhand-2024',
+    title:
+      'Sanctuary AI Demonstrates In-Hand Manipulation Capabilities for Improved General Purpose Robot Dexterity',
+    authors: ['Sanctuary AI'],
+    year: 2024,
+    url: 'https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/',
+    type: 'press',
+  },
+  {
+    // First-party PR, verified 2026-08-12: tactile sensor integration into
+    // Phoenix, with the Wells and Fishel quotes on why vision alone is not
+    // enough. The 5 mN sensitivity figure itself is not stated here; it is
+    // documented by the RoboZaps review (robozaps-phoenix-2026).
+    id: 'sanctuary-tactile-2025',
+    title:
+      'Sanctuary AI Equips General Purpose Robots with New Touch Sensors for Performing Highly Dexterous Tasks',
+    authors: ['Sanctuary AI'],
+    year: 2025,
+    url: 'https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/',
+    type: 'press',
+  },
+  {
+    // Vendor engineering blog, verified 2026-08-12: sim-trained in-hand
+    // reorientation policy executed in the real world against gravity with
+    // a 500 g added load. Vendor-run result; labeled as such in prose.
+    id: 'sanctuary-hydraulic-rl-2025',
+    title:
+      'Sanctuary AI Leads the Industry in Controlling Advanced Hydraulic Hands Using Reinforcement Learning',
+    authors: ['Sanctuary AI'],
+    year: 2025,
+    url: 'https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live product page (2026-08-12): 20 actuated DoF
+    // plus 4 under-actuated movements (24 joints), 20 DC motors, tendon
+    // driven, 100+ sensors at up to 1 kHz, two Shadow Tactile Fingertips
+    // fitted as standard, 4.3 kg.
+    id: 'shadow-dexterous-hand-2026',
+    title: 'Shadow Dexterous Hand Series',
+    authors: ['Shadow Robot'],
+    year: 2026,
+    url: 'https://shadowrobot.com/dexterous-hand-series/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live post (2026-08-12): "the price for the full
+    // Shadow Hand Plus today is ... EUR 110k including shipping,
+    // installation, training and support".
+    id: 'shadow-hand-cost-2022',
+    title: 'How Much does a Robot Hand Cost?',
+    authors: ['Shadow Robot'],
+    year: 2022,
+    url: 'https://shadowrobot.com/how-much-does-a-robot-hand-cost/',
+    type: 'blog',
+  },
+  {
+    // Patent analysis, verified 2026-08-12: WO2026080687 describes a
+    // tendon-driven hand with forearm actuators, ~4 DoF per finger, 2 wrist
+    // DoF, three tendons per finger, 22 DoF in the hand as Teslarati
+    // describes the V3 configuration; the post also documents Musk's
+    // April 19, 2026 "this one didn't actually work" design change.
+    id: 'droids-optimus-v3-hand-2026',
+    title:
+      "The Forearm Is the New Hand: Inside Tesla's Optimus V3 Patents",
+    authors: ['Diana Wolf Torres', 'Alexander W. Torres'],
+    year: 2026,
+    url: 'https://droids.substack.com/p/the-forearm-is-the-new-hand-inside',
+    type: 'blog',
+  },
+  {
+    // Specialist aggregator review, verified 2026-08-12: documents the
+    // 21-DoF-per-hand figure (correcting the stale 20-DoF total), the
+    // ~5 mN micro-barometer tactile arrays, and Sanctuary's June 2026
+    // pivot. Used because no first-party page states the 5 mN figure.
+    id: 'robozaps-phoenix-2026',
+    title: 'Sanctuary AI Phoenix 2026: Price, Is It For Sale & What It Is',
+    authors: ['RoboZaps'],
+    year: 2026,
+    url: 'https://blog.robozaps.com/b/sanctuary-ai-phoenix-review',
+    type: 'press',
+  },
+  {
+    // Specialist aggregator review, verified 2026-08-12: $29,900 China list
+    // price re-checked against Unitree's store on 2026-07-17, base model
+    // ships with non-functional placeholder hands, Dex5 hands are paid
+    // add-ons, H2 Plus at $100,000 with Sharpa Wave tactile hands.
+    id: 'robozaps-unitree-h2-2026',
+    title: 'Unitree H2 Humanoid Robot: $29,900 Price, Specs, vs H1 (2026)',
+    authors: ['RoboZaps'],
+    year: 2026,
+    url: 'https://blog.robozaps.com/b/unitree-h2-review',
+    type: 'press',
+  },
+  {
+    // Tertiary aggregator. Used only for the Dex5-1 five-finger option's
+    // ~10-12 DoF range, which Unitree does not publish; the underlying
+    // references were spot-checked 2026-08-12.
+    id: 'wikipedia-humanoid-hand-2026',
+    title: 'Humanoid hand',
+    authors: ['Wikipedia'],
+    year: 2026,
+    url: 'https://en.wikipedia.org/wiki/Humanoid_hand',
+    type: 'docs',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-12): ~1M contact-rich
+    // interactions on Digit 360; +63% policy success over an end-to-end
+    // tactile-image model.
+    id: 'sparsh-x-2025',
+    title:
+      'Tactile Beyond Pixels: Multisensory Touch Representations for Robot Manipulation',
+    authors: [
+      'Carolina Higuera',
+      'Akash Sharma',
+      'Taosha Fan',
+      'Chaithanya Krishna Bodduluri',
+      'Byron Boots',
+      'Michael Kaess',
+      'Mike Lambeta',
+      'Tingfan Wu',
+      'Zixi Liu',
+      'Francois Robert Hogan',
+      'Mustafa Mukadam',
+    ],
+    year: 2025,
+    arxiv: '2506.14754',
+    url: 'https://arxiv.org/abs/2506.14754',
+    type: 'paper',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-12): 65.0% clean / 53.7%
+    // perturbed success across six contact-rich tasks, +15.7/+18.5 points
+    // over the strongest baseline.
+    id: 'touchworld-2026',
+    title:
+      'TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation',
+    authors: [
+      'Jianyi Zhou',
+      'Feiyang Hong',
+      'Yunhao Li',
+      'Yicheng Zhao',
+      'Yongjue Cen',
+      'Zirui Liu',
+      'Jiakang Huang',
+      'Zirui Chen',
+      'Ruiyang Zhang',
+      'Weizhuo Zhu',
+      'Xuhua Song',
+      'Shuo Yang',
+    ],
+    year: 2026,
+    arxiv: '2607.07287',
+    url: 'https://arxiv.org/abs/2607.07287',
+    type: 'paper',
+  },
+  {
+    // Verified against the live post (2026-08-12): pi0.6 fine-tuned on
+    // Holson's Robot Olympics tasks; gold in 3 of 5 categories, 52%
+    // average success, 72% task progress, under 9 hours of data per task,
+    // VLM baseline at 9% progress.
+    id: 'pi-olympics-2025',
+    title: "Moravec's Paradox and the Robot Olympics",
+    authors: ['Physical Intelligence'],
+    year: 2025,
+    url: 'https://www.pi.website/blog/olympics',
+    type: 'blog',
+  },
+  {
+    // Verified against the live scorecard (2026-08-12): "Deployable
+    // dexterity will remain pathetic compared to human hands beyond 2036"
+    // and the prediction that walking humanoids stay too unsafe for close
+    // proximity to humans without new mechanical systems.
+    id: 'brooks-scorecard-2026',
+    title: 'Predictions Scorecard, 2026 January 01',
+    authors: ['Rodney Brooks'],
+    year: 2026,
+    url: 'https://rodneybrooks.com/predictions-scorecard-2026-january-01/',
+    type: 'blog',
+  },
+  {
+    // Press report of a Morgan Stanley research note; no first-party
+    // publication of the note itself. Verified against the live article
+    // (2026-08-12): the "social license to deploy" and "tangible evidence
+    // of real-world return on investment" quotes, the retained 50,000-unit
+    // China shipment target, and the US import ban raising R&D costs.
+    id: 'morgan-stanley-pr-problem-2026',
+    title:
+      "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
+    authors: ['Joseph Wilkins'],
+    year: 2026,
+    venue: 'CNBC',
+    url: 'https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html',
+    type: 'press',
+  },
+  {
+    // Press source for the on-stage collapse; no first-party incident
+    // report exists. Verified against the live article (2026-08-12): the
+    // Qualcomm Dragonwing IQ10 humanoid fell face-first during the
+    // Computex 2026 keynote, attributed to a communication glitch, and was
+    // covered and carried off stage.
+    id: 'computex-collapse-2026',
+    title: 'Watch: Qualcomm-powered humanoid robot collapses during live keynote',
+    authors: ['Jijo Malayil'],
+    year: 2026,
+    venue: 'Interesting Engineering',
+    url: 'https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse',
+    type: 'press',
+  },
+  {
+    // Press writeup of PitchBook funding data; the broad tally. Verified
+    // against the live article (2026-08-12): more than $23B raised
+    // globally in 2026 by early June, closing in on the $26B raised in
+    // all of 2025.
+    id: 'robotics-funding-23b-2026',
+    title: 'Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025',
+    authors: ['Andre Savage'],
+    year: 2026,
+    venue: 'Market Briefs',
+    url: 'https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/',
+    type: 'press',
+  },
+  {
+    // Press writeup of Crunchbase venture data; the narrower tally.
+    // Verified against the live article (2026-08-12): $18.8B raised in
+    // 2026 to date against $15B in all of 2025 and the $14.1B 2021 peak.
+    id: 'crunchbase-robotics-funding-2026',
+    title:
+      'Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges To Record Numbers In 2026',
+    authors: ['Mary Ann Azevedo'],
+    year: 2026,
+    venue: 'Crunchbase News',
+    url: 'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
+    type: 'press',
+  },
+  {
+    // Press source for the Q1 2026 earnings move; Unitree's own filing
+    // figures were not publicly itemized at writing. Title verified
+    // against the live article (2026-08-12).
+    id: 'unitree-profit-2026',
+    title:
+      'Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale',
+    authors: ['Mireya Ramsey'],
+    year: 2026,
+    venue: 'TechTimes',
+    url: 'https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm',
+    type: 'press',
+  },
+  {
+    // Verified against the arXiv abs page (2026-08-12): a global
+    // benchmarking infrastructure with standardized hardware kits and two
+    // tracks, Physical Skills and Embodied Reasoning; 23 authors.
+    id: 'manipulationnet-2026',
+    title:
+      'ManipulationNet: An Infrastructure for Benchmarking Real-World Robot Manipulation with Physical Skill Challenges and Embodied Multimodal Reasoning',
+    authors: [
+      'Yiting Chen',
+      'Kenneth Kimble',
+      'Edward H. Adelson',
+      'Tamim Asfour',
+      'Podshara Chanrungmaneekul',
+      'Sachin Chitta',
+      'Yash Chitambar',
+      'Ziyang Chen',
+      'Ken Goldberg',
+      'Danica Kragic',
+      'Hui Li',
+      'Xiang Li',
+      'Yunzhu Li',
+      'Aaron Prather',
+      'Nancy Pollard',
+      'Maximo A. Roa-Garzon',
+      'Robert Seney',
+      'Shuo Sha',
+      'Shihefeng Wang',
+      'Yu Xiang',
+      'Kaifeng Zhang',
+      'Yuke Zhu',
+      'Kaiyu Hang',
+    ],
+    year: 2026,
+    arxiv: '2603.04363',
+    url: 'https://arxiv.org/abs/2603.04363',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -3604,6 +4115,7 @@ const ORG_TOKENS = new Set([
   'Meta',
   'Toyota',
   'Figure',
+  'Partners',
 ]);
 
 export function citationLabel(citation: Citation): string {
@@ -3614,10 +4126,23 @@ export function citationLabel(citation: Citation): string {
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }
 
+/**
+ * True when the venue string already states the entry's year ("RSS 2023"
+ * with year 2023). Renderers use this to print the year once instead of
+ * duplicating it ("..., RSS 2023." rather than "..., RSS 2023, 2023.").
+ * A venue whose year differs from the entry year ("RSS 2025" with year
+ * 2024, a paper published at a later venue) renders both, which is
+ * informative, and a venue without a year keeps the trailing year.
+ */
+export function venueStatesYear(citation: Citation): boolean {
+  return citation.venue?.includes(String(citation.year)) ?? false;
+}
+
 /** Tooltip metadata line: up to three authors, then venue and year. */
 export function citationMeta(citation: Citation): string {
   const shown = citation.authors.slice(0, 3);
   const suffix = citation.authors.length > 3 ? ' et al.' : '';
   const where = citation.venue ? `, ${citation.venue}` : '';
-  return `${shown.join(', ')}${suffix}${where}, ${citation.year}`;
+  const when = venueStatesYear(citation) ? '' : `, ${citation.year}`;
+  return `${shown.join(', ')}${suffix}${where}${when}`;
 }

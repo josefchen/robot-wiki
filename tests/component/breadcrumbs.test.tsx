@@ -13,9 +13,11 @@ import {
  * is the non-linked trailing crumb.
  */
 
+// The visual trail uses the same trailing-slash hrefs as the BreadcrumbList
+// structured data (consistency nit, rebrand-wiki scrutiny).
 const ARTICLE_TRAIL: BreadcrumbItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Manipulation & Learned Policies', href: '/manipulation' },
+  { label: 'Manipulation & Learned Policies', href: '/manipulation/' },
   { label: 'Action Chunking (ACT and ALOHA)' },
 ];
 
@@ -36,6 +38,10 @@ describe('Breadcrumbs', () => {
     const domain = within(nav).getByRole('link', {
       name: 'Manipulation & Learned Policies',
     });
+    // next/link strips the trailing slash when rendering the anchor in
+    // dev/jsdom; the source href is '/manipulation/' (matching the
+    // BreadcrumbList JSON-LD) and the static export keeps the slash, which
+    // is what the e2e breadcrumb spec asserts.
     expect(domain).toHaveAttribute('href', '/manipulation');
 
     // The trailing crumb is plain text, never a link.
@@ -57,6 +63,19 @@ describe('Breadcrumbs', () => {
     for (const sep of separators) {
       expect(sep.textContent).toBe('/');
     }
+  });
+
+  it('trails each separator after its crumb so a wrap never orphans it', () => {
+    render(<Breadcrumbs items={ARTICLE_TRAIL} />);
+    const nav = screen.getByRole('navigation', { name: 'Breadcrumb' });
+    const items = within(nav).getAllByRole('listitem');
+    // Each non-trailing <li> is "crumb /": the separator is the unit's LAST
+    // element, so when the trail wraps at 375px the break can only fall
+    // between units and the "/" can never begin a continuation line.
+    expect(items).toHaveLength(3);
+    expect(items[0].textContent).toBe('Home/');
+    expect(items[1].textContent).toBe('Manipulation & Learned Policies/');
+    expect(items[2].textContent).toBe('Action Chunking (ACT and ALOHA)');
   });
 
   it('supports a two-level trail for the domain landing pages', () => {

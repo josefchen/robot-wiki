@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { setSlider } from './slider';
 
 const ROUTE = '/data-hardware/evaluation-crisis/';
 
@@ -16,27 +17,10 @@ async function readoutValue(page: import('@playwright/test').Page): Promise<numb
 }
 
 /**
- * Set a range slider's value deterministically. Playwright's fill() assigns
- * the value through the element's own (React-tracked) setter, so React's
- * change detection can swallow the dispatched event and the handler never
- * fires; going through the prototype setter leaves the tracker behind and
- * always delivers the input event.
+ * Range sliders are driven through the shared setSlider helper
+ * (tests/e2e/slider.ts): fill() can leave React's change tracking one
+ * event behind under load (quirk 9).
  */
-async function setSlider(
-  slider: import('@playwright/test').Locator,
-  value: number,
-): Promise<void> {
-  await slider.focus();
-  await slider.evaluate((el, next) => {
-    const setter = Object.getOwnPropertyDescriptor(
-      HTMLInputElement.prototype,
-      'value',
-    )?.set;
-    setter?.call(el, String(next));
-    el.dispatchEvent(new Event('input', { bubbles: true }));
-    el.dispatchEvent(new Event('change', { bubbles: true }));
-  }, value);
-}
 
 test.describe('data-hardware evaluation-crisis module', () => {
   test('renders prose covering the three evaluation strands (VAL-DATA-021)', async ({

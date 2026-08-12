@@ -13,3 +13,10 @@ public/pagefind/
 playwright-report/
 test-results/
 tsconfig.tsbuildinfo
+
+# Throwaway visual-verification scripts (never committed by convention) and
+# the desktop sync tool's Finder-style " N" duplicates, which break typecheck
+# with duplicate declarations if one ever lands at the repo root.
+visual-*.mts
+* [0-9].*
+* [0-9]/

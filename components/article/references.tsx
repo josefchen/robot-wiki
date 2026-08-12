@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import { venueStatesYear } from '@/data/citations';
 import type { ResolvedReference } from '@/lib/references';
 
 /**
@@ -55,7 +56,8 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
               </div>
               <p className="mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim">
                 {citation.authors.join(', ')}
-                {citation.venue ? `, ${citation.venue},` : ','} {citation.year}.
+                {citation.venue ? `, ${citation.venue}` : ''}
+                {venueStatesYear(citation) ? '' : `, ${citation.year}`}.
               </p>
               <p className="mt-0.5 break-all font-mono text-xs leading-relaxed text-text-dim">
                 {citation.url}

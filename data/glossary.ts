@@ -69,6 +69,13 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     citations: ['dagger-2011'],
   },
   {
+    id: 'distribution-shift',
+    term: 'distribution shift',
+    definition:
+      'The mismatch between the data distribution a model is trained on and the distribution it must act on at deployment. Robot demonstrations come from a small number of labs with specific robots, cameras, and lighting, while deployment spans unseen homes, objects, and clutter, so a policy can score well on held-out data from its own training distribution and still fail in a new kitchen. Open-world evaluations measure performance under exactly this gap: pi0.5 was evaluated in three real homes absent from its training set, and Lin and colleagues measured how generalization to new environments and objects scales with the diversity of the training data rather than its raw volume.',
+    citations: ['pi05-2025', 'lin-data-scaling-laws-2024'],
+  },
+  {
     id: 'diffusion-policy',
     term: 'diffusion policy',
     definition:
@@ -184,14 +191,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'legged-locomotion',
     term: 'legged locomotion',
     definition:
-      'Moving by cycling legs through ground contact rather than rolling, the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack outright: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild, the template humanoid programs have since been rerunning on two legs.',
+      'Locomotion through legs rather than wheels or tracks: support comes from discrete, intermittent footholds, so balance is re-established at every step instead of resting on a continuous contact patch. It is the problem that made sim-to-real reinforcement learning a shipping technology instead of a demo. Conventional controllers built it from elaborate state machines that explicitly trigger motion primitives and reflexes, a design that grew more complex without approaching the generality of animal locomotion. The ETH Zurich line replaced that stack outright: Lee and colleagues trained an ANYmal controller by reinforcement learning in simulation and generalized it zero-shot to alpine terrain on proprioception alone, and Miki and colleagues extended the same recipe to perceptive locomotion in the wild, the template humanoid programs have since been rerunning on two legs.',
     citations: ['lee-2020', 'miki-2022'],
   },
   {
     id: 'mpc',
     term: 'model predictive control',
     definition:
-      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, which is why model-predictive controllers carry no sim-to-real gap of the learned-policy kind. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale on real hardware in 2026, when Zhang and colleagues ran iLQR with MuJoCo dynamics in real time across dynamic quadruped locomotion and full-sized humanoid walking.',
+      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale in 2026, when Zhang and colleagues solved iLQR against MuJoCo\'s physics fast enough to close the loop in real time on real hardware.',
     citations: ['mujoco-ilqr-2026'],
   },
   {
@@ -382,6 +389,34 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     definition:
       'A two-contact grasp in which the line through the contact points lies strictly inside both friction cones. Nguyen proved this geometric test is exactly force closure for a frictional pair in the plane: the contacts can squeeze along the line they share and generate torques of both signs. It is the workhorse of parallel-jaw grippers, and its strictness matters, because a line resting exactly on a cone edge resists everything except the one wrench that slides the object out.',
     citations: ['nguyen-1988', 'murray-li-sastry-1994'],
+  },
+  {
+    id: 'mechanoreceptor',
+    term: 'mechanoreceptor',
+    definition:
+      'A sensory nerve ending that fires under mechanical stimuli such as pressure, vibration, or skin stretch. The glabrous skin of the human hand carries about 17,000 low-threshold mechanoreceptors, roughly 1,000 of them packed at each fingertip, in four varieties that trade spatial localization against temporal response. Robot tactile sensors are closing on raw force threshold but remain far sparser: the best documented arrays put seven sensing cells on a fingerpad where the human finger packs about a thousand receptors.',
+    citations: ['macefield-touch-2022', 'brooks-dexterity-2025'],
+  },
+  {
+    id: 'tactile-sensing',
+    term: 'tactile sensing',
+    definition:
+      'Sensing contact through the robot\'s skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary\'s micro-barometer arrays resolve about five millinewtons per cell against roughly three for a human fingertip, but coverage, durability, and integration into training pipelines remain the open problems.',
+    citations: ['tactile-outlook-2025', 'robozaps-phoenix-2026'],
+  },
+  {
+    id: 'in-hand-manipulation',
+    term: 'in-hand manipulation',
+    definition:
+      'Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. It is the skill that separates a hand from a gripper, and the one vision handles worst, because the fingers occlude exactly the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson\'s Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.',
+    citations: ['sanctuary-inhand-2024', 'holson-olympics-2025'],
+  },
+  {
+    id: 'contact-rich-manipulation',
+    term: 'contact-rich manipulation',
+    definition:
+      'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
+    citations: ['touchworld-2026', 'tactile-outlook-2025'],
   },
 ];
 

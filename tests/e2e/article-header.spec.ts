@@ -16,12 +16,11 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * time (frontmatter `lastReviewed`, the resolved References list, and the
  * rendered article measured at WORDS_PER_MINUTE into data/reading-times
  * .json). Verified against the shipped artifact: the static export served
- * on :3201 (the validation surface per AGENTS.md), never the dev server,
- * because the export is what deploys.
+ * locally (an OS-assigned free port; see static-export-server.ts), never
+ * the dev server, because the export is what deploys.
  */
 
-const PORT = 3201;
-const BASE = `http://localhost:${PORT}`;
+let BASE: string;
 const published = publishedModules();
 
 // Independent month names: the spec derives the expected date string
@@ -87,7 +86,8 @@ test.beforeAll(async () => {
     existsSync(join(outDir, 'index.html')),
     'out/ is missing or stale: run `npm run build` before the article-header spec',
   ).toBe(true);
-  server = await startStaticExportServer(outDir, PORT);
+  server = await startStaticExportServer(outDir);
+  BASE = `http://localhost:${server.port}`;
 });
 
 test.afterAll(async () => {
