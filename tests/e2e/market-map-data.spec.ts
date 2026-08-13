@@ -28,7 +28,7 @@ test.describe('market-map data layer', () => {
       page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
     await expect(
-      page.getByText(`${EXPECTED_COUNT} companies`, { exact: false }),
+      page.getByText(`${EXPECTED_COUNT} companies in six segments`),
     ).toBeVisible();
     expect(consoleErrors).toEqual([]);
   });
