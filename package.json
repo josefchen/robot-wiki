@@ -15,6 +15,7 @@
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts",
+    "generate:companies": "node scripts/generate-companies.ts",
     "check:links": "node scripts/check-citation-links.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },

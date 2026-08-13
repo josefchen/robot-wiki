@@ -244,6 +244,20 @@ describe('companySchema', () => {
     expect(parsed.success).toBe(true);
   });
 
+  it('allows a latest-round object whose type is undisclosed', () => {
+    const parsed = companySchema.safeParse({
+      ...valid,
+      latestRound: {
+        type: null,
+        amountUsd: null,
+        date: null,
+        valuationUsd: null,
+        leadInvestors: [],
+      },
+    });
+    expect(parsed.success).toBe(true);
+  });
+
   it('requires at least one source', () => {
     expect(companySchema.safeParse({ ...valid, sources: [] }).success).toBe(
       false,

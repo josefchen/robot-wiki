@@ -12,6 +12,7 @@ import { modules } from '../data/modules.ts';
 import { CITATIONS } from '../data/citations.ts';
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
+import { COMPANIES } from '../data/companies.ts';
 
 const root = join(import.meta.dirname, '..');
 
@@ -29,6 +30,31 @@ const issues = validateContent({
   ],
 });
 
+const EXPECTED_SEGMENT_COUNTS: Record<string, number> = {
+  'foundation-models': 12,
+  humanoids: 35,
+  'industrial-logistics': 15,
+  'vertical-applications': 32,
+  'simulation-tooling': 10,
+  'components-hardware': 8,
+};
+
+if (COMPANIES.length !== 112) {
+  issues.push({
+    file: 'data/companies.ts',
+    message: `expected 112 companies, got ${COMPANIES.length}`,
+  });
+}
+for (const [segment, expected] of Object.entries(EXPECTED_SEGMENT_COUNTS)) {
+  const actual = COMPANIES.filter((c) => c.segment === segment).length;
+  if (actual !== expected) {
+    issues.push({
+      file: 'data/companies.ts',
+      message: `segment ${segment}: expected ${expected}, got ${actual}`,
+    });
+  }
+}
+
 if (issues.length > 0) {
   console.error(`validate:content: FAILED (${issues.length} issue(s))`);
   for (const issue of issues) {
@@ -39,5 +65,5 @@ if (issues.length > 0) {
 
 const published = modules.filter((m) => m.status === 'published').length;
 console.log(
-  `validate:content: OK (${modules.length} registry modules, ${published} published, ${CITATIONS.length} citations, ${GLOSSARY.length} terms, ${IMAGES.length} images)`,
+  `validate:content: OK (${modules.length} registry modules, ${published} published, ${CITATIONS.length} citations, ${GLOSSARY.length} terms, ${IMAGES.length} images, ${COMPANIES.length} companies)`,
 );
