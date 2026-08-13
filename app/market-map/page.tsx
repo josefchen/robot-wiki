@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { COMPANIES } from '@/data/companies';
 
 export const metadata: Metadata = {
   title: 'Market Map',
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
  * Placeholder shell for the market-map route so navigation entry points
  * resolve while the full experience is built (market-map milestone: Zod-
  * validated company data, filterable grid/bubble views, funding timeline).
+ *
+ * Importing COMPANIES here puts the module-scope Zod parse on the
+ * prerender path, so an invalid row fails `next build`.
  */
 export default function MarketMapPage() {
   return (
@@ -19,9 +23,9 @@ export default function MarketMapPage() {
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">
         The market map is under construction. When it ships, this page
-        presents the embodied-AI industry as filterable data: companies across
-        foundation models, humanoids, industrial and logistics systems,
-        vertical applications, simulation and tooling, and components.
+        presents the embodied-AI industry as filterable data: {COMPANIES.length}{' '}
+        companies across foundation models, humanoids, industrial and logistics
+        systems, vertical applications, simulation and tooling, and components.
       </p>
       <ul className="mt-6 space-y-2 border-t border-border pt-6 text-sm text-text-dim">
         <li>Filter by segment, country, stage, and technical approach</li>

@@ -24,10 +24,11 @@ export const companyStatusSchema = z.enum([
 
 /**
  * Never invent a number: unknown funding, valuation, and date fields are
- * null and render as "n/a".
+ * null and render as "n/a". Round type is also nullable — many rows are
+ * public companies or internal divisions with no disclosed latest round.
  */
 export const fundingRoundSchema = z.object({
-  type: z.string().min(1),
+  type: z.string().min(1).nullable(),
   amountUsd: z.number().positive().nullable(),
   date: isoDateSchema.nullable(),
   valuationUsd: z.number().positive().nullable(),
