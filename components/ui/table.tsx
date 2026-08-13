@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
 export type Column<T> = {
@@ -23,6 +23,10 @@ type TableProps<T> = {
   rows: T[];
   initialSort?: { key: Extract<keyof T, string>; direction: 'asc' | 'desc' };
   className?: string;
+  /** Stable row id used as the destination anchor (`method-act`, `dataset-droid`). */
+  rowAnchor?: (row: T) => string;
+  /** Currently highlighted destination row, if any. */
+  highlightedAnchor?: string | null;
 };
 
 type SortState = { key: string; direction: 'asc' | 'desc' };
@@ -48,8 +52,17 @@ export function Table<T extends Record<string, unknown>>({
   rows,
   initialSort,
   className,
+  rowAnchor,
+  highlightedAnchor,
 }: TableProps<T>) {
   const [sort, setSort] = useState<SortState | null>(initialSort ?? null);
+
+  useEffect(() => {
+    if (!highlightedAnchor) return;
+    const target = document.getElementById(highlightedAnchor);
+    if (!target || typeof target.scrollIntoView !== 'function') return;
+    target.scrollIntoView({ block: 'center', inline: 'nearest' });
+  }, [highlightedAnchor]);
 
   const sortedRows = useMemo(() => {
     if (!sort) return rows;
@@ -134,8 +147,22 @@ export function Table<T extends Record<string, unknown>>({
           </tr>
         </thead>
         <tbody>
-          {sortedRows.map((row, rowIndex) => (
-            <tr key={rowIndex} className="border-t border-border bg-surface">
+          {sortedRows.map((row, rowIndex) => {
+            const anchor = rowAnchor?.(row);
+            const highlighted = Boolean(
+              anchor && highlightedAnchor && anchor === highlightedAnchor,
+            );
+            return (
+            <tr
+              key={anchor ?? rowIndex}
+              id={anchor}
+              data-entity-id={anchor}
+              className={cx(
+                'scroll-mt-24 border-t border-border bg-surface',
+                highlighted &&
+                  'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
+              )}
+            >
               {columns.map((column) => (
                 <td
                   key={column.key}
@@ -150,7 +177,8 @@ export function Table<T extends Record<string, unknown>>({
                 </td>
               ))}
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>

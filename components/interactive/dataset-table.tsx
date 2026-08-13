@@ -3,6 +3,8 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Table, type Column } from '@/components/ui';
 import { DATASETS, type Dataset } from '@/data/datasets';
+import { entityAnchorId } from '@/lib/entity-anchor';
+import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
   DEFAULT_DATASET_FILTERS,
   filterDatasets,
@@ -202,6 +204,10 @@ export function DatasetTable({ className }: DatasetTableProps) {
   );
   // Remounting the table restores its internal initial sort on reset.
   const [resetCount, setResetCount] = useState(0);
+  const highlightedId = useEntityAnchor('dataset');
+  const highlightedAnchor = highlightedId
+    ? entityAnchorId('dataset', highlightedId)
+    : null;
 
   const rows = useMemo(() => filterDatasets(DATASETS, filters), [filters]);
 
@@ -287,6 +293,8 @@ export function DatasetTable({ className }: DatasetTableProps) {
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'episodes', direction: 'desc' }}
+          rowAnchor={(row) => entityAnchorId('dataset', row.id)}
+          highlightedAnchor={highlightedAnchor}
         />
       )}
     </div>

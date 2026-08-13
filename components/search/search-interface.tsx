@@ -16,8 +16,15 @@ import {
   type SearchClient,
   type SearchHit,
 } from '@/lib/search';
-import type { StructuredSearchClient } from '@/lib/structured-search';
+import {
+  applyStructuredFacet,
+  createStructuredSearchClient,
+  type EntityType,
+  type StructuredHit,
+  type StructuredSearchClient,
+} from '@/lib/structured-search';
 import { ResultsGroup } from './results-group';
+import { TypeFacetBar } from './type-facet-bar';
 
 type SearchStatus = 'idle' | 'searching' | 'done' | 'unavailable';
 
@@ -25,33 +32,37 @@ type SearchInterfaceProps = {
   /** Test seam: override the production Pagefind loader. */
   loadClient?: () => Promise<SearchClient>;
   /**
-   * Test seam for the structured MiniSearch loader. Accepted here so the
-   * inherited UI-half specs typecheck; the /search UI half wires it up.
+   * Test seam for the structured MiniSearch loader. Defaults to the
+   * production client that fetches /search-index.json.
    */
   loadStructured?: () => Promise<StructuredSearchClient>;
   /** Debounce before a typed query is applied. */
   debounceMs?: number;
 };
 
+const ENTITY_TYPE_LABEL: Record<EntityType, string> = {
+  company: 'company',
+  method: 'method',
+  dataset: 'dataset',
+};
+
 /**
- * The /search interface: one input, one prose results group today, with the
- * results area structured so the structured-entity group (market-map
- * milestone) slots in as a second ResultsGroup without reworking this
- * component.
+ * The /search interface: one input, two result groups (prose + structured),
+ * entity-type facets that only narrow the structured group.
  *
  * Behavior contract (VAL-SEARCH-*): the query mirrors the ?q= URL param both
  * ways (shell search box submits land here prefilled); status is derived
  * from (query, result) rather than mirrored, and results apply only under a
  * latest-wins sequencer, so a slow response for an older query can never mix
  * into newer results; clearing the query returns to the idle state;
- * ArrowDown/ArrowUp move focus between the input and the result links.
+ * ArrowDown/ArrowUp move focus between the input and the result links
+ * across both groups.
  */
 export function SearchInterface({
   loadClient = createPagefindClient,
-  loadStructured: _loadStructured,
+  loadStructured = createStructuredSearchClient,
   debounceMs = 200,
 }: SearchInterfaceProps) {
-  void _loadStructured;
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(
@@ -60,12 +71,15 @@ export function SearchInterface({
   const [result, setResult] = useState<{
     query: string;
     hits: SearchHit[];
+    structured: StructuredHit[];
   } | null>(null);
   const [unavailable, setUnavailable] = useState(false);
+  const [facetType, setFacetType] = useState<EntityType | 'all'>('all');
 
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const clientRef = useRef<SearchClient | null>(null);
+  const structuredRef = useRef<StructuredSearchClient | null>(null);
   const sequencerRef = useRef(createRequestSequencer());
 
   // External query changes (the shell search box submits while the user is
@@ -100,6 +114,11 @@ export function SearchInterface({
 
   const hits =
     status === 'searching' || status === 'done' ? (result?.hits ?? []) : [];
+  const structuredHits =
+    status === 'searching' || status === 'done'
+      ? applyStructuredFacet(result?.structured ?? [], { type: facetType })
+      : [];
+  const resultCount = hits.length + structuredHits.length;
 
   // Debounced search. Every state write happens inside the timer callback;
   // the sequencer token guarantees only the latest query can apply results.
@@ -113,21 +132,44 @@ export function SearchInterface({
         scroll: false,
       });
       void (async () => {
-        try {
-          clientRef.current ??= await loadClient();
-          const found = await clientRef.current.search(trimmed);
-          if (!seq.isCurrent(token)) return;
-          setResult({ query: trimmed, hits: found });
-          setUnavailable(false);
-        } catch {
-          if (!seq.isCurrent(token)) return;
-          setResult({ query: trimmed, hits: [] });
+        let found: SearchHit[] = [];
+        let structured: StructuredHit[] = [];
+        let proseFailed = false;
+        let structuredFailed = false;
+        await Promise.all([
+          (async () => {
+            try {
+              clientRef.current ??= await loadClient();
+              found = await clientRef.current.search(trimmed);
+            } catch {
+              proseFailed = true;
+            }
+          })(),
+          (async () => {
+            try {
+              structuredRef.current ??= await loadStructured();
+              structured = await structuredRef.current.search(trimmed);
+            } catch {
+              structuredFailed = true;
+            }
+          })(),
+        ]);
+        if (!seq.isCurrent(token)) return;
+        if (proseFailed && structuredFailed) {
+          setResult({ query: trimmed, hits: [], structured: [] });
           setUnavailable(true);
+          return;
         }
+        setResult({
+          query: trimmed,
+          hits: proseFailed ? [] : found,
+          structured: structuredFailed ? [] : structured,
+        });
+        setUnavailable(false);
       })();
     }, debounceMs);
     return () => clearTimeout(timer);
-  }, [trimmed, debounceMs, loadClient, router]);
+  }, [trimmed, debounceMs, loadClient, loadStructured, router]);
 
   function onQueryChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -137,6 +179,7 @@ export function SearchInterface({
       // in-flight search.
       sequencerRef.current.invalidate();
       setLastPushed('');
+      setFacetType('all');
       router.replace('/search', { scroll: false });
     }
   }
@@ -148,7 +191,7 @@ export function SearchInterface({
   }
 
   function onInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key === 'ArrowDown' && hits.length > 0) {
+    if (event.key === 'ArrowDown' && resultCount > 0) {
       event.preventDefault();
       focusResult(0);
     }
@@ -160,7 +203,7 @@ export function SearchInterface({
   ) {
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      if (index + 1 < hits.length) focusResult(index + 1);
+      if (index + 1 < resultCount) focusResult(index + 1);
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
       if (index === 0) inputRef.current?.focus();
@@ -172,10 +215,18 @@ export function SearchInterface({
   if (status === 'searching') {
     statusText = `Searching for "${trimmed}"`;
   } else if (status === 'done') {
-    statusText =
-      hits.length > 0
-        ? `${hits.length} ${hits.length === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
-        : `No modules match "${trimmed}"`;
+    const proseCount = hits.length;
+    const entityCount = structuredHits.length;
+    if (entityCount === 0) {
+      statusText =
+        proseCount > 0
+          ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
+          : `No modules match "${trimmed}"`;
+    } else if (proseCount === 0) {
+      statusText = `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"`;
+    } else {
+      statusText = `${proseCount} ${proseCount === 1 ? 'module' : 'modules'}, ${entityCount} ${entityCount === 1 ? 'entity' : 'entities'} match "${trimmed}"`;
+    }
   } else if (status === 'unavailable') {
     statusText = 'The search index is unavailable';
   }
@@ -230,9 +281,8 @@ export function SearchInterface({
       {status === 'idle' ? (
         <div className="mt-8 border-t border-border pt-6">
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            Type a query to search the prose of every published module.
-            Structured lookups over the methods, companies, and datasets in
-            the wiki data layer arrive with the market map.
+            Type a query to search the prose of every published module, and
+            the methods, companies, and datasets in the wiki data layer.
           </p>
           <p className="mt-3 font-mono text-xs text-text-dim">
             Try: temporal ensembling, ALOHA, chunk size
@@ -258,7 +308,7 @@ export function SearchInterface({
       ) : null}
 
       {status === 'searching' || status === 'done' ? (
-        <div ref={resultsRef} className="mt-8">
+        <div ref={resultsRef} className="mt-8 space-y-10">
           <ResultsGroup
             id="prose"
             heading="Modules"
@@ -289,6 +339,51 @@ export function SearchInterface({
                         />
                       ) : null}
                     </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </ResultsGroup>
+
+          <ResultsGroup
+            id="structured"
+            heading="Structured"
+            count={status === 'done' ? structuredHits.length : undefined}
+            note={
+              status === 'done' && structuredHits.length === 0
+                ? `No structured entities match "${trimmed}". Try another term, or clear the type filter.`
+                : undefined
+            }
+          >
+            {status === 'done' || structuredHits.length > 0 ? (
+              <TypeFacetBar value={facetType} onChange={setFacetType} />
+            ) : null}
+            {structuredHits.length > 0 ? (
+              <ul className="divide-y divide-border">
+                {structuredHits.map((entry, index) => (
+                  <li key={entry.id}>
+                    {/* Native anchor: next/link in the test env strips the
+                        trailing slash before a hash, and the destination
+                        contract is the exact `/path/#id` stored in the index. */}
+                    <a
+                      href={entry.url}
+                      data-search-result
+                      onKeyDown={(event) =>
+                        onResultKeyDown(event, hits.length + index)
+                      }
+                      className="group flex items-baseline justify-between gap-3 px-1 py-3"
+                    >
+                      <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
+                        {entry.title}
+                      </span>
+                      <span
+                        data-entity-type={entry.type}
+                        aria-hidden="true"
+                        className="shrink-0 font-mono text-[11px] text-text-dim"
+                      >
+                        {ENTITY_TYPE_LABEL[entry.type]}
+                      </span>
+                    </a>
                   </li>
                 ))}
               </ul>

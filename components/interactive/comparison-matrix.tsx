@@ -3,6 +3,8 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
+import { entityAnchorId } from '@/lib/entity-anchor';
+import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
   DEFAULT_FILTERS,
   filterMethods,
@@ -186,6 +188,10 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
   const [filters, setFilters] = useState<MethodFilters>(DEFAULT_FILTERS);
   // Remounting the table restores its internal initial sort on reset.
   const [resetCount, setResetCount] = useState(0);
+  const highlightedId = useEntityAnchor('method');
+  const highlightedAnchor = highlightedId
+    ? entityAnchorId('method', highlightedId)
+    : null;
 
   const rows = useMemo(() => filterMethods(METHODS, filters), [filters]);
 
@@ -315,6 +321,8 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'year', direction: 'asc' }}
+          rowAnchor={(row) => entityAnchorId('method', row.id)}
+          highlightedAnchor={highlightedAnchor}
         />
       )}
     </div>

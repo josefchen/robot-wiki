@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import type { Company } from '@/data/schemas/company.ts';
 import { formatLongDate } from '@/lib/dates';
 import {
@@ -18,6 +18,7 @@ import {
   type MarketMapFilters,
   type MarketMapViewId,
 } from '@/lib/market-map';
+import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import { BubbleView } from './bubble-view';
 import { FilterBar } from './filter-bar';
 import { FundingTimeline } from './funding-timeline';
@@ -66,11 +67,19 @@ export function MarketMap({ companies }: MarketMapProps) {
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const highlightedId = useEntityAnchor('company');
 
   const visible = useMemo(
     () => filterCompanies(companies, filters),
     [companies, filters],
   );
+
+  useEffect(() => {
+    if (!highlightedId) return;
+    const target = document.getElementById(`company-${highlightedId}`);
+    if (!target || typeof target.scrollIntoView !== 'function') return;
+    target.scrollIntoView({ block: 'center', inline: 'nearest' });
+  }, [highlightedId, view, visible]);
   const counts = useMemo(() => segmentCounts(companies), [companies]);
   const segments = SEGMENT_ORDER.map((value) => ({
     value,
@@ -140,6 +149,7 @@ export function MarketMap({ companies }: MarketMapProps) {
         <GridView
           companies={visible}
           expandedId={expandedId}
+          highlightedId={highlightedId}
           onToggle={(id) =>
             setExpandedId((current) => (current === id ? null : id))
           }
