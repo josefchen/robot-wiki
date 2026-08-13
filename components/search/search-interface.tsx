@@ -16,6 +16,7 @@ import {
   type SearchClient,
   type SearchHit,
 } from '@/lib/search';
+import type { StructuredSearchClient } from '@/lib/structured-search';
 import { ResultsGroup } from './results-group';
 
 type SearchStatus = 'idle' | 'searching' | 'done' | 'unavailable';
@@ -23,6 +24,11 @@ type SearchStatus = 'idle' | 'searching' | 'done' | 'unavailable';
 type SearchInterfaceProps = {
   /** Test seam: override the production Pagefind loader. */
   loadClient?: () => Promise<SearchClient>;
+  /**
+   * Test seam for the structured MiniSearch loader. Accepted here so the
+   * inherited UI-half specs typecheck; the /search UI half wires it up.
+   */
+  loadStructured?: () => Promise<StructuredSearchClient>;
   /** Debounce before a typed query is applied. */
   debounceMs?: number;
 };
@@ -42,8 +48,10 @@ type SearchInterfaceProps = {
  */
 export function SearchInterface({
   loadClient = createPagefindClient,
+  loadStructured: _loadStructured,
   debounceMs = 200,
 }: SearchInterfaceProps) {
+  void _loadStructured;
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState(
