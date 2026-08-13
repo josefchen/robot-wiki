@@ -146,7 +146,7 @@ test.describe('structured search on the static export', () => {
     page,
   }) => {
     await page.goto(`${BASE}/search`);
-    await typeQuery(page, 'covariate');
+    await typeQuery(page, 'compounding');
     await waitForSettled(page);
 
     const prose = page.getByRole('region', { name: 'Modules' });
