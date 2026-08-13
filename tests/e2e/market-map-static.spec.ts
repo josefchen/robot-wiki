@@ -54,11 +54,24 @@ test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, V
   await expect(page.getByText('Figure AI')).toBeVisible();
 
   await page.getByRole('button', { name: 'Grid' }).click();
+  await page.getByRole('button', { name: 'Clear filters' }).click();
+  await expect(page.getByText('112 of 112 companies')).toBeVisible();
   const pi = page.locator('article[data-company-id="physical-intelligence"]');
   await pi.getByRole('button', { name: 'Expand' }).click();
   await expect(pi.getByText('openpi')).toBeVisible();
 
-  expect(apiRequests).toEqual([]);
+  // VAL-MKT-021: no runtime data/API fetch. Next.js still prefetches
+  // same-origin HTML and `__next.*.txt` RSC payloads as static assets
+  // when the client router hydrates; those are not company-data requests.
+  const runtimeData = apiRequests.filter((url) => {
+    const parsed = new URL(url);
+    if (parsed.origin !== new URL(BASE).origin) return true;
+    if (parsed.searchParams.has('_rsc')) return false;
+    if (parsed.pathname.includes('__next.')) return false;
+    if (parsed.pathname.endsWith('/')) return false;
+    return /\/api\//.test(parsed.pathname);
+  });
+  expect(runtimeData).toEqual([]);
 });
 
 test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => {
