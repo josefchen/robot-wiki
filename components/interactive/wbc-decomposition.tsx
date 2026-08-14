@@ -277,11 +277,11 @@ export function WbcDecomposition({
       </div>
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
-        <span className="text-text-dim">{approach.name.toLowerCase()}:</span>{' '}
+        <span className="text-text-dim">{approach.name}:</span>{' '}
         <span className="text-accent">{approach.representative}</span>{' '}
-        <span className="text-text-dim">layers</span>{' '}
+        <span className="text-text-dim">Layers</span>{' '}
         <span className="text-text">{approach.layers.length}</span>{' '}
-        <span className="text-text-dim">fastest loop</span>{' '}
+        <span className="text-text-dim">Fastest loop</span>{' '}
         <span className="text-text">{fastest}</span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
