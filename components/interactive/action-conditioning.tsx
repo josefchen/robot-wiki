@@ -177,7 +177,7 @@ export function ActionConditioning({
   ) {
     return (
       <div role="group" aria-label={`Rollout ${panel.toUpperCase()} action`}>
-        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <div className="font-mono text-[11px] text-text-dim">
           rollout {panel} action
         </div>
         <div className="mt-1.5 flex flex-wrap gap-2">
@@ -203,7 +203,7 @@ export function ActionConditioning({
     const width = ROLLOUT_STEPS * SCENE_W + (ROLLOUT_STEPS - 1) * SCENE_GAP;
     return (
       <div data-testid={`rollout-panel-${panel}`}>
-        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <div className="font-mono text-[11px] text-text-dim">
           rollout {panel}: {actionLabel(action).toLowerCase()}
           <span className="normal-case tracking-normal"> ({actionDescription(action)})</span>
         </div>
@@ -242,7 +242,7 @@ export function ActionConditioning({
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div role="group" aria-label="Conditioning strength">
-          <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+          <div className="font-mono text-[11px] text-text-dim">
             model conditioning
           </div>
           <div className="mt-1.5 flex flex-wrap gap-2">
@@ -280,7 +280,7 @@ export function ActionConditioning({
       </div>
 
       <div className="mt-4" data-testid="initial-frame">
-        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <div className="font-mono text-[11px] text-text-dim">
           shared initial frame
         </div>
         <svg

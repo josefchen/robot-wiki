@@ -21,25 +21,25 @@ export function ScalingLawsTable({ className }: { className?: string }) {
           <tr className="border-b border-border">
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Dimension
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Effect on performance
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Saturation
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Source
             </th>

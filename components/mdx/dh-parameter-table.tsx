@@ -45,7 +45,7 @@ export function DhParameterTable({ className }: { className?: string }) {
               <th
                 key={h.text}
                 scope="col"
-                className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+                className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
               >
                 {h.math ? (
                   <span className="normal-case tracking-normal">{h.text}</span>

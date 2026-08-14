@@ -81,7 +81,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
           <div key={joint.id}>
             <label
               htmlFor={joint.id}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
             >
               {joint.label}
               <span

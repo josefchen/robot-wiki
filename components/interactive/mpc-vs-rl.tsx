@@ -263,7 +263,7 @@ export function MpcVsRl({ className }: { className?: string }) {
               className="rounded-sm border border-border bg-bg p-3"
             >
               <div className="flex items-baseline justify-between gap-3">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+                <p className="font-mono text-[11px] text-text-dim">
                   {controller.name}
                 </p>
                 <span

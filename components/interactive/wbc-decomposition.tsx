@@ -268,7 +268,7 @@ export function WbcDecomposition({
       >
         {approach.stats.map((stat) => (
           <div key={stat.label}>
-            <div className="text-[11px] uppercase tracking-[0.14em] text-text-dim">
+            <div className="text-[11px] text-text-dim">
               {stat.label}
             </div>
             <div className="mt-0.5 text-sm text-text">{stat.value}</div>

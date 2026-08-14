@@ -25,14 +25,14 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
       )}
     >
       <table className="w-full min-w-[880px] border-collapse text-left">
-        <caption className="px-4 pt-3 text-left font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <caption className="px-4 pt-3 text-left font-mono text-[11px] text-text-dim">
           Six paradigms, one overloaded name
         </caption>
         <thead>
           <tr className="border-b border-border">
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Paradigm
             </th>
@@ -40,7 +40,7 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
               <th
                 key={col}
                 scope="col"
-                className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+                className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
               >
                 {col}
               </th>

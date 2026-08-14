@@ -365,7 +365,7 @@ export function RewardShaping({ className }: { className?: string }) {
           <div key={term.id}>
             <label
               htmlFor={`rs-${term.id}`}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
             >
               {term.label}
               <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">

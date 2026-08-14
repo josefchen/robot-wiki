@@ -350,7 +350,7 @@ export function GeneralistReleaseTimeline({
             <span className="text-[10px] text-text-dim">{r.dateLabel}</span>
             <span
               className={cx(
-                'text-[10px] uppercase tracking-[0.14em]',
+                'text-[10px]',
                 r.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
@@ -374,7 +374,7 @@ export function GeneralistReleaseTimeline({
           <span className="text-text-dim">{selected.dateLabel}</span>{' '}
           <span
             className={cx(
-              'whitespace-nowrap text-xs uppercase tracking-[0.14em]',
+              'whitespace-nowrap text-xs',
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >
