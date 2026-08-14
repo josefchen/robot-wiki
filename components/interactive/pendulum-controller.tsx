@@ -315,6 +315,7 @@ export function PendulumController({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={
@@ -330,6 +331,7 @@ export function PendulumController({ className }: { className?: string }) {
           {playing ? 'Pause' : 'Run'}
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={push}
           aria-label="Push the pole with a fixed impulse"
@@ -338,6 +340,7 @@ export function PendulumController({ className }: { className?: string }) {
           Push
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           aria-label="Reset the simulation and restore default gains"

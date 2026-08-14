@@ -358,6 +358,7 @@ export function KalmanTracker({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={togglePlay}
           aria-label={running ? 'Pause the tracker' : 'Run the tracker'}
@@ -371,6 +372,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           {running ? 'Pause' : 'Run'}
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={stepOnce}
           aria-label="Step the tracker forward one step"
@@ -379,6 +381,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           Step
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reseed}
           aria-label="Reseed: generate the next world and restart"
@@ -387,6 +390,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           Reseed
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           aria-label="Reset: restore the default world, settings, and opening step"

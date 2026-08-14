@@ -58,6 +58,13 @@ export function Figure({
       {credit ? (
         <span
           data-image-credit
+          // Index-only exclusion: the credit is attribution chrome that
+          // fused into search excerpts ("...guiding it by hand.Photo: Ims
+          // / Wikimedia Commons. Licence: CC BY-SA 4.0."). It stays
+          // VISIBLE here with both links — the VAL-IMG-002/003 licensing
+          // guarantee is a rendered-DOM guarantee, untouched by this.
+          // The caption above is content and stays indexed.
+          data-pagefind-ignore
           className="mt-1 block font-sans text-[11px] leading-relaxed text-text-dim"
         >
           {credit.kind}: {credit.creator} /{' '}

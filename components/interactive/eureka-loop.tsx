@@ -68,6 +68,7 @@ export function EurekaLoop({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))}
           disabled={isLast}
@@ -82,6 +83,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           Run next generation
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setGen(0)}
           className={cx(buttonBase, buttonIdle)}

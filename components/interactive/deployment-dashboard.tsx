@@ -83,6 +83,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           {rows.length} of {DEPLOYMENT_ROWS.length} rows
         </p>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setFilter('all')}
           className="rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"

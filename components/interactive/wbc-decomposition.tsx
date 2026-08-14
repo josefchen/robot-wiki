@@ -90,6 +90,7 @@ export function WbcDecomposition({
           ))}
         </div>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className={cx(buttonBase, buttonIdle)}

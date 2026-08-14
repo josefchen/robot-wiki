@@ -102,6 +102,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           ))}
         </div>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setSelected(DEFAULT_PERTURBATION)}
           className={cx(buttonBase, buttonIdle)}

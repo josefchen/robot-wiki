@@ -111,6 +111,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         </div>
         <div className="flex gap-2">
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => move(-1)}
             disabled={step <= 0}
@@ -119,6 +120,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             Step back
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => move(1)}
             disabled={step >= DENOISING_STEPS}
@@ -127,6 +129,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             Step forward
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => setStep(defaultStep)}
             className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"

@@ -223,6 +223,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
             {TELEOP_RIGS.length} of {TELEOP_RIGS.length} rigs
           </p>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={reset}
             className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
