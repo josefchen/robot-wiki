@@ -249,17 +249,17 @@ test.describe('classical kinematics module', () => {
   }) => {
     await page.goto(ROUTE);
     const table = page.getByRole('table', { name: /Denavit-Hartenberg/i });
-    // innerText reflects the RENDERED text (the header row's uppercase
-    // transform applied). The prose header follows the convention; the four
-    // DH parameters are mathematical notation and must not be case-folded:
-    // pre-fix θi rendered as ΘI, and the ai and αi columns were visually
-    // indistinguishable ("AI" next to "ΑΙ").
+    // innerText reflects the RENDERED text, so it sees any case transform the
+    // stylesheet applies where textContent would not. The four DH parameters
+    // are mathematical notation and must never be case-folded: under the old
+    // uppercase header θi rendered as ΘI, and the ai and αi columns were
+    // visually indistinguishable ("AI" next to "ΑΙ").
     const rendered = await table
       .locator('thead th')
       .evaluateAll((nodes) =>
         nodes.map((n) => (n as HTMLElement).innerText),
       );
-    expect(rendered).toEqual(['JOINT I', 'θi', 'di', 'ai', 'αi']);
+    expect(rendered).toEqual(['Joint i', 'θi', 'di', 'ai', 'αi']);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {
