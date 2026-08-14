@@ -31,9 +31,9 @@ const SCALE = 113; // px per link unit; reach 2.30 -> 259.9 px
 const REACH_PX = totalReach(LINK_LENGTHS) * SCALE;
 
 const JOINT_META = [
-  { id: 'fk-joint-1', label: 'Base joint', short: 'θ1' },
-  { id: 'fk-joint-2', label: 'Elbow joint', short: 'θ2' },
-  { id: 'fk-joint-3', label: 'Wrist joint', short: 'θ3' },
+  { id: 'fk-joint-1', label: 'Base joint' },
+  { id: 'fk-joint-2', label: 'Elbow joint' },
+  { id: 'fk-joint-3', label: 'Wrist joint' },
 ] as const;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */

@@ -5,10 +5,11 @@
   "description": "An encyclopedic interactive guide to modern robotics for ML engineers",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3200",
     "prebuild": "npm run validate:content",
     "build": "next build && node scripts/measure-reading-times.ts && next build",
     "postbuild": "node scripts/prune-export-artifacts.ts && node scripts/build-search.ts",
+    "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
