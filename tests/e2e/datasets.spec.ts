@@ -74,11 +74,11 @@ test.describe('data-hardware datasets module', () => {
       const links = bodyRows.nth(i).locator('a[href^="http"]');
       expect(await links.count()).toBeGreaterThanOrEqual(1);
     }
-    // VAL-DATA-009: unpublished figures render as n/a, never as numbers.
+    // VAL-DATA-009: unpublished figures render as not disclosed, never as numbers.
     const unreleased = table.locator('tbody tr', {
       hasText: 'AgiBot World 2026',
     });
-    expect(await unreleased.getByText('n/a', { exact: true }).count()).toBeGreaterThanOrEqual(4);
+    expect(await unreleased.getByText('not disclosed', { exact: true }).count()).toBeGreaterThanOrEqual(4);
   });
 
   test('size, embodiment, and task filters work and compose (VAL-DATA-008)', async ({

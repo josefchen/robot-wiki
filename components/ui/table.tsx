@@ -33,7 +33,13 @@ type SortState = { key: string; direction: 'asc' | 'desc' };
 
 function formatValue(value: unknown): ReactNode {
   if (value === null || value === undefined || value === '') {
-    return <span className="text-text-dim">n/a</span>;
+    // The wiki-wide default for a missing cell: the value exists but its
+    // owner has not published it. A column whose empty cells mean "not
+    // applicable" instead (a live readout before the first solve, a
+    // genuinely inapplicable field) must pass an explicit render with its
+    // own placeholder — see PolicyChunkingTable's deliberately mixed
+    // column for the worked example.
+    return <span className="text-text-dim">not disclosed</span>;
   }
   // No locale grouping by default: it mangles years (2023 -> 2,023).
   // Callers that want grouping pass a custom render.

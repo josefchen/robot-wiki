@@ -18,10 +18,10 @@ import { cx } from '@/lib/utils';
  * quality, throughput, and embodiment gap (VAL-DATA-017 through
  * VAL-DATA-020).
  *
- * Honesty rules: figures no source publishes render as "n/a" (dim) and
- * never as invented numbers (the VR family carries no published system
- * cost), null cells always sort last in both directions, and every row
- * links out to its primary sources.
+ * Honesty rules: figures no source publishes render as "not disclosed"
+ * (dim) and never as invented numbers (the VR family carries no published
+ * system cost), null cells always sort last in both directions, and every
+ * row links out to its primary sources.
  *
  * Interactive contract: deterministic render, keyboard-operable dimension
  * highlight buttons (aria-pressed) and sort headers (aria-sort), a visible
@@ -29,7 +29,9 @@ import { cx } from '@/lib/utils';
  * horizontal scroll inside its own container at 375px.
  */
 
-const NA: ReactNode = <span className="text-text-dim">n/a</span>;
+const NOT_DISCLOSED: ReactNode = (
+  <span className="text-text-dim">not disclosed</span>
+);
 
 /** Fills the td padding so the highlight tint covers the whole cell. */
 function cellWrap(
@@ -97,7 +99,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         cellWrap(
           highlight === 'cost',
           rig.costUsd === null ? (
-            NA
+            NOT_DISCLOSED
           ) : (
             <span className="font-mono tabular-nums">
               {formatUsd(rig.costUsd)}
@@ -261,7 +263,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
       <Table
         key={resetCount}
         className="mt-4"
-        caption={`${TELEOP_RIGS.length} teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked n/a and always sort last, in both directions.`}
+        caption={`${TELEOP_RIGS.length} teleoperation rig families compared across cost, data quality, throughput, and embodiment gap. Ratings are low, medium, or high as explained in each cell note. Unpublished figures are marked not disclosed and always sort last, in both directions.`}
         columns={columns}
         rows={TELEOP_RIGS}
         initialSort={{ key: 'costUsd', direction: 'asc' }}

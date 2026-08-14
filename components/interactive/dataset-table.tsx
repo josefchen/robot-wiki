@@ -20,9 +20,10 @@ import { cx } from '@/lib/utils';
  * sortable comparison table.
  *
  * Honesty rules (VAL-DATA-009, VAL-DATA-010): figures the source does not
- * publish render as "n/a" (dim) and never as invented numbers, null cells
- * always sort last in both directions, and every row links out to its
- * dataset site or paper. Estimates live in the module prose, not in cells.
+ * publish render as "not disclosed" (dim) and never as invented numbers,
+ * null cells always sort last in both directions, and every row links out
+ * to its dataset site or paper. Estimates live in the module prose, not in
+ * cells.
  *
  * Interactive contract: deterministic render, keyboard-operable filter
  * buttons and sort headers (aria-pressed / aria-sort), a visible row-count
@@ -30,7 +31,9 @@ import { cx } from '@/lib/utils';
  * affordance, and horizontal scroll inside its own container at 375px.
  */
 
-const NA: ReactNode = <span className="text-text-dim">n/a</span>;
+const NOT_DISCLOSED: ReactNode = (
+  <span className="text-text-dim">not disclosed</span>
+);
 
 /** Thousands-grouped count; the Table default deliberately skips grouping. */
 function formatCount(value: number): string {
@@ -38,7 +41,7 @@ function formatCount(value: number): string {
 }
 
 function countCell(value: number | null, note?: string): ReactNode {
-  if (value === null) return NA;
+  if (value === null) return NOT_DISCLOSED;
   return (
     <span className="font-mono tabular-nums">
       {formatCount(value)}
@@ -122,7 +125,7 @@ const COLUMNS: Column<Dataset>[] = [
   {
     key: 'license',
     header: 'License',
-    render: (row) => row.license ?? NA,
+    render: (row) => row.license ?? NOT_DISCLOSED,
   },
   {
     key: 'url',
@@ -291,7 +294,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${DATASETS.length} open robot-manipulation datasets. Figures the source does not publish are marked n/a and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.`}
+          caption={`${DATASETS.length} open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'episodes', direction: 'desc' }}

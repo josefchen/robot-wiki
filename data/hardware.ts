@@ -4,7 +4,7 @@
  * Every figure comes from research/03 Part B and the primary sources it
  * lists; nothing is invented. Rules of the table:
  *
- * - Unknown figures stay null. The table renders null as "n/a".
+ * - Unknown figures stay null. The table renders null as "not disclosed".
  * - Every price carries priceAsOf: hardware pricing moves fast and a price
  *   without a date is a lie in waiting.
  * - CNY and EUR prices are converted at July 2026 rates and keep the

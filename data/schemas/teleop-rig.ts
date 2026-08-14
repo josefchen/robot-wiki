@@ -7,8 +7,8 @@ import { httpsUrlSchema, slugSchema } from './shared.ts';
  * Every row carries the four comparison dimensions the module is built
  * around: cost, data quality, throughput, and embodiment gap. Ratings use
  * a shared low/medium/high enum whose meaning each note explains; unknown
- * figures (e.g. the VR family's system cost) are null and render as "n/a",
- * never as invented values.
+ * figures (e.g. the VR family's system cost) are null and render as "not
+ * disclosed", never as invented values.
  */
 
 export const rigRatingSchema = z.enum(['low', 'medium', 'high']);

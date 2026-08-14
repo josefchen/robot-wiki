@@ -59,7 +59,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     for (let i = 0; i < count; i += 1) {
       const priceCell = bodyRows.nth(i).locator('td:nth-child(3)');
       const text = (await priceCell.textContent()) ?? '';
-      if (text.trim() === 'n/a') continue;
+      if (text.trim() === 'not disclosed') continue;
       priced += 1;
       expect(text, `price cell without as-of note: ${text}`).toMatch(
         /as of (?:[A-Z][a-z]{2} \d{4}|\d{4})/,
@@ -68,7 +68,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     expect(priced).toBeGreaterThanOrEqual(20);
   });
 
-  test('unpublished figures render as n/a, never invented (VAL-DATA-015)', async ({
+  test('unpublished figures render as not disclosed, never invented (VAL-DATA-015)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -76,11 +76,11 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     // Tesla publishes no Optimus 3 price or DoF.
     const optimus = table.locator('tbody tr', { hasText: 'Tesla Optimus 3' });
     expect(
-      await optimus.getByText('n/a', { exact: true }).count(),
+      await optimus.getByText('not disclosed', { exact: true }).count(),
     ).toBeGreaterThanOrEqual(3); // price, DoF, distinction
     // Boston Dynamics publishes no Atlas price, but does publish 56 DoF.
     const atlas = table.locator('tbody tr', { hasText: 'Atlas (Electric)' });
-    expect(await atlas.locator('td:nth-child(3)').getByText('n/a').count()).toBe(1);
+    expect(await atlas.locator('td:nth-child(3)').getByText('not disclosed').count()).toBe(1);
     await expect(atlas.locator('td:nth-child(4)').getByText(/^56/)).toBeVisible();
   });
 

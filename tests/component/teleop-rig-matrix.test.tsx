@@ -42,13 +42,13 @@ describe('TeleopRigMatrix', () => {
     }
   });
 
-  it('renders the unpublished VR system cost as n/a and never invents numbers (VAL-DATA-020)', () => {
+  it('renders the unpublished VR system cost as not disclosed and never invents numbers (VAL-DATA-020)', () => {
     render(<TeleopRigMatrix />);
     const vr = rowNamed(/VR teleoperation/) as HTMLElement;
     expect(vr).toBeDefined();
     // Cost is the second cell; no source publishes a VR system cost.
     const cells = within(vr).getAllByRole('cell');
-    expect(cells[1].textContent).toBe('n/a');
+    expect(cells[1].textContent).toBe('not disclosed');
     // The verified rigs do show concrete costs.
     const gello = rowNamed('GELLO') as HTMLElement;
     expect(
@@ -65,8 +65,8 @@ describe('TeleopRigMatrix', () => {
     const costs = bodyRows().map(
       (row) => within(row).getAllByRole('cell')[1].textContent ?? '',
     );
-    // GELLO ($300) < UMI ($371) < ALOHA ($17,000) < n/a.
-    expect(costs.at(-1)).toBe('n/a');
+    // GELLO ($300) < UMI ($371) < ALOHA ($17,000) < not disclosed.
+    expect(costs.at(-1)).toBe('not disclosed');
     expect(costs[0]).toContain('$300');
   });
 

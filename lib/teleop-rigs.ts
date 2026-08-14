@@ -27,7 +27,7 @@ export const RIG_FIELDS: Array<{
     id: 'cost',
     label: 'Cost',
     legend:
-      'Representative rig cost in USD from cited sources. n/a when no source publishes a system cost.',
+      'Representative rig cost in USD from cited sources. Not disclosed when no source publishes a system cost.',
   },
   {
     id: 'dataQuality',

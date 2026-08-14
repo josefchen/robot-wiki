@@ -43,7 +43,7 @@ describe('DatasetTable', () => {
     }
   });
 
-  it('renders unknown values as n/a and never invents numbers (VAL-DATA-009)', () => {
+  it('renders unknown values as not disclosed and never invents numbers (VAL-DATA-009)', () => {
     render(<DatasetTable />);
     const unreleased = rowNamed('AgiBot World 2026') as HTMLElement;
     expect(unreleased).toBeDefined();
@@ -51,16 +51,17 @@ describe('DatasetTable', () => {
     // for this row and must render the placeholder, never a number.
     const cells = within(unreleased).getAllByRole('cell');
     for (const index of [2, 3, 4, 5]) {
-      expect(cells[index].textContent).toBe('n/a');
+      expect(cells[index].textContent).toBe('not disclosed');
     }
     expect(
-      within(unreleased).getAllByText('n/a').length,
+      within(unreleased).getAllByText('not disclosed').length,
     ).toBeGreaterThanOrEqual(4);
 
     const oxe = rowNamed(/Open X-Embodiment/) as HTMLElement;
-    // OXE publishes no hour count: the hours cell is n/a, not an estimate.
+    // OXE publishes no hour count: the hours cell reads not disclosed,
+    // not an estimate.
     const oxeCells = within(oxe).getAllByRole('cell');
-    expect(oxeCells.some((c) => c.textContent === 'n/a')).toBe(true);
+    expect(oxeCells.some((c) => c.textContent === 'not disclosed')).toBe(true);
   });
 
   it('carries at least one external source link per row (VAL-DATA-010)', () => {
@@ -164,7 +165,7 @@ describe('DatasetTable', () => {
         (a, b) => Number(a.replace(/,/g, '')) - Number(b.replace(/,/g, '')),
       );
     // AgiBot World 2026 (unpublished episodes) sorts last.
-    expect(episodes().at(-1)).toBe('n/a');
+    expect(episodes().at(-1)).toBe('not disclosed');
     expect(known()).toEqual(descending(known()));
 
     const sortButton = screen.getByRole('button', {
@@ -174,7 +175,7 @@ describe('DatasetTable', () => {
     headerCell = screen.getByRole('columnheader', { name: /episodes/i });
     expect(headerCell).toHaveAttribute('aria-sort', 'ascending');
     expect(known()).toEqual(ascending(known()));
-    expect(episodes().at(-1)).toBe('n/a');
+    expect(episodes().at(-1)).toBe('not disclosed');
   });
 
   it('reset restores filters and the initial sort', async () => {

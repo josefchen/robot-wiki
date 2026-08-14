@@ -20,10 +20,10 @@ import { cx } from '@/lib/utils';
  * HardwareGuide: a filterable buyer's guide across arms, humanoids, hands,
  * tactile sensors, and edge compute (VAL-DATA-011 through VAL-DATA-016).
  *
- * Honesty rules: figures a source does not publish render as "n/a" (dim)
- * and never as invented numbers, and every listed price carries an explicit
- * as-of date because hardware pricing moves fast. Price buckets use the
- * low end of a range.
+ * Honesty rules: figures a source does not publish render as "not
+ * disclosed" (dim) and never as invented numbers, and every listed price
+ * carries an explicit as-of date because hardware pricing moves fast.
+ * Price buckets use the low end of a range.
  *
  * Interactive contract: deterministic render, keyboard-operable filter
  * buttons and sort headers (aria-pressed / aria-sort), a visible row-count
@@ -31,7 +31,9 @@ import { cx } from '@/lib/utils';
  * affordance, and horizontal scroll inside its own container at 375px.
  */
 
-const NA: ReactNode = <span className="text-text-dim">n/a</span>;
+const NOT_DISCLOSED: ReactNode = (
+  <span className="text-text-dim">not disclosed</span>
+);
 
 const CATEGORY_LABELS: Record<HardwareEntry['category'], string> = {
   arm: 'Arm',
@@ -62,7 +64,7 @@ function nameCell(entry: HardwareEntry): ReactNode {
 
 function priceCell(entry: HardwareEntry): ReactNode {
   const price = formatPrice(entry);
-  if (price === null) return NA;
+  if (price === null) return NOT_DISCLOSED;
   return (
     <span className="font-mono tabular-nums">
       {price}
@@ -75,7 +77,7 @@ function priceCell(entry: HardwareEntry): ReactNode {
 }
 
 function dofCell(entry: HardwareEntry): ReactNode {
-  if (entry.dof === null) return NA;
+  if (entry.dof === null) return NOT_DISCLOSED;
   return (
     <span className="font-mono tabular-nums">
       {entry.dof}
@@ -92,7 +94,7 @@ function availabilityCell(entry: HardwareEntry): ReactNode {
   if (entry.availability === null) {
     return (
       <span>
-        {NA}
+        {NOT_DISCLOSED}
         {entry.availabilityNote ? (
           <span className="block text-xs text-text-dim">
             {entry.availabilityNote}
@@ -154,7 +156,7 @@ const COLUMNS: Column<HardwareEntry>[] = [
   {
     key: 'highlight',
     header: 'Distinction',
-    render: (entry) => entry.highlight ?? NA,
+    render: (entry) => entry.highlight ?? NOT_DISCLOSED,
   },
   { key: 'url', header: 'Source', render: sourceCell },
 ];
@@ -337,7 +339,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked n/a and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.`}
+          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'category', direction: 'asc' }}

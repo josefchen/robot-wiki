@@ -51,7 +51,7 @@ describe('HardwareGuide', () => {
     render(<HardwareGuide />);
     for (const row of bodyRows()) {
       const priceCell = within(row).getAllByRole('cell')[2];
-      if (priceCell.textContent === 'n/a') continue;
+      if (priceCell.textContent === 'not disclosed') continue;
       expect(
         priceCell.textContent,
         `price without as-of note: ${priceCell.textContent}`,
@@ -59,24 +59,27 @@ describe('HardwareGuide', () => {
     }
     // Sanity: the guide actually renders priced rows.
     const priced = bodyRows().filter(
-      (row) => within(row).getAllByRole('cell')[2].textContent !== 'n/a',
+      (row) =>
+        within(row).getAllByRole('cell')[2].textContent !== 'not disclosed',
     );
     expect(priced.length).toBeGreaterThan(10);
   });
 
-  it('renders unpublished figures as n/a and never invents numbers (VAL-DATA-015)', () => {
+  it('renders unpublished figures as not disclosed and never invents numbers (VAL-DATA-015)', () => {
     render(<HardwareGuide />);
     // Tesla publishes no Optimus 3 price or DoF.
     const optimus = rowNamed(/Tesla Optimus 3/) as HTMLElement;
     expect(optimus).toBeDefined();
     const cells = within(optimus).getAllByRole('cell');
-    expect(cells[2].textContent).toBe('n/a'); // price
-    expect(cells[3].textContent).toBe('n/a'); // DoF
+    expect(cells[2].textContent).toBe('not disclosed'); // price
+    expect(cells[3].textContent).toBe('not disclosed'); // DoF
 
     // Boston Dynamics publishes no Atlas price.
     const atlas = rowNamed(/Atlas \(Electric\)/) as HTMLElement;
-    expect(within(atlas).getAllByRole('cell')[2].textContent).toBe('n/a');
-    // Atlas DoF is published: 56, not n/a.
+    expect(within(atlas).getAllByRole('cell')[2].textContent).toBe(
+      'not disclosed',
+    );
+    // Atlas DoF is published: 56, not undisclosed.
     expect(
       within(atlas).getAllByRole('cell')[3].textContent,
     ).toMatch(/^56/);
@@ -113,10 +116,11 @@ describe('HardwareGuide', () => {
     await user.click(
       screen.getByRole('button', { name: /^no listed price$/i }),
     );
-    // Every unlisted row renders n/a in the price column.
+    // Every unlisted row renders not disclosed in the price column.
     expect(
       bodyRows().every(
-        (row) => within(row).getAllByRole('cell')[2].textContent === 'n/a',
+        (row) =>
+          within(row).getAllByRole('cell')[2].textContent === 'not disclosed',
       ),
     ).toBe(true);
 
@@ -192,14 +196,14 @@ describe('HardwareGuide', () => {
     expect(headerCell).toHaveAttribute('aria-sort', 'ascending');
     const ascending = known();
     expect(ascending).toEqual([...ascending].sort((a, b) => a - b));
-    expect(prices().at(-1)).toBe('n/a'); // nulls last
+    expect(prices().at(-1)).toBe('not disclosed'); // nulls last
 
     await user.click(sortButton); // descending
     headerCell = screen.getByRole('columnheader', { name: /price/i });
     expect(headerCell).toHaveAttribute('aria-sort', 'descending');
     const descending = known();
     expect(descending).toEqual([...descending].sort((a, b) => b - a));
-    expect(prices().at(-1)).toBe('n/a');
+    expect(prices().at(-1)).toBe('not disclosed');
   });
 
   it('keeps every filter control keyboard operable', () => {

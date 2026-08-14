@@ -23,7 +23,7 @@ export const hardwareAvailabilitySchema = z.enum([
  * (a 6-DoF arm, a 56-DoF humanoid, a fingertip sensor, an edge SoC), so the
  * numeric fields are the union that matters to a buyer: price, degrees of
  * freedom, and availability. Anything a source does not state stays null;
- * the table renders null as n/a and never invents a figure.
+ * the table renders null as "not disclosed" and never invents a figure.
  */
 export const hardwareEntrySchema = z.object({
   id: slugSchema,
