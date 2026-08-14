@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { publishedModules } from '../../data/modules';
 
 const ROUTE = '/market-map/';
 
@@ -252,18 +253,14 @@ test.describe('market map visualization', () => {
   test('uppercase letterspaced micro-labels stay at or under 5 (VAL-DESIGN-010)', async ({
     page,
   }) => {
+    test.setTimeout(240_000);
     await page.setViewportSize({ width: 1440, height: 900 });
     const routes = [
       '/',
       '/glossary/',
       '/market-map/',
       '/playground/',
-      '/manipulation/action-chunking/',
-      '/rl-sim2real/legged-locomotion/',
-      '/world-models/jepa/',
-      '/data-hardware/datasets/',
-      '/classical/kinematics/',
-      '/frontier/bear-case/',
+      ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
     ];
     for (const route of routes) {
       await page.goto(route);

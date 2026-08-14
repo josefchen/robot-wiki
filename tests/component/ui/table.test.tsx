@@ -66,6 +66,24 @@ describe('Table', () => {
     expect(rowOrder()).toEqual(['Diffusion Policy', 'RT-1', 'ACT']);
   });
 
+  it('renders null and empty values as "not disclosed", dimmed', () => {
+    render(<Table caption="Policy comparison" columns={columns} rows={rows} />);
+    // ACT's rate is null. The shared fallback marks it "not disclosed"
+    // (dim): the wiki-wide convention for a value its owner has not
+    // published. A column whose nulls mean "not applicable" instead must
+    // pass an explicit render (see PolicyChunkingTable).
+    const body = screen.getAllByRole('rowgroup')[1];
+    const actRow = within(body)
+      .getAllByRole('row')
+      .find((row) => within(row).queryByText('ACT'));
+    expect(actRow).toBeDefined();
+    const placeholder = within(actRow as HTMLElement).getByText(
+      'not disclosed',
+      { exact: true },
+    );
+    expect(placeholder).toHaveClass('text-text-dim');
+  });
+
   it('does not render a sort button for non-sortable columns', () => {
     render(<Table caption="Policy comparison" columns={columns} rows={rows} />);
     expect(

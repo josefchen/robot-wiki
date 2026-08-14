@@ -15,6 +15,11 @@ function card(name: string): HTMLElement {
   return article;
 }
 
+// MarketMap renders 112 DOM-heavy company cards. Under full-suite jsdom
+// load the second render can exceed the 5s default timeout (it takes ~3s
+// in isolation), so every test in this file gets a 15s ceiling.
+const TIMEOUT = 15_000;
+
 describe('MarketMap', () => {
   it('renders all 112 companies grouped by the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
     render(<MarketMap companies={COMPANIES} />);
@@ -38,7 +43,7 @@ describe('MarketMap', () => {
     expect(screen.getByRole('heading', { name: /Components/ })).toHaveTextContent(
       '8',
     );
-  });
+  }, TIMEOUT);
 
   it('exposes all seven filter dimensions and the three views (VAL-MKT-003, VAL-MKT-004)', () => {
     render(<MarketMap companies={COMPANIES} />);
@@ -61,7 +66,7 @@ describe('MarketMap', () => {
     expect(status).toHaveTextContent('Acquired');
     expect(status).toHaveTextContent('IPO');
     expect(status).toHaveTextContent('Shut down');
-  });
+  }, TIMEOUT);
 
   it('applies a single filter and composes a second one (VAL-MKT-005, VAL-MKT-006)', async () => {
     const user = userEvent.setup();
@@ -74,7 +79,7 @@ describe('MarketMap', () => {
     expect(screen.getAllByRole('article')).toHaveLength(6);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
     expect(screen.getByText('4 of 112 companies')).toBeInTheDocument();
-  });
+  }, TIMEOUT);
 
   it('narrows sub-segments when a segment is active (VAL-MKT-025)', async () => {
     const user = userEvent.setup();
@@ -84,7 +89,7 @@ describe('MarketMap', () => {
     await user.selectOptions(screen.getByLabelText('Segment'), 'humanoids');
     expect(sub).toHaveTextContent('industrial humanoids');
     expect(sub).not.toHaveTextContent('warehouse automation');
-  });
+  }, TIMEOUT);
 
   it('shows the complete field set and expands inline (VAL-MKT-009, VAL-MKT-010)', async () => {
     const user = userEvent.setup();
@@ -110,7 +115,7 @@ describe('MarketMap', () => {
     expect(within(pi).getByText('openpi')).toBeInTheDocument();
     await user.click(within(pi).getByRole('button', { name: 'Collapse' }));
     expect(within(pi).queryByText('openpi')).not.toBeInTheDocument();
-  });
+  }, TIMEOUT);
 
   it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', () => {
     render(<MarketMap companies={COMPANIES} />);
@@ -125,7 +130,7 @@ describe('MarketMap', () => {
     expect(genesis.querySelector('[data-field="valuation"]')?.textContent).toBe(
       'not disclosed',
     );
-  });
+  }, TIMEOUT);
 
   it('switches to bubble and timeline views (VAL-MKT-003, VAL-MKT-015, VAL-MKT-023)', async () => {
     const user = userEvent.setup();
@@ -150,7 +155,7 @@ describe('MarketMap', () => {
 
     await user.click(screen.getByRole('button', { name: 'Grid' }));
     expect(screen.getAllByRole('article')).toHaveLength(112);
-  });
+  }, TIMEOUT);
 
   it('shows an empty state and restores the full set on clear (VAL-MKT-017, VAL-MKT-018)', async () => {
     const user = userEvent.setup();
@@ -165,7 +170,7 @@ describe('MarketMap', () => {
     await user.click(screen.getAllByRole('button', { name: 'Clear filters' })[0]);
     expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
     expect(screen.getAllByRole('article')).toHaveLength(112);
-  });
+  }, TIMEOUT);
 
   it('hydrates filters from the URL and ignores invalid params (VAL-MKT-007, VAL-MKT-024)', async () => {
     window.history.replaceState(
@@ -188,7 +193,7 @@ describe('MarketMap', () => {
     await waitFor(() => {
       expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
     });
-  });
+  }, TIMEOUT);
 
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
@@ -196,5 +201,5 @@ describe('MarketMap', () => {
       'aria-live',
       'polite',
     );
-  });
+  }, TIMEOUT);
 });

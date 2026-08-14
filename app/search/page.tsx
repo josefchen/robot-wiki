@@ -4,15 +4,15 @@ import { SearchInterface } from '@/components/search/search-interface';
 
 export const metadata: Metadata = {
   title: 'Search',
-  description: 'Search robot-wiki: full-text over the prose of every article.',
+  description:
+    'Search robot-wiki: full-text over article prose, plus methods, companies, and datasets.',
 };
 
 /**
- * /search. One input over the Pagefind prose index built at build time
- * (scripts/build-search.ts). The results area is grouped so the structured
- * entity index (methods, companies, datasets) can add a second group without
- * reworking this page. data-pagefind-ignore keeps this page out of its own
- * index. Suspense is required because SearchInterface reads ?q= from the URL.
+ * /search. One input over two build-time indexes: Pagefind for prose and
+ * MiniSearch for structured entities (methods, companies, datasets).
+ * data-pagefind-ignore keeps this page out of its own index. Suspense is
+ * required because SearchInterface reads ?q= from the URL.
  */
 export default function SearchPage() {
   return (
@@ -27,8 +27,8 @@ export default function SearchPage() {
         Search
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">
-        Full-text search over the prose of every article. Queries run locally
-        in your browser.
+        Search article prose together with the methods, companies, and
+        datasets in the wiki data layer. Queries run locally in your browser.
       </p>
       <Suspense fallback={null}>
         <SearchInterface />

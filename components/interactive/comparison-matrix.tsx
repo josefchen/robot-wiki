@@ -3,6 +3,8 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
+import { entityAnchorId } from '@/lib/entity-anchor';
+import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
   DEFAULT_FILTERS,
   filterMethods,
@@ -186,6 +188,10 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
   const [filters, setFilters] = useState<MethodFilters>(DEFAULT_FILTERS);
   // Remounting the table restores its internal initial sort on reset.
   const [resetCount, setResetCount] = useState(0);
+  const highlightedId = useEntityAnchor('method');
+  const highlightedAnchor = highlightedId
+    ? entityAnchorId('method', highlightedId)
+    : null;
 
   const rows = useMemo(() => filterMethods(METHODS, filters), [filters]);
 
@@ -278,6 +284,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             {rows.length} of {METHODS.length} methods
           </p>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={reset}
             className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -300,6 +307,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             filter; try widening the weights or representation selection.
           </p>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={clearFilters}
             className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-mono text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
@@ -315,6 +323,8 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'year', direction: 'asc' }}
+          rowAnchor={(row) => entityAnchorId('method', row.id)}
+          highlightedAnchor={highlightedAnchor}
         />
       )}
     </div>

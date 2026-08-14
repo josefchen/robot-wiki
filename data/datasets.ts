@@ -4,9 +4,9 @@
  *
  * Sources: research/03-data-hardware-evaluation.md (Part A1) plus live
  * verification of the underlying primary sources (2026-08-09). Rules:
- *   - Figures the source does not publish are null and render as "n/a";
- *     nothing is guessed (OXE and BridgeData V2 hours, all AgiBot World 2026
- *     counts).
+ *   - Figures the source does not publish are null and render as "not
+ *     disclosed"; nothing is guessed (OXE and BridgeData V2 hours, all
+ *     AgiBot World 2026 counts).
  *   - Open-ended counts ("1M+") store the stated lower bound and carry the
  *     qualifier in the note field.
  *   - research/03 covers BridgeData V2 nowhere; its row is verified against
@@ -32,7 +32,7 @@ const ROWS: Dataset[] = [
     episodes: 1000000,
     episodesNote: 'reported as 1M+; pooled from 60 datasets',
     // No hour count is published; the ~10,000 h figure is an estimate
-    // (the module prose carries it, the table cell stays n/a).
+    // (the module prose carries it, the table cell stays not disclosed).
     hours: null,
     tasks: 160266,
     tasksNote: '527 skills',
@@ -97,7 +97,7 @@ const ROWS: Dataset[] = [
     year: 2026,
     // The release README publishes a 13.2 TB total file size but no
     // episode, hour, task, or scene counts as of August 2026 (the module
-    // prose carries the file size, the table cells stay n/a).
+    // prose carries the file size, the table cells stay not disclosed).
     episodes: null,
     hours: null,
     tasks: null,

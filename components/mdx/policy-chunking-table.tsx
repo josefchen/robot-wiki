@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 
 /**
@@ -10,9 +11,20 @@ import { Badge, Table, type Column } from '@/components/ui';
  * embodiment-dependent values are null (rendered as "n/a", dim) rather than
  * guessed; unverified figures are excluded instead of flagged here.
  *
+ * The null cells in this table deliberately mix two absences: values the
+ * vendor has not published (Octo's and Helix 02's horizons) and values
+ * that have no single answer (Octo's control rate varies by deployment;
+ * GR00T N1.7's is embodiment-dependent). Forcing one word on the column
+ * would make half the cells lie, so the caption states the mixture and the
+ * cells render "n/a" through explicit renders below — NOT through the
+ * shared Table fallback, which means "not disclosed" everywhere else.
+ *
  * 'use client' because the Table columns carry render functions, which
  * cannot cross the RSC boundary from the compiled MDX page.
  */
+
+/** Placeholder for the mixed-meaning nulls documented above. */
+const NA: ReactNode = <span className="text-text-dim">n/a</span>;
 type PolicyRow = {
   policy: string;
   year: number;
@@ -115,12 +127,16 @@ const COLUMNS: Column<PolicyRow>[] = [
     header: 'Horizon H',
     sortable: true,
     numeric: true,
+    // Explicit render: keeps the mixed-meaning "n/a" instead of the shared
+    // fallback's "not disclosed" (see the file comment).
+    render: (row) => row.horizon ?? NA,
   },
   {
     key: 'frequencyHz',
     header: 'Control Hz',
     sortable: true,
     numeric: true,
+    render: (row) => row.frequencyHz ?? NA,
   },
   { key: 'representation', header: 'Action representation' },
   {

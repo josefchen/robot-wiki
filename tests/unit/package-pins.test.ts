@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import pkg from '@/package.json';
 
@@ -54,5 +56,34 @@ describe('scaffold npm scripts', () => {
     'validate:content',
   ])('defines the "%s" script', (script) => {
     expect(pkg.scripts).toHaveProperty(script);
+  });
+});
+
+// Guards the environment-trap wiring: the bare dev command must stay inside
+// the mission port range (3200-3299; 3000 and 3100 are off-limits), and the
+// sync-conflict prune must run before every typecheck, the same way the
+// export prune is wired into postbuild before search indexing.
+describe('environment-trap script wiring', () => {
+  it('pins the dev server to port 3200 so the bare command cannot leave the mission range', () => {
+    expect(pkg.scripts.dev).toBe('next dev -p 3200');
+  });
+
+  it('prunes sync-conflict duplicates from the .next type dirs before every typecheck', () => {
+    // npm runs pre<typecheck> automatically ahead of `typecheck`.
+    expect(pkg.scripts.pretypecheck).toBe(
+      'node scripts/prune-next-type-duplicates.ts',
+    );
+    expect(pkg.scripts.typecheck).toBe('next typegen && tsc --noEmit');
+    expect(
+      existsSync(
+        join(import.meta.dirname, '../../scripts/prune-next-type-duplicates.ts'),
+      ),
+    ).toBe(true);
+  });
+
+  it('keeps the export prune wired into postbuild ahead of search indexing', () => {
+    expect(pkg.scripts.postbuild).toMatch(
+      /prune-export-artifacts\.ts && node scripts\/build-search\.ts/,
+    );
   });
 });

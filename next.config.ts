@@ -42,6 +42,11 @@ const withMDX = createMDX({
       // (.katex-mathml) from the Pagefind index so excerpts carry the
       // rendered formula once instead of triplicated.
       path.join(process.cwd(), 'lib/rehype-pagefind-math.mjs'),
+      // Binds every <Cite> chip cluster to its trailing sentence punctuation
+      // in a whitespace-nowrap span, so a line can never begin with an
+      // orphaned "." or ",". No interaction with katex/pretty-code (chips
+      // never occur in math or code); grouped with the other local plugins.
+      path.join(process.cwd(), 'lib/rehype-cite-punctuation.mjs'),
       ['rehype-pretty-code', { theme: 'github-dark-dimmed', keepBackground: true }],
     ],
   },

@@ -8,9 +8,15 @@ type GridViewProps = {
   companies: readonly Company[];
   expandedId: string | null;
   onToggle: (id: string) => void;
+  highlightedId?: string | null;
 };
 
-export function GridView({ companies, expandedId, onToggle }: GridViewProps) {
+export function GridView({
+  companies,
+  expandedId,
+  onToggle,
+  highlightedId,
+}: GridViewProps) {
   return (
     <div className="mt-6 space-y-10">
       {SEGMENT_ORDER.map((segment) => {
@@ -34,6 +40,7 @@ export function GridView({ companies, expandedId, onToggle }: GridViewProps) {
             <CompanyCardList
               companies={group}
               expandedId={expandedId}
+              highlightedId={highlightedId}
               onToggle={onToggle}
               className="mt-2"
             />

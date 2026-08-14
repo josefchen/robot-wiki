@@ -29,6 +29,7 @@ export function CopyButton({ text }: CopyButtonProps) {
 
   return (
     <button
+      data-pagefind-ignore
       type="button"
       onClick={copy}
       aria-label="Copy code to clipboard"

@@ -248,3 +248,211 @@ test.describe('search excerpt quality', () => {
     await expect(citeTooltip).toHaveAttribute('id', citeDescribedBy ?? '');
   });
 });
+
+/**
+ * Third noise sweep (2026-08-14, harden-search-excerpt-credits): figure
+ * credit lines and interactive transport labels fused into excerpts —
+ * "Deviation feeds itself.Diagram: robot-wiki contributors / ..." and
+ * "Step backStep forwardReset. step 0 of 10 ...", both measured on the
+ * live index. The decision here is per element type, never a blanket
+ * rule:
+ *
+ * - Figure CREDIT (the data-image-credit span: kind, creator, source and
+ *   licence links) is attribution chrome and is excluded from the index.
+ *   The credit stays VISIBLE on the page with both links intact:
+ *   data-pagefind-ignore is index-only, so the VAL-IMG-002/003 licensing
+ *   guarantees (visible attribution, link to the original) are untouched
+ *   and the imagery spec keeps asserting them against the same DOM.
+ * - Figure CAPTION (figcaption) stays indexed. Captions are real content
+ *   a reader may legitimately search ("...results above all ran on this
+ *   platform"); the positive controls below pin this so the credit fix
+ *   cannot silently over-exclude.
+ * - Interactive TRANSPORT/ACTION buttons (Play/Pause, Step, Step back,
+ *   Step forward, Reset, Reseed, Clear filters, Push, Plan step, Add/
+ *   Remove contact, Run next generation, Copy) are excluded per button.
+ *   They are UI chrome verbs; a reader searching "reset" wants the prose
+ *   concept (episode reset), not a button.
+ * - Interactive SELECTORS (the aria-pressed option chips: gait names,
+ *   filter options, model/layer/strategy/thesis pickers, sort headers)
+ *   and all READOUTS stay indexed: their labels and values are concept
+ *   nouns and named regimes ("Trot", "balanced gait", "370 units",
+ *   "pure Gaussian noise") that carry the substance of the page.
+ */
+test.describe('excerpt chrome: figure credits and interactive controls', () => {
+  test('figure credit lines never leak into search excerpts', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // Caption-adjacent queries whose pre-fix excerpts fused the credit
+    // line (measured on the pre-fix export, 2026-08-14):
+    //   "CeBIT 2017" → "...guiding it by hand.Photo: Ims / Wikimedia
+    //     Commons. Licence: CC BY-SA 4.0. Humanoids: shipping..."
+    //   "ran on this platform" → "...ran on this platform.Photo: ANYbotics
+    //     / Wikimedia Commons. Licence: CC BY-SA 4.0. Choi and..."
+    for (const query of ['CeBIT 2017', 'ran on this platform']) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.length,
+        `query "${query}" returns at least one excerpt`,
+      ).toBeGreaterThan(0);
+      for (const excerpt of excerpts) {
+        // Credit vocabulary is unambiguous: no indexed prose or caption
+        // contains these strings (verified by corpus sweep), so any
+        // occurrence is the credit line. The fusion joins without
+        // whitespace ("...by hand.Photo: Ims /..."), so match plainly.
+        expect(
+          excerpt,
+          `excerpt for "${query}" leaks a credit kind`,
+        ).not.toMatch(/(Photo|Diagram): /);
+        expect(
+          excerpt,
+          `excerpt for "${query}" leaks the licence statement`,
+        ).not.toContain('Licence:');
+        expect(
+          excerpt,
+          `excerpt for "${query}" leaks the credit creator`,
+        ).not.toContain('robot-wiki contributors');
+      }
+    }
+  });
+
+  test('interactive transport labels never leak into search excerpts', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // Readout-anchored queries whose pre-fix excerpts fused the transport
+    // buttons (measured on the pre-fix export, 2026-08-14):
+    //   "370 units" → "cost near-linear in T. Reset. Per-timestep
+    //     predictionChunk of 25 actions. ... accumulated deviation =
+    //     370 units over 120 steps ..."
+    //   "balanced gait" → "PlayStepResetbalanced gait. weighted total:
+    //     -5.52 / stepterms: 12preview phase: 0% balanced gait. ..."
+    // No published prose contains a capitalized "Reset" (corpus sweep:
+    // only lowercase "episode reset"), so any "Reset" in an excerpt is a
+    // button label.
+    const cases: ReadonlyArray<{
+      query: string;
+      forbidden: readonly string[];
+    }> = [
+      { query: '370 units', forbidden: ['Reset'] },
+      { query: 'balanced gait', forbidden: ['PlayStep', 'StepReset', 'Reset'] },
+    ];
+    for (const { query, forbidden } of cases) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.length,
+        `query "${query}" returns at least one excerpt`,
+      ).toBeGreaterThan(0);
+      for (const excerpt of excerpts) {
+        for (const label of forbidden) {
+          expect(
+            excerpt,
+            `excerpt for "${query}" fuses the "${label}" control label`,
+          ).not.toContain(label);
+        }
+      }
+    }
+  });
+
+  test('figure captions stay indexed (positive control against over-exclusion)', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // Both fragments exist ONLY inside figure captions (verified: no prose
+    // occurrence anywhere in content/). If the caption were excluded
+    // together with the credit, these queries would lose their excerpt.
+    const cases: ReadonlyArray<readonly [string, string]> = [
+      ['CeBIT 2017', 'guiding it by hand'],
+      ['ran on this platform', 'ran on this platform'],
+    ];
+    for (const [query, captionFragment] of cases) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.some((excerpt) => excerpt.includes(captionFragment)),
+        `caption text "${captionFragment}" no longer reaches any excerpt`,
+      ).toBe(true);
+    }
+  });
+
+  test('interactive readouts stay indexed (positive control against over-exclusion)', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // "370 units" exists only in the CompoundingError readout and
+    // "balanced gait" only in the RewardShaping status readout (verified:
+    // no prose occurrence). If readouts were excluded with the buttons,
+    // these queries would lose their excerpt.
+    const cases: ReadonlyArray<readonly [string, string]> = [
+      ['370 units', '370 units'],
+      ['balanced gait', 'balanced gait'],
+    ];
+    for (const [query, readoutFragment] of cases) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.some((excerpt) => excerpt.includes(readoutFragment)),
+        `readout text "${readoutFragment}" no longer reaches any excerpt`,
+      ).toBe(true);
+    }
+  });
+
+  test('figure credit stays visible and fully linked, ignored by the index only', async ({
+    page,
+  }) => {
+    await page.goto(`${BASE}/rl-sim2real/legged-locomotion/`);
+
+    const credit = page.locator('main [data-image-credit]').first();
+    // The licensing guarantee (VAL-IMG-002/003) is a VISIBLE credit with
+    // working links; the attribute excludes the index only.
+    await expect(credit).toBeVisible();
+    await expect(credit).toHaveAttribute('data-pagefind-ignore', 'true');
+    await expect(credit).toContainText('Photo: ANYbotics');
+    await expect(credit).toContainText('Licence: CC BY-SA 4.0');
+    const links = credit.locator('a');
+    await expect(links).toHaveCount(2);
+    await expect(links.nth(0)).toHaveAttribute(
+      'href',
+      'https://commons.wikimedia.org/wiki/File:ANYbotics_robot_dog_ANYmal.jpg',
+    );
+    await expect(links.nth(0)).toHaveAttribute('target', '_blank');
+    await expect(links.nth(1)).toHaveAttribute(
+      'href',
+      'https://creativecommons.org/licenses/by-sa/4.0',
+    );
+
+    // The caption is content and keeps its index presence.
+    const caption = page.locator('main figcaption').first();
+    await expect(caption).toContainText('ran on this platform');
+    expect(await caption.getAttribute('data-pagefind-ignore')).toBeNull();
+  });
+
+  test('transport buttons are index-ignored; selectors and readouts are not', async ({
+    page,
+  }) => {
+    await page.goto(`${BASE}/manipulation/diffusion-policy/`);
+
+    // Every transport/action button on the page carries the attribute.
+    for (const name of ['Step back', 'Step forward', 'Reset']) {
+      const buttons = page.getByRole('button', { name, exact: true });
+      const all = await buttons.all();
+      expect(all.length, `page has a "${name}" button`).toBeGreaterThan(0);
+      for (const button of all) {
+        await expect(button).toHaveAttribute('data-pagefind-ignore', 'true');
+      }
+    }
+    // The readout keeps its index presence: it carries the substance.
+    const readout = page.getByTestId('denoise-step-readout');
+    await expect(readout).toContainText('step 0 of 10');
+    expect(await readout.getAttribute('data-pagefind-ignore')).toBeNull();
+
+    // Selector chips are concept nouns and stay indexed (gait names on
+    // the legged-locomotion GaitDiagram).
+    await page.goto(`${BASE}/rl-sim2real/legged-locomotion/`);
+    const trot = page.getByRole('button', { name: 'Trot', exact: true });
+    await expect(trot).toBeVisible();
+    expect(await trot.getAttribute('data-pagefind-ignore')).toBeNull();
+    const reset = page.getByRole('button', { name: 'Reset', exact: true });
+    await expect(reset).toHaveAttribute('data-pagefind-ignore', 'true');
+    const play = page.getByRole('button', { name: 'Play gait cycle' });
+    await expect(play).toHaveAttribute('data-pagefind-ignore', 'true');
+  });
+});

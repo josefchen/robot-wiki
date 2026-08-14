@@ -25,31 +25,31 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
           <tr className="border-b border-border">
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Category
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Task
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Embodiment
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 text-right font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 text-right font-mono text-[11px] font-medium text-text-dim"
             >
               Success
             </th>
             <th
               scope="col"
-              className="px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-text-dim"
+              className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
             >
               Evidence
             </th>

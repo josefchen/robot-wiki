@@ -31,9 +31,9 @@ const SCALE = 113; // px per link unit; reach 2.30 -> 259.9 px
 const REACH_PX = totalReach(LINK_LENGTHS) * SCALE;
 
 const JOINT_META = [
-  { id: 'fk-joint-1', label: 'Base joint', short: 'θ1' },
-  { id: 'fk-joint-2', label: 'Elbow joint', short: 'θ2' },
-  { id: 'fk-joint-3', label: 'Wrist joint', short: 'θ3' },
+  { id: 'fk-joint-1', label: 'Base joint' },
+  { id: 'fk-joint-2', label: 'Elbow joint' },
+  { id: 'fk-joint-3', label: 'Wrist joint' },
 ] as const;
 
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
@@ -81,7 +81,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
           <div key={joint.id}>
             <label
               htmlFor={joint.id}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
             >
               {joint.label}
               <span
@@ -105,6 +105,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
           </div>
         ))}
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"

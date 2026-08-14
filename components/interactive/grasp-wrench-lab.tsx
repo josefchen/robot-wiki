@@ -412,6 +412,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={addContact}
           disabled={contacts.length >= MAX_CONTACTS}
@@ -421,6 +422,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           Add contact
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={removeContact}
           disabled={contacts.length <= MIN_CONTACTS}
@@ -430,6 +432,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           Remove contact
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           aria-label="Reset: restore the default grasp and friction"

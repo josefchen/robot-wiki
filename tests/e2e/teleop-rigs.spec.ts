@@ -172,15 +172,15 @@ test.describe('data-hardware teleop-rigs module', () => {
     await expect(firstRow.getByText(/ALOHA-class workstation|GELLO/)).toBeVisible();
 
     // Honesty: verified rigs show sourced costs; the VR family has no
-    // published system cost and renders n/a, sorted last.
+    // published system cost and renders not disclosed, sorted last.
     const costCells = table.locator('tbody tr td:nth-child(2)');
     expect(await costCells.filter({ hasText: '$300' }).count()).toBe(1);
     expect(await costCells.filter({ hasText: '$371' }).count()).toBe(1);
     expect(await costCells.filter({ hasText: '$17,000' }).count()).toBe(1);
     expect(
-      await costCells.getByText('n/a', { exact: true }).count(),
+      await costCells.getByText('not disclosed', { exact: true }).count(),
     ).toBe(1);
-    await expect(costCells.last()).toContainText('n/a');
+    await expect(costCells.last()).toContainText('not disclosed');
 
     // Reset restores the initial cost sort and clears the highlight.
     await page.getByRole('button', { name: 'Reset' }).click();

@@ -151,6 +151,7 @@ export function ActionTokenization({
             ))}
           </div>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => {
               setStep(defaultStep);

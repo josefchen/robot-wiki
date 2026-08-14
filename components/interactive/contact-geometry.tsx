@@ -327,7 +327,7 @@ export function ContactGeometry({
         <div>
           <span
             id="cg-scenario-label"
-            className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            className="font-mono text-[11px] text-text-dim"
           >
             Scenario
           </span>
@@ -357,7 +357,7 @@ export function ContactGeometry({
         <div>
           <label
             htmlFor="cg-error"
-            className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+            className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
           >
             Contact-model error
             <span className="font-mono text-xs normal-case tracking-normal text-text">
@@ -377,6 +377,7 @@ export function ContactGeometry({
           />
         </div>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"

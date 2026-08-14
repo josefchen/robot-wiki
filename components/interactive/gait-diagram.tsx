@@ -190,6 +190,7 @@ export function GaitDiagram({
         </div>
         <div className="flex items-center gap-1">
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => setPlaying((p) => !p)}
             aria-label={playing ? 'Pause gait cycle' : 'Play gait cycle'}
@@ -203,6 +204,7 @@ export function GaitDiagram({
             {playing ? 'Pause' : 'Play'}
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => step(-1)}
             aria-label="Step back"
@@ -211,6 +213,7 @@ export function GaitDiagram({
             Step back
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => step(1)}
             aria-label="Step forward"
@@ -219,6 +222,7 @@ export function GaitDiagram({
             Step forward
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={reset}
             className={cx(buttonBase, buttonIdle)}

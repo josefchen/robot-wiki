@@ -261,6 +261,7 @@ export function WmDisambiguator({
           </span>
         </div>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className="rounded-sm border border-border bg-surface-2 px-2.5 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -293,7 +294,7 @@ export function WmDisambiguator({
               <PanelArt id={p.id} />
               <span
                 className={cx(
-                  'mt-1.5 block font-mono text-[11px] uppercase tracking-[0.14em]',
+                  'mt-1.5 block font-mono text-[11px]',
                   active ? 'text-accent' : 'text-text-dim',
                 )}
               >
@@ -305,7 +306,7 @@ export function WmDisambiguator({
       </div>
 
       <div className="mt-3 border-t border-border pt-3">
-        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <div className="font-mono text-[11px] text-text-dim">
           used for
         </div>
         <ul

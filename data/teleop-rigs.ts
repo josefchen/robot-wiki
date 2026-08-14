@@ -4,8 +4,8 @@
  *
  * Sources: research/03-data-hardware-evaluation.md (Part C) plus live
  * verification of the underlying primary sources (2026-08-09). Rules:
- *   - Figures no source publishes are null and render as "n/a"; nothing is
- *     guessed (the VR family's total system cost).
+ *   - Figures no source publishes are null and render as "not disclosed";
+ *     nothing is guessed (the VR family's total system cost).
  *   - Costs are representative USD figures from cited first-party sources:
  *     GELLO's sub-$300 BOM (project site), UMI's $73 gripper + $298 GoPro
  *     (paper, Sec. III), ALOHA 2's $17,000-$32,000 range low end (LeRobot

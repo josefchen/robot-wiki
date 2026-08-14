@@ -266,7 +266,7 @@ export function PiGenerationTimeline({
             <span className="text-[10px] text-text-dim">{g.dateLabel}</span>
             <span
               className={cx(
-                'text-[10px] uppercase tracking-[0.14em]',
+                'text-[10px]',
                 g.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
@@ -275,6 +275,7 @@ export function PiGenerationTimeline({
           </button>
         ))}
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -293,7 +294,7 @@ export function PiGenerationTimeline({
           <span className="text-text-dim">{selected.dateLabel}</span>{' '}
           <span
             className={cx(
-              'whitespace-nowrap text-xs uppercase tracking-[0.14em]',
+              'whitespace-nowrap text-xs',
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >

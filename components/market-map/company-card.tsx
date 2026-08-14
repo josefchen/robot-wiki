@@ -9,6 +9,7 @@ import {
   formatUsd,
   unknownFigure,
 } from '@/lib/market-map';
+import { cx } from '@/lib/utils';
 
 const CONFIDENCE_VARIANT = {
   high: 'ok',
@@ -27,21 +28,35 @@ type CompanyCardProps = {
   company: Company;
   expanded: boolean;
   onToggle: () => void;
+  highlighted?: boolean;
 };
 
-export function CompanyCard({ company, expanded, onToggle }: CompanyCardProps) {
+export function CompanyCard({
+  company,
+  expanded,
+  onToggle,
+  highlighted = false,
+}: CompanyCardProps) {
   const round = company.latestRound;
   const asOf = company.sources[0]?.asOf ?? null;
   const headingId = `company-${company.id}`;
 
   return (
     <article
+      id={headingId}
       data-company-id={company.id}
-      aria-labelledby={headingId}
-      className="border-t border-border py-4"
+      aria-labelledby={`${headingId}-name`}
+      className={cx(
+        'scroll-mt-24 border-t border-border py-4',
+        highlighted &&
+          'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
+      )}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3 id={headingId} className="font-sans text-base font-medium text-text">
+        <h3
+          id={`${headingId}-name`}
+          className="font-sans text-base font-medium text-text"
+        >
           {company.name}
         </h3>
         <Badge variant={CONFIDENCE_VARIANT[company.confidence]}>
@@ -185,11 +200,13 @@ export function CompanyCardList({
   companies,
   expandedId,
   onToggle,
+  highlightedId,
   className,
 }: {
   companies: readonly Company[];
   expandedId: string | null;
   onToggle: (id: string) => void;
+  highlightedId?: string | null;
   className?: string;
 }) {
   return (
@@ -199,6 +216,7 @@ export function CompanyCardList({
           key={company.id}
           company={company}
           expanded={expandedId === company.id}
+          highlighted={highlightedId === company.id}
           onToggle={() => onToggle(company.id)}
         />
       ))}

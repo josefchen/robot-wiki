@@ -150,6 +150,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         </div>
         <div className="flex gap-2">
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => setPlaying((p) => !p)}
             disabled={!playing && iteration >= total}
@@ -166,6 +167,7 @@ export function RrtExplorer({ className }: { className?: string }) {
             {playing ? 'Pause' : 'Run'}
           </button>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={() => scrub(iteration + 1)}
             disabled={iteration >= total}
@@ -173,7 +175,7 @@ export function RrtExplorer({ className }: { className?: string }) {
           >
             Step forward
           </button>
-          <button type="button" onClick={reset} className={buttonBase}>
+          <button data-pagefind-ignore type="button" onClick={reset} className={buttonBase}>
             Reset
           </button>
         </div>

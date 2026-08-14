@@ -144,6 +144,7 @@ export function RewardShaping({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
@@ -157,6 +158,7 @@ export function RewardShaping({ className }: { className?: string }) {
           {playing ? 'Pause' : 'Play'}
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setPhase((p) => f((p + PHASE_STEP) % 1))}
           aria-label="Step the preview forward"
@@ -165,6 +167,7 @@ export function RewardShaping({ className }: { className?: string }) {
           Step
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className={cx(buttonBase, buttonIdle)}
@@ -362,7 +365,7 @@ export function RewardShaping({ className }: { className?: string }) {
           <div key={term.id}>
             <label
               htmlFor={`rs-${term.id}`}
-              className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
+              className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
             >
               {term.label}
               <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">

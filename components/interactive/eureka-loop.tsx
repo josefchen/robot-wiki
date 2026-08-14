@@ -68,6 +68,7 @@ export function EurekaLoop({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))}
           disabled={isLast}
@@ -82,6 +83,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           Run next generation
         </button>
         <button
+          data-pagefind-ignore
           type="button"
           onClick={() => setGen(0)}
           className={cx(buttonBase, buttonIdle)}
@@ -105,13 +107,13 @@ export function EurekaLoop({ className }: { className?: string }) {
         </span>
       </div>
 
-      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+      <p className="mt-2 font-mono text-[11px] text-text-dim">
         task: {EUREKA_TASK}
       </p>
 
       <div className="mt-3 grid gap-4 lg:grid-cols-2">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+          <p className="font-mono text-[11px] text-text-dim">
             {gen === 0 ? 'proposed reward code' : 'proposed reward code, diff vs previous'}
           </p>
           <pre
@@ -122,7 +124,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </pre>
           {diff && (
             <div className="mt-3">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+              <p className="font-mono text-[11px] text-text-dim">
                 mutation diff, generation {gen - 1} to {gen}
               </p>
               <pre
@@ -145,7 +147,7 @@ export function EurekaLoop({ className }: { className?: string }) {
         </div>
 
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+          <p className="font-mono text-[11px] text-text-dim">
             reward statistics from training
           </p>
           <dl
@@ -176,7 +178,7 @@ export function EurekaLoop({ className }: { className?: string }) {
             </div>
           </dl>
 
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+          <p className="mt-3 font-mono text-[11px] text-text-dim">
             LLM reflection on the statistics
           </p>
           <blockquote

@@ -3,6 +3,8 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Table, type Column } from '@/components/ui';
 import { DATASETS, type Dataset } from '@/data/datasets';
+import { entityAnchorId } from '@/lib/entity-anchor';
+import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
   DEFAULT_DATASET_FILTERS,
   filterDatasets,
@@ -18,9 +20,10 @@ import { cx } from '@/lib/utils';
  * sortable comparison table.
  *
  * Honesty rules (VAL-DATA-009, VAL-DATA-010): figures the source does not
- * publish render as "n/a" (dim) and never as invented numbers, null cells
- * always sort last in both directions, and every row links out to its
- * dataset site or paper. Estimates live in the module prose, not in cells.
+ * publish render as "not disclosed" (dim) and never as invented numbers,
+ * null cells always sort last in both directions, and every row links out
+ * to its dataset site or paper. Estimates live in the module prose, not in
+ * cells.
  *
  * Interactive contract: deterministic render, keyboard-operable filter
  * buttons and sort headers (aria-pressed / aria-sort), a visible row-count
@@ -28,7 +31,9 @@ import { cx } from '@/lib/utils';
  * affordance, and horizontal scroll inside its own container at 375px.
  */
 
-const NA: ReactNode = <span className="text-text-dim">n/a</span>;
+const NOT_DISCLOSED: ReactNode = (
+  <span className="text-text-dim">not disclosed</span>
+);
 
 /** Thousands-grouped count; the Table default deliberately skips grouping. */
 function formatCount(value: number): string {
@@ -36,7 +41,7 @@ function formatCount(value: number): string {
 }
 
 function countCell(value: number | null, note?: string): ReactNode {
-  if (value === null) return NA;
+  if (value === null) return NOT_DISCLOSED;
   return (
     <span className="font-mono tabular-nums">
       {formatCount(value)}
@@ -120,7 +125,7 @@ const COLUMNS: Column<Dataset>[] = [
   {
     key: 'license',
     header: 'License',
-    render: (row) => row.license ?? NA,
+    render: (row) => row.license ?? NOT_DISCLOSED,
   },
   {
     key: 'url',
@@ -202,6 +207,10 @@ export function DatasetTable({ className }: DatasetTableProps) {
   );
   // Remounting the table restores its internal initial sort on reset.
   const [resetCount, setResetCount] = useState(0);
+  const highlightedId = useEntityAnchor('dataset');
+  const highlightedAnchor = highlightedId
+    ? entityAnchorId('dataset', highlightedId)
+    : null;
 
   const rows = useMemo(() => filterDatasets(DATASETS, filters), [filters]);
 
@@ -250,6 +259,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             {rows.length} of {DATASETS.length} datasets
           </p>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={reset}
             className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -272,6 +282,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             options; try widening the selection.
           </p>
           <button
+            data-pagefind-ignore
             type="button"
             onClick={clearFilters}
             className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-mono text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
@@ -283,10 +294,12 @@ export function DatasetTable({ className }: DatasetTableProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${DATASETS.length} open robot-manipulation datasets. Figures the source does not publish are marked n/a and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.`}
+          caption={`${DATASETS.length} open robot-manipulation datasets. Figures the source does not publish are marked not disclosed and always sort last, in both directions; estimates appear in the prose, never in cells. Every row links to its dataset site or paper.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'episodes', direction: 'desc' }}
+          rowAnchor={(row) => entityAnchorId('dataset', row.id)}
+          highlightedAnchor={highlightedAnchor}
         />
       )}
     </div>

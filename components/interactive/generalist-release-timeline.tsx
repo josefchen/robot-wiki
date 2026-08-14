@@ -201,6 +201,7 @@ export function GeneralistReleaseTimeline({
           </button>
         ))}
         <button
+          data-pagefind-ignore
           type="button"
           onClick={reset}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -349,7 +350,7 @@ export function GeneralistReleaseTimeline({
             <span className="text-[10px] text-text-dim">{r.dateLabel}</span>
             <span
               className={cx(
-                'text-[10px] uppercase tracking-[0.14em]',
+                'text-[10px]',
                 r.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
@@ -373,7 +374,7 @@ export function GeneralistReleaseTimeline({
           <span className="text-text-dim">{selected.dateLabel}</span>{' '}
           <span
             className={cx(
-              'whitespace-nowrap text-xs uppercase tracking-[0.14em]',
+              'whitespace-nowrap text-xs',
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >
