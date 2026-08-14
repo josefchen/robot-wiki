@@ -368,7 +368,7 @@ export function RewardShaping({ className }: { className?: string }) {
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
             >
               {term.label}
-              <span className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text">
+              <span className="whitespace-nowrap font-mono text-xs text-text">
                 {formatWeight(weights[term.id])}
               </span>
             </label>

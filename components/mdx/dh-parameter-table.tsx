@@ -13,17 +13,11 @@ const ROWS = [
   { joint: '3 (wrist)', theta: 'θ3', d: '0', a: '0.55', alpha: '0' },
 ];
 
-// The four DH parameters are mathematical notation, not prose labels: the
-// header row's uppercase transform would render θi as ΘI and αi as ΑΙ
-// (indistinguishable from the ai column's AI), and DH convention writes d and
-// a lowercase. Exempt the math tokens; only the prose header uppercases.
-const HEADER: { text: string; math?: boolean }[] = [
-  { text: 'joint i' },
-  { text: 'θi', math: true },
-  { text: 'di', math: true },
-  { text: 'ai', math: true },
-  { text: 'αi', math: true },
-];
+// Four of these headers are mathematical notation, not prose labels, so the
+// header row must never carry a case transform: uppercasing would render θi as
+// ΘI and αi as ΑΙ (indistinguishable from the ai column's AI), and DH
+// convention writes d and a lowercase.
+const HEADER = ['joint i', 'θi', 'di', 'ai', 'αi'];
 
 export function DhParameterTable({ className }: { className?: string }) {
   return (
@@ -41,17 +35,13 @@ export function DhParameterTable({ className }: { className?: string }) {
         </caption>
         <thead>
           <tr className="border-b border-border">
-            {HEADER.map((h) => (
+            {HEADER.map((text) => (
               <th
-                key={h.text}
+                key={text}
                 scope="col"
                 className="px-4 py-2.5 font-mono text-[11px] font-medium text-text-dim"
               >
-                {h.math ? (
-                  <span className="normal-case tracking-normal">{h.text}</span>
-                ) : (
-                  h.text
-                )}
+                {text}
               </th>
             ))}
           </tr>

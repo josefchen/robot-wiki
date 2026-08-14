@@ -360,7 +360,7 @@ export function ContactGeometry({
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] text-text-dim"
           >
             Contact-model error
-            <span className="font-mono text-xs normal-case tracking-normal text-text">
+            <span className="font-mono text-xs text-text">
               ε = {errorMm.toFixed(1)} mm
             </span>
           </label>

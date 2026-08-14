@@ -205,7 +205,7 @@ export function ActionConditioning({
       <div data-testid={`rollout-panel-${panel}`}>
         <div className="font-mono text-[11px] text-text-dim">
           rollout {panel}: {actionLabel(action).toLowerCase()}
-          <span className="normal-case tracking-normal"> ({actionDescription(action)})</span>
+          <span> ({actionDescription(action)})</span>
         </div>
         <svg
           viewBox={`0 0 ${width} ${SCENE_H + 16}`}
