@@ -69,8 +69,12 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
         // Hidden copy: excluded from the Pagefind index so search excerpts
         // never fuse the reference title/authors onto the prose. Inert for
         // assistive technology; the aria-describedby wiring is untouched.
+        // whitespace-normal: the chip is wrapped in a whitespace-nowrap span
+        // at build time (lib/rehype-cite-punctuation.mjs) to bind it to its
+        // trailing punctuation, and white-space inherits — without the reset
+        // the fixed-width tooltip cannot wrap and its text overflows the box.
         data-pagefind-ignore
-        className="absolute bottom-full left-0 z-20 mb-1.5 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed text-text group-hover:block group-focus-within:block"
+        className="absolute bottom-full left-0 z-20 mb-1.5 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed whitespace-normal text-text group-hover:block group-focus-within:block"
       >
         <span className="block font-medium">{title}</span>
         {meta ? (
