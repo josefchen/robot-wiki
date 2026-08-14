@@ -6,11 +6,14 @@ import rehypeCitePunctuation from '@/lib/rehype-cite-punctuation.mjs';
  * and a following plain-text punctuation node, so a line can begin with a
  * lone "." or "," (measured corpus-wide, 2026-08-12; the U+2060 word joiner
  * was tried and does NOT suppress the break — see library/content-pipeline.md).
- * The plugin wraps each chip cluster plus its immediately-following sentence
- * punctuation in a single whitespace-nowrap span at build time, so the break
- * opportunity disappears. Stacked chips (<Cite a/> <Cite b/>.) share one
- * wrapper, matching the hand-fixed precedent in content/frontier/dexterity.mdx
- * that this plugin replaces.
+ * The plugin wraps each chip plus its immediately-following sentence
+ * punctuation in a whitespace-nowrap span at build time, so the break
+ * opportunity disappears. In a stacked cluster (<Cite a/> <Cite b/>.) only
+ * the FINAL chip is bound to the punctuation: a break between chips starts
+ * the next line with a chip, which is fine, and wrapping the whole stack in
+ * one nowrap span produced 450-500px unbreakable boxes that overflowed the
+ * 375px column (measured on generalization and jepa, first full-suite run).
+ * The single-chip-plus-punctuation unit is always narrow enough.
  */
 
 type HastNode = {
@@ -108,7 +111,9 @@ describe('rehypeCitePunctuation', () => {
     expect(tree.children).toHaveLength(2);
   });
 
-  it('wraps stacked chips and their punctuation in ONE span', () => {
+  it('binds only the final chip of a stacked cluster to the punctuation', () => {
+    // A break BETWEEN stacked chips starts the next line with a chip (fine);
+    // wrapping the whole stack in one nowrap span overflows narrow columns.
     const tree = p([
       text('Stacked'),
       cite('a'),
@@ -119,25 +124,27 @@ describe('rehypeCitePunctuation', () => {
     run(tree);
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(1);
-    expect(wraps[0].children).toEqual([
+    expect(wraps[0].children).toEqual([cite('b'), text(',')]);
+    expect(tree.children).toEqual([
+      text('Stacked'),
       cite('a'),
       text(' '),
-      cite('b'),
-      text(','),
+      wraps[0],
+      text(' done'),
     ]);
-    expect(tree.children?.[2]).toEqual(text(' done'));
   });
 
-  it('wraps adjacent stacked chips with no inter-chip space', () => {
+  it('binds only the final chip of an adjacent (no-space) stack', () => {
     // content/frontier/dexterity.mdx has this exact shape (CITECITE.).
     const tree = p([cite('a'), cite('b'), text('.')]);
     run(tree);
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(1);
-    expect(wraps[0].children).toEqual([cite('a'), cite('b'), text('.')]);
+    expect(wraps[0].children).toEqual([cite('b'), text('.')]);
+    expect(tree.children).toEqual([cite('a'), wraps[0]]);
   });
 
-  it('wraps a triple-stacked cluster in one span', () => {
+  it('binds only the final chip of a triple-stacked cluster', () => {
     const tree = p([
       cite('a'),
       text(' '),
@@ -149,13 +156,14 @@ describe('rehypeCitePunctuation', () => {
     run(tree);
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(1);
-    expect(wraps[0].children).toEqual([
+    expect(wraps[0].children).toEqual([cite('c'), text(':')]);
+    expect(tree.children).toEqual([
       cite('a'),
       text(' '),
       cite('b'),
       text(' '),
-      cite('c'),
-      text(':'),
+      wraps[0],
+      text(' colon'),
     ]);
   });
 
@@ -228,6 +236,25 @@ describe('rehypeCitePunctuation', () => {
     const tree = run(structuredClone(before));
     expect(wrappers(tree)).toHaveLength(0);
     expect(tree).toEqual(before);
+  });
+
+  it('keeps the nowrap unit to one chip plus punctuation, so the 375px column cannot overflow', () => {
+    // Regression pin for the first full-suite run: stacking both chips in
+    // one wrapper produced 452-494px unbreakable spans on generalization and
+    // jepa and tripped every "no horizontal page scroll at 375px" spec.
+    const tree = p([
+      text('x '.repeat(80).trimEnd() + ' '),
+      cite('long-label-a'),
+      text(' '),
+      cite('long-label-b'),
+      text('.'),
+    ]);
+    run(tree);
+    const wraps = wrappers(tree);
+    expect(wraps).toHaveLength(1);
+    // The wrapper never contains the inter-chip space or the earlier chip.
+    expect(wraps[0].children).toHaveLength(2);
+    expect(wraps[0].children?.[0]).toEqual(cite('long-label-b'));
   });
 
   it('binds punctuation separated from the chip by a soft line break', () => {
