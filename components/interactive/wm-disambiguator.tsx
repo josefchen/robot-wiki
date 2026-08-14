@@ -248,13 +248,13 @@ export function WmDisambiguator({
           className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs"
         >
           <span className="text-text-dim">
-            selected:{' '}
+            Selected:{' '}
             <span data-testid="selected-readout" className="text-accent">
               {selected.short}
             </span>
           </span>
           <span className="text-text-dim">
-            predicts:{' '}
+            Predicts:{' '}
             <span data-testid="predicts-readout" className="text-text">
               {selected.predicts.toLowerCase()}
             </span>
@@ -307,7 +307,7 @@ export function WmDisambiguator({
 
       <div className="mt-3 border-t border-border pt-3">
         <div className="font-mono text-[11px] text-text-dim">
-          used for
+          Used for
         </div>
         <ul
           aria-label="What the selected paradigm is used for"

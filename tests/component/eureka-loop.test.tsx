@@ -11,7 +11,7 @@ describe('EurekaLoop', () => {
   it('opens on generation 0 with proposed code, statistics, and a reflection', () => {
     render(<EurekaLoop />);
     expect(screen.getByTestId('generation-readout').textContent).toContain(
-      'generation 0',
+      'Generation 0',
     );
     expect(screen.getByTestId('eureka-code')).toBeInTheDocument();
     expect(screen.getByTestId('eureka-stats')).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe('EurekaLoop', () => {
     render(<EurekaLoop />);
     await user.click(runButton());
     expect(screen.getByTestId('generation-readout').textContent).toContain(
-      'generation 1',
+      'Generation 1',
     );
     const diff = screen.getByTestId('eureka-diff');
     expect(diff.querySelectorAll('[data-diff="add"]').length).toBeGreaterThan(
@@ -48,7 +48,7 @@ describe('EurekaLoop', () => {
     for (let i = 1; i < EUREKA_GENERATIONS.length; i += 1) {
       await user.click(runButton());
       expect(screen.getByTestId('generation-readout').textContent).toContain(
-        `generation ${i}`,
+        `Generation ${i}`,
       );
     }
     expect(runButton()).toBeDisabled();
@@ -72,7 +72,7 @@ describe('EurekaLoop', () => {
     await user.click(runButton());
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByTestId('generation-readout').textContent).toContain(
-      'generation 0',
+      'Generation 0',
     );
     expect(screen.queryByTestId('eureka-diff')).not.toBeInTheDocument();
   });

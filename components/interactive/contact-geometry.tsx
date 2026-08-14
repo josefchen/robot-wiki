@@ -388,19 +388,19 @@ export function ContactGeometry({
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
         <span className="text-text-dim">
-          contacts:{' '}
+          Contacts:{' '}
           <span data-testid="contact-count-readout" className="text-text">
             {contactCount(spec)}
           </span>
         </span>
         <span className="text-text-dim">
-          patch:{' '}
+          Patch:{' '}
           <span data-testid="patch-readout" className="text-text">
             {spec.patchSummary}
           </span>
         </span>
         <span className="text-text-dim">
-          tolerance:{' '}
+          Tolerance:{' '}
           <span data-testid="tolerance-readout" className="text-text">
             ±{formatMm(spec.toleranceMm)}
           </span>

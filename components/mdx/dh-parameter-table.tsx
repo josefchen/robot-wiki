@@ -17,7 +17,7 @@ const ROWS = [
 // header row must never carry a case transform: uppercasing would render θi as
 // ΘI and αi as ΑΙ (indistinguishable from the ai column's AI), and DH
 // convention writes d and a lowercase.
-const HEADER = ['joint i', 'θi', 'di', 'ai', 'αi'];
+const HEADER = ['Joint i', 'θi', 'di', 'ai', 'αi'];
 
 export function DhParameterTable({ className }: { className?: string }) {
   return (

@@ -178,7 +178,7 @@ export function ActionConditioning({
     return (
       <div role="group" aria-label={`Rollout ${panel.toUpperCase()} action`}>
         <div className="font-mono text-[11px] text-text-dim">
-          rollout {panel} action
+          Rollout {panel.toUpperCase()} action
         </div>
         <div className="mt-1.5 flex flex-wrap gap-2">
           {ACTIONS.map((a) => (
@@ -204,7 +204,7 @@ export function ActionConditioning({
     return (
       <div data-testid={`rollout-panel-${panel}`}>
         <div className="font-mono text-[11px] text-text-dim">
-          rollout {panel}: {actionLabel(action).toLowerCase()}
+          Rollout {panel.toUpperCase()}: {actionLabel(action).toLowerCase()}
           <span> ({actionDescription(action)})</span>
         </div>
         <svg
@@ -243,7 +243,7 @@ export function ActionConditioning({
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div role="group" aria-label="Conditioning strength">
           <div className="font-mono text-[11px] text-text-dim">
-            model conditioning
+            Model conditioning
           </div>
           <div className="mt-1.5 flex flex-wrap gap-2">
             <button
@@ -281,7 +281,7 @@ export function ActionConditioning({
 
       <div className="mt-4" data-testid="initial-frame">
         <div className="font-mono text-[11px] text-text-dim">
-          shared initial frame
+          Shared initial frame
         </div>
         <svg
           viewBox={`0 0 ${SCENE_W} ${SCENE_H}`}

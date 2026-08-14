@@ -45,7 +45,7 @@ export interface RewardTerm {
 export const TERMS: RewardTerm[] = [
   {
     id: 'velTrack',
-    label: 'linear velocity tracking',
+    label: 'Linear velocity tracking',
     sign: 1,
     magnitude: 1.0,
     defaultWeight: 1.0,
@@ -53,7 +53,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'yawTrack',
-    label: 'yaw rate tracking',
+    label: 'Yaw rate tracking',
     sign: 1,
     magnitude: 0.5,
     defaultWeight: 0.5,
@@ -61,7 +61,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'torque',
-    label: 'torque penalty',
+    label: 'Torque penalty',
     sign: -1,
     magnitude: 1.0,
     defaultWeight: 0.8,
@@ -69,7 +69,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'jointAccel',
-    label: 'joint acceleration penalty',
+    label: 'Joint acceleration penalty',
     sign: -1,
     magnitude: 0.5,
     defaultWeight: 0.5,
@@ -77,7 +77,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'actionRate',
-    label: 'action-rate penalty',
+    label: 'Action-rate penalty',
     sign: -1,
     magnitude: 1.0,
     defaultWeight: 0.8,
@@ -85,7 +85,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'jointLimit',
-    label: 'joint limit penalty',
+    label: 'Joint limit penalty',
     sign: -1,
     magnitude: 1.0,
     defaultWeight: 1.0,
@@ -93,7 +93,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'collision',
-    label: 'collision penalty',
+    label: 'Collision penalty',
     sign: -1,
     magnitude: 1.0,
     defaultWeight: 1.0,
@@ -101,7 +101,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'baseHeight',
-    label: 'base height',
+    label: 'Base height',
     sign: 1,
     magnitude: 0.5,
     defaultWeight: 0.5,
@@ -109,7 +109,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'orientation',
-    label: 'orientation penalty',
+    label: 'Orientation penalty',
     sign: -1,
     magnitude: 0.8,
     defaultWeight: 0.8,
@@ -117,7 +117,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'airTime',
-    label: 'foot air time',
+    label: 'Foot air time',
     sign: 1,
     magnitude: 0.6,
     defaultWeight: 0.6,
@@ -125,7 +125,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'slip',
-    label: 'foot slip penalty',
+    label: 'Foot slip penalty',
     sign: -1,
     magnitude: 0.8,
     defaultWeight: 0.8,
@@ -133,7 +133,7 @@ export const TERMS: RewardTerm[] = [
   },
   {
     id: 'termination',
-    label: 'termination penalty',
+    label: 'Termination penalty',
     sign: -1,
     magnitude: 1.5,
     defaultWeight: 1.5,

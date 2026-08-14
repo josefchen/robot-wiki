@@ -286,4 +286,76 @@ test.describe('market map visualization', () => {
       expect(count, `${route} micro-label count`).toBeLessThanOrEqual(5);
     }
   });
+
+  test('demoted micro-labels read as sentence case, not lowercase (VAL-DESIGN-010)', async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    // These labels were authored in lowercase source text because CSS was
+    // uppercasing them. Once the uppercase transform came off they rendered
+    // literally lowercase. innerText is the instrument that can see this:
+    // it reflects text-transform, textContent does not.
+    const cases: ReadonlyArray<{ route: string; labels: readonly string[] }> = [
+      {
+        route: '/world-models/generative-video/',
+        labels: [
+          'Model conditioning',
+          'Rollout A action',
+          'Rollout B action',
+          'Shared initial frame',
+        ],
+      },
+      {
+        route: '/rl-sim2real/reward-design-mpc/',
+        labels: [
+          'Task:',
+          'Fitness:',
+          'Proposed reward code',
+          'Reward statistics from training',
+          'Task fitness',
+          'Weighted total:',
+          'Compute per step:',
+          'Model-based MPC (iLQR + MuJoCo)',
+        ],
+      },
+      {
+        route: '/rl-sim2real/why-rl-locomotion/',
+        labels: ['Contacts:', 'Patch:', 'Tolerance:'],
+      },
+      {
+        route: '/rl-sim2real/humanoid-wbc/',
+        labels: ['Representative:', 'Layers:', 'Fastest loop:', 'Motion data'],
+      },
+      { route: '/world-models/taxonomy/', labels: ['Used for', 'Selected:'] },
+      { route: '/classical/kinematics/', labels: ['Joint i'] },
+      {
+        route: '/manipulation/generalist-policies/',
+        labels: ['Provenance:'],
+      },
+    ];
+    for (const { route, labels } of cases) {
+      await page.goto(route);
+      // Match on labels that OPEN an element's rendered text. Substring
+      // matching over the whole article would collide with body prose that
+      // legitimately contains these phrases lowercase mid-sentence
+      // ("two rollouts start from one shared initial frame").
+      const openers = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('article *'))
+          .map((el) => (el as HTMLElement).innerText?.trim() ?? '')
+          .filter(Boolean)
+          .map((t) => t.slice(0, 60)),
+      );
+      for (const label of labels) {
+        expect(
+          openers.filter((t) => t.startsWith(label)),
+          `${route} renders "${label}" in sentence case`,
+        ).not.toHaveLength(0);
+        expect(
+          openers.filter((t) => t.startsWith(label.toLowerCase())),
+          `${route} no longer renders "${label}" all-lowercase`,
+        ).toHaveLength(0);
+      }
+    }
+  });
 });

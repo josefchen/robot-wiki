@@ -84,8 +84,8 @@ export const WBC_APPROACHES: WbcApproach[] = [
     stats: [
       { label: 'S0 params', value: '10M' },
       { label: 'S0 loop rate', value: '1000 Hz' },
-      { label: 'motion data', value: '1000+ h' },
-      { label: 'sim envs', value: '200,000+' },
+      { label: 'Motion data', value: '1000+ h' },
+      { label: 'Sim envs', value: '200,000+' },
     ],
     interfaceNote:
       'the retargeted human motion is the interface: layers above the tracking policy speak motion, never torque',
@@ -113,9 +113,9 @@ export const WBC_APPROACHES: WbcApproach[] = [
     ],
     stats: [
       { label: 'VLA params', value: '3B' },
-      { label: 'action horizon', value: '40' },
-      { label: 'state/action', value: '132' },
-      { label: 'human video', value: '20,000 h' },
+      { label: 'Action horizon', value: '40' },
+      { label: 'State/action', value: '132' },
+      { label: 'Human video', value: '20,000 h' },
     ],
     interfaceNote:
       'latent tokens are the interface: the VLA never names a joint, the controller never sees pixels',
@@ -142,10 +142,10 @@ export const WBC_APPROACHES: WbcApproach[] = [
       },
     ],
     stats: [
-      { label: 'embodiments', value: '3' },
-      { label: 'hand DoF', value: '22' },
-      { label: 'adaptation', value: '< 200 examples' },
-      { label: 'architecture', value: 'not disclosed' },
+      { label: 'Embodiments', value: '3' },
+      { label: 'Hand DoF', value: '22' },
+      { label: 'Adaptation', value: '< 200 examples' },
+      { label: 'Architecture', value: 'not disclosed' },
     ],
     interfaceNote:
       'there is no internal interface: the VLA boundary is the robot boundary',

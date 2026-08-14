@@ -101,19 +101,19 @@ export function WbcDecomposition({
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
         <span className="text-text-dim">
-          representative:{' '}
+          Representative:{' '}
           <span data-testid="representative-readout" className="text-accent">
             {approach.representative}
           </span>
         </span>
         <span className="text-text-dim">
-          layers:{' '}
+          Layers:{' '}
           <span data-testid="layers-readout" className="text-text">
             {approach.layers.length}
           </span>
         </span>
         <span className="text-text-dim">
-          fastest loop:{' '}
+          Fastest loop:{' '}
           <span data-testid="fastest-loop-readout" className="text-text">
             {fastest}
           </span>

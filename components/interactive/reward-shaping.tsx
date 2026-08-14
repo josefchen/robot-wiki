@@ -184,16 +184,16 @@ export function RewardShaping({ className }: { className?: string }) {
 
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
         <span className="text-text-dim">
-          weighted total:{' '}
+          Weighted total:{' '}
           <span data-testid="total-readout" className="text-accent">
             {formatTotal(total)} / step
           </span>
         </span>
         <span className="text-text-dim">
-          terms: <span className="text-text">{TERMS.length}</span>
+          Terms: <span className="text-text">{TERMS.length}</span>
         </span>
         <span className="text-text-dim">
-          preview phase:{' '}
+          Preview phase:{' '}
           <span className="text-text">{Math.round(phase * 100)}%</span>
         </span>
       </div>

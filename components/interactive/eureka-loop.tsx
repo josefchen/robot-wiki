@@ -95,12 +95,12 @@ export function EurekaLoop({ className }: { className?: string }) {
           className="font-mono text-xs text-text-dim"
           aria-live="polite"
         >
-          generation{' '}
+          Generation{' '}
           <span className="text-accent">{current.index}</span> of{' '}
           {EUREKA_GENERATIONS.length - 1}
         </span>
         <span className="font-mono text-xs text-text-dim">
-          fitness:{' '}
+          Fitness:{' '}
           <span data-testid="fitness-readout" className="text-text">
             {current.fitness.toFixed(2)}
           </span>
@@ -108,13 +108,15 @@ export function EurekaLoop({ className }: { className?: string }) {
       </div>
 
       <p className="mt-2 font-mono text-[11px] text-text-dim">
-        task: {EUREKA_TASK}
+        Task: {EUREKA_TASK}
       </p>
 
       <div className="mt-3 grid gap-4 lg:grid-cols-2">
         <div>
           <p className="font-mono text-[11px] text-text-dim">
-            {gen === 0 ? 'proposed reward code' : 'proposed reward code, diff vs previous'}
+            {gen === 0
+              ? 'Proposed reward code'
+              : 'Proposed reward code, diff vs previous'}
           </p>
           <pre
             data-testid="eureka-code"
@@ -125,7 +127,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           {diff && (
             <div className="mt-3">
               <p className="font-mono text-[11px] text-text-dim">
-                mutation diff, generation {gen - 1} to {gen}
+                Mutation diff, generation {gen - 1} to {gen}
               </p>
               <pre
                 data-testid="eureka-diff"
@@ -148,7 +150,7 @@ export function EurekaLoop({ className }: { className?: string }) {
 
         <div>
           <p className="font-mono text-[11px] text-text-dim">
-            reward statistics from training
+            Reward statistics from training
           </p>
           <dl
             data-testid="eureka-stats"
@@ -171,7 +173,7 @@ export function EurekaLoop({ className }: { className?: string }) {
               </div>
             ))}
             <div className="flex items-baseline justify-between gap-3 px-3 py-2">
-              <dt className="font-mono text-xs text-text-dim">task fitness</dt>
+              <dt className="font-mono text-xs text-text-dim">Task fitness</dt>
               <dd className="font-mono text-xs text-accent">
                 {current.fitness.toFixed(2)}
               </dd>
