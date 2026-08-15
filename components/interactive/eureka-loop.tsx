@@ -111,7 +111,7 @@ export function EurekaLoop({ className }: { className?: string }) {
         Task: {EUREKA_TASK}
       </p>
 
-      <div className="mt-3 grid gap-4 lg:grid-cols-2">
+      <div className="mt-3 grid gap-4 lg:grid-cols-[11fr_7fr]">
         <div>
           <p className="font-mono text-[11px] text-text-dim">
             {gen === 0

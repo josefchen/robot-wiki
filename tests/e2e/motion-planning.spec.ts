@@ -225,6 +225,37 @@ test.describe('classical motion-planning module', () => {
     await page.keyboard.press('Enter');
   });
 
+  test('reduced motion: exploration advances in coarse discrete jumps (VAL-A11Y-019)', async ({
+    browser,
+  }) => {
+    // Under prefers-reduced-motion the interval playback switches to the
+    // coarse cadence (lib/rrt.ts: 340 ms ticks, 25 nodes per tick) instead
+    // of smooth per-tick growth. Mutation-checked shape, mirroring the
+    // kalman spec: (1) no advance inside the first 150 ms (a smooth-cadence
+    // tick fires at 50 ms), then (2) the iteration leaves 0 in multiples of
+    // the 25-node coarse jump.
+    const context = await browser.newContext({ reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    await page.goto(ROUTE);
+    const readout = page.getByTestId('rrt-iteration-readout');
+    await expect(readout).toHaveText(/^0 /);
+    await page.getByRole('button', { name: /run the exploration/i }).click();
+    // One immediate read, deliberately NOT auto-retrying: absence of
+    // advance must be measured once, inside the smooth-tick window.
+    await page.waitForTimeout(150);
+    expect(await readout.textContent()).toMatch(/^0 /);
+    await expect
+      .poll(async () => (await readout.textContent()) ?? '', { timeout: 5_000 })
+      .not.toMatch(/^0 /);
+    const iteration = Number.parseInt(
+      ((await readout.textContent()) ?? '0 / x').split(' /')[0],
+      10,
+    );
+    expect(iteration % 25).toBe(0);
+    expect(iteration).toBeGreaterThanOrEqual(25);
+    await context.close();
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

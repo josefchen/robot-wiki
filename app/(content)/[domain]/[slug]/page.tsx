@@ -89,6 +89,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: entry.title,
     description: entry.summary,
+    // Articles are og:type article (VAL-BUILD-006); title and description
+    // inherit into og:title/og:description from the root template.
+    openGraph: { type: 'article' },
   };
 }
 
