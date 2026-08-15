@@ -4585,6 +4585,222 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.prnewswire.com/news-releases/moon-surgical-receives-fda-clearance-for-scopilot-on-maestro-industrys-first-ai-enhanced-intraoperative-capability-powered-by--nvidia-holoscan-302404920.html',
     type: 'press',
   },
+  {
+    // Verified against Crossref metadata and the live Science Robotics
+    // record (2026-08-15): Science Robotics 2(7), eaan4582, June 2017,
+    // 15 authors, Francis et al. first. AEGIS onboard autonomous
+    // targeting for ChemCam on Curiosity.
+    id: 'aegis-curiosity-2017',
+    title:
+      'AEGIS autonomous targeting for ChemCam on Mars Science Laboratory: Deployment and results of initial science team use',
+    authors: [
+      'R. Francis',
+      'T. Estlin',
+      'G. Doran',
+      'S. Johnstone',
+      'D. Gaines',
+      'V. Verma',
+      'M. Burl',
+      'J. Frydenvang',
+      'S. Monta\u00f1o',
+      'R. C. Wiens',
+      'S. Schaffer',
+      'O. Gasnault',
+      'L. DeFlores',
+      'D. Blaney',
+      'B. Bornstein',
+    ],
+    year: 2017,
+    venue: 'Science Robotics 2(7), eaan4582',
+    url: 'https://doi.org/10.1126/scirobotics.aan4582',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Science Robotics
+    // 8(80), adi3099, 12 July 2023, 12 authors, Verma et al. first. The
+    // AutoNav/AEGIS/OnBoard Planner overview: 88% of 17.7 km evaluated
+    // autonomously in the first Mars year, 699.9 m without human review,
+    // 347.7 m single-sol record.
+    id: 'perseverance-autonomy-2023',
+    title:
+      "Autonomous robotics is driving Perseverance rover's progress on Mars",
+    authors: [
+      'Vandi Verma',
+      'Mark W. Maimone',
+      'Daniel M. Gaines',
+      'Raymond Francis',
+      'Tara A. Estlin',
+      'Stephen R. Kuhn',
+      'Gregg R. Rabideau',
+      'Steve A. Chien',
+      'Michael M. McHenry',
+      'Evan J. Graser',
+      'Arturo L. Rankin',
+      'Ellen R. Thiel',
+    ],
+    year: 2023,
+    venue: 'Science Robotics 8(80), adi3099',
+    url: 'https://doi.org/10.1126/scirobotics.adi3099',
+    type: 'paper',
+  },
+  {
+    // Verified against the live JPL page (2026-08-15): 122 g of oxygen
+    // over 16 runs, 12 g/h peak at 98% purity or better, twice NASA's
+    // original goals; concluded 6 September 2023.
+    id: 'moxie-completion-2023',
+    title:
+      'NASA\u2019s Oxygen-Generating Experiment MOXIE Completes Mars Mission',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2023,
+    venue: 'NASA/JPL news, 6 September 2023',
+    url: 'https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/',
+    type: 'press',
+  },
+  {
+    // Verified against the live JPL page (2026-08-15): first powered,
+    // controlled flight on another planet, 19 April 2021.
+    id: 'ingenuity-first-flight-2021',
+    title:
+      'NASA\u2019s Ingenuity Mars Helicopter Succeeds in Historic First Flight',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2021,
+    venue: 'NASA/JPL news, 19 April 2021',
+    url: 'https://www.jpl.nasa.gov/news/nasas-ingenuity-mars-helicopter-succeeds-in-historic-first-flight/',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA release (2026-08-15): designed for
+    // five flights over 30 days, flew 72 over almost three years;
+    // mission end announced 25 January 2024.
+    id: 'ingenuity-mission-end-2024',
+    title:
+      'After Three Years on Mars, NASA\u2019s Ingenuity Helicopter Mission Ends',
+    authors: ['NASA'],
+    year: 2024,
+    venue: 'NASA news release, 25 January 2024',
+    url: 'https://www.nasa.gov/news-release/after-three-years-on-mars-nasas-ingenuity-helicopter-mission-ends/',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA article (2026-08-15): Athena landed
+    // on its side ~400 m off Mons Mouton on 6 March 2025; TRIDENT's
+    // actuators performed as designed; MSOLO detected only anthropogenic
+    // gases; ~10 hours of operations against 10 planned days. Updated
+    // 29 April 2025.
+    id: 'prime-1-lunar-2025',
+    title: 'NASA\u2019s Lunar Drill Technology Passes Tests on the Moon',
+    authors: ['NASA'],
+    year: 2025,
+    venue: 'NASA article, 29 April 2025',
+    url: 'https://www.nasa.gov/missions/artemis/nasas-lunar-drill-technology-passes-tests-on-the-moon/',
+    type: 'press',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Journal of
+    // Spacecraft and Rockets 38(1), 105-111, January 2001. ETS-VII
+    // performed the autonomous rendezvous and docking experiments in
+    // 1997-1998.
+    id: 'ets-vii-ard-2001',
+    title:
+      'Result of Autonomous Rendezvous Docking Experiment of Engineering Test Satellite-VII',
+    authors: ['Isao Kawano', 'Masaaki Mokuno', 'Toru Kasai', 'Takashi Suzuki'],
+    year: 2001,
+    venue: 'Journal of Spacecraft and Rockets 38(1), 105-111',
+    url: 'https://doi.org/10.2514/2.3661',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Experimental
+    // Robotics VII, Lecture Notes in Control and Information Sciences,
+    // pp. 209-218, volume published 2001. The on-orbit robot dynamics
+    // and control experiments with ETS-VII's 2-metre, 6-DoF arm.
+    id: 'ets-vii-robot-2001',
+    title: 'ETS-VII Flight Experiments For Space Robot Dynamics and Control',
+    authors: ['Kazuya Yoshida'],
+    year: 2001,
+    venue:
+      'Experimental Robotics VII, Lecture Notes in Control and Information Sciences, 209-218',
+    url: 'https://doi.org/10.1007/3-540-45118-8_22',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Proc. SPIE 6958,
+    // Sensors and Systems for Space Applications II, April 2008. The
+    // mission-level summary of DARPA's 2007 Orbital Express servicing
+    // demonstration.
+    id: 'orbital-express-2008',
+    title: 'Orbital Express program summary and mission overview',
+    authors: ['Robert B. Friend'],
+    year: 2008,
+    venue: 'Proc. SPIE 6958, Sensors and Systems for Space Applications II',
+    url: 'https://doi.org/10.1117/12.783792',
+    type: 'paper',
+  },
+  {
+    // Verified against the live CSA page (2026-08-15): 17-metre arm,
+    // ISS assembly, maintenance, and grappling of visiting vehicles.
+    // Page date modified 16 July 2024.
+    id: 'canadarm2-csa-2024',
+    title: 'About Canadarm2',
+    authors: ['Canadian Space Agency'],
+    year: 2024,
+    venue: 'Canadian Space Agency',
+    url: 'https://www.asc-csa.gc.ca/eng/iss/canadarm2/about.asp',
+    type: 'docs',
+  },
+  {
+    // Verified against the live CSA page (2026-08-15): two-armed
+    // external maintenance robot, replaces equipment including 100-kg
+    // batteries. Page date modified 4 June 2024.
+    id: 'dextre-csa-2024',
+    title: 'About Dextre',
+    authors: ['Canadian Space Agency'],
+    year: 2024,
+    venue: 'Canadian Space Agency',
+    url: 'https://www.asc-csa.gc.ca/eng/iss/dextre/about.asp',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Northrop Grumman release (2026-08-15):
+    // MEV-1 performed the first-ever in-orbit commercial docking with
+    // IS-901 in the GEO graveyard orbit in 2020, provided five years of
+    // life extension, and undocked 9 April 2025.
+    id: 'mev1-servicing-2025',
+    title:
+      'Northrop Grumman Achieves First-Ever Undocking Between Two Commercial Spacecraft in Geosynchronous Orbit',
+    authors: ['Northrop Grumman'],
+    year: 2025,
+    venue: 'Northrop Grumman news, 9 April 2025',
+    url: 'https://news.northropgrumman.com/satellites/Northrop-Grumman-Achieves-First-Ever-Undocking-Between-Two-Commercial-Spacecraft-in-Geosynchronous-Orbit',
+    type: 'press',
+  },
+  {
+    // Verified against the live Astroscale release (2026-08-15): 15 m
+    // approach to a rocket upper stage on 30 November 2024, the closest
+    // a commercial spacecraft has come to debris via RPO; autonomous
+    // collision-avoidance abort before the capture initiation point.
+    id: 'adras-j-15m-2024',
+    title:
+      'Astroscale\u2019s ADRAS-J Achieves Historic 15-Meter Approach to Space Debris',
+    authors: ['Astroscale Japan'],
+    year: 2024,
+    venue: 'Astroscale announcement, 11 December 2024',
+    url: 'https://www.astroscale.com/en/news/astroscales-adras-j-achieves-historic-15-meter-approach-to-space-debris',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA statement (2026-08-15): OSAM-1
+    // discontinued 1 March 2024 after an independent review, citing
+    // technical, cost, and schedule challenges and the community moving
+    // away from refueling unprepared spacecraft.
+    id: 'osam1-discontinued-2024',
+    title: "Update on Status of NASA's OSAM-1 Project",
+    authors: ['NASA'],
+    year: 2024,
+    venue: 'NASA, 1 March 2024',
+    url: 'https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

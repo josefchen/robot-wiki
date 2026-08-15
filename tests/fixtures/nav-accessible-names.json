@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 54,
+  "linkCount": 55,
   "links": [
     {
       "href": "/",
@@ -202,6 +202,10 @@
     {
       "href": "/adjacent/surgical/",
       "name": "Surgical Robotics"
+    },
+    {
+      "href": "/adjacent/space/",
+      "name": "Space Robotics"
     },
     {
       "href": "/a-z/",

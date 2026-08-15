@@ -474,6 +474,25 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Sensing of interaction forces at the instrument tip, rendered back to the operator as resistance at the controls. In teleoperation it closes the haptic loop that pure video control leaves open: without it a surgeon infers tissue contact through visual cues alone and can exert more force than intended. da Vinci 5 introduced Force Feedback instruments that measure and display subtle forces on tissue, the first offering of that capability on a surgical system in any modality, and Intuitive reported up to 43 percent less force exerted on tissue in preclinical trials with it. The capability also matters beyond the operator: a measured force signal is a data stream, and data streams are what later automation trains on.',
     citations: ['davinci5-clearance-2024'],
   },
+  {
+    id: 'in-situ-resource-utilization',
+    term: 'in-situ resource utilization (ISRU)',
+    definition:
+      "Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the arithmetic is stark, since the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.",
+    citations: ['moxie-completion-2023', 'prime-1-lunar-2025'],
+  },
+  {
+    id: 'on-orbit-servicing',
+    term: 'on-orbit servicing',
+    definition:
+      'Using one spacecraft to work on another after launch: docking with an aging satellite to take over its propulsion, refueling it, replacing failed components, assembling large structures, or removing debris. The robotic content is rendezvous and proximity operations flown to centimeter-per-second tolerances, plus capture and manipulation of hardware that was usually never designed to be serviced. The capability has been demonstrated in stages since Japan\u2019s ETS-VII and DARPA\u2019s Orbital Express, and became a commercial service when Northrop Grumman\u2019s MEV-1 docked with Intelsat 901 in 2020 to extend its life; debris inspection and removal is the unserved variant, where the client is uncooperative and tumbling.',
+    citations: [
+      'ets-vii-ard-2001',
+      'orbital-express-2008',
+      'mev1-servicing-2025',
+      'adras-j-15m-2024',
+    ],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

@@ -316,6 +316,7 @@ const PUBLISHED = new Set([
   'adjacent/autonomous-vehicles',
   'adjacent/drones',
   'adjacent/surgical',
+  'adjacent/space',
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/comparison-matrix',
