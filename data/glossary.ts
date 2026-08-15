@@ -439,6 +439,20 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'A driving policy that maps raw sensor input directly to a motion plan or vehicle commands, instead of composing separate perception, prediction, and planning modules. The motivation is joint optimization: modular pipelines accumulate errors across hand-engineered interfaces, while a single network can tune every parameter for the driving objective. UniAD moved the industry compromise by keeping the task structure but training all stages in one differentiable network; EMMA went further by building on Gemini and representing trajectories and 3D locations as text.',
     citations: ['uniad-2023', 'emma-2024', 'e2e-ad-survey-2024'],
   },
+  {
+    id: 'visual-inertial-odometry',
+    term: 'visual-inertial odometry (VIO)',
+    definition:
+      "State estimation for a flying robot from camera images fused with inertial measurement unit data: the camera fixes long-term drift, the IMU provides high-rate accelerations between frames, and a filter or optimization over both yields the metric pose and velocity a flight controller needs. It is the standard onboard localization for small drones because it needs no external infrastructure and no GPS, and it is what lets a racing drone estimate its state from its own sensors alone. Swift's perception module pairs a visual-inertial estimator with a convolutional gate detector, fusing both in a Kalman filter to supply the control policy.",
+    citations: ['swift-drone-racing-2023'],
+  },
+  {
+    id: 'swarm-robotics',
+    term: 'swarm robotics',
+    definition:
+      'Coordination of many relatively simple robots through local interaction rather than a central planner, aiming for collective behavior that no individual achieves: coverage, mapping, or search at fleet scale. The classical models treat the group as a dynamical system of pairwise attractions and repulsions (potential fields, in the lineage of Reynolds flocking), which explains collective motion but guarantees neither safety nor speed in clutter. The aerial-swarm literature moved to onboard trajectory optimization: each drone plans in milliseconds from its own sensors while treating neighbors as constraints, so a ten-drone swarm traverses a bamboo forest with no external localization and no global map.',
+    citations: ['micro-drone-swarm-2022', 'soria-nmpc-swarm-2021'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

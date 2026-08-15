@@ -1,0 +1,74 @@
+---
+title: "Drones and Aerial Robotics"
+description: "Autonomous flight from state estimation to champion-level racing, and the swarm coordination problem: what flying robots solved that ground robots have not, and why."
+domain: adjacent
+slug: drones
+order: 2
+status: published
+lastReviewed: "2026-08-15"
+citations:
+  - high-speed-flight-2021
+  - swift-drone-racing-2023
+  - racing-rl-vs-oc-2023
+  - falanga-latency-2019
+  - micro-drone-swarm-2022
+  - soria-nmpc-swarm-2021
+seeAlso:
+  - "adjacent/autonomous-vehicles"
+  - "rl-sim2real/why-rl-locomotion"
+  - "rl-sim2real/legged-locomotion"
+  - "classical/state-estimation"
+---
+
+import { PerceptionLatency } from '@/components/interactive/perception-latency';
+import { SwarmControlTable } from '@/components/mdx/swarm-control-table';
+
+A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id="swift-drone-racing-2023" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id="high-speed-flight-2021" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id="swift-drone-racing-2023" />.
+
+This module covers the two halves of aerial robotics that matter to an ML engineer moving into robotics: autonomous flight, where the field's sim-to-real and learning-versus-control arguments were settled first, and <Term id="swarm-robotics">swarm robotics</Term>, where many cheap flying robots coordinate through local interaction. The treatment is honest about scope: these are domains where the core problems are closer to solved than manipulation is, and the reasons trace back to one structural fact about the dynamics.
+
+## Why flight was the first solved testbed
+
+The comparison this wiki keeps returning to is simulability: reinforcement learning wins wherever the transition function is cheap to simulate, and loses where it is not. A quadrotor is the benign case twice over. Its dynamics are differentially flat, meaning the full state follows from a small set of outputs, and a century of aerodynamics gives accurate thrust and drag models. There is no contact: an aerial robot either flies in free space or it has already failed. Sim-to-real for flight therefore needs domain randomization over motor constants and sensor noise, not over friction coefficients and deformation, which is the wall the manipulation literature keeps hitting.
+
+The empirical result that made this concrete came from the racing track. Swift, the University of Zurich system that beat drone-racing champions in 2023, trained its control policy entirely in simulation with model-free reinforcement learning <Cite id="swift-drone-racing-2023" />. The gap to the physical world was closed not by better physics modeling but by measuring the gap: the team recorded real flight data, fitted residual models of perception noise and unmodeled dynamics, injected them into the simulator, and retrained <Cite id="swift-drone-racing-2023" />. The same recipe, empirical residual modeling on top of a clean simulator, is what legged locomotion uses and what manipulation still struggles to copy because its residuals are the whole problem.
+
+A year later the same group published the controlled comparison the debate needed. Song and colleagues raced an optimal-control stack against a reinforcement-learning policy on the same platform, method by method, and found the RL controller faster <Cite id="racing-rl-vs-oc-2023" />. Their diagnosis matters more than the result: RL's advantage was not that it optimized the objective better, but that it optimized a better objective. Optimal control decomposes the problem into trajectory planning plus tracking, and the planned trajectory becomes an interface that limits what the controller can express when reality disagrees with the model; RL optimizes the task-level reward directly and absorbs model error through domain randomization <Cite id="racing-rl-vs-oc-2023" />. The flown result was a peak acceleration above 12 times gravity and a peak velocity of 108 km/h <Cite id="racing-rl-vs-oc-2023" />. Read that against this wiki's module on why RL won locomotion but not manipulation: flight is locomotion's argument at higher bandwidth, with the same moral.
+
+## The autonomy stack on a flying robot
+
+An autonomous drone runs the same stages an autonomous car does, compressed by three orders of magnitude in size and power. Perception is a camera plus an inertial measurement unit; state estimation is <Term id="visual-inertial-odometry">visual-inertial odometry</Term>, fusing image features against IMU accelerations to produce the metric pose and velocity the controller needs, with no GPS and no external motion capture <Cite id="swift-drone-racing-2023" />. Planning is a local trajectory toward the goal; control tracks it at hundreds of hertz. The stages interact exactly as the driving stack does, and one of them, the perception latency, sets a hard ceiling on everything downstream.
+
+### Perception latency bounds the whole system
+
+The latency argument is the cleanest result in aerial robotics, and the interactive below reproduces it. Falanga, Kim, and Scaramuzza asked a direct question: how fast can a drone fly, given the latency of its perception pipeline and the acceleration its airframe can produce <Cite id="falanga-latency-2019" />? Their answer is a closed-form inequality. A drone flying at speed v perceives an obstacle when it enters the sensing range s, but the perception pipeline delays the information by the latency tau. The time to contact left when control finally acts is s/v minus tau, and the avoidance maneuver at maximum lateral acceleration u takes time proportional to the square root of the obstacle size over u. If the remaining time is shorter than the maneuver, no controller saves the drone: the crash is set by geometry before any control law runs. The maximum speed follows directly, range divided by latency plus maneuver time <Cite id="falanga-latency-2019" />.
+
+<PerceptionLatency className="my-6" />
+
+The numbers make the argument sharp. A stereo camera pipeline with a 70 ms latency, the upper bound the study took from a commercial stereo camera's datasheet, supports about 19 m/s on an airframe that can pull 25 m/s^2 laterally, and 25 m/s on one that can pull 50 <Cite id="falanga-latency-2019" />. The paper's comparison point is the event camera, a sensor that reports per-pixel brightness changes the instant they happen rather than waiting out a frame; at 8 m of sensing range it buys back enough latency to raise the ceiling by roughly 7 to 22 percent depending on agility, and more as airframes get more aggressive <Cite id="falanga-latency-2019" />. The structural lesson generalizes past sensors: latency anywhere in the loop, sensing, inference, or actuation, converts directly into a speed ceiling or a crash margin, and faster platforms tolerate less of it. A vision-language-action model that takes 50 ms to infer one action is slow on any robot. On a fast drone it is also the binding constraint on the whole system.
+
+### End-to-end learning skips the interfaces
+
+The modular stack's weakness on a drone is the same one the driving literature found: each interface between stages is a lossy summary, and latency accumulates across the pipeline. The aerial answer arrived in 2021. Loquercio and colleagues trained a convolutional network to map noisy depth images directly to collision-free trajectories, in a receding-horizon loop, trained entirely in simulation by imitating an expert with privileged information <Cite id="high-speed-flight-2021" />. The key transfer trick was realistic sensor noise in training: simulate the noise properties of the real depth sensor and the policy stops overfitting to clean inputs, and it crossed from simulation to real forests, snow, derailed trains, and collapsed buildings with zero additional training on them <Cite id="high-speed-flight-2021" />. Their own framing of the result is the pipeline critique stated plainly: separating sensing, mapping, and planning "can be problematic for high-speed navigation in cluttered environments" because the stages run sequentially, latency compounds, and errors propagate <Cite id="high-speed-flight-2021" />.
+
+Swift sits in the middle of the same spectrum. It is not one end-to-end network: a visual-inertial estimator plus a gate-detection network produce a low-dimensional state estimate, a Kalman filter fuses them, and a small two-layer network trained by reinforcement learning maps that state to collective thrust and body rates <Cite id="swift-drone-racing-2023" />. The learned part is the control, the classical parts are estimation, and the split follows the latency argument: perception can afford to be a pipeline because its output is a state vector, while control must be learned to exploit the platform's limits. That division, classical estimation under learned control, is the closest thing aerial robotics has to a consensus architecture, and it is the same shape the manipulation field arrived at from the other direction with real-time chunking over a learned policy.
+
+## Swarm robotics
+
+The second half of aerial robotics multiplies the robots. A swarm is many cheap platforms coordinating to do what one expensive platform cannot: cover a search area, map a forest, or fly a light show. The field's founding models came from biology, Reynolds' 1987 flocking model being the canonical one, and treat the group as a dynamical system of local attraction and repulsion terms. Those models explain collective motion, and they have been flown: Vásárhelyi and colleagues optimized the interaction terms and flew 30 drones in coherent outdoor flocking <Cite id="micro-drone-swarm-2022" />. What they do not provide is guarantees, because reactive potential fields have no lookahead, get trapped in local minima, and have no notion of the platform's dynamics.
+
+<SwarmControlTable className="my-6" />
+
+The table's second and third rows are the two serious answers, and they share one commitment: each drone plans ahead subject to its own dynamics, instead of reacting. Soria, Schiano, and Floreano folded the interaction terms into a nonlinear model-predictive controller, so every drone solves a receding-horizon optimization that contains both obstacle avoidance and neighbor terms; a swarm of five quadrotors navigated a real indoor obstacle field, faster and with fewer collisions than the reactive equivalent, with behavior independent of the environment layout <Cite id="soria-nmpc-swarm-2021" />. Zhou and colleagues pushed the same idea onto palm-sized drones: each robot runs a spatial-temporal trajectory optimizer that solves in a few milliseconds from onboard sensing, treats other drones as constraints, and needs no external localization <Cite id="micro-drone-swarm-2022" />. Ten of them flew autonomously through a dense bamboo forest, the demonstration that made the result famous, with the coordination entirely implicit in the constraints <Cite id="micro-drone-swarm-2022" />.
+
+The open problem in swarms is not control but the assignment layer above it. Everything cited above coordinates implicitly; none of it decides who goes where. Fleet-level task allocation, coverage, and search still lean on classical multi-robot planning, and the learned multi-agent policies that games and simulations have produced have not yet been demonstrated on real outdoor swarms at scale. Compared with the manipulation problems this wiki spends most of its length on, that is a tractable frontier, which is the honest summary of the whole domain: aerial robotics solved its hard problems earlier because they were solvable, and what remains is coordination and scale rather than physics.
+
+## What the rest of robotics takes from it
+
+Three transfers from flight to the rest of robotics.
+
+First, the latency argument as a design discipline. The perception-latency study is the reference case for reasoning about any robot's speed ceiling from its loop timing <Cite id="falanga-latency-2019" />, and the same arithmetic binds manipulators: a policy that infers at 20 Hz controls a contact-rich task at effectively 20 Hz regardless of the arm's bandwidth. The real-time execution module covers that budget for manipulation; flight is where the budget was first measured rather than assumed.
+
+Second, the sim-to-real recipe. Empirical residual models fitted from a small amount of real data, injected into an otherwise clean simulator <Cite id="swift-drone-racing-2023" />, plus privileged-learning imitation with realistic sensor noise <Cite id="high-speed-flight-2021" />, is the toolchain legged locomotion adopted wholesale. Manipulation inherits it piecemeal wherever its contact models are good enough, which is the subject of the parallel-simulation module.
+
+Third, the calibration it offers for claims of progress. When a manipulation system is described as superhuman or champion-level, the honest comparator is Swift, which earned the phrase against named human world champions under race conditions, on the same hardware, with onboard sensing only <Cite id="swift-drone-racing-2023" />. Flight got there first because its dynamics permit it. The gap between that bar and current manipulation results is the reliability gap this wiki documents elsewhere, and the difference is the structure of the problem, not the effort spent on it.

@@ -4363,6 +4363,111 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2512.16760',
     type: 'paper',
   },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): title,
+    // six authors, Science Robotics 2021 journal reference.
+    id: 'high-speed-flight-2021',
+    title: 'Learning High-Speed Flight in the Wild',
+    authors: [
+      'Antonio Loquercio',
+      'Elia Kaufmann',
+      'René Ranftl',
+      'Matthias Müller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2021,
+    venue: 'Science Robotics 2021, Vol. 6, Issue 59, abg5810',
+    arxiv: '2110.05113',
+    url: 'https://arxiv.org/abs/2110.05113',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Nature page (2026-08-15): title, six
+    // authors, Nature 620, 982-987; Swift beat three champions and set
+    // the fastest race time.
+    id: 'swift-drone-racing-2023',
+    title: 'Champion-level drone racing using deep reinforcement learning',
+    authors: [
+      'Elia Kaufmann',
+      'Leonard Bauersfeld',
+      'Antonio Loquercio',
+      'Matthias Müller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2023,
+    venue: 'Nature 620, 982-987',
+    url: 'https://www.nature.com/articles/s41586-023-06419-4',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): five
+    // authors; Science Robotics 2023 journal reference; the RL-vs-OC
+    // racing study, 108 km/h peak, >12g peak acceleration.
+    id: 'racing-rl-vs-oc-2023',
+    title:
+      'Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning',
+    authors: [
+      'Yunlong Song',
+      'Angel Romero',
+      'Matthias Mueller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2023,
+    venue: 'Science Robotics 2023, adg1462',
+    arxiv: '2310.10943',
+    url: 'https://arxiv.org/abs/2310.10943',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref (2026-08-15): title, three authors,
+    // RA-L 4(2):1884-1891. The sense-and-avoid latency study the drones
+    // module's interactive reproduces.
+    id: 'falanga-latency-2019',
+    title:
+      'How Fast Is Too Fast? The Role of Perception Latency in High-Speed Sense and Avoid',
+    authors: ['Davide Falanga', 'Suseong Kim', 'Davide Scaramuzza'],
+    year: 2019,
+    venue: 'IEEE Robotics and Automation Letters 4(2), 1884-1891',
+    url: 'https://doi.org/10.1109/LRA.2019.2898117',
+    type: 'paper',
+  },
+  {
+    // Verified against the HKUST research portal record (2026-08-15):
+    // eleven authors, Science Robotics 7(66), eabm5954.
+    id: 'micro-drone-swarm-2022',
+    title: 'Swarm of micro flying robots in the wild',
+    authors: [
+      'Xin Zhou',
+      'Xiangyong Wen',
+      'Zhepei Wang',
+      'Yuman Gao',
+      'Haojia Li',
+      'Qianhao Wang',
+      'Tiankai Yang',
+      'Haojian Lu',
+      'Yanjun Cao',
+      'Chao Xu',
+      'Fei Gao',
+    ],
+    year: 2022,
+    venue: 'Science Robotics 7(66), eabm5954',
+    url: 'https://www.science.org/doi/10.1126/scirobotics.abm5954',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Nature Machine Intelligence page
+    // (2026-08-15): three authors, 3, 545-554; NMPC swarm control.
+    id: 'soria-nmpc-swarm-2021',
+    title: 'Predictive control of aerial swarms in cluttered environments',
+    authors: ['Enrica Soria', 'Fabrizio Schiano', 'Dario Floreano'],
+    year: 2021,
+    venue: 'Nature Machine Intelligence 3, 545-554',
+    url: 'https://www.nature.com/articles/s42256-021-00341-y',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
