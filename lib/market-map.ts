@@ -478,6 +478,81 @@ export function bubblePoints(companies: readonly Company[]): BubblePoint[] {
   return points;
 }
 
+/**
+ * Plotted position of a bubble mark, in SVG user units. cx is the founding
+ * year axis (grows right), cy the funding axis (grows down, like all SVG
+ * y). Only the two axes matter for arrow-key movement.
+ */
+export interface BubbleMarkPosition {
+  id: string;
+  cx: number;
+  cy: number;
+}
+
+export const BUBBLE_ARROW_KEYS = [
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'ArrowDown',
+] as const;
+
+export type BubbleArrowKey = (typeof BUBBLE_ARROW_KEYS)[number];
+
+export function isBubbleArrowKey(key: string): key is BubbleArrowKey {
+  return (BUBBLE_ARROW_KEYS as readonly string[]).includes(key);
+}
+
+/**
+ * Roving-tabindex movement between bubble marks. The chart is one tab
+ * stop; arrow keys move between marks spatially: left/right step along
+ * the founding-year axis, up/down along the funding axis. The nearest
+ * mark along the pressed axis wins (perpendicular distance breaks ties,
+ * id breaks full ties so the result never depends on input order). At the
+ * end of an axis the move wraps to the far end, the way a radio group
+ * wraps, so every mark is reachable without the mouse. Unknown ids or
+ * keys return the current id unchanged.
+ */
+export function stepMark(
+  marks: readonly BubbleMarkPosition[],
+  currentId: string,
+  key: BubbleArrowKey,
+): string {
+  if (!isBubbleArrowKey(key)) return currentId;
+  const current = marks.find((mark) => mark.id === currentId);
+  if (!current) return currentId;
+
+  const alongX = key === 'ArrowLeft' || key === 'ArrowRight';
+  const forward = key === 'ArrowRight' || key === 'ArrowDown';
+  const axis = (mark: BubbleMarkPosition) => (alongX ? mark.cx : mark.cy);
+  const perpendicular = (mark: BubbleMarkPosition) =>
+    alongX ? mark.cy : mark.cx;
+
+  const currentAxis = axis(current);
+  const candidates = marks.filter((mark) =>
+    forward ? axis(mark) > currentAxis : axis(mark) < currentAxis,
+  );
+
+  if (candidates.length > 0) {
+    candidates.sort((a, b) => {
+      const axisDelta =
+        Math.abs(axis(a) - currentAxis) - Math.abs(axis(b) - currentAxis);
+      if (axisDelta !== 0) return axisDelta;
+      const perpDelta =
+        Math.abs(perpendicular(a) - perpendicular(current)) -
+        Math.abs(perpendicular(b) - perpendicular(current));
+      if (perpDelta !== 0) return perpDelta;
+      return a.id.localeCompare(b.id);
+    });
+    return candidates[0].id;
+  }
+
+  // Wrap to the far end of the axis.
+  const sorted = [...marks].sort((a, b) =>
+    forward ? axis(a) - axis(b) : axis(b) - axis(a),
+  );
+  return (sorted[0] ?? current).id;
+}
+
 export function formatSubSegment(value: string): string {
   return value.replace(/-/g, ' ');
 }

@@ -5,6 +5,8 @@ import type { Company } from '@/data/schemas/company.ts';
 import {
   bubblePoints,
   formatUsd,
+  isBubbleArrowKey,
+  stepMark,
   unknownFigure,
   type BubblePoint,
 } from '@/lib/market-map';
@@ -15,6 +17,8 @@ const PAD = { top: 24, right: 24, bottom: 48, left: 64 };
 
 type BubbleViewProps = {
   companies: readonly Company[];
+  /** Company id from a #company-<id> deep link, if any. */
+  highlightedId?: string | null;
 };
 
 function logScale(
@@ -61,9 +65,33 @@ function yTicks(min: number, max: number): number[] {
   return ticks.length > 0 ? ticks : [min, max];
 }
 
-export function BubbleView({ companies }: BubbleViewProps) {
+function plottedValueLabel(point: BubblePoint): string {
+  return point.yKind === 'valuation'
+    ? `valuation ${formatUsd(point.yUsd)}`
+    : `total raised ${formatUsd(point.yUsd)}`;
+}
+
+export function BubbleView({ companies, highlightedId = null }: BubbleViewProps) {
   const clipId = useId();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  // Roving tabindex: exactly one mark is tabbable at a time (the roving
+  // stop, or the first plotted mark before any interaction); arrow keys
+  // move the stop between marks spatially. focusedId doubles as the
+  // hover/focus label target so keyboard and mouse reveal the same thing.
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+
+  // A deep link names one company explicitly: it arrives as the selected
+  // mark, the same treatment a click produces (detail panel included).
+  // Sync to prop changes during render (repo convention); the sentinel
+  // start (null) makes the sync fire on the first render too, when the
+  // anchor is already present at mount. A highlight that goes away never
+  // deselects: the user's selection outlives the URL hash.
+  const [prevHighlight, setPrevHighlight] = useState<string | null>(null);
+  if (highlightedId !== prevHighlight) {
+    setPrevHighlight(highlightedId);
+    if (highlightedId !== null) setSelectedId(highlightedId);
+  }
+
   const points = useMemo(() => bubblePoints(companies), [companies]);
   const excluded = companies.length - points.length;
 
@@ -97,6 +125,15 @@ export function BubbleView({ companies }: BubbleViewProps) {
     };
   }, [points]);
 
+  const activeId = focusedId ?? selectedId;
+  const labeled =
+    geometry?.placed.find((point) => point.id === activeId) ?? null;
+  // The single tab stop: the roving target, else the first plotted mark.
+  // Highlighted deep-link target wins so the hashed mark is the entry
+  // point into the chart.
+  const rovingId =
+    focusedId ?? highlightedId ?? geometry?.placed[0]?.id ?? null;
+
   const selected =
     geometry?.placed.find((point) => point.id === selectedId) ?? null;
 
@@ -105,7 +142,8 @@ export function BubbleView({ companies }: BubbleViewProps) {
       <p className="font-sans text-sm text-text-dim">
         Each mark is a company with a known founding year and a disclosed
         valuation or total raised. Missing figures are left off the chart
-        instead of being drawn at zero.
+        instead of being drawn at zero. Hover or focus a mark for its name;
+        select it for the full detail.
       </p>
       {excluded > 0 ? (
         <p data-bubble-excluded className="mt-1 font-mono text-xs text-text-dim">
@@ -116,7 +154,7 @@ export function BubbleView({ companies }: BubbleViewProps) {
 
       {geometry ? (
         <svg
-          role="img"
+          role="group"
           aria-label="Company bubble chart of founding year against valuation or total raised"
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
           className="mt-4 h-auto w-full"
@@ -204,7 +242,21 @@ export function BubbleView({ companies }: BubbleViewProps) {
               </g>
             );
           })}
+          {labeled ? <MarkLabel point={labeled} /> : null}
           <g clipPath={`url(#${clipId})`}>
+            {labeled ? (
+              <circle
+                data-focus-ring
+                aria-hidden="true"
+                cx={labeled.cx}
+                cy={labeled.cy}
+                r={selectedId === labeled.id ? 10 : 8.5}
+                fill="none"
+                stroke="var(--color-accent)"
+                strokeWidth={2}
+                className="pointer-events-none"
+              />
+            ) : null}
             {geometry.placed.map((point) => (
               <circle
                 key={point.id}
@@ -215,11 +267,19 @@ export function BubbleView({ companies }: BubbleViewProps) {
                 className={
                   selectedId === point.id ? 'fill-accent' : 'fill-text'
                 }
-                tabIndex={0}
+                // Custom focus treatment (the ring circle above): the
+                // browser default outline renders inconsistently on SVG
+                // shapes, so it is removed here, not styled.
+                style={{ outline: 'none' }}
+                tabIndex={rovingId === point.id ? 0 : -1}
                 role="button"
                 aria-label={`${point.name}, founded ${point.founded}, ${
                   point.yKind === 'valuation' ? 'valuation' : 'total raised'
                 } ${formatUsd(point.yUsd)}`}
+                onMouseEnter={() => setFocusedId(point.id)}
+                onMouseLeave={() => setFocusedId(null)}
+                onFocus={() => setFocusedId(point.id)}
+                onBlur={() => setFocusedId(null)}
                 onClick={() =>
                   setSelectedId((current) =>
                     current === point.id ? null : point.id,
@@ -231,6 +291,19 @@ export function BubbleView({ companies }: BubbleViewProps) {
                     setSelectedId((current) =>
                       current === point.id ? null : point.id,
                     );
+                    return;
+                  }
+                  if (isBubbleArrowKey(event.key)) {
+                    event.preventDefault();
+                    if (!geometry) return;
+                    const next = stepMark(geometry.placed, point.id, event.key);
+                    if (next === point.id) return;
+                    setFocusedId(next);
+                    document
+                      .querySelector<SVGCircleElement>(
+                        `circle[data-company-id="${next}"]`,
+                      )
+                      ?.focus();
                   }
                 }}
               />
@@ -246,6 +319,45 @@ export function BubbleView({ companies }: BubbleViewProps) {
 
       {selected ? <BubbleDetail point={selected} /> : null}
     </div>
+  );
+}
+
+const LABEL_H = 30;
+
+/**
+ * Hover/focus label: the company name in the text color plus the plotted
+ * value, set in the chart's own label idiom (mono 10px dim) so it reads as
+ * part of the chart rather than a floating UI panel. Clamped inside the
+ * viewBox and drawn on top of the grid, below the marks.
+ */
+function MarkLabel({ point }: { point: BubblePoint & { cx: number; cy: number } }) {
+  const x = Math.min(Math.max(point.cx, PAD.left + 4), WIDTH - PAD.right - 4);
+  const anchor = point.cx > WIDTH / 2 ? 'end' : 'start';
+  const above = point.cy > PAD.top + LABEL_H + 8;
+  const y = above ? point.cy - 12 : point.cy + 18;
+  return (
+    <g
+      data-bubble-label
+      pointerEvents="none"
+      aria-hidden="true"
+    >
+      <text
+        x={x}
+        y={y}
+        textAnchor={anchor}
+        className="fill-text font-sans text-[11px] font-medium"
+      >
+        {point.name}
+      </text>
+      <text
+        x={x}
+        y={y + 13}
+        textAnchor={anchor}
+        className="fill-text-dim font-mono text-[10px]"
+      >
+        {plottedValueLabel(point)}
+      </text>
+    </g>
   );
 }
 

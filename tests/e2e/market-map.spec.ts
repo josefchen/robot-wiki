@@ -73,7 +73,7 @@ test.describe('market map visualization', () => {
     await expect(page.locator('article[data-company-id]')).toHaveCount(4);
 
     await page.getByRole('button', { name: 'Bubble' }).click();
-    await expect(page.getByRole('img', { name: /bubble chart/i })).toBeVisible();
+    await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
     await expect(page.getByText('4 of 112 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Timeline' }).click();

@@ -176,9 +176,9 @@ export function MarketMap({ companies }: MarketMapProps) {
           }
         />
       ) : view === 'bubble' ? (
-        <BubbleView companies={visible} />
+        <BubbleView companies={visible} highlightedId={highlightedId} />
       ) : (
-        <FundingTimeline companies={visible} />
+        <FundingTimeline companies={visible} highlightedId={highlightedId} />
       )}
     </div>
   );

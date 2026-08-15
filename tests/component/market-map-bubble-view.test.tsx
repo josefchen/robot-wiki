@@ -1,0 +1,173 @@
+import { fireEvent, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { afterEach, describe, expect, it } from 'vitest';
+import { COMPANIES } from '@/data/companies';
+import { bubblePoints } from '@/lib/market-map';
+import { BubbleView } from '@/components/market-map/bubble-view';
+
+afterEach(() => {
+  window.history.replaceState(null, '', '/');
+});
+
+const TIMEOUT = 15_000;
+
+function mark(id: string) {
+  const el = document.querySelector(`circle[data-company-id="${id}"]`);
+  if (!el) {
+    throw new Error(`no mark for ${id}`);
+  }
+  return el as SVGElement & {
+    focus: () => void;
+    blur: () => void;
+    tabIndex: number;
+  };
+}
+
+function labelEl() {
+  return document.querySelector('[data-bubble-label]');
+}
+
+function detailEl() {
+  return document.querySelector('[data-bubble-detail]');
+}
+
+function bubblePointsById() {
+  return new Map(bubblePoints(COMPANIES).map((point) => [point.id, point]));
+}
+
+describe('BubbleView hover, focus, and roving keyboard access', () => {
+  it('reveals name and plotted value on hover and clears on leave', async () => {
+    const user = userEvent.setup();
+    render(<BubbleView companies={COMPANIES} />);
+    const figure = mark('figure-ai');
+    await user.hover(figure);
+    const label = labelEl();
+    expect(label).not.toBeNull();
+    expect(label).toHaveTextContent('Figure AI');
+    expect(label).toHaveTextContent('$39B');
+    await user.unhover(figure);
+    expect(labelEl()).toBeNull();
+  }, TIMEOUT);
+
+  it('reveals the same label on keyboard focus (hover/focus parity)', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    // Focus a mark directly: focus reveal must not depend on the tab order.
+    fireEvent.focus(mark('physical-intelligence'));
+    const label = labelEl();
+    expect(label).not.toBeNull();
+    expect(label).toHaveTextContent('Physical Intelligence');
+    expect(label).toHaveTextContent('$5.6B');
+    fireEvent.blur(mark('physical-intelligence'));
+    expect(labelEl()).toBeNull();
+  }, TIMEOUT);
+
+  it('marks the chart a single tab stop with a roving tabindex', () => {
+    const points = bubblePointsById();
+    render(<BubbleView companies={COMPANIES} />);
+    const focusable = COMPANIES.filter((company) =>
+      points.has(company.id),
+    ).map((company) => mark(company.id));
+    // 47 of the 112 companies have both a founding year and a disclosed
+    // valuation or total raised; all of them are plotted.
+    expect(focusable.length).toBe(47);
+    const tabbable = focusable.filter((el) => el.tabIndex === 0);
+    expect(tabbable).toHaveLength(1);
+    const roving = focusable.filter((el) => el.tabIndex === -1);
+    expect(roving).toHaveLength(focusable.length - 1);
+  }, TIMEOUT);
+
+  it('moves between marks spatially with the arrow keys', async () => {
+    const user = userEvent.setup();
+    const points = bubblePointsById();
+    render(<BubbleView companies={COMPANIES} />);
+    await user.tab();
+    const active = () => document.activeElement?.getAttribute('data-company-id');
+    expect(typeof active()).toBe('string');
+    const from = active() as string;
+    await user.keyboard('[ArrowRight]');
+    const next = active();
+    expect(typeof next).toBe('string');
+    expect(next).not.toBe(from);
+
+    // Arrow movement is spatial: the next mark's founded year is greater
+    // (x maps founding year) or equal with a different id.
+    const a = points.get(from)!;
+    const b = points.get(next!)!;
+    expect(b.founded).toBeGreaterThanOrEqual(a.founded);
+
+    // Roving focus stays inside the chart: the label tracks the focused mark.
+    const label = labelEl();
+    expect(label).not.toBeNull();
+    expect(label).toHaveTextContent(b.name);
+  }, TIMEOUT);
+
+  it('keeps Enter and Space selection working (VAL-MKT-023 regression)', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    const figure = mark('figure-ai');
+    // jsdom has no focus management, so key events are dispatched on the
+    // mark itself; e2e proves the real keyboard path.
+    fireEvent.keyDown(figure, { key: 'Enter' });
+    expect(detailEl()).not.toBeNull();
+    expect(detailEl()).toHaveTextContent('Figure AI');
+    expect(detailEl()).toHaveTextContent('$39B');
+    fireEvent.keyDown(figure, { key: 'Enter' });
+    expect(detailEl()).toBeNull();
+
+    const pi = mark('physical-intelligence');
+    fireEvent.keyDown(pi, { key: ' ' });
+    expect(detailEl()).not.toBeNull();
+    expect(detailEl()).toHaveTextContent('Physical Intelligence');
+  }, TIMEOUT);
+});
+
+describe('BubbleView deep-link highlight parity', () => {
+  it('treats the hashed company as selected: accent mark plus detail panel', () => {
+    render(<BubbleView companies={COMPANIES} highlightedId="figure-ai" />);
+    const figure = mark('figure-ai');
+    // The same treatment a click produces: accent fill, larger radius.
+    expect(figure.getAttribute('class')).toContain('fill-accent');
+    expect(figure.getAttribute('r')).toBe('6');
+    const detail = detailEl();
+    expect(detail).not.toBeNull();
+    expect(detail).toHaveTextContent('Figure AI');
+    expect(detail).toHaveTextContent('$39B');
+    // Other marks are not highlighted.
+    expect(mark('physical-intelligence').getAttribute('class')).not.toContain(
+      'fill-accent',
+    );
+  }, TIMEOUT);
+
+  it('keeps a manual selection after the highlight changes', () => {
+    const { rerender } = render(
+      <BubbleView companies={COMPANIES} highlightedId="figure-ai" />,
+    );
+    rerender(<BubbleView companies={COMPANIES} highlightedId={null} />);
+    // The user selected Figure AI via the deep link; removing the hash id
+    // must not silently deselect it.
+    expect(detailEl()).not.toBeNull();
+    expect(detailEl()).toHaveTextContent('Figure AI');
+  }, TIMEOUT);
+});
+
+describe('BubbleView focus ring', () => {
+  it('renders an explicit focus ring element around the focused mark', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    const figure = mark('figure-ai');
+    fireEvent.focus(figure);
+    const svg = document.querySelector('svg[role="group"]');
+    expect(svg).not.toBeNull();
+    const ring = svg!.querySelector('circle[data-focus-ring]');
+    expect(ring).not.toBeNull();
+    expect(ring!.getAttribute('stroke')).toBe('var(--color-accent)');
+    expect(figure.tabIndex).toBe(0);
+  }, TIMEOUT);
+
+  it('keeps the aria-label contract of the marks unchanged', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    const figure = mark('figure-ai');
+    expect(figure.getAttribute('role')).toBe('button');
+    expect(figure.getAttribute('aria-label')).toBe(
+      'Figure AI, founded 2022, valuation $39B',
+    );
+  }, TIMEOUT);
+});

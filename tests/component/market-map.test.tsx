@@ -137,7 +137,7 @@ describe('MarketMap', () => {
     render(<MarketMap companies={COMPANIES} />);
     await user.click(screen.getByRole('button', { name: 'Bubble' }));
     expect(
-      screen.getByRole('img', { name: /bubble chart/i }),
+      screen.getByRole('group', { name: /bubble chart/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Founding year/)).toBeInTheDocument();
     expect(screen.getByText(/excluded for missing/)).toBeInTheDocument();
