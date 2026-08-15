@@ -418,6 +418,27 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
     citations: ['touchworld-2026', 'tactile-outlook-2025'],
   },
+  {
+    id: 'long-tail',
+    term: 'long tail',
+    definition:
+      "The part of the scenario distribution that is individually rare and collectively decisive: a couch fallen off a truck, a pedestrian in dark clothing outside a crosswalk, a traffic cop waving cars through a red light. None of these appear often enough in any natural driving log to learn from directly, yet each can decide whether a system is deployable. Autonomous-driving teams attack the tail with simulation, and Waymo's Genie-3-based World Model exists for exactly this: events 'from a tornado to a casual encounter with an elephant' are 'almost impossible to capture at scale in reality'.",
+    citations: ['waymo-world-model-2026', 'koopman-safe-enough-2026'],
+  },
+  {
+    id: 'operational-design-domain',
+    term: 'operational design domain (ODD)',
+    definition:
+      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system\'s ODD, precisely so the comparison is not rigged.',
+    citations: ['sae-j3016-2021', 'waymo-crash-rates-2025'],
+  },
+  {
+    id: 'end-to-end-driving',
+    term: 'end-to-end driving',
+    definition:
+      'A driving policy that maps raw sensor input directly to a motion plan or vehicle commands, instead of composing separate perception, prediction, and planning modules. The motivation is joint optimization: modular pipelines accumulate errors across hand-engineered interfaces, while a single network can tune every parameter for the driving objective. UniAD moved the industry compromise by keeping the task structure but training all stages in one differentiable network; EMMA went further by building on Gemini and representing trajectories and 3D locations as text.',
+    citations: ['uniad-2023', 'emma-2024', 'e2e-ad-survey-2024'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

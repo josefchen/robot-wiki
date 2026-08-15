@@ -313,6 +313,7 @@ const entries: Array<[Domain, string, string, string]> = [
 
 /** Publish status lives here, not in the tuple, to keep the taxonomy readable. */
 const PUBLISHED = new Set([
+  'adjacent/autonomous-vehicles',
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/comparison-matrix',

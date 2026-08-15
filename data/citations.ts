@@ -4082,6 +4082,287 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.04363',
     type: 'paper',
   },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 5 authors;
+    // the canonical planning-and-control survey for urban AVs.
+    id: 'paden-2016',
+    title:
+      'A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles',
+    authors: ['Brian Paden', 'Michal Cáp', 'Sze Zheng Yong', 'Dmitry S. Yershov', 'Emilio Frazzoli'],
+    year: 2016,
+    arxiv: '1604.07446',
+    url: 'https://arxiv.org/abs/1604.07446',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 25 authors
+    // ("Pei Sun and 24 other authors"); 1150 scenes of 20 s each,
+    // lidar + camera, introduced with a geographic-diversity metric.
+    id: 'waymo-open-dataset-2020',
+    title: 'Scalability in Perception for Autonomous Driving: Waymo Open Dataset',
+    authors: [
+      'Pei Sun',
+      'Henrik Kretzschmar',
+      'Xerxes Dotiwalla',
+      'Aurelien Chouard',
+      'Vijaysai Patnaik',
+      'Paul Tsui',
+      'James Guo',
+      'Yin Zhou',
+      'Yuning Chai',
+      'Benjamin Caine',
+      'Vijay Vasudevan',
+      'Wei Han',
+      'Jiquan Ngiam',
+      'Hang Zhao',
+      'Aleksei Timofeev',
+      'Scott Ettinger',
+      'Maxim Krivokon',
+      'Amy Gao',
+      'Aditya Joshi',
+      'Sheng Zhao',
+      'Shuyang Cheng',
+      'Yu Zhang',
+      'Jonathon Shlens',
+      'Zhifeng Chen',
+      'Dragomir Anguelov',
+    ],
+    year: 2020,
+    venue: 'CVPR 2020',
+    arxiv: '1912.04838',
+    url: 'https://arxiv.org/abs/1912.04838',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 7 authors;
+    // graph network over vectorized agents and HD map, ~70% fewer
+    // parameters than the raster baseline it matched.
+    id: 'vectornet-2020',
+    title: 'VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation',
+    authors: [
+      'Jiyang Gao',
+      'Chen Sun',
+      'Hang Zhao',
+      'Yi Shen',
+      'Dragomir Anguelov',
+      'Congcong Li',
+      'Cordelia Schmid',
+    ],
+    year: 2020,
+    venue: 'CVPR 2020',
+    arxiv: '2005.04259',
+    url: 'https://arxiv.org/abs/2005.04259',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 3 authors;
+    // 30 million examples still not enough for plain behavior cloning,
+    // fixed by synthesizing perturbed (worst-case) demonstrations.
+    id: 'chauffeurnet-2018',
+    title: 'ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst',
+    authors: ['Mayank Bansal', 'Alex Krizhevsky', 'Abhijit Ogale'],
+    year: 2018,
+    arxiv: '1812.03079',
+    url: 'https://arxiv.org/abs/1812.03079',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 16 authors;
+    // full-stack perception/prediction/planning in one network, query
+    // interfaces between tasks.
+    id: 'uniad-2023',
+    title: 'Planning-oriented Autonomous Driving',
+    authors: [
+      'Yihan Hu',
+      'Jiazhi Yang',
+      'Li Chen',
+      'Keyu Li',
+      'Chonghao Sima',
+      'Xizhou Zhu',
+      'Siqi Chai',
+      'Senyao Du',
+      'Tianwei Lin',
+      'Wenhai Wang',
+      'Lewei Lu',
+      'Xiaosong Jia',
+      'Qiang Liu',
+      'Jifeng Dai',
+      'Yu Qiao',
+      'Hongyang Li',
+    ],
+    year: 2023,
+    venue: 'CVPR 2023',
+    arxiv: '2212.10156',
+    url: 'https://arxiv.org/abs/2212.10156',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 6 authors;
+    // 270-paper survey of end-to-end driving, accepted by IEEE TPAMI.
+    id: 'e2e-ad-survey-2024',
+    title: 'End-to-end Autonomous Driving: Challenges and Frontiers',
+    authors: ['Li Chen', 'Penghao Wu', 'Kashyap Chitta', 'Bernhard Jaeger', 'Andreas Geiger', 'Hongyang Li'],
+    year: 2024,
+    venue: 'IEEE TPAMI',
+    arxiv: '2306.16927',
+    url: 'https://arxiv.org/abs/2306.16927',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 14 authors;
+    // Waymo's Gemini-based end-to-end model that emits trajectories,
+    // objects, and road graph elements as text. Accepted by TMLR.
+    id: 'emma-2024',
+    title: 'EMMA: End-to-End Multimodal Model for Autonomous Driving',
+    authors: [
+      'Jyh-Jing Hwang',
+      'Runsheng Xu',
+      'Hubert Lin',
+      'Wei-Chih Hung',
+      'Jingwei Ji',
+      'Kristy Choi',
+      'Di Huang',
+      'Tong He',
+      'Paul Covington',
+      'Benjamin Sapp',
+      'Yin Zhou',
+      'James Guo',
+      'Dragomir Anguelov',
+      'Mingxing Tan',
+    ],
+    year: 2024,
+    venue: 'TMLR',
+    arxiv: '2410.23262',
+    url: 'https://arxiv.org/abs/2410.23262',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 3 authors;
+    // Mobileye's Responsibility-Sensitive Safety: a white-box formal
+    // model intended to make safety assurance verifiable and scalable.
+    id: 'rss-2017',
+    title: 'On a Formal Model of Safe and Scalable Self-driving Cars',
+    authors: ['Shai Shalev-Shwartz', 'Shaked Shammah', 'Amnon Shashua'],
+    year: 2017,
+    arxiv: '1708.06374',
+    url: 'https://arxiv.org/abs/1708.06374',
+    type: 'paper',
+  },
+  {
+    // DOI-bearing URL (redirects to the Elsevier page; the RAND-hosted
+    // report page is bot-walled and Crossref metadata backs the DOI):
+    // the RAND study quantifying how many failure-free miles it would
+    // take to demonstrate AV reliability statistically.
+    id: 'kalra-paddock-2016',
+    title:
+      'Driving to safety: How many miles of driving would it take to demonstrate autonomous vehicle reliability?',
+    authors: ['Nidhi Kalra', 'Susan M. Paddock'],
+    year: 2016,
+    venue: 'Transportation Research Part A',
+    url: 'https://doi.org/10.1016/j.tra.2016.09.010',
+    type: 'paper',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): the federal
+    // investigation of the March 18, 2018 Tempe fatality, adopted
+    // November 19, 2019.
+    id: 'ntsb-uber-2019',
+    title:
+      'Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian, Tempe, Arizona, March 18, 2018',
+    authors: ['NTSB'],
+    year: 2019,
+    venue: 'Highway Accident Report NTSB/HAR-19/03',
+    url: 'https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf',
+    type: 'docs',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): Koopman's
+    // essay arguing "safe enough" is a multi-dimensional assurance
+    // question, not a single crashes-per-mile ratio.
+    id: 'koopman-safe-enough-2026',
+    title: "What's the Deal with Safe Enough Autonomous Vehicles?",
+    authors: ['Philip Koopman'],
+    year: 2026,
+    venue: 'Safe Autonomy (Substack)',
+    url: 'https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous',
+    type: 'blog',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): SAE's own
+    // summary of the J3016 levels revision.
+    id: 'sae-j3016-2021',
+    title: 'SAE Levels of Driving Automation Refined for Clarity and International Audience',
+    authors: ['SAE'],
+    year: 2021,
+    venue: 'SAE International',
+    url: 'https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements',
+    type: 'docs',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 6 authors;
+    // 56.7M rider-only miles, crash rates by type against human
+    // benchmarks aligned to the same roads.
+    id: 'waymo-crash-rates-2025',
+    title:
+      'Comparison of Waymo Rider-Only Crash Rates by Crash Type to Human Benchmarks at 56.7 Million Miles',
+    authors: [
+      'Kristofer D. Kusano',
+      'John M. Scanlon',
+      'Yin-Hsiu Chen',
+      'Timothy L. McMurry',
+      'Tilia Gode',
+      'Trent Victor',
+    ],
+    year: 2025,
+    arxiv: '2505.01515',
+    url: 'https://arxiv.org/abs/2505.01515',
+    type: 'paper',
+  },
+  {
+    // Verified against the live blog page (2026-08-15, HTTP 200): the
+    // Genie-3-derived generative simulator emitting camera and lidar,
+    // controllable through driving action, scene layout, and language.
+    id: 'waymo-world-model-2026',
+    title: 'The Waymo World Model: A New Frontier For Autonomous Driving Simulation',
+    authors: ['Waymo'],
+    year: 2026,
+    venue: 'Waymo Blog',
+    url: 'https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 20 authors;
+    // survey mapping the driving VLA landscape into end-to-end and
+    // dual-system paradigms.
+    id: 'vla-ad-survey-2026',
+    title: 'Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future',
+    authors: [
+      'Tianshuai Hu',
+      'Xiaolu Liu',
+      'Song Wang',
+      'Yiyao Zhu',
+      'Ao Liang',
+      'Lingdong Kong',
+      'Guoyang Zhao',
+      'Zeying Gong',
+      'Jun Cen',
+      'Zhiyu Huang',
+      'Xiaoshuai Hao',
+      'Linfeng Li',
+      'Hang Song',
+      'Xiangtai Li',
+      'Jun Ma',
+      'Shaojie Shen',
+      'Jianke Zhu',
+      'Dacheng Tao',
+      'Ziwei Liu',
+      'Junwei Liang',
+    ],
+    year: 2026,
+    arxiv: '2512.16760',
+    url: 'https://arxiv.org/abs/2512.16760',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

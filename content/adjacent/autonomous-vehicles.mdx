@@ -1,0 +1,126 @@
+---
+title: "Autonomous Vehicles"
+description: "The AV robotics stack, stage by stage: perception, prediction, planning, control. Why three decades and billions of miles later the problem is still not solved, and what robot learning inherited from it."
+domain: adjacent
+slug: autonomous-vehicles
+order: 1
+status: published
+lastReviewed: "2026-08-15"
+citations:
+  - alvinn-1988
+  - dagger-2011
+  - waymo-open-dataset-2020
+  - vectornet-2020
+  - chauffeurnet-2018
+  - paden-2016
+  - uniad-2023
+  - e2e-ad-survey-2024
+  - emma-2024
+  - rss-2017
+  - sae-j3016-2021
+  - kalra-paddock-2016
+  - ntsb-uber-2019
+  - waymo-crash-rates-2025
+  - koopman-safe-enough-2026
+  - waymo-world-model-2026
+  - vla-ad-survey-2026
+  - open-x-embodiment-2023
+  - genie-3-2025
+seeAlso:
+  - "frontier/reliability-gap"
+  - "world-models/generative-video"
+  - "manipulation/bc-foundations"
+  - "rl-sim2real/why-rl-locomotion"
+---
+
+import { AvStackTable } from '@/components/mdx/av-stack-table';
+
+Autonomous driving is the largest deployed autonomy system on Earth, and it got there before robot learning had a name. The distance between the two bookends is the whole story of this module. In 1988, ALVINN trained a three-layer neural network to steer a van from camera images and a road-following sensor, and drove it across America in a demonstration tour <Cite id="alvinn-1988" />. In 2025, Waymo published a retrospective crash-rate study covering 56.7 million rider-only miles, miles driven with no human behind the steering wheel, and found statistically significant reductions against human benchmarks in every crash-outcome category it could statistically test <Cite id="waymo-crash-rates-2025" />. Between those bookends sits everything this wiki covers elsewhere: imitation learning, distribution shift, closed-loop evaluation, the long tail, and the gap between a working demo and a deployable system.
+
+For an ML engineer moving into robotics, AV is the field that already ran the experiment you are about to run. The sensor modalities differ, the action space is smaller, and the failure costs are higher, but the arguments are the same arguments: modular pipeline versus end-to-end learning, open-loop benchmarks versus closed-loop reality, and how much data it takes before the tail stops biting. This module covers the AV robotics stack, the reasons the problem remains open, and the specific lines along which AV work and robot learning continue to exchange methods.
+
+## The driving stack
+
+A production autonomous vehicle is built as a pipeline of distinct stages, each with its own models, its own metrics, and its own failure modes. The canonical decomposition is perception, prediction, planning, and control: what is around me, what will it do, what will I do about it, and how do I execute that decision through the car <Cite id="uniad-2023" />. The stages are standard enough that papers describe "modern autonomous driving systems" as "modular tasks in sequential order, i.e., perception, prediction, and planning" without further explanation <Cite id="uniad-2023" />. The table summarizes the division of labor; the sections after it fill in what each stage actually computes and where it breaks.
+
+<AvStackTable className="my-6" />
+
+### Perception
+
+Perception turns raw sensor streams into a model of the scene: which objects exist, where they are, how they are moving, and what the road itself permits. The sensor suite is the first design decision, and it is the one that separates the industry's two camps. Waymo and most robotaxi operators fuse lidar, camera, and radar, paying for active range sensing that works in the dark and gives direct geometry. Camera-first programs bet that vision plus scale is enough and that lidar cost never amortizes. The public benchmark ecosystem grew up around the fused-sensor stack: the Waymo Open Dataset shipped 1,150 scenes of 20 seconds each, synchronized and calibrated lidar and camera data across urban and suburban geographies, and introduced a diversity metric under which it was 15 times more diverse than the largest existing camera-plus-lidar dataset <Cite id="waymo-open-dataset-2020" />.
+
+Two representational ideas dominate perception research. The first is the bird's-eye view: project everything into a top-down grid aligned with the road, because downstream stages reason in that frame anyway. The second is occupancy, predicting which cells of that grid are occupied by anything at all, including object classes the detector was never trained on. Occupancy is the perception field's direct answer to the long tail: a mattress on the freeway does not need a class label to be something you should not drive into. Perception failures are the most expensive kind, because every later stage inherits them. The canonical case is Tempe, Arizona in March 2018, covered in detail below, where the system tracked a pedestrian for 5.6 seconds before impact while reclassifying her among three different categories, and never correctly predicted her path <Cite id="ntsb-uber-2019" />.
+
+### Prediction
+
+Prediction, sometimes called behavior forecasting or motion prediction, estimates what every other agent in the scene will do over the next several seconds. It is the stage with no clean analogue in classical robotics and the one that made AV a machine learning problem rather than a controls problem. The central difficulty is that the future is multi-modal: at a four-way stop the crossing pedestrian may go or may wait, and a predictor that averages those futures produces a trajectory through both, which is a trajectory through neither.
+
+The representational history of prediction is a story of replacing rendered rasters with structured input. Early systems drew agent histories and map features into a top-down image and ran a convolutional network over it. VectorNet replaced that with a hierarchical graph network operating directly on vectorized polylines, agent trajectories and HD-map entities as nodes with interactions between them, matching or beating the raster approach while saving over 70 percent of the model parameters and an order of magnitude in compute <Cite id="vectornet-2020" />. Vectorized representations became the default. Prediction quality is also where joint training started paying: systems that let the planner's needs shape the forecaster, rather than training the forecaster against its own metric, are the thread that leads directly to the unified architectures of 2023.
+
+### Planning
+
+Planning decides what the ego vehicle will do: which route, which lane, what speed profile, and what trajectory through the next few seconds. The classical toolbox is deep here. The standard survey of the field organizes urban driving planning into route planning, behavior-level decision making (yield, overtake, merge), and local motion planning that respects vehicle dynamics, and the same survey covers the feedback-control layer that tracks the result <Cite id="paden-2016" />. Search, sampling, and trajectory optimization methods from that toolbox remain live production components; they are the same families covered in this wiki's classical modules on motion planning and control.
+
+The learned alternative arrived from imitation, and its history is a preview of robot learning's own. ChauffeurNet, Waymo's 2018 imitative planner, reported the finding that defines the field: standard behavior cloning over 30 million examples was not enough to drive robustly, even with a perception system preprocessing inputs and a controller executing outputs <Cite id="chauffeurnet-2018" />. The fix was to synthesize the worst: perturb the expert's trajectories into collisions and off-road excursions, and add losses that penalize those outcomes, so the learner sees recovery situations the log data never contains <Cite id="chauffeurnet-2018" />. That is the identical move robot manipulation would rediscover, and the reasons are the ones covered in Behavior Cloning Foundations: covariate shift means the states where you most need good actions are the states your logs underrepresent.
+
+### Control
+
+Control is the layer that turns a planned trajectory into steering, brake, and throttle commands, and holds the vehicle on that trajectory despite disturbances, tire nonlinearity, and actuator delay. It is the oldest layer, the one with the strongest theory, and the one learning has displaced least. Lateral and longitudinal control loops, linear quadratic regulation, and model-predictive tracking, the families surveyed by Paden et al. and covered in this wiki's control module, remain the production standard <Cite id="paden-2016" />. A learned planner outputs a trajectory; a classical controller tracks it at high rate. The division is pragmatic: the controller runs at hundreds of hertz with provable stability margins, and nothing learned offers that contract.
+
+Control is also where the vehicle's limits live. A trajectory that asks for more lateral acceleration than the tires can deliver is not trackable, and no amount of upstream intelligence fixes it. Planning systems therefore query a vehicle model before committing, and the whole stack treats the friction circle as a hard constraint. This is one structural difference from manipulation that will recur below: a car has no contact-rich manipulation phase, and its dynamics, while nonlinear, are well modeled, so the classical layer underneath the learning stays classical.
+
+### Modular versus end-to-end
+
+The stack above describes the deployed industry default, but the research frontier has spent a decade pulling the stages together. The motivation is error propagation: each interface between stages is a lossy summary, and an error made upstream cannot be corrected downstream. The 2024 survey of end-to-end autonomous driving frames the trade precisely, noting that end-to-end systems benefit from joint feature optimization for perception and planning, at the cost of interpretability and the ability to debug a failed component in isolation <Cite id="e2e-ad-survey-2024" />.
+
+The pivotal system was UniAD, which kept the task structure but trained the whole pipeline in one differentiable network, with perception, forecasting, and planning stages communicating through unified query interfaces, all oriented toward the planning objective rather than per-task metrics <Cite id="uniad-2023" />. It is a middle path: modular in structure, end-to-end in training. Waymo's EMMA went further, building on a multimodal large language model foundation in the Gemini family and representing all non-sensor inputs and outputs, navigation instructions, ego status, trajectories, 3D locations, as natural-language text, directly mapping camera input to driving outputs <Cite id="emma-2024" />. A driving policy that emits its plan as text is recognizably the same architectural bet as the vision-language-action models this wiki covers in its manipulation modules, and the comparison is drawn out below.
+
+## Why AV is not solved
+
+Three decades after ALVINN, robotaxis carry paying passengers in a handful of US cities, and the problem is still not solved. The honest statement of the situation has three parts: what "solved" would even mean, why the remaining distance is hard to close, and what the deployment record actually shows.
+
+### The levels and the operating domain
+
+The industry's own vocabulary concedes the point. SAE J3016, the standard taxonomy everyone uses, defines six levels of driving automation, 0 through 5, and its 2021 revision was explicitly about clarifying the distinction between driver assistance (levels 1 and 2), which is what most consumer systems ship as, and full automation (levels 4 and 5) <Cite id="sae-j3016-2021" />. Level 4 systems are deployed today, but every one of them operates inside an <Term id="operational-design-domain">operational design domain</Term>: a defined geography, road-type set, speed range, and weather envelope. Waymo's published safety comparisons are careful about this, aligning the human benchmark to the same vehicle types, road types, and locations the automated system operates in, so the comparison is not rigged <Cite id="waymo-crash-rates-2025" />. A system that drives Phoenix but not a Maine winter is a product with a boundary, not a solved problem, and expanding that boundary city by city remains manual, expensive engineering.
+
+### The long tail
+
+The technical obstruction is the <Term id="long-tail">long tail</Term>: scenarios that are individually rare and collectively decisive. A mattress on the freeway at night, a traffic cop waving cars through a red light, a low sun behind a stopped fire truck. No natural driving log contains enough examples of any one of them to learn from, and the tail is unbounded, there is no finite list to check off. This is the same distribution-shift problem that pervades robot learning, concentrated by the safety requirement: an encounter you have never seen is exactly the encounter you are responsible for.
+
+The industry's main answer is simulation, and the current frontier of that answer is generative. Waymo's World Model, announced in February 2026 and built on Google DeepMind's Genie 3, generates camera and lidar simulation from real driving footage, controllable through driving actions, scene layout edits, and language prompts, and exists, in Waymo's own framing, to rehearse events "from a tornado to a casual encounter with an elephant" that are almost impossible to capture at scale in reality <Cite id="waymo-world-model-2026" />. The same post reports the scale of the flywheel: nearly 200 million fully autonomous miles on real roads, and billions of miles in virtual worlds <Cite id="waymo-world-model-2026" />. Whether a generative simulator covers the tail or only the parts of it its base model has seen is an open question, and it is the same question this wiki asks of generative world models for manipulation.
+
+### The measurement problem
+
+Even a safe system has to prove it is safe, and the arithmetic of that proof is brutal. Kalra and Paddock's RAND study put numbers on it in 2016: demonstrating autonomous-vehicle reliability through test driving alone would take hundreds of millions of miles, and sometimes hundreds of billions, to provide clear statistical evidence of safety, because the crash rates being compared to are so low that real-world miles accumulate evidence glacially <Cite id="kalra-paddock-2016" />. Their conclusion was that on-road testing cannot be the primary safety case, a conclusion the industry internalized in its shift to simulation, scenario testing, and safety cases built on multiple evidence lines.
+
+Formal approaches have been proposed to escape the statistics entirely. Mobileye's Responsibility-Sensitive Safety model specifies, as a white-box mathematical condition, what it means to drive safely in terms of safe distances in longitudinal and lateral motion, so that an attacker or auditor can check compliance without crash statistics <Cite id="rss-2017" />. Its authors were explicit that the goal was to make assurance verifiable and scalable, warning that without standardization the field risked a "winter of autonomous driving" <Cite id="rss-2017" />. The formal route has known limits: the model guarantees the vehicle behaved correctly by its own definition, which is not the same as never being in a crash, and learned perception does not expose the state estimates the formulas consume. Koopman's position is the complement: "safe enough" is a multi-dimensional assurance question spanning architecture, redundancy, and process, not a single crashes-per-mile ratio, and treating it as one number is how programs fool themselves <Cite id="koopman-safe-enough-2026" />.
+
+### The deployment record
+
+The record itself cuts both ways, and both sides should be stated plainly. On one side: Waymo's 2025 study, covering 56.7 million rider-only miles through January 2025, found statistically significant lower crash rates than human benchmarks aligned to the same roads, across any-injury-reported, airbag-deployment, and suspected-serious-injury outcomes, with vehicle-to-vehicle intersection crashes reduced 96 percent in the any-injury category, and no statistically significant disbenefit in any of its eleven crash-type groups <Cite id="waymo-crash-rates-2025" />. That is a real, large, measured safety result, the first of its kind at that mileage.
+
+On the other side: the road there included the field's defining failure. On March 18, 2018, an Uber ATG test vehicle in Tempe, Arizona struck and killed a pedestrian, Elaine Herzberg, crossing N. Mill Avenue at night, pushing a bicycle, where there was no crosswalk <Cite id="ntsb-uber-2019" />. The NTSB's findings read as a checklist of everything this module has described. Perception detected her 5.6 seconds before impact but reclassified her among vehicle, unknown object, and bicycle, never correctly predicting her path <Cite id="ntsb-uber-2019" />. The system determined a collision was imminent 1.2 seconds before impact, by then outside its braking response specification, and its design precluded emergency braking for collision mitigation, relying on the operator instead <Cite id="ntsb-uber-2019" />. The operator, who was supposed to be the redundant safeguard, was streaming a television show on her phone, glancing down for extended periods until about one second before the crash <Cite id="ntsb-uber-2019" />. A classification failure, propagated through a planning stack that could not brake, "protected" by a human who was not watching: every layer failed at once. The lesson generalizes past AV, and it is the reliability argument this wiki makes elsewhere in depth: a chain of human-in-the-loop safeguards is not a safety case, because the safeguards correlate exactly when they matter.
+
+## The relation to robot learning
+
+The two fields did not merely converge, they are the same lineage that specialized. The imitation learning toolkit was built on driving before it was applied to arms. ALVINN was behavior cloning in 1988 <Cite id="alvinn-1988" />. DAgger, the canonical fix for covariate shift, was motivated substantially by the driving setting, and its quadratic-to-linear regret improvement is stated over exactly the horizon compounding that long driving tasks exhibit <Cite id="dagger-2011" />. ChauffeurNet's discovery that 30 million demonstrations do not save naive cloning, and its move of synthesizing worst-case perturbations, predates and predicts everything in this wiki's module on behavior cloning foundations <Cite id="chauffeurnet-2018" />. When an embodied-AI engineer today argues about action chunking versus per-step prediction, the argument is a descendant of arguments AV researchers had about trajectory horizon a decade ago.
+
+### The convergence is now explicit
+
+The current architectural convergence is not an analogy, it is the same architecture. EMMA is a vision-language model with driving outputs represented as text, jointly trained across planning, detection, and road-graph tasks, and evaluated as a generalist <Cite id="emma-2024" />. That is a <Term id="vision-language-action-model">vision-language-action model</Term> whose embodiment is a car. The survey literature now treats it as such: a 2026 survey of VLA models for autonomous driving maps the field into end-to-end VLA, one model from sensors to actions, and dual-system VLA, a slow deliberative VLM over a fast safety-critical executor <Cite id="vla-ad-survey-2026" />. Read that taxonomy against this wiki's manipulation modules and it is the same fault line: end-to-end VLA versus hierarchical system, π0 versus SayCan descendants, with the same open question of where the safety-critical fast path should live. The dual-system framing in driving is argued on exactly the grounds manipulation uses for knowledge insulation and real-time execution: a large model's inference budget does not close a 10 Hz control loop.
+
+Data practice is converging the same way. The Waymo Open Dataset's 1,150 scenes set the pattern AV research still follows: shared perception benchmarks with defined metrics <Cite id="waymo-open-dataset-2020" />. Robot learning's Open X-Embodiment pool, over a million trajectories across 22 embodiments federated from dozens of labs, is the same bet on shared data as the substrate for generalist policies <Cite id="open-x-embodiment-2023" />. The scales differ in kind, tens of hours versus millions of miles of driving logs, which is the subject of this wiki's data bottleneck module, but the strategic move, pool heterogeneous real data, standardize the format, train generalists, is identical.
+
+### What genuinely differs
+
+Three structural differences keep the fields from merging outright, and they are worth internalizing because they explain why results transfer unevenly.
+
+First, the action space and its dynamics. A car's decision variables are steering angle and longitudinal acceleration, two channels, governed by tire friction and a century of vehicle modeling. Manipulation's action space is dozens of joints making and breaking contact with objects whose physics are discontinuous at the contact boundary. The <Term id="mpc">model-predictive control</Term> that still runs a car's tracking layer has no equally clean purchase on a robot wiping a table, which is the subject of this wiki's module on why RL won locomotion but not manipulation: simulability of the transition function, not intelligence, is what separates the domains <Cite id="paden-2016" />.
+
+Second, evaluation. AV evaluation is closed-loop and statistical by necessity, crash rates over hundreds of millions of miles, benchmark simulators, and now regulatory reporting. Manipulation evaluation is still dominated by open-loop or short-horizon task success on small trial counts, the subject of this wiki's evaluation crisis module. The transfer direction is clear, and it is from AV to robotics: the discipline of reporting miles, interventions, and statistical confidence is what robot learning needs as its policies reach deployment.
+
+Third, the simulator question. AV simulation got good enough to be load-bearing because driving is, in the end, rigid-body kinematics plus appearance, with no contact-rich manipulation phase. The Waymo World Model generating camera and lidar for edge-case rehearsal is the strongest deployed argument anywhere that generative world models can carry a safety case <Cite id="waymo-world-model-2026" />. Robot learning is attempting the same move with Genie-class models whose action-conditioning is still weak, the central open problem this wiki's generative video module documents <Cite id="genie-3-2025" />. Driving is the easy case of world modeling, low-dimensional actions and no contact, and the fact that it took a Genie 3 derivative to make it work at scale is the calibrator for how far manipulation still has to go.
+
+### What to watch
+
+The two fields will keep trading. The items most likely to matter to a robotics engineer: whether dual-system VLA architectures in driving stabilize into the same shape as hierarchical manipulation systems, which would validate the insulation recipe across embodiments <Cite id="vla-ad-survey-2026" />; whether generative simulators expand beyond appearance into contact, where manipulation actually lives; and whether the safety-case machinery AV built under regulatory pressure, formal models like RSS, statistical deployment studies, and audit standards <Cite id="rss-2017" />, gets imported into robotics before robots deploy at scale, rather than after. The reliability gap module carries that argument forward for manipulation specifically.
