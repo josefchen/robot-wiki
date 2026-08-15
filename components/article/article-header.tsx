@@ -42,7 +42,17 @@ export function ArticleHeader({
         {entry.title}
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">{entry.summary}</p>
-      <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1.5 font-mono text-xs leading-relaxed text-text-dim">
+      {/* The metadata row is page chrome, not prose: dates and counts are
+          never legitimate excerpt candidates, and Pagefind joins the dt/dd
+          text without the flex gap that separates them on screen, so an
+          excerpt through the header read "Last reviewed8 August 2026.
+          Reading time8 min. Citations10." (fixed 2026-08-15; decision
+          recorded in library/search.md). data-pagefind-ignore is
+          index-only: the row stays visible and unchanged above. */}
+      <dl
+        data-pagefind-ignore
+        className="mt-4 flex flex-wrap gap-x-6 gap-y-1.5 font-mono text-xs leading-relaxed text-text-dim"
+      >
         {lastReviewed ? (
           <div
             data-header-last-reviewed={lastReviewed}

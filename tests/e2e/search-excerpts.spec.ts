@@ -456,3 +456,102 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     await expect(play).toHaveAttribute('data-pagefind-ignore', 'true');
   });
 });
+
+/**
+ * Fourth noise sweep (2026-08-15, harden-search-header-metadata-fusion):
+ * the article header's metadata row fused into excerpts. The ArticleHeader
+ * root element is itself a data-pagefind-body region (title + summary +
+ * metadata dl), and Pagefind joins the dl's dt/dd text without the CSS gap
+ * that separates them on the page, so description-matching queries read
+ * "...prediction and the conditioning-strength problem. Last reviewed8
+ * August 2026. Reading time8 min. Citations10. The third paradigm..."
+ * (measured on the pre-fix export). Decision, extending the per-element
+ * record in library/search.md: metadata values (dates, counts) are page
+ * chrome, not prose, so the whole dl row is excluded from the index. The
+ * title and summary stay indexed — they are the content a
+ * description-matching query is looking for.
+ */
+test.describe('excerpt chrome: article header metadata row', () => {
+  test('header metadata (last reviewed, reading time, citations) never fuses into excerpts', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // Description-anchored queries whose pre-fix excerpts fused the header
+    // metadata row (measured on the pre-fix export, 2026-08-15):
+    //   "video prediction" → "...action-conditioned video prediction and
+    //     the conditioning-strength problem. Last reviewed8 August 2026.
+    //     Reading time8 min. Citations10. The third paradigm..."
+    //   "neural simulator" → "...real physics engines beats generated
+    //     dynamics. Last reviewed8 August 2026. Reading time7 min.
+    //     Citations8. The previous three modules..."
+    //   "generated dynamics" → "...compact learned dynamics for
+    //     imagination-based control. Last reviewed8 August 2026.
+    //     Reading time6 min. Citations9. Of the six paradigms..."
+    for (const query of ['video prediction', 'neural simulator', 'generated dynamics']) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.length,
+        `query "${query}" returns at least one excerpt`,
+      ).toBeGreaterThan(0);
+      for (const excerpt of excerpts) {
+        // Header-label vocabulary is unambiguous: no indexed prose,
+        // caption or readout anywhere in content/ or data/ contains
+        // "Last reviewed", "Reading time" or "Citations" (verified by
+        // corpus sweep), so any occurrence is the metadata row.
+        expect(
+          excerpt,
+          `excerpt for "${query}" fuses the header metadata row`,
+        ).not.toMatch(/Last reviewed|Reading time|Citations/);
+      }
+    }
+  });
+
+  test('header title and summary stay indexed (positive control against over-exclusion)', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // "conditioning-strength problem" exists only in the generative-video
+    // header summary (registry summary; verified: no prose occurrence),
+    // and "video prediction" only matches the same page's summary in the
+    // header region. If the whole header were excluded together with the
+    // metadata row, this excerpt would lose its summary text.
+    const excerpts = await searchExcerpts(page, 'video prediction');
+    expect(
+      excerpts.some((excerpt) =>
+        excerpt.includes('conditioning-strength problem'),
+      ),
+      'header summary text no longer reaches any excerpt',
+    ).toBe(true);
+  });
+
+  test('metadata row is index-ignored; title and summary are not', async ({
+    page,
+  }) => {
+    await page.goto(`${BASE}/world-models/generative-video/`);
+
+    // The whole metadata row (one dl: last reviewed, reading time,
+    // citations) carries the attribute.
+    const row = page.locator('article header dl');
+    await expect(row).toHaveCount(1);
+    await expect(row).toHaveAttribute('data-pagefind-ignore', 'true');
+
+    // Title and summary are content and keep their index presence.
+    const title = page.locator('article header h1');
+    await expect(title).toHaveText('Generative Video World Models');
+    expect(await title.getAttribute('data-pagefind-ignore')).toBeNull();
+    const summary = page.locator('article header p');
+    await expect(summary).toContainText('conditioning-strength problem');
+    expect(await summary.getAttribute('data-pagefind-ignore')).toBeNull();
+
+    // The attribute is index-only: the row stays visible with all three
+    // values, so the VAL-WIKI header apparatus is untouched.
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('Last reviewed');
+    await expect(row).toContainText('Reading time');
+    await expect(row).toContainText('Citations');
+    await expect(row.locator('time')).toHaveAttribute(
+      'datetime',
+      '2026-08-08',
+    );
+  });
+});
