@@ -150,5 +150,9 @@
   "frontier/bear-case": {
     "words": 1829,
     "minutes": 9
+  },
+  "adjacent/autonomous-vehicles": {
+    "words": 3561,
+    "minutes": 18
   }
 }

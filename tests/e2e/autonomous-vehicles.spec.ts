@@ -17,7 +17,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     // The article region excludes nav, sidebar, and footer by construction
     // (data-pagefind-body is the .prose div the template measures reading
     // time from).
-    const prose = page.locator('[data-pagefind-body]');
+    const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toBeVisible();
     const text = (await prose.textContent()) ?? '';
     const words = text.trim().split(/\s+/).filter(Boolean).length;
@@ -52,7 +52,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const prose = page.locator('[data-pagefind-body]');
+    const prose = page.locator('div.prose[data-pagefind-body]');
     const text = (await prose.textContent()) ?? '';
     // The long-tail / edge-case argument.
     expect(text).toMatch(/long tail/);
@@ -66,7 +66,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const prose = page.locator('[data-pagefind-body]');
+    const prose = page.locator('div.prose[data-pagefind-body]');
     // Stack area: UniAD and VectorNet abs pages.
     await expect(
       prose.getByRole('link', { name: 'Hu 2023' }).first(),
@@ -106,7 +106,7 @@ test.describe('adjacent autonomous-vehicles module', () => {
     await expect(table).toBeVisible();
     await expect(table.getByRole('columnheader').first()).toBeVisible();
     await expect(table.locator('tbody tr')).toHaveCount(4);
-    const text = (await page.locator('[data-pagefind-body]').textContent()) ?? '';
+    const text = (await page.locator('div.prose[data-pagefind-body]').textContent()) ?? '';
     expect(text).not.toContain('import {');
     expect(text).not.toContain('<Cite');
     expect(text).not.toContain('<Term');

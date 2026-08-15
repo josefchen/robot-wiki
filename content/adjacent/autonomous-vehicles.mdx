@@ -41,7 +41,7 @@ For an ML engineer moving into robotics, AV is the field that already ran the ex
 
 ## The driving stack
 
-A production autonomous vehicle is built as a pipeline of distinct stages, each with its own models, its own metrics, and its own failure modes. The canonical decomposition is perception, prediction, planning, and control: what is around me, what will it do, what will I do about it, and how do I execute that decision through the car <Cite id="uniad-2023" />. The stages are standard enough that papers describe "modern autonomous driving systems" as "modular tasks in sequential order, i.e., perception, prediction, and planning" without further explanation <Cite id="uniad-2023" />. The table summarizes the division of labor; the sections after it fill in what each stage actually computes and where it breaks.
+A production autonomous vehicle is built as a pipeline of distinct stages, each with its own models, its own metrics, and its own failure modes. The canonical decomposition is perception, prediction, planning, and control: what is around me, what will it do, what will I do about it, and how do I execute that decision through the car <Cite id="uniad-2023" />. The stages are standard enough that papers describe "modern autonomous driving systems" as "modular tasks in sequential order, i.e., perception, prediction, and planning" without further explanation <Cite id="uniad-2023" />. The table summarizes the division of labor; the sections after it fill in what each stage computes and where it breaks.
 
 <AvStackTable className="my-6" />
 
@@ -73,11 +73,11 @@ Control is also where the vehicle's limits live. A trajectory that asks for more
 
 The stack above describes the deployed industry default, but the research frontier has spent a decade pulling the stages together. The motivation is error propagation: each interface between stages is a lossy summary, and an error made upstream cannot be corrected downstream. The 2024 survey of end-to-end autonomous driving frames the trade precisely, noting that end-to-end systems benefit from joint feature optimization for perception and planning, at the cost of interpretability and the ability to debug a failed component in isolation <Cite id="e2e-ad-survey-2024" />.
 
-The pivotal system was UniAD, which kept the task structure but trained the whole pipeline in one differentiable network, with perception, forecasting, and planning stages communicating through unified query interfaces, all oriented toward the planning objective rather than per-task metrics <Cite id="uniad-2023" />. It is a middle path: modular in structure, end-to-end in training. Waymo's EMMA went further, building on a multimodal large language model foundation in the Gemini family and representing all non-sensor inputs and outputs, navigation instructions, ego status, trajectories, 3D locations, as natural-language text, directly mapping camera input to driving outputs <Cite id="emma-2024" />. A driving policy that emits its plan as text is recognizably the same architectural bet as the vision-language-action models this wiki covers in its manipulation modules, and the comparison is drawn out below.
+UniAD kept the task structure but trained the whole pipeline in one differentiable network, with perception, forecasting, and planning stages communicating through unified query interfaces, all oriented toward the planning objective rather than per-task metrics <Cite id="uniad-2023" />. It is a middle path: modular in structure, end-to-end in training. Waymo's EMMA went further, building on a multimodal large language model foundation in the Gemini family and representing all non-sensor inputs and outputs, navigation instructions, ego status, trajectories, 3D locations, as natural-language text, directly mapping camera input to driving outputs <Cite id="emma-2024" />. A driving policy that emits its plan as text is recognizably the same architectural bet as the vision-language-action models this wiki covers in its manipulation modules, and the comparison is drawn out below.
 
 ## Why AV is not solved
 
-Three decades after ALVINN, robotaxis carry paying passengers in a handful of US cities, and the problem is still not solved. The honest statement of the situation has three parts: what "solved" would even mean, why the remaining distance is hard to close, and what the deployment record actually shows.
+Three decades after ALVINN, robotaxis carry paying passengers in a handful of US cities, and the problem is still not solved. The honest statement of the situation has three parts: what "solved" would even mean, why the remaining distance is hard to close, and what the deployment record shows.
 
 ### The levels and the operating domain
 
@@ -103,7 +103,7 @@ On the other side: the road there included the field's defining failure. On Marc
 
 ## The relation to robot learning
 
-The two fields did not merely converge, they are the same lineage that specialized. The imitation learning toolkit was built on driving before it was applied to arms. ALVINN was behavior cloning in 1988 <Cite id="alvinn-1988" />. DAgger, the canonical fix for covariate shift, was motivated substantially by the driving setting, and its quadratic-to-linear regret improvement is stated over exactly the horizon compounding that long driving tasks exhibit <Cite id="dagger-2011" />. ChauffeurNet's discovery that 30 million demonstrations do not save naive cloning, and its move of synthesizing worst-case perturbations, predates and predicts everything in this wiki's module on behavior cloning foundations <Cite id="chauffeurnet-2018" />. When an embodied-AI engineer today argues about action chunking versus per-step prediction, the argument is a descendant of arguments AV researchers had about trajectory horizon a decade ago.
+The two fields are branches of one lineage. The imitation learning toolkit was built on driving before it was applied to arms. ALVINN was behavior cloning in 1988 <Cite id="alvinn-1988" />. DAgger, the canonical fix for covariate shift, was motivated substantially by the driving setting, and its quadratic-to-linear regret improvement is stated over exactly the horizon compounding that long driving tasks exhibit <Cite id="dagger-2011" />. ChauffeurNet's discovery that 30 million demonstrations do not save naive cloning, and its move of synthesizing worst-case perturbations, predates and predicts everything in this wiki's module on behavior cloning foundations <Cite id="chauffeurnet-2018" />. When an embodied-AI engineer today argues about action chunking versus per-step prediction, the argument is a descendant of arguments AV researchers had about trajectory horizon a decade ago.
 
 ### The convergence is now explicit
 
@@ -111,7 +111,7 @@ The current architectural convergence is not an analogy, it is the same architec
 
 Data practice is converging the same way. The Waymo Open Dataset's 1,150 scenes set the pattern AV research still follows: shared perception benchmarks with defined metrics <Cite id="waymo-open-dataset-2020" />. Robot learning's Open X-Embodiment pool, over a million trajectories across 22 embodiments federated from dozens of labs, is the same bet on shared data as the substrate for generalist policies <Cite id="open-x-embodiment-2023" />. The scales differ in kind, tens of hours versus millions of miles of driving logs, which is the subject of this wiki's data bottleneck module, but the strategic move, pool heterogeneous real data, standardize the format, train generalists, is identical.
 
-### What genuinely differs
+### What differs in kind
 
 Three structural differences keep the fields from merging outright, and they are worth internalizing because they explain why results transfer unevenly.
 
@@ -123,4 +123,4 @@ Third, the simulator question. AV simulation got good enough to be load-bearing 
 
 ### What to watch
 
-The two fields will keep trading. The items most likely to matter to a robotics engineer: whether dual-system VLA architectures in driving stabilize into the same shape as hierarchical manipulation systems, which would validate the insulation recipe across embodiments <Cite id="vla-ad-survey-2026" />; whether generative simulators expand beyond appearance into contact, where manipulation actually lives; and whether the safety-case machinery AV built under regulatory pressure, formal models like RSS, statistical deployment studies, and audit standards <Cite id="rss-2017" />, gets imported into robotics before robots deploy at scale, rather than after. The reliability gap module carries that argument forward for manipulation specifically.
+The two fields will keep trading. The items most likely to matter to a robotics engineer: whether dual-system VLA architectures in driving stabilize into the same shape as hierarchical manipulation systems, which would validate the insulation recipe across embodiments <Cite id="vla-ad-survey-2026" />; whether generative simulators expand beyond appearance into contact, where manipulation lives; and whether the safety-case machinery AV built under regulatory pressure, formal models like RSS, statistical deployment studies, and audit standards <Cite id="rss-2017" />, gets imported into robotics before robots deploy at scale, rather than after. The reliability gap module carries that argument forward for manipulation specifically.

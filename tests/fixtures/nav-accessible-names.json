@@ -1,11 +1,11 @@
 {
-  "capturedFrom": "pre-change static export",
+  "capturedFrom": "static export on :3201, sidebar sections expanded",
   "route": "/",
   "viewport": [
     1440,
     900
   ],
-  "linkCount": 51,
+  "linkCount": 52,
   "links": [
     {
       "href": "/",
@@ -190,6 +190,10 @@
     {
       "href": "/adjacent/",
       "name": "Domain overview"
+    },
+    {
+      "href": "/adjacent/autonomous-vehicles/",
+      "name": "Autonomous Vehicles"
     },
     {
       "href": "/a-z/",
