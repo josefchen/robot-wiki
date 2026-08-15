@@ -256,7 +256,7 @@ export function WmDisambiguator({
           <span className="text-text-dim">
             Predicts:{' '}
             <span data-testid="predicts-readout" className="text-text">
-              {selected.predicts.toLowerCase()}
+              {selected.predicts}
             </span>
           </span>
         </div>

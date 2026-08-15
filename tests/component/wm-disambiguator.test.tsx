@@ -104,7 +104,7 @@ describe('WmDisambiguator', () => {
     const user = userEvent.setup();
     render(<WmDisambiguator />);
     const live = screen.getByTestId('wm-live-summary');
-    expect(live).toHaveTextContent(/policy learning/);
+    expect(live).toHaveTextContent(/policy learning/i);
     await user.click(panelButton(/world-action/i));
     expect(screen.getByTestId('wm-live-summary')).toHaveTextContent(
       /world-action/i,

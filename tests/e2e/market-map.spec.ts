@@ -327,7 +327,18 @@ test.describe('market map visualization', () => {
         route: '/rl-sim2real/humanoid-wbc/',
         labels: ['Representative:', 'Layers:', 'Fastest loop:', 'Motion data'],
       },
-      { route: '/world-models/taxonomy/', labels: ['Used for', 'Selected:'] },
+      {
+        route: '/world-models/taxonomy/',
+        labels: [
+          'Used for',
+          'Selected:',
+          'Latent dynamics',
+          'Decoder-free latent',
+          'Generative video',
+          'World-action',
+          'Symbolic',
+        ],
+      },
       { route: '/classical/kinematics/', labels: ['Joint i'] },
       {
         route: '/manipulation/generalist-policies/',
