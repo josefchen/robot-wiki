@@ -150,5 +150,21 @@
   "frontier/bear-case": {
     "words": 1829,
     "minutes": 9
+  },
+  "adjacent/autonomous-vehicles": {
+    "words": 3578,
+    "minutes": 18
+  },
+  "adjacent/drones": {
+    "words": 2259,
+    "minutes": 11
+  },
+  "adjacent/surgical": {
+    "words": 2057,
+    "minutes": 10
+  },
+  "adjacent/space": {
+    "words": 2189,
+    "minutes": 11
   }
 }

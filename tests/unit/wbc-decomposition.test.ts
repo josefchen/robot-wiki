@@ -51,17 +51,17 @@ describe('WBC decomposition model', () => {
     const byLabel = Object.fromEntries(stats.map((s) => [s.label, s.value]));
     expect(byLabel['S0 params']).toBe('10M');
     expect(byLabel['S0 loop rate']).toBe('1000 Hz');
-    expect(byLabel['motion data']).toBe('1000+ h');
-    expect(byLabel['sim envs']).toBe('200,000+');
+    expect(byLabel['Motion data']).toBe('1000+ h');
+    expect(byLabel['Sim envs']).toBe('200,000+');
   });
 
   it('carries the sourced GR00T N1.7 figures', () => {
     const stats = approachById('latent-action').stats;
     const byLabel = Object.fromEntries(stats.map((s) => [s.label, s.value]));
     expect(byLabel['VLA params']).toBe('3B');
-    expect(byLabel['action horizon']).toBe('40');
-    expect(byLabel['state/action']).toBe('132');
-    expect(byLabel['human video']).toBe('20,000 h');
+    expect(byLabel['Action horizon']).toBe('40');
+    expect(byLabel['State/action']).toBe('132');
+    expect(byLabel['Human video']).toBe('20,000 h');
   });
 
   it('carries the sourced Gemini Robotics 2 figures without inventing architecture', () => {
@@ -69,10 +69,10 @@ describe('WBC decomposition model', () => {
     const byLabel = Object.fromEntries(
       approach.stats.map((s) => [s.label, s.value]),
     );
-    expect(byLabel['embodiments']).toBe('3');
-    expect(byLabel['hand DoF']).toBe('22');
-    expect(byLabel['adaptation']).toBe('< 200 examples');
-    expect(byLabel['architecture']).toBe('not disclosed');
+    expect(byLabel['Embodiments']).toBe('3');
+    expect(byLabel['Hand DoF']).toBe('22');
+    expect(byLabel['Adaptation']).toBe('< 200 examples');
+    expect(byLabel['Architecture']).toBe('not disclosed');
   });
 
   it('reports the fastest disclosed loop rate per approach', () => {

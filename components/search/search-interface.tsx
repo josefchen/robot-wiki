@@ -356,7 +356,11 @@ export function SearchInterface({
             }
           >
             {status === 'done' || structuredHits.length > 0 ? (
-              <TypeFacetBar value={facetType} onChange={setFacetType} />
+              <TypeFacetBar
+                value={facetType}
+                onChange={setFacetType}
+                pending={status === 'searching'}
+              />
             ) : null}
             {structuredHits.length > 0 ? (
               <ul className="divide-y divide-border">

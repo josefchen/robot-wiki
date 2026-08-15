@@ -13,12 +13,11 @@ import { SITE_URL } from '../../lib/site';
  */
 
 const published = publishedModules();
-// One anchor article per domain that has published articles. The adjacent
-// domain currently has none (its four registry entries are drafts with no
-// content files), so the per-article breadcrumb checks sweep the six
-// domains that ship articles; the adjacent landing page itself is covered
-// by domain-landings.spec.ts. The moment an adjacent article publishes it
-// joins this sweep automatically.
+// One anchor article per domain that has published articles. All seven
+// domains ship published articles since the adjacent-polish milestone
+// (adjacent's four modules published 2026-08-14/15), so the sweep below
+// covers all seven top-level domains — the condition VAL-WIKI-017's note
+// required before the seven-domain breadcrumb sweep could run.
 const anchorByDomain = new Map(
   DOMAINS.flatMap((domain) => {
     const anchor = published.find((m) => m.domain === domain);
@@ -26,6 +25,24 @@ const anchorByDomain = new Map(
   }),
 );
 const domainsWithArticles = [...anchorByDomain.keys()];
+
+// VAL-WIKI-017 requires the sweep to sample an article in each of the
+// SEVEN top-level domains once all have published articles, which is the
+// state as of adjacent-polish. Pin that completeness so a future domain
+// losing its last article fails loudly instead of silently narrowing.
+test.describe('breadcrumb sweep completeness (VAL-WIKI-017)', () => {
+  test('every one of the seven top-level domains has a sampled article', () => {
+    expect(domainsWithArticles).toEqual([
+      'manipulation',
+      'rl-sim2real',
+      'world-models',
+      'data-hardware',
+      'classical',
+      'frontier',
+      'adjacent',
+    ]);
+  });
+});
 
 test.describe('article breadcrumbs', () => {
   test('every domain renders Home > Domain > Article with the trailing crumb as non-link text (VAL-WIKI-016)', async ({

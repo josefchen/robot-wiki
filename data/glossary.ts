@@ -418,6 +418,81 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
     citations: ['touchworld-2026', 'tactile-outlook-2025'],
   },
+  {
+    id: 'long-tail',
+    term: 'long tail',
+    definition:
+      "The part of the scenario distribution that is individually rare and collectively decisive: a couch fallen off a truck, a pedestrian in dark clothing outside a crosswalk, a traffic cop waving cars through a red light. None of these appear often enough in any natural driving log to learn from directly, yet each can decide whether a system is deployable. Autonomous-driving teams attack the tail with simulation, and Waymo's Genie-3-based World Model exists for exactly this: events 'from a tornado to a casual encounter with an elephant' are 'almost impossible to capture at scale in reality'.",
+    citations: ['waymo-world-model-2026', 'koopman-safe-enough-2026'],
+  },
+  {
+    id: 'operational-design-domain',
+    term: 'operational design domain (ODD)',
+    definition:
+      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system\'s ODD, precisely so the comparison is not rigged.',
+    citations: ['sae-j3016-2021', 'waymo-crash-rates-2025'],
+  },
+  {
+    id: 'end-to-end-driving',
+    term: 'end-to-end driving',
+    definition:
+      'A driving policy that maps raw sensor input directly to a motion plan or vehicle commands, instead of composing separate perception, prediction, and planning modules. The motivation is joint optimization: modular pipelines accumulate errors across hand-engineered interfaces, while a single network can tune every parameter for the driving objective. UniAD moved the industry compromise by keeping the task structure but training all stages in one differentiable network; EMMA went further by building on Gemini and representing trajectories and 3D locations as text.',
+    citations: ['uniad-2023', 'emma-2024', 'e2e-ad-survey-2024'],
+  },
+  {
+    id: 'visual-inertial-odometry',
+    term: 'visual-inertial odometry (VIO)',
+    definition:
+      "State estimation for a flying robot from camera images fused with inertial measurement unit data: the camera fixes long-term drift, the IMU provides high-rate accelerations between frames, and a filter or optimization over both yields the metric pose and velocity a flight controller needs. It is the standard onboard localization for small drones because it needs no external infrastructure and no GPS, and it is what lets a racing drone estimate its state from its own sensors alone. Swift's perception module pairs a visual-inertial estimator with a convolutional gate detector, fusing both in a Kalman filter to supply the control policy.",
+    citations: ['swift-drone-racing-2023'],
+  },
+  {
+    id: 'swarm-robotics',
+    term: 'swarm robotics',
+    definition:
+      'Coordination of many relatively simple robots through local interaction rather than a central planner, aiming for collective behavior that no individual achieves: coverage, mapping, or search at fleet scale. The classical models treat the group as a dynamical system of pairwise attractions and repulsions (potential fields, in the lineage of Reynolds flocking), which explains collective motion but guarantees neither safety nor speed in clutter. The aerial-swarm literature moved to onboard trajectory optimization: each drone plans in milliseconds from its own sensors while treating neighbors as constraints, so a ten-drone swarm traverses a bamboo forest with no external localization and no global map.',
+    citations: ['micro-drone-swarm-2022', 'soria-nmpc-swarm-2021'],
+  },
+  {
+    id: 'minimally-invasive-surgery',
+    term: 'minimally invasive surgery',
+    definition:
+      "Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots exist to give that trade-off back: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.",
+    citations: ['davinci5-clearance-2024', 'intuitive-q4-2025'],
+  },
+  {
+    id: 'robotic-assisted-surgical-device',
+    term: 'robotic assisted surgical device',
+    definition:
+      "The US regulatory category for surgical robots. A RASD is cleared or authorized on the basis that it assists a surgeon rather than practicing medicine itself: the Versius authorization, the first for a multiport soft-tissue general surgical system through the FDA's De Novo pathway, is explicitly worded as assisting in the precise and accurate control of endoscopic instruments, and it names one procedure, adult cholecystectomy, as the indicated use. The indication is the unit of progress: a system earns autonomy or new procedures one cleared indication at a time, which is why the field's shipped autonomy sits far below its research demonstrations.",
+    citations: ['cmr-versius-authorization-2024', 'yang-autonomy-2017'],
+  },
+  {
+    id: 'force-feedback',
+    term: 'force feedback',
+    definition:
+      'Sensing of interaction forces at the instrument tip, rendered back to the operator as resistance at the controls. In teleoperation it closes the haptic loop that pure video control leaves open: without it a surgeon infers tissue contact through visual cues alone and can exert more force than intended. da Vinci 5 introduced Force Feedback instruments that measure and display subtle forces on tissue, the first offering of that capability on a surgical system in any modality, and Intuitive reported up to 43 percent less force exerted on tissue in preclinical trials with it. The capability also matters beyond the operator: a measured force signal is a data stream, and data streams are what later automation trains on.',
+    citations: ['davinci5-clearance-2024'],
+  },
+  {
+    id: 'in-situ-resource-utilization',
+    term: 'in-situ resource utilization (ISRU)',
+    definition:
+      "Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the arithmetic is stark, since the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.",
+    citations: ['moxie-completion-2023', 'prime-1-lunar-2025'],
+  },
+  {
+    id: 'on-orbit-servicing',
+    term: 'on-orbit servicing',
+    definition:
+      'Using one spacecraft to work on another after launch: docking with an aging satellite to take over its propulsion, refueling it, replacing failed components, assembling large structures, or removing debris. The robotic content is rendezvous and proximity operations flown to centimeter-per-second tolerances, plus capture and manipulation of hardware that was usually never designed to be serviced. The capability has been demonstrated in stages since Japan\u2019s ETS-VII and DARPA\u2019s Orbital Express, and became a commercial service when Northrop Grumman\u2019s MEV-1 docked with Intelsat 901 in 2020 to extend its life; debris inspection and removal is the unserved variant, where the client is uncooperative and tumbling.',
+    citations: [
+      'ets-vii-ard-2001',
+      'orbital-express-2008',
+      'mev1-servicing-2025',
+      'adras-j-15m-2024',
+    ],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

@@ -231,6 +231,58 @@ describe('SearchInterface structured results', () => {
     ).toBeInTheDocument();
   });
 
+  it('keeps the facet bar inert while a new query is resolving, then restores it', async () => {
+    const user = userEvent.setup();
+    const pendingStructured: Array<(hits: StructuredHit[]) => void> = [];
+    render(
+      <SearchInterface
+        loadClient={clientWith(() => Promise.resolve([proseHit()]))}
+        loadStructured={() =>
+          Promise.resolve({
+            // 'figurex' hangs until the test releases it, pinning the
+            // interface in the searching state over the previous query's
+            // rows. Earlier keystroke queries resolve (their stale
+            // results are dropped by the sequencer, as designed).
+            search: (query: string) =>
+              query === 'figurex'
+                ? new Promise<StructuredHit[]>((resolve) =>
+                    pendingStructured.push(resolve),
+                  )
+                : Promise.resolve(
+                    query === 'figure' ? [structuredHit()] : [],
+                  ),
+          })
+        }
+        debounceMs={0}
+      />,
+    );
+    const input = screen.getByRole('searchbox', { name: INPUT_NAME });
+    await user.type(input, 'figure');
+    const bar = await screen.findByRole('group', { name: 'Filter by type' });
+    const companies = within(bar).getByRole('button', { name: /^Companies$/i });
+    expect(companies).toBeEnabled();
+
+    await user.type(input, 'x');
+    await waitFor(() => {
+      expect(screen.getByRole('status')).toHaveTextContent(/searching/i);
+    });
+    // The stale rows stay on screen (atomic replacement), but the facet
+    // bar must not offer interaction on them: buttons disabled, bar
+    // dimmed, no spinner.
+    expect(companies).toBeDisabled();
+    expect(
+      within(bar).getByRole('button', { name: /^All types$/i }),
+    ).toBeDisabled();
+    expect(bar.className).toContain('opacity-60');
+    expect(bar.querySelector('.animate-spin')).toBeNull();
+
+    pendingStructured[0]!([structuredHit({ title: 'Figurex' })]);
+    await waitFor(() => {
+      expect(screen.getByRole('status')).not.toHaveTextContent(/searching/i);
+    });
+    expect(companies).toBeEnabled();
+  });
+
   it('keeps arrow-key focus working across both groups', async () => {
     const user = userEvent.setup();
     render(

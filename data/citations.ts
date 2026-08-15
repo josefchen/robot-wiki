@@ -4082,6 +4082,725 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2603.04363',
     type: 'paper',
   },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 5 authors;
+    // the canonical planning-and-control survey for urban AVs.
+    id: 'paden-2016',
+    title:
+      'A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles',
+    authors: ['Brian Paden', 'Michal Cáp', 'Sze Zheng Yong', 'Dmitry S. Yershov', 'Emilio Frazzoli'],
+    year: 2016,
+    arxiv: '1604.07446',
+    url: 'https://arxiv.org/abs/1604.07446',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 25 authors
+    // ("Pei Sun and 24 other authors"); 1150 scenes of 20 s each,
+    // lidar + camera, introduced with a geographic-diversity metric.
+    id: 'waymo-open-dataset-2020',
+    title: 'Scalability in Perception for Autonomous Driving: Waymo Open Dataset',
+    authors: [
+      'Pei Sun',
+      'Henrik Kretzschmar',
+      'Xerxes Dotiwalla',
+      'Aurelien Chouard',
+      'Vijaysai Patnaik',
+      'Paul Tsui',
+      'James Guo',
+      'Yin Zhou',
+      'Yuning Chai',
+      'Benjamin Caine',
+      'Vijay Vasudevan',
+      'Wei Han',
+      'Jiquan Ngiam',
+      'Hang Zhao',
+      'Aleksei Timofeev',
+      'Scott Ettinger',
+      'Maxim Krivokon',
+      'Amy Gao',
+      'Aditya Joshi',
+      'Sheng Zhao',
+      'Shuyang Cheng',
+      'Yu Zhang',
+      'Jonathon Shlens',
+      'Zhifeng Chen',
+      'Dragomir Anguelov',
+    ],
+    year: 2020,
+    venue: 'CVPR 2020',
+    arxiv: '1912.04838',
+    url: 'https://arxiv.org/abs/1912.04838',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 7 authors;
+    // graph network over vectorized agents and HD map, ~70% fewer
+    // parameters than the raster baseline it matched.
+    id: 'vectornet-2020',
+    title: 'VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation',
+    authors: [
+      'Jiyang Gao',
+      'Chen Sun',
+      'Hang Zhao',
+      'Yi Shen',
+      'Dragomir Anguelov',
+      'Congcong Li',
+      'Cordelia Schmid',
+    ],
+    year: 2020,
+    venue: 'CVPR 2020',
+    arxiv: '2005.04259',
+    url: 'https://arxiv.org/abs/2005.04259',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 3 authors;
+    // 30 million examples still not enough for plain behavior cloning,
+    // fixed by synthesizing perturbed (worst-case) demonstrations.
+    id: 'chauffeurnet-2018',
+    title: 'ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst',
+    authors: ['Mayank Bansal', 'Alex Krizhevsky', 'Abhijit Ogale'],
+    year: 2018,
+    arxiv: '1812.03079',
+    url: 'https://arxiv.org/abs/1812.03079',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 16 authors;
+    // full-stack perception/prediction/planning in one network, query
+    // interfaces between tasks.
+    id: 'uniad-2023',
+    title: 'Planning-oriented Autonomous Driving',
+    authors: [
+      'Yihan Hu',
+      'Jiazhi Yang',
+      'Li Chen',
+      'Keyu Li',
+      'Chonghao Sima',
+      'Xizhou Zhu',
+      'Siqi Chai',
+      'Senyao Du',
+      'Tianwei Lin',
+      'Wenhai Wang',
+      'Lewei Lu',
+      'Xiaosong Jia',
+      'Qiang Liu',
+      'Jifeng Dai',
+      'Yu Qiao',
+      'Hongyang Li',
+    ],
+    year: 2023,
+    venue: 'CVPR 2023',
+    arxiv: '2212.10156',
+    url: 'https://arxiv.org/abs/2212.10156',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 6 authors;
+    // 270-paper survey of end-to-end driving, accepted by IEEE TPAMI.
+    id: 'e2e-ad-survey-2024',
+    title: 'End-to-end Autonomous Driving: Challenges and Frontiers',
+    authors: ['Li Chen', 'Penghao Wu', 'Kashyap Chitta', 'Bernhard Jaeger', 'Andreas Geiger', 'Hongyang Li'],
+    year: 2024,
+    venue: 'IEEE TPAMI',
+    arxiv: '2306.16927',
+    url: 'https://arxiv.org/abs/2306.16927',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 14 authors;
+    // Waymo's Gemini-based end-to-end model that emits trajectories,
+    // objects, and road graph elements as text. Accepted by TMLR.
+    id: 'emma-2024',
+    title: 'EMMA: End-to-End Multimodal Model for Autonomous Driving',
+    authors: [
+      'Jyh-Jing Hwang',
+      'Runsheng Xu',
+      'Hubert Lin',
+      'Wei-Chih Hung',
+      'Jingwei Ji',
+      'Kristy Choi',
+      'Di Huang',
+      'Tong He',
+      'Paul Covington',
+      'Benjamin Sapp',
+      'Yin Zhou',
+      'James Guo',
+      'Dragomir Anguelov',
+      'Mingxing Tan',
+    ],
+    year: 2024,
+    venue: 'TMLR',
+    arxiv: '2410.23262',
+    url: 'https://arxiv.org/abs/2410.23262',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 3 authors;
+    // Mobileye's Responsibility-Sensitive Safety: a white-box formal
+    // model intended to make safety assurance verifiable and scalable.
+    id: 'rss-2017',
+    title: 'On a Formal Model of Safe and Scalable Self-driving Cars',
+    authors: ['Shai Shalev-Shwartz', 'Shaked Shammah', 'Amnon Shashua'],
+    year: 2017,
+    arxiv: '1708.06374',
+    url: 'https://arxiv.org/abs/1708.06374',
+    type: 'paper',
+  },
+  {
+    // DOI-bearing URL (redirects to the Elsevier page; the RAND-hosted
+    // report page is bot-walled and Crossref metadata backs the DOI):
+    // the RAND study quantifying how many failure-free miles it would
+    // take to demonstrate AV reliability statistically.
+    id: 'kalra-paddock-2016',
+    title:
+      'Driving to safety: How many miles of driving would it take to demonstrate autonomous vehicle reliability?',
+    authors: ['Nidhi Kalra', 'Susan M. Paddock'],
+    year: 2016,
+    venue: 'Transportation Research Part A',
+    url: 'https://doi.org/10.1016/j.tra.2016.09.010',
+    type: 'paper',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): the federal
+    // investigation of the March 18, 2018 Tempe fatality, adopted
+    // November 19, 2019.
+    id: 'ntsb-uber-2019',
+    title:
+      'Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian, Tempe, Arizona, March 18, 2018',
+    authors: ['NTSB'],
+    year: 2019,
+    venue: 'Highway Accident Report NTSB/HAR-19/03',
+    url: 'https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf',
+    type: 'docs',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): Koopman's
+    // essay arguing "safe enough" is a multi-dimensional assurance
+    // question, not a single crashes-per-mile ratio.
+    id: 'koopman-safe-enough-2026',
+    title: "What's the Deal with Safe Enough Autonomous Vehicles?",
+    authors: ['Philip Koopman'],
+    year: 2026,
+    venue: 'Safe Autonomy (Substack)',
+    url: 'https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous',
+    type: 'blog',
+  },
+  {
+    // Verified against the live page (2026-08-15, HTTP 200): SAE's own
+    // summary of the J3016 levels revision.
+    id: 'sae-j3016-2021',
+    title: 'SAE Levels of Driving Automation Refined for Clarity and International Audience',
+    authors: ['SAE'],
+    year: 2021,
+    venue: 'SAE International',
+    url: 'https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements',
+    type: 'docs',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 6 authors;
+    // 56.7M rider-only miles, crash rates by type against human
+    // benchmarks aligned to the same roads.
+    id: 'waymo-crash-rates-2025',
+    title:
+      'Comparison of Waymo Rider-Only Crash Rates by Crash Type to Human Benchmarks at 56.7 Million Miles',
+    authors: [
+      'Kristofer D. Kusano',
+      'John M. Scanlon',
+      'Yin-Hsiu Chen',
+      'Timothy L. McMurry',
+      'Tilia Gode',
+      'Trent Victor',
+    ],
+    year: 2025,
+    arxiv: '2505.01515',
+    url: 'https://arxiv.org/abs/2505.01515',
+    type: 'paper',
+  },
+  {
+    // Verified against the live blog page (2026-08-15, HTTP 200): the
+    // Genie-3-derived generative simulator emitting camera and lidar,
+    // controllable through driving action, scene layout, and language.
+    id: 'waymo-world-model-2026',
+    title: 'The Waymo World Model: A New Frontier For Autonomous Driving Simulation',
+    authors: ['Waymo'],
+    year: 2026,
+    venue: 'Waymo Blog',
+    url: 'https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/',
+    type: 'blog',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): 20 authors;
+    // survey mapping the driving VLA landscape into end-to-end and
+    // dual-system paradigms.
+    id: 'vla-ad-survey-2026',
+    title: 'Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future',
+    authors: [
+      'Tianshuai Hu',
+      'Xiaolu Liu',
+      'Song Wang',
+      'Yiyao Zhu',
+      'Ao Liang',
+      'Lingdong Kong',
+      'Guoyang Zhao',
+      'Zeying Gong',
+      'Jun Cen',
+      'Zhiyu Huang',
+      'Xiaoshuai Hao',
+      'Linfeng Li',
+      'Hang Song',
+      'Xiangtai Li',
+      'Jun Ma',
+      'Shaojie Shen',
+      'Jianke Zhu',
+      'Dacheng Tao',
+      'Ziwei Liu',
+      'Junwei Liang',
+    ],
+    year: 2026,
+    arxiv: '2512.16760',
+    url: 'https://arxiv.org/abs/2512.16760',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): title,
+    // six authors, Science Robotics 2021 journal reference.
+    id: 'high-speed-flight-2021',
+    title: 'Learning High-Speed Flight in the Wild',
+    authors: [
+      'Antonio Loquercio',
+      'Elia Kaufmann',
+      'René Ranftl',
+      'Matthias Müller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2021,
+    venue: 'Science Robotics 2021, Vol. 6, Issue 59, abg5810',
+    arxiv: '2110.05113',
+    url: 'https://arxiv.org/abs/2110.05113',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Nature page (2026-08-15): title, six
+    // authors, Nature 620, 982-987; Swift beat three champions and set
+    // the fastest race time.
+    id: 'swift-drone-racing-2023',
+    title: 'Champion-level drone racing using deep reinforcement learning',
+    authors: [
+      'Elia Kaufmann',
+      'Leonard Bauersfeld',
+      'Antonio Loquercio',
+      'Matthias Müller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2023,
+    venue: 'Nature 620, 982-987',
+    url: 'https://www.nature.com/articles/s41586-023-06419-4',
+    type: 'paper',
+  },
+  {
+    // Verified against the live arXiv abs page (2026-08-15): five
+    // authors; Science Robotics 2023 journal reference; the RL-vs-OC
+    // racing study, 108 km/h peak, >12g peak acceleration.
+    id: 'racing-rl-vs-oc-2023',
+    title:
+      'Reaching the Limit in Autonomous Racing: Optimal Control versus Reinforcement Learning',
+    authors: [
+      'Yunlong Song',
+      'Angel Romero',
+      'Matthias Mueller',
+      'Vladlen Koltun',
+      'Davide Scaramuzza',
+    ],
+    year: 2023,
+    venue: 'Science Robotics 2023, adg1462',
+    arxiv: '2310.10943',
+    url: 'https://arxiv.org/abs/2310.10943',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref (2026-08-15): title, three authors,
+    // RA-L 4(2):1884-1891. The sense-and-avoid latency study the drones
+    // module's interactive reproduces.
+    id: 'falanga-latency-2019',
+    title:
+      'How Fast Is Too Fast? The Role of Perception Latency in High-Speed Sense and Avoid',
+    authors: ['Davide Falanga', 'Suseong Kim', 'Davide Scaramuzza'],
+    year: 2019,
+    venue: 'IEEE Robotics and Automation Letters 4(2), 1884-1891',
+    url: 'https://doi.org/10.1109/LRA.2019.2898117',
+    type: 'paper',
+  },
+  {
+    // Verified against the HKUST research portal record (2026-08-15):
+    // eleven authors, Science Robotics 7(66), eabm5954.
+    id: 'micro-drone-swarm-2022',
+    title: 'Swarm of micro flying robots in the wild',
+    authors: [
+      'Xin Zhou',
+      'Xiangyong Wen',
+      'Zhepei Wang',
+      'Yuman Gao',
+      'Haojia Li',
+      'Qianhao Wang',
+      'Tiankai Yang',
+      'Haojian Lu',
+      'Yanjun Cao',
+      'Chao Xu',
+      'Fei Gao',
+    ],
+    year: 2022,
+    venue: 'Science Robotics 7(66), eabm5954',
+    url: 'https://www.science.org/doi/10.1126/scirobotics.abm5954',
+    type: 'paper',
+  },
+  {
+    // Verified against the live Nature Machine Intelligence page
+    // (2026-08-15): three authors, 3, 545-554; NMPC swarm control.
+    id: 'soria-nmpc-swarm-2021',
+    title: 'Predictive control of aerial swarms in cluttered environments',
+    authors: ['Enrica Soria', 'Fabrizio Schiano', 'Dario Floreano'],
+    year: 2021,
+    venue: 'Nature Machine Intelligence 3, 545-554',
+    url: 'https://www.nature.com/articles/s42256-021-00341-y',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref and the live Science Robotics page
+    // (2026-08-15): editorial, 12 authors, Sci. Robot. 2(4), eaam8638;
+    // proposes the six-level autonomy framework the module organizes
+    // its comparison around.
+    id: 'yang-autonomy-2017',
+    title:
+      'Medical robotics\u2014Regulatory, ethical, and legal considerations for increasing levels of autonomy',
+    authors: [
+      'Guang-Zhong Yang',
+      'James Cambias',
+      'Kevin Cleary',
+      'Eric Daimler',
+      'James Drake',
+      'Pierre E. Dupont',
+      'Nobuhiko Hata',
+      'Peter Kazanzides',
+      'Sylvain Martel',
+      'Rajni V. Patel',
+      'Veronica J. Santos',
+      'Russell H. Taylor',
+    ],
+    year: 2017,
+    venue: 'Science Robotics 2(4), eaam8638',
+    url: 'https://doi.org/10.1126/scirobotics.aam8638',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref and the live Science Translational
+    // Medicine page (2026-08-15): six authors, Sci. Transl. Med. 8(337),
+    // 337ra64; the STAR supervised-autonomous anastomosis study.
+    id: 'star-suturing-2016',
+    title: 'Supervised autonomous robotic soft tissue surgery',
+    authors: [
+      'Azad Shademan',
+      'Ryan S. Decker',
+      'Justin D. Opfermann',
+      'Simon Leonard',
+      'Axel Krieger',
+      'Peter C. W. Kim',
+    ],
+    year: 2016,
+    venue: 'Science Translational Medicine 8(337), 337ra64',
+    url: 'https://doi.org/10.1126/scitranslmed.aad9398',
+    type: 'paper',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of Intuitive's
+    // release (2026-08-15): 510(k) for da Vinci 5, 150+ enhancements,
+    // Force Feedback with up to 43% less force on tissue in preclinical
+    // trials, 10,000x the computing power of Xi.
+    id: 'davinci5-clearance-2024',
+    title:
+      'Intuitive Announces FDA Clearance of Fifth-Generation Robotic System, da Vinci 5',
+    authors: ['Intuitive Surgical'],
+    year: 2024,
+    venue: 'GlobeNewswire, 14 March 2024',
+    url: 'https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of Intuitive's
+    // Q4 2025 earnings release (2026-08-15): 11,106 da Vinci systems
+    // installed as of 31 December 2025, up 12% from 9,902 a year earlier;
+    // ~17% da Vinci procedure growth in 2025.
+    id: 'intuitive-q4-2025',
+    title: 'Intuitive Announces Fourth Quarter Earnings',
+    authors: ['Intuitive Surgical'],
+    year: 2026,
+    venue: 'GlobeNewswire, 22 January 2026',
+    url: 'https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of CMR's
+    // release (2026-08-15): first multiport soft-tissue general surgical
+    // RASD through De Novo, indicated for adult cholecystectomy; over
+    // 26,000 procedures completed outside the US at announcement;
+    // ~2.5% of ~10M annual US major OR procedures robotic-assisted.
+    id: 'cmr-versius-authorization-2024',
+    title:
+      'CMR Surgical receives U.S. FDA Marketing Authorization for next-generation Versius Surgical System',
+    authors: ['CMR Surgical'],
+    year: 2024,
+    venue: 'GlobeNewswire, 15 October 2024',
+    url: 'https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live SAGES TAVAC record (2026-08-15): first
+    // 510(k) 6 December 2022, predicate ENDEX Endoscopic Positioning
+    // System (K936308); two-armed hold-and-position assistant compatible
+    // with standard laparoscopic cameras and instruments; Cadiere's
+    // 30-patient series without an assistant.
+    id: 'maestro-tavac-2023',
+    title: 'Moon Surgical Maestro Surgical Robotics System',
+    authors: ['Ruben D. Salas Parra', 'David Pechman'],
+    year: 2023,
+    venue: 'SAGES Technology and Value Assessment Committee',
+    url: 'https://www.sages.org/publications/tavac/moon-surgical-maestro-surgical-robotics-system',
+    type: 'docs',
+  },
+  {
+    // Verified against the live PR Newswire release via Yahoo Finance
+    // (2026-08-15): ScoPilot 510(k) 18 March 2025, runs NVIDIA Holoscan
+    // locally on Maestro, camera follows the instrument tip; commercial
+    // Maestro cleared June 2024, over 1,100 patients treated across the
+    // US and Europe at announcement. SAGES TAVAC corroborates the date.
+    id: 'scopilot-clearance-2025',
+    title:
+      'Moon Surgical receives FDA clearance for ScoPilot on Maestro, industry\u2019s first AI-enhanced intraoperative capability, powered by NVIDIA Holoscan',
+    authors: ['Moon Surgical'],
+    year: 2025,
+    venue: 'PR Newswire, 18 March 2025',
+    url: 'https://www.prnewswire.com/news-releases/moon-surgical-receives-fda-clearance-for-scopilot-on-maestro-industrys-first-ai-enhanced-intraoperative-capability-powered-by--nvidia-holoscan-302404920.html',
+    type: 'press',
+  },
+  {
+    // Verified against Crossref metadata and the live Science Robotics
+    // record (2026-08-15): Science Robotics 2(7), eaan4582, June 2017,
+    // 15 authors, Francis et al. first. AEGIS onboard autonomous
+    // targeting for ChemCam on Curiosity.
+    id: 'aegis-curiosity-2017',
+    title:
+      'AEGIS autonomous targeting for ChemCam on Mars Science Laboratory: Deployment and results of initial science team use',
+    authors: [
+      'R. Francis',
+      'T. Estlin',
+      'G. Doran',
+      'S. Johnstone',
+      'D. Gaines',
+      'V. Verma',
+      'M. Burl',
+      'J. Frydenvang',
+      'S. Monta\u00f1o',
+      'R. C. Wiens',
+      'S. Schaffer',
+      'O. Gasnault',
+      'L. DeFlores',
+      'D. Blaney',
+      'B. Bornstein',
+    ],
+    year: 2017,
+    venue: 'Science Robotics 2(7), eaan4582',
+    url: 'https://doi.org/10.1126/scirobotics.aan4582',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Science Robotics
+    // 8(80), adi3099, 12 July 2023, 12 authors, Verma et al. first. The
+    // AutoNav/AEGIS/OnBoard Planner overview: 88% of 17.7 km evaluated
+    // autonomously in the first Mars year, 699.9 m without human review,
+    // 347.7 m single-sol record.
+    id: 'perseverance-autonomy-2023',
+    title:
+      "Autonomous robotics is driving Perseverance rover's progress on Mars",
+    authors: [
+      'Vandi Verma',
+      'Mark W. Maimone',
+      'Daniel M. Gaines',
+      'Raymond Francis',
+      'Tara A. Estlin',
+      'Stephen R. Kuhn',
+      'Gregg R. Rabideau',
+      'Steve A. Chien',
+      'Michael M. McHenry',
+      'Evan J. Graser',
+      'Arturo L. Rankin',
+      'Ellen R. Thiel',
+    ],
+    year: 2023,
+    venue: 'Science Robotics 8(80), adi3099',
+    url: 'https://doi.org/10.1126/scirobotics.adi3099',
+    type: 'paper',
+  },
+  {
+    // Verified against the live JPL page (2026-08-15): 122 g of oxygen
+    // over 16 runs, 12 g/h peak at 98% purity or better, twice NASA's
+    // original goals; concluded 6 September 2023.
+    id: 'moxie-completion-2023',
+    title:
+      'NASA\u2019s Oxygen-Generating Experiment MOXIE Completes Mars Mission',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2023,
+    venue: 'NASA/JPL news, 6 September 2023',
+    url: 'https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/',
+    type: 'press',
+  },
+  {
+    // Verified against the live JPL page (2026-08-15): first powered,
+    // controlled flight on another planet, 19 April 2021.
+    id: 'ingenuity-first-flight-2021',
+    title:
+      'NASA\u2019s Ingenuity Mars Helicopter Succeeds in Historic First Flight',
+    authors: ['NASA Jet Propulsion Laboratory'],
+    year: 2021,
+    venue: 'NASA/JPL news, 19 April 2021',
+    url: 'https://www.jpl.nasa.gov/news/nasas-ingenuity-mars-helicopter-succeeds-in-historic-first-flight/',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA release (2026-08-15): designed for
+    // five flights over 30 days, flew 72 over almost three years;
+    // mission end announced 25 January 2024.
+    id: 'ingenuity-mission-end-2024',
+    title:
+      'After Three Years on Mars, NASA\u2019s Ingenuity Helicopter Mission Ends',
+    authors: ['NASA'],
+    year: 2024,
+    venue: 'NASA news release, 25 January 2024',
+    url: 'https://www.nasa.gov/news-release/after-three-years-on-mars-nasas-ingenuity-helicopter-mission-ends/',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA article (2026-08-15): Athena landed
+    // on its side ~400 m off Mons Mouton on 6 March 2025; TRIDENT's
+    // actuators performed as designed; MSOLO detected only anthropogenic
+    // gases; ~10 hours of operations against 10 planned days. Updated
+    // 29 April 2025.
+    id: 'prime-1-lunar-2025',
+    title: 'NASA\u2019s Lunar Drill Technology Passes Tests on the Moon',
+    authors: ['NASA'],
+    year: 2025,
+    venue: 'NASA article, 29 April 2025',
+    url: 'https://www.nasa.gov/missions/artemis/nasas-lunar-drill-technology-passes-tests-on-the-moon/',
+    type: 'press',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Journal of
+    // Spacecraft and Rockets 38(1), 105-111, January 2001. ETS-VII
+    // performed the autonomous rendezvous and docking experiments in
+    // 1997-1998.
+    id: 'ets-vii-ard-2001',
+    title:
+      'Result of Autonomous Rendezvous Docking Experiment of Engineering Test Satellite-VII',
+    authors: ['Isao Kawano', 'Masaaki Mokuno', 'Toru Kasai', 'Takashi Suzuki'],
+    year: 2001,
+    venue: 'Journal of Spacecraft and Rockets 38(1), 105-111',
+    url: 'https://doi.org/10.2514/2.3661',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Experimental
+    // Robotics VII, Lecture Notes in Control and Information Sciences,
+    // pp. 209-218, volume published 2001. The on-orbit robot dynamics
+    // and control experiments with ETS-VII's 2-metre, 6-DoF arm.
+    id: 'ets-vii-robot-2001',
+    title: 'ETS-VII Flight Experiments For Space Robot Dynamics and Control',
+    authors: ['Kazuya Yoshida'],
+    year: 2001,
+    venue:
+      'Experimental Robotics VII, Lecture Notes in Control and Information Sciences, 209-218',
+    url: 'https://doi.org/10.1007/3-540-45118-8_22',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref metadata (2026-08-15): Proc. SPIE 6958,
+    // Sensors and Systems for Space Applications II, April 2008. The
+    // mission-level summary of DARPA's 2007 Orbital Express servicing
+    // demonstration.
+    id: 'orbital-express-2008',
+    title: 'Orbital Express program summary and mission overview',
+    authors: ['Robert B. Friend'],
+    year: 2008,
+    venue: 'Proc. SPIE 6958, Sensors and Systems for Space Applications II',
+    url: 'https://doi.org/10.1117/12.783792',
+    type: 'paper',
+  },
+  {
+    // Verified against the live CSA page (2026-08-15): 17-metre arm,
+    // ISS assembly, maintenance, and grappling of visiting vehicles.
+    // Page date modified 16 July 2024.
+    id: 'canadarm2-csa-2024',
+    title: 'About Canadarm2',
+    authors: ['Canadian Space Agency'],
+    year: 2024,
+    venue: 'Canadian Space Agency',
+    url: 'https://www.asc-csa.gc.ca/eng/iss/canadarm2/about.asp',
+    type: 'docs',
+  },
+  {
+    // Verified against the live CSA page (2026-08-15): two-armed
+    // external maintenance robot, replaces equipment including 100-kg
+    // batteries. Page date modified 4 June 2024.
+    id: 'dextre-csa-2024',
+    title: 'About Dextre',
+    authors: ['Canadian Space Agency'],
+    year: 2024,
+    venue: 'Canadian Space Agency',
+    url: 'https://www.asc-csa.gc.ca/eng/iss/dextre/about.asp',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Northrop Grumman release (2026-08-15):
+    // MEV-1 performed the first-ever in-orbit commercial docking with
+    // IS-901 in the GEO graveyard orbit in 2020, provided five years of
+    // life extension, and undocked 9 April 2025.
+    id: 'mev1-servicing-2025',
+    title:
+      'Northrop Grumman Achieves First-Ever Undocking Between Two Commercial Spacecraft in Geosynchronous Orbit',
+    authors: ['Northrop Grumman'],
+    year: 2025,
+    venue: 'Northrop Grumman news, 9 April 2025',
+    url: 'https://news.northropgrumman.com/satellites/Northrop-Grumman-Achieves-First-Ever-Undocking-Between-Two-Commercial-Spacecraft-in-Geosynchronous-Orbit',
+    type: 'press',
+  },
+  {
+    // Verified against the live Astroscale release (2026-08-15): 15 m
+    // approach to a rocket upper stage on 30 November 2024, the closest
+    // a commercial spacecraft has come to debris via RPO; autonomous
+    // collision-avoidance abort before the capture initiation point.
+    id: 'adras-j-15m-2024',
+    title:
+      'Astroscale\u2019s ADRAS-J Achieves Historic 15-Meter Approach to Space Debris',
+    authors: ['Astroscale Japan'],
+    year: 2024,
+    venue: 'Astroscale announcement, 11 December 2024',
+    url: 'https://www.astroscale.com/en/news/astroscales-adras-j-achieves-historic-15-meter-approach-to-space-debris',
+    type: 'press',
+  },
+  {
+    // Verified against the live NASA statement (2026-08-15): OSAM-1
+    // discontinued 1 March 2024 after an independent review, citing
+    // technical, cost, and schedule challenges and the community moving
+    // away from refueling unprepared spacecraft.
+    id: 'osam1-discontinued-2024',
+    title: "Update on Status of NASA's OSAM-1 Project",
+    authors: ['NASA'],
+    year: 2024,
+    venue: 'NASA, 1 March 2024',
+    url: 'https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -4099,6 +4818,10 @@ export function getCitation(id: string): Citation | undefined {
  */
 const SURNAME_OVERRIDES = new Map<string, string>([
   ['Jared Di Carlo', 'Di Carlo'],
+  // Company-name pairs: the second token is a place or holding name,
+  // not a surname, so the chip would read "Grumman 2025" / "Japan 2024".
+  ['Northrop Grumman', 'Northrop Grumman'],
+  ['Astroscale Japan', 'Astroscale'],
 ]);
 const ORG_TOKENS = new Set([
   'Team',
@@ -4116,6 +4839,15 @@ const ORG_TOKENS = new Set([
   'Toyota',
   'Figure',
   'Partners',
+  // Company-name suffix: "Intuitive Surgical", "CMR Surgical", and
+  // "Moon Surgical" are organizations whose surname token is "Surgical";
+  // without this the three chips collide as "Surgical <year>".
+  'Surgical',
+  // Institution-name suffixes: "NASA Jet Propulsion Laboratory" and
+  // "Canadian Space Agency" would otherwise chip as "Laboratory <year>"
+  // and "Agency <year>".
+  'Laboratory',
+  'Agency',
 ]);
 
 export function citationLabel(citation: Citation): string {

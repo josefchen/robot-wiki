@@ -1,6 +1,29 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
+import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+
+/**
+ * Shared static-export server for the #418 specs below. Started lazily and
+ * stopped on afterAll so the dev-server-backed specs in this file pay no
+ * cost for it.
+ */
+let exportServer: StaticExportServer | null = null;
+let exportBase: string | null = null;
+
+async function resolveExportBase(): Promise<string> {
+  if (!exportServer) {
+    exportServer = await startStaticExportServer('out', 0, {
+      notFoundFallback: true,
+    });
+    exportBase = `http://localhost:${exportServer.port}`;
+  }
+  return exportBase as string;
+}
+
+test.afterAll(async () => {
+  await exportServer?.stop();
+});
 
 const GROUPS = [
   'Manipulation & Learned Policies',
@@ -141,5 +164,57 @@ test.describe('navigation shell', () => {
     await expect(
       page.getByRole('link', { name: /Back to the wiki home/ }),
     ).toBeVisible();
+  });
+});
+
+test.describe('unknown routes hydrate clean (React #418 fix)', () => {
+  // The exported 404 document's inline RSC payload describes the
+  // /_not-found tree; served for any other path it hydrates divergent and
+  // throws Minified React error #418. The postbuild guard redirects to
+  // /404/ before hydration. These specs pin that behavior against the
+  // shipped artifact (VAL-CROSS-025 + the console-cleanliness half of
+  // VAL-A11Y-013 on the 404 surface), which the dev server cannot
+  // reproduce: dev serves not-found per-request with no payload/path
+  // divergence.
+  test('unknown route redirects to /404/ and throws no hydration error', async ({ page }) => {
+    const OUT_BASE = await resolveExportBase();
+    const consoleErrors: string[] = [];
+    page.on('pageerror', (err) => consoleErrors.push(String(err)));
+    await page.goto(`${OUT_BASE}/manipulation/definitely-not-a-module/`);
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(/\/404\/$/);
+    await expect(
+      page.getByRole('heading', { name: 'Page not found' }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole('link', { name: /Back to the wiki home/ }),
+    ).toBeVisible();
+    expect(
+      consoleErrors.filter((e) => e.includes('#418')),
+      'no React hydration mismatch on the 404 route',
+    ).toEqual([]);
+  });
+
+  test('unknown top-level path redirects to /404/ cleanly', async ({ page }) => {
+    const OUT_BASE = await resolveExportBase();
+    const consoleErrors: string[] = [];
+    page.on('pageerror', (err) => consoleErrors.push(String(err)));
+    await page.goto(`${OUT_BASE}/bogus-top-level/`);
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(/\/404\/$/);
+    expect(consoleErrors).toEqual([]);
+  });
+
+  test('direct /404/ load stays put and stays clean', async ({ page }) => {
+    const OUT_BASE = await resolveExportBase();
+    const consoleErrors: string[] = [];
+    page.on('pageerror', (err) => consoleErrors.push(String(err)));
+    await page.goto(`${OUT_BASE}/404/`);
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(/\/404\/$/);
+    await expect(
+      page.getByRole('heading', { name: 'Page not found' }),
+    ).toBeVisible();
+    expect(consoleErrors).toEqual([]);
   });
 });

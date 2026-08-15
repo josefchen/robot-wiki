@@ -382,7 +382,7 @@ export function GeneralistReleaseTimeline({
           </span>
         </p>
         <p className="mt-1 font-mono text-xs text-text-dim">
-          provenance: {provenanceLabel(selected.provenance)}
+          Provenance: {provenanceLabel(selected.provenance)}
         </p>
         <p className="mt-1.5 font-sans text-xs leading-relaxed text-text">
           {selected.capability}

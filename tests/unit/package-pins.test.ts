@@ -82,8 +82,10 @@ describe('environment-trap script wiring', () => {
   });
 
   it('keeps the export prune wired into postbuild ahead of search indexing', () => {
+    // The 404-guard patch sits between them (pre-hydration guard before the
+    // Pagefind index sees the 404 document); ordering of all three matters.
     expect(pkg.scripts.postbuild).toMatch(
-      /prune-export-artifacts\.ts && node scripts\/build-search\.ts/,
+      /prune-export-artifacts\.ts && node scripts\/patch-404-guard\.ts && node scripts\/build-search\.ts/,
     );
   });
 });

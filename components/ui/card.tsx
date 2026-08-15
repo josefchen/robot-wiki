@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 import { cx } from '@/lib/utils';
 
 type CardProps = {
   title?: string;
-  /** When set, the whole card becomes a link. */
+  /** When set, the whole card becomes an internal next/link navigation. */
   href?: string;
   className?: string;
   children: ReactNode;
@@ -15,7 +16,7 @@ const baseClasses =
 export function Card({ title, href, className, children }: CardProps) {
   if (href) {
     return (
-      <a
+      <Link
         href={href}
         className={cx(
           baseClasses,
@@ -31,7 +32,7 @@ export function Card({ title, href, className, children }: CardProps) {
         <div className={cx('text-sm text-text-dim', title && 'mt-1')}>
           {children}
         </div>
-      </a>
+      </Link>
     );
   }
 

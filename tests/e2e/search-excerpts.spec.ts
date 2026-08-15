@@ -51,6 +51,51 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
+/**
+ * Stabilization wait for the search result list: sample the excerpt set
+ * until two consecutive reads agree, then return it. Replaces a fixed
+ * 300 ms sleep that read whatever was on screen once the first excerpt
+ * appeared (the closest surviving cousin of the run-sleep-pause race
+ * fixed in 73b12c9): under load the final keystroke's debounced search
+ * can land later than the sleep, and the assertions would run against a
+ * stale prefix's result set. Waiting for observed quiescence removes the
+ * assumption that 300 ms is always enough; when the system is fast the
+ * cost is one extra 250 ms sample.
+ *
+ * The 250 ms sample gap is wider than the 200 ms debounce, so a pair of
+ * agreeing reads always spans the moment the final search applies. The
+ * 10 s bound keeps a never-settling result list a loud failure instead
+ * of a silent stale read: proven by mutation (2026-08-15), a debounce
+ * re-triggering a fresh search with a strictly growing hit count on
+ * every fire exhausted this budget and failed every excerpt spec.
+ */
+const STABILIZE_SAMPLE_MS = 250;
+const STABILIZE_BUDGET_MS = 10_000;
+
+async function settledExcerpts(page: Page): Promise<string[]> {
+  const excerpts = page.locator('[data-search-result] .search-excerpt');
+  let previous = await excerpts.allTextContents();
+  const deadline = Date.now() + STABILIZE_BUDGET_MS;
+  while (Date.now() < deadline) {
+    await page.waitForTimeout(STABILIZE_SAMPLE_MS);
+    const current = await excerpts.allTextContents();
+    if (
+      current.length > 0 &&
+      current.length === previous.length &&
+      current.every((text, index) => text === previous[index])
+    ) {
+      return current;
+    }
+    previous = current;
+  }
+  throw new Error(
+    `search excerpts did not stabilize within ${
+      STABILIZE_BUDGET_MS / 1000
+    } s; last read held ${previous.length} excerpt(s)` +
+      (previous[0] ? `, first: "${previous[0].slice(0, 70)}"` : ''),
+  );
+}
+
 /** Runs a real query through the /search UI and returns every excerpt. */
 async function searchExcerpts(page: Page, query: string): Promise<string[]> {
   await page.goto(`${BASE}/search`);
@@ -58,9 +103,9 @@ async function searchExcerpts(page: Page, query: string): Promise<string[]> {
   await box.pressSequentially(query, { delay: 15 });
   const first = page.locator('[data-search-result] .search-excerpt').first();
   await first.waitFor({ state: 'visible', timeout: 15000 });
-  // Latest-wins sequencing settles once the final keystroke's search lands.
-  await page.waitForTimeout(300);
-  return page.locator('[data-search-result] .search-excerpt').allTextContents();
+  // Latest-wins sequencing has settled only once the excerpt set itself
+  // has stopped changing, not after a fixed deadline.
+  return settledExcerpts(page);
 }
 
 test.describe('search excerpt quality', () => {
@@ -454,5 +499,104 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     await expect(reset).toHaveAttribute('data-pagefind-ignore', 'true');
     const play = page.getByRole('button', { name: 'Play gait cycle' });
     await expect(play).toHaveAttribute('data-pagefind-ignore', 'true');
+  });
+});
+
+/**
+ * Fourth noise sweep (2026-08-15, harden-search-header-metadata-fusion):
+ * the article header's metadata row fused into excerpts. The ArticleHeader
+ * root element is itself a data-pagefind-body region (title + summary +
+ * metadata dl), and Pagefind joins the dl's dt/dd text without the CSS gap
+ * that separates them on the page, so description-matching queries read
+ * "...prediction and the conditioning-strength problem. Last reviewed8
+ * August 2026. Reading time8 min. Citations10. The third paradigm..."
+ * (measured on the pre-fix export). Decision, extending the per-element
+ * record in library/search.md: metadata values (dates, counts) are page
+ * chrome, not prose, so the whole dl row is excluded from the index. The
+ * title and summary stay indexed — they are the content a
+ * description-matching query is looking for.
+ */
+test.describe('excerpt chrome: article header metadata row', () => {
+  test('header metadata (last reviewed, reading time, citations) never fuses into excerpts', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // Description-anchored queries whose pre-fix excerpts fused the header
+    // metadata row (measured on the pre-fix export, 2026-08-15):
+    //   "video prediction" → "...action-conditioned video prediction and
+    //     the conditioning-strength problem. Last reviewed8 August 2026.
+    //     Reading time8 min. Citations10. The third paradigm..."
+    //   "neural simulator" → "...real physics engines beats generated
+    //     dynamics. Last reviewed8 August 2026. Reading time7 min.
+    //     Citations8. The previous three modules..."
+    //   "generated dynamics" → "...compact learned dynamics for
+    //     imagination-based control. Last reviewed8 August 2026.
+    //     Reading time6 min. Citations9. Of the six paradigms..."
+    for (const query of ['video prediction', 'neural simulator', 'generated dynamics']) {
+      const excerpts = await searchExcerpts(page, query);
+      expect(
+        excerpts.length,
+        `query "${query}" returns at least one excerpt`,
+      ).toBeGreaterThan(0);
+      for (const excerpt of excerpts) {
+        // Header-label vocabulary is unambiguous: no indexed prose,
+        // caption or readout anywhere in content/ or data/ contains
+        // "Last reviewed", "Reading time" or "Citations" (verified by
+        // corpus sweep), so any occurrence is the metadata row.
+        expect(
+          excerpt,
+          `excerpt for "${query}" fuses the header metadata row`,
+        ).not.toMatch(/Last reviewed|Reading time|Citations/);
+      }
+    }
+  });
+
+  test('header title and summary stay indexed (positive control against over-exclusion)', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // "conditioning-strength problem" exists only in the generative-video
+    // header summary (registry summary; verified: no prose occurrence),
+    // and "video prediction" only matches the same page's summary in the
+    // header region. If the whole header were excluded together with the
+    // metadata row, this excerpt would lose its summary text.
+    const excerpts = await searchExcerpts(page, 'video prediction');
+    expect(
+      excerpts.some((excerpt) =>
+        excerpt.includes('conditioning-strength problem'),
+      ),
+      'header summary text no longer reaches any excerpt',
+    ).toBe(true);
+  });
+
+  test('metadata row is index-ignored; title and summary are not', async ({
+    page,
+  }) => {
+    await page.goto(`${BASE}/world-models/generative-video/`);
+
+    // The whole metadata row (one dl: last reviewed, reading time,
+    // citations) carries the attribute.
+    const row = page.locator('article header dl');
+    await expect(row).toHaveCount(1);
+    await expect(row).toHaveAttribute('data-pagefind-ignore', 'true');
+
+    // Title and summary are content and keep their index presence.
+    const title = page.locator('article header h1');
+    await expect(title).toHaveText('Generative Video World Models');
+    expect(await title.getAttribute('data-pagefind-ignore')).toBeNull();
+    const summary = page.locator('article header p');
+    await expect(summary).toContainText('conditioning-strength problem');
+    expect(await summary.getAttribute('data-pagefind-ignore')).toBeNull();
+
+    // The attribute is index-only: the row stays visible with all three
+    // values, so the VAL-WIKI header apparatus is untouched.
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('Last reviewed');
+    await expect(row).toContainText('Reading time');
+    await expect(row).toContainText('Citations');
+    await expect(row.locator('time')).toHaveAttribute(
+      'datetime',
+      '2026-08-08',
+    );
   });
 });

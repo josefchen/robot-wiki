@@ -27,10 +27,10 @@ export type WmUseId =
   | 'data-generation';
 
 export const WM_USES: Array<{ id: WmUseId; label: string }> = [
-  { id: 'policy-learning', label: 'policy learning' },
-  { id: 'planning', label: 'planning' },
-  { id: 'evaluation', label: 'evaluation' },
-  { id: 'data-generation', label: 'data generation' },
+  { id: 'policy-learning', label: 'Policy learning' },
+  { id: 'planning', label: 'Planning' },
+  { id: 'evaluation', label: 'Evaluation' },
+  { id: 'data-generation', label: 'Data generation' },
 ];
 
 export interface WmParadigm {
@@ -58,7 +58,7 @@ export interface WmParadigm {
 export const WM_PARADIGMS: WmParadigm[] = [
   {
     id: 'latent-dynamics',
-    short: 'latent dynamics',
+    short: 'Latent dynamics',
     name: 'Latent-dynamics world model (Dreamer-style)',
     predicts: 'Next latent state + reward + continuation flag',
     space: 'Learned compact latent (stochastic + deterministic); decoded to pixels during training',
@@ -70,7 +70,7 @@ export const WM_PARADIGMS: WmParadigm[] = [
   },
   {
     id: 'decoder-free-latent',
-    short: 'decoder-free latent',
+    short: 'Decoder-free latent',
     name: 'Decoder-free latent model for planning (TD-MPC-style)',
     predicts: 'Next latent state + reward; no reconstruction, no decoder',
     space: 'Implicit latent trained only for value/reward prediction',
@@ -82,7 +82,7 @@ export const WM_PARADIGMS: WmParadigm[] = [
   },
   {
     id: 'generative-video',
-    short: 'generative video',
+    short: 'Generative video',
     name: 'Action-conditioned generative video model',
     predicts: 'Future pixels conditioned on the current frame(s) + action/text',
     space: 'Pixel or VAE-latent video space',
@@ -106,7 +106,7 @@ export const WM_PARADIGMS: WmParadigm[] = [
   },
   {
     id: 'world-action',
-    short: 'world-action',
+    short: 'World-action',
     name: 'Unified world-action model',
     predicts: 'Future frames and action chunks from one backbone',
     space: 'Shared backbone; parallel generative and action heads',
@@ -118,7 +118,7 @@ export const WM_PARADIGMS: WmParadigm[] = [
   },
   {
     id: 'symbolic',
-    short: 'symbolic',
+    short: 'Symbolic',
     name: 'Symbolic / structured world model',
     predicts: 'Transitions over predicates, object relations, occupancy',
     space: 'Discrete/relational or 3D-occupancy space',

@@ -41,12 +41,12 @@ export const CONTROLLERS: Record<
   { name: string; short: string; compute: string }
 > = {
   mpc: {
-    name: 'model-based MPC (iLQR + MuJoCo)',
+    name: 'Model-based MPC (iLQR + MuJoCo)',
     short: 'MPC',
     compute: 're-solves iLQR against the current state at every control step',
   },
   rl: {
-    name: 'learned policy (sim RL)',
+    name: 'Learned policy (sim RL)',
     short: 'RL policy',
     compute: 'one network forward pass, weights fixed at training',
   },

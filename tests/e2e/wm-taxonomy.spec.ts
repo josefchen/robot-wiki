@@ -79,7 +79,7 @@ test.describe('world-models taxonomy module', () => {
 
     // Default: latent dynamics selected, policy learning highlighted.
     await expect(
-      page.getByRole('button', { name: /^latent dynamics/ }),
+      page.getByRole('button', { name: /^Latent dynamics/ }),
     ).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByTestId('use-policy-learning')).toHaveAttribute(
       'data-active',
@@ -91,7 +91,7 @@ test.describe('world-models taxonomy module', () => {
     );
 
     // Selecting generative video highlights evaluation + data generation.
-    await page.getByRole('button', { name: /^generative video/ }).click();
+    await page.getByRole('button', { name: /^Generative video/ }).click();
     await expect(page.getByTestId('use-evaluation')).toHaveAttribute(
       'data-active',
       'true',
@@ -105,7 +105,7 @@ test.describe('world-models taxonomy module', () => {
       'false',
     );
     await expect(page.getByTestId('selected-readout')).toHaveText(
-      'generative video',
+      'Generative video',
     );
 
     // Keyboard path: tab to the JEPA panel and activate with Enter.
@@ -123,7 +123,7 @@ test.describe('world-models taxonomy module', () => {
     // Reset restores the default.
     await page.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('selected-readout')).toHaveText(
-      'latent dynamics',
+      'Latent dynamics',
     );
     await expect(page.getByTestId('use-policy-learning')).toHaveAttribute(
       'data-active',

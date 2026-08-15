@@ -283,7 +283,7 @@ export function MpcVsRl({ className }: { className?: string }) {
                 {response.annotation}
               </p>
               <p className="mt-2 font-mono text-xs text-text-dim">
-                compute per step:{' '}
+                Compute per step:{' '}
                 <span data-testid={`${id}-compute`} className="text-text">
                   {controller.compute}
                 </span>

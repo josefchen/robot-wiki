@@ -13,9 +13,14 @@ import { cx } from '@/lib/utils';
 
 type FundingTimelineProps = {
   companies: readonly Company[];
+  /** Company id from a #company-<id> deep link, if any. */
+  highlightedId?: string | null;
 };
 
-export function FundingTimeline({ companies }: FundingTimelineProps) {
+export function FundingTimeline({
+  companies,
+  highlightedId = null,
+}: FundingTimelineProps) {
   const events = useMemo(() => timelineEvents(companies), [companies]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -36,12 +41,19 @@ export function FundingTimeline({ companies }: FundingTimelineProps) {
       <ol className="mt-4 space-y-0">
         {events.map((event) => {
           const active = selectedId === event.id;
+          const highlighted = highlightedId === event.companyId;
           return (
             <li
               key={event.id}
               data-timeline-id={event.id}
               data-company-id={event.companyId}
-              className="border-t border-border"
+              id={`company-${event.companyId}`}
+              className={cx(
+                'border-t border-border',
+                highlighted && !active
+                  ? 'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]'
+                  : '',
+              )}
             >
               <button
                 type="button"
@@ -82,7 +94,6 @@ export function FundingTimeline({ companies }: FundingTimelineProps) {
     </div>
   );
 }
-
 function EventDetail({ event }: { event: TimelineEvent }) {
   return (
     <div

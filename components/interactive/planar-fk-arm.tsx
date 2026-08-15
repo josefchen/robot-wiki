@@ -86,7 +86,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
               {joint.label}
               <span
                 data-testid={`fk-theta-${i + 1}`}
-                className="font-mono text-xs normal-case tracking-normal text-text"
+                className="font-mono text-xs text-text"
               >
                 {angles[i]}°
               </span>

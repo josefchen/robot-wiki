@@ -94,11 +94,20 @@ async function get(path: string): Promise<{ status: number; body: string }> {
   throw lastError;
 }
 
+// Vitest evaluates the describe factory at collection even when skipIf
+// skips the suite, so dereferencing `probe!` in the factory body throws
+// once no drafts remain (all 42 modules published, 2026-08-15). Type the
+// sentinel as the real registry entry: with no drafts the suite is skipped
+// and the sentinel's fields are never read.
+import type { ModuleRegistryEntry } from '@/data/modules';
+const PROBE_SENTINEL: ModuleRegistryEntry =
+  probe ?? { domain: 'adjacent', slug: '', title: '', summary: '', order: 0, status: 'draft' };
+
 describe.skipIf(probe === undefined)(
   'draft-probe propagation (VAL-CROSS-029)',
   () => {
-    const key = `${probe!.domain}/${probe!.slug}`;
-    const probeFile = join(ROOT, 'content', probe!.domain, `${probe!.slug}.mdx`);
+    const key = `${PROBE_SENTINEL.domain}/${PROBE_SENTINEL.slug}`;
+    const probeFile = join(ROOT, 'content', PROBE_SENTINEL.domain, `${PROBE_SENTINEL.slug}.mdx`);
     let originalModulesTs: string;
     let server: StaticExportServer;
     let browser: Browser;
@@ -133,11 +142,11 @@ describe.skipIf(probe === undefined)(
       writeFileSync(
         probeFile,
         `---
-title: "${probe!.title}"
-description: "${probe!.summary}"
-domain: ${probe!.domain}
-slug: ${probe!.slug}
-order: ${probe!.order}
+title: "${PROBE_SENTINEL.title}"
+description: "${PROBE_SENTINEL.summary}"
+domain: ${PROBE_SENTINEL.domain}
+slug: ${PROBE_SENTINEL.slug}
+order: ${PROBE_SENTINEL.order}
 status: published
 lastReviewed: "2026-08-11"
 citations:
@@ -156,7 +165,7 @@ source so the content gate treats it as an ordinary article
 
       build();
       expect(
-        existsSync(join(PROBE_DIST, probe!.domain, probe!.slug, 'index.html')),
+        existsSync(join(PROBE_DIST, PROBE_SENTINEL.domain, PROBE_SENTINEL.slug, 'index.html')),
       ).toBe(true);
 
       server = await startStaticExportServer(PROBE_DIST, PORT);
@@ -185,9 +194,9 @@ source so the content gate treats it as an ordinary article
       await page.goto(`${BASE}/`);
       const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
       await nav
-        .getByRole('button', { name: DOMAIN_META[probe!.domain].name })
+        .getByRole('button', { name: DOMAIN_META[PROBE_SENTINEL.domain].name })
         .click();
-      const link = nav.getByRole('link', { name: probe!.title });
+      const link = nav.getByRole('link', { name: PROBE_SENTINEL.title });
       await pwExpect(link).toBeVisible();
       await page.screenshot({
         path: `${SCREENSHOT_DIR}/sidebar-published.png`,
@@ -197,15 +206,15 @@ source so the content gate treats it as an ordinary article
     it('appears in the /a-z index', async () => {
       const { body } = await get('/a-z/');
       expect(body).toContain(`/${key}/`);
-      expect(body).toContain(probe!.title);
+      expect(body).toContain(PROBE_SENTINEL.title);
       await page.goto(`${BASE}/a-z/`);
       await page.screenshot({ path: `${SCREENSHOT_DIR}/a-z-published.png`, fullPage: false });
     });
 
     it('appears on its domain landing page', async () => {
-      const { body } = await get(`/${probe!.domain}/`);
+      const { body } = await get(`/${PROBE_SENTINEL.domain}/`);
       expect(body).toContain(`/${key}/`);
-      expect(body).toContain(probe!.title);
+      expect(body).toContain(PROBE_SENTINEL.title);
     });
 
     it('appears in sitemap.xml', async () => {
@@ -244,7 +253,7 @@ source so the content gate treats it as an ordinary article
         expect(route.status).toBe(404);
 
         // Static surfaces no longer reference it.
-        for (const path of ['/', '/a-z/', `/${probe!.domain}/`]) {
+        for (const path of ['/', '/a-z/', `/${PROBE_SENTINEL.domain}/`]) {
           const { body } = await get(path);
           expect(body).not.toContain(`/${key}/`);
         }

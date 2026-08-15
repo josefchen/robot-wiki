@@ -29,10 +29,28 @@ async function readout(page: Page, id: string): Promise<string> {
   return (await page.getByTestId(id).textContent()) ?? '';
 }
 
-async function runBriefly(page: Page, ms: number) {
-  await page.getByRole('button', { name: /run the tracker/i }).click();
-  await page.waitForTimeout(ms);
-  await page.getByRole('button', { name: /pause the tracker/i }).click();
+/**
+ * Advance the tracker deterministically through the Step control.
+ *
+ * The previous shape here was run, waitForTimeout, pause: it slept on the
+ * wall clock and then assumed the tracker was still running so that a
+ * pause control existed. Under full-suite load that assumption breaks at
+ * both ends (the run can complete and revert the control to Run, or the
+ * label swap can lag behind the click), and the pause locator never
+ * resolves. The Step control advances the same pure filter one step per
+ * click with no timers involved, so the helper is state-driven end to
+ * end. The first advance is pinned on the step readout to prove the
+ * control is live before the remaining clicks.
+ */
+async function advanceSteps(page: Page, count: number) {
+  const stepButton = page.getByRole('button', {
+    name: /step the tracker/i,
+  });
+  await stepButton.click();
+  await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+    '61 / 600',
+  );
+  for (let i = 1; i < count; i++) await stepButton.click();
 }
 
 async function captureRun(page: Page) {
@@ -213,8 +231,12 @@ test.describe('classical state-estimation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    // Run briefly so the filter is past its initialization, then pause.
-    await runBriefly(page, 2500);
+    // Advance deterministically past the filter's initialization
+    // transient: 60 Step-control clicks from the opening step, no timers.
+    await advanceSteps(page, 60);
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '120 / 600',
+    );
 
     const bandPoints = () =>
       page.getByTestId('kalman-band').getAttribute('points');
@@ -322,22 +344,44 @@ test.describe('classical state-estimation module', () => {
     );
   });
 
-  test('reduced motion still advances the tracker in coarse jumps', async ({
+  test('reduced motion: no advance before the first coarse tick, then 4-step jumps', async ({
     browser,
   }) => {
+    // The previous shape polled the step readout for greaterThan(10), but
+    // the tracker OPENS paused at step 60, so the poll passed instantly
+    // and proved nothing about reduced-motion gating. This rewrite pins
+    // the gate itself, in two halves:
+    //   1. Absence of smooth advance: after Run, inside a window that
+    //      comfortably spans a smooth-cadence tick (80 ms) but stays well
+    //      inside the coarse first tick (320 ms), the readout must still
+    //      read exactly 60. Timers never fire early, so load can only
+    //      push the coarse tick later, never flake this half red.
+    //   2. Coarse advancement: the readout then leaves 60 in multiples of
+    //      the 4-step coarse jump, proving the gate selects the coarse
+    //      cadence rather than disabling playback.
+    // Mutation-checked: forcing playbackCadence onto the smooth cadence
+    // (gate disabled) makes half 1 fail immediately (step 61 at 80 ms).
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
+    const stepReadout = page.getByTestId('kalman-step-readout');
+    await expect(stepReadout).toHaveText('60 / 600');
     await page.getByRole('button', { name: /run the tracker/i }).click();
-    // Coarse ticks at 320 ms, 4 steps each: within 2 s the tracker has
-    // visibly advanced.
+    // One immediate read, deliberately NOT an auto-retrying assertion:
+    // absence-of-advance must be measured once, inside the window.
+    await page.waitForTimeout(150);
+    expect(await stepReadout.textContent()).toBe('60 / 600');
     await expect
-      .poll(
-        async () =>
-          Number.parseInt(await readout(page, 'kalman-step-readout'), 10),
-        { timeout: 5_000 },
-      )
-      .toBeGreaterThan(10);
+      .poll(async () => (await stepReadout.textContent()) ?? '', {
+        timeout: 5_000,
+      })
+      .not.toBe('60 / 600');
+    const advanced = Number.parseInt(
+      (await stepReadout.textContent()) ?? '60',
+      10,
+    );
+    expect(advanced - 60).toBeGreaterThanOrEqual(4);
+    expect((advanced - 60) % 4).toBe(0);
     await context.close();
   });
 
