@@ -103,6 +103,10 @@ export function Table<T extends Record<string, unknown>>({
 
   return (
     <div
+      // The overflow-x-auto wrapper is a scrollable region on narrow
+      // viewports and needs keyboard access (axe scrollable-region-focusable);
+      // same convention as the bespoke MDX tables and .katex-display.
+      tabIndex={0}
       className={cx(
         'overflow-x-auto rounded-md border border-border',
         className,

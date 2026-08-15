@@ -89,9 +89,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: entry.title,
     description: entry.summary,
-    // Articles are og:type article (VAL-BUILD-006); title and description
-    // inherit into og:title/og:description from the root template.
-    openGraph: { type: 'article' },
+    // Articles are og:type article (VAL-BUILD-006). A page-level
+    // openGraph object replaces the layout's (no deep merge), so the
+    // route-relative url and site name are restated here; og:title and
+    // og:description inherit from title/description.
+    openGraph: { type: 'article', url: './', siteName: 'robot-wiki' },
   };
 }
 

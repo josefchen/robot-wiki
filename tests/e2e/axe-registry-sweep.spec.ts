@@ -76,6 +76,10 @@ function observe(page: Page): RouteObservations {
 test.describe('registry-driven axe + console sweep', () => {
   for (const route of ROUTES) {
     test(`zero axe violations, zero console errors: ${route}`, async ({ page }) => {
+      // axe's color-contrast pass on the largest table pages (datasets,
+      // hardware guide) can take tens of seconds under SwiftShader; the
+      // 30s default is not enough for them.
+      test.setTimeout(90_000);
       const observed = observe(page);
       const response = await page.goto(`${BASE}${route}`, {
         waitUntil: 'load',
@@ -123,20 +127,74 @@ test.describe('registry-driven axe + console sweep', () => {
   });
 
   test('the three typefaces resolve on home and a module page (VAL-A11Y-014)', async ({ page }) => {
+    // Serif long-form prose only exists on article routes; the home page
+    // carries the sans UI and mono readouts.
     for (const route of ['/', '/manipulation/action-chunking/']) {
       await page.goto(`${BASE}${route}`);
       await page.waitForLoadState('networkidle');
       const fonts = await page.evaluate(() => ({
         sans: getComputedStyle(document.body).fontFamily,
-        serif: getComputedStyle(document.querySelector('article .prose, .prose') ?? document.body).fontFamily,
+        serif: getComputedStyle(
+          document.querySelector('.prose[data-pagefind-body] p, .prose p') ?? document.body,
+        ).fontFamily,
         mono: getComputedStyle(
-          document.querySelector('pre, code, [data-testid="eureka-code"]') ?? document.body,
+          document.querySelector('pre, code, .font-mono') ?? document.body,
         ).fontFamily,
       }));
       expect(fonts.sans, `${route} UI text uses Geist Sans`).toMatch(/Geist/i);
-      expect(fonts.serif, `${route} prose uses Source Serif`).toMatch(/Source Serif/i);
       expect(fonts.mono, `${route} code uses JetBrains Mono`).toMatch(/JetBrains/i);
+      if (route !== '/') {
+        expect(fonts.serif, `${route} prose uses Source Serif`).toMatch(/Source Serif/i);
+      }
     }
+  });
+});
+
+test.describe('responsive viewports (VAL-CROSS-019)', () => {
+  // Drawer open/navigate/close at 375 is covered by navigation.spec and
+  // design-chrome.spec; per-module 375px no-overflow checks live in each
+  // module spec. This block adds the cross-area sample: the same four
+  // surfaces at all three widths, including the tablet width nothing else
+  // covers.
+  const SAMPLED: Array<[string, string]> = [
+    ['/', 'home'],
+    ['/manipulation/action-chunking/', 'prose module'],
+    ['/market-map/', 'market map'],
+    ['/playground/', 'playground'],
+  ];
+
+  for (const [width, height] of [
+    [375, 812],
+    [768, 1024],
+    [1280, 800],
+  ] as const) {
+    for (const [route, label] of SAMPLED) {
+      test(`no horizontal overflow at ${width}px on the ${label}`, async ({ page }) => {
+        await page.setViewportSize({ width, height });
+        await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        await page.waitForTimeout(300);
+        const overflow = await page.evaluate(
+          () => document.documentElement.scrollWidth - window.innerWidth,
+        );
+        expect(overflow, `${label} overflows at ${width}px`).toBeLessThanOrEqual(0);
+      });
+    }
+  }
+
+  test('playground controls remain usable at 375px', async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 375, height: 812 },
+    });
+    const page = await context.newPage();
+    await page.goto(`${BASE}/playground/`, { waitUntil: 'load' });
+    // The joint sliders render and respond at phone width (the canvas may
+    // still be initializing under SwiftShader; the controls are the claim).
+    const slider = page.getByRole('slider').first();
+    await expect(slider).toBeVisible();
+    await slider.focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(slider).toBeFocused();
+    await context.close();
   });
 });
 

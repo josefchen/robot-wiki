@@ -34,7 +34,7 @@ test.describe('manipulation comparison matrix', () => {
     const after = await table.locator('tbody tr').count();
     expect(after).toBeGreaterThan(0);
     expect(after).toBeLessThan(before);
-    await expect(page.getByRole('status')).toContainText(
+    await expect(page.locator('p[aria-live="polite"]')).toContainText(
       `${after} of ${before} methods`,
     );
     await page.getByRole('button', { name: 'Reset' }).click();

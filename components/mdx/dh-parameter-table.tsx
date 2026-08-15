@@ -22,6 +22,10 @@ const HEADER = ['Joint i', 'θi', 'di', 'ai', 'αi'];
 export function DhParameterTable({ className }: { className?: string }) {
   return (
     <div
+      // The overflow-x-auto wrapper is a scrollable region on narrow
+      // viewports and needs keyboard access (axe scrollable-region-focusable),
+      // matching the surgical/swarm/orbital table convention.
+      tabIndex={0}
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

@@ -33,7 +33,10 @@ test.describe('RL reward-design and MPC module', () => {
       await page.keyboard.press('ArrowRight');
     }
     await expect(page.getByTestId('behavior-status')).toContainText(/freeze/i);
-    await page.getByRole('button', { name: /reset/i }).click();
+    // Three interactives on this page carry a Reset; scope to the panel
+    // (the svg's parent is the reward-shaping panel root).
+    const panel = page.getByTestId('quad-preview').locator('..');
+    await panel.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
   });
 
@@ -61,9 +64,10 @@ test.describe('RL reward-design and MPC module', () => {
       (await phaseReadout.textContent()) ?? '0',
       10,
     );
-    // Coarse jumps advance the phase in multiples of 12.5 (rounded by the
-    // readout's Math.round).
-    expect(phase % 12.5 === 0 || Math.abs(phase / 12.5 - Math.round(phase / 12.5)) < 0.01).toBe(true);
+    // Coarse jumps advance the phase in multiples of 12.5; the readout's
+    // Math.round maps those to exactly this discrete set (0.125 -> 13,
+    // 0.375 -> 38, ...). A smooth cadence would land on 2, 4, 6, ... .
+    expect([0, 13, 25, 38, 50, 63, 75, 88], `phase readout ${phase}%`).toContain(phase);
     await context.close();
   });
 
