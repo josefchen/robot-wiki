@@ -147,6 +147,19 @@ describe('BubbleView deep-link highlight parity', () => {
     expect(detailEl()).not.toBeNull();
     expect(detailEl()).toHaveTextContent('Figure AI');
   }, TIMEOUT);
+
+  it('keeps exactly one tab stop when the hash names an unplotted company', () => {
+    // Covariant has no disclosed valuation or total raised, so it is
+    // never plotted; the hash must not strand the chart with no tab stop.
+    render(<BubbleView companies={COMPANIES} highlightedId="covariant" />);
+    const tabbable = COMPANIES.filter(
+      (company) => company.id !== 'covariant',
+    )
+      .map((company) => document.querySelector(`circle[data-company-id="${company.id}"]`))
+      .filter((el) => el instanceof Element && (el as SVGElement).tabIndex === 0);
+    expect(tabbable).toHaveLength(1);
+    expect(document.querySelector('circle[data-company-id="covariant"]')).toBeNull();
+  }, TIMEOUT);
 });
 
 describe('BubbleView focus ring', () => {

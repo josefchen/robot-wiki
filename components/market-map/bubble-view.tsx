@@ -74,10 +74,10 @@ function plottedValueLabel(point: BubblePoint): string {
 export function BubbleView({ companies, highlightedId = null }: BubbleViewProps) {
   const clipId = useId();
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  // Roving tabindex: exactly one mark is tabbable at a time (the roving
-  // stop, or the first plotted mark before any interaction); arrow keys
-  // move the stop between marks spatially. focusedId doubles as the
-  // hover/focus label target so keyboard and mouse reveal the same thing.
+  // Hover and focus reveal the same label (parity) but stay separate
+  // signals: the focus ring means keyboard focus, so hovering with a
+  // mouse never paints a focus ring.
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [focusedId, setFocusedId] = useState<string | null>(null);
 
   // A deep link names one company explicitly: it arrives as the selected
@@ -125,14 +125,23 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
     };
   }, [points]);
 
-  const activeId = focusedId ?? selectedId;
+  const activeId = hoveredId ?? focusedId;
   const labeled =
     geometry?.placed.find((point) => point.id === activeId) ?? null;
-  // The single tab stop: the roving target, else the first plotted mark.
-  // Highlighted deep-link target wins so the hashed mark is the entry
-  // point into the chart.
+  const focusedMark =
+    geometry?.placed.find((point) => point.id === focusedId) ?? null;
+  // Roving tabindex: exactly one mark is tabbable (the roving stop, or
+  // the first plotted mark before any interaction). The highlighted
+  // deep-link target wins when it is plotted, so the hashed mark is the
+  // entry point; a hash naming an unplotted company must not leave the
+  // chart with zero tab stops, so the fallback always resolves to a
+  // plotted mark.
+  const plottedHighlight =
+    geometry?.placed.some((point) => point.id === highlightedId) === true
+      ? highlightedId
+      : null;
   const rovingId =
-    focusedId ?? highlightedId ?? geometry?.placed[0]?.id ?? null;
+    focusedId ?? plottedHighlight ?? geometry?.placed[0]?.id ?? null;
 
   const selected =
     geometry?.placed.find((point) => point.id === selectedId) ?? null;
@@ -244,13 +253,13 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
           })}
           {labeled ? <MarkLabel point={labeled} /> : null}
           <g clipPath={`url(#${clipId})`}>
-            {labeled ? (
+            {focusedMark ? (
               <circle
                 data-focus-ring
                 aria-hidden="true"
-                cx={labeled.cx}
-                cy={labeled.cy}
-                r={selectedId === labeled.id ? 10 : 8.5}
+                cx={focusedMark.cx}
+                cy={focusedMark.cy}
+                r={selectedId === focusedMark.id ? 10 : 8.5}
                 fill="none"
                 stroke="var(--color-accent)"
                 strokeWidth={2}
@@ -276,8 +285,8 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
                 aria-label={`${point.name}, founded ${point.founded}, ${
                   point.yKind === 'valuation' ? 'valuation' : 'total raised'
                 } ${formatUsd(point.yUsd)}`}
-                onMouseEnter={() => setFocusedId(point.id)}
-                onMouseLeave={() => setFocusedId(null)}
+                onMouseEnter={() => setHoveredId(point.id)}
+                onMouseLeave={() => setHoveredId(null)}
                 onFocus={() => setFocusedId(point.id)}
                 onBlur={() => setFocusedId(null)}
                 onClick={() =>
