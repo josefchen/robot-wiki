@@ -267,7 +267,10 @@ function isOpenSource(value: string): value is OpenSourceFilter {
   return value === 'yes' || value === 'no';
 }
 
-export function parseMarketMapSearch(search: string): ParsedMarketMapSearch {
+export function parseMarketMapSearch(
+  search: string,
+  companies: readonly Company[],
+): ParsedMarketMapSearch {
   const params = new URLSearchParams(
     search.startsWith('?') ? search.slice(1) : search,
   );
@@ -276,17 +279,31 @@ export function parseMarketMapSearch(search: string): ParsedMarketMapSearch {
   const segment = params.get('segment');
   if (segment && isSegment(segment)) filters.segment = segment;
 
+  // subSegment, country, and approach name values drawn from the dataset
+  // rather than fixed enums, so they are validated against it: a
+  // hand-edited or stale URL must not put the page into a filter state
+  // that matches nothing. Unknown values are dropped and valid sibling
+  // filters still apply, the way a wiki URL should degrade.
   const subSegment = params.get('subSegment');
-  if (subSegment) filters.subSegment = subSegment;
+  if (
+    subSegment &&
+    subSegmentOptions(companies, filters.segment).includes(subSegment)
+  ) {
+    filters.subSegment = subSegment;
+  }
 
   const country = params.get('country');
-  if (country) filters.country = country;
+  if (country && countryOptions(companies).includes(country)) {
+    filters.country = country;
+  }
 
   const status = params.get('status');
   if (status && isStatus(status)) filters.status = status;
 
   const approach = params.get('approach');
-  if (approach) filters.approach = approach;
+  if (approach && approachOptions(companies).includes(approach)) {
+    filters.approach = approach;
+  }
 
   const openSource = params.get('openSource');
   if (openSource && isOpenSource(openSource)) filters.openSource = openSource;
@@ -300,10 +317,60 @@ export function parseMarketMapSearch(search: string): ParsedMarketMapSearch {
   return { view, filters };
 }
 
+/**
+ * Filters for a deep link whose #company-<id> hash names a company the URL
+ * filters exclude. The explicit hash request outranks the ambient filter
+ * state, so keep every filter the company passes and drop the ones it
+ * fails: the result always includes the named company.
+ */
+export function relaxFiltersForCompany(
+  filters: MarketMapFilters,
+  company: Company,
+): MarketMapFilters {
+  return {
+    segment:
+      filters.segment !== null && company.segment === filters.segment
+        ? filters.segment
+        : null,
+    subSegment:
+      filters.subSegment !== null &&
+      company.subSegment === filters.subSegment
+        ? filters.subSegment
+        : null,
+    country:
+      filters.country !== null && company.hq.country === filters.country
+        ? filters.country
+        : null,
+    status:
+      filters.status !== null && matchesStatus(company, filters.status)
+        ? filters.status
+        : null,
+    approach:
+      filters.approach !== null &&
+      company.approach.includes(filters.approach)
+        ? filters.approach
+        : null,
+    openSource:
+      filters.openSource === null
+        ? null
+        : filters.openSource === 'yes'
+          ? company.openSource.length > 0
+            ? 'yes'
+            : null
+          : company.openSource.length === 0
+            ? 'no'
+            : null,
+    confidence:
+      filters.confidence !== null &&
+      company.confidence === filters.confidence
+        ? filters.confidence
+        : null,
+  };
+}
+
 export function serializeMarketMapSearch(
   parsed: ParsedMarketMapSearch,
-): string {
-  const params = new URLSearchParams();
+): string {  const params = new URLSearchParams();
   const { filters, view } = parsed;
   if (filters.segment) params.set('segment', filters.segment);
   if (filters.subSegment) params.set('subSegment', filters.subSegment);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import type { Company } from '@/data/schemas/company.ts';
 import { formatLongDate } from '@/lib/dates';
 import {
@@ -12,6 +12,7 @@ import {
   filterCompanies,
   hasActiveFilters,
   parseMarketMapSearch,
+  relaxFiltersForCompany,
   segmentCounts,
   serializeMarketMapSearch,
   subSegmentOptions,
@@ -50,7 +51,11 @@ function getServerSearchSnapshot() {
 function writeSearch(view: MarketMapViewId, filters: MarketMapFilters) {
   if (typeof window === 'undefined') return;
   const query = serializeMarketMapSearch({ view, filters });
-  const next = query ? `/market-map/?${query}` : '/market-map/';
+  // Filter writes own the query string; a #company-<id> anchor is a
+  // separate request and survives them (replaceState would otherwise
+  // silently drop it from the URL).
+  const hash = window.location.hash;
+  const next = query ? `/market-map/?${query}${hash}` : `/market-map/${hash}`;
   window.history.replaceState(null, '', next);
   searchListeners.forEach((listener) => listener());
 }
@@ -61,13 +66,14 @@ export function MarketMap({ companies }: MarketMapProps) {
     getSearchSnapshot,
     getServerSearchSnapshot,
   );
-  const parsed = parseMarketMapSearch(search);
+  const parsed = parseMarketMapSearch(search, companies);
   const view = parsed.view;
   const filters = parsed.filters;
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const highlightedId = useEntityAnchor('company');
+  const seenAnchorRef = useRef<string | null>(null);
 
   const visible = useMemo(
     () => filterCompanies(companies, filters),
@@ -76,10 +82,25 @@ export function MarketMap({ companies }: MarketMapProps) {
 
   useEffect(() => {
     if (!highlightedId) return;
+    const company = companies.find((entry) => entry.id === highlightedId);
+    if (!company) return;
+    const included = visible.some((entry) => entry.id === highlightedId);
+    // A deep link names one company explicitly. On arrival, when the URL's
+    // filters exclude that company, the explicit request wins: relax the
+    // filters it fails so the card can render, be highlighted, and scroll
+    // into view below. Once the hash has been seen, manual filter changes
+    // may exclude the company again without being reverted.
+    if (seenAnchorRef.current !== highlightedId) {
+      seenAnchorRef.current = highlightedId;
+      if (!included) {
+        writeSearch(view, relaxFiltersForCompany(filters, company));
+        return;
+      }
+    }
     const target = document.getElementById(`company-${highlightedId}`);
     if (!target || typeof target.scrollIntoView !== 'function') return;
     target.scrollIntoView({ block: 'center', inline: 'nearest' });
-  }, [highlightedId, view, visible]);
+  }, [highlightedId, view, visible, filters, companies]);
   const counts = useMemo(() => segmentCounts(companies), [companies]);
   const segments = SEGMENT_ORDER.map((value) => ({
     value,

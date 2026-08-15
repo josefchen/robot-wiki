@@ -12,6 +12,7 @@ import {
   formatUsd,
   hasActiveFilters,
   parseMarketMapSearch,
+  relaxFiltersForCompany,
   serializeMarketMapSearch,
   subSegmentOptions,
   timelineEvents,
@@ -147,6 +148,7 @@ describe('URL search params', () => {
   it('round-trips filters and view through the query string (VAL-MKT-007)', () => {
     const parsed = parseMarketMapSearch(
       '?segment=humanoids&country=US&confidence=high&view=bubble',
+      COMPANIES,
     );
     expect(parsed.view).toBe('bubble');
     expect(parsed.filters).toEqual(
@@ -162,7 +164,10 @@ describe('URL search params', () => {
   });
 
   it('ignores invalid params and falls back to the unfiltered grid (VAL-MKT-024)', () => {
-    const parsed = parseMarketMapSearch('?segment=bogus&confidence=999&view=xyz');
+    const parsed = parseMarketMapSearch(
+      '?segment=bogus&confidence=999&view=xyz',
+      COMPANIES,
+    );
     expect(parsed.view).toBe('grid');
     expect(parsed.filters).toEqual(DEFAULT_MARKET_MAP_FILTERS);
   });
@@ -174,6 +179,131 @@ describe('URL search params', () => {
         filters: DEFAULT_MARKET_MAP_FILTERS,
       }),
     ).toBe('');
+  });
+});
+
+describe('data-derived param validation', () => {
+  // subSegment, country, and approach values are free-form strings drawn
+  // from the dataset, unlike the enum-like segment/status/confidence. A
+  // hand-edited or stale URL must not put the page into a filter state
+  // that matches nothing: unknown values are dropped, valid siblings
+  // still apply, the way a wiki URL should degrade.
+  it('drops an unknown sub-segment but keeps valid sibling filters', () => {
+    const parsed = parseMarketMapSearch(
+      '?segment=humanoids&subSegment=not-a-real-subsegment&country=US',
+      COMPANIES,
+    );
+    expect(parsed.filters).toEqual(
+      filters({ segment: 'humanoids', country: 'US' }),
+    );
+  });
+
+  it('keeps a sub-segment that exists under the active segment', () => {
+    const parsed = parseMarketMapSearch(
+      '?segment=humanoids&subSegment=industrial-humanoids',
+      COMPANIES,
+    );
+    expect(parsed.filters.subSegment).toBe('industrial-humanoids');
+  });
+
+  it('drops a sub-segment that belongs to a different segment', () => {
+    const parsed = parseMarketMapSearch(
+      '?segment=humanoids&subSegment=warehouse-automation',
+      COMPANIES,
+    );
+    expect(parsed.filters).toEqual(filters({ segment: 'humanoids' }));
+  });
+
+  it('keeps a globally valid sub-segment when no segment is active', () => {
+    const parsed = parseMarketMapSearch(
+      '?subSegment=warehouse-automation',
+      COMPANIES,
+    );
+    expect(parsed.filters.subSegment).toBe('warehouse-automation');
+  });
+
+  it('drops an unknown country but keeps a valid approach', () => {
+    const parsed = parseMarketMapSearch(
+      '?country=Atlantis&approach=vla',
+      COMPANIES,
+    );
+    expect(parsed.filters).toEqual(filters({ approach: 'vla' }));
+  });
+
+  it('drops an unknown approach', () => {
+    const parsed = parseMarketMapSearch('?approach=not-an-approach', COMPANIES);
+    expect(parsed.filters).toEqual(DEFAULT_MARKET_MAP_FILTERS);
+  });
+
+  it('drops every unknown data-derived value while valid siblings survive', () => {
+    const parsed = parseMarketMapSearch(
+      '?subSegment=bogus&country=XX&approach=bogus&status=public&confidence=low',
+      COMPANIES,
+    );
+    expect(parsed.filters).toEqual(
+      filters({ status: 'public', confidence: 'low' }),
+    );
+  });
+});
+
+describe('relaxFiltersForCompany', () => {
+  const figure = COMPANIES.find((company) => company.id === 'figure-ai')!;
+  const physicalIntelligence = COMPANIES.find(
+    (company) => company.id === 'physical-intelligence',
+  )!;
+
+  it('keeps the filters the company passes and drops the rest', () => {
+    const relaxed = relaxFiltersForCompany(
+      filters({ segment: 'humanoids', country: 'CN', status: 'ipo' }),
+      figure,
+    );
+    expect(relaxed).toEqual(filters({ segment: 'humanoids' }));
+    expect(filterCompanies([figure], relaxed)).toHaveLength(1);
+  });
+
+  it('clears every filter when the company fails all of them', () => {
+    const relaxed = relaxFiltersForCompany(
+      filters({
+        segment: 'foundation-models',
+        subSegment: 'warehouse-automation',
+        country: 'CN',
+        status: 'ipo',
+        approach: 'rtk',
+        openSource: 'yes',
+        confidence: 'low',
+      }),
+      figure,
+    );
+    expect(relaxed).toEqual(DEFAULT_MARKET_MAP_FILTERS);
+    expect(filterCompanies([figure], relaxed)).toHaveLength(1);
+  });
+
+  it('always yields a filter set that includes the named company', () => {
+    const combinations: MarketMapFilters[] = [
+      filters({ country: 'US', confidence: 'high' }),
+      filters({ segment: 'humanoids', openSource: 'no' }),
+      filters({ subSegment: 'research-humanoids', status: 'public' }),
+    ];
+    for (const active of combinations) {
+      expect(
+        filterCompanies([figure], relaxFiltersForCompany(active, figure)),
+      ).toHaveLength(1);
+    }
+  });
+
+  it('keeps an open-source filter only when the company matches it', () => {
+    expect(
+      relaxFiltersForCompany(filters({ openSource: 'yes' }), figure)
+        .openSource,
+    ).toBeNull();
+    expect(
+      relaxFiltersForCompany(filters({ openSource: 'yes' }), physicalIntelligence)
+        .openSource,
+    ).toBe('yes');
+    expect(
+      relaxFiltersForCompany(filters({ openSource: 'no' }), physicalIntelligence)
+        .openSource,
+    ).toBeNull();
   });
 });
 

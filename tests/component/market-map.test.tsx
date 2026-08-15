@@ -195,6 +195,89 @@ describe('MarketMap', () => {
     });
   }, TIMEOUT);
 
+  it('drops unknown subSegment/country/approach params but keeps valid siblings', async () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/market-map/?subSegment=bogus-subsegment&country=Atlantis&approach=vla',
+    );
+    render(<MarketMap companies={COMPANIES} />);
+    await waitFor(() => {
+      expect(screen.getByLabelText('Approach')).toHaveValue('vla');
+    });
+    expect(screen.getByLabelText('Sub-segment')).toHaveValue('');
+    expect(screen.getByLabelText('Country')).toHaveValue('');
+    // The valid sibling filter still narrows the grid: the bogus values
+    // must not silently empty it.
+    expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('article').length).toBeLessThan(112);
+  }, TIMEOUT);
+
+  it('relaxes filters that exclude the company named in the hash', async () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/market-map/?segment=humanoids&country=CN#company-figure-ai',
+    );
+    render(<MarketMap companies={COMPANIES} />);
+    // Figure AI is a US humanoid maker: the segment filter survives (it
+    // passes), the country filter is dropped (it fails), and the named
+    // card renders highlighted.
+    await waitFor(() => {
+      expect(screen.getByText('35 of 112 companies')).toBeInTheDocument();
+    });
+    const figure = card('Figure AI');
+    expect(figure).toHaveClass('bg-surface-2');
+    expect(window.location.search).toBe('?segment=humanoids');
+    expect(window.location.hash).toBe('#company-figure-ai');
+  }, TIMEOUT);
+
+  it('clears every filter when the hashed company fails all of them', async () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/market-map/?country=CN&status=ipo#company-figure-ai',
+    );
+    render(<MarketMap companies={COMPANIES} />);
+    await waitFor(() => {
+      expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
+    });
+    expect(card('Figure AI')).toHaveClass('bg-surface-2');
+    expect(window.location.search).toBe('');
+    expect(window.location.hash).toBe('#company-figure-ai');
+  }, TIMEOUT);
+
+  it('does not relax again after the hash has been honored', async () => {
+    const user = userEvent.setup();
+    window.history.replaceState(null, '', '/market-map/#company-figure-ai');
+    render(<MarketMap companies={COMPANIES} />);
+    await waitFor(() => {
+      expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
+    });
+    // The user explicitly re-excludes the hashed company; the arrival
+    // relax must not fight that choice.
+    await user.selectOptions(screen.getByLabelText('Country'), 'CN');
+    await waitFor(() => {
+      expect(screen.getByText('22 of 112 companies')).toBeInTheDocument();
+    });
+    expect(
+      screen.queryByRole('heading', { level: 3, name: 'Figure AI' }),
+    ).not.toBeInTheDocument();
+  }, TIMEOUT);
+
+  it('leaves filters alone when the hash names an unknown company', async () => {
+    window.history.replaceState(
+      null,
+      '',
+      '/market-map/?country=CN#company-ghost',
+    );
+    render(<MarketMap companies={COMPANIES} />);
+    await waitFor(() => {
+      expect(screen.getByText('22 of 112 companies')).toBeInTheDocument();
+    });
+    expect(document.getElementById('company-ghost')).toBeNull();
+  }, TIMEOUT);
+
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
     expect(screen.getByText('112 of 112 companies')).toHaveAttribute(
