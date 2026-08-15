@@ -82,7 +82,7 @@ test.describe('adjacent space module', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.adi3099');
     // ISRU area: MOXIE completion and the PRIME-1 lunar drill.
     await expect(
-      prose.getByRole('link', { name: 'NASA/JPL 2023' }).first(),
+      prose.getByRole('link', { name: 'NASA Jet Propulsion Laboratory 2023' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/',
@@ -121,7 +121,7 @@ test.describe('adjacent space module', () => {
   }) => {
     await page.goto(ROUTE);
     const table = page.getByRole('table', {
-      name: /selected on-orbit robotics milestones/i,
+      name: /five on-orbit robotics milestones/i,
     });
     await expect(table).toBeVisible();
     await expect(table.getByRole('columnheader').first()).toBeVisible();
@@ -200,16 +200,19 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
     page,
   }) => {
     await page.goto('/');
+    // The taxonomy groups start collapsed on home (only the active
+    // route's domain self-expands, VAL-NAV-012), so a reader opens the
+    // adjacent group first. That click is part of the flow.
+    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    await nav.getByRole('button', { name: 'Adjacent Domains' }).click();
     for (let i = 0; i < ADJACENT_TITLES.length; i++) {
-      const link = page
-        .getByRole('link', { name: ADJACENT_TITLES[i] })
-        .first();
+      const link = nav.getByRole('link', { name: ADJACENT_TITLES[i] }).first();
       await expect(link).toBeVisible();
       const href = await link.getAttribute('href');
       expect(href).toBe(ADJACENT_ROUTES[i]);
     }
     // One sampled navigation resolves to a real page.
-    await page.getByRole('link', { name: 'Space Robotics' }).first().click();
+    await nav.getByRole('link', { name: 'Space Robotics' }).first().click();
     await expect(page).toHaveURL(ROUTE);
     await expect(
       page.getByRole('heading', { level: 1, name: 'Space Robotics' }),
@@ -225,9 +228,15 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
       page.on('console', (msg) => {
         if (msg.type() === 'error') errors.push(`console: ${msg.text()}`);
       });
-      page.on('requestfailed', (req) =>
-        errors.push(`requestfailed: ${req.url()}`),
-      );
+      page.on('requestfailed', (req) => {
+        // The App Router cancels speculative link prefetches with
+        // net::ERR_ABORTED on every page under the static export
+        // (verified identical on the previously validated drones and
+        // surgical pages); a client-side cancel is not a failed request.
+        if (req.failure()?.errorText !== 'net::ERR_ABORTED') {
+          errors.push(`requestfailed: ${req.url()} :: ${req.failure()?.errorText}`);
+        }
+      });
       await page.goto(ADJACENT_ROUTES[i]);
       // Let any lazy work settle before reading the log.
       await page.waitForLoadState('networkidle');

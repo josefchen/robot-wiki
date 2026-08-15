@@ -4818,6 +4818,10 @@ export function getCitation(id: string): Citation | undefined {
  */
 const SURNAME_OVERRIDES = new Map<string, string>([
   ['Jared Di Carlo', 'Di Carlo'],
+  // Company-name pairs: the second token is a place or holding name,
+  // not a surname, so the chip would read "Grumman 2025" / "Japan 2024".
+  ['Northrop Grumman', 'Northrop Grumman'],
+  ['Astroscale Japan', 'Astroscale'],
 ]);
 const ORG_TOKENS = new Set([
   'Team',
@@ -4839,6 +4843,11 @@ const ORG_TOKENS = new Set([
   // "Moon Surgical" are organizations whose surname token is "Surgical";
   // without this the three chips collide as "Surgical <year>".
   'Surgical',
+  // Institution-name suffixes: "NASA Jet Propulsion Laboratory" and
+  // "Canadian Space Agency" would otherwise chip as "Laboratory <year>"
+  // and "Agency <year>".
+  'Laboratory',
+  'Agency',
 ]);
 
 export function citationLabel(citation: Citation): string {
