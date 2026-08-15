@@ -66,13 +66,18 @@ test.describe('not-found page metadata', () => {
   });
 
   test('rendered /404/ carries the full brand metadata set', async ({ page }) => {
+    const consoleErrors: string[] = [];
+    page.on('pageerror', (err) => consoleErrors.push(String(err)));
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
     const response = await page.goto(`${BASE}/404/`);
     expect(response?.ok()).toBe(true);
 
-    // NOTE: the 404 page has a known React hydration mismatch (minified
-    // #418) owned by polish-go-public; console cleanliness is deliberately
-    // not asserted here.
     await expect(page).toHaveTitle('Page not found - robot-wiki');
+    // The pre-hydration guard fixed the React #418 mismatch
+    // (polish-go-public, 2026-08-15): the 404 route is console-clean.
+    expect(consoleErrors, 'no console errors on /404/').toEqual([]);
     await expect(
       page.locator('meta[property="og:site_name"]'),
     ).toHaveAttribute('content', 'robot-wiki');

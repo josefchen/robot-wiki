@@ -39,6 +39,16 @@ export interface StaticExportServer {
   stop: () => Promise<void>;
 }
 
+export interface StaticExportServerOptions {
+  /**
+   * Serve `404.html` (with a 404 status) for unmatched paths, the way real
+   * static hosts (Vercel, `serve`) do. Off by default: the not-found
+   * fallback only matters for specs that navigate a browser to an unknown
+   * route and assert what the host serves there.
+   */
+  notFoundFallback?: boolean;
+}
+
 /**
  * Serve `outDir` on `port`. The default port 0 asks the OS for a free
  * port; the bound port comes back on the returned handle. Specs must use
@@ -52,6 +62,7 @@ export interface StaticExportServer {
 export async function startStaticExportServer(
   outDir: string,
   port = 0,
+  options: StaticExportServerOptions = {},
 ): Promise<StaticExportServer> {
   const root = resolve(outDir);
   const server = createServer(async (req, res) => {
@@ -81,6 +92,18 @@ export async function startStaticExportServer(
       res.writeHead(200, { 'Content-Type': type });
       res.end(body);
     } catch {
+      if (options.notFoundFallback) {
+        // Host-like behavior: unknown paths get the themed 404 document
+        // with a 404 status (Vercel and `serve` both do this).
+        try {
+          const body = await readFile(join(root, '404.html'));
+          res.writeHead(404, { 'Content-Type': MIME['.html'] });
+          res.end(body);
+          return;
+        } catch {
+          // No 404.html either: fall through to the plain response.
+        }
+      }
       res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
       res.end('not found');
     }

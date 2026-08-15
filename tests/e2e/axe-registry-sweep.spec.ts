@@ -17,15 +17,22 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * and font loading (VAL-A11Y-014). Run against the shipped artifact: the
  * static export served on an OS-assigned port.
  *
- * The 404 page is deliberately excluded: it has a documented React
- * hydration mismatch (#418) owned by polish-go-public, and it is not a
- * crawlable route.
+ * The 404 page is included since the React hydration mismatch (#418) was
+ * fixed (2026-08-15, polish-go-public): the exported document now carries
+ * a pre-hydration guard that redirects unknown paths to /404/ before
+ * React hydrates, so the route is console-clean like every other.
  */
 
 const OUT = join(process.cwd(), 'out');
 /** Near-black page background token (contract VAL-CROSS-020). */
 const DARK_BG = 'rgb(11, 13, 14)';
 
+/**
+ * Routes served as-is by the export server (each has its index.html).
+ * The 404 route joins via a dedicated test below: it must be requested
+ * through the host-like 404 fallback to prove the guard redirect leaves
+ * a clean, accessible page.
+ */
 const ROUTES: string[] = [
   '/',
   ...DOMAINS.map((d) => `/${d}/`),
@@ -36,6 +43,7 @@ const ROUTES: string[] = [
   '/credits/',
   '/a-z/',
   ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
+  '/404/',
 ];
 
 let server: StaticExportServer | null = null;
@@ -46,7 +54,9 @@ test.beforeAll(async () => {
     existsSync(join(OUT, 'index.html')),
     'out/ is missing or stale: run `npm run build` before the axe-registry-sweep spec',
   ).toBe(true);
-  server = await startStaticExportServer(OUT);
+  // Host-like fallback so the 404 route renders the themed document the
+  // way production does (see the 404 test inside the sweep).
+  server = await startStaticExportServer(OUT, 0, { notFoundFallback: true });
   BASE = `http://localhost:${server.port}`;
 });
 
@@ -147,6 +157,41 @@ test.describe('registry-driven axe + console sweep', () => {
         expect(fonts.serif, `${route} prose uses Source Serif`).toMatch(/Source Serif/i);
       }
     }
+  });
+
+  test('the 404 page is axe-clean and console-clean through the host fallback', async ({ page }) => {
+    // Request an unknown path (not /404/ directly) so the server behaves
+    // like a real host: 404 status + themed document, guard redirect to
+    // /404/, then hydration. This is the VAL-CROSS-025 surface.
+    const observed = observe(page);
+    const response = await page.goto(`${BASE}/manipulation/does-not-exist/`, {
+      waitUntil: 'load',
+    });
+    // The initial miss is a 404 by definition; the redirect then serves 200.
+    expect(response?.status()).toBe(404);
+    await page.waitForURL(/\/404\/$/);
+    await page.waitForLoadState('networkidle');
+    const results = await new AxeBuilder({ page }).analyze();
+    expect(
+      results.violations,
+      `axe violations on the 404 page: ${JSON.stringify(
+        results.violations.map((v) => ({ id: v.id, nodes: v.nodes.length })),
+      )}`,
+    ).toEqual([]);
+    // Only the expected 404s: the unknown path itself (plus its RSC probe).
+    // No hydration errors, no failed assets.
+    expect(
+      observed.consoleErrors.filter((e) => !e.includes('404')),
+      'no non-404 console errors on the 404 flow',
+    ).toEqual([]);
+    expect(
+      observed.failedRequests.filter((f) => !f.includes('/manipulation/does-not-exist')),
+      'no failed asset requests on the 404 flow',
+    ).toEqual([]);
+    const bg = await page.evaluate(
+      () => getComputedStyle(document.body).backgroundColor,
+    );
+    expect(bg, '404 body background').toBe(DARK_BG);
   });
 });
 
