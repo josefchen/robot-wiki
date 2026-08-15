@@ -79,9 +79,17 @@ test.describe('legged-locomotion module', () => {
       /flight phase/i,
     );
 
-    // Play advances the cycle; pause holds it.
+    // Play advances the cycle; pause holds it. The wait is on the
+    // observable phase readout (state-driven), not a wall-clock sleep,
+    // and the pause click auto-waits for the swapped control to appear.
     await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await page.waitForTimeout(400);
+    await expect
+      .poll(
+        async () =>
+          (await page.getByTestId('phase-readout').textContent()) ?? '',
+        { timeout: 10_000 },
+      )
+      .not.toBe('0%');
     await page.getByRole('button', { name: 'Pause gait cycle' }).click();
     const afterPlay = await page.getByTestId('phase-readout').textContent();
     expect(afterPlay).not.toBe('0%');
@@ -106,10 +114,19 @@ test.describe('legged-locomotion module', () => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
+    // Wait for the observable phase change instead of sleeping on the
+    // wall clock; under reduced motion playback advances the playhead in
+    // discrete 10% jumps.
     await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await page.waitForTimeout(700);
+    await expect
+      .poll(
+        async () =>
+          (await page.getByTestId('phase-readout').textContent()) ?? '',
+        { timeout: 10_000 },
+      )
+      .not.toBe('0%');
     await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    // Discrete 10% jumps: after ~700ms the phase is a multiple of 10%.
+    // Paused on a discrete jump: the phase is a multiple of 10%.
     const phase = (await page.getByTestId('phase-readout').textContent()) ?? '';
     expect(Number(phase.replace('%', '')) % 10).toBe(0);
     await context.close();

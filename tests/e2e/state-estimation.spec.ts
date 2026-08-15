@@ -29,10 +29,28 @@ async function readout(page: Page, id: string): Promise<string> {
   return (await page.getByTestId(id).textContent()) ?? '';
 }
 
-async function runBriefly(page: Page, ms: number) {
-  await page.getByRole('button', { name: /run the tracker/i }).click();
-  await page.waitForTimeout(ms);
-  await page.getByRole('button', { name: /pause the tracker/i }).click();
+/**
+ * Advance the tracker deterministically through the Step control.
+ *
+ * The previous shape here was run, waitForTimeout, pause: it slept on the
+ * wall clock and then assumed the tracker was still running so that a
+ * pause control existed. Under full-suite load that assumption breaks at
+ * both ends (the run can complete and revert the control to Run, or the
+ * label swap can lag behind the click), and the pause locator never
+ * resolves. The Step control advances the same pure filter one step per
+ * click with no timers involved, so the helper is state-driven end to
+ * end. The first advance is pinned on the step readout to prove the
+ * control is live before the remaining clicks.
+ */
+async function advanceSteps(page: Page, count: number) {
+  const stepButton = page.getByRole('button', {
+    name: /step the tracker/i,
+  });
+  await stepButton.click();
+  await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+    '61 / 600',
+  );
+  for (let i = 1; i < count; i++) await stepButton.click();
 }
 
 async function captureRun(page: Page) {
@@ -213,8 +231,12 @@ test.describe('classical state-estimation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    // Run briefly so the filter is past its initialization, then pause.
-    await runBriefly(page, 2500);
+    // Advance deterministically past the filter's initialization
+    // transient: 60 Step-control clicks from the opening step, no timers.
+    await advanceSteps(page, 60);
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '120 / 600',
+    );
 
     const bandPoints = () =>
       page.getByTestId('kalman-band').getAttribute('points');
