@@ -38,6 +38,10 @@ const HEADER = ['Control family', 'Mechanism', 'Demonstrated at', 'Characteristi
 export function SwarmControlTable({ className }: { className?: string }) {
   return (
     <div
+      // The overflow-x-auto wrapper is a scrollable region and needs
+      // keyboard access (axe scrollable-region-focusable); same pattern
+      // as lib/rehype-scrollable-math.mjs applies to .katex-display.
+      tabIndex={0}
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

@@ -152,7 +152,11 @@
     "minutes": 9
   },
   "adjacent/autonomous-vehicles": {
-    "words": 3561,
+    "words": 3578,
     "minutes": 18
+  },
+  "adjacent/drones": {
+    "words": 2213,
+    "minutes": 11
   }
 }
