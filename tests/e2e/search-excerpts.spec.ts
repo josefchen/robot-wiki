@@ -51,6 +51,51 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
+/**
+ * Stabilization wait for the search result list: sample the excerpt set
+ * until two consecutive reads agree, then return it. Replaces a fixed
+ * 300 ms sleep that read whatever was on screen once the first excerpt
+ * appeared (the closest surviving cousin of the run-sleep-pause race
+ * fixed in 73b12c9): under load the final keystroke's debounced search
+ * can land later than the sleep, and the assertions would run against a
+ * stale prefix's result set. Waiting for observed quiescence removes the
+ * assumption that 300 ms is always enough; when the system is fast the
+ * cost is one extra 250 ms sample.
+ *
+ * The 250 ms sample gap is wider than the 200 ms debounce, so a pair of
+ * agreeing reads always spans the moment the final search applies. The
+ * 10 s bound keeps a never-settling result list a loud failure instead
+ * of a silent stale read: proven by mutation (2026-08-15), a debounce
+ * re-triggering a fresh search with a strictly growing hit count on
+ * every fire exhausted this budget and failed every excerpt spec.
+ */
+const STABILIZE_SAMPLE_MS = 250;
+const STABILIZE_BUDGET_MS = 10_000;
+
+async function settledExcerpts(page: Page): Promise<string[]> {
+  const excerpts = page.locator('[data-search-result] .search-excerpt');
+  let previous = await excerpts.allTextContents();
+  const deadline = Date.now() + STABILIZE_BUDGET_MS;
+  while (Date.now() < deadline) {
+    await page.waitForTimeout(STABILIZE_SAMPLE_MS);
+    const current = await excerpts.allTextContents();
+    if (
+      current.length > 0 &&
+      current.length === previous.length &&
+      current.every((text, index) => text === previous[index])
+    ) {
+      return current;
+    }
+    previous = current;
+  }
+  throw new Error(
+    `search excerpts did not stabilize within ${
+      STABILIZE_BUDGET_MS / 1000
+    } s; last read held ${previous.length} excerpt(s)` +
+      (previous[0] ? `, first: "${previous[0].slice(0, 70)}"` : ''),
+  );
+}
+
 /** Runs a real query through the /search UI and returns every excerpt. */
 async function searchExcerpts(page: Page, query: string): Promise<string[]> {
   await page.goto(`${BASE}/search`);
@@ -58,9 +103,9 @@ async function searchExcerpts(page: Page, query: string): Promise<string[]> {
   await box.pressSequentially(query, { delay: 15 });
   const first = page.locator('[data-search-result] .search-excerpt').first();
   await first.waitFor({ state: 'visible', timeout: 15000 });
-  // Latest-wins sequencing settles once the final keystroke's search lands.
-  await page.waitForTimeout(300);
-  return page.locator('[data-search-result] .search-excerpt').allTextContents();
+  // Latest-wins sequencing has settled only once the excerpt set itself
+  // has stopped changing, not after a fixed deadline.
+  return settledExcerpts(page);
 }
 
 test.describe('search excerpt quality', () => {
