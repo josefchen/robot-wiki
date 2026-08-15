@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 53,
+  "linkCount": 54,
   "links": [
     {
       "href": "/",
@@ -198,6 +198,10 @@
     {
       "href": "/adjacent/drones/",
       "name": "Drones and Aerial Robotics"
+    },
+    {
+      "href": "/adjacent/surgical/",
+      "name": "Surgical Robotics"
     },
     {
       "href": "/a-z/",

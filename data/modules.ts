@@ -315,6 +315,7 @@ const entries: Array<[Domain, string, string, string]> = [
 const PUBLISHED = new Set([
   'adjacent/autonomous-vehicles',
   'adjacent/drones',
+  'adjacent/surgical',
   'manipulation/action-chunking',
   'manipulation/bc-foundations',
   'manipulation/comparison-matrix',

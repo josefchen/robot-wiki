@@ -453,6 +453,27 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Coordination of many relatively simple robots through local interaction rather than a central planner, aiming for collective behavior that no individual achieves: coverage, mapping, or search at fleet scale. The classical models treat the group as a dynamical system of pairwise attractions and repulsions (potential fields, in the lineage of Reynolds flocking), which explains collective motion but guarantees neither safety nor speed in clutter. The aerial-swarm literature moved to onboard trajectory optimization: each drone plans in milliseconds from its own sensors while treating neighbors as constraints, so a ten-drone swarm traverses a bamboo forest with no external localization and no global map.',
     citations: ['micro-drone-swarm-2022', 'soria-nmpc-swarm-2021'],
   },
+  {
+    id: 'minimally-invasive-surgery',
+    term: 'minimally invasive surgery',
+    definition:
+      "Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots exist to give that trade-off back: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.",
+    citations: ['davinci5-clearance-2024', 'intuitive-q4-2025'],
+  },
+  {
+    id: 'robotic-assisted-surgical-device',
+    term: 'robotic assisted surgical device',
+    definition:
+      "The US regulatory category for surgical robots. A RASD is cleared or authorized on the basis that it assists a surgeon rather than practicing medicine itself: the Versius authorization, the first for a multiport soft-tissue general surgical system through the FDA's De Novo pathway, is explicitly worded as assisting in the precise and accurate control of endoscopic instruments, and it names one procedure, adult cholecystectomy, as the indicated use. The indication is the unit of progress: a system earns autonomy or new procedures one cleared indication at a time, which is why the field's shipped autonomy sits far below its research demonstrations.",
+    citations: ['cmr-versius-authorization-2024', 'yang-autonomy-2017'],
+  },
+  {
+    id: 'force-feedback',
+    term: 'force feedback',
+    definition:
+      'Sensing of interaction forces at the instrument tip, rendered back to the operator as resistance at the controls. In teleoperation it closes the haptic loop that pure video control leaves open: without it a surgeon infers tissue contact through visual cues alone and can exert more force than intended. da Vinci 5 introduced Force Feedback instruments that measure and display subtle forces on tissue, the first offering of that capability on a surgical system in any modality, and Intuitive reported up to 43 percent less force exerted on tissue in preclinical trials with it. The capability also matters beyond the operator: a measured force signal is a data stream, and data streams are what later automation trains on.',
+    citations: ['davinci5-clearance-2024'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

@@ -4468,6 +4468,123 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nature.com/articles/s42256-021-00341-y',
     type: 'paper',
   },
+  {
+    // Verified against Crossref and the live Science Robotics page
+    // (2026-08-15): editorial, 12 authors, Sci. Robot. 2(4), eaam8638;
+    // proposes the six-level autonomy framework the module organizes
+    // its comparison around.
+    id: 'yang-autonomy-2017',
+    title:
+      'Medical robotics\u2014Regulatory, ethical, and legal considerations for increasing levels of autonomy',
+    authors: [
+      'Guang-Zhong Yang',
+      'James Cambias',
+      'Kevin Cleary',
+      'Eric Daimler',
+      'James Drake',
+      'Pierre E. Dupont',
+      'Nobuhiko Hata',
+      'Peter Kazanzides',
+      'Sylvain Martel',
+      'Rajni V. Patel',
+      'Veronica J. Santos',
+      'Russell H. Taylor',
+    ],
+    year: 2017,
+    venue: 'Science Robotics 2(4), eaam8638',
+    url: 'https://doi.org/10.1126/scirobotics.aam8638',
+    type: 'paper',
+  },
+  {
+    // Verified against Crossref and the live Science Translational
+    // Medicine page (2026-08-15): six authors, Sci. Transl. Med. 8(337),
+    // 337ra64; the STAR supervised-autonomous anastomosis study.
+    id: 'star-suturing-2016',
+    title: 'Supervised autonomous robotic soft tissue surgery',
+    authors: [
+      'Azad Shademan',
+      'Ryan S. Decker',
+      'Justin D. Opfermann',
+      'Simon Leonard',
+      'Axel Krieger',
+      'Peter C. W. Kim',
+    ],
+    year: 2016,
+    venue: 'Science Translational Medicine 8(337), 337ra64',
+    url: 'https://doi.org/10.1126/scitranslmed.aad9398',
+    type: 'paper',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of Intuitive's
+    // release (2026-08-15): 510(k) for da Vinci 5, 150+ enhancements,
+    // Force Feedback with up to 43% less force on tissue in preclinical
+    // trials, 10,000x the computing power of Xi.
+    id: 'davinci5-clearance-2024',
+    title:
+      'Intuitive Announces FDA Clearance of Fifth-Generation Robotic System, da Vinci 5',
+    authors: ['Intuitive Surgical'],
+    year: 2024,
+    venue: 'GlobeNewswire, 14 March 2024',
+    url: 'https://www.globenewswire.com/news-release/2024/03/14/2846718/7637/en/Intuitive-Announces-FDA-Clearance-of-Fifth-Generation-Robotic-System-da-Vinci-5.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of Intuitive's
+    // Q4 2025 earnings release (2026-08-15): 11,106 da Vinci systems
+    // installed as of 31 December 2025, up 12% from 9,902 a year earlier;
+    // ~17% da Vinci procedure growth in 2025.
+    id: 'intuitive-q4-2025',
+    title: 'Intuitive Announces Fourth Quarter Earnings',
+    authors: ['Intuitive Surgical'],
+    year: 2026,
+    venue: 'GlobeNewswire, 22 January 2026',
+    url: 'https://www.globenewswire.com/news-release/2026/01/22/3224266/0/en/intuitive-announces-fourth-quarter-earnings.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live GlobeNewswire distribution of CMR's
+    // release (2026-08-15): first multiport soft-tissue general surgical
+    // RASD through De Novo, indicated for adult cholecystectomy; over
+    // 26,000 procedures completed outside the US at announcement;
+    // ~2.5% of ~10M annual US major OR procedures robotic-assisted.
+    id: 'cmr-versius-authorization-2024',
+    title:
+      'CMR Surgical receives U.S. FDA Marketing Authorization for next-generation Versius Surgical System',
+    authors: ['CMR Surgical'],
+    year: 2024,
+    venue: 'GlobeNewswire, 15 October 2024',
+    url: 'https://www.globenewswire.com/news-release/2024/10/15/2963054/0/en/CMR-Surgical-receives-US-FDA-Marketing-Authorization-for-Versius-Surgical-System.html',
+    type: 'press',
+  },
+  {
+    // Verified against the live SAGES TAVAC record (2026-08-15): first
+    // 510(k) 6 December 2022, predicate ENDEX Endoscopic Positioning
+    // System (K936308); two-armed hold-and-position assistant compatible
+    // with standard laparoscopic cameras and instruments; Cadiere's
+    // 30-patient series without an assistant.
+    id: 'maestro-tavac-2023',
+    title: 'Moon Surgical Maestro Surgical Robotics System',
+    authors: ['Ruben D. Salas Parra', 'David Pechman'],
+    year: 2023,
+    venue: 'SAGES Technology and Value Assessment Committee',
+    url: 'https://www.sages.org/publications/tavac/moon-surgical-maestro-surgical-robotics-system',
+    type: 'docs',
+  },
+  {
+    // Verified against the live PR Newswire release via Yahoo Finance
+    // (2026-08-15): ScoPilot 510(k) 18 March 2025, runs NVIDIA Holoscan
+    // locally on Maestro, camera follows the instrument tip; commercial
+    // Maestro cleared June 2024, over 1,100 patients treated across the
+    // US and Europe at announcement. SAGES TAVAC corroborates the date.
+    id: 'scopilot-clearance-2025',
+    title:
+      'Moon Surgical receives FDA clearance for ScoPilot on Maestro, industry\u2019s first AI-enhanced intraoperative capability, powered by NVIDIA Holoscan',
+    authors: ['Moon Surgical'],
+    year: 2025,
+    venue: 'PR Newswire, 18 March 2025',
+    url: 'https://www.prnewswire.com/news-releases/moon-surgical-receives-fda-clearance-for-scopilot-on-maestro-industrys-first-ai-enhanced-intraoperative-capability-powered-by--nvidia-holoscan-302404920.html',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -4502,6 +4619,10 @@ const ORG_TOKENS = new Set([
   'Toyota',
   'Figure',
   'Partners',
+  // Company-name suffix: "Intuitive Surgical", "CMR Surgical", and
+  // "Moon Surgical" are organizations whose surname token is "Surgical";
+  // without this the three chips collide as "Surgical <year>".
+  'Surgical',
 ]);
 
 export function citationLabel(citation: Citation): string {

@@ -156,7 +156,11 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2213,
+    "words": 2238,
     "minutes": 11
+  },
+  "adjacent/surgical": {
+    "words": 2024,
+    "minutes": 10
   }
 }
