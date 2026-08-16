@@ -81,8 +81,15 @@ npm run test          # unit + component tests (Vitest)
 npm run test:e2e      # end-to-end tests (Playwright, headless Chromium)
 npm run typecheck     # next typegen + tsc --noEmit (TypeScript strict)
 npm run lint          # ESLint
+npm run format:check  # Prettier, verify formatting without writing
 npm run validate:content  # content-pipeline validation, also runs before every build
 ```
+
+Formatting is not a matter of taste here: `npm run format` rewrites every file
+Prettier owns (`.prettierrc.json` holds the settings, `.prettierignore` the
+exclusions) so diffs stay about behavior instead of whitespace. Published MDX
+under `content/` and the reports under `research/` are excluded because
+Prettier reflows authored prose.
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.
 

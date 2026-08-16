@@ -58,7 +58,8 @@ function dateToX(ym: string): number {
   const span = monthIndex(AXIS_MAX) - monthIndex(AXIS_MIN);
   return f(
     AXIS_LEFT +
-      ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT),
+      ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) *
+        (AXIS_RIGHT - AXIS_LEFT),
   );
 }
 
@@ -110,7 +111,13 @@ function TierGlyph({
   }
   if (tier === 'docs') {
     return (
-      <rect x={f(x - size)} y={f(y - size)} width={size * 2} height={size * 2} {...common} />
+      <rect
+        x={f(x - size)}
+        y={f(y - size)}
+        width={size * 2}
+        height={size * 2}
+        {...common}
+      />
     );
   }
   if (tier === 'blog') {
@@ -215,7 +222,14 @@ export function GeneralistReleaseTimeline({
           {PROVENANCE_TIERS.map((tier) => (
             <span key={tier} className="flex items-center gap-1.5">
               <svg width={12} height={12} aria-hidden="true">
-                <TierGlyph tier={tier} x={6} y={6} size={3.5} selected={false} open={false} />
+                <TierGlyph
+                  tier={tier}
+                  x={6}
+                  y={6}
+                  size={3.5}
+                  selected={false}
+                  open={false}
+                />
               </svg>
               {provenanceLabel(tier)}
             </span>
@@ -301,7 +315,9 @@ export function GeneralistReleaseTimeline({
                 x={x}
                 y={labelY}
                 textAnchor="middle"
-                fill={isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                fill={
+                  isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'
+                }
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >

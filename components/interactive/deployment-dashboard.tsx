@@ -57,7 +57,9 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           aria-label="Filter by evidence status"
           className="flex flex-wrap items-center gap-1.5"
         >
-          <span className="font-sans text-xs text-text-dim">Evidence status</span>
+          <span className="font-sans text-xs text-text-dim">
+            Evidence status
+          </span>
           {FILTERS.map((option) => (
             <button
               key={option.value}
@@ -135,7 +137,9 @@ export function DeploymentDashboard({ className }: { className?: string }) {
                     </span>
                   </td>
                   <td className="px-3 py-2.5 align-top">
-                    <Badge variant={STATUS_VARIANT[row.status]}>{row.status}</Badge>
+                    <Badge variant={STATUS_VARIANT[row.status]}>
+                      {row.status}
+                    </Badge>
                   </td>
                   <td className="px-3 py-2.5 align-top font-mono text-xs">
                     {citation ? (

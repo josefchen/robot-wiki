@@ -64,11 +64,15 @@ describe('layerStates', () => {
 describe('languageScore', () => {
   it('stays at the peak during the forward pass', () => {
     expect(languageScore('forward', true, 0)).toBe(LANGUAGE_SCORE_MAX);
-    expect(languageScore('forward', false, LAYER_COUNT)).toBe(LANGUAGE_SCORE_MAX);
+    expect(languageScore('forward', false, LAYER_COUNT)).toBe(
+      LANGUAGE_SCORE_MAX,
+    );
   });
 
   it('stays at the peak through a fully insulated backward pass', () => {
-    expect(languageScore('backward', true, LAYER_COUNT)).toBe(LANGUAGE_SCORE_MAX);
+    expect(languageScore('backward', true, LAYER_COUNT)).toBe(
+      LANGUAGE_SCORE_MAX,
+    );
   });
 
   it('drops monotonically as uninsulated gradients penetrate deeper', () => {
@@ -79,7 +83,9 @@ describe('languageScore', () => {
       prev = score;
     }
     expect(languageScore('backward', false, 0)).toBe(LANGUAGE_SCORE_MAX);
-    expect(languageScore('backward', false, LAYER_COUNT)).toBe(LANGUAGE_SCORE_MIN);
+    expect(languageScore('backward', false, LAYER_COUNT)).toBe(
+      LANGUAGE_SCORE_MIN,
+    );
   });
 });
 

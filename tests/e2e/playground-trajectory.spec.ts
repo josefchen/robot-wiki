@@ -92,9 +92,7 @@ async function collectPlaybackSeries(page: Page): Promise<PlaybackSample[]> {
       const readoutEl = document.querySelector(
         '[data-testid="joint-readout-shoulder_pan"]',
       );
-      const match = progressEl.textContent!.match(
-        /t ([\d.]+) s \/ ([\d.]+) s/,
-      );
+      const match = progressEl.textContent!.match(/t ([\d.]+) s \/ ([\d.]+) s/);
       if (!match || !readoutEl) return null;
       return {
         t: Number(match[1]),
@@ -223,9 +221,9 @@ test.describe('trajectory recording and playback', () => {
     await expect(page.getByTestId('trajectory-message')).toHaveText(
       /single keyframe/i,
     );
-    await expect(
-      page.getByTestId('joint-readout-shoulder_lift'),
-    ).toHaveText('+30.0°');
+    await expect(page.getByTestId('joint-readout-shoulder_lift')).toHaveText(
+      '+30.0°',
+    );
 
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
@@ -292,7 +290,9 @@ test.describe('trajectory export and import', () => {
         expect(Number.isFinite(keyframe.angles[joint])).toBe(true);
       }
     }
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(
+      /^3 keyframes/,
+    );
     await expect(page.getByTestId('trajectory-download')).toHaveAttribute(
       'download',
       /trajectory\.json$/,
@@ -321,7 +321,9 @@ test.describe('trajectory export and import', () => {
 
     await page.getByTestId('trajectory-import-json').fill(exported);
     await page.getByTestId('trajectory-import').click();
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(
+      /^3 keyframes/,
+    );
     await expect(page.getByTestId('trajectory-message')).toHaveText(
       /imported 3 keyframes/i,
     );
@@ -422,7 +424,10 @@ test.describe('trajectory export and import', () => {
       gripper: 0.1,
     };
     for (const [joint, radians] of Object.entries(finalPose)) {
-      expect(await readoutDeg(page, joint)).toBeCloseTo(radians * RAD_TO_DEG, 0);
+      expect(await readoutDeg(page, joint)).toBeCloseTo(
+        radians * RAD_TO_DEG,
+        0,
+      );
     }
 
     expect(consoleErrors).toEqual([]);
@@ -658,7 +663,9 @@ test.describe('playground polish', () => {
     const match = eeText!.match(
       /x\s+([+-]?[\d.]+)\s+y\s+([+-]?[\d.]+)\s+z\s+([+-]?[\d.]+)/,
     )!;
-    await page.getByTestId('ik-input-x').fill((Number(match[1]) - 0.03).toFixed(3));
+    await page
+      .getByTestId('ik-input-x')
+      .fill((Number(match[1]) - 0.03).toFixed(3));
     await page.getByTestId('ik-input-y').fill(Number(match[2]).toFixed(3));
     await page.getByTestId('ik-input-z').fill(Number(match[3]).toFixed(3));
     await page.getByTestId('ik-solve').click();
@@ -684,7 +691,9 @@ test.describe('playground polish', () => {
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-elbow_flex'), '-20');
     await addKeyframe(page);
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(
+      /^3 keyframes/,
+    );
     await page.getByTestId('trajectory-play').click();
     await waitForPlaybackEnd(page);
     await page.getByTestId('trajectory-export').click();

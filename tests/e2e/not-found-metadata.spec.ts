@@ -1,7 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Not-found page brand metadata (VAL-BRAND-002, VAL-BRAND-003).
@@ -65,7 +68,9 @@ test.describe('not-found page metadata', () => {
     expect(response.status()).toBe(404);
   });
 
-  test('rendered /404/ carries the full brand metadata set', async ({ page }) => {
+  test('rendered /404/ carries the full brand metadata set', async ({
+    page,
+  }) => {
     const consoleErrors: string[] = [];
     page.on('pageerror', (err) => consoleErrors.push(String(err)));
     page.on('console', (msg) => {
@@ -78,9 +83,10 @@ test.describe('not-found page metadata', () => {
     // The pre-hydration guard fixed the React #418 mismatch
     // (polish-go-public, 2026-08-15): the 404 route is console-clean.
     expect(consoleErrors, 'no console errors on /404/').toEqual([]);
-    await expect(
-      page.locator('meta[property="og:site_name"]'),
-    ).toHaveAttribute('content', 'robot-wiki');
+    await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute(
+      'content',
+      'robot-wiki',
+    );
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
       'content',
       'website',
@@ -117,13 +123,18 @@ test.describe('not-found page metadata', () => {
           ? readFileSync(join(OUT, '404.html'), 'utf8')
           : htmlForRoute(route);
 
-      const siteName = extract(html, /<meta property="og:site_name" content="([^"]*)"/);
+      const siteName = extract(
+        html,
+        /<meta property="og:site_name" content="([^"]*)"/,
+      );
       expect(siteName, `${route} ships og:site_name`).toBe('robot-wiki');
 
       const canonical = extract(html, /<link rel="canonical" href="([^"]*)"/);
       expect(canonical, `${route} ships a canonical link`).toBeTruthy();
       const canonicalUrl = new URL(canonical!);
-      expect(canonicalUrl.origin, `${route} canonical origin`).toBe(SITE_ORIGIN);
+      expect(canonicalUrl.origin, `${route} canonical origin`).toBe(
+        SITE_ORIGIN,
+      );
       expect(
         canonicalUrl.pathname,
         `${route} canonical points at its own route, not ${canonicalUrl.pathname}`,

@@ -85,7 +85,10 @@ export function pointCurvePoints(samples = 65): FrictionPoint[] {
   const points: FrictionPoint[] = [];
   for (let i = 0; i < samples; i++) {
     const mu = MU_MIN + (i / (samples - 1)) * (MU_MAX - MU_MIN);
-    points.push({ mu: Number(mu.toFixed(4)), success: Number(pointSuccess(mu).toFixed(4)) });
+    points.push({
+      mu: Number(mu.toFixed(4)),
+      success: Number(pointSuccess(mu).toFixed(4)),
+    });
   }
   return points;
 }
@@ -206,7 +209,9 @@ function cellError(i: number, degradation: number): number {
 
 /** The student's reconstructed terrain estimate at a degradation level. */
 export function reconstruction(degradation: number): number[] {
-  return TERRAIN.map((h, i) => Number((h + cellError(i, degradation)).toFixed(4)));
+  return TERRAIN.map((h, i) =>
+    Number((h + cellError(i, degradation)).toFixed(4)),
+  );
 }
 
 /** Mean absolute terrain reconstruction error, in meters. */

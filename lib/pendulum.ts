@@ -144,7 +144,7 @@ export const GAIN_SPECS: GainSpec[] = [
 
 function wrapPi(theta: number): number {
   const twoPi = 2 * Math.PI;
-  const wrapped = ((theta + Math.PI) % twoPi + twoPi) % twoPi - Math.PI;
+  const wrapped = ((((theta + Math.PI) % twoPi) + twoPi) % twoPi) - Math.PI;
   return wrapped === -Math.PI ? Math.PI : wrapped;
 }
 

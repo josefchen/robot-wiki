@@ -32,8 +32,7 @@ export interface TrajectoryFile {
 }
 
 export type ParseResult =
-  | { ok: true; keyframes: TrajectoryKeyframe[] }
-  | { ok: false; error: string };
+  { ok: true; keyframes: TrajectoryKeyframe[] } | { ok: false; error: string };
 
 /** Wall-clock time the arm spends easing between two adjacent keyframes. */
 export const SEGMENT_SECONDS = 1.2;
@@ -77,10 +76,7 @@ export function sampleAngles(
   if (timeSeconds >= duration) return keyframes[keyframes.length - 1].angles;
 
   const segmentFloat = timeSeconds / segmentSeconds;
-  const index = Math.min(
-    keyframes.length - 2,
-    Math.floor(segmentFloat),
-  );
+  const index = Math.min(keyframes.length - 2, Math.floor(segmentFloat));
   const local = segmentFloat - index;
   const from = keyframes[index].angles;
   if (!interpolate) return from;

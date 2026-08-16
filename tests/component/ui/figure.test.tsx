@@ -18,9 +18,15 @@ describe('Figure', () => {
 
   it('renders the caption', () => {
     render(
-      <Figure src="/images/x.png" alt="Diagram" caption="Action chunking over a horizon k." />,
+      <Figure
+        src="/images/x.png"
+        alt="Diagram"
+        caption="Action chunking over a horizon k."
+      />,
     );
-    expect(screen.getByText('Action chunking over a horizon k.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Action chunking over a horizon k.'),
+    ).toBeInTheDocument();
   });
 
   it('renders a source link when a credit carries a source URL', () => {

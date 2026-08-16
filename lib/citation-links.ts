@@ -86,7 +86,10 @@ export function shouldRetryStatus(status: LinkStatus): boolean {
  * DOI (arXiv abs pages, blogs, press pages), which Crossref cannot verify.
  */
 export function extractDoi(url: string): string | null {
-  const match = /(?:doi\.org|\/doi)\/(?:abs\/|full\/|pdf\/)?(10\.\d{4,9}\/[^?#\s]+)/i.exec(url);
+  const match =
+    /(?:doi\.org|\/doi)\/(?:abs\/|full\/|pdf\/)?(10\.\d{4,9}\/[^?#\s]+)/i.exec(
+      url,
+    );
   if (!match) return null;
   return match[1].replace(/[/.,;]+$/, '');
 }
@@ -132,10 +135,19 @@ export function parseCrossrefWork(json: unknown): CrossrefWork | null {
   const { title } = record;
   if (typeof title === 'string' && title.trim().length > 0) {
     work.title = title;
-  } else if (Array.isArray(title) && typeof title[0] === 'string' && title[0].trim().length > 0) {
+  } else if (
+    Array.isArray(title) &&
+    typeof title[0] === 'string' &&
+    title[0].trim().length > 0
+  ) {
     work.title = title[0];
   }
-  for (const field of ['issued', 'published', 'published-print', 'published-online']) {
+  for (const field of [
+    'issued',
+    'published',
+    'published-print',
+    'published-online',
+  ]) {
     const year = datePartsYear(record[field]);
     if (year !== null && !work.years.includes(year)) {
       work.years.push(year);
@@ -237,7 +249,9 @@ export function validateExceptions(
       problems.push('An exception is missing its citation id.');
     } else {
       if (!citationIds.has(exception.id)) {
-        problems.push(`'${label}' does not match any citation in the registry.`);
+        problems.push(
+          `'${label}' does not match any citation in the registry.`,
+        );
       }
       if (seen.has(exception.id)) {
         problems.push(`'${label}' is listed twice.`);
@@ -247,22 +261,41 @@ export function validateExceptions(
     if (!Array.isArray(exception.covers) || exception.covers.length === 0) {
       problems.push(`'${label}' covers no failure modes.`);
     }
-    if (typeof exception.reason !== 'string' || exception.reason.trim().length === 0) {
-      problems.push(`'${label}' records no reason: why can this URL not be verified by machine?`);
+    if (
+      typeof exception.reason !== 'string' ||
+      exception.reason.trim().length === 0
+    ) {
+      problems.push(
+        `'${label}' records no reason: why can this URL not be verified by machine?`,
+      );
     }
-    if (typeof exception.verifiedBy !== 'string' || exception.verifiedBy.trim().length === 0) {
+    if (
+      typeof exception.verifiedBy !== 'string' ||
+      exception.verifiedBy.trim().length === 0
+    ) {
       problems.push(
         `'${label}' records no verification method: how was the link last confirmed live?`,
       );
     }
-    if (typeof exception.verifiedOn !== 'string' || !ISO_DATE.test(exception.verifiedOn)) {
-      problems.push(`'${label}' records no valid verification date (want YYYY-MM-DD).`);
+    if (
+      typeof exception.verifiedOn !== 'string' ||
+      !ISO_DATE.test(exception.verifiedOn)
+    ) {
+      problems.push(
+        `'${label}' records no valid verification date (want YYYY-MM-DD).`,
+      );
     } else {
       const verified = new Date(`${exception.verifiedOn}T00:00:00Z`);
       if (Number.isNaN(verified.getTime())) {
-        problems.push(`'${label}' verification date '${exception.verifiedOn}' is not a real date.`);
+        problems.push(
+          `'${label}' verification date '${exception.verifiedOn}' is not a real date.`,
+        );
       } else {
-        const todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+        const todayUtc = Date.UTC(
+          today.getUTCFullYear(),
+          today.getUTCMonth(),
+          today.getUTCDate(),
+        );
         if (verified.getTime() > todayUtc) {
           problems.push(
             `'${label}' verification date '${exception.verifiedOn}' is in the future.`,
@@ -299,5 +332,8 @@ export function applyException(
  * zero of these, so any occurrence is real signal.
  */
 export function isUnexplained(result: LinkCheckResult): boolean {
-  return (result.verdict === 'blocked' || result.verdict === 'error') && !result.resolvedBy;
+  return (
+    (result.verdict === 'blocked' || result.verdict === 'error') &&
+    !result.resolvedBy
+  );
 }

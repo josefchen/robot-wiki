@@ -82,7 +82,7 @@ const ROWS: Thesis[] = [
         citationIds: ['karcini-position-2026'],
       },
       {
-        text: 'The reliability gap is not obviously a curve more data smooths: closing 99% to 99.9% is, in Lisa Yan\'s words via Bessemer, a steep hill climb.',
+        text: "The reliability gap is not obviously a curve more data smooths: closing 99% to 99.9% is, in Lisa Yan's words via Bessemer, a steep hill climb.",
         citationIds: ['bessemer-robotics-2026'],
       },
     ],
@@ -116,7 +116,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'π0.7\'s compositional generalization emerges from one network, which suggests the skill library can be implicit rather than engineered.',
+        text: "π0.7's compositional generalization emerges from one network, which suggests the skill library can be implicit rather than engineered.",
         citationIds: ['pi07-2026'],
       },
       {
@@ -170,7 +170,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceFor: [
       {
-        text: 'π*0.6 with Recap more than doubled throughput and passed 90% success on espresso, laundry, and box assembly after RL on the robot\'s own experience.',
+        text: "π*0.6 with Recap more than doubled throughput and passed 90% success on espresso, laundry, and box assembly after RL on the robot's own experience.",
         citationIds: ['pistar06-2025'],
       },
       {
@@ -208,21 +208,21 @@ const ROWS: Thesis[] = [
     ],
     evidenceFor: [
       {
-        text: 'π*0.6\'s Recap turns human coaching with corrections into more than doubled throughput on production-style tasks.',
+        text: "π*0.6's Recap turns human coaching with corrections into more than doubled throughput on production-style tasks.",
         citationIds: ['pistar06-2025'],
       },
       {
-        text: 'The two strongest verified deployment records, Agility\'s 65,000+ operating hours and Figure\'s 1,250+ hours at BMW Spartanburg, are supervised programs that generate training data as a byproduct.',
+        text: "The two strongest verified deployment records, Agility's 65,000+ operating hours and Figure's 1,250+ hours at BMW Spartanburg, are supervised programs that generate training data as a byproduct.",
         citationIds: ['technology-org-deployed-2026'],
       },
       {
-        text: 'Bessemer\'s data-flywheel thesis: deployment revenue funds the data collection that funds autonomy.',
+        text: "Bessemer's data-flywheel thesis: deployment revenue funds the data collection that funds autonomy.",
         citationIds: ['bessemer-robotics-2026'],
       },
     ],
     evidenceAgainst: [
       {
-        text: 'Teleoperation is expensive and slow, and Bessemer\'s own sources doubt it scales: Ian Glow argues you will never get the scale or diversity you need from teleop alone.',
+        text: "Teleoperation is expensive and slow, and Bessemer's own sources doubt it scales: Ian Glow argues you will never get the scale or diversity you need from teleop alone.",
         citationIds: ['bessemer-robotics-2026'],
       },
       {
@@ -231,7 +231,7 @@ const ROWS: Thesis[] = [
       },
     ],
     falsification:
-      'Autonomous policies reaching better than 99% success trained without any teleoperation data, which removes the bridge\'s reason to exist.',
+      "Autonomous policies reaching better than 99% success trained without any teleoperation data, which removes the bridge's reason to exist.",
     falsificationSignal: '>99% with zero teleop data',
   },
   {
@@ -245,7 +245,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceFor: [
       {
-        text: 'Figure\'s Helix 02 runs whole-body loco-manipulation, including a livestreamed eight-hour autonomous shift on a factory floor.',
+        text: "Figure's Helix 02 runs whole-body loco-manipulation, including a livestreamed eight-hour autonomous shift on a factory floor.",
         citationIds: ['helix-02-2026', 'figure-8hr-shift-2026'],
       },
       {
@@ -259,7 +259,7 @@ const ROWS: Thesis[] = [
         citationIds: ['brooks-dexterity-2025'],
       },
       {
-        text: 'The verified deployment records belong to narrow applications: Agility\'s 65,000+ hours are logistics work, where purpose-built systems already carry the revenue.',
+        text: "The verified deployment records belong to narrow applications: Agility's 65,000+ hours are logistics work, where purpose-built systems already carry the revenue.",
         citationIds: ['technology-org-deployed-2026'],
       },
     ],

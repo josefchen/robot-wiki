@@ -1,11 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
-import {
-  SLIDER_MAX,
-  SLIDER_MIN,
-  hoursToSlider,
-} from '@/lib/egoscale-law';
+import { SLIDER_MAX, SLIDER_MIN, hoursToSlider } from '@/lib/egoscale-law';
 
 const ROUTE = '/frontier/generalization/';
 
@@ -23,9 +19,7 @@ test.describe('frontier generalization module', () => {
     ).toBeVisible();
 
     const main = page.locator('#main-content');
-    const headings = await main
-      .locator('h2')
-      .allTextContents();
+    const headings = await main.locator('h2').allTextContents();
     expect(headings.length).toBeGreaterThanOrEqual(4);
     const proseLength = (await main.textContent())?.length ?? 0;
     expect(proseLength).toBeGreaterThan(4000);
@@ -80,10 +74,7 @@ test.describe('frontier generalization module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');
     await expect(
       main.getByRole('link', { name: 'Goldberg 2025' }).first(),
-    ).toHaveAttribute(
-      'href',
-      'https://doi.org/10.1126/scirobotics.aea7390',
-    );
+    ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.aea7390');
     const chips = main.locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     for (const id of [
@@ -159,9 +150,7 @@ test.describe('frontier generalization module', () => {
     expect(text).toMatch(/better than 90% success across many unseen homes/i);
     expect(text).toMatch(/no per-site data collection/i);
     // The honest note.
-    expect(text).toMatch(
-      /no current system has been evaluated this way/i,
-    );
+    expect(text).toMatch(/no current system has been evaluated this way/i);
     // The bar is drawn on the chart and every measured point sits below it.
     await expect(page.getByTestId('solved-bar')).toBeVisible();
     await expect(page.getByTestId('completion-readout')).toContainText(

@@ -46,8 +46,16 @@ const MODE_META: Record<
     color: 'var(--color-warn)',
     textClass: 'text-warn',
   },
-  naive: { label: 'naive switch', color: 'var(--color-err)', textClass: 'text-err' },
-  rtc: { label: 'real-time chunking', color: 'var(--color-ok)', textClass: 'text-ok' },
+  naive: {
+    label: 'naive switch',
+    color: 'var(--color-err)',
+    textClass: 'text-err',
+  },
+  rtc: {
+    label: 'real-time chunking',
+    color: 'var(--color-ok)',
+    textClass: 'text-ok',
+  },
 };
 
 const MODE_ORDER: ExecutionMode[] = ['synchronous', 'naive', 'rtc'];
@@ -76,14 +84,18 @@ function ModePanel({
 
   const plotW = PANEL.width - PANEL.pad.left - PANEL.pad.right;
   const plotH = PANEL.height - PANEL.pad.top - PANEL.pad.bottom;
-  const x = (tick: number) => f(PANEL.pad.left + (tick / (TRACE_TICKS - 1)) * plotW);
+  const x = (tick: number) =>
+    f(PANEL.pad.left + (tick / (TRACE_TICKS - 1)) * plotW);
   const y = (v: number) => f(PANEL.pad.top + (1 - v / V_MAX) * plotH);
 
   const path = trace
     .map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.tick)},${y(p.v)}`)
     .join(' ');
   const guidePath = trace
-    .map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.tick)},${y(oldPlanVelocity(p.tick))}`)
+    .map(
+      (p, i) =>
+        `${i === 0 ? 'M' : 'L'}${x(p.tick)},${y(oldPlanVelocity(p.tick))}`,
+    )
     .join(' ');
 
   const pause = mode === 'synchronous' ? pauseTicks(delayMs) : 0;
@@ -91,7 +103,9 @@ function ModePanel({
   const pauseToX = x(HANDOFF_TICK + 4 + pause);
   const spikeTick = trace.reduce(
     (best, p, i) =>
-      i > 0 && Math.abs(p.v - trace[i - 1].v) >= Math.abs(trace[best].v - trace[best - 1].v)
+      i > 0 &&
+      Math.abs(p.v - trace[i - 1].v) >=
+        Math.abs(trace[best].v - trace[best - 1].v)
         ? i
         : best,
     1,
@@ -115,9 +129,14 @@ function ModePanel({
         </span>
         <span
           data-testid={`verdict-${mode}`}
-          className={cx('font-mono text-[11px]', within ? 'text-ok' : 'text-err')}
+          className={cx(
+            'font-mono text-[11px]',
+            within ? 'text-ok' : 'text-err',
+          )}
         >
-          {within ? `within ${JERK_LIMIT.toFixed(2)} limit` : `exceeds ${JERK_LIMIT.toFixed(2)} limit`}
+          {within
+            ? `within ${JERK_LIMIT.toFixed(2)} limit`
+            : `exceeds ${JERK_LIMIT.toFixed(2)} limit`}
         </span>
         {mode === 'synchronous' && (
           <span className="ml-auto font-mono text-[11px] text-text-dim">
@@ -238,7 +257,9 @@ function ModePanel({
             key={tick}
             x={x(tick)}
             y={PANEL.height - 8}
-            textAnchor={tick === 0 ? 'start' : tick === TRACE_TICKS - 1 ? 'end' : 'middle'}
+            textAnchor={
+              tick === 0 ? 'start' : tick === TRACE_TICKS - 1 ? 'end' : 'middle'
+            }
             fill="var(--color-text-dim)"
             fontSize={9}
             fontFamily="var(--font-mono)"
@@ -333,12 +354,11 @@ export function ExecutionModes({ className }: { className?: string }) {
       </div>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        The traces model the published behaviors (arXiv:2506.07339):
-        synchronous execution pays dead time, naive switching pays a
-        discontinuity that grows with delay, and real-time chunking pays
-        neither. They are a model, not measured robot data; the 0.30 jerk
-        limit is an illustrative threshold, stated so the comparison is
-        numeric.
+        The traces model the published behaviors (arXiv:2506.07339): synchronous
+        execution pays dead time, naive switching pays a discontinuity that
+        grows with delay, and real-time chunking pays neither. They are a model,
+        not measured robot data; the 0.30 jerk limit is an illustrative
+        threshold, stated so the comparison is numeric.
       </p>
     </div>
   );

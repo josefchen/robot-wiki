@@ -13,7 +13,9 @@ import { injectNotFoundGuard } from '../lib/not-found-guard.ts';
 const target = join(import.meta.dirname, '..', 'out', '404.html');
 
 if (!existsSync(target)) {
-  console.error('patch-404-guard: FAILED (out/404.html does not exist; run next build first)');
+  console.error(
+    'patch-404-guard: FAILED (out/404.html does not exist; run next build first)',
+  );
   process.exit(1);
 }
 
@@ -21,10 +23,14 @@ const [patched, injected] = injectNotFoundGuard(readFileSync(target, 'utf8'));
 
 if (injected) {
   writeFileSync(target, patched);
-  console.log('patch-404-guard: OK (pre-hydration redirect guard injected into out/404.html)');
+  console.log(
+    'patch-404-guard: OK (pre-hydration redirect guard injected into out/404.html)',
+  );
 } else if (patched.includes('location.replace("/404/")')) {
   console.log('patch-404-guard: OK (guard already present; nothing to do)');
 } else {
-  console.error('patch-404-guard: FAILED (out/404.html has no <head> to inject into)');
+  console.error(
+    'patch-404-guard: FAILED (out/404.html has no <head> to inject into)',
+  );
   process.exit(1);
 }

@@ -12,20 +12,28 @@ import AxeBuilder from '@axe-core/playwright';
 const ROUTE = '/rl-sim2real/reward-design-mpc/';
 
 test.describe('RL reward-design and MPC module', () => {
-  test('the reward-shaping panel renders weights, total, and preview', async ({ page }) => {
+  test('the reward-shaping panel renders weights, total, and preview', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const panel = page.locator('[data-testid="quad-preview"]').locator('..');
     await expect(page.getByTestId('quad-preview')).toBeVisible();
     await expect(page.getByTestId('total-readout')).toContainText(/\/ step/);
-    await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
+    await expect(page.getByTestId('behavior-status')).toContainText(
+      /balanced/i,
+    );
     // Twelve weight sliders, all labelled.
     const sliders = panel.getByRole('slider');
     expect(await sliders.count()).toBe(12);
   });
 
-  test('a dominant torque weight flips the behavior readout; reset restores it', async ({ page }) => {
+  test('a dominant torque weight flips the behavior readout; reset restores it', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
-    await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
+    await expect(page.getByTestId('behavior-status')).toContainText(
+      /balanced/i,
+    );
     // Find the torque slider by its accessible name and push it high.
     const torque = page.getByRole('slider', { name: /torque/i });
     await torque.focus();
@@ -37,10 +45,14 @@ test.describe('RL reward-design and MPC module', () => {
     // (the svg's parent is the reward-shaping panel root).
     const panel = page.getByTestId('quad-preview').locator('..');
     await panel.getByRole('button', { name: 'Reset' }).click();
-    await expect(page.getByTestId('behavior-status')).toContainText(/balanced/i);
+    await expect(page.getByTestId('behavior-status')).toContainText(
+      /balanced/i,
+    );
   });
 
-  test('reduced motion: preview playback steps discretely (VAL-A11Y-019)', async ({ browser }) => {
+  test('reduced motion: preview playback steps discretely (VAL-A11Y-019)', async ({
+    browser,
+  }) => {
     // lib/reward-shaping.ts: reduced cadence is 200 ms ticks advancing the
     // preview phase by 0.125 per tick, versus the smooth 50 ms / 0.02. The
     // phase readout ("Preview phase: N%") must therefore hold 0% inside the
@@ -58,7 +70,9 @@ test.describe('RL reward-design and MPC module', () => {
     await page.waitForTimeout(120);
     expect(await phaseReadout.textContent()).toBe('0%');
     await expect
-      .poll(async () => (await phaseReadout.textContent()) ?? '', { timeout: 5_000 })
+      .poll(async () => (await phaseReadout.textContent()) ?? '', {
+        timeout: 5_000,
+      })
       .not.toBe('0%');
     const phase = Number.parseInt(
       (await phaseReadout.textContent()) ?? '0',
@@ -67,7 +81,10 @@ test.describe('RL reward-design and MPC module', () => {
     // Coarse jumps advance the phase in multiples of 12.5; the readout's
     // Math.round maps those to exactly this discrete set (0.125 -> 13,
     // 0.375 -> 38, ...). A smooth cadence would land on 2, 4, 6, ... .
-    expect([0, 13, 25, 38, 50, 63, 75, 88], `phase readout ${phase}%`).toContain(phase);
+    expect(
+      [0, 13, 25, 38, 50, 63, 75, 88],
+      `phase readout ${phase}%`,
+    ).toContain(phase);
     await context.close();
   });
 

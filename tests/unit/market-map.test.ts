@@ -74,7 +74,10 @@ describe('filterCompanies', () => {
   });
 
   it('filters acquired and shut-down statuses truthfully (VAL-MKT-022)', () => {
-    const acquired = filterCompanies(COMPANIES, filters({ status: 'acquired' }));
+    const acquired = filterCompanies(
+      COMPANIES,
+      filters({ status: 'acquired' }),
+    );
     expect(acquired.map((row) => row.id)).toEqual(
       expect.arrayContaining([
         'covariant',
@@ -293,16 +296,19 @@ describe('relaxFiltersForCompany', () => {
 
   it('keeps an open-source filter only when the company matches it', () => {
     expect(
-      relaxFiltersForCompany(filters({ openSource: 'yes' }), figure)
-        .openSource,
+      relaxFiltersForCompany(filters({ openSource: 'yes' }), figure).openSource,
     ).toBeNull();
     expect(
-      relaxFiltersForCompany(filters({ openSource: 'yes' }), physicalIntelligence)
-        .openSource,
+      relaxFiltersForCompany(
+        filters({ openSource: 'yes' }),
+        physicalIntelligence,
+      ).openSource,
     ).toBe('yes');
     expect(
-      relaxFiltersForCompany(filters({ openSource: 'no' }), physicalIntelligence)
-        .openSource,
+      relaxFiltersForCompany(
+        filters({ openSource: 'no' }),
+        physicalIntelligence,
+      ).openSource,
     ).toBeNull();
   });
 });
@@ -336,7 +342,9 @@ describe('timelineEvents', () => {
     );
     expect(events.every((event) => event.asOf === MARKET_MAP_AS_OF)).toBe(true);
 
-    const byId = Object.fromEntries(events.map((event) => [event.companyId, event]));
+    const byId = Object.fromEntries(
+      events.map((event) => [event.companyId, event]),
+    );
     expect(byId['figure-ai']).toMatchObject({
       amountUsd: 1_000_000_000,
       valuationUsd: 39_000_000_000,

@@ -301,9 +301,9 @@ test.describe('design chrome discipline', () => {
     const sections = page.locator('article > section');
     const n = await sections.count();
     for (let i = 0; i < n; i += 1) {
-      const borderTop = await sections.nth(i).evaluate(
-        (el) => getComputedStyle(el).borderTopWidth,
-      );
+      const borderTop = await sections
+        .nth(i)
+        .evaluate((el) => getComputedStyle(el).borderTopWidth);
       expect(borderTop).toBe('0px');
     }
   });
@@ -328,7 +328,9 @@ test.describe('design chrome discipline', () => {
         }
         return hits;
       })()`);
-      expect(inSidebar, `boxed controls in the sidebar on ${route}`).toEqual([]);
+      expect(inSidebar, `boxed controls in the sidebar on ${route}`).toEqual(
+        [],
+      );
     }
     // The /search surface: the whole page is search chrome.
     await page.goto('/search');
@@ -336,8 +338,12 @@ test.describe('design chrome discipline', () => {
     expect(onSearch).toEqual([]);
     // Text inputs keep their own border as a real affordance.
     await page.goto('/');
-    const input = page.getByRole('searchbox', { name: 'Search', exact: true }).first();
-    const border = await input.evaluate((el) => getComputedStyle(el).borderTopWidth);
+    const input = page
+      .getByRole('searchbox', { name: 'Search', exact: true })
+      .first();
+    const border = await input.evaluate(
+      (el) => getComputedStyle(el).borderTopWidth,
+    );
     expect(border).toBe('1px');
   });
 
@@ -371,9 +377,9 @@ test.describe('design chrome discipline', () => {
     expect(metrics!.scrimOpacity).toBeGreaterThan(0);
     expect(metrics!.coverage).toBeGreaterThanOrEqual(0.9);
     // Opaque panel background keeps the edge legible against the scrim.
-    expect(
-      /^rgb\(/.test(metrics!.bg) || metrics!.bg.endsWith(', 1)'),
-    ).toBe(true);
+    expect(/^rgb\(/.test(metrics!.bg) || metrics!.bg.endsWith(', 1)')).toBe(
+      true,
+    );
     const found = await evaluateDefs<string[]>(page, 'doublyBoxed()');
     expect(found).toEqual([]);
   });
@@ -394,22 +400,32 @@ test.describe('design chrome discipline', () => {
     expect([...ratios]).toHaveLength(1);
   });
 
-  test('no eyebrow text repeats across routes (VAL-DESIGN-021b)', async ({ page }) => {
+  test('no eyebrow text repeats across routes (VAL-DESIGN-021b)', async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     const seen = new Map<string, string>();
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const brows = await evaluateDefs<Array<{ text: string }>>(page, 'eyebrows()');
+      const brows = await evaluateDefs<Array<{ text: string }>>(
+        page,
+        'eyebrows()',
+      );
       for (const b of brows) {
         const key = b.text.trim().replace(/\s+/g, ' ').toLowerCase();
         const prev = seen.get(key);
-        expect(prev, `eyebrow "${b.text}" on both ${prev} and ${route}`).toBeUndefined();
+        expect(
+          prev,
+          `eyebrow "${b.text}" on both ${prev} and ${route}`,
+        ).toBeUndefined();
         seen.set(key, route);
       }
     }
   });
 
-  test('nav semantics survive the rework (VAL-DESIGN-022)', async ({ page }) => {
+  test('nav semantics survive the rework (VAL-DESIGN-022)', async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     const baseline = JSON.parse(
       readFileSync(
@@ -456,8 +472,12 @@ test.describe('design chrome discipline', () => {
       const snapshot = await links.nth(i).ariaSnapshot();
       const match = snapshot.match(/"((?:[^"\\]|\\.)*)"/);
       const name = match ? match[1].replace(/\\"/g, '"') : snapshot.trim();
-      expect(name, `link ${baseline.links[i].href}`).toBe(baseline.links[i].name);
-      expect(await links.nth(i).getAttribute('href')).toBe(baseline.links[i].href);
+      expect(name, `link ${baseline.links[i].href}`).toBe(
+        baseline.links[i].name,
+      );
+      expect(await links.nth(i).getAttribute('href')).toBe(
+        baseline.links[i].href,
+      );
     }
   });
 
@@ -489,9 +509,13 @@ test.describe('design chrome discipline', () => {
       .evaluate((el) => getComputedStyle(el).borderBottomWidth);
     expect(headerBorder).toBe('1px');
 
-    const link = page.locator('header').getByRole('link', { name: 'robot-wiki' });
+    const link = page
+      .locator('header')
+      .getByRole('link', { name: 'robot-wiki' });
     await link.focus();
-    const outline = await link.evaluate((el) => getComputedStyle(el).outlineWidth);
+    const outline = await link.evaluate(
+      (el) => getComputedStyle(el).outlineWidth,
+    );
     expect(parseFloat(outline)).toBeGreaterThanOrEqual(1);
   });
 });

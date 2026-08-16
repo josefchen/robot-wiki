@@ -96,10 +96,7 @@ export function FundingTimeline({
 }
 function EventDetail({ event }: { event: TimelineEvent }) {
   return (
-    <div
-      data-timeline-detail
-      className="pb-3 pl-0 text-sm sm:pl-[7.5rem]"
-    >
+    <div data-timeline-detail className="pb-3 pl-0 text-sm sm:pl-[7.5rem]">
       <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
         <dt className="text-text-dim">Amount</dt>
         <dd>

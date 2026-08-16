@@ -74,9 +74,7 @@ describe('WbcDecomposition', () => {
       /not disclosed/,
     );
     expect(screen.getByTestId('wbc-stats')).toHaveTextContent('22');
-    expect(screen.getByTestId('wbc-stats')).toHaveTextContent(
-      '< 200 examples',
-    );
+    expect(screen.getByTestId('wbc-stats')).toHaveTextContent('< 200 examples');
     expect(screen.getByTestId('wbc-diagram')).toHaveTextContent(
       /feet to fingertips/i,
     );

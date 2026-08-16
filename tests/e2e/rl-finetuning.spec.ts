@@ -45,9 +45,7 @@ test.describe('rl-finetuning module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2410.21845');
     // Recap cites the pi.website lab report.
     await expect(
-      main
-        .getByRole('link', { name: /Physical Intelligence 2025/ })
-        .first(),
+      main.getByRole('link', { name: /Physical Intelligence 2025/ }).first(),
     ).toHaveAttribute('href', /pi\.website|pi-asset\.com/);
     const chips = main.locator('a[href^="https://arxiv.org/abs/"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);

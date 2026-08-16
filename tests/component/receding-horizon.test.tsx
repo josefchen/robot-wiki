@@ -45,9 +45,7 @@ describe('RecedingHorizon', () => {
   it('lowering T_a raises the replan rate and shortens the commitment', () => {
     render(<RecedingHorizon />);
     fireEvent.change(executedSlider(), { target: { value: '4' } });
-    expect(screen.getByTestId('rh-replan-readout')).toHaveTextContent(
-      '2.5 Hz',
-    );
+    expect(screen.getByTestId('rh-replan-readout')).toHaveTextContent('2.5 Hz');
     expect(screen.getByTestId('rh-commit-readout')).toHaveTextContent('0.4 s');
   });
 

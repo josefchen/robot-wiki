@@ -168,9 +168,7 @@ export function HierarchyTimescales({
                 y={cy + 9}
                 textAnchor="end"
                 fill={
-                  lane.disclosed
-                    ? 'var(--color-text-dim)'
-                    : 'var(--color-warn)'
+                  lane.disclosed ? 'var(--color-text-dim)' : 'var(--color-warn)'
                 }
                 fontSize={9}
                 fontFamily="var(--font-mono)"
@@ -233,8 +231,7 @@ export function HierarchyTimescales({
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
         amber ticks: updates fired at or before the playhead. dim ticks:
-        pending. Rates tagged (schematic) are not stated in the primary
-        source.
+        pending. Rates tagged (schematic) are not stated in the primary source.
       </p>
 
       <ul className="mt-3 divide-y divide-border border-t border-border">

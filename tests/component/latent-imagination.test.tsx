@@ -56,7 +56,9 @@ describe('LatentImagination', () => {
     render(<LatentImagination />);
     expect(screen.getByTestId('decoded-frames')).toBeInTheDocument();
     expect(screen.queryByTestId('decoder-free-note')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('reward-error-readout')).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId('reward-error-readout'),
+    ).not.toBeInTheDocument();
   });
 
   it('decoder-free mode replaces frames with a no-image annotation and a reward readout', async () => {
@@ -83,9 +85,12 @@ describe('LatentImagination', () => {
         screen.getByTestId('reward-error-readout').textContent ?? '',
       );
     const short = read();
-    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
-      target: { value: '50' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /imagination horizon/i }),
+      {
+        target: { value: '50' },
+      },
+    );
     expect(read()).toBeGreaterThan(short);
   });
 
@@ -93,9 +98,12 @@ describe('LatentImagination', () => {
     const user = userEvent.setup();
     render(<LatentImagination />);
     const initial = screen.getByTestId('deviation-readout').textContent;
-    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
-      target: { value: '50' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /imagination horizon/i }),
+      {
+        target: { value: '50' },
+      },
+    );
     await user.click(screen.getByRole('button', { name: /decoder-free/i }));
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByTestId('deviation-readout')).toHaveTextContent(

@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
+import {
+  inlineCitationIds,
+  moduleBody,
+  resolveReferences,
+} from '@/lib/references';
 import { getCitation } from '@/data/citations';
 
 describe('inlineCitationIds', () => {

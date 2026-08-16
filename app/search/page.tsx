@@ -27,8 +27,8 @@ export default function SearchPage() {
         Search
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">
-        Search article prose together with the methods, companies, and
-        datasets in the wiki data layer. Queries run locally in your browser.
+        Search article prose together with the methods, companies, and datasets
+        in the wiki data layer. Queries run locally in your browser.
       </p>
       <Suspense fallback={null}>
         <SearchInterface />

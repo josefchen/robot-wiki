@@ -39,9 +39,10 @@ describe('MilestonesWatchlist', () => {
   it('opens with the first milestone selected and its detail fields visible', () => {
     render(<MilestonesWatchlist />);
     const first = MILESTONES[0];
-    expect(
-      screen.getByRole('button', { name: first.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: first.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
 
     const detail = screen.getByTestId('milestone-detail');
     const scope = within(detail);
@@ -59,9 +60,10 @@ describe('MilestonesWatchlist', () => {
     const target = milestoneById('data-scaling-law');
     await user.click(screen.getByRole('button', { name: target.name }));
 
-    expect(
-      screen.getByRole('button', { name: target.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: target.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     const detail = screen.getByTestId('milestone-detail');
     expect(detail).toHaveTextContent(target.statusDetail);
     expect(detail).toHaveTextContent(target.howWeKnow);
@@ -130,23 +132,26 @@ describe('MilestonesWatchlist', () => {
     const firstButton = screen.getByRole('button', { name: first.name });
     firstButton.focus();
     await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: second.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByTestId('milestone-detail')).toHaveTextContent(
       second.statusDetail,
     );
 
     await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: third.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: third.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
 
     await user.keyboard('{ArrowUp}');
     await user.keyboard('{Enter}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: second.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('reset restores the full list and the default selection', async () => {
@@ -160,9 +165,10 @@ describe('MilestonesWatchlist', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getAllByTestId(/^milestone-row-/)).toHaveLength(8);
     const first = MILESTONES[0];
-    expect(
-      screen.getByRole('button', { name: first.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: first.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByTestId('milestone-detail')).toHaveTextContent(
       first.statusDetail,
     );

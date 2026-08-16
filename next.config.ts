@@ -47,7 +47,10 @@ const withMDX = createMDX({
       // orphaned "." or ",". No interaction with katex/pretty-code (chips
       // never occur in math or code); grouped with the other local plugins.
       path.join(process.cwd(), 'lib/rehype-cite-punctuation.mjs'),
-      ['rehype-pretty-code', { theme: 'github-dark-dimmed', keepBackground: true }],
+      [
+        'rehype-pretty-code',
+        { theme: 'github-dark-dimmed', keepBackground: true },
+      ],
     ],
   },
 });

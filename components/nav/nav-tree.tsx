@@ -102,7 +102,12 @@ function NavEntryLink({
   );
 }
 
-export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeProps) {
+export function NavTree({
+  idPrefix,
+  ariaLabel,
+  onNavigate,
+  className,
+}: NavTreeProps) {
   const pathname = usePathname();
   const activePath = normalize(pathname);
   const activeDomain = domainOf(pathname);
@@ -158,7 +163,10 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                 <span>{meta.name}</span>
               </button>
               {expanded ? (
-                <ul id={panelId} className="mt-0.5 mb-1.5 flex flex-col gap-0.5">
+                <ul
+                  id={panelId}
+                  className="mt-0.5 mb-1.5 flex flex-col gap-0.5"
+                >
                   <li>
                     <NavEntryLink
                       href={`/${domain}`}

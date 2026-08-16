@@ -19,7 +19,8 @@ export function firstDraftModule(
   domain?: ModuleRegistryEntry['domain'],
 ): ModuleRegistryEntry | undefined {
   return modules.find(
-    (m) => m.status === 'draft' && (domain === undefined || m.domain === domain),
+    (m) =>
+      m.status === 'draft' && (domain === undefined || m.domain === domain),
   );
 }
 

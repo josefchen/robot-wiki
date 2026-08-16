@@ -278,8 +278,8 @@ export function DatasetTable({ className }: DatasetTableProps) {
             No datasets match these filters.
           </p>
           <p className="mt-1 font-sans text-xs text-text-dim">
-            Rows with unpublished figures only match the Unknown filter
-            options; try widening the selection.
+            Rows with unpublished figures only match the Unknown filter options;
+            try widening the selection.
           </p>
           <button
             data-pagefind-ignore

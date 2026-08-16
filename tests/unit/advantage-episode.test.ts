@@ -105,8 +105,7 @@ describe('CREDIT_ASSIGNMENT', () => {
   });
 
   it('the blamed action sits about 20 s before the failure', () => {
-    const gap =
-      CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS;
+    const gap = CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS;
     expect(gap).toBeGreaterThanOrEqual(19);
     expect(gap).toBeLessThanOrEqual(21);
   });

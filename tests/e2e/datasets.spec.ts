@@ -78,7 +78,9 @@ test.describe('data-hardware datasets module', () => {
     const unreleased = table.locator('tbody tr', {
       hasText: 'AgiBot World 2026',
     });
-    expect(await unreleased.getByText('not disclosed', { exact: true }).count()).toBeGreaterThanOrEqual(4);
+    expect(
+      await unreleased.getByText('not disclosed', { exact: true }).count(),
+    ).toBeGreaterThanOrEqual(4);
   });
 
   test('size, embodiment, and task filters work and compose (VAL-DATA-008)', async ({
@@ -90,9 +92,7 @@ test.describe('data-hardware datasets module', () => {
     // Size filter.
     await page.getByRole('button', { name: '1M+ episodes' }).click();
     await expect(page.getByText('2 of 6 datasets')).toBeVisible();
-    await expect(
-      page.getByRole('cell', { name: 'DROID' }),
-    ).toHaveCount(0);
+    await expect(page.getByRole('cell', { name: 'DROID' })).toHaveCount(0);
 
     // Compose with the embodiment filter.
     await page.getByRole('button', { name: 'Multi-platform' }).click();

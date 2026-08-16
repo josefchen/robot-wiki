@@ -113,7 +113,11 @@ describe('buildBacklinkGraph', () => {
   it('is complete: every article that links in is listed', () => {
     const graph = build();
     expect(graph.get('beta/bar')).toEqual(['alpha/foo']);
-    expect(graph.get('gamma/baz')).toEqual(['alpha/foo', 'beta/bar', 'delta/qux']);
+    expect(graph.get('gamma/baz')).toEqual([
+      'alpha/foo',
+      'beta/bar',
+      'delta/qux',
+    ]);
     expect(graph.get('delta/qux')).toEqual(['alpha/foo']);
     expect(graph.get('alpha/foo')).toEqual(['delta/qux']);
   });
@@ -152,7 +156,11 @@ describe('buildBacklinkGraph', () => {
     const graph = build();
     // Insertion order into gamma/baz was delta, alpha, beta; registry
     // order is alpha (0), beta (1), delta (3).
-    expect(graph.get('gamma/baz')).toEqual(['alpha/foo', 'beta/bar', 'delta/qux']);
+    expect(graph.get('gamma/baz')).toEqual([
+      'alpha/foo',
+      'beta/bar',
+      'delta/qux',
+    ]);
     // Rebuilding from the same input yields the identical graph.
     expect([...build().entries()]).toEqual([...graph.entries()]);
   });
@@ -240,7 +248,9 @@ describe('shipped content: action-chunking cross-references (VAL-CROSS-006)', ()
   );
 
   it('links diffusion-policy in prose', () => {
-    expect(internalLinkTargets(body)).toContain('/manipulation/diffusion-policy');
+    expect(internalLinkTargets(body)).toContain(
+      '/manipulation/diffusion-policy',
+    );
   });
 
   it('links pi-line in prose', () => {

@@ -67,8 +67,7 @@ export function layerStates(
 ): LayerState[] {
   const s = clampStep(step);
   return Array.from({ length: LAYER_COUNT }, (_, index) => {
-    const reached =
-      pass === 'forward' ? index < s : index >= LAYER_COUNT - s;
+    const reached = pass === 'forward' ? index < s : index >= LAYER_COUNT - s;
     if (pass === 'forward') {
       return {
         index,
@@ -118,9 +117,7 @@ export function gradientBarrier(pass: Pass, stopGradient: boolean): boolean {
 }
 
 export type BackboneSupervision =
-  | 'none'
-  | 'fast-cross-entropy'
-  | 'expert-gradient';
+  'none' | 'fast-cross-entropy' | 'expert-gradient';
 
 /**
  * What supervises the backbone in the current view. In the insulated

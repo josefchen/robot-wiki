@@ -34,9 +34,9 @@ test.describe('market map visualization', () => {
     await expect(
       page.getByRole('heading', { name: /Foundation models/ }),
     ).toContainText('12');
-    await expect(page.getByRole('heading', { name: /^Humanoids/ })).toContainText(
-      '35',
-    );
+    await expect(
+      page.getByRole('heading', { name: /^Humanoids/ }),
+    ).toContainText('35');
     await expect(
       page.getByRole('heading', { name: /Industrial \/ logistics/ }),
     ).toContainText('15');
@@ -46,9 +46,9 @@ test.describe('market map visualization', () => {
     await expect(
       page.getByRole('heading', { name: /Simulation \/ tooling/ }),
     ).toContainText('10');
-    await expect(page.getByRole('heading', { name: /^Components/ })).toContainText(
-      '8',
-    );
+    await expect(
+      page.getByRole('heading', { name: /^Components/ }),
+    ).toContainText('8');
     await expect(page.getByText(/as of 6 August 2026/i)).toBeVisible();
   });
 
@@ -73,7 +73,9 @@ test.describe('market map visualization', () => {
     await expect(page.locator('article[data-company-id]')).toHaveCount(4);
 
     await page.getByRole('button', { name: 'Bubble' }).click();
-    await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
+    await expect(
+      page.getByRole('group', { name: /bubble chart/i }),
+    ).toBeVisible();
     await expect(page.getByText('4 of 112 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Timeline' }).click();
@@ -102,16 +104,16 @@ test.describe('market map visualization', () => {
   }) => {
     await page.goto(ROUTE);
     const sub = page.locator('#filter-subsegment');
-    await expect(sub.locator('option[value="warehouse-automation"]')).toHaveCount(
-      1,
-    );
+    await expect(
+      sub.locator('option[value="warehouse-automation"]'),
+    ).toHaveCount(1);
     await segmentSelect(page).selectOption('humanoids');
-    await expect(sub.locator('option[value="industrial-humanoids"]')).toHaveCount(
-      1,
-    );
-    await expect(sub.locator('option[value="warehouse-automation"]')).toHaveCount(
-      0,
-    );
+    await expect(
+      sub.locator('option[value="industrial-humanoids"]'),
+    ).toHaveCount(1);
+    await expect(
+      sub.locator('option[value="warehouse-automation"]'),
+    ).toHaveCount(0);
   });
 
   test('company cards expand and keep unknown funding honest (VAL-MKT-009 to VAL-MKT-013)', async ({
@@ -119,7 +121,9 @@ test.describe('market map visualization', () => {
   }) => {
     await page.goto(ROUTE);
     const pi = page.locator('article[data-company-id="physical-intelligence"]');
-    await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeVisible();
+    await expect(
+      pi.getByRole('heading', { name: 'Physical Intelligence' }),
+    ).toBeVisible();
     await expect(pi.getByText(/vision-language-action/)).toBeVisible();
     await expect(pi.getByText('$600M')).toBeVisible();
     await expect(pi.getByText('$5.6B')).toBeVisible();
@@ -176,9 +180,9 @@ test.describe('market map visualization', () => {
     expect(markCount).toBeLessThan(112);
     await expect(page.getByText(/Founding year/)).toBeVisible();
     await expect(page.getByText(/excluded for missing/)).toBeVisible();
-    await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(
-      0,
-    );
+    await expect(
+      page.locator('circle[data-company-id="covariant"]'),
+    ).toHaveCount(0);
     await page.locator('circle[data-company-id="figure-ai"]').click();
     await expect(page.getByText('Figure AI').first()).toBeVisible();
     await expect(page.getByText('$39B').first()).toBeVisible();
@@ -203,7 +207,9 @@ test.describe('market map visualization', () => {
     await expect(
       page.locator('article[data-company-id="covariant"]'),
     ).toBeVisible();
-    await expect(page.locator('article[data-company-id="irobot"]')).toBeVisible();
+    await expect(
+      page.locator('article[data-company-id="irobot"]'),
+    ).toBeVisible();
     await expect(
       page.locator('article[data-company-id="berkshire-grey"]'),
     ).toBeVisible();

@@ -26,8 +26,7 @@ async function visibleArticleText(page: Page): Promise<string> {
 }
 
 async function nodeCount(page: Page): Promise<number> {
-  const text =
-    (await page.getByTestId('rrt-node-readout').textContent()) ?? '';
+  const text = (await page.getByTestId('rrt-node-readout').textContent()) ?? '';
   const value = Number.parseInt(text, 10);
   expect(Number.isFinite(value)).toBe(true);
   return value;
@@ -55,19 +54,31 @@ test.describe('classical motion-planning module', () => {
     // <Term> markup duplicates its text into a hidden tooltip, so match the
     // VISIBLE copy, not the first DOM hit.
     await expect(
-      main.getByText(/configuration space/i).filter({ visible: true }).first(),
+      main
+        .getByText(/configuration space/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/rapidly-exploring random tree/i).filter({ visible: true }).first(),
+      main
+        .getByText(/rapidly-exploring random tree/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/trajectory optimization/i).filter({ visible: true }).first(),
+      main
+        .getByText(/trajectory optimization/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
       main.getByText(/CHOMP/i).filter({ visible: true }).first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/TrajOpt/i).filter({ visible: true }).first(),
+      main
+        .getByText(/TrajOpt/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
@@ -194,9 +205,7 @@ test.describe('classical motion-planning module', () => {
       /goal reached at iteration/i,
     );
     expect(await nodeCount(page)).toBeGreaterThan(100);
-    await expect(page.getByTestId('rrt-path-readout')).toContainText(
-      /units/i,
-    );
+    await expect(page.getByTestId('rrt-path-readout')).toContainText(/units/i);
 
     // Reset returns the scene to the initial state.
     await page.getByRole('button', { name: /reset/i }).click();

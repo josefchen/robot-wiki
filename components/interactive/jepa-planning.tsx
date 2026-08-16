@@ -82,8 +82,22 @@ function CrossedFrame() {
         stroke={BORDER_STRONG}
         strokeWidth={1}
       />
-      <line x1={0} y1={0} x2={88} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={88} y1={0} x2={0} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
+      <line
+        x1={0}
+        y1={0}
+        x2={88}
+        y2={56}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <line
+        x1={88}
+        y1={0}
+        x2={0}
+        y2={56}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
       <text
         x={44}
         y={66}
@@ -145,13 +159,15 @@ export function JepaPlanning({
     plotH: TRACE_H - TRACE_PAD.top - TRACE_PAD.bottom,
     yMax: initialDistance * 1.08,
   };
-  const traceX = (t: number) =>
-    TRACE_PAD.left + (t / MAX_STEPS) * trace.plotW;
+  const traceX = (t: number) => TRACE_PAD.left + (t / MAX_STEPS) * trace.plotW;
   const traceY = (d: number) =>
     TRACE_PAD.top + trace.plotH - (d / trace.yMax) * trace.plotH;
   const distances = history.map((p) => goalDistance(p, goal.point));
   const tracePath = distances
-    .map((d, i) => `${i === 0 ? 'M' : 'L'}${traceX(i).toFixed(1)},${traceY(d).toFixed(1)}`)
+    .map(
+      (d, i) =>
+        `${i === 0 ? 'M' : 'L'}${traceX(i).toFixed(1)},${traceY(d).toFixed(1)}`,
+    )
     .join(' ');
 
   const toggleBase =
@@ -443,7 +459,10 @@ export function JepaPlanning({
         />
       </svg>
 
-      <div data-testid="no-decoder-note" className="mt-3 flex items-start gap-3">
+      <div
+        data-testid="no-decoder-note"
+        className="mt-3 flex items-start gap-3"
+      >
         <CrossedFrame />
         <p className="font-sans text-xs leading-relaxed text-text-dim">
           No pixel decoder anywhere in the loop. The goal is an image encoded

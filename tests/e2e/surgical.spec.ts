@@ -55,7 +55,10 @@ test.describe('adjacent surgical module', () => {
   }) => {
     await page.goto(ROUTE);
     await expect(
-      page.getByRole('heading', { level: 2, name: 'The precision and reliability bar' }),
+      page.getByRole('heading', {
+        level: 2,
+        name: 'The precision and reliability bar',
+      }),
     ).toBeVisible();
     const prose = page.locator('div.prose[data-pagefind-body]');
     const text = (await prose.textContent()) ?? '';

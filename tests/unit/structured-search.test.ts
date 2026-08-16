@@ -84,13 +84,19 @@ describe('expectedStructuredIds', () => {
     const expected = expectedStructuredIds();
     expect(expected).toHaveLength(EXPECTED_COUNT);
     expect(
-      expected.filter((entry) => entry.type === 'company').map((e) => e.entityId),
+      expected
+        .filter((entry) => entry.type === 'company')
+        .map((e) => e.entityId),
     ).toEqual(COMPANIES.map((company) => company.id));
     expect(
-      expected.filter((entry) => entry.type === 'method').map((e) => e.entityId),
+      expected
+        .filter((entry) => entry.type === 'method')
+        .map((e) => e.entityId),
     ).toEqual(METHODS.map((method) => method.id));
     expect(
-      expected.filter((entry) => entry.type === 'dataset').map((e) => e.entityId),
+      expected
+        .filter((entry) => entry.type === 'dataset')
+        .map((e) => e.entityId),
     ).toEqual(DATASETS.map((dataset) => dataset.id));
   });
 });

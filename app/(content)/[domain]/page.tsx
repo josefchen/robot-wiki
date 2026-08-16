@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import {
+  Breadcrumbs,
+  breadcrumbJsonLd,
+} from '@/components/article/breadcrumbs';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
 
@@ -67,7 +70,9 @@ export default async function DomainLandingPage({
           ]),
         }}
       />
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />
+      <Breadcrumbs
+        items={[{ label: 'Home', href: '/' }, { label: meta.name }]}
+      />
       <header className="mb-8 border-b border-border pb-6">
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           {meta.name}

@@ -81,7 +81,11 @@ const ROWS: Milestone[] = [
       'RoboArena, RoboChallenge, and ManipulationNet all launched with standardized tasks or hardware kits, but none has yet drawn convergent numbers from multiple independent labs.',
     howWeKnow:
       'Multiple independent labs publishing comparable results on the same benchmark, with agreement on what the numbers mean.',
-    citationIds: ['roboarena-2025', 'robochallenge-2025', 'manipulationnet-2026'],
+    citationIds: [
+      'roboarena-2025',
+      'robochallenge-2025',
+      'manipulationnet-2026',
+    ],
   },
   {
     id: 'broad-rl-reliability',

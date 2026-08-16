@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import type { Company } from '@/data/schemas/company.ts';
 import { formatLongDate } from '@/lib/dates';
 import {

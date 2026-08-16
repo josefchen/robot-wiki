@@ -30,9 +30,9 @@ export default function GlossaryPage() {
         </p>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           Reference definitions for the jargon of modern robotics, each one
-          written from a cited primary source. The articles mark these terms
-          up inline; hovering or keyboard-focusing a marked term shows the
-          same definition listed here.
+          written from a cited primary source. The articles mark these terms up
+          inline; hovering or keyboard-focusing a marked term shows the same
+          definition listed here.
         </p>
       </header>
 
@@ -56,7 +56,10 @@ export default function GlossaryPage() {
               </p>
               <ul className="mt-3 flex flex-col gap-1.5">
                 {sources.map((source) => (
-                  <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">
+                  <li
+                    key={source.id}
+                    className="flex flex-wrap items-baseline gap-x-2"
+                  >
                     <a
                       href={source.url}
                       target="_blank"

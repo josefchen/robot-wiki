@@ -107,8 +107,7 @@ export const IMAGES: SiteImage[] = [
     caption:
       'The Franka Emika Panda, the seven-DoF research arm, demonstrated at CeBIT 2017 with a human guiding it by hand.',
     sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Franka_Emika2.jpg',
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Franka_Emika2.jpg',
     creator: 'Ims',
     licence: 'cc-by-sa-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
@@ -124,7 +123,7 @@ export const IMAGES: SiteImage[] = [
     file: '/images/covariate-shift.svg',
     alt: 'Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.',
     caption:
-      'Demonstrations cover a narrow corridor of states around the expert path. The policy\'s first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself.',
+      "Demonstrations cover a narrow corridor of states around the expert path. The policy's first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself.",
     sourceName: 'robot-wiki (original diagram)',
     creator: 'robot-wiki contributors',
     licence: 'cc-by-4.0',

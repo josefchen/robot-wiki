@@ -33,10 +33,19 @@ Run the full gate locally before opening a pull request:
 ```sh
 npm run typecheck
 npm run lint
+npm run format:check
 npm run test
 npm run validate:content
 npm run build
 ```
+
+Formatting is automated: run `npm run format` before you commit and Prettier
+settles indentation, quoting and line width for you (`.prettierrc.json`).
+`npm run format:check` is the same pass in read-only mode, so a PR that skips
+the write step fails the gate rather than collecting whitespace review
+comments. Prettier does not touch the MDX bodies in `content/` or the reports
+in `research/` (see `.prettierignore`): authored prose keeps the line breaks
+its author chose.
 
 Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
 

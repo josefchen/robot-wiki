@@ -182,9 +182,12 @@ test.describe('home page', () => {
     const featured = page.getByRole('region', {
       name: /featured interactive/i,
     });
-    const top = await featured.locator('svg').first().evaluate((el) => {
-      return el.getBoundingClientRect().top + window.scrollY;
-    });
+    const top = await featured
+      .locator('svg')
+      .first()
+      .evaluate((el) => {
+        return el.getBoundingClientRect().top + window.scrollY;
+      });
     expect(top).toBeLessThanOrEqual(1200);
   });
 
@@ -208,15 +211,11 @@ test.describe('home page', () => {
     const main = page.locator('#main-content');
     await main.getByRole('link', { name: /Kinematics Playground/ }).click();
     await expect(page).toHaveURL(/\/playground\/?$/);
-    await expect(
-      page.getByRole('heading', { level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await page.goto('/');
     await main.getByRole('link', { name: /Market Map/ }).click();
     await expect(page).toHaveURL(/\/market-map\/?$/);
-    await expect(
-      page.getByRole('heading', { level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('bordered boxes inside main are bounded', async ({ page }) => {
@@ -235,22 +234,25 @@ test.describe('home page', () => {
     page,
   }) => {
     await page.goto('/');
-    const counts = await page.evaluate((names) => {
-      const normalize = (s: string) =>
-        s
-          .toLowerCase()
-          .replace(/[^a-z0-9 ]/g, ' ')
-          .replace(/\s+/g, ' ')
-          .trim();
-      const result: Record<string, number> = {};
-      const anchors = Array.from(document.querySelectorAll('a'));
-      for (const name of names) {
-        result[name] = anchors.filter(
-          (a) => normalize(a.textContent ?? '') === normalize(name),
-        ).length;
-      }
-      return result;
-    }, DOMAIN_ENTRIES.map(([name]) => name));
+    const counts = await page.evaluate(
+      (names) => {
+        const normalize = (s: string) =>
+          s
+            .toLowerCase()
+            .replace(/[^a-z0-9 ]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+        const result: Record<string, number> = {};
+        const anchors = Array.from(document.querySelectorAll('a'));
+        for (const name of names) {
+          result[name] = anchors.filter(
+            (a) => normalize(a.textContent ?? '') === normalize(name),
+          ).length;
+        }
+        return result;
+      },
+      DOMAIN_ENTRIES.map(([name]) => name),
+    );
     for (const [name, count] of Object.entries(counts)) {
       expect(count, `${name} anchor occurrences`).toBeLessThanOrEqual(2);
     }
@@ -303,9 +305,7 @@ test.describe('home page', () => {
       .first();
     await link.click();
     await expect(page).toHaveURL(/\/manipulation\/action-chunking\/?$/);
-    await expect(
-      page.getByRole('heading', { level: 1 }),
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('no horizontal overflow at 375px and the index reflows', async ({

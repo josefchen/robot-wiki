@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import {
+  Breadcrumbs,
+  breadcrumbJsonLd,
+} from '@/components/article/breadcrumbs';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
 import { buildAzIndex, type AzIndexSourceEntry } from '@/lib/az-index';
@@ -61,8 +64,8 @@ export default function AzIndexPage() {
         </p>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           Every article in the wiki and every glossary term, filed
-          alphabetically. Articles are labelled with their domain; terms link
-          to their entry in the glossary.
+          alphabetically. Articles are labelled with their domain; terms link to
+          their entry in the glossary.
         </p>
       </header>
 

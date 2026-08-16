@@ -187,9 +187,7 @@ export function FrictionTransfer({
         <span className="text-text-dim">
           edge:{' '}
           <span data-testid="delta-readout" className="text-text">
-            {deltaPts >= 0
-              ? `DR +${deltaPts} pts`
-              : `point +${-deltaPts} pts`}
+            {deltaPts >= 0 ? `DR +${deltaPts} pts` : `point +${-deltaPts} pts`}
           </span>
         </span>
       </div>
@@ -441,7 +439,7 @@ export function FrictionTransfer({
       >
         {insideBand
           ? 'The real robot sits inside the training distribution, where the point-trained policy wins: specializing at one friction bought it a higher peak than any robust policy reaches. Move the line outside the shaded band and the ranking flips.'
-          : 'The real robot sits outside the point policy\'s narrow spike, so its success collapses while the distribution-trained policy still covers this friction. That wider basin is what domain randomization buys; the lower plateau is what it costs.'}
+          : "The real robot sits outside the point policy's narrow spike, so its success collapses while the distribution-trained policy still covers this friction. That wider basin is what domain randomization buys; the lower plateau is what it costs."}
       </p>
     </div>
   );

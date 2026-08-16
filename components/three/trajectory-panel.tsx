@@ -66,8 +66,8 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
         </span>
       </div>
       <p className="mt-2 text-xs leading-relaxed text-text-dim">
-        Record poses as keyframes, then play them back with eased
-        interpolation. Trajectories export and import as JSON.
+        Record poses as keyframes, then play them back with eased interpolation.
+        Trajectories export and import as JSON.
       </p>
 
       <div className="mt-3 flex flex-wrap gap-2">
@@ -220,7 +220,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
             onChange={(event) => setImportText(event.target.value)}
             rows={6}
             aria-label="Trajectory JSON to import"
-            placeholder='Paste a trajectory JSON file here'
+            placeholder="Paste a trajectory JSON file here"
             className="mt-2 w-full rounded-sm border border-border bg-bg px-2 py-1.5 font-mono text-[11px] leading-relaxed text-text placeholder:text-text-dim"
           />
           <input

@@ -125,8 +125,7 @@ export function EgoScaleScaling({ className }: { className?: string }) {
 
   /** Hours at which the completion fit hits 100%: beyond it is impossible. */
   const impossibleHours =
-    1000 *
-    Math.exp((1 - COMPLETION_FIT.intercept) / COMPLETION_FIT.slope);
+    1000 * Math.exp((1 - COMPLETION_FIT.intercept) / COMPLETION_FIT.slope);
   const pastImpossible = fitAtHorizon > 1;
 
   const measuredLossPath = trace(
@@ -231,8 +230,8 @@ export function EgoScaleScaling({ className }: { className?: string }) {
         <span className="text-text-dim">
           completion fit:{' '}
           <span data-testid="completion-readout" className="text-text">
-            {formatScore(fitAtHorizon)} holds / {formatScore(plateauScoreAtHorizon)}{' '}
-            plateau, {barRelation}
+            {formatScore(fitAtHorizon)} holds /{' '}
+            {formatScore(plateauScoreAtHorizon)} plateau, {barRelation}
           </span>
         </span>
       </div>
@@ -546,8 +545,8 @@ export function EgoScaleScaling({ className }: { className?: string }) {
           </>
         ) : (
           <span className="text-text-dim">
-            At {formatHours(horizon)}: the end of the measured range.
-            Everything past here is extrapolation.
+            At {formatHours(horizon)}: the end of the measured range. Everything
+            past here is extrapolation.
           </span>
         )}
       </p>
@@ -559,9 +558,9 @@ export function EgoScaleScaling({ className }: { className?: string }) {
         {R_SQUARED}) is fit to held-out human-video validation loss, a proxy
         that correlates with downstream robot performance but is not a
         real-world success rate across unseen environments. The band brackets
-        two scenarios, continued scaling versus plateau; it is not a
-        confidence interval. EgoScale&apos;s authors report no saturation in
-        the measured range and do not extrapolate beyond it.
+        two scenarios, continued scaling versus plateau; it is not a confidence
+        interval. EgoScale&apos;s authors report no saturation in the measured
+        range and do not extrapolate beyond it.
       </p>
     </div>
   );

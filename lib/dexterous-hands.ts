@@ -100,7 +100,7 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     costSort: null,
     bet: 'vision-tactile',
     tradeoff:
-      'The most sensitive first-party fingertip spec here (3 g) plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03\'s count is not disclosed.',
+      "The most sensitive first-party fingertip spec here (3 g) plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03's count is not disclosed.",
     sourceId: 'helix-02-2026',
     sourceLabel: 'Figure AI',
     secondarySourceId: 'figure-02-2024',
@@ -183,12 +183,14 @@ export function defaultDirectionFor(key: HandSortKey): SortDirection {
   return key === 'dof' ? 'desc' : 'asc';
 }
 
-const SORT_ACCESSOR: Record<HandSortKey, (hand: DexterousHand) => number | null> =
-  {
-    dof: (hand) => hand.dofSort,
-    tactile: (hand) => hand.tactileSort,
-    cost: (hand) => hand.costSort,
-  };
+const SORT_ACCESSOR: Record<
+  HandSortKey,
+  (hand: DexterousHand) => number | null
+> = {
+  dof: (hand) => hand.dofSort,
+  tactile: (hand) => hand.tactileSort,
+  cost: (hand) => hand.costSort,
+};
 
 /**
  * Sort rows by a spec dimension. Nulls (undisclosed specs) always sort last,

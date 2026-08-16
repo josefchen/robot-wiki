@@ -119,7 +119,10 @@ async function fetchStatus(
  * Returns null when Crossref cannot answer (network failure, unparseable
  * payload); the caller then leaves the original verdict in place.
  */
-async function fetchCrossrefWork(doi: string, timeoutMs: number): Promise<CrossrefWork | null> {
+async function fetchCrossrefWork(
+  doi: string,
+  timeoutMs: number,
+): Promise<CrossrefWork | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -140,11 +143,18 @@ async function fetchCrossrefWork(doi: string, timeoutMs: number): Promise<Crossr
   }
 }
 
-async function checkOne(citation: Citation, timeoutMs: number): Promise<LinkCheckResult> {
+async function checkOne(
+  citation: Citation,
+  timeoutMs: number,
+): Promise<LinkCheckResult> {
   const { id, url } = citation;
   // One probe of the URL: HEAD, with a GET fallback for HEAD-hostile or
   // bot-walled servers. A network-level failure yields status 0.
-  const attempt = async (): Promise<{ status: number; finalUrl: string; error?: string }> => {
+  const attempt = async (): Promise<{
+    status: number;
+    finalUrl: string;
+    error?: string;
+  }> => {
     try {
       let result = await fetchStatus(url, 'HEAD', timeoutMs);
       if (shouldFallbackToGet(result.status)) {
@@ -250,21 +260,30 @@ function summarize(results: LinkCheckResult[]): Summary {
   return counts;
 }
 
-function reportText(results: LinkCheckResult[], staleExceptions: string[]): void {
+function reportText(
+  results: LinkCheckResult[],
+  staleExceptions: string[],
+): void {
   const counts = summarize(results);
   const crossrefNote =
-    counts.crossrefVerified > 0 ? ` (${counts.crossrefVerified} verified via Crossref)` : '';
+    counts.crossrefVerified > 0
+      ? ` (${counts.crossrefVerified} verified via Crossref)`
+      : '';
   console.log(
     `Checked ${counts.checked}: ${counts.live} live${crossrefNote}, ${counts.dead} dead, ` +
       `${counts.blocked} blocked, ${counts.error} error, ${counts.exceptions} documented exceptions.`,
   );
   for (const result of results) {
     if (result.resolvedBy === 'crossref') {
-      console.log(`  [CROSSREF] ${result.id}: ${result.url} (${result.resolutionNote})`);
+      console.log(
+        `  [CROSSREF] ${result.id}: ${result.url} (${result.resolutionNote})`,
+      );
       continue;
     }
     if (result.resolvedBy === 'exception') {
-      console.log(`  [EXCEPTION] ${result.id}: ${result.url} (${result.resolutionNote})`);
+      console.log(
+        `  [EXCEPTION] ${result.id}: ${result.url} (${result.resolutionNote})`,
+      );
       continue;
     }
     if (result.verdict === 'live') continue;
@@ -288,24 +307,35 @@ async function main(): Promise<void> {
   // exception with no recorded evidence is a suppressed failure, so the
   // check fails fast and says why.
   const citationIds = new Set(CITATIONS.map((c) => c.id));
-  const exceptionProblems = validateExceptions(LINK_CHECK_EXCEPTIONS, citationIds);
+  const exceptionProblems = validateExceptions(
+    LINK_CHECK_EXCEPTIONS,
+    citationIds,
+  );
   if (exceptionProblems.length > 0) {
-    console.error('The known-exception list (data/link-check-exceptions.ts) is not valid:');
+    console.error(
+      'The known-exception list (data/link-check-exceptions.ts) is not valid:',
+    );
     for (const problem of exceptionProblems) {
       console.error(`  - ${problem}`);
     }
     process.exit(1);
   }
 
-  const entries = CITATIONS.filter((c) => !options.onlyId || c.id === options.onlyId);
+  const entries = CITATIONS.filter(
+    (c) => !options.onlyId || c.id === options.onlyId,
+  );
   if (entries.length === 0) {
-    console.error(`No citation matched${options.onlyId ? ` id '${options.onlyId}'` : ''}.`);
+    console.error(
+      `No citation matched${options.onlyId ? ` id '${options.onlyId}'` : ''}.`,
+    );
     process.exit(2);
   }
 
   const exceptionsById = new Map(LINK_CHECK_EXCEPTIONS.map((e) => [e.id, e]));
   const rawResults = await sweep(entries, options);
-  const results = rawResults.map((r) => applyException(r, exceptionsById.get(r.id)));
+  const results = rawResults.map((r) =>
+    applyException(r, exceptionsById.get(r.id)),
+  );
   // An exception whose URL now passes (unaided or via Crossref) is leftover
   // paperwork, not a failure; surface it so the list stays honest.
   const staleExceptions = results
@@ -314,12 +344,19 @@ async function main(): Promise<void> {
 
   if (options.json) {
     console.log(
-      JSON.stringify({ summary: summarize(results), staleExceptions, results }, null, 2),
+      JSON.stringify(
+        { summary: summarize(results), staleExceptions, results },
+        null,
+        2,
+      ),
     );
   } else {
     reportText(results, staleExceptions);
   }
-  if (results.some((r) => r.verdict === 'dead') || results.some(isUnexplained)) {
+  if (
+    results.some((r) => r.verdict === 'dead') ||
+    results.some(isUnexplained)
+  ) {
     process.exit(1);
   }
 }

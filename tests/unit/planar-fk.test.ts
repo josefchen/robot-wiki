@@ -48,7 +48,11 @@ describe('planarForwardKinematics', () => {
     for (const a1 of [-180, -90, -30, 0, 45, 90, 135, 180]) {
       for (const a2 of [-135, -45, 0, 45, 135]) {
         for (const a3 of [-90, 0, 90]) {
-          const { effector } = planarForwardKinematics(LINK_LENGTHS, [a1, a2, a3]);
+          const { effector } = planarForwardKinematics(LINK_LENGTHS, [
+            a1,
+            a2,
+            a3,
+          ]);
           const r = Math.hypot(effector.x, effector.y);
           expect(r).toBeLessThanOrEqual(reach + 1e-9);
         }
@@ -71,7 +75,9 @@ describe('module defaults', () => {
   });
 
   it('keeps the default pose strictly inside the workspace', () => {
-    const { effector } = planarForwardKinematics(LINK_LENGTHS, [...DEFAULT_ANGLES_DEG]);
+    const { effector } = planarForwardKinematics(LINK_LENGTHS, [
+      ...DEFAULT_ANGLES_DEG,
+    ]);
     const r = Math.hypot(effector.x, effector.y);
     expect(r).toBeGreaterThan(0);
     expect(r).toBeLessThan(totalReach(LINK_LENGTHS));

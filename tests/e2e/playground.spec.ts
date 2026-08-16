@@ -197,9 +197,7 @@ test.describe('3D playground scene and model', () => {
     const { consoleErrors, pageErrors } = collectErrors(page);
     await page.goto('/playground');
 
-    await expect(
-      page.getByText(/WebGL is not available/i),
-    ).toBeVisible();
+    await expect(page.getByText(/WebGL is not available/i)).toBeVisible();
     await expect(page.locator('canvas')).toHaveCount(0);
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);

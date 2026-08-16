@@ -71,7 +71,10 @@ function plottedValueLabel(point: BubblePoint): string {
     : `total raised ${formatUsd(point.yUsd)}`;
 }
 
-export function BubbleView({ companies, highlightedId = null }: BubbleViewProps) {
+export function BubbleView({
+  companies,
+  highlightedId = null,
+}: BubbleViewProps) {
   const clipId = useId();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   // Hover and focus reveal the same label (parity) but stay separate
@@ -123,10 +126,7 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
     ];
     const yMin = Math.min(...values);
     const yMax = Math.max(...values);
-    const yDomain: [number, number] = [
-      Math.max(1, yMin / 1.4),
-      yMax * 1.4,
-    ];
+    const yDomain: [number, number] = [Math.max(1, yMin / 1.4), yMax * 1.4];
     const innerW = WIDTH - PAD.left - PAD.right;
     const innerH = HEIGHT - PAD.top - PAD.bottom;
     const placed = points.map((point) => ({
@@ -182,7 +182,10 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
         select it for the full detail.
       </p>
       {excluded > 0 ? (
-        <p data-bubble-excluded className="mt-1 font-mono text-xs text-text-dim">
+        <p
+          data-bubble-excluded
+          className="mt-1 font-mono text-xs text-text-dim"
+        >
           {excluded} {excluded === 1 ? 'company' : 'companies'} excluded for
           missing founding year or funding
         </p>
@@ -380,17 +383,17 @@ const LABEL_H = 30;
  * part of the chart rather than a floating UI panel. Clamped inside the
  * viewBox and drawn on top of the grid, below the marks.
  */
-function MarkLabel({ point }: { point: BubblePoint & { cx: number; cy: number } }) {
+function MarkLabel({
+  point,
+}: {
+  point: BubblePoint & { cx: number; cy: number };
+}) {
   const x = Math.min(Math.max(point.cx, PAD.left + 4), WIDTH - PAD.right - 4);
   const anchor = point.cx > WIDTH / 2 ? 'end' : 'start';
   const above = point.cy > PAD.top + LABEL_H + 8;
   const y = above ? point.cy - 12 : point.cy + 18;
   return (
-    <g
-      data-bubble-label
-      pointerEvents="none"
-      aria-hidden="true"
-    >
+    <g data-bubble-label pointerEvents="none" aria-hidden="true">
       <text
         x={x}
         y={y}

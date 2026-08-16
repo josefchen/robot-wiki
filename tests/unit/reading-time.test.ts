@@ -44,15 +44,17 @@ describe('readingTimeMinutes', () => {
   it('stays within one minute of the exact rate for any word count', () => {
     for (const words of [0, 1, 100, 199, 200, 201, 999, 1234, 5000, 12345]) {
       const minutes = readingTimeMinutes(words);
-      expect(Math.abs(minutes - words / WORDS_PER_MINUTE)).toBeLessThanOrEqual(1);
+      expect(Math.abs(minutes - words / WORDS_PER_MINUTE)).toBeLessThanOrEqual(
+        1,
+      );
     }
   });
 
   it('word counts two full minutes apart never collapse to the same value', () => {
     for (let words = 0; words < 6000; words += 137) {
-      expect(
-        readingTimeMinutes(words + 2 * WORDS_PER_MINUTE),
-      ).toBeGreaterThan(readingTimeMinutes(words));
+      expect(readingTimeMinutes(words + 2 * WORDS_PER_MINUTE)).toBeGreaterThan(
+        readingTimeMinutes(words),
+      );
     }
   });
 });
@@ -203,7 +205,9 @@ describe('countVisibleWords', () => {
     // Identical atom-class markup outside a KaTeX visual layer keeps the
     // walker's default per-tag split: non-math text handling is untouched.
     expect(
-      countVisibleWords('<p><span class="mord">a</span><span class="mord">b</span></p>'),
+      countVisibleWords(
+        '<p><span class="mord">a</span><span class="mord">b</span></p>',
+      ),
     ).toBe(2);
     expect(
       countVisibleWords(
@@ -250,7 +254,9 @@ describe('countVisibleWords', () => {
 describe('countWordsInMdxSource', () => {
   it('counts prose text with markdown syntax removed', () => {
     expect(
-      countWordsInMdxSource('## ACT: chunking\n\nThe encoder reads the sequence.'),
+      countWordsInMdxSource(
+        '## ACT: chunking\n\nThe encoder reads the sequence.',
+      ),
     ).toBe(7);
   });
 
@@ -268,23 +274,26 @@ describe('countWordsInMdxSource', () => {
   });
 
   it('keeps fenced and inline code content', () => {
-    const body = 'Run `npm install` then:\n\n```bash\nnode scripts/run.ts\n```\n';
+    const body =
+      'Run `npm install` then:\n\n```bash\nnode scripts/run.ts\n```\n';
     expect(countWordsInMdxSource(body)).toBe(6);
   });
 
   it('drops JSX tags but keeps their children', () => {
     expect(
-      countWordsInMdxSource('<Callout variant="info">Chunking commits early.</Callout>'),
+      countWordsInMdxSource(
+        '<Callout variant="info">Chunking commits early.</Callout>',
+      ),
     ).toBe(3);
   });
 
   it('strips emphasis markers without losing the words', () => {
-    expect(countWordsInMdxSource('This is **very** important _indeed_ now.')).toBe(6);
+    expect(
+      countWordsInMdxSource('This is **very** important _indeed_ now.'),
+    ).toBe(6);
   });
 
   it('returns zero for an empty body', () => {
     expect(countWordsInMdxSource('')).toBe(0);
   });
 });
-
-

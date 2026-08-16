@@ -100,14 +100,25 @@ async function get(path: string): Promise<{ status: number; body: string }> {
 // sentinel as the real registry entry: with no drafts the suite is skipped
 // and the sentinel's fields are never read.
 import type { ModuleRegistryEntry } from '@/data/modules';
-const PROBE_SENTINEL: ModuleRegistryEntry =
-  probe ?? { domain: 'adjacent', slug: '', title: '', summary: '', order: 0, status: 'draft' };
+const PROBE_SENTINEL: ModuleRegistryEntry = probe ?? {
+  domain: 'adjacent',
+  slug: '',
+  title: '',
+  summary: '',
+  order: 0,
+  status: 'draft',
+};
 
 describe.skipIf(probe === undefined)(
   'draft-probe propagation (VAL-CROSS-029)',
   () => {
     const key = `${PROBE_SENTINEL.domain}/${PROBE_SENTINEL.slug}`;
-    const probeFile = join(ROOT, 'content', PROBE_SENTINEL.domain, `${PROBE_SENTINEL.slug}.mdx`);
+    const probeFile = join(
+      ROOT,
+      'content',
+      PROBE_SENTINEL.domain,
+      `${PROBE_SENTINEL.slug}.mdx`,
+    );
     let originalModulesTs: string;
     let server: StaticExportServer;
     let browser: Browser;
@@ -165,7 +176,14 @@ source so the content gate treats it as an ordinary article
 
       build();
       expect(
-        existsSync(join(PROBE_DIST, PROBE_SENTINEL.domain, PROBE_SENTINEL.slug, 'index.html')),
+        existsSync(
+          join(
+            PROBE_DIST,
+            PROBE_SENTINEL.domain,
+            PROBE_SENTINEL.slug,
+            'index.html',
+          ),
+        ),
       ).toBe(true);
 
       server = await startStaticExportServer(PROBE_DIST, PORT);
@@ -208,7 +226,10 @@ source so the content gate treats it as an ordinary article
       expect(body).toContain(`/${key}/`);
       expect(body).toContain(PROBE_SENTINEL.title);
       await page.goto(`${BASE}/a-z/`);
-      await page.screenshot({ path: `${SCREENSHOT_DIR}/a-z-published.png`, fullPage: false });
+      await page.screenshot({
+        path: `${SCREENSHOT_DIR}/a-z-published.png`,
+        fullPage: false,
+      });
     });
 
     it('appears on its domain landing page', async () => {
@@ -242,41 +263,37 @@ source so the content gate treats it as an ordinary article
       await page.screenshot({ path: `${SCREENSHOT_DIR}/search-published.png` });
     });
 
-    it(
-      'reverting the flip removes the probe from every surface',
-      async () => {
-        restoreFiles();
-        build();
+    it('reverting the flip removes the probe from every surface', async () => {
+      restoreFiles();
+      build();
 
-        // Route 404s again.
-        const route = await get(`/${key}/`);
-        expect(route.status).toBe(404);
+      // Route 404s again.
+      const route = await get(`/${key}/`);
+      expect(route.status).toBe(404);
 
-        // Static surfaces no longer reference it.
-        for (const path of ['/', '/a-z/', `/${PROBE_SENTINEL.domain}/`]) {
-          const { body } = await get(path);
-          expect(body).not.toContain(`/${key}/`);
-        }
-        const sitemap = await get('/sitemap.xml');
-        expect(sitemap.body).not.toContain(`/${key}/`);
+      // Static surfaces no longer reference it.
+      for (const path of ['/', '/a-z/', `/${PROBE_SENTINEL.domain}/`]) {
+        const { body } = await get(path);
+        expect(body).not.toContain(`/${key}/`);
+      }
+      const sitemap = await get('/sitemap.xml');
+      expect(sitemap.body).not.toContain(`/${key}/`);
 
-        // The backlink on kinematics is gone.
-        const kinematics = await get('/classical/kinematics/');
-        const linkedFrom = kinematics.body.match(
-          /data-section="linked-from"[\s\S]*?<\/section>/,
-        );
-        if (linkedFrom) {
-          expect(linkedFrom[0]).not.toContain(`/${key}/`);
-        }
+      // The backlink on kinematics is gone.
+      const kinematics = await get('/classical/kinematics/');
+      const linkedFrom = kinematics.body.match(
+        /data-section="linked-from"[\s\S]*?<\/section>/,
+      );
+      if (linkedFrom) {
+        expect(linkedFrom[0]).not.toContain(`/${key}/`);
+      }
 
-        // The search index no longer returns it.
-        await page.goto(`${BASE}/search/?q=${encodeURIComponent(MARKER)}`);
-        await pwExpect(
-          page.getByText(/No module prose matches/i).first(),
-        ).toBeVisible({ timeout: 20_000 });
-        await pwExpect(page.locator(`a[href="/${key}/"]`)).toHaveCount(0);
-      },
-      420_000,
-    );
+      // The search index no longer returns it.
+      await page.goto(`${BASE}/search/?q=${encodeURIComponent(MARKER)}`);
+      await pwExpect(
+        page.getByText(/No module prose matches/i).first(),
+      ).toBeVisible({ timeout: 20_000 });
+      await pwExpect(page.locator(`a[href="/${key}/"]`)).toHaveCount(0);
+    }, 420_000);
   },
 );

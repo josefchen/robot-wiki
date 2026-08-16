@@ -82,7 +82,9 @@ test.describe('adjacent space module', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1126/scirobotics.adi3099');
     // ISRU area: MOXIE completion and the PRIME-1 lunar drill.
     await expect(
-      prose.getByRole('link', { name: 'NASA Jet Propulsion Laboratory 2023' }).first(),
+      prose
+        .getByRole('link', { name: 'NASA Jet Propulsion Laboratory 2023' })
+        .first(),
     ).toHaveAttribute(
       'href',
       'https://www.jpl.nasa.gov/news/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/',
@@ -245,7 +247,9 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
         // (verified identical on the previously validated drones and
         // surgical pages); a client-side cancel is not a failed request.
         if (req.failure()?.errorText !== 'net::ERR_ABORTED') {
-          errors.push(`requestfailed: ${req.url()} :: ${req.failure()?.errorText}`);
+          errors.push(
+            `requestfailed: ${req.url()} :: ${req.failure()?.errorText}`,
+          );
         }
       });
       await page.goto(ADJACENT_ROUTES[i]);

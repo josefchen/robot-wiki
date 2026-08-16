@@ -3,7 +3,10 @@ import AxeBuilder from '@axe-core/playwright';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, publishedModules } from '../../data/modules';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Registry-driven global sweep (VAL-A11Y-017, VAL-CROSS-018): axe-core with
@@ -78,14 +81,17 @@ function observe(page: Page): RouteObservations {
   });
   page.on('pageerror', (err) => consoleErrors.push(String(err)));
   page.on('response', (res) => {
-    if (res.status() >= 400) failedRequests.push(`${res.status()} ${res.url()}`);
+    if (res.status() >= 400)
+      failedRequests.push(`${res.status()} ${res.url()}`);
   });
   return { consoleErrors, failedRequests };
 }
 
 test.describe('registry-driven axe + console sweep', () => {
   for (const route of ROUTES) {
-    test(`zero axe violations, zero console errors: ${route}`, async ({ page }) => {
+    test(`zero axe violations, zero console errors: ${route}`, async ({
+      page,
+    }) => {
       // axe's color-contrast pass on the largest table pages (datasets,
       // hardware guide) can take tens of seconds under SwiftShader; the
       // 30s default is not enough for them.
@@ -106,14 +112,10 @@ test.describe('registry-driven axe + console sweep', () => {
         )}`,
       ).toEqual([]);
 
-      expect(
-        observed.consoleErrors,
-        `console errors on ${route}`,
-      ).toEqual([]);
-      expect(
-        observed.failedRequests,
-        `failed requests on ${route}`,
-      ).toEqual([]);
+      expect(observed.consoleErrors, `console errors on ${route}`).toEqual([]);
+      expect(observed.failedRequests, `failed requests on ${route}`).toEqual(
+        [],
+      );
 
       // Dark theme invariant (VAL-CROSS-020): the page background is the
       // dark token after full load; no unthemed default-white page.
@@ -124,7 +126,9 @@ test.describe('registry-driven axe + console sweep', () => {
     });
   }
 
-  test('search with an executed query stays clean (VAL-A11Y-013)', async ({ page }) => {
+  test('search with an executed query stays clean (VAL-A11Y-013)', async ({
+    page,
+  }) => {
     const observed = observe(page);
     await page.goto(`${BASE}/search/`);
     const box = page.getByRole('searchbox', { name: /search/i }).first();
@@ -136,7 +140,9 @@ test.describe('registry-driven axe + console sweep', () => {
     expect(observed.failedRequests).toEqual([]);
   });
 
-  test('the three typefaces resolve on home and a module page (VAL-A11Y-014)', async ({ page }) => {
+  test('the three typefaces resolve on home and a module page (VAL-A11Y-014)', async ({
+    page,
+  }) => {
     // Serif long-form prose only exists on article routes; the home page
     // carries the sans UI and mono readouts.
     for (const route of ['/', '/manipulation/action-chunking/']) {
@@ -145,21 +151,28 @@ test.describe('registry-driven axe + console sweep', () => {
       const fonts = await page.evaluate(() => ({
         sans: getComputedStyle(document.body).fontFamily,
         serif: getComputedStyle(
-          document.querySelector('.prose[data-pagefind-body] p, .prose p') ?? document.body,
+          document.querySelector('.prose[data-pagefind-body] p, .prose p') ??
+            document.body,
         ).fontFamily,
         mono: getComputedStyle(
           document.querySelector('pre, code, .font-mono') ?? document.body,
         ).fontFamily,
       }));
       expect(fonts.sans, `${route} UI text uses Geist Sans`).toMatch(/Geist/i);
-      expect(fonts.mono, `${route} code uses JetBrains Mono`).toMatch(/JetBrains/i);
+      expect(fonts.mono, `${route} code uses JetBrains Mono`).toMatch(
+        /JetBrains/i,
+      );
       if (route !== '/') {
-        expect(fonts.serif, `${route} prose uses Source Serif`).toMatch(/Source Serif/i);
+        expect(fonts.serif, `${route} prose uses Source Serif`).toMatch(
+          /Source Serif/i,
+        );
       }
     }
   });
 
-  test('the 404 page is axe-clean and console-clean through the host fallback', async ({ page }) => {
+  test('the 404 page is axe-clean and console-clean through the host fallback', async ({
+    page,
+  }) => {
     // Request an unknown path (not /404/ directly) so the server behaves
     // like a real host: 404 status + themed document, guard redirect to
     // /404/, then hydration. This is the VAL-CROSS-025 surface.
@@ -185,7 +198,9 @@ test.describe('registry-driven axe + console sweep', () => {
       'no non-404 console errors on the 404 flow',
     ).toEqual([]);
     expect(
-      observed.failedRequests.filter((f) => !f.includes('/manipulation/does-not-exist')),
+      observed.failedRequests.filter(
+        (f) => !f.includes('/manipulation/does-not-exist'),
+      ),
       'no failed asset requests on the 404 flow',
     ).toEqual([]);
     const bg = await page.evaluate(
@@ -214,14 +229,19 @@ test.describe('responsive viewports (VAL-CROSS-019)', () => {
     [1280, 800],
   ] as const) {
     for (const [route, label] of SAMPLED) {
-      test(`no horizontal overflow at ${width}px on the ${label}`, async ({ page }) => {
+      test(`no horizontal overflow at ${width}px on the ${label}`, async ({
+        page,
+      }) => {
         await page.setViewportSize({ width, height });
         await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
         await page.waitForTimeout(300);
         const overflow = await page.evaluate(
           () => document.documentElement.scrollWidth - window.innerWidth,
         );
-        expect(overflow, `${label} overflows at ${width}px`).toBeLessThanOrEqual(0);
+        expect(
+          overflow,
+          `${label} overflows at ${width}px`,
+        ).toBeLessThanOrEqual(0);
       });
     }
   }
@@ -247,8 +267,13 @@ test.describe('sitemap routes agree with the registry', () => {
   test('every sitemap loc is covered by this sweep', () => {
     const xml = readFileSync(join(OUT, 'sitemap.xml'), 'utf8');
     const swept = new Set(ROUTES);
-    for (const match of xml.matchAll(/<loc>[^<]*robot-wiki\.com([^<]*)<\/loc>/g)) {
-      expect(swept, `sitemap loc ${match[1]} missing from the sweep route set`).toContain(match[1]);
+    for (const match of xml.matchAll(
+      /<loc>[^<]*robot-wiki\.com([^<]*)<\/loc>/g,
+    )) {
+      expect(
+        swept,
+        `sitemap loc ${match[1]} missing from the sweep route set`,
+      ).toContain(match[1]);
     }
   });
 });

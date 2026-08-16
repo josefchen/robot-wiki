@@ -15,7 +15,11 @@ export default defineConfig({
     launchOptions: {
       // Headless Chromium needs these flags to get a WebGL context
       // (see research/06-stack-feasibility.md).
-      args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+      args: [
+        '--use-gl=angle',
+        '--use-angle=swiftshader',
+        '--enable-unsafe-swiftshader',
+      ],
     },
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],

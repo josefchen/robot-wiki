@@ -375,7 +375,8 @@ export const HARDWARE: HardwareEntry[] = [
     dof: 56,
     dofNote: 'Continuous rotation at key joints',
     availability: 'contact',
-    availabilityNote: 'All 2026 builds committed to Hyundai and Google DeepMind',
+    availabilityNote:
+      'All 2026 builds committed to Hyundai and Google DeepMind',
     highlight: '1.9 m, 90 kg; 50 kg instant payload, IP67',
     url: 'https://bostondynamics.com/products/atlas/',
     sources: ['bd-atlas-2026', 'robozaps-humanoids-2026'],

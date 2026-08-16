@@ -107,11 +107,7 @@ describe('buildRrt', () => {
 
 describe('segmentFree', () => {
   it('rejects a segment through a circle obstacle', () => {
-    const through = segmentFree(
-      RRT_SCENE,
-      { x: 46, y: 42 },
-      { x: 58, y: 42 },
-    );
+    const through = segmentFree(RRT_SCENE, { x: 46, y: 42 }, { x: 58, y: 42 });
     expect(through).toBe(false);
   });
 
@@ -132,9 +128,9 @@ describe('pointInObstacle', () => {
   it('detects points inside circles and rects', () => {
     const circle = RRT_SCENE.obstacles.find((o) => o.kind === 'circle');
     const rect = RRT_SCENE.obstacles.find((o) => o.kind === 'rect');
-    expect(circle && pointInObstacle(circle, { x: circle.x, y: circle.y })).toBe(
-      true,
-    );
+    expect(
+      circle && pointInObstacle(circle, { x: circle.x, y: circle.y }),
+    ).toBe(true);
     expect(
       rect &&
         pointInObstacle(rect, {

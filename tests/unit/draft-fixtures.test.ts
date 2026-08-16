@@ -17,7 +17,14 @@ function entry(
   status: ModuleRegistryEntry['status'],
   order = 1,
 ): ModuleRegistryEntry {
-  return { domain, slug, title: `${slug} title`, summary: 'summary', order, status };
+  return {
+    domain,
+    slug,
+    title: `${slug} title`,
+    summary: 'summary',
+    order,
+    status,
+  };
 }
 
 function setRegistry(entries: ModuleRegistryEntry[]): void {

@@ -10,7 +10,9 @@ test.describe('frontier dexterity module', () => {
     const errors: string[] = [];
     page.on('pageerror', (err) => errors.push(err.message));
     await page.goto(ROUTE);
-    await expect(page.getByRole('heading', { level: 1, name: 'Dexterity' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Dexterity' }),
+    ).toBeVisible();
     const main = page.locator('#main-content');
     const mainText = (await main.textContent()) ?? '';
 
@@ -27,7 +29,9 @@ test.describe('frontier dexterity module', () => {
         name: 'Deformables and the long tail',
       }),
     ).toBeVisible();
-    expect(await main.getByRole('heading', { level: 2 }).count()).toBeGreaterThanOrEqual(6);
+    expect(
+      await main.getByRole('heading', { level: 2 }).count(),
+    ).toBeGreaterThanOrEqual(6);
     expect(mainText.length).toBeGreaterThan(4000);
     expect(mainText).toMatch(/contact-rich manipulation/i);
     expect(mainText).toMatch(/in-hand manipulation/i);
@@ -66,7 +70,9 @@ test.describe('frontier dexterity module', () => {
     await expect(
       main.getByRole('heading', { level: 2, name: 'The bet against touch' }),
     ).toBeVisible();
-    expect(mainText).toMatch(/Tesla has shifted Optimus training to a vision-only approach/);
+    expect(mainText).toMatch(
+      /Tesla has shifted Optimus training to a vision-only approach/,
+    );
     expect(mainText).toMatch(/Project Go-Big/);
     expect(mainText).toMatch(/100% egocentric human video/);
 
@@ -81,32 +87,46 @@ test.describe('frontier dexterity module', () => {
     // The intermediate 2026 state: tactile hardware ships, but no tactile
     // training pipeline at vision scale exists yet.
     expect(mainText).toMatch(/Figure 03 ships fingertip tactile sensors/);
-    expect(mainText).toMatch(/Gemini Robotics 2 drives the 22-DoF SharpaWave hand/);
-    expect(mainText).toMatch(/does not exist yet is a tactile training pipeline/);
+    expect(mainText).toMatch(
+      /Gemini Robotics 2 drives the 22-DoF SharpaWave hand/,
+    );
+    expect(mainText).toMatch(
+      /does not exist yet is a tactile training pipeline/,
+    );
 
     // The page does not declare the question resolved; it stays hedged.
     expect(mainText).toContain('The honest 2026 position is intermediate');
     expect(mainText).toContain('will be settled less by argument than');
     expect(mainText).toContain('Nobody is close');
-    expect(mainText).not.toMatch(/the (debate|question|dispute) is (settled|resolved|over)/i);
+    expect(mainText).not.toMatch(
+      /the (debate|question|dispute) is (settled|resolved|over)/i,
+    );
 
     // Each side carries at least one citation chip.
-    const betAgainst = main.getByRole('link', { name: 'Figure AI 2025' }).first();
+    const betAgainst = main
+      .getByRole('link', { name: 'Figure AI 2025' })
+      .first();
     await expect(betAgainst).toHaveAttribute(
       'href',
       'https://www.figure.ai/news/project-go-big',
     );
-    const betOnTouch = main.getByRole('link', { name: 'Sanctuary AI 2025' }).first();
+    const betOnTouch = main
+      .getByRole('link', { name: 'Sanctuary AI 2025' })
+      .first();
     await expect(betOnTouch).toHaveAttribute(
       'href',
       'https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/',
     );
   });
 
-  test('citation chips resolve and link externally (VAL-FRONT-003)', async ({ page }) => {
+  test('citation chips resolve and link externally (VAL-FRONT-003)', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
-    await expect(main.getByRole('link', { name: 'Brooks 2025' }).first()).toHaveAttribute(
+    await expect(
+      main.getByRole('link', { name: 'Brooks 2025' }).first(),
+    ).toHaveAttribute(
       'href',
       'https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/',
     );
@@ -121,7 +141,9 @@ test.describe('frontier dexterity module', () => {
     expect(await main.getByText(/unknown term:/).count()).toBe(0);
   });
 
-  test('hand comparison sorts, selects, and resets (VAL-FRONT-009)', async ({ page }) => {
+  test('hand comparison sorts, selects, and resets (VAL-FRONT-009)', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const panel = page.getByTestId('hand-comparison');
     await expect(panel).toBeVisible();
@@ -129,25 +151,39 @@ test.describe('frontier dexterity module', () => {
     const rowIds = () =>
       page
         .getByTestId(/^hand-row-/)
-        .evaluateAll((rows) => rows.map((row) => row.getAttribute('data-testid')));
+        .evaluateAll((rows) =>
+          rows.map((row) => row.getAttribute('data-testid')),
+        );
 
     // All five hands are present, with the specs the contract anchors on.
     await expect(page.getByTestId(/^hand-row-/)).toHaveCount(5);
-    await expect(page.getByTestId('hand-row-tesla-optimus-gen3')).toContainText('22');
+    await expect(page.getByTestId('hand-row-tesla-optimus-gen3')).toContainText(
+      '22',
+    );
     await expect(page.getByTestId('hand-row-tesla-optimus-gen3')).toContainText(
       'Tendon-driven',
     );
     await expect(page.getByTestId('hand-row-figure-02-03')).toContainText('16');
-    await expect(page.getByTestId('hand-row-figure-02-03')).toContainText('3 g');
-    await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText('~5 mN');
+    await expect(page.getByTestId('hand-row-figure-02-03')).toContainText(
+      '3 g',
+    );
+    await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText(
+      '~5 mN',
+    );
     await expect(page.getByTestId('hand-row-sanctuary-phoenix')).toContainText(
       'Hydraulic',
     );
-    await expect(page.getByTestId('hand-row-shadow-dexterous')).toContainText('€110,000');
-    await expect(page.getByTestId('hand-row-unitree-h2')).toContainText('$29,900');
+    await expect(page.getByTestId('hand-row-shadow-dexterous')).toContainText(
+      '€110,000',
+    );
+    await expect(page.getByTestId('hand-row-unitree-h2')).toContainText(
+      '$29,900',
+    );
 
     // Undisclosed specs render as "not disclosed", never as guessed numbers.
-    expect(await panel.getByText('not disclosed', { exact: true }).count()).toBe(6);
+    expect(
+      await panel.getByText('not disclosed', { exact: true }).count(),
+    ).toBe(6);
 
     // Default order: tactile threshold, most sensitive first; nulls last.
     await expect(readout).toHaveText(
@@ -183,7 +219,9 @@ test.describe('frontier dexterity module', () => {
     ]);
 
     // Keyboard operation: focus the header button and press Enter.
-    await page.getByRole('button', { name: 'Sort by tactile threshold' }).focus();
+    await page
+      .getByRole('button', { name: 'Sort by tactile threshold' })
+      .focus();
     await page.keyboard.press('Enter');
     await expect(readout).toHaveText(
       '5 hands, sorted by tactile threshold, most sensitive first',
@@ -213,7 +251,10 @@ test.describe('frontier dexterity module', () => {
       'unitree-h2',
     ]) {
       const row = page.getByTestId(`hand-row-${id}`);
-      await expect(row.getByRole('link').first()).toHaveAttribute('href', /^https:\/\//);
+      await expect(row.getByRole('link').first()).toHaveAttribute(
+        'href',
+        /^https:\/\//,
+      );
       await expect(row).toContainText(/[A-Z][a-z]{2} \d{4}/);
     }
 
@@ -222,7 +263,9 @@ test.describe('frontier dexterity module', () => {
     await expect(readout).toHaveText(
       '5 hands, sorted by tactile threshold, most sensitive first',
     );
-    await expect(selection).toContainText('Select hands to compare their trade-offs.');
+    await expect(selection).toContainText(
+      'Select hands to compare their trade-offs.',
+    );
     await expect(
       page.getByRole('button', { name: 'Select Optimus Gen 3 for comparison' }),
     ).toHaveAttribute('aria-pressed', 'false');

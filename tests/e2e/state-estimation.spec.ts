@@ -47,9 +47,7 @@ async function advanceSteps(page: Page, count: number) {
     name: /step the tracker/i,
   });
   await stepButton.click();
-  await expect(page.getByTestId('kalman-step-readout')).toHaveText(
-    '61 / 600',
-  );
+  await expect(page.getByTestId('kalman-step-readout')).toHaveText('61 / 600');
   for (let i = 1; i < count; i++) await stepButton.click();
 }
 
@@ -85,19 +83,34 @@ test.describe('classical state-estimation module', () => {
     // <Term> markup duplicates its text into a hidden tooltip, so match the
     // VISIBLE copy, not the first DOM hit.
     await expect(
-      main.getByText(/Kalman filter/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Kalman filter/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/extended Kalman filter/i).filter({ visible: true }).first(),
+      main
+        .getByText(/extended Kalman filter/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/factor graph/i).filter({ visible: true }).first(),
+      main
+        .getByText(/factor graph/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/Bayes filter/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Bayes filter/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/Riccati|sum-product/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Riccati|sum-product/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
@@ -125,10 +138,7 @@ test.describe('classical state-estimation module', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1115/1.3662552');
     await expect(
       main.getByRole('link', { name: 'McGee 1985' }).first(),
-    ).toHaveAttribute(
-      'href',
-      'https://ntrs.nasa.gov/citations/19860003843',
-    );
+    ).toHaveAttribute('href', 'https://ntrs.nasa.gov/citations/19860003843');
     await expect(
       main.getByRole('link', { name: 'Thrun 2005' }).first(),
     ).toHaveAttribute(
@@ -205,9 +215,7 @@ test.describe('classical state-estimation module', () => {
     await expect(
       page.getByRole('button', { name: /run the tracker/i }),
     ).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: /reseed/i }),
-    ).toBeVisible();
+    await expect(page.getByRole('button', { name: /reseed/i })).toBeVisible();
     await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
     // Initial readouts: the tracker opens paused mid-run at the known
     // opening step of the default seeded world, so all three series and the

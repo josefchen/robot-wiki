@@ -93,12 +93,16 @@ export function iterationsToTarget(envs: number): number {
 
 /** Wall-clock seconds to the target reward. */
 export function wallClockSeconds(envs: number, cpuBound: boolean): number {
-  return iterationsToTarget(envs) * iterationBreakdown(envs, cpuBound).totalSeconds;
+  return (
+    iterationsToTarget(envs) * iterationBreakdown(envs, cpuBound).totalSeconds
+  );
 }
 
 /** Aggregate simulation throughput in environment frames per second. */
 export function throughputFps(envs: number, cpuBound: boolean): number {
-  return (envs * ROLLOUT_STEPS) / iterationBreakdown(envs, cpuBound).totalSeconds;
+  return (
+    (envs * ROLLOUT_STEPS) / iterationBreakdown(envs, cpuBound).totalSeconds
+  );
 }
 
 /** Measured ground truth from Rudin et al. 2021 (4,096 envs, one GPU). */
@@ -122,7 +126,8 @@ export function curvePoints(
   const points: Array<{ envs: number; minutes: number }> = [];
   for (let i = 0; i < samples; i++) {
     const t = i / (samples - 1);
-    const log2 = Math.log2(MIN_ENVS) + t * (Math.log2(MAX_ENVS) - Math.log2(MIN_ENVS));
+    const log2 =
+      Math.log2(MIN_ENVS) + t * (Math.log2(MAX_ENVS) - Math.log2(MIN_ENVS));
     const envs = Math.round(2 ** log2);
     const minutes = Number((wallClockSeconds(envs, cpuBound) / 60).toFixed(2));
     points.push({ envs, minutes });

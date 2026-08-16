@@ -144,8 +144,14 @@ export function transportPoint(sample: FlowSample, tau: number): Vec2 {
   const t = Math.min(1, Math.max(0, tau));
   const u = 1 - t;
   return {
-    x: u * u * sample.noise.x + 2 * t * u * sample.control.x + t * t * sample.target.x,
-    y: u * u * sample.noise.y + 2 * t * u * sample.control.y + t * t * sample.target.y,
+    x:
+      u * u * sample.noise.x +
+      2 * t * u * sample.control.x +
+      t * t * sample.target.x,
+    y:
+      u * u * sample.noise.y +
+      2 * t * u * sample.control.y +
+      t * t * sample.target.y,
   };
 }
 
@@ -209,7 +215,8 @@ export function pathCurvature(sample: FlowSample): number {
   for (let i = 1; i < 20; i += 1) {
     const p = transportPoint(sample, i / 20);
     // Distance from p to the chord line through noise and target.
-    const cross = chord.x * (p.y - sample.noise.y) - chord.y * (p.x - sample.noise.x);
+    const cross =
+      chord.x * (p.y - sample.noise.y) - chord.y * (p.x - sample.noise.x);
     maxDeviation = Math.max(maxDeviation, Math.abs(cross) / chordLen);
   }
   return maxDeviation / chordLen;

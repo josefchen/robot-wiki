@@ -20,10 +20,7 @@ const ROWS: Company[] = [
   {
     id: 'physical-intelligence',
     name: 'Physical Intelligence',
-    aka: [
-      'Pi',
-      'π',
-    ],
+    aka: ['Pi', 'π'],
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -31,7 +28,8 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds general-purpose vision-language-action foundation models (π0 series) that control any robot manipulator for contact-rich tasks.',
+    description:
+      'Builds general-purpose vision-language-action foundation models (π0 series) that control any robot manipulator for contact-rich tasks.',
     approach: [
       'vla',
       'flow-matching-action-expert',
@@ -44,17 +42,11 @@ const ROWS: Company[] = [
       amountUsd: 600000000,
       date: '2025-11-20',
       valuationUsd: 5600000000,
-      leadInvestors: [
-        'CapitalG',
-      ],
+      leadInvestors: ['CapitalG'],
     },
     status: 'private',
-    deployments: [
-      'Pilot deployments across multiple robot embodiments',
-    ],
-    openSource: [
-      'openpi',
-    ],
+    deployments: ['Pilot deployments across multiple robot embodiments'],
+    openSource: ['openpi'],
     sources: [
       {
         url: 'https://www.bloomberg.com/news/articles/2025-11-20/robotics-startup-physical-intelligence-valued-at-5-6-billion-in-funding-round',
@@ -80,21 +72,16 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds a scalable foundation model (\'Skild Brain\') designed to operate any robot across any embodiment and environment.',
-    approach: [
-      'vla',
-      'omni-bodied-intelligence',
-      'large-scale-data',
-    ],
+    description:
+      "Builds a scalable foundation model ('Skild Brain') designed to operate any robot across any embodiment and environment.",
+    approach: ['vla', 'omni-bodied-intelligence', 'large-scale-data'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
       amountUsd: 1400000000,
       date: '2026-01-14',
       valuationUsd: 14000000000,
-      leadInvestors: [
-        'SoftBank Group',
-      ],
+      leadInvestors: ['SoftBank Group'],
     },
     status: 'private',
     deployments: [
@@ -115,7 +102,8 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.reuters.com/business/media-telecom/skild-ai-nvidia-deploy-robot-brain-blackwell-assembly-lines',
-        title: 'Skild AI, Nvidia deploy robot brain on Blackwell assembly lines',
+        title:
+          'Skild AI, Nvidia deploy robot brain on Blackwell assembly lines',
         asOf: '2026-08-06',
       },
     ],
@@ -132,19 +120,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Develops AI and robotics technologies enabling robots to perform physical tasks in real-world environments.',
-    approach: [
-      'robot-foundation-models',
-    ],
+    description:
+      'Develops AI and robotics technologies enabling robots to perform physical tasks in real-world environments.',
+    approach: ['robot-foundation-models'],
     totalRaisedUsd: 400000000,
     latestRound: {
       type: null,
       amountUsd: 400000000,
       date: '2026-06-04',
       valuationUsd: 2000000000,
-      leadInvestors: [
-        'Radical Ventures',
-      ],
+      leadInvestors: ['Radical Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -152,7 +137,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.bloomberg.com/news/articles/2026-06-04/nvidia-backed-robotics-startup-generalist-ai-valued-at-2-billion',
-        title: 'Nvidia-Backed Robotics Startup Generalist AI Valued at $2 Billion',
+        title:
+          'Nvidia-Backed Robotics Startup Generalist AI Valued at $2 Billion',
         asOf: '2026-08-06',
       },
       {
@@ -166,9 +152,7 @@ const ROWS: Company[] = [
   {
     id: 'dyna-robotics',
     name: 'Dyna Robotics',
-    aka: [
-      'DYNA',
-    ],
+    aka: ['DYNA'],
     hq: {
       city: 'Redwood City',
       country: 'US',
@@ -176,21 +160,16 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks.',
-    approach: [
-      'robot-foundation-models',
-    ],
+    description:
+      'Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks.',
+    approach: ['robot-foundation-models'],
     totalRaisedUsd: 143500000,
     latestRound: {
       type: 'Series A',
       amountUsd: 120000000,
       date: '2025-09-15',
       valuationUsd: 600000000,
-      leadInvestors: [
-        'Robostrategy',
-        'CRV',
-        'First Round Capital',
-      ],
+      leadInvestors: ['Robostrategy', 'CRV', 'First Round Capital'],
     },
     status: 'private',
     deployments: [],
@@ -198,7 +177,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.bloomberg.com/news/articles/2025-09-15/dyna-robotics-raises-120-million-in-funding-from-nvidia-amazon',
-        title: 'Dyna Robotics Raises $120 Million in Funding From Nvidia, Amazon',
+        title:
+          'Dyna Robotics Raises $120 Million in Funding From Nvidia, Amazon',
         asOf: '2026-08-06',
       },
       {
@@ -212,9 +192,7 @@ const ROWS: Company[] = [
   {
     id: 'sunday-robotics',
     name: 'Sunday Robotics',
-    aka: [
-      'Sunday',
-    ],
+    aka: ['Sunday'],
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -222,21 +200,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'home-robot-policies',
-    description: 'Builds the Memo household robot for tasks like laundry, clearing tables, and loading dishwashers, trained on 10M+ real-world household episodes.',
-    approach: [
-      'vla',
-      'skill-capture-glove',
-      'real-world-episodes',
-    ],
+    description:
+      'Builds the Memo household robot for tasks like laundry, clearing tables, and loading dishwashers, trained on 10M+ real-world household episodes.',
+    approach: ['vla', 'skill-capture-glove', 'real-world-episodes'],
     totalRaisedUsd: 200000000,
     latestRound: {
       type: 'Series B',
       amountUsd: 165000000,
       date: '2026-03-12',
       valuationUsd: 1150000000,
-      leadInvestors: [
-        'Coatue',
-      ],
+      leadInvestors: ['Coatue'],
     },
     status: 'private',
     deployments: [
@@ -261,9 +234,7 @@ const ROWS: Company[] = [
   {
     id: 'field-ai',
     name: 'Field AI',
-    aka: [
-      'FieldAI',
-    ],
+    aka: ['FieldAI'],
     hq: {
       city: 'Irvine',
       country: 'US',
@@ -271,7 +242,8 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'navigation-mobility',
-    description: 'Builds field foundation models enabling robots across diverse embodiments to operate safely in unstructured real-world environments like construction sites.',
+    description:
+      'Builds field foundation models enabling robots across diverse embodiments to operate safely in unstructured real-world environments like construction sites.',
     approach: [
       'field-foundation-models',
       'cross-embodiment',
@@ -291,7 +263,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html',
-        title: 'Nvidia, Bill Gates-backed robotics startup Field AI hits $2 billion valuation',
+        title:
+          'Nvidia, Bill Gates-backed robotics startup Field AI hits $2 billion valuation',
         asOf: '2026-08-06',
       },
       {
@@ -313,25 +286,19 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Developed robotic foundation models for warehouse manipulation; founders and ~25% of staff acquired by Amazon with non-exclusive license.',
-    approach: [
-      'robot-foundation-models',
-      'rfm',
-    ],
+    description:
+      'Developed robotic foundation models for warehouse manipulation; founders and ~25% of staff acquired by Amazon with non-exclusive license.',
+    approach: ['robot-foundation-models', 'rfm'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acqui-hire',
       amountUsd: null,
       date: '2024-08-31',
       valuationUsd: null,
-      leadInvestors: [
-        'Amazon',
-      ],
+      leadInvestors: ['Amazon'],
     },
     status: 'acquired',
-    deployments: [
-      'Amazon warehouse operations (post-acquisition)',
-    ],
+    deployments: ['Amazon warehouse operations (post-acquisition)'],
     openSource: [],
     sources: [
       {
@@ -358,22 +325,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds general-purpose robotics foundation models trained on synthetic data from a proprietary physics simulation engine; unveiled GENE-26.5 model and Eno robot.',
-    approach: [
-      'synthetic-data',
-      'physics-simulation',
-      'vla',
-    ],
+    description:
+      'Builds general-purpose robotics foundation models trained on synthetic data from a proprietary physics simulation engine; unveiled GENE-26.5 model and Eno robot.',
+    approach: ['synthetic-data', 'physics-simulation', 'vla'],
     totalRaisedUsd: 105000000,
     latestRound: {
       type: 'Seed',
       amountUsd: 105000000,
       date: '2025-07-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Eclipse',
-        'Khosla Ventures',
-      ],
+      leadInvestors: ['Eclipse', 'Khosla Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -403,11 +364,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'video-prediction-world-models',
-    description: 'Builds robot foundation models using video-predictive control (\'FutureVision\') trained on hundreds of millions of internet videos for manufacturing and logistics.',
-    approach: [
-      'video-predictive-control',
-      'direct-video-action',
-    ],
+    description:
+      "Builds robot foundation models using video-predictive control ('FutureVision') trained on hundreds of millions of internet videos for manufacturing and logistics.",
+    approach: ['video-predictive-control', 'direct-video-action'],
     totalRaisedUsd: 450000000,
     latestRound: {
       type: 'Series A',
@@ -444,25 +403,19 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'industrial-robotics',
-    description: 'Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.',
-    approach: [
-      'ai-industrial-robotics',
-      'factory-data',
-    ],
+    description:
+      'Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.',
+    approach: ['ai-industrial-robotics', 'factory-data'],
     totalRaisedUsd: 900000000,
     latestRound: {
       type: null,
       amountUsd: 400000000,
       date: '2026-05-13',
       valuationUsd: 3400000000,
-      leadInvestors: [
-        'Kleiner Perkins',
-      ],
+      leadInvestors: ['Kleiner Perkins'],
     },
     status: 'private',
-    deployments: [
-      'Rivian factory deployment target',
-    ],
+    deployments: ['Rivian factory deployment target'],
     openSource: [],
     sources: [
       {
@@ -489,7 +442,8 @@ const ROWS: Company[] = [
     founded: 1993,
     segment: 'simulation-tooling',
     subSegment: 'simulation-platforms',
-    description: 'Provides the full-stack robotics platform: Isaac Sim/Lab simulation, GR00T foundation models, Jetson Thor edge compute, and Cosmos world models for physical AI.',
+    description:
+      'Provides the full-stack robotics platform: Isaac Sim/Lab simulation, GR00T foundation models, Jetson Thor edge compute, and Cosmos world models for physical AI.',
     approach: [
       'simulation-first',
       'edge-compute',
@@ -509,9 +463,7 @@ const ROWS: Company[] = [
       'Isaac GR00T Reference Humanoid Robot (Unitree H2 Plus + Sharpa hands)',
       'Partnerships with most major humanoid and robotics companies',
     ],
-    openSource: [
-      'Isaac GR00T (open development platform)',
-    ],
+    openSource: ['Isaac GR00T (open development platform)'],
     sources: [
       {
         url: 'https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design',
@@ -537,12 +489,9 @@ const ROWS: Company[] = [
     founded: 2010,
     segment: 'simulation-tooling',
     subSegment: 'foundation-models',
-    description: 'Builds Gemini Robotics VLA models (1.5, 2, On-Device) for whole-body humanoid control, multi-finger dexterity, and multi-robot collaboration.',
-    approach: [
-      'vla',
-      'whole-body-control',
-      'on-device-inference',
-    ],
+    description:
+      'Builds Gemini Robotics VLA models (1.5, 2, On-Device) for whole-body humanoid control, multi-finger dexterity, and multi-robot collaboration.',
+    approach: ['vla', 'whole-body-control', 'on-device-inference'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -556,9 +505,7 @@ const ROWS: Company[] = [
       'Demonstrated on Apptronik Apollo 2',
       'Partnership with Boston Dynamics for Atlas',
     ],
-    openSource: [
-      'Gemini Robotics On-Device (model card published)',
-    ],
+    openSource: ['Gemini Robotics On-Device (model card published)'],
     sources: [
       {
         url: 'https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/',
@@ -576,9 +523,7 @@ const ROWS: Company[] = [
   {
     id: 'hugging-face-lerobot',
     name: 'Hugging Face (LeRobot)',
-    aka: [
-      'LeRobot',
-    ],
+    aka: ['LeRobot'],
     hq: {
       city: 'New York',
       country: 'US',
@@ -586,12 +531,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'simulation-tooling',
     subSegment: 'open-source-frameworks',
-    description: 'Develops the LeRobot open-source robotics platform and Reachy Mini desktop companion robot for accessible embodied AI experimentation.',
-    approach: [
-      'open-source',
-      'community-driven',
-      'democratization',
-    ],
+    description:
+      'Develops the LeRobot open-source robotics platform and Reachy Mini desktop companion robot for accessible embodied AI experimentation.',
+    approach: ['open-source', 'community-driven', 'democratization'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -602,10 +544,7 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [],
-    openSource: [
-      'LeRobot',
-      'Reachy Mini',
-    ],
+    openSource: ['LeRobot', 'Reachy Mini'],
     sources: [
       {
         url: 'https://huggingface.co/blog/reachy-mini',
@@ -614,7 +553,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.startuphub.ai/ai-news/robotics/2026/hugging-face-s-reachy-mini-the-300-open-source-robot',
-        title: 'Hugging Face\'s Reachy Mini: The $300 Open Source Robot',
+        title: "Hugging Face's Reachy Mini: The $300 Open Source Robot",
         asOf: '2026-08-06',
       },
     ],
@@ -631,22 +570,16 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'simulation-tooling',
     subSegment: 'simulation-platforms',
-    description: 'Builds vehicle software, simulation, validation, and autonomy AI stacks for automotive and defense; expanding into robotics with Dana natural-language service.',
-    approach: [
-      'simulation',
-      'validation',
-      'autonomy-stack',
-    ],
+    description:
+      'Builds vehicle software, simulation, validation, and autonomy AI stacks for automotive and defense; expanding into robotics with Dana natural-language service.',
+    approach: ['simulation', 'validation', 'autonomy-stack'],
     totalRaisedUsd: 1200000000,
     latestRound: {
       type: 'Series F',
       amountUsd: 600000000,
       date: '2025-06-17',
       valuationUsd: 15000000000,
-      leadInvestors: [
-        'BlackRock',
-        'Kleiner Perkins',
-      ],
+      leadInvestors: ['BlackRock', 'Kleiner Perkins'],
     },
     status: 'private',
     deployments: [
@@ -662,7 +595,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://tech.yahoo.com/ai/meta-ai/articles/applied-intuition-wants-turn-robotics-childs-play',
-        title: 'Applied Intuition wants to turn robotics into child\'s play',
+        title: "Applied Intuition wants to turn robotics into child's play",
         asOf: '2026-08-06',
       },
     ],
@@ -679,12 +612,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'simulation-tooling',
     subSegment: 'data-collection',
-    description: 'Builds infrastructure for robot foundation model training through robotic teleoperation and real-world data collection at scale.',
-    approach: [
-      'teleoperation',
-      'data-collection',
-      'robotics-infrastructure',
-    ],
+    description:
+      'Builds infrastructure for robot foundation model training through robotic teleoperation and real-world data collection at scale.',
+    approach: ['teleoperation', 'data-collection', 'robotics-infrastructure'],
     totalRaisedUsd: 70000000,
     latestRound: {
       type: null,
@@ -721,12 +651,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'simulation-tooling',
     subSegment: 'data-collection',
-    description: 'Provides multimodal data management, annotation, and collection platform for physical AI, including real-world egocentric and sensor data for robotics.',
-    approach: [
-      'data-annotation',
-      'data-curation',
-      'robotics-data',
-    ],
+    description:
+      'Provides multimodal data management, annotation, and collection platform for physical AI, including real-world egocentric and sensor data for robotics.',
+    approach: ['data-annotation', 'data-curation', 'robotics-data'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -736,10 +663,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Woven by Toyota',
-      '300+ AI teams',
-    ],
+    deployments: ['Woven by Toyota', '300+ AI teams'],
     openSource: [],
     sources: [
       {
@@ -749,7 +673,8 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.businessinsider.com/ai-startups-robotics-pay-film-chores-encord-micro1-2025-10',
-        title: 'AI startups pay people to film themselves doing chores for robotics training',
+        title:
+          'AI startups pay people to film themselves doing chores for robotics training',
         asOf: '2026-08-06',
       },
     ],
@@ -766,11 +691,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'simulation-tooling',
     subSegment: 'data-collection',
-    description: 'Provides expert-demonstrated teleoperation data for frontier robotics labs, capturing human demonstrations in real working environments.',
-    approach: [
-      'teleoperation',
-      'expert-demonstrations',
-    ],
+    description:
+      'Provides expert-demonstrated teleoperation data for frontier robotics labs, capturing human demonstrations in real working environments.',
+    approach: ['teleoperation', 'expert-demonstrations'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -785,7 +708,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.micro1.ai/data-engine/robotics',
-        title: 'High quality expert-demonstrated data for frontier robotics labs',
+        title:
+          'High quality expert-demonstrated data for frontier robotics labs',
         asOf: '2026-08-06',
       },
     ],
@@ -794,9 +718,7 @@ const ROWS: Company[] = [
   {
     id: 'figure-ai',
     name: 'Figure AI',
-    aka: [
-      'Figure',
-    ],
+    aka: ['Figure'],
     hq: {
       city: 'San Jose',
       country: 'US',
@@ -804,13 +726,9 @@ const ROWS: Company[] = [
     founded: 2022,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds general-purpose humanoid robots (Figure 01-03) controlled by in-house Helix VLA models for warehouse and manufacturing tasks.',
-    approach: [
-      'vla',
-      'helix',
-      'full-stack',
-      'in-house-models',
-    ],
+    description:
+      'Builds general-purpose humanoid robots (Figure 01-03) controlled by in-house Helix VLA models for warehouse and manufacturing tasks.',
+    approach: ['vla', 'helix', 'full-stack', 'in-house-models'],
     totalRaisedUsd: 1900000000,
     latestRound: {
       type: 'Series C',
@@ -834,7 +752,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.figure.ai/news/series-c',
-        title: 'Figure Exceeds $1B in Series C Funding at $39B Post-Money Valuation',
+        title:
+          'Figure Exceeds $1B in Series C Funding at $39B Post-Money Valuation',
         asOf: '2026-08-06',
       },
       {
@@ -853,10 +772,7 @@ const ROWS: Company[] = [
   {
     id: '1x-technologies',
     name: '1X Technologies',
-    aka: [
-      '1X',
-      'Halodi',
-    ],
+    aka: ['1X', 'Halodi'],
     hq: {
       city: 'Oslo',
       country: 'NO',
@@ -864,27 +780,19 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'humanoids',
     subSegment: 'home-humanoids',
-    description: 'Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases.',
-    approach: [
-      'home-humanoid',
-      'passive-stability',
-    ],
+    description:
+      'Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases.',
+    approach: ['home-humanoid', 'passive-stability'],
     totalRaisedUsd: 125000000,
     latestRound: {
       type: 'Series B',
       amountUsd: 100000000,
       date: '2024-01-01',
       valuationUsd: 500000000,
-      leadInvestors: [
-        'OpenAI',
-        'EQT Ventures',
-      ],
+      leadInvestors: ['OpenAI', 'EQT Ventures'],
     },
     status: 'private',
-    deployments: [
-      'Pre-orders open',
-      'Industrial pilots',
-    ],
+    deployments: ['Pre-orders open', 'Industrial pilots'],
     openSource: [],
     sources: [
       {
@@ -894,7 +802,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://techstartups.com/2025/09/24/norways-1x-raising-1b-at-10b-valuation/',
-        title: 'Norway\'s 1X raising $1B at $10B valuation',
+        title: "Norway's 1X raising $1B at $10B valuation",
         asOf: '2026-08-06',
       },
       {
@@ -916,20 +824,16 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI.',
-    approach: [
-      'bipedal-locomotion',
-      'warehouse-automation',
-    ],
+    description:
+      'Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI.',
+    approach: ['bipedal-locomotion', 'warehouse-automation'],
     totalRaisedUsd: 641000000,
     latestRound: {
       type: 'SPAC',
       amountUsd: null,
       date: '2026-06-24',
       valuationUsd: 2500000000,
-      leadInvestors: [
-        'Churchill Capital Corp XI',
-      ],
+      leadInvestors: ['Churchill Capital Corp XI'],
     },
     status: 'private',
     deployments: [
@@ -942,7 +846,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital',
-        title: 'Agility Robotics to Go Public Through Merger with Churchill Capital',
+        title:
+          'Agility Robotics to Go Public Through Merger with Churchill Capital',
         asOf: '2026-08-06',
       },
       {
@@ -964,7 +869,8 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; opened Robot Park training facility in Austin.',
+    description:
+      'Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; opened Robot Park training facility in Austin.',
     approach: [
       'humanoid',
       'gemini-robotics-integration',
@@ -976,19 +882,10 @@ const ROWS: Company[] = [
       amountUsd: 520000000,
       date: '2026-02-11',
       valuationUsd: 5500000000,
-      leadInvestors: [
-        'B Capital',
-        'Google',
-        'Mercedes-Benz',
-        'PEAK6',
-      ],
+      leadInvestors: ['B Capital', 'Google', 'Mercedes-Benz', 'PEAK6'],
     },
     status: 'private',
-    deployments: [
-      'Mercedes-Benz',
-      'GXO Logistics',
-      'Jabil',
-    ],
+    deployments: ['Mercedes-Benz', 'GXO Logistics', 'Jabil'],
     openSource: [],
     sources: [
       {
@@ -1007,10 +904,7 @@ const ROWS: Company[] = [
   {
     id: 'tesla-optimus',
     name: 'Tesla (Optimus)',
-    aka: [
-      'Optimus',
-      'Bot',
-    ],
+    aka: ['Optimus', 'Bot'],
     hq: {
       city: 'Austin',
       country: 'US',
@@ -1018,12 +912,9 @@ const ROWS: Company[] = [
     founded: 2003,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Develops the Optimus humanoid robot for factory and eventually consumer tasks; Gen 3 in internal testing with several hundred units deployed internally.',
-    approach: [
-      'full-stack',
-      'in-house-actuators',
-      'end-to-end-neural',
-    ],
+    description:
+      'Develops the Optimus humanoid robot for factory and eventually consumer tasks; Gen 3 in internal testing with several hundred units deployed internally.',
+    approach: ['full-stack', 'in-house-actuators', 'end-to-end-neural'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -1063,21 +954,16 @@ const ROWS: Company[] = [
     founded: 1992,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds the electric Atlas humanoid for industrial deployment, partnering with Google DeepMind for embodied AI; Hyundai subsidiary.',
-    approach: [
-      'electric-atlas',
-      'whole-body-control',
-      'deepmind-partnership',
-    ],
+    description:
+      'Builds the electric Atlas humanoid for industrial deployment, partnering with Google DeepMind for embodied AI; Hyundai subsidiary.',
+    approach: ['electric-atlas', 'whole-body-control', 'deepmind-partnership'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: 1100000000,
       date: '2021-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Hyundai Motor Group',
-      ],
+      leadInvestors: ['Hyundai Motor Group'],
     },
     status: 'acquired',
     deployments: [
@@ -1102,9 +988,7 @@ const ROWS: Company[] = [
   {
     id: 'unitree-robotics',
     name: 'Unitree Robotics',
-    aka: [
-      'Yushu Technology',
-    ],
+    aka: ['Yushu Technology'],
     hq: {
       city: 'Hangzhou',
       country: 'CN',
@@ -1112,7 +996,8 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds G1/H1 humanoids and quadruped robots; first profitable humanoid company at scale with 5,500 humanoids sold in 2025, filing for Shanghai STAR Market IPO.',
+    description:
+      'Builds G1/H1 humanoids and quadruped robots; first profitable humanoid company at scale with 5,500 humanoids sold in 2025, filing for Shanghai STAR Market IPO.',
     approach: [
       'vertical-integration',
       'self-developed-components',
@@ -1147,7 +1032,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.reuters.com/commentary/breakingviews/chinas-robot-champion-has-everything-to-lose/',
-        title: 'China\'s robot champion has everything to lose',
+        title: "China's robot champion has everything to lose",
         asOf: '2026-08-06',
       },
     ],
@@ -1156,9 +1041,7 @@ const ROWS: Company[] = [
   {
     id: 'ubtech-robotics',
     name: 'UBTECH Robotics',
-    aka: [
-      'UBTech',
-    ],
+    aka: ['UBTech'],
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -1166,22 +1049,16 @@ const ROWS: Company[] = [
     founded: 2012,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Walker S2 industrial humanoid robots; began mass production and delivery of several hundred units, reaching 1,000 Walker S2 milestone.',
-    approach: [
-      'industrial-humanoid',
-      'mass-production',
-      'battery-swapping',
-    ],
+    description:
+      'Builds Walker S2 industrial humanoid robots; began mass production and delivery of several hundred units, reaching 1,000 Walker S2 milestone.',
+    approach: ['industrial-humanoid', 'mass-production', 'battery-swapping'],
     totalRaisedUsd: 940000000,
     latestRound: {
       type: 'IPO',
       amountUsd: null,
       date: '2023-12-01',
       valuationUsd: 5000000000,
-      leadInvestors: [
-        'Tencent',
-        'CDH Investments',
-      ],
+      leadInvestors: ['Tencent', 'CDH Investments'],
     },
     status: 'public',
     deployments: [
@@ -1212,9 +1089,7 @@ const ROWS: Company[] = [
   {
     id: 'fourier-intelligence',
     name: 'Fourier',
-    aka: [
-      'Fourier Intelligence',
-    ],
+    aka: ['Fourier Intelligence'],
     hq: {
       city: 'Shanghai',
       country: 'CN',
@@ -1222,7 +1097,8 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'humanoids',
     subSegment: 'care-companion-humanoids',
-    description: 'Builds GR-series humanoid robots (GR-1, GR-2, GR-3) originating from rehabilitation exoskeletons; GR-3 designed as care-centric companion with DeepSeek AI partnership.',
+    description:
+      'Builds GR-series humanoid robots (GR-1, GR-2, GR-3) originating from rehabilitation exoskeletons; GR-3 designed as care-centric companion with DeepSeek AI partnership.',
     approach: [
       'rehabilitation-heritage',
       'vision-only-navigation',
@@ -1234,15 +1110,10 @@ const ROWS: Company[] = [
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: 800000000,
-      leadInvestors: [
-        'SoftBank',
-        'Saudi Aramco',
-      ],
+      leadInvestors: ['SoftBank', 'Saudi Aramco'],
     },
     status: 'private',
-    deployments: [
-      'GR-3 debuted at CES 2026',
-    ],
+    deployments: ['GR-3 debuted at CES 2026'],
     openSource: [],
     sources: [
       {
@@ -1252,7 +1123,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://interestingengineering.com/ai-robotics/fouriers-gr-3-humanoid-at-ces-2026',
-        title: 'Fourier\'s GR-3 humanoid at CES 2026',
+        title: "Fourier's GR-3 humanoid at CES 2026",
         asOf: '2026-08-06',
       },
       {
@@ -1266,9 +1137,7 @@ const ROWS: Company[] = [
   {
     id: 'galbot',
     name: 'Galbot',
-    aka: [
-      'Galaxy General Robot',
-    ],
+    aka: ['Galaxy General Robot'],
     hq: {
       city: 'Beijing',
       country: 'CN',
@@ -1276,11 +1145,9 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds G1 humanoid robots with embodied multimodal large models for commercial and industrial applications; deployed at CATL battery factory.',
-    approach: [
-      'embodied-multimodal-large-model',
-      'three-layer-architecture',
-    ],
+    description:
+      'Builds G1 humanoid robots with embodied multimodal large models for commercial and industrial applications; deployed at CATL battery factory.',
+    approach: ['embodied-multimodal-large-model', 'three-layer-architecture'],
     totalRaisedUsd: 800000000,
     latestRound: {
       type: null,
@@ -1312,9 +1179,7 @@ const ROWS: Company[] = [
   {
     id: 'agibot',
     name: 'AgiBot',
-    aka: [
-      'Zhiyuan Robot',
-    ],
+    aka: ['Zhiyuan Robot'],
     hq: {
       city: 'Suzhou',
       country: 'CN',
@@ -1322,22 +1187,16 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds A2-series humanoid robots; engineered backdoor listing via controlling stake in Swancor Advanced Materials; A2 completed 66-mile walking record.',
-    approach: [
-      'embodied-ai',
-      'mass-production',
-      'backdoor-listing',
-    ],
+    description:
+      'Builds A2-series humanoid robots; engineered backdoor listing via controlling stake in Swancor Advanced Materials; A2 completed 66-mile walking record.',
+    approach: ['embodied-ai', 'mass-production', 'backdoor-listing'],
     totalRaisedUsd: 83800000,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: 1000000000,
-      leadInvestors: [
-        'CATL',
-        'Shanghai AI Industry Fund',
-      ],
+      leadInvestors: ['CATL', 'Shanghai AI Industry Fund'],
     },
     status: 'private',
     deployments: [
@@ -1348,7 +1207,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.scmp.com/tech/big-tech/article/3317741/robot-maker-agibot-seeks-stake-shanghai-listed-firm-potential-backdoor-listing',
-        title: 'AgiBot seeks stake in Shanghai-listed firm in potential backdoor listing',
+        title:
+          'AgiBot seeks stake in Shanghai-listed firm in potential backdoor listing',
         asOf: '2026-08-06',
       },
       {
@@ -1375,28 +1235,19 @@ const ROWS: Company[] = [
     founded: 2018,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Originally built Phoenix humanoid robots with hydraulic hands; pivoted in 2026 to selling AI software for other robots rather than building hardware.',
-    approach: [
-      'ai-software-pivot',
-      'hydraulic-hands',
-      'cognitive-ai',
-    ],
+    description:
+      'Originally built Phoenix humanoid robots with hydraulic hands; pivoted in 2026 to selling AI software for other robots rather than building hardware.',
+    approach: ['ai-software-pivot', 'hydraulic-hands', 'cognitive-ai'],
     totalRaisedUsd: 140000000,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: 500000000,
-      leadInvestors: [
-        'Accenture',
-        'Magna',
-        'BDC Capital',
-      ],
+      leadInvestors: ['Accenture', 'Magna', 'BDC Capital'],
     },
     status: 'private',
-    deployments: [
-      'Pivoted to AI software for third-party robots',
-    ],
+    deployments: ['Pivoted to AI software for third-party robots'],
     openSource: [],
     sources: [
       {
@@ -1406,7 +1257,8 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://sanctuary.ai/news/',
-        title: 'Sanctuary AI deploys Physical AI with production-ready performance',
+        title:
+          'Sanctuary AI deploys Physical AI with production-ready performance',
         asOf: '2026-08-06',
       },
     ],
@@ -1423,21 +1275,16 @@ const ROWS: Company[] = [
     founded: 2019,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds 4NE-1 humanoid and cognitive robots combining sensing, hearing, and learning; full-stack robotics company with edge AI capabilities.',
-    approach: [
-      'cognitive-robotics',
-      'full-stack',
-      'edge-ai',
-    ],
+    description:
+      'Builds 4NE-1 humanoid and cognitive robots combining sensing, hearing, and learning; full-stack robotics company with edge AI capabilities.',
+    approach: ['cognitive-robotics', 'full-stack', 'edge-ai'],
     totalRaisedUsd: 1520000000,
     latestRound: {
       type: 'Series C',
       amountUsd: 1400000000,
       date: '2026-06-10',
       valuationUsd: null,
-      leadInvestors: [
-        'Tether',
-      ],
+      leadInvestors: ['Tether'],
     },
     status: 'private',
     deployments: [],
@@ -1467,21 +1314,16 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds industrial humanoid robots for real-world tasks; UK\'s first humanoid robot for industrial use unveiled September 2025.',
-    approach: [
-      'industrial-humanoid',
-    ],
+    description:
+      "Builds industrial humanoid robots for real-world tasks; UK's first humanoid robot for industrial use unveiled September 2025.",
+    approach: ['industrial-humanoid'],
     totalRaisedUsd: 152000000,
     latestRound: {
       type: 'Series A',
       amountUsd: 152000000,
       date: '2026-07-21',
       valuationUsd: 1350000000,
-      leadInvestors: [
-        'Prime Movers Lab',
-        'Schaeffler',
-        'Bosch',
-      ],
+      leadInvestors: ['Prime Movers Lab', 'Schaeffler', 'Bosch'],
     },
     status: 'private',
     deployments: [],
@@ -1489,7 +1331,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.reuters.com/business/robotics-startup-humanoid-raises-152-million-series-a-round-1-35-billion-valuation/',
-        title: 'Humanoid raises $152 million Series A at $1.35 billion valuation',
+        title:
+          'Humanoid raises $152 million Series A at $1.35 billion valuation',
         asOf: '2026-08-06',
       },
       {
@@ -1511,21 +1354,16 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds a \'universal brain\' for robots using embodied AI foundation models.',
-    approach: [
-      'universal-brain',
-      'embodied-ai',
-    ],
+    description:
+      "Builds a 'universal brain' for robots using embodied AI foundation models.",
+    approach: ['universal-brain', 'embodied-ai'],
     totalRaisedUsd: 435000000,
     latestRound: {
       type: 'Series A extension',
       amountUsd: 145000000,
       date: '2026-04-01',
       valuationUsd: 1500000000,
-      leadInvestors: [
-        'Chaos Investment',
-        'YF Capital',
-      ],
+      leadInvestors: ['Chaos Investment', 'YF Capital'],
     },
     status: 'private',
     deployments: [],
@@ -1542,9 +1380,7 @@ const ROWS: Company[] = [
   {
     id: 'galaxea-ai',
     name: 'Galaxea AI',
-    aka: [
-      'Xinghaitu',
-    ],
+    aka: ['Xinghaitu'],
     hq: {
       city: null,
       country: 'CN',
@@ -1552,19 +1388,16 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots for industrial and commercial deployment.',
-    approach: [
-      'embodied-intelligence',
-    ],
+    description:
+      'Builds humanoid robots for industrial and commercial deployment.',
+    approach: ['embodied-intelligence'],
     totalRaisedUsd: 435000000,
     latestRound: {
       type: 'Series B extension',
       amountUsd: 290000000,
       date: '2026-04-01',
       valuationUsd: 1400000000,
-      leadInvestors: [
-        'Jinding Capital',
-      ],
+      leadInvestors: ['Jinding Capital'],
     },
     status: 'private',
     deployments: [],
@@ -1589,26 +1422,19 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid and quadruped robots for traffic, security, and retail deployment.',
-    approach: [
-      'humanoid',
-      'quadruped',
-    ],
+    description:
+      'Builds humanoid and quadruped robots for traffic, security, and retail deployment.',
+    approach: ['humanoid', 'quadruped'],
     totalRaisedUsd: 215000000,
     latestRound: {
       type: 'Series B',
       amountUsd: 200000000,
       date: '2026-05-01',
       valuationUsd: 1500000000,
-      leadInvestors: [
-        'Henan CICC Huirong Fund Management',
-        'Luxshare-ICT',
-      ],
+      leadInvestors: ['Henan CICC Huirong Fund Management', 'Luxshare-ICT'],
     },
     status: 'private',
-    deployments: [
-      'Traffic, security, and retail deployments planned',
-    ],
+    deployments: ['Traffic, security, and retail deployments planned'],
     openSource: [],
     sources: [
       {
@@ -1622,9 +1448,7 @@ const ROWS: Company[] = [
   {
     id: 'robot-era',
     name: 'RobotEra',
-    aka: [
-      'Robot Era',
-    ],
+    aka: ['Robot Era'],
     hq: {
       city: null,
       country: 'CN',
@@ -1633,18 +1457,14 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Develops humanoid robots and embodied intelligence systems.',
-    approach: [
-      'embodied-intelligence',
-    ],
+    approach: ['embodied-intelligence'],
     totalRaisedUsd: 260000000,
     latestRound: {
       type: null,
       amountUsd: 200000000,
       date: '2026-05-01',
       valuationUsd: null,
-      leadInvestors: [
-        'HSG',
-      ],
+      leadInvestors: ['HSG'],
     },
     status: 'private',
     deployments: [],
@@ -1666,9 +1486,7 @@ const ROWS: Company[] = [
   {
     id: 'tars-robotics',
     name: 'TARS Robotics',
-    aka: [
-      'TARS',
-    ],
+    aka: ['TARS'],
     hq: {
       city: 'Shanghai',
       country: 'CN',
@@ -1676,21 +1494,16 @@ const ROWS: Company[] = [
     founded: 2025,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Embodied AI company specializing in humanoid robots for ultra-fine manipulation tasks.',
-    approach: [
-      'embodied-ai',
-      'ultra-fine-manipulation',
-    ],
+    description:
+      'Embodied AI company specializing in humanoid robots for ultra-fine manipulation tasks.',
+    approach: ['embodied-ai', 'ultra-fine-manipulation'],
     totalRaisedUsd: 513000000,
     latestRound: {
       type: 'Seed',
       amountUsd: 513000000,
       date: '2026-05-01',
       valuationUsd: 1900000000,
-      leadInvestors: [
-        'Hillhouse Capital',
-        'HSG',
-      ],
+      leadInvestors: ['Hillhouse Capital', 'HSG'],
     },
     status: 'private',
     deployments: [],
@@ -1707,9 +1520,7 @@ const ROWS: Company[] = [
   {
     id: 'x-square-robot',
     name: 'X Square Robot',
-    aka: [
-      'X Square',
-    ],
+    aka: ['X Square'],
     hq: {
       city: null,
       country: 'CN',
@@ -1717,26 +1528,19 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'humanoids',
     subSegment: 'home-humanoids',
-    description: 'Builds general-purpose embodied intelligence robots for household and industrial applications, targeting home trials.',
-    approach: [
-      'embodied-intelligence',
-      'large-operating-model',
-    ],
+    description:
+      'Builds general-purpose embodied intelligence robots for household and industrial applications, targeting home trials.',
+    approach: ['embodied-intelligence', 'large-operating-model'],
     totalRaisedUsd: 433000000,
     latestRound: {
       type: 'Series B',
       amountUsd: 276000000,
       date: '2026-04-21',
       valuationUsd: null,
-      leadInvestors: [
-        'Xiaomi',
-        'HongShan',
-      ],
+      leadInvestors: ['Xiaomi', 'HongShan'],
     },
     status: 'private',
-    deployments: [
-      'Home trials targeted by May 2026',
-    ],
+    deployments: ['Home trials targeted by May 2026'],
     openSource: [],
     sources: [
       {
@@ -1763,11 +1567,9 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Jueying series quadruped robots and DR02 humanoid for power utility, tunnel, hazard rescue, and industrial applications; IP66-rated humanoid.',
-    approach: [
-      'quadruped-first',
-      'all-weather-humanoid',
-    ],
+    description:
+      'Builds Jueying series quadruped robots and DR02 humanoid for power utility, tunnel, hazard rescue, and industrial applications; IP66-rated humanoid.',
+    approach: ['quadruped-first', 'all-weather-humanoid'],
     totalRaisedUsd: 210000000,
     latestRound: {
       type: null,
@@ -1777,11 +1579,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Power utility',
-      'Tunnel inspection',
-      'Hazard rescue',
-    ],
+    deployments: ['Power utility', 'Tunnel inspection', 'Hazard rescue'],
     openSource: [],
     sources: [
       {
@@ -1809,18 +1607,14 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Builds humanoid robots for industrial and commercial use.',
-    approach: [
-      'humanoid',
-    ],
+    approach: ['humanoid'],
     totalRaisedUsd: 100000000,
     latestRound: {
       type: 'Series A',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: 400000000,
-      leadInvestors: [
-        'Shunwei Capital',
-      ],
+      leadInvestors: ['Shunwei Capital'],
     },
     status: 'private',
     deployments: [],
@@ -1846,20 +1640,14 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Develops humanoid robots and motion control systems.',
-    approach: [
-      'humanoid',
-      'motion-control',
-    ],
+    approach: ['humanoid', 'motion-control'],
     totalRaisedUsd: 30000000,
     latestRound: {
       type: 'Series A',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Greenwoods',
-        'GL Ventures',
-      ],
+      leadInvestors: ['Greenwoods', 'GL Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -1884,11 +1672,9 @@ const ROWS: Company[] = [
     founded: 2012,
     segment: 'humanoids',
     subSegment: 'exoskeleton-mobility',
-    description: 'Builds self-balancing exoskeletons (Eve) for rehabilitation and personal mobility, with Renault partnership for industrial humanoid applications.',
-    approach: [
-      'self-balancing-exoskeleton',
-      'rehabilitation',
-    ],
+    description:
+      'Builds self-balancing exoskeletons (Eve) for rehabilitation and personal mobility, with Renault partnership for industrial humanoid applications.',
+    approach: ['self-balancing-exoskeleton', 'rehabilitation'],
     totalRaisedUsd: 125000000,
     latestRound: {
       type: 'Series D',
@@ -1928,12 +1714,9 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Develops biomimetic humanoid robots with musculoskeletal design and artificial muscles.',
-    approach: [
-      'biomimetic',
-      'musculoskeletal',
-      'artificial-muscles',
-    ],
+    description:
+      'Develops biomimetic humanoid robots with musculoskeletal design and artificial muscles.',
+    approach: ['biomimetic', 'musculoskeletal', 'artificial-muscles'],
     totalRaisedUsd: 5000000,
     latestRound: {
       type: 'Seed',
@@ -1966,18 +1749,14 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'research-humanoids',
     description: 'Develops humanoid robots founded by Mobileye founders.',
-    approach: [
-      'humanoid',
-    ],
+    approach: ['humanoid'],
     totalRaisedUsd: 17000000,
     latestRound: {
       type: 'Seed',
       amountUsd: null,
       date: '2023-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Mobileye founders',
-      ],
+      leadInvestors: ['Mobileye founders'],
     },
     status: 'private',
     deployments: [],
@@ -2002,25 +1781,19 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds purpose-built humanoid robots for shipyards and heavy-duty industrial sites, founded by NASA/Nauticus veterans.',
-    approach: [
-      'purpose-built-humanoid',
-      'heavy-duty',
-    ],
+    description:
+      'Builds purpose-built humanoid robots for shipyards and heavy-duty industrial sites, founded by NASA/Nauticus veterans.',
+    approach: ['purpose-built-humanoid', 'heavy-duty'],
     totalRaisedUsd: 37000000,
     latestRound: {
       type: null,
       amountUsd: 27000000,
       date: '2025-05-19',
       valuationUsd: null,
-      leadInvestors: [
-        'Unity Growth',
-      ],
+      leadInvestors: ['Unity Growth'],
     },
     status: 'private',
-    deployments: [
-      'HD Hyundai shipyard agreement',
-    ],
+    deployments: ['HD Hyundai shipyard agreement'],
     openSource: [],
     sources: [
       {
@@ -2047,21 +1820,16 @@ const ROWS: Company[] = [
     founded: 2011,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds collaborative robots and humanoid robots; became Samsung subsidiary after Samsung exercised call option to 35% stake.',
-    approach: [
-      'cobot',
-      'humanoid',
-      'samsung-subsidiary',
-    ],
+    description:
+      'Builds collaborative robots and humanoid robots; became Samsung subsidiary after Samsung exercised call option to 35% stake.',
+    approach: ['cobot', 'humanoid', 'samsung-subsidiary'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2025-01-02',
       valuationUsd: null,
-      leadInvestors: [
-        'Samsung Electronics',
-      ],
+      leadInvestors: ['Samsung Electronics'],
     },
     status: 'acquired',
     deployments: [
@@ -2094,12 +1862,9 @@ const ROWS: Company[] = [
     founded: 2007,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds AI-driven warehouse automation systems using autonomous mobile robots for case handling and palletization; $22.5B backlog primarily from Walmart.',
-    approach: [
-      'warehouse-automation',
-      'mobile-robots',
-      'ai-palletization',
-    ],
+    description:
+      'Builds AI-driven warehouse automation systems using autonomous mobile robots for case handling and palletization; $22.5B backlog primarily from Walmart.',
+    approach: ['warehouse-automation', 'mobile-robots', 'ai-palletization'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2140,11 +1905,9 @@ const ROWS: Company[] = [
     founded: 2019,
     segment: 'industrial-logistics',
     subSegment: 'truck-loading',
-    description: 'Builds AI-powered robotic systems (Mech) for truck loading and unloading in logistics and supply chain operations.',
-    approach: [
-      'ai-robotic-loading',
-      'truck-loading',
-    ],
+    description:
+      'Builds AI-powered robotic systems (Mech) for truck loading and unloading in logistics and supply chain operations.',
+    approach: ['ai-robotic-loading', 'truck-loading'],
     totalRaisedUsd: 296000000,
     latestRound: {
       type: null,
@@ -2154,9 +1917,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Commercial partners testing trailer unloading',
-    ],
+    deployments: ['Commercial partners testing trailer unloading'],
     openSource: [],
     sources: [
       {
@@ -2183,31 +1944,25 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Built AI and robotics for supply chain and logistics operations; acquired by SoftBank and taken private.',
-    approach: [
-      'warehouse-automation',
-      'mobile-manipulation',
-    ],
+    description:
+      'Built AI and robotics for supply chain and logistics operations; acquired by SoftBank and taken private.',
+    approach: ['warehouse-automation', 'mobile-manipulation'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2023-03-24',
       valuationUsd: null,
-      leadInvestors: [
-        'SoftBank Group',
-      ],
+      leadInvestors: ['SoftBank Group'],
     },
     status: 'acquired',
-    deployments: [
-      'FedEx partnership (2026)',
-      'Supply chain operations',
-    ],
+    deployments: ['FedEx partnership (2026)', 'Supply chain operations'],
     openSource: [],
     sources: [
       {
         url: 'https://www.berkshiregrey.com/resources/press-release/berkshire-grey-enters-into-definitive-merger-agreement-with-softbank',
-        title: 'Berkshire Grey Enters into Definitive Merger Agreement with SoftBank',
+        title:
+          'Berkshire Grey Enters into Definitive Merger Agreement with SoftBank',
         asOf: '2026-08-06',
       },
       {
@@ -2229,12 +1984,9 @@ const ROWS: Company[] = [
     founded: 2012,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Operates 1M+ robot fleet in fulfillment centers; launched Blue Jay multi-arm picking system and Project Eluna agentic AI for operations.',
-    approach: [
-      'warehouse-automation',
-      'agentic-ai',
-      'fleet-at-scale',
-    ],
+    description:
+      'Operates 1M+ robot fleet in fulfillment centers; launched Blue Jay multi-arm picking system and Project Eluna agentic AI for operations.',
+    approach: ['warehouse-automation', 'agentic-ai', 'fleet-at-scale'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2267,9 +2019,7 @@ const ROWS: Company[] = [
   {
     id: 'nimble-robotics',
     name: 'Nimble',
-    aka: [
-      'Nimble Robotics',
-    ],
+    aka: ['Nimble Robotics'],
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -2277,25 +2027,19 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds fully autonomous AI robotics fulfillment systems operating as a robotic 3PL; 2025 revenue tripled year-over-year.',
-    approach: [
-      'autonomous-fulfillment',
-      'robotic-3pl',
-    ],
+    description:
+      'Builds fully autonomous AI robotics fulfillment systems operating as a robotic 3PL; 2025 revenue tripled year-over-year.',
+    approach: ['autonomous-fulfillment', 'robotic-3pl'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
       amountUsd: 106000000,
       date: '2024-09-26',
       valuationUsd: 1000000000,
-      leadInvestors: [
-        'FedEx',
-      ],
+      leadInvestors: ['FedEx'],
     },
     status: 'private',
-    deployments: [
-      'FedEx Fulfillment service across North America',
-    ],
+    deployments: ['FedEx Fulfillment service across North America'],
     openSource: [],
     sources: [
       {
@@ -2322,11 +2066,9 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'industrial-logistics',
     subSegment: 'mobile-robots',
-    description: 'Builds autonomous mobile robots (AMRs) for warehouse fulfillment and distribution; launched Locus Array autonomous fulfillment system.',
-    approach: [
-      'amr',
-      'warehouse-fulfillment',
-    ],
+    description:
+      'Builds autonomous mobile robots (AMRs) for warehouse fulfillment and distribution; launched Locus Array autonomous fulfillment system.',
+    approach: ['amr', 'warehouse-fulfillment'],
     totalRaisedUsd: 523000000,
     latestRound: {
       type: 'Series F',
@@ -2365,11 +2107,9 @@ const ROWS: Company[] = [
     founded: 2011,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds robot software for factory and logistics automation; plans IPO by 2030, raising Series D extension above $1B valuation.',
-    approach: [
-      'robot-software',
-      'factory-automation',
-    ],
+    description:
+      'Builds robot software for factory and logistics automation; plans IPO by 2030, raising Series D extension above $1B valuation.',
+    approach: ['robot-software', 'factory-automation'],
     totalRaisedUsd: 233000000,
     latestRound: {
       type: 'Series D',
@@ -2379,9 +2119,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Warehouse and factory automation in Japan',
-    ],
+    deployments: ['Warehouse and factory automation in Japan'],
     openSource: [],
     sources: [
       {
@@ -2408,30 +2146,25 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds RightPick AI-powered piece-picking solution for warehouse order fulfillment using combined suction and gripper technology.',
-    approach: [
-      'piece-picking',
-      'ai-grasping',
-    ],
+    description:
+      'Builds RightPick AI-powered piece-picking solution for warehouse order fulfillment using combined suction and gripper technology.',
+    approach: ['piece-picking', 'ai-grasping'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Rockwell Automation',
-      ],
+      leadInvestors: ['Rockwell Automation'],
     },
     status: 'private',
-    deployments: [
-      'Rockwell Automation partnership (Mar 2025)',
-    ],
+    deployments: ['Rockwell Automation partnership (Mar 2025)'],
     openSource: [],
     sources: [
       {
         url: 'https://www.therobotreport.com/righthand-robotics-receives-investment-from-rockwell-automation/',
-        title: 'RightHand Robotics receives investment from Rockwell Automation',
+        title:
+          'RightHand Robotics receives investment from Rockwell Automation',
         asOf: '2026-08-06',
       },
     ],
@@ -2448,11 +2181,9 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds AI-powered robotic parcel sorting and picking systems for logistics operations.',
-    approach: [
-      'piece-picking',
-      'parcel-sorting',
-    ],
+    description:
+      'Builds AI-powered robotic parcel sorting and picking systems for logistics operations.',
+    approach: ['piece-picking', 'parcel-sorting'],
     totalRaisedUsd: 67000000,
     latestRound: {
       type: null,
@@ -2484,11 +2215,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds AI-powered piece-picking systems with human-in-the-loop verification for warehouse automation.',
-    approach: [
-      'piece-picking',
-      'human-in-the-loop',
-    ],
+    description:
+      'Builds AI-powered piece-picking systems with human-in-the-loop verification for warehouse automation.',
+    approach: ['piece-picking', 'human-in-the-loop'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2520,26 +2249,19 @@ const ROWS: Company[] = [
     founded: 2018,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Builds AI-powered LaserWeeder for chemical-free weed control using computer vision and lasers, plus Carbon Autonomy autonomous farming platform.',
-    approach: [
-      'laser-weeding',
-      'computer-vision',
-      'autonomous-farming',
-    ],
+    description:
+      'Builds AI-powered LaserWeeder for chemical-free weed control using computer vision and lasers, plus Carbon Autonomy autonomous farming platform.',
+    approach: ['laser-weeding', 'computer-vision', 'autonomous-farming'],
     totalRaisedUsd: 276000000,
     latestRound: {
       type: null,
       amountUsd: 20000000,
       date: '2025-10-23',
       valuationUsd: null,
-      leadInvestors: [
-        'NVIDIA NVentures',
-      ],
+      leadInvestors: ['NVIDIA NVentures'],
     },
     status: 'private',
-    deployments: [
-      'LaserWeeder deployed across North American farms',
-    ],
+    deployments: ['LaserWeeder deployed across North American farms'],
     openSource: [],
     sources: [
       {
@@ -2566,29 +2288,24 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Built fully electric, driver-optional autonomous tractors; had mass layoffs and was acquired by Caterpillar after burning through ~$250M.',
-    approach: [
-      'electric-autonomous-tractor',
-    ],
+    description:
+      'Built fully electric, driver-optional autonomous tractors; had mass layoffs and was acquired by Caterpillar after burning through ~$250M.',
+    approach: ['electric-autonomous-tractor'],
     totalRaisedUsd: 300000000,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2026-04-14',
       valuationUsd: null,
-      leadInvestors: [
-        'Caterpillar',
-      ],
+      leadInvestors: ['Caterpillar'],
     },
     status: 'acquired',
-    deployments: [
-      'Acquired by Caterpillar after mass layoffs',
-    ],
+    deployments: ['Acquired by Caterpillar after mass layoffs'],
     openSource: [],
     sources: [
       {
         url: 'https://igrownews.com/monarch-tractor-news/',
-        title: 'Monarch Tractor\'s Future in Doubt After Mass Layoffs',
+        title: "Monarch Tractor's Future in Doubt After Mass Layoffs",
         asOf: '2026-08-06',
       },
       {
@@ -2598,7 +2315,8 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://futurism.com/robots-and-machines/ai-tractor-startup-founders',
-        title: 'AI-Powered Tractor Startup Burns Through Quarter Billion Dollars',
+        title:
+          'AI-Powered Tractor Startup Burns Through Quarter Billion Dollars',
         asOf: '2026-08-06',
       },
     ],
@@ -2615,10 +2333,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Builds modular autonomous farm robots for data collection and field operations.',
-    approach: [
-      'modular-autonomous-farm-robot',
-    ],
+    description:
+      'Builds modular autonomous farm robots for data collection and field operations.',
+    approach: ['modular-autonomous-farm-robot'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2650,11 +2367,9 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'construction',
-    description: 'Builds autonomous construction technology for heavy equipment like excavators, founded by ex-Waymo engineers.',
-    approach: [
-      'autonomous-heavy-equipment',
-      'waymo-veterans',
-    ],
+    description:
+      'Builds autonomous construction technology for heavy equipment like excavators, founded by ex-Waymo engineers.',
+    approach: ['autonomous-heavy-equipment', 'waymo-veterans'],
     totalRaisedUsd: 350000000,
     latestRound: {
       type: 'Series B',
@@ -2693,12 +2408,9 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'food-kitchen',
-    description: 'Builds AI-powered robotic arms for assembling cooked, ready-to-eat food on high-volume production lines under RaaS model.',
-    approach: [
-      'food-assembly',
-      'raas',
-      'ai-manipulation',
-    ],
+    description:
+      'Builds AI-powered robotic arms for assembling cooked, ready-to-eat food on high-volume production lines under RaaS model.',
+    approach: ['food-assembly', 'raas', 'ai-manipulation'],
     totalRaisedUsd: 43000000,
     latestRound: {
       type: 'Series A',
@@ -2708,9 +2420,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Amy\'s Kitchen',
-    ],
+    deployments: ["Amy's Kitchen"],
     openSource: [],
     sources: [
       {
@@ -2737,25 +2447,19 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'vertical-applications',
     subSegment: 'retail',
-    description: 'Builds the Tally robot for autonomous shelf auditing and inventory analytics in retail stores.',
-    approach: [
-      'shelf-auditing',
-      'inventory-analytics',
-    ],
+    description:
+      'Builds the Tally robot for autonomous shelf auditing and inventory analytics in retail stores.',
+    approach: ['shelf-auditing', 'inventory-analytics'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Eclipse',
-      ],
+      leadInvestors: ['Eclipse'],
     },
     status: 'private',
-    deployments: [
-      'Retail store shelf auditing',
-    ],
+    deployments: ['Retail store shelf auditing'],
     openSource: [],
     sources: [
       {
@@ -2782,11 +2486,9 @@ const ROWS: Company[] = [
     founded: 1995,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds da Vinci surgical robotic systems for minimally invasive robotic-assisted surgery; da Vinci 5 generation shipping with 100+ improvements.',
-    approach: [
-      'surgical-robotics',
-      'minimally-invasive',
-    ],
+    description:
+      'Builds da Vinci surgical robotic systems for minimally invasive robotic-assisted surgery; da Vinci 5 generation shipping with 100+ improvements.',
+    approach: ['surgical-robotics', 'minimally-invasive'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2826,11 +2528,9 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds Versius surgical robot system for minimal access surgery, competing with da Vinci.',
-    approach: [
-      'surgical-robotics',
-      'minimal-access',
-    ],
+    description:
+      'Builds Versius surgical robot system for minimal access surgery, competing with da Vinci.',
+    approach: ['surgical-robotics', 'minimal-access'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2840,9 +2540,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Versius Plus system',
-    ],
+    deployments: ['Versius Plus system'],
     openSource: [],
     sources: [
       {
@@ -2864,11 +2562,9 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds Maestro, a surgical assistant robot for laparoscopic surgery.',
-    approach: [
-      'surgical-assistant',
-      'laparoscopic',
-    ],
+    description:
+      'Builds Maestro, a surgical assistant robot for laparoscopic surgery.',
+    approach: ['surgical-assistant', 'laparoscopic'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2878,9 +2574,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Maestro system',
-    ],
+    deployments: ['Maestro system'],
     openSource: [],
     sources: [
       {
@@ -2902,12 +2596,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous vehicle technology for last-mile goods delivery, pivoting from custom delivery robots to AI-first autonomous driving licensing.',
-    approach: [
-      'autonomous-driving',
-      'licensing',
-      'last-mile-delivery',
-    ],
+    description:
+      'Builds autonomous vehicle technology for last-mile goods delivery, pivoting from custom delivery robots to AI-first autonomous driving licensing.',
+    approach: ['autonomous-driving', 'licensing', 'last-mile-delivery'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series E',
@@ -2930,7 +2621,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://techcrunch.com/2025/04/09/nuros-106m-raise-backs-its-shift-from-delivery-robots-to-licensing/',
-        title: 'Nuro\'s shift from delivery robots to licensing',
+        title: "Nuro's shift from delivery robots to licensing",
         asOf: '2026-08-06',
       },
     ],
@@ -2947,11 +2638,9 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous sidewalk delivery robots; acquired Diligent Robotics for hospital logistics expansion.',
-    approach: [
-      'sidewalk-delivery',
-      'hospital-logistics',
-    ],
+    description:
+      'Builds autonomous sidewalk delivery robots; acquired Diligent Robotics for hospital logistics expansion.',
+    approach: ['sidewalk-delivery', 'hospital-logistics'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -2986,11 +2675,9 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'vertical-applications',
     subSegment: 'inspection',
-    description: 'Builds climbing, flying, and swimming robots with AI for inspecting and monitoring critical infrastructure like power plants and military facilities.',
-    approach: [
-      'infrastructure-inspection',
-      'climbing-robots',
-    ],
+    description:
+      'Builds climbing, flying, and swimming robots with AI for inspecting and monitoring critical infrastructure like power plants and military facilities.',
+    approach: ['infrastructure-inspection', 'climbing-robots'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3008,7 +2695,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.cnbc.com/2025/06/12/gecko-robotics-raises-125-million-surpassing-billion-dollar-valuation.html',
-        title: 'Gecko Robotics raises $125M surpassing billion-dollar valuation',
+        title:
+          'Gecko Robotics raises $125M surpassing billion-dollar valuation',
         asOf: '2026-08-06',
       },
       {
@@ -3030,11 +2718,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
-    description: 'Builds collaborative robot arms designed to be easier to buy and deploy for industrial automation.',
-    approach: [
-      'cobot',
-      'ease-of-deployment',
-    ],
+    description:
+      'Builds collaborative robot arms designed to be easier to buy and deploy for industrial automation.',
+    approach: ['cobot', 'ease-of-deployment'],
     totalRaisedUsd: 63000000,
     latestRound: {
       type: null,
@@ -3071,11 +2757,9 @@ const ROWS: Company[] = [
     founded: 2021,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
-    description: 'Builds practical collaborative robots (Proxie) for logistics, manufacturing, and healthcare with focus on human-robot interaction.',
-    approach: [
-      'cobot',
-      'human-robot-interaction',
-    ],
+    description:
+      'Builds practical collaborative robots (Proxie) for logistics, manufacturing, and healthcare with focus on human-robot interaction.',
+    approach: ['cobot', 'human-robot-interaction'],
     totalRaisedUsd: 140000000,
     latestRound: {
       type: null,
@@ -3112,20 +2796,16 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Builds wheeled household robots for everyday chores, founded by Cruise/Twitch co-founder Kyle Vogt.',
-    approach: [
-      'wheeled-home-robot',
-      'consumer',
-    ],
+    description:
+      'Builds wheeled household robots for everyday chores, founded by Cruise/Twitch co-founder Kyle Vogt.',
+    approach: ['wheeled-home-robot', 'consumer'],
     totalRaisedUsd: 400000000,
     latestRound: {
       type: null,
       amountUsd: 250000000,
       date: '2025-10-28',
       valuationUsd: 4000000000,
-      leadInvestors: [
-        'Greenoaks',
-      ],
+      leadInvestors: ['Greenoaks'],
     },
     status: 'private',
     deployments: [],
@@ -3155,11 +2835,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Builds Isaac 1, a personal home robot for folding laundry, tidying, and home care tasks; available for preorder at $7,999.',
-    approach: [
-      'home-robot',
-      'consumer',
-    ],
+    description:
+      'Builds Isaac 1, a personal home robot for folding laundry, tidying, and home care tasks; available for preorder at $7,999.',
+    approach: ['home-robot', 'consumer'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3169,9 +2847,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Isaac 1 preorders open',
-    ],
+    deployments: ['Isaac 1 preorders open'],
     openSource: [],
     sources: [
       {
@@ -3193,25 +2869,19 @@ const ROWS: Company[] = [
     founded: 1990,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Pioneer of consumer robot vacuums (Roomba); filed Chapter 11 bankruptcy in Dec 2025, acquired by Picea Robotics (Chinese manufacturer).',
-    approach: [
-      'consumer-vacuum',
-      'home-cleaning',
-    ],
+    description:
+      'Pioneer of consumer robot vacuums (Roomba); filed Chapter 11 bankruptcy in Dec 2025, acquired by Picea Robotics (Chinese manufacturer).',
+    approach: ['consumer-vacuum', 'home-cleaning'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition (bankruptcy)',
       amountUsd: null,
       date: '2025-12-15',
       valuationUsd: null,
-      leadInvestors: [
-        'Picea Robotics',
-      ],
+      leadInvestors: ['Picea Robotics'],
     },
     status: 'acquired',
-    deployments: [
-      'Roomba product line continues post-bankruptcy',
-    ],
+    deployments: ['Roomba product line continues post-bankruptcy'],
     openSource: [],
     sources: [
       {
@@ -3238,11 +2908,9 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Built open-source K-Bot humanoid robot; shut down Nov 2025 after failing to secure funding, open-sourced all IP.',
-    approach: [
-      'open-source-humanoid',
-      'low-cost',
-    ],
+    description:
+      'Built open-source K-Bot humanoid robot; shut down Nov 2025 after failing to secure funding, open-sourced all IP.',
+    approach: ['open-source-humanoid', 'low-cost'],
     totalRaisedUsd: 400000,
     latestRound: {
       type: null,
@@ -3253,9 +2921,7 @@ const ROWS: Company[] = [
     },
     status: 'dead',
     deployments: [],
-    openSource: [
-      'K-Bot (all IP open-sourced post-shutdown)',
-    ],
+    openSource: ['K-Bot (all IP open-sourced post-shutdown)'],
     sources: [
       {
         url: 'https://mikekalil.com/blog/k-scale-labs-shuts-down/',
@@ -3281,25 +2947,19 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'vertical-applications',
     subSegment: 'lab-automation',
-    description: 'Builds fully integrated, AI-ready lab automation platforms for pharma, biotech, and research labs.',
-    approach: [
-      'lab-automation',
-      'ai-ready',
-    ],
+    description:
+      'Builds fully integrated, AI-ready lab automation platforms for pharma, biotech, and research labs.',
+    approach: ['lab-automation', 'ai-ready'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
       amountUsd: 45000000,
       date: '2026-02-05',
       valuationUsd: null,
-      leadInvestors: [
-        'Dimension',
-      ],
+      leadInvestors: ['Dimension'],
     },
     status: 'private',
-    deployments: [
-      'Danaher partnership',
-    ],
+    deployments: ['Danaher partnership'],
     openSource: [],
     sources: [
       {
@@ -3321,11 +2981,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'vertical-applications',
     subSegment: 'lab-automation',
-    description: 'Builds scientific \'superintelligence\' through fully autonomous AI-powered labs for scientific discovery.',
-    approach: [
-      'autonomous-labs',
-      'scientific-ai',
-    ],
+    description:
+      "Builds scientific 'superintelligence' through fully autonomous AI-powered labs for scientific discovery.",
+    approach: ['autonomous-labs', 'scientific-ai'],
     totalRaisedUsd: 550000000,
     latestRound: {
       type: null,
@@ -3362,11 +3020,9 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'cleaning',
-    description: 'Builds Neo 2 fully autonomous floor cleaning robots for commercial facilities using AI autonomy platform.',
-    approach: [
-      'autonomous-cleaning',
-      'commercial',
-    ],
+    description:
+      'Builds Neo 2 fully autonomous floor cleaning robots for commercial facilities using AI autonomy platform.',
+    approach: ['autonomous-cleaning', 'commercial'],
     totalRaisedUsd: 70000000,
     latestRound: {
       type: 'Series C',
@@ -3376,9 +3032,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Commercial floor cleaning globally',
-    ],
+    deployments: ['Commercial floor cleaning globally'],
     openSource: [],
     sources: [
       {
@@ -3392,9 +3046,7 @@ const ROWS: Company[] = [
   {
     id: 'harmonic-drive-systems',
     name: 'Harmonic Drive Systems',
-    aka: [
-      'HDS',
-    ],
+    aka: ['HDS'],
     hq: {
       city: 'Tokyo',
       country: 'JP',
@@ -3402,11 +3054,9 @@ const ROWS: Company[] = [
     founded: 1970,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Undisputed global leader in strain wave (harmonic) gearing technology foundational for humanoid robot joints.',
-    approach: [
-      'strain-wave-gearing',
-      'precision-motion',
-    ],
+    description:
+      'Undisputed global leader in strain wave (harmonic) gearing technology foundational for humanoid robot joints.',
+    approach: ['strain-wave-gearing', 'precision-motion'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3428,7 +3078,8 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://nextfinancial.substack.com/p/the-joint-problem-who-owns-the-most',
-        title: 'The Joint Problem: Who Owns the Most Expensive Part of a Humanoid',
+        title:
+          'The Joint Problem: Who Owns the Most Expensive Part of a Humanoid',
         asOf: '2026-08-06',
       },
     ],
@@ -3445,11 +3096,9 @@ const ROWS: Company[] = [
     founded: 2003,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Builds precision cycloidal and planetary reducers for industrial and humanoid robot joints.',
-    approach: [
-      'cycloidal-reducers',
-      'precision-motion',
-    ],
+    description:
+      'Builds precision cycloidal and planetary reducers for industrial and humanoid robot joints.',
+    approach: ['cycloidal-reducers', 'precision-motion'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3459,9 +3108,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      'Supplies reducers to major robot manufacturers',
-    ],
+    deployments: ['Supplies reducers to major robot manufacturers'],
     openSource: [],
     sources: [
       {
@@ -3475,10 +3122,7 @@ const ROWS: Company[] = [
   {
     id: 'leaderdrive',
     name: 'Leaderdrive',
-    aka: [
-      'Leader Drive',
-      'Lide Drive',
-    ],
+    aka: ['Leader Drive', 'Lide Drive'],
     hq: {
       city: 'Suzhou',
       country: 'CN',
@@ -3486,11 +3130,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Chinese manufacturer of harmonic reducers positioned as domestic alternative to Japanese suppliers for humanoid robot joints.',
-    approach: [
-      'harmonic-reducers',
-      'domestic-substitution',
-    ],
+    description:
+      'Chinese manufacturer of harmonic reducers positioned as domestic alternative to Japanese suppliers for humanoid robot joints.',
+    approach: ['harmonic-reducers', 'domestic-substitution'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3521,9 +3163,7 @@ const ROWS: Company[] = [
   {
     id: 'sanhua',
     name: 'Sanhua',
-    aka: [
-      'Sanhua Intelligent Controls',
-    ],
+    aka: ['Sanhua Intelligent Controls'],
     hq: {
       city: 'Hangzhou',
       country: 'CN',
@@ -3531,11 +3171,9 @@ const ROWS: Company[] = [
     founded: 1984,
     segment: 'components-hardware',
     subSegment: 'actuators-components',
-    description: 'Supplies thermal management and actuator components to Tesla for Optimus; $685M order from Tesla reported.',
-    approach: [
-      'thermal-management',
-      'actuator-components',
-    ],
+    description:
+      'Supplies thermal management and actuator components to Tesla for Optimus; $685M order from Tesla reported.',
+    approach: ['thermal-management', 'actuator-components'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3545,9 +3183,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      'Tesla Optimus supply chain ($685M order)',
-    ],
+    deployments: ['Tesla Optimus supply chain ($685M order)'],
     openSource: [],
     sources: [
       {
@@ -3561,9 +3197,7 @@ const ROWS: Company[] = [
   {
     id: 'shadow-robot',
     name: 'Shadow Robot',
-    aka: [
-      'Shadow Robot Company',
-    ],
+    aka: ['Shadow Robot Company'],
     hq: {
       city: 'London',
       country: 'UK',
@@ -3571,11 +3205,9 @@ const ROWS: Company[] = [
     founded: 1987,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds dexterous robotic hands and teleoperated robots with advanced dexterity for research and mission-critical applications.',
-    approach: [
-      'dexterous-hands',
-      'teleoperation',
-    ],
+    description:
+      'Builds dexterous robotic hands and teleoperated robots with advanced dexterity for research and mission-critical applications.',
+    approach: ['dexterous-hands', 'teleoperation'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3585,10 +3217,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Research institutions',
-      'Mission-critical teleoperation',
-    ],
+    deployments: ['Research institutions', 'Mission-critical teleoperation'],
     openSource: [],
     sources: [
       {
@@ -3610,12 +3239,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds SharpaWave dexterous humanoid hands with 22 DoF and tactile sensing, plus foundation models for contact-rich manipulation; mass production achieved.',
-    approach: [
-      'dexterous-hands',
-      'tactile-sensing',
-      'mass-production',
-    ],
+    description:
+      'Builds SharpaWave dexterous humanoid hands with 22 DoF and tactile sensing, plus foundation models for contact-rich manipulation; mass production achieved.',
+    approach: ['dexterous-hands', 'tactile-sensing', 'mass-production'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3647,9 +3273,7 @@ const ROWS: Company[] = [
   {
     id: 'wonik-robotics',
     name: 'Wonik Robotics',
-    aka: [
-      'Wonik',
-    ],
+    aka: ['Wonik'],
     hq: {
       city: 'Seoul',
       country: 'KR',
@@ -3657,11 +3281,9 @@ const ROWS: Company[] = [
     founded: 1991,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds Allegro Hand, a high-performance robotic hand optimized for research, automation, and intelligent manipulation.',
-    approach: [
-      'dexterous-hands',
-      'research-automation',
-    ],
+    description:
+      'Builds Allegro Hand, a high-performance robotic hand optimized for research, automation, and intelligent manipulation.',
+    approach: ['dexterous-hands', 'research-automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3671,9 +3293,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Research institutions worldwide',
-    ],
+    deployments: ['Research institutions worldwide'],
     openSource: [],
     sources: [
       {
@@ -3695,10 +3315,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'components-hardware',
     subSegment: 'tactile-sensors',
-    description: 'Builds advanced 3D tactile sensors providing human sense of touch for humanoid and industrial robots.',
-    approach: [
-      '3d-tactile-sensors',
-    ],
+    description:
+      'Builds advanced 3D tactile sensors providing human sense of touch for humanoid and industrial robots.',
+    approach: ['3d-tactile-sensors'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3708,9 +3327,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Humanoid and industrial robot tactile sensing',
-    ],
+    deployments: ['Humanoid and industrial robot tactile sensing'],
     openSource: [],
     sources: [
       {
@@ -3732,11 +3349,9 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'simulation-tooling',
     subSegment: 'foundation-models',
-    description: 'Re-entered robotics field with hiring push across hardware, simulation, data, and ML roles to develop robots for physical tasks.',
-    approach: [
-      'robotics-foundation-models',
-      'hardware',
-    ],
+    description:
+      'Re-entered robotics field with hiring push across hardware, simulation, data, and ML roles to develop robots for physical tasks.',
+    approach: ['robotics-foundation-models', 'hardware'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -3765,9 +3380,7 @@ const ROWS: Company[] = [
   {
     id: 'meta-robotics',
     name: 'Meta (Robotics)',
-    aka: [
-      'Meta Superintelligence Labs',
-    ],
+    aka: ['Meta Superintelligence Labs'],
     hq: {
       city: 'Menlo Park',
       country: 'US',
@@ -3775,11 +3388,9 @@ const ROWS: Company[] = [
     founded: 2004,
     segment: 'simulation-tooling',
     subSegment: 'foundation-models',
-    description: 'Entered humanoid robotics by acquiring Assured Robot Intelligence, folding team into Superintelligence Labs to build foundational physical AI models.',
-    approach: [
-      'physical-ai-models',
-      'acqui-hire',
-    ],
+    description:
+      'Entered humanoid robotics by acquiring Assured Robot Intelligence, folding team into Superintelligence Labs to build foundational physical AI models.',
+    approach: ['physical-ai-models', 'acqui-hire'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
@@ -3789,9 +3400,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      'Acquired Assured Robot Intelligence (May 2026)',
-    ],
+    deployments: ['Acquired Assured Robot Intelligence (May 2026)'],
     openSource: [],
     sources: [
       {
@@ -3810,9 +3419,7 @@ const ROWS: Company[] = [
   {
     id: 'assured-robot-intelligence',
     name: 'Assured Robot Intelligence',
-    aka: [
-      'ARI',
-    ],
+    aka: ['ARI'],
     hq: {
       city: 'San Diego',
       country: 'US',
@@ -3820,19 +3427,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Built AI models for robots to address critical challenges in high-value labor markets; acquired by Meta for Superintelligence Labs.',
-    approach: [
-      'robot-ai-models',
-    ],
+    description:
+      'Built AI models for robots to address critical challenges in high-value labor markets; acquired by Meta for Superintelligence Labs.',
+    approach: ['robot-ai-models'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2026-05-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Meta',
-      ],
+      leadInvestors: ['Meta'],
     },
     status: 'acquired',
     deployments: [],
@@ -3857,25 +3461,19 @@ const ROWS: Company[] = [
     founded: 2022,
     segment: 'vertical-applications',
     subSegment: 'defense',
-    description: 'Designs and manufactures autonomous unmanned surface vehicles (USVs) for maritime security and domain awareness.',
-    approach: [
-      'autonomous-maritime',
-      'defense',
-    ],
+    description:
+      'Designs and manufactures autonomous unmanned surface vehicles (USVs) for maritime security and domain awareness.',
+    approach: ['autonomous-maritime', 'defense'],
     totalRaisedUsd: 2600000000,
     latestRound: {
       type: 'Series D',
       amountUsd: 1750000000,
       date: '2026-03-01',
       valuationUsd: 9250000000,
-      leadInvestors: [
-        'Kleiner Perkins',
-      ],
+      leadInvestors: ['Kleiner Perkins'],
     },
     status: 'private',
-    deployments: [
-      'Maritime security',
-    ],
+    deployments: ['Maritime security'],
     openSource: [],
     sources: [
       {
@@ -3897,20 +3495,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'dexterous-manipulation',
-    description: 'Builds robot foundation models for dexterous manipulation, co-founded by MIT professor Pulkit Agrawal and DeepMind researcher Tuomas Haarnoja.',
-    approach: [
-      'dexterous-manipulation',
-      'research-to-commercial',
-    ],
+    description:
+      'Builds robot foundation models for dexterous manipulation, co-founded by MIT professor Pulkit Agrawal and DeepMind researcher Tuomas Haarnoja.',
+    approach: ['dexterous-manipulation', 'research-to-commercial'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Obvious Ventures',
-      ],
+      leadInvestors: ['Obvious Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -3936,18 +3530,14 @@ const ROWS: Company[] = [
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
     description: 'Develops robots to automate factory assembly tasks.',
-    approach: [
-      'factory-assembly-automation',
-    ],
+    approach: ['factory-assembly-automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Red Glass Ventures',
-      ],
+      leadInvestors: ['Red Glass Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -3972,21 +3562,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds.',
-    approach: [
-      'modular-3d-storage',
-      'warehouse-automation',
-    ],
+    description:
+      'Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds.',
+    approach: ['modular-3d-storage', 'warehouse-automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Greenoaks',
-        'Eclipse',
-      ],
+      leadInvestors: ['Greenoaks', 'Eclipse'],
     },
     status: 'private',
     deployments: [],
@@ -4011,25 +3596,19 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
-    description: 'Provides robotics-as-a-service for manufacturers to deploy automation without upfront equipment costs.',
-    approach: [
-      'raas',
-      'manufacturing-automation',
-    ],
+    description:
+      'Provides robotics-as-a-service for manufacturers to deploy automation without upfront equipment costs.',
+    approach: ['raas', 'manufacturing-automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Lux Capital',
-      ],
+      leadInvestors: ['Lux Capital'],
     },
     status: 'private',
-    deployments: [
-      'Manufacturing deployments',
-    ],
+    deployments: ['Manufacturing deployments'],
     openSource: [],
     sources: [
       {
@@ -4052,10 +3631,7 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Cable-driven AI robotics company building humanoid robots.',
-    approach: [
-      'cable-driven',
-      'humanoid',
-    ],
+    approach: ['cable-driven', 'humanoid'],
     totalRaisedUsd: 140000000,
     latestRound: {
       type: 'Series B',
@@ -4088,18 +3664,14 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Builds humanoid robots for commercial deployment.',
-    approach: [
-      'humanoid',
-    ],
+    approach: ['humanoid'],
     totalRaisedUsd: 10000000,
     latestRound: {
       type: 'Seed',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Qualcomm Ventures',
-      ],
+      leadInvestors: ['Qualcomm Ventures'],
     },
     status: 'private',
     deployments: [],
@@ -4124,19 +3696,16 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Builds humanoid and educational robots for commercial and research applications.',
-    approach: [
-      'educational-humanoid',
-    ],
+    description:
+      'Builds humanoid and educational robots for commercial and research applications.',
+    approach: ['educational-humanoid'],
     totalRaisedUsd: 50000000,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: '2024-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Shenzhen Capital Group',
-      ],
+      leadInvestors: ['Shenzhen Capital Group'],
     },
     status: 'private',
     deployments: [],
@@ -4162,20 +3731,14 @@ const ROWS: Company[] = [
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
     description: 'Builds smart home robots and devices for home automation.',
-    approach: [
-      'smart-home',
-      'consumer-robotics',
-    ],
+    approach: ['smart-home', 'consumer-robotics'],
     totalRaisedUsd: 50000000,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: '2023-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'Sequoia China',
-        'Eastern Bell Capital',
-      ],
+      leadInvestors: ['Sequoia China', 'Eastern Bell Capital'],
     },
     status: 'private',
     deployments: [],
@@ -4200,25 +3763,19 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies.',
-    approach: [
-      'expressive-humanoid',
-      'social-robotics',
-    ],
+    description:
+      'Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies.',
+    approach: ['expressive-humanoid', 'social-robotics'],
     totalRaisedUsd: 50000000,
     latestRound: {
       type: 'Series B',
       amountUsd: null,
       date: '2021-01-01',
       valuationUsd: null,
-      leadInvestors: [
-        'SingularityNET',
-      ],
+      leadInvestors: ['SingularityNET'],
     },
     status: 'private',
-    deployments: [
-      'Sophia robot demonstrations',
-    ],
+    deployments: ['Sophia robot demonstrations'],
     openSource: [],
     sources: [
       {
@@ -4241,10 +3798,7 @@ const ROWS: Company[] = [
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
     description: 'Builds humanoid robots with tactile sensing capabilities.',
-    approach: [
-      'tactile-sensing',
-      'humanoid',
-    ],
+    approach: ['tactile-sensing', 'humanoid'],
     totalRaisedUsd: 20000000,
     latestRound: {
       type: 'Series A',
@@ -4276,10 +3830,9 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots for commercial deployment with embodied intelligence.',
-    approach: [
-      'embodied-intelligence',
-    ],
+    description:
+      'Builds humanoid robots for commercial deployment with embodied intelligence.',
+    approach: ['embodied-intelligence'],
     totalRaisedUsd: 100000000,
     latestRound: {
       type: null,
@@ -4311,11 +3864,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'food-kitchen',
-    description: 'Builds autonomous robotic kitchen assistants like Flippy for fast-food and commercial kitchen automation.',
-    approach: [
-      'autonomous-kitchen',
-      'fast-food-automation',
-    ],
+    description:
+      'Builds autonomous robotic kitchen assistants like Flippy for fast-food and commercial kitchen automation.',
+    approach: ['autonomous-kitchen', 'fast-food-automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4325,9 +3876,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Fast-food brand partnerships',
-    ],
+    deployments: ['Fast-food brand partnerships'],
     openSource: [],
     sources: [
       {
@@ -4349,11 +3898,9 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous sidewalk delivery robots for food and package delivery.',
-    approach: [
-      'sidewalk-delivery',
-      'autonomous',
-    ],
+    description:
+      'Builds autonomous sidewalk delivery robots for food and package delivery.',
+    approach: ['sidewalk-delivery', 'autonomous'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4363,9 +3910,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Food and package delivery across multiple cities',
-    ],
+    deployments: ['Food and package delivery across multiple cities'],
     openSource: [],
     sources: [
       {
@@ -4379,9 +3924,7 @@ const ROWS: Company[] = [
   {
     id: 'coco-robotics',
     name: 'Coco',
-    aka: [
-      'Coco Robotics',
-    ],
+    aka: ['Coco Robotics'],
     hq: {
       city: 'Los Angeles',
       country: 'US',
@@ -4389,11 +3932,9 @@ const ROWS: Company[] = [
     founded: 2020,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous delivery robots for last-mile food and goods delivery.',
-    approach: [
-      'autonomous-delivery',
-      'last-mile',
-    ],
+    description:
+      'Builds autonomous delivery robots for last-mile food and goods delivery.',
+    approach: ['autonomous-delivery', 'last-mile'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4403,9 +3944,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Food delivery in multiple US cities',
-    ],
+    deployments: ['Food delivery in multiple US cities'],
     openSource: [],
     sources: [
       {
@@ -4427,11 +3966,9 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'vertical-applications',
     subSegment: 'security',
-    description: 'Builds autonomous security robots for patrolling and monitoring public and private spaces.',
-    approach: [
-      'autonomous-security',
-      'patrol-robots',
-    ],
+    description:
+      'Builds autonomous security robots for patrolling and monitoring public and private spaces.',
+    approach: ['autonomous-security', 'patrol-robots'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4465,26 +4002,19 @@ const ROWS: Company[] = [
     founded: 2009,
     segment: 'vertical-applications',
     subSegment: 'cleaning',
-    description: 'Builds AI software platform powering autonomous commercial floor cleaning robots.',
-    approach: [
-      'ai-cleaning-platform',
-      'autonomous-floor-care',
-    ],
+    description:
+      'Builds AI software platform powering autonomous commercial floor cleaning robots.',
+    approach: ['ai-cleaning-platform', 'autonomous-floor-care'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Qualcomm Ventures',
-        'SoftBank',
-      ],
+      leadInvestors: ['Qualcomm Ventures', 'SoftBank'],
     },
     status: 'private',
-    deployments: [
-      'Commercial floor cleaning robots in retail and warehouse',
-    ],
+    deployments: ['Commercial floor cleaning robots in retail and warehouse'],
     openSource: [],
     sources: [
       {
@@ -4506,11 +4036,9 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'simulation-tooling',
     subSegment: 'open-source-frameworks',
-    description: 'Builds Reachy and Reachy Mini open-source humanoid robots for research and education, partnered with Hugging Face.',
-    approach: [
-      'open-source',
-      'research-education',
-    ],
+    description:
+      'Builds Reachy and Reachy Mini open-source humanoid robots for research and education, partnered with Hugging Face.',
+    approach: ['open-source', 'research-education'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4520,13 +4048,8 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Reachy Mini powered by Hugging Face',
-    ],
-    openSource: [
-      'Reachy',
-      'Reachy Mini',
-    ],
+    deployments: ['Reachy Mini powered by Hugging Face'],
+    openSource: ['Reachy', 'Reachy Mini'],
     sources: [
       {
         url: 'https://pollen-robotics.com/reachy-mini/',
@@ -4547,26 +4070,19 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'healthcare',
-    description: 'Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.',
-    approach: [
-      'hospital-service-robot',
-      'mobile-manipulation',
-    ],
+    description:
+      'Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.',
+    approach: ['hospital-service-robot', 'mobile-manipulation'],
     totalRaisedUsd: 55000000,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2026-01-20',
       valuationUsd: null,
-      leadInvestors: [
-        'Serve Robotics',
-      ],
+      leadInvestors: ['Serve Robotics'],
     },
     status: 'acquired',
-    deployments: [
-      'Moxi robots in 30+ hospitals',
-      '22 health system clients',
-    ],
+    deployments: ['Moxi robots in 30+ hospitals', '22 health system clients'],
     openSource: [],
     sources: [
       {
@@ -4593,25 +4109,19 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'mobile-robots',
-    description: 'Builds autonomous forklifts and lift trucks for warehouse dock operations; acquired by Symbotic.',
-    approach: [
-      'autonomous-forklifts',
-      'dock-operations',
-    ],
+    description:
+      'Builds autonomous forklifts and lift trucks for warehouse dock operations; acquired by Symbotic.',
+    approach: ['autonomous-forklifts', 'dock-operations'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
       date: '2026-02-10',
       valuationUsd: null,
-      leadInvestors: [
-        'Symbotic',
-      ],
+      leadInvestors: ['Symbotic'],
     },
     status: 'acquired',
-    deployments: [
-      'Warehouse dock operations',
-    ],
+    deployments: ['Warehouse dock operations'],
     openSource: [],
     sources: [
       {
@@ -4633,30 +4143,25 @@ const ROWS: Company[] = [
     founded: 1969,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Built robotics automation business including Symmetry Fulfillment orchestration platform; sold to Skild AI in April 2026.',
-    approach: [
-      'warehouse-orchestration',
-      'fulfillment',
-    ],
+    description:
+      'Built robotics automation business including Symmetry Fulfillment orchestration platform; sold to Skild AI in April 2026.',
+    approach: ['warehouse-orchestration', 'fulfillment'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Divestiture',
       amountUsd: null,
       date: '2026-04-15',
       valuationUsd: null,
-      leadInvestors: [
-        'Skild AI',
-      ],
+      leadInvestors: ['Skild AI'],
     },
     status: 'acquired',
-    deployments: [
-      'Symmetry Fulfillment platform sold to Skild AI',
-    ],
+    deployments: ['Symmetry Fulfillment platform sold to Skild AI'],
     openSource: [],
     sources: [
       {
         url: 'https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html',
-        title: 'Skild AI Acquires Zebra Technologies\' Robotics Automation Business',
+        title:
+          "Skild AI Acquires Zebra Technologies' Robotics Automation Business",
         asOf: '2026-08-06',
       },
     ],
@@ -4673,26 +4178,19 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'defense',
-    description: 'Builds autonomous systems for defense including drones, counter-drone systems, and AI-powered military platforms.',
-    approach: [
-      'defense-autonomy',
-      'ai-military-systems',
-    ],
+    description:
+      'Builds autonomous systems for defense including drones, counter-drone systems, and AI-powered military platforms.',
+    approach: ['defense-autonomy', 'ai-military-systems'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
       date: null,
       valuationUsd: 61000000000,
-      leadInvestors: [
-        'Founders Fund',
-      ],
+      leadInvestors: ['Founders Fund'],
     },
     status: 'private',
-    deployments: [
-      'Active in Middle East conflict',
-      'US military contracts',
-    ],
+    deployments: ['Active in Middle East conflict', 'US military contracts'],
     openSource: [],
     sources: [
       {
@@ -4714,10 +4212,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'industrial-logistics',
     subSegment: 'industrial-robots',
-    description: 'Makes lightweight industrial robots; listed on HKEX in May 2026, raising ~$86M.',
-    approach: [
-      'lightweight-industrial-robots',
-    ],
+    description:
+      'Makes lightweight industrial robots; listed on HKEX in May 2026, raising ~$86M.',
+    approach: ['lightweight-industrial-robots'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'IPO',
@@ -4749,30 +4246,24 @@ const ROWS: Company[] = [
     founded: 1988,
     segment: 'industrial-logistics',
     subSegment: 'industrial-robots',
-    description: 'Major industrial robot manufacturer; robotics business acquired by SoftBank for $5.4B in October 2025.',
-    approach: [
-      'industrial-robots',
-      'automation',
-    ],
+    description:
+      'Major industrial robot manufacturer; robotics business acquired by SoftBank for $5.4B in October 2025.',
+    approach: ['industrial-robots', 'automation'],
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
       amountUsd: 5400000000,
       date: '2025-10-08',
       valuationUsd: null,
-      leadInvestors: [
-        'SoftBank Group',
-      ],
+      leadInvestors: ['SoftBank Group'],
     },
     status: 'acquired',
-    deployments: [
-      'Industrial robot installations worldwide',
-    ],
+    deployments: ['Industrial robot installations worldwide'],
     openSource: [],
     sources: [
       {
         url: 'https://www.channelnewsasia.com/business/softbank-buy-abbs-robotics-business-54-billion-deal',
-        title: 'SoftBank to buy ABB\'s robotics business in $5.4 billion deal',
+        title: "SoftBank to buy ABB's robotics business in $5.4 billion deal",
         asOf: '2026-08-06',
       },
     ],
@@ -4789,11 +4280,9 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month.',
-    approach: [
-      'mass-production',
-      'factory-conversion',
-    ],
+    description:
+      'Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month.',
+    approach: ['mass-production', 'factory-conversion'],
     totalRaisedUsd: null,
     latestRound: {
       type: null,
@@ -4803,14 +4292,13 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      '1,000 humanoids/month production target',
-    ],
+    deployments: ['1,000 humanoids/month production target'],
     openSource: [],
     sources: [
       {
         url: 'https://interestingengineering.com/ai-robotics/mitsubishi-humanoid-robots-japan',
-        title: 'Mitsubishi to make 1,000 humanoids per month at idle engine plant',
+        title:
+          'Mitsubishi to make 1,000 humanoids per month at idle engine plant',
         asOf: '2026-08-06',
       },
     ],

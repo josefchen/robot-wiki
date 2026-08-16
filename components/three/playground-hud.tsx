@@ -57,10 +57,7 @@ export function PlaygroundHud({
         {joints.map((joint) => (
           <div key={joint.name} className="flex justify-between gap-4">
             <dt className="text-text-dim">{joint.name}</dt>
-            <dd
-              data-testid={`hud-joint-${joint.name}`}
-              className="text-text"
-            >
+            <dd data-testid={`hud-joint-${joint.name}`} className="text-text">
               {signed((angles[joint.name] ?? 0) * RAD_TO_DEG, 1)}°
             </dd>
           </div>

@@ -1,6 +1,11 @@
 'use client';
 
-import { Environment, Grid, Lightformer, OrbitControls } from '@react-three/drei';
+import {
+  Environment,
+  Grid,
+  Lightformer,
+  OrbitControls,
+} from '@react-three/drei';
 import { Canvas, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useEffect } from 'react';
 import type { URDFRobot } from 'urdf-loader';
@@ -46,13 +51,7 @@ const TARGET_COLORS: Record<TargetState, string> = {
 };
 
 /** Marker for the IK target: a sphere at the target plus a ground ring. */
-function TargetGizmo({
-  target,
-  state,
-}: {
-  target: Vec3;
-  state: TargetState;
-}) {
+function TargetGizmo({ target, state }: { target: Vec3; state: TargetState }) {
   const color = TARGET_COLORS[state];
   return (
     <group position={[target.x, target.y, target.z]}>

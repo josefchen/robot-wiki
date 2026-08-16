@@ -22,7 +22,9 @@ function renderHeader(props?: {
       entry={entry}
       // `in` (not `??`) so callers can explicitly pass `undefined` and
       // exercise the absent-date branch.
-      lastReviewed={props && 'lastReviewed' in props ? props.lastReviewed : '2026-08-08'}
+      lastReviewed={
+        props && 'lastReviewed' in props ? props.lastReviewed : '2026-08-08'
+      }
       readingTimeMinutes={props?.readingTimeMinutes ?? 14}
       citationCount={props?.citationCount ?? 6}
     />,

@@ -10,7 +10,13 @@ import { getTerm } from '@/data/glossary';
  * /glossary entry can never diverge (VAL-GLOSS-009). The children are the
  * inline display text; the definition always comes from the registry.
  */
-export function TermRef({ id, children }: { id: string; children?: ReactNode }) {
+export function TermRef({
+  id,
+  children,
+}: {
+  id: string;
+  children?: ReactNode;
+}) {
   const entry = getTerm(id);
   if (!entry) {
     // Unreachable in shipped content: scripts/validate-content.ts fails the

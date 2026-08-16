@@ -74,7 +74,9 @@ test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, V
   expect(runtimeData).toEqual([]);
 });
 
-test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => {
+test('deep links apply on the static export (VAL-MKT-007)', async ({
+  page,
+}) => {
   await page.goto(`${BASE}/market-map/?segment=humanoids&country=US`);
   await expect(page.getByText('6 of 112 companies')).toBeVisible();
   await expect(page.locator('article[data-company-id]')).toHaveCount(6);

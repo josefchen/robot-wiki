@@ -24,9 +24,7 @@ import {
  */
 
 const published = publishedModules();
-const registryByKey = new Map(
-  modules.map((m) => [`${m.domain}/${m.slug}`, m]),
-);
+const registryByKey = new Map(modules.map((m) => [`${m.domain}/${m.slug}`, m]));
 
 const articles: LinkGraphArticle[] = published.map((m) => {
   const source = readFileSync(
@@ -74,7 +72,9 @@ async function renderedKeys(
 ): Promise<string[]> {
   return page
     .locator(`section[data-section="${section}"] li`)
-    .evaluateAll((els) => els.map((el) => el.getAttribute('data-article-key') ?? ''));
+    .evaluateAll((els) =>
+      els.map((el) => el.getAttribute('data-article-key') ?? ''),
+    );
 }
 
 /** Every internal href inside the article region, normalized. */
@@ -82,7 +82,9 @@ async function articleRegionHrefs(page: Page): Promise<Set<string>> {
   const hrefs = await page
     .locator('article a')
     .evaluateAll((els) => els.map((el) => el.getAttribute('href') ?? ''));
-  return new Set(hrefs.filter((h) => h.startsWith('/')).map(normalizeInternalPath));
+  return new Set(
+    hrefs.filter((h) => h.startsWith('/')).map(normalizeInternalPath),
+  );
 }
 
 test.describe('See also + Linked from', () => {
@@ -109,16 +111,19 @@ test.describe('See also + Linked from', () => {
         const items = section.locator('li');
         for (let i = 0; i < (article.seeAlso ?? []).length; i += 1) {
           const target = registryByKey.get(article.seeAlso?.[i] ?? '');
-          expect(target, `registry entry ${article.seeAlso?.[i]}`).toBeDefined();
+          expect(
+            target,
+            `registry entry ${article.seeAlso?.[i]}`,
+          ).toBeDefined();
           if (!target) continue;
           const item = items.nth(i);
           const link = item.getByRole('link');
           await expect(link).toHaveText(target.title);
           // next/link may append a trailing slash; normalization makes the
           // assertion robust to either rendering.
-          expect(normalizeInternalPath((await link.getAttribute('href')) ?? '')).toBe(
-            `/${target.domain}/${target.slug}`,
-          );
+          expect(
+            normalizeInternalPath((await link.getAttribute('href')) ?? ''),
+          ).toBe(`/${target.domain}/${target.slug}`);
           await expect(item).toContainText(target.summary);
         }
       });
@@ -155,7 +160,10 @@ test.describe('See also + Linked from', () => {
     // roughly three navigations each, far past the 30s default.
     test.setTimeout(300_000);
     const edges = articles.flatMap((article) =>
-      (article.seeAlso ?? []).map((target) => ({ source: article.key, target })),
+      (article.seeAlso ?? []).map((target) => ({
+        source: article.key,
+        target,
+      })),
     );
     expect(edges.length).toBeGreaterThan(0);
 
@@ -196,7 +204,9 @@ test.describe('See also + Linked from', () => {
         // at all when the article declares none).
         const seeAlso = article.seeAlso ?? [];
         if (seeAlso.length === 0) {
-          await expect(page.locator('section[data-section="see-also"]')).toHaveCount(0);
+          await expect(
+            page.locator('section[data-section="see-also"]'),
+          ).toHaveCount(0);
         }
         expect(await renderedKeys(page, 'see-also')).toEqual(seeAlso);
 
@@ -205,9 +215,13 @@ test.describe('See also + Linked from', () => {
         // (VAL-WIKI-012), never a bare heading or an empty list.
         const expected = expectedBacklinks.get(article.key);
         if (!expected) {
-          await expect(page.locator('section[data-section="linked-from"]')).toHaveCount(0);
           await expect(
-            page.locator('article').getByRole('heading', { name: 'Linked from' }),
+            page.locator('section[data-section="linked-from"]'),
+          ).toHaveCount(0);
+          await expect(
+            page
+              .locator('article')
+              .getByRole('heading', { name: 'Linked from' }),
           ).toHaveCount(0);
         }
         expect(await renderedKeys(page, 'linked-from')).toEqual(expected ?? []);
@@ -244,16 +258,21 @@ test.describe('See also + Linked from', () => {
 
     // The derived graph carries the edge exactly once, and the rendered
     // Linked from list on diffusion-policy shows it.
-    const inbound = expectedBacklinks.get('manipulation/diffusion-policy') ?? [];
+    const inbound =
+      expectedBacklinks.get('manipulation/diffusion-policy') ?? [];
     expect(inbound).toContain('manipulation/action-chunking');
-    expect(inbound.filter((k) => k === 'manipulation/action-chunking')).toHaveLength(1);
+    expect(
+      inbound.filter((k) => k === 'manipulation/action-chunking'),
+    ).toHaveLength(1);
 
     await page.goto('/manipulation/diffusion-policy/');
     const item = page.locator(
       'section[data-section="linked-from"] li[data-article-key="manipulation/action-chunking"]',
     );
     await expect(item).toBeVisible();
-    await expect(item.getByRole('link')).toHaveText('Action Chunking (ACT and ALOHA)');
+    await expect(item.getByRole('link')).toHaveText(
+      'Action Chunking (ACT and ALOHA)',
+    );
   });
 
   test('a zero-inbound article renders no Linked from section and no bare heading (VAL-WIKI-012)', async ({
@@ -272,13 +291,17 @@ test.describe('See also + Linked from', () => {
     );
     // All current zero-inbound articles still link out; the honesty rule is
     // about inbound edges, so sample two distinct ones as they are.
-    expect(zeroInbound.some((a) => outboundArticleTargets(a).length > 0)).toBe(true);
+    expect(zeroInbound.some((a) => outboundArticleTargets(a).length > 0)).toBe(
+      true,
+    );
     const samples = zeroInbound.slice(0, 2);
 
     for (const article of samples) {
       await test.step(article.key, async () => {
         await page.goto(`/${article.key}/`);
-        await expect(page.locator('section[data-section="linked-from"]')).toHaveCount(0);
+        await expect(
+          page.locator('section[data-section="linked-from"]'),
+        ).toHaveCount(0);
         await expect(
           page.locator('article').getByRole('heading', { name: 'Linked from' }),
         ).toHaveCount(0);
@@ -311,7 +334,9 @@ test.describe('See also + Linked from', () => {
         ).toBeVisible();
         const items = section.locator('li[data-article-key]');
         const count = await items.count();
-        expect(count, `${article.key} See also count`).toBeGreaterThanOrEqual(2);
+        expect(count, `${article.key} See also count`).toBeGreaterThanOrEqual(
+          2,
+        );
         expect(count, `${article.key} See also count`).toBeLessThanOrEqual(4);
         for (let i = 0; i < count; i += 1) {
           const key = await items.nth(i).getAttribute('data-article-key');
@@ -357,9 +382,7 @@ test.describe('See also + Linked from', () => {
     // Every trailing section stays inside the mobile column.
     const rights = await page
       .locator('article > section')
-      .evaluateAll((els) =>
-        els.map((el) => el.getBoundingClientRect().right),
-      );
+      .evaluateAll((els) => els.map((el) => el.getBoundingClientRect().right));
     for (const right of rights) {
       expect(right).toBeLessThanOrEqual(375);
     }

@@ -4,8 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { DeploymentDashboard } from '@/components/interactive/deployment-dashboard';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
 
-const VERIFIED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'verified').length;
-const CLAIMED_COUNT = DEPLOYMENT_ROWS.filter((r) => r.status === 'claimed').length;
+const VERIFIED_COUNT = DEPLOYMENT_ROWS.filter(
+  (r) => r.status === 'verified',
+).length;
+const CLAIMED_COUNT = DEPLOYMENT_ROWS.filter(
+  (r) => r.status === 'claimed',
+).length;
 
 describe('DeploymentDashboard', () => {
   it('renders every deployment row with status badge, as-of date, and source link', () => {
@@ -20,7 +24,10 @@ describe('DeploymentDashboard', () => {
       expect(rowScope.getByText(row.asOf)).toBeInTheDocument();
       // Source link is external and reachable.
       const source = rowScope.getByRole('link', { name: row.sourceLabel });
-      expect(source).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
+      expect(source).toHaveAttribute(
+        'href',
+        expect.stringMatching(/^https:\/\//),
+      );
       expect(source).toHaveAttribute('target', '_blank');
     }
   });
@@ -45,7 +52,9 @@ describe('DeploymentDashboard', () => {
     const user = userEvent.setup();
     render(<DeploymentDashboard />);
     await user.click(screen.getByRole('button', { name: 'Verified' }));
-    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(VERIFIED_COUNT);
+    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(
+      VERIFIED_COUNT,
+    );
     expect(screen.queryByText('claimed')).not.toBeInTheDocument();
     expect(screen.getByTestId('deployment-count')).toHaveTextContent(
       `${VERIFIED_COUNT} of ${DEPLOYMENT_ROWS.length}`,
@@ -56,7 +65,9 @@ describe('DeploymentDashboard', () => {
     const user = userEvent.setup();
     render(<DeploymentDashboard />);
     await user.click(screen.getByRole('button', { name: 'Claimed' }));
-    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(CLAIMED_COUNT);
+    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(
+      CLAIMED_COUNT,
+    );
     expect(screen.queryByText('verified')).not.toBeInTheDocument();
   });
 
@@ -76,7 +87,9 @@ describe('DeploymentDashboard', () => {
     const user = userEvent.setup();
     render(<DeploymentDashboard />);
     await user.click(screen.getByRole('button', { name: 'Claimed' }));
-    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(CLAIMED_COUNT);
+    expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(
+      CLAIMED_COUNT,
+    );
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getAllByTestId(/^deployment-row-/).length).toBe(
       DEPLOYMENT_ROWS.length,

@@ -27,18 +27,24 @@ describe('findPlaceholderMarkers (VAL-BUILD-004)', () => {
   });
 
   it('ignores markers inside script and style blocks', () => {
-    const html = '<script>const x = "lorem";</script><style>/* TODO */</style><p>Real prose.</p>';
+    const html =
+      '<script>const x = "lorem";</script><style>/* TODO */</style><p>Real prose.</p>';
     expect(findPlaceholderMarkers(html)).toEqual([]);
   });
 
   it('passes clean HTML', () => {
-    expect(findPlaceholderMarkers('<p>Diffusion policies denoise action chunks.</p>')).toEqual([]);
+    expect(
+      findPlaceholderMarkers(
+        '<p>Diffusion policies denoise action chunks.</p>',
+      ),
+    ).toEqual([]);
   });
 });
 
 describe('banned vocabulary (VAL-BUILD-007)', () => {
   it('flags promotional vocabulary in prose with a line number', () => {
-    const body = 'First line.\nThis game-changing approach unlocks new capabilities.\n';
+    const body =
+      'First line.\nThis game-changing approach unlocks new capabilities.\n';
     const findings = findBannedVocabulary(body);
     expect(findings.map((f) => f.word)).toEqual(
       expect.arrayContaining(['game-changing', 'unlocks']),
@@ -54,17 +60,22 @@ describe('banned vocabulary (VAL-BUILD-007)', () => {
   });
 
   it('ignores banned words inside code spans and fenced code', () => {
-    const body = 'Use `unlock()` to open it.\n\n```\nconst landscape = 1; // delve\n```\n';
+    const body =
+      'Use `unlock()` to open it.\n\n```\nconst landscape = 1; // delve\n```\n';
     expect(findBannedVocabulary(body)).toEqual([]);
   });
 
   it('ignores banned words inside URLs', () => {
-    expect(findBannedVocabulary('See https://example.com/delve/now')).toEqual([]);
+    expect(findBannedVocabulary('See https://example.com/delve/now')).toEqual(
+      [],
+    );
   });
 
   it('passes clean technical prose', () => {
     expect(
-      findBannedVocabulary('The policy executes at 50 Hz with a chunk size of 100.'),
+      findBannedVocabulary(
+        'The policy executes at 50 Hz with a chunk size of 100.',
+      ),
     ).toEqual([]);
   });
 });
@@ -91,13 +102,17 @@ describe('rule-of-three density (VAL-BUILD-007)', () => {
   it('scores a triad-heavy text above a normal one', () => {
     const triads = Array.from(
       { length: 40 },
-      () => 'It covers a, b, and c for readers who want d, e, and f across g, h, and i quickly.',
+      () =>
+        'It covers a, b, and c for readers who want d, e, and f across g, h, and i quickly.',
     ).join(' ');
     const plain = Array.from(
       { length: 40 },
-      () => 'The policy predicts action chunks and executes them at a fixed rate with measured latency.',
+      () =>
+        'The policy predicts action chunks and executes them at a fixed rate with measured latency.',
     ).join(' ');
-    expect(ruleOfThreeDensity(triads)).toBeGreaterThan(ruleOfThreeDensity(plain));
+    expect(ruleOfThreeDensity(triads)).toBeGreaterThan(
+      ruleOfThreeDensity(plain),
+    );
     expect(ruleOfThreeDensity(triads)).toBeGreaterThan(RULE_OF_THREE_LIMIT);
     expect(ruleOfThreeDensity(plain)).toBeLessThan(RULE_OF_THREE_LIMIT);
   });

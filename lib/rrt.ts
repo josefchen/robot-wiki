@@ -229,7 +229,7 @@ export function buildRrt(scene: RrtScene, opts: RrtOptions = {}): RrtResult {
   const path: Vec2[] = [];
   if (goalNodeId !== null) {
     const chain: RrtNode[] = [];
-    for (let node = nodes[goalNodeId]; node.parent !== -1; ) {
+    for (let node = nodes[goalNodeId]; node.parent !== -1;) {
       chain.push(node);
       node = nodes[node.parent];
     }
@@ -240,7 +240,10 @@ export function buildRrt(scene: RrtScene, opts: RrtOptions = {}): RrtResult {
   }
   let pathLength = 0;
   for (let i = 1; i < path.length; i += 1) {
-    pathLength += Math.hypot(path[i].x - path[i - 1].x, path[i].y - path[i - 1].y);
+    pathLength += Math.hypot(
+      path[i].x - path[i - 1].x,
+      path[i].y - path[i - 1].y,
+    );
   }
 
   return { nodes, goalNodeId, path, pathLength };

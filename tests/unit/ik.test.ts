@@ -87,10 +87,7 @@ describe('buildChainSpec', () => {
 
   it('extracts the fallback arm chain: 3 revolute joints plus a fixed tool tip', () => {
     const robot = createProceduralArm();
-    const chain = buildChainSpec(
-      robot as unknown as UrdfLikeNode,
-      'tool_tip',
-    );
+    const chain = buildChainSpec(robot as unknown as UrdfLikeNode, 'tool_tip');
     expect(chain).not.toBeNull();
     const revolute = revoluteJoints(chain!);
     expect(revolute.map((j) => j.name)).toEqual([
@@ -183,7 +180,8 @@ describe('solveIk (DLS, adaptive damping)', () => {
     expect(result.converged).toBe(false);
     expect(result.done).toBe(true);
     expect(result.residual).toBeGreaterThan(0.25);
-    for (const angle of result.angles) expect(Number.isFinite(angle)).toBe(true);
+    for (const angle of result.angles)
+      expect(Number.isFinite(angle)).toBe(true);
   });
 
   it('clamps at a joint limit instead of overshooting for limit-locked targets', () => {
@@ -260,13 +258,19 @@ describe('solveIk (DLS, adaptive damping)', () => {
     const result = solveIk(chain, home, { x: 1e6, y: 1e6, z: 1e6 });
     expect(result.done).toBe(true);
     expect(Number.isFinite(result.residual)).toBe(true);
-    for (const angle of result.angles) expect(Number.isFinite(angle)).toBe(true);
+    for (const angle of result.angles)
+      expect(Number.isFinite(angle)).toBe(true);
   });
 
   it('respects the iteration cap', () => {
-    const result = solveIk(chain, home, { x: 0.5, y: 0.5, z: 0.5 }, {
-      maxIterations: 20,
-    });
+    const result = solveIk(
+      chain,
+      home,
+      { x: 0.5, y: 0.5, z: 0.5 },
+      {
+        maxIterations: 20,
+      },
+    );
     expect(result.iterations).toBeLessThanOrEqual(20);
     expect(result.done).toBe(true);
   });

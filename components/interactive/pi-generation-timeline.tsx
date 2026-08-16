@@ -47,7 +47,11 @@ const f = (v: number) => Number(v.toFixed(2));
 
 function dateToX(ym: string): number {
   const span = monthIndex(AXIS_MAX) - monthIndex(AXIS_MIN);
-  return f(AXIS_LEFT + ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT));
+  return f(
+    AXIS_LEFT +
+      ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) *
+        (AXIS_RIGHT - AXIS_LEFT),
+  );
 }
 
 export function PiGenerationTimeline({
@@ -66,7 +70,8 @@ export function PiGenerationTimeline({
   // The divider sits midway between the last open and first closed release.
   const firstClosed = PI_GENERATIONS.find((g) => !g.openWeights);
   const dividerX = f(
-    (dateToX(frontier.released) + dateToX(firstClosed?.released ?? AXIS_MAX)) / 2,
+    (dateToX(frontier.released) + dateToX(firstClosed?.released ?? AXIS_MAX)) /
+      2,
   );
 
   // pi0.6 and pi*0.6 share a release month; nudge the second node right by
@@ -208,7 +213,9 @@ export function PiGenerationTimeline({
                 x={cx}
                 y={labelY}
                 textAnchor="middle"
-                fill={isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                fill={
+                  isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'
+                }
                 fontSize={11}
                 fontFamily="var(--font-mono)"
               >
@@ -277,7 +284,9 @@ export function PiGenerationTimeline({
         <button
           data-pagefind-ignore
           type="button"
-          onClick={() => select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))}
+          onClick={() =>
+            select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))
+          }
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Reset

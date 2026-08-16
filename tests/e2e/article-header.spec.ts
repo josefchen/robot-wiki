@@ -5,9 +5,16 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { getCitation } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
-import { inlineCitationIds, moduleBody, resolveReferences } from '../../lib/references';
+import {
+  inlineCitationIds,
+  moduleBody,
+  resolveReferences,
+} from '../../lib/references';
 import { WORDS_PER_MINUTE } from '../../lib/reading-time';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Article header metadata (VAL-WIKI-013, VAL-WIKI-014, VAL-WIKI-015):
@@ -46,7 +53,10 @@ function expectedDateText(iso: string): string {
   return `${day} ${MONTHS[month - 1]} ${year}`;
 }
 
-function frontmatterLastReviewed(domain: string, slug: string): string | undefined {
+function frontmatterLastReviewed(
+  domain: string,
+  slug: string,
+): string | undefined {
   const source = readFileSync(
     join(process.cwd(), 'content', domain, `${slug}.mdx`),
     'utf8',
@@ -62,12 +72,16 @@ function expectedCitationCount(domain: string, slug: string): number {
   );
   const fm = matter(source).data as { citations?: unknown };
   const ids = Array.isArray(fm.citations) ? (fm.citations as string[]) : [];
-  return resolveReferences(ids, inlineCitationIds(moduleBody(source)), getCitation)
-    .length;
+  return resolveReferences(
+    ids,
+    inlineCitationIds(moduleBody(source)),
+    getCitation,
+  ).length;
 }
 
 async function displayedReadingMinutes(page: Page): Promise<number> {
-  const text = (await page.locator('dd[data-header-reading-minutes]').textContent()) ?? '';
+  const text =
+    (await page.locator('dd[data-header-reading-minutes]').textContent()) ?? '';
   const match = /^(\d+)\s*min$/.exec(text.trim());
   expect(match, `reading-time slot shows "${text.trim()}"`).not.toBeNull();
   return Number(match?.[1]);
@@ -142,7 +156,9 @@ test.describe('Article header metadata', () => {
             .textContent()
             .then((t) => t?.trim()),
         );
-        const renderedCount = await page.locator('ol [data-reference-id]').count();
+        const renderedCount = await page
+          .locator('ol [data-reference-id]')
+          .count();
         const resolvedCount = expectedCitationCount(m.domain, m.slug);
 
         // One source: header, bibliography and the resolved registry list
@@ -180,7 +196,9 @@ test.describe('Article header metadata', () => {
 
         // The contract: within one minute of the rendered word count at
         // the documented rate.
-        expect(Math.abs(displayed - words / WORDS_PER_MINUTE)).toBeLessThanOrEqual(1);
+        expect(
+          Math.abs(displayed - words / WORDS_PER_MINUTE),
+        ).toBeLessThanOrEqual(1);
 
         minutesByArticle.set(key, displayed);
         wordsByArticle.set(key, words);
@@ -304,7 +322,9 @@ test.describe('Article header metadata', () => {
     }
   });
 
-  test('zero axe violations with the header metadata rendered', async ({ page }) => {
+  test('zero axe violations with the header metadata rendered', async ({
+    page,
+  }) => {
     await page.goto(`${BASE}/manipulation/comparison-matrix/`);
     const results = await new AxeBuilder({ page })
       .include('article header')

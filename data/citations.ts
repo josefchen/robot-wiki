@@ -36,8 +36,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'act-aloha-2023',
-    title:
-      'Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware',
+    title: 'Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware',
     authors: ['Tony Z. Zhao', 'Vikash Kumar', 'Sergey Levine', 'Chelsea Finn'],
     year: 2023,
     venue: 'RSS 2023',
@@ -212,8 +211,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'open-x-embodiment-2023',
-    title:
-      'Open X-Embodiment: Robotic Learning Datasets and RT-X Models',
+    title: 'Open X-Embodiment: Robotic Learning Datasets and RT-X Models',
     authors: ['Open X-Embodiment Collaboration'],
     year: 2023,
     arxiv: '2310.08864',
@@ -656,8 +654,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'gr00t-n1-2025',
-    title:
-      'GR00T N1: An Open Foundation Model for Generalist Humanoid Robots',
+    title: 'GR00T N1: An Open Foundation Model for Generalist Humanoid Robots',
     authors: ['Johan Bjorck', 'Yuke Zhu', 'NVIDIA'],
     year: 2025,
     arxiv: '2503.14734',
@@ -1094,7 +1091,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'peng-2018',
-    title: 'Sim-to-Real Transfer of Robotic Control with Dynamics Randomization',
+    title:
+      'Sim-to-Real Transfer of Robotic Control with Dynamics Randomization',
     authors: [
       'Xue Bin Peng',
       'Marcin Andrychowicz',
@@ -1255,8 +1253,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'h2o-2024',
-    title:
-      'Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation',
+    title: 'Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation',
     authors: [
       'Tairan He',
       'Zhengyi Luo',
@@ -1498,8 +1495,7 @@ export const CITATIONS: Citation[] = [
     // 83% of 29 tasks and 52% average normalized improvement confirmed in the
     // abstract.
     id: 'eureka-2024',
-    title:
-      'Eureka: Human-Level Reward Design via Coding Large Language Models',
+    title: 'Eureka: Human-Level Reward Design via Coding Large Language Models',
     authors: [
       'Yecheng Jason Ma',
       'William Liang',
@@ -1754,7 +1750,8 @@ export const CITATIONS: Citation[] = [
     // world modeling during training but skips future prediction at test
     // time (190 ms latency, over 4x faster than imagine-then-execute).
     id: 'fast-wam-2026',
-    title: 'Fast-WAM: Do World Action Models Need Test-time Future Imagination?',
+    title:
+      'Fast-WAM: Do World Action Models Need Test-time Future Imagination?',
     authors: ['Tianyuan Yuan', 'Zibin Dong', 'Yicheng Liu', 'Hang Zhao'],
     year: 2026,
     arxiv: '2603.16666',
@@ -1906,7 +1903,8 @@ export const CITATIONS: Citation[] = [
     // Verified against the arXiv abs page (2026-08-08): 6 authors; world
     // model in 3D occupancy space for driving.
     id: 'occworld-2023',
-    title: 'OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving',
+    title:
+      'OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving',
     authors: [
       'Wenzhao Zheng',
       'Weiliang Chen',
@@ -1937,7 +1935,8 @@ export const CITATIONS: Citation[] = [
     // at 15 FPS on one RTX 4090, policies trained only on generated
     // demonstrations match real-data-trained ones.
     id: 'interactive-world-simulator-2026',
-    title: 'Interactive World Simulator for Robot Policy Training and Evaluation',
+    title:
+      'Interactive World Simulator for Robot Policy Training and Evaluation',
     authors: [
       'Yixuan Wang',
       'Rhythm Syed',
@@ -2624,7 +2623,13 @@ export const CITATIONS: Citation[] = [
     id: 'gello-2023',
     title:
       'GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators',
-    authors: ['Philipp Wu', 'Yide Shentu', 'Zhongke Yi', 'Xingyu Lin', 'Pieter Abbeel'],
+    authors: [
+      'Philipp Wu',
+      'Yide Shentu',
+      'Zhongke Yi',
+      'Xingyu Lin',
+      'Pieter Abbeel',
+    ],
     year: 2023,
     arxiv: '2309.13037',
     url: 'https://arxiv.org/abs/2309.13037',
@@ -2636,8 +2641,15 @@ export const CITATIONS: Citation[] = [
     // tooltip). research/03 lists Open TeleVision as [UNVERIFIED]; the
     // paper was located and verified at arXiv 2407.01512.
     id: 'open-television-2024',
-    title: 'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback',
-    authors: ['Xuxin Cheng', 'Jialong Li', 'Shiqi Yang', 'Ge Yang', 'Xiaolong Wang'],
+    title:
+      'Open-TeleVision: Teleoperation with Immersive Active Visual Feedback',
+    authors: [
+      'Xuxin Cheng',
+      'Jialong Li',
+      'Shiqi Yang',
+      'Ge Yang',
+      'Xiaolong Wang',
+    ],
     year: 2024,
     arxiv: '2407.01512',
     url: 'https://arxiv.org/abs/2407.01512',
@@ -2730,7 +2742,8 @@ export const CITATIONS: Citation[] = [
     // demonstrations for every task. Venue omitted: the arXiv page lists
     // no publication venue.
     id: 'libero-2023',
-    title: 'LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning',
+    title:
+      'LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning',
     authors: [
       'Bo Liu',
       'Yifeng Zhu',
@@ -2827,7 +2840,8 @@ export const CITATIONS: Citation[] = [
     // suite. research/03 marks further details UNVERIFIED; only the
     // abstract's claims are used.
     id: 'robochallenge-2025',
-    title: 'RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies',
+    title:
+      'RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies',
     authors: [
       'Adina Yakefu',
       'Bin Xie',
@@ -3164,8 +3178,7 @@ export const CITATIONS: Citation[] = [
     // 789-814. Establishes the stability conditions (terminal cost and
     // constraint set) that made receding-horizon MPC a rigorous method.
     id: 'mayne-2000',
-    title:
-      'Constrained Model Predictive Control: Stability and Optimality',
+    title: 'Constrained Model Predictive Control: Stability and Optimality',
     authors: [
       'David Q. Mayne',
       'James B. Rawlings',
@@ -3396,8 +3409,7 @@ export const CITATIONS: Citation[] = [
     // between two keyframes into a single factor, which is what makes
     // inertial data practical inside a factor graph.
     id: 'forster-2017',
-    title:
-      'On-Manifold Preintegration for Real-Time Visual-Inertial Odometry',
+    title: 'On-Manifold Preintegration for Real-Time Visual-Inertial Odometry',
     authors: [
       'Christian Forster',
       'Luca Carlone',
@@ -3495,11 +3507,7 @@ export const CITATIONS: Citation[] = [
     // a different paper in the same issue, an easy mis-citation.
     id: 'markenscoff-1990',
     title: 'The Geometry of Grasping',
-    authors: [
-      'Xanthippi Markenscoff',
-      'Luqun Ni',
-      'Christos H. Papadimitriou',
-    ],
+    authors: ['Xanthippi Markenscoff', 'Luqun Ni', 'Christos H. Papadimitriou'],
     year: 1990,
     venue: 'Int. J. Robotics Research',
     url: 'https://doi.org/10.1177/027836499000900102',
@@ -3860,8 +3868,7 @@ export const CITATIONS: Citation[] = [
     // describes the V3 configuration; the post also documents Musk's
     // April 19, 2026 "this one didn't actually work" design change.
     id: 'droids-optimus-v3-hand-2026',
-    title:
-      "The Forearm Is the New Hand: Inside Tesla's Optimus V3 Patents",
+    title: "The Forearm Is the New Hand: Inside Tesla's Optimus V3 Patents",
     authors: ['Diana Wolf Torres', 'Alexander W. Torres'],
     year: 2026,
     url: 'https://droids.substack.com/p/the-forearm-is-the-new-hand-inside',
@@ -3999,7 +4006,8 @@ export const CITATIONS: Citation[] = [
     // Computex 2026 keynote, attributed to a communication glitch, and was
     // covered and carried off stage.
     id: 'computex-collapse-2026',
-    title: 'Watch: Qualcomm-powered humanoid robot collapses during live keynote',
+    title:
+      'Watch: Qualcomm-powered humanoid robot collapses during live keynote',
     authors: ['Jijo Malayil'],
     year: 2026,
     venue: 'Interesting Engineering',
@@ -4012,7 +4020,8 @@ export const CITATIONS: Citation[] = [
     // globally in 2026 by early June, closing in on the $26B raised in
     // all of 2025.
     id: 'robotics-funding-23b-2026',
-    title: 'Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025',
+    title:
+      'Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025',
     authors: ['Andre Savage'],
     year: 2026,
     venue: 'Market Briefs',
@@ -4088,7 +4097,13 @@ export const CITATIONS: Citation[] = [
     id: 'paden-2016',
     title:
       'A Survey of Motion Planning and Control Techniques for Self-driving Urban Vehicles',
-    authors: ['Brian Paden', 'Michal Cáp', 'Sze Zheng Yong', 'Dmitry S. Yershov', 'Emilio Frazzoli'],
+    authors: [
+      'Brian Paden',
+      'Michal Cáp',
+      'Sze Zheng Yong',
+      'Dmitry S. Yershov',
+      'Emilio Frazzoli',
+    ],
     year: 2016,
     arxiv: '1604.07446',
     url: 'https://arxiv.org/abs/1604.07446',
@@ -4099,7 +4114,8 @@ export const CITATIONS: Citation[] = [
     // ("Pei Sun and 24 other authors"); 1150 scenes of 20 s each,
     // lidar + camera, introduced with a geographic-diversity metric.
     id: 'waymo-open-dataset-2020',
-    title: 'Scalability in Perception for Autonomous Driving: Waymo Open Dataset',
+    title:
+      'Scalability in Perception for Autonomous Driving: Waymo Open Dataset',
     authors: [
       'Pei Sun',
       'Henrik Kretzschmar',
@@ -4138,7 +4154,8 @@ export const CITATIONS: Citation[] = [
     // graph network over vectorized agents and HD map, ~70% fewer
     // parameters than the raster baseline it matched.
     id: 'vectornet-2020',
-    title: 'VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation',
+    title:
+      'VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation',
     authors: [
       'Jiyang Gao',
       'Chen Sun',
@@ -4159,7 +4176,8 @@ export const CITATIONS: Citation[] = [
     // 30 million examples still not enough for plain behavior cloning,
     // fixed by synthesizing perturbed (worst-case) demonstrations.
     id: 'chauffeurnet-2018',
-    title: 'ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst',
+    title:
+      'ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst',
     authors: ['Mayank Bansal', 'Alex Krizhevsky', 'Abhijit Ogale'],
     year: 2018,
     arxiv: '1812.03079',
@@ -4201,7 +4219,14 @@ export const CITATIONS: Citation[] = [
     // 270-paper survey of end-to-end driving, accepted by IEEE TPAMI.
     id: 'e2e-ad-survey-2024',
     title: 'End-to-end Autonomous Driving: Challenges and Frontiers',
-    authors: ['Li Chen', 'Penghao Wu', 'Kashyap Chitta', 'Bernhard Jaeger', 'Andreas Geiger', 'Hongyang Li'],
+    authors: [
+      'Li Chen',
+      'Penghao Wu',
+      'Kashyap Chitta',
+      'Bernhard Jaeger',
+      'Andreas Geiger',
+      'Hongyang Li',
+    ],
     year: 2024,
     venue: 'IEEE TPAMI',
     arxiv: '2306.16927',
@@ -4291,7 +4316,8 @@ export const CITATIONS: Citation[] = [
     // Verified against the live page (2026-08-15, HTTP 200): SAE's own
     // summary of the J3016 levels revision.
     id: 'sae-j3016-2021',
-    title: 'SAE Levels of Driving Automation Refined for Clarity and International Audience',
+    title:
+      'SAE Levels of Driving Automation Refined for Clarity and International Audience',
     authors: ['SAE'],
     year: 2021,
     venue: 'SAE International',
@@ -4323,7 +4349,8 @@ export const CITATIONS: Citation[] = [
     // Genie-3-derived generative simulator emitting camera and lidar,
     // controllable through driving action, scene layout, and language.
     id: 'waymo-world-model-2026',
-    title: 'The Waymo World Model: A New Frontier For Autonomous Driving Simulation',
+    title:
+      'The Waymo World Model: A New Frontier For Autonomous Driving Simulation',
     authors: ['Waymo'],
     year: 2026,
     venue: 'Waymo Blog',
@@ -4335,7 +4362,8 @@ export const CITATIONS: Citation[] = [
     // survey mapping the driving VLA landscape into end-to-end and
     // dual-system paradigms.
     id: 'vla-ad-survey-2026',
-    title: 'Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future',
+    title:
+      'Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future',
     authors: [
       'Tianshuai Hu',
       'Xiaolu Liu',
@@ -4879,7 +4907,8 @@ const ORG_TOKENS = new Set([
 export function citationLabel(citation: Citation): string {
   const firstAuthor = citation.authors[0];
   const tokens = firstAuthor.split(' ');
-  const surname = SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
+  const surname =
+    SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
   const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }

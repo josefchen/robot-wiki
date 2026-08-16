@@ -8,7 +8,9 @@ import { DEXTEROUS_HANDS } from '@/lib/dexterous-hands';
 function rowOrder(): string[] {
   return screen
     .getAllByTestId(/^hand-row-/)
-    .map((el) => (el.getAttribute('data-testid') ?? '').replace('hand-row-', ''));
+    .map((el) =>
+      (el.getAttribute('data-testid') ?? '').replace('hand-row-', ''),
+    );
 }
 
 const DEFAULT_ORDER = ['sanctuary-phoenix', 'figure-02-03'];
@@ -33,7 +35,10 @@ describe('HandComparison', () => {
       }
       expect(scope.getByText(hand.asOf)).toBeInTheDocument();
       const source = scope.getByRole('link', { name: hand.sourceLabel });
-      expect(source).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
+      expect(source).toHaveAttribute(
+        'href',
+        expect.stringMatching(/^https:\/\//),
+      );
       expect(source).toHaveAttribute('target', '_blank');
     }
   });
@@ -42,7 +47,9 @@ describe('HandComparison', () => {
     render(<HandComparison />);
     // Tesla tactile + cost, Figure cost, Shadow tactile, Sanctuary cost,
     // Unitree tactile.
-    expect(screen.getAllByText('not disclosed', { exact: true })).toHaveLength(6);
+    expect(screen.getAllByText('not disclosed', { exact: true })).toHaveLength(
+      6,
+    );
     expect(screen.queryByText('n/a', { exact: true })).not.toBeInTheDocument();
   });
 

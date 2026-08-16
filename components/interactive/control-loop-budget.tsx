@@ -67,7 +67,10 @@ export function ControlLoopBudget({ className }: { className?: string }) {
   const barY = CHART.pad.top + 34;
   const barH = 26;
   const budgetX = x(CONTROL_PERIOD_MS);
-  const barW = Math.max(2, x(Math.min(inferenceMs, WINDOW_MS)) - CHART.pad.left);
+  const barW = Math.max(
+    2,
+    x(Math.min(inferenceMs, WINDOW_MS)) - CHART.pad.left,
+  );
   const overflowMs = Math.max(0, inferenceMs - WINDOW_MS);
 
   function reset() {
@@ -144,7 +147,9 @@ export function ControlLoopBudget({ className }: { className?: string }) {
                 <text
                   x={x(ms)}
                   y={CHART.height - 8}
-                  textAnchor={ms === 0 ? 'start' : ms === WINDOW_MS ? 'end' : 'middle'}
+                  textAnchor={
+                    ms === 0 ? 'start' : ms === WINDOW_MS ? 'end' : 'middle'
+                  }
                   fill="var(--color-text-dim)"
                   fontSize={10}
                   fontFamily="var(--font-mono)"
@@ -208,7 +213,9 @@ export function ControlLoopBudget({ className }: { className?: string }) {
               fontSize={9}
               fontFamily="var(--font-mono)"
             >
-              {anchor === PI0_ANCHOR ? 'pi0 3B measured' : 'pi0-L 9.1B measured'}
+              {anchor === PI0_ANCHOR
+                ? 'pi0 3B measured'
+                : 'pi0-L 9.1B measured'}
             </text>
           </g>
         ))}
@@ -259,7 +266,10 @@ export function ControlLoopBudget({ className }: { className?: string }) {
       </svg>
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
-        <span data-testid="verdict-readout" className={closes ? 'text-ok' : 'text-err'}>
+        <span
+          data-testid="verdict-readout"
+          className={closes ? 'text-ok' : 'text-err'}
+        >
           {closes ? 'closes at 50 Hz' : 'does not close at 50 Hz'}
         </span>
         <span className="text-text-dim">: </span>
@@ -277,10 +287,9 @@ export function ControlLoopBudget({ className }: { className?: string }) {
       </p>
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Anchors are the VLA-Perf measurements on Jetson Thor
-        (arXiv:2602.18397): pi0 at 52.6 ms (19 Hz) and pi0-L at 3.9 Hz. The
-        scaling between and below them is an illustrative memory-bound
-        model, not a measurement.
+        Anchors are the VLA-Perf measurements on Jetson Thor (arXiv:2602.18397):
+        pi0 at 52.6 ms (19 Hz) and pi0-L at 3.9 Hz. The scaling between and
+        below them is an illustrative memory-bound model, not a measurement.
       </p>
 
       <ul className="mt-4 divide-y divide-border border-t border-border">

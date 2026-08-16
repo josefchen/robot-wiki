@@ -106,9 +106,7 @@ function decodeEntities(text: string): string {
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex: string) =>
       String.fromCodePoint(Number.parseInt(hex, 16)),
     )
-    .replace(/&#(\d+);/g, (_, dec: string) =>
-      String.fromCodePoint(Number(dec)),
-    )
+    .replace(/&#(\d+);/g, (_, dec: string) => String.fromCodePoint(Number(dec)))
     .replace(/&([a-zA-Z]+);/g, (whole, name: string) => {
       const decoded = NAMED_ENTITIES[name.toLowerCase()];
       return decoded === undefined ? whole : decoded;
@@ -133,10 +131,16 @@ function hiddenAtRest(tagName: string, attrs: string): boolean {
   const classMatch = /class\s*=\s*"([^"]*)"/.exec(attrs);
   if (classMatch) {
     const tokens = classMatch[1].split(/\s+/).filter(Boolean);
-    if (tokens.includes('hidden') && !tokens.some((t) => VIEWPORT_DISPLAY.test(t))) {
+    if (
+      tokens.includes('hidden') &&
+      !tokens.some((t) => VIEWPORT_DISPLAY.test(t))
+    ) {
       return true;
     }
-    if (tokens.includes('invisible') && !tokens.some((t) => VIEWPORT_VISIBLE.test(t))) {
+    if (
+      tokens.includes('invisible') &&
+      !tokens.some((t) => VIEWPORT_VISIBLE.test(t))
+    ) {
       return true;
     }
   }

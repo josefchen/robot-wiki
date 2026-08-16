@@ -134,10 +134,16 @@ export function KalmanTracker({ className }: { className?: string }) {
       ),
     );
 
-  const truthPoints = visible.map((fr) => `${xPx(fr.t)},${yPx(episode.truth[fr.t])}`).join(' ');
-  const estPoints = visible.map((fr) => `${xPx(fr.t)},${yPx(fr.est)}`).join(' ');
+  const truthPoints = visible
+    .map((fr) => `${xPx(fr.t)},${yPx(episode.truth[fr.t])}`)
+    .join(' ');
+  const estPoints = visible
+    .map((fr) => `${xPx(fr.t)},${yPx(fr.est)}`)
+    .join(' ');
   const bandPoints =
-    visible.map((fr) => `${xPx(fr.t)},${yPx(fr.est + 2 * fr.sigma)}`).join(' ') +
+    visible
+      .map((fr) => `${xPx(fr.t)},${yPx(fr.est + 2 * fr.sigma)}`)
+      .join(' ') +
     ' ' +
     visible
       .slice()
@@ -427,14 +433,14 @@ export function KalmanTracker({ className }: { className?: string }) {
         A constant-velocity Kalman filter tracking a wandering target from a
         noisy position sensor. The band is the filter&apos;s own ±2σ position
         uncertainty: it is widest where readings dropped out and the estimate
-        coasted on the model. The world is fixed by the seed in the readout,
-        so a run is exactly reproducible: Reseed generates the next world,
-        Reset returns to world {DEFAULT_SEED} with the matched default
-        beliefs (σq {DEFAULT_SETTINGS.sigmaQ.toFixed(2)}, σr{' '}
-        {DEFAULT_SETTINGS.sigmaR.toFixed(2)}). Things worth trying: drag σr
-        up and watch the gain fall and the estimate smooth out; drag σq up
-        and watch the estimate hug every reading while the band swells
-        between fixes.
+        coasted on the model. The world is fixed by the seed in the readout, so
+        a run is exactly reproducible: Reseed generates the next world, Reset
+        returns to world {DEFAULT_SEED} with the matched default beliefs (σq{' '}
+        {DEFAULT_SETTINGS.sigmaQ.toFixed(2)}, σr{' '}
+        {DEFAULT_SETTINGS.sigmaR.toFixed(2)}). Things worth trying: drag σr up
+        and watch the gain fall and the estimate smooth out; drag σq up and
+        watch the estimate hug every reading while the band swells between
+        fixes.
       </p>
     </div>
   );

@@ -2,17 +2,11 @@
  * Filter logic for the comparison matrix (components/interactive/
  * comparison-matrix.tsx). Pure and unit-tested in tests/unit/methods.test.ts.
  */
-import type {
-  ActionRepresentation,
-  Method,
-} from '@/data/schemas/method.ts';
+import type { ActionRepresentation, Method } from '@/data/schemas/method.ts';
 
 export type WeightsFilter = 'all' | 'open' | 'closed';
 
-export type RepresentationFilter =
-  | 'all'
-  | ActionRepresentation
-  | 'undisclosed';
+export type RepresentationFilter = 'all' | ActionRepresentation | 'undisclosed';
 
 export interface MethodFilters {
   /** Free-text match against name, backbone, and conditioning. */
@@ -30,11 +24,7 @@ export const DEFAULT_FILTERS: MethodFilters = {
 function matchesQuery(method: Method, query: string): boolean {
   const q = query.trim().toLowerCase();
   if (!q) return true;
-  const haystack = [
-    method.name,
-    method.backbone ?? '',
-    ...method.conditioning,
-  ]
+  const haystack = [method.name, method.backbone ?? '', ...method.conditioning]
     .join(' ')
     .toLowerCase();
   return q.split(/\s+/).every((token) => haystack.includes(token));

@@ -52,7 +52,10 @@ describe('MotInsulation', () => {
   it('backward pass with insulation shows the barrier and the FAST cross-entropy supervision', () => {
     render(<MotInsulation />);
     fireEvent.click(passButton(/backward pass/i));
-    expect(passButton(/backward pass/i)).toHaveAttribute('aria-pressed', 'true');
+    expect(passButton(/backward pass/i)).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByTestId('gradient-barrier')).toBeInTheDocument();
     expect(screen.getByTestId('fast-loss-label')).toBeInTheDocument();
     expect(screen.getByTestId('language-score')).toHaveTextContent(
@@ -65,7 +68,10 @@ describe('MotInsulation', () => {
     render(<MotInsulation />);
     fireEvent.click(stopGradientToggle());
     expect(stopGradientToggle()).toHaveAttribute('aria-pressed', 'false');
-    expect(passButton(/backward pass/i)).toHaveAttribute('aria-pressed', 'true');
+    expect(passButton(/backward pass/i)).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.queryByTestId('gradient-barrier')).not.toBeInTheDocument();
     expect(screen.queryByTestId('fast-loss-label')).not.toBeInTheDocument();
     expect(screen.getByTestId('gradient-cross-0')).toBeInTheDocument();
@@ -80,9 +86,7 @@ describe('MotInsulation', () => {
     fireEvent.click(stopGradientToggle());
     const slider = screen.getByRole('slider');
     fireEvent.change(slider, { target: { value: '2' } });
-    const shallow = Number(
-      screen.getByTestId('language-score').textContent,
-    );
+    const shallow = Number(screen.getByTestId('language-score').textContent);
     fireEvent.change(slider, { target: { value: String(LAYER_COUNT) } });
     const deep = Number(screen.getByTestId('language-score').textContent);
     expect(deep).toBeLessThan(shallow);

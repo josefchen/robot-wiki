@@ -52,22 +52,40 @@ test.describe('classical grasp-planning module', () => {
     // <Term> markup duplicates its text into a hidden tooltip, so match the
     // VISIBLE copy, not the first DOM hit.
     await expect(
-      main.getByText(/friction cone/i).filter({ visible: true }).first(),
+      main
+        .getByText(/friction cone/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/Coulomb/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Coulomb/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/force closure/i).filter({ visible: true }).first(),
+      main
+        .getByText(/force closure/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/form closure/i).filter({ visible: true }).first(),
+      main
+        .getByText(/form closure/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/antipodal/i).filter({ visible: true }).first(),
+      main
+        .getByText(/antipodal/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/Ferrari and Canny/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Ferrari and Canny/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
@@ -177,7 +195,9 @@ test.describe('classical grasp-planning module', () => {
     ).toBeVisible();
     for (const i of [1, 2, 3]) {
       await expect(
-        page.getByRole('slider', { name: new RegExp(`contact ${i} position`, 'i') }),
+        page.getByRole('slider', {
+          name: new RegExp(`contact ${i} position`, 'i'),
+        }),
       ).toBeVisible();
     }
     await expect(
@@ -192,9 +212,7 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('3');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.70');
     await expect(page.getByTestId('grasp-closure-readout')).toHaveText('yes');
-    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
-      '0.444',
-    );
+    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText('0.444');
 
     // The wrench hull drew facets and the origin marker is present.
     expect(await wrenchView.locator('polygon').count()).toBeGreaterThan(4);
@@ -202,7 +220,9 @@ test.describe('classical grasp-planning module', () => {
     // No layout shift: both view boxes are stable before and after input.
     const beforeObj = await objectView.boundingBox();
     const beforeWr = await wrenchView.boundingBox();
-    const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    const muSlider = page.getByRole('slider', {
+      name: /friction coefficient/i,
+    });
     await muSlider.focus();
     await muSlider.press('ArrowRight');
     const afterObj = await objectView.boundingBox();
@@ -228,7 +248,9 @@ test.describe('classical grasp-planning module', () => {
 
     // Lower friction: the hull shrinks and epsilon falls, but this
     // symmetric tripod stays force closure (its normals concur).
-    const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    const muSlider = page.getByRole('slider', {
+      name: /friction coefficient/i,
+    });
     await muSlider.focus();
     await muSlider.press('Home');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.05');
@@ -241,12 +263,12 @@ test.describe('classical grasp-planning module', () => {
 
     // Remove the third contact: top + right is not antipodal (45 degrees
     // beats arctan(1.00)), so closure breaks and the hull re-renders.
-    await page.getByRole('button', { name: /remove the last contact/i }).click();
+    await page
+      .getByRole('button', { name: /remove the last contact/i })
+      .click();
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('2');
     await expect(page.getByTestId('grasp-closure-readout')).toHaveText('no');
-    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
-      '0.000',
-    );
+    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText('0.000');
     expect(await hullHtml()).not.toBe(baseHull);
 
     // Slide contact 2 onto the bottom edge: the pair is antipodal, the
@@ -261,15 +283,15 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('3');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.70');
     await expect(page.getByTestId('grasp-closure-readout')).toHaveText('yes');
-    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
-      '0.444',
-    );
+    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText('0.444');
     expect(await hullHtml()).toBe(baseHull);
   });
 
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
-    const muSlider = page.getByRole('slider', { name: /friction coefficient/i });
+    const muSlider = page.getByRole('slider', {
+      name: /friction coefficient/i,
+    });
     await muSlider.focus();
     await expect(muSlider).toBeFocused();
     await muSlider.press('ArrowRight');

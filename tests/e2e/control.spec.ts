@@ -58,16 +58,28 @@ test.describe('classical control module', () => {
       main.getByText(/PID/i).filter({ visible: true }).first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/linear quadratic regulator/i).filter({ visible: true }).first(),
+      main
+        .getByText(/linear quadratic regulator/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/model-predictive control/i).filter({ visible: true }).first(),
+      main
+        .getByText(/model-predictive control/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/whole-body/i).filter({ visible: true }).first(),
+      main
+        .getByText(/whole-body/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/Riccati/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Riccati/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
@@ -98,10 +110,7 @@ test.describe('classical control module', () => {
     ).toHaveAttribute('href', 'https://doi.org/10.1109/9780470544334.ch8');
     await expect(
       main.getByRole('link', { name: 'Mayne 2000' }).first(),
-    ).toHaveAttribute(
-      'href',
-      'https://doi.org/10.1016/S0005-1098(99)00214-9',
-    );
+    ).toHaveAttribute('href', 'https://doi.org/10.1016/S0005-1098(99)00214-9');
     await expect(
       main.getByRole('link', { name: 'Di Carlo 2018' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/IROS.2018.8594448');
@@ -222,9 +231,7 @@ test.describe('classical control module', () => {
     await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
       /holding at release/i,
     );
-    await expect(page.getByTestId('pendulum-gain-kp-value')).toHaveText(
-      '25.0',
-    );
+    await expect(page.getByTestId('pendulum-gain-kp-value')).toHaveText('25.0');
     await expect(
       page.getByRole('button', { name: /run the simulation/i }),
     ).toBeVisible();

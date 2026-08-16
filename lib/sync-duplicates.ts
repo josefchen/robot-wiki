@@ -42,7 +42,9 @@ export async function pruneSyncConflictDuplicates(
       await rm(join(dir, entry.name), { recursive: true, force: true });
       pruned.push(entry.name);
     } else if (entry.isDirectory()) {
-      for (const nested of await pruneSyncConflictDuplicates(join(dir, entry.name))) {
+      for (const nested of await pruneSyncConflictDuplicates(
+        join(dir, entry.name),
+      )) {
         pruned.push(`${entry.name}/${nested}`);
       }
     }

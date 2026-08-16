@@ -101,7 +101,11 @@ describe('usePlaygroundKinematics', () => {
     act(() => result.current.placeTarget({ x: 1, y: 0.14, z: 0 }));
     expect(result.current.solving).toBe(false);
     expect(result.current.residualMm!).toBeGreaterThan(100);
-    for (const [i, name] of ['shoulder_pan', 'shoulder_lift', 'elbow_flex'].entries()) {
+    for (const [i, name] of [
+      'shoulder_pan',
+      'shoulder_lift',
+      'elbow_flex',
+    ].entries()) {
       const joint = result.current.joints[i];
       const angle = result.current.angles[name];
       expect(angle).toBeGreaterThanOrEqual(joint.lower - 1e-9);

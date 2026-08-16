@@ -3,10 +3,7 @@ import { z } from 'zod';
 import { DATASETS } from '@/data/datasets';
 import { datasetSchema } from '@/data/schemas/dataset';
 import { getCitation } from '@/data/citations';
-import {
-  DEFAULT_DATASET_FILTERS,
-  filterDatasets,
-} from '@/lib/datasets';
+import { DEFAULT_DATASET_FILTERS, filterDatasets } from '@/lib/datasets';
 
 /**
  * The datasets data contract (VAL-DATA-005 through VAL-DATA-010): rows
@@ -111,10 +108,7 @@ describe('filterDatasets', () => {
       ...DEFAULT_DATASET_FILTERS,
       size: 'under-100k',
     });
-    expect(small.map((d) => d.id).sort()).toEqual([
-      'bridgedata-v2',
-      'droid',
-    ]);
+    expect(small.map((d) => d.id).sort()).toEqual(['bridgedata-v2', 'droid']);
 
     const mid = filterDatasets(DATASETS, {
       ...DEFAULT_DATASET_FILTERS,
@@ -171,10 +165,7 @@ describe('filterDatasets', () => {
       ...DEFAULT_DATASET_FILTERS,
       tasks: '100-1k',
     });
-    expect(many.map((d) => d.id).sort()).toEqual([
-      'agibot-world',
-      'robomind',
-    ]);
+    expect(many.map((d) => d.id).sort()).toEqual(['agibot-world', 'robomind']);
 
     const most = filterDatasets(DATASETS, {
       ...DEFAULT_DATASET_FILTERS,

@@ -210,7 +210,9 @@ export function PlanarFkArm({ className }: { className?: string }) {
               cx={toSvgX(p.x)}
               cy={toSvgY(p.y)}
               r={2.5}
-              fill={i === 0 ? 'var(--color-text-dim)' : 'var(--color-border-strong)'}
+              fill={
+                i === 0 ? 'var(--color-text-dim)' : 'var(--color-border-strong)'
+              }
             />
           </g>
         ))}
@@ -249,8 +251,8 @@ export function PlanarFkArm({ className }: { className?: string }) {
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Link lengths 1.00, 0.75, and 0.55. Each angle is measured relative to
         its parent link, and the plotted position is the running sum of the
-        three link vectors: the planar form of the forward-kinematics
-        transform product.
+        three link vectors: the planar form of the forward-kinematics transform
+        product.
       </p>
     </div>
   );

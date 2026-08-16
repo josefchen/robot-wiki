@@ -1,7 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Deep-link robustness on the shipped artifact: filter params the dataset
@@ -38,7 +41,9 @@ test.describe('market-map deep links on the static export', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     // Figure AI is US and private: both filters exclude it.
-    await page.goto(`${BASE}/market-map/?country=CN&status=ipo#company-figure-ai`);
+    await page.goto(
+      `${BASE}/market-map/?country=CN&status=ipo#company-figure-ai`,
+    );
 
     const card = page.locator('article[data-company-id="figure-ai"]');
     await expect(card).toBeVisible();
@@ -56,7 +61,9 @@ test.describe('market-map deep links on the static export', () => {
     page,
   }) => {
     // Figure AI is a humanoid (segment passes) but US (country fails).
-    await page.goto(`${BASE}/market-map/?segment=humanoids&country=CN#company-figure-ai`);
+    await page.goto(
+      `${BASE}/market-map/?segment=humanoids&country=CN#company-figure-ai`,
+    );
 
     const card = page.locator('article[data-company-id="figure-ai"]');
     await expect(card).toBeVisible();
@@ -99,7 +106,9 @@ test.describe('market-map deep links on the static export', () => {
 
     const chart = page.getByRole('group', { name: /bubble chart/i });
     await expect(chart).toBeVisible();
-    await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(0);
+    await expect(
+      page.locator('circle[data-company-id="covariant"]'),
+    ).toHaveCount(0);
     await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
     // The chart exposes its selection state as data-bubble-selected: the
     // attribute is absent when nothing is selected (the honest state).

@@ -40,12 +40,18 @@ if (existsSync(outDir)) {
   for (const file of htmlFiles) {
     const markers = findPlaceholderMarkers(readFileSync(file, 'utf8'));
     if (markers.length > 0) {
-      problems.push(`${file.replace(outDir, '')}: placeholder markers (${markers.join(', ')})`);
+      problems.push(
+        `${file.replace(outDir, '')}: placeholder markers (${markers.join(', ')})`,
+      );
     }
   }
-  console.log(`no-slop: placeholder sweep over ${htmlFiles.length} exported HTML files`);
+  console.log(
+    `no-slop: placeholder sweep over ${htmlFiles.length} exported HTML files`,
+  );
 } else {
-  console.log('no-slop: out/ absent, placeholder sweep skipped (runs standalone after build)');
+  console.log(
+    'no-slop: out/ absent, placeholder sweep skipped (runs standalone after build)',
+  );
 }
 
 // --- 2. AI-writing markers over MDX prose (VAL-BUILD-007). ---
@@ -67,7 +73,9 @@ for (const file of mdxFiles) {
     problems.push(`${rel}:${finding.line}: ${finding.message}`);
   }
   for (const line of dashLines(body)) {
-    problems.push(`${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`);
+    problems.push(
+      `${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`,
+    );
   }
   const density = ruleOfThreeDensity(body);
   if (density > RULE_OF_THREE_LIMIT) {
@@ -83,4 +91,6 @@ if (problems.length > 0) {
   for (const problem of problems) console.error(`  ${problem}`);
   process.exit(1);
 }
-console.log('no-slop: OK (zero placeholder markers, zero banned AI-writing markers)');
+console.log(
+  'no-slop: OK (zero placeholder markers, zero banned AI-writing markers)',
+);

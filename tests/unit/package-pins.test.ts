@@ -76,7 +76,10 @@ describe('environment-trap script wiring', () => {
     expect(pkg.scripts.typecheck).toBe('next typegen && tsc --noEmit');
     expect(
       existsSync(
-        join(import.meta.dirname, '../../scripts/prune-next-type-duplicates.ts'),
+        join(
+          import.meta.dirname,
+          '../../scripts/prune-next-type-duplicates.ts',
+        ),
       ),
     ).toBe(true);
   });

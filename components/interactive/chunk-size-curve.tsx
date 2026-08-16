@@ -69,7 +69,9 @@ export function ChunkSizeCurve({
         `${k === MIN_CHUNK ? 'M' : 'L'}${x(k).toFixed(2)},${y(successAtChunkSize(k)).toFixed(2)}`,
       );
     }
-    const taper: string[] = [`M${x(peakK).toFixed(2)},${y(successAtChunkSize(peakK)).toFixed(2)}`];
+    const taper: string[] = [
+      `M${x(peakK).toFixed(2)},${y(successAtChunkSize(peakK)).toFixed(2)}`,
+    ];
     for (let k = peakK + 5; k <= MAX_CHUNK; k += 5) {
       taper.push(`L${x(k).toFixed(2)},${y(successAtChunkSize(k)).toFixed(2)}`);
     }
@@ -166,7 +168,9 @@ export function ChunkSizeCurve({
         {[1, 100, 200, 300, 400].map((k) => (
           <text
             key={k}
-            x={PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth}
+            x={
+              PAD.left + ((k - MIN_CHUNK) / (MAX_CHUNK - MIN_CHUNK)) * plotWidth
+            }
             y={HEIGHT - 8}
             textAnchor={k === MAX_CHUNK ? 'end' : 'middle'}
             fill="var(--color-text-dim)"
@@ -250,8 +254,8 @@ export function ChunkSizeCurve({
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Solid points are the measured ACT ablation values (1% at k=1, 44% at
-        k=100). The dashed region past k=100 is interpolated: the paper
-        reports a slight decline at k=200 and k=400 without exact numbers.
+        k=100). The dashed region past k=100 is interpolated: the paper reports
+        a slight decline at k=200 and k=400 without exact numbers.
       </p>
     </div>
   );

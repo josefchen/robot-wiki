@@ -154,7 +154,10 @@ export function expectedStructuredIds(): Array<{
   entityId: string;
 }> {
   return [
-    ...METHODS.map((method) => ({ type: 'method' as const, entityId: method.id })),
+    ...METHODS.map((method) => ({
+      type: 'method' as const,
+      entityId: method.id,
+    })),
     ...COMPANIES.map((company) => ({
       type: 'company' as const,
       entityId: company.id,

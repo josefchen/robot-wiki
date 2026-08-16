@@ -65,9 +65,7 @@ export function SearchInterface({
 }: SearchInterfaceProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [query, setQuery] = useState(
-    () => searchParams.get('q')?.trim() ?? '',
-  );
+  const [query, setQuery] = useState(() => searchParams.get('q')?.trim() ?? '');
   const [result, setResult] = useState<{
     query: string;
     hits: SearchHit[];
@@ -257,10 +255,7 @@ export function SearchInterface({
             aria-describedby="search-page-hint"
             className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim/80"
           />
-          <span
-            aria-hidden
-            className="flex items-center pr-1 text-text-dim"
-          >
+          <span aria-hidden className="flex items-center pr-1 text-text-dim">
             <MagnifyingGlass size={16} />
           </span>
         </div>
@@ -281,8 +276,8 @@ export function SearchInterface({
       {status === 'idle' ? (
         <div className="mt-8 border-t border-border pt-6">
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            Type a query to search the prose of every published module, and
-            the methods, companies, and datasets in the wiki data layer.
+            Type a query to search the prose of every published module, and the
+            methods, companies, and datasets in the wiki data layer.
           </p>
           <p className="mt-3 font-mono text-xs text-text-dim">
             Try: temporal ensembling, ALOHA, chunk size
@@ -293,8 +288,8 @@ export function SearchInterface({
       {status === 'unavailable' ? (
         <div className="mt-8 border-t border-border pt-6" role="note">
           <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            The search index is unavailable in this environment. It is
-            generated during the production build; run{' '}
+            The search index is unavailable in this environment. It is generated
+            during the production build; run{' '}
             <code className="rounded-sm border border-border bg-surface-2 px-1 py-0.5 font-mono text-xs text-text">
               npm run build
             </code>{' '}

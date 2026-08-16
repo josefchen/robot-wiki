@@ -34,7 +34,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'PPO over a two-layer MDP: the denoising chain is one layer, the environment the other',
     result:
-      'Strongest overall fine-tuning performance and efficiency for diffusion policies across the paper\'s benchmarks',
+      "Strongest overall fine-tuning performance and efficiency for diffusion policies across the paper's benchmarks",
     evidence: 'preprint',
     open: true,
   },
@@ -74,7 +74,7 @@ const ROWS: MethodRow[] = [
     mechanism:
       'Freeze the generalist; small residual actors probe its failures, then the residual-generated successes are distilled back',
     result:
-      '99% on LIBERO, over 50% gains on SimplerEnv, 100% on the paper\'s real Franka and YAM tasks',
+      "99% on LIBERO, over 50% gains on SimplerEnv, 100% on the paper's real Franka and YAM tasks",
     evidence: 'peer-reviewed',
     open: null,
   },

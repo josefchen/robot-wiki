@@ -102,15 +102,15 @@ describe('milestoneSchema (the build-time completeness gate)', () => {
   });
 
   it('rejects a row with an empty why-it-matters', () => {
-    expect(milestoneSchema.safeParse({ ...valid, whyItMatters: '' }).success).toBe(
-      false,
-    );
+    expect(
+      milestoneSchema.safeParse({ ...valid, whyItMatters: '' }).success,
+    ).toBe(false);
   });
 
   it('rejects a row with an empty status detail', () => {
-    expect(milestoneSchema.safeParse({ ...valid, statusDetail: '' }).success).toBe(
-      false,
-    );
+    expect(
+      milestoneSchema.safeParse({ ...valid, statusDetail: '' }).success,
+    ).toBe(false);
   });
 
   it('rejects a row with an empty how-we-know', () => {
@@ -126,8 +126,8 @@ describe('milestoneSchema (the build-time completeness gate)', () => {
   });
 
   it('rejects a row with no citation', () => {
-    expect(milestoneSchema.safeParse({ ...valid, citationIds: [] }).success).toBe(
-      false,
-    );
+    expect(
+      milestoneSchema.safeParse({ ...valid, citationIds: [] }).success,
+    ).toBe(false);
   });
 });

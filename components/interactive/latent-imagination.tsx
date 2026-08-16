@@ -107,17 +107,47 @@ function DecodedFrame({
 
   return (
     <g>
-      <rect x={0} y={0} width={88} height={56} fill={SURFACE_2} stroke={BORDER_STRONG} strokeWidth={1} />
+      <rect
+        x={0}
+        y={0}
+        width={88}
+        height={56}
+        fill={SURFACE_2}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
       {/* scene content fades as imagination drifts */}
       <g opacity={Math.max(0.12, 1 - fade)}>
         <line x1={4} y1={36} x2={84} y2={36} stroke={DIM} strokeWidth={1} />
         <circle cx={30} cy={20} r={7} fill={ACCENT} opacity={0.85} />
-        <rect x={52} y={26} width={24} height={10} fill="none" stroke={DIM} strokeWidth={1} />
+        <rect
+          x={52}
+          y={26}
+          width={24}
+          height={10}
+          fill="none"
+          stroke={DIM}
+          strokeWidth={1}
+        />
       </g>
       {dots.map((d) => (
-        <circle key={d.key} cx={d.x} cy={d.y} r={d.r} fill={DIM} opacity={d.o} />
+        <circle
+          key={d.key}
+          cx={d.x}
+          cy={d.y}
+          r={d.r}
+          fill={DIM}
+          opacity={d.o}
+        />
       ))}
-      <text x={44} y={66} textAnchor="middle" fill={DIM} fontSize={8} fontFamily={MONO}>
+      <text
+        x={44}
+        y={66}
+        textAnchor="middle"
+        fill={DIM}
+        fontSize={8}
+        fontFamily={MONO}
+      >
         {label}
       </text>
     </g>
@@ -127,10 +157,39 @@ function DecodedFrame({
 function CrossedFrame({ label }: { label: string }) {
   return (
     <g>
-      <rect x={0} y={0} width={88} height={56} fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={0} y1={0} x2={88} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={88} y1={0} x2={0} y2={56} stroke={BORDER_STRONG} strokeWidth={1} />
-      <text x={44} y={66} textAnchor="middle" fill={DIM} fontSize={8} fontFamily={MONO}>
+      <rect
+        x={0}
+        y={0}
+        width={88}
+        height={56}
+        fill="none"
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <line
+        x1={0}
+        y1={0}
+        x2={88}
+        y2={56}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <line
+        x1={88}
+        y1={0}
+        x2={0}
+        y2={56}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <text
+        x={44}
+        y={66}
+        textAnchor="middle"
+        fill={DIM}
+        fontSize={8}
+        fontFamily={MONO}
+      >
         {label}
       </text>
     </g>
@@ -152,7 +211,8 @@ export function LatentImagination({
   // horizon) so extending the horizon always grows the visible divergence
   // instead of rescaling it away.
   const deviationMax = useMemo(
-    () => deviationAt({ epsilon: MAX_EPSILON_PERCENT / 100, horizon: MAX_HORIZON }),
+    () =>
+      deviationAt({ epsilon: MAX_EPSILON_PERCENT / 100, horizon: MAX_HORIZON }),
     [],
   );
 
@@ -168,11 +228,15 @@ export function LatentImagination({
     const trueParts: string[] = [];
     for (let t = 0; t <= MAX_HORIZON; t += 1) {
       const ty = cy - trueLatent(t) * scale;
-      trueParts.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${ty.toFixed(1)}`);
+      trueParts.push(
+        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${ty.toFixed(1)}`,
+      );
     }
     const imaginedParts: string[] = [];
     for (let t = 0; t <= horizon; t += 1) {
-      imaginedParts.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(t).toFixed(1)}`);
+      imaginedParts.push(
+        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(t).toFixed(1)}`,
+      );
     }
     return {
       truePath: trueParts.join(' '),
@@ -191,7 +255,9 @@ export function LatentImagination({
     const full = imagineDeviation({ epsilon, horizon: MAX_HORIZON });
     const parts: string[] = [];
     for (let t = 0; t <= MAX_HORIZON; t += 1) {
-      parts.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(full[t]).toFixed(1)}`);
+      parts.push(
+        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(full[t]).toFixed(1)}`,
+      );
     }
     return {
       plotW,
@@ -297,7 +363,10 @@ export function LatentImagination({
             type="button"
             aria-pressed={mode === 'decoder'}
             onClick={() => setMode('decoder')}
-            className={cx(toggleBase, mode === 'decoder' ? toggleOn : toggleOff)}
+            className={cx(
+              toggleBase,
+              mode === 'decoder' ? toggleOn : toggleOff,
+            )}
           >
             Dreamer: with decoder
           </button>
@@ -305,7 +374,10 @@ export function LatentImagination({
             type="button"
             aria-pressed={mode === 'decoder-free'}
             onClick={() => setMode('decoder-free')}
-            className={cx(toggleBase, mode === 'decoder-free' ? toggleOn : toggleOff)}
+            className={cx(
+              toggleBase,
+              mode === 'decoder-free' ? toggleOn : toggleOff,
+            )}
           >
             TD-MPC2: decoder-free
           </button>
@@ -350,7 +422,12 @@ export function LatentImagination({
           stroke={ACCENT}
           strokeWidth={2}
         />
-        <circle cx={rollout.trueEnd.cx} cy={rollout.trueEnd.cy} r={3} fill={DIM} />
+        <circle
+          cx={rollout.trueEnd.cx}
+          cy={rollout.trueEnd.cy}
+          r={3}
+          fill={DIM}
+        />
         <text
           x={ROLLOUT_W - 16}
           y={ROLLOUT_H - 8}
@@ -369,7 +446,13 @@ export function LatentImagination({
         aria-label={`Latent deviation versus imagination step. Deviation compounds superlinearly and reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the published typical range of 15 to 50 steps.`}
         className="mt-2 block w-full"
       >
-        <text x={DEV_PAD.left} y={11} fill={DIM} fontSize={10} fontFamily={MONO}>
+        <text
+          x={DEV_PAD.left}
+          y={11}
+          fill={DIM}
+          fontSize={10}
+          fontFamily={MONO}
+        >
           latent deviation vs imagination step
         </text>
         <rect
@@ -497,8 +580,8 @@ export function LatentImagination({
             </svg>
             <p className="font-sans text-xs leading-relaxed text-text-dim">
               No image reconstruction is ever produced. The latent is trained
-              only for reward and value prediction, so the quantity to watch
-              is not frame quality but how far the scalar heads drift over the
+              only for reward and value prediction, so the quantity to watch is
+              not frame quality but how far the scalar heads drift over the
               imagination horizon.
             </p>
           </div>

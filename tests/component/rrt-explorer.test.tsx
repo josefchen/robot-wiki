@@ -45,18 +45,16 @@ describe('RrtExplorer', () => {
     expect(screen.getByTestId('rrt-scene')).toBeInTheDocument();
     expect(screen.getByTestId('rrt-start')).toBeInTheDocument();
     expect(screen.getByTestId('rrt-goal')).toBeInTheDocument();
-    expect(
-      screen.getAllByTestId(/^rrt-obstacle/).length,
-    ).toBe(RRT_SCENE.obstacles.length);
+    expect(screen.getAllByTestId(/^rrt-obstacle/).length).toBe(
+      RRT_SCENE.obstacles.length,
+    );
     expect(
       screen.getByRole('button', { name: /run the exploration/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: /step forward/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /reset/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(
       screen.getByRole('slider', { name: /exploration iteration/i }),
     ).toBeInTheDocument();
@@ -110,7 +108,9 @@ describe('RrtExplorer', () => {
   it('running advances the tree on an interval and pause halts it', () => {
     vi.useFakeTimers();
     render(<RrtExplorer />);
-    fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the exploration/i }),
+    );
     expect(
       screen.getByRole('button', { name: /pause the exploration/i }),
     ).toBeInTheDocument();
@@ -132,7 +132,9 @@ describe('RrtExplorer', () => {
     mockReducedMotion(true);
     vi.useFakeTimers();
     render(<RrtExplorer />);
-    fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the exploration/i }),
+    );
     act(() => {
       vi.advanceTimersByTime(700);
     });
@@ -162,7 +164,9 @@ describe('RrtExplorer', () => {
   it('running to completion stops on its own at the final iteration', () => {
     vi.useFakeTimers();
     render(<RrtExplorer />);
-    fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the exploration/i }),
+    );
     act(() => {
       vi.advanceTimersByTime(60_000);
     });

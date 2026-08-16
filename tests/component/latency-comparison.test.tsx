@@ -12,8 +12,12 @@ describe('LatencyComparison', () => {
     render(<LatencyComparison />);
     expect(slider()).toBeInTheDocument();
     expect(slider()).toHaveAttribute('aria-label');
-    expect(screen.getAllByText(/temporal ensembling/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/real-time chunking/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/temporal ensembling/i).length).toBeGreaterThan(
+      0,
+    );
+    expect(screen.getAllByText(/real-time chunking/i).length).toBeGreaterThan(
+      0,
+    );
     expect(screen.getByTestId('te-throughput-readout')).toBeInTheDocument();
     expect(screen.getByTestId('rtc-throughput-readout')).toBeInTheDocument();
     expect(screen.getByTestId('te-status-readout')).toBeInTheDocument();

@@ -333,8 +333,7 @@ export function relaxFiltersForCompany(
         ? filters.segment
         : null,
     subSegment:
-      filters.subSegment !== null &&
-      company.subSegment === filters.subSegment
+      filters.subSegment !== null && company.subSegment === filters.subSegment
         ? filters.subSegment
         : null,
     country:
@@ -346,8 +345,7 @@ export function relaxFiltersForCompany(
         ? filters.status
         : null,
     approach:
-      filters.approach !== null &&
-      company.approach.includes(filters.approach)
+      filters.approach !== null && company.approach.includes(filters.approach)
         ? filters.approach
         : null,
     openSource:
@@ -361,8 +359,7 @@ export function relaxFiltersForCompany(
             ? 'no'
             : null,
     confidence:
-      filters.confidence !== null &&
-      company.confidence === filters.confidence
+      filters.confidence !== null && company.confidence === filters.confidence
         ? filters.confidence
         : null,
   };
@@ -428,9 +425,7 @@ export function formatShortDate(iso: string): string {
   return `${dayNumber} ${MONTH_SHORT[monthIndex]} ${year}`;
 }
 
-export function timelineEvents(
-  companies: readonly Company[],
-): TimelineEvent[] {
+export function timelineEvents(companies: readonly Company[]): TimelineEvent[] {
   const events: TimelineEvent[] = [];
   for (const company of companies) {
     const round = company.latestRound;

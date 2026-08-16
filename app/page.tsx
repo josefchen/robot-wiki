@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
-import {
-  DOMAINS,
-  DOMAIN_META,
-  modulesByDomain,
-} from '@/data/modules';
+import { DOMAINS, DOMAIN_META, modulesByDomain } from '@/data/modules';
 
 /**
  * Home: hero premise, the seven-domain typographic index, the live featured
@@ -35,7 +31,10 @@ export default function Home() {
   return (
     <>
       {/* Hero: the premise, kept above the fold. */}
-      <section aria-label="Introduction" className={`${container} pt-12 lg:pt-16`}>
+      <section
+        aria-label="Introduction"
+        className={`${container} pt-12 lg:pt-16`}
+      >
         <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
           robot-wiki
         </h1>
@@ -44,8 +43,7 @@ export default function Home() {
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
           teleoperation data pipelines, and the classical control stack
-          underneath them, with every technical claim cited to a primary
-          source.
+          underneath them, with every technical claim cited to a primary source.
         </p>
         <div className="mt-6">
           <Link
@@ -58,7 +56,10 @@ export default function Home() {
       </section>
 
       {/* The seven taxonomy entries as one dense typographic index. */}
-      <section aria-labelledby="domain-index-heading" className={`${container} mt-10`}>
+      <section
+        aria-labelledby="domain-index-heading"
+        className={`${container} mt-10`}
+      >
         <h2
           id="domain-index-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -117,7 +118,10 @@ export default function Home() {
       </section>
 
       {/* Featured interactive: the page's visual anchor. */}
-      <section aria-labelledby="featured-heading" className={`${container} mt-12`}>
+      <section
+        aria-labelledby="featured-heading"
+        className={`${container} mt-12`}
+      >
         <h2
           id="featured-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -140,7 +144,10 @@ export default function Home() {
       </section>
 
       {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
-      <section aria-labelledby="hardware-heading" className={`${container} mt-14`}>
+      <section
+        aria-labelledby="hardware-heading"
+        className={`${container} mt-14`}
+      >
         <h2
           id="hardware-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -171,88 +178,106 @@ export default function Home() {
           Interactive tools
         </h2>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <Link
-            href="/playground"
-            className="group block"
-          >
+          <Link href="/playground" className="group block">
             <div className="mb-4 rounded-sm bg-surface px-4 py-3">
               <svg
                 viewBox="0 0 320 112"
                 aria-hidden="true"
                 className="block h-28 w-full"
               >
-              {/* Schematic of the SO-101 arm reaching toward an IK target. */}
-              <line
-                x1={16}
-                y1={96}
-                x2={304}
-                y2={96}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <rect
-                x={36}
-                y={88}
-                width={32}
-                height={8}
-                fill="var(--color-surface-2)"
-                stroke="var(--color-border-strong)"
-                strokeWidth={1}
-              />
-              <line
-                x1={52}
-                y1={88}
-                x2={82}
-                y2={52}
-                stroke="var(--color-text-dim)"
-                strokeWidth={3}
-              />
-              <line
-                x1={82}
-                y1={52}
-                x2={130}
-                y2={40}
-                stroke="var(--color-text-dim)"
-                strokeWidth={3}
-              />
-              <line
-                x1={130}
-                y1={40}
-                x2={168}
-                y2={58}
-                stroke="var(--color-text-dim)"
-                strokeWidth={3}
-              />
-              <circle cx={52} cy={88} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={82} cy={52} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={130} cy={40} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={168} cy={58} r={3.5} fill="var(--color-accent)" />
-              <circle
-                cx={196}
-                cy={44}
-                r={7}
-                fill="none"
-                stroke="var(--color-accent)"
-                strokeWidth={1}
-                strokeDasharray="3 3"
-              />
-              <line
-                x1={196}
-                y1={33}
-                x2={196}
-                y2={55}
-                stroke="var(--color-accent)"
-                strokeWidth={1}
-              />
-              <line
-                x1={185}
-                y1={44}
-                x2={207}
-                y2={44}
-                stroke="var(--color-accent)"
-                strokeWidth={1}
-              />
-            </svg>
+                {/* Schematic of the SO-101 arm reaching toward an IK target. */}
+                <line
+                  x1={16}
+                  y1={96}
+                  x2={304}
+                  y2={96}
+                  stroke="var(--color-border)"
+                  strokeWidth={1}
+                />
+                <rect
+                  x={36}
+                  y={88}
+                  width={32}
+                  height={8}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <line
+                  x1={52}
+                  y1={88}
+                  x2={82}
+                  y2={52}
+                  stroke="var(--color-text-dim)"
+                  strokeWidth={3}
+                />
+                <line
+                  x1={82}
+                  y1={52}
+                  x2={130}
+                  y2={40}
+                  stroke="var(--color-text-dim)"
+                  strokeWidth={3}
+                />
+                <line
+                  x1={130}
+                  y1={40}
+                  x2={168}
+                  y2={58}
+                  stroke="var(--color-text-dim)"
+                  strokeWidth={3}
+                />
+                <circle
+                  cx={52}
+                  cy={88}
+                  r={4}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={82}
+                  cy={52}
+                  r={4}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={130}
+                  cy={40}
+                  r={4}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle cx={168} cy={58} r={3.5} fill="var(--color-accent)" />
+                <circle
+                  cx={196}
+                  cy={44}
+                  r={7}
+                  fill="none"
+                  stroke="var(--color-accent)"
+                  strokeWidth={1}
+                  strokeDasharray="3 3"
+                />
+                <line
+                  x1={196}
+                  y1={33}
+                  x2={196}
+                  y2={55}
+                  stroke="var(--color-accent)"
+                  strokeWidth={1}
+                />
+                <line
+                  x1={185}
+                  y1={44}
+                  x2={207}
+                  y2={44}
+                  stroke="var(--color-accent)"
+                  strokeWidth={1}
+                />
+              </svg>
             </div>
             <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
               3D Kinematics Playground
@@ -263,50 +288,108 @@ export default function Home() {
               replay.
             </p>
           </Link>
-          <Link
-            href="/market-map"
-            className="group block"
-          >
+          <Link href="/market-map" className="group block">
             <div className="mb-4 rounded-sm bg-surface px-4 py-3">
               <svg
                 viewBox="0 0 320 112"
                 aria-hidden="true"
                 className="block h-28 w-full"
               >
-              {/* A bubble field in the spirit of the market map scatter view. */}
-              <line
-                x1={24}
-                y1={96}
-                x2={304}
-                y2={96}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <line
-                x1={24}
-                y1={96}
-                x2={24}
-                y2={12}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <circle cx={52} cy={78} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={84} cy={60} r={8} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={112} cy={80} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={138} cy={48} r={10} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={166} cy={66} r={6} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={192} cy={36} r={9} fill="var(--color-accent)" opacity={0.85} />
-              <circle cx={218} cy={58} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={244} cy={28} r={7} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={270} cy={48} r={4} fill="var(--color-accent)" opacity={0.85} />
-              <path
-                d="M40 84 L280 26"
-                fill="none"
-                stroke="var(--color-border-strong)"
-                strokeWidth={1}
-                strokeDasharray="4 4"
-              />
-            </svg>
+                {/* A bubble field in the spirit of the market map scatter view. */}
+                <line
+                  x1={24}
+                  y1={96}
+                  x2={304}
+                  y2={96}
+                  stroke="var(--color-border)"
+                  strokeWidth={1}
+                />
+                <line
+                  x1={24}
+                  y1={96}
+                  x2={24}
+                  y2={12}
+                  stroke="var(--color-border)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={52}
+                  cy={78}
+                  r={5}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={84}
+                  cy={60}
+                  r={8}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={112}
+                  cy={80}
+                  r={4}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={138}
+                  cy={48}
+                  r={10}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={166}
+                  cy={66}
+                  r={6}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={192}
+                  cy={36}
+                  r={9}
+                  fill="var(--color-accent)"
+                  opacity={0.85}
+                />
+                <circle
+                  cx={218}
+                  cy={58}
+                  r={5}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={244}
+                  cy={28}
+                  r={7}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+                <circle
+                  cx={270}
+                  cy={48}
+                  r={4}
+                  fill="var(--color-accent)"
+                  opacity={0.85}
+                />
+                <path
+                  d="M40 84 L280 26"
+                  fill="none"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                  strokeDasharray="4 4"
+                />
+              </svg>
             </div>
             <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
               Market Map
@@ -333,9 +416,9 @@ export default function Home() {
         </h2>
         <div className="mt-4 max-w-[65ch] space-y-4 leading-relaxed text-text-dim">
           <p>
-            Modules stand alone, but inside a domain they build on each other
-            in registry order: later entries assume the earlier ones. If you
-            come from machine learning rather than robotics, start with{' '}
+            Modules stand alone, but inside a domain they build on each other in
+            registry order: later entries assume the earlier ones. If you come
+            from machine learning rather than robotics, start with{' '}
             <Link
               href="/manipulation/action-chunking"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
@@ -349,8 +432,8 @@ export default function Home() {
             The prerequisites are fluency in machine learning, not a robotics
             background. When a module needs a classical result it says so and
             links to the entry that derives it, so you can read forward and
-            backfill as needed. Terms of art are defined where they first
-            appear and collected in the{' '}
+            backfill as needed. Terms of art are defined where they first appear
+            and collected in the{' '}
             <Link
               href="/glossary"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"

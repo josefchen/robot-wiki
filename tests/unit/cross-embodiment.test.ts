@@ -147,11 +147,11 @@ describe('strategy registry', () => {
   });
 
   it('rejects unknown ids', () => {
-    expect(() =>
-      slotRow('padded', 'quadcopter' as EmbodimentId),
-    ).toThrowError(/unknown embodiment/i);
-    expect(() =>
-      rowSummary('rl' as StrategyId, 'arm'),
-    ).toThrowError(/unknown strategy/i);
+    expect(() => slotRow('padded', 'quadcopter' as EmbodimentId)).toThrowError(
+      /unknown embodiment/i,
+    );
+    expect(() => rowSummary('rl' as StrategyId, 'arm')).toThrowError(
+      /unknown strategy/i,
+    );
   });
 });

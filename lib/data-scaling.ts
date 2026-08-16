@@ -207,7 +207,8 @@ export function formatHours(hours: number): string {
 
 /** "300B", "15T". */
 export function formatTokens(tokens: number): string {
-  if (tokens >= 1e12) return `${(tokens / 1e12).toFixed(tokens >= 1e13 ? 0 : 1)}T`;
+  if (tokens >= 1e12)
+    return `${(tokens / 1e12).toFixed(tokens >= 1e13 ? 0 : 1)}T`;
   if (tokens >= 1e9) return `${Math.round(tokens / 1e9)}B`;
   return `${Math.round(tokens)}`;
 }

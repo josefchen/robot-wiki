@@ -11,9 +11,12 @@ import { beforeAll, describe, expect, it } from 'vitest';
 // and the jsdom environment rewrites import.meta.url to an http URL.
 // Reads are lazy (beforeAll) so one missing file reports as its own failing
 // suite instead of taking the whole file down at import time.
-const read = (rel: string): string => readFileSync(join(process.cwd(), rel), 'utf8');
+const read = (rel: string): string =>
+  readFileSync(join(process.cwd(), rel), 'utf8');
 
-const scripts: Record<string, string> = JSON.parse(read('package.json')).scripts;
+const scripts: Record<string, string> = JSON.parse(
+  read('package.json'),
+).scripts;
 
 /** Every `npm run <script>` invocation named in a doc. */
 function npmRunCommands(text: string): string[] {
@@ -73,7 +76,9 @@ describe('README.md (VAL-ADJ-012)', () => {
       'lint',
       'validate:content',
     ]) {
-      expect(documented.has(name), `README must document npm run ${name}`).toBe(true);
+      expect(documented.has(name), `README must document npm run ${name}`).toBe(
+        true,
+      );
     }
   });
 });

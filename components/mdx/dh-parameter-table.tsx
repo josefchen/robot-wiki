@@ -34,8 +34,8 @@ export function DhParameterTable({ className }: { className?: string }) {
       <table className="w-full min-w-[420px] border-collapse text-left">
         <caption className="sr-only">
           Denavit-Hartenberg parameters of the planar three-joint arm. All
-          twists and offsets are zero, so only the link lengths and joint
-          angles remain.
+          twists and offsets are zero, so only the link lengths and joint angles
+          remain.
         </caption>
         <thead>
           <tr className="border-b border-border">
@@ -52,7 +52,10 @@ export function DhParameterTable({ className }: { className?: string }) {
         </thead>
         <tbody>
           {ROWS.map((row) => (
-            <tr key={row.joint} className="border-b border-border last:border-b-0">
+            <tr
+              key={row.joint}
+              className="border-b border-border last:border-b-0"
+            >
               <th
                 scope="row"
                 className="whitespace-nowrap px-4 py-2.5 align-top font-mono text-xs font-medium text-text"

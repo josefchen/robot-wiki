@@ -86,7 +86,9 @@ export function CompanyCard({
         <dd data-field="status">{companyStatusLabel(company)}</dd>
         <dt className="text-text-dim">Latest round</dt>
         <dd data-field="round-type">
-          {round?.type ?? <span className="text-text-dim">{unknownFigure()}</span>}
+          {round?.type ?? (
+            <span className="text-text-dim">{unknownFigure()}</span>
+          )}
         </dd>
         <dt className="text-text-dim">Amount</dt>
         <dd data-field="amount">

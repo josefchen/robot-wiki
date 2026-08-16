@@ -10,10 +10,11 @@
  */
 
 /** The two published ablation values. Do not add invented points here. */
-export const ACT_CHUNK_ANCHORS: ReadonlyArray<{ k: number; success: number }> = [
-  { k: 1, success: 0.01 },
-  { k: 100, success: 0.44 },
-];
+export const ACT_CHUNK_ANCHORS: ReadonlyArray<{ k: number; success: number }> =
+  [
+    { k: 1, success: 0.01 },
+    { k: 100, success: 0.44 },
+  ];
 
 export const MIN_CHUNK = 1;
 export const MAX_CHUNK = 400;

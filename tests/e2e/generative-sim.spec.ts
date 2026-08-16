@@ -51,7 +51,10 @@ test.describe('world-models generative-sim module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
     await expect(
       main.getByRole('link', { name: /Nasiriany 2026/ }).first(),
-    ).toHaveAttribute('href', 'https://robocasa.ai/assets/robocasa365_iclr26.pdf');
+    ).toHaveAttribute(
+      'href',
+      'https://robocasa.ai/assets/robocasa365_iclr26.pdf',
+    );
     const chips = main.locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(8);
   });

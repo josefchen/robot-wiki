@@ -2,11 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
-import {
-  SLIDER_MAX,
-  SLIDER_MIN,
-  hoursToSlider,
-} from '@/lib/egoscale-law';
+import { SLIDER_MAX, SLIDER_MIN, hoursToSlider } from '@/lib/egoscale-law';
 
 function slider() {
   return screen.getByRole('slider', { name: /extrapolation horizon/i });
@@ -49,7 +45,9 @@ describe('EgoScaleScaling', () => {
     render(<EgoScaleScaling />);
     fireEvent.change(slider(), { target: { value: String(SLIDER_MIN) } });
     expect(screen.queryByTestId('uncertainty-band')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('extrapolated-loss-law')).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId('extrapolated-loss-law'),
+    ).not.toBeInTheDocument();
     expect(screen.getByTestId('horizon-readout')).toHaveTextContent('20k h');
     expect(screen.getByTestId('projection-summary')).toHaveTextContent(
       /measured range/i,

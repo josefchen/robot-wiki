@@ -77,16 +77,13 @@ describe('References', () => {
 
   it('anchors each entry at #ref-<id> so chips can jump to it', () => {
     renderResolved(['act-aloha-2023'], ['act-aloha-2023']);
-    expect(
-      screen.getByRole('listitem').getAttribute('id'),
-    ).toBe('ref-act-aloha-2023');
+    expect(screen.getByRole('listitem').getAttribute('id')).toBe(
+      'ref-act-aloha-2023',
+    );
   });
 
   it('marks declared-but-not-inline entries as further reading', () => {
-    renderResolved(
-      ['act-aloha-2023', 'mobile-aloha-2024'],
-      ['act-aloha-2023'],
-    );
+    renderResolved(['act-aloha-2023', 'mobile-aloha-2024'], ['act-aloha-2023']);
     const items = screen.getAllByRole('listitem');
     expect(within(items[0]).queryByText('Further reading')).toBeNull();
     expect(within(items[1]).getByText('Further reading')).toBeVisible();

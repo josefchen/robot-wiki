@@ -66,8 +66,10 @@ describe('moduleFrontmatterSchema', () => {
 
   it('rejects a non-ISO lastReviewed date', () => {
     expect(
-      moduleFrontmatterSchema.safeParse({ ...valid, lastReviewed: 'Aug 7 2026' })
-        .success,
+      moduleFrontmatterSchema.safeParse({
+        ...valid,
+        lastReviewed: 'Aug 7 2026',
+      }).success,
     ).toBe(false);
   });
 
@@ -111,9 +113,9 @@ describe('moduleFrontmatterSchema', () => {
       { length: 5 },
       (_, i) => `manipulation/related-${i + 1}`,
     );
-    expect(moduleFrontmatterSchema.safeParse({ ...valid, seeAlso }).success).toBe(
-      false,
-    );
+    expect(
+      moduleFrontmatterSchema.safeParse({ ...valid, seeAlso }).success,
+    ).toBe(false);
   });
 
   it('rejects empty-string seeAlso entries', () => {
@@ -178,8 +180,10 @@ describe('citationSchema', () => {
 
   it('rejects a non-https url', () => {
     expect(
-      citationSchema.safeParse({ ...valid, url: 'http://arxiv.org/abs/2304.13705' })
-        .success,
+      citationSchema.safeParse({
+        ...valid,
+        url: 'http://arxiv.org/abs/2304.13705',
+      }).success,
     ).toBe(false);
   });
 

@@ -3,7 +3,10 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { getModule } from '../../data/modules';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Search excerpt quality. Pagefind must never fuse the hidden tooltip copy
@@ -184,8 +187,8 @@ test.describe('search excerpt quality', () => {
     // Positive control against over-exclusion: the rendered math text is
     // still indexed and still reaches the excerpt.
     expect(
-      excerpts.some(
-        (excerpt) => excerpt.replace(/\u200B/g, '').includes('dπ∗'),
+      excerpts.some((excerpt) =>
+        excerpt.replace(/\u200B/g, '').includes('dπ∗'),
       ),
       'rendered math text no longer reaches any excerpt',
     ).toBe(true);
@@ -200,10 +203,9 @@ test.describe('search excerpt quality', () => {
     const excerpts = await searchExcerpts(page, 'quadratic');
     expect(excerpts.length).toBeGreaterThan(0);
     for (const excerpt of excerpts) {
-      expect(
-        excerpt,
-        'excerpt leaks the reference-jump glyph',
-      ).not.toContain('↓');
+      expect(excerpt, 'excerpt leaks the reference-jump glyph').not.toContain(
+        '↓',
+      );
     }
   });
 
@@ -534,7 +536,11 @@ test.describe('excerpt chrome: article header metadata row', () => {
     //   "generated dynamics" → "...compact learned dynamics for
     //     imagination-based control. Last reviewed8 August 2026.
     //     Reading time6 min. Citations9. Of the six paradigms..."
-    for (const query of ['video prediction', 'neural simulator', 'generated dynamics']) {
+    for (const query of [
+      'video prediction',
+      'neural simulator',
+      'generated dynamics',
+    ]) {
       const excerpts = await searchExcerpts(page, query);
       expect(
         excerpts.length,

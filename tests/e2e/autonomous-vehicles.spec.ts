@@ -102,11 +102,14 @@ test.describe('adjacent autonomous-vehicles module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const table = page.getByRole('table', { name: /autonomous-driving stack/i });
+    const table = page.getByRole('table', {
+      name: /autonomous-driving stack/i,
+    });
     await expect(table).toBeVisible();
     await expect(table.getByRole('columnheader').first()).toBeVisible();
     await expect(table.locator('tbody tr')).toHaveCount(4);
-    const text = (await page.locator('div.prose[data-pagefind-body]').textContent()) ?? '';
+    const text =
+      (await page.locator('div.prose[data-pagefind-body]').textContent()) ?? '';
     expect(text).not.toContain('import {');
     expect(text).not.toContain('<Cite');
     expect(text).not.toContain('<Term');

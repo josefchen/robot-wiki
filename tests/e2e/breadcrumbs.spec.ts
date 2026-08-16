@@ -94,9 +94,7 @@ test.describe('article breadcrumbs', () => {
   test('BreadcrumbList structured data matches the trail', async ({ page }) => {
     const article = anchorByDomain.get('manipulation')!;
     await page.goto(`/${article.domain}/${article.slug}/`);
-    const scripts = page.locator(
-      'script[type="application/ld+json"]',
-    );
+    const scripts = page.locator('script[type="application/ld+json"]');
     const count = await scripts.count();
     let breadcrumbList: {
       '@type': string;
@@ -142,9 +140,7 @@ test.describe('article breadcrumbs', () => {
 
         // Middle crumb: the domain landing page, HTTP 200, h1 is the
         // taxonomy name, not a module page or a 404.
-        await nav
-          .getByRole('link', { name: DOMAIN_META[domain].name })
-          .click();
+        await nav.getByRole('link', { name: DOMAIN_META[domain].name }).click();
         await page.waitForURL(`/${domain}/`);
         await expect(page.locator('h1')).toHaveText(DOMAIN_META[domain].name);
         const landingResponse = await page.goto(`/${domain}/`);
@@ -183,10 +179,7 @@ test.describe('article breadcrumbs', () => {
         return nav?.contains(active) ?? false;
       });
     }
-    expect(
-      focusedBreadcrumbLink,
-      'Tab reaches a breadcrumb link',
-    ).toBe(true);
+    expect(focusedBreadcrumbLink, 'Tab reaches a breadcrumb link').toBe(true);
 
     // The focused link shows the global amber focus outline.
     const outline = await page.evaluate(() => {

@@ -161,9 +161,9 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           data-testid="watchlist-empty"
           className="mt-4 border-t border-border pt-4 font-sans text-xs leading-relaxed text-text-dim"
         >
-          None of the eight milestones has reached this status yet. That
-          absence is the bear case in one line: the evidence that would
-          settle the question does not exist.
+          None of the eight milestones has reached this status yet. That absence
+          is the bear case in one line: the evidence that would settle the
+          question does not exist.
         </p>
       ) : (
         <>
@@ -171,8 +171,8 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
             <table className="w-full min-w-[480px] border-collapse text-left">
               <caption className="sr-only">
                 Eight milestones that would settle the bear case. Select a row
-                to read the evidence behind its status and the observation
-                that would flip it.
+                to read the evidence behind its status and the observation that
+                would flip it.
               </caption>
               <thead>
                 <tr className="border-b border-border">

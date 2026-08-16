@@ -52,16 +52,16 @@ function makeLink(name: string): URDFLink {
 }
 
 function segment(length: number, width: number): Mesh {
-  const mesh = new Mesh(
-    new BoxGeometry(width, width, length),
-    SHELL_MATERIAL,
-  );
+  const mesh = new Mesh(new BoxGeometry(width, width, length), SHELL_MATERIAL);
   mesh.position.z = length / 2;
   return mesh;
 }
 
 function servo(radius: number, height: number): Mesh {
-  return new Mesh(new CylinderGeometry(radius, radius, height, 24), SERVO_MATERIAL);
+  return new Mesh(
+    new CylinderGeometry(radius, radius, height, 24),
+    SERVO_MATERIAL,
+  );
 }
 
 /**

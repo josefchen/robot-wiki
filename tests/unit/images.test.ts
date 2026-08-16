@@ -52,7 +52,10 @@ describe('imageSchema', () => {
   });
 
   it('rejects a licence outside the permitted set, naming the value (VAL-IMG-008)', () => {
-    const parsed = imageSchema.safeParse({ ...validEntry, licence: 'cc-by-nc-4.0' });
+    const parsed = imageSchema.safeParse({
+      ...validEntry,
+      licence: 'cc-by-nc-4.0',
+    });
     expect(parsed.success).toBe(false);
     expect(parsed.error?.message).toContain('cc-by-nc-4.0');
   });
@@ -90,7 +93,8 @@ describe('imageSchema', () => {
 
   it('rejects a file path outside public/images/', () => {
     expect(
-      imageSchema.safeParse({ ...validEntry, file: '/elsewhere/x.jpg' }).success,
+      imageSchema.safeParse({ ...validEntry, file: '/elsewhere/x.jpg' })
+        .success,
     ).toBe(false);
   });
 });
@@ -131,23 +135,35 @@ describe('validateContent imagery check', () => {
       order: 1,
       status: 'published' as const,
     },
-    ...(['rl-sim2real', 'world-models', 'data-hardware', 'classical', 'frontier'] as const).map(
-      (domain) => ({
-        domain,
-        slug: 'placeholder',
-        title: 'Placeholder',
-        summary: 'Planned module.',
-        order: 1,
-        status: 'draft' as const,
-      }),
-    ),
+    ...(
+      [
+        'rl-sim2real',
+        'world-models',
+        'data-hardware',
+        'classical',
+        'frontier',
+      ] as const
+    ).map((domain) => ({
+      domain,
+      slug: 'placeholder',
+      title: 'Placeholder',
+      summary: 'Planned module.',
+      order: 1,
+      status: 'draft' as const,
+    })),
   ];
 
   const citationFixtures = [
     {
       id: 'act-aloha-2023',
-      title: 'Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware',
-      authors: ['Tony Z. Zhao', 'Vikash Kumar', 'Sergey Levine', 'Chelsea Finn'],
+      title:
+        'Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware',
+      authors: [
+        'Tony Z. Zhao',
+        'Vikash Kumar',
+        'Sergey Levine',
+        'Chelsea Finn',
+      ],
       year: 2023,
       arxiv: '2304.13705',
       url: 'https://arxiv.org/abs/2304.13705',
@@ -263,7 +279,10 @@ describe('validateContent imagery check', () => {
 
   it('fails on a schema-invalid registry entry, naming the id and the problem', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
-    const broken = { ...validEntry, licence: 'made-up-licence' } as unknown as SiteImage;
+    const broken = {
+      ...validEntry,
+      licence: 'made-up-licence',
+    } as unknown as SiteImage;
     const issues = validateContent({ ...baseOpts(), images: [broken] });
     expect(
       issues.some(
@@ -276,22 +295,31 @@ describe('validateContent imagery check', () => {
 
   it('fails when the registry file is missing from public/', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
-    const missing: SiteImage = { ...validEntry, file: '/images/does-not-exist.jpg' };
+    const missing: SiteImage = {
+      ...validEntry,
+      file: '/images/does-not-exist.jpg',
+    };
     const issues = validateContent({ ...baseOpts(), images: [missing] });
     expect(
       issues.some(
-        (i) => i.message.includes(missing.id) && i.message.includes('does-not-exist'),
+        (i) =>
+          i.message.includes(missing.id) &&
+          i.message.includes('does-not-exist'),
       ),
     ).toBe(true);
   });
 
   it('fails on provenance that carries a synthesis marker (VAL-IMG-013)', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
-    const synthetic: SiteImage = { ...validEntry, sourceName: 'AI-generated render' };
+    const synthetic: SiteImage = {
+      ...validEntry,
+      sourceName: 'AI-generated render',
+    };
     const issues = validateContent({ ...baseOpts(), images: [synthetic] });
     expect(
       issues.some(
-        (i) => i.message.includes(synthetic.id) && /synthesis|AI/i.test(i.message),
+        (i) =>
+          i.message.includes(synthetic.id) && /synthesis|AI/i.test(i.message),
       ),
     ).toBe(true);
   });
@@ -301,7 +329,10 @@ describe('the shipped registry (VAL-IMG-006, VAL-IMG-013)', () => {
   it('every registry entry is schema-valid', () => {
     for (const image of IMAGES) {
       const parsed = imageSchema.safeParse(image);
-      expect(parsed.success, `${image.id}: ${parsed.error?.message ?? ''}`).toBe(true);
+      expect(
+        parsed.success,
+        `${image.id}: ${parsed.error?.message ?? ''}`,
+      ).toBe(true);
     }
   });
 

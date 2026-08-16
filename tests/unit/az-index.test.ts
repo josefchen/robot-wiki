@@ -18,12 +18,42 @@ import {
 
 function sourceFixtures(): AzIndexSourceEntry[] {
   return [
-    { kind: 'article', label: 'Zeno Effect', href: '/frontier/zeno/', group: 'Frontier' },
-    { kind: 'article', label: 'Action Chunking (ACT and ALOHA)', href: '/manipulation/action-chunking/', group: 'Manipulation' },
-    { kind: 'term', label: 'action chunking', href: '/glossary/#action-chunking', group: 'Glossary' },
-    { kind: 'article', label: 'Behavior Cloning Foundations', href: '/manipulation/bc-foundations/', group: 'Manipulation' },
-    { kind: 'term', label: 'behavior cloning', href: '/glossary/#behavior-cloning', group: 'Glossary' },
-    { kind: 'article', label: 'action selection', href: '/classical/action-selection/', group: 'Classical' },
+    {
+      kind: 'article',
+      label: 'Zeno Effect',
+      href: '/frontier/zeno/',
+      group: 'Frontier',
+    },
+    {
+      kind: 'article',
+      label: 'Action Chunking (ACT and ALOHA)',
+      href: '/manipulation/action-chunking/',
+      group: 'Manipulation',
+    },
+    {
+      kind: 'term',
+      label: 'action chunking',
+      href: '/glossary/#action-chunking',
+      group: 'Glossary',
+    },
+    {
+      kind: 'article',
+      label: 'Behavior Cloning Foundations',
+      href: '/manipulation/bc-foundations/',
+      group: 'Manipulation',
+    },
+    {
+      kind: 'term',
+      label: 'behavior cloning',
+      href: '/glossary/#behavior-cloning',
+      group: 'Glossary',
+    },
+    {
+      kind: 'article',
+      label: 'action selection',
+      href: '/classical/action-selection/',
+      group: 'Classical',
+    },
   ];
 }
 

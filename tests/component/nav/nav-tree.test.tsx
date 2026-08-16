@@ -41,9 +41,7 @@ describe('NavTree', () => {
     render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
     const nav = screen.getByRole('navigation', { name: 'robot-wiki taxonomy' });
     for (const name of GROUP_NAMES) {
-      expect(
-        within(nav).getByRole('button', { name }),
-      ).toBeInTheDocument();
+      expect(within(nav).getByRole('button', { name })).toBeInTheDocument();
     }
     expect(
       within(nav).getByRole('link', { name: 'Market Map' }),
@@ -101,7 +99,9 @@ describe('NavTree', () => {
       const user = userEvent.setup();
       render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
       await user.click(
-        screen.getByRole('button', { name: DOMAIN_META[draftProbe.domain].name }),
+        screen.getByRole('button', {
+          name: DOMAIN_META[draftProbe.domain].name,
+        }),
       );
       // Drafts never appear: no link (a link would 404) and no placeholder
       // row either (VAL-BUILD-001, VAL-DESIGN-001).
@@ -165,7 +165,11 @@ describe('NavTree', () => {
     const user = userEvent.setup();
     const onNavigate = vi.fn();
     render(
-      <NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" onNavigate={onNavigate} />,
+      <NavTree
+        idPrefix="test"
+        ariaLabel="robot-wiki taxonomy"
+        onNavigate={onNavigate}
+      />,
     );
     await user.click(screen.getByRole('link', { name: 'Market Map' }));
     expect(onNavigate).toHaveBeenCalledTimes(1);

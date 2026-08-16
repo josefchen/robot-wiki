@@ -170,9 +170,9 @@ describe('filterMethods', () => {
       ...DEFAULT_FILTERS,
       representation: 'undisclosed',
     });
-    expect(
-      undisclosed.every((m) => m.actionRepresentation === null),
-    ).toBe(true);
+    expect(undisclosed.every((m) => m.actionRepresentation === null)).toBe(
+      true,
+    );
     expect(undisclosed.length).toBeGreaterThan(0);
   });
 

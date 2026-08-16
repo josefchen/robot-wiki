@@ -78,15 +78,16 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
       header: 'Rig',
       sortable: true,
       render: (rig) =>
-        cellWrap(false, (
+        cellWrap(
+          false,
           <span>
             <span className="text-text">{rig.name}</span>
             <span className="block text-xs text-text-dim">{rig.family}</span>
             <span className="block text-xs text-text-dim">
               {rig.representatives.join(', ')}
             </span>
-          </span>
-        )),
+          </span>,
+        ),
     };
 
     const costColumn: Column<TeleopRig> = {

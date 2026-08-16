@@ -51,7 +51,9 @@ describe('SurgicalSystemsTable', () => {
 
   it('carries the autonomy level as a compact mono chip, not prose', () => {
     const { container } = render(<SurgicalSystemsTable />);
-    const chips = container.querySelectorAll('[data-testid^="surgical-level-"]');
+    const chips = container.querySelectorAll(
+      '[data-testid^="surgical-level-"]',
+    );
     expect(chips).toHaveLength(3);
     // da Vinci and Versius are both Level 0; Maestro is Level 1.
     expect(screen.getAllByText('L0')).toHaveLength(2);

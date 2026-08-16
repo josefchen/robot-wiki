@@ -42,16 +42,19 @@ function CellNote({ children }: { children: string }) {
   );
 }
 
-const SORT_COLUMNS: Array<{ key: HandSortKey; label: string; ariaLabel: string }> =
-  [
-    { key: 'dof', label: 'DoF', ariaLabel: 'Sort by DoF' },
-    {
-      key: 'tactile',
-      label: 'Tactile threshold',
-      ariaLabel: 'Sort by tactile threshold',
-    },
-    { key: 'cost', label: 'Cost', ariaLabel: 'Sort by cost' },
-  ];
+const SORT_COLUMNS: Array<{
+  key: HandSortKey;
+  label: string;
+  ariaLabel: string;
+}> = [
+  { key: 'dof', label: 'DoF', ariaLabel: 'Sort by DoF' },
+  {
+    key: 'tactile',
+    label: 'Tactile threshold',
+    ariaLabel: 'Sort by tactile threshold',
+  },
+  { key: 'cost', label: 'Cost', ariaLabel: 'Sort by cost' },
+];
 
 const SORT_DESCRIPTION: Record<HandSortKey, Record<SortDirection, string>> = {
   dof: {
@@ -223,7 +226,9 @@ export function HandComparison({ className }: { className?: string }) {
                       onClick={() => toggleSelect(hand.id)}
                       className={cx(
                         'text-left font-mono text-xs font-medium transition-colors',
-                        isSelected ? 'text-accent' : 'text-text hover:text-accent',
+                        isSelected
+                          ? 'text-accent'
+                          : 'text-text hover:text-accent',
                       )}
                     >
                       {hand.name}
@@ -240,10 +245,14 @@ export function HandComparison({ className }: { className?: string }) {
                   >
                     {hand.dofDisplay}
                   </td>
-                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
+                  <td
+                    className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}
+                  >
                     {hand.tactileDisplay ? (
                       <>
-                        <span className="text-accent">{hand.tactileDisplay}</span>
+                        <span className="text-accent">
+                          {hand.tactileDisplay}
+                        </span>
                         {hand.tactileNote ? (
                           <CellNote>{hand.tactileNote}</CellNote>
                         ) : null}
@@ -254,7 +263,9 @@ export function HandComparison({ className }: { className?: string }) {
                       </span>
                     )}
                   </td>
-                  <td className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}>
+                  <td
+                    className={cx(CELL, 'whitespace-nowrap font-mono text-sm')}
+                  >
                     {hand.costDisplay ? (
                       <>
                         <span className="text-text">{hand.costDisplay}</span>
@@ -268,7 +279,9 @@ export function HandComparison({ className }: { className?: string }) {
                       </span>
                     )}
                   </td>
-                  <td className={cx(CELL, 'font-sans text-[11px] text-text-dim')}>
+                  <td
+                    className={cx(CELL, 'font-sans text-[11px] text-text-dim')}
+                  >
                     {TRAINING_BET_LABEL[hand.bet]}
                   </td>
                   <td className={cx(CELL, 'font-mono text-[11px]')}>

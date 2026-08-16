@@ -191,7 +191,10 @@ function row(active: number, latent: number, rest: SlotState): Slot[] {
  * - relative-eef: every embodiment, hand included, occupies the same
  *   leading EEF_SPACE_DIMS shared dims; nothing is zero-padded.
  */
-export function slotRow(strategy: StrategyId, embodiment: EmbodimentId): Slot[] {
+export function slotRow(
+  strategy: StrategyId,
+  embodiment: EmbodimentId,
+): Slot[] {
   strategyById(strategy);
   const body = embodimentById(embodiment);
   switch (strategy) {

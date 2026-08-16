@@ -50,7 +50,9 @@ describe('Breadcrumbs', () => {
         name: 'Action Chunking (ACT and ALOHA)',
       }),
     ).not.toBeInTheDocument();
-    expect(within(nav).getByText('Action Chunking (ACT and ALOHA)')).toBeInTheDocument();
+    expect(
+      within(nav).getByText('Action Chunking (ACT and ALOHA)'),
+    ).toBeInTheDocument();
     expect(within(nav).getAllByRole('link')).toHaveLength(2);
   });
 
@@ -117,7 +119,9 @@ describe('breadcrumbJsonLd', () => {
       'https://robot-wiki.com/manipulation/',
     );
     expect(json.itemListElement[2].position).toBe(3);
-    expect(json.itemListElement[2].name).toBe('Action Chunking (ACT and ALOHA)');
+    expect(json.itemListElement[2].name).toBe(
+      'Action Chunking (ACT and ALOHA)',
+    );
     expect(json.itemListElement[2].item).toBe(
       'https://robot-wiki.com/manipulation/action-chunking/',
     );

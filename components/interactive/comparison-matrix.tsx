@@ -246,7 +246,9 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
                 type="button"
                 aria-pressed={filters.weights === option.value}
                 onClick={() => patchFilters({ weights: option.value })}
-                className={filterButtonClasses(filters.weights === option.value)}
+                className={filterButtonClasses(
+                  filters.weights === option.value,
+                )}
               >
                 {option.label}
               </button>
@@ -303,8 +305,8 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             No methods match these filters.
           </p>
           <p className="mt-1 font-sans text-xs text-text-dim">
-            Undisclosed rows only match the Not disclosed representation
-            filter; try widening the weights or representation selection.
+            Undisclosed rows only match the Not disclosed representation filter;
+            try widening the weights or representation selection.
           </p>
           <button
             data-pagefind-ignore

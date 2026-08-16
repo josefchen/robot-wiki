@@ -56,8 +56,8 @@ test.describe('bubble view hover/focus affordances', () => {
       if (active) break;
     }
     await expect(marks(page).first()).toBeFocused();
-    const activeId = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
+    const activeId = await page.evaluate(() =>
+      document.activeElement?.getAttribute('data-company-id'),
     );
     expect(activeId).toBeTruthy();
     const name = await mark(page, activeId as string).getAttribute(
@@ -118,14 +118,14 @@ test.describe('bubble view hover/focus affordances', () => {
       );
       if (active) break;
     }
-    const firstId = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
+    const firstId = await page.evaluate(() =>
+      document.activeElement?.getAttribute('data-company-id'),
     );
     expect(firstId).toBeTruthy();
 
     await page.keyboard.press('ArrowRight');
-    const secondId = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
+    const secondId = await page.evaluate(() =>
+      document.activeElement?.getAttribute('data-company-id'),
     );
     expect(secondId).toBeTruthy();
     expect(secondId).not.toBe(firstId);
@@ -135,8 +135,8 @@ test.describe('bubble view hover/focus affordances', () => {
     // Left of the second mark: the move is spatial (nearest mark with a
     // smaller cx), so assert geometry rather than assuming a round trip.
     await page.keyboard.press('ArrowLeft');
-    const backId = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
+    const backId = await page.evaluate(() =>
+      document.activeElement?.getAttribute('data-company-id'),
     );
     expect(backId).toBeTruthy();
     expect(backId).not.toBe(secondId);
@@ -154,10 +154,11 @@ test.describe('bubble view hover/focus affordances', () => {
     expect(cxs[1]).toBeLessThanOrEqual(cxs[0]);
 
     // Roving: the chart contributes exactly one tab stop.
-    const tabbables = await page.evaluate(() =>
-      Array.from(
-        document.querySelectorAll('circle[data-company-id][tabindex="0"]'),
-      ).length,
+    const tabbables = await page.evaluate(
+      () =>
+        Array.from(
+          document.querySelectorAll('circle[data-company-id][tabindex="0"]'),
+        ).length,
     );
     expect(tabbables).toBe(1);
   });
@@ -174,8 +175,8 @@ test.describe('bubble view hover/focus affordances', () => {
       if (active) break;
     }
     await page.keyboard.press('ArrowRight');
-    const movedId = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
+    const movedId = await page.evaluate(() =>
+      document.activeElement?.getAttribute('data-company-id'),
     );
     expect(movedId).toBeTruthy();
     // Blur the chart entirely (focus leaves for the page shell). WAI-ARIA
@@ -183,11 +184,10 @@ test.describe('bubble view hover/focus affordances', () => {
     // returns to the same mark instead of resetting to the first.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(label(page)).toHaveCount(0);
-    const stop = await page.evaluate(
-      () =>
-        document
-          .querySelector('circle[data-company-id][tabindex="0"]')
-          ?.getAttribute('data-company-id'),
+    const stop = await page.evaluate(() =>
+      document
+        .querySelector('circle[data-company-id][tabindex="0"]')
+        ?.getAttribute('data-company-id'),
     );
     expect(stop).toBe(movedId);
     // Tab forward from the top of the page until the chart takes focus
@@ -195,8 +195,8 @@ test.describe('bubble view hover/focus affordances', () => {
     let reentered: string | null = null;
     for (let i = 0; i < 30; i += 1) {
       await page.keyboard.press('Tab');
-      const active = await page.evaluate(
-        () => document.activeElement?.getAttribute('data-company-id'),
+      const active = await page.evaluate(() =>
+        document.activeElement?.getAttribute('data-company-id'),
       );
       if (active) {
         reentered = active;
@@ -213,7 +213,9 @@ test.describe('bubble view hover/focus affordances', () => {
     const figure = mark(page, 'figure-ai');
     await figure.focus();
     await figure.press('Enter');
-    await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');
+    await expect(page.locator('[data-bubble-detail]')).toContainText(
+      'Figure AI',
+    );
     await expect(page.locator('[data-bubble-detail]')).toContainText('$39B');
     await figure.press('Enter');
     await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
@@ -242,7 +244,9 @@ test.describe('bubble view hover/focus affordances', () => {
     await expect(figure).toHaveAttribute('r', '6');
     // Selection state falls out naturally: the detail panel shows the
     // hashed company.
-    await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');
+    await expect(page.locator('[data-bubble-detail]')).toContainText(
+      'Figure AI',
+    );
     // The filter was relaxed so the mark is plotted at all.
     await expect(page.getByText('112 of 112 companies')).toBeVisible();
     expect(errors).toEqual([]);

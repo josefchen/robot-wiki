@@ -30,9 +30,7 @@ test.describe('data-hardware teleop-rigs module', () => {
       'UMI: collection without a robot',
       'VR teleoperation: scale through headsets',
     ]) {
-      await expect(
-        main.getByRole('heading', { name: heading }),
-      ).toBeVisible();
+      await expect(main.getByRole('heading', { name: heading })).toBeVisible();
     }
     // No raw MDX or component syntax leaks into the rendered page.
     const mainText = (await main.textContent()) ?? '';
@@ -123,9 +121,9 @@ test.describe('data-hardware teleop-rigs module', () => {
           cell.getByText(/^(low|medium|high)$/).first(),
         ).toBeVisible();
         // The cell carries an explanatory note, not just the badge.
-        expect(((await cell.textContent()) ?? '').trim().length).toBeGreaterThan(
-          6,
-        );
+        expect(
+          ((await cell.textContent()) ?? '').trim().length,
+        ).toBeGreaterThan(6);
       }
       const links = row.locator('a[href^="https"]');
       expect(await links.count()).toBeGreaterThanOrEqual(1);
@@ -169,7 +167,9 @@ test.describe('data-hardware teleop-rigs module', () => {
       page.getByRole('columnheader', { name: 'Embodiment gap' }),
     ).toHaveAttribute('aria-sort', 'ascending');
     const firstRow = table.locator('tbody tr').first();
-    await expect(firstRow.getByText(/ALOHA-class workstation|GELLO/)).toBeVisible();
+    await expect(
+      firstRow.getByText(/ALOHA-class workstation|GELLO/),
+    ).toBeVisible();
 
     // Honesty: verified rigs show sourced costs; the VR family has no
     // published system cost and renders not disclosed, sorted last.

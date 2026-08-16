@@ -20,10 +20,9 @@ describe('PERTURBATIONS', () => {
 
   it('the two controllers respond differently to every perturbation', () => {
     for (const p of PERTURBATIONS) {
-      expect(
-        p.mpc.trace,
-        `identical MPC/RL traces for ${p.id}`,
-      ).not.toEqual(p.rl.trace);
+      expect(p.mpc.trace, `identical MPC/RL traces for ${p.id}`).not.toEqual(
+        p.rl.trace,
+      );
       expect(p.mpc.annotation).not.toBe(p.rl.annotation);
       expect(p.mpc.annotation.trim().length).toBeGreaterThan(0);
       expect(p.rl.annotation.trim().length).toBeGreaterThan(0);
@@ -31,9 +30,7 @@ describe('PERTURBATIONS', () => {
   });
 
   it('at least two perturbations give the controllers different outcomes', () => {
-    const divergent = PERTURBATIONS.filter(
-      (p) => p.mpc.status !== p.rl.status,
-    );
+    const divergent = PERTURBATIONS.filter((p) => p.mpc.status !== p.rl.status);
     expect(divergent.length).toBeGreaterThanOrEqual(2);
   });
 
@@ -55,9 +52,7 @@ describe('CONTROLLERS', () => {
 
 describe('MPC_RL_COMPARISON_ROWS', () => {
   it('covers model error, constraints, and deploy-time compute', () => {
-    const dims = MPC_RL_COMPARISON_ROWS.map((r) =>
-      r.dimension.toLowerCase(),
-    );
+    const dims = MPC_RL_COMPARISON_ROWS.map((r) => r.dimension.toLowerCase());
     expect(dims.some((d) => d.includes('model error'))).toBe(true);
     expect(dims.some((d) => d.includes('constraint'))).toBe(true);
     expect(dims.some((d) => d.includes('compute'))).toBe(true);

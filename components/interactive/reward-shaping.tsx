@@ -147,8 +147,14 @@ export function RewardShaping({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
-          aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
-          className={cx(buttonBase, buttonIdle, 'inline-flex items-center gap-1.5')}
+          aria-label={
+            playing ? 'Pause rollout preview' : 'Play rollout preview'
+          }
+          className={cx(
+            buttonBase,
+            buttonIdle,
+            'inline-flex items-center gap-1.5',
+          )}
         >
           {playing ? (
             <Pause size={12} weight="bold" aria-hidden />
@@ -239,10 +245,10 @@ export function RewardShaping({ className }: { className?: string }) {
         />
         {Array.from({ length: 22 }, (_, i) => {
           const x = f(
-            ((i * STRIDE_PX - pose.groundOffset) % (WIDTH + STRIDE_PX) +
+            ((((i * STRIDE_PX - pose.groundOffset) % (WIDTH + STRIDE_PX)) +
               WIDTH +
               STRIDE_PX) %
-              (WIDTH + STRIDE_PX) -
+              (WIDTH + STRIDE_PX)) -
               STRIDE_PX / 2,
           );
           return (
@@ -387,7 +393,10 @@ export function RewardShaping({ className }: { className?: string }) {
         ))}
       </div>
 
-      <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim" aria-live="polite">
+      <p
+        className="mt-4 font-sans text-xs leading-relaxed text-text-dim"
+        aria-live="polite"
+      >
         <span className={TONE_TEXT[behavior.tone]}>{behavior.status}.</span>{' '}
         {behavior.description}
       </p>

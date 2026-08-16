@@ -1,7 +1,13 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { firstDraftModule, notFoundProbeRoute } from '../helpers/draft-fixtures';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  firstDraftModule,
+  notFoundProbeRoute,
+} from '../helpers/draft-fixtures';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Shared static-export server for the #418 specs below. Started lazily and
@@ -88,9 +94,7 @@ test.describe('navigation shell', () => {
       page.getByRole('heading', { level: 1, name: 'Classical Foundations' }),
     ).toBeVisible();
     const main = page.locator('#main-content');
-    await expect(
-      main.getByText('Kinematics', { exact: true }),
-    ).toBeVisible();
+    await expect(main.getByText('Kinematics', { exact: true })).toBeVisible();
     // No progress counters and no draft placeholders: the page reads as an
     // index of what exists, not a project tracker (VAL-DESIGN-001/015,
     // VAL-WIKI-021).
@@ -98,9 +102,7 @@ test.describe('navigation shell', () => {
     await expect(main.getByText(/planned/i)).toHaveCount(0);
     const draft = firstDraftModule('classical');
     if (draft) {
-      await expect(main.getByText(draft.title, { exact: true })).toHaveCount(
-        0,
-      );
+      await expect(main.getByText(draft.title, { exact: true })).toHaveCount(0);
     }
   });
 
@@ -176,7 +178,9 @@ test.describe('unknown routes hydrate clean (React #418 fix)', () => {
   // VAL-A11Y-013 on the 404 surface), which the dev server cannot
   // reproduce: dev serves not-found per-request with no payload/path
   // divergence.
-  test('unknown route redirects to /404/ and throws no hydration error', async ({ page }) => {
+  test('unknown route redirects to /404/ and throws no hydration error', async ({
+    page,
+  }) => {
     const OUT_BASE = await resolveExportBase();
     const consoleErrors: string[] = [];
     page.on('pageerror', (err) => consoleErrors.push(String(err)));
@@ -195,7 +199,9 @@ test.describe('unknown routes hydrate clean (React #418 fix)', () => {
     ).toEqual([]);
   });
 
-  test('unknown top-level path redirects to /404/ cleanly', async ({ page }) => {
+  test('unknown top-level path redirects to /404/ cleanly', async ({
+    page,
+  }) => {
     const OUT_BASE = await resolveExportBase();
     const consoleErrors: string[] = [];
     page.on('pageerror', (err) => consoleErrors.push(String(err)));

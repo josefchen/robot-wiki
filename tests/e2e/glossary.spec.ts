@@ -2,12 +2,19 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { GLOSSARY, getTerm, glossaryTermsAlphabetical } from '../../data/glossary';
+import {
+  GLOSSARY,
+  getTerm,
+  glossaryTermsAlphabetical,
+} from '../../data/glossary';
 import { getCitation } from '../../data/citations';
 import { modules } from '../../data/modules';
 import { inlineTermIds } from '../../lib/glossary';
 import { moduleBody } from '../../lib/references';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Glossary and inline <Term> definitions (VAL-GLOSS-001 through VAL-GLOSS-011).
@@ -72,7 +79,9 @@ test.describe('Glossary page', () => {
     await expect(
       page.getByRole('heading', { level: 1, name: 'Glossary' }),
     ).toBeVisible();
-    await expect(page.getByText(`${GLOSSARY.length} terms`).first()).toBeVisible();
+    await expect(
+      page.getByText(`${GLOSSARY.length} terms`).first(),
+    ).toBeVisible();
 
     const entries = page.locator('[data-glossary-term]');
     expect(await entries.count()).toBe(GLOSSARY.length);
@@ -81,7 +90,9 @@ test.describe('Glossary page', () => {
     const expected = glossaryTermsAlphabetical();
     for (let i = 0; i < expected.length; i += 1) {
       const entry = entries.nth(i);
-      expect(await entry.getAttribute('data-glossary-term')).toBe(expected[i].id);
+      expect(await entry.getAttribute('data-glossary-term')).toBe(
+        expected[i].id,
+      );
       await expect(entry.locator('h2')).toHaveText(expected[i].term);
       // A full sentence of real prose, verbatim from the registry.
       const definition = normalize(
@@ -100,7 +111,9 @@ test.describe('Glossary page', () => {
     for (const term of GLOSSARY) {
       const entry = page.locator(`[data-glossary-term="${term.id}"]`);
       const links = entry.locator('a[target="_blank"]');
-      expect(await links.count(), `${term.id} source count`).toBe(term.citations.length);
+      expect(await links.count(), `${term.id} source count`).toBe(
+        term.citations.length,
+      );
       for (let i = 0; i < term.citations.length; i += 1) {
         const citation = getCitation(term.citations[i]);
         expect(citation, `registry entry ${term.citations[i]}`).toBeDefined();
@@ -139,7 +152,9 @@ test.describe('Glossary page', () => {
     // The entry point shows the active state on /glossary.
     await page.getByRole('button', { name: 'Open navigation menu' }).click();
     await expect(
-      page.getByRole('dialog', { name: 'Site navigation' }).getByRole('link', { name: 'Glossary' }),
+      page
+        .getByRole('dialog', { name: 'Site navigation' })
+        .getByRole('link', { name: 'Glossary' }),
     ).toHaveAttribute('aria-current', 'page');
   });
 });
@@ -215,8 +230,12 @@ test.describe('Inline <Term>', () => {
       // Focus text, no pointer involved. preventScroll keeps the page (and
       // the resting mouse position) exactly where the hover step left it,
       // so only keyboard focus can be revealing the tooltip.
-      await link.evaluate((el) => (el as HTMLElement).focus({ preventScroll: true }));
-      expect(await link.evaluate((el) => document.activeElement === el)).toBe(true);
+      await link.evaluate((el) =>
+        (el as HTMLElement).focus({ preventScroll: true }),
+      );
+      expect(await link.evaluate((el) => document.activeElement === el)).toBe(
+        true,
+      );
       await expect(tooltip).toBeVisible();
       const focusText = normalize((await tooltip.textContent()) ?? '');
       expect(focusText).toBe(hoverText);
@@ -248,7 +267,7 @@ test.describe('Inline <Term>', () => {
       focused = await page.evaluate(() => {
         const el = document.activeElement;
         return el?.classList.contains('term-link')
-          ? el.closest('[data-term-id]')?.getAttribute('data-term-id') ?? null
+          ? (el.closest('[data-term-id]')?.getAttribute('data-term-id') ?? null)
           : null;
       });
       if (focused) break;
@@ -267,7 +286,10 @@ test.describe('Inline <Term>', () => {
     }) => {
       await page.setViewportSize(viewport);
 
-      for (const route of ['/classical/kinematics/', '/data-hardware/data-bottleneck/']) {
+      for (const route of [
+        '/classical/kinematics/',
+        '/data-hardware/data-bottleneck/',
+      ]) {
         await page.goto(`${BASE}${route}`);
         // Every term occurrence on the page, wherever the line breaks put
         // it: start of line, end of line, first and last paragraphs.
@@ -311,7 +333,10 @@ test.describe('Inline <Term>', () => {
         await link.focus();
         const tooltip = await tooltipFor(page, 'covariate-shift');
         await expect(tooltip).toBeVisible();
-        const [tip, term] = await Promise.all([tooltip.boundingBox(), link.boundingBox()]);
+        const [tip, term] = await Promise.all([
+          tooltip.boundingBox(),
+          link.boundingBox(),
+        ]);
         expect(tip && term).toBeTruthy();
         if (tip && term) {
           expect(tip.x).toBeLessThan(term.x);
@@ -324,13 +349,17 @@ test.describe('Inline <Term>', () => {
       // Positions are document-relative, so the browser scrolling to the
       // focused term does not register as layout shift.
       await page.goto(`${BASE}/classical/kinematics/`);
-      const paragraph = termLink(page, 'forward-kinematics').locator('xpath=ancestor::p[1]');
+      const paragraph = termLink(page, 'forward-kinematics').locator(
+        'xpath=ancestor::p[1]',
+      );
       const referencesHeading = page.getByRole('heading', {
         level: 2,
         name: 'References',
       });
       const documentY = (locator: typeof paragraph) =>
-        locator.evaluate((el) => el.getBoundingClientRect().top + window.scrollY);
+        locator.evaluate(
+          (el) => el.getBoundingClientRect().top + window.scrollY,
+        );
       const before = {
         paragraph: await documentY(paragraph),
         references: await documentY(referencesHeading),
@@ -366,7 +395,9 @@ test.describe('Inline <Term>', () => {
     await page.goto(`${BASE}/glossary/`);
     const renderedIds = await page
       .locator('[data-glossary-term]')
-      .evaluateAll((els) => els.map((el) => el.getAttribute('data-glossary-term')));
+      .evaluateAll((els) =>
+        els.map((el) => el.getAttribute('data-glossary-term')),
+      );
     for (const id of usedIds) {
       expect(renderedIds).toContain(id);
     }

@@ -217,12 +217,7 @@ describe('rehypeCitePunctuation', () => {
   });
 
   it('wraps two clusters in one paragraph independently', () => {
-    const tree = p([
-      cite('a'),
-      text('. Mid '),
-      cite('b'),
-      text(';'),
-    ]);
+    const tree = p([cite('a'), text('. Mid '), cite('b'), text(';')]);
     run(tree);
     const wraps = wrappers(tree);
     expect(wraps).toHaveLength(2);

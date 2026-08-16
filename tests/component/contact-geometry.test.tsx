@@ -34,13 +34,9 @@ describe('ContactGeometry', () => {
 
   it('defaults to the locomotion scenario with a survivable 2 mm error', () => {
     render(<ContactGeometry />);
-    expect(screen.getByTestId('contact-count-readout')).toHaveTextContent(
-      '4',
-    );
+    expect(screen.getByTestId('contact-count-readout')).toHaveTextContent('4');
     expect(screen.getByTestId('error-readout')).toHaveTextContent('2.0 mm');
-    expect(screen.getByTestId('outcome-readout')).toHaveTextContent(
-      /stable/i,
-    );
+    expect(screen.getByTestId('outcome-readout')).toHaveTextContent(/stable/i);
   });
 
   it('switching to manipulation raises the contact count and jams at the same error', async () => {
@@ -55,12 +51,8 @@ describe('ContactGeometry', () => {
       screen.getByTestId('contact-count-readout').textContent,
     );
     expect(count).toBeGreaterThan(4);
-    expect(screen.getByTestId('outcome-readout')).toHaveTextContent(
-      /jammed/i,
-    );
-    expect(screen.getByTestId('tolerance-readout')).toHaveTextContent(
-      '0.5 mm',
-    );
+    expect(screen.getByTestId('outcome-readout')).toHaveTextContent(/jammed/i);
+    expect(screen.getByTestId('tolerance-readout')).toHaveTextContent('0.5 mm');
   });
 
   it('the error slider flips locomotion past its tolerance', () => {
@@ -100,9 +92,7 @@ describe('ContactGeometry', () => {
       'true',
     );
     expect(screen.getByTestId('error-readout')).toHaveTextContent('2.0 mm');
-    expect(screen.getByTestId('contact-count-readout')).toHaveTextContent(
-      '4',
-    );
+    expect(screen.getByTestId('contact-count-readout')).toHaveTextContent('4');
   });
 
   it('renders one contact marker per scenario contact', async () => {
@@ -110,8 +100,8 @@ describe('ContactGeometry', () => {
     render(<ContactGeometry />);
     expect(screen.getAllByTestId(/^contact-marker-/).length).toBe(4);
     await user.click(scenarioButton(/manipulation/i));
-    expect(
-      screen.getAllByTestId(/^contact-marker-/).length,
-    ).toBeGreaterThan(12);
+    expect(screen.getAllByTestId(/^contact-marker-/).length).toBeGreaterThan(
+      12,
+    );
   });
 });

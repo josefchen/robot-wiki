@@ -122,7 +122,11 @@ export function buildBacklinkGraph(
   const targets = [...inbound.keys()].sort((a, b) => orderBy(a) - orderBy(b));
   for (const target of targets) {
     const sources = inbound.get(target);
-    if (sources) graph.set(target, [...sources].sort((a, b) => orderBy(a) - orderBy(b)));
+    if (sources)
+      graph.set(
+        target,
+        [...sources].sort((a, b) => orderBy(a) - orderBy(b)),
+      );
   }
   return graph;
 }
@@ -175,7 +179,9 @@ let cachedGraph: Map<string, string[]> | null = null;
 export function publishedBacklinkGraph(): Map<string, string[]> {
   if (cachedGraph) return cachedGraph;
   const published = publishedModules();
-  const orderOf = new Map(published.map((m, index) => [`${m.domain}/${m.slug}`, index]));
+  const orderOf = new Map(
+    published.map((m, index) => [`${m.domain}/${m.slug}`, index]),
+  );
   const articles: LinkGraphArticle[] = published.map((m) => {
     const source = readFileSync(
       join(process.cwd(), 'content', m.domain, `${m.slug}.mdx`),
@@ -188,6 +194,9 @@ export function publishedBacklinkGraph(): Map<string, string[]> {
       : undefined;
     return { key: `${m.domain}/${m.slug}`, body: parsed.content, seeAlso };
   });
-  cachedGraph = buildBacklinkGraph(articles, (key) => orderOf.get(key) ?? Number.MAX_SAFE_INTEGER);
+  cachedGraph = buildBacklinkGraph(
+    articles,
+    (key) => orderOf.get(key) ?? Number.MAX_SAFE_INTEGER,
+  );
   return cachedGraph;
 }

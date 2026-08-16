@@ -89,8 +89,7 @@ export function CompoundingError({
       chunkSize,
       dagger,
     });
-    const x = (t: number) =>
-      16 + (t / maxSteps) * (ROLLOUT_W - 32);
+    const x = (t: number) => 16 + (t / maxSteps) * (ROLLOUT_W - 32);
     const cy = ROLLOUT_H / 2 + 6;
     const y = (t: number) =>
       cy -
@@ -99,10 +98,14 @@ export function CompoundingError({
     const expertPath: string[] = [];
     for (let t = 0; t <= maxSteps; t += 2) {
       const ey = cy - expertY(t) * rolloutScale;
-      expertPath.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${ey.toFixed(1)}`);
+      expertPath.push(
+        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${ey.toFixed(1)}`,
+      );
     }
     const tracePath = deviation
-      .map((_, t) => `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(t).toFixed(1)}`)
+      .map(
+        (_, t) => `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(t).toFixed(1)}`,
+      )
       .join(' ');
     const corrections: Array<{ x: number; y: number }> = [];
     if (dagger) {
@@ -128,7 +131,9 @@ export function CompoundingError({
     const curve = (fn: (t: number) => number) => {
       const parts: string[] = [];
       for (let t = 0; t <= maxSteps; t += 2) {
-        parts.push(`${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(fn(t)).toFixed(1)}`);
+        parts.push(
+          `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(fn(t)).toFixed(1)}`,
+        );
       }
       return parts.join(' ');
     };
@@ -242,16 +247,15 @@ export function CompoundingError({
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <div
-          role="group"
-          aria-label="Prediction mode"
-          className="flex gap-2"
-        >
+        <div role="group" aria-label="Prediction mode" className="flex gap-2">
           <button
             type="button"
             aria-pressed={mode === 'per-step'}
             onClick={() => setMode('per-step')}
-            className={cx(toggleBase, mode === 'per-step' ? toggleOn : toggleOff)}
+            className={cx(
+              toggleBase,
+              mode === 'per-step' ? toggleOn : toggleOff,
+            )}
           >
             Per-timestep prediction
           </button>
@@ -416,7 +420,11 @@ export function CompoundingError({
           stroke="var(--color-accent)"
           strokeWidth={2}
         />
-        <g fontSize={10} fontFamily="var(--font-mono)" fill="var(--color-text-dim)">
+        <g
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+          fill="var(--color-text-dim)"
+        >
           <line
             x1={BOUNDS_PAD.left + bounds.plotW - 218}
             x2={BOUNDS_PAD.left + bounds.plotW - 196}
@@ -457,7 +465,10 @@ export function CompoundingError({
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">accumulated deviation =</span>{' '}
-        <span data-testid="accumulated-deviation-readout" className="text-accent">
+        <span
+          data-testid="accumulated-deviation-readout"
+          className="text-accent"
+        >
           {formatUnits(rollout.cost)}
         </span>{' '}
         <span className="text-text-dim">

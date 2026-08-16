@@ -16,9 +16,10 @@ describe('JepaPlanning', () => {
     expect(
       screen.getByRole('slider', { name: /search budget/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /goal: pick/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /goal: pick/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(
       screen.getByRole('button', { name: /goal: place/i }),
     ).toHaveAttribute('aria-pressed', 'false');
@@ -75,12 +76,13 @@ describe('JepaPlanning', () => {
       initial ?? '',
     );
     expect(screen.getByTestId('step-readout')).toHaveTextContent('0');
-    expect(
-      screen.getByRole('slider', { name: /search budget/i }),
-    ).toHaveValue('24');
-    expect(
-      screen.getByRole('button', { name: /goal: pick/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('slider', { name: /search budget/i })).toHaveValue(
+      '24',
+    );
+    expect(screen.getByRole('button', { name: /goal: pick/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('switching the goal restarts planning from the initial state', async () => {

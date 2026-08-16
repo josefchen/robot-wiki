@@ -80,9 +80,7 @@ describe('HardwareGuide', () => {
       'not disclosed',
     );
     // Atlas DoF is published: 56, not undisclosed.
-    expect(
-      within(atlas).getAllByRole('cell')[3].textContent,
-    ).toMatch(/^56/);
+    expect(within(atlas).getAllByRole('cell')[3].textContent).toMatch(/^56/);
   });
 
   it('carries at least one external source link per row (VAL-DATA-014)', () => {
@@ -91,7 +89,10 @@ describe('HardwareGuide', () => {
       const links = within(row)
         .getAllByRole('link')
         .filter((link) => link.getAttribute('href')?.startsWith('https://'));
-      expect(links.length, 'every row needs an external link').toBeGreaterThanOrEqual(1);
+      expect(
+        links.length,
+        'every row needs an external link',
+      ).toBeGreaterThanOrEqual(1);
     }
   });
 
@@ -155,7 +156,9 @@ describe('HardwareGuide', () => {
     );
     // The only arm with neither a listed price nor a stated sourcing state
     // is the Franka Panda.
-    expect(screen.getByText(`1 of ${HARDWARE.length} entries`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`1 of ${HARDWARE.length} entries`),
+    ).toBeInTheDocument();
     expect(rowNamed(/Franka Emika Panda/)).toBeDefined();
   });
 

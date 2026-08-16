@@ -9,7 +9,10 @@ test.describe('bc-foundations module', () => {
   }) => {
     await page.goto(ROUTE);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Behavior Cloning Foundations' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Behavior Cloning Foundations',
+      }),
     ).toBeVisible();
     // KaTeX rendered, no raw TeX delimiters leaking into the prose.
     await expect(page.locator('.katex').first()).toBeVisible();
@@ -29,7 +32,10 @@ test.describe('bc-foundations module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     const dagger = main.getByRole('link', { name: /Ross 2011/ }).first();
-    await expect(dagger).toHaveAttribute('href', 'https://arxiv.org/abs/1011.0686');
+    await expect(dagger).toHaveAttribute(
+      'href',
+      'https://arxiv.org/abs/1011.0686',
+    );
     const chips = main.locator('a[href^="https://arxiv.org/abs/"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(3);
   });

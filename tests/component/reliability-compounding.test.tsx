@@ -13,9 +13,7 @@ describe('ReliabilityCompounding', () => {
       screen.getByRole('slider', { name: /episode length/i }),
     ).toBeInTheDocument();
     expect(screen.getByTestId('episode-success-readout')).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /reset/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
   it('anchors the default state to 95% over 30 steps', () => {
@@ -56,9 +54,9 @@ describe('ReliabilityCompounding', () => {
     expect(screen.getByTestId('episode-success-readout')).toHaveTextContent(
       '21.5%',
     );
-    expect(
-      screen.getByRole('slider', { name: /episode length/i }),
-    ).toHaveValue('30');
+    expect(screen.getByRole('slider', { name: /episode length/i })).toHaveValue(
+      '30',
+    );
   });
 
   it('honors custom defaults', () => {
@@ -118,9 +116,12 @@ describe('ReliabilityCompounding with full-range bounds', () => {
 
   it('reads 0.0% at per-step 0% for every horizon', () => {
     renderFullRange();
-    fireEvent.change(screen.getByRole('slider', { name: /per-step success/i }), {
-      target: { value: '0' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /per-step success/i }),
+      {
+        target: { value: '0' },
+      },
+    );
     expect(screen.getByTestId('episode-success-readout')).toHaveTextContent(
       '0.0%',
     );
@@ -134,9 +135,12 @@ describe('ReliabilityCompounding with full-range bounds', () => {
 
   it('reads 100.0% at per-step 100% for every horizon', () => {
     renderFullRange();
-    fireEvent.change(screen.getByRole('slider', { name: /per-step success/i }), {
-      target: { value: '100' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /per-step success/i }),
+      {
+        target: { value: '100' },
+      },
+    );
     expect(screen.getByTestId('episode-success-readout')).toHaveTextContent(
       '100.0%',
     );
@@ -156,9 +160,12 @@ describe('ReliabilityCompounding with full-range bounds', () => {
     expect(screen.getByTestId('episode-success-readout')).toHaveTextContent(
       '95.0%',
     );
-    fireEvent.change(screen.getByRole('slider', { name: /per-step success/i }), {
-      target: { value: '73.4' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /per-step success/i }),
+      {
+        target: { value: '73.4' },
+      },
+    );
     expect(screen.getByTestId('episode-success-readout')).toHaveTextContent(
       '73.4%',
     );
@@ -192,9 +199,12 @@ describe('ReliabilityCompounding with full-range bounds', () => {
   it('reset restores the anchor state after boundary exploration', async () => {
     const user = userEvent.setup();
     renderFullRange();
-    fireEvent.change(screen.getByRole('slider', { name: /per-step success/i }), {
-      target: { value: '0' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /per-step success/i }),
+      {
+        target: { value: '0' },
+      },
+    );
     fireEvent.change(screen.getByRole('slider', { name: /episode length/i }), {
       target: { value: '100' },
     });
@@ -205,8 +215,8 @@ describe('ReliabilityCompounding with full-range bounds', () => {
     expect(
       screen.getByRole('slider', { name: /per-step success/i }),
     ).toHaveValue('95');
-    expect(
-      screen.getByRole('slider', { name: /episode length/i }),
-    ).toHaveValue('30');
+    expect(screen.getByRole('slider', { name: /episode length/i })).toHaveValue(
+      '30',
+    );
   });
 });

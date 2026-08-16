@@ -176,7 +176,10 @@ export function planStep(args: {
       theta = magnitude * (i % 2 === 0 ? 1 : -1);
     }
     const step = rotate(
-      { x: dir.x * STEP_FRACTION * remaining, y: dir.y * STEP_FRACTION * remaining },
+      {
+        x: dir.x * STEP_FRACTION * remaining,
+        y: dir.y * STEP_FRACTION * remaining,
+      },
       theta,
     );
     const endpoint = { x: state.x + step.x, y: state.y + step.y };

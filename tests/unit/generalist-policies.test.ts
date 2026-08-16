@@ -66,7 +66,9 @@ describe('GENERALIST_RELEASES registry', () => {
   });
 
   it('paper-tier releases cite arXiv papers', () => {
-    for (const r of GENERALIST_RELEASES.filter((x) => x.provenance === 'paper')) {
+    for (const r of GENERALIST_RELEASES.filter(
+      (x) => x.provenance === 'paper',
+    )) {
       const citation = getCitation(r.citationId);
       expect(citation?.arxiv, `${r.name} should have an arXiv id`).toMatch(
         /^\d{4}\.\d{4,5}$/,

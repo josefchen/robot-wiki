@@ -38,14 +38,19 @@ describe('deployment-reality data', () => {
   it('gives every row an as-of date, a source label, and a non-empty figure', () => {
     for (const row of DEPLOYMENT_ROWS) {
       expect(row.asOf, `row ${row.id} asOf`).toMatch(/^[A-Z][a-z]{2} \d{4}$/);
-      expect(row.sourceLabel.length, `row ${row.id} sourceLabel`).toBeGreaterThan(0);
+      expect(
+        row.sourceLabel.length,
+        `row ${row.id} sourceLabel`,
+      ).toBeGreaterThan(0);
       expect(row.value.length, `row ${row.id} value`).toBeGreaterThan(0);
     }
   });
 
   it('never blends a claimed figure into a verified row', () => {
     // The circulating "50,000+ Optimus units" figure must be labeled claimed.
-    const claimed = DEPLOYMENT_ROWS.find((row) => row.id === 'optimus-50k-claim');
+    const claimed = DEPLOYMENT_ROWS.find(
+      (row) => row.id === 'optimus-50k-claim',
+    );
     expect(claimed?.status).toBe('claimed');
     expect(claimed?.value).toContain('50,000');
   });
