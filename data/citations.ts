@@ -6,6 +6,21 @@
  * Add entries from the /research reports only; never invent arXiv ids, urls,
  * or author lists.
  *
+ * Urls are https. The one sanctioned exception pattern, for a canonical
+ * source genuinely served over http only, is a DATED web.archive.org
+ * capture (https://web.archive.org/web/<timestamp>/<original-url>); the
+ * schema enforces the dated form and there is no http allowlist. Keep the
+ * real author, title, venue and original year in the entry and name the
+ * original location in the entry comment (precedent: Sutton, The Bitter
+ * Lesson; see data/schemas/citation.ts).
+ *
+ * Two checkers sweep this registry on demand, never in the build:
+ * `npm run check:links` (liveness: status, Crossref fallback for bot-walled
+ * DOIs, documented exceptions in data/link-check-exceptions.ts) and
+ * `npm run check:citations` (audit grade: redirect chain plus a fetched-
+ * title-vs-registry-title plausibility check, so a URL that 200s but serves
+ * a different document fails instead of passing).
+ *
  * Type-only relative import so this file loads under plain node, Vitest, and
  * Next.js alike.
  */
@@ -128,10 +143,13 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Title and authors verified against the arXiv abs page (2026-08-16);
+    // the registry previously carried a descriptive label, not the paper's
+    // title, and "NVIDIA Research" instead of the author list.
     id: 'vla-perf-2026',
     title:
-      'VLA-Perf: Systematic Latency Analysis of Vision-Language-Action Models on Edge and Cloud Hardware',
-    authors: ['NVIDIA Research'],
+      'How Fast Can I Run My VLA? Demystifying VLA Inference Performance with VLA-Perf',
+    authors: ['Wenqi Jiang', 'Jason Clemons', 'Karu Sankaralingam', 'Christos Kozyrakis'],
     year: 2026,
     arxiv: '2602.18397',
     url: 'https://arxiv.org/abs/2602.18397',
@@ -541,9 +559,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // MEM lab PDF; no arXiv id as of 2026-08.
+    // MEM lab PDF; no arXiv id as of 2026-08. Title corrected against the
+    // PDF's own title page (2026-08-16): the registry previously carried a
+    // paraphrase, not the paper's title.
     id: 'mem-2026',
-    title: 'VLAs with Long and Short-Term Memory',
+    title: 'MEM: Multi-Scale Embodied Memory for Vision Language Action Models',
     authors: [
       'Marcel Torne',
       'Karl Pertsch',
@@ -1922,13 +1942,14 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Canonical MuJoCo reference: Todorov, Erez, Tassa, IROS 2012,
-    // DOI 10.1109/IROS.2012.6386109.
+    // DOI 10.1109/IROS.2012.6386109. Cited via doi.org (preferred over the
+    // IEEE page, which is a JS-rendered SPA with no title in raw HTML).
     id: 'mujoco-2012',
     title: 'MuJoCo: A physics engine for model-based control',
     authors: ['Emanuel Todorov', 'Tom Erez', 'Yuval Tassa'],
     year: 2012,
     venue: 'IROS 2012',
-    url: 'https://ieeexplore.ieee.org/document/6386109',
+    url: 'https://doi.org/10.1109/IROS.2012.6386109',
     type: 'paper',
   },
   {
@@ -2490,7 +2511,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the live product page (2026-08-09): $20,000 or
     // $499/month, $200 deposit, 168 cm, 30 kg, Jetson Thor onboard.
     id: '1x-neo-2026',
-    title: '1X NEO Product Page',
+    title: 'NEO Home Robot',
     authors: ['1X Technologies'],
     year: 2026,
     url: 'https://www.1x.tech/neo',
@@ -2501,7 +2522,7 @@ export const CITATIONS: Citation[] = [
     // continuous rotation, 50 kg instant payload, IP67, 2026 deployments
     // committed to Hyundai and Google DeepMind.
     id: 'bd-atlas-2026',
-    title: 'Atlas Product Page',
+    title: 'Atlas Humanoid Robot',
     authors: ['Boston Dynamics'],
     year: 2026,
     url: 'https://bostondynamics.com/products/atlas/',
@@ -3107,7 +3128,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Karl Johan Åström', 'Richard M. Murray'],
     year: 2008,
     venue: 'Princeton University Press',
-    url: 'https://fbsbook.org/',
+    url: 'https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers',
     type: 'docs',
   },
   {
@@ -3481,7 +3502,7 @@ export const CITATIONS: Citation[] = [
     // 1987. The classical lower-bound argument: frictionless force closure
     // needs at least 4 contacts in the plane and 7 in space.
     id: 'mishra-1987',
-    title: 'On the Existence and Synthesis of Multifingered Positive Grips',
+    title: 'On the Existence and Synthesis of Multifinger Positive Grips',
     authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
     year: 1987,
     venue: 'Algorithmica',

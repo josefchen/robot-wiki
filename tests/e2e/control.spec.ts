@@ -92,7 +92,10 @@ test.describe('classical control module', () => {
     // Primary sources for the main strands, each with its exact href.
     await expect(
       main.getByRole('link', { name: 'Åström 2008' }).first(),
-    ).toHaveAttribute('href', 'https://fbsbook.org/');
+    ).toHaveAttribute(
+      'href',
+      'https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers',
+    );
     await expect(
       main.getByRole('link', { name: 'Kalman 1960' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/9780470544334.ch8');

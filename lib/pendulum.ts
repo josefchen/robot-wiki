@@ -30,7 +30,7 @@
  * chapters 2-3 of Tedrake's Underactuated Robotics
  * (https://underactuated.mit.edu/pend.html); the PID structure and the
  * state-feedback theory are Astrom and Murray, Feedback Systems, chapters
- * 1, 10-11 and 7 (https://fbsbook.org/).
+ * 1, 10-11 and 7 (https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers).
  */
 
 export interface PendulumParams {

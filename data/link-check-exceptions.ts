@@ -1,20 +1,24 @@
 /**
  * Known exceptions for the citation link-liveness sweep
- * (scripts/check-citation-links.ts).
+ * (scripts/check-citation-links.ts) and the citation audit checker
+ * (scripts/check-citations.ts).
  *
- * Every entry here is a citation URL that is confirmed live but cannot be
- * verified by the sweep's machine checks: either no client we can run gets
- * past the bot-wall and no DOI exists (DOI-bearing URLs are verified through
- * Crossref metadata instead; that is the durable path), or the Crossref
- * record provably cannot corroborate the registry entry for a documented
- * reason (see ziegler-nichols-1942 below).
+ * Every entry here is a citation URL that is confirmed live and confirmed to
+ * be the intended document, but cannot be verified by the machine checks:
+ * either no client we can run gets past the bot-wall and no DOI exists
+ * (DOI-bearing URLs are verified through Crossref metadata instead; that is
+ * the durable path), or the Crossref record provably cannot corroborate the
+ * registry entry for a documented reason (see ziegler-nichols-1942 and
+ * kalman-1960 below), or the fetched page's <title> cannot plausibly be
+ * compared to the registry title (tagline titles, journal mastheads; these
+ * entries cover 'title-mismatch' for the audit checker only).
  *
  * An exception is evidence, not suppression: each entry must record WHY the
- * URL cannot be machine-verified, HOW a human last confirmed it is live, and
- * WHEN that happened. The sweep validates the list before making a single
- * request and fails if any entry lacks its justification. Matching is on the
- * failure mode, not the URL alone: if a listed URL starts genuinely 404ing,
- * it is still reported dead.
+ * URL cannot be machine-verified, HOW a human last confirmed it is live and
+ * is the intended document, and WHEN that happened. Both checkers validate
+ * the list before making a single request and fail if any entry lacks its
+ * justification. Matching is on the failure mode, not the URL alone: if a
+ * listed URL starts genuinely 404ing, it is still reported dead.
  *
  * Type-only relative import so this file loads under plain node, Vitest, and
  * Next.js alike.
@@ -66,5 +70,59 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     verifiedBy:
       'Crossref content negotiation for doi:10.1115/1.2899060: title "Optimum Settings for Automatic Controllers" matches the registry exactly, and the doi.org redirect target is the ASME page for the paper.',
     verifiedOn: '2026-08-11',
+  },
+  {
+    id: 'maestro-tavac-2023',
+    covers: ['blocked'],
+    reason:
+      'www.sages.org serves a Cloudflare challenge (HTTP 403, cf-mitigated: challenge) to curl, node fetch, and headless Chromium alike. The TAVAC assessment has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Web search index (queried 2026-08-16): the page is indexed at the exact registry URL, dated 2023-01-31, titled "Moon Surgical Maestro Surgical Robotics System - A SAGES Technology..." with authors "Ruben D. Salas Parra MD and David Pechman MD, FACS", matching the registry title, author list, and year.',
+    verifiedOn: '2026-08-16',
+  },
+  {
+    id: 'kalman-1960',
+    covers: ['title-mismatch'],
+    reason:
+      'The cited DOI is the Wiley Online Books chapter republication (2009), so Crossref reports 2009 while the registry cites the original 1960 Bol. Soc. Mat. Mexicana paper. The title matches exactly; only the year diverges, for the same reprint-vs-original reason as ziegler-nichols-1942. The IEEE page the DOI resolves to is a JS shell with no title in served HTML.',
+    verifiedBy:
+      'Crossref content negotiation for doi:10.1109/9780470544334.ch8: title "Contributions to the Theory of Optimal Control" matches the registry exactly; doi.org resolves to ieeexplore.ieee.org/document/5311913 (HTTP 202), the chapter record.',
+    verifiedOn: '2026-08-16',
+  },
+  {
+    id: 'levenberg-1944',
+    covers: ['title-mismatch'],
+    reason:
+      'AMS article pages serve the journal masthead ("Quarterly of Applied Mathematics") as the <title> element, with no per-article title in the served HTML, so the fetched title can never match the paper the registry cites.',
+    verifiedBy:
+      'Crossref content negotiation for doi:10.1090/qam/10666: title "A Method for the Solution of Certain Non-linear Problems in Least Squares" and year 1944 both match the registry entry.',
+    verifiedOn: '2026-08-16',
+  },
+  {
+    id: 'knowledge-insulation-2025',
+    covers: ['title-mismatch'],
+    reason:
+      'pi.website research pages carry the note\'s tagline as <title> ("VLAs that Train Fast, Run Fast, and Generalize Better"), not the research-note name the registry cites; the page has no DOI, so Crossref cannot stand in.',
+    verifiedBy:
+      'Fetched page body (2026-08-16): the page names "Knowledge Insulation" five times and lives at the research/knowledge_insulation slug; the companion paper is registry id knowledge-insulation-paper-2025 with the same tagline subtitle.',
+    verifiedOn: '2026-08-16',
+  },
+  {
+    id: 'gtsam-2026',
+    covers: ['title-mismatch'],
+    reason:
+      'gtsam.org serves a tagline as <title> ("GTSAM | GTSAM is a BSD-licensed C++ library..."), not the project name the registry cites; the page has no DOI.',
+    verifiedBy:
+      'Fetched page body (2026-08-16): the page states "Georgia Tech Smoothing and Mapping" in its project description.',
+    verifiedOn: '2026-08-16',
+  },
+  {
+    id: 'mcgee-schmidt-1985',
+    covers: ['error'],
+    reason:
+      'ntrs.nasa.gov suffered a host-side outage during the 2026-08-16 citation audit: DNS resolves (ntrs.production.sti.appdat.jsc.nasa.gov behind a us-gov-west-1 ELB) but TCP connections to ports 443 never open, for curl and node fetch alike, across the whole session. The same URL was fetched live by the liveness sweep earlier the same day. A NASA-side outage, not link rot; a NASA TM has no DOI, so Crossref cannot stand in.',
+    verifiedBy:
+      'Three layers: the liveness sweep earlier on 2026-08-16 fetched the URL live; the search index confirms the citation page at the exact URL is "Discovery of the Kalman Filter as a Practical Tool for Aerospace and Industry" (NASA TM-86847, McGee and Schmidt) matching the registry; and the registry entry itself was verified against the NTRS record on 2026-08-11. Remove this exception once NTRS answers machine clients again.',
+    verifiedOn: '2026-08-16',
   },
 ];

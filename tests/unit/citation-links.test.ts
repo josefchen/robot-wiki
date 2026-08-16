@@ -212,6 +212,31 @@ describe('verifyCrossrefWork', () => {
     expect(verifyCrossrefWork(citation, { years: [2017] }).ok).toBe(false);
     expect(verifyCrossrefWork(citation, { title: citation.title, years: [] }).ok).toBe(false);
   });
+
+  it('reports whether the title matched even when the year conflicts', () => {
+    // The audit checker distinguishes "title matched but the DOI record is a
+    // later reprint" (a divergence to surface) from "no corroboration".
+    const result = verifyCrossrefWork(citation, { title: citation.title, years: [2009] });
+    expect(result.ok).toBe(false);
+    expect(result.titleMatched).toBe(true);
+    expect(result.yearsReported).toEqual([2009]);
+    expect(result.problems.join(' ')).toContain('year');
+  });
+
+  it('accepts a title match with no Crossref year when the caller allows it', () => {
+    // IEEE conference records are often deposited without dates; the audit
+    // checker passes missingYearIsAcceptable, the liveness sweep does not.
+    const work = { title: citation.title, years: [] };
+    expect(verifyCrossrefWork(citation, work, { missingYearIsAcceptable: true }).ok).toBe(true);
+    expect(verifyCrossrefWork(citation, work).ok).toBe(false);
+  });
+
+  it('never accepts a conflicting year, even when the caller allows missing years', () => {
+    const result = verifyCrossrefWork(citation, { title: citation.title, years: [2016] }, {
+      missingYearIsAcceptable: true,
+    });
+    expect(result.ok).toBe(false);
+  });
 });
 
 const VALID_EXCEPTION: LinkCheckException = {
