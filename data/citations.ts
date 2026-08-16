@@ -4586,6 +4586,32 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
+    // Live-verified against the FDA database record (2026-08-16): 510(k)
+    // K252111, cleared 16 December 2025, trade name "Versius Surgical
+    // System (Versius Plus)", applicant CMR Surgical Limited. Backs the
+    // Versius Plus December 2025 clearance in lib/surgical-systems.ts.
+    id: 'versius-plus-510k-2025',
+    title: '510(k) K252111: Versius Surgical System (Versius Plus)',
+    authors: ['U.S. Food and Drug Administration'],
+    year: 2025,
+    venue: 'FDA 510(k) Premarket Notification Database',
+    url: 'https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252111.pdf',
+    type: 'docs',
+  },
+  {
+    // Live-verified against the FDA database record (2026-08-16): 510(k)
+    // K240598, cleared 3 June 2024, trade name "Maestro System (REF100)",
+    // applicant Moon Surgical. Backs the commercial Maestro June 2024
+    // clearance in lib/surgical-systems.ts.
+    id: 'maestro-commercial-510k-2024',
+    title: '510(k) K240598: Maestro System (REF100)',
+    authors: ['U.S. Food and Drug Administration'],
+    year: 2024,
+    venue: 'FDA 510(k) Premarket Notification Database',
+    url: 'https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240598.pdf',
+    type: 'docs',
+  },
+  {
     // Verified against Crossref metadata and the live Science Robotics
     // record (2026-08-15): Science Robotics 2(7), eaan4582, June 2017,
     // 15 authors, Francis et al. first. AEGIS onboard autonomous

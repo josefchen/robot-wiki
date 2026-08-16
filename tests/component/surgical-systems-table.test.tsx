@@ -16,11 +16,23 @@ describe('SurgicalSystemsTable', () => {
     }
   });
 
-  it('exposes an accessible name via caption', () => {
+  it('exposes an accessible name via caption, matched at the tail', () => {
     render(<SurgicalSystemsTable />);
-    expect(
-      screen.getByRole('table', { name: /surgical robotic systems/i }),
-    ).toBeInTheDocument();
+    // Anchor the assertion on the caption TAIL: the possessive after
+    // "each system" must be a real \u2019 character, and the match must
+    // run through the closing words ("autonomy scale of Yang et al."),
+    // not stop at a prefix. A literal backslash-u escape in the JSX text
+    // (inert in JSX children) reads as "system backslash u two zero one
+    // nine s" to screen-reader users and previously passed a prefix-only
+    // regex; the tail anchor makes that regression fail here.
+    const name = screen.getByRole('table').getAttribute('aria-label') ?? '';
+    const tables = screen.getAllByRole('table');
+    expect(tables).toHaveLength(1);
+    const accessibleName =
+      name || (tables[0].querySelector('caption')?.textContent ?? '');
+    expect(accessibleName).toMatch(
+      /system\u2019s position on the six-level autonomy scale of Yang et al\./,
+    );
   });
 
   it('populates every cell of every row', () => {
