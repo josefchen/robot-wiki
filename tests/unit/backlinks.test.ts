@@ -1,4 +1,7 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { moduleBody } from '@/lib/references';
 import {
   buildBacklinkGraph,
   internalLinkTargets,
@@ -221,5 +224,26 @@ describe('resolveArticleEntries', () => {
       registry,
     );
     expect(entries).toHaveLength(1);
+  });
+});
+
+describe('shipped content: action-chunking cross-references (VAL-CROSS-006)', () => {
+  // The contract requires in-prose links (not glossary anchors, not
+  // seeAlso-only edges) from action-chunking to both manipulation
+  // siblings. Source-level guard so the fast suite catches a prose edit
+  // that drops a link before the e2e does.
+  const body = moduleBody(
+    readFileSync(
+      join(process.cwd(), 'content/manipulation/action-chunking.mdx'),
+      'utf8',
+    ),
+  );
+
+  it('links diffusion-policy in prose', () => {
+    expect(internalLinkTargets(body)).toContain('/manipulation/diffusion-policy');
+  });
+
+  it('links pi-line in prose', () => {
+    expect(internalLinkTargets(body)).toContain('/manipulation/pi-line');
   });
 });

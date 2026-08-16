@@ -227,25 +227,26 @@ test.describe('See also + Linked from', () => {
     }
   });
 
-  test('action-chunking appears under diffusion-policy purely via a seeAlso edge (VAL-WIKI-011)', async ({
+  test('action-chunking reaches diffusion-policy through both a prose link and a seeAlso edge (VAL-WIKI-011)', async ({
     page,
   }) => {
     const source = articleByKey.get('manipulation/action-chunking');
     expect(source).toBeDefined();
     if (!source) return;
 
-    // The source's prose contains no link to diffusion-policy: the edge
-    // exists only because action-chunking curates it in seeAlso.
-    expect(internalLinkTargets(source.body)).not.toContain(
+    // The edge exists twice over by design (VAL-CROSS-006 requires an
+    // in-prose link; the curated seeAlso edge predates it): prose link
+    // plus seeAlso entry, deduped to one backlink.
+    expect(internalLinkTargets(source.body)).toContain(
       '/manipulation/diffusion-policy',
     );
     expect(source.seeAlso).toContain('manipulation/diffusion-policy');
 
-    // The derived graph carries the edge, and the rendered Linked from
-    // list on diffusion-policy shows it.
-    expect(expectedBacklinks.get('manipulation/diffusion-policy')).toContain(
-      'manipulation/action-chunking',
-    );
+    // The derived graph carries the edge exactly once, and the rendered
+    // Linked from list on diffusion-policy shows it.
+    const inbound = expectedBacklinks.get('manipulation/diffusion-policy') ?? [];
+    expect(inbound).toContain('manipulation/action-chunking');
+    expect(inbound.filter((k) => k === 'manipulation/action-chunking')).toHaveLength(1);
 
     await page.goto('/manipulation/diffusion-policy/');
     const item = page.locator(

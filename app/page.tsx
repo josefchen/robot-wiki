@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
-import { DOMAINS, DOMAIN_META } from '@/data/modules';
+import {
+  DOMAINS,
+  DOMAIN_META,
+  modulesByDomain,
+} from '@/data/modules';
 
 /**
  * Home: hero premise, the seven-domain typographic index, the live featured
@@ -18,6 +22,16 @@ import { DOMAINS, DOMAIN_META } from '@/data/modules';
 const container = 'mx-auto w-full max-w-5xl px-6';
 
 export default function Home() {
+  // The adjacent group is a survey rather than a stack of prerequisites,
+  // so its four modules are listed individually in the index row: a
+  // reader picks a domain by name, then an adjacent topic directly
+  // (VAL-ADJ-009). Core domains keep the domain landing as their single
+  // entry point; expanding all of them here would restate the whole
+  // taxonomy a third time (VAL-DESIGN-008).
+  const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
+    (m) => m.status === 'published',
+  );
+
   return (
     <>
       {/* Hero: the premise, kept above the fold. */}
@@ -54,6 +68,14 @@ export default function Home() {
         <ul className="mt-3 divide-y divide-border border-t border-border">
           {DOMAINS.map((domain) => {
             const meta = DOMAIN_META[domain];
+            // The adjacent group is a survey rather than a stack of
+            // prerequisites, so its row lists the modules themselves as
+            // links (VAL-ADJ-009): the titles double as the description,
+            // instead of naming the same four topics twice. Core domains
+            // keep the domain landing as their single entry point;
+            // expanding them all here would restate the taxonomy a third
+            // time (VAL-DESIGN-008).
+            const isAdjacent = domain === 'adjacent';
             return (
               <li key={domain}>
                 <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
@@ -63,9 +85,30 @@ export default function Home() {
                   >
                     {meta.name}
                   </Link>
-                  <p className="text-sm leading-snug text-text-dim">
-                    {meta.description}
-                  </p>
+                  {isAdjacent && adjacentModules.length > 0 ? (
+                    <p className="text-sm leading-snug text-text-dim">
+                      {adjacentModules.map((m, i) => (
+                        <span key={m.slug}>
+                          {i > 0
+                            ? i === adjacentModules.length - 1
+                              ? ', and '
+                              : ', '
+                            : ''}
+                          <Link
+                            href={`/adjacent/${m.slug}/`}
+                            className="transition-colors hover:text-accent"
+                          >
+                            {m.title}
+                          </Link>
+                        </span>
+                      ))}
+                      .
+                    </p>
+                  ) : (
+                    <p className="text-sm leading-snug text-text-dim">
+                      {meta.description}
+                    </p>
+                  )}
                 </div>
               </li>
             );

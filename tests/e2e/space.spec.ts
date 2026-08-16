@@ -200,23 +200,34 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
     page,
   }) => {
     await page.goto('/');
-    // The taxonomy groups start collapsed on home (only the active
-    // route's domain self-expands, VAL-NAV-012), so a reader opens the
-    // adjacent group first. That click is part of the flow.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
-    await nav.getByRole('button', { name: 'Adjacent Domains' }).click();
+    // The contract leg is ON the home page itself, in main: four anchors
+    // whose accessible name is the exact module title, each href resolving
+    // to its /adjacent/<slug> route. The sidebar also lists the modules
+    // (VAL-ADJ-008), so the assertion is scoped to main to keep the two
+    // surfaces distinct and to fail if the home body ever drops back to
+    // linking only the /adjacent/ domain landing.
+    const main = page.locator('#main-content');
     for (let i = 0; i < ADJACENT_TITLES.length; i++) {
-      const link = nav.getByRole('link', { name: ADJACENT_TITLES[i] }).first();
+      const link = main
+        .getByRole('link', { name: ADJACENT_TITLES[i], exact: true })
+        .first();
       await expect(link).toBeVisible();
-      const href = await link.getAttribute('href');
-      expect(href).toBe(ADJACENT_ROUTES[i]);
+      expect(await link.getAttribute('href')).toBe(ADJACENT_ROUTES[i]);
     }
-    // One sampled navigation resolves to a real page.
-    await nav.getByRole('link', { name: 'Space Robotics' }).first().click();
-    await expect(page).toHaveURL(ROUTE);
-    await expect(
-      page.getByRole('heading', { level: 1, name: 'Space Robotics' }),
-    ).toBeVisible();
+    // Each anchor navigates to a real page: correct route, 200, h1.
+    for (let i = 0; i < ADJACENT_TITLES.length; i++) {
+      await page.goto('/');
+      await main
+        .getByRole('link', { name: ADJACENT_TITLES[i], exact: true })
+        .first()
+        .click();
+      await expect(page).toHaveURL(ADJACENT_ROUTES[i]);
+      const response = await page.goto(ADJACENT_ROUTES[i]);
+      expect(response?.ok(), `${ADJACENT_ROUTES[i]} serves 200`).toBe(true);
+      await expect(
+        page.getByRole('heading', { level: 1, name: ADJACENT_TITLES[i] }),
+      ).toBeVisible();
+    }
   });
 
   for (let i = 0; i < ADJACENT_ROUTES.length; i++) {

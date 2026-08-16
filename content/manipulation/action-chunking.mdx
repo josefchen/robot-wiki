@@ -88,10 +88,10 @@ def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
 </Callout>
 
 <Aside title="Why idle segments freeze single-step policies">
-  Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and Diffusion Policy document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context, not a bigger backbone, is what fixes it.
+  Demonstrations contain pauses that are unpredictable from a Markovian single-step state. Both ACT and [Diffusion Policy](/manipulation/diffusion-policy) document robots freezing when the policy cannot represent the pause <Cite id="diffusion-policy-2023" />. Temporal context, not a bigger backbone, is what fixes it.
 </Aside>
 
-<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why later <Term id="flow-matching">flow-matching</Term> policies adopt it over ensembling.
+<Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) reframes the hand-off between chunks as an inpainting problem on the flow or diffusion trajectory: actions that will already have executed are frozen, the overlapping middle is partially attended to, and the remainder is generated fresh <Cite id="real-time-chunking-2025" />. RTC holds throughput flat out to +200 ms of injected inference delay with no training-time change, which is why the later <Term id="flow-matching">flow-matching</Term> policies of [the pi line](/manipulation/pi-line) adopt it over ensembling.
 
 The dial below injects inference delay into both execution strategies. Temporal ensembling holds while inference stays fast, then the averaged action drifts off the committed mode and the strategy fails inside the documented 100 to 200 ms window. RTC freezes the actions that will already have executed and stays on the in-flight mode, so its throughput line does not move <Cite id="real-time-chunking-2025" />.
 
