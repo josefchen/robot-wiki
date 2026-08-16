@@ -118,6 +118,27 @@ describe('FundingTimeline roving keyboard access', () => {
     ).toBe('figure-ai');
   }, TIMEOUT);
 
+  it('recovers one tab stop when a filter removes the last-focused row', () => {
+    // A reader focuses a row (the roving stop moves there), then a
+    // filter change removes that company: the stale rovingStopId must
+    // not win the fallback chain and strand the list with zero tab
+    // stops. The stop falls back to the first rendered row, the same
+    // guarantee the deep-link path already has.
+    const view = render(<FundingTimeline companies={COMPANIES} />);
+    const figure = buttonOf('figure-ai');
+    fireEvent.focus(figure);
+    expect(
+      rows().filter((el) => el.tabIndex === 0),
+    ).toHaveLength(1);
+    const cnOnly = COMPANIES.filter((c) => c.hq.country === 'CN');
+    view.rerender(<FundingTimeline companies={cnOnly} />);
+    expect(
+      document.querySelector('[data-company-id="figure-ai"]'),
+    ).toBeNull();
+    const tabbable = rows().filter((el) => el.tabIndex === 0);
+    expect(tabbable).toHaveLength(1);
+  }, TIMEOUT);
+
   it('keeps click selection working and the native-button contract (VAL-MKT-016 regression)', () => {
     render(<FundingTimeline companies={COMPANIES} />);
     // The rows are native <button> elements: Enter/Space activation is

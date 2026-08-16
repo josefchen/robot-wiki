@@ -48,15 +48,20 @@ export function FundingTimeline({
   }
 
   // Exactly one row is tabbable: the roving stop, else the highlighted
-  // deep-link row, else the first (chronologically earliest) row. A
-  // highlight naming a company with no dated round must not leave the
-  // list with zero tab stops, so the fallback always resolves.
+  // deep-link row, else the first (chronologically earliest) row. Both
+  // fallbacks guard against stranding the list with zero tab stops: a
+  // highlight naming a company with no dated round, and a roving stop
+  // gone stale because a filter removed the last-focused row.
   const highlightedRowId =
     highlightedId === null
       ? null
       : (events.find((event) => event.companyId === highlightedId)?.id ??
         null);
-  const rovingId = rovingStopId ?? highlightedRowId ?? events[0].id;
+  const knownStopId =
+    rovingStopId !== null && events.some((event) => event.id === rovingStopId)
+      ? rovingStopId
+      : null;
+  const rovingId = knownStopId ?? highlightedRowId ?? events[0].id;
 
   return (
     <div className="mt-6">

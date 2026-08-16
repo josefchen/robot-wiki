@@ -230,6 +230,40 @@ test.describe('timeline view roving keyboard affordances', () => {
     expect(moved).not.toBe(firstId);
   });
 
+  test('recovers one tab stop when a filter removes the focused row', async ({
+    page,
+  }) => {
+    await openTimeline(page);
+    // Focus a row, then filter to a segment that excludes its company:
+    // the stale stop must not strand the list with zero tab stops.
+    const figure = page.locator(
+      '[data-company-id="figure-ai"] > button',
+    );
+    await figure.focus();
+    await expect(figure).toHaveAttribute('tabindex', '0');
+    await page.locator('#filter-segment').selectOption('foundation-models');
+    await expect(page.getByText('12 of 112 companies')).toBeVisible();
+    await expect(
+      page.locator('[data-company-id="figure-ai"]'),
+    ).toHaveCount(0);
+    const rows = rowButtons(page);
+    expect(await rows.count()).toBeGreaterThan(0);
+    const tabbables = await page.evaluate(
+      () =>
+        document.querySelectorAll('[data-timeline-id] > button[tabindex="0"]')
+          .length,
+    );
+    expect(tabbables).toBe(1);
+    // The recovered stop is the first row of the filtered set: Tab
+    // re-enters the list there.
+    await tabIntoTimeline(page);
+    const firstId = await rows
+      .first()
+      .locator('..')
+      .getAttribute('data-timeline-id');
+    expect(await focusedRowId(page)).toBe(firstId);
+  });
+
   test('no axe violations on the timeline with focus inside the list', async ({
     page,
   }) => {
