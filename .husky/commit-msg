@@ -1,0 +1,3 @@
+# Conventional commit subjects are required by CONTRIBUTING.md, so history
+# stays scannable with `git log --oneline`. Rules live in lib/commit-message.ts.
+node scripts/check-commit-msg.ts "$1"

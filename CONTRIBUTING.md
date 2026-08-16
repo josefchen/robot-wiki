@@ -40,10 +40,18 @@ npm run build
 
 Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
 
+`npm install` installs Husky hooks that run the cheap parts of that gate for you, so you find out at commit time rather than in review:
+
+- **`pre-commit`** runs `lint-staged`: ESLint with `--fix` over the files you staged, `npm run typecheck` for the whole project, and `npm run validate:content` when the commit touches MDX prose or a `data/` registry. A few seconds. ESLint's fixes are restaged automatically, so a formatting-only failure repairs itself.
+- **`commit-msg`** checks the subject against the conventional-commit rules below.
+- **`pre-push`** runs `npm run test`. Roughly two minutes, and it is the difference between a red `main` and a rejected push.
+
+The hooks are a safety net, not the gate: the build and the e2e suite are too slow to run per commit, so run them yourself before you open the PR. If a hook is wrong or in the way, commit with `HUSKY=0 git commit` and say so in the PR rather than leaving a broken hook in place for everyone else.
+
 ## Pull request guidelines
 
 - Branch from `main` and keep the PR to one logical change. A new article, a data fix, and a component refactor belong in separate PRs.
-- Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`) so history stays scannable.
+- Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`, and the rest of the standard set) so history stays scannable. The `commit-msg` hook enforces `<type>(<optional scope>): <description>`, rejects a subject that ends in a period, and applies the same no-em-dash rule the prose is linted against. Subject length is not capped.
 - Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
 - Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
 - Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.

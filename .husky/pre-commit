@@ -1,0 +1,4 @@
+# Fast half of the gate in CONTRIBUTING.md: ESLint over the staged files, the
+# whole-project typecheck, and the content validators when staged prose or a
+# registry feeds them. See lint-staged.config.mjs for what runs and why.
+npx lint-staged --concurrent false
