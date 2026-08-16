@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import pkg from '@/package.json';
-import depcruiseConfig from '@/.dependency-cruiser.mjs';
+import depcruiseConfig, { FEATURE_COMPONENTS } from '@/.dependency-cruiser.mjs';
 
 // The layering rules in .dependency-cruiser.mjs are a build gate, so they need
 // the same treatment as the content validator: tests that fail when the gate
@@ -89,6 +89,37 @@ describe('architecture rule set (.dependency-cruiser.mjs)', () => {
     // where a layering violation usually starts.
     expect(depcruiseConfig.options.tsConfig.fileName).toBe('tsconfig.json');
     expect(depcruiseConfig.options.tsPreCompilationDeps).toBe(true);
+  });
+
+  it('covers every feature folder under components/', () => {
+    // ui/ and mdx/ are the shared layers; everything else is a feature slice
+    // and must appear in FEATURE_COMPONENTS or cross-feature isolation only
+    // applies one way (new folder can import existing features freely).
+    const shared = new Set(['ui', 'mdx']);
+    const onDisk = readdirSync(join(repoRoot, 'components'), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .filter((name) => !shared.has(name))
+      .sort();
+    expect(FEATURE_COMPONENTS.split('|').sort()).toEqual(onDisk);
+  });
+
+  it('treats the root MDX registry as shipped code', () => {
+    // mdx-components.tsx is cruised and loaded by Next for every MDX page, but
+    // lives outside app|components|lib|data. Rules that only anchor on those
+    // prefixes would miss a bad import from it.
+    for (const name of [
+      'build-scripts-are-not-imported',
+      'no-test-code-in-shipped-code',
+      'no-dev-dependencies-in-shipped-code',
+    ]) {
+      const rule = rules.find((entry) => entry.name === name);
+      expect(rule, `missing rule ${name}`).toBeTruthy();
+      expect(
+        rule!.from.path,
+        `${name} must match mdx-components.tsx`,
+      ).toMatch(/mdx-components/);
+    }
   });
 });
 

@@ -20,10 +20,36 @@
  * `scripts/` is build tooling that sits beside the stack: it may read from any
  * layer, and nothing shipped to the browser may read from it. `tests/` sits on
  * top of everything and is depended on by nothing.
+ *
+ * `mdx-components.tsx` is the root MDX component registry Next loads for every
+ * MDX page; it is first-party shipped code even though it sits outside the
+ * layer directories.
  */
 
-/** Feature component folders: siblings that must not import each other. */
-const FEATURE_COMPONENTS = 'article|interactive|market-map|nav|search|three';
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+/** Shared component layers: importable by feature folders, not features themselves. */
+const SHARED_COMPONENT_LAYERS = new Set(['ui', 'mdx']);
+
+/**
+ * Feature component folders: siblings that must not import each other.
+ * Derived from disk so a new `components/<name>/` cannot silently skip the
+ * cross-feature and shared-UI rules.
+ */
+export const FEATURE_COMPONENTS = readdirSync(join(import.meta.dirname, 'components'), {
+  withFileTypes: true,
+})
+  .filter((entry) => entry.isDirectory() && !SHARED_COMPONENT_LAYERS.has(entry.name))
+  .map((entry) => entry.name)
+  .sort()
+  .join('|');
+
+/**
+ * First-party modules that ship (layer dirs plus the root MDX registry).
+ * Root files need an alternate branch: `^app/` does not match `mdx-components.tsx`.
+ */
+const FROM_SHIPPED = '^(app|components|lib|data)/|^mdx-components\\.tsx$';
 
 const architectureRules = {
   forbidden: [
@@ -155,7 +181,7 @@ const architectureRules = {
         'Importing one runs it. Shared logic goes in lib/ - the pattern ' +
         'lib/citation-links.ts + scripts/check-citation-links.ts already uses.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data)/' },
+      from: { path: FROM_SHIPPED },
       to: { path: '^scripts/' },
     },
     {
@@ -165,7 +191,7 @@ const architectureRules = {
         'in the Vitest and Playwright runtimes, which are devDependencies and ' +
         'absent from a production install.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data|scripts)/' },
+      from: { path: '^(app|components|lib|data|scripts)/|^mdx-components\\.tsx$' },
       to: { path: '^tests/' },
     },
     {
@@ -175,7 +201,7 @@ const architectureRules = {
         'install even though the local build is green. Type-only imports ' +
         '(@types/*) are fine: they disappear at compile time.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data)/' },
+      from: { path: FROM_SHIPPED },
       to: {
         dependencyTypes: ['npm-dev'],
         dependencyTypesNot: ['type-only'],
