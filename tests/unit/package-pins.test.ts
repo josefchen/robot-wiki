@@ -54,6 +54,7 @@ describe('scaffold npm scripts', () => {
     'test',
     'test:e2e',
     'validate:content',
+    'check:file-size',
   ])('defines the "%s" script', (script) => {
     expect(pkg.scripts).toHaveProperty(script);
   });

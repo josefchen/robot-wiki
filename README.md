@@ -48,6 +48,12 @@ research/     Deep-research reports behind the content (read-only transparency t
 - Search uses two indexes built at build time: Pagefind over prose, MiniSearch over structured data.
 - `npm run check:links` sweeps every citation URL for liveness. It is not part of the build (200+ network calls); run it on demand.
 
+### File-size budgets
+
+Every committed file has a size budget, declared with its reason in `lib/file-size.ts`: 700 lines for a source module, 500 for an article, 800 for a test spec, 6000 for an append-only registry such as `data/citations.ts`, 1 MiB for a raster image, 512 KiB for a mesh. `npm run check:file-size` enforces them and warns on any file within 10% of its limit.
+
+The check runs in three places, because a blob committed once stays in every clone's history: the tracked `pre-commit` hook measures the staged blobs (`npm install` points `core.hooksPath` at `.githooks/`), `prebuild` measures the whole tree before a build, and the `file size` GitHub Actions workflow measures it on every pull request, which is the copy `--no-verify` cannot skip. ESLint's `max-lines` enforces the same policy on code lines while a file is being written. Raising a limit means editing `lib/file-size.ts`, so it happens in review rather than inline.
+
 ## Setup
 
 Prerequisites: Node.js 22+ and npm (the repo uses npm exclusively; there is no pnpm or bun config).
@@ -82,6 +88,7 @@ npm run test:e2e      # end-to-end tests (Playwright, headless Chromium)
 npm run typecheck     # next typegen + tsc --noEmit (TypeScript strict)
 npm run lint          # ESLint
 npm run validate:content  # content-pipeline validation, also runs before every build
+npm run check:file-size   # committed-file size budgets, also runs before every build
 ```
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.
