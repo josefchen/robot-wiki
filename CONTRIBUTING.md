@@ -44,6 +44,7 @@ Also run `npm run test:e2e` if you touched anything a browser can see (pages, in
 
 - Branch from `main` and keep the PR to one logical change. A new article, a data fix, and a component refactor belong in separate PRs.
 - Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`) so history stays scannable.
+- Fill in the pull request template. It asks for the same three things every review checks: what changed and why, the sources behind each new claim, and the gates you ran.
 - Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
 - Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
 - Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
@@ -54,4 +55,6 @@ By contributing code, you agree it will be licensed under the MIT license ([LICE
 
 ## Reporting a problem
 
-Open an issue with the URL of the page and, for factual claims, a primary source that contradicts what the page says. Reports that come with a source get fixed faster.
+Issues use structured forms in [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE), one per intake path: content corrections, site and interactive bugs, proposals for new or expanded coverage, fixes to the structured data registries, and build or tooling failures. Pick the form that matches and fill in every required field. Each form asks for the evidence a reviewer needs to act without a round trip, which for a factual claim means the page URL, the sentence as it currently reads, and a primary source that contradicts it.
+
+Reports that come with a source get fixed faster; reports without one have to be re-researched from scratch before anyone can start.

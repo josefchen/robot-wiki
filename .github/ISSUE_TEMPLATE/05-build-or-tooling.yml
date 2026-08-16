@@ -1,0 +1,72 @@
+name: Build, tooling, or setup problem
+description: A script, the build, the test suite, or local setup fails or behaves unexpectedly.
+title: 'chore: '
+labels: ['bug', 'tooling']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The content validator and the no-slop lint are meant to fail loudly on bad content, so first check
+        whether the failure is telling you something true about your change. Report it here when the message
+        is wrong, unhelpfully vague, or unrelated to what you edited.
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Which stage fails
+      options:
+        - Install or postinstall (npm install)
+        - Dev server (npm run dev)
+        - Type check (npm run typecheck)
+        - Lint (npm run lint)
+        - Unit and component tests (npm run test)
+        - End-to-end tests (npm run test:e2e)
+        - Content validation (npm run validate:content)
+        - Production build (npm run build)
+        - Link liveness sweep (npm run check:links)
+        - Deployment to Vercel
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command you ran
+      render: shell
+      placeholder: npm run build
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste the failure verbatim, including the first error rather than only the final summary.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Node, npm, and OS versions
+      description: The repo targets Node 22+ and npm only; the output of `node -v && npm -v` is enough.
+      placeholder: node v22.14.0, npm 10.9.2, Ubuntu 24.04
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What you changed and what you already tried
+      description: >
+        Which files you touched, whether the failure reproduces on a clean checkout of `main`, and whether a
+        fresh `node_modules` changes anything.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I am on Node 22 or newer and used npm, not pnpm, yarn, or bun.
+          required: true
+        - label: The failure reproduces after removing node_modules and reinstalling.
+          required: false
+        - label: The failure also reproduces on a clean checkout of main with no local edits.
+          required: false

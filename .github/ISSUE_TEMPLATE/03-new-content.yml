@@ -1,0 +1,104 @@
+name: New article or expanded coverage
+description: Propose a new article, a new glossary term, or a substantial expansion of an existing one.
+title: 'feat(content): '
+labels: ['documentation', 'enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The wiki is a taxonomy, not a blog: every article lives in one of seven domains, is registered in
+        `data/modules.ts`, and carries curated `seeAlso` links to two to four related published articles.
+        Proposing coverage means proposing where it sits in that taxonomy, which is why the scope questions
+        below matter more than the topic itself.
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      description: The seven groups defined in data/domains.ts and data/modules.ts.
+      options:
+        - manipulation (Manipulation & Learned Policies)
+        - rl-sim2real (RL, Sim-to-Real & Locomotion)
+        - world-models (World Models)
+        - data-hardware (Data, Hardware & Evaluation)
+        - classical (Classical Foundations)
+        - frontier (Frontier & Open Problems)
+        - adjacent (Adjacent Domains)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you proposing
+      options:
+        - A new article
+        - A substantial expansion of an existing article
+        - A new glossary term
+        - A new interactive for an existing article
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Proposed title
+      placeholder: Residual RL for contact-rich assembly
+    validations:
+      required: true
+  - type: input
+    id: slug
+    attributes:
+      label: Proposed slug
+      description: Lowercase kebab-case, as validated by data/schemas/shared.ts. For an expansion, give the existing slug.
+      placeholder: residual-rl
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: >
+        What the article covers and, just as importantly, what it does not. A rough section outline is ideal.
+        State the reader's takeaway in one sentence.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources it would be built on
+      description: >
+        One per line. An article is only viable if the load-bearing claims already have citable sources, so
+        list the papers, docs, and lab posts you would cite rather than describing them.
+      placeholder: |
+        https://arxiv.org/abs/1812.03201
+        https://docs.example.com/api
+    validations:
+      required: true
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Overlap with existing coverage
+      description: >
+        Which published articles already touch this, and why this belongs beside them instead of inside one
+        of them. Name two to four existing articles that would make sensible seeAlso targets.
+    validations:
+      required: true
+  - type: textarea
+    id: interactive
+    attributes:
+      label: Interactive idea (optional)
+      description: >
+        Interactives are instruments, not decorations: keyboard-accessible controls with ARIA labels, a
+        visible numeric readout, a reset control, and respect for prefers-reduced-motion. Say what quantity
+        the reader would manipulate and what they would learn from doing so.
+    validations:
+      required: false
+  - type: checkboxes
+    id: intent
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the A-Z index and search for existing coverage of this topic.
+          required: true
+        - label: I read the content standards in CONTRIBUTING.md.
+          required: true
+        - label: I intend to write this myself (optional).
+          required: false

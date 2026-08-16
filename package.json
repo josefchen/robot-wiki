@@ -75,6 +75,7 @@
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
     "typescript6": "npm:typescript@6.0.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.10",
+    "yaml": "2.9.0"
   }
 }

@@ -1,0 +1,85 @@
+name: Content correction
+description: A published article, glossary definition, table, or figure says something its sources do not support.
+title: 'fix(content): '
+labels: ['documentation', 'content-correction']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are the most useful issue you can file here. The wiki's only claim to value is that
+        every non-obvious statement traces to a source that actually says it, so a report naming a primary
+        source that contradicts the page gets fixed quickly. A report without a source has to be
+        re-researched from scratch before anyone can act on it.
+  - type: input
+    id: page
+    attributes:
+      label: Page URL or content file
+      description: Live URL or repo path, either is fine.
+      placeholder: https://robot-wiki.com/manipulation/diffusion-policy/
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What the page says now
+      description: Quote the sentence, table cell, or figure label verbatim so it can be located by search.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What it should say
+      description: >
+        The corrected claim or value. If nobody has published the real number, say that: the wiki writes
+        "not disclosed" when the owner of a figure has chosen not to publish it and "n/a" when the value
+        does not apply. A plausible estimate is treated as a defect, not a placeholder.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources
+      description: >
+        One URL per line, each pinned to the section, table, or figure the claim comes from. Copy arXiv ids
+        and DOIs from the source itself rather than from memory. Acceptable primary sources are papers,
+        official documentation, and lab or company posts.
+      placeholder: |
+        https://arxiv.org/abs/2303.04137 - Section 4.2, Table 3
+        https://docs.example.com/spec - "Payload" row
+    validations:
+      required: true
+  - type: dropdown
+    id: source-type
+    attributes:
+      label: Strongest source type you have
+      options:
+        - Paper (arXiv, DOI, or conference proceedings)
+        - Official documentation or spec sheet
+        - Lab or company post, release note, or model card
+        - Press release or funding announcement
+        - Something weaker (explain above)
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How wrong is it
+      options:
+        - Wrong fact, number, or attribution
+        - Right fact, stale as of a newer result or release
+        - Misleading framing or a missing caveat
+        - Citation points at a source that does not support the claim
+        - Typo or broken formatting only
+    validations:
+      required: true
+  - type: checkboxes
+    id: verified
+    attributes:
+      label: Before submitting
+      options:
+        - label: I opened every source I listed and confirmed it says what I claim it says.
+          required: true
+        - label: I searched open and closed issues for this correction.
+          required: true
+        - label: I am willing to open the pull request myself (optional; see CONTRIBUTING.md for the citation registry rules).
+          required: false
