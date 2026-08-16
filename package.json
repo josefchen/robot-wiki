@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev -p 3200",
-    "prebuild": "npm run validate:content",
+    "prebuild": "npm run validate:content && npm run check:file-size",
     "build": "next build && node scripts/measure-reading-times.ts && next build",
     "postbuild": "node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts",
     "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
@@ -17,9 +17,11 @@
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts",
+    "check:file-size": "node scripts/check-file-size.ts",
     "generate:companies": "node scripts/generate-companies.ts",
     "check:links": "node scripts/check-citation-links.ts",
-    "postinstall": "node scripts/postinstall.mjs"
+    "postinstall": "node scripts/postinstall.mjs",
+    "prepare": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.1",

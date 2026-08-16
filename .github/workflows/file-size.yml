@@ -1,0 +1,33 @@
+# Enforce the committed-file size budgets (lib/file-size.ts) on every pull
+# request and on main.
+#
+# The same check runs in the pre-commit hook and in prebuild, but both are
+# skippable: --no-verify bypasses the hook, and a Vercel build unpacks a
+# tarball without .git, where the check has nothing to enumerate. This job is
+# the copy that cannot be skipped, so an oversized module or an uncompressed
+# asset is caught before it is merged into main's history.
+#
+# It needs git and Node only, no dependency install: scripts/check-file-size.ts
+# imports nothing outside lib/.
+name: file size
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  file-size:
+    name: file-size budgets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # Matches the repo's Node 22+ requirement; type stripping runs the
+          # .ts scripts directly, as every other script in package.json does.
+          node-version: 22
+      - run: npm run check:file-size

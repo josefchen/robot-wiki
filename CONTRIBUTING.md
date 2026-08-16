@@ -35,8 +35,11 @@ npm run typecheck
 npm run lint
 npm run test
 npm run validate:content
+npm run check:file-size
 npm run build
 ```
+
+`npm install` points git at the repo's tracked hooks (`.githooks/`), so the file-size budgets in `lib/file-size.ts` run against your staged files on every commit and tell you which budget a file broke and why that budget exists. The same check runs in `prebuild` and in the `file size` workflow on your pull request. If a file genuinely needs more room, raise its budget in `lib/file-size.ts` in the same PR and say why; do not work around the check with `--no-verify`, because CI runs it anyway. In practice a source module past 700 lines wants splitting, and an image past 1 MiB wants downscaling or re-encoding to WebP.
 
 Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
 

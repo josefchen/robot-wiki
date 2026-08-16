@@ -1,0 +1,10 @@
+#!/bin/sh
+# File-size budgets over the staged blobs (lib/file-size.ts).
+#
+# A blob committed once stays in every clone's history even if a later commit
+# deletes it, so this is the last cheap place to stop an unsplit module or an
+# uncompressed asset. Enabled by `npm install` (scripts/install-hooks.mjs sets
+# core.hooksPath to .githooks); the same check runs in prebuild and in CI, so a
+# commit made with --no-verify is still caught before it merges.
+set -e
+exec node "$(git rev-parse --show-toplevel)/scripts/check-file-size.ts" --staged
