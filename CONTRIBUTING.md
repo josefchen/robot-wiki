@@ -38,6 +38,14 @@ npm run validate:content
 npm run build
 ```
 
+Then read your own diff the way the reviewer will:
+
+```sh
+npm run review:pr
+```
+
+That runs the automated review pass (`lib/pr-review.ts`) over your changes and prints what it would post on the pull request: uncited numbers, hand-written generated sections, a `lastReviewed` date left behind, unsourced registry rows, controls with no accessible name, debug leftovers. It is heuristic, it never gates a merge, and it checks the diff rather than the repo, which is why it catches things the gates below cannot.
+
 Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
 
 ## Pull request guidelines
@@ -45,7 +53,7 @@ Also run `npm run test:e2e` if you touched anything a browser can see (pages, in
 - Branch from `main` and keep the PR to one logical change. A new article, a data fix, and a component refactor belong in separate PRs.
 - Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`) so history stays scannable.
 - Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
-- Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
+- Expect two reviews. The [PR review workflow](.github/workflows/pr-review.yml) posts an automated pass over the diff within a minute of each push: a summary comment plus inline comments on the lines it questions. Answer it the way you would a human reviewer, by fixing the finding or replying with why it is wrong (and fixing the rule in `lib/pr-review.ts` if it is wrong in general). Then expect a real review. Every PR is reviewed before merge by a person. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
 - Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
 
 ## Licensing

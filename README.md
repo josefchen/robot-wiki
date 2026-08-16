@@ -104,6 +104,19 @@ git push origin main
 
 Because `out/` is plain static files, the site can also be hosted on any static file server or CDN.
 
+## Pull request review
+
+```sh
+npm run review:pr                              # HEAD against origin/main
+npm run review:pr -- --base main --head HEAD   # explicit refs
+npm run review:pr -- --json                    # findings as JSON
+npm run review:pr -- --strict                  # exit 1 on a blocker
+```
+
+Reviews the diff against the content standards in [CONTRIBUTING.md](CONTRIBUTING.md), which the build gates cannot see because they check the repo rather than the change: a quantitative claim added with no `<Cite>` in its paragraph, a hand-written References or See also section (both are generated), edited prose that leaves `lastReviewed` behind, a registry row or citation with no source, a control added with no accessible name, an animation loop with no `prefers-reduced-motion` branch, debug leftovers and focused tests, an em dash in a shipped UI string, and source files changed with nothing under `tests/`. The rules are pure functions in `lib/pr-review.ts` with unit tests in `tests/unit/pr-review.test.ts`.
+
+The same pass runs in CI from [.github/workflows/pr-review.yml](.github/workflows/pr-review.yml) on every push to a pull request. It posts its output as review content: one summary comment updated in place, plus inline comments on the lines that raised a finding. Findings are heuristic and advisory, so they never fail the workflow; the gates above are what fail.
+
 ## Contributing
 
 Contributions are welcome, especially corrections with primary sources. See [CONTRIBUTING.md](CONTRIBUTING.md) for the content standards (every non-obvious claim needs a citation; unknown values are never invented) and the pull request guidelines.
