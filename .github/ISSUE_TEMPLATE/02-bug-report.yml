@@ -1,0 +1,97 @@
+name: Bug report
+description: 'Something on the site is broken: a page, an interactive, search, navigation, or a rendering fault.'
+title: 'fix: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a wrong fact or number, use the content correction form instead. This form is for behaviour:
+        something renders, computes, or responds incorrectly.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Article page (prose, references, backlinks, breadcrumbs, reading time)
+        - 3D playground (SO-101 model, forward kinematics, inverse kinematics, record and replay)
+        - 2D interactive or chart inside an article
+        - Market map (filters, bubble view, company cards, deep links)
+        - Search (Pagefind prose search or MiniSearch structured search)
+        - Glossary or term tooltips
+        - Navigation, sidebar, or A-Z index
+        - Metadata, sitemap, robots.txt, or 404 handling
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      description: Include the query string or hash if the bug needs one to reproduce.
+      placeholder: https://robot-wiki.com/playground/
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the actual behaviour. Attach a screenshot or screen recording for anything visual.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a fresh page load. Include exact slider values, filter selections, or search queries.
+      placeholder: |
+        1. Open https://robot-wiki.com/playground/
+        2. Drag the shoulder-pan slider to 90
+        3. Click a reach target behind the base
+        4. The solver readout stays at the previous pose
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did you reproduce it
+      options:
+        - The live site at robot-wiki.com
+        - Local dev server (npm run dev)
+        - Local production build (npm run build, then a static server over out/)
+        - The test suite (npm run test or npm run test:e2e)
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, OS, and device
+      description: Browser and version matter for the 3D playground and for anything motion related.
+      placeholder: Chrome 141 on macOS 15.3, M2 MacBook Air
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output or failing test output
+      description: Paste the errors and warnings verbatim. Leave blank if there were none.
+      render: shell
+    validations:
+      required: false
+  - type: checkboxes
+    id: conditions
+    attributes:
+      label: Does it depend on any of these
+      description: Check what applies. These paths carry explicit requirements, so knowing up front narrows the search.
+      options:
+        - label: Only with prefers-reduced-motion enabled
+        - label: Only when navigating by keyboard, or only with a screen reader
+        - label: Only on a narrow viewport or touch input
+        - label: Only on first load, before hydration
+        - label: Reproduces every time in every condition I tried

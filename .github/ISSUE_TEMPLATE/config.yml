@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Content standards and contribution rules
+    url: https://github.com/josefchen/robot-wiki/blob/main/CONTRIBUTING.md
+    about: Read this before proposing content. Every non-obvious claim needs a primary source, and unknown values are never invented.
+  - name: Architecture, commands, and local setup
+    url: https://github.com/josefchen/robot-wiki/blob/main/README.md
+    about: The content pipeline, the directory layout, and every npm script, in case the answer is already documented.
+  - name: Sources behind the articles
+    url: https://robot-wiki.com/credits/
+    about: The research trail and licensing for the wiki's content, datasets, and the SO-101 robot model.

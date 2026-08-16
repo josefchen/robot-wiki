@@ -106,7 +106,7 @@ Because `out/` is plain static files, the site can also be hosted on any static 
 
 ## Contributing
 
-Contributions are welcome, especially corrections with primary sources. See [CONTRIBUTING.md](CONTRIBUTING.md) for the content standards (every non-obvious claim needs a citation; unknown values are never invented) and the pull request guidelines.
+Contributions are welcome, especially corrections with primary sources. See [CONTRIBUTING.md](CONTRIBUTING.md) for the content standards (every non-obvious claim needs a citation; unknown values are never invented) and the pull request guidelines. Issues are filed through the structured forms in [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE): corrections, bugs, coverage proposals, data fixes, and tooling failures each collect the evidence a reviewer needs up front.
 
 ## License
 
