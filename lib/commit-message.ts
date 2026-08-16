@@ -56,12 +56,17 @@ const GENERATED_SUBJECT = /^(Merge\b|Revert\b|fixup!|squash!|amend!)/;
  * The subject line of a raw commit-message file: the first line that is
  * neither blank nor part of git's `#` comment block. Reading past the blank
  * lines matters because `git commit` with an empty editor buffer hands the
- * hook a file that starts with a newline and then the instructions.
+ * hook a file that starts with a newline and then the instructions. Stop at
+ * git's scissors line so `git commit -v` does not treat the verbose diff
+ * (still present when the hook runs) as the subject.
  */
 export function commitSubject(message: string): string {
   for (const line of message.split('\n')) {
     const trimmed = line.trim();
-    if (trimmed === '' || trimmed.startsWith('#')) continue;
+    if (trimmed === '') continue;
+    // `# ------------------------ >8 ------------------------`
+    if (/^# -+ >8 -+$/.test(trimmed)) break;
+    if (trimmed.startsWith('#')) continue;
     return trimmed;
   }
   return '';

@@ -33,6 +33,38 @@ describe('commitSubject', () => {
   it('is empty when the message carries nothing but comments', () => {
     expect(commitSubject('\n# On branch main\n#\n')).toBe('');
   });
+
+  it('stops at the scissors line so a verbose empty buffer is empty', () => {
+    const buffer = [
+      '',
+      '# Please enter the commit message for your changes. Lines starting',
+      "# with '#' will be ignored, and an empty message aborts the commit.",
+      '#',
+      '# ------------------------ >8 ------------------------',
+      '# Do not modify or remove the line above.',
+      '# Everything below it will be ignored.',
+      'diff --git a/lib/commit-message.ts b/lib/commit-message.ts',
+      'index 1111111..2222222 100644',
+      '--- a/lib/commit-message.ts',
+      '+++ b/lib/commit-message.ts',
+    ].join('\n');
+    expect(commitSubject(buffer)).toBe('');
+    expect(validateCommitMessage(buffer)).toEqual([
+      'the commit message is empty',
+    ]);
+  });
+
+  it('still reads a subject placed above the scissors line', () => {
+    const buffer = [
+      'fix(ik): clamp the damped-least-squares step',
+      '',
+      '# ------------------------ >8 ------------------------',
+      'diff --git a/lib/commit-message.ts b/lib/commit-message.ts',
+    ].join('\n');
+    expect(commitSubject(buffer)).toBe(
+      'fix(ik): clamp the damped-least-squares step',
+    );
+  });
 });
 
 describe('validateCommitMessage', () => {
