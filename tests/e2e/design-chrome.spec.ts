@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 /**
  * Design chrome discipline (VAL-DESIGN-016 through VAL-DESIGN-022): the
@@ -412,7 +413,10 @@ test.describe('design chrome discipline', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     const baseline = JSON.parse(
       readFileSync(
-        join(__dirname, '../fixtures/nav-accessible-names.json'),
+        join(
+          fileURLToPath(new URL('.', import.meta.url)),
+          '../fixtures/nav-accessible-names.json',
+        ),
         'utf8',
       ),
     ) as { linkCount: number; links: Array<{ href: string; name: string }> };
