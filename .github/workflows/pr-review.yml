@@ -1,0 +1,62 @@
+# Automated review pass over every pull request.
+#
+# The job runs the diff-scoped review rules in lib/pr-review.ts (the content
+# standards from CONTRIBUTING.md, expressed as checks over the diff) and posts
+# the result as review content on the PR: one sticky summary comment that is
+# updated in place on every push, plus inline comments on the lines that
+# raised a finding.
+#
+# It is advisory by design and never fails the workflow. The gates that do
+# fail (typecheck, lint, Vitest, validate:content, next build) run from
+# CONTRIBUTING's local checklist and from the Vercel build on main; a
+# heuristic over a diff does not belong in that set.
+#
+# The reviewer imports only lib/pr-review.ts and lib/no-slop.ts, neither of
+# which has a dependency, so the job needs no npm install and finishes in
+# seconds. node 22 runs the TypeScript directly (type stripping), the same
+# way the build scripts do.
+name: PR review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+# A new push supersedes the review of the previous one.
+concurrency:
+  group: pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  diff-review:
+    name: Diff review
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out the pull request with full history
+        uses: actions/checkout@v4
+        with:
+          # The review diffs base...head, so both sides must be present.
+          fetch-depth: 0
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Review the diff and post it on the pull request
+        env:
+          # Refs go through the environment, never into the shell command:
+          # a branch name is untrusted input.
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/pr-review.ts \
+            --post \
+            --base "origin/$BASE_REF" \
+            --head "$HEAD_SHA"
