@@ -568,6 +568,34 @@ describe('leftovers and copy rules', () => {
     expect(findings).toEqual([]);
   });
 
+  it('reads a pattern named inside a string as data, not as code', () => {
+    const findings = reviewChanges({
+      files: [
+        changed('tests/unit/lint.test.ts', [
+          [5, "const banned = 'debugger;';"],
+          [6, 'expect(source).not.toContain("it.only(");'],
+          [7, 'const message = `console.log( is not allowed here`;'],
+        ]),
+      ],
+      bodies: { 'tests/unit/lint.test.ts': '' },
+    });
+    expect(findings).toEqual([]);
+  });
+
+  it('exempts its own sources, which spell out the patterns they hunt', () => {
+    const findings = reviewChanges({
+      files: [
+        changed('lib/pr-review.ts', [
+          [10, '  if (/\\bdebugger\\b/.test(text)) findings.push(finding);'],
+          [11, "  const label = 'it.only — the focused test marker';"],
+        ]),
+        changed('tests/unit/pr-review.test.ts', [[20, '  debugger;']]),
+      ],
+      bodies: { 'lib/pr-review.ts': '', 'tests/unit/pr-review.test.ts': '' },
+    });
+    expect(findings).toEqual([]);
+  });
+
   it('warns on console.log in shipped code but not in scripts', () => {
     const findings = reviewChanges({
       files: [

@@ -354,6 +354,29 @@ function isCommentLine(text: string): boolean {
   return /^\s*(\/\/|\/\*|\*|#)/.test(text);
 }
 
+/**
+ * Blank the contents of quoted strings, keeping the quotes and the length.
+ * A pattern named inside a string is data, not code: a test fixture that
+ * asserts on `'debugger;'` is not a leftover debugger statement.
+ */
+function maskStringContents(text: string): string {
+  return text.replace(/(['"`])(?:\\.|(?!\1)[^\\])*\1/g, (match) =>
+    match.length <= 2 ? match : `${match[0]}${' '.repeat(match.length - 2)}${match.at(-1)}`,
+  );
+}
+
+/**
+ * The reviewer's own sources spell out every pattern it hunts for, in
+ * regex literals that no amount of string masking can tell apart from the
+ * real thing. They are exempt from the leftover and copy rules; their own
+ * unit tests are what keep them honest.
+ */
+const SELF_PATHS = new Set([
+  'lib/pr-review.ts',
+  'scripts/pr-review.ts',
+  'tests/unit/pr-review.test.ts',
+]);
+
 /** Runs of added lines with consecutive line numbers, as blocks. */
 function addedBlocks(file: ChangedFile): AddedLine[][] {
   const blocks: AddedLine[][] = [];
@@ -622,11 +645,12 @@ function reviewReducedMotion(file: ChangedFile, body: string): ReviewFinding[] {
 // --- Rules over any changed source file -------------------------------------
 
 function reviewLeftovers(file: ChangedFile): ReviewFinding[] {
+  if (SELF_PATHS.has(file.path)) return [];
   const findings: ReviewFinding[] = [];
   const shippedCode = /^(?:app|components|lib)\//.test(file.path);
 
   for (const added of file.addedLines) {
-    const text = added.text;
+    const text = maskStringContents(added.text);
     if (isCommentLine(text)) continue;
     if (/\bdebugger\b\s*;?/.test(text)) {
       findings.push({
@@ -680,6 +704,7 @@ function stringLiterals(text: string): string[] {
 
 function reviewUiCopyDashes(file: ChangedFile): ReviewFinding[] {
   if (!/^(?:app|components|data)\//.test(file.path)) return [];
+  if (SELF_PATHS.has(file.path)) return [];
   const findings: ReviewFinding[] = [];
   for (const added of file.addedLines) {
     if (isCommentLine(added.text)) continue;
