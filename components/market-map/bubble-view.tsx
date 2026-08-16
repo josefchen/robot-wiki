@@ -93,17 +93,22 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
   // start (null) makes the sync fire on the first render too, when the
   // anchor is already present at mount. A highlight that goes away never
   // deselects: the user's selection outlives the URL hash.
-  const [prevHighlight, setPrevHighlight] = useState<string | null>(null);
-  if (highlightedId !== prevHighlight) {
-    setPrevHighlight(highlightedId);
-    // Only a company this view actually plots can be selected. A hash
-    // naming an unplotted company (no disclosed valuation or total
-    // raised) would otherwise set an inert selectedId: no mark, no
-    // detail panel, nothing the reader can see.
-    const plotted =
-      highlightedId !== null &&
-      points.some((point) => point.id === highlightedId);
-    if (plotted) setSelectedId(highlightedId);
+  const [appliedHighlight, setAppliedHighlight] = useState<string | null>(null);
+  if (highlightedId !== appliedHighlight) {
+    if (highlightedId === null) {
+      setAppliedHighlight(null);
+    } else if (points.some((point) => point.id === highlightedId)) {
+      // Only a company this view actually plots can be selected; a hash
+      // naming an unplotted one (no disclosed valuation or total raised)
+      // would set an inert selectedId: no mark, no detail panel, nothing
+      // the reader can see. The relax flow can deliver the highlight a
+      // render before the widened company set (the hash is read in an
+      // effect, the relaxed filters arrive a commit later), so the
+      // application waits until the named mark is really plotted rather
+      // than consuming the highlight against the wrong set.
+      setSelectedId(highlightedId);
+      setAppliedHighlight(highlightedId);
+    }
   }
 
   const excluded = companies.length - points.length;

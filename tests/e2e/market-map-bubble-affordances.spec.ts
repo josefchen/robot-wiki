@@ -190,11 +190,19 @@ test.describe('bubble view hover/focus affordances', () => {
           ?.getAttribute('data-company-id'),
     );
     expect(stop).toBe(movedId);
-    // And Tab re-enters the chart on that same mark.
-    await page.keyboard.press('Tab');
-    const reentered = await page.evaluate(
-      () => document.activeElement?.getAttribute('data-company-id'),
-    );
+    // Tab forward from the top of the page until the chart takes focus
+    // again: the chart is one tab stop, and it must be the same mark.
+    let reentered: string | null = null;
+    for (let i = 0; i < 30; i += 1) {
+      await page.keyboard.press('Tab');
+      const active = await page.evaluate(
+        () => document.activeElement?.getAttribute('data-company-id'),
+      );
+      if (active) {
+        reentered = active;
+        break;
+      }
+    }
     expect(reentered).toBe(movedId);
   });
 
