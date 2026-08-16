@@ -59,8 +59,17 @@ test.describe('structured facet bar during search transitions', () => {
 
     // Freeze time and keep typing: the debounce keeps resetting and can
     // never fire, so the page is pinned in the searching state with the
-    // previous query's rows still on screen.
-    await page.clock.pauseAt(new Date());
+    // previous query's rows still on screen. The pause target is read
+    // from the fake clock itself, never from Node's wall clock: under
+    // full-suite load the clock controller fast-forwards through the
+    // debounce timers until fake time is AHEAD of real time, and
+    // pauseAt(new Date()) then tries to fast-forward to the past and
+    // throws (observed twice in full detached runs, deterministic pass
+    // in isolation; reproduced by installing the clock ahead of the
+    // wall clock).
+    await page.clock.pauseAt(
+      new Date(await page.evaluate(() => Date.now())),
+    );
     await box.pressSequentially('source', { delay: 15 });
 
     await expect(page.getByRole('status').first()).toHaveText(/Searching for/);
