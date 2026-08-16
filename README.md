@@ -86,6 +86,18 @@ npm run validate:content  # content-pipeline validation, also runs before every 
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.
 
+### Git hooks
+
+`npm install` runs `npm run prepare`, which installs the Husky hooks in `.husky/`. They run parts of the same gate so a broken change is caught before it travels:
+
+| Hook | What runs | Typical cost |
+| --- | --- | --- |
+| `pre-commit` | `lint-staged`: ESLint (with `--fix`) over the staged files, `npm run typecheck`, and `npm run validate:content` when staged MDX prose or a `data/` registry feeds it | a few seconds |
+| `commit-msg` | Conventional-commit subject check (`scripts/check-commit-msg.ts`) | instant |
+| `pre-push` | `npm run test`, the full Vitest suite | ~2 minutes |
+
+What runs at which stage, and why, is documented in `lint-staged.config.mjs`. The production build and the Playwright suite are deliberately not in a hook; run them before opening a pull request. To bypass a hook in an emergency, commit with `HUSKY=0 git commit` (or `git commit --no-verify`), then fix the gate in a follow-up.
+
 ## Building
 
 ```sh

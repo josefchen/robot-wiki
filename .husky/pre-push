@@ -1,0 +1,4 @@
+# The Vitest suite is ~100s, too slow for a per-commit hook but cheap next to
+# a red build on main, which breaks the automatic Vercel deployment. The
+# production build and the Playwright e2e suite stay in review.
+npm run test
