@@ -111,7 +111,10 @@ export function samplesAtStep(
     ? 0
     : Math.min(DENOISING_STEPS, Math.max(0, Math.round(step)));
   if (clamped <= 0) {
-    return trajectory.noise.map((n, i) => ({ ...n, mode: trajectory.targets[i].mode }));
+    return trajectory.noise.map((n, i) => ({
+      ...n,
+      mode: trajectory.targets[i].mode,
+    }));
   }
   if (clamped >= DENOISING_STEPS) {
     return trajectory.targets;

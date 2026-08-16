@@ -57,25 +57,58 @@ test.describe('classical kinematics module', () => {
 
     // Sidebar shows the module active under the classical domain.
     const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
-    await expect(
-      nav.getByRole('link', { name: 'Kinematics' }),
-    ).toHaveAttribute('aria-current', 'page');
+    await expect(nav.getByRole('link', { name: 'Kinematics' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
 
     const main = page.locator('#main-content');
     // The four required strands are all present as rendered prose. The
     // glossary <Term> markup adds hidden-at-rest tooltip copies of the
     // FK/IK definitions to the DOM, so match the VISIBLE text, not the
     // first DOM hit.
-    await expect(main.getByText(/forward kinematics/i).filter({ visible: true }).first()).toBeVisible();
-    await expect(main.getByText(/Denavit/i).filter({ visible: true }).first()).toBeVisible();
-    await expect(main.getByText(/Hartenberg/i).filter({ visible: true }).first()).toBeVisible();
-    await expect(main.getByText(/Jacobian/i).filter({ visible: true }).first()).toBeVisible();
-    await expect(main.getByText(/inverse kinematics/i).filter({ visible: true }).first()).toBeVisible();
-    await expect(main.getByText(/singularit/i).filter({ visible: true }).first()).toBeVisible();
+    await expect(
+      main
+        .getByText(/forward kinematics/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
+    await expect(
+      main
+        .getByText(/Denavit/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
+    await expect(
+      main
+        .getByText(/Hartenberg/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
+    await expect(
+      main
+        .getByText(/Jacobian/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
+    await expect(
+      main
+        .getByText(/inverse kinematics/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
+    await expect(
+      main
+        .getByText(/singularit/i)
+        .filter({ visible: true })
+        .first(),
+    ).toBeVisible();
 
     // Substantive long-form body: several hundred words at minimum.
     const visibleText = await visibleArticleText(page);
-    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(800);
+    expect(visibleText.split(/\s+/).filter(Boolean).length).toBeGreaterThan(
+      800,
+    );
 
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');
@@ -132,7 +165,9 @@ test.describe('classical kinematics module', () => {
     // Transform matrices, the DH convention, and the Jacobian equations all
     // ship as rendered KaTeX, both display and inline.
     expect(await page.locator('.katex').count()).toBeGreaterThan(20);
-    expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(6);
+    expect(await page.locator('.katex-display').count()).toBeGreaterThanOrEqual(
+      6,
+    );
 
     // No raw math source is visible anywhere in the article body.
     const visibleText = await visibleArticleText(page);
@@ -256,9 +291,7 @@ test.describe('classical kinematics module', () => {
     // visually indistinguishable ("AI" next to "ΑΙ").
     const rendered = await table
       .locator('thead th')
-      .evaluateAll((nodes) =>
-        nodes.map((n) => (n as HTMLElement).innerText),
-      );
+      .evaluateAll((nodes) => nodes.map((n) => (n as HTMLElement).innerText));
     expect(rendered).toEqual(['Joint i', 'θi', 'di', 'ai', 'αi']);
   });
 

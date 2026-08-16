@@ -201,8 +201,9 @@ describe('ComparisonMatrix', () => {
 
     await user.click(screen.getByRole('button', { name: /^reset$/i }));
     expect(bodyRows()).toHaveLength(METHODS.length);
-    expect(
-      screen.getByRole('columnheader', { name: /year/i }),
-    ).toHaveAttribute('aria-sort', 'ascending');
+    expect(screen.getByRole('columnheader', { name: /year/i })).toHaveAttribute(
+      'aria-sort',
+      'ascending',
+    );
   });
 });

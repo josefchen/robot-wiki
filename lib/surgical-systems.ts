@@ -76,32 +76,38 @@ export const AUTONOMY_LEVELS: readonly AutonomyLevel[] = [
   {
     level: 0,
     name: 'No autonomy',
-    meaning: 'Teleoperated: the robot follows the surgeon\u2019s commands; motion scaling and tremor filtering still count as Level 0',
+    meaning:
+      'Teleoperated: the robot follows the surgeon\u2019s commands; motion scaling and tremor filtering still count as Level 0',
   },
   {
     level: 1,
     name: 'Robot assistance',
-    meaning: 'The robot provides mechanical guidance during a task while the human keeps continuous control, e.g. virtual fixtures',
+    meaning:
+      'The robot provides mechanical guidance during a task while the human keeps continuous control, e.g. virtual fixtures',
   },
   {
     level: 2,
     name: 'Task autonomy',
-    meaning: 'The robot performs a specific task, such as suturing, that a human initiates and supervises',
+    meaning:
+      'The robot performs a specific task, such as suturing, that a human initiates and supervises',
   },
   {
     level: 3,
     name: 'Conditional autonomy',
-    meaning: 'The robot generates task strategies; a human selects or approves among them',
+    meaning:
+      'The robot generates task strategies; a human selects or approves among them',
   },
   {
     level: 4,
     name: 'High autonomy',
-    meaning: 'A robotic resident performs surgery under a qualified doctor\u2019s supervision',
+    meaning:
+      'A robotic resident performs surgery under a qualified doctor\u2019s supervision',
   },
   {
     level: 5,
     name: 'Full autonomy',
-    meaning: 'A robotic surgeon performs entire procedures; the editorial places this in the realm of science fiction',
+    meaning:
+      'A robotic surgeon performs entire procedures; the editorial places this in the realm of science fiction',
   },
 ];
 

@@ -155,9 +155,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                   t = {playhead.toFixed(1)} s
                 </span>
                 {'  '}
-                <span data-testid="value-readout">
-                  V = {value.toFixed(1)}
-                </span>
+                <span data-testid="value-readout">V = {value.toFixed(1)}</span>
               </span>
             </label>
             <input
@@ -190,7 +188,11 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             />
             <text
               data-testid="credit-annotation"
-              x={(x(CREDIT_ASSIGNMENT.blamedAtS) + x(CREDIT_ASSIGNMENT.failureAtS)) / 2}
+              x={
+                (x(CREDIT_ASSIGNMENT.blamedAtS) +
+                  x(CREDIT_ASSIGNMENT.failureAtS)) /
+                2
+              }
               y={8}
               textAnchor="middle"
               fill="var(--color-accent)"
@@ -282,11 +284,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                 x={x(t)}
                 y={AXIS_Y}
                 textAnchor={
-                  t === EPISODE_LENGTH_S
-                    ? 'end'
-                    : t === 0
-                      ? 'start'
-                      : 'middle'
+                  t === EPISODE_LENGTH_S ? 'end' : t === 0 ? 'start' : 'middle'
                 }
                 fill="var(--color-text-dim)"
                 fontSize={9}
@@ -299,8 +297,8 @@ export function AdvantageScrubber({ className }: { className?: string }) {
 
           <p className="mt-1 font-mono text-[10px] text-text-dim">
             green outline: value rises, high advantage. red outline: value
-            falls, low advantage. trace shape is illustrative, after the
-            Recap portafilter example.
+            falls, low advantage. trace shape is illustrative, after the Recap
+            portafilter example.
           </p>
 
           <p className="mt-3 font-mono text-xs text-text">
@@ -358,10 +356,10 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             {lowCount} low advantage
           </p>
           <p className="mt-1 font-sans text-xs leading-relaxed text-text-dim">
-            Nothing is filtered out. Failed and suboptimal segments stay in
-            the dataset; each one is simply labeled with the sign of its
-            advantage, so the model learns which is which instead of never
-            seeing its own mistakes.
+            Nothing is filtered out. Failed and suboptimal segments stay in the
+            dataset; each one is simply labeled with the sign of its advantage,
+            so the model learns which is which instead of never seeing its own
+            mistakes.
           </p>
           <ul className="mt-3 divide-y divide-border border-t border-border">
             {tagged.map((segment) => (

@@ -89,12 +89,23 @@ function emitObject(
 }
 
 function emitValue(value: unknown, level: number): string {
-  if (value === null || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+  if (
+    value === null ||
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  ) {
     return emitPrimitive(value);
   }
   if (Array.isArray(value)) {
-    if (value.every((item) => item && typeof item === 'object' && 'url' in item)) {
-      return emitArrayOfObjects(value as Array<Record<string, unknown>>, SOURCE_KEYS, level);
+    if (
+      value.every((item) => item && typeof item === 'object' && 'url' in item)
+    ) {
+      return emitArrayOfObjects(
+        value as Array<Record<string, unknown>>,
+        SOURCE_KEYS,
+        level,
+      );
     }
     return emitArray(value, level);
   }
@@ -127,7 +138,11 @@ function emitArrayOfObjects(
 }
 
 function emitCompany(company: Company, level: number): string {
-  return emitObject(company as unknown as Record<string, unknown>, COMPANY_KEYS, level);
+  return emitObject(
+    company as unknown as Record<string, unknown>,
+    COMPANY_KEYS,
+    level,
+  );
 }
 
 const raw = JSON.parse(readFileSync(SOURCE, 'utf8')) as unknown;
@@ -139,7 +154,9 @@ if (!parsed.success) {
     .slice(0, 12)
     .map((issue) => `  ${issue.path.join('.')}: ${issue.message}`)
     .join('\n');
-  fail(`research JSON failed companySchema (${parsed.error.issues.length} issue(s))\n${sample}`);
+  fail(
+    `research JSON failed companySchema (${parsed.error.issues.length} issue(s))\n${sample}`,
+  );
 }
 
 const companies = parsed.data;

@@ -5,20 +5,35 @@ import { join } from 'node:path';
 import type { ComponentType } from 'react';
 import { ArticleHeader } from '@/components/article/article-header';
 import { LinkedFrom, SeeAlso } from '@/components/article/article-links';
-import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
+import {
+  Breadcrumbs,
+  breadcrumbJsonLd,
+} from '@/components/article/breadcrumbs';
 import { References } from '@/components/article/references';
 import { getCitation } from '@/data/citations';
-import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
+import {
+  DOMAIN_META,
+  getModule,
+  modules,
+  publishedModules,
+} from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
-import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
+import {
+  inlineCitationIds,
+  moduleBody,
+  resolveReferences,
+} from '@/lib/references';
 
 // Fully static: only published modules get routes. Drafts (and everything
 // else) fall through to 404, which is what VAL-BUILD-001 requires.
 export const dynamicParams = false;
 
-export function generateStaticParams(): Array<{ domain: string; slug: string }> {
+export function generateStaticParams(): Array<{
+  domain: string;
+  slug: string;
+}> {
   return publishedModules().map((m) => ({ domain: m.domain, slug: m.slug }));
 }
 
@@ -35,7 +50,10 @@ type CompiledMdx = {
  * generateStaticParams ever reach it. The cast is required because
  * TypeScript cannot analyze dynamic template imports.
  */
-async function loadModule(domain: string, slug: string): Promise<CompiledMdx | null> {
+async function loadModule(
+  domain: string,
+  slug: string,
+): Promise<CompiledMdx | null> {
   const entry = getModule(domain, slug);
   if (!entry || entry.status !== 'published') return null;
   const mod = (await import(`@/content/${domain}/${slug}.mdx`)) as CompiledMdx;
@@ -82,7 +100,11 @@ function readingTimes(): ReadingTimeRecord {
   return cachedReadingTimes;
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const { domain, slug } = await params;
   const entry = getModule(domain, slug);
   if (!entry || entry.status !== 'published') return {};
@@ -177,16 +199,17 @@ export default async function ModulePage({ params }: { params: Params }) {
     // named handle for the article's text column: validators measuring
     // VAL-DESIGN-018's full-width rules resolve it here instead of by
     // ancestor heuristics (library/design-system.md).
-    <article data-prose-column className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <article
+      data-prose-column
+      className="mx-auto w-full max-w-[65ch] px-6 py-12"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: breadcrumbJsonLd(breadcrumbJsonLdItems),
         }}
       />
-      <Breadcrumbs
-        items={[...breadcrumbTrail, { label: entry.title }]}
-      />
+      <Breadcrumbs items={[...breadcrumbTrail, { label: entry.title }]} />
       <ArticleHeader
         entry={entry}
         lastReviewed={mod.frontmatter?.lastReviewed}
@@ -196,9 +219,7 @@ export default async function ModulePage({ params }: { params: Params }) {
       <div data-pagefind-body className="prose">
         <Content />
       </div>
-      {hasApparatus ? (
-        <hr className="mt-14 border-border" />
-      ) : null}
+      {hasApparatus ? <hr className="mt-14 border-border" /> : null}
       <SeeAlso entries={seeAlsoEntries} />
       <LinkedFrom entries={linkedFromEntries} />
       <References entries={references} />

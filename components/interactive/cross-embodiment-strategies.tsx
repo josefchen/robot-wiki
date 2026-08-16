@@ -90,7 +90,10 @@ function EmbodimentRow({
   const summary = rowSummary(strategy, embodimentId);
   const slots = slotRow(strategy, embodimentId);
 
-  const slotW = f((STRIP.width - STRIP.padX * 2 - STRIP.gap * (SHARED_WIDTH - 1)) / SHARED_WIDTH);
+  const slotW = f(
+    (STRIP.width - STRIP.padX * 2 - STRIP.gap * (SHARED_WIDTH - 1)) /
+      SHARED_WIDTH,
+  );
   const x = (i: number) => f(STRIP.padX + i * (slotW + STRIP.gap));
 
   return (
@@ -202,9 +205,7 @@ export function CrossEmbodimentStrategies({
         <span className="text-text-dim">{strategy.label}:</span>{' '}
         <span
           data-testid="human-video-readout"
-          className={
-            strategyId === 'relative-eef' ? 'text-ok' : 'text-warn'
-          }
+          className={strategyId === 'relative-eef' ? 'text-ok' : 'text-warn'}
         >
           {strategy.humanVideoVerdict}
         </span>
@@ -265,11 +266,11 @@ export function CrossEmbodimentStrategies({
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         The strip widths are illustrative renderings, not published
-        architectures: the pi0 report specifies the padding and
-        normalization scheme but not a slot width, and Gemini does not
-        disclose the motion-transfer representation at all. The sourced
-        figures are the humanoid&apos;s 29 dims (GR00T N1) and the 20,000
-        hours of EgoScale video (GR00T N1.7 README).
+        architectures: the pi0 report specifies the padding and normalization
+        scheme but not a slot width, and Gemini does not disclose the
+        motion-transfer representation at all. The sourced figures are the
+        humanoid&apos;s 29 dims (GR00T N1) and the 20,000 hours of EgoScale
+        video (GR00T N1.7 README).
       </p>
     </div>
   );

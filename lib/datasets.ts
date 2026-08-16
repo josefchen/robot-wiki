@@ -8,7 +8,8 @@
  */
 import type { Dataset } from '@/data/schemas/dataset.ts';
 
-export type SizeFilter = 'all' | 'under-100k' | '100k-1m' | '1m-plus' | 'unknown';
+export type SizeFilter =
+  'all' | 'under-100k' | '100k-1m' | '1m-plus' | 'unknown';
 export type EmbodimentFilter = 'all' | 'single' | 'multi';
 export type TaskFilter = 'all' | 'under-100' | '100-1k' | '1k-plus' | 'unknown';
 

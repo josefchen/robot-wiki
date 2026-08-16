@@ -55,8 +55,7 @@ function xFor(envs: number): number {
 }
 
 function yFor(minutes: number): number {
-  const t =
-    Math.log10(minutes) / Math.log10(Y_MAX_MINUTES / Y_MIN_MINUTES);
+  const t = Math.log10(minutes) / Math.log10(Y_MAX_MINUTES / Y_MIN_MINUTES);
   return f(PLOT.bottom - t * (PLOT.bottom - PLOT.top));
 }
 

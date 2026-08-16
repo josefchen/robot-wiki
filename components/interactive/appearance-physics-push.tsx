@@ -83,7 +83,15 @@ function LayerCaption({
 }) {
   return (
     <g opacity={on ? 1 : 0.4}>
-      <rect x={x} y={10} width={10} height={10} fill="none" stroke={color} strokeWidth={1.5} />
+      <rect
+        x={x}
+        y={10}
+        width={10}
+        height={10}
+        fill="none"
+        stroke={color}
+        strokeWidth={1.5}
+      />
       <text x={x + 16} y={19} fill={DIM} fontSize={10} fontFamily={MONO}>
         {index} {name}: {detail}
       </text>
@@ -382,21 +390,23 @@ export function AppearancePhysicsPush({
 
         {/* simulation layer: ghost trace of past positions */}
         {layers.simulation &&
-          mug.history.slice(0, -1).map((p, i) => (
-            <rect
-              key={i}
-              data-testid="motion-ghost"
-              x={mugX(p)}
-              y={TABLE_Y - MUG_H}
-              width={MUG_W}
-              height={MUG_H}
-              fill="none"
-              stroke={OK}
-              strokeWidth={1}
-              strokeDasharray="3 3"
-              opacity={0.35}
-            />
-          ))}
+          mug.history
+            .slice(0, -1)
+            .map((p, i) => (
+              <rect
+                key={i}
+                data-testid="motion-ghost"
+                x={mugX(p)}
+                y={TABLE_Y - MUG_H}
+                width={MUG_W}
+                height={MUG_H}
+                fill="none"
+                stroke={OK}
+                strokeWidth={1}
+                strokeDasharray="3 3"
+                opacity={0.35}
+              />
+            ))}
 
         {/* the mug, translated by the integrated position */}
         <g data-testid="mug" transform={`translate(${x} 0)`}>
@@ -446,7 +456,13 @@ export function AppearancePhysicsPush({
         </g>
 
         {/* ground truth annotation */}
-        <text x={40} y={TABLE_Y + TABLE_H + 34} fill={DIM} fontSize={10} fontFamily={MONO}>
+        <text
+          x={40}
+          y={TABLE_Y + TABLE_H + 34}
+          fill={DIM}
+          fontSize={10}
+          fontFamily={MONO}
+        >
           {layers.physics
             ? 'the engine integrates: impulse, friction, rest'
             : 'rendering is not dynamics: the pixels have no mass'}
@@ -454,7 +470,11 @@ export function AppearancePhysicsPush({
       </svg>
 
       <div data-testid="push-test-note" className="mt-3 flex items-start gap-3">
-        <svg viewBox="0 0 88 56" aria-hidden="true" className="block w-24 shrink-0">
+        <svg
+          viewBox="0 0 88 56"
+          aria-hidden="true"
+          className="block w-24 shrink-0"
+        >
           <rect
             x={4}
             y={16}
@@ -472,9 +492,7 @@ export function AppearancePhysicsPush({
             stroke={layers.physics ? OK : DIM}
             strokeWidth={2}
           />
-          {layers.physics && (
-            <path d="M 72 25 L 82 30 L 72 35 z" fill={OK} />
-          )}
+          {layers.physics && <path d="M 72 25 L 82 30 L 72 35 z" fill={OK} />}
           {!layers.physics && (
             <g stroke={DIM} strokeWidth={1.5}>
               <line x1={56} y1={18} x2={76} y2={42} />

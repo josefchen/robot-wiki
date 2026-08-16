@@ -158,7 +158,9 @@ export interface RolloutParams {
 export function rollout(params: RolloutParams): SceneState[] {
   const steps = Math.max(
     1,
-    Math.round(Number.isFinite(params.steps) ? (params.steps as number) : ROLLOUT_STEPS),
+    Math.round(
+      Number.isFinite(params.steps) ? (params.steps as number) : ROLLOUT_STEPS,
+    ),
   );
   const end = finalState(params.action, params.conditioning);
   const frames: SceneState[] = new Array(steps + 1);

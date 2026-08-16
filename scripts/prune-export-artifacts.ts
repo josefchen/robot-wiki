@@ -15,7 +15,9 @@ import { pruneSyncConflictDuplicates } from '../lib/sync-duplicates.ts';
 const outDir = join(import.meta.dirname, '..', 'out');
 
 if (!existsSync(outDir)) {
-  console.error('prune-export-artifacts: FAILED (out/ does not exist; run next build first)');
+  console.error(
+    'prune-export-artifacts: FAILED (out/ does not exist; run next build first)',
+  );
   process.exit(1);
 }
 

@@ -17,7 +17,9 @@ describe('GraspWrenchLab', () => {
     ).toBeInTheDocument();
     for (let i = 1; i <= DEFAULT_CONTACTS.length; i += 1) {
       expect(
-        screen.getByRole('slider', { name: new RegExp(`contact ${i} position`, 'i') }),
+        screen.getByRole('slider', {
+          name: new RegExp(`contact ${i} position`, 'i'),
+        }),
       ).toBeInTheDocument();
     }
     expect(
@@ -30,7 +32,9 @@ describe('GraspWrenchLab', () => {
     expect(readout('grasp-contacts-readout')).toBe('3');
     expect(readout('grasp-mu-value')).toBe(DEFAULT_MU.toFixed(2));
     expect(readout('grasp-closure-readout')).toBe('yes');
-    expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(0);
+    expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(
+      0,
+    );
   });
 
   it('shrinks the wrench hull readout as friction drops', () => {
@@ -70,7 +74,9 @@ describe('GraspWrenchLab', () => {
       { target: { value: '0.625' } },
     );
     expect(readout('grasp-closure-readout')).toBe('yes');
-    expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(0);
+    expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(
+      0,
+    );
   });
 
   it('adds a fourth contact and grows the hull', () => {
@@ -81,9 +87,9 @@ describe('GraspWrenchLab', () => {
     expect(
       screen.getByRole('slider', { name: /contact 4 position/i }),
     ).toBeInTheDocument();
-    expect(
-      Number.parseFloat(readout('grasp-epsilon-readout')),
-    ).toBeGreaterThan(before);
+    expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(
+      before,
+    );
   });
 
   it('never removes below two contacts', () => {
@@ -116,7 +122,9 @@ describe('GraspWrenchLab', () => {
     expect(readout('grasp-contacts-readout')).toBe('3');
     expect(readout('grasp-mu-value')).toBe(DEFAULT_MU.toFixed(2));
     expect(readout('grasp-closure-readout')).toBe('yes');
-    expect(readout('grasp-contact-1-value')).toBe(DEFAULT_CONTACTS[0].toFixed(2));
+    expect(readout('grasp-contact-1-value')).toBe(
+      DEFAULT_CONTACTS[0].toFixed(2),
+    );
   });
 
   it('labels every control for assistive technology', () => {

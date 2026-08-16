@@ -57,9 +57,7 @@ describe('DataScaleChart', () => {
 
   it('axes use log-spaced power-of-ten tick labels', () => {
     render(<DataScaleChart />);
-    const ticks = screen
-      .getAllByTestId(/^x-tick-/)
-      .map((el) => el.textContent);
+    const ticks = screen.getAllByTestId(/^x-tick-/).map((el) => el.textContent);
     expect(ticks).toEqual(['10⁰', '10¹', '10²', '10³', '10⁴', '10⁵', '10⁶']);
     const yTicks = screen
       .getAllByTestId(/^y-tick-/)

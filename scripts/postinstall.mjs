@@ -31,7 +31,11 @@ const link = join(nm, 'eslint-config-next', 'node_modules', 'typescript');
 if (!existsSync(source)) {
   process.exit(0);
 }
-if (!existsSync(join(nm, 'eslint-config-next', 'node_modules', 'typescript-eslint'))) {
+if (
+  !existsSync(
+    join(nm, 'eslint-config-next', 'node_modules', 'typescript-eslint'),
+  )
+) {
   process.exit(0);
 }
 
@@ -45,7 +49,9 @@ if (!(current?.isSymbolicLink() && readlinkSync(link) === source)) {
   // 'junction' needs no elevated privileges on Windows and is a plain symlink
   // on macOS/Linux.
   symlinkSync(source, link, 'junction');
-  console.log('postinstall: linked typescript6 into eslint-config-next for typescript-eslint');
+  console.log(
+    'postinstall: linked typescript6 into eslint-config-next for typescript-eslint',
+  );
 }
 
 // ts-api-utils gets hoisted to the root node_modules, where it would resolve
@@ -53,9 +59,16 @@ if (!(current?.isSymbolicLink() && readlinkSync(link) === source)) {
 // physical copy so resolution from typescript-estree finds this one first and
 // its require('typescript') picks up the TS 6 link above.
 const tsApiUtilsSource = join(nm, 'ts-api-utils');
-const tsApiUtilsCopy = join(nm, 'eslint-config-next', 'node_modules', 'ts-api-utils');
+const tsApiUtilsCopy = join(
+  nm,
+  'eslint-config-next',
+  'node_modules',
+  'ts-api-utils',
+);
 if (existsSync(tsApiUtilsSource)) {
   rmSync(tsApiUtilsCopy, { recursive: true, force: true });
   cpSync(tsApiUtilsSource, tsApiUtilsCopy, { recursive: true });
-  console.log('postinstall: copied ts-api-utils into eslint-config-next subtree');
+  console.log(
+    'postinstall: copied ts-api-utils into eslint-config-next subtree',
+  );
 }

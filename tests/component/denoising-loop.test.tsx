@@ -64,9 +64,7 @@ describe('DenoisingLoop', () => {
     render(<DenoisingLoop />);
     const at = (v: string) => {
       fireEvent.change(slider(), { target: { value: v } });
-      return Number(
-        dispersionReadout().textContent?.replace(/[^0-9.]/g, ''),
-      );
+      return Number(dispersionReadout().textContent?.replace(/[^0-9.]/g, ''));
     };
     const d0 = at('0');
     const d5 = at('5');
@@ -88,9 +86,7 @@ describe('DenoisingLoop', () => {
 
   it('step buttons clamp at the schedule endpoints', () => {
     render(<DenoisingLoop />);
-    expect(
-      screen.getByRole('button', { name: /step back/i }),
-    ).toBeDisabled();
+    expect(screen.getByRole('button', { name: /step back/i })).toBeDisabled();
     fireEvent.change(slider(), { target: { value: '10' } });
     expect(
       screen.getByRole('button', { name: /step forward/i }),

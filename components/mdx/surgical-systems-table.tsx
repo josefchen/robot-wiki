@@ -11,7 +11,12 @@ import { SURGICAL_SYSTEM_ROWS } from '@/lib/surgical-systems';
  * scrollable-region-focusable), the same pattern as the swarm table.
  */
 
-const HEADER = ['System', 'Design focus', 'Differentiator', 'Regulatory path'] as const;
+const HEADER = [
+  'System',
+  'Design focus',
+  'Differentiator',
+  'Regulatory path',
+] as const;
 
 export function SurgicalSystemsTable({ className }: { className?: string }) {
   return (
@@ -29,8 +34,8 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
         <caption className="sr-only">
           Surgical robotic systems compared: Intuitive da Vinci, CMR Versius,
           and Moon Surgical Maestro, by design focus, differentiator, and
-          regulatory path, with each system’s position on the six-level
-          autonomy scale of Yang et al.
+          regulatory path, with each system’s position on the six-level autonomy
+          scale of Yang et al.
         </caption>
         <thead>
           <tr className="border-b border-border">

@@ -89,7 +89,10 @@ export function executedTrace(
     for (let tick = 0; tick < TRACE_TICKS; tick += 1) {
       points.push({
         tick,
-        v: tick < HANDOFF_TICK ? oldPlanVelocity(tick) : oldPlanVelocity(tick) + shift,
+        v:
+          tick < HANDOFF_TICK
+            ? oldPlanVelocity(tick)
+            : oldPlanVelocity(tick) + shift,
       });
     }
     return points;

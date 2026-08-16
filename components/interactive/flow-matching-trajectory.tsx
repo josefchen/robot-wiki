@@ -80,9 +80,15 @@ export function FlowMatchingTrajectory({
   const x = (u: number) =>
     f(PAD.left + ((u - X_RANGE.min) / (X_RANGE.max - X_RANGE.min)) * plotWidth);
   const y = (v: number) =>
-    f(PAD.top + (1 - (v - Y_RANGE.min) / (Y_RANGE.max - Y_RANGE.min)) * plotHeight);
+    f(
+      PAD.top +
+        (1 - (v - Y_RANGE.min) / (Y_RANGE.max - Y_RANGE.min)) * plotHeight,
+    );
 
-  const maxMagnitude = Math.max(...arrows.map((a) => Math.hypot(a.vx, a.vy)), 1e-6);
+  const maxMagnitude = Math.max(
+    ...arrows.map((a) => Math.hypot(a.vx, a.vy)),
+    1e-6,
+  );
 
   return (
     <div
@@ -301,10 +307,10 @@ export function FlowMatchingTrajectory({
         near-straight paths of rectified flow matching. The learned field is
         slightly imperfect (the paths carry a small bend), so the step count
         trades accuracy against latency: one Euler step cuts the corner and
-        lands short, 5-10 steps land on the modes, and 50 steps is compute a
-        50 Hz control loop cannot spend. pi0 shipped {PI0_STEPS} steps; pi0.6
-        and pi0.7 run {PI06_STEPS}. The real expert integrates a whole
-        50-step action chunk jointly; this view shows 2 of its dimensions.
+        lands short, 5-10 steps land on the modes, and 50 steps is compute a 50
+        Hz control loop cannot spend. pi0 shipped {PI0_STEPS} steps; pi0.6 and
+        pi0.7 run {PI06_STEPS}. The real expert integrates a whole 50-step
+        action chunk jointly; this view shows 2 of its dimensions.
       </p>
     </div>
   );

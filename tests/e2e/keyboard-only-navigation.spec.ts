@@ -80,8 +80,8 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
       true,
     );
 
-    const focusedHref = await page.evaluate(
-      () => document.activeElement?.getAttribute('href'),
+    const focusedHref = await page.evaluate(() =>
+      document.activeElement?.getAttribute('href'),
     );
     await page.keyboard.press('Enter');
     await page.waitForURL(focusedHref ?? /\/manipulation\//);
@@ -93,7 +93,9 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     const slider = page.getByRole('slider').first();
     await expect(slider).toBeVisible();
     await slider.focus();
-    const before = await slider.evaluate((el) => (el as HTMLInputElement).value);
+    const before = await slider.evaluate(
+      (el) => (el as HTMLInputElement).value,
+    );
     await page.keyboard.press('ArrowRight');
     const after = await slider.evaluate((el) => (el as HTMLInputElement).value);
     expect(after).not.toBe(before);

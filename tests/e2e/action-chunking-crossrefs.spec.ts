@@ -40,10 +40,9 @@ test.describe('action-chunking cross-references (VAL-CROSS-006)', () => {
     // (red-first: this fails against prose that links neither).
     const targets = proseTargets();
     for (const { href } of EXPECTED) {
-      expect(
-        targets,
-        `action-chunking prose links to ${href}`,
-      ).toContain(normalizeInternalPath(href));
+      expect(targets, `action-chunking prose links to ${href}`).toContain(
+        normalizeInternalPath(href),
+      );
     }
 
     // Rendered: the link sits inside the article prose region, not the
@@ -55,9 +54,7 @@ test.describe('action-chunking cross-references (VAL-CROSS-006)', () => {
     const prose = page.locator('div.prose[data-pagefind-body]');
     const rendered = await prose
       .locator('a[href^="/manipulation/"]')
-      .evaluateAll((els) =>
-        els.map((el) => el.getAttribute('href') ?? ''),
-      );
+      .evaluateAll((els) => els.map((el) => el.getAttribute('href') ?? ''));
     for (const { href } of EXPECTED) {
       const target = normalizeInternalPath(href);
       expect(
@@ -79,16 +76,14 @@ test.describe('action-chunking cross-references (VAL-CROSS-006)', () => {
         // markdown href carries no trailing slash).
         const ANCHORS =
           'div.prose[data-pagefind-body] a[href^="/manipulation/"]';
-        const index = await page
-          .locator(ANCHORS)
-          .evaluateAll((els, t) => {
-            const norm = (u: string) =>
-              u.split('#')[0].split('?')[0].replace(/\/$/, '');
-            const hit = els.find(
-              (el) => norm(el.getAttribute('href') ?? '') === t,
-            );
-            return hit ? els.indexOf(hit) : -1;
-          }, target);
+        const index = await page.locator(ANCHORS).evaluateAll((els, t) => {
+          const norm = (u: string) =>
+            u.split('#')[0].split('?')[0].replace(/\/$/, '');
+          const hit = els.find(
+            (el) => norm(el.getAttribute('href') ?? '') === t,
+          );
+          return hit ? els.indexOf(hit) : -1;
+        }, target);
         expect(
           index,
           `in-prose anchor to ${href} exists`,

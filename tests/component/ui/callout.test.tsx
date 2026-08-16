@@ -4,7 +4,11 @@ import { Callout } from '@/components/ui/callout';
 
 describe('Callout', () => {
   it('renders info variant as a note', () => {
-    render(<Callout variant="info">Chunk size trades latency for smoothness.</Callout>);
+    render(
+      <Callout variant="info">
+        Chunk size trades latency for smoothness.
+      </Callout>,
+    );
     const note = screen.getByRole('note');
     expect(note).toHaveTextContent('Chunk size trades latency for smoothness.');
     expect(note).toHaveAttribute('data-variant', 'info');

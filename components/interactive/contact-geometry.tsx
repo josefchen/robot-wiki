@@ -240,7 +240,11 @@ function ManipulationScene({ errorMm }: { errorMm: number }) {
         width={PEG.width}
         height={f(PEG.bottomY - PEG.topY)}
         rx={2}
-        fill={failed ? 'color-mix(in srgb, var(--color-err) 22%, var(--color-surface-2))' : 'var(--color-surface-2)'}
+        fill={
+          failed
+            ? 'color-mix(in srgb, var(--color-err) 22%, var(--color-surface-2))'
+            : 'var(--color-surface-2)'
+        }
         stroke={failed ? 'var(--color-err)' : 'var(--color-border-strong)'}
         strokeWidth={1.5}
       />
@@ -308,8 +312,7 @@ export function ContactGeometry({
 
   const spec = SCENARIOS[scenarioId];
   const outcome = outcomeFor(spec, errorMm);
-  const outcomeText =
-    outcome === 'ok' ? spec.outcomeOk : spec.outcomeFail;
+  const outcomeText = outcome === 'ok' ? spec.outcomeOk : spec.outcomeFail;
 
   function reset() {
     setScenarioId(defaultScenario);
@@ -435,8 +438,8 @@ export function ContactGeometry({
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         {spec.sceneCaption} Contact counts and patch radii are illustrative
-        renderings of the asymmetry, not one simulator&apos;s solver output.
-        The tolerances are representative physical scales: a gait absorbs
+        renderings of the asymmetry, not one simulator&apos;s solver output. The
+        tolerances are representative physical scales: a gait absorbs
         centimeter-scale contact error through feedback, while a 0.5 mm
         insertion clearance makes the same error fatal.
       </p>

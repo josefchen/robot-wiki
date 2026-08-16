@@ -30,7 +30,14 @@ type CiteProps = {
  * (aria-describedby). With referenceHref set, a second in-chip affordance
  * jumps to the article's References entry for the same id.
  */
-export function Cite({ href, label, title, meta, citeId, referenceHref }: CiteProps) {
+export function Cite({
+  href,
+  label,
+  title,
+  meta,
+  citeId,
+  referenceHref,
+}: CiteProps) {
   const tooltipId = useId();
 
   return (

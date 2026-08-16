@@ -55,9 +55,9 @@ async function renderedReferenceIds(page: Page): Promise<string[]> {
 async function renderedChipIds(page: Page): Promise<string[]> {
   return page
     .locator('[data-cite-id]')
-    .evaluateAll((els) =>
-      [...new Set(els.map((el) => el.getAttribute('data-cite-id') ?? ''))],
-    );
+    .evaluateAll((els) => [
+      ...new Set(els.map((el) => el.getAttribute('data-cite-id') ?? '')),
+    ]);
 }
 
 test.describe('References bibliography', () => {
@@ -70,13 +70,18 @@ test.describe('References bibliography', () => {
       await page.goto(route);
 
       // One References heading, rendered by the template (no MDX duplicate).
-      const heading = page.getByRole('heading', { level: 2, name: 'References' });
+      const heading = page.getByRole('heading', {
+        level: 2,
+        name: 'References',
+      });
       await expect(heading).toBeVisible();
       expect(await heading.count()).toBe(1);
 
       // The rendered entry set matches frontmatter.citations exactly, in
       // declaration order: nothing missing, nothing extra.
-      expect(await renderedReferenceIds(page)).toEqual(declaredIds(domain, slug));
+      expect(await renderedReferenceIds(page)).toEqual(
+        declaredIds(domain, slug),
+      );
 
       // References closes the article. See also and Linked from sections
       // may precede it when the article declares seeAlso or has inbound
@@ -219,9 +224,7 @@ test.describe('References bibliography', () => {
     // Long titles and URLs stay inside the column on every entry.
     const rights = await page
       .locator('ol [data-reference-id]')
-      .evaluateAll((els) =>
-        els.map((el) => el.getBoundingClientRect().right),
-      );
+      .evaluateAll((els) => els.map((el) => el.getBoundingClientRect().right));
     for (const right of rights) {
       expect(right).toBeLessThanOrEqual(375);
     }
@@ -248,9 +251,7 @@ test.describe('References bibliography', () => {
 
     const rights = await page
       .locator('ol [data-reference-id]')
-      .evaluateAll((els) =>
-        els.map((el) => el.getBoundingClientRect().right),
-      );
+      .evaluateAll((els) => els.map((el) => el.getBoundingClientRect().right));
     for (const right of rights) {
       expect(right).toBeLessThanOrEqual(1440);
     }

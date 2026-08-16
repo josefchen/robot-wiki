@@ -182,9 +182,7 @@ export function fastestRateLabel(approach: WbcApproach): string {
 }
 
 export type Gr2Category =
-  | 'whole-body pick'
-  | 'multi-finger dexterity'
-  | 'gripper dexterity';
+  'whole-body pick' | 'multi-finger dexterity' | 'gripper dexterity';
 
 export interface Gr2ResultRow {
   category: Gr2Category;
@@ -270,7 +268,9 @@ export const GR2_RESULTS: Gr2ResultRow[] = [
 
 /** The easiest and hardest multi-finger tasks, by reported success. */
 export function gr2DexterityRange(): { min: Gr2ResultRow; max: Gr2ResultRow } {
-  const multi = GR2_RESULTS.filter((r) => r.category === 'multi-finger dexterity');
+  const multi = GR2_RESULTS.filter(
+    (r) => r.category === 'multi-finger dexterity',
+  );
   const sorted = [...multi].sort((a, b) => a.success - b.success);
   return { min: sorted[0], max: sorted[sorted.length - 1] };
 }

@@ -11,30 +11,15 @@
 import type { HardwareEntry } from '@/data/schemas/hardware.ts';
 
 export type CategoryFilter =
-  | 'all'
-  | 'arm'
-  | 'humanoid'
-  | 'hand'
-  | 'sensor'
-  | 'compute';
+  'all' | 'arm' | 'humanoid' | 'hand' | 'sensor' | 'compute';
 
 export type PriceFilter =
-  | 'all'
-  | 'under-1k'
-  | '1k-10k'
-  | '10k-25k'
-  | '25k-plus'
-  | 'unlisted';
+  'all' | 'under-1k' | '1k-10k' | '10k-25k' | '25k-plus' | 'unlisted';
 
 export type DofFilter = 'all' | 'under-10' | '10-30' | '30-plus' | 'unknown';
 
 export type AvailabilityFilter =
-  | 'all'
-  | 'buy'
-  | 'preorder'
-  | 'contact'
-  | 'closed'
-  | 'unknown';
+  'all' | 'buy' | 'preorder' | 'contact' | 'closed' | 'unknown';
 
 export interface HardwareFilters {
   category: CategoryFilter;

@@ -23,7 +23,9 @@ describe('SURGICAL_SYSTEM_ROWS', () => {
   });
 
   it('states the da Vinci 5 figures from the clearance release', () => {
-    const row = SURGICAL_SYSTEM_ROWS.find((r) => r.system === 'Intuitive da Vinci');
+    const row = SURGICAL_SYSTEM_ROWS.find(
+      (r) => r.system === 'Intuitive da Vinci',
+    );
     expect(row?.focus).toMatch(/teleoperated/);
     // 150+ enhancements, Force Feedback, 10,000x compute over Xi.
     expect(row?.edge).toMatch(/150/);

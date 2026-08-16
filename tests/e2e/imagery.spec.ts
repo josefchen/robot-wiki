@@ -3,7 +3,10 @@ import AxeBuilder from '@axe-core/playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, licenceLabel } from '../../data/images';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Licensed imagery and attribution (VAL-IMG-001 through VAL-IMG-014, the
@@ -69,7 +72,8 @@ test.describe('licensed imagery', () => {
         ).toBeGreaterThanOrEqual(15);
         const filename = src.split('/').pop() ?? '';
         const stem = filename.replace(/\.[a-z0-9]+$/i, '');
-        const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const normalize = (s: string) =>
+          s.toLowerCase().replace(/[^a-z0-9]/g, '');
         expect(
           normalize(alt!.trim()),
           `alt is not the filename on ${src} (${route})`,
@@ -246,7 +250,9 @@ test.describe('licensed imagery', () => {
       // ever observed here (0.000196). A genuine lazy-image reflow is
       // orders of magnitude larger, so the assertion still fails on the
       // defect VAL-IMG-009 exists to catch.
-      expect(cls, `no perceptible layout shift on ${route}`).toBeLessThan(0.001);
+      expect(cls, `no perceptible layout shift on ${route}`).toBeLessThan(
+        0.001,
+      );
     }
   });
 
@@ -257,7 +263,10 @@ test.describe('licensed imagery', () => {
       const failed: string[] = [];
       page.on('response', (response) => {
         const url = response.url();
-        if (/\.(jpe?g|png|svg|webp|gif|avif)(\?|$)/.test(url) && response.status() >= 400) {
+        if (
+          /\.(jpe?g|png|svg|webp|gif|avif)(\?|$)/.test(url) &&
+          response.status() >= 400
+        ) {
           failed.push(`${response.status()} ${url}`);
         }
       });
@@ -270,9 +279,10 @@ test.describe('licensed imagery', () => {
         expect(src, `no optimizer endpoint in src (${route})`).not.toContain(
           '/_next/image',
         );
-        expect(srcset, `no optimizer endpoint in srcset (${route})`).not.toContain(
-          '/_next/image',
-        );
+        expect(
+          srcset,
+          `no optimizer endpoint in srcset (${route})`,
+        ).not.toContain('/_next/image');
         const naturalWidth = async () =>
           img.evaluate((el) => (el as HTMLImageElement).naturalWidth);
         // Images are loading="lazy": only scroll-triggered loads fetch, so
@@ -347,9 +357,10 @@ test.describe('licensed imagery', () => {
         expect(text, `${image.id} states CC BY-SA on ${route}`).toContain(
           'CC BY-SA 4.0',
         );
-        expect(text, `${image.id} never claims CC BY 4.0 on ${route}`).not.toContain(
-          'CC BY 4.0',
-        );
+        expect(
+          text,
+          `${image.id} never claims CC BY 4.0 on ${route}`,
+        ).not.toContain('CC BY 4.0');
         await expect(
           credit.getByRole('link', { name: 'CC BY-SA 4.0' }),
         ).toHaveAttribute('href', image.licenceUrl);

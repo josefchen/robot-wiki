@@ -101,9 +101,9 @@ describe('thesisSchema (the build-time completeness gate)', () => {
   });
 
   it('rejects a row with an empty falsification criterion', () => {
-    expect(thesisSchema.safeParse({ ...valid, falsification: '' }).success).toBe(
-      false,
-    );
+    expect(
+      thesisSchema.safeParse({ ...valid, falsification: '' }).success,
+    ).toBe(false);
   });
 
   it('rejects an evidence item with no citation', () => {

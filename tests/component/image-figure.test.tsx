@@ -54,11 +54,15 @@ describe('Figure with a registry credit', () => {
     renderFigure();
     const credit = document.querySelector('[data-image-credit]')!;
     const anchors = Array.from(credit.querySelectorAll('a'));
-    const sourceLink = anchors.find((a) => a.getAttribute('href') === entry.sourceUrl);
+    const sourceLink = anchors.find(
+      (a) => a.getAttribute('href') === entry.sourceUrl,
+    );
     expect(sourceLink).toBeDefined();
     expect(sourceLink).toHaveAttribute('target', '_blank');
     expect(sourceLink!.getAttribute('rel')).toContain('noopener');
-    const licenceLink = anchors.find((a) => a.getAttribute('href') === entry.licenceUrl);
+    const licenceLink = anchors.find(
+      (a) => a.getAttribute('href') === entry.licenceUrl,
+    );
     expect(licenceLink).toBeDefined();
   });
 });
@@ -67,9 +71,9 @@ describe('ImageRef (registry resolver)', () => {
   it('resolves a registered id to the full figure with credit', () => {
     render(<ImageRef id="franka-emika-panda-cebit-2017" />);
     expect(screen.getByRole('img', { name: entry.alt })).toBeInTheDocument();
-    expect(document.querySelector('[data-image-credit]')!.textContent).toContain(
-      entry.sourceName,
-    );
+    expect(
+      document.querySelector('[data-image-credit]')!.textContent,
+    ).toContain(entry.sourceName);
   });
 
   it('names a site-created diagram in text with no external source link (VAL-IMG-003)', () => {

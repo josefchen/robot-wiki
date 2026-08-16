@@ -43,11 +43,9 @@ function katexSpan(): HastNode {
       element('math', {}, [
         element('semantics', {}, [
           element('mrow', {}, [element('mi', {}, [text('π')])]),
-          element(
-            'annotation',
-            { encoding: ['application/x-tex'] },
-            [text('\\pi')],
-          ),
+          element('annotation', { encoding: ['application/x-tex'] }, [
+            text('\\pi'),
+          ]),
         ]),
       ]),
     ]),

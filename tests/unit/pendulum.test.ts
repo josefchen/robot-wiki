@@ -149,7 +149,10 @@ describe('determinism and stepping', () => {
 
   it('applies the push as a fixed angular-velocity impulse', () => {
     const pushed = applyPush(INITIAL_STATE);
-    expect(pushed.thetaDot).toBeCloseTo(INITIAL_STATE.thetaDot + PUSH_IMPULSE, 9);
+    expect(pushed.thetaDot).toBeCloseTo(
+      INITIAL_STATE.thetaDot + PUSH_IMPULSE,
+      9,
+    );
     expect(pushed.theta).toBe(INITIAL_STATE.theta);
   });
 

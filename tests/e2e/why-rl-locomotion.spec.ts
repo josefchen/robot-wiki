@@ -71,7 +71,9 @@ test.describe('why-rl-locomotion module', () => {
     await expect(page.getByTestId('outcome-readout')).toHaveText(/stable/i);
 
     // Scenario switch: more contacts, jammed at the same error.
-    await page.getByRole('button', { name: 'Manipulation', exact: true }).click();
+    await page
+      .getByRole('button', { name: 'Manipulation', exact: true })
+      .click();
     await expect(page.getByTestId('contact-count-readout')).toHaveText('14');
     await expect(page.getByTestId('outcome-readout')).toHaveText(/jammed/i);
 

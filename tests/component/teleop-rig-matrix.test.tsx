@@ -51,9 +51,7 @@ describe('TeleopRigMatrix', () => {
     expect(cells[1].textContent).toBe('not disclosed');
     // The verified rigs do show concrete costs.
     const gello = rowNamed('GELLO') as HTMLElement;
-    expect(
-      within(gello).getAllByRole('cell')[1].textContent,
-    ).toContain('$300');
+    expect(within(gello).getAllByRole('cell')[1].textContent).toContain('$300');
     const umi = rowNamed('UMI') as HTMLElement;
     expect(within(umi).getAllByRole('cell')[1].textContent).toContain('$371');
   });
@@ -112,7 +110,9 @@ describe('TeleopRigMatrix', () => {
     ]) {
       expect(within(detail).getByText(name)).toBeInTheDocument();
     }
-    expect(detail.textContent).toMatch(/joint space|kinematic|fisheye|retarget/i);
+    expect(detail.textContent).toMatch(
+      /joint space|kinematic|fisheye|retarget/i,
+    );
 
     // Clicking the same dimension again returns to the overview.
     await user.click(button);
@@ -145,9 +145,7 @@ describe('TeleopRigMatrix', () => {
     ).toBeInTheDocument();
 
     // Disturb both the highlight and the sort.
-    await user.click(
-      screen.getByRole('button', { name: /^embodiment gap$/i }),
-    );
+    await user.click(screen.getByRole('button', { name: /^embodiment gap$/i }));
     await user.click(
       screen.getByRole('button', { name: /sort by throughput/i }),
     );
@@ -162,9 +160,10 @@ describe('TeleopRigMatrix', () => {
       if (button.closest('thead')) continue;
       expect(button).toHaveAttribute('aria-pressed', 'false');
     }
-    expect(
-      screen.getByRole('columnheader', { name: /cost/i }),
-    ).toHaveAttribute('aria-sort', 'ascending');
+    expect(screen.getByRole('columnheader', { name: /cost/i })).toHaveAttribute(
+      'aria-sort',
+      'ascending',
+    );
   });
 
   it('carries at least one external source link per row (VAL-DATA-018)', () => {

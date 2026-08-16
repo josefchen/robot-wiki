@@ -1,11 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  EUREKA_GENERATIONS,
-  EUREKA_TASK,
-  diffLines,
-} from '@/lib/eureka';
+import { EUREKA_GENERATIONS, EUREKA_TASK, diffLines } from '@/lib/eureka';
 import { cx } from '@/lib/utils';
 
 /**
@@ -49,9 +45,7 @@ export function EurekaLoop({ className }: { className?: string }) {
   const current = EUREKA_GENERATIONS[gen];
   const isLast = gen === EUREKA_GENERATIONS.length - 1;
   const diff =
-    gen > 0
-      ? diffLines(EUREKA_GENERATIONS[gen - 1].code, current.code)
-      : null;
+    gen > 0 ? diffLines(EUREKA_GENERATIONS[gen - 1].code, current.code) : null;
 
   const buttonBase =
     'rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]';
@@ -70,7 +64,9 @@ export function EurekaLoop({ className }: { className?: string }) {
         <button
           data-pagefind-ignore
           type="button"
-          onClick={() => setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))}
+          onClick={() =>
+            setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))
+          }
           disabled={isLast}
           aria-label="Run next generation"
           className={cx(
@@ -95,8 +91,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           className="font-mono text-xs text-text-dim"
           aria-live="polite"
         >
-          Generation{' '}
-          <span className="text-accent">{current.index}</span> of{' '}
+          Generation <span className="text-accent">{current.index}</span> of{' '}
           {EUREKA_GENERATIONS.length - 1}
         </span>
         <span className="font-mono text-xs text-text-dim">
@@ -193,10 +188,10 @@ export function EurekaLoop({ className }: { className?: string }) {
       </div>
 
       <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim">
-        Scripted replay of the Eureka loop (propose reward code, train,
-        select on fitness, reflect on reward statistics, mutate). The code,
-        statistics, and reflections are an illustration of the mechanism,
-        not a recording of a real run.
+        Scripted replay of the Eureka loop (propose reward code, train, select
+        on fitness, reflect on reward statistics, mutate). The code, statistics,
+        and reflections are an illustration of the mechanism, not a recording of
+        a real run.
       </p>
     </div>
   );

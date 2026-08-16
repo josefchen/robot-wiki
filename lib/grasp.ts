@@ -81,7 +81,7 @@ const VERTICES: Vec2[] = [
 
 /** Locate a contact on the square's perimeter from its parameter s. */
 export function contactGeometry(sRaw: number): ContactGeometry {
-  const s = (((sRaw % 1) + 1) % 1) || 0;
+  const s = ((sRaw % 1) + 1) % 1 || 0;
   const d = s * PERIMETER;
   const edge = Math.min(3, Math.floor(d / 2));
   const t = d / 2 - edge;

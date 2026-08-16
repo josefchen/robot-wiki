@@ -79,24 +79,108 @@ const locomotionContacts: ContactPoint[] = FOOT_XS.map((x, i) => ({
 
 const manipulationContacts: ContactPoint[] = [
   // Left wall of the peg against the left hole wall.
-  { id: 'wall-l-1', x: PEG.centerX - PEG.width / 2, y: 190, patchRadiusMm: 0.2, normalDeg: 90 },
-  { id: 'wall-l-2', x: PEG.centerX - PEG.width / 2, y: 220, patchRadiusMm: 0.2, normalDeg: 90 },
-  { id: 'wall-l-3', x: PEG.centerX - PEG.width / 2, y: 250, patchRadiusMm: 0.2, normalDeg: 90 },
+  {
+    id: 'wall-l-1',
+    x: PEG.centerX - PEG.width / 2,
+    y: 190,
+    patchRadiusMm: 0.2,
+    normalDeg: 90,
+  },
+  {
+    id: 'wall-l-2',
+    x: PEG.centerX - PEG.width / 2,
+    y: 220,
+    patchRadiusMm: 0.2,
+    normalDeg: 90,
+  },
+  {
+    id: 'wall-l-3',
+    x: PEG.centerX - PEG.width / 2,
+    y: 250,
+    patchRadiusMm: 0.2,
+    normalDeg: 90,
+  },
   // Right wall.
-  { id: 'wall-r-1', x: PEG.centerX + PEG.width / 2, y: 190, patchRadiusMm: 0.2, normalDeg: -90 },
-  { id: 'wall-r-2', x: PEG.centerX + PEG.width / 2, y: 220, patchRadiusMm: 0.2, normalDeg: -90 },
-  { id: 'wall-r-3', x: PEG.centerX + PEG.width / 2, y: 250, patchRadiusMm: 0.2, normalDeg: -90 },
+  {
+    id: 'wall-r-1',
+    x: PEG.centerX + PEG.width / 2,
+    y: 190,
+    patchRadiusMm: 0.2,
+    normalDeg: -90,
+  },
+  {
+    id: 'wall-r-2',
+    x: PEG.centerX + PEG.width / 2,
+    y: 220,
+    patchRadiusMm: 0.2,
+    normalDeg: -90,
+  },
+  {
+    id: 'wall-r-3',
+    x: PEG.centerX + PEG.width / 2,
+    y: 250,
+    patchRadiusMm: 0.2,
+    normalDeg: -90,
+  },
   // Hole-mouth rim contacts.
-  { id: 'rim-l', x: HOLE.leftX, y: HOLE.mouthY, patchRadiusMm: 0.2, normalDeg: 45 },
-  { id: 'rim-r', x: HOLE.rightX, y: HOLE.mouthY, patchRadiusMm: 0.2, normalDeg: -45 },
+  {
+    id: 'rim-l',
+    x: HOLE.leftX,
+    y: HOLE.mouthY,
+    patchRadiusMm: 0.2,
+    normalDeg: 45,
+  },
+  {
+    id: 'rim-r',
+    x: HOLE.rightX,
+    y: HOLE.mouthY,
+    patchRadiusMm: 0.2,
+    normalDeg: -45,
+  },
   // Chamfer tip contacts at the peg's leading edge.
-  { id: 'chamfer-l', x: PEG.centerX - 14, y: PEG.bottomY, patchRadiusMm: 0.2, normalDeg: 135 },
-  { id: 'chamfer-r', x: PEG.centerX + 14, y: PEG.bottomY, patchRadiusMm: 0.2, normalDeg: -135 },
+  {
+    id: 'chamfer-l',
+    x: PEG.centerX - 14,
+    y: PEG.bottomY,
+    patchRadiusMm: 0.2,
+    normalDeg: 135,
+  },
+  {
+    id: 'chamfer-r',
+    x: PEG.centerX + 14,
+    y: PEG.bottomY,
+    patchRadiusMm: 0.2,
+    normalDeg: -135,
+  },
   // Finger grip pads near the peg top.
-  { id: 'finger-l-1', x: PEG.centerX - PEG.width / 2, y: 100, patchRadiusMm: 0.2, normalDeg: 90 },
-  { id: 'finger-l-2', x: PEG.centerX - PEG.width / 2, y: 122, patchRadiusMm: 0.2, normalDeg: 90 },
-  { id: 'finger-r-1', x: PEG.centerX + PEG.width / 2, y: 100, patchRadiusMm: 0.2, normalDeg: -90 },
-  { id: 'finger-r-2', x: PEG.centerX + PEG.width / 2, y: 122, patchRadiusMm: 0.2, normalDeg: -90 },
+  {
+    id: 'finger-l-1',
+    x: PEG.centerX - PEG.width / 2,
+    y: 100,
+    patchRadiusMm: 0.2,
+    normalDeg: 90,
+  },
+  {
+    id: 'finger-l-2',
+    x: PEG.centerX - PEG.width / 2,
+    y: 122,
+    patchRadiusMm: 0.2,
+    normalDeg: 90,
+  },
+  {
+    id: 'finger-r-1',
+    x: PEG.centerX + PEG.width / 2,
+    y: 100,
+    patchRadiusMm: 0.2,
+    normalDeg: -90,
+  },
+  {
+    id: 'finger-r-2',
+    x: PEG.centerX + PEG.width / 2,
+    y: 122,
+    patchRadiusMm: 0.2,
+    normalDeg: -90,
+  },
 ];
 
 export const SCENARIOS: Record<ScenarioId, ScenarioSpec> = {
@@ -224,7 +308,5 @@ export function toleranceBandPx(spec: ScenarioSpec): number {
 
 /** "20 mm", "0.5 mm": integers without a trailing .0, fractions at one decimal. */
 export function formatMm(value: number): string {
-  return Number.isInteger(value)
-    ? `${value} mm`
-    : `${value.toFixed(1)} mm`;
+  return Number.isInteger(value) ? `${value} mm` : `${value.toFixed(1)} mm`;
 }

@@ -90,9 +90,7 @@ describe('AdvantageScrubber', () => {
     }
     const high = tagged.filter((s) => s.tag === 'high').length;
     const low = tagged.filter((s) => s.tag === 'low').length;
-    expect(view).toHaveTextContent(
-      `${tagged.length} transitions kept`,
-    );
+    expect(view).toHaveTextContent(`${tagged.length} transitions kept`);
     expect(view).toHaveTextContent(`${high} high`);
     expect(view).toHaveTextContent(`${low} low`);
   });
@@ -123,8 +121,9 @@ describe('AdvantageScrubber', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByTestId('time-readout')).toHaveTextContent('0.0 s');
     expect(screen.queryByTestId('training-view')).not.toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /^episode$/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /^episode$/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 });

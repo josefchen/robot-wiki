@@ -28,9 +28,13 @@ const ROWS: TeleopRig[] = [
     id: 'aloha-workstation',
     name: 'ALOHA-class workstation',
     family: 'Bimanual leader-follower workstation',
-    representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
+    representatives: [
+      'ALOHA 2 (Stanford)',
+      'Trossen AI Stationary and Mobile AI',
+    ],
     costUsd: 17000,
-    costNote: 'ALOHA 2 runs $17,000-$32,000; Trossen AI bimanual rigs $15,995-$22,995',
+    costNote:
+      'ALOHA 2 runs $17,000-$32,000; Trossen AI bimanual rigs $15,995-$22,995',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -41,8 +45,7 @@ const ROWS: TeleopRig[] = [
     embodimentGapNote:
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
-      cost:
-        'ALOHA 2 lists at $17,000-$32,000 depending on configuration in the LeRobot ecosystem pricing table. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, cut prices 30-34% across the board: the bimanual Stationary AI at $15,995 and Mobile AI at $22,995, with the single-arm WidowX AI entry point at $2,995.',
+      cost: 'ALOHA 2 lists at $17,000-$32,000 depending on configuration in the LeRobot ecosystem pricing table. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, cut prices 30-34% across the board: the bimanual Stationary AI at $15,995 and Mobile AI at $22,995, with the single-arm WidowX AI entry point at $2,995.',
       dataQuality:
         'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
       throughput:
@@ -78,8 +81,7 @@ const ROWS: TeleopRig[] = [
     embodimentGapNote:
       'The replica shares the arm joint structure, so the operator feels the arm constraints directly',
     details: {
-      cost:
-        'GELLO is built from 3D-printed links and economical off-the-shelf motors, with a parts list under $300 according to the project site. That buys the controller only: the robot arm it drives is a separate cost, so a full GELLO station costs a GELLO plus whatever the target arm costs.',
+      cost: 'GELLO is built from 3D-printed links and economical off-the-shelf motors, with a parts list under $300 according to the project site. That buys the controller only: the robot arm it drives is a separate cost, so a full GELLO station costs a GELLO plus whatever the target arm costs.',
       dataQuality:
         'The device is constructed with the same kinematic structure as the target arm, so joint readings map directly onto robot commands with no inverse-kinematics remapping. In the paper user study with 12 participants and 5 bimanual UR5 tasks, GELLO produced more reliable and more efficient demonstration collection than VR controllers or a 3D spacemouse.',
       throughput:
@@ -110,8 +112,7 @@ const ROWS: TeleopRig[] = [
     embodimentGapNote:
       'A handheld gripper stands in for the robot gripper; latency matching and relative-trajectory actions close the gap at deployment',
     details: {
-      cost:
-        'The paper bills the 3D-printed gripper at $73 and the GoPro camera and accessories at $298, for a $371 collection rig per gripper. Deployment still needs a robot arm with a parallel-jaw gripper of more than 85 mm stroke, which the paper demonstrated on UR5 and Franka.',
+      cost: 'The paper bills the 3D-printed gripper at $73 and the GoPro camera and accessories at $298, for a $371 collection rig per gripper. Deployment still needs a robot arm with a parallel-jaw gripper of more than 85 mm stroke, which the paper demonstrated on UR5 and Franka.',
       dataQuality:
         'A wrist-mounted GoPro with a 155-degree fisheye lens and side mirrors supplies the visual context, and SLAM recovers the gripper pose at high frequency. There is no force or tactile channel, and the recorded motion comes from a human hand holding a gripper, not from a robot. UMI answers the deployability problem with inference-time latency matching and a camera-relative trajectory action representation.',
       throughput:
@@ -129,7 +130,11 @@ const ROWS: TeleopRig[] = [
     id: 'vr-teleop',
     name: 'VR teleoperation',
     family: 'Headset plus retargeted human motion',
-    representatives: ['DROID Quest 2 rig', 'Open-TeleVision', 'Bunny-VisionPro'],
+    representatives: [
+      'DROID Quest 2 rig',
+      'Open-TeleVision',
+      'Bunny-VisionPro',
+    ],
     // No source publishes a total system cost for the family: the DROID
     // stack (Quest 2 + Franka + 3 ZED cameras) and the Bunny-VisionPro
     // stack (Vision Pro + dexterous hands) are both unpriced as systems.
@@ -145,8 +150,7 @@ const ROWS: TeleopRig[] = [
     embodimentGapNote:
       'Human hand and controller poses must be remapped through IK onto robot joints; calibration and avoidance layers exist because the mapping drifts',
     details: {
-      cost:
-        'No system cost is published. The family spans commodity headsets (DROID used Meta Quest 2 with Franka Panda rigs) up to an Apple Vision Pro, launched at $3,499, driving dexterous hands in Bunny-VisionPro, and the robot hardware dominates the total either way.',
+      cost: 'No system cost is published. The family spans commodity headsets (DROID used Meta Quest 2 with Franka Panda rigs) up to an Apple Vision Pro, launched at $3,499, driving dexterous hands in Bunny-VisionPro, and the robot hardware dominates the total either way.',
       dataQuality:
         'The operator sees the robot world in stereo and their motion is mirrored onto the robot. Fidelity rides on the retargeting layer: DROID data trained diffusion policies that beat the next-best dataset by 22% in-distribution, while Open-TeleVision adds active stereoscopic rendering and Bunny-VisionPro adds low-cost haptic feedback plus collision and singularity avoidance.',
       throughput:

@@ -1,7 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * The structured-search facet bar during a query transition. The previous
@@ -67,9 +70,7 @@ test.describe('structured facet bar during search transitions', () => {
     // throws (observed twice in full detached runs, deterministic pass
     // in isolation; reproduced by installing the clock ahead of the
     // wall clock).
-    await page.clock.pauseAt(
-      new Date(await page.evaluate(() => Date.now())),
-    );
+    await page.clock.pauseAt(new Date(await page.evaluate(() => Date.now())));
     await box.pressSequentially('source', { delay: 15 });
 
     await expect(page.getByRole('status').first()).toHaveText(/Searching for/);
@@ -113,9 +114,7 @@ test.describe('structured facet bar during search transitions', () => {
     await expect(rows.first()).toBeVisible();
     const after = await rows.count();
     expect(after).toBeLessThanOrEqual(rowCount);
-    const narrowed = await structured
-      .getByText(/^\d+ results?$/)
-      .textContent();
+    const narrowed = await structured.getByText(/^\d+ results?$/).textContent();
     expect(Number(narrowed?.split(' ')[0])).toBe(after);
     await expect(page.locator('.animate-spin')).toHaveCount(0);
   });

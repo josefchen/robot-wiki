@@ -102,19 +102,30 @@ export function PerceptionLatency({ className }: { className?: string }) {
             className="mt-2 w-full accent-accent"
           />
         </div>
-        <div role="group" aria-label="Maximum lateral acceleration" className="flex flex-wrap gap-1">
+        <div
+          role="group"
+          aria-label="Maximum lateral acceleration"
+          className="flex flex-wrap gap-1"
+        >
           {AGILITY_STEPS.map((u) => (
             <button
               key={u}
               type="button"
               aria-pressed={agility === u}
               onClick={() => setAgility(u)}
-              className={cx(buttonBase, agility === u ? buttonActive : buttonIdle)}
+              className={cx(
+                buttonBase,
+                agility === u ? buttonActive : buttonIdle,
+              )}
             >
               {u} m/s²
             </button>
           ))}
-          <button type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
+          <button
+            type="button"
+            onClick={reset}
+            className={cx(buttonBase, buttonIdle)}
+          >
             Reset
           </button>
         </div>

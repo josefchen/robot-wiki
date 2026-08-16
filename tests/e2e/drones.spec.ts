@@ -11,7 +11,10 @@ test.describe('adjacent drones module', () => {
     page.on('pageerror', (err) => errors.push(err.message));
     await page.goto(ROUTE);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Drones and Aerial Robotics' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Drones and Aerial Robotics',
+      }),
     ).toBeVisible();
 
     const prose = page.locator('div.prose[data-pagefind-body]');
@@ -118,7 +121,9 @@ test.describe('adjacent drones module', () => {
     // Dragging the latency slider lowers the maximum speed.
     await slider.focus();
     await slider.press('ArrowLeft'); // step 5 ms down
-    await expect(page.getByTestId('max-speed-readout')).not.toHaveText('19.21 m/s');
+    await expect(page.getByTestId('max-speed-readout')).not.toHaveText(
+      '19.21 m/s',
+    );
 
     // Agility selection changes the avoidance maneuver time.
     await page.getByRole('button', { name: '200 m/s²' }).click();

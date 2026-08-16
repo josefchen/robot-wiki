@@ -1,12 +1,11 @@
 import { expect, test } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { DOMAIN_META, DOMAINS, publishedModules } from '../../data/modules';
 import {
-  DOMAIN_META,
-  DOMAINS,
-  publishedModules,
-} from '../../data/modules';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Final integration sweep for the go-public pass, against the shipped
@@ -85,7 +84,10 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     const moduleUrl = `${BASE}/manipulation/action-chunking/`;
     await page.goto(moduleUrl);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Action Chunking (ACT and ALOHA)' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Action Chunking (ACT and ALOHA)',
+      }),
     ).toBeVisible();
 
     const searchUrl = `${BASE}/search/?q=flow%20matching`;
@@ -93,7 +95,10 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     const searchBox = page.getByRole('searchbox', { name: 'Search the wiki' });
     await expect(searchBox).toHaveValue('flow matching');
     await expect(
-      page.locator('#main-content').getByText(/flow matching/i).first(),
+      page
+        .locator('#main-content')
+        .getByText(/flow matching/i)
+        .first(),
     ).toBeVisible();
 
     const marketUrl = `${BASE}/market-map/?segment=humanoids`;
@@ -106,14 +111,20 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     await expect(page).toHaveURL(/\/search\/\?q=flow%20matching/);
     await expect(searchBox).toHaveValue('flow matching');
     await expect(
-      page.locator('#main-content').getByText(/flow matching/i).first(),
+      page
+        .locator('#main-content')
+        .getByText(/flow matching/i)
+        .first(),
     ).toBeVisible();
 
     // Back again: the module page renders its heading.
     await page.goBack();
     await expect(page).toHaveURL(/\/manipulation\/action-chunking\//);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Action Chunking (ACT and ALOHA)' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Action Chunking (ACT and ALOHA)',
+      }),
     ).toBeVisible();
 
     // Back to the home page.
@@ -125,7 +136,10 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     await page.goForward();
     await expect(page).toHaveURL(/\/manipulation\/action-chunking\//);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Action Chunking (ACT and ALOHA)' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Action Chunking (ACT and ALOHA)',
+      }),
     ).toBeVisible();
 
     await page.goForward();
@@ -141,9 +155,7 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     page,
   }) => {
     await page.goto(`${BASE}/`);
-    await nav(page)
-      .getByRole('link', { name: 'Market Map' })
-      .click();
+    await nav(page).getByRole('link', { name: 'Market Map' }).click();
     await expect(page).toHaveURL(/\/market-map\/$/);
     await page.goBack();
     await expect(page).toHaveURL(/\/$/);

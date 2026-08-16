@@ -171,7 +171,12 @@ export function PendulumController({ className }: { className?: string }) {
               htmlFor={`pendulum-gain-${spec.id}`}
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
             >
-              {spec.symbol} {spec.id === 'kp' ? 'proportional' : spec.id === 'ki' ? 'integral' : 'derivative'}
+              {spec.symbol}{' '}
+              {spec.id === 'kp'
+                ? 'proportional'
+                : spec.id === 'ki'
+                  ? 'integral'
+                  : 'derivative'}
               <span
                 className="whitespace-nowrap font-mono text-xs normal-case tracking-normal text-text"
                 data-testid={`pendulum-gain-${spec.id}-value`}
@@ -318,9 +323,7 @@ export function PendulumController({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
-          aria-label={
-            playing ? 'Pause the simulation' : 'Run the simulation'
-          }
+          aria-label={playing ? 'Pause the simulation' : 'Run the simulation'}
           className={cx(buttonBase, 'inline-flex items-center gap-1.5')}
         >
           {playing ? (
@@ -378,15 +381,15 @@ export function PendulumController({ className }: { className?: string }) {
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         A point mass on a 1 m rod with torque applied at the pivot. The dot
-        beside the tip mass is a payload bolted slightly off-center, a
-        constant disturbance torque the loop must fight. Things worth
-        trying: with the defaults the pole settles into a small steady lean,
-        which is proportional-plus-derivative action reaching its limit;
-        raise Ki and the integrator walks it back to vertical. Cut Kd toward
-        zero and the recovery rings instead of settling. Drag Kp below 9.81,
-        the mgl threshold for this plant, and no amount of damping can hold
-        the pole up. The physics is exact and deterministic: the same gains
-        always produce the same motion.
+        beside the tip mass is a payload bolted slightly off-center, a constant
+        disturbance torque the loop must fight. Things worth trying: with the
+        defaults the pole settles into a small steady lean, which is
+        proportional-plus-derivative action reaching its limit; raise Ki and the
+        integrator walks it back to vertical. Cut Kd toward zero and the
+        recovery rings instead of settling. Drag Kp below 9.81, the mgl
+        threshold for this plant, and no amount of damping can hold the pole up.
+        The physics is exact and deterministic: the same gains always produce
+        the same motion.
       </p>
     </div>
   );

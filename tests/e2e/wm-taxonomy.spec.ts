@@ -52,18 +52,16 @@ test.describe('world-models taxonomy module', () => {
     await page.goto(ROUTE);
     const rows = page.locator('[data-testid^="wm-row-"]');
     await expect(rows).toHaveCount(6);
-    await expect(
-      page.getByTestId('wm-row-latent-dynamics'),
-    ).toContainText('continuation');
-    await expect(
-      page.getByTestId('wm-row-decoder-free-latent'),
-    ).toContainText('no reconstruction');
-    await expect(
-      page.getByTestId('wm-row-generative-video'),
-    ).toContainText('Future pixels');
-    await expect(page.getByTestId('wm-row-jepa')).toContainText(
-      'never pixels',
+    await expect(page.getByTestId('wm-row-latent-dynamics')).toContainText(
+      'continuation',
     );
+    await expect(page.getByTestId('wm-row-decoder-free-latent')).toContainText(
+      'no reconstruction',
+    );
+    await expect(page.getByTestId('wm-row-generative-video')).toContainText(
+      'Future pixels',
+    );
+    await expect(page.getByTestId('wm-row-jepa')).toContainText('never pixels');
     await expect(page.getByTestId('wm-row-world-action')).toContainText(
       'action chunks',
     );

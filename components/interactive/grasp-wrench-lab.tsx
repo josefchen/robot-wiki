@@ -59,7 +59,11 @@ const depth = (v: Vec3) => 0.55 * v.x - 0.45 * v.y + v.z;
 const CONE_LEN = 0.5;
 
 /** SVG path of the friction cone wedge at a contact, apex at the point. */
-function conePath(point: { x: number; y: number }, normal: { x: number; y: number }, mu: number) {
+function conePath(
+  point: { x: number; y: number },
+  normal: { x: number; y: number },
+  mu: number,
+) {
   const alpha = Math.atan(mu);
   const base = Math.atan2(normal.y, normal.x);
   const a0 = base - alpha;
@@ -96,7 +100,10 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         }));
         const mx = pts.reduce((s, p) => s + p.x, 0) / pts.length;
         const my = pts.reduce((s, p) => s + p.y, 0) / pts.length;
-        pts.sort((a, b) => Math.atan2(a.y - my, a.x - mx) - Math.atan2(b.y - my, b.x - mx));
+        pts.sort(
+          (a, b) =>
+            Math.atan2(a.y - my, a.x - mx) - Math.atan2(b.y - my, b.x - mx),
+        );
         return {
           points: pts.map((p) => `${p.x},${p.y}`).join(' '),
           depth: pts.reduce((s, p) => s + p.d, 0) / pts.length,
@@ -207,9 +214,9 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           ))}
         </div>
         <p className="mt-1 font-sans text-[11px] leading-snug text-text-dim">
-          Position along the perimeter: 0.00 at the top-right corner,
-          increasing counterclockwise, so 0.13 sits at the top edge midpoint
-          and 0.63 at the bottom edge midpoint.
+          Position along the perimeter: 0.00 at the top-right corner, increasing
+          counterclockwise, so 0.13 sits at the top edge midpoint and 0.63 at
+          the bottom edge midpoint.
         </p>
       </fieldset>
 
@@ -461,14 +468,14 @@ export function GraspWrenchLab({ className }: { className?: string }) {
       </p>
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Left: the object and its friction cones, half-angle arctan μ. Right:
-        the grasp wrench space, the convex hull of the cone-edge wrenches in
-        (fx, fy, τ), with τ scaled per half side of the object. Force closure
-        holds exactly when the origin sits strictly inside the hull; ε is the
-        radius of the largest origin-centered wrench ball that still fits.
-        Things worth trying: remove contact 3 and watch the hull collapse
-        onto the origin, then slide contact 2 to 0.63 so the pair is
-        antipodal; or drag μ down and watch ε shrink.
+        Left: the object and its friction cones, half-angle arctan μ. Right: the
+        grasp wrench space, the convex hull of the cone-edge wrenches in (fx,
+        fy, τ), with τ scaled per half side of the object. Force closure holds
+        exactly when the origin sits strictly inside the hull; ε is the radius
+        of the largest origin-centered wrench ball that still fits. Things worth
+        trying: remove contact 3 and watch the hull collapse onto the origin,
+        then slide contact 2 to 0.63 so the pair is antipodal; or drag μ down
+        and watch ε shrink.
       </p>
     </div>
   );

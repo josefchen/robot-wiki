@@ -39,7 +39,9 @@ describe('glossaryTermSchema', () => {
   });
 
   it('rejects an empty term or definition', () => {
-    expect(glossaryTermSchema.safeParse({ ...valid, term: '' }).success).toBe(false);
+    expect(glossaryTermSchema.safeParse({ ...valid, term: '' }).success).toBe(
+      false,
+    );
     expect(
       glossaryTermSchema.safeParse({ ...valid, definition: '' }).success,
     ).toBe(false);
@@ -75,7 +77,9 @@ describe('GLOSSARY coverage', () => {
   it('every entry passes the schema', () => {
     for (const term of GLOSSARY) {
       const result = glossaryTermSchema.safeParse(term);
-      expect(result.success, `${term.id}: ${result.error?.message ?? ''}`).toBe(true);
+      expect(result.success, `${term.id}: ${result.error?.message ?? ''}`).toBe(
+        true,
+      );
     }
   });
 
@@ -88,7 +92,10 @@ describe('GLOSSARY coverage', () => {
     for (const term of GLOSSARY) {
       expect(term.citations.length).toBeGreaterThan(0);
       for (const id of term.citations) {
-        expect(getCitation(id), `${term.id} cites unknown source ${id}`).toBeDefined();
+        expect(
+          getCitation(id),
+          `${term.id} cites unknown source ${id}`,
+        ).toBeDefined();
       }
     }
   });
@@ -144,7 +151,10 @@ describe('inline term ids across published articles (VAL-GLOSS-010)', () => {
         'utf8',
       );
       for (const id of inlineTermIds(moduleBody(source))) {
-        expect(getTerm(id), `${m.domain}/${m.slug} uses unknown term "${id}"`).toBeDefined();
+        expect(
+          getTerm(id),
+          `${m.domain}/${m.slug} uses unknown term "${id}"`,
+        ).toBeDefined();
       }
     }
   });

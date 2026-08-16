@@ -91,7 +91,7 @@ export const PERTURBATIONS: Perturbation[] = [
       status: 'recovers',
       trace: expDecay(6, 6),
       annotation:
-        'The push is inside the model\'s assumptions, so the next re-solve finds a recovery inside the horizon. The deviation decays cleanly and no constraint is ever violated.',
+        "The push is inside the model's assumptions, so the next re-solve finds a recovery inside the horizon. The deviation decays cleanly and no constraint is ever violated.",
     },
     rl: {
       status: 'recovers',
@@ -147,7 +147,7 @@ export const PERTURBATIONS: Perturbation[] = [
         Math.min(20, 0.45 * t * (1 + 0.35 * Math.sin(t))),
       ),
       annotation:
-        'The limit lived in a reward penalty, not a guarantee. Past the penalty\'s calibration the policy saturates the actuators, oscillates, and goes down.',
+        "The limit lived in a reward penalty, not a guarantee. Past the penalty's calibration the policy saturates the actuators, oscillates, and goes down.",
     },
   },
 ];

@@ -96,9 +96,9 @@ describe('PlanarFkArm', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(readout('fk-ee-x')).toBe(initialX);
     expect(readout('fk-ee-y')).toBe(initialY);
-    expect(
-      screen.getByRole('slider', { name: /base joint/i }),
-    ).toHaveValue(String(DEFAULT_ANGLES_DEG[0]));
+    expect(screen.getByRole('slider', { name: /base joint/i })).toHaveValue(
+      String(DEFAULT_ANGLES_DEG[0]),
+    );
   });
 
   it('never renders NaN at the slider extremes', () => {

@@ -11,7 +11,12 @@ beforeEach(() => {
 
 describe('CodeBlock', () => {
   it('renders the code verbatim', () => {
-    render(<CodeBlock language="python" code={'policy.act(obs)\n# chunk of k actions'} />);
+    render(
+      <CodeBlock
+        language="python"
+        code={'policy.act(obs)\n# chunk of k actions'}
+      />,
+    );
     expect(screen.getByText(/policy\.act\(obs\)/)).toBeInTheDocument();
   });
 

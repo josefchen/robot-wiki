@@ -8,8 +8,11 @@ const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
 
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */
-async function readoutValue(page: import('@playwright/test').Page): Promise<number> {
-  const text = (await page.getByTestId('episode-success-readout').textContent()) ?? '';
+async function readoutValue(
+  page: import('@playwright/test').Page,
+): Promise<number> {
+  const text =
+    (await page.getByTestId('episode-success-readout').textContent()) ?? '';
   expect(text).not.toContain('NaN');
   const value = Number.parseFloat(text);
   expect(Number.isFinite(value)).toBe(true);
@@ -40,24 +43,42 @@ test.describe('data-hardware evaluation-crisis module', () => {
     // .first() can latch onto the invisible tooltip (quirk 8).
     // Strand 1: small-N trial statistics and confidence-interval width.
     await expect(
-      main.getByText(/Clopper-Pearson/i).filter({ visible: true }).first(),
+      main
+        .getByText(/Clopper-Pearson/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/confidence interval/i).filter({ visible: true }).first(),
+      main
+        .getByText(/confidence interval/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     // Strand 2: SIMPLER-style sim-to-real evaluation correlation.
     await expect(
-      main.getByText(/SIMPLER/i).filter({ visible: true }).first(),
+      main
+        .getByText(/SIMPLER/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/system identification/i).filter({ visible: true }).first(),
+      main
+        .getByText(/system identification/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     // Strand 3: crowd-sourced pairwise evaluation (RoboArena).
     await expect(
-      main.getByText(/RoboArena/i).filter({ visible: true }).first(),
+      main
+        .getByText(/RoboArena/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
     await expect(
-      main.getByText(/double-blind/i).filter({ visible: true }).first(),
+      main
+        .getByText(/double-blind/i)
+        .filter({ visible: true })
+        .first(),
     ).toBeVisible();
 
     // No raw MDX or component syntax leaks into the rendered page.
@@ -164,15 +185,23 @@ test.describe('data-hardware evaluation-crisis module', () => {
     await setSlider(page.getByRole('slider', PER_STEP), 95);
 
     await setSlider(horizon, 30);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(page.getByTestId('episode-success-readout')).toHaveText(
+      '21.5%',
+    );
     // 0.95^60 = 4.61%, contract tolerance +/-1pp.
     await setSlider(horizon, 60);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('4.6%');
+    await expect(page.getByTestId('episode-success-readout')).toHaveText(
+      '4.6%',
+    );
     // Decreasing N monotonically raises the readout.
     await setSlider(horizon, 10);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('59.9%');
+    await expect(page.getByTestId('episode-success-readout')).toHaveText(
+      '59.9%',
+    );
     await setSlider(horizon, 30);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(page.getByTestId('episode-success-readout')).toHaveText(
+      '21.5%',
+    );
   });
 
   test('boundary inputs produce honest outputs (VAL-DATA-028)', async ({
@@ -220,7 +249,9 @@ test.describe('data-hardware evaluation-crisis module', () => {
     await setSlider(page.getByRole('slider', PER_STEP), 0);
     await setSlider(page.getByRole('slider', HORIZON), 100);
     await page.getByRole('button', { name: /reset/i }).click();
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(page.getByTestId('episode-success-readout')).toHaveText(
+      '21.5%',
+    );
     await expect(page.getByRole('slider', PER_STEP)).toHaveValue('95');
     await expect(page.getByRole('slider', HORIZON)).toHaveValue('30');
   });

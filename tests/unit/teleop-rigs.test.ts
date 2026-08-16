@@ -83,9 +83,9 @@ describe('TELEOP_RIGS data', () => {
     // UMI: $73 printed gripper + $298 GoPro and accessories (paper, Sec. III).
     expect(TELEOP_RIGS.find((r) => r.id === 'umi')?.costUsd).toBe(371);
     // ALOHA 2 low end of the $17,000-$32,000 range (LeRobot pricing).
-    expect(
-      TELEOP_RIGS.find((r) => r.id === 'aloha-workstation')?.costUsd,
-    ).toBe(17000);
+    expect(TELEOP_RIGS.find((r) => r.id === 'aloha-workstation')?.costUsd).toBe(
+      17000,
+    );
   });
 });
 
@@ -97,12 +97,7 @@ describe('teleop-rig helpers', () => {
 
   it('lists exactly the four comparison dimensions', () => {
     const ids = RIG_FIELDS.map((field) => field.id).sort();
-    expect(ids).toEqual([
-      'cost',
-      'dataQuality',
-      'embodimentGap',
-      'throughput',
-    ]);
+    expect(ids).toEqual(['cost', 'dataQuality', 'embodimentGap', 'throughput']);
     for (const field of RIG_FIELDS) {
       expect(field.label.length).toBeGreaterThan(0);
       expect(field.legend.length).toBeGreaterThan(0);

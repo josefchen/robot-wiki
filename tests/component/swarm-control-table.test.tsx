@@ -19,7 +19,9 @@ describe('SwarmControlTable', () => {
   it('exposes an accessible name via caption', () => {
     render(<SwarmControlTable />);
     expect(
-      screen.getByRole('table', { name: /control families for aerial swarms/i }),
+      screen.getByRole('table', {
+        name: /control families for aerial swarms/i,
+      }),
     ).toBeInTheDocument();
   });
 

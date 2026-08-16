@@ -19,16 +19,17 @@ test.describe('search shell', () => {
     const inputs = main.getByRole('searchbox');
     await expect(inputs).toHaveCount(1);
     await expect(inputs.first()).toHaveAccessibleName('Search the wiki');
-    await expect(
-      main.getByText(/type a query to search/i),
-    ).toBeVisible();
+    await expect(main.getByText(/type a query to search/i)).toBeVisible();
   });
 
   test('shell search box lands on /search with the query preserved', async ({
     page,
   }) => {
     await page.goto('/');
-    const sidebar = page.getByRole('searchbox', { name: 'Search', exact: true });
+    const sidebar = page.getByRole('searchbox', {
+      name: 'Search',
+      exact: true,
+    });
     await sidebar.fill('temporal ensembling');
     await sidebar.press('Enter');
     await expect(page).toHaveURL(/\/search\/?\?q=temporal%20ensembling/);

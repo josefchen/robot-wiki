@@ -38,7 +38,15 @@ const BORDER = 'var(--color-border)';
 const BORDER_STRONG = 'var(--color-border-strong)';
 const SURFACE_2 = 'var(--color-surface-2)';
 
-function LatentCells({ x, y, cells = 8 }: { x: number; y: number; cells?: number }) {
+function LatentCells({
+  x,
+  y,
+  cells = 8,
+}: {
+  x: number;
+  y: number;
+  cells?: number;
+}) {
   return (
     <g>
       {Array.from({ length: cells }, (_, i) => (
@@ -57,31 +65,112 @@ function LatentCells({ x, y, cells = 8 }: { x: number; y: number; cells?: number
   );
 }
 
-function CrossedFrame({ x, y, width: w, height: h, label }: { x: number; y: number; width: number; height: number; label: string }) {
+function CrossedFrame({
+  x,
+  y,
+  width: w,
+  height: h,
+  label,
+}: {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  label: string;
+}) {
   return (
     <g>
-      <rect x={x} y={y} width={w} height={h} fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={x} y1={y} x2={x + w} y2={y + h} stroke={BORDER_STRONG} strokeWidth={1} />
-      <line x1={x + w} y1={y} x2={x} y2={y + h} stroke={BORDER_STRONG} strokeWidth={1} />
-      <text x={x + w / 2} y={y + h + 11} textAnchor="middle" fill={DIM} fontSize={8} fontFamily={MONO}>
+      <rect
+        x={x}
+        y={y}
+        width={w}
+        height={h}
+        fill="none"
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <line
+        x1={x}
+        y1={y}
+        x2={x + w}
+        y2={y + h}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <line
+        x1={x + w}
+        y1={y}
+        x2={x}
+        y2={y + h}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
+      <text
+        x={x + w / 2}
+        y={y + h + 11}
+        textAnchor="middle"
+        fill={DIM}
+        fontSize={8}
+        fontFamily={MONO}
+      >
         {label}
       </text>
     </g>
   );
 }
 
-function VideoScene({ x, y, width: w, height: h }: { x: number; y: number; width: number; height: number }) {
+function VideoScene({
+  x,
+  y,
+  width: w,
+  height: h,
+}: {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}) {
   return (
     <g>
-      <rect x={x} y={y} width={w} height={h} fill={SURFACE_2} stroke={BORDER_STRONG} strokeWidth={1} />
+      <rect
+        x={x}
+        y={y}
+        width={w}
+        height={h}
+        fill={SURFACE_2}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
       {/* horizon */}
-      <line x1={x} y1={y + h * 0.62} x2={x + w} y2={y + h * 0.62} stroke={BORDER_STRONG} strokeWidth={1} />
+      <line
+        x1={x}
+        y1={y + h * 0.62}
+        x2={x + w}
+        y2={y + h * 0.62}
+        stroke={BORDER_STRONG}
+        strokeWidth={1}
+      />
       {/* light source */}
       <circle cx={x + w * 0.24} cy={y + h * 0.28} r={5} fill={ACCENT} />
       {/* table */}
-      <rect x={x + w * 0.52} y={y + h * 0.52} width={w * 0.36} height={h * 0.12} fill="none" stroke={TEXT} strokeWidth={1} />
+      <rect
+        x={x + w * 0.52}
+        y={y + h * 0.52}
+        width={w * 0.36}
+        height={h * 0.12}
+        fill="none"
+        stroke={TEXT}
+        strokeWidth={1}
+      />
       {/* cup */}
-      <circle cx={x + w * 0.66} cy={y + h * 0.46} r={3.5} fill="none" stroke={TEXT} strokeWidth={1} />
+      <circle
+        cx={x + w * 0.66}
+        cy={y + h * 0.46}
+        r={3.5}
+        fill="none"
+        stroke={TEXT}
+        strokeWidth={1}
+      />
     </g>
   );
 }
@@ -107,9 +196,24 @@ function PanelArt({ id }: { id: WmParadigmId }) {
             continue = 1
           </text>
           {/* fuzzy decoded reconstruction */}
-          <rect x={14} y={70} width={92} height={40} fill={SURFACE_2} stroke={BORDER} strokeWidth={1} />
+          <rect
+            x={14}
+            y={70}
+            width={92}
+            height={40}
+            fill={SURFACE_2}
+            stroke={BORDER}
+            strokeWidth={1}
+          />
           <circle cx={46} cy={88} r={10} fill={DIM} opacity={0.35} />
-          <rect x={66} y={80} width={26} height={18} fill={DIM} opacity={0.22} />
+          <rect
+            x={66}
+            y={80}
+            width={26}
+            height={18}
+            fill={DIM}
+            opacity={0.22}
+          />
           <text x={116} y={86} fill={DIM} fontSize={8} fontFamily={MONO}>
             decoded frame
           </text>
@@ -125,14 +229,40 @@ function PanelArt({ id }: { id: WmParadigmId }) {
           </text>
           <LatentCells x={14} y={24} />
           {/* MPPI candidate fan */}
-          <path d="M 24 96 Q 70 70 130 62" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <path d="M 24 96 Q 76 80 138 78" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
-          <path d="M 24 96 Q 82 88 146 92" fill="none" stroke={ACCENT} strokeWidth={1.5} />
-          <path d="M 24 96 Q 74 96 132 104" fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
+          <path
+            d="M 24 96 Q 70 70 130 62"
+            fill="none"
+            stroke={BORDER_STRONG}
+            strokeWidth={1}
+          />
+          <path
+            d="M 24 96 Q 76 80 138 78"
+            fill="none"
+            stroke={BORDER_STRONG}
+            strokeWidth={1}
+          />
+          <path
+            d="M 24 96 Q 82 88 146 92"
+            fill="none"
+            stroke={ACCENT}
+            strokeWidth={1.5}
+          />
+          <path
+            d="M 24 96 Q 74 96 132 104"
+            fill="none"
+            stroke={BORDER_STRONG}
+            strokeWidth={1}
+          />
           <text x={14} y={58} fill={DIM} fontSize={8} fontFamily={MONO}>
             MPPI candidates
           </text>
-          <CrossedFrame x={152} y={56} width={34} height={26} label="no image" />
+          <CrossedFrame
+            x={152}
+            y={56}
+            width={34}
+            height={26}
+            label="no image"
+          />
         </g>
       )}
       {id === 'generative-video' && (
@@ -162,17 +292,43 @@ function PanelArt({ id }: { id: WmParadigmId }) {
           </text>
           <LatentCells x={14} y={24} />
           {/* goal embedding */}
-          <polygon points="168,22 176,30 168,38 160,30" fill="none" stroke={ACCENT} strokeWidth={1.5} />
-          <text x={168} y={50} textAnchor="middle" fill={ACCENT} fontSize={8} fontFamily={MONO}>
+          <polygon
+            points="168,22 176,30 168,38 160,30"
+            fill="none"
+            stroke={ACCENT}
+            strokeWidth={1.5}
+          />
+          <text
+            x={168}
+            y={50}
+            textAnchor="middle"
+            fill={ACCENT}
+            fontSize={8}
+            fontFamily={MONO}
+          >
             goal
           </text>
           {/* distance meter */}
-          <rect x={14} y={66} width={120} height={8} fill="none" stroke={BORDER_STRONG} strokeWidth={1} />
+          <rect
+            x={14}
+            y={66}
+            width={120}
+            height={8}
+            fill="none"
+            stroke={BORDER_STRONG}
+            strokeWidth={1}
+          />
           <rect x={14} y={66} width={38} height={8} fill={ACCENT} />
           <text x={14} y={90} fill={DIM} fontSize={9} fontFamily={MONO}>
             dist(e_pred, e_goal) = 0.31
           </text>
-          <CrossedFrame x={150} y={60} width={34} height={26} label="no decoder" />
+          <CrossedFrame
+            x={150}
+            y={60}
+            width={34}
+            height={26}
+            label="no decoder"
+          />
         </g>
       )}
       {id === 'world-action' && (
@@ -210,7 +366,14 @@ function PanelArt({ id }: { id: WmParadigmId }) {
           <text x={14} y={46} fill={TEXT} fontSize={10} fontFamily={MONO}>
             clear(table)
           </text>
-          <line x1={30} y1={54} x2={30} y2={72} stroke={BORDER_STRONG} strokeWidth={1} />
+          <line
+            x1={30}
+            y1={54}
+            x2={30}
+            y2={72}
+            stroke={BORDER_STRONG}
+            strokeWidth={1}
+          />
           <polygon points="30,78 26,70 34,70" fill={BORDER_STRONG} />
           <text x={40} y={68} fill={DIM} fontSize={8} fontFamily={MONO}>
             pick(cup)
@@ -244,9 +407,7 @@ export function WmDisambiguator({
       )}
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <div
-          className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs"
-        >
+        <div className="flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
           <span className="text-text-dim">
             Selected:{' '}
             <span data-testid="selected-readout" className="text-accent">
@@ -306,9 +467,7 @@ export function WmDisambiguator({
       </div>
 
       <div className="mt-3 border-t border-border pt-3">
-        <div className="font-mono text-[11px] text-text-dim">
-          Used for
-        </div>
+        <div className="font-mono text-[11px] text-text-dim">Used for</div>
         <ul
           aria-label="What the selected paradigm is used for"
           className="mt-1.5 flex flex-wrap gap-1.5"
@@ -339,8 +498,8 @@ export function WmDisambiguator({
         aria-live="polite"
         className="mt-3 font-sans text-xs leading-relaxed text-text-dim"
       >
-        <span className="text-text">{selected.name}:</span>{' '}
-        {selected.panelNote}. Used for{' '}
+        <span className="text-text">{selected.name}:</span> {selected.panelNote}
+        . Used for{' '}
         {selected.uses
           .map((u) => WM_USES.find((x) => x.id === u)?.label)
           .join(', ')}

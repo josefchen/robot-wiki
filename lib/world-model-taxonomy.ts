@@ -21,10 +21,7 @@ export type WmParadigmId =
 
 /** What a world model gets used for, per the survey's functional roles. */
 export type WmUseId =
-  | 'policy-learning'
-  | 'planning'
-  | 'evaluation'
-  | 'data-generation';
+  'policy-learning' | 'planning' | 'evaluation' | 'data-generation';
 
 export const WM_USES: Array<{ id: WmUseId; label: string }> = [
   { id: 'policy-learning', label: 'Policy learning' },
@@ -61,12 +58,14 @@ export const WM_PARADIGMS: WmParadigm[] = [
     short: 'Latent dynamics',
     name: 'Latent-dynamics world model (Dreamer-style)',
     predicts: 'Next latent state + reward + continuation flag',
-    space: 'Learned compact latent (stochastic + deterministic); decoded to pixels during training',
+    space:
+      'Learned compact latent (stochastic + deterministic); decoded to pixels during training',
     trainedOn: "The agent's own interaction data",
     primaryUse: 'Policy optimization on imagined rollouts; sample-efficient RL',
     systems: 'DreamerV3, DayDreamer, Robotic World Model',
     uses: ['policy-learning'],
-    panelNote: 'a latent vector, a reward scalar, and a fuzzy decoded reconstruction',
+    panelNote:
+      'a latent vector, a reward scalar, and a fuzzy decoded reconstruction',
   },
   {
     id: 'decoder-free-latent',
@@ -75,10 +74,12 @@ export const WM_PARADIGMS: WmParadigm[] = [
     predicts: 'Next latent state + reward; no reconstruction, no decoder',
     space: 'Implicit latent trained only for value/reward prediction',
     trainedOn: 'Interaction data',
-    primaryUse: 'Latent-space trajectory optimization (MPPI) at every control step',
+    primaryUse:
+      'Latent-space trajectory optimization (MPPI) at every control step',
     systems: 'TD-MPC, TD-MPC2, Dream-MPC',
     uses: ['policy-learning', 'planning'],
-    panelNote: 'a latent vector with MPPI candidate trajectories and no image at all',
+    panelNote:
+      'a latent vector with MPPI candidate trajectories and no image at all',
   },
   {
     id: 'generative-video',
@@ -87,7 +88,8 @@ export const WM_PARADIGMS: WmParadigm[] = [
     predicts: 'Future pixels conditioned on the current frame(s) + action/text',
     space: 'Pixel or VAE-latent video space',
     trainedOn: 'Internet video + robot trajectories',
-    primaryUse: 'Data generation, policy evaluation, RL post-training, interactive worlds',
+    primaryUse:
+      'Data generation, policy evaluation, RL post-training, interactive worlds',
     systems: 'Cosmos 3, Genie 3, Odyssey, Interactive World Simulator',
     uses: ['policy-learning', 'evaluation', 'data-generation'],
     panelNote: 'a photoreal predicted video frame',
@@ -102,7 +104,8 @@ export const WM_PARADIGMS: WmParadigm[] = [
     primaryUse: 'Zero-shot planning by energy minimization over latent goals',
     systems: 'V-JEPA, V-JEPA 2, V-JEPA 2-AC',
     uses: ['planning'],
-    panelNote: 'an embedding vector and a goal-distance meter, with an explicit no-decoder marker',
+    panelNote:
+      'an embedding vector and a goal-distance meter, with an explicit no-decoder marker',
   },
   {
     id: 'world-action',
@@ -111,7 +114,8 @@ export const WM_PARADIGMS: WmParadigm[] = [
     predicts: 'Future frames and action chunks from one backbone',
     space: 'Shared backbone; parallel generative and action heads',
     trainedOn: 'Robot trajectories + video',
-    primaryUse: 'Policy with world-modeling as auxiliary objective / implicit lookahead',
+    primaryUse:
+      'Policy with world-modeling as auxiliary objective / implicit lookahead',
     systems: 'Cosmos Policy, WorldVLA, DreamZero',
     uses: ['policy-learning'],
     panelNote: 'frames and an action chunk emitted together from one backbone',
@@ -123,7 +127,8 @@ export const WM_PARADIGMS: WmParadigm[] = [
     predicts: 'Transitions over predicates, object relations, occupancy',
     space: 'Discrete/relational or 3D-occupancy space',
     trainedOn: 'Curated or perception-grounded data',
-    primaryUse: 'Long-horizon task planning without pixel-space error accumulation',
+    primaryUse:
+      'Long-horizon task planning without pixel-space error accumulation',
     systems: 'OccWorld, symbolic-abstraction hybrids',
     uses: ['planning'],
     panelNote: 'a predicate list, on(cup, table) becoming in(cup, gripper)',

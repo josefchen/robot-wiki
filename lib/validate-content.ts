@@ -149,7 +149,9 @@ function listMdxFiles(dir: string): string[] {
   return out;
 }
 
-export function validateContent(opts: ValidateContentOptions): ValidationIssue[] {
+export function validateContent(
+  opts: ValidateContentOptions,
+): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const staticRoutes = opts.staticRoutes ?? DEFAULT_STATIC_ROUTES;
   const push = (file: string | null, message: string) =>
@@ -162,7 +164,10 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
   for (const entry of opts.modules) {
     const parsed = moduleRegistryEntrySchema.safeParse(entry);
     if (!parsed.success) {
-      push(null, `registry entry ${entry.domain}/${entry.slug}: ${parsed.error.message}`);
+      push(
+        null,
+        `registry entry ${entry.domain}/${entry.slug}: ${parsed.error.message}`,
+      );
       continue;
     }
     const key = `${entry.domain}/${entry.slug}`;
@@ -234,10 +239,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
   for (const image of opts.images ?? []) {
     const parsed = imageSchema.safeParse(image);
     if (!parsed.success) {
-      push(
-        null,
-        `image ${image.id}: ${parsed.error.message}`,
-      );
+      push(null, `image ${image.id}: ${parsed.error.message}`);
       continue;
     }
     if (imageIds.has(image.id)) {
@@ -259,7 +261,9 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
   }
 
   // Routes that internal links may target.
-  const moduleByKey = new Map(opts.modules.map((m) => [`${m.domain}/${m.slug}`, m]));
+  const moduleByKey = new Map(
+    opts.modules.map((m) => [`${m.domain}/${m.slug}`, m]),
+  );
   const validRoutes = new Set<string>([
     ...staticRoutes.map(normalizeInternalPath),
     ...opts.modules
@@ -275,7 +279,9 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
   };
 
   // 3+4+5+6. Content files.
-  const files = existsSync(opts.contentRoot) ? listMdxFiles(opts.contentRoot) : [];
+  const files = existsSync(opts.contentRoot)
+    ? listMdxFiles(opts.contentRoot)
+    : [];
   const seenContentKeys = new Set<string>();
 
   for (const file of files) {
@@ -315,10 +321,16 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       push(rel, `no registry entry for ${key} (orphan content file)`);
     } else {
       if (entry.title !== fm.data.title) {
-        push(rel, `title mismatch: registry "${entry.title}" vs frontmatter "${fm.data.title}"`);
+        push(
+          rel,
+          `title mismatch: registry "${entry.title}" vs frontmatter "${fm.data.title}"`,
+        );
       }
       if (entry.order !== fm.data.order) {
-        push(rel, `order mismatch: registry ${entry.order} vs frontmatter ${fm.data.order}`);
+        push(
+          rel,
+          `order mismatch: registry ${entry.order} vs frontmatter ${fm.data.order}`,
+        );
       }
       if (entry.status !== fm.data.status) {
         push(
@@ -357,7 +369,10 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     if (opts.terms) {
       for (const id of inlineTermIds(body)) {
         if (!termIds.has(id)) {
-          push(rel, `unknown <Term id="${id}">: no glossary entry with that id`);
+          push(
+            rel,
+            `unknown <Term id="${id}">: no glossary entry with that id`,
+          );
         }
       }
     }
@@ -411,9 +426,15 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
       const target = moduleByKey.get(id);
       if (!target) {
-        push(rel, `seeAlso entry "${id}" does not resolve to a module in the registry`);
+        push(
+          rel,
+          `seeAlso entry "${id}" does not resolve to a module in the registry`,
+        );
       } else if (target.status !== 'published') {
-        push(rel, `seeAlso entry "${id}" points at a draft module; targets must be published`);
+        push(
+          rel,
+          `seeAlso entry "${id}" points at a draft module; targets must be published`,
+        );
       }
     }
 
@@ -427,8 +448,14 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
 
   // 3. Every published registry entry ships a content file.
   for (const entry of opts.modules) {
-    if (entry.status === 'published' && !seenContentKeys.has(`${entry.domain}/${entry.slug}`)) {
-      push(null, `published module ${entry.domain}/${entry.slug} has no content file`);
+    if (
+      entry.status === 'published' &&
+      !seenContentKeys.has(`${entry.domain}/${entry.slug}`)
+    ) {
+      push(
+        null,
+        `published module ${entry.domain}/${entry.slug} has no content file`,
+      );
     }
   }
 

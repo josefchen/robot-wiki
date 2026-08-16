@@ -71,8 +71,8 @@ export function IkTargetForm({
         IK target
       </h2>
       <p className="mt-2 text-xs leading-relaxed text-text-dim">
-        Click the ground in the scene, or type a target here. Scene
-        coordinates in meters; y is up.
+        Click the ground in the scene, or type a target here. Scene coordinates
+        in meters; y is up.
       </p>
 
       <div className="mt-3 grid grid-cols-3 gap-2">

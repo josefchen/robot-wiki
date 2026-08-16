@@ -15,34 +15,43 @@ const ROWS = [
   {
     stage: 'Perception',
     question: 'Where is everything, and what is it?',
-    methods: "Lidar, camera, and radar detection and tracking; occupancy grids; the Waymo Open Dataset lineage",
+    methods:
+      'Lidar, camera, and radar detection and tracking; occupancy grids; the Waymo Open Dataset lineage',
     failure:
       'A missed or misclassified object propagates to every stage below; the Tempe 2018 crash began as a classification flip',
   },
   {
     stage: 'Prediction',
     question: 'What will every moving thing do next?',
-    methods: 'Graph networks over agents and HD map (VectorNet); joint forecasting (UniAD); multi-modal futures',
+    methods:
+      'Graph networks over agents and HD map (VectorNet); joint forecasting (UniAD); multi-modal futures',
     failure:
       'Forecasting only the most likely future is unsafe when the rare future is the dangerous one',
   },
   {
     stage: 'Planning',
     question: 'What should the ego vehicle do about it?',
-    methods: 'Imitative planning with synthesized worst cases (ChauffeurNet); joint training (UniAD); text trajectories (EMMA)',
+    methods:
+      'Imitative planning with synthesized worst cases (ChauffeurNet); joint training (UniAD); text trajectories (EMMA)',
     failure:
       'Causal confusion and imitation shortcuts: the policy learns what the expert usually did, not why',
   },
   {
     stage: 'Control',
     question: 'How is the plan tracked through the car?',
-    methods: 'Lateral and longitudinal feedback, MPC and the survey taxonomy of Paden et al.',
+    methods:
+      'Lateral and longitudinal feedback, MPC and the survey taxonomy of Paden et al.',
     failure:
       'Tracking error grows at the limits of available friction and actuator latency',
   },
 ] as const;
 
-const HEADER = ['Stage', 'Question it answers', 'Representative methods', 'Characteristic failure'] as const;
+const HEADER = [
+  'Stage',
+  'Question it answers',
+  'Representative methods',
+  'Characteristic failure',
+] as const;
 
 export function AvStackTable({ className }: { className?: string }) {
   return (

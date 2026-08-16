@@ -44,9 +44,10 @@ describe('Home page', () => {
 
   it('exposes entry points to the market map and the playground', () => {
     render(<Home />);
-    expect(
-      screen.getByRole('link', { name: /Market Map/ }),
-    ).toHaveAttribute('href', '/market-map');
+    expect(screen.getByRole('link', { name: /Market Map/ })).toHaveAttribute(
+      'href',
+      '/market-map',
+    );
     expect(
       screen.getByRole('link', { name: /Kinematics Playground/ }),
     ).toHaveAttribute('href', '/playground');
@@ -58,7 +59,9 @@ describe('Home page', () => {
     const svg = link.querySelector('svg');
     expect(svg).not.toBeNull();
     // A real frame: at least three shape elements inside the svg.
-    expect(svg!.querySelectorAll('circle, line, path, rect').length).toBeGreaterThanOrEqual(3);
+    expect(
+      svg!.querySelectorAll('circle, line, path, rect').length,
+    ).toBeGreaterThanOrEqual(3);
   });
 
   it('explains how to read the wiki and links into real content', () => {

@@ -201,7 +201,9 @@ export function ActionTokenization({
               <polyline
                 points={points}
                 fill="none"
-                stroke={selected ? 'var(--color-accent)' : 'var(--color-text-dim)'}
+                stroke={
+                  selected ? 'var(--color-accent)' : 'var(--color-text-dim)'
+                }
                 strokeWidth={selected ? 1.8 : 1}
                 opacity={selected ? 1 : 0.55}
               />
@@ -209,7 +211,9 @@ export function ActionTokenization({
                 cx={chunkX(step)}
                 cy={laneValueY(i, chunk[i][step])}
                 r={selected ? 4 : 2.5}
-                fill={selected ? 'var(--color-accent)' : 'var(--color-text-dim)'}
+                fill={
+                  selected ? 'var(--color-accent)' : 'var(--color-text-dim)'
+                }
               />
             </g>
           );
@@ -252,7 +256,8 @@ export function ActionTokenization({
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          {ACTION_DIMS[dim].label} axis, 256 uniform bins on [{VALUE_MIN}, {VALUE_MAX}]
+          {ACTION_DIMS[dim].label} axis, 256 uniform bins on [{VALUE_MIN},{' '}
+          {VALUE_MAX}]
         </text>
         {/* Full strip: one rect per bin */}
         {Array.from({ length: BIN_COUNT }, (_, i) => (
@@ -269,8 +274,12 @@ export function ActionTokenization({
         ))}
         {/* Exact continuous value marker on the full strip */}
         <line
-          x1={f(PAD.left + ((value - VALUE_MIN) / (VALUE_MAX - VALUE_MIN)) * PLOT_W)}
-          x2={f(PAD.left + ((value - VALUE_MIN) / (VALUE_MAX - VALUE_MIN)) * PLOT_W)}
+          x1={f(
+            PAD.left + ((value - VALUE_MIN) / (VALUE_MAX - VALUE_MIN)) * PLOT_W,
+          )}
+          x2={f(
+            PAD.left + ((value - VALUE_MIN) / (VALUE_MAX - VALUE_MIN)) * PLOT_W,
+          )}
           y1={DETAIL_TOP - 4}
           y2={DETAIL_TOP + STRIP_H + 4}
           stroke="var(--color-text)"
@@ -308,7 +317,9 @@ export function ActionTokenization({
                 y={DETAIL_TOP + STRIP_H + ZOOM_GAP}
                 width={zw}
                 height={ZOOM_H}
-                fill={i === bin ? 'var(--color-accent)' : 'var(--color-surface-2)'}
+                fill={
+                  i === bin ? 'var(--color-accent)' : 'var(--color-surface-2)'
+                }
                 stroke="var(--color-border)"
                 strokeWidth={0.5}
               />
@@ -317,7 +328,9 @@ export function ActionTokenization({
                   x={f(zx + zw / 2)}
                   y={DETAIL_TOP + STRIP_H + ZOOM_GAP + ZOOM_H + 14}
                   textAnchor={k === ZOOM_BINS - 1 ? 'end' : 'middle'}
-                  fill={i === bin ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                  fill={
+                    i === bin ? 'var(--color-text)' : 'var(--color-text-dim)'
+                  }
                   fontSize={10}
                   fontFamily="var(--font-mono)"
                 >
@@ -337,7 +350,10 @@ export function ActionTokenization({
           strokeWidth={1.5}
         />
         <text
-          x={Math.min(Math.max(zoomX(value), PAD.left + 40), PAD.left + PLOT_W - 40)}
+          x={Math.min(
+            Math.max(zoomX(value), PAD.left + 40),
+            PAD.left + PLOT_W - 40,
+          )}
           y={DETAIL_TOP + STRIP_H + ZOOM_GAP - 8}
           textAnchor="middle"
           fill="var(--color-text)"
@@ -389,7 +405,10 @@ export function ActionTokenization({
             </span>
           ))}
         </div>
-        <p data-testid="decode-order" className="mt-2 font-mono text-xs text-text-dim">
+        <p
+          data-testid="decode-order"
+          className="mt-2 font-mono text-xs text-text-dim"
+        >
           {SEQUENTIAL_DECODES} sequential decodes per control step: token n+1
           cannot start until token n has been emitted.
         </p>
@@ -413,13 +432,13 @@ export function ActionTokenization({
         </span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Illustrative model: a smooth 7-dim action chunk in the normalized
-        [-1, 1] range, binned exactly as RT-1 and OpenVLA bin real actions
-        (256 uniform bins per dimension). One shared 256-token vocabulary
-        serves every dimension; the position in the sequence carries the
-        dimension. OpenVLA maps the bins onto the 256 least-frequent tokens
-        of the LLaMA tokenizer, so each token above stands in for a real
-        vocabulary entry, emitted like a word of text.
+        Illustrative model: a smooth 7-dim action chunk in the normalized [-1,
+        1] range, binned exactly as RT-1 and OpenVLA bin real actions (256
+        uniform bins per dimension). One shared 256-token vocabulary serves
+        every dimension; the position in the sequence carries the dimension.
+        OpenVLA maps the bins onto the 256 least-frequent tokens of the LLaMA
+        tokenizer, so each token above stands in for a real vocabulary entry,
+        emitted like a word of text.
       </p>
     </div>
   );

@@ -87,19 +87,14 @@ describe('sampleAngles', () => {
     const keyframes = [HOME, POSE_A, POSE_B];
     expect(sampleAngles(keyframes, 0)).toEqual(HOME.angles);
     expect(sampleAngles(keyframes, SEGMENT_SECONDS)).toEqual(POSE_A.angles);
-    expect(sampleAngles(keyframes, 2 * SEGMENT_SECONDS)).toEqual(
-      POSE_B.angles,
-    );
+    expect(sampleAngles(keyframes, 2 * SEGMENT_SECONDS)).toEqual(POSE_B.angles);
   });
 
   it('interpolates with easing, not linearly, mid-segment', () => {
     const quarter = sampleAngles([HOME, POSE_A], SEGMENT_SECONDS * 0.25);
     const half = sampleAngles([HOME, POSE_A], SEGMENT_SECONDS * 0.5);
     // Eased: at 25% of the segment we are less than 25% of the way.
-    expect(quarter!.shoulder_pan).toBeCloseTo(
-      0.5 * easeInOutCubic(0.25),
-      10,
-    );
+    expect(quarter!.shoulder_pan).toBeCloseTo(0.5 * easeInOutCubic(0.25), 10);
     expect(quarter!.shoulder_pan).toBeLessThan(0.5 * 0.25);
     // The eased midpoint coincides with the linear midpoint.
     expect(half!.shoulder_pan).toBeCloseTo(0.25, 10);
@@ -200,7 +195,10 @@ describe('parseTrajectory validation', () => {
   });
 
   it('rejects a payload with no keyframes array', () => {
-    const result = parseTrajectory('{"format":"robot-atlas-trajectory"}', JOINTS);
+    const result = parseTrajectory(
+      '{"format":"robot-atlas-trajectory"}',
+      JOINTS,
+    );
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.error).toMatch(/keyframe/i);
   });
@@ -244,7 +242,9 @@ describe('parseTrajectory validation', () => {
   it('rejects keyframes whose joint count differs from the arm', () => {
     const file = JSON.parse(validText);
     file.keyframes = [
-      { angles: { shoulder_pan: 0, shoulder_lift: 0, elbow_flex: 0, wrist: 0 } },
+      {
+        angles: { shoulder_pan: 0, shoulder_lift: 0, elbow_flex: 0, wrist: 0 },
+      },
     ];
     const result = parseTrajectory(JSON.stringify(file), JOINTS);
     expect(result.ok).toBe(false);

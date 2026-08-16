@@ -2,7 +2,10 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Structured-entity search against the shipped artifact. The MiniSearch
@@ -55,7 +58,10 @@ test.describe('structured search on the static export', () => {
     await expect(structured).toBeVisible();
     const figure = structured.getByRole('link', { name: /^Figure AI/ });
     await expect(figure).toBeVisible();
-    await expect(figure).toHaveAttribute('href', /\/market-map\/#company-figure-ai/);
+    await expect(figure).toHaveAttribute(
+      'href',
+      /\/market-map\/#company-figure-ai/,
+    );
     await expect(structured.getByText(/^company$/i).first()).toBeVisible();
     await expect(page.getByRole('region', { name: 'Modules' })).toBeVisible();
   });
@@ -91,7 +97,9 @@ test.describe('structured search on the static export', () => {
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai/);
     const card = page.locator('[data-company-id="figure-ai"]');
     await expect(card).toBeVisible();
-    await expect(card.getByRole('heading', { name: 'Figure AI' })).toBeVisible();
+    await expect(
+      card.getByRole('heading', { name: 'Figure AI' }),
+    ).toBeVisible();
   });
 
   test('clicking a method result lands on that row (VAL-SEARCH-006)', async ({
@@ -175,25 +183,31 @@ test.describe('structured search on the static export', () => {
       .locator('[data-search-result]')
       .count();
     expect(beforeStructured).toBeGreaterThan(1);
-    const proseBefore = await prose.locator('[data-search-result]').allTextContents();
+    const proseBefore = await prose
+      .locator('[data-search-result]')
+      .allTextContents();
 
     await page.getByRole('button', { name: /^Companies$/i }).click();
     const after = structured.locator('[data-search-result]');
     await expect(after.first()).toBeVisible();
-    const types = await structured.locator('[data-entity-type]').allTextContents();
+    const types = await structured
+      .locator('[data-entity-type]')
+      .allTextContents();
     expect(types.every((label) => /company/i.test(label))).toBe(true);
     expect(await after.count()).toBeLessThan(beforeStructured);
 
-    const proseAfter = await prose.locator('[data-search-result]').allTextContents();
+    const proseAfter = await prose
+      .locator('[data-search-result]')
+      .allTextContents();
     expect(proseAfter).toEqual(proseBefore);
 
     await page.getByRole('button', { name: /^All types$/i }).click();
     expect(await structured.locator('[data-search-result]').count()).toBe(
       beforeStructured,
     );
-    expect(await prose.locator('[data-search-result]').allTextContents()).toEqual(
-      proseBefore,
-    );
+    expect(
+      await prose.locator('[data-search-result]').allTextContents(),
+    ).toEqual(proseBefore);
   });
 
   test('zero axe violations in empty, both-groups, no-results, and facet states (VAL-A11Y-003)', async ({
@@ -205,7 +219,9 @@ test.describe('structured search on the static export', () => {
 
     await typeQuery(page, 'ACT');
     await waitForSettled(page);
-    await expect(page.getByRole('region', { name: 'Structured' })).toBeVisible();
+    await expect(
+      page.getByRole('region', { name: 'Structured' }),
+    ).toBeVisible();
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 
     await page.getByRole('button', { name: /^Methods$/i }).click();

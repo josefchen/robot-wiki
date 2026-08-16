@@ -175,7 +175,12 @@ export function RrtExplorer({ className }: { className?: string }) {
           >
             Step forward
           </button>
-          <button data-pagefind-ignore type="button" onClick={reset} className={buttonBase}>
+          <button
+            data-pagefind-ignore
+            type="button"
+            onClick={reset}
+            className={buttonBase}
+          >
             Reset
           </button>
         </div>
@@ -324,12 +329,12 @@ export function RrtExplorer({ className }: { className?: string }) {
         </span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        One accepted extension per iteration from a fixed seed, so the growth
-        is identical on every load. Each step samples a random point (2% of
-        the time the goal itself), finds the nearest tree node, and extends a
-        fixed length toward it, keeping the branch only when the segment
-        stays clear of the obstacles. The bias toward unexplored space is why
-        the canopy spreads first and the goal connection arrives late.
+        One accepted extension per iteration from a fixed seed, so the growth is
+        identical on every load. Each step samples a random point (2% of the
+        time the goal itself), finds the nearest tree node, and extends a fixed
+        length toward it, keeping the branch only when the segment stays clear
+        of the obstacles. The bias toward unexplored space is why the canopy
+        spreads first and the goal connection arrives late.
       </p>
     </div>
   );

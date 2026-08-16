@@ -24,9 +24,7 @@ function proseHit(overrides: Partial<SearchHit> = {}): SearchHit {
   };
 }
 
-function structuredHit(
-  overrides: Partial<StructuredHit> = {},
-): StructuredHit {
+function structuredHit(overrides: Partial<StructuredHit> = {}): StructuredHit {
   return {
     id: 'company:figure-ai',
     entityId: 'figure-ai',
@@ -135,9 +133,7 @@ describe('SearchInterface structured results', () => {
     render(
       <SearchInterface
         loadClient={clientWith(() => Promise.resolve([]))}
-        loadStructured={() =>
-          Promise.resolve({ search: async () => [] })
-        }
+        loadStructured={() => Promise.resolve({ search: async () => [] })}
         debounceMs={0}
       />,
     );
@@ -248,9 +244,7 @@ describe('SearchInterface structured results', () => {
                 ? new Promise<StructuredHit[]>((resolve) =>
                     pendingStructured.push(resolve),
                   )
-                : Promise.resolve(
-                    query === 'figure' ? [structuredHit()] : [],
-                  ),
+                : Promise.resolve(query === 'figure' ? [structuredHit()] : []),
           })
         }
         debounceMs={0}
@@ -288,9 +282,7 @@ describe('SearchInterface structured results', () => {
     render(
       <SearchInterface
         loadClient={clientWith(() =>
-          Promise.resolve([
-            proseHit({ title: 'First prose', url: '/a/' }),
-          ]),
+          Promise.resolve([proseHit({ title: 'First prose', url: '/a/' })]),
         )}
         loadStructured={() =>
           Promise.resolve({
@@ -329,9 +321,7 @@ describe('SearchInterface structured results', () => {
     render(
       <SearchInterface
         loadClient={clientWith(() => Promise.resolve([proseHit()]))}
-        loadStructured={() =>
-          Promise.resolve({ search: async () => [] })
-        }
+        loadStructured={() => Promise.resolve({ search: async () => [] })}
         debounceMs={0}
       />,
     );

@@ -331,7 +331,10 @@ function fkDetailed(chain: ChainSegment[], angles: number[]): FkDetailed {
   for (const segment of chain) {
     const originRot = fromQuat(segment.origin.quaternion);
     const worldRot = matMul(rotation, originRot);
-    const worldPos = add(translation, matVec(rotation, segment.origin.position));
+    const worldPos = add(
+      translation,
+      matVec(rotation, segment.origin.position),
+    );
 
     if (segment.kind === 'revolute') {
       joints.push({
@@ -363,10 +366,7 @@ export function forwardKinematics(
  * Position Jacobian (3 x n): column j is the linear velocity of the
  * end-effector per unit of joint j, a_j x (p_ee - p_j).
  */
-function positionJacobian(
-  joints: JointFrame[],
-  eePosition: Vec3,
-): Vec3[] {
+function positionJacobian(joints: JointFrame[], eePosition: Vec3): Vec3[] {
   return joints.map((joint) =>
     cross(joint.axisWorld, sub(eePosition, joint.position)),
   );

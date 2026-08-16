@@ -24,12 +24,11 @@ describe('PolicyChunkingTable', () => {
     render(<PolicyChunkingTable />);
     // Helix 02 does not disclose its action horizon; the cell must not
     // invent a number.
-    const helixRow = bodyRows().find((row) =>
-      within(row).queryByText(/Helix/),
-    );
+    const helixRow = bodyRows().find((row) => within(row).queryByText(/Helix/));
     expect(helixRow).toBeDefined();
-    expect(within(helixRow as HTMLElement).getAllByText('n/a').length)
-      .toBeGreaterThan(0);
+    expect(
+      within(helixRow as HTMLElement).getAllByText('n/a').length,
+    ).toBeGreaterThan(0);
   });
 
   it('renders open and closed badges', () => {

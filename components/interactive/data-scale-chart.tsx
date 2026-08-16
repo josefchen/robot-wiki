@@ -107,7 +107,10 @@ export function DataScaleChart({
   const llmMax = LLM_POINTS[LLM_POINTS.length - 1];
   const gapFrom = { x: xFor(robotMax.magnitude), y: ROBOT_LANE_Y };
   const gapTo = { x: LLM_LANE_X, y: yFor(llmMax.magnitude) };
-  const gapMid = { x: f((gapFrom.x + gapTo.x) / 2), y: f((gapFrom.y + gapTo.y) / 2) };
+  const gapMid = {
+    x: f((gapFrom.x + gapTo.x) / 2),
+    y: f((gapFrom.y + gapTo.y) / 2),
+  };
   const gapAngle = f(
     (Math.atan2(gapFrom.y - gapTo.y, gapFrom.x - gapTo.x) * 180) / Math.PI,
   );
@@ -122,7 +125,9 @@ export function DataScaleChart({
     x: f(gapMid.x + gapNormal.x * 12),
     y: f(gapMid.y + gapNormal.y * 12),
   };
-  const gapDecades = Math.round(Math.log10(llmMax.magnitude / robotMax.magnitude));
+  const gapDecades = Math.round(
+    Math.log10(llmMax.magnitude / robotMax.magnitude),
+  );
 
   function reset() {
     setRigs(defaultRigs);
@@ -471,8 +476,8 @@ export function DataScaleChart({
         data-testid="rate-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        {rate.note} Hours marked ~ are estimates; everything else is a
-        published count from the cited source.
+        {rate.note} Hours marked ~ are estimates; everything else is a published
+        count from the cited source.
       </p>
     </div>
   );

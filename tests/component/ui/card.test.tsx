@@ -38,8 +38,6 @@ describe('Card', () => {
     expect(link).toHaveAttribute('href', '/manipulation/action-chunking');
     // The internal href variant renders through next/link, not a native
     // anchor (client-side routing, prefetch).
-    expect(linkCalls).toEqual([
-      { href: '/manipulation/action-chunking' },
-    ]);
+    expect(linkCalls).toEqual([{ href: '/manipulation/action-chunking' }]);
   });
 });

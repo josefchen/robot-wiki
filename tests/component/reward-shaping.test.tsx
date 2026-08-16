@@ -43,18 +43,16 @@ describe('RewardShaping', () => {
     render(<RewardShaping />);
     expect(statusText()).toMatch(/balanced/i);
     const expected = weightedTotal(defaultWeights()).toFixed(2);
-    expect(screen.getByTestId('total-readout').textContent).toContain(
-      expected,
-    );
+    expect(screen.getByTestId('total-readout').textContent).toContain(expected);
   });
 
   it('maxing the torque penalty drives the freeze attractor', () => {
     render(<RewardShaping />);
     fireEvent.change(slider(/torque/i), { target: { value: '40' } });
     expect(statusText()).toMatch(/freez/i);
-    expect(screen.getByTestId('quad-preview').getAttribute('aria-label')).toMatch(
-      /freez/i,
-    );
+    expect(
+      screen.getByTestId('quad-preview').getAttribute('aria-label'),
+    ).toMatch(/freez/i);
   });
 
   it('maxing the foot air time reward drives the prance attractor', () => {
@@ -87,9 +85,7 @@ describe('RewardShaping', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(statusText()).toMatch(/balanced/i);
     const expected = weightedTotal(defaultWeights()).toFixed(2);
-    expect(screen.getByTestId('total-readout').textContent).toContain(
-      expected,
-    );
+    expect(screen.getByTestId('total-readout').textContent).toContain(expected);
     expect(TERMS.length).toBe(12);
   });
 
@@ -98,12 +94,8 @@ describe('RewardShaping', () => {
     render(<RewardShaping />);
     const play = screen.getByRole('button', { name: /play/i });
     await user.click(play);
-    expect(
-      screen.getByRole('button', { name: /pause/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /pause/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /pause/i }));
-    expect(
-      screen.getByRole('button', { name: /play/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /play/i })).toBeInTheDocument();
   });
 });

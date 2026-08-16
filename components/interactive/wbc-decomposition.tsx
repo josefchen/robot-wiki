@@ -176,9 +176,7 @@ export function WbcDecomposition({
                 height={BOX_H}
                 fill="var(--color-surface-2)"
                 stroke={
-                  isController
-                    ? 'var(--color-accent)'
-                    : 'var(--color-border)'
+                  isController ? 'var(--color-accent)' : 'var(--color-border)'
                 }
                 strokeWidth={1}
               />
@@ -268,9 +266,7 @@ export function WbcDecomposition({
       >
         {approach.stats.map((stat) => (
           <div key={stat.label}>
-            <div className="text-[11px] text-text-dim">
-              {stat.label}
-            </div>
+            <div className="text-[11px] text-text-dim">{stat.label}</div>
             <div className="mt-0.5 text-sm text-text">{stat.value}</div>
           </div>
         ))}
@@ -285,8 +281,8 @@ export function WbcDecomposition({
         <span className="text-text">{fastest}</span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        {approach.idea} In this stack, {approach.interfaceNote}. Amber marks
-        the layer that talks to the actuators. Openness: {approach.openness}.
+        {approach.idea} In this stack, {approach.interfaceNote}. Amber marks the
+        layer that talks to the actuators. Openness: {approach.openness}.
         {approach.lineage.length > 0
           ? ` Same decomposition: ${approach.lineage.join(', ')}.`
           : ''}

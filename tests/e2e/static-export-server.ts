@@ -88,7 +88,8 @@ export async function startStaticExportServer(
       }
 
       const body = await readFile(filePath);
-      const type = MIME[extname(filePath).toLowerCase()] ?? 'application/octet-stream';
+      const type =
+        MIME[extname(filePath).toLowerCase()] ?? 'application/octet-stream';
       res.writeHead(200, { 'Content-Type': type });
       res.end(body);
     } catch {

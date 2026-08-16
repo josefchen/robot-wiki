@@ -43,7 +43,9 @@ describe('Term', () => {
   it('reveals via hover and focus-within CSS hooks (group classes), not JS visibility', () => {
     render(<Term {...props}>covariate shift</Term>);
     const link = screen.getByRole('link');
-    const tooltip = document.getElementById(link.getAttribute('aria-describedby')!);
+    const tooltip = document.getElementById(
+      link.getAttribute('aria-describedby')!,
+    );
     expect(tooltip!.className).toContain('group-hover:block');
     expect(tooltip!.className).toContain('group-focus-within:block');
     expect(tooltip!.className).toContain('hidden');

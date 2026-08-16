@@ -48,16 +48,22 @@ const registry: ModuleRegistryEntry[] = [
     status: 'published',
   },
   // Registry-level invariant: every core domain must be populated.
-  ...(['rl-sim2real', 'world-models', 'data-hardware', 'classical', 'frontier'] as const).map(
-    (domain) => ({
-      domain,
-      slug: 'placeholder',
-      title: 'Placeholder',
-      summary: 'Planned module.',
-      order: 1,
-      status: 'draft' as const,
-    }),
-  ),
+  ...(
+    [
+      'rl-sim2real',
+      'world-models',
+      'data-hardware',
+      'classical',
+      'frontier',
+    ] as const
+  ).map((domain) => ({
+    domain,
+    slug: 'placeholder',
+    title: 'Placeholder',
+    summary: 'Planned module.',
+    order: 1,
+    status: 'draft' as const,
+  })),
 ];
 
 const citations: Citation[] = [
@@ -122,7 +128,10 @@ function seedSeeAlsoTargets(root: string) {
       title: 'Behavior Cloning Foundations',
       slug: 'bc-foundations',
       order: 3,
-      seeAlso: ['manipulation/action-chunking', 'manipulation/realtime-execution'],
+      seeAlso: [
+        'manipulation/action-chunking',
+        'manipulation/realtime-execution',
+      ],
     })}\nBody.\n`,
   );
   writeFileSync(
@@ -237,7 +246,9 @@ describe('validateContent (fixtures)', () => {
 
   it('fails when a published registry entry has no content file', () => {
     expect(
-      run().map((i) => i.message).join('\n'),
+      run()
+        .map((i) => i.message)
+        .join('\n'),
     ).toContain('action-chunking');
   });
 
@@ -248,7 +259,9 @@ describe('validateContent (fixtures)', () => {
       `${frontmatter({ citations: [] })}\nBody.\n`,
     );
     expect(
-      run().map((i) => i.message).join('\n'),
+      run()
+        .map((i) => i.message)
+        .join('\n'),
     ).toContain('citation');
   });
 
@@ -259,30 +272,28 @@ describe('validateContent (fixtures)', () => {
       `${frontmatter({ status: 'draft', citations: [] })}\nBody.\n`,
     );
     expect(
-      run().map((i) => i.message).join('\n'),
+      run()
+        .map((i) => i.message)
+        .join('\n'),
     ).toContain('status');
   });
 
   it('fails on an orphan content file with no registry entry', () => {
-    writeModule(
-      'manipulation',
-      'action-chunking',
-      `${frontmatter()}\nBody.\n`,
-    );
+    writeModule('manipulation', 'action-chunking', `${frontmatter()}\nBody.\n`);
     writeModule(
       'manipulation',
       'ghost-module',
       `${frontmatter({ slug: 'ghost-module', order: 99, status: 'draft', citations: [] })}\nBody.\n`,
     );
-    expect(run().map((i) => i.message).join('\n')).toContain('ghost-module');
+    expect(
+      run()
+        .map((i) => i.message)
+        .join('\n'),
+    ).toContain('ghost-module');
   });
 
   it('allows a draft module to ship a content file without citations', () => {
-    writeModule(
-      'manipulation',
-      'action-chunking',
-      `${frontmatter()}\nBody.\n`,
-    );
+    writeModule('manipulation', 'action-chunking', `${frontmatter()}\nBody.\n`);
     writeModule(
       'manipulation',
       'diffusion-policy',
@@ -430,13 +441,14 @@ describe('validateContent seeAlso resolution (VAL-WIKI-007, VAL-WIKI-009, VAL-WI
   it('fails on a seeAlso id pointing at a draft module', () => {
     writeModule(
       `${frontmatter({
-        seeAlso: ['manipulation/bc-foundations', 'manipulation/diffusion-policy'],
+        seeAlso: [
+          'manipulation/bc-foundations',
+          'manipulation/diffusion-policy',
+        ],
       })}\nBody.\n`,
     );
     const found = issues();
-    const offense = found.find((i) =>
-      i.message.includes('diffusion-policy'),
-    );
+    const offense = found.find((i) => i.message.includes('diffusion-policy'));
     expect(offense).toBeDefined();
     expect(offense?.file).toBe('manipulation/action-chunking.mdx');
     expect(offense?.message).toMatch(/draft/);
@@ -445,7 +457,10 @@ describe('validateContent seeAlso resolution (VAL-WIKI-007, VAL-WIKI-009, VAL-WI
   it('fails on a self-referential seeAlso entry, naming the article', () => {
     writeModule(
       `${frontmatter({
-        seeAlso: ['manipulation/bc-foundations', 'manipulation/action-chunking'],
+        seeAlso: [
+          'manipulation/bc-foundations',
+          'manipulation/action-chunking',
+        ],
       })}\nBody.\n`,
     );
     const found = issues();
@@ -548,7 +563,9 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
   });
 
   it('ignores currency inside JSX attribute strings', () => {
-    writeModule(`${frontmatter()}\n<Stat label="seed" value="$1.03B" note="March 2026" />\n`);
+    writeModule(
+      `${frontmatter()}\n<Stat label="seed" value="$1.03B" note="March 2026" />\n`,
+    );
     expect(run()).toEqual([]);
   });
 
@@ -617,7 +634,9 @@ describe('validateContent glossary checks (fixtures)', () => {
     ];
     const issues = run(bad);
     expect(issues.some((i) => i.message.includes('orphan-term'))).toBe(true);
-    expect(issues.some((i) => i.message.includes('no-such-citation'))).toBe(true);
+    expect(issues.some((i) => i.message.includes('no-such-citation'))).toBe(
+      true,
+    );
   });
 
   it('flags a glossary term that fails the schema (duplicate ids also flagged)', () => {
@@ -626,9 +645,9 @@ describe('validateContent glossary checks (fixtures)', () => {
       { ...terms[0] }, // duplicate id
     ] as GlossaryTerm[];
     const issues = run(bad);
-    expect(issues.some((i) => i.message.includes('duplicate glossary term id'))).toBe(
-      true,
-    );
+    expect(
+      issues.some((i) => i.message.includes('duplicate glossary term id')),
+    ).toBe(true);
   });
 });
 

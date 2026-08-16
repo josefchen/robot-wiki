@@ -84,7 +84,9 @@ test.describe('frontier bear-case module', () => {
     expect(text).toMatch(/Morgan Stanley/);
     expect(text).toMatch(/PR problem/);
     expect(text).toMatch(/social license to deploy/);
-    expect(text).toMatch(/tangible evidence of real-world return on investment/);
+    expect(text).toMatch(
+      /tangible evidence of real-world return on investment/,
+    );
 
     // Unitree: profit halving despite volume leadership.
     expect(text).toMatch(/Unitree/);
@@ -140,7 +142,9 @@ test.describe('frontier bear-case module', () => {
     );
 
     // Status indicators are visible and differentiated across rows.
-    const badges = await panel.locator('tbody [data-variant]').allTextContents();
+    const badges = await panel
+      .locator('tbody [data-variant]')
+      .allTextContents();
     expect(new Set(badges)).toEqual(new Set(['not met', 'partial']));
   });
 
@@ -183,7 +187,9 @@ test.describe('frontier bear-case module', () => {
     // Reset restores the full board and the default selection.
     await page.getByRole('button', { name: 'Reset' }).click();
     await expect(page.getByTestId(/^milestone-row-/)).toHaveCount(8);
-    await expect(readout).toHaveText('8 milestones: 4 not met, 4 partial, 0 met');
+    await expect(readout).toHaveText(
+      '8 milestones: 4 not met, 4 partial, 0 met',
+    );
 
     // Keyboard: arrows move the selection between rows.
     await page
@@ -199,7 +205,9 @@ test.describe('frontier bear-case module', () => {
     });
     await expect(second).toHaveAttribute('aria-pressed', 'true');
     await expect(second).toBeFocused();
-    await expect(detail).toContainText('Company filings or independent reporting');
+    await expect(detail).toContainText(
+      'Company filings or independent reporting',
+    );
   });
 
   test('forward-looking items carry explicit speculation labels (VAL-FRONT-018)', async ({
@@ -209,8 +217,12 @@ test.describe('frontier bear-case module', () => {
     const main = page.locator('#main-content');
     // The three winter mechanisms are labeled speculation; the skeptic and
     // economics items are labeled evidence. At least three of each render.
-    expect(await main.getByText(/^Speculation:/).count()).toBeGreaterThanOrEqual(3);
-    expect(await main.getByText(/^Evidence:/).count()).toBeGreaterThanOrEqual(3);
+    expect(
+      await main.getByText(/^Speculation:/).count(),
+    ).toBeGreaterThanOrEqual(3);
+    expect(await main.getByText(/^Evidence:/).count()).toBeGreaterThanOrEqual(
+      3,
+    );
     const text = (await main.textContent()) ?? '';
     expect(text).toMatch(/scenarios, not predictions/);
   });

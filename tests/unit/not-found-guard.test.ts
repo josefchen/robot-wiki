@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest';
-import { injectNotFoundGuard, NOT_FOUND_GUARD_SCRIPT } from '@/lib/not-found-guard';
+import {
+  injectNotFoundGuard,
+  NOT_FOUND_GUARD_SCRIPT,
+} from '@/lib/not-found-guard';
 
 describe('injectNotFoundGuard', () => {
   it('injects the guard as the first child of <head>', () => {
-    const html = '<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><title>t</title></head><body></body></html>';
+    const html =
+      '<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><title>t</title></head><body></body></html>';
     const [patched, injected] = injectNotFoundGuard(html);
     expect(injected).toBe(true);
-    expect(patched.startsWith('<!DOCTYPE html><html lang="en"><head>')).toBe(true);
+    expect(patched.startsWith('<!DOCTYPE html><html lang="en"><head>')).toBe(
+      true,
+    );
     // The guard sits before the original head content so it runs pre-hydration.
     expect(patched.indexOf(NOT_FOUND_GUARD_SCRIPT)).toBeLessThan(
       patched.indexOf('<meta charSet="utf-8"/>'),

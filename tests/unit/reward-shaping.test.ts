@@ -59,9 +59,7 @@ describe('weightedTotal', () => {
   });
 
   it('dropping every weight to zero gives zero total', () => {
-    const zeroed = Object.fromEntries(
-      TERMS.map((t) => [t.id, 0]),
-    ) as Weights;
+    const zeroed = Object.fromEntries(TERMS.map((t) => [t.id, 0])) as Weights;
     expect(weightedTotal(zeroed)).toBe(0);
   });
 });
@@ -72,15 +70,15 @@ describe('classifyBehavior', () => {
   });
 
   it('torque penalty dominating velocity tracking freezes the robot', () => {
-    expect(
-      classifyBehavior(weightsWith({ torque: WEIGHT_MAX })),
-    ).toBe('frozen');
+    expect(classifyBehavior(weightsWith({ torque: WEIGHT_MAX }))).toBe(
+      'frozen',
+    );
   });
 
   it('foot air time reward dominating velocity tracking produces prancing', () => {
-    expect(
-      classifyBehavior(weightsWith({ airTime: WEIGHT_MAX })),
-    ).toBe('prancing');
+    expect(classifyBehavior(weightsWith({ airTime: WEIGHT_MAX }))).toBe(
+      'prancing',
+    );
   });
 
   it('near-zero action-rate penalty produces chatter', () => {
@@ -143,9 +141,9 @@ describe('quadrupedPose', () => {
 
   it('distinct behaviors produce distinct poses at the same phase', () => {
     const phase = 0.3;
-    const poses = (
-      ['balanced', 'frozen', 'prancing', 'chatter'] as const
-    ).map((b) => JSON.stringify(quadrupedPose(b, phase)));
+    const poses = (['balanced', 'frozen', 'prancing', 'chatter'] as const).map(
+      (b) => JSON.stringify(quadrupedPose(b, phase)),
+    );
     expect(new Set(poses).size).toBe(4);
   });
 });

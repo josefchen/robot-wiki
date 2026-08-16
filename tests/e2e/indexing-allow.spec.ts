@@ -59,7 +59,9 @@ test.describe('per-route robots meta (VAL-BRAND-007)', () => {
     expect(routes.length).toBeGreaterThan(0);
     for (const route of routes) {
       const html = readFileSync(join(OUT, route, 'index.html'), 'utf8');
-      const robotsMeta = (html.match(/<meta name="robots"[^>]*>/g) ?? []).join(' ');
+      const robotsMeta = (html.match(/<meta name="robots"[^>]*>/g) ?? []).join(
+        ' ',
+      );
       expect(
         robotsMeta,
         `${route} ships no robots meta carrying a noindex directive`,

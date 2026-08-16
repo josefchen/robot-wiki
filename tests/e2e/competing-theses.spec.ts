@@ -88,10 +88,7 @@ test.describe('frontier competing-theses module', () => {
     await page.goto(ROUTE);
     const detail = page.getByTestId('thesis-detail');
     for (const name of THESIS_NAMES) {
-      await page
-        .getByRole('button', { name })
-        .first()
-        .click();
+      await page.getByRole('button', { name }).first().click();
       // The four required fields are present for every thesis.
       await expect(detail.getByText('Proponents')).toBeVisible();
       await expect(detail.getByText('Evidence for')).toBeVisible();
@@ -154,9 +151,7 @@ test.describe('frontier competing-theses module', () => {
     // Focus state is visible (the global amber focus ring). The row's
     // transition-colors animates the outline to amber over ~150ms, so poll.
     await expect
-      .poll(() =>
-        rlButton.evaluate((el) => getComputedStyle(el).outlineColor),
-      )
+      .poll(() => rlButton.evaluate((el) => getComputedStyle(el).outlineColor))
       .toBe('rgb(245, 166, 35)');
 
     // Reset restores the default selection.
@@ -191,7 +186,9 @@ test.describe('frontier competing-theses module', () => {
     expect(text).toMatch(/Robust\.AI/);
 
     // No wording declares any thesis settled.
-    expect(text).not.toMatch(/the (debate|question|dispute) is (settled|resolved|over)/i);
+    expect(text).not.toMatch(
+      /the (debate|question|dispute) is (settled|resolved|over)/i,
+    );
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

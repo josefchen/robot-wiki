@@ -2,7 +2,10 @@ import { expect, test } from '@playwright/test';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Global SEO + static-export integrity (VAL-BUILD-003/005/006,
@@ -74,26 +77,31 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
 
   test('is well-formed urlset XML', () => {
     expect(xml.startsWith('<?xml')).toBe(true);
-    expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+    expect(xml).toContain(
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    );
     // Every <url> block carries a loc; open/close tags balance.
     expect(locs.length).toBeGreaterThan(0);
     expect(xml.match(/<url>/g)?.length).toBe(locs.length);
     expect(xml.match(/<\/urlset>/g)?.length).toBe(1);
     for (const loc of locs) {
-      expect(() => new URL(loc), `loc is an absolute URL: ${loc}`).not.toThrow();
+      expect(
+        () => new URL(loc),
+        `loc is an absolute URL: ${loc}`,
+      ).not.toThrow();
     }
   });
 
   test('contains exactly the published route set: every published module, every fixed route, nothing else (VAL-BUILD-003)', () => {
-    const expected = new Set(
-      expectedRoutes().map((r) => `${SITE_ORIGIN}${r}`),
-    );
+    const expected = new Set(expectedRoutes().map((r) => `${SITE_ORIGIN}${r}`));
     const actual = new Set(locs);
     for (const url of expected) {
       expect(actual, `sitemap missing ${url}`).toContain(url);
     }
     for (const url of actual) {
-      expect(expected, `sitemap carries unexpected entry ${url}`).toContain(url);
+      expect(expected, `sitemap carries unexpected entry ${url}`).toContain(
+        url,
+      );
     }
     // Count matches the registry-derived total exactly.
     expect(locs.length).toBe(expectedRoutes().length);
@@ -101,9 +109,10 @@ test.describe('sitemap.xml (VAL-BUILD-003, VAL-ADJ-015)', () => {
 
   test('no draft module appears (VAL-BUILD-001 overlap)', () => {
     for (const m of modules.filter((m) => m.status === 'draft')) {
-      expect(locs, `draft ${m.domain}/${m.slug} leaked into the sitemap`).not.toContain(
-        `${SITE_ORIGIN}/${m.domain}/${m.slug}/`,
-      );
+      expect(
+        locs,
+        `draft ${m.domain}/${m.slug} leaked into the sitemap`,
+      ).not.toContain(`${SITE_ORIGIN}/${m.domain}/${m.slug}/`);
     }
   });
 
@@ -133,7 +142,9 @@ test.describe('robots.txt (VAL-ADJ-016, VAL-ADJ-017)', () => {
     expect(robots).toContain(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`);
   });
 
-  test('serves 200 as robots.txt with text content type (VAL-ADJ-017)', async ({ request }) => {
+  test('serves 200 as robots.txt with text content type (VAL-ADJ-017)', async ({
+    request,
+  }) => {
     const response = await request.get(`${BASE}/robots.txt`);
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('text/plain');
@@ -150,13 +161,17 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
   test('unique non-empty titles across every exported route', () => {
     const seen = new Map<string, string>();
     for (const route of [...routes, '/404/']) {
-      const html = route === '/404/'
-        ? readFileSync(join(OUT, '404.html'), 'utf8')
-        : htmlForRoute(route);
+      const html =
+        route === '/404/'
+          ? readFileSync(join(OUT, '404.html'), 'utf8')
+          : htmlForRoute(route);
       const title = extract(html, /<title>([^<]*)<\/title>/);
       expect(title, `${route} ships a non-empty title`).toBeTruthy();
       const prior = seen.get(title!);
-      expect(prior, `title "${title}" shared by ${prior} and ${route}`).toBeUndefined();
+      expect(
+        prior,
+        `title "${title}" shared by ${prior} and ${route}`,
+      ).toBeUndefined();
       seen.set(title!, route);
     }
   });
@@ -164,11 +179,20 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
   test('unique non-empty meta descriptions across every exported route', () => {
     const seen = new Map<string, string>();
     for (const route of routes) {
-      const desc = extract(htmlForRoute(route), /<meta name="description" content="([^"]*)"/);
+      const desc = extract(
+        htmlForRoute(route),
+        /<meta name="description" content="([^"]*)"/,
+      );
       expect(desc, `${route} ships a meta description`).toBeTruthy();
-      expect(desc!.trim().length, `${route} description is non-empty`).toBeGreaterThan(10);
+      expect(
+        desc!.trim().length,
+        `${route} description is non-empty`,
+      ).toBeGreaterThan(10);
       const prior = seen.get(desc!);
-      expect(prior, `description shared by ${prior} and ${route}`).toBeUndefined();
+      expect(
+        prior,
+        `description shared by ${prior} and ${route}`,
+      ).toBeUndefined();
       seen.set(desc!, route);
     }
   });
@@ -178,14 +202,28 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
       const html = htmlForRoute(route);
       const isModule = moduleTitles.has(route);
 
-      const ogTitle = extract(html, /<meta property="og:title" content="([^"]*)"/);
+      const ogTitle = extract(
+        html,
+        /<meta property="og:title" content="([^"]*)"/,
+      );
       expect(ogTitle, `${route} ships og:title`).toBeTruthy();
-      const ogDesc = extract(html, /<meta property="og:description" content="([^"]*)"/);
+      const ogDesc = extract(
+        html,
+        /<meta property="og:description" content="([^"]*)"/,
+      );
       expect(ogDesc, `${route} ships og:description`).toBeTruthy();
-      expect(ogDesc!.trim().length, `${route} og:description is non-empty`).toBeGreaterThan(10);
+      expect(
+        ogDesc!.trim().length,
+        `${route} og:description is non-empty`,
+      ).toBeGreaterThan(10);
 
-      const ogType = extract(html, /<meta property="og:type" content="([^"]*)"/);
-      expect(ogType, `${route} ships og:type`).toBe(isModule ? 'article' : 'website');
+      const ogType = extract(
+        html,
+        /<meta property="og:type" content="([^"]*)"/,
+      );
+      expect(ogType, `${route} ships og:type`).toBe(
+        isModule ? 'article' : 'website',
+      );
       if (isModule) {
         // og:title carries the module title (plus the site-name template).
         expect(
@@ -197,8 +235,13 @@ test.describe('per-route metadata (VAL-BUILD-005, VAL-BUILD-006, VAL-A11Y-015)',
       const canonical = extract(html, /<link rel="canonical" href="([^"]*)"/);
       expect(canonical, `${route} ships a canonical link`).toBeTruthy();
       const canonicalUrl = new URL(canonical!);
-      expect(canonicalUrl.origin, `${route} canonical origin`).toBe(SITE_ORIGIN);
-      expect(canonicalUrl.pathname, `${route} canonical is self-referential`).toBe(route);
+      expect(canonicalUrl.origin, `${route} canonical origin`).toBe(
+        SITE_ORIGIN,
+      );
+      expect(
+        canonicalUrl.pathname,
+        `${route} canonical is self-referential`,
+      ).toBe(route);
       const ogUrl = extract(html, /<meta property="og:url" content="([^"]*)"/);
       expect(ogUrl, `${route} ships og:url`).toBe(canonical);
     }
@@ -214,16 +257,23 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
       ).toBe(true);
     }
     // No function/serverless output alongside the export.
-    expect(existsSync(join(process.cwd(), '.vercel', 'output', 'functions'))).toBe(false);
+    expect(
+      existsSync(join(process.cwd(), '.vercel', 'output', 'functions')),
+    ).toBe(false);
     expect(existsSync(join(OUT, 'middleware.js'))).toBe(false);
   });
 
-  test('sampled routes serve 200 with their heading from a plain static server (VAL-CROSS-024)', async ({ page }) => {
+  test('sampled routes serve 200 with their heading from a plain static server (VAL-CROSS-024)', async ({
+    page,
+  }) => {
     const sampled: Array<[string, RegExp]> = [
       ['/', /robot-wiki|Modern Robotics/i],
       ...DOMAINS.slice(0, 6).map((d) => {
         const mod = publishedModules().find((m) => m.domain === d)!;
-        return [moduleRoute(mod), new RegExp(mod.title.split('(')[0].trim().slice(0, 24), 'i')] as [string, RegExp];
+        return [
+          moduleRoute(mod),
+          new RegExp(mod.title.split('(')[0].trim().slice(0, 24), 'i'),
+        ] as [string, RegExp];
       }),
       ['/playground/', /kinematics|playground/i],
       ['/market-map/', /market map/i],
@@ -239,7 +289,9 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
     }
   });
 
-  test('client-side navigation works from the statically served site (VAL-CROSS-024)', async ({ page }) => {
+  test('client-side navigation works from the statically served site (VAL-CROSS-024)', async ({
+    page,
+  }) => {
     await page.goto(`${BASE}/`);
     const target = publishedModules().find((m) => m.domain === 'manipulation')!;
     // The sidebar carries every published module by title (the home body
@@ -255,7 +307,9 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
       .getByRole('link', { name: target.title, exact: false })
       .first()
       .click();
-    await expect(page).toHaveURL(new RegExp(`${target.domain}/${target.slug}/$`));
+    await expect(page).toHaveURL(
+      new RegExp(`${target.domain}/${target.slug}/$`),
+    );
     await expect(page.locator('h1').first()).toContainText(
       target.title.split('(')[0].trim().slice(0, 24),
     );
@@ -265,7 +319,9 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
     // Belt-and-braces for the sitemap: every loc in the BUILT sitemap has a
     // prerendered file (catches any drift between generator and artifact).
     const xml = readFileSync(join(OUT, 'sitemap.xml'), 'utf8');
-    for (const match of xml.matchAll(/<loc>[^<]*robot-wiki\.com([^<]*)<\/loc>/g)) {
+    for (const match of xml.matchAll(
+      /<loc>[^<]*robot-wiki\.com([^<]*)<\/loc>/g,
+    )) {
       const route = match[1];
       expect(
         existsSync(join(OUT, route, 'index.html')),
@@ -287,6 +343,9 @@ test.describe('out/ directory hygiene', () => {
 
   test('no digit-suffixed shadow directories in the export', () => {
     const shadows = readdirSync(OUT).filter((entry) => / \d+$/.test(entry));
-    expect(shadows, `sync-tool shadow copies in out/: ${shadows.join(', ')}`).toEqual([]);
+    expect(
+      shadows,
+      `sync-tool shadow copies in out/: ${shadows.join(', ')}`,
+    ).toEqual([]);
   });
 });

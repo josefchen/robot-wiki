@@ -51,8 +51,13 @@ describe('PI_GENERATIONS registry', () => {
     for (const g of PI_GENERATIONS.filter((x) => !x.openWeights)) {
       const citation = getCitation(g.citationId);
       expect(citation, g.name).toBeDefined();
-      expect(citation?.arxiv, `${g.name} must not invent an arXiv id`).toBeUndefined();
-      expect(citation?.url).toMatch(/^https:\/\/(www\.pi\.website|website\.pi-asset\.com)\//);
+      expect(
+        citation?.arxiv,
+        `${g.name} must not invent an arXiv id`,
+      ).toBeUndefined();
+      expect(citation?.url).toMatch(
+        /^https:\/\/(www\.pi\.website|website\.pi-asset\.com)\//,
+      );
     }
   });
 });

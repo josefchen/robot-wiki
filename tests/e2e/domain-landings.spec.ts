@@ -1,6 +1,11 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { DOMAIN_META, DOMAINS, modulesByDomain, publishedModules } from '../../data/modules';
+import {
+  DOMAIN_META,
+  DOMAINS,
+  modulesByDomain,
+  publishedModules,
+} from '../../data/modules';
 
 /**
  * The seven domain landing pages (VAL-WIKI-022, VAL-WIKI-023, VAL-WIKI-024,
@@ -57,16 +62,20 @@ test.describe('domain landing pages', () => {
           await expect(
             main.getByRole('link', { name: draft.title, exact: true }),
           ).toHaveCount(0);
-          await expect(main.getByText(draft.title, { exact: true })).toHaveCount(0);
+          await expect(
+            main.getByText(draft.title, { exact: true }),
+          ).toHaveCount(0);
         }
 
         // No authoring-progress counters (VAL-DESIGN-015): a count of what
         // exists to read is fine; counts of unwritten work are banned.
+        await expect(main.getByText(/\d+\s+of\s+\d+\s+modules?/i)).toHaveCount(
+          0,
+        );
         await expect(
-          main.getByText(/\d+\s+of\s+\d+\s+modules?/i),
-        ).toHaveCount(0);
-        await expect(
-          main.getByText(/\d+\s+(modules?|articles?)\s+(planned|remaining|pending|upcoming)/i),
+          main.getByText(
+            /\d+\s+(modules?|articles?)\s+(planned|remaining|pending|upcoming)/i,
+          ),
         ).toHaveCount(0);
         await expect(main.getByText(/coming soon/i)).toHaveCount(0);
       });
@@ -96,7 +105,10 @@ test.describe('domain landing pages', () => {
       if ((await first.count()) === 0) continue;
       const label = (await first.textContent())?.trim() ?? '';
       await first.click();
-      await expect(page.locator('h1'), `first article h1 on /${domain}/`).toHaveText(label);
+      await expect(
+        page.locator('h1'),
+        `first article h1 on /${domain}/`,
+      ).toHaveText(label);
     }
   });
 
@@ -191,9 +203,11 @@ test.describe('domain landing pages', () => {
     const targetUrl = page.url();
 
     // -> back to the first article via its Linked from entry.
-    const backlink = page.locator('section[data-section="linked-from"]').getByRole('link', {
-      name: first.title,
-    });
+    const backlink = page
+      .locator('section[data-section="linked-from"]')
+      .getByRole('link', {
+        name: first.title,
+      });
     await expect(backlink).toBeVisible();
     await backlink.click();
     await expect(page.locator('h1')).toHaveText(first.title);
@@ -212,10 +226,7 @@ test.describe('domain landing pages', () => {
     ).toHaveAttribute('aria-current', 'page');
 
     // -> /glossary via the chrome entry point -> back home.
-    await page
-      .locator('aside')
-      .getByRole('link', { name: 'Glossary' })
-      .click();
+    await page.locator('aside').getByRole('link', { name: 'Glossary' }).click();
     await page.waitForURL('/glossary/');
     await expect(page.locator('h1')).toHaveText('Glossary');
     await page

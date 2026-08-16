@@ -17,7 +17,10 @@ export { ADJACENT_DOMAIN, CORE_DOMAINS, DOMAINS } from './domains.ts';
 export type { CoreDomain, Domain } from './domains.ts';
 export type { ModuleRegistryEntry } from './schemas/module.ts';
 
-export const DOMAIN_META: Record<Domain, { name: string; description: string }> = {
+export const DOMAIN_META: Record<
+  Domain,
+  { name: string; description: string }
+> = {
   manipulation: {
     name: 'Manipulation & Learned Policies',
     description:
@@ -364,7 +367,8 @@ export const modules: ModuleRegistryEntry[] = entries.map(
     title,
     summary,
     order:
-      entries.filter(([d]) => d === domain).findIndex(([, s]) => s === slug) + 1,
+      entries.filter(([d]) => d === domain).findIndex(([, s]) => s === slug) +
+      1,
     status: PUBLISHED.has(`${domain}/${slug}`) ? 'published' : 'draft',
   }),
 );

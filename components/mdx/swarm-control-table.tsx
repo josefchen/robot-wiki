@@ -14,26 +14,37 @@ const ROWS = [
     family: 'Reactive flocking',
     mechanism:
       'Potential fields: each drone accelerates away from near neighbors and obstacles, toward the flock',
-    exemplar: 'Optimized flocking of 30 drones outdoors (Vásárhelyi et al., 2018)',
-    limit: 'No lookahead: local minima trap the group, and collision avoidance degrades in clutter',
+    exemplar:
+      'Optimized flocking of 30 drones outdoors (Vásárhelyi et al., 2018)',
+    limit:
+      'No lookahead: local minima trap the group, and collision avoidance degrades in clutter',
   },
   {
     family: 'Predictive (NMPC) control',
     mechanism:
       'Each drone solves a receding-horizon optimization that folds the same interaction terms into its dynamics',
-    exemplar: 'Five-quadrotor swarm through an obstacle field (Soria et al., 2021)',
-    limit: 'Solving an optimization per drone per control step; onboard compute bounds the horizon',
+    exemplar:
+      'Five-quadrotor swarm through an obstacle field (Soria et al., 2021)',
+    limit:
+      'Solving an optimization per drone per control step; onboard compute bounds the horizon',
   },
   {
     family: 'Decentralized trajectory planning',
     mechanism:
       'Each drone replans a full spatial-temporal trajectory in milliseconds, treating neighbors as constraints',
-    exemplar: 'Ten palm-sized drones through a bamboo forest (Zhou et al., 2022)',
-    limit: 'Coordination is implicit: no global assignment, so guarantees are per-trajectory, not fleet-level',
+    exemplar:
+      'Ten palm-sized drones through a bamboo forest (Zhou et al., 2022)',
+    limit:
+      'Coordination is implicit: no global assignment, so guarantees are per-trajectory, not fleet-level',
   },
 ] as const;
 
-const HEADER = ['Control family', 'Mechanism', 'Demonstrated at', 'Characteristic limit'] as const;
+const HEADER = [
+  'Control family',
+  'Mechanism',
+  'Demonstrated at',
+  'Characteristic limit',
+] as const;
 
 export function SwarmControlTable({ className }: { className?: string }) {
   return (
@@ -51,8 +62,8 @@ export function SwarmControlTable({ className }: { className?: string }) {
         <caption className="sr-only">
           The three control families for aerial swarms: reactive flocking,
           predictive nonlinear model-predictive control, and decentralized
-          trajectory planning, with the mechanism, the system that
-          demonstrated each, and its characteristic limit.
+          trajectory planning, with the mechanism, the system that demonstrated
+          each, and its characteristic limit.
         </caption>
         <thead>
           <tr className="border-b border-border">

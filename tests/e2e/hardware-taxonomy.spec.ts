@@ -80,8 +80,12 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     ).toBeGreaterThanOrEqual(3); // price, DoF, distinction
     // Boston Dynamics publishes no Atlas price, but does publish 56 DoF.
     const atlas = table.locator('tbody tr', { hasText: 'Atlas (Electric)' });
-    expect(await atlas.locator('td:nth-child(3)').getByText('not disclosed').count()).toBe(1);
-    await expect(atlas.locator('td:nth-child(4)').getByText(/^56/)).toBeVisible();
+    expect(
+      await atlas.locator('td:nth-child(3)').getByText('not disclosed').count(),
+    ).toBe(1);
+    await expect(
+      atlas.locator('td:nth-child(4)').getByText(/^56/),
+    ).toBeVisible();
   });
 
   test('citation chips resolve and link externally (VAL-DATA-014)', async ({
@@ -113,9 +117,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     // Compose with price: H2 ($29,900) and GR-3 ($27,500) are the $25k+ humanoids.
     await page.getByRole('button', { name: '$25k and up' }).click();
     await expect(page.getByText('2 of 40 entries')).toBeVisible();
-    await expect(
-      page.getByRole('cell', { name: /Unitree H2/ }),
-    ).toBeVisible();
+    await expect(page.getByRole('cell', { name: /Unitree H2/ })).toBeVisible();
 
     // Compose with the DoF filter; GR-3 discloses no DoF, so only the H2
     // (31 DoF) survives the 30+ bucket.

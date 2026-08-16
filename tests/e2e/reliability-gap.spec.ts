@@ -8,8 +8,11 @@ const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
 
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */
-async function readoutValue(page: import('@playwright/test').Page): Promise<number> {
-  const text = (await page.getByTestId('episode-success-readout').textContent()) ?? '';
+async function readoutValue(
+  page: import('@playwright/test').Page,
+): Promise<number> {
+  const text =
+    (await page.getByTestId('episode-success-readout').textContent()) ?? '';
   expect(text).not.toContain('NaN');
   const value = Number.parseFloat(text);
   expect(Number.isFinite(value)).toBe(true);
@@ -66,7 +69,9 @@ test.describe('frontier reliability-gap module', () => {
     const main = page.locator('#main-content');
     // Headline sources named by the module brief.
     await expect(
-      main.getByRole('link', { name: 'Bessemer Venture Partners 2026' }).first(),
+      main
+        .getByRole('link', { name: 'Bessemer Venture Partners 2026' })
+        .first(),
     ).toHaveAttribute(
       'href',
       'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
@@ -105,7 +110,9 @@ test.describe('frontier reliability-gap module', () => {
     await expect(perStep).toBeVisible();
     await expect(horizon).toBeVisible();
     await expect(readout).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i }).first()).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: /reset/i }).first(),
+    ).toBeVisible();
     // Boundary inputs are reachable on this mount.
     await expect(perStep).toHaveAttribute('min', '0');
     await expect(perStep).toHaveAttribute('max', '100');
@@ -157,7 +164,9 @@ test.describe('frontier reliability-gap module', () => {
     await expect(readout).toHaveText('21.5%');
   });
 
-  test('boundary inputs produce honest outputs (VAL-FRONT-022)', async ({ page }) => {
+  test('boundary inputs produce honest outputs (VAL-FRONT-022)', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const perStep = page.getByRole('slider', PER_STEP);
     const horizon = page.getByRole('slider', HORIZON);
@@ -228,7 +237,9 @@ test.describe('frontier reliability-gap module', () => {
       .getByText('verified', { exact: true })
       .first()
       .getAttribute('data-variant');
-    const claimedVariant = await claimedBadges.first().getAttribute('data-variant');
+    const claimedVariant = await claimedBadges
+      .first()
+      .getAttribute('data-variant');
     expect(verifiedVariant).not.toBe(claimedVariant);
 
     // The filter separates the two classes, and reset restores the full set.
@@ -238,7 +249,9 @@ test.describe('frontier reliability-gap module', () => {
     expect(await page.getByTestId(/^deployment-row-/).count()).toBe(
       await claimedBadges.count(),
     );
-    await expect(page.getByTestId('deployment-row-agility-digit')).toHaveCount(0);
+    await expect(page.getByTestId('deployment-row-agility-digit')).toHaveCount(
+      0,
+    );
     await dashboard.getByRole('button', { name: 'Reset' }).click();
     expect(await page.getByTestId(/^deployment-row-/).count()).toBe(rowCount);
   });

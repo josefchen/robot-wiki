@@ -119,7 +119,9 @@ export function dashLines(body: string): number[] {
 }
 
 /** Find banned vocabulary in an MDX body, prose only, with line numbers. */
-export function findBannedVocabulary(body: string): Array<SlopFinding & { word: string }> {
+export function findBannedVocabulary(
+  body: string,
+): Array<SlopFinding & { word: string }> {
   const masked = maskNonProse(body);
   const findings: Array<SlopFinding & { word: string }> = [];
   masked.split('\n').forEach((line, i) => {

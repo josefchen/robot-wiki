@@ -29,9 +29,9 @@ describe('ActionConditioning', () => {
     expect(screen.getByTestId('rollout-panel-a')).toBeInTheDocument();
     expect(screen.getByTestId('rollout-panel-b')).toBeInTheDocument();
     // A control offering at least two distinct actions per rollout.
-    expect(
-      screen.getAllByRole('button', { name: /push left/i }),
-    ).toHaveLength(2);
+    expect(screen.getAllByRole('button', { name: /push left/i })).toHaveLength(
+      2,
+    );
     expect(
       screen.getAllByRole('button', { name: /lift gripper/i }),
     ).toHaveLength(2);
@@ -74,16 +74,16 @@ describe('ActionConditioning', () => {
     // a different distance between the two futures.
     await user.click(screen.getAllByRole('button', { name: /push right/i })[1]);
     expect(sensitivity()).not.toBe(before);
-    await user.click(screen.getAllByRole('button', { name: /lift gripper/i })[1]);
+    await user.click(
+      screen.getAllByRole('button', { name: /lift gripper/i })[1],
+    );
     expect(sensitivity()).toBe(before);
   });
 
   it('reports identical futures when both rollouts use the same action', async () => {
     const user = userEvent.setup();
     render(<ActionConditioning />);
-    await user.click(
-      screen.getAllByRole('button', { name: /push left/i })[1],
-    );
+    await user.click(screen.getAllByRole('button', { name: /push left/i })[1]);
     expect(sensitivity()).toBe(0);
   });
 
@@ -94,9 +94,7 @@ describe('ActionConditioning', () => {
     await user.click(
       screen.getByRole('button', { name: /weak conditioning/i }),
     );
-    await user.click(
-      screen.getAllByRole('button', { name: /push right/i })[0],
-    );
+    await user.click(screen.getAllByRole('button', { name: /push right/i })[0]);
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(sensitivity()).toBe(initial);
     expect(
@@ -115,11 +113,7 @@ describe('ActionConditioning', () => {
     expect(
       screen.getByRole('img', { name: /shared initial frame/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /rollout a/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /rollout b/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /rollout a/i })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /rollout b/i })).toBeInTheDocument();
   });
 });

@@ -74,7 +74,11 @@ export function SeeAlso({ entries }: { entries: readonly ArticleLinkEntry[] }) {
   );
 }
 
-export function LinkedFrom({ entries }: { entries: readonly ArticleLinkEntry[] }) {
+export function LinkedFrom({
+  entries,
+}: {
+  entries: readonly ArticleLinkEntry[];
+}) {
   return (
     <ArticleLinkSection
       headingId="linked-from-heading"

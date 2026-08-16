@@ -20,7 +20,9 @@ export function GridView({
   return (
     <div className="mt-6 space-y-10">
       {SEGMENT_ORDER.map((segment) => {
-        const group = companies.filter((company) => company.segment === segment);
+        const group = companies.filter(
+          (company) => company.segment === segment,
+        );
         if (group.length === 0) return null;
         return (
           <section

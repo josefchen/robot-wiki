@@ -25,7 +25,9 @@ test.describe('manipulation comparison matrix', () => {
     expect(rows).toBeGreaterThanOrEqual(10);
   });
 
-  test('the query filter narrows the matrix and reset restores it', async ({ page }) => {
+  test('the query filter narrows the matrix and reset restores it', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const table = page.locator('table').first();
     const before = await table.locator('tbody tr').count();
@@ -38,12 +40,12 @@ test.describe('manipulation comparison matrix', () => {
       `${after} of ${before} methods`,
     );
     await page.getByRole('button', { name: 'Reset' }).click();
-    await expect
-      .poll(() => table.locator('tbody tr').count())
-      .toBe(before);
+    await expect.poll(() => table.locator('tbody tr').count()).toBe(before);
   });
 
-  test('usable at 375px: no page scroll, matrix scrolls in its own container (VAL-A11Y-018)', async ({ browser }) => {
+  test('usable at 375px: no page scroll, matrix scrolls in its own container (VAL-A11Y-018)', async ({
+    browser,
+  }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },
     });
@@ -69,7 +71,10 @@ test.describe('manipulation comparison matrix', () => {
         contentWiderThanContainer: el.scrollWidth - el.clientWidth,
       };
     });
-    expect(surface, 'a horizontally scrollable table container exists').not.toBeNull();
+    expect(
+      surface,
+      'a horizontally scrollable table container exists',
+    ).not.toBeNull();
     const s = await surface;
     if (s!.scrollsInternally) {
       // Scrollable within its own container: the reader can reach every

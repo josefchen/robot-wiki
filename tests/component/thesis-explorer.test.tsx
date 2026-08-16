@@ -31,9 +31,10 @@ describe('ThesisExplorer', () => {
   it('opens with the default thesis selected and its four detail fields visible', () => {
     render(<ThesisExplorer />);
     const thesis = thesisById(DEFAULT_THESIS_ID);
-    expect(
-      screen.getByRole('button', { name: thesis.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: thesis.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
 
     const detail = screen.getByTestId('thesis-detail');
     const scope = within(detail);
@@ -59,9 +60,10 @@ describe('ThesisExplorer', () => {
     const target = thesisById('world-model-training');
     await user.click(screen.getByRole('button', { name: target.name }));
 
-    expect(
-      screen.getByRole('button', { name: target.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: target.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     const detail = screen.getByTestId('thesis-detail');
     expect(detail).toHaveTextContent(target.falsification);
     for (const item of target.evidenceFor) {
@@ -107,23 +109,26 @@ describe('ThesisExplorer', () => {
     const firstButton = screen.getByRole('button', { name: first.name });
     firstButton.focus();
     await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: second.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByTestId('thesis-detail')).toHaveTextContent(
       second.falsification,
     );
 
     await user.keyboard('{ArrowDown}');
-    expect(
-      screen.getByRole('button', { name: third.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: third.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
 
     await user.keyboard('{ArrowUp}');
     await user.keyboard('{Enter}');
-    expect(
-      screen.getByRole('button', { name: second.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: second.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('reset restores the default selection', async () => {
@@ -131,15 +136,17 @@ describe('ThesisExplorer', () => {
     render(<ThesisExplorer />);
     const target = thesisById('form-factor');
     await user.click(screen.getByRole('button', { name: target.name }));
-    expect(
-      screen.getByRole('button', { name: target.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: target.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
 
     await user.click(screen.getByRole('button', { name: /reset/i }));
     const fallback = thesisById(DEFAULT_THESIS_ID);
-    expect(
-      screen.getByRole('button', { name: fallback.name }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: fallback.name })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByTestId('thesis-detail')).toHaveTextContent(
       fallback.falsification,
     );

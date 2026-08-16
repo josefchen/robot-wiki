@@ -144,7 +144,10 @@ export function Table<T extends Record<string, unknown>>({
                       className="inline-flex cursor-pointer items-center gap-1 hover:text-text"
                     >
                       {column.header}
-                      <span aria-hidden="true" className="font-mono text-[10px]">
+                      <span
+                        aria-hidden="true"
+                        className="font-mono text-[10px]"
+                      >
                         {isSorted ? (sort.direction === 'asc' ? '↑' : '↓') : ''}
                       </span>
                     </button>
@@ -163,30 +166,30 @@ export function Table<T extends Record<string, unknown>>({
               anchor && highlightedAnchor && anchor === highlightedAnchor,
             );
             return (
-            <tr
-              key={anchor ?? rowIndex}
-              id={anchor}
-              data-entity-id={anchor}
-              className={cx(
-                'scroll-mt-24 border-t border-border bg-surface',
-                highlighted &&
-                  'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
-              )}
-            >
-              {columns.map((column) => (
-                <td
-                  key={column.key}
-                  className={cx(
-                    'px-3 py-2 text-text',
-                    column.numeric && 'text-right font-mono tabular-nums',
-                  )}
-                >
-                  {column.render
-                    ? column.render(row)
-                    : formatValue(row[column.key])}
-                </td>
-              ))}
-            </tr>
+              <tr
+                key={anchor ?? rowIndex}
+                id={anchor}
+                data-entity-id={anchor}
+                className={cx(
+                  'scroll-mt-24 border-t border-border bg-surface',
+                  highlighted &&
+                    'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
+                )}
+              >
+                {columns.map((column) => (
+                  <td
+                    key={column.key}
+                    className={cx(
+                      'px-3 py-2 text-text',
+                      column.numeric && 'text-right font-mono tabular-nums',
+                    )}
+                  >
+                    {column.render
+                      ? column.render(row)
+                      : formatValue(row[column.key])}
+                  </td>
+                ))}
+              </tr>
             );
           })}
         </tbody>

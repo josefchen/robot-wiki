@@ -1,7 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import {
+  startStaticExportServer,
+  type StaticExportServer,
+} from './static-export-server';
 
 /**
  * Citation-chip punctuation orphans. Chromium allows a line break between
@@ -153,13 +156,15 @@ test.describe('cite punctuation binding', () => {
   test('dexterity renders exactly the 32 plugin wrappers that replaced the hand-fix', async ({
     page,
   }) => {
-    await page.goto(`${BASE}/frontier/dexterity/`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}/frontier/dexterity/`, {
+      waitUntil: 'networkidle',
+    });
     const count = await page.evaluate(
       () =>
         // Count wrapper spans, not chips: a stacked cluster holds two chips
         // in one wrapper, and dexterity has three of those.
-        [...document.querySelectorAll('span.whitespace-nowrap')].filter(
-          (s) => s.querySelector(':scope > span[data-cite-id]'),
+        [...document.querySelectorAll('span.whitespace-nowrap')].filter((s) =>
+          s.querySelector(':scope > span[data-cite-id]'),
         ).length,
     );
     // The 32 hand-written wrappers were stripped from the MDX; the plugin

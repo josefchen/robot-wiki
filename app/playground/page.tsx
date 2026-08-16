@@ -14,11 +14,11 @@ export default function PlaygroundPage() {
         3D Kinematics Playground
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">
-        A SO-101 follower arm loaded from its URDF and rendered client-side
-        with WebGL. Move each joint with the sliders, click the ground to
-        set a target for the damped-least-squares solver, or record a
-        sequence of poses and play it back as an eased trajectory. Nothing
-        here touches a server.
+        A SO-101 follower arm loaded from its URDF and rendered client-side with
+        WebGL. Move each joint with the sliders, click the ground to set a
+        target for the damped-least-squares solver, or record a sequence of
+        poses and play it back as an eased trajectory. Nothing here touches a
+        server.
       </p>
 
       <section aria-label="3D robot playground" className="mt-6">

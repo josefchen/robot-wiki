@@ -80,7 +80,8 @@ export function isValidModeAction(action: number): boolean {
  */
 export function teThroughput(delayMs: number): number {
   const action = teActionAtHandoff(delayMs);
-  const t = (action - VALID_ACTION_FLOOR) / (NOMINAL_ACTION - VALID_ACTION_FLOOR);
+  const t =
+    (action - VALID_ACTION_FLOOR) / (NOMINAL_ACTION - VALID_ACTION_FLOOR);
   return Math.min(1, Math.max(0, t));
 }
 

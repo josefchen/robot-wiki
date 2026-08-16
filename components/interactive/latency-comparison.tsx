@@ -40,8 +40,16 @@ type LatencyComparisonProps = {
   className?: string;
 };
 
-const CHART = { width: 640, height: 210, pad: { top: 14, right: 18, bottom: 30, left: 48 } };
-const TRACE = { width: 640, height: 190, pad: { top: 14, right: 18, bottom: 30, left: 48 } };
+const CHART = {
+  width: 640,
+  height: 210,
+  pad: { top: 14, right: 18, bottom: 30, left: 48 },
+};
+const TRACE = {
+  width: 640,
+  height: 190,
+  pad: { top: 14, right: 18, bottom: 30, left: 48 },
+};
 
 /** Delay window (ms) where Physical Intelligence documents TE failing. */
 const FAILURE_WINDOW = { from: 100, to: 200 };
@@ -72,15 +80,20 @@ export function LatencyComparison({
     const plotW = CHART.width - CHART.pad.left - CHART.pad.right;
     const plotH = CHART.height - CHART.pad.top - CHART.pad.bottom;
     const x = (d: number) =>
-      CHART.pad.left + ((d - MIN_DELAY_MS) / (MAX_DELAY_MS - MIN_DELAY_MS)) * plotW;
+      CHART.pad.left +
+      ((d - MIN_DELAY_MS) / (MAX_DELAY_MS - MIN_DELAY_MS)) * plotW;
     const y = (p: number) => CHART.pad.top + (1 - p) * plotH;
 
     const tePath: string[] = [];
     const rtcPath: string[] = [];
     for (let d = MIN_DELAY_MS; d <= MAX_DELAY_MS; d += 4) {
       const prefix = d === MIN_DELAY_MS ? 'M' : 'L';
-      tePath.push(`${prefix}${x(d).toFixed(2)},${y(teThroughput(d)).toFixed(2)}`);
-      rtcPath.push(`${prefix}${x(d).toFixed(2)},${y(rtcThroughput(d)).toFixed(2)}`);
+      tePath.push(
+        `${prefix}${x(d).toFixed(2)},${y(teThroughput(d)).toFixed(2)}`,
+      );
+      rtcPath.push(
+        `${prefix}${x(d).toFixed(2)},${y(rtcThroughput(d)).toFixed(2)}`,
+      );
     }
     return {
       tePath: tePath.join(' '),
@@ -100,7 +113,8 @@ export function LatencyComparison({
   const traceChart = useMemo(() => {
     const plotW = TRACE.width - TRACE.pad.left - TRACE.pad.right;
     const plotH = TRACE.height - TRACE.pad.top - TRACE.pad.bottom;
-    const x = (tick: number) => TRACE.pad.left + (tick / (TRACE_TICKS - 1)) * plotW;
+    const x = (tick: number) =>
+      TRACE.pad.left + (tick / (TRACE_TICKS - 1)) * plotW;
     // y spans [-1, 1] of action space with a small margin.
     const y = (a: number) => TRACE.pad.top + ((1.1 - a) / 2.2) * plotH;
 

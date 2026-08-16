@@ -253,10 +253,10 @@ export function RecedingHorizon({
         <span className="text-text-dim">committed per plan</span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Solid segments are executed; outlined tails are revised away by the
-        next inference. Small T_a reacts quickly but re-samples (and can
-        switch modes) often; large T_a is smooth but slow to notice the world
-        changed. At T_a = T_p the policy runs open-loop between inferences.
+        Solid segments are executed; outlined tails are revised away by the next
+        inference. Small T_a reacts quickly but re-samples (and can switch
+        modes) often; large T_a is smooth but slow to notice the world changed.
+        At T_a = T_p the policy runs open-loop between inferences.
       </p>
     </div>
   );

@@ -44,15 +44,17 @@ describe('Table', () => {
     const yearButton = screen.getByRole('button', { name: /Year/ });
     await user.click(yearButton);
     expect(rowOrder()).toEqual(['RT-1', 'Diffusion Policy', 'ACT']);
-    expect(
-      screen.getByRole('columnheader', { name: /Year/ }),
-    ).toHaveAttribute('aria-sort', 'ascending');
+    expect(screen.getByRole('columnheader', { name: /Year/ })).toHaveAttribute(
+      'aria-sort',
+      'ascending',
+    );
 
     await user.click(yearButton);
     expect(rowOrder()).toEqual(['Diffusion Policy', 'ACT', 'RT-1']);
-    expect(
-      screen.getByRole('columnheader', { name: /Year/ }),
-    ).toHaveAttribute('aria-sort', 'descending');
+    expect(screen.getByRole('columnheader', { name: /Year/ })).toHaveAttribute(
+      'aria-sort',
+      'descending',
+    );
   });
 
   it('keeps null values at the end when sorting', async () => {
@@ -61,7 +63,9 @@ describe('Table', () => {
       { key: 'method', header: 'Method' },
       { key: 'rate', header: 'Success rate', sortable: true, numeric: true },
     ];
-    render(<Table caption="Policy comparison" columns={sortable} rows={rows} />);
+    render(
+      <Table caption="Policy comparison" columns={sortable} rows={rows} />,
+    );
     await user.click(screen.getByRole('button', { name: /Success rate/ }));
     expect(rowOrder()).toEqual(['Diffusion Policy', 'RT-1', 'ACT']);
   });

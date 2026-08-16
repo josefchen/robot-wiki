@@ -58,10 +58,16 @@ function statusLabel(step: number): string {
   return 'denoising';
 }
 
-export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps) {
+export function DenoisingLoop({
+  defaultStep = 0,
+  className,
+}: DenoisingLoopProps) {
   const [step, setStep] = useState(defaultStep);
   const trajectory = useMemo(() => generateDenoisingTrajectory(), []);
-  const samples = useMemo(() => samplesAtStep(trajectory, step), [trajectory, step]);
+  const samples = useMemo(
+    () => samplesAtStep(trajectory, step),
+    [trajectory, step],
+  );
   const dispersion = meanDistanceToMode(samples);
   const alpha = convergenceAlpha(step, DENOISING_STEPS);
 
@@ -73,7 +79,10 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
   const x = (u: number) =>
     f(PAD.left + ((u - X_RANGE.min) / (X_RANGE.max - X_RANGE.min)) * plotWidth);
   const y = (v: number) =>
-    f(PAD.top + (1 - (v - Y_RANGE.min) / (Y_RANGE.max - Y_RANGE.min)) * plotHeight);
+    f(
+      PAD.top +
+        (1 - (v - Y_RANGE.min) / (Y_RANGE.max - Y_RANGE.min)) * plotHeight,
+    );
 
   function move(delta: number) {
     setStep((s) => Math.min(DENOISING_STEPS, Math.max(0, s + delta)));
@@ -227,12 +236,12 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         </span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Illustrative model: 60 samples with a fixed seed, transported toward
-        two demonstration modes over {DENOISING_STEPS} steps, the DDIM
-        inference schedule in the published configuration. The real sampler
-        refines a whole action sequence jointly; this view shows 2 of its
-        dimensions. An MSE policy would land between the modes; the diffusion
-        policy commits each sample to one.
+        Illustrative model: 60 samples with a fixed seed, transported toward two
+        demonstration modes over {DENOISING_STEPS} steps, the DDIM inference
+        schedule in the published configuration. The real sampler refines a
+        whole action sequence jointly; this view shows 2 of its dimensions. An
+        MSE policy would land between the modes; the diffusion policy commits
+        each sample to one.
       </p>
     </div>
   );

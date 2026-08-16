@@ -60,22 +60,27 @@ describe('PerceptionLatency', () => {
     fireEvent.click(screen.getByRole('button', { name: '200 m/s²' }));
     // 2 sqrt(0.75/200) = 122 ms.
     expect(avoidText()).toBe('122 ms');
-    expect(
-      screen.getByRole('button', { name: '200 m/s²' }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: '200 m/s²' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('reset restores the study default state', () => {
     render(<PerceptionLatency />);
-    fireEvent.change(screen.getByRole('slider', { name: /perception latency/i }), {
-      target: { value: '0' },
-    });
+    fireEvent.change(
+      screen.getByRole('slider', { name: /perception latency/i }),
+      {
+        target: { value: '0' },
+      },
+    );
     fireEvent.click(screen.getByRole('button', { name: '50 m/s²' }));
     fireEvent.click(screen.getByRole('button', { name: /reset/i }));
     expect(speedText()).toBe('19.21 m/s');
-    expect(
-      screen.getByRole('button', { name: /^25 m\/s²$/ }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /^25 m\/s²$/ })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 
   it('names the sensor reference latencies from the study', () => {

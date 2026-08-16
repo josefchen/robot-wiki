@@ -41,7 +41,9 @@ const structuredOnly = process.argv.includes('--structured-only');
 
 if (!structuredOnly) {
   if (!existsSync(outDir)) {
-    console.error('build:search: FAILED (out/ does not exist; run next build first)');
+    console.error(
+      'build:search: FAILED (out/ does not exist; run next build first)',
+    );
     process.exit(1);
   }
 
@@ -52,17 +54,23 @@ if (!structuredOnly) {
   });
 
   if (result.error) {
-    console.error(`build:search: FAILED (could not run pagefind: ${result.error.message})`);
+    console.error(
+      `build:search: FAILED (could not run pagefind: ${result.error.message})`,
+    );
     process.exit(1);
   }
   if (result.status !== 0) {
-    console.error(`build:search: FAILED (pagefind exited with code ${result.status})`);
+    console.error(
+      `build:search: FAILED (pagefind exited with code ${result.status})`,
+    );
     process.exit(result.status ?? 1);
   }
 
   const entry = join(outDir, 'pagefind', 'pagefind.js');
   if (!existsSync(entry)) {
-    console.error('build:search: FAILED (out/pagefind/pagefind.js was not emitted)');
+    console.error(
+      'build:search: FAILED (out/pagefind/pagefind.js was not emitted)',
+    );
     process.exit(1);
   }
 

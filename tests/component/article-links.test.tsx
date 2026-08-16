@@ -14,7 +14,8 @@ const entries: ArticleLinkEntry[] = [
     key: 'manipulation/diffusion-policy',
     href: '/manipulation/diffusion-policy',
     title: 'Diffusion Policy',
-    summary: 'Visuomotor control as conditional denoising over action sequences.',
+    summary:
+      'Visuomotor control as conditional denoising over action sequences.',
   },
 ];
 

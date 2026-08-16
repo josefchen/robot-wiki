@@ -9,14 +9,18 @@ describe('AvStackTable', () => {
     expect(rows).toHaveLength(4);
     for (const stage of ['Perception', 'Prediction', 'Planning', 'Control']) {
       expect(
-        container.querySelector(`[data-testid="av-stage-${stage.toLowerCase()}"]`),
+        container.querySelector(
+          `[data-testid="av-stage-${stage.toLowerCase()}"]`,
+        ),
       ).not.toBeNull();
     }
   });
 
   it('exposes an accessible name via caption', () => {
     render(<AvStackTable />);
-    expect(screen.getByRole('table', { name: /autonomous-driving stack/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('table', { name: /autonomous-driving stack/i }),
+    ).toBeInTheDocument();
   });
 
   it('populates every cell of every row', () => {
@@ -34,7 +38,9 @@ describe('AvStackTable', () => {
 
   it('names representative learned and classical methods per stage', () => {
     render(<AvStackTable />);
-    const text = screen.getByRole('table', { name: /autonomous-driving stack/i }).textContent ?? '';
+    const text =
+      screen.getByRole('table', { name: /autonomous-driving stack/i })
+        .textContent ?? '';
     expect(text).toMatch(/VectorNet/);
     expect(text).toMatch(/UniAD/);
     expect(text).toMatch(/ChauffeurNet|EMMA/);

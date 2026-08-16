@@ -43,8 +43,12 @@ beforeEach(() => {
 
 describe('SearchInterface', () => {
   it('renders one labeled search input with an idle prompt', () => {
-    render(<SearchInterface loadClient={clientWith(() => Promise.resolve([]))} />);
-    expect(screen.getByRole('searchbox', { name: INPUT_NAME })).toBeInTheDocument();
+    render(
+      <SearchInterface loadClient={clientWith(() => Promise.resolve([]))} />,
+    );
+    expect(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+    ).toBeInTheDocument();
     expect(screen.getByText(/type a query to search/i)).toBeInTheDocument();
   });
 
@@ -56,7 +60,9 @@ describe('SearchInterface', () => {
         debounceMs={0}
       />,
     );
-    expect(screen.getByRole('searchbox', { name: INPUT_NAME })).toHaveValue('chunk');
+    expect(screen.getByRole('searchbox', { name: INPUT_NAME })).toHaveValue(
+      'chunk',
+    );
     expect(
       await screen.findByRole('link', { name: ACT_RESULT }),
     ).toBeInTheDocument();
@@ -70,13 +76,18 @@ describe('SearchInterface', () => {
         debounceMs={0}
       />,
     );
-    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
+    await user.type(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+      'chunk',
+    );
     const group = await screen.findByRole('region', { name: 'Modules' });
     const link = await screen.findByRole('link', { name: ACT_RESULT });
     expect(group).toContainElement(link);
     // next/link normalizes the trailing slash when no Next config is loaded
     // (test env); the production config sets trailingSlash: true.
-    expect(link.getAttribute('href')).toMatch(/^\/manipulation\/action-chunking/);
+    expect(link.getAttribute('href')).toMatch(
+      /^\/manipulation\/action-chunking/,
+    );
     // The match-context snippet renders inside the result, with the matched
     // term highlighted.
     const snippet = group.querySelector('.search-excerpt');
@@ -92,7 +103,10 @@ describe('SearchInterface', () => {
         debounceMs={0}
       />,
     );
-    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
+    await user.type(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+      'chunk',
+    );
     await screen.findByRole('link', { name: ACT_RESULT });
     expect(screen.getByRole('status')).toHaveTextContent('1 module matches');
   });
@@ -105,8 +119,13 @@ describe('SearchInterface', () => {
         debounceMs={0}
       />,
     );
-    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'zzqx');
-    expect(await screen.findByText(/no module prose matches/i)).toBeInTheDocument();
+    await user.type(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+      'zzqx',
+    );
+    expect(
+      await screen.findByText(/no module prose matches/i),
+    ).toBeInTheDocument();
   });
 
   it('returns to the idle state when the query is cleared', async () => {
@@ -151,7 +170,12 @@ describe('SearchInterface', () => {
     // The newer query resolves first.
     pending
       .find((p) => p.q === 'diffusion')!
-      .resolve([hit({ title: 'Diffusion Policy', url: '/manipulation/diffusion-policy/' })]);
+      .resolve([
+        hit({
+          title: 'Diffusion Policy',
+          url: '/manipulation/diffusion-policy/',
+        }),
+      ]);
     await screen.findByRole('link', { name: /^Diffusion Policy/ });
 
     // A late response for the older query must be dropped, not mixed in.
@@ -161,7 +185,9 @@ describe('SearchInterface', () => {
         screen.queryByRole('link', { name: ACT_RESULT }),
       ).not.toBeInTheDocument(),
     );
-    expect(screen.getByRole('link', { name: /^Diffusion Policy/ })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /^Diffusion Policy/ }),
+    ).toBeInTheDocument();
   });
 
   it('moves focus through results with arrow keys', async () => {
@@ -210,11 +236,16 @@ describe('SearchInterface', () => {
         debounceMs={0}
       />,
     );
-    await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'chunk');
+    await user.type(
+      screen.getByRole('searchbox', { name: INPUT_NAME }),
+      'chunk',
+    );
     const note = await screen.findByRole('note');
     expect(note).toHaveTextContent(/search index is unavailable/i);
     expect(note).toHaveTextContent(/npm run build/);
-    expect(screen.queryByRole('region', { name: 'Modules' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('region', { name: 'Modules' }),
+    ).not.toBeInTheDocument();
   });
 
   it('syncs the query into the URL', async () => {
@@ -227,7 +258,9 @@ describe('SearchInterface', () => {
     );
     await user.type(screen.getByRole('searchbox', { name: INPUT_NAME }), 'act');
     await waitFor(() =>
-      expect(mockReplace).toHaveBeenCalledWith('/search?q=act', { scroll: false }),
+      expect(mockReplace).toHaveBeenCalledWith('/search?q=act', {
+        scroll: false,
+      }),
     );
   });
 });

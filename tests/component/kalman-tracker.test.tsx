@@ -54,9 +54,7 @@ describe('KalmanTracker', () => {
     expect(
       screen.getByRole('button', { name: /step the tracker/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /reseed/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /reseed/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     for (const id of [
       'kalman-step-readout',
@@ -71,7 +69,9 @@ describe('KalmanTracker', () => {
 
   it('starts paused at the known opening step with the default seed and matched settings', () => {
     render(<KalmanTracker />);
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP} / ${MAX_STEPS}`,
+    );
     expect(readout('kalman-seed-readout')).toBe(String(DEFAULT_SEED));
     expect(screen.getByTestId('kalman-sigmaq-value')).toHaveTextContent(
       DEFAULT_SETTINGS.sigmaQ.toFixed(2),
@@ -117,9 +117,7 @@ describe('KalmanTracker', () => {
       vi.advanceTimersByTime(1000);
     });
     expect(readout('kalman-step-readout')).not.toBe(`0 / ${MAX_STEPS}`);
-    fireEvent.click(
-      screen.getByRole('button', { name: /pause the tracker/i }),
-    );
+    fireEvent.click(screen.getByRole('button', { name: /pause the tracker/i }));
     const frozen = readout('kalman-step-readout');
     act(() => {
       vi.advanceTimersByTime(2000);
@@ -130,9 +128,13 @@ describe('KalmanTracker', () => {
   it('step button advances exactly one step while paused', () => {
     render(<KalmanTracker />);
     fireEvent.click(screen.getByRole('button', { name: /step the tracker/i }));
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP + 1} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP + 1} / ${MAX_STEPS}`,
+    );
     fireEvent.click(screen.getByRole('button', { name: /step the tracker/i }));
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP + 2} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP + 2} / ${MAX_STEPS}`,
+    );
   });
 
   it('reproduces a run exactly after reset (same seed, same values)', () => {
@@ -156,7 +158,9 @@ describe('KalmanTracker', () => {
     };
     const first = runAndCapture();
     fireEvent.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP} / ${MAX_STEPS}`,
+    );
     const second = runAndCapture();
     expect(second).toEqual(first);
   });
@@ -168,7 +172,9 @@ describe('KalmanTracker', () => {
       .getAttribute('points');
     fireEvent.click(screen.getByRole('button', { name: /reseed/i }));
     expect(readout('kalman-seed-readout')).toBe(String(DEFAULT_SEED + 1));
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP} / ${MAX_STEPS}`,
+    );
     const freshPath = screen
       .getByTestId('kalman-truth-line')
       .getAttribute('points');
@@ -201,7 +207,9 @@ describe('KalmanTracker', () => {
     );
     await user.click(screen.getByRole('button', { name: /run the tracker/i }));
     await user.click(screen.getByRole('button', { name: /reset/i }));
-    expect(readout('kalman-step-readout')).toBe(`${INITIAL_STEP} / ${MAX_STEPS}`);
+    expect(readout('kalman-step-readout')).toBe(
+      `${INITIAL_STEP} / ${MAX_STEPS}`,
+    );
     expect(screen.getByTestId('kalman-sigmar-value')).toHaveTextContent(
       DEFAULT_SETTINGS.sigmaR.toFixed(2),
     );

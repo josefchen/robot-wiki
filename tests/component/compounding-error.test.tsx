@@ -25,15 +25,14 @@ describe('CompoundingError', () => {
     expect(
       screen.getByRole('button', { name: /chunk of 25 actions/i }),
     ).toHaveAttribute('aria-pressed', 'false');
-    expect(
-      screen.getByRole('button', { name: /dagger/i }),
-    ).toHaveAttribute('aria-pressed', 'false');
+    expect(screen.getByRole('button', { name: /dagger/i })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
     expect(
       screen.getByTestId('accumulated-deviation-readout'),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /reset/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
   it('increases the accumulated deviation as the error slider moves up', () => {
@@ -58,7 +57,9 @@ describe('CompoundingError', () => {
     const user = userEvent.setup();
     render(<CompoundingError />);
     const perStep = readout();
-    await user.click(screen.getByRole('button', { name: /chunk of 25 actions/i }));
+    await user.click(
+      screen.getByRole('button', { name: /chunk of 25 actions/i }),
+    );
     expect(readout()).toBeLessThan(perStep);
     expect(
       screen.getByRole('button', { name: /chunk of 25 actions/i }),

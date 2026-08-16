@@ -36,9 +36,7 @@ describe('MpcVsRl', () => {
     render(<MpcVsRl />);
     expect(screen.getByTestId('mpc-status').textContent).toMatch(/recovers/i);
     expect(screen.getByTestId('rl-status').textContent).toMatch(/recovers/i);
-    const mpcTrace = screen
-      .getByTestId('mpc-trace')
-      .getAttribute('points');
+    const mpcTrace = screen.getByTestId('mpc-trace').getAttribute('points');
     const rlTrace = screen.getByTestId('rl-trace').getAttribute('points');
     expect(mpcTrace).not.toBe(rlTrace);
   });
@@ -46,14 +44,12 @@ describe('MpcVsRl', () => {
   it('the low-friction patch trips the model-based controller, not the randomized policy', async () => {
     const user = userEvent.setup();
     render(<MpcVsRl />);
-    await user.click(
-      screen.getByRole('button', { name: /low-friction/i }),
-    );
+    await user.click(screen.getByRole('button', { name: /low-friction/i }));
     expect(screen.getByTestId('mpc-status').textContent).toMatch(/falls/i);
     expect(screen.getByTestId('rl-status').textContent).toMatch(/recovers/i);
-    expect(
-      screen.getByTestId('mpc-annotation').textContent,
-    ).toMatch(/friction|model/i);
+    expect(screen.getByTestId('mpc-annotation').textContent).toMatch(
+      /friction|model/i,
+    );
   });
 
   it('switching perturbations updates the annotations', async () => {
@@ -68,9 +64,7 @@ describe('MpcVsRl', () => {
   it('reset returns to the default perturbation', async () => {
     const user = userEvent.setup();
     render(<MpcVsRl />);
-    await user.click(
-      screen.getByRole('button', { name: /low-friction/i }),
-    );
+    await user.click(screen.getByRole('button', { name: /low-friction/i }));
     expect(screen.getByTestId('mpc-status').textContent).toMatch(/falls/i);
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByTestId('mpc-status').textContent).toMatch(/recovers/i);

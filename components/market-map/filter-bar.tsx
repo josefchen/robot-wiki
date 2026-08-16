@@ -195,8 +195,7 @@ export function FilterBar({
         value={filters.confidence ?? ''}
         onChange={(event) =>
           onFilterChange({
-            confidence: (event.target.value ||
-              null) as ConfidenceFilter | null,
+            confidence: (event.target.value || null) as ConfidenceFilter | null,
           })
         }
       >
@@ -213,11 +212,7 @@ export function FilterBar({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div
-          role="group"
-          aria-label="View"
-          className="flex flex-wrap gap-1.5"
-        >
+        <div role="group" aria-label="View" className="flex flex-wrap gap-1.5">
           {VIEW_IDS.map((id) => (
             <button
               key={id}
@@ -277,5 +272,3 @@ export function FilterBar({
     </div>
   );
 }
-
-

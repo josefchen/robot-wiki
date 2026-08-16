@@ -46,9 +46,7 @@ describe('ActionTokenization', () => {
 
   it('labels the binning grid as 256 bins per dimension', () => {
     render(<ActionTokenization />);
-    expect(
-      screen.getByRole('img', { name: /256 bins/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /256 bins/i })).toBeInTheDocument();
   });
 
   it('spans the full chunk (16 control steps)', () => {

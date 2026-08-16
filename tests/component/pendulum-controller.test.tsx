@@ -100,7 +100,9 @@ describe('PendulumController', () => {
   it('running the sim with default gains pulls the pole toward upright', () => {
     vi.useFakeTimers();
     render(<PendulumController />);
-    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
     expect(
       screen.getByRole('button', { name: /pause the simulation/i }),
     ).toBeInTheDocument();
@@ -116,7 +118,9 @@ describe('PendulumController', () => {
   it('dropping Kp below the gravity threshold while running loses the pole', () => {
     vi.useFakeTimers();
     render(<PendulumController />);
-    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
     fireEvent.change(
       screen.getByRole('slider', { name: /proportional gain kp/i }),
       { target: { value: '5' } },
@@ -146,7 +150,9 @@ describe('PendulumController', () => {
   it('pause freezes the trajectory', () => {
     vi.useFakeTimers();
     render(<PendulumController />);
-    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
     act(() => {
       vi.advanceTimersByTime(1000);
     });
@@ -167,7 +173,9 @@ describe('PendulumController', () => {
       screen.getByRole('slider', { name: /proportional gain kp/i }),
       { target: { value: '5' } },
     );
-    await user.click(screen.getByRole('button', { name: /run the simulation/i }));
+    await user.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(angleText()).toBe('+12.0°');
     expect(statusText()).toMatch(/holding at release/i);
@@ -184,7 +192,9 @@ describe('PendulumController', () => {
     mockReducedMotion(true);
     vi.useFakeTimers();
     render(<PendulumController />);
-    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
     act(() => {
       // Two coarse ticks of 0.32 s each.
       vi.advanceTimersByTime(700);

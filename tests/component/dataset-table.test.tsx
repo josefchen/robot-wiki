@@ -70,7 +70,10 @@ describe('DatasetTable', () => {
       const links = within(row)
         .getAllByRole('link')
         .filter((link) => link.getAttribute('href')?.startsWith('http'));
-      expect(links.length, 'every dataset row needs an external link').toBeGreaterThanOrEqual(1);
+      expect(
+        links.length,
+        'every dataset row needs an external link',
+      ).toBeGreaterThanOrEqual(1);
     }
   });
 

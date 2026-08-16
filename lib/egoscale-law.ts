@@ -90,7 +90,11 @@ export const COMPLETION_POINTS: ScalingPoint[] = [
  * from the five points so the rendered line and the reported R^2 can never
  * drift apart.
  */
-function fitCompletion(): { intercept: number; slope: number; rSquared: number } {
+function fitCompletion(): {
+  intercept: number;
+  slope: number;
+  rSquared: number;
+} {
   const xs = COMPLETION_POINTS.map((p) => Math.log(p.hours / 1000));
   const ys = COMPLETION_POINTS.map((p) => p.score);
   const n = xs.length;
@@ -122,8 +126,7 @@ export const COMPLETION_FIT = fitCompletion();
  */
 export function completionFitScore(hours: number): number {
   return (
-    COMPLETION_FIT.intercept +
-    COMPLETION_FIT.slope * Math.log(hours / 1000)
+    COMPLETION_FIT.intercept + COMPLETION_FIT.slope * Math.log(hours / 1000)
   );
 }
 
@@ -172,7 +175,11 @@ export function hoursToSlider(hours: number): number {
 
 /** "1k h", "20k h", "100k h", "1M h". */
 export function formatHours(hours: number): string {
-  if (hours >= 1e6) return `${(hours / 1e6).toFixed(hours >= 1e7 ? 0 : 1)}M h`.replace('.0M', 'M');
+  if (hours >= 1e6)
+    return `${(hours / 1e6).toFixed(hours >= 1e7 ? 0 : 1)}M h`.replace(
+      '.0M',
+      'M',
+    );
   if (hours >= 1000) return `${Math.round(hours / 1000)}k h`;
   return `${Math.round(hours)} h`;
 }

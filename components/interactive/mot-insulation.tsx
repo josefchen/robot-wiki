@@ -67,7 +67,10 @@ const SUPERVISION_LABEL: Record<string, string> = {
   'expert-gradient': 'expert flow-matching gradient (uninsulated)',
 };
 
-export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsulationProps) {
+export function MotInsulation({
+  defaultStep = LAYER_COUNT,
+  className,
+}: MotInsulationProps) {
   const [pass, setPass] = useState<Pass>('forward');
   const [stopGradient, setStopGradient] = useState(true);
   const [step, setStep] = useState(defaultStep);
@@ -163,9 +166,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             onClick={toggleStopGradient}
             className={cx(
               'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
-              stopGradient
-                ? 'border-ok text-text'
-                : 'border-err text-text',
+              stopGradient ? 'border-ok text-text' : 'border-err text-text',
             )}
           >
             Stop gradient: {stopGradient ? 'on' : 'off'}
@@ -264,7 +265,9 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          {pass === 'forward' ? 'out: continuous actions' : 'loss: flow matching'}
+          {pass === 'forward'
+            ? 'out: continuous actions'
+            : 'loss: flow matching'}
         </text>
 
         {/* Loss arrows into the stack tops (backward view only) */}
@@ -375,7 +378,9 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                   y1={pass === 'forward' ? f(y + LAYER_H - 6) : f(y + 6)}
                   x2={f(BACKBONE.x + BACKBONE.w / 2)}
                   y2={pass === 'forward' ? f(y + 6) : f(y + LAYER_H - 6)}
-                  stroke={corrupted ? 'var(--color-err)' : 'var(--color-accent)'}
+                  stroke={
+                    corrupted ? 'var(--color-err)' : 'var(--color-accent)'
+                  }
                   strokeWidth={1.5}
                   markerEnd={`url(#${corrupted ? 'mot-arrow-err' : 'mot-arrow-accent'})`}
                 />
@@ -508,12 +513,12 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       </div>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and
-        the 0-100 language-following score is an illustrative rendering of
-        the paper&apos;s qualitative finding (an uninsulated model told to
-        put a spoon in the dish container grabs the trash instead), not a
-        published curve. The sourced figures are the parameter counts and
-        the {TRAINING_STEP_SPEEDUP}x training-step ratio.
+        Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and the
+        0-100 language-following score is an illustrative rendering of the
+        paper&apos;s qualitative finding (an uninsulated model told to put a
+        spoon in the dish container grabs the trash instead), not a published
+        curve. The sourced figures are the parameter counts and the{' '}
+        {TRAINING_STEP_SPEEDUP}x training-step ratio.
         {citation && (
           <>
             {' '}

@@ -7,7 +7,10 @@ test.describe('legged-locomotion module', () => {
   test('renders the lineage and sidebar state', async ({ page }) => {
     await page.goto(ROUTE);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Legged Locomotion Lineage' }),
+      page.getByRole('heading', {
+        level: 1,
+        name: 'Legged Locomotion Lineage',
+      }),
     ).toBeVisible();
     const main = page.locator('#main-content');
     // Probe phrases that do not collide with citation tooltip titles.

@@ -1,10 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  parseEntityAnchor,
-  type EntityAnchorKind,
-} from '@/lib/entity-anchor';
+import { parseEntityAnchor, type EntityAnchorKind } from '@/lib/entity-anchor';
 
 /**
  * The entity id encoded in the current location hash, if it matches `kind`.

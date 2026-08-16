@@ -110,8 +110,9 @@ describe('GeneralistReleaseTimeline', () => {
       'aria-pressed',
       'true',
     );
-    expect(
-      screen.getByRole('button', { name: /^Helix$/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /^Helix$/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
   });
 });

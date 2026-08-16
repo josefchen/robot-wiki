@@ -17,7 +17,11 @@ import type { ResolvedReference } from '@/lib/references';
  * "Further reading" marker instead of appearing as silent orphans
  * (VAL-WIKI-004).
  */
-export function References({ entries }: { entries: readonly ResolvedReference[] }) {
+export function References({
+  entries,
+}: {
+  entries: readonly ResolvedReference[];
+}) {
   if (entries.length === 0) return null;
 
   return (

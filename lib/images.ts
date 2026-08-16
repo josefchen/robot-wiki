@@ -19,8 +19,7 @@ const FENCED_CODE = /```[\s\S]*?```/g;
 const INLINE_CODE = /`[^`\n]*`/g;
 
 /** <Image id="..."> or <ImageRef id="...">, either quote style. */
-const IMAGE_ELEMENT =
-  /<Image(?:Ref)?\b[^>]*?\bid\s*=\s*(["'])([^"']+)\1/g;
+const IMAGE_ELEMENT = /<Image(?:Ref)?\b[^>]*?\bid\s*=\s*(["'])([^"']+)\1/g;
 
 /**
  * Image ids referenced in a source body, in order of first use, deduped.

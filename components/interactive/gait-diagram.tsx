@@ -60,10 +60,7 @@ function prefersReducedMotion(): boolean {
 }
 
 /** Stance window of one leg as x-intervals; splits when it wraps the cycle. */
-function stanceSpans(
-  offset: number,
-  duty: number,
-): Array<[number, number]> {
+function stanceSpans(offset: number, duty: number): Array<[number, number]> {
   const start = offset;
   const end = offset + duty;
   const spans: Array<[number, number]> = [];
@@ -74,10 +71,11 @@ function stanceSpans(
     spans.push([0, end - 1]);
   }
   return spans.map(
-    ([a, b]) => [f(PLOT_LEFT + a * PLOT_W), f(PLOT_LEFT + b * PLOT_W)] as [
-      number,
-      number,
-    ],
+    ([a, b]) =>
+      [f(PLOT_LEFT + a * PLOT_W), f(PLOT_LEFT + b * PLOT_W)] as [
+        number,
+        number,
+      ],
   );
 }
 
@@ -168,11 +166,7 @@ export function GaitDiagram({
       )}
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <div
-          role="group"
-          aria-label="Gait"
-          className="flex flex-wrap gap-1"
-        >
+        <div role="group" aria-label="Gait" className="flex flex-wrap gap-1">
           {GAIT_ORDER.map((id) => (
             <button
               key={id}
@@ -194,7 +188,11 @@ export function GaitDiagram({
             type="button"
             onClick={() => setPlaying((p) => !p)}
             aria-label={playing ? 'Pause gait cycle' : 'Play gait cycle'}
-            className={cx(buttonBase, buttonIdle, 'inline-flex items-center gap-1.5')}
+            className={cx(
+              buttonBase,
+              buttonIdle,
+              'inline-flex items-center gap-1.5',
+            )}
           >
             {playing ? (
               <Pause size={12} weight="bold" aria-hidden />
@@ -323,9 +321,7 @@ export function GaitDiagram({
                 x={PLOT_LEFT - 8}
                 y={top + ROW_H / 2 + 3}
                 textAnchor="end"
-                fill={
-                  active ? 'var(--color-accent)' : 'var(--color-text-dim)'
-                }
+                fill={active ? 'var(--color-accent)' : 'var(--color-text-dim)'}
                 fontSize={11}
                 fontFamily="var(--font-mono)"
               >
@@ -349,9 +345,7 @@ export function GaitDiagram({
                     width={f(Math.max(1, x2 - x1))}
                     height={ROW_H - 8}
                     fill={
-                      active
-                        ? 'var(--color-accent)'
-                        : 'var(--color-text-dim)'
+                      active ? 'var(--color-accent)' : 'var(--color-text-dim)'
                     }
                     opacity={active ? 0.9 : 0.4}
                   />
@@ -428,8 +422,8 @@ export function GaitDiagram({
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         {gait.note} Amber blocks mark the feet touching the ground at the
         playhead. Step through the cycle or press play; the walk never drops
-        below three feet of support, the trot balances on diagonal pairs,
-        and the bound and pronk spend part of every cycle airborne.
+        below three feet of support, the trot balances on diagonal pairs, and
+        the bound and pronk spend part of every cycle airborne.
       </p>
     </div>
   );

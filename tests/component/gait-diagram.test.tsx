@@ -47,7 +47,9 @@ describe('GaitDiagram', () => {
     expect(gaitButton(/play gait cycle/i)).toBeInTheDocument();
     expect(gaitButton(/step forward/i)).toBeInTheDocument();
     expect(gaitButton(/step back/i)).toBeInTheDocument();
-    expect(screen.getByRole('slider', { name: /gait phase/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('slider', { name: /gait phase/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(screen.getByTestId('duty-readout')).toBeInTheDocument();
     expect(screen.getByTestId('phase-readout')).toBeInTheDocument();

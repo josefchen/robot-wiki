@@ -28,7 +28,9 @@ describe('HIERARCHY_SYSTEMS registry', () => {
 
   it('orders lanes slowest to fastest within each system', () => {
     for (const system of HIERARCHY_SYSTEMS) {
-      const periods = system.lanes.map((l) => l.periodMs ?? Number.POSITIVE_INFINITY);
+      const periods = system.lanes.map(
+        (l) => l.periodMs ?? Number.POSITIVE_INFINITY,
+      );
       const sorted = [...periods].sort((a, b) => b - a);
       expect(periods, system.id).toEqual(sorted);
     }
@@ -74,10 +76,9 @@ describe('HIERARCHY_SYSTEMS registry', () => {
     for (const system of HIERARCHY_SYSTEMS) {
       for (const lane of system.lanes) {
         if (!lane.disclosed) {
-          expect(
-            lane.note.toLowerCase(),
-            `${system.id}/${lane.id}`,
-          ).toContain('schematic');
+          expect(lane.note.toLowerCase(), `${system.id}/${lane.id}`).toContain(
+            'schematic',
+          );
         }
       }
     }

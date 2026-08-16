@@ -1,8 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  EUREKA_GENERATIONS,
-  diffLines,
-} from '@/lib/eureka';
+import { EUREKA_GENERATIONS, diffLines } from '@/lib/eureka';
 
 describe('EUREKA_GENERATIONS script', () => {
   it('contains at least two generations (the contract minimum)', () => {

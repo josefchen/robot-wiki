@@ -14,7 +14,13 @@
  * The STL -> GLB step runs through three.js (already a runtime dependency);
  * the Draco step runs through @gltf-transform + draco3d (dev-only tooling).
  */
-import { mkdir, readFile, readdir, copyFile, writeFile } from 'node:fs/promises';
+import {
+  mkdir,
+  readFile,
+  readdir,
+  copyFile,
+  writeFile,
+} from 'node:fs/promises';
 import path from 'node:path';
 import type { Mesh as ThreeMesh } from 'three';
 
@@ -35,9 +41,8 @@ class FileReaderShim {
 
 const { Scene, Mesh, MeshStandardMaterial } = await import('three');
 const { STLLoader } = await import('three/examples/jsm/loaders/STLLoader.js');
-const { GLTFExporter } = await import(
-  'three/examples/jsm/exporters/GLTFExporter.js'
-);
+const { GLTFExporter } =
+  await import('three/examples/jsm/exporters/GLTFExporter.js');
 const { NodeIO } = await import('@gltf-transform/core');
 const { KHRONOS_EXTENSIONS } = await import('@gltf-transform/extensions');
 const { draco, prune, weld } = await import('@gltf-transform/functions');
@@ -46,11 +51,13 @@ const draco3d = (await import('draco3d')).default;
 // URDF materials from so101_new_calib.urdf, baked into the GLBs:
 // "3d_printed" (amber PLA) and "sts3215" (dark servo casing). Every STL that
 // is not a servo body is a 3D-printed part in this URDF.
-const MATERIAL_BY_PREFIX: { match: (name: string) => boolean; color: number }[] =
-  [
-    { match: (name) => name.startsWith('sts3215'), color: 0x1a1a1a },
-    { match: () => true, color: 0xffd11f },
-  ];
+const MATERIAL_BY_PREFIX: {
+  match: (name: string) => boolean;
+  color: number;
+}[] = [
+  { match: (name) => name.startsWith('sts3215'), color: 0x1a1a1a },
+  { match: () => true, color: 0xffd11f },
+];
 
 function materialFor(stlName: string) {
   const entry = MATERIAL_BY_PREFIX.find((e) => e.match(stlName));

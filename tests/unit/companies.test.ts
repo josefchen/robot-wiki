@@ -131,9 +131,9 @@ describe('COMPANIES data', () => {
     expect(figure?.latestRound?.amountUsd).toBe(1_000_000_000);
     expect(figure?.latestRound?.valuationUsd).toBe(39_000_000_000);
     expect(figure?.latestRound?.date).toBe('2025-09-16');
-    expect(figure?.sources.some((s) => s.url.includes('figure.ai/news/series-c'))).toBe(
-      true,
-    );
+    expect(
+      figure?.sources.some((s) => s.url.includes('figure.ai/news/series-c')),
+    ).toBe(true);
 
     const skild = COMPANIES.find((c) => c.id === 'skild-ai');
     expect(skild, 'missing skild-ai').toBeDefined();
@@ -148,7 +148,9 @@ describe('COMPANIES data', () => {
     expect(skild?.totalRaisedUsd).toBeNull();
     expect(
       skild?.sources.some((s) =>
-        s.url.includes('techcrunch.com/2026/01/14/robotic-software-maker-skild-ai'),
+        s.url.includes(
+          'techcrunch.com/2026/01/14/robotic-software-maker-skild-ai',
+        ),
       ),
     ).toBe(true);
 

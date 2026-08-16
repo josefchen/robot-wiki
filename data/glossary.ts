@@ -23,7 +23,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'dagger',
     term: 'DAgger',
     definition:
-      'Dataset Aggregation, the iterative fix for behavior cloning\'s distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set, and retrain. Ross, Gordon, and Bagnell framed the procedure as a reduction of imitation learning to no-regret online learning, which replaces the quadratic dependence of total cost on episode length with a linear one.',
+      "Dataset Aggregation, the iterative fix for behavior cloning's distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set, and retrain. Ross, Gordon, and Bagnell framed the procedure as a reduction of imitation learning to no-regret online learning, which replaces the quadratic dependence of total cost on episode length with a linear one.",
     citations: ['dagger-2011'],
   },
   {
@@ -65,7 +65,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'covariate-shift',
     term: 'covariate shift',
     definition:
-      'In imitation learning, the mismatch between the state distribution in the training demonstrations and the distribution the learned policy visits at deployment. The policy\'s own errors carry it into states the demonstrations never covered, where it is likelier to err again, so mistakes compound: Ross, Gordon, and Bagnell showed that a behavior-cloned policy with per-step error ε can incur total cost growing quadratically in episode length, and that no i.i.d.-trained policy can guarantee better.',
+      "In imitation learning, the mismatch between the state distribution in the training demonstrations and the distribution the learned policy visits at deployment. The policy's own errors carry it into states the demonstrations never covered, where it is likelier to err again, so mistakes compound: Ross, Gordon, and Bagnell showed that a behavior-cloned policy with per-step error ε can incur total cost growing quadratically in episode length, and that no i.i.d.-trained policy can guarantee better.",
     citations: ['dagger-2011'],
   },
   {
@@ -93,7 +93,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'forward-kinematics',
     term: 'forward kinematics',
     definition:
-      'The map from a robot\'s joint angles to the pose of its end effector: a deterministic composition of per-joint transforms. It is cheap, smooth in the joint angles, and has exactly one answer, which makes it practical to evaluate inside every control cycle.',
+      "The map from a robot's joint angles to the pose of its end effector: a deterministic composition of per-joint transforms. It is cheap, smooth in the joint angles, and has exactly one answer, which makes it practical to evaluate inside every control cycle.",
     citations: ['modern-robotics-2017'],
   },
   {
@@ -107,21 +107,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'sim-to-real-gap',
     term: 'sim-to-real gap',
     definition:
-      'The discrepancy between a simulator\'s physics and rendering and the real world, which makes policies trained in simulation degrade when they are deployed on hardware. The gap has several independent components, dynamics, sensing, and actuation among them, and the standard transfer methods (domain randomization, system identification, teacher-student distillation, real-to-sim reconstruction) each attack a different part of it.',
+      "The discrepancy between a simulator's physics and rendering and the real world, which makes policies trained in simulation degrade when they are deployed on hardware. The gap has several independent components, dynamics, sensing, and actuation among them, and the standard transfer methods (domain randomization, system identification, teacher-student distillation, real-to-sim reconstruction) each attack a different part of it.",
     citations: ['reality-gap-survey-2026'],
   },
   {
     id: 'temporal-ensembling',
     term: 'temporal ensembling',
     definition:
-      'ACT\'s execution scheme for overlapping action chunks: the policy is queried at every timestep, and the predictions that each in-flight chunk made for the current step are averaged with exponential weights that favor the most recent prediction. This smooths the handoff between chunks at the cost of one inference per step instead of one per chunk.',
+      "ACT's execution scheme for overlapping action chunks: the policy is queried at every timestep, and the predictions that each in-flight chunk made for the current step are averaged with exponential weights that favor the most recent prediction. This smooths the handoff between chunks at the cost of one inference per step instead of one per chunk.",
     citations: ['act-aloha-2023'],
   },
   {
     id: 'knowledge-insulation',
     term: 'knowledge insulation',
     definition:
-      'Physical Intelligence\'s training recipe for keeping action learning from damaging a vision-language-action model\'s pretrained backbone. The backbone trains on discrete action tokens with its usual autoregressive loss, a separate flow-matching expert produces the continuous actions, and a stop-gradient keeps the expert\'s gradients out of the backbone. On the paper\'s bussing task, a model trained this way reaches a given performance level in 7.5 times fewer steps than π0 and follows language better, in and out of distribution.',
+      "Physical Intelligence's training recipe for keeping action learning from damaging a vision-language-action model's pretrained backbone. The backbone trains on discrete action tokens with its usual autoregressive loss, a separate flow-matching expert produces the continuous actions, and a stop-gradient keeps the expert's gradients out of the backbone. On the paper's bussing task, a model trained this way reaches a given performance level in 7.5 times fewer steps than π0 and follows language better, in and out of distribution.",
     citations: ['knowledge-insulation-paper-2025'],
   },
   {
@@ -135,35 +135,35 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'hierarchical-policy',
     term: 'hierarchical policy',
     definition:
-      'A control architecture split across levels of abstraction: a high-level policy decides what to do next in semantic terms, and low-level policies turn each decision into motor commands. SayCan made the split concrete by scoring candidate skills twice, once by a language model\'s estimate of how useful the skill is for the instruction and once by a learned affordance function\'s estimate of whether the robot can execute it in the current scene, and running the skill that scores well on both.',
+      "A control architecture split across levels of abstraction: a high-level policy decides what to do next in semantic terms, and low-level policies turn each decision into motor commands. SayCan made the split concrete by scoring candidate skills twice, once by a language model's estimate of how useful the skill is for the instruction and once by a learned affordance function's estimate of whether the robot can execute it in the current scene, and running the skill that scores well on both.",
     citations: ['saycan-2022'],
   },
   {
     id: 'open-x-embodiment',
     term: 'Open X-Embodiment',
     definition:
-      'A 2023 collaboration across 34 labs that pooled 60 existing robot datasets into one standardized format: over a million trajectories spanning 22 robot embodiments and 527 skills. The project also trained the RT-X models on the pool, and found that a policy trained across many robots outperforms versions trained on each robot\'s data alone, with skills carrying over to embodiments the policy saw little of.',
+      "A 2023 collaboration across 34 labs that pooled 60 existing robot datasets into one standardized format: over a million trajectories spanning 22 robot embodiments and 527 skills. The project also trained the RT-X models on the pool, and found that a policy trained across many robots outperforms versions trained on each robot's data alone, with skills carrying over to embodiments the policy saw little of.",
     citations: ['open-x-embodiment-2023'],
   },
   {
     id: 'teleoperation',
     term: 'teleoperation',
     definition:
-      'Direct remote control of a robot by a human operator, used in robot learning mostly to record expert demonstrations. The ALOHA rig made the setup cheap and precise: the operator back-drives a leader arm that is a joint-for-joint twin of the follower the policy will run on, so the recorded motion is already in the robot\'s own action space. Mobile ALOHA extended the same leader-follower scheme to a mobile base for whole-body tasks.',
+      "Direct remote control of a robot by a human operator, used in robot learning mostly to record expert demonstrations. The ALOHA rig made the setup cheap and precise: the operator back-drives a leader arm that is a joint-for-joint twin of the follower the policy will run on, so the recorded motion is already in the robot's own action space. Mobile ALOHA extended the same leader-follower scheme to a mobile base for whole-body tasks.",
     citations: ['act-aloha-2023', 'mobile-aloha-2024'],
   },
   {
     id: 'success-rate',
     term: 'success rate',
     definition:
-      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute\'s Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.',
+      "The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute's Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.",
     citations: ['tri-lbm-2025'],
   },
   {
     id: 'ppo',
     term: 'PPO',
     definition:
-      'Proximal policy optimization, the on-policy reinforcement learning algorithm the locomotion literature standardized on. Schulman and colleagues introduced it as a policy gradient method that alternates between sampling data through interaction with the environment and optimizing a surrogate objective with stochastic gradient ascent, where the surrogate is what allows several epochs of minibatch updates on each batch of samples instead of the single gradient step standard policy gradient takes. It keeps most of trust region policy optimization\'s reliability without the second-order machinery, and it pairs naturally with massively parallel simulation, where thousands of robots supply the enormous on-policy batches it consumes.',
+      "Proximal policy optimization, the on-policy reinforcement learning algorithm the locomotion literature standardized on. Schulman and colleagues introduced it as a policy gradient method that alternates between sampling data through interaction with the environment and optimizing a surrogate objective with stochastic gradient ascent, where the surrogate is what allows several epochs of minibatch updates on each batch of samples instead of the single gradient step standard policy gradient takes. It keeps most of trust region policy optimization's reliability without the second-order machinery, and it pairs naturally with massively parallel simulation, where thousands of robots supply the enormous on-policy batches it consumes.",
     citations: ['ppo-2017', 'rudin-2021'],
   },
   {
@@ -177,14 +177,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'reward-shaping',
     term: 'reward shaping',
     definition:
-      'Supplying extra training rewards on top of a task\'s base reward to guide the learning agent, usually to turn a sparse success signal into a denser one that learning can climb. Ng, Harada, and Russell asked exactly which modifications to a Markov decision process\'s reward function leave the optimal policy unchanged, and proved that a transition reward expressible as the difference of a potential function across the two states is sufficient, and effectively necessary, for that invariance. The theorem explains the classic shaping bugs, where the agent learns to harvest the bonus instead of doing the task: those bugs come from non-potential-based rewards, the kind the theorem rules out.',
+      "Supplying extra training rewards on top of a task's base reward to guide the learning agent, usually to turn a sparse success signal into a denser one that learning can climb. Ng, Harada, and Russell asked exactly which modifications to a Markov decision process's reward function leave the optimal policy unchanged, and proved that a transition reward expressible as the difference of a potential function across the two states is sufficient, and effectively necessary, for that invariance. The theorem explains the classic shaping bugs, where the agent learns to harvest the bonus instead of doing the task: those bugs come from non-potential-based rewards, the kind the theorem rules out.",
     citations: ['ng-reward-shaping-1999'],
   },
   {
     id: 'whole-body-control',
     term: 'whole-body control',
     definition:
-      'Treating all of a robot\'s actuated degrees of freedom, legs, torso, arms, and hands, as one coupled control problem instead of stacking an arm controller on top of a separate locomotion controller. The model-based version optimizes against the full rigid-body dynamics at once: Zhang and colleagues ran whole-body model-predictive control in real time on hardware with plain iLQR and MuJoCo dynamics, across dynamic quadruped locomotion and full-sized humanoid walking. The learned version reframes the same problem as tracking a retargeted human motion, the route H2O took for real-time whole-body teleoperation, with reinforcement learning supplying the balance and contact feasibility that raw retargeting loses.',
+      "Treating all of a robot's actuated degrees of freedom, legs, torso, arms, and hands, as one coupled control problem instead of stacking an arm controller on top of a separate locomotion controller. The model-based version optimizes against the full rigid-body dynamics at once: Zhang and colleagues ran whole-body model-predictive control in real time on hardware with plain iLQR and MuJoCo dynamics, across dynamic quadruped locomotion and full-sized humanoid walking. The learned version reframes the same problem as tracking a retargeted human motion, the route H2O took for real-time whole-body teleoperation, with reinforcement learning supplying the balance and contact feasibility that raw retargeting loses.",
     citations: ['mujoco-ilqr-2026', 'h2o-2024'],
   },
   {
@@ -198,21 +198,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'mpc',
     term: 'model predictive control',
     definition:
-      'Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy\'s weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot\'s full dynamics, the method reached whole-body scale in 2026, when Zhang and colleagues solved iLQR against MuJoCo\'s physics fast enough to close the loop in real time on real hardware.',
+      "Control by constant re-planning: at each control step, optimize a short sequence of future actions against an explicit dynamics model, execute only the first action, and solve again from the freshly measured state. Because the plan is recomputed online, model error is rejected by feedback at every step instead of being frozen into a policy's weights, so a model-predictive controller shows less of the frozen-policy sim-to-real failure mode, though a wrong dynamics model still costs it closed-loop performance. Long assumed too slow for a robot's full dynamics, the method reached whole-body scale in 2026, when Zhang and colleagues solved iLQR against MuJoCo's physics fast enough to close the loop in real time on real hardware.",
     citations: ['mujoco-ilqr-2026'],
   },
   {
     id: 'flow-matching',
     term: 'flow matching',
     definition:
-      'A generative modeling recipe that learns a time-dependent vector field carrying samples from a noise distribution to the data distribution, trained by regressing the model\'s field against the conditional flow rather than by estimating a score. pi0 brought it to robot control: a dedicated action expert is trained with the flow-matching objective to denoise continuous action chunks, and at inference the learned field is integrated as an ODE for a handful of steps, which keeps the policy fast enough for high-frequency control while keeping the multimodality that made diffusion policies attractive.',
+      "A generative modeling recipe that learns a time-dependent vector field carrying samples from a noise distribution to the data distribution, trained by regressing the model's field against the conditional flow rather than by estimating a score. pi0 brought it to robot control: a dedicated action expert is trained with the flow-matching objective to denoise continuous action chunks, and at inference the learned field is integrated as an ODE for a handful of steps, which keeps the policy fast enough for high-frequency control while keeping the multimodality that made diffusion policies attractive.",
     citations: ['pi0-2024'],
   },
   {
     id: 'world-model',
     term: 'world model',
     definition:
-      'A model of how an environment evolves that an agent can query to make decisions: given the current observation or state and a candidate action, it predicts what happens next, so a policy can be trained, evaluated, or planned against the model instead of the real world. The 2026 robotics survey draws the functional line: producing plausible future images is not enough, because a system qualifies only if its predictions change under the agent\'s action in a way that is useful for decision-making. The single name covers at least six architecturally distinct paradigms, from compact latent dynamics models to action-conditioned video generators.',
+      "A model of how an environment evolves that an agent can query to make decisions: given the current observation or state and a candidate action, it predicts what happens next, so a policy can be trained, evaluated, or planned against the model instead of the real world. The 2026 robotics survey draws the functional line: producing plausible future images is not enough, because a system qualifies only if its predictions change under the agent's action in a way that is useful for decision-making. The single name covers at least six architecturally distinct paradigms, from compact latent dynamics models to action-conditioned video generators.",
     citations: ['world-model-survey-2026'],
   },
   {
@@ -233,49 +233,49 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'proprioception',
     term: 'proprioception',
     definition:
-      'Sensing of the body\'s own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded, and the ETH Zurich line showed how far it goes: Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.',
+      "Sensing of the body's own state: joint positions and velocities, orientation, and contact, as opposed to exteroception, which senses the outside world through cameras or lidar. Proprioception is fast, cheap, and never occluded, and the ETH Zurich line showed how far it goes: Lee and colleagues trained an ANYmal controller that hiked mud, snow, rubble, and vegetation on proprioception alone, and Miki and colleagues kept it as the trusted channel the policy falls back on when its terrain map disagrees with its body.",
     citations: ['lee-2020', 'miki-2022'],
   },
   {
     id: 'system-identification',
     term: 'system identification',
     definition:
-      'Measuring a real robot\'s dynamics and correcting the simulator\'s parameters to match, so the sim-to-real gap shrinks by calibration rather than by randomization. Hwangbo and colleagues replaced a miscalibrated analytic actuator model with a learned network mapping joint-command history to realized torque after identifying actuator error as the dominant transfer obstacle on ANYmal. The method attacks the dynamics component of the gap directly, where domain randomization only averages over it.',
+      "Measuring a real robot's dynamics and correcting the simulator's parameters to match, so the sim-to-real gap shrinks by calibration rather than by randomization. Hwangbo and colleagues replaced a miscalibrated analytic actuator model with a learned network mapping joint-command history to realized torque after identifying actuator error as the dominant transfer obstacle on ANYmal. The method attacks the dynamics component of the gap directly, where domain randomization only averages over it.",
     citations: ['hwangbo-2019', 'reality-gap-survey-2026'],
   },
   {
     id: 'retargeting',
     term: 'retargeting',
     definition:
-      'Mapping motion recorded on one body, usually a human\'s, onto a robot with different proportions and joint limits, so human demonstrations become references the robot can track. Raw retargeting ignores the robot\'s physical constraints and can produce references that are morphologically infeasible, which is why systems such as H2O and ASAP pair retargeted human motion with reinforcement learning that restores balance and contact feasibility on the real body.',
+      "Mapping motion recorded on one body, usually a human's, onto a robot with different proportions and joint limits, so human demonstrations become references the robot can track. Raw retargeting ignores the robot's physical constraints and can produce references that are morphologically infeasible, which is why systems such as H2O and ASAP pair retargeted human motion with reinforcement learning that restores balance and contact feasibility on the real body.",
     citations: ['h2o-2024', 'asap-2025'],
   },
   {
     id: 'imitation-learning',
     term: 'imitation learning',
     definition:
-      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN steered a van this way in 1988, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
+      "Learning a policy from expert demonstrations rather than from a reward signal: the expert's recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau's ALVINN steered a van this way in 1988, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.",
     citations: ['dagger-2011', 'alvinn-1988'],
   },
   {
     id: 'scaling-law',
     term: 'scaling law',
     definition:
-      'An empirical regularity between a system\'s performance and the resources it consumes, parameters, data, or compute, first made precise for language models and now measured for robot learning. Lin and colleagues fit imitation-learning success to the training data and found that generalization to new objects and environments tracks data diversity rather than raw hours. EgoScale extended the measurement to egocentric human video, reporting a log-linear relationship between hours of human data and dexterous-manipulation success across four orders of magnitude.',
+      "An empirical regularity between a system's performance and the resources it consumes, parameters, data, or compute, first made precise for language models and now measured for robot learning. Lin and colleagues fit imitation-learning success to the training data and found that generalization to new objects and environments tracks data diversity rather than raw hours. EgoScale extended the measurement to egocentric human video, reporting a log-linear relationship between hours of human data and dexterous-manipulation success across four orders of magnitude.",
     citations: ['lin-data-scaling-laws-2024', 'egoscale-2026'],
   },
   {
     id: 'vision-language-model',
     term: 'vision-language model',
     definition:
-      'A model pretrained jointly on web-scale image and text data, so visual recognition and language semantics live in one set of weights. RT-2\'s bet was that this pretraining is an asset for robot control: co-fine-tuning a vision-language model on robot trajectories and its original web data together transfers semantic knowledge, recognizing objects and following instructions the robot data never covered, into the policy. The vision-language-action models that followed all start from such a backbone.',
+      "A model pretrained jointly on web-scale image and text data, so visual recognition and language semantics live in one set of weights. RT-2's bet was that this pretraining is an asset for robot control: co-fine-tuning a vision-language model on robot trajectories and its original web data together transfers semantic knowledge, recognizing objects and following instructions the robot data never covered, into the policy. The vision-language-action models that followed all start from such a backbone.",
     citations: ['rt2-2023'],
   },
   {
     id: 'affordance',
     term: 'affordance',
     definition:
-      'In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot\'s own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model\'s estimate of how useful the skill is for the instruction and once by the affordance function\'s estimate of whether the robot can execute it here and now, and running the skill that scores well on both.',
+      "In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot's own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model's estimate of how useful the skill is for the instruction and once by the affordance function's estimate of whether the robot can execute it here and now, and running the skill that scores well on both.",
     citations: ['saycan-2022'],
   },
   {
@@ -296,7 +296,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'action-tokenization',
     term: 'action tokenization',
     definition:
-      'Expressing continuous robot actions as discrete tokens so a language model\'s machinery can produce them. RT-2 discretized each action dimension into 256 uniform bins and mapped the bin indices onto rarely used tokens of the model\'s existing vocabulary, which let the policy train with ordinary next-token prediction. The representation is simple and inherits the backbone\'s web knowledge, but 256 bins are coarse and autoregressive decoding is slow, the two weaknesses later work attacked with continuous experts and parallel decoding.',
+      "Expressing continuous robot actions as discrete tokens so a language model's machinery can produce them. RT-2 discretized each action dimension into 256 uniform bins and mapped the bin indices onto rarely used tokens of the model's existing vocabulary, which let the policy train with ordinary next-token prediction. The representation is simple and inherits the backbone's web knowledge, but 256 bins are coarse and autoregressive decoding is slow, the two weaknesses later work attacked with continuous experts and parallel decoding.",
     citations: ['rt2-2023'],
   },
   {
@@ -310,21 +310,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'degrees-of-freedom',
     term: 'degrees of freedom',
     definition:
-      'The number of independent coordinates needed to specify a mechanism\'s configuration. An arm\'s degree-of-freedom count is its number of independent joints, so a 7-DoF arm places its end effector with one coordinate to spare beyond the six a rigid pose needs, and that redundancy is what lets the elbow reconfigure while the hand stays put. More degrees of freedom buy dexterity and obstacle avoidance at the price of a larger control problem.',
+      "The number of independent coordinates needed to specify a mechanism's configuration. An arm's degree-of-freedom count is its number of independent joints, so a 7-DoF arm places its end effector with one coordinate to spare beyond the six a rigid pose needs, and that redundancy is what lets the elbow reconfigure while the hand stays put. More degrees of freedom buy dexterity and obstacle avoidance at the price of a larger control problem.",
     citations: ['modern-robotics-2017'],
   },
   {
     id: 'denavit-hartenberg-parameters',
     term: 'Denavit-Hartenberg parameters',
     definition:
-      'The standard four-parameter bookkeeping for a robot arm\'s geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention\'s appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.',
+      "The standard four-parameter bookkeeping for a robot arm's geometry, introduced by Denavit and Hartenberg in 1955: each joint is described by a link length, a link twist, a link offset, and a joint angle, and chaining the per-joint transforms yields the full forward kinematics. Four numbers per joint instead of the six a free transform needs is the convention's appeal, compact enough to print on a datasheet. Its known cost is a discontinuity when neighboring joint axes drift toward parallel, which later formulations such as the product of exponentials avoid.",
     citations: ['denavit-hartenberg-1955', 'modern-robotics-2017'],
   },
   {
     id: 'configuration-space',
     term: 'configuration space',
     definition:
-      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.',
+      "The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot's shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.",
     citations: ['lozano-perez-1983', 'lavalle-2006'],
   },
   {
@@ -338,7 +338,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'kalman-filter',
     term: 'Kalman filter',
     definition:
-      'The recursive state estimator for linear systems with Gaussian noise: a predict step propagates the state estimate and its covariance through the motion model, and an update step fuses each new measurement with a gain that weighs the model\'s uncertainty against the sensor\'s. Kalman published the recursion in 1960, and it is the minimum-variance estimator for the linear-Gaussian case. When the dynamics or the measurement model is nonlinear, the extended Kalman filter linearizes both about the current estimate instead.',
+      "The recursive state estimator for linear systems with Gaussian noise: a predict step propagates the state estimate and its covariance through the motion model, and an update step fuses each new measurement with a gain that weighs the model's uncertainty against the sensor's. Kalman published the recursion in 1960, and it is the minimum-variance estimator for the linear-Gaussian case. When the dynamics or the measurement model is nonlinear, the extended Kalman filter linearizes both about the current estimate instead.",
     citations: ['kalman-1960-filter', 'thrun-2005'],
   },
   {
@@ -352,7 +352,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'slam',
     term: 'SLAM',
     definition:
-      'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
+      "Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field's move from filtering to smoothing.",
     citations: ['cadena-2016', 'dellaert-kaess-2006'],
   },
   {
@@ -401,21 +401,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'tactile-sensing',
     term: 'tactile sensing',
     definition:
-      'Sensing contact through the robot\'s skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary\'s micro-barometer arrays resolve about five millinewtons per cell against roughly three for a human fingertip, but coverage, durability, and integration into training pipelines remain the open problems.',
+      "Sensing contact through the robot's skin: pressure arrays, barometric cells, and optical fingertip cameras that measure where contact happens, how hard it presses, and whether the object is starting to slip. It is the modality manipulation runs on after the fingers close, when the camera can no longer see the contact. Sanctuary's micro-barometer arrays resolve about five millinewtons per cell against roughly three for a human fingertip, but coverage, durability, and integration into training pipelines remain the open problems.",
     citations: ['tactile-outlook-2025', 'robozaps-phoenix-2026'],
   },
   {
     id: 'in-hand-manipulation',
     term: 'in-hand manipulation',
     definition:
-      'Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. It is the skill that separates a hand from a gripper, and the one vision handles worst, because the fingers occlude exactly the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson\'s Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.',
+      "Repositioning or reorienting a grasped object within the hand without setting it down: rolling a pen between the fingers, or walking a key around until it faces the lock. It is the skill that separates a hand from a gripper, and the one vision handles worst, because the fingers occlude exactly the contact that matters. Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in 2024, and Holson's Robot Olympics makes it the gold-medal bar for tool use with the key-in-lock task.",
     citations: ['sanctuary-inhand-2024', 'holson-olympics-2025'],
   },
   {
     id: 'contact-rich-manipulation',
     term: 'contact-rich manipulation',
     definition:
-      'Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld\'s six-task tactile benchmark is built entirely from them.',
+      "Manipulation governed by making, holding, and breaking contact rather than by free-space motion: insertion, screwing, wiping, folding. Contact dynamics are discontinuous, since stick flips to slip across a friction boundary, so small sensing errors produce large outcome errors. That discontinuity is why these tasks are the stress test for touch-driven policies, and why TouchWorld's six-task tactile benchmark is built entirely from them.",
     citations: ['touchworld-2026', 'tactile-outlook-2025'],
   },
   {
@@ -429,7 +429,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'operational-design-domain',
     term: 'operational design domain (ODD)',
     definition:
-      'The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system\'s ODD, precisely so the comparison is not rigged.',
+      "The specific operating conditions an automated driving system is designed for: geography, road types, speed range, weather, and time of day. SAE J3016 makes the ODD part of the level definitions, which is why a Level 4 robotaxi that works in Phoenix and fails in a blizzard is not a contradiction but an ODD boundary. Crash-rate comparisons against human benchmarks align the human baseline to the same vehicle types, road types, and locations as the system's ODD, precisely so the comparison is not rigged.",
     citations: ['sae-j3016-2021', 'waymo-crash-rates-2025'],
   },
   {
@@ -457,7 +457,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'minimally-invasive-surgery',
     term: 'minimally invasive surgery',
     definition:
-      "Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots exist to give that trade-off back: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.",
+      'Surgery performed through small incisions with elongated instruments and a camera, instead of a large open incision. In the abdominal variant, laparoscopy, the workspace is insufflated with gas and the surgeon watches a 2D or 3D video feed while working through trocar ports, which trades patient recovery time for a loss of direct touch, natural hand-eye alignment, and fine dexterity. Surgical robots exist to give that trade-off back: wristed instruments restore dexterity at depth, the console restores a stable magnified stereo view, and motion scaling and tremor filtering restore precision. da Vinci systems are cleared for use in these procedures and have been used in millions of them.',
     citations: ['davinci5-clearance-2024', 'intuitive-q4-2025'],
   },
   {
@@ -478,7 +478,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'in-situ-resource-utilization',
     term: 'in-situ resource utilization (ISRU)',
     definition:
-      "Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the arithmetic is stark, since the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.",
+      'Producing mission consumables at the destination from local materials instead of launching them from Earth: oxygen from the Martian atmosphere, water or metals from lunar regolith, propellant from both. NASA frames it as astronauts living off the land, because every kilogram made on site is a kilogram that does not ride a launch vehicle, and for a Mars return the arithmetic is stark, since the propellant for the trip home would dominate an all-Earth-supplied mass budget. The first demonstration on another planet was MOXIE, which electrolyzed atmospheric carbon dioxide into oxygen on the Perseverance rover. The robotics side of ISRU is excavation, drilling, and material handling in vacuum and regolith, the same contact-rich manipulation problems as terrestrial robotics under harsher constraints.',
     citations: ['moxie-completion-2023', 'prime-1-lunar-2025'],
   },
   {

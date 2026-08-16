@@ -85,7 +85,11 @@ export function MpcVsRl({ className }: { className?: string }) {
       )}
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <div role="group" aria-label="Perturbation" className="flex flex-wrap gap-1">
+        <div
+          role="group"
+          aria-label="Perturbation"
+          className="flex flex-wrap gap-1"
+        >
           {PERTURBATIONS.map((p) => (
             <button
               key={p.id}
@@ -258,10 +262,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           const response = perturbation[id];
           const status = STATUS_META[response.status];
           return (
-            <div
-              key={id}
-              className="rounded-sm border border-border bg-bg p-3"
-            >
+            <div key={id} className="rounded-sm border border-border bg-bg p-3">
               <div className="flex items-baseline justify-between gap-3">
                 <p className="font-mono text-[11px] text-text-dim">
                   {controller.name}
@@ -293,7 +294,10 @@ export function MpcVsRl({ className }: { className?: string }) {
         })}
       </div>
 
-      <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim" aria-live="polite">
+      <p
+        className="mt-4 font-sans text-xs leading-relaxed text-text-dim"
+        aria-live="polite"
+      >
         Same robot, same perturbation, two controllers. The traces are an
         illustrative model of the failure modes the literature reports, not
         measured hardware data.

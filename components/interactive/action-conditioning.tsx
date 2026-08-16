@@ -103,11 +103,25 @@ function Scene({
         strokeWidth={1}
         strokeDasharray="3 3"
       />
-      <text x={30} y={TABLE_Y - 24} textAnchor="middle" fill={DIM} fontSize={7} fontFamily={MONO}>
+      <text
+        x={30}
+        y={TABLE_Y - 24}
+        textAnchor="middle"
+        fill={DIM}
+        fontSize={7}
+        fontFamily={MONO}
+      >
         goal
       </text>
       {/* table */}
-      <line x1={4} y1={TABLE_Y} x2={SCENE_W - 4} y2={TABLE_Y} stroke={DIM} strokeWidth={1.5} />
+      <line
+        x1={4}
+        y1={TABLE_Y}
+        x2={SCENE_W - 4}
+        y2={TABLE_Y}
+        stroke={DIM}
+        strokeWidth={1.5}
+      />
       {/* block */}
       <rect
         data-testid={testIdPrefix}
@@ -189,7 +203,10 @@ export function ActionConditioning({
               aria-label={`${a.label} for rollout ${panel.toUpperCase()}`}
               title={a.description}
               onClick={() => set(a.id)}
-              className={cx(toggleBase, current === a.id ? toggleOn : toggleOff)}
+              className={cx(
+                toggleBase,
+                current === a.id ? toggleOn : toggleOff,
+              )}
             >
               {a.label}
             </button>
@@ -199,7 +216,11 @@ export function ActionConditioning({
     );
   }
 
-  function rolloutPanel(panel: 'a' | 'b', action: ActionId, frames: SceneState[]) {
+  function rolloutPanel(
+    panel: 'a' | 'b',
+    action: ActionId,
+    frames: SceneState[],
+  ) {
     const width = ROLLOUT_STEPS * SCENE_W + (ROLLOUT_STEPS - 1) * SCENE_GAP;
     return (
       <div data-testid={`rollout-panel-${panel}`}>
@@ -216,7 +237,10 @@ export function ActionConditioning({
           {frames.slice(1).map((state, i) => {
             const k = i + 1;
             return (
-              <g key={k} transform={`translate(${i * (SCENE_W + SCENE_GAP)},0)`}>
+              <g
+                key={k}
+                transform={`translate(${i * (SCENE_W + SCENE_GAP)},0)`}
+              >
                 <Scene state={state} testIdPrefix={`block-${panel}-${k}`} />
                 <text
                   x={SCENE_W / 2}
@@ -238,7 +262,10 @@ export function ActionConditioning({
 
   return (
     <div
-      className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}
+      className={cx(
+        'rounded-md border border-border bg-surface p-4 sm:p-5',
+        className,
+      )}
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div role="group" aria-label="Conditioning strength">
@@ -250,7 +277,10 @@ export function ActionConditioning({
               type="button"
               aria-pressed={conditioning === 'strong'}
               onClick={() => setConditioning('strong')}
-              className={cx(toggleBase, conditioning === 'strong' ? toggleOn : toggleOff)}
+              className={cx(
+                toggleBase,
+                conditioning === 'strong' ? toggleOn : toggleOff,
+              )}
             >
               Strong conditioning
             </button>
@@ -258,7 +288,10 @@ export function ActionConditioning({
               type="button"
               aria-pressed={conditioning === 'weak'}
               onClick={() => setConditioning('weak')}
-              className={cx(toggleBase, conditioning === 'weak' ? toggleOn : toggleOff)}
+              className={cx(
+                toggleBase,
+                conditioning === 'weak' ? toggleOn : toggleOff,
+              )}
             >
               Weak conditioning
             </button>

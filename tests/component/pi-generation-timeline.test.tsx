@@ -22,9 +22,7 @@ describe('PiGenerationTimeline', () => {
 
   it('shows how far the closed line has run past the open weights', () => {
     render(<PiGenerationTimeline />);
-    expect(
-      screen.getByText(/4 closed generations/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/4 closed generations/i)).toBeInTheDocument();
   });
 
   it('labels each generation open or closed', () => {
@@ -56,9 +54,10 @@ describe('PiGenerationTimeline', () => {
     await user.click(first);
     expect(first).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{ArrowRight}');
-    expect(
-      screen.getByRole('button', { name: /π0-FAST/i }),
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /π0-FAST/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     await user.keyboard('{ArrowLeft}');
     expect(first).toHaveAttribute('aria-pressed', 'true');
   });

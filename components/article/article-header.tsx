@@ -60,13 +60,18 @@ export function ArticleHeader({
           >
             <dt>Last reviewed</dt>
             <dd className="text-text">
-              <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
+              <time dateTime={lastReviewed}>
+                {formatLongDate(lastReviewed)}
+              </time>
             </dd>
           </div>
         ) : null}
         <div className="flex flex-wrap items-baseline gap-x-1.5">
           <dt>Reading time</dt>
-          <dd data-header-reading-minutes={readingTimeMinutes} className="text-text">
+          <dd
+            data-header-reading-minutes={readingTimeMinutes}
+            className="text-text"
+          >
             {`${readingTimeMinutes} min`}
           </dd>
         </div>

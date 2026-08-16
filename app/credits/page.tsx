@@ -44,10 +44,7 @@ function imageUsage(): Map<string, UsageLink[]> {
       const slug = file.replace(/\.mdx?$/, '');
       const entry = getModule(domain.name, slug);
       if (!entry || entry.status !== 'published') continue;
-      const body = readFileSync(
-        join(contentRoot, domain.name, file),
-        'utf8',
-      );
+      const body = readFileSync(join(contentRoot, domain.name, file), 'utf8');
       for (const id of referencedImageIds(body)) {
         record(id, {
           route: `/${domain.name}/${slug}`,
@@ -57,10 +54,7 @@ function imageUsage(): Map<string, UsageLink[]> {
     }
   }
 
-  const homeBody = readFileSync(
-    join(process.cwd(), 'app', 'page.tsx'),
-    'utf8',
-  );
+  const homeBody = readFileSync(join(process.cwd(), 'app', 'page.tsx'), 'utf8');
   for (const id of referencedImageIds(homeBody)) {
     record(id, { route: '/', title: 'Home' });
   }
@@ -78,12 +72,12 @@ export default function CreditsPage() {
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
-          robot-wiki uses real photographs and diagrams, and every one of
-          them is listed here with its creator, the page it came from, and
-          the licence that permits its reuse. Only images under CC0, CC BY,
-          CC BY-SA, public domain, or a documented reuse permission appear
-          on this site, and no image is AI-generated. The site&apos;s own
-          text and original diagrams are available under CC BY 4.0.
+          robot-wiki uses real photographs and diagrams, and every one of them
+          is listed here with its creator, the page it came from, and the
+          licence that permits its reuse. Only images under CC0, CC BY, CC
+          BY-SA, public domain, or a documented reuse permission appear on this
+          site, and no image is AI-generated. The site&apos;s own text and
+          original diagrams are available under CC BY 4.0.
         </p>
       </header>
 

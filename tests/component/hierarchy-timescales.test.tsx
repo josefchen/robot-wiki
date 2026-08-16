@@ -65,9 +65,7 @@ describe('HierarchyTimescales', () => {
       'last update: 20 ms',
     );
     // The ~1 Hz subtask lane has not fired yet.
-    expect(screen.getByTestId('lane-row-subtask')).toHaveTextContent(
-      'waiting',
-    );
+    expect(screen.getByTestId('lane-row-subtask')).toHaveTextContent('waiting');
   });
 
   it('a slow lane holds its last update while a fast lane advances', () => {

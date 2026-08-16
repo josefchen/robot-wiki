@@ -11,10 +11,7 @@ import type { Locator } from '@playwright/test';
  * fill() flake are recorded in library/user-testing.md ("Known environment
  * quirks"); every e2e slider interaction goes through this helper.
  */
-export async function setSlider(
-  slider: Locator,
-  value: number,
-): Promise<void> {
+export async function setSlider(slider: Locator, value: number): Promise<void> {
   await slider.focus();
   await slider.evaluate((el, next) => {
     const setter = Object.getOwnPropertyDescriptor(

@@ -2,11 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { CiteRef } from '@/components/mdx/cite-ref';
-import {
-  DEFAULT_THESIS_ID,
-  THESES,
-  type Thesis,
-} from '@/lib/competing-theses';
+import { DEFAULT_THESIS_ID, THESES, type Thesis } from '@/lib/competing-theses';
 import { cx } from '@/lib/utils';
 
 /**
@@ -91,7 +87,8 @@ export function ThesisExplorer({ className }: { className?: string }) {
     index: number,
   ) {
     let next = index;
-    if (event.key === 'ArrowDown') next = Math.min(index + 1, THESES.length - 1);
+    if (event.key === 'ArrowDown')
+      next = Math.min(index + 1, THESES.length - 1);
     else if (event.key === 'ArrowUp') next = Math.max(index - 1, 0);
     else if (event.key === 'Home') next = 0;
     else if (event.key === 'End') next = THESES.length - 1;

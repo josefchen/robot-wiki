@@ -82,7 +82,8 @@ describe('toSearchHits', () => {
             url: '/manipulation/action-chunking/',
             meta: { title: 'Action Chunking (ACT and ALOHA)' },
             excerpt: 'Tony <mark>Z.</mark> Zhao et al.',
-            content: 'ACT executes chunks with temporal ensembling. Tony Z. Zhao et al.',
+            content:
+              'ACT executes chunks with temporal ensembling. Tony Z. Zhao et al.',
           }),
         ],
       },
@@ -99,7 +100,8 @@ describe('toSearchHits', () => {
             url: '/manipulation/action-chunking/',
             meta: { title: 'Action Chunking (ACT and ALOHA)' },
             excerpt: '<mark>co-training</mark> on static ALOHA data',
-            content: 'Covariate shift breaks naive imitation. Co-training on static ALOHA data.',
+            content:
+              'Covariate shift breaks naive imitation. Co-training on static ALOHA data.',
           }),
         ],
       },

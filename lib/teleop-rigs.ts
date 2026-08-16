@@ -12,10 +12,7 @@ import type { RigRating, TeleopRig } from '@/data/schemas/teleop-rig.ts';
 
 /** The four comparison dimensions, in table column order after rig/cost. */
 export type TeleopRigField =
-  | 'cost'
-  | 'dataQuality'
-  | 'throughput'
-  | 'embodimentGap';
+  'cost' | 'dataQuality' | 'throughput' | 'embodimentGap';
 
 export const RIG_FIELDS: Array<{
   id: TeleopRigField;
@@ -56,7 +53,10 @@ export const RATING_RANK: Record<RigRating, number> = {
 };
 
 /** Sort accessor used by the table: USD for cost, rating rank otherwise. */
-export function rigSortValue(rig: TeleopRig, field: TeleopRigField): number | null {
+export function rigSortValue(
+  rig: TeleopRig,
+  field: TeleopRigField,
+): number | null {
   if (field === 'cost') return rig.costUsd;
   return RATING_RANK[rig[field]];
 }

@@ -82,9 +82,7 @@ export function isGenuineHit(query: string, content: string): boolean {
   if (tokens.length === 0) return false;
   if (!content.trim()) return true;
   const words = contentWords(content);
-  return tokens.every((token) =>
-    words.some((word) => word.startsWith(token)),
-  );
+  return tokens.every((token) => words.some((word) => word.startsWith(token)));
 }
 
 /** Maps a raw Pagefind response to ranked, renderable hits. */

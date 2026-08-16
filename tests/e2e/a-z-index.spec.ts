@@ -51,9 +51,7 @@ test.describe('A-Z index', () => {
       page.getByRole('heading', { level: 1, name: 'A-Z Index' }),
     ).toBeVisible();
     const main = page.locator('#main-content');
-    await expect(
-      main.getByText(`${articleCount} articles`),
-    ).toBeVisible();
+    await expect(main.getByText(`${articleCount} articles`)).toBeVisible();
     await expect(
       main.getByText(new RegExp(`${termCount} glossary terms`)),
     ).toBeVisible();
@@ -202,7 +200,10 @@ test.describe('A-Z index', () => {
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth - window.innerWidth,
       );
-      expect(overflow, `no horizontal scroll at ${width}px`).toBeLessThanOrEqual(0);
+      expect(
+        overflow,
+        `no horizontal scroll at ${width}px`,
+      ).toBeLessThanOrEqual(0);
       await context.close();
     }
   });

@@ -7,7 +7,10 @@ describe('/playground page', () => {
   it('renders the playground heading inside a labeled region', () => {
     render(<PlaygroundPage />);
     expect(
-      screen.getByRole('heading', { level: 1, name: /3D Kinematics Playground/ }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: /3D Kinematics Playground/,
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('region', { name: /3D robot playground/i }),

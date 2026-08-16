@@ -1,7 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import {
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 
 type TermProps = {
   /** Glossary registry id, exposed as data-term-id for reconciliation. */
@@ -52,7 +58,10 @@ export function Term({ termId, term, definition, children }: TermProps) {
   const rootRef = useRef<HTMLSpanElement>(null);
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const [revealed, setRevealed] = useState(false);
-  const [placement, setPlacement] = useState<Placement>({ dx: 0, vertical: 'above' });
+  const [placement, setPlacement] = useState<Placement>({
+    dx: 0,
+    vertical: 'above',
+  });
 
   useLayoutEffect(() => {
     if (!revealed) return;
@@ -67,12 +76,16 @@ export function Term({ termId, term, definition, children }: TermProps) {
     const dx =
       Math.max(
         VIEWPORT_MARGIN_PX,
-        Math.min(rect.left, window.innerWidth - tipRect.width - VIEWPORT_MARGIN_PX),
+        Math.min(
+          rect.left,
+          window.innerWidth - tipRect.width - VIEWPORT_MARGIN_PX,
+        ),
       ) - rect.left;
     const spaceAbove = rect.top;
     const spaceBelow = window.innerHeight - rect.bottom;
     const vertical =
-      spaceAbove >= tipRect.height + VIEWPORT_MARGIN_PX || spaceAbove >= spaceBelow
+      spaceAbove >= tipRect.height + VIEWPORT_MARGIN_PX ||
+      spaceAbove >= spaceBelow
         ? 'above'
         : 'below';
     setPlacement((prev) =>
@@ -108,7 +121,9 @@ export function Term({ termId, term, definition, children }: TermProps) {
         style={{ marginLeft: placement.dx }}
         className={[
           'absolute left-0 z-20 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed text-text group-hover:block group-focus-within:block',
-          placement.vertical === 'above' ? 'bottom-full mb-1.5' : 'top-full mt-1.5',
+          placement.vertical === 'above'
+            ? 'bottom-full mb-1.5'
+            : 'top-full mt-1.5',
         ].join(' ')}
       >
         <span className="block font-medium">{term}</span>

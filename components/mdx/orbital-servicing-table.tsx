@@ -13,35 +13,35 @@ const ROWS = [
     year: '1998',
     operator: 'NASDA (Japan)',
     demonstrated:
-      'First autonomous rendezvous and docking between two satellites, plus a 2-metre, 6-DoF robot arm operated from the ground and in orbit'
+      'First autonomous rendezvous and docking between two satellites, plus a 2-metre, 6-DoF robot arm operated from the ground and in orbit',
   },
   {
     mission: 'Orbital Express',
     year: '2007',
     operator: 'DARPA / Boeing / Ball',
     demonstrated:
-      'Servicer ASTRO autonomously captured, refueled, and swapped a battery with the NextSat client across a four-month flight demonstration'
+      'Servicer ASTRO autonomously captured, refueled, and swapped a battery with the NextSat client across a four-month flight demonstration',
   },
   {
     mission: 'Canadarm2 + Dextre',
     year: '2001 / 2008',
     operator: 'CSA (on the ISS)',
     demonstrated:
-      'A 17-metre arm that assembled the station and still berths visiting vehicles, working with a two-armed robot that replaces exterior equipment including 100-kg batteries'
+      'A 17-metre arm that assembled the station and still berths visiting vehicles, working with a two-armed robot that replaces exterior equipment including 100-kg batteries',
   },
   {
     mission: 'MEV-1',
     year: '2020',
     operator: 'Northrop Grumman',
     demonstrated:
-      'First docking of two commercial spacecraft in orbit, capturing Intelsat 901 in the graveyard orbit and returning it to service for five years'
+      'First docking of two commercial spacecraft in orbit, capturing Intelsat 901 in the graveyard orbit and returning it to service for five years',
   },
   {
     mission: 'ADRAS-J',
     year: '2024',
     operator: 'Astroscale (for JAXA)',
     demonstrated:
-      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-metre approach, the closest any commercial craft has come to debris'
+      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-metre approach, the closest any commercial craft has come to debris',
   },
 ] as const;
 
@@ -61,9 +61,9 @@ export function OrbitalServicingTable({ className }: { className?: string }) {
     >
       <table className="w-full min-w-[560px] border-collapse text-left">
         <caption className="sr-only">
-          Five on-orbit robotics milestones: ETS-VII, Orbital Express,
-          Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the
-          operator, and what each mission demonstrated.
+          Five on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2
+          with Dextre, MEV-1, and ADRAS-J, with the year, the operator, and what
+          each mission demonstrated.
         </caption>
         <thead>
           <tr className="border-b border-border">

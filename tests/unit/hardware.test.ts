@@ -232,7 +232,12 @@ describe('filterHardware', () => {
     });
     expect(unlisted).toHaveLength(18);
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
-    for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {
+    for (const price of [
+      'under-1k',
+      '1k-10k',
+      '10k-25k',
+      '25k-plus',
+    ] as const) {
       const bucket = filterHardware(HARDWARE, {
         ...DEFAULT_HARDWARE_FILTERS,
         price,

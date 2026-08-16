@@ -43,7 +43,9 @@ test.describe('market-map data layer', () => {
     ).toBeVisible();
 
     const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
     );
     expect(overflow).toBe(false);
 

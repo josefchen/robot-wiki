@@ -68,7 +68,9 @@ export function ReliabilityCompounding({
     const y = (p: number) =>
       HEIGHT - PAD.bottom - p * (HEIGHT - PAD.top - PAD.bottom);
     const d = curve
-      .map((p, n) => `${n === 0 ? 'M' : 'L'}${x(n).toFixed(2)},${y(p).toFixed(2)}`)
+      .map(
+        (p, n) => `${n === 0 ? 'M' : 'L'}${x(n).toFixed(2)},${y(p).toFixed(2)}`,
+      )
       .join(' ');
     return {
       path: d,
@@ -211,7 +213,12 @@ export function ReliabilityCompounding({
           stroke="var(--color-border-strong)"
           strokeWidth={1}
         />
-        <path d={path} fill="none" stroke="var(--color-accent)" strokeWidth={2} />
+        <path
+          d={path}
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth={2}
+        />
         <circle
           cx={marker.cx}
           cy={marker.cy}

@@ -9,7 +9,9 @@ describe('ChunkSizeCurve', () => {
     const slider = screen.getByRole('slider', { name: /chunk size/i });
     expect(slider).toBeInTheDocument();
     expect(slider).toHaveAttribute('aria-label');
-    expect(screen.getByRole('img', { name: /success rate/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: /success rate/i }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId('chunk-success-readout')).toBeInTheDocument();
     expect(screen.getByTestId('chunk-decisions-readout')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
@@ -23,9 +25,9 @@ describe('ChunkSizeCurve', () => {
     expect(screen.getByTestId('chunk-success-readout')).toHaveTextContent(
       '44%',
     );
-    expect(
-      screen.getByTestId('chunk-decisions-readout'),
-    ).toHaveTextContent('4');
+    expect(screen.getByTestId('chunk-decisions-readout')).toHaveTextContent(
+      '4',
+    );
   });
 
   it('updates both readouts when the slider moves', () => {
@@ -33,12 +35,10 @@ describe('ChunkSizeCurve', () => {
     fireEvent.change(screen.getByRole('slider', { name: /chunk size/i }), {
       target: { value: '1' },
     });
-    expect(screen.getByTestId('chunk-success-readout')).toHaveTextContent(
-      '1%',
+    expect(screen.getByTestId('chunk-success-readout')).toHaveTextContent('1%');
+    expect(screen.getByTestId('chunk-decisions-readout')).toHaveTextContent(
+      '400',
     );
-    expect(
-      screen.getByTestId('chunk-decisions-readout'),
-    ).toHaveTextContent('400');
   });
 
   it('shows the taper past k=100', () => {
@@ -77,8 +77,8 @@ describe('ChunkSizeCurve', () => {
     expect(screen.getByRole('slider', { name: /chunk size/i })).toHaveValue(
       '50',
     );
-    expect(
-      screen.getByTestId('chunk-decisions-readout'),
-    ).toHaveTextContent('8');
+    expect(screen.getByTestId('chunk-decisions-readout')).toHaveTextContent(
+      '8',
+    );
   });
 });

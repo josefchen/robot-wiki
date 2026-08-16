@@ -60,7 +60,11 @@ describe('JointControls', () => {
     render(
       <JointControls
         joints={JOINTS}
-        angles={{ shoulder_pan: Math.PI / 2, shoulder_lift: -0.5, elbow_flex: 0.25 }}
+        angles={{
+          shoulder_pan: Math.PI / 2,
+          shoulder_lift: -0.5,
+          elbow_flex: 0.25,
+        }}
         onChange={() => {}}
         onReset={() => {}}
       />,
