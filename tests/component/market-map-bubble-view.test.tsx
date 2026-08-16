@@ -160,6 +160,29 @@ describe('BubbleView deep-link highlight parity', () => {
     expect(tabbable).toHaveLength(1);
     expect(document.querySelector('circle[data-company-id="covariant"]')).toBeNull();
   }, TIMEOUT);
+
+  it('exposes the selected mark id on the chart root (plotted deep link)', () => {
+    render(<BubbleView companies={COMPANIES} highlightedId="figure-ai" />);
+    const svg = document.querySelector('svg[role="group"]');
+    expect(svg).not.toBeNull();
+    expect(svg!.getAttribute('data-bubble-selected')).toBe('figure-ai');
+  }, TIMEOUT);
+
+  it('leaves selection unset when the hash names an unplotted company', () => {
+    // A hash naming an unplotted company (covariant: no disclosed
+    // valuation or total raised) must not leave an inert selectedId
+    // pointing at a mark that does not exist. No attribute on the chart
+    // root, no detail panel, and the roving fallback keeps exactly one
+    // tab stop.
+    render(<BubbleView companies={COMPANIES} highlightedId="covariant" />);
+    const svg = document.querySelector('svg[role="group"]');
+    expect(svg).not.toBeNull();
+    expect(svg!.getAttribute('data-bubble-selected')).toBeNull();
+    expect(detailEl()).toBeNull();
+    expect(
+      document.querySelectorAll('circle[data-company-id][tabindex="0"]'),
+    ).toHaveLength(1);
+  }, TIMEOUT);
 });
 
 describe('BubbleView focus ring', () => {
@@ -182,5 +205,42 @@ describe('BubbleView focus ring', () => {
     expect(figure.getAttribute('aria-label')).toBe(
       'Figure AI, founded 2022, valuation $39B',
     );
+  }, TIMEOUT);
+
+  it('keeps the last-focused mark as the tab stop after blur (roving tabindex)', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    // physical-intelligence is the first plotted mark, so it holds the
+    // tab stop before any interaction. Arrow right moves focus to a
+    // different mark; blurring the chart must keep the stop there
+    // (WAI-ARIA roving tabindex keeps the position on blur), not reset
+    // to the highlighted/first mark.
+    const first = mark('physical-intelligence');
+    fireEvent.focus(first);
+    fireEvent.keyDown(first, { key: 'ArrowRight' });
+    const activeId = document.activeElement?.getAttribute('data-company-id');
+    expect(typeof activeId).toBe('string');
+    expect(activeId).not.toBe('physical-intelligence');
+    fireEvent.blur(document.activeElement as SVGElement);
+    expect(first.tabIndex).toBe(-1);
+    expect((document.activeElement ?? { tabIndex: -1 }) !== first).toBe(true);
+    expect(mark(activeId as string).tabIndex).toBe(0);
+    // The label clears with focus (hover/focus parity) even though the
+    // roving stop stays put.
+    expect(labelEl()).toBeNull();
+  }, TIMEOUT);
+
+  it('renders the focus ring outside the clip group so extreme marks are never clipped', () => {
+    render(<BubbleView companies={COMPANIES} />);
+    const svg = document.querySelector('svg[role="group"]');
+    expect(svg).not.toBeNull();
+    fireEvent.focus(mark('figure-ai'));
+    const ring = svg!.querySelector('circle[data-focus-ring]');
+    expect(ring).not.toBeNull();
+    // The ring must not be a descendant of the clipped group: a mark at
+    // the extreme top/bottom of the plot has its ring cut by the clip
+    // rect there (measured baseline: saronic-defense ring top 22.3 vs
+    // clip top 24; k-scale-labs ring bottom 373.7 vs clip bottom 372 on
+    // the full dataset).
+    expect(ring!.closest('g[clip-path]')).toBeNull();
   }, TIMEOUT);
 });

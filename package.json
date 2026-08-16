@@ -18,6 +18,7 @@
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts",
     "generate:companies": "node scripts/generate-companies.ts",
+    "regen:nav": "node scripts/regen-nav-fixture.ts",
     "check:links": "node scripts/check-citation-links.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },

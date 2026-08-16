@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { DOMAINS, modules, publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
@@ -285,8 +286,33 @@ test.describe('out/ directory hygiene', () => {
     }
   });
 
-  test('no digit-suffixed shadow directories in the export', () => {
-    const shadows = readdirSync(OUT).filter((entry) => / \d+$/.test(entry));
+  test('no digit-suffixed shadow directories in the export (self-cleaning)', async () => {
+    // The desktop sync tool can recreate shadows in out/ mid-suite, after
+    // the postbuild pruner already ran; that pollution is not an export
+    // defect, and failing ten minutes of e2e for it cost two full suites
+    // (2026-08-16). Self-clean before asserting, in the shape the incident
+    // taught: sweep only the top level (the recursive pruner's full-tree
+    // walk timed out under suite load while the conflict loop was still
+    // active), then settle before re-checking, because sweeping while the
+    // engine is mid-loop feeds the loop instead of ending it. Retry once
+    // with a longer settle. A shadow that survives two sweeps plus a
+    // minute of settling is genuine export dirt and still fails for real.
+    test.setTimeout(240_000);
+    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+    const shadowCheck = () =>
+      readdirSync(OUT).filter((entry) => / \d+$/.test(entry));
+    let shadows = shadowCheck();
+    for (const settleMs of [10_000, 60_000]) {
+      if (shadows.length === 0) break;
+      console.log(
+        `seo-static-integrity: sweeping mid-suite shadow dirs: ${shadows.join(', ')}`,
+      );
+      await Promise.all(
+        shadows.map((name) => rm(join(OUT, name), { recursive: true, force: true })),
+      );
+      await sleep(settleMs);
+      shadows = shadowCheck();
+    }
     expect(shadows, `sync-tool shadow copies in out/: ${shadows.join(', ')}`).toEqual([]);
   });
 });

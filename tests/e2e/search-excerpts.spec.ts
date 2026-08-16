@@ -1,6 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import matter from 'gray-matter';
+import { getModule } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -107,6 +109,59 @@ async function searchExcerpts(page: Page, query: string): Promise<string[]> {
   // has stopped changing, not after a fixed deadline.
   return settledExcerpts(page);
 }
+
+/**
+ * Hyphenated queries against the real index (2026-08-16,
+ * polish-search-hyphen-genuineness): isGenuineHit used one tokenizer for
+ * the query (split on whitespace, then strip intra-word punctuation, so
+ * "sim-to-real" became the single token "simtoreal") and another for the
+ * content (split on every non-alphanumeric, so "sim-to-real" became
+ * ["sim","to","real"]). The collapsed token can never prefix-match the
+ * split words, so every hyphenated query returned zero module hits in
+ * /search even when the raw Pagefind index matched the page (measured on
+ * the pre-fix export: "sim-to-real" returned "No modules match" while the
+ * sim2real-transfer article, which uses the phrase throughout, sat in the
+ * index). The fix is one shared tokenizer for both sides; non-hyphenated
+ * queries keep their exact semantics (positive and negative controls
+ * elsewhere in this suite and in tests/unit/search.test.ts).
+ */
+test.describe('hyphenated queries and the genuineness filter', () => {
+  test('a hyphenated query returns the page that uses the hyphenated phrase', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    const excerpts = await searchExcerpts(page, 'sim-to-real');
+    expect(
+      excerpts.length,
+      'hyphenated query "sim-to-real" must return module prose hits',
+    ).toBeGreaterThan(0);
+    // And the hit is the article that actually uses the phrase: the
+    // sim-to-real transfer module links from the prose results group.
+    const prose = page.getByRole('region', { name: 'Modules' });
+    await expect(
+      prose.locator('a[data-search-result][href="/rl-sim2real/sim2real-transfer/"]'),
+    ).toHaveCount(1);
+  });
+
+  test('hyphenated garbage stays filtered (no truncation-fallback bypass)', async ({
+    page,
+  }) => {
+    test.setTimeout(60_000);
+    // The hyphen must not become a way around the zzqqxx guard: splitting
+    // "zz-qq-xx" into real tokens still filters the fallback hit, because
+    // no content word starts with "zz" or "qq".
+    await page.goto(`${BASE}/search`);
+    const box = page.getByRole('searchbox', { name: 'Search the wiki' });
+    await box.pressSequentially('zz-qq-xx', { delay: 15 });
+    await expect(page.getByRole('status').first()).not.toHaveText(
+      /Searching for/,
+      { timeout: 15_000 },
+    );
+    const prose = page.getByRole('region', { name: 'Modules' });
+    await expect(prose.locator('a[data-search-result]')).toHaveCount(0);
+    await expect(prose).toContainText('No module prose matches "zz-qq-xx"');
+  });
+});
 
 test.describe('search excerpt quality', () => {
   test('term tooltip definitions never leak into search excerpts', async ({
@@ -574,6 +629,20 @@ test.describe('excerpt chrome: article header metadata row', () => {
   }) => {
     await page.goto(`${BASE}/world-models/generative-video/`);
 
+    // Title and lastReviewed are derived from the module registry and the
+    // article's real frontmatter, so a content edit (a re-review date
+    // bump, a retitle) cannot silently break this spec: the expectation
+    // moves with the fixture instead of hardcoding "Generative Video
+    // World Models" / datetime="2026-08-08".
+    const entry = getModule('world-models', 'generative-video');
+    expect(entry, 'world-models/generative-video is registered').toBeTruthy();
+    const fm = matter(
+      readFileSync(
+        join(process.cwd(), 'content', 'world-models', 'generative-video.mdx'),
+        'utf8',
+      ),
+    ).data as { lastReviewed?: string };
+
     // The whole metadata row (one dl: last reviewed, reading time,
     // citations) carries the attribute.
     const row = page.locator('article header dl');
@@ -582,7 +651,7 @@ test.describe('excerpt chrome: article header metadata row', () => {
 
     // Title and summary are content and keep their index presence.
     const title = page.locator('article header h1');
-    await expect(title).toHaveText('Generative Video World Models');
+    await expect(title).toHaveText(entry!.title);
     expect(await title.getAttribute('data-pagefind-ignore')).toBeNull();
     const summary = page.locator('article header p');
     await expect(summary).toContainText('conditioning-strength problem');
@@ -594,9 +663,11 @@ test.describe('excerpt chrome: article header metadata row', () => {
     await expect(row).toContainText('Last reviewed');
     await expect(row).toContainText('Reading time');
     await expect(row).toContainText('Citations');
-    await expect(row.locator('time')).toHaveAttribute(
-      'datetime',
-      '2026-08-08',
-    );
+    if (fm.lastReviewed) {
+      await expect(row.locator('time')).toHaveAttribute(
+        'datetime',
+        fm.lastReviewed,
+      );
+    }
   });
 });

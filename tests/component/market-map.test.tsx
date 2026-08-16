@@ -2,6 +2,10 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
+import {
+  DEFAULT_MARKET_MAP_FILTERS,
+  filterCompanies,
+} from '@/lib/market-map';
 import { MarketMap } from '@/components/market-map/market-map';
 
 afterEach(() => {
@@ -45,8 +49,19 @@ describe('MarketMap', () => {
     );
   }, TIMEOUT);
 
-  it('exposes all seven filter dimensions and the three views (VAL-MKT-003, VAL-MKT-004)', () => {
-    render(<MarketMap companies={COMPANIES} />);
+  it('exposes all seven filter dimensions and the three views (VAL-MKT-003, VAL-MKT-004)', async () => {
+    const user = userEvent.setup();
+    // Render a one-segment subset (10 cards) instead of the full grid:
+    // the filter bar is a sibling of the grid, not a child of it, so all
+    // seven dimensions are fully observable without paying the 112-card
+    // render cost (that cost, paid once per assertion-shaped rerender, is
+    // what used to push this test past the module timeout under
+    // full-suite jsdom load).
+    const subset = filterCompanies(COMPANIES, {
+      ...DEFAULT_MARKET_MAP_FILTERS,
+      segment: 'simulation-tooling',
+    });
+    render(<MarketMap companies={subset} />);
     expect(screen.getByLabelText('Segment')).toBeInTheDocument();
     expect(screen.getByLabelText('Sub-segment')).toBeInTheDocument();
     expect(screen.getByLabelText('Country')).toBeInTheDocument();
@@ -66,6 +81,12 @@ describe('MarketMap', () => {
     expect(status).toHaveTextContent('Acquired');
     expect(status).toHaveTextContent('IPO');
     expect(status).toHaveTextContent('Shut down');
+    // The subset genuinely renders cards (the assertions above are not
+    // passing against an empty grid).
+    expect(screen.getAllByRole('article')).toHaveLength(subset.length);
+    // And one dimension still narrows: the interaction surface works.
+    await user.selectOptions(screen.getByLabelText('Country'), 'US');
+    expect(screen.getAllByRole('article').length).toBeLessThan(subset.length);
   }, TIMEOUT);
 
   it('applies a single filter and composes a second one (VAL-MKT-005, VAL-MKT-006)', async () => {

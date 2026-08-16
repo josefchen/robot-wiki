@@ -79,6 +79,13 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
   // mouse never paints a focus ring.
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [focusedId, setFocusedId] = useState<string | null>(null);
+  // The roving tab stop outlives focus: blur clears the ring and label
+  // but keeps the stop on the last-focused mark (WAI-ARIA roving
+  // tabindex keeps the position on blur), so Tab re-enters the chart
+  // where the reader left it instead of resetting to the first mark.
+  const [rovingStopId, setRovingStopId] = useState<string | null>(null);
+
+  const points = useMemo(() => bubblePoints(companies), [companies]);
 
   // A deep link names one company explicitly: it arrives as the selected
   // mark, the same treatment a click produces (detail panel included).
@@ -86,13 +93,24 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
   // start (null) makes the sync fire on the first render too, when the
   // anchor is already present at mount. A highlight that goes away never
   // deselects: the user's selection outlives the URL hash.
-  const [prevHighlight, setPrevHighlight] = useState<string | null>(null);
-  if (highlightedId !== prevHighlight) {
-    setPrevHighlight(highlightedId);
-    if (highlightedId !== null) setSelectedId(highlightedId);
+  const [appliedHighlight, setAppliedHighlight] = useState<string | null>(null);
+  if (highlightedId !== appliedHighlight) {
+    if (highlightedId === null) {
+      setAppliedHighlight(null);
+    } else if (points.some((point) => point.id === highlightedId)) {
+      // Only a company this view actually plots can be selected; a hash
+      // naming an unplotted one (no disclosed valuation or total raised)
+      // would set an inert selectedId: no mark, no detail panel, nothing
+      // the reader can see. The relax flow can deliver the highlight a
+      // render before the widened company set (the hash is read in an
+      // effect, the relaxed filters arrive a commit later), so the
+      // application waits until the named mark is really plotted rather
+      // than consuming the highlight against the wrong set.
+      setSelectedId(highlightedId);
+      setAppliedHighlight(highlightedId);
+    }
   }
 
-  const points = useMemo(() => bubblePoints(companies), [companies]);
   const excluded = companies.length - points.length;
 
   const geometry = useMemo(() => {
@@ -130,21 +148,30 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
     geometry?.placed.find((point) => point.id === activeId) ?? null;
   const focusedMark =
     geometry?.placed.find((point) => point.id === focusedId) ?? null;
+  // The selection the reader can see: only a plotted mark. selectedId
+  // from a deep link that names an unplotted company is never set (see
+  // the render-sync above), but a filter change can make an existing
+  // selection unplotted; the detail panel follows the visible truth.
+  const selected =
+    geometry?.placed.find((point) => point.id === selectedId) ?? null;
   // Roving tabindex: exactly one mark is tabbable (the roving stop, or
   // the first plotted mark before any interaction). The highlighted
   // deep-link target wins when it is plotted, so the hashed mark is the
   // entry point; a hash naming an unplotted company must not leave the
   // chart with zero tab stops, so the fallback always resolves to a
-  // plotted mark.
+  // plotted mark. The stop survives blur: the last-focused mark keeps
+  // the tabindex (WAI-ARIA roving tabindex keeps the position on blur),
+  // so Tab re-enters the chart where the reader left it.
   const plottedHighlight =
     geometry?.placed.some((point) => point.id === highlightedId) === true
       ? highlightedId
       : null;
   const rovingId =
-    focusedId ?? plottedHighlight ?? geometry?.placed[0]?.id ?? null;
-
-  const selected =
-    geometry?.placed.find((point) => point.id === selectedId) ?? null;
+    rovingStopId ??
+    focusedId ??
+    plottedHighlight ??
+    geometry?.placed[0]?.id ??
+    null;
 
   return (
     <div className="mt-6">
@@ -166,6 +193,7 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
           role="group"
           aria-label="Company bubble chart of founding year against valuation or total raised"
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+          data-bubble-selected={selected ? selected.id : undefined}
           className="mt-4 h-auto w-full"
         >
           <defs>
@@ -252,20 +280,25 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
             );
           })}
           {labeled ? <MarkLabel point={labeled} /> : null}
+          {/* The focus ring must NOT live inside the clip group below: a
+              mark at the extreme top/bottom of the plot would get its
+              ring cut by the clip rect there (the ring's painted edge
+              extends past the plot area by design, r + halfStroke).
+              Rendered as a sibling, it is always fully visible. */}
+          {focusedMark ? (
+            <circle
+              data-focus-ring
+              aria-hidden="true"
+              cx={focusedMark.cx}
+              cy={focusedMark.cy}
+              r={selectedId === focusedMark.id ? 10 : 8.5}
+              fill="none"
+              stroke="var(--color-accent)"
+              strokeWidth={2}
+              className="pointer-events-none"
+            />
+          ) : null}
           <g clipPath={`url(#${clipId})`}>
-            {focusedMark ? (
-              <circle
-                data-focus-ring
-                aria-hidden="true"
-                cx={focusedMark.cx}
-                cy={focusedMark.cy}
-                r={selectedId === focusedMark.id ? 10 : 8.5}
-                fill="none"
-                stroke="var(--color-accent)"
-                strokeWidth={2}
-                className="pointer-events-none"
-              />
-            ) : null}
             {geometry.placed.map((point) => (
               <circle
                 key={point.id}
@@ -287,7 +320,14 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
                 } ${formatUsd(point.yUsd)}`}
                 onMouseEnter={() => setHoveredId(point.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                onFocus={() => setFocusedId(point.id)}
+                onFocus={() => {
+                  setFocusedId(point.id);
+                  setRovingStopId(point.id);
+                }}
+                // Blur ends the focus treatment (label and ring clear)
+                // but keeps the roving stop: WAI-ARIA roving tabindex
+                // keeps the position on blur, so Tab re-enters the chart
+                // on the mark the reader last focused.
                 onBlur={() => setFocusedId(null)}
                 onClick={() =>
                   setSelectedId((current) =>
@@ -308,6 +348,7 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
                     const next = stepMark(geometry.placed, point.id, event.key);
                     if (next === point.id) return;
                     setFocusedId(next);
+                    setRovingStopId(next);
                     document
                       .querySelector<SVGCircleElement>(
                         `circle[data-company-id="${next}"]`,

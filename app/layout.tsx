@@ -40,8 +40,10 @@ export const metadata: Metadata = {
     url: './',
     siteName: 'robot-wiki',
   },
-  // Noindex guard while the wiki is unfinished; ALLOW_INDEXING in
-  // lib/site.ts is the single switch (flipped by polish-go-public).
+  // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
+  // single switch). True since the go-public decision of 2026-08-16, so
+  // this resolves to undefined and no meta tag ships; /404/ pins its own
+  // route-level noindex either way (app/not-found.tsx).
   robots: ALLOW_INDEXING ? undefined : { index: false, follow: false },
 };
 
