@@ -1,10 +1,12 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import type { Company } from '@/data/schemas/company.ts';
 import {
   formatShortDate,
   formatUsd,
+  isTimelineArrowKey,
+  stepTimeline,
   timelineEvents,
   unknownFigure,
   type TimelineEvent,
@@ -23,6 +25,19 @@ export function FundingTimeline({
 }: FundingTimelineProps) {
   const events = useMemo(() => timelineEvents(companies), [companies]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  // Roving tabindex (parity with the bubble view): the timeline is one
+  // tab stop; ArrowUp/ArrowDown move between rows chronologically. The
+  // stop outlives focus (WAI-ARIA roving tabindex keeps the position on
+  // blur), so Tab re-enters the list where the reader left it.
+  const [rovingStopId, setRovingStopId] = useState<string | null>(null);
+  // Focus moves go through a ref map, not a global querySelector: the
+  // handler closes over the row buttons this component rendered, so it
+  // stays correct if the timeline is ever mounted more than once.
+  const rowRefs = useRef(new Map<string, HTMLButtonElement>());
+
+  const focusRow = useCallback((id: string) => {
+    rowRefs.current.get(id)?.focus();
+  }, []);
 
   if (events.length === 0) {
     return (
@@ -31,6 +46,17 @@ export function FundingTimeline({
       </p>
     );
   }
+
+  // Exactly one row is tabbable: the roving stop, else the highlighted
+  // deep-link row, else the first (chronologically earliest) row. A
+  // highlight naming a company with no dated round must not leave the
+  // list with zero tab stops, so the fallback always resolves.
+  const highlightedRowId =
+    highlightedId === null
+      ? null
+      : (events.find((event) => event.companyId === highlightedId)?.id ??
+        null);
+  const rovingId = rovingStopId ?? highlightedRowId ?? events[0].id;
 
   return (
     <div className="mt-6">
@@ -57,12 +83,26 @@ export function FundingTimeline({
             >
               <button
                 type="button"
+                ref={(el) => {
+                  if (el === null) rowRefs.current.delete(event.id);
+                  else rowRefs.current.set(event.id, el);
+                }}
                 aria-expanded={active}
+                tabIndex={rovingId === event.id ? 0 : -1}
                 onClick={() =>
                   setSelectedId((current) =>
                     current === event.id ? null : event.id,
                   )
                 }
+                onFocus={() => setRovingStopId(event.id)}
+                onKeyDown={(keydown) => {
+                  if (!isTimelineArrowKey(keydown.key)) return;
+                  keydown.preventDefault();
+                  const next = stepTimeline(events, event.id, keydown.key);
+                  if (next === event.id) return;
+                  setRovingStopId(next);
+                  focusRow(next);
+                }}
                 className={cx(
                   'flex w-full cursor-pointer flex-col gap-1 py-3 text-left sm:flex-row sm:items-baseline sm:justify-between sm:gap-6',
                   active ? 'text-text' : 'text-text-dim hover:text-text',

@@ -554,6 +554,43 @@ export function stepMark(
   return (sorted[0] ?? current).id;
 }
 
+export const TIMELINE_ARROW_KEYS = ['ArrowUp', 'ArrowDown'] as const;
+
+export type TimelineArrowKey = (typeof TIMELINE_ARROW_KEYS)[number];
+
+/** A timeline row's identity for roving movement: id plus date. */
+export interface TimelineRow {
+  id: string;
+  date: string;
+}
+
+export function isTimelineArrowKey(key: string): key is TimelineArrowKey {
+  return (TIMELINE_ARROW_KEYS as readonly string[]).includes(key);
+}
+
+/**
+ * Roving-tabindex movement between funding-timeline rows, the 1-D
+ * counterpart of stepMark: the timeline is one tab stop and ArrowUp /
+ * ArrowDown move between rows in render order, which is chronological
+ * (date, then company name, the sort timelineEvents already renders).
+ * Movement is positional in the array the view renders (the order the
+ * reader sees), so equal dates and even unsorted input behave like the
+ * visual list. At the ends the move wraps, the way a radio group wraps,
+ * so every row is reachable without the mouse. Unknown ids or keys
+ * return the current id unchanged.
+ */
+export function stepTimeline(
+  rows: readonly TimelineRow[],
+  currentId: string,
+  key: TimelineArrowKey,
+): string {
+  if (!isTimelineArrowKey(key)) return currentId;
+  const index = rows.findIndex((row) => row.id === currentId);
+  if (index === -1) return currentId;
+  const delta = key === 'ArrowDown' ? 1 : -1;
+  return rows[(index + delta + rows.length) % rows.length].id;
+}
+
 export function formatSubSegment(value: string): string {
   return value.replace(/-/g, ' ');
 }
