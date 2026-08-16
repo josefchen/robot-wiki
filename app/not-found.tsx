@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   // restated here: a route-level openGraph object replaces the layout's, so
   // omitting siteName/type would silently drop those tags (VAL-BRAND-002).
   alternates: { canonical: '/404/' },
+  // Explicit route-level pin: the 404 page stays noindex regardless of
+  // ALLOW_INDEXING in lib/site.ts, so flipping the site-wide switch can
+  // never make an error page indexable. Next also injects a noindex for
+  // 404 responses internally (app-render's NonIndex); this makes the
+  // directive ours instead of an undocumented framework default.
+  robots: { index: false },
   openGraph: {
     type: 'website',
     url: '/404/',
