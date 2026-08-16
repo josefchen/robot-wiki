@@ -1,6 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import matter from 'gray-matter';
+import { getModule } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -574,6 +576,20 @@ test.describe('excerpt chrome: article header metadata row', () => {
   }) => {
     await page.goto(`${BASE}/world-models/generative-video/`);
 
+    // Title and lastReviewed are derived from the module registry and the
+    // article's real frontmatter, so a content edit (a re-review date
+    // bump, a retitle) cannot silently break this spec: the expectation
+    // moves with the fixture instead of hardcoding "Generative Video
+    // World Models" / datetime="2026-08-08".
+    const entry = getModule('world-models', 'generative-video');
+    expect(entry, 'world-models/generative-video is registered').toBeTruthy();
+    const fm = matter(
+      readFileSync(
+        join(process.cwd(), 'content', 'world-models', 'generative-video.mdx'),
+        'utf8',
+      ),
+    ).data as { lastReviewed?: string };
+
     // The whole metadata row (one dl: last reviewed, reading time,
     // citations) carries the attribute.
     const row = page.locator('article header dl');
@@ -582,7 +598,7 @@ test.describe('excerpt chrome: article header metadata row', () => {
 
     // Title and summary are content and keep their index presence.
     const title = page.locator('article header h1');
-    await expect(title).toHaveText('Generative Video World Models');
+    await expect(title).toHaveText(entry!.title);
     expect(await title.getAttribute('data-pagefind-ignore')).toBeNull();
     const summary = page.locator('article header p');
     await expect(summary).toContainText('conditioning-strength problem');
@@ -594,9 +610,11 @@ test.describe('excerpt chrome: article header metadata row', () => {
     await expect(row).toContainText('Last reviewed');
     await expect(row).toContainText('Reading time');
     await expect(row).toContainText('Citations');
-    await expect(row.locator('time')).toHaveAttribute(
-      'datetime',
-      '2026-08-08',
-    );
+    if (fm.lastReviewed) {
+      await expect(row.locator('time')).toHaveAttribute(
+        'datetime',
+        fm.lastReviewed,
+      );
+    }
   });
 });

@@ -83,6 +83,37 @@ test.describe('market-map deep links on the static export', () => {
     expect(errors).toEqual([]);
   });
 
+  test('a bubble-view hash naming an unplotted company selects nothing', async ({
+    page,
+  }) => {
+    const errors: string[] = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') errors.push(msg.text());
+    });
+    // Covariant exists in the dataset but has no disclosed valuation or
+    // total raised, so the bubble view never plots it. The deep link must
+    // not leave an inert selection: no mark, no detail panel, no
+    // data-bubble-selected state, and the roving fallback keeps exactly
+    // one tab stop so the chart stays keyboard-reachable.
+    await page.goto(`${BASE}/market-map/?view=bubble#company-covariant`);
+
+    const chart = page.getByRole('group', { name: /bubble chart/i });
+    await expect(chart).toBeVisible();
+    await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(0);
+    await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
+    // The chart exposes its selection state as data-bubble-selected: the
+    // attribute is absent when nothing is selected (the honest state).
+    expect(await chart.getAttribute('data-bubble-selected')).toBeNull();
+    const tabbables = await page.evaluate(
+      () =>
+        document.querySelectorAll('circle[data-company-id][tabindex="0"]')
+          .length,
+    );
+    expect(tabbables).toBe(1);
+    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    expect(errors).toEqual([]);
+  });
+
   test('unknown subSegment/country/approach params are dropped, valid siblings apply', async ({
     page,
   }) => {

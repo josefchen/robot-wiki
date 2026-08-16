@@ -370,7 +370,8 @@ export function relaxFiltersForCompany(
 
 export function serializeMarketMapSearch(
   parsed: ParsedMarketMapSearch,
-): string {  const params = new URLSearchParams();
+): string {
+  const params = new URLSearchParams();
   const { filters, view } = parsed;
   if (filters.segment) params.set('segment', filters.segment);
   if (filters.subSegment) params.set('subSegment', filters.subSegment);

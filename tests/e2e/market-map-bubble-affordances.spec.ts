@@ -82,6 +82,26 @@ test.describe('bubble view hover/focus affordances', () => {
     await expect(ring).toHaveCSS('stroke', 'rgb(245, 166, 35)');
     const r = parseFloat((await ring.getAttribute('r')) ?? '0');
     expect(r).toBeGreaterThan(6);
+    // The ring renders outside the clip group, so it is never cut at the
+    // plot's top/bottom edges. Focus the extreme-top mark on the full
+    // dataset (measured: saronic-defense cy=33.3; the painted ring top
+    // is cy - r - halfStroke = 23.8, above the clip rect's top edge
+    // y=24) and prove both facts: structural (no clip-path ancestor) and
+    // numeric (the painted edge extends past where the clip would cut).
+    await mark(page, 'saronic-defense').focus();
+    const ringFacts = await page.evaluate(() => {
+      const ring = document.querySelector('circle[data-focus-ring]');
+      if (!ring) return { insideClip: true, paintedTop: Infinity };
+      return {
+        insideClip: ring.closest('g[clip-path]') !== null,
+        paintedTop:
+          parseFloat(ring.getAttribute('cy') ?? '0') -
+          parseFloat(ring.getAttribute('r') ?? '0') -
+          parseFloat(ring.getAttribute('stroke-width') ?? '0') / 2,
+      };
+    });
+    expect(ringFacts.insideClip).toBe(false);
+    expect(ringFacts.paintedTop).toBeLessThan(24);
     // The ring clears when focus leaves the mark.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(ring).toHaveCount(0);
@@ -140,6 +160,42 @@ test.describe('bubble view hover/focus affordances', () => {
       ).length,
     );
     expect(tabbables).toBe(1);
+  });
+
+  test('the roving tab stop keeps the last-focused mark after blur', async ({
+    page,
+  }) => {
+    await openBubble(page);
+    for (let i = 0; i < 30; i += 1) {
+      await page.keyboard.press('Tab');
+      const active = await page.evaluate(() =>
+        document.activeElement?.matches('circle[data-company-id]'),
+      );
+      if (active) break;
+    }
+    await page.keyboard.press('ArrowRight');
+    const movedId = await page.evaluate(
+      () => document.activeElement?.getAttribute('data-company-id'),
+    );
+    expect(movedId).toBeTruthy();
+    // Blur the chart entirely (focus leaves for the page shell). WAI-ARIA
+    // roving tabindex keeps the stop on the last-focused item, so Tab
+    // returns to the same mark instead of resetting to the first.
+    await page.evaluate(() => (document.activeElement as HTMLElement).blur());
+    await expect(label(page)).toHaveCount(0);
+    const stop = await page.evaluate(
+      () =>
+        document
+          .querySelector('circle[data-company-id][tabindex="0"]')
+          ?.getAttribute('data-company-id'),
+    );
+    expect(stop).toBe(movedId);
+    // And Tab re-enters the chart on that same mark.
+    await page.keyboard.press('Tab');
+    const reentered = await page.evaluate(
+      () => document.activeElement?.getAttribute('data-company-id'),
+    );
+    expect(reentered).toBe(movedId);
   });
 
   test('Enter and Space still select and reveal the detail panel', async ({
