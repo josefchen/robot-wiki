@@ -26,6 +26,21 @@ These rules exist because the wiki's value is that every claim can be traced to 
 - **Glossary terms carry cited definitions.** Wrap jargon in `<Term id="..." />` on first use and add missing terms to `data/glossary.ts` with a source. An unknown term id fails the build.
 - **Interactives are instruments, not decorations.** Keyboard-accessible controls with ARIA labels, a visible numeric readout, a reset control, and respect for `prefers-reduced-motion`. Follow the existing dark technical theme; no gradients, glassmorphism, or emoji icons.
 
+## Code structure
+
+The directories are layers and imports only point downwards: `app/` composes
+pages, `components/` renders, `lib/` holds the logic, `data/` is a leaf of
+Zod-validated registries. Feature folders under `components/` (article,
+interactive, market-map, nav, search, three) are independent of each other, so
+anything two of them need moves down into `components/ui/` if it is
+presentational or `lib/` if it is logic. Nothing under `components/` may reach
+`node:fs` or the build-time `lib/` modules that do (an interactive is a client
+bundle); a route under `app/` reads at prerender time and passes plain data
+down. `npm run lint:architecture` fails on a violation and names the rule; the
+rules live in `.dependency-cruiser.mjs` with the reasoning next to each one.
+The README's [module boundaries](README.md#module-boundaries) section has the
+layer diagram.
+
 ## Testing your change
 
 Run the full gate locally before opening a pull request:
@@ -33,6 +48,7 @@ Run the full gate locally before opening a pull request:
 ```sh
 npm run typecheck
 npm run lint
+npm run lint:architecture
 npm run test
 npm run validate:content
 npm run build
@@ -46,7 +62,7 @@ Also run `npm run test:e2e` if you touched anything a browser can see (pages, in
 - Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`) so history stays scannable.
 - Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
 - Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
-- Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
+- Every PR must leave the gates green: typecheck, lint, module boundaries, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
 
 ## Licensing
 
