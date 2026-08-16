@@ -236,6 +236,12 @@ async function postReview(
     files.map((file) => [file.path, file.addedLines.map((added) => added.line)]),
   );
   const reviewComments = await api.listReviewComments(options.pr);
+  if (reviewComments.error) {
+    console.error(
+      `pr-review: cannot read review comments (${reviewComments.status}); skipping inline comments.`,
+    );
+    return;
+  }
   const alreadySaid = existingInlineKeys(reviewComments.data ?? []);
   const pending = inlineFindings(findings, addedLinesByPath).filter(
     (finding) => !alreadySaid.has(inlineKey(finding.path, finding.line ?? 0, finding.rule)),

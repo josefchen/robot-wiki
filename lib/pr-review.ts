@@ -390,7 +390,8 @@ function addedBlocks(file: ChangedFile): AddedLine[][] {
 }
 
 const isContentArticle = (path: string) => /^content\/.+\.mdx?$/.test(path);
-const isDataRegistry = (path: string) => /^data\/[a-z0-9-]+\.ts$/.test(path);
+const isDataRegistry = (path: string) =>
+  /^data\/[a-z0-9-]+\.ts$/.test(path) && path !== 'data/link-check-exceptions.ts';
 const isComponent = (path: string) => /^components\/.+\.tsx?$/.test(path);
 const isTest = (path: string) => path.startsWith('tests/');
 
@@ -418,7 +419,7 @@ const QUANTITATIVE_PATTERNS: RegExp[] = [
  * 1M hours". Skipping these is what keeps the rule readable in a review.
  */
 const HYPOTHETICAL =
-  /\b(if|would|were|suppose|imagine|hypothetical|assume|scenarios?|extrapolat\w*|projected)\b/i;
+  /\b(if|suppose|imagine|hypothetical|assume|scenarios?|extrapolat\w*)\b/i;
 const DEFINITIONAL_THRESHOLD = /\b(better than|at least|no worse than|above|beyond)\s+[~\\$\d]/i;
 
 /** Split a line into sentences, so one hedged clause does not mask another. */
@@ -609,7 +610,11 @@ function reviewControlLabels(file: ChangedFile, body: string): ReviewFinding[] {
     if (/aria-label|aria-labelledby|title=/.test(tag.text)) continue;
     // An input with an id is named by the <label htmlFor> that points at it;
     // only genuinely anonymous controls are reported.
-    if (/\bid=/.test(tag.text) && /htmlFor=/.test(body)) continue;
+    const id = /\bid=["']([^"']+)["']/.exec(tag.text)?.[1];
+    if (id) {
+      const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (new RegExp(`htmlFor=["']${escaped}["']`).test(body)) continue;
+    }
     findings.push({
       rule: 'control-without-accessible-name',
       severity: 'warning',
