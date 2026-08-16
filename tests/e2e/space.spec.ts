@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { collectConsole } from './helpers/console';
 
 const ROUTE = '/adjacent/space/';
 
@@ -234,20 +235,10 @@ test.describe('adjacent cross-cutting (VAL-ADJ-008 through 011)', () => {
     test(`no console errors on ${ADJACENT_ROUTES[i]} (VAL-ADJ-010)`, async ({
       page,
     }) => {
-      const errors: string[] = [];
-      page.on('pageerror', (err) => errors.push(`pageerror: ${err.message}`));
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') errors.push(`console: ${msg.text()}`);
-      });
-      page.on('requestfailed', (req) => {
-        // The App Router cancels speculative link prefetches with
-        // net::ERR_ABORTED on every page under the static export
-        // (verified identical on the previously validated drones and
-        // surgical pages); a client-side cancel is not a failed request.
-        if (req.failure()?.errorText !== 'net::ERR_ABORTED') {
-          errors.push(`requestfailed: ${req.url()} :: ${req.failure()?.errorText}`);
-        }
-      });
+      // Shared collector with the documented-benign ERR_ABORTED
+      // prefetch-cancel filter (tests/e2e/helpers/console.ts); the
+      // assertion below is unchanged from the local filter it replaced.
+      const { errors } = collectConsole(page);
       await page.goto(ADJACENT_ROUTES[i]);
       // Let any lazy work settle before reading the log.
       await page.waitForLoadState('networkidle');
