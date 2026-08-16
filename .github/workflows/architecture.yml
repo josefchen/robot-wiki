@@ -1,0 +1,32 @@
+# Module boundaries. The layering in .dependency-cruiser.mjs is only worth
+# writing down if something checks it, and a boundary violation is exactly the
+# kind of change that looks harmless in a diff: one import line. This job runs
+# the same command as `npm run lint:architecture` locally.
+name: architecture
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  boundaries:
+    name: module boundaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Not --omit=dev: the check is a devDependency, and the postinstall
+      # bridge that gives dependency-cruiser a TypeScript 6 API (the root
+      # toolchain is on TS 7, which its parser rejects) runs from here.
+      - run: npm ci
+
+      - run: npm run lint:architecture

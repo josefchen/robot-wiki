@@ -38,6 +38,34 @@ tests/        Vitest unit and component tests, Playwright e2e specs, fixtures
 research/     Deep-research reports behind the content (read-only transparency trail)
 ```
 
+### Module boundaries
+
+The directories above are layers, not folders. A layer may only import from the
+layers below it:
+
+```
+app/                    routes; the only place that composes a page
+components/<feature>/    article, interactive, market-map, nav, search, three
+components/mdx/          components MDX prose is allowed to use
+components/ui/           presentational primitives, content-agnostic
+lib/                     content pipeline, search, IK solver, rehype plugins
+data/                    Zod-validated registries; a leaf, no internal imports
+```
+
+`scripts/` is build tooling beside the stack: it reads from any layer, and
+nothing that ships to the browser imports from it. Feature folders under
+`components/` are independent slices and do not import each other; shared parts
+move down into `components/ui/` (presentational) or `lib/` (logic).
+
+`npm run lint:architecture` enforces this with
+[dependency-cruiser](https://github.com/sverweij/dependency-cruiser); the rules
+and the reason for each one are in `.dependency-cruiser.mjs`, and the
+`architecture` GitHub Actions workflow runs them on every pull request. Beyond
+the layering it rejects import cycles, `node:` core modules reached from
+`components/` (they do not exist in a client bundle), devDependencies imported
+from shipped code, and unresolvable imports. `npm run graph:architecture`
+prints the current graph as Mermaid, collapsed to one node per directory.
+
 ### Content pipeline
 
 - Articles are MDX files with Zod-validated frontmatter (`title`, `summary`, `domain`, `slug`, `order`, `status`, `lastReviewed`, `citations`, `seeAlso`).
@@ -81,6 +109,7 @@ npm run test          # unit + component tests (Vitest)
 npm run test:e2e      # end-to-end tests (Playwright, headless Chromium)
 npm run typecheck     # next typegen + tsc --noEmit (TypeScript strict)
 npm run lint          # ESLint
+npm run lint:architecture # module boundaries and import cycles (dependency-cruiser)
 npm run validate:content  # content-pipeline validation, also runs before every build
 ```
 
