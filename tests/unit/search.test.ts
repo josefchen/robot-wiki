@@ -142,6 +142,37 @@ describe('isGenuineHit', () => {
     expect(isGenuineHit('training', 'co-training on static data')).toBe(true);
     expect(isGenuineHit('z', 'Tony Z. Zhao')).toBe(true);
   });
+
+  it('admits a genuine hit for a hyphenated query over split content words', () => {
+    // The scrutiny finding (misc-hardening-3): normalizing the query token
+    // to alphanumerics-only produced 'actionconditioned', which can never
+    // prefix-match the content words ['action', 'conditioned'], so
+    // hyphenated queries were silently dropped even when Pagefind matched.
+    expect(
+      isGenuineHit('action-conditioned', 'action-conditioned video prediction'),
+    ).toBe(true);
+    expect(isGenuineHit('sim-to-real', 'the sim-to-real gap')).toBe(true);
+    // Whitespace-tokenized queries keep today's semantics.
+    expect(isGenuineHit('flow matching', 'flow matching recipes')).toBe(true);
+  });
+
+  it('admits a genuine hit when the content hyphenates and the query splits', () => {
+    // The mirror direction: a reader types the two-word form, the article
+    // writes the hyphenated form (or vice versa).
+    expect(isGenuineHit('real time', 'real-time chunking closes the loop')).toBe(
+      true,
+    );
+    expect(isGenuineHit('covariate shift', 'the covariate-shift problem')).toBe(
+      true,
+    );
+  });
+
+  it('still rejects truncation fallbacks spelled with hyphens', () => {
+    // Both hyphen spellings must stay filtered: the hyphen cannot become a
+    // bypass around the zzqqxx guard.
+    expect(isGenuineHit('zz-qq-xx', 'Tony Z. Zhao')).toBe(false);
+    expect(isGenuineHit('sim-to-zzz', 'the sim-to-real gap')).toBe(false);
+  });
 });
 
 describe('createRequestSequencer', () => {
