@@ -5,7 +5,7 @@ domain: manipulation
 slug: diffusion-policy
 order: 3
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - diffusion-policy-2023
   - act-aloha-2023
@@ -66,7 +66,7 @@ The paper ships two denoiser backbones <Cite id="diffusion-policy-2023" />:
     items={[
       { key: 'CNN (default)', value: '1D temporal U-Net over the action sequence' },
       { key: 'CNN conditioning', value: 'observations injected via FiLM' },
-      { key: 'transformer', value: 'time-series diffusion transformer (DiT)' },
+      { key: 'transformer', value: 'time-series diffusion transformer (minGPT-style)' },
       { key: 'transformer conditioning', value: 'observation embedding via cross-attention' },
       { key: 'visual encoder', value: 'ResNet-18 with GroupNorm, trained end-to-end' },
     ]}

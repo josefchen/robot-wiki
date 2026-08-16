@@ -5,7 +5,7 @@ domain: manipulation
 slug: action-chunking
 order: 2
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - dagger-2011
   - act-aloha-2023
@@ -39,7 +39,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
   <Stat label="chunk size k" value="100" note="2 s of motion per inference" />
   <Stat label="control rate" value="50 Hz" />
   <Stat label="policy parameters" value="~80M" note="ResNet-18 backbones plus transformer" />
-  <Stat label="success at k=100" value="44%" note="1% at k=1, same tasks" accent />
+  <Stat label="success at k=100" value="44%" note="1% at k=1, simulated ablation" accent />
 </div>
 
 <Card title="ACT reference configuration" className="my-6">
@@ -56,7 +56,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
 
 ### The chunk-size dial
 
-Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the ALOHA insertion and transfer tasks, ACT measures roughly 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
+Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the paper's two simulated MuJoCo tasks (Cube Transfer and Bimanual Insertion), averaged over four settings (each task trained on scripted and on human demonstrations, temporal ensembling disabled), ACT measures 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
 
 <ChunkSizeCurve className="my-6" />
 
@@ -66,13 +66,14 @@ Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the A
 
 ## Temporal ensembling and its limits
 
-ACT executes chunks with <Term id="temporal-ensembling">temporal ensembling</Term>: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where i counts how many chunks ago the prediction was issued. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
+ACT executes chunks with <Term id="temporal-ensembling">temporal ensembling</Term>: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where $i = 0$ indexes the oldest prediction and $m$ (0.01 in the reference implementation) sets how quickly older predictions are discounted. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
 
 <Image id="temporal-ensembling" />
 
 ```python title="temporal_ensembling.py"
 # Temporal ensembling (ACT, arXiv:2304.13705). preds[i] is the prediction
-# for the current action made by the chunk issued i steps ago.
+# for the current action made by the chunk issued i chunks ago, so index 0
+# is the oldest prediction (the largest weight, per the paper's w_0).
 def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
     weights = np.exp(-m * np.arange(len(preds)))   # w_i = exp(-m * i)
     weights /= weights.sum()
