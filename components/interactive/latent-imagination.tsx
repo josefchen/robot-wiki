@@ -18,7 +18,8 @@ import { cx } from '@/lib/utils';
  * the model's own prediction back in, so one-step errors compound. The top
  * chart draws the imagined latent trajectory peeling away from the true one;
  * the bottom chart plots latent deviation against step with the published
- * 15-50 step typical range shaded. The horizon slider extends the rollout
+ * 3-15 step range shaded (TD-MPC2 plans 3 steps, DreamerV3 imagines 15).
+ * The horizon slider extends the rollout
  * and the deviation readout grows monotonically with it.
  *
  * The mode toggle is the Dreamer versus TD-MPC distinction: with a decoder,
@@ -138,7 +139,7 @@ function CrossedFrame({ label }: { label: string }) {
 }
 
 export function LatentImagination({
-  defaultHorizon = TYPICAL_HORIZON[0],
+  defaultHorizon = TYPICAL_HORIZON[1],
   defaultEpsilon = 0.02,
   className,
 }: LatentImaginationProps) {
@@ -366,7 +367,7 @@ export function LatentImagination({
       <svg
         viewBox={`0 0 ${DEV_W} ${DEV_H}`}
         role="img"
-        aria-label={`Latent deviation versus imagination step. Deviation compounds superlinearly and reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the published typical range of 15 to 50 steps.`}
+        aria-label={`Latent deviation versus imagination step. Deviation compounds superlinearly and reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the published horizons of 3 to 15 steps.`}
         className="mt-2 block w-full"
       >
         <text x={DEV_PAD.left} y={11} fill={DIM} fontSize={10} fontFamily={MONO}>
@@ -389,7 +390,7 @@ export function LatentImagination({
           fontSize={8}
           fontFamily={MONO}
         >
-          typical 15-50
+          published 3-15
         </text>
         {[0.25, 0.5, 0.75, 1].map((f) => {
           const y = DEV_PAD.top + (1 - f) * deviationChart.plotH;

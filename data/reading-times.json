@@ -72,23 +72,23 @@
     "minutes": 12
   },
   "world-models/taxonomy": {
-    "words": 1620,
+    "words": 1637,
     "minutes": 8
   },
   "world-models/latent-dynamics": {
-    "words": 1216,
+    "words": 1228,
     "minutes": 6
   },
   "world-models/generative-video": {
-    "words": 1541,
+    "words": 1550,
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1183,
+    "words": 1167,
     "minutes": 6
   },
   "world-models/generative-sim": {
-    "words": 1464,
+    "words": 1463,
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {

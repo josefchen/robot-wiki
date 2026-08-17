@@ -5,7 +5,7 @@ domain: world-models
 slug: taxonomy
 order: 1
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - world-model-survey-2026
   - dreamerv3-2023
@@ -15,6 +15,7 @@ citations:
   - genie-3-2025
   - vjepa2-2025
   - worldvla-2025
+  - cosmos-policy-2026
   - occworld-2023
   - mujoco-2012
   - 3dgs-2023
@@ -66,7 +67,7 @@ V-JEPA 2 pretrains action-free on over a million hours of internet video, then p
 
 ### Unified world-action: one backbone, two heads
 
-Here the world model and the policy fuse into one backbone that emits future frames and action chunks together, so world modeling acts as an auxiliary objective that shapes the representations the policy reads. WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other <Cite id="worldvla-2025" />; Cosmos Policy is the same idea on top of the Cosmos backbone. The prediction is real, but its job is to make the policy better, not to be inspected or rolled out interactively.
+Here the world model and the policy fuse into one backbone that emits future frames and action chunks together, so world modeling acts as an auxiliary objective that shapes the representations the policy reads. WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other <Cite id="worldvla-2025" />; Cosmos Policy is the same idea on top of the Cosmos backbone, post-training the Cosmos-Predict2 video model into a robot policy with no architectural modifications <Cite id="cosmos-policy-2026" />. The prediction is real, but its job is to make the policy better, not to be inspected or rolled out interactively.
 
 ### Symbolic and structured: predict predicates, not percepts
 

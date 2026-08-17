@@ -2120,6 +2120,30 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-17): 11 authors; adapts
+    // Cosmos-Predict2 into a robot policy via a single post-training stage,
+    // actions and future state images encoded as latent frames.
+    id: 'cosmos-policy-2026',
+    title: 'Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning',
+    authors: [
+      'Moo Jin Kim',
+      'Yihuai Gao',
+      'Tsung-Yi Lin',
+      'Yen-Chen Lin',
+      'Yunhao Ge',
+      'Grace Lam',
+      'Percy Liang',
+      'Shuran Song',
+      'Ming-Yu Liu',
+      'Chelsea Finn',
+      'Jinwei Gu',
+    ],
+    year: 2026,
+    arxiv: '2601.16163',
+    url: 'https://arxiv.org/abs/2601.16163',
+    type: 'paper',
+  },
+  {
     // Verified against the DeepMind blog (2026-08-08): byline Jack
     // Parker-Holder and Shlomi Fruchter, 2025-08-05; 24 fps, 720p,
     // few-minutes consistency, published limitation list.

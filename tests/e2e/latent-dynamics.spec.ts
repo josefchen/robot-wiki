@@ -30,7 +30,7 @@ test.describe('world-models latent-dynamics module', () => {
       /more than 150 tasks/,
       /collect diamonds in Minecraft/,
       /MPPI/,
-      /317M-parameter agent across 104/,
+      /317M-parameter agent performing 80 tasks/,
       /roll over, stand up, and walk from scratch in about one hour/,
     ]) {
       await expect(

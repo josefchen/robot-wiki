@@ -118,7 +118,7 @@ describe('LatentImagination', () => {
     expect(
       screen.getByRole('img', { name: /latent deviation/i }),
     ).toBeInTheDocument();
-    // The published 15-50 step typical range is annotated on the chart.
+    // The published 3-15 step horizon range is annotated on the chart.
     expect(screen.getByTestId('typical-range-band')).toBeInTheDocument();
   });
 });
