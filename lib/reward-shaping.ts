@@ -26,7 +26,7 @@ export type TermId =
   | 'baseHeight'
   | 'orientation'
   | 'airTime'
-  | 'slip'
+  | 'stumble'
   | 'termination';
 
 export interface RewardTerm {
@@ -124,12 +124,15 @@ export const TERMS: RewardTerm[] = [
     blurb: 'Rewards swing time per step; induces a gait instead of shuffling.',
   },
   {
-    id: 'slip',
-    label: 'Foot slip penalty',
+    // Mirrors legged_gym's feet_stumble term, which fires when a foot's
+    // horizontal contact force dominates the vertical one (catching a wall
+    // or stair edge mid-stride).
+    id: 'stumble',
+    label: 'Foot stumble penalty',
     sign: -1,
     magnitude: 0.8,
     defaultWeight: 0.8,
-    blurb: 'Penalizes stance feet sliding on the ground.',
+    blurb: 'Penalizes feet catching vertical surfaces mid-stride.',
   },
   {
     id: 'termination',

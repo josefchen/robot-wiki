@@ -9,7 +9,8 @@
  * the already-erroneous latent, so error enters the state the model reads
  * and later steps err more: deviation compounds instead of staying flat.
  * This is the mechanism behind the published practice of keeping latent
- * imagination short, typically 15 to 50 steps (see research/02 Part B1).
+ * imagination short: DreamerV3 trains on 15-step imagined rollouts and
+ * TD-MPC2 plans 3 steps ahead.
  *
  * Decoder-free models (TD-MPC/TD-MPC2) never reconstruct an image; the only
  * prediction that has to stay calibrated is reward and value. The reward
@@ -43,8 +44,11 @@ export const COMPOUNDING_GAIN = 0.02;
  */
 export const REWARD_ERROR_GAIN = 0.35;
 
-/** Published practice: latent imagination horizons typically run 15-50 steps. */
-export const TYPICAL_HORIZON: readonly [number, number] = [15, 50];
+/**
+ * Published horizons from the primary papers: TD-MPC2 plans 3 steps ahead,
+ * DreamerV3 trains its actor and critic on 15-step imagined rollouts.
+ */
+export const TYPICAL_HORIZON: readonly [number, number] = [3, 15];
 
 /** Longest horizon the interactive draws. */
 export const MAX_HORIZON = 50;

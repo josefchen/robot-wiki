@@ -5,7 +5,7 @@ domain: classical
 slug: kinematics
 order: 1
 status: published
-lastReviewed: "2026-08-10"
+lastReviewed: "2026-08-17"
 citations:
   - denavit-hartenberg-1955
   - whitney-1969
@@ -146,6 +146,6 @@ Make the damping adaptive and you recover the Levenberg-Marquardt pattern from n
 
 ## The same geometry, inside learned policies
 
-It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 7-DoF arms <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
+It is fair to ask how much of this matters once policies learn end to end. The learned part still lives inside the kinematic structure, in practice. [Action chunking](/manipulation/action-chunking) with ACT predicts continuous joint-space targets, fourteen dimensions across two 6-DoF arms and their grippers <Cite id="act-aloha-2023" />. GR00T's recent releases shifted to a shared relative end-effector action space so that human hand data and robot grippers live in one frame, a coordinate choice with direct consequences for what pretraining data is usable <Cite id="isaac-gr00t-repo-2026" />. Simulators integrate a kinematic chain under their dynamics either way, teleoperation rigs still retarget human motion into joint space, and a residual policy trained on top of a classical controller inherits its coordinate system. The policies changed who picks the numbers. They did not change what the numbers mean.
 
 The forward direction is a product of transforms; the inverse direction is a damped iteration built on its derivative. Planning, control, and learning in the rest of this domain all run on top of those two operations.

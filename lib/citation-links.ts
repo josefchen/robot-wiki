@@ -148,8 +148,10 @@ export function parseCrossrefWork(json: unknown): CrossrefWork | null {
  * Normalize a title for comparison: strip markup, fold diacritics, ignore
  * case and punctuation. Crossref sentence-cases titles the registry records
  * in title case, so a byte comparison would false-negative on every check.
+ * Also used by the citation audit checker (lib/citation-audit.ts) to compare
+ * a fetched document title against the registry entry.
  */
-function normalizeTitle(title: string): string {
+export function normalizeTitle(title: string): string {
   return title
     .replace(/<[^>]*>/g, ' ')
     .normalize('NFKD')
@@ -162,38 +164,69 @@ function normalizeTitle(title: string): string {
 export interface CrossrefVerification {
   ok: boolean;
   problems: string[];
+  /** Whether the Crossref title matched the registry title. */
+  titleMatched?: boolean;
+  /** The publication years Crossref reported, when any. */
+  yearsReported?: number[];
+}
+
+export interface VerifyCrossrefOptions {
+  /**
+   * Accept an exact-title match when Crossref lists no publication year at
+   * all (IEEE conference records are often deposited without dates). A
+   * CONFLICTING year is never acceptable under this flag. Only the audit
+   * checker passes it; the liveness sweep keeps the strict default.
+   */
+  missingYearIsAcceptable?: boolean;
 }
 
 /**
  * Verify Crossref metadata against the registry entry. The point is not
  * "Crossref knows this DOI" (it always does) but "the DOI this URL points at
  * resolves to the paper the registry claims it is", so both the title and the
- * publication year must match.
+ * publication year must match. The structured fields let callers distinguish
+ * "title matched but the year conflicts" (a real divergence to surface) from
+ * "no corroborating metadata at all".
  */
 export function verifyCrossrefWork(
   citation: { title: string; year: number },
   work: CrossrefWork,
+  options: VerifyCrossrefOptions = {},
 ): CrossrefVerification {
   const problems: string[] = [];
+  const titleMatched = work.title !== undefined && normalizeTitle(work.title) === normalizeTitle(citation.title);
   if (!work.title) {
     problems.push('Crossref returned no title');
-  } else if (normalizeTitle(work.title) !== normalizeTitle(citation.title)) {
+  } else if (!titleMatched) {
     problems.push(
       `title mismatch: registry says "${citation.title}", Crossref says "${work.title}"`,
     );
   }
   if (work.years.length === 0) {
-    problems.push('Crossref returned no publication year');
+    if (!options.missingYearIsAcceptable) {
+      problems.push('Crossref returned no publication year');
+    }
   } else if (!work.years.includes(citation.year)) {
     problems.push(
       `year mismatch: registry says ${citation.year}, Crossref reports ${work.years.join(' or ')}`,
     );
   }
-  return { ok: problems.length === 0, problems };
+  return {
+    ok: problems.length === 0,
+    problems,
+    titleMatched,
+    yearsReported: work.years,
+  };
 }
 
-/** The failure modes a known exception is allowed to explain. */
-export type ExceptedVerdict = 'blocked' | 'error';
+/**
+ * The failure modes a known exception is allowed to explain. The audit
+ * checker (scripts/check-citations.ts) adds 'title-mismatch': a fetched page
+ * that 200s but whose title cannot plausibly be checked against the registry
+ * (JS-only titles, descriptive-label titles on docs pages) can be excepted
+ * with the same evidence discipline as a bot-wall.
+ */
+export type ExceptedVerdict = 'blocked' | 'error' | 'title-mismatch';
 
 /**
  * A documented exception for a URL no machine client can verify.
@@ -279,10 +312,10 @@ export function validateExceptions(
  * citation id and cover the observed failure mode. A 'dead' verdict is never
  * covered: if a listed URL starts genuinely 404ing, it still reports dead.
  */
-export function applyException(
-  result: LinkCheckResult,
+export function applyException<T extends LinkCheckResult>(
+  result: T,
   exception: LinkCheckException | undefined,
-): LinkCheckResult {
+): T {
   if (!exception || exception.id !== result.id) return result;
   if (result.verdict !== 'blocked' && result.verdict !== 'error') return result;
   if (!exception.covers.includes(result.verdict)) return result;

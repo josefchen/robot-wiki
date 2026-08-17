@@ -5,7 +5,7 @@ domain: manipulation
 slug: cross-embodiment
 order: 11
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - pi0-2024
   - octo-2024
@@ -27,7 +27,7 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 A 7-DoF Franka emits 8 numbers per step. A bimanual ALOHA emits 14. A humanoid emits dozens, and a human hand in a video emits none, just keypoints. A generalist policy trained across all of these has to decide what an "action" even is before it can learn anything. Every frontier lab has answered this question, and they have answered it three different, incompatible ways. The choice is not a detail: it determines what data the policy can consume, and in particular whether the largest untapped data source in robotics, egocentric human video, can enter pretraining at all.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="pi0 pretraining" value="10K hours" note="7+ robot configurations, 68 tasks" accent />
+  <Stat label="pi0 pretraining" value="10K hours" note="7 robot configurations, 68 tasks" accent />
   <Stat label="OXE pool" value="22 embodiments" note="the data most generalists train on" />
   <Stat label="EgoScale video" value="20K hours" note="enters GR00T N1.7 pretraining directly" />
   <Stat label="PI transfer gain" value="~2x" note="from human video, no alignment mechanism" />
@@ -35,9 +35,9 @@ A 7-DoF Franka emits 8 numbers per step. A bimanual ALOHA emits 14. A humanoid e
 
 ## Strategy one: pad everything into one vector
 
-The pi0 family and Octo use the simplest possible answer <Cite id="pi0-2024" /> <Cite id="octo-2024" />. Define a single action and state vector wide enough for the biggest robot in the training mix. A narrower robot occupies the leading dimensions and zero-pads the rest. Each embodiment gets its own normalization statistics, so a Franka's joint velocities and a mobile manipulator's base commands are scaled into comparable ranges before the model ever sees them. pi0 trained this way across more than 7 robot configurations and 68 tasks, roughly 10,000 hours of data, most of it pooled through the <Term id="open-x-embodiment">Open X-Embodiment</Term> mixture <Cite id="pi0-2024" /> <Cite id="open-x-embodiment-2023" />.
+The pi0 family and Octo use the simplest possible answer <Cite id="pi0-2024" /> <Cite id="octo-2024" />. Define a single action and state vector wide enough for the biggest robot in the training mix. A narrower robot occupies the leading dimensions and zero-pads the rest. Each embodiment gets its own normalization statistics, so a Franka's joint velocities and a mobile manipulator's base commands are scaled into comparable ranges before the model ever sees them. pi0 trained this way across 7 robot configurations and 68 tasks, roughly 10,000 hours of data, most of it pooled through the <Term id="open-x-embodiment">Open X-Embodiment</Term> mixture <Cite id="pi0-2024" /> <Cite id="open-x-embodiment-2023" />.
 
-The scheme works, and its weaknesses are known. Zero-padding wastes model capacity on dims that carry nothing. Per-embodiment normalization papers over real differences in action semantics and control frequency: one critique of the OXE pool argues that part of what looks like <Term id="cross-embodiment">cross-embodiment</Term> transfer in pooled training is an artifact of the normalization scheme itself, on data whose quality is heterogeneous and largely unmeasured <Cite id="oxe-quality-critique-2026" /> <Cite id="open-x-embodiment-2023" />. And the vector has no slot for a human hand. Nothing about 3D hand keypoints tracked from a head-mounted camera fits a robot joint layout, so egocentric video stays outside the padded space.
+The scheme works, and its weaknesses are known. Zero-padding wastes model capacity on dims that carry nothing. Per-embodiment normalization papers over real differences in action semantics and control frequency, and the pooled data underneath it is of heterogeneous quality: one widely read critique calls it an open secret that OXE is mostly low-quality data, with no good methods yet to quantify data quality in imitation learning <Cite id="oxe-quality-critique-2026" />. And the vector has no slot for a human hand. Nothing about 3D hand keypoints tracked from a head-mounted camera fits a robot joint layout, so egocentric video stays outside the padded space.
 
 ## Strategy two: motion transfer, mechanism undisclosed
 

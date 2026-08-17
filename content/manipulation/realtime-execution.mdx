@@ -5,7 +5,7 @@ domain: manipulation
 slug: realtime-execution
 order: 10
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - act-aloha-2023
   - pi0-2024
@@ -46,7 +46,7 @@ How big a model can close the loop at all? On an H100 server, pi0 runs end-to-en
 
 <ControlLoopBudget className="my-6" />
 
-VLA-Perf's takeaways are sobering for on-robot deployment <Cite id="vla-perf-2026" />. Roughly 10 Hz control is achievable on Jetson Thor for pi0-scale models, but 100 Hz control requires model-level architectural changes, not just faster hardware. Everything on the Thor is memory-bound, so latency tracks parameter count. Quantization to FP4 or FP8 buys a 2 to 4x latency reduction with minimal accuracy loss. And server-side inference beats on-device inference in almost all scenarios except very poor networks, which is why the latency budget includes a network line at all.
+VLA-Perf's takeaways are sobering for on-robot deployment <Cite id="vla-perf-2026" />. Roughly 10 Hz control is achievable on Jetson Thor for pi0-scale models, but 100 Hz control requires model-level architectural changes, not just faster hardware. Everything on the Thor is memory-bound, so latency tracks parameter count, which is why the paper points to lower-precision quantization as the lever on that platform. And server-side inference beats on-device inference in almost all scenarios except very poor networks, which is why the latency budget includes a network line at all.
 
 ## Three ways to hand off a chunk
 

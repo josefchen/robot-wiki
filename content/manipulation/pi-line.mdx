@@ -5,7 +5,7 @@ domain: manipulation
 slug: pi-line
 order: 5
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - pi0-2024
   - pi0-fast-2025
@@ -14,9 +14,12 @@ citations:
   - knowledge-insulation-2025
   - pi06-model-card-2025
   - pistar06-2025
+  - pistar06-blog-2025
   - mem-2026
   - pi07-2026
+  - pi07-blog-2026
   - openpi-repo-2024
+  - real-time-chunking-2025
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/knowledge-insulation"
@@ -31,7 +34,7 @@ The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="acti
 
 ## π0: the action expert
 
-π0 grafts a second transformer onto a pretrained <Term id="vision-language-model">vision-language model</Term> <Cite id="pi0-2024" />. The first set of weights handles image and text tokens and is initialized from PaliGemma (3B). The second, the action expert, is initialized from scratch and adds 300M parameters, for 3.3B total. The structural point matters for anyone implementing one: the expert is a Mixture-of-Transformers, not an MLP head. It is a full transformer whose 50 action tokens attend into the backbone's activations at every layer through shared attention, with a bidirectional mask among themselves. Observations are 2 or 3 RGB images, tokenized language, and proprioceptive state; the output is a chunk of H = 50 actions, one second at the full 50 Hz control rate <Cite id="pi0-2024" />.
+π0 grafts a second transformer onto a pretrained <Term id="vision-language-model">vision-language model</Term> <Cite id="pi0-2024" />. The first set of weights handles image and text tokens and is initialized from PaliGemma (3B). The second, the action expert, is initialized from scratch and adds 300M parameters, for 3.3B total. The structural point matters for anyone implementing one: the action expert is not an MLP head but a second set of transformer weights inside a single model, in the paper's words "a single transformer with two sets of weights (also known as experts)." It is a full transformer whose 50 action tokens attend into the backbone's activations at every layer through shared self-attention, with a bidirectional mask among themselves. Observations are 2 or 3 RGB images, tokenized language, and proprioceptive state; the output is a chunk of H = 50 actions, one second at the full 50 Hz control rate <Cite id="pi0-2024" />.
 
 Where [Diffusion Policy](/manipulation/diffusion-policy) denoises with a DDPM, π0 trains the expert with conditional flow matching on a straight transport path. Sample noise $\varepsilon \sim \mathcal{N}(0, I)$, form the interpolant $A_t^\tau = \tau A_t + (1 - \tau)\varepsilon$, and regress the network $v_\theta$ onto the target vector field $u = A_t - \varepsilon$, with the training timestep $\tau$ drawn from a beta distribution weighted toward the noisy end. At inference, integrate from $\tau = 0$ to $\tau = 1$ with forward Euler in 10 steps; the image-text-state prefix is KV-cached once, so each step recomputes only the action-token suffix, which is what makes 10 steps affordable <Cite id="pi0-2024" />.
 
@@ -39,10 +42,10 @@ Where [Diffusion Policy](/manipulation/diffusion-policy) denoises with a DDPM, �
   <Stat label="parameters" value="3.3B" note="PaliGemma 3B + 300M expert" accent />
   <Stat label="action chunk" value="H = 50" note="1 s at 50 Hz" />
   <Stat label="Euler steps" value="10" note="KV-cached prefix" />
-  <Stat label="training data" value="~10k h" note="7+ robots, 68 tasks + OXE" />
+  <Stat label="training data" value="~10k h" note="7 robots, 68 tasks + OXE" />
 </div>
 
-<Term id="cross-embodiment">Cross-embodiment</Term> is handled crudely and effectively: one padded action and state vector sized for the widest robot, with per-embodiment normalization statistics, so a single checkpoint serves single-arm, bimanual, and mobile platforms <Cite id="pi0-2024" />. Training splits into broad pre-training and task-specific post-training, mirroring LLM practice. The limitations set the agenda for everything after: execution was synchronous (finish the chunk, pause for inference, start the next), language following was mediocre, and hard tasks like laundry folding were near-zero success without fine-tuning <Cite id="pi0-2024" />.
+<Term id="cross-embodiment">Cross-embodiment</Term> is handled crudely and effectively: one padded action and state vector sized for the widest robot, with per-embodiment normalization statistics, so a single checkpoint serves single-arm, bimanual, and mobile platforms <Cite id="pi0-2024" />. Training splits into broad pre-training and task-specific post-training, mirroring LLM practice. The limitations set the agenda for everything after: execution was synchronous, with the robot finishing a chunk and then waiting while the next one was generated (the default that the Real-Time Chunking paper later diagnosed and fixed) <Cite id="real-time-chunking-2025" />; language commands were followed only at what the authors call rudimentary proficiency; and long-horizon tasks like laundry folding required fine-tuning rather than working out of the box <Cite id="pi0-2024" />.
 
 ## Why ten steps is enough
 
@@ -62,9 +65,9 @@ FAST tokenizes the action chunk in the frequency domain instead. Apply a discret
 
 ## π0.5 and Knowledge Insulation
 
-π0.5 targeted generalization rather than speed <Cite id="pi05-2025" />. The architecture keeps the π0 skeleton, but the training mixture adds hybrid multimodal examples that interleave image observations, language commands, object detections, semantic subtask predictions, and low-level actions in a single sequence. The subtask prediction makes the model internally hierarchical: at inference it first predicts a high-level language subtask at low frequency ("pick up the plate"), then conditions the action expert on that subtask at high frequency. There is no separate planner. The payoff was the first end-to-end system shown cleaning kitchens and bedrooms it had never seen, and the paper's ablation shows the non-action data is essential to that result, not incremental <Cite id="pi05-2025" />.
+π0.5 targeted generalization rather than speed <Cite id="pi05-2025" />. The architecture keeps the π0 skeleton, but the training mixture adds hybrid multimodal examples that interleave image observations, language commands, object detections, semantic subtask predictions, and low-level actions in a single sequence. The subtask prediction makes the model internally hierarchical: at inference it first predicts a high-level language subtask at low frequency ("pick up the plate"), then conditions the action expert on that subtask at high frequency. There is no separate planner. The payoff was the first end-to-end system shown cleaning kitchens and bedrooms it had never seen, and the paper's ablations show the heterogeneous mixture carries the result: removing either cross-embodiment data source significantly degrades the home-task scores, while web data, whose removal was not statistically significant there, has its largest measured effect on language following and high-level subtask inference <Cite id="pi05-2025" />.
 
-The load-bearing training trick arrived shortly after, under an unglamorous name. <Term id="knowledge-insulation">Knowledge Insulation</Term> starts from a diagnosis: gradients from a from-scratch, continuous-generative action expert corrupt the pretrained backbone's language processing. The paper's example is a model told to put a spoon in the dish container that grabs the trash instead. The fix has three parts <Cite id="knowledge-insulation-paper-2025" />:
+The load-bearing training trick arrived shortly after, under an unglamorous name. <Term id="knowledge-insulation">Knowledge Insulation</Term> starts from a diagnosis: gradients from a from-scratch, continuous-generative action expert corrupt the pretrained backbone's language processing. The paper's example is a model told to bus a spoon into the bin that ignores the command and grasps a piece of trash instead. The fix has three parts <Cite id="knowledge-insulation-paper-2025" />:
 
 1. Train the action expert with flow matching on the continuous actions that actually execute.
 2. Train the backbone with discrete FAST action tokens, cross-entropy on a representation the VLM's pretraining objective already likes, plus web vision-language data and subtask data.
@@ -80,7 +83,7 @@ The ablation that makes the recipe non-obvious: stop-gradient alone is not enoug
 
 π0.6, released November 2025 as a model card rather than an arXiv paper, scales the recipe up <Cite id="pi06-model-card-2025" />. The backbone initializes from Gemma3 4B behind a SigLIP 400M vision encoder; the action expert grows to 860M parameters with the same layer count as the backbone; the model consumes up to four 448x448 images per step. Training uses Knowledge Insulation end to end, and inference runs 5 denoising steps. The headline result is reliability without task-specific post-training: out of the box, π0.6 folds laundry reliably and fully assembles a box 20% of the time, both near-zero for π0.5 without fine-tuning <Cite id="pi06-model-card-2025" />.
 
-π*0.6 layers reinforcement learning on top via the Recap recipe, which mirrors how a person learns a manual skill: demonstrations define the behavior, coaching (an expert teleoperator taking over mid-rollout) corrects the mistakes the policy actually makes, and practice (autonomous rollouts) compounds <Cite id="pistar06-2025" />. The mechanism that makes RL tractable on a 5B flow-matching VLA is advantage conditioning. A language-conditioned value function predicts steps-to-completion, solving credit assignment (if a portafilter grasped at a bad angle fails the insertion 20 seconds later, the value function attributes the blame to the grasp); the advantage is binarized and fed back to the VLA as a conditioning token, so all data, good and bad, stays in training and the model is simply told which is which. At execution you condition on "high advantage." Espresso throughput and success more than doubled, with greater than 90% success on all three demonstrated applications <Cite id="pistar06-2025" />.
+π*0.6 layers reinforcement learning on top via the Recap recipe, which mirrors how a person learns a manual skill: demonstrations define the behavior, coaching (an expert teleoperator taking over mid-rollout) corrects the mistakes the policy actually makes, and practice (autonomous rollouts) compounds <Cite id="pistar06-2025" />. The mechanism that makes RL tractable on a 5B flow-matching VLA is advantage conditioning. A language-conditioned value function predicts steps-to-completion, solving credit assignment (the lab's own example: a portafilter picked up at the wrong angle later fails to insert, and a correct credit-assignment method identifies the grasp, not the later failure, as the mistake) <Cite id="pistar06-blog-2025" />; the advantage is binarized and fed back to the VLA as a conditioning token, so all data, good and bad, stays in training and the model is simply told which is which. At execution you condition on "high advantage." On the hardest tasks, diverse laundry and espresso, throughput more than doubled and failure rates fell by a factor of two or more, and the final model reaches 90%+ success on every task except diverse laundry <Cite id="pistar06-2025" />.
 
 A March 2026 variant, π0.6-MEM, added two-scale memory: a video encoder with interleaved spatial and causal-temporal attention for short-term observation history, and model-authored natural-language notes for long-term state. That combination supports tasks requiring up to 15 minutes of context and produces in-context adaptation, like retrying a failed grasp differently instead of identically <Cite id="mem-2026" />.
 
@@ -97,7 +100,7 @@ The actual contribution is the context every training example carries, with each
 - A control-modality label (joint versus end-effector control).
 - Multi-view subgoal images, generated at runtime by a lightweight world model initialized from BAGEL, refreshed asynchronously so VLA inference never blocks on it.
 
-The reported results are the strongest generalization claims in the line: zero-shot laundry-folding transfer to a bimanual UR5e (an embodiment with no laundry data) matching first-time expert human teleoperators, and compositional tasks like loading an air fryer, which the model attempts zero-shot, completes with step-by-step language coaching, and then learns autonomously from the coaching transcripts with no additional teleoperation <Cite id="pi07-2026" />. Read the compositional claim with the authors' own hedge: they describe "initial signs," and the zero-shot air fryer attempt fails without coaching. Weights are closed.
+The reported results are the strongest generalization claims in the line: zero-shot laundry-folding transfer to a bimanual UR5e (an embodiment with no laundry data) matching first-time expert human teleoperators, and compositional tasks like loading an air fryer, which the model attempts zero-shot, completes with step-by-step language coaching, and then learns autonomously from the coaching transcripts with no additional teleoperation <Cite id="pi07-2026" />. Read the compositional claim with the authors' own hedge: they describe "early signs of compositional task generalization," and the zero-shot air fryer attempt does not finish the task without coaching <Cite id="pi07-blog-2026" />. Weights are closed.
 
 ## Where the open weights stop
 

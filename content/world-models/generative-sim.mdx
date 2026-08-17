@@ -5,7 +5,7 @@ domain: world-models
 slug: generative-sim
 order: 5
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - robogen-2024
   - holodeck-2024
@@ -28,7 +28,7 @@ The previous three modules covered learned models that predict the future: in a 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="kitchen scenes" value="120" note="RoboCasa, RSS 2024" accent />
   <Stat label="tasks" value="100" note="systematic evaluation suite" />
-  <Stat label="3D objects" value="3,200+" note="150+ categories" />
+  <Stat label="3D objects" value="2,500+" note="150+ categories" />
   <Stat label="RoboCasa365" value="2,500" note="kitchens, ICLR 2026" />
 </div>
 
@@ -52,7 +52,7 @@ Holodeck targets a different bottleneck: the diversity of the environments thems
 
 ## RoboCasa: a benchmark built from generated assets
 
-RoboCasa is the pattern at benchmark scale <Cite id="robocasa-2024" />. It ships 120 kitchen scenes built from architectural references, over 3,200 object assets across more than 150 categories, and 100 tasks, including composite tasks drafted with LLM guidance. Generative tools fill the content pipeline at every layer: object meshes come partly from text-to-3D models, and environment textures come from text-to-image models. For training data, RoboCasa pairs a small set of human demonstrations with automated trajectory generation, enlarging the dataset at minimal human cost, and its experiments show a clear scaling trend as synthetically generated demonstration data grows <Cite id="robocasa-2024" />.
+RoboCasa is the pattern at benchmark scale <Cite id="robocasa-2024" />. It ships 120 kitchen scenes built from architectural references, over 2,500 object assets across more than 150 categories, and 100 tasks, including composite tasks drafted with LLM guidance. Generative tools fill the content pipeline at every layer: object meshes come partly from text-to-3D models, and environment textures come from text-to-image models. For training data, RoboCasa pairs a small set of human demonstrations with automated trajectory generation, enlarging the dataset at minimal human cost, and its experiments show a clear scaling trend as synthetically generated demonstration data grows <Cite id="robocasa-2024" />.
 
 RoboCasa365 extends the same platform to 365 everyday tasks across 2,500 kitchen environments, with 600+ hours of human demonstrations and 1,600+ hours of synthetically generated demonstrations, and with explicit support for multi-task learning, foundation-model training, and lifelong-learning benchmarks <Cite id="robocasa365-2026" />. The same idea is productized elsewhere in the stack: Isaac Lab Mimic generates an effectively unbounded number of synthetic demonstrations from as little as one human demonstration, with parallelized environment execution for throughput <Cite id="isaac-lab-2025" />. And GRS runs the loop in the opposite direction, generating solvable simulation tasks from single real-world RGB-D images, real-to-sim task authoring rather than open-ended synthesis <Cite id="grs-2024" />.
 
@@ -67,7 +67,7 @@ This is the mechanical version of the taxonomy's verdict on 3DGS twins. A learne
 ## Limitations, stated plainly
 
 1. **Generated scenes are only as physically correct as their asset parameters.** A text-to-3D mug looks like a mug; its mass, friction, and center of mass are estimates. Tuning simulated contact against real-world measurement remains manual work, which is why physically accurate simulation-ready assets are a commercial category rather than a solved problem.
-2. **LLM-authored reward functions inherit specification-gaming risk.** RoboGen writes reward functions with an LLM, and the [reward-design](/rl-sim2real/reward-design-mpc) module documents what that invites: Eureka's own accounting includes reward hacking and the need for human inspection of generated rewards <Cite id="eureka-2024" />.
+2. **LLM-authored reward functions inherit specification-gaming risk.** RoboGen writes reward functions with an LLM, and the [reward-design](/rl-sim2real/reward-design-mpc) module documents what that invites: Eureka's own accounting includes the need for human inspection and editing of generated rewards <Cite id="eureka-2024" />.
 3. **Generated diversity reflects the generator's priors.** Holodeck rooms look like what GPT-4 thinks rooms look like; RoboCasa kitchens look like kitchen magazines. Whether that distribution covers the deployment distribution is an unquantified sim-to-real risk, the same gap that [domain randomization](/rl-sim2real/sim2real-transfer) exists to paper over.
 
 ## Where this leaves the field

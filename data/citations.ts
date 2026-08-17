@@ -6,6 +6,21 @@
  * Add entries from the /research reports only; never invent arXiv ids, urls,
  * or author lists.
  *
+ * Urls are https. The one sanctioned exception pattern, for a canonical
+ * source genuinely served over http only, is a DATED web.archive.org
+ * capture (https://web.archive.org/web/<timestamp>/<original-url>); the
+ * schema enforces the dated form and there is no http allowlist. Keep the
+ * real author, title, venue and original year in the entry and name the
+ * original location in the entry comment (precedent: Sutton, The Bitter
+ * Lesson; see data/schemas/citation.ts).
+ *
+ * Two checkers sweep this registry on demand, never in the build:
+ * `npm run check:links` (liveness: status, Crossref fallback for bot-walled
+ * DOIs, documented exceptions in data/link-check-exceptions.ts) and
+ * `npm run check:citations` (audit grade: redirect chain plus a fetched-
+ * title-vs-registry-title plausibility check, so a URL that 200s but serves
+ * a different document fails instead of passing).
+ *
  * Type-only relative import so this file loads under plain node, Vitest, and
  * Next.js alike.
  */
@@ -119,19 +134,24 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Authors verified against the arXiv 2512.05964 abs page (2026-08-17,
+    // audit-manipulation-iii): individual authors, not the lab name.
     id: 'training-time-rtc-2025',
     title: 'Training-Time Action Conditioning for Efficient Real-Time Chunking',
-    authors: ['Physical Intelligence'],
+    authors: ['Kevin Black', 'Allen Z. Ren', 'Michael Equi', 'Sergey Levine'],
     year: 2025,
     arxiv: '2512.05964',
     url: 'https://arxiv.org/abs/2512.05964',
     type: 'paper',
   },
   {
+    // Title and authors verified against the arXiv abs page (2026-08-16);
+    // the registry previously carried a descriptive label, not the paper's
+    // title, and "NVIDIA Research" instead of the author list.
     id: 'vla-perf-2026',
     title:
-      'VLA-Perf: Systematic Latency Analysis of Vision-Language-Action Models on Edge and Cloud Hardware',
-    authors: ['NVIDIA Research'],
+      'How Fast Can I Run My VLA? Demystifying VLA Inference Performance with VLA-Perf',
+    authors: ['Wenqi Jiang', 'Jason Clemons', 'Karu Sankaralingam', 'Christos Kozyrakis'],
     year: 2026,
     arxiv: '2602.18397',
     url: 'https://arxiv.org/abs/2602.18397',
@@ -194,7 +214,62 @@ export const CITATIONS: Citation[] = [
   {
     id: 'rt1-2022',
     title: 'RT-1: Robotics Transformer for Real-World Control at Scale',
-    authors: ['Anthony Brohan', 'Noah Brown', 'Justice Carbajal'],
+    // Full 51-author list from the arXiv abs page (completed 2026-08-17
+    // during the manipulation-ii audit; the entry previously carried only
+    // the first three names).
+    authors: [
+      'Anthony Brohan',
+      'Noah Brown',
+      'Justice Carbajal',
+      'Yevgen Chebotar',
+      'Joseph Dabis',
+      'Chelsea Finn',
+      'Keerthana Gopalakrishnan',
+      'Karol Hausman',
+      'Alex Herzog',
+      'Jasmine Hsu',
+      'Julian Ibarz',
+      'Brian Ichter',
+      'Alex Irpan',
+      'Tomas Jackson',
+      'Sally Jesmonth',
+      'Nikhil J Joshi',
+      'Ryan Julian',
+      'Dmitry Kalashnikov',
+      'Yuheng Kuang',
+      'Isabel Leal',
+      'Kuang-Huei Lee',
+      'Sergey Levine',
+      'Yao Lu',
+      'Utsav Malla',
+      'Deeksha Manjunath',
+      'Igor Mordatch',
+      'Ofir Nachum',
+      'Carolina Parada',
+      'Jodilyn Peralta',
+      'Emily Perez',
+      'Karl Pertsch',
+      'Jornell Quiambao',
+      'Kanishka Rao',
+      'Michael Ryoo',
+      'Grecia Salazar',
+      'Pannag Sanketi',
+      'Kevin Sayed',
+      'Jaspiar Singh',
+      'Sumedh Sontakke',
+      'Austin Stone',
+      'Clayton Tan',
+      'Huong Tran',
+      'Vincent Vanhoucke',
+      'Steve Vega',
+      'Quan Vuong',
+      'Fei Xia',
+      'Ted Xiao',
+      'Peng Xu',
+      'Sichun Xu',
+      'Tianhe Yu',
+      'Brianna Zitkovich',
+    ],
     year: 2022,
     arxiv: '2212.06817',
     url: 'https://arxiv.org/abs/2212.06817',
@@ -204,13 +279,77 @@ export const CITATIONS: Citation[] = [
     id: 'rt2-2023',
     title:
       'RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control',
-    authors: ['Anthony Brohan', 'Noah Brown', 'Justice Carbajal'],
+    // Full 54-author list from the arXiv abs page (completed 2026-08-17
+    // during the manipulation-ii audit; the entry previously carried only
+    // the first three names).
+    authors: [
+      'Anthony Brohan',
+      'Noah Brown',
+      'Justice Carbajal',
+      'Yevgen Chebotar',
+      'Xi Chen',
+      'Krzysztof Choromanski',
+      'Tianli Ding',
+      'Danny Driess',
+      'Avinava Dubey',
+      'Chelsea Finn',
+      'Pete Florence',
+      'Chuyuan Fu',
+      'Montse Gonzalez Arenas',
+      'Keerthana Gopalakrishnan',
+      'Kehang Han',
+      'Karol Hausman',
+      'Alexander Herzog',
+      'Jasmine Hsu',
+      'Brian Ichter',
+      'Alex Irpan',
+      'Nikhil Joshi',
+      'Ryan Julian',
+      'Dmitry Kalashnikov',
+      'Yuheng Kuang',
+      'Isabel Leal',
+      'Lisa Lee',
+      'Tsang-Wei Edward Lee',
+      'Sergey Levine',
+      'Yao Lu',
+      'Henryk Michalewski',
+      'Igor Mordatch',
+      'Karl Pertsch',
+      'Kanishka Rao',
+      'Krista Reymann',
+      'Michael Ryoo',
+      'Grecia Salazar',
+      'Pannag Sanketi',
+      'Pierre Sermanet',
+      'Jaspiar Singh',
+      'Anikait Singh',
+      'Radu Soricut',
+      'Huong Tran',
+      'Vincent Vanhoucke',
+      'Quan Vuong',
+      'Ayzaan Wahid',
+      'Stefan Welker',
+      'Paul Wohlhart',
+      'Jialin Wu',
+      'Fei Xia',
+      'Ted Xiao',
+      'Peng Xu',
+      'Sichun Xu',
+      'Tianhe Yu',
+      'Brianna Zitkovich',
+    ],
     year: 2023,
     arxiv: '2307.15818',
     url: 'https://arxiv.org/abs/2307.15818',
     type: 'paper',
   },
   {
+    // Full-text re-read 2026-08-17: the "+50%" result is Fig. 4, the
+    // small-scale dataset domains only. On the large-scale in-distribution
+    // domains (Table I) RT-1-X underperforms the domain-specific RT-1
+    // baseline through underfitting; the ~3x generalization gain belongs to
+    // RT-2-X. The paper says 21 institutions in the abstract and
+    // conclusion, and 34 labs in Sec. III-A.
     id: 'open-x-embodiment-2023',
     title:
       'Open X-Embodiment: Robotic Learning Datasets and RT-X Models',
@@ -223,12 +362,28 @@ export const CITATIONS: Citation[] = [
   {
     id: 'octo-2024',
     title: 'Octo: An Open-Source Generalist Robot Policy',
+    // Full 19-entry author list from the arXiv abs page (completed
+    // 2026-08-17 during the manipulation-ii audit).
     authors: [
+      'Octo Model Team',
       'Dibya Ghosh',
       'Homer Walke',
       'Karl Pertsch',
       'Kevin Black',
       'Oier Mees',
+      'Sudeep Dasari',
+      'Joey Hejna',
+      'Tobias Kreiman',
+      'Charles Xu',
+      'Jianlan Luo',
+      'You Liang Tan',
+      'Lawrence Yunliang Chen',
+      'Pannag Sanketi',
+      'Quan Vuong',
+      'Ted Xiao',
+      'Dorsa Sadigh',
+      'Chelsea Finn',
+      'Sergey Levine',
     ],
     year: 2024,
     arxiv: '2405.12213',
@@ -238,11 +393,27 @@ export const CITATIONS: Citation[] = [
   {
     id: 'openvla-2024',
     title: 'OpenVLA: An Open-Source Vision-Language-Action Model',
+    // Full 18-author list from the arXiv abs page (completed 2026-08-17
+    // during the manipulation-ii audit).
     authors: [
       'Moo Jin Kim',
       'Karl Pertsch',
       'Siddharth Karamcheti',
       'Ted Xiao',
+      'Ashwin Balakrishna',
+      'Suraj Nair',
+      'Rafael Rafailov',
+      'Ethan Foster',
+      'Grace Lam',
+      'Pannag Sanketi',
+      'Quan Vuong',
+      'Thomas Kollar',
+      'Benjamin Burchfiel',
+      'Russ Tedrake',
+      'Dorsa Sadigh',
+      'Sergey Levine',
+      'Percy Liang',
+      'Chelsea Finn',
     ],
     year: 2024,
     arxiv: '2406.09246',
@@ -534,16 +705,19 @@ export const CITATIONS: Citation[] = [
   {
     // Lab PDF report; no arXiv id exists for this paper.
     id: 'pistar06-2025',
-    title: 'π*0.6: a VLA that Learns from Experience',
+    // Title capitalization as printed on the PDF's title page.
+    title: 'π*0.6: a VLA That Learns From Experience',
     authors: ['Physical Intelligence'],
     year: 2025,
     url: 'https://www.pi.website/download/pistar06.pdf',
     type: 'docs',
   },
   {
-    // MEM lab PDF; no arXiv id as of 2026-08.
+    // MEM lab PDF; no arXiv id as of 2026-08. Title corrected against the
+    // PDF's own title page (2026-08-16): the registry previously carried a
+    // paraphrase, not the paper's title.
     id: 'mem-2026',
-    title: 'VLAs with Long and Short-Term Memory',
+    title: 'MEM: Multi-Scale Embodied Memory for Vision Language Action Models',
     authors: [
       'Marcel Torne',
       'Karl Pertsch',
@@ -570,7 +744,10 @@ export const CITATIONS: Citation[] = [
   {
     // ~80-author lab PDF; no arXiv id as of 2026-08.
     id: 'pi07-2026',
-    title: 'π0.7: a Steerable Model with Emergent Capabilities',
+    // Title as printed on the PDF's first page; the blog twin (pi07-blog-2026)
+    // uses the shorter headline.
+    title:
+      'π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities',
     authors: ['Physical Intelligence'],
     year: 2026,
     url: 'https://www.pi.website/download/pi07.pdf',
@@ -658,7 +835,52 @@ export const CITATIONS: Citation[] = [
     id: 'gr00t-n1-2025',
     title:
       'GR00T N1: An Open Foundation Model for Generalist Humanoid Robots',
-    authors: ['Johan Bjorck', 'Yuke Zhu', 'NVIDIA'],
+    // Full author list in arXiv order (org first, then the 41 named
+    // authors; completed 2026-08-17 during the manipulation-ii audit).
+    authors: [
+      'NVIDIA',
+      'Johan Bjorck',
+      'Fernando Castañeda',
+      'Nikita Cherniadev',
+      'Xingye Da',
+      'Runyu Ding',
+      'Linxi "Jim" Fan',
+      'Yu Fang',
+      'Dieter Fox',
+      'Fengyuan Hu',
+      'Spencer Huang',
+      'Joel Jang',
+      'Zhenyu Jiang',
+      'Jan Kautz',
+      'Kaushil Kundalia',
+      'Lawrence Lao',
+      'Zhiqi Li',
+      'Zongyu Lin',
+      'Kevin Lin',
+      'Guilin Liu',
+      'Edith Llontop',
+      'Loic Magne',
+      'Ajay Mandlekar',
+      'Avnish Narayan',
+      'Soroush Nasiriany',
+      'Scott Reed',
+      'You Liang Tan',
+      'Guanzhi Wang',
+      'Zu Wang',
+      'Jing Wang',
+      'Qi Wang',
+      'Jiannan Xiang',
+      'Yuqi Xie',
+      'Yinzhen Xu',
+      'Zhenjia Xu',
+      'Seonghyeon Ye',
+      'Zhiding Yu',
+      'Ao Zhang',
+      'Hao Zhang',
+      'Yizhou Zhao',
+      'Ruijie Zheng',
+      'Yuke Zhu',
+    ],
     year: 2025,
     arxiv: '2503.14734',
     url: 'https://arxiv.org/abs/2503.14734',
@@ -689,6 +911,11 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Figures verified against the paper and the AgiBotWorld-Beta dataset
+    // card (2026-08-17): 1,001,552 trajectories, 2,976.4 hours, 217 tasks,
+    // 87 skills, 106 scenes, collected on the AgiBot G1 (not G2). The
+    // "no published hour count" research/03 reports is wrong, as is the
+    // ~100k h estimate that circulates from it.
     id: 'agibot-world-2025',
     title:
       'AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems',
@@ -878,6 +1105,20 @@ export const CITATIONS: Citation[] = [
     arxiv: '2109.11978',
     url: 'https://arxiv.org/abs/2109.11978',
     type: 'paper',
+  },
+  {
+    // Open-source reference implementation released with rudin-2021. The
+    // paper's Table 2 reward has nine terms; the canonical dozen-plus term
+    // set (15 default scales, 19 reward functions, incl. feet_air_time,
+    // feet_stumble, dof_pos_limits) lives in this config. Added 2026-08-17
+    // during the rl-sim2real audit so the enumeration cites the artifact
+    // that actually contains it.
+    id: 'legged-gym-repo-2021',
+    title: 'legged_gym: massively parallel legged-robot RL reference implementation',
+    authors: ['Nikita Rudin', 'David Hoeller', 'Marco Hutter'],
+    year: 2021,
+    url: 'https://github.com/leggedrobotics/legged_gym',
+    type: 'docs',
   },
   {
     id: 'ppo-2017',
@@ -1484,6 +1725,29 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    id: 'wholebodyvla-2025',
+    title:
+      'WholeBodyVLA: Towards Unified Latent VLA for Whole-Body Loco-Manipulation Control',
+    authors: [
+      'Haoran Jiang',
+      'Jin Chen',
+      'Qingwen Bu',
+      'Li Chen',
+      'Modi Shi',
+      'Yanjie Zhang',
+      'Delong Li',
+      'Chuanzhe Suo',
+      'Chuang Wang',
+      'Zhihui Peng',
+      'Hongyang Li',
+    ],
+    year: 2025,
+    venue: 'ICLR 2026',
+    arxiv: '2512.11047',
+    url: 'https://arxiv.org/abs/2512.11047',
+    type: 'paper',
+  },
+  {
     // NVIDIA GEAR-SONIC whole-body controller workflow repo; pairs with the
     // Isaac GR00T N1.7 UNITREE_G1_SONIC embodiment tag.
     id: 'groot-wbc-2026',
@@ -1867,6 +2131,30 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Verified against the arXiv abs page (2026-08-17): 11 authors; adapts
+    // Cosmos-Predict2 into a robot policy via a single post-training stage,
+    // actions and future state images encoded as latent frames.
+    id: 'cosmos-policy-2026',
+    title: 'Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning',
+    authors: [
+      'Moo Jin Kim',
+      'Yihuai Gao',
+      'Tsung-Yi Lin',
+      'Yen-Chen Lin',
+      'Yunhao Ge',
+      'Grace Lam',
+      'Percy Liang',
+      'Shuran Song',
+      'Ming-Yu Liu',
+      'Chelsea Finn',
+      'Jinwei Gu',
+    ],
+    year: 2026,
+    arxiv: '2601.16163',
+    url: 'https://arxiv.org/abs/2601.16163',
+    type: 'paper',
+  },
+  {
     // Verified against the DeepMind blog (2026-08-08): byline Jack
     // Parker-Holder and Shlomi Fruchter, 2025-08-05; 24 fps, 720p,
     // few-minutes consistency, published limitation list.
@@ -1922,13 +2210,14 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Canonical MuJoCo reference: Todorov, Erez, Tassa, IROS 2012,
-    // DOI 10.1109/IROS.2012.6386109.
+    // DOI 10.1109/IROS.2012.6386109. Cited via doi.org (preferred over the
+    // IEEE page, which is a JS-rendered SPA with no title in raw HTML).
     id: 'mujoco-2012',
     title: 'MuJoCo: A physics engine for model-based control',
     authors: ['Emanuel Todorov', 'Tom Erez', 'Yuval Tassa'],
     year: 2012,
     venue: 'IROS 2012',
-    url: 'https://ieeexplore.ieee.org/document/6386109',
+    url: 'https://doi.org/10.1109/IROS.2012.6386109',
     type: 'paper',
   },
   {
@@ -2227,6 +2516,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
+    // License re-verified 2026-08-17: the dataset ships CC BY 4.0, not the
+    // CC BY-NC 4.0 research/03 reports.
     id: 'droid-2024',
     title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset',
     authors: ['Alexander Khazatsky', 'Karl Pertsch', 'Suraj Nair'],
@@ -2265,7 +2556,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Dataset release page (research/03 ref [5]). Episode and hour counts
-    // are not published there as of August 2026; total file size 13.2 TB.
+    // are not published there as of August 2026; total file size 13.7 TB
+    // (HF storage API, 13.66 TB, re-read 2026-08-17).
     id: 'agibot-world-2026',
     title: 'AgiBot World 2026 (dataset release)',
     authors: ['AgiBot'],
@@ -2275,7 +2567,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
-    // Science Robotics 2026 per research/03.
+    // Science Robotics 2026 per research/03. Full-text re-read 2026-08-17:
+    // 1,800 real and >47,000 sim rollouts, 50 real / 200 sim per task per
+    // policy per condition, ~1,700 h corpus. The paper reports Bayesian
+    // posteriors as violin plots and gives two reasons for avoiding
+    // confidence intervals; "Clopper-Pearson", the "20-30pp CI width at
+    // n=50", and "4,200 rollouts across 29 tasks" appear nowhere in it.
     id: 'tri-lbm-2025',
     title:
       'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
@@ -2374,6 +2671,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    // Full-text re-read 2026-08-17: $73 gripper + $298 GoPro, 155-degree
+    // fisheye, 80 mm finger stroke on UMI's own gripper, and CPH 231 hand /
+    // 111 UMI / 35 spacemouse measured in 15-minute windows. Deployment
+    // needs "any robot arms with a compatible gripper and camera setup";
+    // the ">85 mm stroke" figure is the project site's, not the paper's,
+    // and the "~30 s per demonstration" figure is derived from CPH.
     id: 'umi-2024',
     title:
       'Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots',
@@ -2445,9 +2748,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Verified against the live product line (2026-08-09): WidowX AI
-    // $2,995 (was $4,545.95) through Mobile AI $22,995 (was $33,695.95),
-    // 500 Hz CAN FD, LeRobot + OpenPI integration.
+    // Verified against the live product line (2026-08-17): WidowX AI
+    // $4,545.95, Solo AI $11,385.95, Stationary AI $23,995.95, Mobile AI
+    // $33,695.95; 500 Hz CAN FD, LeRobot + OpenPI integration. The
+    // "30-34% price cut" research/03 reports is not supported by any live
+    // page; the lower figures it lists appear nowhere on the site.
     id: 'trossen-ai-2026',
     title: 'Trossen AI Product Line (formerly ALOHA)',
     authors: ['Trossen Robotics'],
@@ -2490,7 +2795,7 @@ export const CITATIONS: Citation[] = [
     // Verified against the live product page (2026-08-09): $20,000 or
     // $499/month, $200 deposit, 168 cm, 30 kg, Jetson Thor onboard.
     id: '1x-neo-2026',
-    title: '1X NEO Product Page',
+    title: 'NEO Home Robot',
     authors: ['1X Technologies'],
     year: 2026,
     url: 'https://www.1x.tech/neo',
@@ -2501,7 +2806,7 @@ export const CITATIONS: Citation[] = [
     // continuous rotation, 50 kg instant payload, IP67, 2026 deployments
     // committed to Hyundai and Google DeepMind.
     id: 'bd-atlas-2026',
-    title: 'Atlas Product Page',
+    title: 'Atlas Humanoid Robot',
     authors: ['Boston Dynamics'],
     year: 2026,
     url: 'https://bostondynamics.com/products/atlas/',
@@ -2533,7 +2838,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-09): six authors,
-    // accepted to IEEE Transactions on Robotics.
+    // accepted to IEEE Transactions on Robotics. Full-text re-read
+    // 2026-08-17: states DIGIT retails at $350 and GelSight Mini at $500.
+    // It never mentions OXE, DROID, or AgiBot World, so it cannot support
+    // any claim about their sensor channels; its durability discussion
+    // covers temperature sensitivity, hysteresis, and the absence of a
+    // standardized evaluation framework, not "calibration drift".
     id: 'tactile-outlook-2025',
     title: 'Tactile Robotics: An Outlook',
     authors: [
@@ -2619,8 +2929,10 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-09): 5 authors. The
     // full title ends "...for Robot Manipulators" (research/03 truncates
-    // it). Parts BOM under $300 and the ~30 min assembly come from the
-    // paper's project site (wuphilipp.github.io/gello/).
+    // it). The sub-$300 parts BOM comes from the paper's project site
+    // (wuphilipp.github.io/gello/). No build time is published anywhere:
+    // the "~30 minute assembly" research/03 reports appears in neither the
+    // paper nor the site, whose BOM sheet link is dead as of 2026-08-17.
     id: 'gello-2023',
     title:
       'GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators',
@@ -2696,9 +3008,9 @@ export const CITATIONS: Citation[] = [
     // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
     // DeepMind. research/03 misattributes this as an arXiv 2507.05331
     // companion; the paper is arXiv 2405.05941. Visual matching and system
-    // identification close the visual and control gaps; ~1,500 paired
-    // sim-and-real episodes validate Pearson r and the Mean Maximum Rank
-    // Violation (MMRV) metric.
+    // identification close the visual and control gaps; Pearson r and the
+    // Mean Maximum Rank Violation (MMRV) metric come from the paper, the
+    // ~1,500 paired sim-and-real episode count only from the project site.
     id: 'simpler-2024',
     title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
     authors: [
@@ -3107,7 +3419,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Karl Johan Åström', 'Richard M. Murray'],
     year: 2008,
     venue: 'Princeton University Press',
-    url: 'https://fbsbook.org/',
+    url: 'https://fbswiki.org/wiki/index.php/Feedback_Systems:_An_Introduction_for_Scientists_and_Engineers',
     type: 'docs',
   },
   {
@@ -3179,9 +3491,11 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified via the publisher DOI record (2026-08-11): Control
-    // Engineering Practice 11(7), 733-764. Survey of industrial MPC
-    // technology reporting thousands of installed applications, the
-    // majority in refining and petrochemicals.
+    // Engineering Practice 11(7), 733-764. Paper text verified verbatim
+    // (2026-08-17): "More than 4600 total MPC applications" across
+    // Tables 6-7, with the largest single block in refining (67% of
+    // classified applications) and a solid foundation in refining and
+    // petrochemicals.
     id: 'qin-badgwell-2003',
     title: 'A Survey of Industrial Model Predictive Control Technology',
     authors: ['S. Joe Qin', 'Thomas A. Badgwell'],
@@ -3478,10 +3792,14 @@ export const CITATIONS: Citation[] = [
   },
   {
     // CrossRef metadata verified (2026-08-11): Algorithmica 2:541-558,
-    // 1987. The classical lower-bound argument: frictionless force closure
-    // needs at least 4 contacts in the plane and 7 in space.
+    // 1987. Springer abstract verified verbatim (2026-08-17): frictionless
+    // "positive grips", tight bounds on the number of fingers for the
+    // equilibrium cases, and linear-time synthesis for polyhedral objects.
+    // The 4-planar / 7-spatial frictionless lower bound itself traces to
+    // Reuleaux (1875) and Somoff (1897) per Markenscoff-Ni-Papadimitriou
+    // 1990's own abstract.
     id: 'mishra-1987',
-    title: 'On the Existence and Synthesis of Multifingered Positive Grips',
+    title: 'On the Existence and Synthesis of Multifinger Positive Grips',
     authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
     year: 1987,
     venue: 'Algorithmica',
@@ -3490,9 +3808,16 @@ export const CITATIONS: Citation[] = [
   },
   {
     // CrossRef metadata verified (2026-08-11): IJRR 9(1):61-74, 1990.
-    // Sharpens the frictionless bounds: at most 6 contacts suffice in the
-    // plane and 12 in space. DOI ends 090102; the near-identical 090104 is
-    // a different paper in the same issue, an easy mis-citation.
+    // SAGE abstract verified verbatim (2026-08-17): attributes the
+    // 4-planar / 7-spatial frictionless lower bound to Reuleaux (1875)
+    // and Somoff (1897); proves sufficiency: 4 fingers for planar objects
+    // with piecewise smooth boundary (a circle excepted), 12 in space iff
+    // the object has no rotational symmetry, 7 under very general
+    // conditions; with friction, 3 planar and 4 spatial contacts are
+    // necessary and sufficient. The planar "6" sometimes cited alongside
+    // is the Steinitz counting bound in Murray-Li-Sastry Table 5.3, not
+    // an MNP result. DOI ends 090102; the near-identical 090104 is a
+    // different paper in the same issue, an easy mis-citation.
     id: 'markenscoff-1990',
     title: 'The Geometry of Grasping',
     authors: [

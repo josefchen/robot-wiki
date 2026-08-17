@@ -28,7 +28,7 @@ describe('reward term set', () => {
       'orientation',
       'joint limit',
       'collision',
-      'slip',
+      'stumble',
       'termination',
     ]) {
       expect(

@@ -5,9 +5,10 @@ domain: rl-sim2real
 slug: reward-design-mpc
 order: 6
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - rudin-2021
+  - legged-gym-repo-2021
   - isaac-lab-2025
   - openai-rubiks-cube-2019
   - eureka-2024
@@ -44,13 +45,13 @@ Every module so far in this domain assumed someone had already written the objec
 
 ## The reward is the product
 
-The public story of locomotion RL is that the policy learns from reward. The private reality is that a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms, and the weights are much of the intellectual property. A canonical legged_gym-family objective contains, at minimum, tracking rewards for linear and angular velocity, penalties on vertical velocity and roll/pitch rates, penalties on joint torque, joint acceleration, action rate, joint limits, and undesired collisions, a base-height term, a foot air-time reward that induces an actual gait instead of shuffling, a foot-slip penalty, and a termination penalty <Cite id="rudin-2021" />. Each term has a weight. The weights interact: raise the torque penalty and the velocity tracking degrades; raise the air-time reward and the gait turns theatrical. Changing one weight usually means retuning two others.
+The public story of locomotion RL is that the policy learns from reward. The private reality is that a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms, and the weights are much of the intellectual property. The canonical enumeration is not in any paper; it is in the code. The default `legged_gym` configuration, the open-source reference released with the massively parallel walking work, carries fifteen weighted reward scales plus soft-limit and contact-force penalties: tracking rewards for linear and angular velocity, penalties on vertical velocity and roll/pitch rates, penalties on joint torque, joint acceleration, action rate, joint limits, and undesired collisions, a base-height term, a foot air-time reward that induces an actual gait instead of shuffling, a stumble penalty for feet that catch vertical surfaces mid-stride, and a termination penalty <Cite id="legged-gym-repo-2021" />. Each term has a weight. The weights interact: raise the torque penalty and the velocity tracking degrades; raise the air-time reward and the gait turns theatrical. Changing one weight usually means retuning two others.
 
-The failure modes are not random. They are attractors, and they are stable, which is why every locomotion team recognizes them on sight. Push the torque penalty too high and the optimal policy is to stand still: motion costs more than tracking pays. Push the foot air-time reward too high and the policy prances in place, maximizing swing time with zero forward progress. Drop the action-rate penalty too low and nothing prices step-to-step action changes, so the policy chatters the joints at control frequency, a motion that would destroy real actuators. The interactive below mounts the full term set on a behavior preview. The classification is an illustrative model, but the three attractors are the ones the literature and every lab's Slack channel describe.
+The failure modes are not random. They are attractors, and they are stable, which is why every locomotion team recognizes them on sight. Push the torque penalty too high and the optimal policy is to stand still: motion costs more than tracking pays. Push the foot air-time reward too high and the policy prances in place, maximizing swing time with zero forward progress. Drop the action-rate penalty too low and nothing prices step-to-step action changes, so the policy chatters the joints at control frequency, a motion that would destroy real actuators. The interactive below mounts twelve of these terms on a behavior preview. The classification is an illustrative model, but the three attractors are the ones the literature and every lab's Slack channel describe.
 
 <RewardShaping className="my-6" />
 
-This tuning burden is where sim-to-real quietly fails. A reward that produces beautiful behavior in simulation can produce a policy that exploits contact-solver artifacts, and no automated method currently detects that before hardware. The KL-adaptive learning rate in the standard <Term id="ppo">PPO</Term> configuration exists partly to absorb reward retuning without destabilizing training <Cite id="rudin-2021" />.
+This tuning burden is where sim-to-real quietly fails. A reward that produces beautiful behavior in simulation can produce a policy that exploits contact-solver artifacts, and no automated method currently detects that before hardware. The KL-adaptive learning rate in the standard <Term id="ppo">PPO</Term> configuration adjusts each update to hold a target KL divergence <Cite id="rudin-2021" />, which is part of why the weight-retuning loop stays survivable instead of destabilizing training outright.
 
 ## Three answers to weight tuning
 

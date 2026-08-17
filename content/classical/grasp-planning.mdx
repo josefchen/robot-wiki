@@ -5,7 +5,7 @@ domain: classical
 slug: grasp-planning
 order: 5
 status: published
-lastReviewed: "2026-08-11"
+lastReviewed: "2026-08-17"
 citations:
   - murray-li-sastry-1994
   - nguyen-1988
@@ -13,7 +13,6 @@ citations:
   - markenscoff-1990
   - cutkosky-1989
   - ferrari-canny-1992
-  - bicchi-1995
   - bicchi-kumar-2000
   - prattichizzo-trinkle-2016
   - roa-suarez-2015
@@ -34,7 +33,7 @@ The answer turns out to be a convex polytope. Map everything the contacts can do
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Planar contacts, frictional" value="3" note="minimum for a generic object (Murray, Li, Sastry)" accent />
   <Stat label="Spatial contacts, frictional" value="4" note="same bound in three dimensions" />
-  <Stat label="Frictionless spatial" value="7-12" note="Mishra's lower bound, Markenscoff's upper" />
+  <Stat label="Frictionless spatial" value="7-12" note="Somoff's lower bound, Markenscoff's upper" />
   <Stat label="Dex-Net 2.0 labels" value="6.7M" note="synthetic grasps scored by an analytic metric" />
 </div>
 
@@ -74,7 +73,7 @@ $$
 \exists \, \varepsilon > 0 : \quad B_\varepsilon(0) \subset \mathcal{W}
 $$
 
-The strictness is load-bearing. An origin resting exactly on the hull's boundary means there is a wrench the grasp cannot quite resist, and since the task gets to choose the disturbance, "almost everywhere" is a failure mode, not a pass. This is why friction does so much work in practice. Without friction, the cone collapses to the normal ray, and the hull has no volume to spare: <Term id="form-closure">form closure</Term>, closure by geometry alone, demands at least four contacts in the plane and seven in space, a lower bound due to Mishra, Schwartz, and Sharir <Cite id="mishra-1987" />. Markenscoff, Ni, and Papadimitriou closed the bracket from above: six contacts always suffice in the plane and twelve in space, whatever the object's shape <Cite id="markenscoff-1990" /> <Cite id="bicchi-1995" />. Friction relaxes all of this: with point contacts with friction, three contacts are enough for a generic planar object and four in space <Cite id="murray-li-sastry-1994" />.
+The strictness is load-bearing. An origin resting exactly on the hull's boundary means there is a wrench the grasp cannot quite resist, and since the task gets to choose the disturbance, "almost everywhere" is a failure mode, not a pass. This is why friction does so much work in practice. Without friction, the cone collapses to the normal ray, and the hull has no volume to spare: <Term id="form-closure">form closure</Term>, closure by geometry alone, demands at least four contacts in the plane and seven in space. That lower bound is older than robotics: Reuleaux stated it in 1875 and Somoff in 1897, as Markenscoff, Ni, and Papadimitriou recount on their way to the matching sufficiency results. Four contacts achieve form closure for any planar object with a piecewise smooth boundary, a circle being the one exception, and in space twelve contacts suffice for any object without rotational symmetry, with seven enough under very general conditions <Cite id="markenscoff-1990" />. Mishra, Schwartz, and Sharir supplied the algorithmic side: tight finger-count bounds for each equilibrium case of a frictionless grip, and linear-time synthesis of such grips on polyhedral objects <Cite id="mishra-1987" />. Friction relaxes all of this: with point contacts with friction, three contacts are necessary and sufficient in the plane and four in space <Cite id="markenscoff-1990" /> <Cite id="murray-li-sastry-1994" />.
 
 The cleanest sufficient condition in the whole theory is Nguyen's <Term id="antipodal-grasp">antipodal grasp</Term> theorem: a planar two-fingered grasp with frictional contacts is force closure if and only if the line connecting the two contact points lies strictly inside both friction cones <Cite id="nguyen-1988" />. The proof sketch is worth keeping: either contact can lay off any force in the wedge where the two cones overlap, the partner squeezes harder along the shared line to absorb the excess, and because the line is interior the cone edges supply torques of both signs about the center. This is the theorem a parallel-jaw gripper runs every time it pinches opposite sides of a box, and its strictness is visible in hardware: grasp the box too close to an edge of the cone and a light sideways nudge slides it out.
 

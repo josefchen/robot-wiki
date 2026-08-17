@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: sim2real-transfer
 order: 3
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - tobin-2017
   - peng-2018
@@ -63,7 +63,7 @@ The reference result is Lee and colleagues' ANYmal controller: a privileged teac
 
 The pattern has since moved to manipulation. Isaac Lab's DextrAH-RGB distills a state-privileged RL teacher into a stereo-RGB student, which the authors describe as the first system to map stereo images directly to dexterous grasping end to end <Cite id="isaac-lab-2025" />.
 
-The failure mode has a name. Isaac Lab calls it an information-capacity mismatch: the teacher observes privileged state while the student sees partial observations and must reconstruct the unobserved rest, a gap that becomes pronounced under camera occlusion <Cite id="isaac-lab-2025" />.
+The failure mode has a name. The Isaac Lab paper calls it an information gap due to input mismatch: the teacher observes privileged state information while the student sees only partial observations, so the student must reconstruct the unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusion <Cite id="isaac-lab-2025" />.
 
 <TeacherStudent className="my-6" />
 
@@ -85,7 +85,7 @@ Keep the division of labor straight: the splat supplies appearance, and a conven
 
 ## The levers nobody demos
 
-The survey adds two cross-cutting options that rarely get headline systems. Sim-real co-training mixes real data into an otherwise simulated training set, so the real samples anchor the representation while simulation supplies coverage. State and action abstraction chooses the interface between policy and robot (<Term id="end-effector">end-effector</Term> velocities or foot positions rather than raw torques) so that a conventional low-level controller absorbs much of the gap <Cite id="reality-gap-survey-2026" />. The survey calls the abstraction choice one of the highest-leverage and least-discussed levers in the field, which matches the quiet pattern in successful deployments: most of them randomize some things, identify others, and abstract away the rest.
+The survey adds two cross-cutting options that rarely get headline systems. Sim-real co-training mixes real data into an otherwise simulated training set, so the real samples anchor the representation while simulation supplies coverage. State and action abstraction chooses the interface between policy and robot (<Term id="end-effector">end-effector</Term> velocities or foot positions rather than raw torques) so that a conventional low-level controller absorbs much of the gap <Cite id="reality-gap-survey-2026" />. The survey's own emphasis is that the action-space choice plays a crucial role in reducing the sim-to-real gap across navigation, locomotion, and manipulation, which matches the quiet pattern in successful deployments: most of them randomize some things, identify others, and abstract away the rest.
 
 ## Where each family breaks
 

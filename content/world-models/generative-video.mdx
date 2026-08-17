@@ -5,7 +5,7 @@ domain: world-models
 slug: generative-video
 order: 3
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - cosmos-3-2026
   - genie-3-2025
@@ -29,7 +29,7 @@ import { ActionConditioning } from '@/components/interactive/action-conditioning
 The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Cosmos 3 Nano" value="16B" note="8B reasoner + 8B generator" accent />
+  <Stat label="Cosmos 3 Nano" value="16B" note="built on a dense 8B transformer" accent />
   <Stat label="Genie 3" value="24 fps" note="720p, a few minutes" />
   <Stat label="IWS rollout" value=">10 min" note="15 FPS on one RTX 4090" />
   <Stat label="RoboWorld r" value="0.989" note="Pearson vs real-robot eval" />
@@ -37,9 +37,9 @@ The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the
 
 ## Cosmos 3: the omni-model
 
-NVIDIA's 2025 Cosmos stack was a family: Predict for world generation, Transfer for controlled generation, Reason for scene understanding, Policy for action. Cosmos 3, launched at GTC Taipei in June 2026, collapses all of it into one omni-model <Cite id="cosmos-3-2026" />. The architecture is a Mixture-of-Transformers: each modality (text, image, video, audio, action) gets a dedicated encoder projected into a shared representation space, and the sequence splits into an autoregressive subsequence for reasoning and a diffusion subsequence for generation. The two subsequences carry separate parameter sets within each transformer layer but interact through joint attention, which is what lets a single checkpoint act as a <Term id="vision-language-model">VLM</Term>, a video generator, a forward-dynamics model, an inverse-dynamics model, or a policy without architectural change <Cite id="cosmos-3-2026" />.
+The Cosmos 3 report opens by rejecting the current paradigm: a robot must stitch together a disjointed suite of models, a VLM to plan, a VLA or WAM to act, and a forward-dynamics world model to simulate future states, an architecture it calls fragmented and computationally wasteful. Cosmos 3, launched at GTC Taipei in late May 2026, unifies those capabilities in one omni-model <Cite id="cosmos-3-2026" />. The architecture is a Mixture-of-Transformers: each modality (text, image, video, audio, action) gets a dedicated encoder projected into a shared representation space, and the sequence splits into an autoregressive subsequence for reasoning and a diffusion subsequence for generation. The two subsequences carry separate parameter sets within each transformer layer but interact through joint attention, which is what lets a single checkpoint act as a <Term id="vision-language-model">VLM</Term>, a video generator, a forward-dynamics model, an inverse-dynamics model, or a policy without architectural change <Cite id="cosmos-3-2026" />.
 
-The routing is explicit in the release: action plus image plus text to video is a forward dynamics model, text plus video to action is an inverse dynamics model, and image plus text to video and action is a policy. Two sizes are public: Cosmos 3 Nano at 16B (an 8B reasoner and an 8B generator), aimed at a workstation, and Cosmos 3 Super at 64B for large-scale synthetic data generation <Cite id="cosmos-3-2026" />.
+The routing is explicit in the release: action plus image plus text to video is a forward dynamics model, text plus video to action is an inverse dynamics model, and image plus text to video and action is a policy. Two sizes are public at launch: Cosmos 3 Nano at 16B, built on a dense 8B transformer, and Cosmos 3 Super at 64B, built on a dense 32B transformer <Cite id="cosmos-3-2026" />.
 
 ## Genie 2 and Genie 3: interactive worlds with an honest limitation list
 
@@ -53,7 +53,7 @@ Genie 3's own published limitation list is the most useful honest accounting in 
 - **Unreliable text rendering.**
 - **Limited interaction duration.** A few minutes, not hours.
 
-Deployment makes the duration constraint concrete. Project Genie, the consumer interface released in January 2026 for AI Ultra subscribers, caps sessions at 60 seconds per world because Genie 3 is autoregressive and dedicated compute makes longer sessions too expensive to scale <Cite id="project-genie-2026" />. Real time at 24 fps does not mean affordable at length.
+Deployment makes the duration constraint concrete. Project Genie, the consumer interface released in January 2026 for AI Ultra subscribers, caps sessions at 60 seconds per world <Cite id="project-genie-2026" />. Real time at 24 fps does not mean affordable at length.
 
 ## GR-1 and GR-2: video pre-training pointed at manipulation
 

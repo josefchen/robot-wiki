@@ -96,7 +96,9 @@ test.describe('data-hardware hardware-taxonomy module', () => {
       main.getByRole('link', { name: /Luo 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2508.11261');
     await expect(
-      main.getByRole('link', { name: /NVIDIA Research 2026/ }).first(),
+      // The VLA-Perf entry's authors were corrected to the paper's real
+      // author list (Jiang et al.), so the chip now reads "Jiang 2026".
+      main.getByRole('link', { name: /Jiang 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.18397');
     const chips = main.locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(20);
@@ -135,8 +137,9 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    // No sensor in the guide carries a listed price.
-    await page.getByRole('button', { name: 'Sensors', exact: true }).click();
+    // No compute row carries a listed price: NVIDIA publishes no Thor
+    // module price and VLA-Perf quotes no card prices.
+    await page.getByRole('button', { name: 'Compute', exact: true }).click();
     await page.getByRole('button', { name: 'Under $1k' }).click();
     const status = page.getByRole('status');
     await expect(status).toContainText(/no hardware matches/i);

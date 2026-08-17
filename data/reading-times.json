@@ -4,24 +4,24 @@
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1248,
-    "minutes": 6
+    "words": 1308,
+    "minutes": 7
   },
   "manipulation/diffusion-policy": {
     "words": 1364,
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1559,
+    "words": 1628,
     "minutes": 8
   },
   "manipulation/pi-line": {
-    "words": 2434,
-    "minutes": 12
+    "words": 2571,
+    "minutes": 13
   },
   "manipulation/generalist-policies": {
-    "words": 1656,
-    "minutes": 8
+    "words": 1703,
+    "minutes": 9
   },
   "manipulation/comparison-matrix": {
     "words": 1389,
@@ -36,11 +36,11 @@
     "minutes": 10
   },
   "manipulation/realtime-execution": {
-    "words": 1704,
-    "minutes": 9
+    "words": 1698,
+    "minutes": 8
   },
   "manipulation/cross-embodiment": {
-    "words": 1216,
+    "words": 1213,
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
@@ -48,7 +48,7 @@
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1175,
+    "words": 1180,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -56,39 +56,39 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1722,
+    "words": 1743,
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1457,
+    "words": 1467,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1761,
+    "words": 1765,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2379,
+    "words": 2431,
     "minutes": 12
   },
   "world-models/taxonomy": {
-    "words": 1620,
+    "words": 1637,
     "minutes": 8
   },
   "world-models/latent-dynamics": {
-    "words": 1216,
+    "words": 1228,
     "minutes": 6
   },
   "world-models/generative-video": {
-    "words": 1541,
+    "words": 1550,
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1183,
+    "words": 1166,
     "minutes": 6
   },
   "world-models/generative-sim": {
-    "words": 1464,
+    "words": 1463,
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {
@@ -100,7 +100,7 @@
     "minutes": 7
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3093,
+    "words": 3090,
     "minutes": 15
   },
   "data-hardware/teleop-rigs": {
@@ -112,7 +112,7 @@
     "minutes": 7
   },
   "classical/kinematics": {
-    "words": 2279,
+    "words": 2282,
     "minutes": 11
   },
   "classical/motion-planning": {
@@ -120,7 +120,7 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2028,
+    "words": 2032,
     "minutes": 10
   },
   "classical/state-estimation": {
@@ -128,7 +128,7 @@
     "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 1931,
+    "words": 1995,
     "minutes": 10
   },
   "frontier/reliability-gap": {

@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: legged-locomotion
 order: 4
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - hwangbo-2019
   - lee-2020
@@ -64,7 +64,7 @@ Switch from walk to trot to bound and watch the support readout: three feet alwa
 
 The recipe moved to two legs on two hardware lines. Unitree's H1 and G1 became the default research platforms: H2O turned <Term id="retargeting">retargeted</Term> human keypoints into real-time whole-body teleoperation on the H1, with RL supplying the physical feasibility that raw retargeting destroys <Cite id="h2o-2024" />. ASAP added a delta-action correction stage, trained on real rollouts and injected back into the simulator, and produced jumps and sports-style motions on the G1 <Cite id="asap-2025" />.
 
-MIT's humanoid program attacked a different piece of the problem. On the MIT humanoid platform, Jeon and colleagues benchmarked potential-based reward formulations for learned locomotion, showing systematically how the shaping of the reward, not the choice of RL algorithm, decides whether training converges to a usable gait <Cite id="mit-humanoid-rewards-2023" />. That finding generalizes uncomfortably well: across the whole lineage, the algorithm is the commodity and the objective design is the work. The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
+MIT's humanoid program attacked a different piece of the problem. On the MIT humanoid platform, Jeon and colleagues benchmarked direct and potential-based reward formulations for learned running, finding that the potential-based terms are significantly more robust to reward scaling than conventional shaping, and therefore easier to tune <Cite id="mit-humanoid-rewards-2023" />. Everything in that benchmark trained with one off-the-shelf PPO configuration, which is the pattern across the whole lineage: the training recipe is the commodity and the objective design is the work. The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
 
 ## Industrial adoption
 

@@ -5,7 +5,7 @@ domain: world-models
 slug: latent-dynamics
 order: 2
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - dreamer-2019
   - dreamerv3-2023
@@ -28,9 +28,9 @@ Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <T
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
-  <Stat label="TD-MPC2 agent" value="317M" note="one agent, 104 tasks" />
+  <Stat label="TD-MPC2 agent" value="317M" note="one agent, 80 tasks" />
   <Stat label="DayDreamer" value="1 h" note="to walk from scratch" />
-  <Stat label="horizon" value="15-50" note="imagined steps, typical" />
+  <Stat label="horizon" value="15" note="imagined steps, DreamerV3" />
 </div>
 
 ## The RSSM: a state you can dream in
@@ -49,7 +49,7 @@ The headline result is Minecraft. DreamerV3 was the first agent to collect diamo
 
 The TD-MPC line takes the opposite position on the decoder. TD-MPC learns a task-oriented latent dynamics model trained only to support reward and value prediction, then plans at every control step by local trajectory optimization over a short horizon, with a learned terminal value function estimating the return beyond it <Cite id="tdmpc-2022" />. TD-MPC2 scales the recipe: still no decoder anywhere, so the model never spends capacity on visually irrelevant detail, and at every step it runs MPPI, sampling candidate action sequences in latent space, scoring them under the learned model, and warm-starting the sampling from a learned policy prior <Cite id="tdmpc2-2023" />.
 
-The reported result is a single 317M-parameter agent across 104 continuous-control tasks in 4 task domains, spanning multiple embodiments and action spaces, with consistent scaling behavior as model size grows <Cite id="tdmpc2-2023" />. Two contrasts with Dreamer matter more than the numbers. First, with no decoder there is no image to inspect: the model's beliefs are only visible through its scalar predictions. Second, action selection comes from per-step planning, not from the learned actor; the policy network is a prior that makes the planner faster, and the planner typically outperforms it.
+The reported result is a single 317M-parameter agent performing 80 tasks across multiple task domains, embodiments, and action spaces, with consistent scaling behavior as model size grows <Cite id="tdmpc2-2023" />. Two contrasts with Dreamer matter more than the numbers. First, with no decoder there is no image to inspect: the model's beliefs are only visible through its scalar predictions. Second, action selection comes from per-step planning, not from the learned actor; the policy network is a prior that makes the planner faster, and the planner typically outperforms it.
 
 ## DayDreamer: imagination on physical hardware
 
@@ -57,7 +57,7 @@ The persistent criticism of this lineage is that it dreams in simulators. DayDre
 
 ## The horizon problem
 
-Imagination has a catch, and it is the same one that limits every paradigm in this domain: error compounds. Each imagined step conditions on the model's own previous prediction, so a one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout. In practice this caps usable imagination at roughly 15 to 50 steps <Cite id="world-model-survey-2026" />.
+Imagination has a catch, and it is the same one that limits every paradigm in this domain: error compounds. Each imagined step conditions on the model's own previous prediction, so a one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout. In practice this keeps usable imagination short: DreamerV3 trains its actor and critic on 15-step imagined rollouts, and TD-MPC2 plans only 3 steps ahead <Cite id="dreamerv3-2023" /><Cite id="tdmpc2-2023" />.
 
 The interactive below makes the compounding concrete. Extend the horizon and the deviation readout grows monotonically; raise the one-step model error and the whole curve steepens. The Dreamer mode shows what the drift does to decoded frames. The TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
 

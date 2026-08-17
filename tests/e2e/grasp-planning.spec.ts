@@ -112,9 +112,6 @@ test.describe('classical grasp-planning module', () => {
       main.getByRole('link', { name: 'Cutkosky 1989' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/70.34763');
     await expect(
-      main.getByRole('link', { name: 'Bicchi 1995' }).first(),
-    ).toHaveAttribute('href', 'https://doi.org/10.1177/027836499501400402');
-    await expect(
       main.getByRole('link', { name: 'Bicchi 2000' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1109/ROBOT.2000.844081');
     await expect(

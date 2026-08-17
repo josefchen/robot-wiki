@@ -3,7 +3,7 @@
  * dataset, for the /data-hardware/datasets module.
  *
  * Sources: research/03-data-hardware-evaluation.md (Part A1) plus live
- * verification of the underlying primary sources (2026-08-09). Rules:
+ * verification of the underlying primary sources (2026-08-17). Rules:
  *   - Figures the source does not publish are null and render as "not
  *     disclosed"; nothing is guessed (OXE and BridgeData V2 hours, all
  *     AgiBot World 2026 counts).
@@ -14,6 +14,10 @@
  *   - research/03's AgiBot World Alpha "479 tasks; 96 objects" cell is a
  *     copy of RoboMIND's row; the paper (arXiv 2503.06669) reports 217
  *     tasks in five deployment scenarios, which is what this row ships.
+ *   - AgiBot World Beta does publish an hour count (2,976.4 h alongside
+ *     1,001,552 trajectories, paper Sec. 3 and the dataset card); the
+ *     larger 1,003,672 trajectory count on the GitHub README is the
+ *     post-release total, and the two are labeled as such.
  *
  * The array is Zod-validated at import time, so a malformed row fails the
  * build, the dev server, and the test suite immediately. The runtime import
@@ -53,7 +57,7 @@ const ROWS: Dataset[] = [
     scenes: 564,
     embodimentCount: 1,
     embodiments: ['Franka Panda'],
-    license: 'CC BY-NC 4.0',
+    license: 'CC BY 4.0',
     url: 'https://droid-dataset.github.io',
     sources: ['droid-2024'],
   },
@@ -78,15 +82,14 @@ const ROWS: Dataset[] = [
     id: 'agibot-world',
     name: 'AgiBot World',
     year: 2025,
-    episodes: 1003672,
-    episodesNote: 'Beta release; ~43.8 TB',
-    // No hour count is published; the ~100,000 h figure is an estimate.
-    hours: null,
+    episodes: 1001552,
+    episodesNote: 'Beta release; 1,003,672 after post-release additions',
+    hours: 2976.4,
     tasks: 217,
     tasksNote: '5 deployment scenarios',
     scenes: null,
     embodimentCount: 1,
-    embodiments: ['AgiBot G2'],
+    embodiments: ['AgiBot G1'],
     license: 'CC BY-NC-SA 4.0',
     url: 'https://agibot-world.com',
     sources: ['agibot-world-2025'],
@@ -95,7 +98,8 @@ const ROWS: Dataset[] = [
     id: 'agibot-world-2026',
     name: 'AgiBot World 2026',
     year: 2026,
-    // The release README publishes a 13.2 TB total file size but no
+    // The release publishes a 13.7 TB total file size (HF storage API,
+    // 13.66 TB as of 2026-08-17) but no
     // episode, hour, task, or scene counts as of August 2026 (the module
     // prose carries the file size, the table cells stay not disclosed).
     episodes: null,

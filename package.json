@@ -20,6 +20,7 @@
     "generate:companies": "node scripts/generate-companies.ts",
     "regen:nav": "node scripts/regen-nav-fixture.ts",
     "check:links": "node scripts/check-citation-links.ts",
+    "check:citations": "node scripts/check-citations.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },
   "dependencies": {

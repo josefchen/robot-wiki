@@ -180,6 +180,8 @@ describe('filterHardware', () => {
       price: 'under-1k',
     });
     expect(cheap.map((e) => e.id).sort()).toEqual([
+      'digit-fingertip',
+      'gelsight-mini',
       'koch-v1-1',
       'so-101-self-build',
       'so-arm101-pro-assembled',
@@ -193,8 +195,6 @@ describe('filterHardware', () => {
     expect(mid.map((e) => e.id).sort()).toEqual([
       'leap-hand',
       'noetix-bumi',
-      'rtx-4090',
-      'solo-ai',
       'unitree-r1',
       'widowx-ai',
     ]);
@@ -205,11 +205,10 @@ describe('filterHardware', () => {
     });
     expect(research.map((e) => e.id).sort()).toEqual([
       '1x-neo',
-      'a100-80gb',
       'aloha-2',
       'engineai-se01',
       'limx-oli',
-      'mobile-ai',
+      'solo-ai',
       'stationary-ai',
       'unitree-g1',
     ]);
@@ -220,7 +219,7 @@ describe('filterHardware', () => {
     });
     expect(flagship.map((e) => e.id).sort()).toEqual([
       'fourier-gr3',
-      'h100-80gb',
+      'mobile-ai',
       'reachy-2',
       'unitree-h2',
     ]);
@@ -230,7 +229,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'unlisted',
     });
-    expect(unlisted).toHaveLength(18);
+    expect(unlisted).toHaveLength(19);
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
     for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {
       const bucket = filterHardware(HARDWARE, {
@@ -253,6 +252,7 @@ describe('filterHardware', () => {
       'so-arm101-pro-assembled',
       'so-arm101-pro-unassembled',
       'unitree-dex3-1',
+      'widowx-ai',
     ]);
 
     const mid = filterHardware(HARDWARE, {
@@ -281,7 +281,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: 'unknown',
     });
-    expect(unknown).toHaveLength(26);
+    expect(unknown).toHaveLength(25);
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
 
@@ -313,13 +313,16 @@ describe('filterHardware', () => {
       'tesla-optimus-3',
     ]);
 
-    // Composed: orderable hardware under $1k. The four entry arms.
+    // Composed: orderable hardware under $1k. The four entry arms plus
+    // the two tactile sensors with published retail prices.
     const composed = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       availability: 'buy',
       price: 'under-1k',
     });
     expect(composed.map((e) => e.id).sort()).toEqual([
+      'digit-fingertip',
+      'gelsight-mini',
       'koch-v1-1',
       'so-101-self-build',
       'so-arm101-pro-assembled',
@@ -355,10 +358,11 @@ describe('filterHardware', () => {
   });
 
   it('supports zero-result combinations', () => {
-    // No tactile sensor in the guide carries a listed price.
+    // No compute row carries a listed price: NVIDIA publishes no Thor
+    // module price and VLA-Perf quotes no card prices.
     expect(
       filterHardware(HARDWARE, {
-        category: 'sensor',
+        category: 'compute',
         price: 'under-1k',
         dof: 'all',
         availability: 'all',
@@ -370,7 +374,7 @@ describe('filterHardware', () => {
 describe('formatPrice', () => {
   it('formats single prices and ranges with grouping', () => {
     const solo = HARDWARE.find((e) => e.id === 'solo-ai');
-    expect(formatPrice(solo as never)).toBe('$7,995');
+    expect(formatPrice(solo as never)).toBe('$11,385');
 
     const aloha = HARDWARE.find((e) => e.id === 'aloha-2');
     expect(formatPrice(aloha as never)).toBe('$17,000-$32,000');

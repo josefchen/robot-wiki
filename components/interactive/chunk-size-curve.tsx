@@ -250,8 +250,10 @@ export function ChunkSizeCurve({
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Solid points are the measured ACT ablation values (1% at k=1, 44% at
-        k=100). The dashed region past k=100 is interpolated: the paper
-        reports a slight decline at k=200 and k=400 without exact numbers.
+        k=100, averaged over the paper&apos;s two simulated tasks with
+        scripted and human demonstrations). The dashed region past k=100 is
+        interpolated: the paper reports a slight decline at k=200 and k=400
+        without exact numbers.
       </p>
     </div>
   );

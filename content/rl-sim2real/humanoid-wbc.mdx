@@ -5,7 +5,7 @@ domain: rl-sim2real
 slug: humanoid-wbc
 order: 5
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - phc-2023
   - h2o-2024
@@ -17,6 +17,7 @@ citations:
   - gmt-2025
   - robust-tracking-2026
   - leverb-2025
+  - wholebodyvla-2025
   - helix-02-2026
   - gr00t-n1-2025
   - isaac-gr00t-repo-2026
@@ -64,7 +65,7 @@ Figure kept the tracking decomposition and industrialized it. Helix 02 is a thre
 
 ### A VLA above a learned controller: GR00T + GEAR-SONIC
 
-NVIDIA kept the VLA and the whole-body controller as separate learned systems with a narrow interface between them. GR00T N1.7, a 3B-parameter VLA with a Cosmos-Reason2 backbone and a <Term id="flow-matching">flow-matching</Term> action head, predicts compact latent action tokens; the GEAR-SONIC whole-body controller, exposed as the `UNITREE_G1_SONIC` embodiment, decodes those tokens into full-body joint commands for legs, arms, and hands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. One language-conditioned policy thereby produces coordinated locomotion and manipulation without the VLA ever naming a joint. The academic versions of the same decomposition are explicit about the interface: LeVERB learns a latent vision-language verb vocabulary from rendered kinematic demonstrations and hands it to an RL whole-body controller <Cite id="leverb-2025" />, and WholeBodyVLA learns latent actions from action-free egocentric video for loco-manipulation. GR00T's bet is that a constrained interface is a feature: the VLA can be retrained or swapped without touching the controller, and the controller's dynamics stay out of the VLA's context. This is also the only one of the three stacks with public code (Apache-2.0) and released weights <Cite id="gr00t-n1-2025" />.
+NVIDIA kept the VLA and the whole-body controller as separate learned systems with a narrow interface between them. GR00T N1.7, a 3B-parameter VLA with a Cosmos-Reason2 backbone and a <Term id="flow-matching">flow-matching</Term> action head, predicts compact latent action tokens; the GEAR-SONIC whole-body controller, exposed as the `UNITREE_G1_SONIC` embodiment, decodes those tokens into full-body joint commands for legs, arms, and hands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. One language-conditioned policy thereby produces coordinated locomotion and manipulation without the VLA ever naming a joint. The academic versions of the same decomposition are explicit about the interface: LeVERB learns a latent vision-language verb vocabulary from rendered kinematic demonstrations and hands it to an RL whole-body controller <Cite id="leverb-2025" />, and WholeBodyVLA learns latent actions from action-free egocentric video for loco-manipulation <Cite id="wholebodyvla-2025" />. GR00T's bet is that a constrained interface is a feature: the VLA can be retrained or swapped without touching the controller, and the controller's dynamics stay out of the VLA's context. This is also the only one of the three stacks with public code (Apache-2.0) and released weights <Cite id="gr00t-n1-2025" />.
 
 ### One VLA, feet to fingertips: Gemini Robotics 2
 

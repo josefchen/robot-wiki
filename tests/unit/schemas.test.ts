@@ -183,6 +183,27 @@ describe('citationSchema', () => {
     ).toBe(false);
   });
 
+  it('accepts a dated web.archive.org capture of an http-only source', () => {
+    // The sanctioned pattern for a canonical http-only source (the capture
+    // itself is https): Sutton, The Bitter Lesson.
+    expect(
+      citationSchema.safeParse({
+        ...valid,
+        arxiv: undefined,
+        url: 'https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html',
+      }).success,
+    ).toBe(true);
+  });
+
+  it('rejects undated or wildcard web.archive.org captures', () => {
+    for (const url of [
+      'https://web.archive.org/web/*/http://www.incompleteideas.net/IncIdeas/BitterLesson.html',
+      'https://web.archive.org/web/http://www.incompleteideas.net/IncIdeas/BitterLesson.html',
+    ]) {
+      expect(citationSchema.safeParse({ ...valid, arxiv: undefined, url }).success).toBe(false);
+    }
+  });
+
   it('rejects an empty author list', () => {
     expect(citationSchema.safeParse({ ...valid, authors: [] }).success).toBe(
       false,

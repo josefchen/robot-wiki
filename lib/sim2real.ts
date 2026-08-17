@@ -19,8 +19,8 @@
  *    student reconstructs it from a proprioceptive history that degrades
  *    under noise and occlusion. The reconstruction error and the resulting
  *    teacher-student action divergence are strictly increasing in the
- *    degradation control by construction, mirroring the information-capacity
- *    mismatch named in the Isaac Lab paper (arXiv:2511.04831).
+ *    degradation control by construction, mirroring the information gap
+ *    due to input mismatch named in the Isaac Lab paper (arXiv:2511.04831).
  *
  * Determinism: no Math.random anywhere; pseudo-random fields come from a
  * seeded LCG at module load, and all rendered values are rounded so SSR HTML

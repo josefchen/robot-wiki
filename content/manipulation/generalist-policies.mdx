@@ -5,7 +5,7 @@ domain: manipulation
 slug: generalist-policies
 order: 6
 status: published
-lastReviewed: "2026-08-08"
+lastReviewed: "2026-08-17"
 citations:
   - gemini-robotics-2025
   - gemini-robotics-15-2025
@@ -16,11 +16,11 @@ citations:
   - helix-02-2026
   - agibot-world-2025
   - agibot-go2-2026
-  - agibot-go2-robotreport-2026
   - skild-series-c-2026
   - pi05-2025
   - pi06-model-card-2025
   - pi07-2026
+  - pi-human-to-robot-2025
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/pi-line"
@@ -42,7 +42,7 @@ The last two modules each followed one lineage: the VLA family from RT-1 to Open
 
 Gemini Robotics 1.0 (March 2025) is a Gemini 2.0-based VLA shipped alongside Gemini Robotics-ER, an embodied-reasoning model specialized for spatial understanding, pointing, grasp proposal, and trajectory prediction <Cite id="gemini-robotics-2025" />. The 1.5 release (October 2025) claims three innovations: the VLA interleaves natural-language thinking traces with actions, a training recipe called Motion Transfer carries behavior across embodiments, and ER 1.5 acts as a high-level orchestrator with a tunable thinking budget <Cite id="gemini-robotics-15-2025" />. Both releases have technical reports on arXiv, which puts them a tier above most of this module in provenance.
 
-Gemini Robotics 2 (July 2026) is three models. The VLA controls an Apptronik Apollo 2 humanoid from feet to fingertips, dynamically managing center of gravity so the robot steps, squats, and bends rather than reaching from a static base, and it drives a 22-<Term id="degrees-of-freedom">DoF</Term> five-fingered SharpaWave hand as well as parallel grippers on a Franka Duo. One checkpoint covers all three embodiment pairs. ER 2 is the high-level agent, planning multi-minute tasks and coordinating multiple robots. On-Device 2 runs locally and adapts to a new bi-arm embodiment in a few hours with typically under 200 examples <Cite id="gemini-robotics-2-2026" />.
+Gemini Robotics 2 (July 2026) is three models. The VLA controls an Apptronik Apollo 2 humanoid from feet to fingertips, a first for the line: where the earlier models controlled only the upper body for tabletop tasks, this one walks, crouches, and stretches through the task, and it drives a 22-<Term id="degrees-of-freedom">DoF</Term> five-fingered SharpaWave hand as well as parallel grippers on a Franka Duo. One checkpoint covers all three embodiment pairs. ER 2 is the high-level agent, planning multi-minute tasks and coordinating multiple robots. On-Device 2 runs locally and adapts to a new bi-arm embodiment in a few hours with typically under 200 examples <Cite id="gemini-robotics-2-2026" />.
 
 The reported numbers are worth quoting because DeepMind quotes them honestly. Whole-body picking on Apollo 2: 76.3% from a shelf, 68.4% from a table, 45.7% from the floor. Multi-finger dexterity with the SharpaWave hand: 92% unscrewing a bulb, but 44% tying a trash bag, 40% closing a ziplock, 32% with a dustpan. Their own framing: multi-finger dexterous manipulation remains challenging <Cite id="gemini-robotics-2-2026" />.
 
@@ -60,7 +60,7 @@ Two honesty notes. First, the README itself says N1.7 delivers comparable perfor
 
 Helix (February 2025) introduced the System 1 / System 2 split for Figure's humanoids: S2, a VLM, reasons slowly about scenes and instructions and emits latent goal vectors; S1, a fast visuomotor transformer conditioned on those latents, produces upper-body joint targets from pixels <Cite id="helix-2025" />.
 
-Helix 02 (January 2026) adds System 0, a learned <Term id="whole-body-control">whole-body controller</Term>, and the stack now runs at three rates. S2 sequences behaviors. S1 runs at 200 Hz and is all-sensors-in, all-joints-out: head and palm cameras, fingertip tactile sensors, and full-body proprioception in, complete joint-level targets for legs, torso, head, arms, wrists, and fingers out. S0 is a 10M-parameter network running at 1 kHz, trained on over 1,000 hours of <Term id="retargeting">retargeted</Term> human motion plus sim-to-real RL across 200,000 parallel environments, and Figure says it replaced 109,504 lines of hand-engineered C++. The architectural point of S0 is that it learns a single prior over how humans move while balancing, so the layers above never reason about footsteps. The headline demo is a 4-minute continuous dishwasher load and unload, 61 loco-manipulation actions with implicit error recovery and no human intervention <Cite id="helix-02-2026" />.
+Helix 02 (January 2026) adds System 0, a learned <Term id="whole-body-control">whole-body controller</Term>, and the stack now runs at three rates. S2 sequences behaviors. S1 runs at 200 Hz and is all-sensors-in, all-joints-out: head and palm cameras, fingertip tactile sensors, and full-body proprioception in, complete joint-level targets for legs, torso, head, arms, wrists, and fingers out. S0 is a 10M-parameter network running at 1 kHz, trained on over 1,000 hours of <Term id="retargeting">retargeted</Term> human motion plus sim-to-real RL across more than 200,000 parallel environments, and Figure says it replaced 109,504 lines of hand-engineered C++. The architectural point of S0 is that it learns a single prior over how humans move while balancing, so the layers above never reason about footsteps. The headline demo is a 4-minute continuous dishwasher load and unload, 61 loco-manipulation actions with implicit error recovery and no human intervention <Cite id="helix-02-2026" />.
 
 All of this is vendor-reported. There is no paper, no weights, no published <Term id="success-rate">success rates</Term>, and no baselines; the source is a company blog post with videos. The architecture description is specific and plausible, but nothing here has been independently checked <Cite id="helix-02-2026" />.
 
@@ -70,7 +70,7 @@ GO-1 (March 2025) is built on ViLLA, vision-language-latent-action. A latent act
 
 GO-2 (April 2026) targets what AgiBot calls the semantic-actuation gap: in a standard VLA the reasoning signal and the motor commands drift apart, and errors accumulate over long horizons. The fix has two parts. An action chain-of-thought first generates a sequence of high-level action intents as a macro plan, then executes it stage by stage. And an asynchronous dual system pairs a low-frequency planner (the "general commander") with a high-frequency follower (the "agile executor") that refines the intents against real-time observations, trained with teacher forcing so it tolerates imperfect reasoning <Cite id="agibot-go2-2026" />.
 
-The reported results are vendor numbers: LIBERO average 98.5%, LIBERO-Plus 86.6% zero-shot under disturbances, and 82.9% real-world success when trained on Genie Sim 3.0 simulation data alone, with claims of outperforming π0.5 and GR00T <Cite id="agibot-go2-robotreport-2026" />. Read the LIBERO figure with the saturation caveat that the evaluation module develops: at 98.5% average, LIBERO is not meaningful evidence of frontier capability. GO-2 has no paper, and unlike GO-1 its weights are closed <Cite id="agibot-go2-2026" />.
+The reported results are AgiBot's own announcement numbers: LIBERO average 98.5%, LIBERO-Plus 86.6% zero-shot under disturbances, and 82.9% real-world success when trained on Genie Sim 3.0 simulation data alone, with claims of outperforming π0.5 and GR00T <Cite id="agibot-go2-2026" />. Read the LIBERO figure with the saturation caveat that the evaluation module develops: at 98.5% average, LIBERO is not meaningful evidence of frontier capability. No public paper accompanies the release, though the announcement says core contributions are accepted at CVPR 2026 and ACL 2026; unlike GO-1, the weights are closed <Cite id="agibot-go2-2026" />.
 
 ## Skild: a funding announcement, not a method
 
@@ -86,4 +86,4 @@ The timeline below lays every release on one axis. Color encodes access: amber n
   Seven of the thirteen releases above rest on lab blogs or press releases with no external replication: both Helix generations, both closed π generations, Gemini Robotics 2, GO-2, and Skild. Some of those claims will hold up. The point is that a triangle or diamond on the timeline is a company describing itself, and the honest way to cite those numbers is with the vendor's name attached, never as independent results.
 </Callout>
 
-The split that matters for your own work is the open column. Everything downloadable as of August 2026, GR00T N1.x, GO-1, π0.5 and its predecessors, Octo, OpenVLA, sits at least one generation behind the closed frontier, and the gap is largest exactly where the vendors aim their marketing: zero-shot, open-world behavior that saturated simulation benchmarks cannot measure. One live disagreement this survey only touched: whether human video needs an explicit shared action space, as GR00T N1.7 assumes, or whether transfer emerges from scale alone, as Physical Intelligence reports.
+The split that matters for your own work is the open column. Everything downloadable as of August 2026, GR00T N1.x, GO-1, π0.5 and its predecessors, Octo, OpenVLA, sits at least one generation behind the closed frontier, and the gap is largest exactly where the vendors aim their marketing: zero-shot, open-world behavior that saturated simulation benchmarks cannot measure. One live disagreement this survey only touched: whether human video needs an explicit shared action space, as GR00T N1.7 assumes <Cite id="isaac-gr00t-repo-2026" />, or whether transfer emerges from scale alone, as Physical Intelligence reports from its human-to-robot transfer experiments <Cite id="pi-human-to-robot-2025" />. [Cross-embodiment transfer](/manipulation/cross-embodiment) takes the fork in full.

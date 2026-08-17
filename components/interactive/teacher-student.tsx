@@ -17,7 +17,7 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * TeacherStudent: the information-capacity mismatch of privileged
+ * TeacherStudent: the information gap due to input mismatch in privileged
  * distillation, made visible. Three stacked panels share one terrain:
  *
  * - teacher: the privileged heightfield under the feet (what the simulator
