@@ -134,9 +134,11 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Authors verified against the arXiv 2512.05964 abs page (2026-08-17,
+    // audit-manipulation-iii): individual authors, not the lab name.
     id: 'training-time-rtc-2025',
     title: 'Training-Time Action Conditioning for Efficient Real-Time Chunking',
-    authors: ['Physical Intelligence'],
+    authors: ['Kevin Black', 'Allen Z. Ren', 'Michael Equi', 'Sergey Levine'],
     year: 2025,
     arxiv: '2512.05964',
     url: 'https://arxiv.org/abs/2512.05964',
