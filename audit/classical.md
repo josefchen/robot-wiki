@@ -147,7 +147,7 @@ boxes and demo prose describe.
 | LQR on the linearized pendulum is a PD controller; swing-up needs energy shaping with LQR at the top | tedrake-underactuated | V |
 | MPC receding-horizon form with constraints; stability theory (terminal costs/sets) consolidated by Mayne et al. 2000 | mayne-2000 (title: "Constrained model predictive control: Stability and optimality") | V |
 | MPC grew out of refinery practice in the 1970s-80s | garcia-1989 | V |
-| By 2003 a vendor survey counted thousands of installed applications, concentrated in refining and petrochemicals | qin-badgwell-2003 (survey reports >4,500 applications, refining-dominated) | V |
+| By 2003 a vendor survey counted thousands of installed applications, concentrated in refining and petrochemicals | qin-badgwell-2003 (survey reports "more than 4600 total MPC applications"; refining the largest single block) | V |
 | Di Carlo 2018: single rigid body with contact forces as decision variables; horizons up to 0.5 s; QP solved in under 1 ms at 20-30 Hz; one gain set stand to gallop; estimation/swing/impedance at 1 kHz | di-carlo-2018 (MIT DSpace PDF, abstract + sec. V + Fig. 2 caption, verbatim) | V |
 | Stat "whole-body layer 1 kHz" note | di-carlo-2018 | C ("500-1000 Hz band" unsourced -> Di Carlo's loops) |
 | mujoco-ilqr-2026: plain iLQR + MuJoCo dynamics + finite-difference derivatives runs whole-body MPC in real time on quadrupeds and a full-size humanoid, few sim-to-real accommodations | mujoco-ilqr-2026 (arXiv:2503.04613 abs, verbatim) | V |
@@ -210,3 +210,125 @@ Gates run after the corrections: `npm run typecheck`, `npm run lint`,
 Playwright e2e spec for the edited article (tests/e2e/grasp-planning.spec.ts,
 updated to drop the removed bicchi-1995 chip). All green; see the handoff
 for command-level output.
+
+## Re-verification addendum (second session, 2026-08-17)
+
+The session that produced the ledger above ended before recording its
+handoff. A second session re-verified the banked work before vouching for
+it, following the audit procedure for interrupted sessions: every
+correction was re-fetched from the primary source, and a risk-weighted
+sample of the verified rows (numbers, attributions, quoted phrases) was
+re-checked independently.
+
+Corrections re-fetched (all six stand):
+
+- C1 grasp-planning form-closure rewrite: MNP 1990 SAGE abstract re-fetched
+  verbatim (lower bound "pointed out by Reuleaux (1875) and Somoff
+  (1897)"; sufficiency: four fingers planar with the circle exception,
+  twelve spatial iff no rotational symmetry, seven under very general
+  conditions; three planar / four spatial frictional contacts necessary
+  and sufficient). MSS 1987 Springer abstract re-fetched (frictionless
+  positive grips, tight bounds on the number of fingers, linear-time
+  synthesis for polyhedral objects).
+- C2 ACT: arXiv:2304.13705 HTML re-fetched ("two ViperX 6-DoF robot
+  arms"; action space "the absolute joint positions for two robots, a
+  14-dimensional vector").
+- C3 Åström-Murray: FBS2e ch. 1 PDF re-fetched, verbatim: "More than 95%
+  of all industrial control problems are solved by PID control, although
+  many of these controllers are actually proportional-integral (PI)
+  controllers".
+- C4 Di Carlo 2018: MIT DSpace bitstream re-fetched (abstract: horizons
+  "up to 0.5 seconds", QP "solved to optimality in under 1 ms at a rate
+  of 20-30 Hz"; sec. V: "State estimation, swing leg planning, and leg
+  impedance control happen at 1 kHz").
+- C5 mujoco-iLQR: arXiv:2503.04613 re-fetched ("a very simple approach",
+  "an easy-to-reproduce hardware baseline").
+- C6 Khatib 1987: the PDF is a textless scan; page 1 OCR'd. The abstract
+  frames the framework "with respect to the dynamic behavior of their
+  end-effectors"; no center-of-mass claim appears.
+
+Verified-row sample re-fetched (12 rows, weighted toward numbers,
+attributions, and quoted phrases):
+
+- karaman-frazzoli-2011 (arXiv:1105.1186 abs + HTML full text): RRT/PRM
+  converge almost surely to non-optimal costs; RRT*/PRM* asymptotically
+  optimal; per-iteration cost within a constant factor of RRT; the
+  connection radius r(n) = gamma (log n / n)^{1/d} appears in the paper's
+  own algorithm statements.
+- gammell-2014 (arXiv:1404.2334 abs): informed sampling over the prolate
+  hyperspheroid of states that can improve the current solution.
+- dexnet-2-2017 (arXiv:1703.09312 abs): 6.7M synthetic grasps, GQ-CNN,
+  93% on eight known adversarial objects, 99% precision on forty novel
+  household objects, verbatim.
+- qin-badgwell-2003 (publisher metadata + the paper's PDF): "More than
+  4600 total MPC applications are reported in Tables 6 and 7"; "The
+  largest single block of applications is in refining, which amounts to
+  67% of all classified applications".
+- mcgee-schmidt-1985 (NTRS record + PDF): the relinearization passage is
+  verbatim ("it soon became apparent that a relinearization about the
+  current estimated state might offer substantial advantages").
+- isaac-gr00t-2025 (repo README, N1.7 release notes): "relative
+  end-effector action space shared across robot and human embodiments",
+  verbatim.
+- bd-spot-rl-2024 (Boston Dynamics blog): "we've integrated reinforcement
+  learning into Spot's locomotion control system"; the hybrid MPC +
+  learned-policy description matches.
+- ratliff-2009 (CMU RI page): covariant gradient techniques; a standalone
+  motion planner demonstrated on a 6-DOF arm and a walking quadruped.
+- schulman-2013 (RSS proceedings p31 PDF): sequential convex optimization,
+  hinge loss, continuous-time collision checking, and the comparative
+  claims against OMPL and CHOMP, verbatim from the abstract.
+- lavalle-1998 (Iowa State tech report; text layer garbled by a custom
+  font encoding, so pages 2-3 were OCR'd): EXTEND is NEAREST_NEIGHBOR +
+  SELECT_INPUT + NEW_STATE with a fixed step; "vertices with large Voronoi
+  regions are more likely to be selected for expansion".
+- nguyen-1988 (SAGE IJRR record, vol. 7(3):3-16, June 1988): bibliographic
+  record exact; the abstract confirms the force-closure construction
+  program and the equilibrium/force-closure equivalence the article's
+  strictness discussion leans on.
+- ferrari-canny-1992: IEEE Xplore bot-walls direct fetches (documented in
+  the registry comment; CrossRef metadata verified 2026-08-11). The
+  epsilon definition rendered in the article (largest origin-centered
+  ball in the hull, equal to the minimum origin-to-facet distance) is the
+  paper's definition as restated in roa-suarez-2015, which was read in
+  full text.
+
+Formula pass: every rendered formula in all five articles was re-checked
+symbolically in the second session (DH transform expansion, Jacobian
+column, DLS/LM step, C-space definitions, RRT extension, RRT* radius,
+PID, pendulum dynamics and the K_p > m g l threshold, Riccati/LQR, MPC
+form, Khatib's Lambda x-ddot + mu + p = F, whole-body QP, Bayes/Kalman/
+EKF recursions, factor-graph least squares, Coulomb cone and half-angle,
+wrench construction, hull closure condition, epsilon metric). All
+correct. One notation observation: state-estimation.mdx uses Q_t for
+process noise and R_t for measurement noise, the reverse of Thrun ch.
+3's convention; the article is internally consistent, so this is noted
+rather than corrected.
+
+Adjacent surfaces checked: the glossary's form-closure and force-closure
+entries (data/glossary.ts) restate the same finger counts and the Bicchi
+equivalence; both are consistent with the corrected article, and the
+glossary cites bicchi-1995 for its actual contribution (the form/force-
+closure framework), which is unaffected by correction 1. lib/ik.ts
+confirms the playground's 0.5 mm residual target (DEFAULT_TOLERANCE =
+5e-4). No dangling bicchi-1995 references remain in content or tests.
+
+Registry comment fixes applied by the second session (data/citations.ts,
+comments only; no entry metadata changed):
+
+- markenscoff-1990: the comment claimed "at most 6 contacts suffice in
+  the plane and 12 in space", the exact claim correction 1 disproved (the
+  planar 6 is the Steinitz counting bound in MLS Table 5.3, not an MNP
+  result, and the unconditional 3D claim ignores MNP's rotational-
+  symmetry condition). Comment replaced with MNP's actual results as
+  stated in the verified abstract.
+- mishra-1987: the comment framed the paper as "the classical lower-bound
+  argument" for the 4-planar / 7-spatial counts; per MNP's own account
+  that lower bound traces to Reuleaux (1875) and Somoff (1897). Comment
+  re-scoped to the Springer abstract's claims (tight finger-count bounds
+  for the equilibrium cases of frictionless positive grips, linear-time
+  synthesis for polyhedral objects).
+- qin-badgwell-2003: comment sharpened from "thousands of installed
+  applications, the majority in refining and petrochemicals" to the
+  paper's verbatim figure (>4,600 total applications; refining the
+  largest single block at 67% of classified applications).

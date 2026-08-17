@@ -3457,9 +3457,11 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified via the publisher DOI record (2026-08-11): Control
-    // Engineering Practice 11(7), 733-764. Survey of industrial MPC
-    // technology reporting thousands of installed applications, the
-    // majority in refining and petrochemicals.
+    // Engineering Practice 11(7), 733-764. Paper text verified verbatim
+    // (2026-08-17): "More than 4600 total MPC applications" across
+    // Tables 6-7, with the largest single block in refining (67% of
+    // classified applications) and a solid foundation in refining and
+    // petrochemicals.
     id: 'qin-badgwell-2003',
     title: 'A Survey of Industrial Model Predictive Control Technology',
     authors: ['S. Joe Qin', 'Thomas A. Badgwell'],
@@ -3756,8 +3758,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // CrossRef metadata verified (2026-08-11): Algorithmica 2:541-558,
-    // 1987. The classical lower-bound argument: frictionless force closure
-    // needs at least 4 contacts in the plane and 7 in space.
+    // 1987. Springer abstract verified verbatim (2026-08-17): frictionless
+    // "positive grips", tight bounds on the number of fingers for the
+    // equilibrium cases, and linear-time synthesis for polyhedral objects.
+    // The 4-planar / 7-spatial frictionless lower bound itself traces to
+    // Reuleaux (1875) and Somoff (1897) per Markenscoff-Ni-Papadimitriou
+    // 1990's own abstract.
     id: 'mishra-1987',
     title: 'On the Existence and Synthesis of Multifinger Positive Grips',
     authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
@@ -3768,9 +3774,16 @@ export const CITATIONS: Citation[] = [
   },
   {
     // CrossRef metadata verified (2026-08-11): IJRR 9(1):61-74, 1990.
-    // Sharpens the frictionless bounds: at most 6 contacts suffice in the
-    // plane and 12 in space. DOI ends 090102; the near-identical 090104 is
-    // a different paper in the same issue, an easy mis-citation.
+    // SAGE abstract verified verbatim (2026-08-17): attributes the
+    // 4-planar / 7-spatial frictionless lower bound to Reuleaux (1875)
+    // and Somoff (1897); proves sufficiency: 4 fingers for planar objects
+    // with piecewise smooth boundary (a circle excepted), 12 in space iff
+    // the object has no rotational symmetry, 7 under very general
+    // conditions; with friction, 3 planar and 4 spatial contacts are
+    // necessary and sufficient. The planar "6" sometimes cited alongside
+    // is the Steinitz counting bound in Murray-Li-Sastry Table 5.3, not
+    // an MNP result. DOI ends 090102; the near-identical 090104 is a
+    // different paper in the same issue, an easy mis-citation.
     id: 'markenscoff-1990',
     title: 'The Geometry of Grasping',
     authors: [
