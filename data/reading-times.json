@@ -96,7 +96,7 @@
     "minutes": 8
   },
   "data-hardware/datasets": {
-    "words": 1593,
+    "words": 1557,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
@@ -104,12 +104,12 @@
     "minutes": 16
   },
   "data-hardware/teleop-rigs": {
-    "words": 1580,
+    "words": 1586,
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1498,
-    "minutes": 7
+    "words": 1535,
+    "minutes": 8
   },
   "classical/kinematics": {
     "words": 2282,
