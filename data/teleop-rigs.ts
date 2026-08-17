@@ -3,7 +3,7 @@
  * /data-hardware/teleop-rigs module.
  *
  * Sources: research/03-data-hardware-evaluation.md (Part C) plus live
- * verification of the underlying primary sources (2026-08-09). Rules:
+ * verification of the underlying primary sources (2026-08-17). Rules:
  *   - Figures no source publishes are null and render as "not disclosed";
  *     nothing is guessed (the VR family's total system cost).
  *   - Costs are representative USD figures from cited first-party sources:
@@ -30,7 +30,7 @@ const ROWS: TeleopRig[] = [
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
     costUsd: 17000,
-    costNote: 'ALOHA 2 runs $17,000-$32,000; Trossen AI bimanual rigs $15,995-$22,995',
+    costNote: 'ALOHA 2 runs $17,000-$32,000; Trossen AI bimanual rigs $23,995-$33,695',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -42,7 +42,7 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'ALOHA 2 lists at $17,000-$32,000 depending on configuration in the LeRobot ecosystem pricing table. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, cut prices 30-34% across the board: the bimanual Stationary AI at $15,995 and Mobile AI at $22,995, with the single-arm WidowX AI entry point at $2,995.',
+        'ALOHA 2 lists at $17,000-$32,000 depending on configuration in the LeRobot ecosystem pricing table. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
         'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
       throughput:
@@ -73,7 +73,7 @@ const ROWS: TeleopRig[] = [
       'A scaled kinematic twin of the target arm; joint readings map one-to-one onto robot commands',
     throughput: 'medium',
     throughputNote:
-      'Under $300 and about 30 minutes to assemble, but each target arm model needs its own build',
+      'Under $300 and assembles from printed and catalog parts, but each target arm model needs its own build',
     embodimentGap: 'low',
     embodimentGapNote:
       'The replica shares the arm joint structure, so the operator feels the arm constraints directly',
@@ -83,9 +83,9 @@ const ROWS: TeleopRig[] = [
       dataQuality:
         'The device is constructed with the same kinematic structure as the target arm, so joint readings map directly onto robot commands with no inverse-kinematics remapping. In the paper user study with 12 participants and 5 bimanual UR5 tasks, GELLO produced more reliable and more efficient demonstration collection than VR controllers or a 3D spacemouse.',
       throughput:
-        'A GELLO assembles in about 30 minutes from printed and catalog parts, so duplicating a station is cheap. The constraint is universality: every new robot model needs its own kinematically matched design, and the published builds cover Franka, UR5, and xArm.',
+        'The paper describes assembly as straightforward and requiring minimal technical expertise, and neither the paper nor the project site publishes a build time. Parts are printed or off the catalog, so duplicating a station is cheap. The constraint is universality: every new robot model needs its own kinematically matched design, and the published builds cover Franka, UR5, and xArm.',
       embodimentGap:
-        'Because the replica is a scaled kinematic twin (the paper used a scaling factor alpha = 0.5), the operator feels the arm joint limits and structure through the linkage and controls directly in joint space. The paper frames this as reducing the embodiment gap between the user and the target arm.',
+        'Because the replica is a small-scale, kinematically equivalent version of the target arm, the operator controls it directly in joint space and can feel joint limits and singularities through the linkage, which the paper credits with more reliable teleoperation.',
     },
     links: [
       { label: 'GELLO paper', url: 'https://arxiv.org/abs/2309.13037' },
@@ -105,19 +105,19 @@ const ROWS: TeleopRig[] = [
       '155-degree fisheye wrist camera with SLAM-recovered gripper pose; no force channel',
     throughput: 'high',
     throughputNote:
-      'About 30 seconds per demonstration; over 3x faster than spacemouse teleoperation on the paper benchmark',
+      '111/h on the cup-arrangement benchmark, over 3x faster than spacemouse teleoperation',
     embodimentGap: 'medium',
     embodimentGapNote:
       'A handheld gripper stands in for the robot gripper; latency matching and relative-trajectory actions close the gap at deployment',
     details: {
       cost:
-        'The paper bills the 3D-printed gripper at $73 and the GoPro camera and accessories at $298, for a $371 collection rig per gripper. Deployment still needs a robot arm with a parallel-jaw gripper of more than 85 mm stroke, which the paper demonstrated on UR5 and Franka.',
+        'The paper bills the 3D-printed gripper at $73 and the GoPro camera and accessories at $298, for a $371 collection rig per gripper. Deployment still needs an arm with a compatible gripper and camera setup, which the paper demonstrated on UR5 and Franka; the UMI gripper itself has an 80 mm finger stroke.',
       dataQuality:
         'A wrist-mounted GoPro with a 155-degree fisheye lens and side mirrors supplies the visual context, and SLAM recovers the gripper pose at high frequency. There is no force or tactile channel, and the recorded motion comes from a human hand holding a gripper, not from a robot. UMI answers the deployability problem with inference-time latency matching and a camera-relative trajectory action representation.',
       throughput:
-        'The project site reports collection at about 30 seconds per demonstration, measured at 111 demonstrations per hour on the cup arrangement task against 35 per hour for spacemouse teleoperation and 231 per hour for the unassisted human hand, i.e. 48% of human hand speed. Because no robot is present, collection can start in any home or restaurant within 2 minutes.',
+        'The paper measures throughput in 15-minute collection windows and reports the gripper more than 3x faster than spacemouse teleoperation at 48% of human hand speed; the project site lists the rates as 111 demonstrations per hour on the cup arrangement task, against 35 per hour for teleoperation and 231 per hour for the unassisted hand. Because no robot is present, collection can start in any home or restaurant within 2 minutes.',
       embodimentGap:
-        'The handheld gripper approximates a robot parallel jaw but is not one, and the human hand moves unlike any arm. UMI policies deploy zero-shot only because the interface aligns observation and action latency and represents actions relative to the camera frame; the same policy then runs on any arm with a compatible gripper.',
+        'The handheld gripper approximates a robot parallel jaw but is not one, and the human hand moves unlike any arm. UMI policies deploy zero-shot only because the interface aligns observation and action latency and represents actions relative to the camera frame; the same policy then runs on any arm with a compatible gripper and camera setup.',
     },
     links: [
       { label: 'UMI paper', url: 'https://arxiv.org/abs/2402.10329' },

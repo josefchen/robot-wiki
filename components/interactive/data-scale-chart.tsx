@@ -25,8 +25,8 @@ import { cx } from '@/lib/utils';
  * on one log-log plane, plus a teleop-farm time projection.
  *
  * The two series hug their own axes: robot and human demonstration data sit
- * on the bottom lane read off the hours axis (DROID 350 h up to AgiBot World
- * ~100k h est.), language corpora sit on the left lane read off the tokens
+ * on the bottom lane read off the hours axis (DROID 350 h up to EgoScale
+ * 20,854 h), language corpora sit on the left lane read off the tokens
  * axis (GPT-3 300B, Llama 3 15T). The dashed diagonal connects the two
  * largest entries across eight-plus orders of magnitude of empty plane; that
  * emptiness is the argument. No exchange rate between an hour and a token is
@@ -82,8 +82,27 @@ function sup(exp: number): string {
 const X_TICK_EXPS = [0, 1, 2, 3, 4, 5, 6] as const;
 const Y_TICK_EXPS = [9, 10, 11, 12, 13, 14] as const;
 
-/** Alternate label rows so neighboring markers do not collide. */
-const LABEL_ABOVE = new Set(['droid', 'tri-lbm', 'oxe', 'agibot']);
+/**
+ * Label tier per marker. Three tiers rather than a simple above/below
+ * alternation because the 1,700-3,700 h cluster (TRI LBM, AgiBot World,
+ * Ego4D) packs four markers into ~30 px of log space, closer than any two
+ * labels are wide.
+ */
+const LABEL_TIER: Record<string, 0 | 1 | 2> = {
+  droid: 0,
+  agibot: 0,
+  egoscale: 0,
+  egodex: 1,
+  ego4d: 1,
+  'tri-lbm': 2,
+  oxe: 2,
+};
+/** Label and value baseline offsets from the robot lane, per tier. */
+const TIER_OFFSETS: Record<0 | 1 | 2, { label: number; value: number }> = {
+  0: { label: 16, value: 27 },
+  1: { label: -24, value: -13 },
+  2: { label: -46, value: -35 },
+};
 
 export function DataScaleChart({
   defaultRigs = DEFAULT_RIGS,
@@ -222,7 +241,7 @@ export function DataScaleChart({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Log-log chart of demonstration hours against pretraining tokens. Robot and human datasets sit on the hours axis from DROID at 350 hours to AgiBot World at about 100,000 hours; language corpora sit on the tokens axis from GPT-3 at 300 billion to Llama 3 at 15 trillion, over ${gapDecades} orders of magnitude apart. Your projected farm of ${formatRigs(rigs)} rigs yields ${formatHours(perYear)} per year.`}
+        aria-label={`Log-log chart of demonstration hours against pretraining tokens. Robot and human datasets sit on the hours axis from DROID at 350 hours to EgoScale at 20,854 hours; language corpora sit on the tokens axis from GPT-3 at 300 billion to Llama 3 at 15 trillion, over ${gapDecades} orders of magnitude apart. Your projected farm of ${formatRigs(rigs)} rigs yields ${formatHours(perYear)} per year.`}
         className="mt-3 block w-full"
       >
         <text
@@ -364,7 +383,7 @@ export function DataScaleChart({
         {/* Robot and human datasets on the bottom lane. */}
         {ROBOT_POINTS.map((p) => {
           const x = xFor(p.magnitude);
-          const above = LABEL_ABOVE.has(p.id);
+          const offsets = TIER_OFFSETS[LABEL_TIER[p.id] ?? 0];
           return (
             <g key={p.id} data-testid={`robot-marker-${p.id}`}>
               <circle
@@ -379,7 +398,7 @@ export function DataScaleChart({
               />
               <text
                 x={x}
-                y={above ? ROBOT_LANE_Y - 24 : ROBOT_LANE_Y + 16}
+                y={ROBOT_LANE_Y + offsets.label}
                 textAnchor="middle"
                 fill="var(--color-text)"
                 fontSize={10}
@@ -389,7 +408,7 @@ export function DataScaleChart({
               </text>
               <text
                 x={x}
-                y={above ? ROBOT_LANE_Y - 13 : ROBOT_LANE_Y + 27}
+                y={ROBOT_LANE_Y + offsets.value}
                 textAnchor="middle"
                 fill="var(--color-text-dim)"
                 fontSize={9}

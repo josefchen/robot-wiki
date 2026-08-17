@@ -92,23 +92,23 @@
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {
-    "words": 1487,
-    "minutes": 7
+    "words": 1514,
+    "minutes": 8
   },
   "data-hardware/datasets": {
-    "words": 1480,
-    "minutes": 7
+    "words": 1593,
+    "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3090,
-    "minutes": 15
+    "words": 3148,
+    "minutes": 16
   },
   "data-hardware/teleop-rigs": {
-    "words": 1559,
+    "words": 1580,
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1447,
+    "words": 1498,
     "minutes": 7
   },
   "classical/kinematics": {

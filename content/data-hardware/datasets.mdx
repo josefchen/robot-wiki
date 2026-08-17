@@ -5,7 +5,7 @@ domain: data-hardware
 slug: datasets
 order: 2
 status: published
-lastReviewed: "2026-08-09"
+lastReviewed: "2026-08-17"
 citations:
   - open-x-embodiment-2023
   - droid-2024
@@ -58,7 +58,7 @@ Two things keep BridgeData V2 on every shortlist. The license is CC BY 4.0, whic
 
 ## AgiBot World: the corporate fleet
 
-AgiBot World is what a robot manufacturer can collect when the collection fleet is the product line: the Beta release holds 1,001,552 trajectories totaling 2,976 hours, all from the AgiBot G1 platform with a multi-camera rig <Cite id="agibot-world-2025" />. The trajectory count on the release repository has since grown to 1,003,672. The paper reports 217 tasks in five deployment scenarios, and claims that policies pretrained on AgiBot World improve 30% on average over policies pretrained on OXE, in-domain and out-of-distribution <Cite id="agibot-world-2025" />. That figure is vendor-reported; no independent replication exists. The companion GO-1 model needs about 7 GB of VRAM for inference and 70 GB for a full fine-tune, which makes the dataset the only realistic way to study the model <Cite id="agibot-world-2025" />.
+AgiBot World is what a robot manufacturer can collect when the collection fleet is the product line: the Beta release holds 1,001,552 trajectories totaling 2,976 hours, all from the AgiBot G1 platform with a multi-camera rig <Cite id="agibot-world-2025" />. The trajectory count on the release repository has since grown to 1,003,672. The paper reports 217 tasks in five deployment scenarios, and claims that policies pretrained on AgiBot World improve 30% on average over policies pretrained on OXE, in-domain and out-of-distribution <Cite id="agibot-world-2025" />. That figure is vendor-reported; no independent replication exists.
 
 The catch is the license. Everything ships under CC BY-NC-SA 4.0, so commercial use is out. The hour count, unlike OXE's, is published, and it is the number worth carrying: 2,976 hours across a million trajectories is about 11 seconds each, so the million-trajectory headline covers less interaction than Ego4D's passive video. AgiBot World 2026, the newest release, is 13.7 TB collected entirely in real-world scenes, but publishes no episode, hour, or task counts at all as of August 2026 <Cite id="agibot-world-2026" />.
 
