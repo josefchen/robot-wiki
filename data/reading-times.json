@@ -48,7 +48,7 @@
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1175,
+    "words": 1180,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -56,19 +56,19 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1722,
+    "words": 1743,
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1457,
+    "words": 1467,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1761,
+    "words": 1765,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2379,
+    "words": 2431,
     "minutes": 12
   },
   "world-models/taxonomy": {

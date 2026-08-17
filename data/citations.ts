@@ -1096,6 +1096,20 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Open-source reference implementation released with rudin-2021. The
+    // paper's Table 2 reward has nine terms; the canonical dozen-plus term
+    // set (15 default scales, 19 reward functions, incl. feet_air_time,
+    // feet_stumble, dof_pos_limits) lives in this config. Added 2026-08-17
+    // during the rl-sim2real audit so the enumeration cites the artifact
+    // that actually contains it.
+    id: 'legged-gym-repo-2021',
+    title: 'legged_gym: massively parallel legged-robot RL reference implementation',
+    authors: ['Nikita Rudin', 'David Hoeller', 'Marco Hutter'],
+    year: 2021,
+    url: 'https://github.com/leggedrobotics/legged_gym',
+    type: 'docs',
+  },
+  {
     id: 'ppo-2017',
     title: 'Proximal Policy Optimization Algorithms',
     authors: [
@@ -1697,6 +1711,29 @@ export const CITATIONS: Citation[] = [
     year: 2025,
     arxiv: '2506.13751',
     url: 'https://arxiv.org/abs/2506.13751',
+    type: 'paper',
+  },
+  {
+    id: 'wholebodyvla-2025',
+    title:
+      'WholeBodyVLA: Towards Unified Latent VLA for Whole-Body Loco-Manipulation Control',
+    authors: [
+      'Haoran Jiang',
+      'Jin Chen',
+      'Qingwen Bu',
+      'Li Chen',
+      'Modi Shi',
+      'Yanjie Zhang',
+      'Delong Li',
+      'Chuanzhe Suo',
+      'Chuang Wang',
+      'Zhihui Peng',
+      'Hongyang Li',
+    ],
+    year: 2025,
+    venue: 'ICLR 2026',
+    arxiv: '2512.11047',
+    url: 'https://arxiv.org/abs/2512.11047',
     type: 'paper',
   },
   {

@@ -25,7 +25,7 @@ describe('RewardShaping', () => {
       /orientation/i,
       /joint.?limit/i,
       /collision/i,
-      /slip/i,
+      /stumble/i,
       /termination/i,
     ]) {
       expect(
