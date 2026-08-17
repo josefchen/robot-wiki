@@ -12,16 +12,16 @@
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1559,
+    "words": 1628,
     "minutes": 8
   },
   "manipulation/pi-line": {
-    "words": 2434,
-    "minutes": 12
+    "words": 2571,
+    "minutes": 13
   },
   "manipulation/generalist-policies": {
-    "words": 1656,
-    "minutes": 8
+    "words": 1703,
+    "minutes": 9
   },
   "manipulation/comparison-matrix": {
     "words": 1389,
@@ -40,7 +40,7 @@
     "minutes": 9
   },
   "manipulation/cross-embodiment": {
-    "words": 1216,
+    "words": 1218,
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
