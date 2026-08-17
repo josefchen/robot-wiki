@@ -5,7 +5,7 @@ domain: classical
 slug: control
 order: 3
 status: published
-lastReviewed: "2026-08-11"
+lastReviewed: "2026-08-17"
 citations:
   - astrom-murray-2008
   - ziegler-nichols-1942
@@ -30,13 +30,13 @@ import { PendulumController } from '@/components/interactive/pendulum-controller
 
 [Motion planning](/classical/motion-planning) decides where the robot should go. Control is what makes the robot actually go there, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat. The tool is feedback: measure where the robot is, compare it to where it should be, and correct. That loop runs at every level of the stack, from the motor current loops deep inside an actuator to the whole-body torque controller of a humanoid, and it keeps running underneath whatever learned policy sits on top.
 
-The field's own estimate of its workhorse is blunt: more than 95% of all industrial control problems are solved by PID control, most of them without the D <Cite id="astrom-murray-2008" />. Everything in this module descends from that observation or reacts against it.
+The field's own estimate of its workhorse is blunt: more than 95% of all industrial control problems are solved by PID control, many of them without the D <Cite id="astrom-murray-2008" />. Everything in this module descends from that observation or reacts against it.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="PID share" value=">95%" note="of industrial control problems" />
   <Stat label="LQR" value="1960" note="Kalman's optimal-control paper" />
   <Stat label="Cheetah 3 MPC" value="<1 ms" note="per convex QP, at 20-30 Hz" />
-  <Stat label="whole-body layer" value="1 kHz" note="top of the 500-1000 Hz band" />
+  <Stat label="whole-body layer" value="1 kHz" note="Di Carlo's estimation and leg loops" />
 </div>
 
 ## PID: three ways to use an error
@@ -93,7 +93,7 @@ The industrial lineage is older than the theory. MPC grew out of refinery practi
 
 ## Whole-body QP: the bottom of the stack
 
-Below the planner and the MPC layer sits the fastest loop in a legged or humanoid robot: the whole-body controller, which turns desired accelerations and contact forces into joint torques hundreds to thousands of times per second. The intellectual root is Khatib's operational-space formulation from 1987, which writes the dynamics where the task lives, at the end-effector and the center of mass, rather than in joint space <Cite id="khatib-1987" />:
+Below the planner and the MPC layer sits the fastest loop in a legged or humanoid robot: the whole-body controller, which turns desired accelerations and contact forces into joint torques hundreds to thousands of times per second. The intellectual root is Khatib's operational-space formulation from 1987, which writes the dynamics where the task lives, at the end-effector, rather than in joint space <Cite id="khatib-1987" />:
 
 $$
 \Lambda(x)\, \ddot{x} + \mu(x, \dot{x}) + p(x) = F
@@ -115,6 +115,6 @@ The decision variables are joint accelerations, torques, and contact forces at o
 
 ## Where this meets the learned stack
 
-Classical control did not lose to learning; it became the floor learning stands on. Every actuator in a learned-policy demo still closes a current loop, usually PI, at kilohertz. The interesting boundary is one level up. MPC has no sim-to-real gap in the reinforcement-learning sense, because it re-solves against the measured state every step rather than baking a model into weights; the [sim-to-real transfer](/rl-sim2real/sim2real-transfer) problem is largely a problem of open-loop policies. The honest 2026 picture is hybrid: Boston Dynamics added reinforcement learning to Spot's existing MPC stack to handle variability, rather than replacing it <Cite id="bd-spot-rl-2024" />, and the strongest locomotion baseline a learning paper must beat is now a first-year-implementable iLQR controller <Cite id="mujoco-ilqr-2026" />.
+Classical control did not lose to learning; it became the floor learning stands on. Every actuator in a learned-policy demo still closes a current loop, usually PI, at kilohertz. The interesting boundary is one level up. MPC has no sim-to-real gap in the reinforcement-learning sense, because it re-solves against the measured state every step rather than baking a model into weights; the [sim-to-real transfer](/rl-sim2real/sim2real-transfer) problem is largely a problem of open-loop policies. The honest 2026 picture is hybrid: Boston Dynamics added reinforcement learning to Spot's existing MPC stack to handle variability, rather than replacing it <Cite id="bd-spot-rl-2024" />, and the classical floor a learning paper must clear now includes an iLQR controller the authors kept deliberately simple, an easy-to-reproduce hardware baseline by design <Cite id="mujoco-ilqr-2026" />.
 
 The stack you have now seen end to end, [kinematics](/classical/kinematics) to locate the body, [planning](/classical/motion-planning) to pick the motion, control to execute it, is the half of robotics that learning has absorbed least. [State estimation](/classical/state-estimation), the module after this one, closes the loop: none of these controllers know where the robot is without it.

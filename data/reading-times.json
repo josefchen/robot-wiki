@@ -112,7 +112,7 @@
     "minutes": 7
   },
   "classical/kinematics": {
-    "words": 2279,
+    "words": 2282,
     "minutes": 11
   },
   "classical/motion-planning": {
@@ -120,7 +120,7 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2028,
+    "words": 2032,
     "minutes": 10
   },
   "classical/state-estimation": {
@@ -128,7 +128,7 @@
     "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 1931,
+    "words": 1995,
     "minutes": 10
   },
   "frontier/reliability-gap": {
