@@ -57,7 +57,8 @@ describe('DATASETS data', () => {
   it('keeps unpublished AgiBot World 2026 figures null instead of guessed', () => {
     const row = DATASETS.find((d) => d.id === 'agibot-world-2026');
     expect(row, 'missing AgiBot World 2026 row').toBeDefined();
-    // The release README publishes a total file size (13.2 TB) but no
+    // The release publishes a total file size (13.7 TB per the HF storage
+  // API, 13.66 TB as of 2026-08-17) but no
     // episode, hour, or task counts; those cells must stay null.
     expect(row?.episodes).toBeNull();
     expect(row?.hours).toBeNull();
@@ -89,7 +90,8 @@ describe('DATASETS data', () => {
     expect(bridge?.scenes).toBe(24);
 
     const agibot = DATASETS.find((d) => d.id === 'agibot-world');
-    expect(agibot?.episodes).toBe(1003672);
+    expect(agibot?.episodes).toBe(1001552);
+    expect(agibot?.hours).toBe(2976.4);
     expect(agibot?.tasks).toBe(217);
 
     const robomind = DATASETS.find((d) => d.id === 'robomind');

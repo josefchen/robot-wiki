@@ -16,7 +16,7 @@ test.describe('data-hardware data-bottleneck module', () => {
     for (const name of [
       /GPT-3 consumed 300 billion tokens/,
       /holds 76,000 trajectories totaling 350 hours/,
-      /two data universes, eight orders of magnitude apart/i,
+      /two data universes, nine orders of magnitude apart/i,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),

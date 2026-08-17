@@ -137,8 +137,9 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    // No sensor in the guide carries a listed price.
-    await page.getByRole('button', { name: 'Sensors', exact: true }).click();
+    // No compute row carries a listed price: NVIDIA publishes no Thor
+    // module price and VLA-Perf quotes no card prices.
+    await page.getByRole('button', { name: 'Compute', exact: true }).click();
     await page.getByRole('button', { name: 'Under $1k' }).click();
     const status = page.getByRole('status');
     await expect(status).toContainText(/no hardware matches/i);

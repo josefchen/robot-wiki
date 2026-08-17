@@ -38,9 +38,11 @@ test.describe('data-hardware evaluation-crisis module', () => {
     // tooltips repeat phrases like "confidence interval" and "system
     // identification" in hidden-at-rest definition copy, and a bare
     // .first() can latch onto the invisible tooltip (quirk 8).
-    // Strand 1: small-N trial statistics and confidence-interval width.
+    // Strand 1: small-N trial statistics and uncertainty reporting. The
+    // TRI LBM paper reports Bayesian posteriors as violin plots rather
+    // than confidence intervals, so assert that framing.
     await expect(
-      main.getByText(/Clopper-Pearson/i).filter({ visible: true }).first(),
+      main.getByText(/violin/i).filter({ visible: true }).first(),
     ).toBeVisible();
     await expect(
       main.getByText(/confidence interval/i).filter({ visible: true }).first(),

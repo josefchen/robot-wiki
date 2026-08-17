@@ -344,6 +344,12 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Full-text re-read 2026-08-17: the "+50%" result is Fig. 4, the
+    // small-scale dataset domains only. On the large-scale in-distribution
+    // domains (Table I) RT-1-X underperforms the domain-specific RT-1
+    // baseline through underfitting; the ~3x generalization gain belongs to
+    // RT-2-X. The paper says 21 institutions in the abstract and
+    // conclusion, and 34 labs in Sec. III-A.
     id: 'open-x-embodiment-2023',
     title:
       'Open X-Embodiment: Robotic Learning Datasets and RT-X Models',
@@ -905,6 +911,11 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Figures verified against the paper and the AgiBotWorld-Beta dataset
+    // card (2026-08-17): 1,001,552 trajectories, 2,976.4 hours, 217 tasks,
+    // 87 skills, 106 scenes, collected on the AgiBot G1 (not G2). The
+    // "no published hour count" research/03 reports is wrong, as is the
+    // ~100k h estimate that circulates from it.
     id: 'agibot-world-2025',
     title:
       'AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems',
@@ -2505,6 +2516,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 101 authors; first three listed.
+    // License re-verified 2026-08-17: the dataset ships CC BY 4.0, not the
+    // CC BY-NC 4.0 research/03 reports.
     id: 'droid-2024',
     title: 'DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset',
     authors: ['Alexander Khazatsky', 'Karl Pertsch', 'Suraj Nair'],
@@ -2543,7 +2556,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Dataset release page (research/03 ref [5]). Episode and hour counts
-    // are not published there as of August 2026; total file size 13.2 TB.
+    // are not published there as of August 2026; total file size 13.7 TB
+    // (HF storage API, 13.66 TB, re-read 2026-08-17).
     id: 'agibot-world-2026',
     title: 'AgiBot World 2026 (dataset release)',
     authors: ['AgiBot'],
@@ -2553,7 +2567,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
-    // Science Robotics 2026 per research/03.
+    // Science Robotics 2026 per research/03. Full-text re-read 2026-08-17:
+    // 1,800 real and >47,000 sim rollouts, 50 real / 200 sim per task per
+    // policy per condition, ~1,700 h corpus. The paper reports Bayesian
+    // posteriors as violin plots and gives two reasons for avoiding
+    // confidence intervals; "Clopper-Pearson", the "20-30pp CI width at
+    // n=50", and "4,200 rollouts across 29 tasks" appear nowhere in it.
     id: 'tri-lbm-2025',
     title:
       'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
@@ -2652,6 +2671,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 8 authors.
+    // Full-text re-read 2026-08-17: $73 gripper + $298 GoPro, 155-degree
+    // fisheye, 80 mm finger stroke on UMI's own gripper, and CPH 231 hand /
+    // 111 UMI / 35 spacemouse measured in 15-minute windows. Deployment
+    // needs "any robot arms with a compatible gripper and camera setup";
+    // the ">85 mm stroke" figure is the project site's, not the paper's,
+    // and the "~30 s per demonstration" figure is derived from CPH.
     id: 'umi-2024',
     title:
       'Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots',
@@ -2723,9 +2748,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Verified against the live product line (2026-08-09): WidowX AI
-    // $2,995 (was $4,545.95) through Mobile AI $22,995 (was $33,695.95),
-    // 500 Hz CAN FD, LeRobot + OpenPI integration.
+    // Verified against the live product line (2026-08-17): WidowX AI
+    // $4,545.95, Solo AI $11,385.95, Stationary AI $23,995.95, Mobile AI
+    // $33,695.95; 500 Hz CAN FD, LeRobot + OpenPI integration. The
+    // "30-34% price cut" research/03 reports is not supported by any live
+    // page; the lower figures it lists appear nowhere on the site.
     id: 'trossen-ai-2026',
     title: 'Trossen AI Product Line (formerly ALOHA)',
     authors: ['Trossen Robotics'],
@@ -2811,7 +2838,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-09): six authors,
-    // accepted to IEEE Transactions on Robotics.
+    // accepted to IEEE Transactions on Robotics. Full-text re-read
+    // 2026-08-17: states DIGIT retails at $350 and GelSight Mini at $500.
+    // It never mentions OXE, DROID, or AgiBot World, so it cannot support
+    // any claim about their sensor channels; its durability discussion
+    // covers temperature sensitivity, hysteresis, and the absence of a
+    // standardized evaluation framework, not "calibration drift".
     id: 'tactile-outlook-2025',
     title: 'Tactile Robotics: An Outlook',
     authors: [
@@ -2897,8 +2929,10 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-09): 5 authors. The
     // full title ends "...for Robot Manipulators" (research/03 truncates
-    // it). Parts BOM under $300 and the ~30 min assembly come from the
-    // paper's project site (wuphilipp.github.io/gello/).
+    // it). The sub-$300 parts BOM comes from the paper's project site
+    // (wuphilipp.github.io/gello/). No build time is published anywhere:
+    // the "~30 minute assembly" research/03 reports appears in neither the
+    // paper nor the site, whose BOM sheet link is dead as of 2026-08-17.
     id: 'gello-2023',
     title:
       'GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators',
@@ -2974,9 +3008,9 @@ export const CITATIONS: Citation[] = [
     // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
     // DeepMind. research/03 misattributes this as an arXiv 2507.05331
     // companion; the paper is arXiv 2405.05941. Visual matching and system
-    // identification close the visual and control gaps; ~1,500 paired
-    // sim-and-real episodes validate Pearson r and the Mean Maximum Rank
-    // Violation (MMRV) metric.
+    // identification close the visual and control gaps; Pearson r and the
+    // Mean Maximum Rank Violation (MMRV) metric come from the paper, the
+    // ~1,500 paired sim-and-real episode count only from the project site.
     id: 'simpler-2024',
     title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
     authors: [
