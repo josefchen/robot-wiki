@@ -96,7 +96,9 @@ test.describe('data-hardware hardware-taxonomy module', () => {
       main.getByRole('link', { name: /Luo 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2508.11261');
     await expect(
-      main.getByRole('link', { name: /NVIDIA Research 2026/ }).first(),
+      // The VLA-Perf entry's authors were corrected to the paper's real
+      // author list (Jiang et al.), so the chip now reads "Jiang 2026".
+      main.getByRole('link', { name: /Jiang 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.18397');
     const chips = main.locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(20);
