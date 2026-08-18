@@ -31,11 +31,11 @@ export interface ArchivalCapture {
   originalUrl: string;
 }
 
-const ARCHIVAL_CAPTURE_RE = /^https:\/\/web\.archive\.org\/web\/(\d{4,14})(?:id_)?\/(.+)$/i;
+const ARCHIVE_CAPTURE_RE = /^https:\/\/web\.archive\.org\/web\/(\d{4,14})(?:id_)?\/(.+)$/i;
 
 /** Parse a web.archive.org capture URL, or null for any other URL. */
 export function parseArchivalCapture(url: string): ArchivalCapture | null {
-  const match = ARCHIVAL_CAPTURE_RE.exec(url);
+  const match = ARCHIVE_CAPTURE_RE.exec(url);
   if (!match) return null;
   return { timestamp: match[1], originalUrl: match[2] };
 }
