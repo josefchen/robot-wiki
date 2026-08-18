@@ -4,7 +4,7 @@ An open-source, encyclopedic guide to modern robotics, written for machine-learn
 
 The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend, no database, no tracking. It is live at <https://robot-wiki.com>.
 
-Every count quoted below is reproducible: `npm run validate:content` prints the live corpus figures (42 published articles, 307 citations, 111 companies) that this README and the opening paragraphs of [`audit/README.md`](audit/README.md) quote.
+Every corpus count quoted below is reproducible: `npm run validate:content` prints the live corpus figures (42 published articles, 307 citations, 111 companies) that this README and the opening paragraphs of [`audit/README.md`](audit/README.md) quote.
 
 ## Coverage
 

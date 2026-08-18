@@ -262,15 +262,46 @@ than padded (see the provenance-transparency section of
   independently corroborated in the ledger but its only machine-live
   source is the company's own pressroom.
 
-The same pass added 6 independent source entries (mentee-robotics,
-humanoid-uk, avidbots, sharpa, mytra, brain-corp) and documented the
-hardened coindesk.com 429 (neura-robotics) as a transient-error
-exception in `data/dataset-source-exceptions.ts` (now 11 entries),
-taking the gate's reproducible total to 215 URLs across 111 records —
+The same pass added 6 source entries, and only 3 of them are independent in
+the sense that matters (a different PUBLISHER, not a different host):
+mentee-robotics (startuphub.ai), humanoid-uk (therobotreport.com) and
+avidbots (techcrunch.com). The other 3 are wire copies of the companies' own
+releases — sharpa and mytra on PRNewswire ("SOURCE Sharpa", "SOURCE Mytra")
+and brain-corp on vcnewsdaily (a verbatim mirror of its own 2020 release) —
+which buy a second machine-live host, i.e. durability, and not independent
+corroboration. The 2026-08-18 evidence-tier correction below re-sourced
+sharpa properly. The same pass also documented the
+hardened coindesk.com 429 (neura-robotics) as an exception entry in
+`data/dataset-source-exceptions.ts`, whose reason records it accurately as a
+persistent rate-limit bot-wall rather than link rot. That file holds **13
+entries** at HEAD — counted from the file itself, by importing the exported
+array (`npx tsx -e "import {DATASET_SOURCE_EXCEPTIONS} from
+'./data/dataset-source-exceptions.ts'; console.log(DATASET_SOURCE_EXCEPTIONS.length)"`
+→ 13) and cross-checked with `grep -c "^    url: '"` → 13. Note that
+`grep -c 'url:'` returns 14 because it also matches the interface field
+declaration. **The file's entry count and the gate's per-run exception count
+are two different integers:** the same run reported 11 documented exceptions,
+which is smaller because 2 flake-host entries (allegrohand.com,
+chinadailyhk.com) answered live in that run and were counted live, not
+excepted. The run's reproducible total was 215 URLs across 111 records —
 204 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions; two
 consecutive runs printed identical summaries, exit 0 both times. No
 figure changed: stripping every `sources` array from the dataset leaves
 the remaining payload byte-identical to the prior commit.
+
+Updated 2026-08-18 (evidence-tier correction): three source entries were
+added to repair two mislabelled records, no figure changed and no source
+was removed. wonik-robotics gained an independent trade source
+(therobotreport.com) so that its existing wonikrobotics.com entry can be
+described honestly as a same-publisher durability addition; sharpa gained
+NVIDIA's own newsroom for the Isaac GR00T claim and a robotics trade outlet
+for the CES 2026 North claim, so that its PRNewswire entry can be described
+honestly as Sharpa's own release on a wire. Recounted from the committed
+`research/04-market-map-companies.json` with `node` over `sources.length`:
+**111 records — 1 source: 34, 2 sources: 53, 3 sources: 18, 4 sources: 6;
+34 + 53 + 18 + 6 = 111; total source entries (1x34) + (2x53) + (3x18) + (4x6)
+= 34 + 106 + 54 + 24 = 218**, superseding the 215 above. All three URLs were
+probed live with the gate's own browser user agent before being written.
 
 ## Unresolved items
 

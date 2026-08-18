@@ -3765,6 +3765,16 @@ const ROWS: Company[] = [
         title: 'Sharpa Brings Dexterous, Tactile Manipulation to the NVIDIA Isaac GR00T Reference Humanoid Robot (PR Newswire)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design',
+        title: 'NVIDIA Announces NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research (NVIDIA Newsroom)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://roboticsandautomationnews.com/2026/01/31/sharpa-showcases-autonomous-fine-manipulation-robot-and-new-ai-model-at-ces-2026/',
+        title: 'Sharpa showcases autonomous fine-manipulation robot and new AI model at CES 2026 (Robotics & Automation News)',
+        asOf: '2026-08-18',
+      },
     ],
     confidence: 'high',
   },
@@ -3808,6 +3818,11 @@ const ROWS: Company[] = [
       {
         url: 'https://wonikrobotics.com/index.php',
         title: 'Wonik Robotics (corporate site: Allegro Hand maker)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.therobotreport.com/gelsight-meta-ai-release-digit-360-tactile-sensor-for-robotic-fingers/',
+        title: 'GelSight, Meta AI release Digit 360 tactile sensor for robotic fingers (The Robot Report)',
         asOf: '2026-08-18',
       },
     ],

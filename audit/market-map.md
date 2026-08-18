@@ -267,23 +267,34 @@ Full-suite result on the follow-up commit (port 3200 killed before the run, 10.0
 rhoda-ai and wonik-robotics each carried exactly one source URL — compliant
 with the dataset rules, but the two most fragile cells (rhoda-ai's sole
 source sits on Yahoo, a host with a demonstrated flakiness history in this
-project). One additional independent live source was added to each record,
-for claims already recorded; no figure changed, no existing source was
-replaced, and no record carries a duplicate URL (checked per-record against
-the research file before and after).
+project). Each record gained additional live sources for claims already
+recorded. rhoda-ai gained one independent source (techfundingnews.com, a
+different publisher). wonik-robotics gained two, and only one of them is
+independent: wonikrobotics.com is the manufacturer's OWN corporate site and
+allegrohand.com is its OWN product site, so that pair is a durability
+addition (a second machine-live host) and not independent provenance; the
+independent source is therobotreport.com, a trade outlet with no ownership
+or authorship relationship to Wonik (added 2026-08-18 by the evidence-tier
+correction pass; see the row below). No figure changed, no existing source
+was replaced, and no record carries a duplicate URL (checked per-record
+against the research file before and after).
 
 | Record | Claim already recorded | Source added (fetched live with the gate's browser user agent, 2026-08-18) | Verdict | Note |
 |---|---|---|---|---|
 | rhoda-ai | Series A $450M at $1.7B valuation, 2026-03-10; Palo Alto HQ; FutureVision video-predictive platform | https://techfundingnews.com/rhoda-ai-450m-series-a-stealth-exit-robotics/ (curl, HTTP 200; states "$450 million in Series A funding", "$1.7B valuation", "Palo Alto", "FutureVision") | verified | Second source added; Yahoo (Reuters wire) source retained unchanged. Reuters and Bloomberg originals were probed and rejected: reuters.com returns HTTP 401, bloomberg.com is a documented bot-wall host — neither is machine-verifiable without an exception entry, so neither was written. |
-| wonik-robotics | Builds Allegro Hand, robotic hand for research and automation | https://wonikrobotics.com/index.php (curl, HTTP 200 after redirect from https://www.wonikrobotics.com/; page text: "Wonik Robotics is a robotics automation comp[any]" offering "Allegro Hand solutions") | verified | Second source added — the manufacturer's own corporate site, distinct from allegrohand.com (the product site) already carried. Existing source retained unchanged. |
+| wonik-robotics | Builds Allegro Hand, robotic hand for research and automation | (a) https://wonikrobotics.com/index.php (curl, HTTP 200 after redirect from https://www.wonikrobotics.com/; page text: "Wonik Robotics is a robotics automation comp[any]" offering "Allegro Hand solutions") — issuer: Wonik Robotics, SAME publisher as allegrohand.com, so a durability addition, NOT independent. (b) https://www.therobotreport.com/gelsight-meta-ai-release-digit-360-tactile-sensor-for-robotic-fingers/ (curl with the gate's browser user agent, HTTP 200, 2026-08-18; fetched body text: "Meta AI also partnered with South Korea-based Wonik Robotics to develop the Allegro Hand", "Wonik Robotics will manufacture and distribute the Allegro Hand, which will be made available next year") — issuer: The Robot Report (WTWH Media), an independent trade publisher. | verified | Two sources added: (a) durability only, same publisher as the existing source; (b) the independent corroboration of the recorded claim. Existing source retained unchanged. |
 
 Gate totals after the additions, from `npm run check:dataset-sources`
-(two consecutive runs, identical summaries, exit 0 both times):
+(two consecutive runs, exit 0 both times, each reporting the same totals
+plus one transient coindesk 429 block):
 209 URLs across 111 records — 198 live, 0 dead, 0 error, 10 documented
-exceptions. One run reported "1 blocked": a transient HTTP 429 from
+exceptions. The "1 blocked" in both runs is a transient HTTP 429 from
 coindesk.com on the neura-robotics URL (pre-existing, unrelated to this
 change, not dead on any run). The prior reproducible baseline was 207
-URLs / 197 live; the +2/+1 deltas are exactly the two added URLs.
+URLs / 197 live; the +2 URL delta is exactly the two added URLs, but the
++1 live delta (197 -> 198) is the net of two new live URLs plus
+coindesk.com (neura-robotics) flipping live -> blocked with an HTTP 429
+between the baseline and these runs, as recorded three lines above.
 
 Gates run this session for this change (source-entry additions only; no
 dataset field or count changed, so no full e2e was required — the
@@ -329,7 +340,7 @@ source beats a padded one.
 | booster-robotics | Seed $10M | none | unresolved (no source added) | Independent reporting disagrees on scale: Caixin (snippet-grade 2026-08-18) "raised over 100 million yuan (~$14M) across multiple rounds", tracxn.com profile "$27.9M". No fetched source states $10M. Figure NOT adjusted; flagged. |
 | leju-robotics | Series B $50M | none | unresolved (no source added) | The Robot Report (fetched-live title 2026-08-18) and Bloomberg (snippet-grade) report a $200M round in Oct 2025 ahead of a planned listing; Wikipedia corroborates CNY 50M Tencent strategic investment in 2017. No fetched source states a $50M Series B. Figure NOT adjusted; flagged. |
 | hanson-robotics | totalRaised $50M | none | unresolved (no source added) | getlatka.com (snippet-grade 2026-08-18) states "$21.7M across 2 rounds". No fetched source states $50M. Figure NOT adjusted; flagged. |
-| paxini | Series A $20M, JD.com lead | none | unresolved (no source added) | Independent reporting is far larger and later: Caixin 2026-03-07 "$145M round, valuation over $1.4B"; Yicai Global reports JD.com leading an investment round. No fetched source states a $20M Series A. Figure NOT adjusted; flagged. |
+| paxini | Series A $20M, JD.com lead | none | unresolved (no source added) | Independent reporting is far larger and later: Caixin 2026-03-07 (snippet-grade 2026-08-18) "$145M round, valuation over $1.4B"; Yicai Global (snippet-grade 2026-08-18) reports JD.com leading an investment round. No fetched source states a $20M Series A. Figure NOT adjusted; flagged. |
 
 Six of the seven aggregator-only figures remain uncorroborated, and five
 of those have independent reporting pointing at different numbers. They
@@ -338,6 +349,13 @@ of the dataset is that these six cells rest on one aggregator whose
 figures no independent source confirms. Correcting the figures is
 per-record audit work for a future pass (each correction moves a rendered
 figure and requires the full e2e suite).
+
+Convention gap, recorded rather than back-filled: the six snippet-grade
+rows above carry their tier and date but not the WebSearch queries the
+convention requires, and the queries were not recorded at the time, so
+they cannot be reproduced here. The next pass must re-run its own
+searches from the claim rather than trusting these leads as reproducible
+pointers.
 
 ### (2) First-party-only single-sourced records
 
@@ -351,9 +369,9 @@ brain-corp, pollen-robotics, zebra-robotics-automation.
 |---|---|---|---|---|
 | humanoid-uk | $152M Series A, $1.35B valuation, 2026-07-21, Prime Movers Lab | corroborated | https://www.therobotreport.com/uk-based-humanoid-secures-152m-in-series-a-funding/ (HTTP 200) | verified |
 | avidbots | $70M Series C, 2022-09-27, Jeneration Capital | corroborated | https://techcrunch.com/2022/09/27/avidbots-maker-of-autonomous-industrial-cleaning-robots-nabs-70m/ (HTTP 200) | verified |
-| mytra | $120M Series C, 2026-01-15, Avenir Growth | corroborated | https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html (HTTP 200; the wire the first-party post mirrors) | verified |
-| sharpa | NVIDIA Isaac GR00T Reference Robot uses Sharpa hands; CES 2026 North robot | corroborated | https://www.prnewswire.com/news-releases/sharpa-brings-dexterous-tactile-manipulation-to-the-nvidia-isaac-gr00t-reference-humanoid-robot-302787201.html (HTTP 200) | verified |
-| brain-corp | leadInvestors Qualcomm Ventures, SoftBank | corroborated | https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz (HTTP 200; wire text: "led by returning investor SoftBank Vision Fund 1 ... an additional investment from Qualcomm Ventures LLC"; braincorp.com's own copy of the 2020 release is gone from its site, 404) | verified |
+| mytra | $120M Series C, 2026-01-15, Avenir Growth | wire copy of the company's own release added (durability, not independence) | https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html (HTTP 200; the wire the first-party post mirrors, issuer: Mytra, "SOURCE Mytra") | verified |
+| sharpa | (i) NVIDIA Isaac GR00T Reference Robot uses Sharpa hands; (ii) CES 2026 North robot | corroborated by independent publishers, per claim | (a) https://www.prnewswire.com/news-releases/sharpa-brings-dexterous-tactile-manipulation-to-the-nvidia-isaac-gr00t-reference-humanoid-robot-302787201.html (HTTP 200) — issuer: SHARPA. This is Sharpa's own release on a wire ("Sharpa today announced...", "SOURCE Sharpa", Singapore dateline, About-Sharpa boilerplate), so it is first-party content: a durability addition, NOT independent corroboration, and it does not mention the CES 2026 North robot at all. (b) claim (i): https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design (curl with the gate's browser user agent, HTTP 200, 2026-08-18; NVIDIA's own newsroom, an independent publisher with no ownership or authorship relationship to Sharpa) states "Dual Sharpa Wave tactile five-finger hands, enabling dexterous manipulation with 22 degrees of freedom and bringing the robot to 75 degrees of freedom across the body and hands". (c) claim (ii): https://roboticsandautomationnews.com/2026/01/31/sharpa-showcases-autonomous-fine-manipulation-robot-and-new-ai-model-at-ces-2026/ (curl with the gate's browser user agent, HTTP 200, 2026-08-18; independent robotics trade outlet) states "At the event in Las Vegas, Sharpa's newly introduced robot, North, played fully autonomous games of ping-pong against human opponents throughout the show". | verified (both claims, each against an independent publisher) |
+| brain-corp | leadInvestors Qualcomm Ventures, SoftBank | wire copy of the company's own release added (durability, not independence) | https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz (HTTP 200; wire text: "led by returning investor SoftBank Vision Fund 1 ... an additional investment from Qualcomm Ventures LLC", a verbatim mirror of Brain Corp's own 2020 release; braincorp.com's own copy of the 2020 release is gone from its site, 404) | verified |
 | zebra-robotics-automation | Divestiture to Skild AI, 2026-04-15 | corroborated-in-principle, source NOT added | none — the claim is corroborated by five independent outlets (Bloomberg, Businesswire, Skild's own announcement, Yahoo Finance, roboticsandautomationnews; fetched titles and snippets, 2026-08-18), but every independent wire is bot-walled (403) and would need its own exception entry to be machine-verified, so adding one buys no verifiability. The record keeps its single live first-party pressroom source; the limit is named above. | verified (classification only; no source added) |
 | micro1 | first-party by nature | left | none — product description (expert-demonstrated teleoperation data); no funding/valuation/headcount figure recorded, so nothing needs corroboration | first-party by nature |
 | farm-ng | first-party by nature | left | none — product description (modular farm robots); no figure recorded | first-party by nature |
@@ -364,8 +382,14 @@ brain-corp, pollen-robotics, zebra-robotics-automation.
 | pollen-robotics | first-party by nature | left | none — product names (Reachy, Reachy Mini), open-source status and the Hugging Face partnership are first-party claims about what the company makes and releases | first-party by nature |
 
 Counted from the two tables above: 13 first-party records classified —
-5 corroborated (independent source added), 7 first-party by nature
-(justified in the table), 1 (zebra-robotics-automation) classified as
+5 with a second source added, of which 3 are corroborated by an independent
+publisher (humanoid-uk / therobotreport.com, avidbots / techcrunch.com,
+sharpa / nvidianews.nvidia.com and roboticsandautomationnews.com) and 2 rest
+only on a wire copy of the company's own release (mytra, "SOURCE Mytra";
+brain-corp, a verbatim mirror of its own 2020 release) — a durability
+addition on a second machine-live host, not independent corroboration;
+7 first-party by nature (justified in the table), 1
+(zebra-robotics-automation) classified as
 corroborated-in-principle but left with a single source, because its sole
 source is a Zebra pressroom URL and the obvious independent wires
 (Bloomberg 403; Businesswire 403, would need a new exception entry) are
@@ -405,8 +429,10 @@ agent, gate exit 0 throughout, reported as blocked) — the intermittent
 rate-limit bot-wall. An independent fetch client (FetchUrl, 2026-08-18)
 retrieved the full article: "Tether leads $1.4 billion funding round in
 German robotics company Neura", Jun 11 2026, matching the record. Per the
-feature rule, a documented transient-error exception was added to
-`data/dataset-source-exceptions.ts` rather than replacing the live
+feature rule, a documented exception entry was added to
+`data/dataset-source-exceptions.ts` (its reason records the accurate
+diagnosis: a persistent rate-limit bot-wall, not link rot and not
+transient) rather than replacing the live
 source; the record's other 2 sources are machine-verified live.
 
 ### Gates run this pass (transcript)
@@ -426,5 +452,153 @@ targeted market-map specs plus the unit suite are sufficient.
 | typecheck | `npm run typecheck` | PASS |
 | lint | `npm run lint` | PASS (no output) |
 | full unit suite | `npm run test` | 1727 passed, 1 skipped |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |
+
+## Evidence-tier correction pass (2026-08-18)
+
+This is a registry/tooling audit of the ledger's own prose, repairing the
+three blocking evidence-tier defects the oss-readiness scrutiny round found.
+No article's `lastReviewed` was bumped, no humanizer pass was required (no
+reader-facing article prose changed), and no `auditLedger` claim inventory
+applies (no per-claim audit was run). It supersedes the 215 figure in
+"(3) Provenance distribution" above, which is a dated snapshot of the
+2026-08-18 provenance pass and stays as written.
+
+### B1 — wonik-robotics
+
+The second-sourcing pass wrote "One additional independent live source was
+added to each record" while adding wonikrobotics.com — Wonik's own corporate
+site — beside allegrohand.com, Wonik's own product site. Same publisher, so
+nothing independent was added, and the row's own note already said "the
+manufacturer's own corporate site": the ledger contradicted itself on the
+page. Both halves fixed: the wonikrobotics.com entry (a) in the row above is
+relabelled a durability addition with Wonik named as the issuer of both it
+and allegrohand.com, and a genuinely independent source (b) was added. The
+independent source is The Robot Report (WTWH Media), probed live with the
+gate's own browser user agent (`curl -L` with `BROWSER_UA` from
+`lib/citation-links.ts:15-16` and the gate's Accept header, HTTP 200,
+2026-08-18), and the quoted sentences come from this session's own fetch:
+"Meta AI also partnered with South Korea-based Wonik Robotics to develop the
+Allegro Hand" and "Wonik Robotics will manufacture and distribute the Allegro
+Hand, which will be made available next year."
+
+### B2 — sharpa
+
+The provenance pass classified a PRNewswire page as independent
+corroboration while believing it was NVIDIA's release. The fetched page says
+"Sharpa today announced..." and "SOURCE Sharpa" with a Singapore dateline and
+About-Sharpa boilerplate: it is Sharpa's own release on a wire, first-party.
+It also covers only one of the row's two claims — it never mentions the CES
+2026 North robot. Fixed: the PRNewswire entry (a) is relabelled a first-party
+wire copy with SHARPA named as issuer and the CES 2026 gap recorded; claim
+(i) gained NVIDIA's own newsroom and claim (ii) gained Robotics & Automation
+News. Both were probed live with the gate's browser user agent (HTTP 200,
+2026-08-18) and quoted from this session's own fetches: "Dual Sharpa Wave
+tactile five-finger hands, enabling dexterous manipulation with 22 degrees
+of freedom and bringing the robot to 75 degrees of freedom across the body
+and hands" (NVIDIA newsroom) and "At the event in Las Vegas, Sharpa's newly
+introduced robot, North, played fully autonomous games of ping-pong against
+human opponents throughout the show" (Robotics & Automation News). The two
+aggregates the mislabel fed are restated by disposition: the part-2 count
+above and the audit/README.md "6 independent source entries" sentence, both
+now naming the 3-independent / 3-wire-copy split.
+
+### B3 — the exceptions count
+
+`audit/README.md` said `data/dataset-source-exceptions.ts` held "(now 11
+entries)". The file holds 13. Eleven was real but it was the gate RUN's "11
+documented exceptions", legitimately smaller because an exception entry
+whose URL answers live in a given run counts as live. Both integers are now
+in the README sentence with their units named and the counting method quoted.
+Established this session, two independent methods agreeing:
+
+- `npx tsx -e "import {DATASET_SOURCE_EXCEPTIONS} from './data/dataset-source-exceptions.ts'; console.log(DATASET_SOURCE_EXCEPTIONS.length)"` → 13 (runtime truth)
+- `grep -c "^    url: '" data/dataset-source-exceptions.ts` → 13 (cross-check)
+
+The naive `grep -c 'url:'` returns 14 because it matches the interface field
+declaration `url: string;`, not an entry.
+
+### Recount (observed, not predicted)
+
+Re-derived with `node` over `sources.length` per record from the committed
+`research/04-market-map-companies.json` after the edit: **111 records —
+1 source: 34, 2 sources: 53, 3 sources: 18, 4 sources: 6; 34 + 53 + 18 + 6
+= 111; total source entries (1x34) + (2x53) + (3x18) + (4x6) = 34 + 106 +
+54 + 24 = 218.** Baseline at f8f4930, same method: 34/55/17/5 = 215. Deltas:
+doubles 55 → 53, triples 17 → 18, quadruples 5 → 6, exactly the 3 added
+entries (wonik-robotics 2 → 3 sources, sharpa 2 → 4). This matches the fix
+spec's prediction; these are the observed numbers.
+
+### Gate transcripts (two consecutive runs, this session)
+
+Run 1: `npm run check:dataset-sources` — exit 0 — "Checked 218 dataset
+source URLs across 111 records: 207 live, 0 dead, 0 blocked, 0 error, 11
+documented exceptions."
+Run 2 (immediately consecutive): `npm run check:dataset-sources` — exit 0 —
+"Checked 218 dataset source URLs across 111 records: 207 live, 0 dead, 0
+blocked, 0 error, 11 documented exceptions."
+The two runs agree on every count; no disagreement to report.
+
+### Integrity check
+
+`node` script: parse `research/04-market-map-companies.json` at HEAD and at
+f8f4930, delete every record's `sources` array, serialize both payloads,
+`diff` them. Result: **byte-identical** — no figure moved with its
+provenance. Transcript: `diff /tmp/payload-f8f4930.json /tmp/payload-HEAD.json`
+→ no output, exit 0. Per-record duplicate-URL check over the committed file:
+0 duplicates. Every pre-existing source URL is retained; exactly 3 source
+entries were added.
+
+### Non-blocking sweep applied
+
+Items 1–6 of the fix spec: the live-delta misattribution in the
+second-sourcing gate paragraph (the +1 live delta is now explained as the
+net of two new live URLs plus coindesk flipping to 429-blocked); the
+"identical summaries" contradiction in the same paragraph (replaced with the
+consistent "same totals plus one transient coindesk 429 block" framing); the
+one-word "Every corpus count" scoping fix in `README.md:7`; the paxini
+snippet-tier tag (both leads now carry "snippet-grade 2026-08-18"); the
+mytra and brain-corp dispositions (both now "wire copy of the company's own
+release added (durability, not independence)" with issuers named); and the
+"transient-error exception" wording at the neura-robotics paragraph (now
+"a documented exception entry" whose reason records the accurate diagnosis).
+Items 7 and 8 were deliberately NOT done, per the spec: no hashing added to
+postinstall's `sameTree()`, and no history rewrite for the em dash in a code
+comment no repo rule covers.
+
+### Snippet-query gap
+
+`rg -c 'snippet-grade' audit/market-map.md` → 11; `rg -c
+'snippet-grade.*query:' audit/market-map.md` → 1. Both counts include this
+subsection's own self-referential prose and the convention-gap paragraph
+under the part-1 table, so the file-wide integers are not the evidence-row
+counts. Scoped to the evidence rows themselves (the six part-1 table rows,
+lines 338–343 at this pass's HEAD): every one carries `snippet-grade` with
+a date, and none carries a `query:` marker — 6 rows, 0 queries. The counts
+do not match, and the explanation is the convention-gap paragraph above:
+the six pre-existing snippet-grade rows were written before the `query:`
+marker convention existed, the queries were never recorded, and no query is
+invented for them. This pass adds no new snippet rows, so the two-grep
+equality check does not bind here.
+
+### Gates run this pass (transcript)
+
+The diff adds only source entries and audit prose; no dataset field or count
+changed and no rendered figure moved (proven by the byte-identical
+strip-sources check above), so per the documented rule the targeted
+market-map specs plus the unit suite are sufficient and no full e2e is
+required.
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: 218 URLs / 111 records — 207 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions |
+| payload integrity | `node` strip-sources diff vs f8f4930 | byte-identical (no output, exit 0) |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| duplicate URLs | per-record URL check over the committed file | 0 duplicates |
+| content validator | `npm run validate:content` | PASS (42 modules, 307 citations, 111 companies; no-slop source-only OK) |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
 | build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
 | targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |
