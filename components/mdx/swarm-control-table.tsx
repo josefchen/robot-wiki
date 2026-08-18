@@ -4,9 +4,8 @@ import { cx } from '@/lib/utils';
  * SwarmControlTable: the three control families for aerial swarms, for
  * the adjacent/drones module. Static, server-renderable, no client
  * state. Row content mirrors the module prose; every system named here
- * is cited there (Vásárhelyi's optimized flocking via the Zhou and Soria
- * papers' framing, Soria's NMPC swarms, Zhou's decentralized
- * trajectory-planning swarm).
+ * is cited there (Vásárhelyi's optimized flocking, Soria's NMPC swarms,
+ * Zhou's decentralized trajectory-planning swarm).
  */
 
 const ROWS = [

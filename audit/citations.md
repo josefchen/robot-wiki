@@ -84,6 +84,26 @@ errors, 11 covered by documented exceptions. Exit code 0.
   index confirms the document. Remove the exception once NTRS answers
   machine clients again.
 
+## Consolidation update (2026-08-18, audit-ledger-consolidation)
+
+- **mcgee-schmidt-1985: exception removed.** NTRS answers machine clients
+  again; `npm run check:links` and `npm run check:citations -- --id
+  mcgee-schmidt-1985` both pass it unaided (title verified, live fetch,
+  run 2026-08-18), so the exception entry was deleted from
+  data/link-check-exceptions.ts exactly as its own instruction required.
+- The four title-mismatch exceptions (kalman-1960, levenberg-1944,
+  knowledge-insulation-2025, gtsam-2026) remain in force: the failure modes
+  they cover are invisible to the liveness sweep, and the audit checker
+  still needs them. Their entries were re-dated 2026-08-18 with fresh
+  verification. A liveness-sweep bug that reported these as STALE (because
+  the URL is HTTP-200) was fixed: title-mismatch exceptions are now exempt
+  from the liveness sweep's staleness check, since only the audit checker
+  can see their failure mode.
+- **sutton-bitter-lesson-2019**: added as an error exception on 2026-08-18;
+  archive.org intermittently resets TLS connections from this network
+  (4 consecutive resets observed) while the capture itself is live
+  (independent fetch returned the full essay).
+
 ## Honest gaps (title unavailable, not failures)
 
 - **lavalle-1998**, **lavalle-kuffner-2001**: the author-hosted PDFs on

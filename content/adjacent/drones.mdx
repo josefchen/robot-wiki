@@ -5,7 +5,7 @@ domain: adjacent
 slug: drones
 order: 2
 status: published
-lastReviewed: "2026-08-15"
+lastReviewed: "2026-08-18"
 citations:
   - high-speed-flight-2021
   - swift-drone-racing-2023
@@ -13,6 +13,7 @@ citations:
   - falanga-latency-2019
   - micro-drone-swarm-2022
   - soria-nmpc-swarm-2021
+  - vasarhelyi-flocking-2018
 seeAlso:
   - "adjacent/autonomous-vehicles"
   - "rl-sim2real/why-rl-locomotion"
@@ -55,7 +56,7 @@ Swift sits in the middle of the same spectrum. It is not one end-to-end network:
 
 ## Swarm robotics
 
-The second half of aerial robotics multiplies the robots. A swarm is many cheap platforms coordinating to do what one expensive platform cannot: cover a search area, map a forest, or fly a light show. The field's founding models came from biology, Reynolds' 1987 flocking model being the canonical one, and treat the group as a dynamical system of local attraction and repulsion terms. Those models explain collective motion, and they have been flown: Vásárhelyi and colleagues optimized the interaction terms and flew 30 drones in coherent outdoor flocking <Cite id="micro-drone-swarm-2022" />. What they do not provide is guarantees, because reactive potential fields have no lookahead, get trapped in local minima, and have no notion of the platform's dynamics.
+The second half of aerial robotics multiplies the robots. A swarm is many cheap platforms coordinating to do what one expensive platform cannot: cover a search area, map a forest, or fly a light show. The field's founding models came from biology, Reynolds' 1987 flocking model being the canonical one, and treat the group as a dynamical system of local attraction and repulsion terms. Those models explain collective motion, and they have been flown: Vásárhelyi and colleagues optimized the interaction terms and flew 30 drones in coherent outdoor flocking <Cite id="vasarhelyi-flocking-2018" />. What they do not provide is guarantees, because reactive potential fields have no lookahead, get trapped in local minima, and have no notion of the platform's dynamics.
 
 <SwarmControlTable className="my-6" />
 

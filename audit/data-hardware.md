@@ -1,11 +1,17 @@
 # Data, hardware & evaluation content-integrity audit
 
-Date of audit: 2026-08-17. Scope: the five published `data-hardware`
-articles (data-bottleneck, datasets, hardware-taxonomy, teleop-rigs,
-evaluation-crisis) plus the structured datasets behind them
-(`data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`,
-`lib/data-scaling.ts`), checked against their cited primary sources,
-fetched and read during this audit. Claims VAL-AUDIT-004.
+Date of audit: 2026-08-17 (consolidation pass 2026-08-18). Scope: the five
+published `data-hardware` articles (data-bottleneck, datasets,
+hardware-taxonomy, teleop-rigs, evaluation-crisis) plus the structured
+datasets behind them (`data/hardware.ts`, `data/datasets.ts`,
+`data/teleop-rigs.ts`, `data/citations.ts`, `lib/data-scaling.ts`),
+checked against their cited primary sources, fetched and read during this
+audit. Claims VAL-AUDIT-004. The citation-registry rows covering this
+domain were completed by the 2026-08-18 consolidation pass: every
+`data/citations.ts` entry cited by these five articles was re-checked by
+`npm run check:citations` (title verified against the fetched document or
+Crossref; 0 mismatches), and the domain's registry comments were reviewed
+for date-plausibility in the same sweep (see audit/README.md).
 
 Status: COMPLETE (2026-08-17). All five articles and the four structured
 data files audited; per-claim evidence below. A previous session applied
@@ -25,9 +31,18 @@ states are `null` ("not disclosed"), never estimated.
 
 ## Summary
 
+Counting convention (see audit/README.md): totals below count DISTINCT
+DEFECTS, not ledger rows. One defect corrected in several places (prose,
+`data/*.ts`, closing paragraph) counts once here and appears in several
+`C` rows below. The corrected rows in the tables number 25; the distinct
+defects they represent number 21 (Trossen prices are recorded in
+hardware-taxonomy + teleop-rigs + the data file; AgiBot World figures in
+data-bottleneck + datasets.mdx + the data row; the DROID license in
+datasets.mdx + data/datasets.ts; GelSight/DIGIT prices in prose + data).
+
 - Claims checked: 84
 - Verified: 61
-- Corrected: 21
+- Corrected: 21 distinct defects (25 `C` rows in the tables below)
 - Cut: 2 (the GO-1 VRAM sentence, unsourceable at any reachable primary
   source; the VLA-Perf GPU card prices, which the paper never states)
 - Unresolved: 0
@@ -265,3 +280,70 @@ Int = checked against repo code/data rather than an external source.
 | GO-1 needs ~7 GB VRAM inference / ~70 GB fine-tune | NOT FOUND in arXiv 2503.06669, the GitHub README, the GO-1/GO-1-Air HF model cards, the OpenGO1 blog, the live agibot-world.com (JS app; bundle grepped), or the Wayback capture | Cut (research/03 attributes the figures to agibot-world.com, but no reachable primary source states them; sentence removed from datasets.mdx) |
 
 
+
+## Consolidation pass addendum (2026-08-18, audit-ledger-consolidation)
+
+The six closure items from the interrupted data-hardware handoff were
+resolved by the consolidation pass:
+
+1. **Counting convention.** The header above now states its unit (distinct
+   defects vs corrected rows) and reconciles: 21 defects across 25 `C`
+   rows, with the four multi-row defects named. The convention is stated
+   once for every ledger in audit/README.md.
+
+2. **data/citations.ts coverage.** The scope line above now names
+   `data/citations.ts`. Every registry entry cited by these five articles
+   passed `npm run check:citations` (306 checked, 0 mismatches, 0 dead,
+   run 2026-08-18 after this pass's registry edits), and the domain's
+   citation-registry comments were included in the repo-wide
+   date-plausibility sweep (no date-impossible attributions found).
+
+3. **Re-verification of the 2026-08-09 pass.** Every row resting solely on
+   "verified 2026-08-09" was re-fetched on 2026-08-18:
+   - Koch / ALOHA 2 / Reachy 2 pricing: lerobot-pricing-2026 (github.com/
+     alpibrusl/lex-robot/issues/3, live) still lists Koch v1.1 ~$250-300,
+     ALOHA 2 ~$17k-32k, Reachy 2 ~$70,000 (fetched verbatim). Koch dofNote
+     corrected against the ROBOTIS kit BOM (4x XL330-M288 + 2x XL430-W250
+     per arm = 6 servos, gripper included; robotis.us kit page, BOM table).
+   - Reachy 2: dof 14 (7 per arm) and pollen-robotics.com/reachy-2/ added
+     from the vendor page ("With 7 degrees of freedom, Reachy 2's arms...");
+     the row's url previously pointed at the generic LeRobot docs.
+   - LIBERO: arXiv 2306.03310 abstract re-fetched ("four task suites
+     (130 tasks in total)"; procedural generation pipeline confirmed).
+   - SIMPLER: simpler-env.github.io re-fetched ("across ~1500 evaluation
+     episodes (from each of real and sim)", verbatim).
+   - RoboMIND: arXiv 2412.13877 abstract re-fetched ("107k demonstration
+     trajectories across 479 diverse tasks involving 96 object classes").
+   - Figure 03: figure.ai/news/introducing-figure-03 re-fetched; palm
+     cameras, wireless charging incl. "2 kW", foot coils, fleet production
+     all present in the live page text.
+   All seven re-fetches confirmed the recorded values. The GO-1 VRAM cut
+   stands; no other row traced to research/03's fabricated figures.
+
+4. **GELLO site.** wuphilipp.github.io/gello/ answered HTTP 200 again on
+   2026-08-18 (GitHub Pages, text/html). The registry and teleop-rigs
+   entries cite the paper (Table I sub-$300 BOM) as primary, which is
+   unaffected either way; the "site dead" note in this ledger's
+   notes-for-future-audits section is now historical.
+
+5. **robozaps-humanoids-2026 totes figure.** Repo-wide grep confirms no
+   article, dataset row, or lib file repeats "100,000 totes"; it exists
+   only in this ledger and in the source blog itself. The registry entry's
+   comment now carries an explicit editorial caution naming the excluded
+   claim ("Digit moves more than 100,000 totes... no Agility primary
+   source substantiates") so the loaded gun is labelled, not just latent.
+
+6. **evaluation-crisis.spec.ts specificity regression.** Recorded, not
+   fixed: the /Clopper-Pearson/i anchor was correctly replaced by /violin/i
+   (TRI reports Bayesian posteriors as violin plots and never used
+   Clopper-Pearson; a /confidence interval/i assertion was retained
+   alongside). Trade-off noted: the strand's most distinctive anchor
+   became a common word, so the spec now catches less if the paragraph is
+   accidentally rewritten.
+
+research/03 sweep: the consolidation pass grepped every published article
+and lib data file for research/03's eight documented fabrications
+(GO-1 VRAM, Trossen sale prices, AgiBot hours/G2/~43.8TB, DROID NC
+license, UMI stroke/time figures, GELLO assembly time, TRI
+Clopper-Pearson/4,200 rollouts, VLA-Perf card prices); none survive
+outside research/ itself (read-only) and this ledger's history.

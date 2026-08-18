@@ -1,10 +1,10 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1183,
+    "words": 1181,
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1308,
+    "words": 1311,
     "minutes": 7
   },
   "manipulation/diffusion-policy": {
@@ -12,11 +12,11 @@
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1628,
+    "words": 1627,
     "minutes": 8
   },
   "manipulation/pi-line": {
-    "words": 2571,
+    "words": 2561,
     "minutes": 13
   },
   "manipulation/generalist-policies": {
@@ -24,19 +24,19 @@
     "minutes": 9
   },
   "manipulation/comparison-matrix": {
-    "words": 1389,
+    "words": 1387,
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1554,
+    "words": 1553,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
-    "words": 2043,
+    "words": 2038,
     "minutes": 10
   },
   "manipulation/realtime-execution": {
-    "words": 1698,
+    "words": 1696,
     "minutes": 8
   },
   "manipulation/cross-embodiment": {
@@ -44,7 +44,7 @@
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
-    "words": 1182,
+    "words": 1178,
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
@@ -100,7 +100,7 @@
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3148,
+    "words": 3162,
     "minutes": 16
   },
   "data-hardware/teleop-rigs": {
@@ -132,23 +132,23 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1505,
+    "words": 1503,
     "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2111,
+    "words": 2110,
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 1909,
+    "words": 1901,
     "minutes": 10
   },
   "frontier/competing-theses": {
-    "words": 2585,
+    "words": 2574,
     "minutes": 13
   },
   "frontier/bear-case": {
-    "words": 1832,
+    "words": 1831,
     "minutes": 9
   },
   "adjacent/autonomous-vehicles": {

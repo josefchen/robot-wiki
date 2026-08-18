@@ -36,6 +36,9 @@ scripts/      Build-time node scripts: content validation, reading times,
               search index build, link liveness checker
 tests/        Vitest unit and component tests, Playwright e2e specs, fixtures
 research/     Deep-research reports behind the content (read-only transparency trail)
+audit/        Per-claim content-integrity audit ledgers: every published
+              article checked against its cited primary sources, with the
+              method, conventions, and totals in audit/README.md
 ```
 
 ### Content pipeline
@@ -46,7 +49,7 @@ research/     Deep-research reports behind the content (read-only transparency t
 - References, "See also", "Linked from" backlinks, breadcrumbs, reading time, and citation counts are generated at build time; authors never hand-write them.
 - Draft modules are excluded from the export, the sidebar, the search indexes, and the sitemap.
 - Search uses two indexes built at build time: Pagefind over prose, MiniSearch over structured data.
-- `npm run check:links` sweeps every citation URL for liveness. It is not part of the build (200+ network calls); run it on demand.
+- `npm run check:links` sweeps every citation URL for liveness, and `npm run check:citations` verifies each fetched document's identity against the registry entry. Neither is part of the build (200+ network calls); run them on demand. The evidence trail for every audited claim, including how to read the ledgers and re-run the checkers, is in [`audit/README.md`](audit/README.md).
 
 ## Setup
 

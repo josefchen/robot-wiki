@@ -307,9 +307,14 @@ async function main(): Promise<void> {
   const rawResults = await sweep(entries, options);
   const results = rawResults.map((r) => applyException(r, exceptionsById.get(r.id)));
   // An exception whose URL now passes (unaided or via Crossref) is leftover
-  // paperwork, not a failure; surface it so the list stays honest.
+  // paperwork, not a failure; surface it so the list stays honest. But a
+  // title-mismatch exception is invisible to this liveness sweep (a tagline
+  // <title> still resolves HTTP 200): the audit checker
+  // (scripts/check-citations.ts) owns that failure mode, so only it may
+  // declare those stale.
   const staleExceptions = results
     .filter((r) => r.verdict === 'live' && exceptionsById.has(r.id))
+    .filter((r) => !exceptionsById.get(r.id)!.covers.includes('title-mismatch'))
     .map((r) => r.id);
 
   if (options.json) {
