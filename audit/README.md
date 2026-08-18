@@ -206,9 +206,22 @@ left without a single live source. **Resolved 2026-08-18
 source for the same claim or removed where a live duplicate already
 covered it, no figures changed, and every remaining bot-wall /
 machine-unverifiable URL was verified live by independent fetch and
-documented in `data/dataset-source-exceptions.ts` (17 entries). The gate
-now exits 0: 207 URLs across 111 records — 190 live, 0 dead, 0 blocked,
-0 error, 17 documented exceptions.
+documented in `data/dataset-source-exceptions.ts` (18 entries at commit
+3c165df; the file held 0 entries at 4b520a3, so 18 were added — both
+counted from the committed files 2026-08-18; the "17 entries" first
+stated here was an assertion, not a count). The gate exits 0: 207 URLs
+across 111 records — 197 live, 0 dead, 0 blocked, 0 error, 10
+documented exceptions. CORRECTED 2026-08-18 (determinism fix, see
+`market-map.md`): this paragraph first stated "190 live, 17 documented
+exceptions", a split that was not reproducible — undici's 16 KiB
+default maxHeaderSize aborted Yahoo fetches nondeterministically
+(UND_ERR_HEADERS_OVERFLOW). The sweep now uses an undici Agent with a
+64 KiB maxHeaderSize, the 6 Yahoo finance/tech URLs are verified live
+by the gate itself, their 6 exception entries were removed (12 remain),
+and two consecutive runs printed byte-identical summaries. The totals
+(207 URLs, 0 dead, 0 error) are the reproducible result; any
+live-versus-exception split recorded before the fix was a snapshot of
+one run.
 
 ## Unresolved items
 

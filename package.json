@@ -52,6 +52,7 @@
     "remark-mdx-frontmatter": "5.2.0",
     "shiki": "4.4.2",
     "three": "0.185.1",
+    "undici": "8.10.0",
     "urdf-loader": "0.13.1",
     "zod": "3.25.76"
   },

@@ -105,54 +105,6 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     verifiedOn: '2026-08-18',
   },
   {
-    url: 'https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html',
-    reason:
-      'Yahoo Finance response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'curl GET (2026-08-18): HTTP 200; text-extraction proxy (r.jina.ai): title "Rhoda AI raises $450 million at $1.7 billion valuation, unveils robot intelligence platform", matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html',
-    reason:
-      'Yahoo Finance response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'curl GET (2026-08-18): HTTP 200; text-extraction proxy (r.jina.ai): title "Galbot Secures Over $300 Million in New Funding, Breaking Records with $3 Billion Valuation in China\'s Humanoid Robot Sector", matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://finance.yahoo.com/news/chinas-deep-robotics-raises-us-093000532.html',
-    reason:
-      'Yahoo Finance response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'curl GET (2026-08-18): HTTP 200; text-extraction proxy (r.jina.ai): title "China\'s Deep Robotics raises US$70 million in fresh funds as sector draws more investors", matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://finance.yahoo.com/news/dexterity-secures-95m-reaching-1-110002439.html',
-    reason:
-      'Yahoo Finance response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'curl GET (2026-08-18): HTTP 200; text-extraction proxy (r.jina.ai): title "Dexterity secures $95m, reaching $1.65bn valuation", matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://finance.yahoo.com/news/bedrock-robotics-raises-270m-red-131800649.html',
-    reason:
-      'Yahoo Finance response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'curl GET (2026-08-18): HTTP 200; text-extraction proxy (r.jina.ai): title "Bedrock Robotics raises $270M in red-hot AI sector" (Construction Dive via Yahoo; $350M total, $1.75B valuation), matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://tech.yahoo.com/articles/nuro-valued-6-billion-latest-131300388.html',
-    reason:
-      'Yahoo Tech response headers exceed Node fetch\'s header-size limit, so the sweep aborts with UND_ERR_HEADERS_OVERFLOW ("fetch failed") while the page itself is live and served fine to curl and browsers.',
-    verifiedBy:
-      'Text-extraction proxy (r.jina.ai, 2026-08-18): title "Nuro secures $6 billion valuation in latest funding round" (the April 2025 $106M round), matching the record; curl GET returns HTTP 200.',
-    verifiedOn: '2026-08-18',
-  },
-  {
     url: 'https://www.allegrohand.com/',
     reason:
       'allegrohand.com intermittently fails at the network layer for node fetch from this network (ENETUNREACH on some probes, 200 on others; curl succeeds consistently): a transient routing flake against this host, not link rot. The sweep\'s single retry does not reliably absorb it.',

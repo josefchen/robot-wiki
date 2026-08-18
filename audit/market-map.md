@@ -175,12 +175,24 @@ this). The 9 records with no live source all gained live sources. The
 remaining bot-walls and machine-unverifiable pages (Businesswire,
 Bloomberg, Quartz, kelo, Yahoo's Node-fetch header overflow, two flaky
 hosts) were verified live by independent fetch and documented in
-`data/dataset-source-exceptions.ts` (17 entries, each with reason,
-verification method and date). The gate now exits 0:
+`data/dataset-source-exceptions.ts` (CORRECTED 2026-08-18,
+determinism fix, recounted from the committed files: the source-refresh
+commit 3c165df held **18 entries total**, and the file held **0
+entries** at 4b520a3 (its header there read "The list is empty as of
+2026-08-18"), so **18 were added** — the "17 entries" this note
+previously stated was an assertion, not a count, and so was a later
+"19 total / 1 already present" figure. 6 of the 18 were Yahoo entries
+whose sole justification was undici's 16 KiB header-size limit aborting
+the fetch; after the sweep moved to an undici Agent with a 64 KiB
+maxHeaderSize, those URLs fetch live and were removed, leaving **12
+entries** counted from the committed file: 5 Businesswire,
+2 Bloomberg, 1 Quartz, 1 kelo, 1 The Robot Report tag hub, 2
+transient-routing-flake hosts, each with reason, verification method
+and date). The gate now exits 0:
 
 ```
-Checked 207 dataset source URLs across 111 records: 190 live, 0 dead,
-0 blocked, 0 error, 17 documented exceptions.
+Checked 207 dataset source URLs across 111 records: 197 live, 0 dead,
+0 blocked, 0 error, 10 documented exceptions.
 ```
 
 (URL count 223→207: 16 dead or duplicate entries removed rather than
@@ -215,7 +227,7 @@ after the edits.
 | e2e (integration+search) | `npx playwright test tests/e2e/go-public-integration.spec.ts tests/e2e/search-structured.spec.ts` | 22 passed (these specs were genuinely green) |
 | e2e (full suite, follow-up) | `lsof -ti :3200 | xargs kill` then `npm run test:e2e` on the follow-up commit | **572 passed / 0 failed / 1 skipped** (the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip in see-also.spec.ts) |
 | source-URL sweep | `curl -sL` over all dataset source URLs | every row carries a live (200) or live-but-bot-walled (403/429) source; hard 404s replaced |
-| dataset-source gate (source-refresh, 2026-08-18) | `npm run check:dataset-sources` | PASS, exit 0: 207 URLs across 111 records — 190 live, 0 dead, 0 blocked, 0 error, 17 documented exceptions (see the resolution note above and `data/dataset-source-exceptions.ts`) |
+| dataset-source gate (source-refresh, 2026-08-18) | `npm run check:dataset-sources` | CORRECTED (determinism fix, 2026-08-18): this row originally reported "190 live, 17 documented exceptions", but the live-versus-exception split was not reproducible — undici's default 16 KiB maxHeaderSize aborted Yahoo fetches nondeterministically (UND_ERR_HEADERS_OVERFLOW). After the sweep moved to an undici Agent with 64 KiB maxHeaderSize (and the 6 resolved Yahoo exception entries were removed from `data/dataset-source-exceptions.ts`, now 12 entries recounted from the file), two consecutive runs printed a byte-identical summary: 207 URLs across 111 records — 197 live, 0 dead, 0 blocked, 0 error, 10 documented exceptions; the 6 Yahoo finance/tech URLs now report live, verified by the gate itself. REPRODUCIBILITY BOUNDARY: the totals (207 URLs, 0 dead, 0 error) are the load-bearing reproducible result, stable across runs and networks. Any live-versus-exception split recorded before the undici fix was a snapshot of one run, not a property of the dataset — a future auditor must not read a 1-URL split difference against those numbers as a regression. After the fix the split was stable across both observed runs (byte-identical summaries); two retained entries (allegrohand.com, chinadailyhk.com, transient routing flakes unrelated to the Yahoo issue) exist so that if those hosts ever flake again the URL falls through to its documented exception and the gate still exits 0 — a future run showing 195 live / 12 exceptions for exactly those hosts is the safety net working, not rot |
 | source-refresh gates (2026-08-18) | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS |
 | source-refresh full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
 | source-refresh content validator | `npm run validate:content` | PASS (111 companies, zero violations) |

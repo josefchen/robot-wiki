@@ -29,6 +29,7 @@
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { Agent, fetch as undiciFetch } from 'undici';
 import {
   BROWSER_UA,
   classifyStatus,
@@ -41,6 +42,15 @@ import { DATASET_SOURCE_EXCEPTIONS } from '../data/dataset-source-exceptions.ts'
 const SOURCE = join(import.meta.dirname, '..', 'research', '04-market-map-companies.json');
 
 const DEFAULT_TIMEOUT_MS = 20_000;
+/**
+ * Yahoo (finance.yahoo.com, tech.yahoo.com) serves response header blocks
+ * larger than undici's default 16 KiB maxHeaderSize, which aborts the fetch
+ * with UND_ERR_HEADERS_OVERFLOW — and whether a given Yahoo URL trips it
+ * varied run to run, making the gate's live-versus-exception split
+ * nondeterministic. 64 KiB covers every header block we have observed, so
+ * the sweep verifies those URLs itself instead of trusting an exception.
+ */
+const DISPATCHER = new Agent({ maxHeaderSize: 65_536 });
 const DEFAULT_CONCURRENCY = 6;
 /** Pause before the single 5xx retry. */
 const RETRY_BACKOFF_MS = 1_500;
@@ -111,10 +121,11 @@ async function fetchStatus(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(url, {
+    const response = await undiciFetch(url, {
       method,
       redirect: 'follow',
       signal: controller.signal,
+      dispatcher: DISPATCHER,
       headers: {
         'User-Agent': BROWSER_UA,
         Accept: 'text/html,application/xhtml+xml,application/pdf,application/xml;q=0.9,*/*;q=0.8',
