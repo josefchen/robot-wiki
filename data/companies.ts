@@ -3996,9 +3996,9 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series A',
+      amountUsd: 26500000,
+      date: '2022-01-18',
       valuationUsd: null,
       leadInvestors: [
         'Lux Capital',
@@ -4010,6 +4010,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.businesswire.com/news/home/20220118005537/en/Formic-Technologies-Raises-26.5-Million-Series-A-Led-By-Lux-Capital',
+        title: 'Formic Technologies Raises $26.5 Million Series A Led By Lux Capital',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6',
         title: 'Lux Capital backed Formic',
@@ -4268,9 +4273,15 @@ const ROWS: Company[] = [
     status: 'private',
     deployments: [
       'Fast-food brand partnerships',
+      'Acquired restaurant-operations app Zignyl (2026-02-26, per Fortune)',
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://fortune.com/2026/02/26/robot-disruption-fast-food-short-order-cook-flippy-white-castle-jack-in-the-box/',
+        title: 'Miso Robotics acquires Zignyl (Fortune, 2026-02-26)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.businessinsider.com/how-a-robotics-company-is-solving-the-food-industry-labor-crisis',
         title: 'Miso Robotics automated kitchen assistants',
