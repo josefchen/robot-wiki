@@ -12,6 +12,7 @@
     "postbuild": "node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts && node scripts/lint-no-slop.ts",
     "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
     "typecheck": "next typegen && tsc --noEmit",
+    "prelint": "node scripts/postinstall.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
