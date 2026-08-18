@@ -143,3 +143,32 @@ of commands actually run.
 ## Source-URL sweep (post-fix)
 
 All 200+ distinct source URLs in the dataset were resolved with `curl -sL` this session. Every row now carries at least one source that is either 200-OK or a live bot-walled page (403/429 on scripted fetch but resolvable, e.g. Bloomberg, Crunchbase News, kelo, Tracxn). Hard-404 URLs found by the sweep were replaced in the same session with live sources fetched via search (rows above, verdict R).
+
+## Summary (counted from the tables above)
+
+- Records checked: **111 of 111** shipped rows (one duplicate removed, 112→111; every surviving row has a ledger entry or is covered by a batch row above).
+- Ledger rows: **98** (some rows cover one record, some cover a cluster; every record is named).
+- Verdicts (rows, counted from the table): C 46, C+N 21, V 14, R 9, N 3, and one each of V+R, C+R, V+N, V+C, U.
+- Records removed: **1** (galaxea-ai-robot, duplicate of galaxea-ai).
+- Records renamed: **1** (saronic-defense→anduril, a mislabeled Anduril row).
+- Status corrections: **5** (monarch-tractor and diligent-robotics → acquired; k-scale-labs → dead; rainbow-robotics → public; switchbot → public).
+- Unresolved: **1 row** (eka-robotics / foundry-robotics funding fields; recorded in batch 4).
+- Funding-timeline parity: by construction (`timelineEvents` derives from `latestRound` in `lib/market-map.ts`); re-verified after every regeneration.
+- Lower-bound rule applied throughout: "more than $X" / "nearly $X" / "over $X" figures never promoted to totals (skild-ai, figure-ai, generalist-ai, apptronik, the-bot-company, unitree, and ~20 more).
+
+## Verification transcript (commands actually run this session)
+
+| Gate | Command | Result |
+|---|---|---|
+| unit/component | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS (re-run after every batch) |
+| full unit suite | `npm run test` | 168 files / 1701 passed, 1 skipped |
+| content validator | `npm run validate:content` | PASS (after count-oracle updates to 111 / humanoids 34) |
+| dataset generation | `npm run generate:companies` | "wrote 111 rows" after every data edit |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| build | `npm run build` | PASS (pagefind: 135 structured documents) |
+| e2e (market-map set) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts` | 13 passed |
+| e2e (views) | `npx playwright test tests/e2e/market-map-deep-links.spec.ts tests/e2e/market-map-bubble-affordances.spec.ts tests/e2e/market-map-timeline-affordances.spec.ts` | 18 passed |
+| e2e (integration+search) | `npx playwright test tests/e2e/go-public-integration.spec.ts tests/e2e/search-structured.spec.ts` | 22 passed |
+| source-URL sweep | `curl -sL` over all dataset source URLs | every row carries a live (200) or live-but-bot-walled (403/429) source; hard 404s replaced |
+| ledger↔diff reconciliation | `git status --short` + `git diff --stat` | clean tree; all corrections on disk and committed (11 commits, 2dc0173..e180ed6) |
