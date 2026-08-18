@@ -1839,25 +1839,39 @@ const ROWS: Company[] = [
     approach: [
       'humanoid',
     ],
-    totalRaisedUsd: 100000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series A',
+      type: 'Acquisition (controlling stake)',
       amountUsd: null,
-      date: '2024-01-01',
-      valuationUsd: 400000000,
-      leadInvestors: [],
+      date: '2026-05-20',
+      valuationUsd: 106300000,
+      leadInvestors: [
+        'Hangzhou Kelin',
+      ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Hangzhou Kelin agreed in May 2026 to acquire a 51% controlling stake (41.57% for up to CNY 300M)',
+    ],
     openSource: [],
     sources: [
+      {
+        url: 'https://finance.biggo.com/news/2jvSSp4BmHHDnbgy1rv1',
+        title: 'Kepler Robot sells 51% stake to Hangzhou Kelin at ~$106.3M valuation',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml',
+        title: 'YICAI: Kelin Electric to buy controlling stake in Kepler (up to USD 44.1M)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://humanoidindex.org/companies/kepler-robot',
         title: 'Kepler Robot - Humanoid Index',
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
   },
   {
     id: 'limx-dynamics',
@@ -1961,11 +1975,11 @@ const ROWS: Company[] = [
       'musculoskeletal',
       'artificial-muscles',
     ],
-    totalRaisedUsd: 5000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Seed',
       amountUsd: null,
-      date: '2024-01-01',
+      date: null,
       valuationUsd: null,
       leadInvestors: [],
     },
@@ -1973,6 +1987,11 @@ const ROWS: Company[] = [
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.aparobot.com/companies/clone-robotics',
+        title: 'Clone Robotics profile (seed $6.5M, as reported)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://humanoidindex.org/companies/clone-robotics',
         title: 'Clone Robotics - Humanoid Index',
@@ -4244,25 +4263,32 @@ const ROWS: Company[] = [
     approach: [
       'humanoid',
     ],
-    totalRaisedUsd: 10000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Seed',
-      amountUsd: null,
-      date: '2024-01-01',
+      type: 'Series A+',
+      amountUsd: 14000000,
+      date: '2026-01-12',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'IDG Capital',
+      ],
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
       {
+        url: 'https://www.sohu.com/a/975073436_116132',
+        title: 'TMTPost: Booster Robotics raises over $14M led by IDG Capital',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://humanoidindex.org/companies/booster-robotics',
         title: 'Booster Robotics - Humanoid Index',
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
   },
   {
     id: 'leju-robotics',
@@ -4279,11 +4305,11 @@ const ROWS: Company[] = [
     approach: [
       'educational-humanoid',
     ],
-    totalRaisedUsd: 50000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
-      amountUsd: null,
-      date: '2024-01-01',
+      type: 'Pre-IPO',
+      amountUsd: 200000000,
+      date: '2025-10-22',
       valuationUsd: null,
       leadInvestors: [],
     },
@@ -4292,12 +4318,17 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
+        url: 'https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/',
+        title: 'Leju raises $200M for humanoid production',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://humanoidindex.org/companies/leju-robotics',
         title: 'Leju Robotics - Humanoid Index',
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
   },
   {
     id: 'switchbot',
@@ -4356,11 +4387,11 @@ const ROWS: Company[] = [
       'expressive-humanoid',
       'social-robotics',
     ],
-    totalRaisedUsd: 50000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
+      type: null,
       amountUsd: null,
-      date: '2021-01-01',
+      date: null,
       valuationUsd: null,
       leadInvestors: [],
     },
@@ -4370,6 +4401,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://getlatka.com/companies/hanson-robotics-limited',
+        title: 'Hanson Robotics funding profile ($21.7M across 2 rounds, as reported)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://humanoidindex.org/companies/hanson-robotics',
         title: 'Hanson Robotics - Humanoid Index',
@@ -4383,38 +4419,57 @@ const ROWS: Company[] = [
     name: 'PaXini',
     aka: [],
     hq: {
-      city: 'Tokyo',
-      country: 'JP',
+      city: 'Shenzhen',
+      country: 'CN',
     },
-    founded: 2020,
+    founded: 2021,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots with tactile sensing capabilities.',
+    description: 'Builds tactile-sensing chips, dexterous hands, and the TORA humanoid robot.',
     approach: [
       'tactile-sensing',
       'humanoid',
     ],
-    totalRaisedUsd: 20000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series A',
-      amountUsd: null,
-      date: '2024-01-01',
-      valuationUsd: null,
+      type: 'Series B',
+      amountUsd: 148000000,
+      date: '2026-03-09',
+      valuationUsd: 1400000000,
       leadInvestors: [
-        'JD.com',
+        'Whampoa Capital',
+        'Caitai Capital',
+        'Xin\'an Capital',
       ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Nearly 1 million tactile-sensing chips shipped in the year to Aug 2026; BYD strategic investment (Apr 2025)',
+    ],
     openSource: [],
     sources: [
+      {
+        url: 'https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing',
+        title: 'PaXini completes RMB 1B+ Series B at over RMB 10B valuation',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/',
+        title: 'PaXini raises RMB1B strategic round; cumulative RMB3.5B',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/',
+        title: 'BYD-backed PaXini weighs HK IPO ($148M March round)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://humanoidindex.org/companies/paxini',
         title: 'PaXini - Humanoid Index',
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
   },
   {
     id: 'miso-robotics',

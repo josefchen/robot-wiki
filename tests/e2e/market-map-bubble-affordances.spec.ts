@@ -94,9 +94,13 @@ test.describe('bubble view hover/focus affordances', () => {
     // extreme-top mark at cy=35.61; paintedTop = cy - r - halfStroke =
     // 35.61 - 8.5 - 1 = 26.11. The bound protects "the painted ring edge
     // sits above the clip rect's top edge (y=24) plus a 3-unit tolerance
-    // for scale drift from plotted-set changes", so 27 is the new bound;
-    // the ring itself is NOT clipped (insideClip stays false) and still
-    // paints fully outside the clip group.
+    // for scale drift from plotted-set changes", so 27 was the bound.
+    // Re-baselined again 2026-08-18 (figure-corrections pass: the plotted
+    // set shrank 37 -> 32 when four contradicted figures were nulled and
+    // the log-scale floor rose with the $5M clone-robotics total gone):
+    // anduril's paintedTop is now 27.72, so 28 is the bound; the ring
+    // itself is NOT clipped (insideClip stays false) and still paints
+    // fully outside the clip group.
     await mark(page, 'anduril').focus();
     const ringFacts = await page.evaluate(() => {
       const ring = document.querySelector('circle[data-focus-ring]');
@@ -110,7 +114,7 @@ test.describe('bubble view hover/focus affordances', () => {
       };
     });
     expect(ringFacts.insideClip).toBe(false);
-    expect(ringFacts.paintedTop).toBeLessThan(27);
+    expect(ringFacts.paintedTop).toBeLessThan(28);
     // The ring clears when focus leaves the mark.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(ring).toHaveCount(0);

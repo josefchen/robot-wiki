@@ -73,8 +73,11 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // amounts/valuations that previously plotted; 37 -> 36 when the
     // reconciliation sweep the same day nulled the-bot-company's founded
     // year (no fetched source states it; dyna-robotics precedent), which
-    // removes the record from the founded-vs-funding plot.
-    expect(focusable.length).toBe(36);
+    // removes the record from the founded-vs-funding plot. 36 -> 32 when
+    // the 2026-08-18 figure-corrections pass nulled clone-robotics,
+    // booster-robotics (totals; rounds carry no plottable figure),
+    // leju-robotics and hanson-robotics (aggregator conflicts).
+    expect(focusable.length).toBe(32);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);

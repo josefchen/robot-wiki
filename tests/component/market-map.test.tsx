@@ -280,7 +280,7 @@ describe('MarketMap', () => {
     // relax must not fight that choice.
     await user.selectOptions(screen.getByLabelText('Country'), 'CN');
     await waitFor(() => {
-      expect(screen.getByText('20 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
     });
     expect(
       screen.queryByRole('heading', { level: 3, name: 'Figure AI' }),
@@ -295,7 +295,7 @@ describe('MarketMap', () => {
     );
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('20 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
     });
     expect(document.getElementById('company-ghost')).toBeNull();
   }, TIMEOUT);

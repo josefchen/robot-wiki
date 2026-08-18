@@ -49,10 +49,10 @@ test.describe('timeline view roving keyboard affordances', () => {
     page,
   }) => {
     await openTimeline(page);
-    // 73 events render (2026-08-18 audit: rounds re-dated into the
-    // 2023-2026 window and dead-URL rows kept their dated rounds, moving
-    // the count up from 66); exactly one row is tabbable, the rest -1.
-    await expect(rowButtons(page)).toHaveCount(73);
+    // 72 events render (2026-08-18 figure-corrections pass: clone-robotics
+    // and hanson-robotics rounds nulled (aggregator conflicts), moving the
+    // count down from 73); exactly one row is tabbable, the rest -1.
+    await expect(rowButtons(page)).toHaveCount(72);
     const tabbables = await page.evaluate(
       () =>
         document.querySelectorAll('[data-timeline-id] > button[tabindex="0"]')

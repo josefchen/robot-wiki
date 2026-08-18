@@ -602,3 +602,75 @@ required.
 | full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
 | build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
 | targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |
+
+## Figure corrections for the contradicted aggregator-only records (2026-08-18)
+
+Scope: the six records the provenance-transparency pass (f8f4930) left with
+figures resting solely on humanoidindex.org and flagged as contradicted by
+independent reporting. That pass was provenance-only by rule; this pass
+fetched primaries/secondaries and corrected the figures. Field semantics
+applied consistently: `latestRound` is the most recent disclosed funding
+event (a round, IPO, or controlling-stake acquisition), `totalRaisedUsd` is
+a company funding total stated by a fetched source, never an aggregator
+figure and never a lower bound promoted to a total. Every source below was
+fetched this session with the gate's browser user agent
+(`lib/citation-links.ts` BROWSER_UA) and probed live (all 200) before
+being written in. Snippet-grade leads from the prior pass were used only
+to direct searches, never as evidence.
+
+| Record | Claim (shipped value) | Source checked (fetched, curl + browser UA, 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| kepler-robot | totalRaisedUsd $100M; latestRound Series A 2024-01-01 at $400M valuation | https://finance.biggo.com/news/2jvSSp4BmHHDnbgy1rv1 (200, body: Kelin to buy 41.57% for up to CNY 300M, 51% control total, "Kepler Robot's total valuation stands at approximately 722 million yuan (approximately $106.3 million)"; also: April 2026 A++ round at the 100-million-yuan level led by SAIF; May 14 strategic round); https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml (200, YICAI syndication: 41.6% stake, up to USD 44.1M, 51% after completion) | C | WRONG figure, and a wrong event class: no fetched source states $100M raised or a $400M valuation; the reported "CNY 300M-722M" range in the prior pass's lead was two different quantities (deal size vs whole-company valuation). Corrected: totalRaisedUsd nulled (no source states a company total); latestRound set to Acquisition (controlling stake), 2026-05-20, valuation $106.3M (the 722M yuan whole-company valuation both fetched sources state), lead Hangzhou Kelin; acquisition noted in deployments. Status stays private (deal announced, not confirmed closed). Sources added: biggo + SSE/YICAI; humanoidindex retained. Confidence low -> medium. Kepler remains plotted in the bubble chart via the $106.3M valuation. |
+| leju-robotics | totalRaisedUsd $50M; latestRound Series B 2024-01-01 | https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/ (200, fetched body text: "Leju Robotics Technology Co. this week reportedly raised 1.5 billion yuan, or about $200 million U.S."; "The company raised 36.2 million in Series B funding in June 2019"; investors CITIC Goldstone, Shenzhen Investment Holdings et al.; IPO reportedly planned) | C | STALE figure: the shipped "$50M Series B" matches no fetched source (TRR prints the actual Series B as $36.2M in 2019). Corrected: latestRound set to Pre-IPO $200M, 2025-10-22 (1.5B yuan as reported); totalRaisedUsd nulled (no fetched source states a company total). TRR added as source of record; humanoidindex retained. Confidence low -> medium. |
+| booster-robotics | totalRaisedUsd $10M; latestRound Seed 2024-01-01 | https://www.sohu.com/a/975073436_116132 (200, TMTPost piece, fetched body: "raised more than 100 million yuan ($14 million) in a new funding round ... The round was led by venture capital firm IDG Capital"; "total Series A financing to nearly 500 million yuan" across five rounds) | C | WRONG figure: nothing states a $10M seed. The field-semantics question (one round vs total) is resolved per the stated rule. Corrected: latestRound set to Series A+ $14M (over 100M yuan), 2026-01-12, lead IDG Capital; totalRaisedUsd nulled (the "nearly 500 million yuan Series A" is a series aggregate in yuan, not a company total in USD; no USD total stated). TMTPost added; humanoidindex retained. Confidence low -> medium. |
+| clone-robotics | totalRaisedUsd $5M; latestRound Seed 2024-01-01 | https://www.aparobot.com/companies/clone-robotics (200, fetched body: "Clone Robotics has raised $6.5 million in seed funding"); searches this session for a primary (clonecompany.com unreachable, republic.com bot-walled, Crunchbase/Tracxn/PitchBook aggregator pages only, tracxn self-contradicts $80M vs $6.5M-class figures) | C (nulled) | GENUINE CONFLICT, no primary resolves it: humanoidindex says $5M, aparobot says $6.5M, aggregators disagree with each other, no first-party or named-wire primary is reachable. Figure NULLED (totalRaisedUsd null; round date nulled; type Seed retained as uncontested). Both secondary profiles retained as sources so the disagreement is visible in the record; confidence stays low. The honest gap is the publishable state; a confident $5M or $6.5M would not be. |
+| hanson-robotics | totalRaisedUsd $50M; latestRound Series B 2021-01-01 | https://getlatka.com/companies/hanson-robotics-limited (200, fetched body: "has raised $21.7M in total funding across 2 rounds, with its most recent round in 2018"); searches for a primary (hansonrobotics.com funding page none, Crunchbase/PitchBook/Seedtable bot-walled or aggregator-only) | C (nulled) | GENUINE CONFLICT, no primary: humanoidindex says $50M, getlatka says $21.7M, neither is a primary, no fetched source supports $50M at all. Figure NULLED (totalRaisedUsd null; the fabricated "Series B 2021" round nulled wholesale, type null). getlatka retained beside humanoidindex so the disagreement is documented in the record; confidence stays low. |
+| paxini | totalRaisedUsd $20M; latestRound Series A 2024-01-01 led JD.com; HQ Tokyo/JP; founded 2020 | https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing (200, fetched body: "completed a Series B financing round exceeding RMB 1 billion, bringing the company's valuation to over RMB 10 billion"; jointly led by Whampoa Capital, Caitai Capital, Xin'an Capital); https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/ (200, fetched body: "raised more than 1 billion yuan ($148 million) in a funding round in March"; "founded in June 2021"; Shenzhen-based; BYD backer); https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ (200, fetched body: Aug 3 RMB1B strategic round, "cumulative fundraising to RMB3.5 billion") | C | The feature premise said paxini had no contradicting reporting and to leave it alone if confirmed; the committed ledger's own part-1 row already contradicted that premise (Caixin $145M/$1.4B), and this session's fetches confirm the contradiction, so the tree wins and paxini was corrected. Corrected: latestRound set to Series B $148M (RMB1B+ at CnEVPost's own conversion), 2026-03-09, valuation $1.4B (RMB10B+), leads Whampoa/Caitai/Xin'an; totalRaisedUsd nulled (RMB3.5B cumulative is yuan-denominated and company-stated via TechNode; kept in deployments note rather than converted into a USD total field); HQ Tokyo/JP -> Shenzhen/CN and founded 2020 -> 2021 (June 2021, CnEVPost) — the prior pass's Tokyo/2020 "correction" was itself wrong; JD.com lead dropped (JD is a backer per CnEVPost, not a named lead of the Series B). CN country-filter oracle updated 20 -> 21 in the same commit. Description and deployments updated from the fetched sources. Confidence low -> medium. |
+
+Counted from the table above: 6 rows, 6 corrected (2 of them corrections
+whose fix is a null with the conflict documented). Wrong vs stale, stated
+per record: kepler WRONG, leju STALE, booster WRONG, clone CONFLICT-nulled,
+hanson CONFLICT-nulled, paxini WRONG. Two records (clone, hanson) have
+figures nulled; null handling was checked in the renderers: the bubble
+chart skips null-y rows (`bubblePoints` in `lib/market-map.ts`), the
+company card renders "not disclosed" for null funding per the dataset
+convention, and filters/sorts treat null totals as absent (plotted set
+36 -> 32, timeline 73 -> 72, both re-baselined below).
+
+Snippet-tier disclosure for this pass: no row above rests on snippet-grade
+evidence; every quoted sentence comes from a document fetched this session.
+WebSearch was used only to locate the documents.
+
+Oracles updated with the counts that moved (all others re-derived and
+unchanged: 111 records, humanoids 34, segment counts, IPO-status list):
+timeline rows 73 -> 72 (tests/component/market-map-timeline-focus.test.tsx
+x2, tests/e2e/market-map-timeline-affordances.spec.ts), bubble plotted set
+36 -> 32 (tests/component/market-map-bubble-view.test.tsx), CN filter
+20 -> 21 (tests/component/market-map.test.tsx x2,
+tests/e2e/market-map-deep-links.spec.ts x2). Grep of old and new values
+(`$100M`, `$400M`, `$5M`, `$10M`, `$50M`, `$20M`, `36`, `73`, `20 of 111`)
+across tests/, scripts/, lib/, data/, README.md, audit/ found no further
+stale occurrences (the $-strings appear nowhere in tests; the counts only
+in the oracles updated above).
+
+### Gates for this pass (transcript of commands actually run)
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: 227 URLs / 111 records — 216 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| duplicate URLs | per-record URL check over the committed file (node, Set per record) | 0 duplicates |
+| content validator | `npm run validate:content` | PASS (42 MDX files clean, 3 registered quotation exceptions) |
+| typecheck | `npm run typecheck` | PASS (run again after the e2e runs to restore next-env.d.ts) |
+| lint | `npm run lint` | PASS (no output) |
+| targeted unit | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS (after oracle updates) |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| shadow sweep | `find out -maxdepth 1 -name "* [0-9]*"` + `.next` scan | one cloud-sync shadow (`.next/cache 2`) found and removed before e2e |
+| e2e (full, run 1) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | 571 passed / 1 failed / 1 skipped — the failure was the bubble paintedTop bound (26.11 -> 27.72 after the plotted set shrank 37 -> 32 and the log-scale floor rose; documented and re-baselined 27 -> 28 in the spec with the cause named) |
+| e2e (full, run 2, after re-baseline) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | **572 passed / 0 failed / 1 skipped** (fresh server; the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip) |
+| rendered-output check | Playwright headless against the static export on 3201, six corrected cards, console-error listener | all six cards render: kepler $106M valuation, booster $14M, leju $200M, paxini $148M / $1.4B; clone and hanson figures degrade to "not disclosed"; zero console errors; screenshots at /tmp/card-<id>.png |
+
+Note on `lastReviewed` and the humanizer: this pass changed dataset
+records and test oracles only, no article prose, so per the documented
+rule neither applies.

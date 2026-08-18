@@ -41,12 +41,14 @@ describe('FundingTimeline roving keyboard access', () => {
   it('is a single tab stop: one row tabbable, the rest not', () => {
     render(<FundingTimeline companies={COMPANIES} />);
     const all = rows();
-    // 73 of the 111 companies have a 2023-2026 dated round; all render.
-    expect(all.length).toBe(73) // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
+    // 72 of the 111 companies have a 2023-2026 dated round; all render.
+    // 73 -> 72 when the 2026-08-18 figure-corrections pass nulled the
+    // clone-robotics and hanson-robotics rounds (aggregator conflicts).
+    expect(all.length).toBe(72) // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
     expect(tabbable).toHaveLength(1);
-    expect(roving).toHaveLength(72); // 69 dated rows minus the one tabbable
+    expect(roving).toHaveLength(71); // 72 dated rows minus the one tabbable
   }, TIMEOUT);
 
   it('moves down to the next event chronologically with ArrowDown', () => {

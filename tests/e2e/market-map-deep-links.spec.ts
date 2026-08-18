@@ -77,10 +77,10 @@ test.describe('market-map deep links on the static export', () => {
     });
     await page.goto(`${BASE}/market-map/?country=CN#company-ghost`);
 
-    // 20 CN-headquartered rows since the audit moved PaXini's HQ from
-    // Shenzhen to Tokyo (2026-08-18): the CN filter count went 21 -> 20.
-    await expect(page.getByText('20 of 111 companies')).toBeVisible();
-    expect(await page.locator('article[data-company-id]').count()).toBe(20);
+    // 21 CN-headquartered rows: the figure-corrections pass moved PaXini's
+    // HQ back to Shenzhen per fetched reporting (2026-08-18), CN 20 -> 21.
+    await expect(page.getByText('21 of 111 companies')).toBeVisible();
+    expect(await page.locator('article[data-company-id]').count()).toBe(21);
     await expect(page.locator('#company-ghost')).toHaveCount(0);
     expect(errors).toEqual([]);
   });
