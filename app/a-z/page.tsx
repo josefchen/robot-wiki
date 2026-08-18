@@ -16,10 +16,9 @@ export const metadata: Metadata = {
  * wiki that the taxonomy sidebar cannot give. Every published article and
  * every glossary term in one alphabetical run, grouped by first letter with
  * jump links. Generated from the module registry and the glossary registry,
- * so a newly published article appears here with no hand editing
- * (VAL-CROSS-029); drafts never render in any form (VAL-BUILD-001,
- * VAL-WIKI-021). The count line reports what a reader can read right now,
- * never authoring progress (VAL-DESIGN-015).
+ * so a newly published article appears here with no hand editing;
+ * drafts never render in any form. The count line reports what a reader
+ * can read right now, never authoring progress.
  */
 export default function AzIndexPage() {
   const entries: AzIndexSourceEntry[] = [

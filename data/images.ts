@@ -5,7 +5,7 @@
  * ImageRef resolver); scripts/validate-content.ts fails the build if a page
  * references an id that is not registered here, if a registered image is
  * referenced nowhere, or if an entry's licence is missing or outside the
- * permitted set (VAL-IMG-006, VAL-IMG-007, VAL-IMG-008). The /credits page
+ * permitted set. The /credits page
  * is generated from this registry, so it cannot drift from what renders.
  *
  * Licensing policy lives in library/imagery.md and is a hard gate. Every

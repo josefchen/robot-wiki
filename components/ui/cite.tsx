@@ -19,7 +19,7 @@ type CiteProps = {
   /**
    * In-page anchor (#ref-<id>) of this citation's entry in the article's
    * References section. When set, the chip grows a second affordance that
-   * jumps the reader to the full entry (VAL-WIKI-004).
+   * jumps the reader to the full entry.
    */
   referenceHref?: string;
 };

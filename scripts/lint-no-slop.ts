@@ -1,5 +1,5 @@
 /**
- * CLI wrapper for the no-slop lint (VAL-BUILD-004, VAL-BUILD-007/008/009).
+ * CLI wrapper for the no-slop lint.
  *
  * Runs the pure checks in lib/no-slop.ts against the real repo:
  *   1. Placeholder sweep over every .html file in the static export
@@ -15,7 +15,7 @@
  *      the placeholder half.
  *
  * Verbatim quoted source text is exempt only through the attribution
- * registry in data/no-slop-exceptions.ts (VAL-BUILD-008): the registry is
+ * registry in data/no-slop-exceptions.ts: the registry is
  * validated before any scanning (an entry without evidence fails the run),
  * its exact quote text is masked in both halves, and an entry whose quote
  * matches no scanned content is reported [STALE] so the list stays honest.
@@ -58,8 +58,8 @@ if (exceptionProblems.length > 0) {
 
 const scannedTexts: string[] = [];
 
-// --- 1. Placeholder sweep over the export (VAL-BUILD-004), ---
-// --- plus the rendered-prose marker lint (VAL-BUILD-007).   ---
+// --- 1. Placeholder sweep over the export, ---
+// --- plus the rendered-prose marker lint. ---
 const outDir = join(root, 'out');
 if (sourceOnly) {
   console.log('no-slop: source-only run, export sweeps skipped (postbuild gates the fresh export)');
@@ -109,7 +109,7 @@ if (sourceOnly) {
   console.log('no-slop: out/ absent, export sweeps skipped (runs standalone after build)');
 }
 
-// --- 2. AI-writing markers over MDX prose (VAL-BUILD-007). ---
+// --- 2. AI-writing markers over MDX prose. ---
 const contentDir = join(root, 'content');
 const mdxFiles: string[] = [];
 (function walk(dir: string) {

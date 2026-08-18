@@ -8,7 +8,7 @@
  * source, and so the unit suite can assert that every citation id resolves
  * in the registry.
  *
- * The Zod schema is the completeness gate (VAL-FRONT-014): every thesis
+ * The Zod schema is the completeness gate: every thesis
  * must carry non-empty proponents, evidenceFor, evidenceAgainst, and
  * falsification. The array is parsed at module scope, so an incomplete row
  * throws during static generation and fails `next build`.
@@ -272,7 +272,7 @@ const ROWS: Thesis[] = [
 /**
  * The six theses, schema-validated at module load. An incomplete row throws
  * here, which fails `next build` during static generation of the module
- * page (VAL-FRONT-014's build-time step).
+ * page.
  */
 export const THESES: Thesis[] = z.array(thesisSchema).length(6).parse(ROWS);
 

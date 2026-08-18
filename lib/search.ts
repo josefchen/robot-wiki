@@ -132,7 +132,6 @@ export async function toSearchHits(
  * Latest-wins sequencing for overlapping searches. Each new query begins a
  * token; only the most recent token may apply its results, so a slow
  * response for an older query can never mix into newer results
- * (VAL-SEARCH-011).
  */
 export function createRequestSequencer(): {
   begin(): number;

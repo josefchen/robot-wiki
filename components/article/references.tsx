@@ -11,11 +11,10 @@ import type { ResolvedReference } from '@/lib/references';
  *
  * Entries keep registry data verbatim: title, full author list, year, venue
  * when the registry records one, and a link to the primary source. Absent
- * optional fields render nothing, never a fabricated value (VAL-WIKI-003).
+ * optional fields render nothing, never a fabricated value.
  * Entries are anchored at #ref-<id> so chips can jump to them, and entries
  * declared in frontmatter but never cited inline carry an explicit
  * "Further reading" marker instead of appearing as silent orphans
- * (VAL-WIKI-004).
  */
 export function References({ entries }: { entries: readonly ResolvedReference[] }) {
   if (entries.length === 0) return null;

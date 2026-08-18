@@ -1,6 +1,5 @@
 /**
- * Global no-slop lint over the shipped prose and export (VAL-BUILD-004,
- * VAL-BUILD-007, VAL-BUILD-008, VAL-BUILD-009).
+ * Global no-slop lint over the shipped prose and export.
  *
  * Two checks, both pure functions over strings so they are unit-testable:
  *
@@ -21,13 +20,13 @@
  *    masked, and quotation marks are never masked.
  *
  *    The single carve-out for verbatim quoted source text is the
- *    attribution-scoped exception registry in data/no-slop-exceptions.ts
- *    (VAL-BUILD-008): a quotation is exempt only when its exact text is
+ *    attribution-scoped exception registry in data/no-slop-exceptions.ts:
+ *    a quotation is exempt only when its exact text is
  *    registered there against a citation-registry id or a named source
  *    URL, each entry carrying why the text is verbatim, how a human
  *    verified it against the source, and when. The exemption comes from
  *    that registration, never from punctuation: unregistered text inside
- *    quotation marks still fails (VAL-BUILD-009), which the unit tests
+ *    quotation marks still fails, which the unit tests
  *    pin from both directions.
  *
  * The CLI wrapper (scripts/lint-no-slop.ts) runs both against the real
@@ -64,7 +63,7 @@ export function findPlaceholderMarkers(html: string): string[] {
 /**
  * Banned AI-writing vocabulary in shipped prose, from the humanizer
  * skill's high-frequency list. Word-boundary matched, case-insensitive.
- * Each entry carries the category the contract names (VAL-BUILD-007).
+ * Each entry carries the category the contract names.
  */
 const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
   // Promotional / advertisement-like (humanizer §4).
@@ -144,7 +143,7 @@ export function maskNonProse(body: string): string {
 
 /**
  * A registered exception exempting one verbatim quotation from the marker
- * lint (VAL-BUILD-008). House pattern of data/link-check-exceptions.ts:
+ * lint. House pattern of data/link-check-exceptions.ts:
  * every field is mandatory and the registry is validated before the lint
  * runs, because an exception without evidence is a suppressed failure.
  *

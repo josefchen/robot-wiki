@@ -22,7 +22,7 @@ import { cx } from '@/lib/utils';
  * inside its own container at 375px. No animation at all, so the component
  * is reduced-motion safe by construction. Column headers and section
  * labels are mono and dim but deliberately NOT uppercase: the page's
- * uppercase micro-label budget (VAL-DESIGN-010) is left unspent here.
+ * uppercase micro-label budget is left unspent here.
  */
 
 const HEADER_CELL =

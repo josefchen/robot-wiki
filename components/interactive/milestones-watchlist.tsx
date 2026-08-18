@@ -28,7 +28,7 @@ import { cx } from '@/lib/utils';
  * explicit empty state: as of writing, no milestone has been met, and that
  * absence is part of the module's argument. Column headers and section
  * labels are mono and dim but deliberately NOT uppercase: the page's
- * uppercase micro-label budget (VAL-DESIGN-010) is left unspent here.
+ * uppercase micro-label budget is left unspent here.
  */
 
 const FILTERS: Array<{ value: MilestoneFilter; label: string }> = [

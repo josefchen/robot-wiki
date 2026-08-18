@@ -18,7 +18,7 @@ import { cx } from '@/lib/utils';
  * ComparisonMatrix: every major manipulation policy across the eight
  * architectural axes, as a filterable, sortable table.
  *
- * Honesty rules (VAL-MAN-035, VAL-MAN-065): cells the vendor has not
+ * Honesty rules: cells the vendor has not
  * published render as "not disclosed", and null values always sort to the
  * end in both directions, never interleaved with numbers as if they were
  * zero. Rates the sources do not verify are omitted from the data entirely.

@@ -2,8 +2,8 @@
  * Derivation of the sidebar accessible-name fixture
  * (tests/fixtures/nav-accessible-names.json).
  *
- * The fixture is the baseline for tests/e2e/design-chrome.spec.ts
- * (VAL-DESIGN-022): every sidebar link's href and accessible name, in DOM
+ * The fixture is the baseline for tests/e2e/design-chrome.spec.ts:
+ * every sidebar link's href and accessible name, in DOM
  * order, after every taxonomy section is expanded. Until 2026-08-15 every
  * module publish regenerated it with a throwaway visual-*.mts script, each
  * worker writing a slightly different one. scripts/regen-nav-fixture.ts is

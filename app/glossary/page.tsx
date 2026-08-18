@@ -12,7 +12,7 @@ export const metadata: Metadata = {
  * The glossary index: every registered term, alphabetically, with its
  * definition and a link to each cited primary source. The same registry
  * records feed the inline <Term> tooltips, so this page and the inline
- * definitions are one source of truth (VAL-GLOSS-009). Each entry is
+ * definitions are one source of truth. Each entry is
  * anchored at #<id>, which is where inline terms link.
  */
 export default function GlossaryPage() {

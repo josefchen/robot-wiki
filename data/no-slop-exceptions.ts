@@ -1,6 +1,6 @@
 /**
  * Registered verbatim-quotation exceptions for the no-slop lint
- * (scripts/lint-no-slop.ts, lib/no-slop.ts; VAL-BUILD-008/009).
+ * (scripts/lint-no-slop.ts, lib/no-slop.ts).
  *
  * The marker lint bans AI-writing markers in shipped prose, including em
  * and en dashes. Audit work replaces our paraphrase with a source's own

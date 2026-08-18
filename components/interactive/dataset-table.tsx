@@ -19,7 +19,7 @@ import { cx } from '@/lib/utils';
  * DatasetTable: the major open robot-manipulation datasets as a filterable,
  * sortable comparison table.
  *
- * Honesty rules (VAL-DATA-009, VAL-DATA-010): figures the source does not
+ * Honesty rules: figures the source does not
  * publish render as "not disclosed" (dim) and never as invented numbers,
  * null cells always sort last in both directions, and every row links out
  * to its dataset site or paper. Estimates live in the module prose, not in

@@ -2,7 +2,7 @@
  * The A-Z index model (architecture.md section 6): one flat alphabetical
  * list of every published article and every glossary term, grouped by first
  * letter with jump links. The page at app/a-z/page.tsx renders what this
- * module computes; the registry tests pin completeness (VAL-WIKI-019/020).
+ * module computes; the registry tests pin completeness.
  *
  * Pure and dependency-free so it can be unit-tested with fixtures and reused
  * by the page, which feeds it the real registries.

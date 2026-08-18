@@ -25,7 +25,7 @@ import { cx } from '@/lib/utils';
  * that narrates the current sort and selection, a reset control, and
  * horizontal scroll inside its own container at 375px. Column headers are
  * mono and dim but deliberately NOT uppercase: the page's uppercase
- * micro-label budget (VAL-DESIGN-010) is spent on the prose Stat grid.
+ * micro-label budget is spent on the prose Stat grid.
  */
 
 const HEADER_CELL =

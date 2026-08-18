@@ -8,10 +8,8 @@ import type { Domain } from '@/data/modules';
 /**
  * Domain landing view: the entry point every home card and sidebar overview
  * link resolves to. Lists the domain's published modules in registry order,
- * each with its own summary. Drafts never appear in any form (VAL-BUILD-001,
- * VAL-WIKI-021), and the page carries no progress counters: a reader sees
+ * each with its own summary. Drafts never appear in any form, and the page carries no progress counters: a reader sees
  * what exists to read, not the state of the authoring pipeline
- * (VAL-DESIGN-001/015).
  */
 export const dynamicParams = false;
 

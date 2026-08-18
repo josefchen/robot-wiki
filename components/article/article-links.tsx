@@ -13,7 +13,7 @@ import type { ArticleLinkEntry } from '@/lib/backlinks';
  * label (it must match the destination's h1) and its one-line summary.
  * An empty list renders nothing at all: an article with no inbound links
  * omits "Linked from" entirely rather than showing an empty or
- * apologetic section (VAL-WIKI-012), and "See also" stays absent until
+ * apologetic section, and "See also" stays absent until
  * the article declares one.
  */
 

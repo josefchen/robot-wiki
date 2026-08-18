@@ -15,8 +15,7 @@ import { cx } from '@/lib/utils';
 /**
  * TeleopRigMatrix: the four reference teleop-rig families (ALOHA-class
  * workstations, GELLO, UMI, VR teleoperation) compared across cost, data
- * quality, throughput, and embodiment gap (VAL-DATA-017 through
- * VAL-DATA-020).
+ * quality, throughput, and embodiment gap.
  *
  * Honesty rules: figures no source publishes render as "not disclosed"
  * (dim) and never as invented numbers (the VR family carries no published

@@ -24,10 +24,10 @@ const container = 'mx-auto w-full max-w-5xl px-6';
 export default function Home() {
   // The adjacent group is a survey rather than a stack of prerequisites,
   // so its four modules are listed individually in the index row: a
-  // reader picks a domain by name, then an adjacent topic directly
-  // (VAL-ADJ-009). Core domains keep the domain landing as their single
+  // reader picks a domain by name, then an adjacent topic directly.
+  // Core domains keep the domain landing as their single
   // entry point; expanding all of them here would restate the whole
-  // taxonomy a third time (VAL-DESIGN-008).
+  // taxonomy a third time.
   const adjacentModules = (modulesByDomain().adjacent ?? []).filter(
     (m) => m.status === 'published',
   );
@@ -70,11 +70,11 @@ export default function Home() {
             const meta = DOMAIN_META[domain];
             // The adjacent group is a survey rather than a stack of
             // prerequisites, so its row lists the modules themselves as
-            // links (VAL-ADJ-009): the titles double as the description,
+            // links: the titles double as the description,
             // instead of naming the same four topics twice. Core domains
             // keep the domain landing as their single entry point;
             // expanding them all here would restate the taxonomy a third
-            // time (VAL-DESIGN-008).
+            // time.
             const isAdjacent = domain === 'adjacent';
             return (
               <li key={domain}>

@@ -15,7 +15,7 @@ import { SearchBox } from './search-box';
  * aria-controls; opening moves focus into the drawer and makes the page
  * behind it inert; Escape, the close control, or the scrim dismiss it and
  * return focus to the trigger; every link inside the drawer closes it via
- * the onNavigate callback (VAL-NAV-015/016).
+ * the onNavigate callback.
  */
 export function SiteShell({ children }: { children: ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -130,7 +130,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             className="absolute inset-0 bg-bg/80"
           />
           {/* The 80% scrim already separates the panel from the page; a
-              border on top of it is a redundant edge (VAL-DESIGN-020). */}
+              border on top of it is a redundant edge. */}
           <div className="relative flex h-full w-[85vw] max-w-80 flex-col bg-bg">
             <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
               <Link

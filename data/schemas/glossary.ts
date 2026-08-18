@@ -5,7 +5,6 @@ import { slugSchema } from './shared.ts';
  * Glossary entry. Every jargon term wrapped in <Term id="..."/> in MDX
  * resolves to one of these, and the /glossary page renders the same records,
  * so the inline definition and the glossary entry can never drift apart
- * (VAL-GLOSS-009).
  *
  * `citations` requires at least one citation-registry id: an uncited
  * definition is exactly the confident-sounding filler this wiki exists to

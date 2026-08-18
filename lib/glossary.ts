@@ -1,8 +1,8 @@
 /**
  * Glossary helpers for the content pipeline. `inlineTermIds` scans an MDX
  * body for <Term id="..."/> usages so the prebuild validator can fail the
- * build on unknown term ids (VAL-GLOSS-008) and so tests can prove the
- * inline id set stays within the glossary (VAL-GLOSS-010).
+ * build on unknown term ids, and so tests can prove the
+ * inline id set stays within the glossary.
  *
  * Code masking mirrors inlineCitationIds in lib/references.ts: blank (not
  * remove) masked regions so match indices keep their line positions. MDX

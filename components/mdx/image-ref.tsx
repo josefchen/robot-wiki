@@ -6,7 +6,7 @@ import { getImage, licenceLabel } from '@/data/images';
  * mdx-components alias) and tsx pages render <ImageRef id="..."/>; both map
  * the id to the image registry and render the Figure primitive with the
  * caption, intrinsic dimensions, and the visible credit (creator, source,
- * licence, links) that VAL-IMG-002/003/009 require. The primitive itself
+ * licence, links) that the image contract requires. The primitive itself
  * stays untouched.
  */
 export function ImageRef({ id }: { id: string }) {

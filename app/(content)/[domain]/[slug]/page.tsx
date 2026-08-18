@@ -15,7 +15,7 @@ import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
 
 // Fully static: only published modules get routes. Drafts (and everything
-// else) fall through to 404, which is what VAL-BUILD-001 requires.
+// else) fall through to 404: drafts must never resolve.
 export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ domain: string; slug: string }> {
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: entry.title,
     description: entry.summary,
-    // Articles are og:type article (VAL-BUILD-006). A page-level
+    // Articles are og:type article. A page-level
     // openGraph object replaces the layout's (no deep merge), so the
     // route-relative url and site name are restated here; og:title and
     // og:description inherit from title/description.
@@ -110,7 +110,7 @@ export default async function ModulePage({ params }: { params: Params }) {
   // Linked from: this article's inbound edges in the derived link graph
   // (in-prose internal links plus seeAlso edges from other articles).
   // Both render between the prose and the References bibliography; an
-  // empty list renders no section at all (VAL-WIKI-012).
+  // empty list renders no section at all.
   const seeAlsoEntries = resolveArticleEntries(
     mod.frontmatter?.seeAlso ?? [],
     modules,
@@ -122,9 +122,9 @@ export default async function ModulePage({ params }: { params: Params }) {
 
   const body = moduleBody(moduleSource(domain, slug));
 
-  // One resolved References list (VAL-WIKI-001) is the single source for
-  // both the rendered bibliography and the header's citation count
-  // (VAL-WIKI-014): the two can never drift apart because they share the
+  // One resolved References list is the single source for
+  // both the rendered bibliography and the header's citation count:
+  // the two can never drift apart because they share the
   // array. The body scan marks entries declared but never cited inline so
   // they carry the explicit "Further reading" marker.
   const references = resolveReferences(
@@ -133,8 +133,8 @@ export default async function ModulePage({ params }: { params: Params }) {
     getCitation,
   );
 
-  // Reading time, at the documented WORDS_PER_MINUTE rate (lib/reading-time
-  // .ts), never hardcoded per article (VAL-WIKI-015). The value comes from
+  // Reading time, at the documented WORDS_PER_MINUTE rate
+  // (lib/reading-time.ts), never hardcoded per article. The value comes from
   // data/reading-times.json: the exact rendered word count of this page's
   // own .prose region, measured at build time by scripts/measure-reading-
   // times.ts. Because it is read at render time, the HTML and the RSC
@@ -149,13 +149,13 @@ export default async function ModulePage({ params }: { params: Params }) {
   // One hairline separates the prose from the generated wiki apparatus
   // (See also / Linked from / References); the apparatus sections divide
   // themselves with spacing and heading hierarchy, not repeated rules, so
-  // an article carries at most two full-width rules (VAL-DESIGN-018).
+  // an article carries at most two full-width rules.
   const hasApparatus =
     seeAlsoEntries.length > 0 ||
     linkedFromEntries.length > 0 ||
     references.length > 0;
 
-  // The breadcrumb trail (VAL-WIKI-016/017): Home and the domain are real
+  // The breadcrumb trail: Home and the domain are real
   // links (the domain crumb is what makes /<domain>/ reachable from every
   // article), the article itself is the non-linked trailing crumb. The
   // same trail is emitted as BreadcrumbList structured data, with the same
@@ -175,7 +175,7 @@ export default async function ModulePage({ params }: { params: Params }) {
     // content (header + body) and excludes the surrounding nav chrome and
     // the generated References bibliography. data-prose-column is the
     // named handle for the article's text column: validators measuring
-    // VAL-DESIGN-018's full-width rules resolve it here instead of by
+    // the full-width rules resolve it here instead of by
     // ancestor heuristics (library/design-system.md).
     <article data-prose-column className="mx-auto w-full max-w-[65ch] px-6 py-12">
       <script

@@ -13,11 +13,11 @@ import { cx } from '@/lib/utils';
  *
  * Seven collapsible groups (six core domains + adjacent) plus Market Map and
  * Playground as top-level entries. Only published modules render at all:
- * drafts are excluded from the sidebar taxonomy entirely (VAL-BUILD-001), so
- * no reader surface can hint at work that does not exist yet
- * (VAL-DESIGN-001/015). The group containing the current route is expanded
+ * drafts are excluded from the sidebar taxonomy entirely, so
+ * no reader surface can hint at work that does not exist yet.
+ * The group containing the current route is expanded
  * on load and the active link carries aria-current="page" with the amber
- * accent (VAL-NAV-011/012).
+ * accent.
  */
 type NavTreeProps = {
   /** Prefix for element ids so desktop and drawer instances never collide. */
@@ -59,12 +59,12 @@ const linkActive = 'text-accent';
 /**
  * The active-route marker: a flat, full-height 2px rule pinned to the left
  * edge of the link box. It replaces the previous inset box-shadow, which the
- * link's rounded-sm corners clipped into a broken bracket (VAL-DESIGN-016).
+ * link's rounded-sm corners clipped into a broken bracket.
  * A real element (not a shadow) means zero radius on every corner, and
  * because every category of entry renders it at the same offset from the
  * rail, module links, Domain overview links and standalone entries all mark
- * at one depth (VAL-DESIGN-017). aria-hidden and empty so it can never
- * pollute the link's accessible name (VAL-DESIGN-022).
+ * at one depth. aria-hidden and empty so it can never
+ * pollute the link's accessible name.
  */
 function ActiveMarker() {
   return (
@@ -109,7 +109,7 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
   const grouped = modulesByDomain();
 
   // Expansion is derived: the active route's group is expanded by default
-  // (deep links land with context, VAL-NAV-012), and user toggles are stored
+  // (deep links land with context), and user toggles are stored
   // as overrides on top. No effect sync needed on client-side navigation.
   const [overrides, setOverrides] = useState<Record<string, boolean>>({});
   const isExpanded = (domain: string) =>

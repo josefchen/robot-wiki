@@ -18,7 +18,7 @@ import { cx } from '@/lib/utils';
 
 /**
  * HardwareGuide: a filterable buyer's guide across arms, humanoids, hands,
- * tactile sensors, and edge compute (VAL-DATA-011 through VAL-DATA-016).
+ * tactile sensors, and edge compute.
  *
  * Honesty rules: figures a source does not publish render as "not
  * disclosed" (dim) and never as invented numbers, and every listed price

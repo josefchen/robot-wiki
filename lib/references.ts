@@ -21,7 +21,6 @@ export interface ResolvedReference {
    * Declared in frontmatter but never cited inline. The entry still belongs
    * in References (frontmatter is the source of truth) but must carry an
    * explicit "Further reading" marker rather than appear silently orphaned
-   * (VAL-WIKI-004).
    */
   furtherReading: boolean;
 }

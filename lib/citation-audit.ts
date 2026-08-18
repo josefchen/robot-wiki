@@ -2,7 +2,7 @@
  * Pure logic for the citation audit checker (scripts/check-citations.ts).
  *
  * The liveness sweep (lib/citation-links.ts) answers "does the URL resolve?".
- * This module answers the harder question behind VAL-AUDIT-008: "is the
+ * This module answers the harder question: "is the
  * fetched document the one the registry entry describes?" A URL that 200s
  * but serves a different paper is a failure, not a pass, so the checker
  * extracts the fetched document's title and compares it against the registry
@@ -138,7 +138,7 @@ function isGenericPageTitle(title: string): boolean {
  * Verdicts:
  * - 'match': the fetched title plausibly IS the registry document.
  * - 'mismatch': the fetched title names a different document. This is the
- *   wrong-paper signal VAL-AUDIT-008 exists to catch.
+ *   wrong-paper signal this checker exists to catch.
  * - 'unavailable': no comparable title was obtainable (generic/placeholder
  *   title, empty title). Not evidence of anything; reported, never fatal.
  */
