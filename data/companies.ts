@@ -691,7 +691,7 @@ const ROWS: Company[] = [
       'data-collection',
       'robotics-infrastructure',
     ],
-    totalRaisedUsd: 70000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: 70000000,
@@ -703,6 +703,11 @@ const ROWS: Company[] = [
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://techcrunch.com/2026/06/17/collecting-robot-training-data-is-dirty-unglamorous-work-some-ai-labs-are-already-paying-xdof-to-do-it/',
+        title: 'XDOF exits stealth with $70M (Thrive Capital, Spark Capital, a16z, Lux, WndrCo)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://theaiinsider.tech/2026/06/18/robotics-infrastructure-startup-xdof-emerges-from-stealth-with-70m/',
         title: 'XDOF Emerges from Stealth with $70M',
@@ -1783,13 +1788,15 @@ const ROWS: Company[] = [
       'quadruped-first',
       'all-weather-humanoid',
     ],
-    totalRaisedUsd: 210000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Series C',
       amountUsd: 70000000,
       date: '2025-12-10',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'China Merchants Bank International',
+      ],
     },
     status: 'private',
     deployments: [
@@ -1801,8 +1808,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://finance.yahoo.com/news/chinas-deep-robotics-raises-us-093000532.html',
-        title: 'Deep Robotics raises US$70 million in fresh funds',
-        asOf: '2026-08-06',
+        title: 'China\'s Deep Robotics raises US$70 million (500M yuan Series C; SCMP via Yahoo)',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.deeprobotics.cn/en',
@@ -2025,14 +2032,15 @@ const ROWS: Company[] = [
       'purpose-built-humanoid',
       'heavy-duty',
     ],
-    totalRaisedUsd: 37000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Pre-seed',
       amountUsd: 27000000,
-      date: '2025-05-19',
+      date: '2025-05-14',
       valuationUsd: null,
       leadInvestors: [
         'Unity Growth',
+        'Tides Ventures',
       ],
     },
     status: 'private',
@@ -2041,6 +2049,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.prnewswire.com/news-releases/persona-ai-raises-27m-oversubscribed-pre-seed-to-deliver-the-future-of-embodied-ai-302454129.html',
+        title: 'Persona AI Raises $27M Oversubscribed Pre-Seed, co-led by Unity Growth and Tides Ventures (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.therobotreport.com/persona-ai-raises-27m-develops-purpose-built-humanoid-robots/',
         title: 'Persona AI raises $27M for humanoid robots',
@@ -2559,9 +2572,9 @@ const ROWS: Company[] = [
       'computer-vision',
       'autonomous-farming',
     ],
-    totalRaisedUsd: 276000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Series D',
       amountUsd: 20000000,
       date: '2025-10-23',
       valuationUsd: null,
@@ -2576,9 +2589,14 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
+        url: 'https://www.businesswire.com/news/home/20241021330997/en/Carbon-Robotics-Raises-70-Million-Series-D-Investment-Round',
+        title: 'Carbon Robotics Raises $70 Million Series D (first-party, 2024-10-21)',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
-        title: 'Carbon Robotics raises $20M',
-        asOf: '2026-08-06',
+        title: 'Carbon Robotics raises $20M (GeekWire, 2025-10-23; includes NVIDIA NVentures)',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.agriculturedive.com/news/carbon-robotics-raises-70m-for-its-ai-powered-laserweeder/727822/',
@@ -3087,11 +3105,11 @@ const ROWS: Company[] = [
       'cobot',
       'ease-of-deployment',
     ],
-    totalRaisedUsd: 63000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: 63000000,
-      date: '2024-07-13',
+      type: 'Series C',
+      amountUsd: 200000000,
+      date: '2026-06-10',
       valuationUsd: 1000000000,
       leadInvestors: [],
     },
@@ -3099,6 +3117,16 @@ const ROWS: Company[] = [
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://standardbots.com/blog/standard-bots-raises-63m-to-accelerate-ai-in-robotics/',
+        title: 'Standard Bots raises $63M (first-party; Series B led by General Catalyst)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.forbes.com/sites/johnkoetsier/2026/06/10/bringing-jobs-back-to-the-us-via-robots-standard-bots-raises-200-million-at-1-billion-valuation/',
+        title: 'Standard Bots raises $200 million at a $1 billion valuation (Forbes, 2026-06-10)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.therobotreport.com/standard-bots-raises-63m-to-bring-cobot-arms-to-market/',
         title: 'Standard Bots raises $63M',
@@ -3293,7 +3321,7 @@ const ROWS: Company[] = [
       'open-source-humanoid',
       'low-cost',
     ],
-    totalRaisedUsd: 400000,
+    totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: null,
@@ -3302,11 +3330,18 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'dead',
-    deployments: [],
+    deployments: [
+      'Shut down Nov 2025; CEO announced refunds and liquidation',
+    ],
     openSource: [
       'K-Bot (all IP open-sourced post-shutdown)',
     ],
     sources: [
+      {
+        url: 'https://newsletter.failory.com/p/the-open-source-robot',
+        title: 'How K-Scale Labs tried to democratize humanoid robots but ran out of runway (Nov 2025)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://mikekalil.com/blog/k-scale-labs-shuts-down/',
         title: 'Palo Alto Humanoid Startup K-Scale Labs Shuts Down',
@@ -3340,7 +3375,7 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series C',
       amountUsd: 45000000,
-      date: '2026-02-05',
+      date: '2026-01-29',
       valuationUsd: null,
       leadInvestors: [
         'Dimension',
@@ -3352,6 +3387,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.businesswire.com/news/home/20260129548625/en/Automata-Raises-45M-Series-C-to-Build-the-Operating-System-for-Life-Sciences',
+        title: 'Automata Raises $45M Series C led by Dimension (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.automata.tech/company-news/automata-raises-45m-series-c-funding',
         title: 'Automata Secures $45M Series C',
@@ -3378,16 +3418,26 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: 550000000,
     latestRound: {
-      type: null,
-      amountUsd: 200000000,
-      date: '2025-01-01',
-      valuationUsd: null,
+      type: 'Series A',
+      amountUsd: 350000000,
+      date: '2025-10-10',
+      valuationUsd: 1300000000,
       leadInvestors: [],
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.reuters.com/business/ai-lab-lila-sciences-tops-13-billion-valuation-with-new-nvidia-backing/',
+        title: 'Lila Sciences tops $1.3 billion valuation with $115M extension incl. Nvidia (Reuters)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.lila.ai/news/announcing-the-close-of-our-series-a',
+        title: 'Announcing Lila\'s $350M Series A (first-party; total funding to $550M)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://pharmaphorum.com/news/scientific-superintelligence-firm-lila-launches-with-200m/',
         title: 'Lila Sciences launches with $200m seed',
@@ -3417,13 +3467,15 @@ const ROWS: Company[] = [
       'autonomous-cleaning',
       'commercial',
     ],
-    totalRaisedUsd: 70000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
       amountUsd: 70000000,
-      date: '2022-09-28',
+      date: '2022-09-27',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Jeneration Capital',
+      ],
     },
     status: 'private',
     deployments: [
@@ -3431,6 +3483,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://avidbots.com/news/avidbots-raises-70m-in-series-c-funding/',
+        title: 'Avidbots raises $70M in Series C funding, led by Jeneration Capital (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.robotics247.com/article/avidbots_cleans_up_70m_series_c_funding_brings_autonomous',
         title: 'Avidbots Cleans Up With $70M Series C',
@@ -4110,18 +4167,23 @@ const ROWS: Company[] = [
       'cable-driven',
       'humanoid',
     ],
-    totalRaisedUsd: 140000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
-      amountUsd: 140000000,
+      amountUsd: 138000000,
       date: '2026-06-03',
-      valuationUsd: null,
+      valuationUsd: 1380000000,
       leadInvestors: [],
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/',
+        title: 'Astribot closes Series B over 1 billion RMB (~$138M) at a valuation north of 10B RMB (~$1.38B)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://autonews.gasgoo.com/articles/news/seeds-astribot-completes-over-1-billion-yuan-series-b-financing',
         title: 'Astribot Completes Over 1 Billion Yuan Series B',

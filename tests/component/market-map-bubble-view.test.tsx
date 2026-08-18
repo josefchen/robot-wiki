@@ -67,9 +67,9 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const focusable = COMPANIES.filter((company) =>
       points.has(company.id),
     ).map((company) => mark(company.id));
-    // 43 of the 111 companies have both a founding year and a disclosed
+    // 38 of the 111 companies have both a founding year and a disclosed
     // valuation or total raised; all of them are plotted.
-    expect(focusable.length).toBe(43); // 43 since the 2026-08-18 audit nulled unverifiable amounts/valuations that previously plotted
+    expect(focusable.length).toBe(38); // 38 since the 2026-08-18 audit nulled unverifiable amounts/valuations that previously plotted
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);
