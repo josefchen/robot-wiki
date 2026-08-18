@@ -3246,7 +3246,7 @@ const ROWS: Company[] = [
       city: 'San Francisco',
       country: 'US',
     },
-    founded: 2024,
+    founded: null,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
     description: 'Builds wheeled household robots for everyday chores, founded by Cruise/Twitch co-founder Kyle Vogt.',
