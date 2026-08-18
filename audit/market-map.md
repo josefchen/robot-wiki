@@ -179,7 +179,7 @@ All 200+ distinct source URLs in the dataset were resolved with `curl -sL` this 
 | e2e (market-map set) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts` | CORRECTED ON FOLLOW-UP (2026-08-18): this row originally reported "13 passed", which was false as a claim about the tree — the targeted run reused a stale port-3200 dev server (playwright `reuseExistingServer: true`) and tested old code. A fresh full run with port 3200 killed first found failures inside these very specs (stale humanoids-35 oracles). |
 | e2e (views) | `npx playwright test tests/e2e/market-map-deep-links.spec.ts tests/e2e/market-map-bubble-affordances.spec.ts tests/e2e/market-map-timeline-affordances.spec.ts` | CORRECTED ON FOLLOW-UP (2026-08-18): originally reported "18 passed"; same stale-server cause. The real failures included the sharpa duplicate-source-URL React key error (a data defect this audit introduced) and the CN 21-of-111 oracle the audit's own PaXini HQ edit invalidated. |
 | e2e (integration+search) | `npx playwright test tests/e2e/go-public-integration.spec.ts tests/e2e/search-structured.spec.ts` | 22 passed (these specs were genuinely green) |
-| e2e (full suite, follow-up) | `lsof -ti :3200 | xargs kill` then `npm run test:e2e` on the follow-up commit | E2E_FULL_SUITE_RESULT (filled in below after the follow-up run) |
+| e2e (full suite, follow-up) | `lsof -ti :3200 | xargs kill` then `npm run test:e2e` on the follow-up commit | **572 passed / 0 failed / 1 skipped** (the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip in see-also.spec.ts) |
 | source-URL sweep | `curl -sL` over all dataset source URLs | every row carries a live (200) or live-but-bot-walled (403/429) source; hard 404s replaced |
 | ledger↔diff reconciliation | `git status --short` + `git diff --stat` | clean tree; all corrections on disk and committed (11 commits, 2dc0173..e180ed6; corrected on follow-up: the audit's final commit was a3cf112, so the range was 2dc0173..a3cf112) |
 
@@ -205,4 +205,4 @@ full-suite run found 10 failures inside the same specs. The follow-up commit
   "tests updated" claim, the humanoidindex.com→.org citations, the method
   paragraph, the commit range, and the e2e rows above.
 
-Full-suite result on the follow-up commit: E2E_FULL_SUITE_RESULT.
+Full-suite result on the follow-up commit (port 3200 killed before the run, 10.0m; this file is the only edit after that run, test-oracle content only): 572 passed / 0 failed / 1 skipped.
