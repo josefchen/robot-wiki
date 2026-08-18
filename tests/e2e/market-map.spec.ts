@@ -218,6 +218,11 @@ test.describe('market map visualization', () => {
     await expect(
       page.locator('article[data-company-id="abb-robotics"]'),
     ).toBeVisible();
+    // mentee-robotics moved private -> acquired on 2026-08-18: Mobileye's
+    // Form 8-K records the acquisition completed Feb 3, 2026.
+    await expect(
+      page.locator('article[data-company-id="mentee-robotics"]'),
+    ).toBeVisible();
 
     await statusSelect(page).selectOption('shut-down');
     await expect(

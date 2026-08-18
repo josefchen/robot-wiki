@@ -77,7 +77,11 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // the 2026-08-18 figure-corrections pass nulled clone-robotics,
     // booster-robotics (totals; rounds carry no plottable figure),
     // leju-robotics and hanson-robotics (aggregator conflicts).
-    expect(focusable.length).toBe(32);
+    // 32 -> 31 when the 2026-08-18 Mentee acquisition-status correction
+    // nulled totalRaisedUsd (the $900M acquisition is not a funding
+    // total; the March ~$21M round is snippet-grade only), so the row no
+    // longer plots on founded-vs-totalRaised.
+    expect(focusable.length).toBe(31);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);

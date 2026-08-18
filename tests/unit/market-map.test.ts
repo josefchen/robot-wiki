@@ -81,6 +81,7 @@ describe('filterCompanies', () => {
         'irobot',
         'berkshire-grey',
         'abb-robotics',
+        'mentee-robotics', // 2026-08-18: Mobileye completed the acquisition on 2026-02-03 (Form 8-K)
       ]),
     );
     expect(acquired.every((row) => row.status === 'acquired')).toBe(true);

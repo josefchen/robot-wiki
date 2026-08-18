@@ -98,9 +98,15 @@ test.describe('bubble view hover/focus affordances', () => {
     // Re-baselined again 2026-08-18 (figure-corrections pass: the plotted
     // set shrank 37 -> 32 when four contradicted figures were nulled and
     // the log-scale floor rose with the $5M clone-robotics total gone):
-    // anduril's paintedTop is now 27.72, so 28 is the bound; the ring
+    // anduril's paintedTop was 27.72, so 28 was the bound; the ring
     // itself is NOT clipped (insideClip stays false) and still paints
     // fully outside the clip group.
+    // Re-baselined a third time 2026-08-18 (Mentee acquisition-status
+    // correction: mentee-robotics left the plotted set 32 -> 31 when its
+    // $17M aggregator-only total was nulled — the $900M Mobileye
+    // acquisition is a deal value, not a funding total or valuation —
+    // nudging the log scale again): anduril's paintedTop is now 30.10,
+    // so 31 is the bound.
     await mark(page, 'anduril').focus();
     const ringFacts = await page.evaluate(() => {
       const ring = document.querySelector('circle[data-focus-ring]');
@@ -114,7 +120,7 @@ test.describe('bubble view hover/focus affordances', () => {
       };
     });
     expect(ringFacts.insideClip).toBe(false);
-    expect(ringFacts.paintedTop).toBeLessThan(28);
+    expect(ringFacts.paintedTop).toBeLessThan(31);
     // The ring clears when focus leaves the mark.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(ring).toHaveCount(0);

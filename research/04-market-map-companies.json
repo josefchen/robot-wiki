@@ -1152,24 +1152,28 @@
     "founded": 2022,
     "segment": "humanoids",
     "subSegment": "research-humanoids",
-    "description": "Develops humanoid robots founded by Mobileye founders.",
+    "description": "Israeli humanoid robotics company co-founded by Mobileye CEO Amnon Shashua; acquired by Mobileye.",
     "approach": ["humanoid"],
-    "totalRaisedUsd": 17000000,
+    "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Seed",
-      "amountUsd": null,
-      "date": "2023-01-01",
+      "type": "Acquisition",
+      "amountUsd": 900000000,
+      "date": "2026-02-03",
       "valuationUsd": null,
-      "leadInvestors": []
+      "leadInvestors": ["Mobileye"]
     },
-    "status": "private",
-    "deployments": [],
+    "status": "acquired",
+    "deployments": [
+      "Operates as an independent unit within Mobileye; first on-site proof-of-concept deployments targeted 2026, series production 2028"
+    ],
     "openSource": [],
     "sources": [
+      { "url": "https://ir.mobileye.com/news-releases/news-release-details/mobileye-acquire-mentee-robotics-accelerate-physical-ai", "title": "Mobileye To Acquire Mentee Robotics to Accelerate Physical AI Leadership (first-party, 2026-01-06)", "asOf": "2026-08-18" },
+      { "url": "https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm", "title": "Mobileye Form 8-K: acquisition completed Feb 3, 2026 for $900,000,000 ($611,914,666 cash + 26,279,824 Class A shares)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/mentee-robotics", "title": "Mentee Robotics - Humanoid Index", "asOf": "2026-08-18" },
       { "url": "https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/", "title": "Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "high"
   },
   {
     "id": "persona-ai",

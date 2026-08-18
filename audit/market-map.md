@@ -674,3 +674,120 @@ in the oracles updated above).
 Note on `lastReviewed` and the humanizer: this pass changed dataset
 records and test oracles only, no article prose, so per the documented
 rule neither applies.
+
+## Mentee Robotics acquisition-status correction (2026-08-18, feature market-map-mentee-acquisition-status)
+
+Scope: one record, `mentee-robotics`, wrong on its most consequential
+field. The shipped row said status `private`, $17M total raised, a Seed
+round dated 2023-01-01, confidence low. Reuters (2026-01-06) had reported
+Mobileye agreed to acquire Mentee for roughly $900M plus a later ~$21M
+round. The deal's actual state was established from fetched primaries
+before anything was written.
+
+What actually happened, from the primaries:
+
+- **Announcement.** Mobileye's own press release (ir.mobileye.com,
+  Businesswire wire, fetched this session, 200): "Mobileye today announced
+  entry into a definitive agreement to acquire Mentee Robotics Ltd."
+  dated Jan 6, 2026, CES Las Vegas. Total consideration "$900 million
+  (subject to certain adjustments), comprising approximately $612 million
+  in cash and up to about 26.2 million shares of Mobileye Class A common
+  stock". Expected close: first quarter of 2026. Approved by Mobileye's
+  Board, a strategic transaction committee of independent directors, and
+  Intel as sole Class B shareholder; Shashua (Mobileye CEO and Mentee
+  co-founder/chairman) recused.
+- **Closure — the deal CLOSED, it did not stay pending.** Mobileye Form
+  8-K, SEC EDGAR, date of report February 3, 2026 (fetched this session
+  with a declared user agent, full text read): "On February 3, 2026, the
+  Corporation and MEIL completed the Acquisition and paid the aggregate
+  purchase price of $900,000,000, consisting of $611,914,666 in cash and
+  26,279,824 shares of Class A Stock." Signed by CFO Moran Shemesh
+  Rojansky, February 5, 2026. URL:
+  https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm
+- The ~$21M March round: Reuters's body text (bot-walled on reuters.com
+  and every syndication tried this session: Yahoo 404, kfgo/wmbd 403,
+  investing.com served unrelated content, zawya/CNA page-not-found)
+  survives only as concordant search snippets across four independent
+  syndications (reuters.com, investing.com, techstartups, channelnewsasia):
+  "Mentee raised about $21 million in a funding round in March, valuing
+  the startup at roughly $162 million." Per the snippet-tier rule this is
+  **snippet-grade (WebSearch 2026-08-18) query: "Mentee raised about $21
+  million in a funding round in March" Mobileye** — corroboration that
+  some document states it, not a fetched document. It may not set a
+  load-bearing numeric. It is recorded here as the lead for a future pass
+  and was NOT written into the dataset.
+
+Schema question, answered concretely: the site could already represent an
+acquired company. `companyStatusSchema` accepts `private | public |
+acquired | dead`; the bubble chart, grid card (`data-field="status"` →
+"Acquired"), status filter (option "Acquired"), timeline, and structured
+search index all consume the existing value. No schema change was needed
+and none was made — the smallest honest change is the one-word data edit
+the schema already supported. Ten records were already `acquired`
+(covariant, irobot, berkshire-grey, abb-robotics among them), and the
+house pattern for a closed acquisition is `latestRound.type:
+"Acquisition"` with amountUsd = deal value and the buyer in leadInvestors
+(berkshire-grey: $375M / SoftBank, set by the earlier audit from the
+first-party release). Mentee now follows that pattern exactly.
+
+Ledger rows:
+
+| Record | Claim (shipped value) | Source checked (fetched 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| mentee-robotics | status `private` | https://ir.mobileye.com/news-releases/news-release-details/mobileye-acquire-mentee-robotics-accelerate-physical-ai (200, first-party: definitive agreement announced 2026-01-06, $900M consideration ~$612M cash + up to ~26.2M Class A shares, close expected Q1 2026); https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm (Mobileye Form 8-K, fetched in full: acquisition COMPLETED 2026-02-03 for $900,000,000 = $611,914,666 cash + 26,279,824 Class A shares) | C | status corrected `private` → `acquired`. The deal is CLOSED (8-K, Feb 3 2026), not announced-pending: today is 2026-08-18, past the Q1-2026 expected close, and the filing states completion in the past tense with the final paid consideration. So `acquired` (completed) is the correct existing enum value, and no "being-acquired" representation was needed. latestRound set to Acquisition $900M, 2026-02-03, lead `['Mobileye']` — the same convention as berkshire-grey. Record kept: still 111 records, humanoids still 34 (mentee stays in its segment; an acquired company is part of the market's history). |
+| mentee-robotics | totalRaisedUsd $17M; latestRound Seed, null amount, 2023-01-01 | same two primaries; startuphub.ai piece (previously the $17M source) not re-fetchable as a full round statement this session; Reuters ~$21M March round is snippet-grade only (tier and query above) | C (nulled) | totalRaisedUsd $17M NULLED: the startuphub $17M was a single seed round, not a stated company total, and the only newer round figure (~$21M, March, ~$162M valuation per Reuters) is snippet-grade and may not set a load-bearing numeric — it stays a recorded lead, not a dataset figure. Consistent with the sibling feature's reading: totalRaisedUsd is a stated company total, never a round figure promoted to a total. The old Seed/2023-01-01 round is replaced by the acquisition event. Confidence low → high (two fetched primaries: first-party announcement + SEC filing). Description and deployments updated from the fetched release ("operates as an independent unit within Mobileye; first on-site proof-of-concept deployments expected 2026, series production targeted 2028"). |
+
+Counted from the table above: 2 rows, 2 corrected (1 status+round, 1
+figure nulled with the acquisition event written in). Sources added: 2
+(Mobileye IR release, SEC 8-K); existing 2 retained; no URLs lost; no
+duplicates (checked per-record after regeneration).
+
+Cascade sweep, old and new values greped across tests/, scripts/, lib/,
+data/, README.md, audit/, schema doc comments (`'private'`, `'acquired'`,
+`$17M`, `$900M`, `17000000`, `900000000`, `mentee`): no prose surface
+quotes a private/acquired company count, so no README or landing copy
+moved; the status label "Acquired" is data-driven, not hardcoded per
+count. Counts that moved, with the oracles updated in the same commit:
+
+- status partition: private 82 → 81, acquired 10 → 11 (no hardcoded
+  oracle; verified by re-derivation, command below).
+- bubble plotted set 32 → 31 (mentee's y-value source, the $17M total,
+  became null and the $900M acquisition is not a valuation/total, so the
+  row no longer plots): tests/component/market-map-bubble-view.test.tsx
+  re-baselined with the cause named.
+- timeline rows 72 → 72 UNCHANGED (the old 2023-01-01 seed predates the
+  2023-2026 window and never rendered; the new 2026-02-03 acquisition
+  event enters the window). Verified by re-derivation.
+- 111 total, humanoids 34, US∩humanoids 6, US∩humanoids∩high 4: all
+  unchanged (mentee is IL, was already low-confidence, already counted).
+- status-filter membership: 'mentee-robotics' added to the
+  acquired-status expectations in tests/unit/market-map.test.ts and
+  tests/e2e/market-map.spec.ts (VAL-MKT-022).
+
+Re-derivation commands (run this session, after the edit):
+`npx tsx -e "import {COMPANIES} from './data/companies.ts'; ..."` →
+total 111, timeline events 72, acquired 11, private 81, humanoids 34,
+plotted 31 (mentee absent).
+
+### Gates for this pass (transcript of commands actually run)
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: "Checked 229 dataset source URLs across 111 records: 218 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions." (227 → 229 URLs: the 2 added primaries) |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| duplicate URLs | per-record URL check | 0 duplicates |
+| content validator | `npm run validate:content` | PASS (no-slop source-only OK) |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| targeted unit | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped (the pre-existing VAL-WIKI-012 vacuous-pass skip) |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| shadow sweep | `find out -maxdepth 1 -name "* [0-9]*"` + `.next` scan | no cloud-sync shadows found |
+| e2e (FULL suite, run 1) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | 570 passed / 2 failed / 1 skipped. Failure 1: the bubble paintedTop bound (anduril 27.72 → 30.10 after the plotted set shrank 32 → 31) — re-baselined 28 → 31 in the spec with the cause named, the documented tripwire procedure. Failure 2: search-facet-pending clock flake ("Cannot fast-forward to the past", a Playwright clock.pauseAt issue in a spec my diff does not touch); it passed on targeted re-run below and in full run 2. |
+| e2e (targeted re-run, port 3200 killed first) | `npx playwright test tests/e2e/market-map-bubble-affordances.spec.ts tests/e2e/search-facet-pending.spec.ts` | 11 passed |
+| e2e (FULL suite, run 2, after re-baseline) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | **572 passed / 0 failed / 1 skipped** (fresh server; recorded below at commit time) |
+| rendered-output check | Playwright headless, dev server 3200, `?status=acquired` | mentee card renders: Status "Acquired", latest round $900M, description names Mobileye; 11 acquired cards; zero console errors; screenshot /tmp/mentee-card.png |
+
+Note on `lastReviewed` and the humanizer: this pass changed a dataset
+record and test oracles only, no article prose, so per the documented
+rule neither applies.
