@@ -25,7 +25,7 @@ type TypeFacetBarProps = {
 
 /**
  * Entity-type facets for the structured search group. Hairline buttons in
- * open space: they are not nested inside a bordered container (VAL-DESIGN-019).
+ * open space: they are not nested inside a bordered container.
  */
 export function TypeFacetBar({
   value,

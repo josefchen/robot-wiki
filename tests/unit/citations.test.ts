@@ -24,7 +24,10 @@ describe('citation registry', () => {
   it('links arXiv entries to their abs page', () => {
     for (const c of CITATIONS) {
       if (c.arxiv) {
-        expect(c.url).toBe(`https://arxiv.org/abs/${c.arxiv}`);
+        // Default: the unversioned abs page. A versioned URL (…vN) is the
+        // sanctioned exception for quotes that exist only in a superseded
+        // arXiv version (audit/README.md quote policy).
+        expect(c.url === `https://arxiv.org/abs/${c.arxiv}` || /^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{4,5}v\d+$/.test(c.url)).toBe(true);
       }
     }
   });

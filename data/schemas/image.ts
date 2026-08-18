@@ -5,7 +5,7 @@ import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
  * Image registry entry (library/imagery.md). Every content image on the
  * site is registered here; the prebuild validator fails the build on an
  * entry whose licence is missing or outside the permitted set, exactly the
- * way an unknown <Term> id fails (VAL-IMG-007, VAL-IMG-008).
+ * way an unknown <Term> id fails.
  */
 
 /**
@@ -26,7 +26,7 @@ export const IMAGE_LICENCES = [
 
 export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
 
-/** Alt text that names no content (VAL-IMG-001). */
+/** Alt text that names no content. */
 const GENERIC_ALT =
   /^(image|photo|picture|screenshot|diagram|figure|graphic|illustration|img)$/i;
 
@@ -45,9 +45,9 @@ export const imageSchema = z
         'image files live directly under public/images/',
       ),
     /**
-     * Meaningful description (VAL-IMG-001): at least 15 characters, never
+     * Meaningful description: at least 15 characters, never
      * the filename, never a generic placeholder, and dash-free per the
-     * zero-dash rule for UI text (VAL-DESIGN-012).
+     * zero-dash rule for UI text.
      */
     alt: z
       .string()
@@ -65,8 +65,8 @@ export const imageSchema = z
     /**
      * The page the asset came from, not a hotlink to the binary. Optional:
      * an original diagram this site created has no external original, so
-     * the credit names the creator in text instead of linking out
-     * (VAL-IMG-003's no-source-URL branch). Never point this at a URL
+     * the credit names the creator in text instead of linking out.
+     * Never point this at a URL
      * readers cannot open.
      */
     sourceUrl: httpsUrlSchema.optional(),
@@ -77,12 +77,12 @@ export const imageSchema = z
     licenceUrl: httpsUrlSchema,
     /** ISO date the asset was fetched. */
     retrieved: isoDateSchema,
-    /** Intrinsic pixel dimensions, so layout reserves the space (VAL-IMG-009). */
+    /** Intrinsic pixel dimensions, so layout reserves the space. */
     width: z.number().int().positive(),
     height: z.number().int().positive(),
     /**
      * Where a press-kit or permission grant is stated (required for those
-     * licences; VAL-IMG-007). A press kit that says nothing about reuse is
+     * licences). A press kit that says nothing about reuse is
      * not a press kit for our purposes.
      */
     permissionNote: z.string().min(1).optional(),
@@ -90,7 +90,7 @@ export const imageSchema = z
   .superRefine((image, ctx) => {
     const base = image.file.split('/').pop() ?? '';
     const stem = base.replace(/\.[a-z0-9]+$/i, '');
-    // VAL-IMG-001: the alt must not match the filename, with or without
+    // The alt must not match the filename, with or without
     // its extension.
     if ([base, stem].some((name) => normalize(image.alt) === normalize(name))) {
       ctx.addIssue({

@@ -2,7 +2,7 @@
  * Citation audit checker: reachability AND document identity.
  *
  * The liveness sweep (npm run check:links) answers "does every registry URL
- * resolve?". This checker answers the harder half of VAL-AUDIT-008: for every
+ * resolve?". This checker answers the harder half: for every
  * entry in data/citations.ts it fetches the URL with a real browser user
  * agent, records the full redirect chain, extracts the fetched document's
  * title, and compares it against the registry entry's title for plausibility.

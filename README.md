@@ -1,8 +1,10 @@
 # robot-wiki
 
-An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. Articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 112 robotics companies, and a citation-backed glossary.
+An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. Articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 111 robotics companies, and a citation-backed glossary.
 
 The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend, no database, no tracking. It is live at <https://robot-wiki.com>.
+
+Every corpus count quoted below is reproducible: `npm run validate:content` prints the live corpus figures (42 published articles, 307 citations, 111 companies) that this README and the opening paragraphs of [`audit/README.md`](audit/README.md) quote.
 
 ## Coverage
 
@@ -16,7 +18,7 @@ The wiki is organized into seven domains:
 - **Frontier & Open Problems**: the reliability gap, dexterity, generalization, competing theses, the bear case.
 - **Adjacent Domains**: autonomous vehicles, drones, surgical robotics, space robotics.
 
-The 3D playground (<https://robot-wiki.com/playground/>) loads the SO-101 arm (Apache-2.0) and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target using a damped-least-squares solver, and trajectory record/replay with JSON export. The market map (<https://robot-wiki.com/market-map/>) filters 112 companies by segment, country, stage, and approach, with source links and funding data on every entry.
+The 3D playground (<https://robot-wiki.com/playground/>) loads the SO-101 arm (Apache-2.0) and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target using a damped-least-squares solver, and trajectory record/replay with JSON export. The market map (<https://robot-wiki.com/market-map/>) filters 111 companies by segment, country, stage, and approach, with source links and funding data on every entry.
 
 ## Architecture
 
@@ -36,6 +38,9 @@ scripts/      Build-time node scripts: content validation, reading times,
               search index build, link liveness checker
 tests/        Vitest unit and component tests, Playwright e2e specs, fixtures
 research/     Deep-research reports behind the content (read-only transparency trail)
+audit/        Per-claim content-integrity audit ledgers: every published
+              article checked against its cited primary sources, with the
+              method, conventions, and totals in audit/README.md
 ```
 
 ### Content pipeline
@@ -46,7 +51,7 @@ research/     Deep-research reports behind the content (read-only transparency t
 - References, "See also", "Linked from" backlinks, breadcrumbs, reading time, and citation counts are generated at build time; authors never hand-write them.
 - Draft modules are excluded from the export, the sidebar, the search indexes, and the sitemap.
 - Search uses two indexes built at build time: Pagefind over prose, MiniSearch over structured data.
-- `npm run check:links` sweeps every citation URL for liveness. It is not part of the build (200+ network calls); run it on demand.
+- `npm run check:links` sweeps every citation URL for liveness, and `npm run check:citations` verifies each fetched document's identity against the registry entry. Neither is part of the build (200+ network calls); run them on demand. The evidence trail for every audited claim, including how to read the ledgers and re-run the checkers, is in [`audit/README.md`](audit/README.md).
 
 ## Setup
 
@@ -81,7 +86,9 @@ npm run test          # unit + component tests (Vitest)
 npm run test:e2e      # end-to-end tests (Playwright, headless Chromium)
 npm run typecheck     # next typegen + tsc --noEmit (TypeScript strict)
 npm run lint          # ESLint
-npm run validate:content  # content-pipeline validation, also runs before every build
+npm run validate:content  # content-pipeline validation, also runs before every build;
+                          # prints the live corpus counts (published modules, citations,
+                          # glossary terms, companies) quoted in this README
 ```
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.

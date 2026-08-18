@@ -114,7 +114,7 @@ const ROWS: Milestone[] = [
       'If simulation fidelity reaches contact-rich manipulation, the data bottleneck breaks: training data becomes cheap, unlimited, and parallel.',
     status: 'not-met',
     statusDetail:
-      'Sim-to-real transfer is reliable for locomotion but not for contact-rich manipulation; reality-gap surveys still treat contact dynamics as the unsolved case, and no policy trained entirely in simulation has been shown on a real contact-rich task.',
+      'Sim-to-real transfer is routine for locomotion but hardest where manipulation makes contact: reality-gap surveys name inaccurate contact modeling, where contact states alternate between sticking, slipping, and separation, as a key contributor to the dynamics gap.',
     howWeKnow:
       'A policy trained entirely in simulation achieving above 90% on a real contact-rich task, replicated outside the originating lab.',
     citationIds: ['reality-gap-survey-2026'],

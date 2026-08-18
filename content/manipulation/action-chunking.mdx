@@ -5,7 +5,7 @@ domain: manipulation
 slug: action-chunking
 order: 2
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-18"
 citations:
   - dagger-2011
   - act-aloha-2023
@@ -46,7 +46,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
   <KeyValue
     items={[
       { key: 'observations', value: '4 RGB cameras plus joint positions' },
-      { key: 'action space', value: '14-dim continuous, two 7-DoF arms' },
+      { key: 'action space', value: '14-dim continuous, two 6-DoF ViperX arms plus grippers' },
       { key: 'training objective', value: 'L1 reconstruction plus KL on the style latent' },
       { key: 'test-time latent', value: 'z fixed to zero (deterministic decode)' },
       { key: 'execution', value: 'temporal ensembling over overlapping chunks' },

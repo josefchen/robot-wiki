@@ -84,10 +84,10 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     id: 'kalman-1960',
     covers: ['title-mismatch'],
     reason:
-      'The cited DOI is the Wiley Online Books chapter republication (2009), so Crossref reports 2009 while the registry cites the original 1960 Bol. Soc. Mat. Mexicana paper. The title matches exactly; only the year diverges, for the same reprint-vs-original reason as ziegler-nichols-1942. The IEEE page the DOI resolves to is a JS shell with no title in served HTML.',
+      'The cited DOI is the Wiley Online Books chapter republication (2009), so Crossref reports 2009 while the registry cites the original 1960 Bol. Soc. Mat. Mexicana paper. The title matches exactly; only the year diverges, for the same reprint-vs-original reason as ziegler-nichols-1942. The IEEE page the DOI resolves to is a JS shell whose served <title> is the chapter title without the original publication framing.',
     verifiedBy:
-      'Crossref content negotiation for doi:10.1109/9780470544334.ch8: title "Contributions to the Theory of Optimal Control" matches the registry exactly; doi.org resolves to ieeexplore.ieee.org/document/5311913 (HTTP 202), the chapter record.',
-    verifiedOn: '2026-08-16',
+      'Crossref content negotiation for doi:10.1109/9780470544334.ch8: title "Contributions to the Theory of Optimal Control" matches the registry exactly; doi.org resolves to ieeexplore.ieee.org/document/5311913 (HTTP 202), the chapter record. Re-confirmed 2026-08-18.',
+    verifiedOn: '2026-08-18',
   },
   {
     id: 'levenberg-1944',
@@ -95,8 +95,8 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     reason:
       'AMS article pages serve the journal masthead ("Quarterly of Applied Mathematics") as the <title> element, with no per-article title in the served HTML, so the fetched title can never match the paper the registry cites.',
     verifiedBy:
-      'Crossref content negotiation for doi:10.1090/qam/10666: title "A Method for the Solution of Certain Non-linear Problems in Least Squares" and year 1944 both match the registry entry.',
-    verifiedOn: '2026-08-16',
+      'Crossref content negotiation for doi:10.1090/qam/10666: title "A Method for the Solution of Certain Non-linear Problems in Least Squares" and year 1944 both match the registry entry. Re-confirmed 2026-08-18.',
+    verifiedOn: '2026-08-18',
   },
   {
     id: 'knowledge-insulation-2025',
@@ -104,8 +104,8 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     reason:
       'pi.website research pages carry the note\'s tagline as <title> ("VLAs that Train Fast, Run Fast, and Generalize Better"), not the research-note name the registry cites; the page has no DOI, so Crossref cannot stand in.',
     verifiedBy:
-      'Fetched page body (2026-08-16): the page names "Knowledge Insulation" five times and lives at the research/knowledge_insulation slug; the companion paper is registry id knowledge-insulation-paper-2025 with the same tagline subtitle.',
-    verifiedOn: '2026-08-16',
+      'Fetched page body (2026-08-18, live): the page names "Knowledge Insulation" repeatedly, carries the ten-author byline at its foot, and lives at the research/knowledge_insulation slug; the companion paper is registry id knowledge-insulation-paper-2025 with the same tagline subtitle.',
+    verifiedOn: '2026-08-18',
   },
   {
     id: 'gtsam-2026',
@@ -113,16 +113,16 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     reason:
       'gtsam.org serves a tagline as <title> ("GTSAM | GTSAM is a BSD-licensed C++ library..."), not the project name the registry cites; the page has no DOI.',
     verifiedBy:
-      'Fetched page body (2026-08-16): the page states "Georgia Tech Smoothing and Mapping" in its project description.',
-    verifiedOn: '2026-08-16',
+      'Fetched page body (2026-08-18, live): the page states "Georgia Tech Smoothing and Mapping" in its project description.',
+    verifiedOn: '2026-08-18',
   },
   {
-    id: 'mcgee-schmidt-1985',
+    id: 'sutton-bitter-lesson-2019',
     covers: ['error'],
     reason:
-      'ntrs.nasa.gov suffered a host-side outage during the 2026-08-16 citation audit: DNS resolves (ntrs.production.sti.appdat.jsc.nasa.gov behind a us-gov-west-1 ELB) but TCP connections to ports 443 never open, for curl and node fetch alike, across the whole session. The same URL was fetched live by the liveness sweep earlier the same day. A NASA-side outage, not link rot; a NASA TM has no DOI, so Crossref cannot stand in.',
+      'web.archive.org intermittently resets TLS connections for node fetch and curl from this network (observed 4 consecutive resets on 2026-08-18) while the capture itself is live and complete; a transient archive.org connectivity failure, not a dead mirror.',
     verifiedBy:
-      'Three layers: the liveness sweep earlier on 2026-08-16 fetched the URL live; the search index confirms the citation page at the exact URL is "Discovery of the Kalman Filter as a Practical Tool for Aerospace and Industry" (NASA TM-86847, McGee and Schmidt) matching the registry; and the registry entry itself was verified against the NTRS record on 2026-08-11. Remove this exception once NTRS answers machine clients again.',
-    verifiedOn: '2026-08-16',
+      'Independent fetch on 2026-08-18 (FetchUrl, 200): full essay text served at the exact capture URL, title "The Bitter Lesson", author Rich Sutton, dated March 13, 2019, matching the registry entry.',
+    verifiedOn: '2026-08-18',
   },
 ];

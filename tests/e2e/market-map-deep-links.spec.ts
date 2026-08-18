@@ -48,7 +48,7 @@ test.describe('market-map deep links on the static export', () => {
     await expect(card).toBeInViewport({ ratio: 0.5 });
     // Filters relaxed to the defaults; the explicit hash request survives.
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai$/);
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -62,7 +62,7 @@ test.describe('market-map deep links on the static export', () => {
     await expect(card).toBeVisible();
     await expect(card).toHaveCSS('box-shadow', /inset/);
     await expect(card).toBeInViewport({ ratio: 0.5 });
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await expect(page).toHaveURL(
       /\/market-map\/\?segment=humanoids#company-figure-ai$/,
     );
@@ -77,8 +77,10 @@ test.describe('market-map deep links on the static export', () => {
     });
     await page.goto(`${BASE}/market-map/?country=CN#company-ghost`);
 
-    await expect(page.getByText('22 of 112 companies')).toBeVisible();
-    expect(await page.locator('article[data-company-id]').count()).toBe(22);
+    // 20 CN-headquartered rows since the audit moved PaXini's HQ from
+    // Shenzhen to Tokyo (2026-08-18): the CN filter count went 21 -> 20.
+    await expect(page.getByText('20 of 111 companies')).toBeVisible();
+    expect(await page.locator('article[data-company-id]').count()).toBe(20);
     await expect(page.locator('#company-ghost')).toHaveCount(0);
     expect(errors).toEqual([]);
   });
@@ -110,7 +112,7 @@ test.describe('market-map deep links on the static export', () => {
           .length,
     );
     expect(tabbables).toBe(1);
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -121,7 +123,7 @@ test.describe('market-map deep links on the static export', () => {
       `${BASE}/market-map/?subSegment=bogus-subsegment&country=US&approach=not-an-approach`,
     );
 
-    await expect(page.getByText('63 of 112 companies')).toBeVisible();
+    await expect(page.getByText('63 of 111 companies')).toBeVisible();
     expect(await page.locator('article[data-company-id]').count()).toBe(63);
     await expect(page.locator('#filter-subsegment')).toHaveValue('');
     await expect(page.locator('#filter-approach')).toHaveValue('');
@@ -141,6 +143,6 @@ test.describe('market-map deep links on the static export', () => {
     await expect(page.locator('#filter-approach')).toHaveValue('vla');
     const shown = await page.locator('article[data-company-id]').count();
     expect(shown).toBeGreaterThan(0);
-    expect(shown).toBeLessThan(112);
+    expect(shown).toBeLessThan(111);
   });
 });

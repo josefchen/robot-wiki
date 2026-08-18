@@ -7,7 +7,7 @@ import { cx } from '@/lib/utils';
 
 /**
  * The shell's search entry point. Submits to /search with the query in the
- * URL (VAL-NAV-017). Works without JS via the native GET form; with JS it
+ * URL. Works without JS via the native GET form; with JS it
  * routes client-side. The structured-results group lands with the
  * foundation-search feature; this box is the stable contract.
  */

@@ -3,8 +3,7 @@
  * source body (MDX or tsx) for <Image id="..."/> and <ImageRef id="..."/>
  * usages so the prebuild validator can fail the build on an unregistered
  * image id (mirroring the unknown-<Term>-id check) and on a registered
- * image no page uses (so /credits cannot drift from what renders,
- * VAL-IMG-006).
+ * image no page uses (so /credits cannot drift from what renders).
  *
  * Code masking mirrors inlineTermIds in lib/glossary.ts: blank (not
  * remove) masked regions so match indices keep their line positions. MDX
@@ -42,7 +41,7 @@ export function referencedImageIds(body: string): string[] {
 }
 
 /**
- * Synthesis markers (VAL-IMG-013): an entry whose provenance matches is not
+ * Synthesis markers: an entry whose provenance matches is not
  * a licensable external asset and fails the build.
  */
 export const SYNTHESIS_MARKER =

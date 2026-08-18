@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // point this route's canonical and og:url at the conventional /404/ path
   // instead, which serves this page in the export. The full openGraph set is
   // restated here: a route-level openGraph object replaces the layout's, so
-  // omitting siteName/type would silently drop those tags (VAL-BRAND-002).
+  // omitting siteName/type would silently drop those tags.
   alternates: { canonical: '/404/' },
   // Explicit route-level pin: the 404 page stays noindex regardless of
   // ALLOW_INDEXING in lib/site.ts, so flipping the site-wide switch can

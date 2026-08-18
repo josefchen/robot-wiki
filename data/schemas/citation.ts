@@ -34,7 +34,9 @@ export const citationSchema = z.object({
   authors: z.array(z.string().min(1)).min(1),
   year: z.number().int().min(1900).max(2100),
   venue: z.string().min(1).optional(),
-  /** Bare arXiv id, e.g. "2304.13705". When present, url must be its abs page. */
+  /** Bare arXiv id, e.g. "2304.13705". When present, url must be its abs
+   *  page (unversioned, or versioned …vN for quotes that exist only in a
+   *  superseded version; see audit/README.md's quote policy). */
   arxiv: z
     .string()
     .regex(/^\d{4}\.\d{4,5}$/, 'arXiv ids look like 2304.13705')

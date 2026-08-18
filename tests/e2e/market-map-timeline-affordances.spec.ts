@@ -49,8 +49,10 @@ test.describe('timeline view roving keyboard affordances', () => {
     page,
   }) => {
     await openTimeline(page);
-    // 66 events render; exactly one row is tabbable, the rest are -1.
-    await expect(rowButtons(page)).toHaveCount(66);
+    // 73 events render (2026-08-18 audit: rounds re-dated into the
+    // 2023-2026 window and dead-URL rows kept their dated rounds, moving
+    // the count up from 66); exactly one row is tabbable, the rest -1.
+    await expect(rowButtons(page)).toHaveCount(73);
     const tabbables = await page.evaluate(
       () =>
         document.querySelectorAll('[data-timeline-id] > button[tabindex="0"]')
@@ -201,7 +203,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     await expect(
       page.locator('[data-company-id="figure-ai"] > button'),
     ).toHaveAttribute('tabindex', '0');
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -210,7 +212,7 @@ test.describe('timeline view roving keyboard affordances', () => {
   }) => {
     await openTimeline(page);
     await page.locator('#filter-segment').selectOption('humanoids');
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     const rows = rowButtons(page);
     expect(await rows.count()).toBeGreaterThan(1);
     const tabbables = await page.evaluate(
@@ -242,7 +244,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     await figure.focus();
     await expect(figure).toHaveAttribute('tabindex', '0');
     await page.locator('#filter-segment').selectOption('foundation-models');
-    await expect(page.getByText('12 of 112 companies')).toBeVisible();
+    await expect(page.getByText('12 of 111 companies')).toBeVisible();
     await expect(
       page.locator('[data-company-id="figure-ai"]'),
     ).toHaveCount(0);

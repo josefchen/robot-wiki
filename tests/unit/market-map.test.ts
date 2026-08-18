@@ -32,14 +32,14 @@ function filters(patch: Partial<MarketMapFilters> = {}): MarketMapFilters {
 }
 
 describe('filterCompanies', () => {
-  it('returns all 112 companies when no filters are active', () => {
+  it('returns all 111 companies when no filters are active', () => {
     expect(filterCompanies(COMPANIES, DEFAULT_MARKET_MAP_FILTERS)).toHaveLength(
-      112,
+      111,
     );
     expect(hasActiveFilters(DEFAULT_MARKET_MAP_FILTERS)).toBe(false);
   });
 
-  it('filters segment=humanoids to exactly 35 companies (VAL-MKT-005)', () => {
+  it('filters segment=humanoids to exactly 34 companies (VAL-MKT-005)', () => {
     const rows = filterCompanies(COMPANIES, filters({ segment: 'humanoids' }));
     expect(rows).toHaveLength(EXPECTED_SEGMENT_COUNTS.humanoids);
     expect(rows.every((row) => row.segment === 'humanoids')).toBe(true);
@@ -97,6 +97,7 @@ describe('filterCompanies', () => {
     const ipo = filterCompanies(COMPANIES, filters({ status: 'ipo' }));
     expect(ipo.map((row) => row.id).sort()).toEqual([
       'robotphoenix',
+      'switchbot', // 2025-12-30 HK IPO, added by the 2026-08-18 audit
       'ubtech-robotics',
       'unitree-robotics',
     ]);
@@ -334,7 +335,10 @@ describe('timelineEvents', () => {
     expect(events.every((event) => event.sourceUrl.startsWith('http'))).toBe(
       true,
     );
-    expect(events.every((event) => event.asOf === MARKET_MAP_AS_OF)).toBe(true);
+    // Audit re-dating (2026-08-18): sources re-verified live during the
+    // market-map audit carry their re-verification date, so an event's asOf
+    // is the snapshot date or later, never staler than the page label.
+    expect(events.every((event) => event.asOf >= MARKET_MAP_AS_OF)).toBe(true);
 
     const byId = Object.fromEntries(events.map((event) => [event.companyId, event]));
     expect(byId['figure-ai']).toMatchObject({
@@ -360,8 +364,11 @@ describe('timelineEvents', () => {
     });
     expect(byId['unitree-robotics']).toMatchObject({
       type: 'IPO',
-      amountUsd: 618_000_000,
-      date: '2026-08-10',
+      // Priced 2026-08-06 at 150.8 yuan/share (Reuters via CNBC); the old
+      // $618M / 2026-08-10 values were the pre-pricing approval snapshot.
+      amountUsd: 904_000_000,
+      valuationUsd: 9_040_000_000,
+      date: '2026-08-06',
     });
 
     const covariant = events.find((event) => event.companyId === 'covariant');
@@ -412,6 +419,6 @@ describe('segment oracle', () => {
       (total, count) => total + count,
       0,
     );
-    expect(sum).toBe(112);
+    expect(sum).toBe(111);
   });
 });

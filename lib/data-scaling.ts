@@ -22,8 +22,8 @@
  *   (arXiv 2602.16710).
  * - Open X-Embodiment: 1M+ trajectories across 22 embodiments; hours are an
  *   estimate (~10k), flagged as such (arXiv 2310.08864).
- * - AgiBot World (Beta): 1,003,672 trajectories; hours estimated (~100k),
- *   flagged (arXiv 2503.06669).
+ * - AgiBot World (Beta): 1,001,552 trajectories totaling 2,976.4 hours, both
+ *   published in the paper and on the dataset card (arXiv 2503.06669).
  * - GPT-3: 300B training tokens (arXiv 2005.14165).
  * - Llama 3: over 15T tokens (Meta blog, April 2024); FineWeb replicates
  *   that scale openly (arXiv 2406.17557).
@@ -77,6 +77,15 @@ export const ROBOT_POINTS: DataScalePoint[] = [
     cite: 'tri-lbm-2025',
   },
   {
+    id: 'agibot',
+    label: 'AgiBot World',
+    magnitude: 2976,
+    value: '2,976 h',
+    kind: 'robot',
+    estimated: false,
+    cite: 'agibot-world-2025',
+  },
+  {
     id: 'ego4d',
     label: 'Ego4D',
     magnitude: 3670,
@@ -102,15 +111,6 @@ export const ROBOT_POINTS: DataScalePoint[] = [
     kind: 'human-video',
     estimated: false,
     cite: 'egoscale-2026',
-  },
-  {
-    id: 'agibot',
-    label: 'AgiBot World',
-    magnitude: 100_000,
-    value: '~100k h',
-    kind: 'robot',
-    estimated: true,
-    cite: 'agibot-world-2025',
   },
 ];
 

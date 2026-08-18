@@ -2,7 +2,7 @@
  * Regenerates tests/fixtures/nav-accessible-names.json from the built
  * static export.
  *
- * The fixture is the VAL-DESIGN-022 baseline: every sidebar link's href
+ * The fixture is the sidebar baseline: every sidebar link's href
  * and accessible name in canonical order (all sections expanded). Until
  * 2026-08-15 every module publish regenerated it with a throwaway
  * visual-*.mts script written and deleted per session, three workers in a

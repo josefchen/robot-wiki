@@ -2,8 +2,7 @@
 import { cx } from '@/lib/utils';
 
 /**
- * Structured credit carried by a licensed content image (VAL-IMG-002,
- * VAL-IMG-003). Rendered as a visible line inside the figure subtree with
+ * Structured credit carried by a licensed content image. Rendered as a visible line inside the figure subtree with
  * the stable `data-image-credit` hook, naming creator, source and licence,
  * and linking to the original asset page and the licence.
  */
@@ -14,8 +13,7 @@ export type FigureCredit = {
   sourceName: string;
   /**
    * The original asset page. Absent for site-created diagrams, where
-   * there is no external original: the source is named in text instead
-   * (VAL-IMG-003's no-source-URL branch).
+   * there is no external original: the source is named in text instead.
    */
   sourceUrl?: string;
   licenceLabel: string;
@@ -61,7 +59,7 @@ export function Figure({
           // Index-only exclusion: the credit is attribution chrome that
           // fused into search excerpts ("...guiding it by hand.Photo: Ims
           // / Wikimedia Commons. Licence: CC BY-SA 4.0."). It stays
-          // VISIBLE here with both links — the VAL-IMG-002/003 licensing
+          // VISIBLE here with both links — the licensing
           // guarantee is a rendered-DOM guarantee, untouched by this.
           // The caption above is content and stays indexed.
           data-pagefind-ignore

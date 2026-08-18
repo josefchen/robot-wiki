@@ -263,6 +263,7 @@ describe('filterHardware', () => {
       '1x-neo',
       'leap-hand',
       'neo-hand',
+      'reachy-2',
       'unitree-g1',
     ]);
 
@@ -281,7 +282,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: 'unknown',
     });
-    expect(unknown).toHaveLength(25);
+    expect(unknown).toHaveLength(24);
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
 

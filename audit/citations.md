@@ -84,6 +84,26 @@ errors, 11 covered by documented exceptions. Exit code 0.
   index confirms the document. Remove the exception once NTRS answers
   machine clients again.
 
+## Consolidation update (2026-08-18, audit-ledger-consolidation)
+
+- **mcgee-schmidt-1985: exception removed.** NTRS answers machine clients
+  again; `npm run check:links` and `npm run check:citations -- --id
+  mcgee-schmidt-1985` both pass it unaided (title verified, live fetch,
+  run 2026-08-18), so the exception entry was deleted from
+  data/link-check-exceptions.ts exactly as its own instruction required.
+- The four title-mismatch exceptions (kalman-1960, levenberg-1944,
+  knowledge-insulation-2025, gtsam-2026) remain in force: the failure modes
+  they cover are invisible to the liveness sweep, and the audit checker
+  still needs them. Their entries were re-dated 2026-08-18 with fresh
+  verification. A liveness-sweep bug that reported these as STALE (because
+  the URL is HTTP-200) was fixed: title-mismatch exceptions are now exempt
+  from the liveness sweep's staleness check, since only the audit checker
+  can see their failure mode.
+- **sutton-bitter-lesson-2019**: added as an error exception on 2026-08-18;
+  archive.org intermittently resets TLS connections from this network
+  (4 consecutive resets observed) while the capture itself is live
+  (independent fetch returned the full essay).
+
 ## Honest gaps (title unavailable, not failures)
 
 - **lavalle-1998**, **lavalle-kuffner-2001**: the author-hosted PDFs on
@@ -445,3 +465,27 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | mev1-servicing-2025 | https://news.northropgrumman.com/satellites/Northrop-Grumman-Achieves-First-Ever-Undocking-Between-Two-Commercial-Spacecraft-in-Geosynchronous-Orbit | ok | match | none (verified as cited) | chain: 307 -> 200 https://news.northropgrumman.com/satellites/northrop-grumman-achieves-first-ever-undocking-between-two-commercial-spacecraft-in-geosynchronous-orbit; final: https://news.northropgrumman.com/satellites/northrop-grumman-achieves-first-ever-undocking-between-two-commercial-spacecraft-in-geosynchronous-orbit |
 | adras-j-15m-2024 | https://www.astroscale.com/en/news/astroscales-adras-j-achieves-historic-15-meter-approach-to-space-debris | ok | match | none (verified as cited) |  |
 | osam1-discontinued-2024 | https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/ | ok | match | none (verified as cited) |  |
+
+## Verification (recorded 2026-08-18, reconciliation sweep)
+
+This ledger previously ended with no record of the command gates; the
+registry sweep result line above was the only verification in the file,
+and the original session's other gate output was never recorded here. The
+checkers were re-run against the current tree during the 2026-08-18
+reconciliation sweep:
+
+| Gate | Command | Result |
+|---|---|---|
+| Link liveness | `npm run check:links` | 307 checked: 301 live (20 verified via Crossref), 0 dead, 0 blocked, 0 error, 6 documented exceptions; exit 0 |
+| Citation identity | `npm run check:citations` | 307 checked: 293 ok (46 via Crossref), 4 titles unavailable, 0 title mismatches, 10 documented exceptions, 1 archival capture; exit 0 |
+
+Scope note, stated honestly: the per-entry table above covers the 300
+registry entries that existed when this audit ran. Seven entries were
+added afterwards by the domain audits that needed them (cosmos-policy-2026,
+legged-gym-repo-2021, nucleus-supervised-2026, sutton-bitter-lesson-2019,
+teslarati-optimus-hand-2026, vasarhelyi-flocking-2018, wholebodyvla-2025);
+each is verified as a claim-level source in its own domain ledger, and
+both re-runs above cover all 307, so no entry in the registry is
+unverified. The original session's test/typecheck/build runs are not
+recorded here because their output was not preserved in the ledger and no
+handoff for that session exists.

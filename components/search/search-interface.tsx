@@ -50,7 +50,7 @@ const ENTITY_TYPE_LABEL: Record<EntityType, string> = {
  * The /search interface: one input, two result groups (prose + structured),
  * entity-type facets that only narrow the structured group.
  *
- * Behavior contract (VAL-SEARCH-*): the query mirrors the ?q= URL param both
+ * Behavior contract: the query mirrors the ?q= URL param both
  * ways (shell search box submits land here prefilled); status is derived
  * from (query, result) rather than mirrored, and results apply only under a
  * latest-wins sequencer, so a slow response for an older query can never mix

@@ -5,13 +5,12 @@ import { SITE_URL } from '@/lib/site';
  * The breadcrumb trail (architecture.md section 6b): Home > Domain > Article
  * on every published article, Home > Domain on each domain landing page,
  * rendered by the shared templates, never hand-written in MDX
- * (VAL-WIKI-016/017).
  *
  * The ancestor crumbs are real links; the current page is the non-linked
  * trailing crumb. The trail is its own labeled navigation landmark,
- * distinct from the taxonomy nav (VAL-WIKI-018). The trailing crumb carries
+ * distinct from the taxonomy nav. The trailing crumb carries
  * no aria-current on purpose: the sidebar's active entry already holds the
- * document's single aria-current="page" (VAL-DESIGN-022), and the non-link
+ * document's single aria-current="page", and the non-link
  * final item in a breadcrumb list is the equivalent current-page marker
  * the W3C APG breadcrumb pattern prescribes.
  */

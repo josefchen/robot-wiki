@@ -7,7 +7,7 @@ import { getTerm } from '@/data/glossary';
  * <Term id="covariate-shift">covariate shift</Term>; this component maps
  * the id to the glossary registry and renders the presentational Term
  * primitive with the registry's definition, so the inline tooltip and the
- * /glossary entry can never diverge (VAL-GLOSS-009). The children are the
+ * /glossary entry can never diverge. The children are the
  * inline display text; the definition always comes from the registry.
  */
 export function TermRef({ id, children }: { id: string; children?: ReactNode }) {

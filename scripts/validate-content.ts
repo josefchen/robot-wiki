@@ -32,17 +32,17 @@ const issues = validateContent({
 
 const EXPECTED_SEGMENT_COUNTS: Record<string, number> = {
   'foundation-models': 12,
-  humanoids: 35,
+  humanoids: 34, // 34 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
   'industrial-logistics': 15,
   'vertical-applications': 32,
   'simulation-tooling': 10,
   'components-hardware': 8,
 };
 
-if (COMPANIES.length !== 112) {
+if (COMPANIES.length !== 111) {
   issues.push({
     file: 'data/companies.ts',
-    message: `expected 112 companies, got ${COMPANIES.length}`,
+    message: `expected 111 companies, got ${COMPANIES.length}`, // 111 since the 2026-08-18 audit removed a duplicate row
   });
 }
 for (const [segment, expected] of Object.entries(EXPECTED_SEGMENT_COUNTS)) {
@@ -52,6 +52,24 @@ for (const [segment, expected] of Object.entries(EXPECTED_SEGMENT_COUNTS)) {
       file: 'data/companies.ts',
       message: `segment ${segment}: expected ${expected}, got ${actual}`,
     });
+  }
+}
+
+// No record may carry two source entries with the same URL: the card and
+// timeline renderers key their source lists by URL, so a duplicate (the
+// replace-vs-append mistake the 2026-08-18 sharpa fix cleaned up) produces
+// a React duplicate-key console error on every view. Replacing a dead
+// source URL must actually replace the entry, never append alongside it.
+for (const company of COMPANIES) {
+  const seen = new Set<string>();
+  for (const source of company.sources) {
+    if (seen.has(source.url)) {
+      issues.push({
+        file: 'data/companies.ts',
+        message: `${company.id}: duplicate source URL ${source.url} (the source list is keyed by URL; replace dead URLs, never append a duplicate)`,
+      });
+    }
+    seen.add(source.url);
   }
 }
 

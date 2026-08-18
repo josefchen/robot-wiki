@@ -79,11 +79,11 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     costSort: null,
     bet: 'vision-only',
     tradeoff:
-      'Most degrees of freedom here and a mass-production plan behind it, but the tendon design is unproven: Musk says the first V3 hand "didn\'t actually work" and was redesigned.',
+      'Most degrees of freedom here and a mass-production plan behind it, but the tendon design is unproven: Musk says the patented V3 hand "didn\'t actually work" and was redesigned.',
     sourceId: 'droids-optimus-v3-hand-2026',
     sourceLabel: 'DROIDS',
-    secondarySourceId: 'holson-olympics-2025',
-    secondarySourceLabel: 'General Robots',
+    secondarySourceId: 'teslarati-optimus-hand-2026',
+    secondarySourceLabel: 'Teslarati',
     asOf: 'Apr 2026',
   },
   {
@@ -100,7 +100,7 @@ export const DEXTEROUS_HANDS: DexterousHand[] = [
     costSort: null,
     bet: 'vision-tactile',
     tradeoff:
-      'The most sensitive first-party fingertip spec here (3 g) plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03\'s count is not disclosed.',
+      'A 3-gram fingertip threshold, the only maker in this table that puts the number on its own product page, plus palm cameras for in-hand vision; the 16 DoF figure is the Figure 02 hand, and Figure 03\'s count is not disclosed.',
     sourceId: 'helix-02-2026',
     sourceLabel: 'Figure AI',
     secondarySourceId: 'figure-02-2024',

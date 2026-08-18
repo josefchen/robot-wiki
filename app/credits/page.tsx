@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 /**
  * Image credits: one entry per registered image, generated from
  * data/images.ts rather than hand-maintained, so this page can never drift
- * from what the site renders (VAL-IMG-006). Each entry renders the same
+ * from what the site renders. Each entry renders the same
  * registry-backed figure the articles render, plus the list of pages the
  * image appears on, derived by scanning the content tree and the home page
  * for <Image id> usages at prerender time.

@@ -9,7 +9,7 @@ type AsideProps = {
 
 /** Marginal note inside prose: tangential context that is not load-bearing.
  * Renders role="note" rather than <aside> so the desktop sidebar stays the
- * document's only aside element (VAL-DESIGN-022). */
+ * document's only aside element. */
 export function Aside({ title, className, children }: AsideProps) {
   return (
     <div

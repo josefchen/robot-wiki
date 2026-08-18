@@ -22,7 +22,7 @@ const RESEARCH_PATH = join(
 
 const EXPECTED_SEGMENT_COUNTS = {
   'foundation-models': 12,
-  humanoids: 35,
+  humanoids: 34,
   'industrial-logistics': 15,
   'vertical-applications': 32,
   'simulation-tooling': 10,
@@ -42,13 +42,15 @@ describe('COMPANIES data', () => {
     }
   });
 
-  it('contains exactly 112 companies', () => {
-    expect(COMPANIES).toHaveLength(112);
+  it('contains exactly 111 companies', () => {
+    // 111 since the 2026-08-18 market-map audit removed the duplicate
+    // galaxea-ai-robot row (same company as galaxea-ai).
+    expect(COMPANIES).toHaveLength(111);
   });
 
   it('matches the research source count and segment distribution', () => {
     const research = loadResearch();
-    expect(research).toHaveLength(112);
+    expect(research).toHaveLength(111);
     expect(COMPANIES).toHaveLength(research.length);
 
     const counts = Object.fromEntries(
@@ -60,7 +62,7 @@ describe('COMPANIES data', () => {
     expect(counts).toEqual(EXPECTED_SEGMENT_COUNTS);
 
     const sum = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(sum).toBe(112);
+    expect(sum).toBe(111);
   });
 
   it('gives every row at least one https source URL and a confidence level', () => {
@@ -156,12 +158,14 @@ describe('COMPANIES data', () => {
     expect(unitree, 'missing unitree-robotics').toBeDefined();
     expect(unitree?.status).toBe('public');
     expect(unitree?.latestRound?.type).toBe('IPO');
-    // Snapshot figure from research/04 (as of 2026-08-06). Later live
-    // writeups disagree on the raise ($610M filing vs $618M approval vs
-    // ~$900M priced); the shipped number stays the snapshot value rather
-    // than being averaged or silently replaced.
-    expect(unitree?.latestRound?.amountUsd).toBe(618_000_000);
-    expect(unitree?.latestRound?.date).toBe('2026-08-10');
+    // Priced 2026-08-06 at 150.8 yuan/share: 6.1B yuan raise at ~61B yuan
+    // valuation (Reuters via CNBC, fetched 2026-08-18; USD at the article's
+    // own 6.7488 rate, matching its printed $9.04B valuation). The old
+    // $618M/2026-08-10 snapshot was the pre-pricing approval figure carried
+    // by a since-dead Caixin URL.
+    expect(unitree?.latestRound?.amountUsd).toBe(904_000_000);
+    expect(unitree?.latestRound?.date).toBe('2026-08-06');
+    expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
   });
 
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {

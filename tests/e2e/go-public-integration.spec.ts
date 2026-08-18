@@ -98,7 +98,7 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
 
     const marketUrl = `${BASE}/market-map/?segment=humanoids`;
     await page.goto(marketUrl);
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
 
     // Back: the filtered market-map state gives way to the populated
     // search view (query and results intact), not a blank page.
@@ -134,7 +134,7 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
 
     await page.goForward();
     await expect(page).toHaveURL(/\/market-map\/\?segment=humanoids/);
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
   });
 
   test('back from a client-side navigation restores the previous route', async ({

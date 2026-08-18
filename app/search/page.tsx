@@ -19,7 +19,7 @@ export default function SearchPage() {
     <div data-pagefind-ignore className="mx-auto w-full max-w-3xl px-6 py-12">
       {/* aria-current stands in for the nav marker here: the shell exposes
           /search through a form, not a link, so no nav entry can carry it
-          (VAL-DESIGN-022 requires exactly one aria-current per route). */}
+          (the design contract allows exactly one aria-current per route). */}
       <h1
         aria-current="page"
         className="font-sans text-3xl font-semibold tracking-tight text-text"

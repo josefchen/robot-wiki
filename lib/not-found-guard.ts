@@ -15,8 +15,7 @@
  * and throws `Minified React error #418` (server HTML did not match the
  * client), then recovers by client-rendering. The page ends up correct
  * and interactive; the defect is the thrown error, which fails the
- * zero-console-error contract on any unknown route (VAL-CROSS-025,
- * VAL-A11Y-013).
+ * zero-console-error contract on any unknown route.
  *
  * A per-path static document cannot exist, so the mismatch cannot be
  * removed at the source. The guard below runs before hydration: when the

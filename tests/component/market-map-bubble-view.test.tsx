@@ -67,9 +67,14 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const focusable = COMPANIES.filter((company) =>
       points.has(company.id),
     ).map((company) => mark(company.id));
-    // 47 of the 112 companies have both a founding year and a disclosed
+    // 36 of the 111 companies have both a founding year and a disclosed
     // valuation or total raised; all of them are plotted.
-    expect(focusable.length).toBe(47);
+    // 38 -> 37 when the 2026-08-18 audit nulled unverifiable
+    // amounts/valuations that previously plotted; 37 -> 36 when the
+    // reconciliation sweep the same day nulled the-bot-company's founded
+    // year (no fetched source states it; dyna-robotics precedent), which
+    // removes the record from the founded-vs-funding plot.
+    expect(focusable.length).toBe(36);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);
@@ -238,7 +243,7 @@ describe('BubbleView focus ring', () => {
     expect(ring).not.toBeNull();
     // The ring must not be a descendant of the clipped group: a mark at
     // the extreme top/bottom of the plot has its ring cut by the clip
-    // rect there (measured baseline: saronic-defense ring top 22.3 vs
+    // rect there (measured baseline: anduril ring top 22.3 vs
     // clip top 24; k-scale-labs ring bottom 373.7 vs clip bottom 372 on
     // the full dataset).
     expect(ring!.closest('g[clip-path]')).toBeNull();

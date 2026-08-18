@@ -2,7 +2,7 @@
  * Core content-pipeline validation, shared by scripts/validate-content.ts
  * (prebuild gate) and the Vitest suite.
  *
- * Checks, per the validation contract (VAL-NAV-026, VAL-NAV-027, VAL-BUILD-001):
+ * Checks, per the validation contract:
  *   1. Registry hygiene: schema-valid entries, unique domain/slug pairs,
  *      unique order within a domain, every core domain populated, at least
  *      one published module.
@@ -22,31 +22,31 @@
  *   8. Inline citation declaration: every <Cite id="..."> in the MDX body
  *      must be declared in that module's frontmatter citations list. An
  *      undeclared inline cite would render as a chip with no entry in the
- *      References bibliography (VAL-WIKI-005).
+ *      References bibliography.
  *   9. seeAlso curation: required on every published module (drafts may
- *      omit it; VAL-WIKI-007), and every seeAlso frontmatter entry must be a
+ *      omit it), and every seeAlso frontmatter entry must be a
  *      registry key of a published module, never the article itself, with
- *      no duplicates (VAL-WIKI-009, VAL-WIKI-010). The 2-4 entry bounds
+ *      no duplicates. The 2-4 entry bounds
  *      are enforced by the frontmatter schema when the field is present.
  *  10. Glossary (when `terms` is given): every entry is schema-valid with
  *      a unique id, and every citation id it references resolves to the
  *      citation registry. Every <Term id="..."> in an MDX body must resolve
  *      to a glossary entry; an unknown term id fails the build, naming the
- *      article and the id (VAL-GLOSS-008, VAL-GLOSS-010).
+ *      article and the id.
  *  11. Imagery (when `images` is given): every entry is schema-valid with
  *      a unique id, so a missing or unrecognised licence fails the build
- *      naming the image id and the problem (VAL-IMG-007, VAL-IMG-008), and
+ *      naming the image id and the problem, and
  *      every entry's file exists under public/. Every <Image id="..."> in
  *      an MDX body (and in any extra scanned source, such as the home
  *      page's tsx) must resolve to a registry entry; an unregistered id
  *      fails the build naming the file and the id, and a registered image
  *      no PUBLISHED page references fails the build, so the registry, the
- *      rendered set, and /credits cannot drift apart (VAL-IMG-006). The id
+ *      rendered set, and /credits cannot drift apart. The id
  *      gate scans drafts too (an unknown id should fail before publish),
  *      but only published modules and the static sources count as usage:
  *      an image referenced only by a draft is invisible to readers and
  *      must not satisfy the stale-registry guard (library/imagery.md).
- *      Provenance fields are scanned for synthesis markers (VAL-IMG-013).
+ *      Provenance fields are scanned for synthesis markers.
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -199,7 +199,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     citationIds.add(citation.id);
   }
 
-  // 10a. Glossary hygiene (VAL-GLOSS-002): schema-valid entries with unique
+  // 10a. Glossary hygiene: schema-valid entries with unique
   // ids, and every citation id a definition leans on must resolve to the
   // citation registry. The schema itself rejects uncited definitions.
   const termIds = new Set<string>();
@@ -223,12 +223,11 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
     }
   }
 
-  // 11a. Imagery hygiene (VAL-IMG-007, VAL-IMG-008): schema-valid entries
+  // 11a. Imagery hygiene: schema-valid entries
   // with unique ids. The schema's licence enum is the hard gate: a missing
   // or unrecognised licence fails safeParse here, and the message names
   // the image id and the rejected value. Each entry's file must exist
   // under public/, and no provenance field may carry a synthesis marker
-  // (VAL-IMG-013).
   const imageIds = new Set<string>();
   const usedImageIds = new Set<string>();
   for (const image of opts.images ?? []) {
@@ -337,7 +336,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       push(rel, 'published module declares no citations');
     }
 
-    // 8. Inline citation declaration (VAL-WIKI-005): every <Cite id> used in
+    // 8. Inline citation declaration: every <Cite id> used in
     // the prose must be declared in frontmatter, or the chip would render
     // with no matching References entry.
     const declared = new Set(fm.data.citations);
@@ -350,7 +349,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    // 10b. Unknown term ids (VAL-GLOSS-008, VAL-GLOSS-010): every <Term id>
+    // 10b. Unknown term ids: every <Term id>
     // used in the prose must resolve to a glossary entry, so an inline
     // definition always matches its glossary entry and a reader who follows
     // a term to /glossary always finds it.
@@ -362,7 +361,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    // 11b. Unregistered image ids (VAL-IMG-006): every <Image id> used in
+    // 11b. Unregistered image ids: every <Image id> used in
     // the prose must resolve to the image registry, so a rendered image
     // always has a licence record, a credit, and a /credits entry. The id
     // gate scans drafts too (an unknown id should fail before publish),
@@ -385,7 +384,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    // 9. seeAlso curation (VAL-WIKI-007, VAL-WIKI-009, VAL-WIKI-010):
+    // 9. seeAlso curation:
     // required on every published module since the backfill landed (the
     // schema keeps the field optional so drafts may omit it; the 2-4
     // entry bounds are the schema's job once present). Every entry is the
@@ -446,7 +445,7 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       }
     }
 
-    // 11d. Stale-registry guard (VAL-IMG-006): a registered image that no
+    // 11d. Stale-registry guard: a registered image that no
     // published page references would render on /credits but nowhere a
     // reader can see, which is exactly the drift the three-way agreement
     // check forbids.

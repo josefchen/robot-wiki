@@ -21,7 +21,7 @@ import { cx } from '@/lib/utils';
  * group (all / verified / claimed) with aria-pressed buttons, a visible row
  * count readout, and a reset control. No auto-playing motion, no layout shift
  * on load. Column headers are mono and dim but deliberately NOT uppercase:
- * the page's uppercase micro-label budget (VAL-DESIGN-010) is spent on the
+ * the page's uppercase micro-label budget is spent on the
  * compounding calculator's two slider labels.
  */
 

@@ -125,9 +125,13 @@ describe('HardwareGuide', () => {
     ).toBe(true);
 
     await user.click(screen.getByRole('button', { name: /under \$1k/i }));
-    expect(bodyRows()).toHaveLength(4);
+    // Four entry arms plus the two tactile sensors with published retail
+    // prices (DIGIT $350, GelSight Mini $500).
+    expect(bodyRows()).toHaveLength(6);
     expect(rowNamed(/SO-101 \(self-build\)/)).toBeDefined();
     expect(rowNamed('Koch v1.1')).toBeDefined();
+    expect(rowNamed('DIGIT')).toBeDefined();
+    expect(rowNamed(/GelSight Mini/)).toBeDefined();
   });
 
   it('composes price and availability filters conjunctively (VAL-DATA-016)', async () => {
@@ -162,8 +166,9 @@ describe('HardwareGuide', () => {
   it('shows an empty state with a clear affordance on zero results', async () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
-    // No sensor in the guide carries a listed price.
-    await user.click(screen.getByRole('button', { name: /^sensors$/i }));
+    // No compute row carries a listed price: NVIDIA publishes no Thor
+    // module price and VLA-Perf quotes no card prices.
+    await user.click(screen.getByRole('button', { name: /^compute$/i }));
     await user.click(screen.getByRole('button', { name: /under \$1k/i }));
 
     expect(screen.queryByRole('table')).toBeNull();

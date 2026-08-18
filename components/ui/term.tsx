@@ -11,7 +11,7 @@ type TermProps = {
   /**
    * Definition from the glossary registry. Rendered identically on
    * /glossary, so the inline tooltip and the glossary entry are one source
-   * of truth (VAL-GLOSS-009).
+   * of truth.
    */
   definition: string;
   /** MDX children override the display text (plurals, capitalization). */
@@ -43,8 +43,8 @@ const VIEWPORT_MARGIN_PX = 12;
  * effect measures the displayed tooltip (getBoundingClientRect forces the
  * pending hover/focus style recalc, so the box is real) and clamps its
  * position into the viewport. Definitions stay fully readable for terms
- * near the right edge, the left edge, or the top of the viewport
- * (VAL-GLOSS-007). This is a clamp, not a positioning library; visibility
+ * near the right edge, the left edge, or the top of the viewport.
+ * This is a clamp, not a positioning library; visibility
  * stays CSS-driven, which is what keeps it working in the static export.
  */
 export function Term({ termId, term, definition, children }: TermProps) {

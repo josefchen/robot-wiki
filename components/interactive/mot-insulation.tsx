@@ -83,7 +83,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
 
   function toggleStopGradient() {
     // The toggle only has meaning in the backward view, so switching it
-    // moves the diagram there (VAL-MAN-059's expected interaction path).
+    // moves the diagram there (the expected interaction path).
     setStopGradient((on) => !on);
     setPass('backward');
   }

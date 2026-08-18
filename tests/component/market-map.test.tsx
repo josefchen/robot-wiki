@@ -19,21 +19,21 @@ function card(name: string): HTMLElement {
   return article;
 }
 
-// MarketMap renders 112 DOM-heavy company cards. Under full-suite jsdom
+// MarketMap renders 111 DOM-heavy company cards. Under full-suite jsdom
 // load the second render can exceed the 5s default timeout (it takes ~3s
 // in isolation), so every test in this file gets a 15s ceiling.
 const TIMEOUT = 15_000;
 
 describe('MarketMap', () => {
-  it('renders all 112 companies grouped by the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
+  it('renders all 111 companies grouped by the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(112);
+    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(screen.getAllByRole('article')).toHaveLength(111);
     expect(
       screen.getByRole('heading', { name: /Foundation models/ }),
     ).toHaveTextContent('12');
     expect(screen.getByRole('heading', { name: /Humanoids/ })).toHaveTextContent(
-      '35',
+      '34',
     );
     expect(
       screen.getByRole('heading', { name: /Industrial \/ logistics/ }),
@@ -53,7 +53,7 @@ describe('MarketMap', () => {
     const user = userEvent.setup();
     // Render a one-segment subset (10 cards) instead of the full grid:
     // the filter bar is a sibling of the grid, not a child of it, so all
-    // seven dimensions are fully observable without paying the 112-card
+    // seven dimensions are fully observable without paying the 111-card
     // render cost (that cost, paid once per assertion-shaped rerender, is
     // what used to push this test past the module timeout under
     // full-suite jsdom load).
@@ -93,13 +93,13 @@ describe('MarketMap', () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.selectOptions(screen.getByLabelText('Segment'), 'humanoids');
-    expect(screen.getByText('35 of 112 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(35);
+    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+    expect(screen.getAllByRole('article')).toHaveLength(34);
     await user.selectOptions(screen.getByLabelText('Country'), 'US');
-    expect(screen.getByText('6 of 112 companies')).toBeInTheDocument();
+    expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
     expect(screen.getAllByRole('article')).toHaveLength(6);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
-    expect(screen.getByText('4 of 112 companies')).toBeInTheDocument();
+    expect(screen.getByText('4 of 111 companies')).toBeInTheDocument();
   }, TIMEOUT);
 
   it('narrows sub-segments when a segment is active (VAL-MKT-025)', async () => {
@@ -125,14 +125,15 @@ describe('MarketMap', () => {
     expect(pi).toHaveTextContent('high');
     expect(
       within(pi).getByRole('link', {
-        name: /Physical Intelligence Valued at \$5.6 Billion/,
+        name: /Physical Intelligence raises \$600M to advance robot foundation models/,
       }),
     ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
 
     await user.click(within(pi).getByRole('button', { name: 'Expand' }));
     expect(within(pi).getByText('Pi, π')).toBeInTheDocument();
     expect(within(pi).getByText('San Francisco, US')).toBeInTheDocument();
-    expect(within(pi).getByText('CapitalG')).toBeInTheDocument();
+    // TRR (fetched 2026-08-18): CapitalG led the Series B with Lux Capital.
+    expect(within(pi).getByText('CapitalG, Lux Capital')).toBeInTheDocument();
     expect(within(pi).getByText('openpi')).toBeInTheDocument();
     await user.click(within(pi).getByRole('button', { name: 'Collapse' }));
     expect(within(pi).queryByText('openpi')).not.toBeInTheDocument();
@@ -175,7 +176,7 @@ describe('MarketMap', () => {
     expect(unitreeEvent).toHaveTextContent('IPO');
 
     await user.click(screen.getByRole('button', { name: 'Grid' }));
-    expect(screen.getAllByRole('article')).toHaveLength(112);
+    expect(screen.getAllByRole('article')).toHaveLength(111);
   }, TIMEOUT);
 
   it('shows an empty state and restores the full set on clear (VAL-MKT-017, VAL-MKT-018)', async () => {
@@ -187,10 +188,10 @@ describe('MarketMap', () => {
     );
     await user.selectOptions(screen.getByLabelText('Stage / status'), 'shut-down');
     expect(screen.getByText('No companies match these filters.')).toBeInTheDocument();
-    expect(screen.getByText('0 of 112 companies')).toBeInTheDocument();
+    expect(screen.getByText('0 of 111 companies')).toBeInTheDocument();
     await user.click(screen.getAllByRole('button', { name: 'Clear filters' })[0]);
-    expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(112);
+    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(screen.getAllByRole('article')).toHaveLength(111);
   }, TIMEOUT);
 
   it('hydrates filters from the URL and ignores invalid params (VAL-MKT-007, VAL-MKT-024)', async () => {
@@ -201,7 +202,7 @@ describe('MarketMap', () => {
     );
     const { unmount } = render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('6 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
     });
     unmount();
 
@@ -212,7 +213,7 @@ describe('MarketMap', () => {
     );
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
     });
   }, TIMEOUT);
 
@@ -231,7 +232,7 @@ describe('MarketMap', () => {
     // The valid sibling filter still narrows the grid: the bogus values
     // must not silently empty it.
     expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
-    expect(screen.getAllByRole('article').length).toBeLessThan(112);
+    expect(screen.getAllByRole('article').length).toBeLessThan(111);
   }, TIMEOUT);
 
   it('relaxes filters that exclude the company named in the hash', async () => {
@@ -245,7 +246,7 @@ describe('MarketMap', () => {
     // passes), the country filter is dropped (it fails), and the named
     // card renders highlighted.
     await waitFor(() => {
-      expect(screen.getByText('35 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
     });
     const figure = card('Figure AI');
     expect(figure).toHaveClass('bg-surface-2');
@@ -261,7 +262,7 @@ describe('MarketMap', () => {
     );
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
     });
     expect(card('Figure AI')).toHaveClass('bg-surface-2');
     expect(window.location.search).toBe('');
@@ -273,13 +274,13 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/#company-figure-ai');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('112 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
     });
     // The user explicitly re-excludes the hashed company; the arrival
     // relax must not fight that choice.
     await user.selectOptions(screen.getByLabelText('Country'), 'CN');
     await waitFor(() => {
-      expect(screen.getByText('22 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('20 of 111 companies')).toBeInTheDocument();
     });
     expect(
       screen.queryByRole('heading', { level: 3, name: 'Figure AI' }),
@@ -294,14 +295,14 @@ describe('MarketMap', () => {
     );
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('22 of 112 companies')).toBeInTheDocument();
+      expect(screen.getByText('20 of 111 companies')).toBeInTheDocument();
     });
     expect(document.getElementById('company-ghost')).toBeNull();
   }, TIMEOUT);
 
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    expect(screen.getByText('112 of 112 companies')).toHaveAttribute(
+    expect(screen.getByText('111 of 111 companies')).toHaveAttribute(
       'aria-live',
       'polite',
     );

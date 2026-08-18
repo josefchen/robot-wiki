@@ -143,8 +143,8 @@ if (!parsed.success) {
 }
 
 const companies = parsed.data;
-if (companies.length !== 112) {
-  fail(`expected 112 companies, got ${companies.length}`);
+if (companies.length !== 111) {
+  fail(`expected 111 companies, got ${companies.length}`); // 111 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
 }
 
 const body = companies

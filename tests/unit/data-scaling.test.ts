@@ -76,10 +76,13 @@ describe('chart data anchors match published numbers', () => {
     expect(byId.get('droid')?.magnitude).toBe(350);
     expect(byId.get('egodex')?.magnitude).toBe(829);
     expect(byId.get('tri-lbm')?.magnitude).toBe(1700);
+    // AgiBot World Beta publishes 2,976.4 h alongside its million
+    // trajectories; the ~100k h estimate that circulated is not the
+    // dataset's own figure.
+    expect(byId.get('agibot')?.magnitude).toBe(2976);
     expect(byId.get('ego4d')?.magnitude).toBe(3670);
     expect(byId.get('oxe')?.magnitude).toBe(10_000);
     expect(byId.get('egoscale')?.magnitude).toBe(20_854);
-    expect(byId.get('agibot')?.magnitude).toBe(100_000);
   });
 
   it('estimated points are flagged, measured points are not', () => {
@@ -87,8 +90,8 @@ describe('chart data anchors match published numbers', () => {
     expect(byId.get('droid')?.estimated).toBe(false);
     expect(byId.get('egodex')?.estimated).toBe(false);
     expect(byId.get('egoscale')?.estimated).toBe(false);
+    expect(byId.get('agibot')?.estimated).toBe(false);
     expect(byId.get('oxe')?.estimated).toBe(true);
-    expect(byId.get('agibot')?.estimated).toBe(true);
     expect(byId.get('tri-lbm')?.estimated).toBe(true);
   });
 
@@ -117,6 +120,7 @@ describe('formatters', () => {
     expect(formatHours(350)).toBe('350 h');
     expect(formatHours(829)).toBe('829 h');
     expect(formatHours(1700)).toBe('1,700 h');
+    expect(formatHours(2976)).toBe('2,976 h');
     expect(formatHours(10_000)).toBe('10,000 h');
     expect(formatHours(20_854)).toBe('20,854 h');
     expect(formatHours(100_000)).toBe('100,000 h');

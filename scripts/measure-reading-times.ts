@@ -10,7 +10,7 @@
  * data/reading-times.json. The build runs twice: the first pass produces
  * the export to measure, the second pass renders every header from the
  * measured file, so the shipped HTML and its RSC flight payload both carry
- * the exact rendered count (VAL-WIKI-015).
+ * the exact rendered count.
  *
  * Fails loudly (non-zero exit) if any published article cannot be measured:
  * a missing page, a missing .prose region, or an empty region all mean the

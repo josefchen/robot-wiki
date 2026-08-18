@@ -30,7 +30,7 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
-test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
+test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
   page,
 }) => {
   const apiRequests: string[] = [];
@@ -42,12 +42,14 @@ test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, V
   });
 
   await page.goto(`${BASE}/market-map/`);
-  await expect(page.getByText('112 of 112 companies')).toBeVisible();
-  await expect(page.locator('article[data-company-id]')).toHaveCount(112);
+  await expect(page.getByText('111 of 111 companies')).toBeVisible();
+  await expect(page.locator('article[data-company-id]')).toHaveCount(111);
 
   await page.locator('#filter-segment').selectOption('humanoids');
-  await expect(page.getByText('35 of 112 companies')).toBeVisible();
-  await expect(page.locator('article[data-company-id]')).toHaveCount(35);
+  await expect(page.getByText('34 of 111 companies')).toBeVisible();
+  // 34 cards for the 34-row humanoids segment (the duplicate
+  // galaxea-ai-robot removal took the segment 35 -> 34).
+  await expect(page.locator('article[data-company-id]')).toHaveCount(34);
   expect(page.url()).toContain('segment=humanoids');
 
   await page.getByRole('button', { name: 'Timeline' }).click();
@@ -55,7 +57,7 @@ test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, V
 
   await page.getByRole('button', { name: 'Grid' }).click();
   await page.getByRole('button', { name: 'Clear filters' }).click();
-  await expect(page.getByText('112 of 112 companies')).toBeVisible();
+  await expect(page.getByText('111 of 111 companies')).toBeVisible();
   const pi = page.locator('article[data-company-id="physical-intelligence"]');
   await pi.getByRole('button', { name: 'Expand' }).click();
   await expect(pi.getByText('openpi')).toBeVisible();
@@ -76,6 +78,6 @@ test('static export prerenders 112 cards and filters client-side (VAL-MKT-001, V
 
 test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => {
   await page.goto(`${BASE}/market-map/?segment=humanoids&country=US`);
-  await expect(page.getByText('6 of 112 companies')).toBeVisible();
+  await expect(page.getByText('6 of 111 companies')).toBeVisible();
   await expect(page.locator('article[data-company-id]')).toHaveCount(6);
 });

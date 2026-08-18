@@ -2,7 +2,7 @@
  * Pure logic for the citation audit checker (scripts/check-citations.ts).
  *
  * The liveness sweep (lib/citation-links.ts) answers "does the URL resolve?".
- * This module answers the harder question behind VAL-AUDIT-008: "is the
+ * This module answers the harder question: "is the
  * fetched document the one the registry entry describes?" A URL that 200s
  * but serves a different paper is a failure, not a pass, so the checker
  * extracts the fetched document's title and compares it against the registry
@@ -31,11 +31,11 @@ export interface ArchivalCapture {
   originalUrl: string;
 }
 
-const ARCHIVAL_CAPTURE_RE = /^https:\/\/web\.archive\.org\/web\/(\d{4,14})(?:id_)?\/(.+)$/i;
+const ARCHIVE_CAPTURE_RE = /^https:\/\/web\.archive\.org\/web\/(\d{4,14})(?:id_)?\/(.+)$/i;
 
 /** Parse a web.archive.org capture URL, or null for any other URL. */
 export function parseArchivalCapture(url: string): ArchivalCapture | null {
-  const match = ARCHIVAL_CAPTURE_RE.exec(url);
+  const match = ARCHIVE_CAPTURE_RE.exec(url);
   if (!match) return null;
   return { timestamp: match[1], originalUrl: match[2] };
 }
@@ -138,7 +138,7 @@ function isGenericPageTitle(title: string): boolean {
  * Verdicts:
  * - 'match': the fetched title plausibly IS the registry document.
  * - 'mismatch': the fetched title names a different document. This is the
- *   wrong-paper signal VAL-AUDIT-008 exists to catch.
+ *   wrong-paper signal this checker exists to catch.
  * - 'unavailable': no comparable title was obtainable (generic/placeholder
  *   title, empty title). Not evidence of anything; reported, never fatal.
  */
