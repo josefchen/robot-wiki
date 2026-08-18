@@ -1473,9 +1473,14 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
+        url: 'https://www.coindesk.com/business/2026/06/11/tether-leads-usd1-4-billion-funding-round-in-german-robotics-company-neura/',
+        title: 'Tether leads $1.4 billion round in NEURA Robotics (CoinDesk)',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://neura-robotics.com/record-series-c/',
-        title: 'NEURA Robotics Announces Record Series C of up to $1.4B',
-        asOf: '2026-08-06',
+        title: 'NEURA Robotics Announces Record Series C of up to $1.4B (first-party)',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html',
@@ -1764,6 +1769,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.cnbc.com/2025/09/08/alibaba-leads-100-million-investment-in-chinese-humanoid-robot-startup.html',
+        title: 'Alibaba leads ~$100M round in X Square Robot (CNBC; eighth round since founding)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
         title: 'Embodied AI Fuels Record Robotics Funding In China',
@@ -2087,20 +2097,26 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
-      amountUsd: null,
-      date: '2025-01-02',
+      amountUsd: 181000000,
+      date: '2024-12-31',
       valuationUsd: null,
       leadInvestors: [
         'Samsung Electronics',
       ],
     },
-    status: 'acquired',
+    status: 'public',
     deployments: [
       'Samsung factory automation',
       '117% revenue surge in Q1 2026',
+      'Samsung Electronics subsidiary (35% target stake via call option); still KOSDAQ-listed (277810)',
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://techcrunch.com/2024/12/30/samsung-pays-181m-to-become-largest-shareholder-of-robot-maker-rainbow-robotics/',
+        title: 'Samsung pays $181M to become largest shareholder of Rainbow Robotics (TechCrunch)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://news.samsung.com/global/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics',
         title: 'Samsung To Become Largest Shareholder in Rainbow Robotics',
@@ -2461,9 +2477,9 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Strategic investment',
       amountUsd: null,
-      date: null,
+      date: '2025-03-06',
       valuationUsd: null,
       leadInvestors: [
         'Rockwell Automation',
@@ -2477,8 +2493,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.therobotreport.com/righthand-robotics-receives-investment-from-rockwell-automation/',
-        title: 'RightHand Robotics receives investment from Rockwell Automation',
-        asOf: '2026-08-06',
+        title: 'RightHand Robotics receives strategic investment from Rockwell Automation (2025-03-06)',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'low',
@@ -2542,16 +2558,23 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series C',
+      amountUsd: 50000000,
+      date: '2023-03-07',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Scale Venture Partners',
+      ],
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.businesswire.com/news/home/20230306005881/en/Plus-One-Robotics-Raises-50-Million-in-Funding-Led-by-Scale-Venture-Partners',
+        title: 'Plus One Robotics Raises $50 Million, Led by Scale Venture Partners (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://newmarketpitch.com/blogs/news/warehouse-robotics-top-startups-fundraising',
         title: 'Top Warehouse Robotics Startups by Fundraising 2026',
@@ -2809,12 +2832,12 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series C',
+      amountUsd: 50000000,
+      date: '2024-10-24',
       valuationUsd: null,
       leadInvestors: [
-        'Eclipse',
+        'Growth Equity at Goldman Sachs Alternatives',
       ],
     },
     status: 'private',
@@ -2824,9 +2847,9 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.crunchbase.com/organization/simbe-robotics',
-        title: 'Simbe Robotics - Crunchbase',
-        asOf: '2026-08-06',
+        url: 'https://www.simberobotics.com/about/newsroom/simbe-raises-50-million-in-series-c-funding',
+        title: 'Simbe Raises $50 Million in Series C Led by Growth Equity at Goldman Sachs Alternatives (first-party)',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6',
@@ -2911,6 +2934,11 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
+        url: 'https://cmrsurgical.com/',
+        title: 'CMR Surgical (company site; Versius surgical robot)',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://pdpspectra.com/blog/surgical-robotics-2026/',
         title: 'Surgical Robotics in 2026',
         asOf: '2026-08-06',
@@ -2948,6 +2976,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://moon-medical.com/',
+        title: 'Moon Surgery (company site)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://pdpspectra.com/blog/surgical-robotics-2026/',
         title: 'Surgical Robotics in 2026: Maestro',
