@@ -3800,11 +3800,6 @@ const ROWS: Company[] = [
         title: 'Sharpa company site (first-party)',
         asOf: '2026-08-18',
       },
-      {
-        url: 'https://www.sharpa.com/',
-        title: 'Sharpa - AI robotics platform for dexterous manipulation',
-        asOf: '2026-08-06',
-      },
     ],
     confidence: 'high',
   },

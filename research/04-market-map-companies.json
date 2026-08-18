@@ -2227,8 +2227,7 @@
     "deployments": ["NVIDIA Isaac GR00T Reference Robot uses Sharpa hands", "Unveiled North full-body robot at CES 2026"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.sharpa.com/", "title": "Sharpa company site (first-party)", "asOf": "2026-08-18" },
-      { "url": "https://www.sharpa.com/", "title": "Sharpa - AI robotics platform for dexterous manipulation", "asOf": "2026-08-06" }
+      { "url": "https://www.sharpa.com/", "title": "Sharpa company site (first-party)", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },

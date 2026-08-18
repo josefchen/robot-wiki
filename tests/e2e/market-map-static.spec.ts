@@ -47,7 +47,9 @@ test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, V
 
   await page.locator('#filter-segment').selectOption('humanoids');
   await expect(page.getByText('34 of 111 companies')).toBeVisible();
-  await expect(page.locator('article[data-company-id]')).toHaveCount(35);
+  // 34 cards for the 34-row humanoids segment (the duplicate
+  // galaxea-ai-robot removal took the segment 35 -> 34).
+  await expect(page.locator('article[data-company-id]')).toHaveCount(34);
   expect(page.url()).toContain('segment=humanoids');
 
   await page.getByRole('button', { name: 'Timeline' }).click();

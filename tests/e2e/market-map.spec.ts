@@ -34,8 +34,10 @@ test.describe('market map visualization', () => {
     await expect(
       page.getByRole('heading', { name: /Foundation models/ }),
     ).toContainText('12');
+    // 34 humanoids since the 2026-08-18 audit removed the duplicate
+    // galaxea-ai-robot row (a humanoids row): 35 -> 34.
     await expect(page.getByRole('heading', { name: /^Humanoids/ })).toContainText(
-      '35',
+      '34',
     );
     await expect(
       page.getByRole('heading', { name: /Industrial \/ logistics/ }),
@@ -58,7 +60,9 @@ test.describe('market map visualization', () => {
     await page.goto(ROUTE);
     await segmentSelect(page).selectOption('humanoids');
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
-    await expect(page.locator('article[data-company-id]')).toHaveCount(35);
+    // 34 cards for the 34-row humanoids segment (see the heading count
+    // above; both oracles must agree).
+    await expect(page.locator('article[data-company-id]')).toHaveCount(34);
     expect(page.url()).toContain('segment=humanoids');
 
     await page.getByLabel('Country', { exact: true }).selectOption('US');
@@ -121,8 +125,12 @@ test.describe('market map visualization', () => {
     const pi = page.locator('article[data-company-id="physical-intelligence"]');
     await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeVisible();
     await expect(pi.getByText(/vision-language-action/)).toBeVisible();
-    await expect(pi.getByText('$600M')).toBeVisible();
-    await expect(pi.getByText('$5.6B')).toBeVisible();
+    // Target the funding figure by its data field: the source list below
+    // the card includes a Robot Report link whose TITLE contains "$600M"
+    // (a correct title), so a bare getByText collides with it in strict
+    // mode. The data-field locator still fails if the figure is wrong.
+    await expect(pi.locator('[data-field="amount"]')).toHaveText('$600M');
+    await expect(pi.locator('[data-field="valuation"]')).toHaveText('$5.6B');
     await expect(pi.getByText('high')).toBeVisible();
     await pi.getByRole('button', { name: 'Expand' }).click();
     await expect(pi.getByText('openpi')).toBeVisible();
