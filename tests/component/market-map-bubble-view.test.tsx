@@ -81,7 +81,18 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // nulled totalRaisedUsd (the $900M acquisition is not a funding
     // total; the March ~$21M round is snippet-grade only), so the row no
     // longer plots on founded-vs-totalRaised.
-    expect(focusable.length).toBe(31);
+    // 31 -> 28 when the 2026-08-18 batch-3 re-verification nulled the
+    // aggregator-only valuations on spirit-ai ($1.5B rests on no fetched
+    // source; the company's own Feb 2026 release states $280M raised
+    // across two rounds at >¥10B, no USD valuation), tars-robotics
+    // ($1.9B appears in no fetched body; the real round is a $455M
+    // Pre-A), galaxea-ai (Yicai's "$29B" is uncorroborated and the
+    // $1.4B belonged to the February round) and agibot (the $1B/Series
+    // B figure is humanoidindex-derived; the fetched round record is an
+    // Aug 2025 strategic round with terms undisclosed). mind-robotics
+    // entered the plotted set the same day (founded 2025 confirmed by
+    // TechCrunch/TRR, so its fetched $3.4B valuation now plots).
+    expect(focusable.length).toBe(28);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);

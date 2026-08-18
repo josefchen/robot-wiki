@@ -442,7 +442,7 @@ const ROWS: Company[] = [
       city: 'Palo Alto',
       country: 'US',
     },
-    founded: null,
+    founded: 2025,
     segment: 'foundation-models',
     subSegment: 'industrial-robotics',
     description: 'Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.',
@@ -479,6 +479,11 @@ const ROWS: Company[] = [
       {
         url: 'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
         title: 'Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/rivian-spinout-mind-robotics-valued-154827510.html',
+        title: 'Rivian spinout Mind Robotics valued at $3.4 billion in new funding round (Reuters; valuation source of record)',
         asOf: '2026-08-18',
       },
     ],
@@ -1340,32 +1345,30 @@ const ROWS: Company[] = [
       'Zhiyuan Robot',
     ],
     hq: {
-      city: 'Suzhou',
+      city: 'Shanghai',
       country: 'CN',
     },
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds A2-series humanoid robots; engineered backdoor listing via controlling stake in Swancor Advanced Materials; A2 completed 66-mile walking record.',
+    description: 'Builds A2-series humanoid robots; acquired control of listed Swancor Advanced Materials (2.1B yuan for at least 63.62%, which AgiBot says is not a backdoor listing); No.1 in 2025 humanoid shipments; preparing a Hong Kong IPO.',
     approach: [
       'embodied-ai',
       'mass-production',
-      'backdoor-listing',
     ],
-    totalRaisedUsd: 83800000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
+      type: 'Strategic',
       amountUsd: null,
-      date: '2024-01-01',
-      valuationUsd: 1000000000,
-      leadInvestors: [
-        'CATL',
-      ],
+      date: '2025-08-01',
+      valuationUsd: null,
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [
-      'A2 66-mile walking world record',
-      'Backdoor listing via Swancor Advanced Materials ($290M for 63.62% stake)',
+      'A2 66-mile Guinness world-record walk from Suzhou to Shanghai (Nov 2025)',
+      'Acquired at least 63.62% controlling stake in Swancor Advanced Materials for 2.1B yuan (~$290M); AgiBot says it is not a backdoor listing',
+      'Omdia ranks AgiBot No.1 worldwide in 2025 humanoid shipments (5,100+ units, 39% share)',
     ],
     openSource: [],
     sources: [
@@ -1384,8 +1387,33 @@ const ROWS: Company[] = [
         title: 'AgiBot - Humanoid Index',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://finance.yahoo.com/news/chinese-robot-maker-agibot-completes-104808083.html',
+        title: 'Chinese robot maker AGIBot completes new round of financing (Reuters; strategic round with LG Electronics and Mirae Asset, size undisclosed)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://en.tmtpost.com/post/7620691',
+        title: 'AgiBot Robotics to Take Over Swancor in $290 Million Deal (TMTPost; 2.1B yuan for at least 63.62%, \'not a backdoor listing\')',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://futurism.com/robots-and-machines/robot-agibot-humanoid-walking',
+        title: 'AgiBot A2 robot walks 66 miles from Suzhou to Shanghai, Guinness world record (Futurism)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/exclusive-chinese-robot-maker-agibot-092020928.html',
+        title: 'AgiBot plans Hong Kong IPO next year (Reuters; Shanghai-based, Tencent and HongShan backers, PitchBook $2.07B valuation)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/omdia-ranks-agibot-no1-worldwide-in-humanoid-robot-shipments-in-2025-302656788.html',
+        title: 'Omdia Ranks AGIBOT No.1 Worldwide in Humanoid Robot Shipments in 2025 (first-party)',
+        asOf: '2026-08-18',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
   },
   {
     id: 'sanctuary-ai',
@@ -1451,7 +1479,7 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
-      amountUsd: 1400000000,
+      amountUsd: null,
       date: '2026-06-10',
       valuationUsd: null,
       leadInvestors: [
@@ -1469,7 +1497,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://neura-robotics.com/record-series-c/',
-        title: 'NEURA Robotics Announces Record Series C of up to $1.4B (first-party)',
+        title: 'NEURA Robotics Announces Record Series C of up to $1.4B (first-party; amount kept as a bound, not promoted)',
         asOf: '2026-08-18',
       },
       {
@@ -1540,14 +1568,11 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series A extension',
-      amountUsd: 145000000,
-      date: '2026-04-01',
-      valuationUsd: 1500000000,
-      leadInvestors: [
-        'Chaos Investment',
-        'YF Capital',
-      ],
+      type: 'Series A+',
+      amountUsd: 222000000,
+      date: '2026-06-03',
+      valuationUsd: null,
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [],
@@ -1556,6 +1581,21 @@ const ROWS: Company[] = [
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
         title: 'Spirit AI raises $290M Series A + $145M extension',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html',
+        title: 'Spirit AI Lands $280M to Scale Embodied AI Through "Dirty Data" (company release)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
+        title: 'Spirit AI\'s Spirit v1.6 Tops RoboArena (StackFutures; 1.5B yuan / $222M Series A+ on June 3)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://news.pedaily.cn/202606/564786.shtml',
+        title: '千寻智能完成15亿元A+轮融资 (PEdaily; A+ round announced 2026-06-03)',
         asOf: '2026-08-18',
       },
     ],
@@ -1580,13 +1620,11 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B extension',
+      type: 'Series B+',
       amountUsd: 290000000,
-      date: '2026-04-01',
-      valuationUsd: 1400000000,
-      leadInvestors: [
-        'Jinding Capital',
-      ],
+      date: '2026-04-02',
+      valuationUsd: null,
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [],
@@ -1600,6 +1638,16 @@ const ROWS: Company[] = [
       {
         url: 'https://humanoidindex.org/companies/galaxea-ai',
         title: 'Galaxea AI - Humanoid Index',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.cxodigitalpulse.com/chinas-galaxea-ai-raises-290-4-million-in-series-b-round-to-accelerate-robotics-push/',
+        title: 'China\'s Galaxea AI Raises $290.4 Million in Series B+ Round (CXO Digitalpulse)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://theaiinsider.tech/2026/04/04/chinese-robotics-startup-galaxea-ai-raises-290m-usd-in-series-b-funding-valued-at-29b-usd/',
+        title: 'Chinese Robotics Startup Galaxea AI Raises $290M USD in Series B+ Funding (The AI Insider, citing Yicai Global)',
         asOf: '2026-08-18',
       },
     ],
@@ -1616,7 +1664,7 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid and quadruped robots for traffic, security, and retail deployment.',
+    description: 'Builds humanoid and quadruped robots for traffic, security, and retail deployment; a Series B+ followed in May 2026 with terms undisclosed.',
     approach: [
       'humanoid',
       'quadruped',
@@ -1625,7 +1673,7 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series B',
       amountUsd: 200000000,
-      date: '2026-05-01',
+      date: '2026-04-09',
       valuationUsd: 1500000000,
       leadInvestors: [
         'Henan CICC Huirong Fund Management',
@@ -1643,8 +1691,18 @@ const ROWS: Company[] = [
         title: 'EngineAI raises $200M Series B',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.lanjinger.com/d/1778055085697120105',
+        title: '蓝鲸独家｜众擎机器人完成B+轮融资 (Blue Whale Finance; Series B closed 2026-04-09, co-led by Henan Huirong + Luxshare, B+ in May)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://cryptobriefing.com/engineai-hong-kong-ipo-filing/',
+        title: 'EngineAI files confidentially for Hong Kong IPO (Crypto Briefing; $200M Series B at $1.5B)',
+        asOf: '2026-08-18',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
   },
   {
     id: 'robot-era',
@@ -1653,7 +1711,7 @@ const ROWS: Company[] = [
       'Robot Era',
     ],
     hq: {
-      city: null,
+      city: 'Beijing',
       country: 'CN',
     },
     founded: null,
@@ -1666,10 +1724,12 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: null,
-      amountUsd: 200000000,
-      date: '2026-04-01',
+      amountUsd: null,
+      date: null,
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'SF Group',
+      ],
     },
     status: 'private',
     deployments: [],
@@ -1684,6 +1744,16 @@ const ROWS: Company[] = [
         url: 'https://humanoidindex.org/companies/robotera',
         title: 'RobotEra - Humanoid Index',
         asOf: '2026-08-06',
+      },
+      {
+        url: 'https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/',
+        title: 'ROBOTERA Raises Over $200 Million To Scale Humanoid Robotics Commercialization (Pulse 2.0; round led by SF Group)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/',
+        title: 'RobotEra raises over US$200M in latest funding round (Frontier Enterprise; led by SF Group after RMB 1B March round)',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'medium',
@@ -1708,10 +1778,10 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Seed',
-      amountUsd: 513000000,
-      date: '2026-05-01',
-      valuationUsd: 1900000000,
+      type: 'Pre-A',
+      amountUsd: 455000000,
+      date: '2026-04-16',
+      valuationUsd: null,
       leadInvestors: [
         'Hillhouse Capital',
         'HSG',
@@ -1726,6 +1796,11 @@ const ROWS: Company[] = [
         title: 'TARS Robotics raises $513M seed',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://olachina.org/tars-ai/',
+        title: 'China\'s TARS AI Raises $455M in Embodied Intelligence Round (Ola China; $455M Pre-A announced 2026-04-16, Hillhouse + Sequoia China co-led)',
+        asOf: '2026-08-18',
+      },
     ],
     confidence: 'medium',
   },
@@ -1736,10 +1811,10 @@ const ROWS: Company[] = [
       'X Square',
     ],
     hq: {
-      city: null,
+      city: 'Shenzhen',
       country: 'CN',
     },
-    founded: null,
+    founded: 2023,
     segment: 'humanoids',
     subSegment: 'home-humanoids',
     description: 'Builds general-purpose embodied intelligence robots for household and industrial applications, targeting home trials.',
@@ -1750,8 +1825,8 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
-      amountUsd: 293000000,
-      date: '2026-04-01',
+      amountUsd: null,
+      date: '2026-04-21',
       valuationUsd: null,
       leadInvestors: [
         'Xiaomi',
@@ -1772,6 +1847,16 @@ const ROWS: Company[] = [
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
         title: 'Embodied AI Fuels Record Robotics Funding In China',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://kr-asia.com/xiaomi-hongshan-back-x-square-robot-in-series-b-round',
+        title: 'Xiaomi, HongShan back X Square Robot in Series B round (KrASIA; nearly RMB 2B / USD 292.8M, co-led)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://theaiinsider.tech/2026/04/22/x-square-robot-raises-276m-in-series-b-funding-for-household-robots/',
+        title: 'X Square Robot Raises $276M in Series B Funding (The AI Insider, citing China Daily; nearly $276M led by Xiaomi arm)',
         asOf: '2026-08-18',
       },
     ],
@@ -1878,7 +1963,7 @@ const ROWS: Company[] = [
     name: 'LimX Dynamics',
     aka: [],
     hq: {
-      city: null,
+      city: 'Shenzhen',
       country: 'CN',
     },
     founded: 2022,
@@ -1891,9 +1976,9 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
-      amountUsd: 200000000,
-      date: '2026-02-03',
+      type: 'Pre-IPO',
+      amountUsd: null,
+      date: '2026-07-14',
       valuationUsd: null,
       leadInvestors: [],
     },
@@ -1903,7 +1988,7 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://technode.com/2026/02/03/limx-dynamics-raises-200-million-in-series-b-to-scale-humanoid-robotics/',
-        title: 'LimX Dynamics raises $200 million in Series B',
+        title: 'LimX Dynamics raises $200 million in Series B (Feb 2026 round)',
         asOf: '2026-08-18',
       },
       {
@@ -1911,8 +1996,18 @@ const ROWS: Company[] = [
         title: 'LimX Dynamics - Humanoid Index',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://finance.biggo.com/news/269a54b1-070f-49ab-bce0-ff7a5776dd0f',
+        title: 'LimX Dynamics Raises $400M in Six Months, Hits $2.2B Valuation (BigGo; nearly $200M Pre-IPO completed 2026-07-14, 15B yuan post-money)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://eu.36kr.com/en/p/3893976502287618',
+        title: 'LimX Dynamics $200M Pre-IPO Financing | 15B Yuan Post-Money Valuation (36Kr)',
+        asOf: '2026-08-18',
+      },
     ],
-    confidence: 'low',
+    confidence: 'medium',
   },
   {
     id: 'wandercraft',
@@ -4347,7 +4442,9 @@ const ROWS: Company[] = [
   {
     id: 'switchbot',
     name: 'SwitchBot',
-    aka: [],
+    aka: [
+      'OneRobotics (Shenzhen) Co.',
+    ],
     hq: {
       city: 'Shenzhen',
       country: 'CN',

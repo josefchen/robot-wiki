@@ -107,6 +107,13 @@ test.describe('bubble view hover/focus affordances', () => {
     // acquisition is a deal value, not a funding total or valuation —
     // nudging the log scale again): anduril's paintedTop is now 30.10,
     // so 31 is the bound.
+    // Checked 2026-08-18 (batch-3 re-verification: the plotted set shrank
+    // 31 -> 28 as three more valuations were nulled and one corrected off a
+    // fabricated figure): anduril's paintedTop measured 30.0957 in the
+    // rendered page, unchanged — the removed values were interior points
+    // of the plotted range, so neither the log-scale floor nor the max
+    // moved and anduril's cy is the same. The bound stays 31 with the same
+    // 0.9 margin; no re-baseline needed.
     await mark(page, 'anduril').focus();
     const ringFacts = await page.evaluate(() => {
       const ring = document.querySelector('circle[data-focus-ring]');
