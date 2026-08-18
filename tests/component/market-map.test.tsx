@@ -125,14 +125,15 @@ describe('MarketMap', () => {
     expect(pi).toHaveTextContent('high');
     expect(
       within(pi).getByRole('link', {
-        name: /Physical Intelligence Valued at \$5.6 Billion/,
+        name: /Physical Intelligence raises \$600M to advance robot foundation models/,
       }),
     ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
 
     await user.click(within(pi).getByRole('button', { name: 'Expand' }));
     expect(within(pi).getByText('Pi, π')).toBeInTheDocument();
     expect(within(pi).getByText('San Francisco, US')).toBeInTheDocument();
-    expect(within(pi).getByText('CapitalG')).toBeInTheDocument();
+    // TRR (fetched 2026-08-18): CapitalG led the Series B with Lux Capital.
+    expect(within(pi).getByText('CapitalG, Lux Capital')).toBeInTheDocument();
     expect(within(pi).getByText('openpi')).toBeInTheDocument();
     await user.click(within(pi).getByRole('button', { name: 'Collapse' }));
     expect(within(pi).queryByText('openpi')).not.toBeInTheDocument();

@@ -126,7 +126,7 @@ test.describe('market map visualization', () => {
     await expect(pi.getByText('high')).toBeVisible();
     await pi.getByRole('button', { name: 'Expand' }).click();
     await expect(pi.getByText('openpi')).toBeVisible();
-    await expect(pi.getByText('CapitalG')).toBeVisible();
+    await expect(pi.getByText('CapitalG, Lux Capital')).toBeVisible();
     await pi.getByRole('button', { name: 'Collapse' }).click();
     await expect(pi.getByText('openpi')).toHaveCount(0);
 

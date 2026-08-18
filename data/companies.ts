@@ -38,7 +38,7 @@ const ROWS: Company[] = [
       'cross-embodiment',
       'real-world-rl',
     ],
-    totalRaisedUsd: 1670000000,
+    totalRaisedUsd: 1100000000,
     latestRound: {
       type: 'Series B',
       amountUsd: 600000000,
@@ -46,6 +46,7 @@ const ROWS: Company[] = [
       valuationUsd: 5600000000,
       leadInvestors: [
         'CapitalG',
+        'Lux Capital',
       ],
     },
     status: 'private',
@@ -57,14 +58,14 @@ const ROWS: Company[] = [
     ],
     sources: [
       {
-        url: 'https://www.bloomberg.com/news/articles/2025-11-20/robotics-startup-physical-intelligence-valued-at-5-6-billion-in-funding-round',
-        title: 'Physical Intelligence Valued at $5.6 Billion in Funding Round',
-        asOf: '2026-08-06',
+        url: 'https://www.therobotreport.com/physical-intelligence-raises-600m-advance-robot-foundation-models/',
+        title: 'Physical Intelligence raises $600M to advance robot foundation models',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.pi.website/blog/pistar06',
-        title: 'π*0.6: A VLA That Learns From Experience',
-        asOf: '2026-08-06',
+        title: 'π*0.6: A VLA That Learns from Experience',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',
@@ -136,7 +137,7 @@ const ROWS: Company[] = [
     approach: [
       'robot-foundation-models',
     ],
-    totalRaisedUsd: 400000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: 400000000,
@@ -151,14 +152,14 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.bloomberg.com/news/articles/2026-06-04/nvidia-backed-robotics-startup-generalist-ai-valued-at-2-billion',
-        title: 'Nvidia-Backed Robotics Startup Generalist AI Valued at $2 Billion',
-        asOf: '2026-08-06',
+        url: 'https://generalistai.com/blog/accelerating-the-next-phase-of-physical-ai',
+        title: 'Accelerating the Next Phase of Physical AI',
+        asOf: '2026-08-18',
       },
       {
-        url: 'https://www.businessinsider.com/startup-generalist-ai-in-talks-to-raise-at-billion-valuation-2026-7',
-        title: 'Generalist AI in talks to raise at $3B valuation',
-        asOf: '2026-08-06',
+        url: 'https://qz.com/generalist-ai-funding-robotics-nvidia-bezos-060526',
+        title: 'Generalist AI raises $400M at $2B valuation, backed by Nvidia',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',
@@ -173,7 +174,7 @@ const ROWS: Company[] = [
       city: 'Redwood City',
       country: 'US',
     },
-    founded: 2024,
+    founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
     description: 'Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks.',
@@ -185,9 +186,9 @@ const ROWS: Company[] = [
       type: 'Series A',
       amountUsd: 120000000,
       date: '2025-09-15',
-      valuationUsd: 600000000,
+      valuationUsd: null,
       leadInvestors: [
-        'Robostrategy',
+        'RoboStrategy',
         'CRV',
         'First Round Capital',
       ],
@@ -197,14 +198,9 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.bloomberg.com/news/articles/2025-09-15/dyna-robotics-raises-120-million-in-funding-from-nvidia-amazon',
-        title: 'Dyna Robotics Raises $120 Million in Funding From Nvidia, Amazon',
-        asOf: '2026-08-06',
-      },
-      {
-        url: 'https://www.dyna.co/blog/dyna-robotics-closes-120m-series-a',
-        title: 'Dyna Robotics Closes $120M Series A',
-        asOf: '2026-08-06',
+        url: 'https://www.therobotreport.com/dyna-robotics-closes-120m-funding-round-to-scale-robotics-foundation-model/',
+        title: 'Dyna Robotics closes $120M funding round to scale robotics foundation model',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',
@@ -421,14 +417,9 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.reuters.com/technology/rhoda-ai-raises-450-million-17-billion-valuation/',
-        title: 'Rhoda AI raises $450 million at $1.7 billion valuation',
-        asOf: '2026-08-06',
-      },
-      {
-        url: 'https://www.bloomberg.com/news/articles/2026-03-10/ai-robotics-startup-rhoda-valued-at-1-7-billion',
-        title: 'AI Robotics Startup Rhoda Valued at $1.7 Billion',
-        asOf: '2026-08-06',
+        url: 'https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html',
+        title: 'Rhoda AI raises $450 million at $1.7 billion valuation (Reuters)',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',
@@ -960,23 +951,21 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; opened Robot Park training facility in Austin.',
+    description: 'Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; scaling production and robot-training facilities in Austin.',
     approach: [
       'humanoid',
       'gemini-robotics-integration',
       'data-collection-at-scale',
     ],
-    totalRaisedUsd: 935000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series A extension',
       amountUsd: 520000000,
       date: '2026-02-11',
-      valuationUsd: 5500000000,
+      valuationUsd: 5000000000,
       leadInvestors: [
         'B Capital',
         'Google',
-        'Mercedes-Benz',
-        'PEAK6',
       ],
     },
     status: 'private',
@@ -990,12 +979,12 @@ const ROWS: Company[] = [
       {
         url: 'https://www.cnbc.com/2026/02/11/apptronik-raises-520-million-at-5-billion-valuation-for-apollo-robot.html',
         title: 'Apptronik raises $520 million at $5 billion valuation',
-        asOf: '2026-08-06',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a',
         title: 'Apptronik Closes Over $935 Million Series A',
-        asOf: '2026-08-06',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',
@@ -3113,15 +3102,13 @@ const ROWS: Company[] = [
       'wheeled-home-robot',
       'consumer',
     ],
-    totalRaisedUsd: 400000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: 250000000,
       date: '2025-10-28',
       valuationUsd: 4000000000,
-      leadInvestors: [
-        'Greenoaks',
-      ],
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [],
@@ -3135,10 +3122,10 @@ const ROWS: Company[] = [
       {
         url: 'https://www.therobotreport.com/the-bot-company-led-by-kyle-vogt-brings-in-another-150m/',
         title: 'The Bot Company brings in another $150M',
-        asOf: '2026-08-06',
+        asOf: '2026-08-18',
       },
     ],
-    confidence: 'high',
+    confidence: 'medium',
   },
   {
     id: 'weave-robotics',
@@ -3198,7 +3185,7 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Acquisition (bankruptcy)',
       amountUsd: null,
-      date: '2025-12-15',
+      date: '2025-12-14',
       valuationUsd: null,
       leadInvestors: [
         'Picea Robotics',
@@ -3211,14 +3198,14 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.reuters.com/technology/irobot-enters-chapter-11-lender-acquire-roomba/',
-        title: 'Roomba maker iRobot files for bankruptcy',
-        asOf: '2026-08-06',
+        url: 'https://www.bbc.com/news/articles/c1lr75lp239o',
+        title: 'Roomba vacuum cleaner firm files for bankruptcy',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://www.wbur.org/hereandnow/2026/03/17/irobot-bankruptcy',
         title: 'Why iRobot went bankrupt',
-        asOf: '2026-08-06',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'high',

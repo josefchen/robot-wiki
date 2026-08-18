@@ -334,7 +334,10 @@ describe('timelineEvents', () => {
     expect(events.every((event) => event.sourceUrl.startsWith('http'))).toBe(
       true,
     );
-    expect(events.every((event) => event.asOf === MARKET_MAP_AS_OF)).toBe(true);
+    // Audit re-dating (2026-08-18): sources re-verified live during the
+    // market-map audit carry their re-verification date, so an event's asOf
+    // is the snapshot date or later, never staler than the page label.
+    expect(events.every((event) => event.asOf >= MARKET_MAP_AS_OF)).toBe(true);
 
     const byId = Object.fromEntries(events.map((event) => [event.companyId, event]));
     expect(byId['figure-ai']).toMatchObject({
@@ -360,8 +363,11 @@ describe('timelineEvents', () => {
     });
     expect(byId['unitree-robotics']).toMatchObject({
       type: 'IPO',
-      amountUsd: 618_000_000,
-      date: '2026-08-10',
+      // Priced 2026-08-06 at 150.8 yuan/share (Reuters via CNBC); the old
+      // $618M / 2026-08-10 values were the pre-pricing approval snapshot.
+      amountUsd: 904_000_000,
+      valuationUsd: 9_040_000_000,
+      date: '2026-08-06',
     });
 
     const covariant = events.find((event) => event.companyId === 'covariant');
