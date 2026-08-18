@@ -567,13 +567,13 @@ const ROWS: Company[] = [
     ],
     sources: [
       {
-        url: 'https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/',
-        title: 'Gemini Robotics 2 brings whole body intelligence to robots',
-        asOf: '2026-08-06',
+        url: 'https://deepmind.google/discover/blog/gemini-robotics-2-brings-whole-body-control-to-advanced-tasks/',
+        title: 'Gemini Robotics 2 brings whole-body control to advanced tasks (Google DeepMind blog)',
+        asOf: '2026-08-18',
       },
       {
-        url: 'https://deepmind.google/models/gemini-robotics-on-device-2/',
-        title: 'Gemini Robotics On-Device 2 - Model Card',
+        url: 'https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/',
+        title: 'Gemini Robotics 2 brings whole body intelligence to robots',
         asOf: '2026-08-06',
       },
     ],
@@ -1217,6 +1217,11 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
+        url: 'https://www.yahoo.com/tech/future-made-china-ubtech-robotics-093000541.html',
+        title: 'UBTech Robotics deploys first humanoid "team" in an EV factory (dozens of robots, March 2025)',
+        asOf: '2026-08-18',
+      },
+      {
         url: 'https://www.scmp.com/business/article/3246584/ubtech-maker-stormtrooper-robots-jumps-hong-kong-trading-debut',
         title: 'UBTech raised HK$1 billion (US$130 million) in its Hong Kong IPO, debut 2023-12-29 (SCMP)',
         asOf: '2026-08-18',
@@ -1224,11 +1229,6 @@ const ROWS: Company[] = [
       {
         url: 'https://www.prnewswire.com/news-releases/ubtech-humanoid-robot-walker-s2-begins-mass-production-and-delivery',
         title: 'UBTECH Walker S2 Begins Mass Production and Delivery',
-        asOf: '2026-08-06',
-      },
-      {
-        url: 'https://interestingengineering.com/ai-robotics/china-ubtech-builds-1000-human',
-        title: 'UBTECH builds 1,000th Walker S2',
         asOf: '2026-08-06',
       },
       {
@@ -1384,6 +1384,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.agibot.com/en/news',
+        title: 'AgiBot company newsroom (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
         title: 'Embodied AI Fuels Record Robotics Funding In China',
@@ -3665,13 +3670,13 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand',
-        title: 'Leaderdrive harmonic reducers rise on humanoid demand',
-        asOf: '2026-08-06',
+        url: 'https://www.forbes.com/sites/zinnialee/2026/04/23/humanoid-mania-turns-chinas-robotic-joint-maker-leaderdrive-into-a-billions-dollar-business/',
+        title: 'Leaderdrive: Shanghai-listed, China\'s largest maker of robotic joints (Forbes, 2026-04-23)',
+        asOf: '2026-08-18',
       },
       {
-        url: 'https://brianartex.github.io/Brian-stock-research/humanoid-robotics-deep-dive',
-        title: 'Humanoid Robotics Deep-Dive: Harmonic Drive, Leader Drive',
+        url: 'https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand',
+        title: 'Leaderdrive harmonic reducers rise on humanoid demand',
         asOf: '2026-08-06',
       },
     ],
@@ -3792,12 +3797,12 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.sharpa.com/',
-        title: 'Sharpa - AI robotics platform for dexterous manipulation',
-        asOf: '2026-08-06',
+        title: 'Sharpa company site (first-party)',
+        asOf: '2026-08-18',
       },
       {
-        url: 'https://www.prnewswire.com/news-releases/ai-robotmaker-sharpa-reaches-key-milestone-with-mass-production',
-        title: 'Sharpa Reaches Mass Production Milestone',
+        url: 'https://www.sharpa.com/',
+        title: 'Sharpa - AI robotics platform for dexterous manipulation',
         asOf: '2026-08-06',
       },
     ],
@@ -4021,11 +4026,11 @@ const ROWS: Company[] = [
       'autonomous-maritime',
       'defense',
     ],
-    totalRaisedUsd: 2600000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series D',
       amountUsd: 1750000000,
-      date: '2026-03-01',
+      date: '2026-03-31',
       valuationUsd: 9250000000,
       leadInvestors: [
         'Kleiner Perkins',
@@ -4037,6 +4042,11 @@ const ROWS: Company[] = [
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-mission-focused-autonomous-maritime-platforms.html',
+        title: 'Saronic Closes $1.75B Series D at $9.25B Valuation (first-party, 2026-03-31)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
         title: 'Saronic $1.75B Series D, largest robotics round 2026',
@@ -4463,8 +4473,8 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://fortune.com/2026/02/26/robot-disruption-fast-food-short-order-cook-flippy-white-castle-jack-in-the-box/',
-        title: 'Miso Robotics acquires Zignyl (Fortune, 2026-02-26)',
+        url: 'https://www.therobotreport.com/tag/miso-robotics/',
+        title: 'Miso Robotics coverage hub (The Robot Report; incl. Feb 2026 Zignyl acquisition coverage)',
         asOf: '2026-08-18',
       },
       {
@@ -4966,9 +4976,9 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://interestingengineering.com/ai-robotics/mitsubishi-humanoid-robots-japan',
-        title: 'Mitsubishi to make 1,000 humanoids per month at idle engine plant',
-        asOf: '2026-08-06',
+        url: 'https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant',
+        title: 'Mitsubishi to Mass-Produce Humanoid Robots at Former Engine Plant (1,000/month target, H1 2027, with startup Highlanders)',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'medium',
