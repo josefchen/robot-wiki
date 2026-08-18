@@ -31,7 +31,7 @@ export const SEGMENT_LABELS: Record<MarketMapSegment, string> = {
 
 export const EXPECTED_SEGMENT_COUNTS: Record<MarketMapSegment, number> = {
   'foundation-models': 12,
-  humanoids: 35,
+  humanoids: 34, // 34 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
   'industrial-logistics': 15,
   'vertical-applications': 32,
   'simulation-tooling': 10,

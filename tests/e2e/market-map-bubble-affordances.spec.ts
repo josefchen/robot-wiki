@@ -84,11 +84,11 @@ test.describe('bubble view hover/focus affordances', () => {
     expect(r).toBeGreaterThan(6);
     // The ring renders outside the clip group, so it is never cut at the
     // plot's top/bottom edges. Focus the extreme-top mark on the full
-    // dataset (measured: saronic-defense cy=33.3; the painted ring top
+    // dataset (measured: anduril cy=33.3; the painted ring top
     // is cy - r - halfStroke = 23.8, above the clip rect's top edge
     // y=24) and prove both facts: structural (no clip-path ancestor) and
     // numeric (the painted edge extends past where the clip would cut).
-    await mark(page, 'saronic-defense').focus();
+    await mark(page, 'anduril').focus();
     const ringFacts = await page.evaluate(() => {
       const ring = document.querySelector('circle[data-focus-ring]');
       if (!ring) return { insideClip: true, paintedTop: Infinity };
@@ -244,7 +244,7 @@ test.describe('bubble view hover/focus affordances', () => {
     // hashed company.
     await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');
     // The filter was relaxed so the mark is plotted at all.
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -255,7 +255,7 @@ test.describe('bubble view hover/focus affordances', () => {
     const row = page.locator('[data-company-id="figure-ai"][data-timeline-id]');
     await expect(row).toHaveCount(1);
     await expect(row).toHaveCSS('box-shadow', /inset/);
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
   });
 
   test('no axe violations on the bubble view with focus inside the chart', async ({

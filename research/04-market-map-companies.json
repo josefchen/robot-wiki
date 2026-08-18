@@ -225,7 +225,7 @@
     "subSegment": "video-prediction-world-models",
     "description": "Builds robot foundation models using video-predictive control ('FutureVision') trained on hundreds of millions of internet videos for manufacturing and logistics.",
     "approach": ["video-predictive-control", "direct-video-action"],
-    "totalRaisedUsd": 450000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series A",
       "amountUsd": 450000000,
@@ -251,7 +251,7 @@
     "subSegment": "industrial-robotics",
     "description": "Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.",
     "approach": ["ai-industrial-robotics", "factory-data"],
-    "totalRaisedUsd": 900000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": null,
       "amountUsd": 400000000,
@@ -264,7 +264,8 @@
     "openSource": [],
     "sources": [
       { "url": "https://techcrunch.com/2026/03/11/rivian-mind-robotics-series-a-500m-fund-raise/", "title": "Rivian spin-out Mind Robotics raises $500M", "asOf": "2026-08-06" },
-      { "url": "https://www.reuters.com/legal/transactional/rivian-spinout-mind-robotics-valued-3-4-billion-new-funding/", "title": "Mind Robotics valued at $3.4 billion in new funding", "asOf": "2026-08-06" }
+      { "url": "https://www.reuters.com/legal/transactional/rivian-spinout-mind-robotics-valued-3-4-billion-new-funding/", "title": "Mind Robotics valued at $3.4 billion in new funding", "asOf": "2026-08-06" },
+      { "url": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/", "title": "Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
@@ -747,15 +748,14 @@
       "amountUsd": null,
       "date": "2024-01-01",
       "valuationUsd": 1000000000,
-      "leadInvestors": ["CATL", "Shanghai AI Industry Fund"]
+      "leadInvestors": ["CATL"]
     },
     "status": "private",
     "deployments": ["A2 66-mile walking world record", "Backdoor listing via Swancor Advanced Materials ($290M for 63.62% stake)"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.scmp.com/tech/big-tech/article/3317741/robot-maker-agibot-seeks-stake-shanghai-listed-firm-potential-backdoor-listing", "title": "AgiBot seeks stake in Shanghai-listed firm in potential backdoor listing", "asOf": "2026-08-06" },
-      { "url": "https://futurism.com/robots-and-machines/robot-agibot-humanoid-walking", "title": "AgiBot A2 completes 66-mile walking record", "asOf": "2026-08-06" },
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "AgiBot backdoor listing via Swancor", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Embodied AI Fuels Record Robotics Funding In China", "asOf": "2026-08-18" },
+      { "url": "https://humanoidindex.org/companies/agibot", "title": "AgiBot - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -796,7 +796,7 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds 4NE-1 humanoid and cognitive robots combining sensing, hearing, and learning; full-stack robotics company with edge AI capabilities.",
     "approach": ["cognitive-robotics", "full-stack", "edge-ai"],
-    "totalRaisedUsd": 1520000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series C",
       "amountUsd": 1400000000,
@@ -850,7 +850,7 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds a 'universal brain' for robots using embodied AI foundation models.",
     "approach": ["universal-brain", "embodied-ai"],
-    "totalRaisedUsd": 435000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series A extension",
       "amountUsd": 145000000,
@@ -862,7 +862,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Spirit AI raises $290M Series A + $145M extension", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Spirit AI raises $290M Series A + $145M extension", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -870,13 +870,13 @@
     "id": "galaxea-ai",
     "name": "Galaxea AI",
     "aka": ["Xinghaitu"],
-    "hq": { "city": null, "country": "CN" },
-    "founded": 2024,
+    "hq": { "city": "Beijing", "country": "CN" },
+    "founded": 2023,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
     "description": "Builds humanoid robots for industrial and commercial deployment.",
     "approach": ["embodied-intelligence"],
-    "totalRaisedUsd": 435000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B extension",
       "amountUsd": 290000000,
@@ -888,7 +888,8 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Galaxea AI raises $145M Series B + $290M extension", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Embodied AI Fuels Record Robotics Funding In China", "asOf": "2026-08-18" },
+      { "url": "https://humanoidindex.org/companies/galaxea-ai", "title": "Galaxea AI - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -902,7 +903,7 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds humanoid and quadruped robots for traffic, security, and retail deployment.",
     "approach": ["humanoid", "quadruped"],
-    "totalRaisedUsd": 215000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B",
       "amountUsd": 200000000,
@@ -914,7 +915,7 @@
     "deployments": ["Traffic, security, and retail deployments planned"],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "EngineAI raises $200M Series B", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "EngineAI raises $200M Series B", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -928,19 +929,19 @@
     "subSegment": "industrial-humanoids",
     "description": "Develops humanoid robots and embodied intelligence systems.",
     "approach": ["embodied-intelligence"],
-    "totalRaisedUsd": 260000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": null,
       "amountUsd": 200000000,
-      "date": "2026-05-01",
+      "date": "2026-04-01",
       "valuationUsd": null,
-      "leadInvestors": ["HSG"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Robot Era raises $200M round from HSG", "asOf": "2026-08-06" },
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Robot Era raises $200M round from HSG", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/robotera", "title": "RobotEra - Humanoid Index", "asOf": "2026-08-06" }
     ],
     "confidence": "medium"
@@ -955,7 +956,7 @@
     "subSegment": "industrial-humanoids",
     "description": "Embodied AI company specializing in humanoid robots for ultra-fine manipulation tasks.",
     "approach": ["embodied-ai", "ultra-fine-manipulation"],
-    "totalRaisedUsd": 513000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Seed",
       "amountUsd": 513000000,
@@ -967,7 +968,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "TARS Robotics raises $513M seed", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "TARS Robotics raises $513M seed", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -981,20 +982,19 @@
     "subSegment": "home-humanoids",
     "description": "Builds general-purpose embodied intelligence robots for household and industrial applications, targeting home trials.",
     "approach": ["embodied-intelligence", "large-operating-model"],
-    "totalRaisedUsd": 433000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B",
-      "amountUsd": 276000000,
-      "date": "2026-04-21",
+      "amountUsd": 293000000,
+      "date": "2026-04-01",
       "valuationUsd": null,
-      "leadInvestors": ["Xiaomi", "HongShan"]
+      "leadInvestors": ["Xiaomi", "HSG"]
     },
     "status": "private",
     "deployments": ["Home trials targeted by May 2026"],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "X Square raises $140M Series A + $293M Series B", "asOf": "2026-08-06" },
-      { "url": "https://www.caixinglobal.com/2026-04-21/x-square-robot-raises-new-funds-targets-home-trials-by-may/", "title": "X Square Robot Raises New Funds, Targets Home Trials", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Embodied AI Fuels Record Robotics Funding In China", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -1030,7 +1030,7 @@
     "name": "Kepler Robot",
     "aka": [],
     "hq": { "city": null, "country": "CN" },
-    "founded": null,
+    "founded": 2023,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
     "description": "Builds humanoid robots for industrial and commercial use.",
@@ -1041,13 +1041,13 @@
       "amountUsd": null,
       "date": "2024-01-01",
       "valuationUsd": 400000000,
-      "leadInvestors": ["Shunwei Capital"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/kepler-robot", "title": "Kepler Robot - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/kepler-robot", "title": "Kepler Robot - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -1056,24 +1056,25 @@
     "name": "LimX Dynamics",
     "aka": [],
     "hq": { "city": null, "country": "CN" },
-    "founded": null,
+    "founded": 2022,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
     "description": "Develops humanoid robots and motion control systems.",
     "approach": ["humanoid", "motion-control"],
-    "totalRaisedUsd": 30000000,
+    "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Series A",
-      "amountUsd": null,
-      "date": "2024-01-01",
+      "type": "Series B",
+      "amountUsd": 200000000,
+      "date": "2026-02-03",
       "valuationUsd": null,
-      "leadInvestors": ["Greenwoods", "GL Ventures"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/limx-dynamics", "title": "LimX Dynamics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://technode.com/2026/02/03/limx-dynamics-raises-200-million-in-series-b-to-scale-humanoid-robotics/", "title": "LimX Dynamics raises $200 million in Series B", "asOf": "2026-08-18" },
+      { "url": "https://humanoidindex.org/companies/limx-dynamics", "title": "LimX Dynamics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -1109,7 +1110,7 @@
     "name": "Clone Robotics",
     "aka": [],
     "hq": { "city": null, "country": "PL" },
-    "founded": 2024,
+    "founded": 2021,
     "segment": "humanoids",
     "subSegment": "research-humanoids",
     "description": "Develops biomimetic humanoid robots with musculoskeletal design and artificial muscles.",
@@ -1126,7 +1127,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/clone-robotics", "title": "Clone Robotics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/clone-robotics", "title": "Clone Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -1135,7 +1136,7 @@
     "name": "Mentee Robotics",
     "aka": [],
     "hq": { "city": null, "country": "IL" },
-    "founded": null,
+    "founded": 2022,
     "segment": "humanoids",
     "subSegment": "research-humanoids",
     "description": "Develops humanoid robots founded by Mobileye founders.",
@@ -1146,13 +1147,13 @@
       "amountUsd": null,
       "date": "2023-01-01",
       "valuationUsd": null,
-      "leadInvestors": ["Mobileye founders"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/mentee-robotics", "title": "Mentee Robotics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/mentee-robotics", "title": "Mentee Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2351,7 +2352,7 @@
     "deployments": ["Maritime security"],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/", "title": "Saronic $1.75B Series D, largest robotics round 2026", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/", "title": "Saronic $1.75B Series D, largest robotics round 2026", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
@@ -2490,7 +2491,7 @@
     "name": "Booster Robotics",
     "aka": [],
     "hq": { "city": null, "country": "CN" },
-    "founded": 2024,
+    "founded": 2023,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
     "description": "Builds humanoid robots for commercial deployment.",
@@ -2501,13 +2502,13 @@
       "amountUsd": null,
       "date": "2024-01-01",
       "valuationUsd": null,
-      "leadInvestors": ["Qualcomm Ventures"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/booster-robotics", "title": "Booster Robotics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/booster-robotics", "title": "Booster Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2516,7 +2517,7 @@
     "name": "Leju Robotics",
     "aka": [],
     "hq": { "city": "Shenzhen", "country": "CN" },
-    "founded": null,
+    "founded": 2016,
     "segment": "humanoids",
     "subSegment": "research-humanoids",
     "description": "Builds humanoid and educational robots for commercial and research applications.",
@@ -2527,13 +2528,13 @@
       "amountUsd": null,
       "date": "2024-01-01",
       "valuationUsd": null,
-      "leadInvestors": ["Shenzhen Capital Group"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/leju-robotics", "title": "Leju Robotics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/leju-robotics", "title": "Leju Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2542,33 +2543,34 @@
     "name": "SwitchBot",
     "aka": [],
     "hq": { "city": "Shenzhen", "country": "CN" },
-    "founded": 2016,
+    "founded": 2015,
     "segment": "vertical-applications",
     "subSegment": "consumer-home",
     "description": "Builds smart home robots and devices for home automation.",
     "approach": ["smart-home", "consumer-robotics"],
-    "totalRaisedUsd": 50000000,
+    "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Series B",
-      "amountUsd": null,
-      "date": "2023-01-01",
+      "type": "IPO",
+      "amountUsd": 206000000,
+      "date": "2025-12-30",
       "valuationUsd": null,
-      "leadInvestors": ["Sequoia China", "Eastern Bell Capital"]
+      "leadInvestors": []
     },
-    "status": "private",
+    "status": "public",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/switchbot", "title": "SwitchBot - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html", "title": "Smart-Home Startup OneRobotics Lands $206 Million in HK IPO", "asOf": "2026-08-18" },
+      { "url": "https://humanoidindex.org/companies/switchbot", "title": "SwitchBot - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "medium"
   },
   {
     "id": "hanson-robotics",
     "name": "Hanson Robotics",
     "aka": [],
     "hq": { "city": "Hong Kong", "country": "HK" },
-    "founded": 2013,
+    "founded": 2003,
     "segment": "humanoids",
     "subSegment": "research-humanoids",
     "description": "Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies.",
@@ -2579,13 +2581,13 @@
       "amountUsd": null,
       "date": "2021-01-01",
       "valuationUsd": null,
-      "leadInvestors": ["SingularityNET"]
+      "leadInvestors": []
     },
     "status": "private",
     "deployments": ["Sophia robot demonstrations"],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/hanson-robotics", "title": "Hanson Robotics - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/hanson-robotics", "title": "Hanson Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2593,8 +2595,8 @@
     "id": "paxini",
     "name": "PaXini",
     "aka": [],
-    "hq": { "city": null, "country": "CN" },
-    "founded": null,
+    "hq": { "city": "Tokyo", "country": "JP" },
+    "founded": 2020,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
     "description": "Builds humanoid robots with tactile sensing capabilities.",
@@ -2605,39 +2607,13 @@
       "amountUsd": null,
       "date": "2024-01-01",
       "valuationUsd": null,
-      "leadInvestors": []
+      "leadInvestors": ["JD.com"]
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://humanoidindex.org/companies/paxini", "title": "PaXini - Humanoid Index", "asOf": "2026-08-06" }
-    ],
-    "confidence": "low"
-  },
-  {
-    "id": "galaxea-ai-robot",
-    "name": "Galaxea AI (Humanoid)",
-    "aka": [],
-    "hq": { "city": null, "country": "CN" },
-    "founded": 2024,
-    "segment": "humanoids",
-    "subSegment": "industrial-humanoids",
-    "description": "Builds humanoid robots for commercial deployment with embodied intelligence.",
-    "approach": ["embodied-intelligence"],
-    "totalRaisedUsd": 100000000,
-    "latestRound": {
-      "type": null,
-      "amountUsd": null,
-      "date": null,
-      "valuationUsd": 700000000,
-      "leadInvestors": []
-    },
-    "status": "private",
-    "deployments": [],
-    "openSource": [],
-    "sources": [
-      { "url": "https://humanoidindex.org/companies/galaxea-ai", "title": "Galaxea AI - Humanoid Index", "asOf": "2026-08-06" }
+      { "url": "https://humanoidindex.org/companies/paxini", "title": "PaXini - Humanoid Index", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2877,7 +2853,7 @@
     "confidence": "high"
   },
   {
-    "id": "saronic-defense",
+    "id": "anduril",
     "name": "Anduril",
     "aka": [],
     "hq": { "city": "Costa Mesa", "country": "US" },
@@ -2898,7 +2874,7 @@
     "deployments": ["Active in Middle East conflict", "US military contracts"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Anduril valued at $61B, Founders Fund", "asOf": "2026-08-06" }
+      { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Anduril valued at $61B, Founders Fund", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -2924,7 +2900,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Robotphoenix listed on HKEX, raising ~$86M", "asOf": "2026-08-06" }
+      { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Robotphoenix listed on HKEX, raising ~$86M", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },

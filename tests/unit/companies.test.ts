@@ -22,7 +22,7 @@ const RESEARCH_PATH = join(
 
 const EXPECTED_SEGMENT_COUNTS = {
   'foundation-models': 12,
-  humanoids: 35,
+  humanoids: 34,
   'industrial-logistics': 15,
   'vertical-applications': 32,
   'simulation-tooling': 10,
@@ -42,13 +42,15 @@ describe('COMPANIES data', () => {
     }
   });
 
-  it('contains exactly 112 companies', () => {
-    expect(COMPANIES).toHaveLength(112);
+  it('contains exactly 111 companies', () => {
+    // 111 since the 2026-08-18 market-map audit removed the duplicate
+    // galaxea-ai-robot row (same company as galaxea-ai).
+    expect(COMPANIES).toHaveLength(111);
   });
 
   it('matches the research source count and segment distribution', () => {
     const research = loadResearch();
-    expect(research).toHaveLength(112);
+    expect(research).toHaveLength(111);
     expect(COMPANIES).toHaveLength(research.length);
 
     const counts = Object.fromEntries(
@@ -60,7 +62,7 @@ describe('COMPANIES data', () => {
     expect(counts).toEqual(EXPECTED_SEGMENT_COUNTS);
 
     const sum = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(sum).toBe(112);
+    expect(sum).toBe(111);
   });
 
   it('gives every row at least one https source URL and a confidence level', () => {

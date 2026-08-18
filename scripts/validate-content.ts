@@ -32,17 +32,17 @@ const issues = validateContent({
 
 const EXPECTED_SEGMENT_COUNTS: Record<string, number> = {
   'foundation-models': 12,
-  humanoids: 35,
+  humanoids: 34, // 34 since the 2026-08-18 audit removed the duplicate galaxea-ai-robot row
   'industrial-logistics': 15,
   'vertical-applications': 32,
   'simulation-tooling': 10,
   'components-hardware': 8,
 };
 
-if (COMPANIES.length !== 112) {
+if (COMPANIES.length !== 111) {
   issues.push({
     file: 'data/companies.ts',
-    message: `expected 112 companies, got ${COMPANIES.length}`,
+    message: `expected 111 companies, got ${COMPANIES.length}`, // 111 since the 2026-08-18 audit removed a duplicate row
   });
 }
 for (const [segment, expected] of Object.entries(EXPECTED_SEGMENT_COUNTS)) {

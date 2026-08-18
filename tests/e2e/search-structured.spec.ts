@@ -222,6 +222,6 @@ test.describe('structured search on the static export', () => {
       'utf8',
     );
     const parsed = JSON.parse(raw) as { documentCount?: number };
-    expect(parsed.documentCount).toBeGreaterThanOrEqual(112 + 18 + 6);
+    expect(parsed.documentCount).toBeGreaterThanOrEqual(111 + 18 + 6);
   });
 });

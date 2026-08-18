@@ -41,7 +41,7 @@ describe('FundingTimeline roving keyboard access', () => {
   it('is a single tab stop: one row tabbable, the rest not', () => {
     render(<FundingTimeline companies={COMPANIES} />);
     const all = rows();
-    // 66 of the 112 companies have a 2023-2026 dated round; all render.
+    // 66 of the 111 companies have a 2023-2026 dated round; all render.
     expect(all.length).toBe(66);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);

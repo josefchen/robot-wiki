@@ -32,14 +32,14 @@ function filters(patch: Partial<MarketMapFilters> = {}): MarketMapFilters {
 }
 
 describe('filterCompanies', () => {
-  it('returns all 112 companies when no filters are active', () => {
+  it('returns all 111 companies when no filters are active', () => {
     expect(filterCompanies(COMPANIES, DEFAULT_MARKET_MAP_FILTERS)).toHaveLength(
-      112,
+      111,
     );
     expect(hasActiveFilters(DEFAULT_MARKET_MAP_FILTERS)).toBe(false);
   });
 
-  it('filters segment=humanoids to exactly 35 companies (VAL-MKT-005)', () => {
+  it('filters segment=humanoids to exactly 34 companies (VAL-MKT-005)', () => {
     const rows = filterCompanies(COMPANIES, filters({ segment: 'humanoids' }));
     expect(rows).toHaveLength(EXPECTED_SEGMENT_COUNTS.humanoids);
     expect(rows.every((row) => row.segment === 'humanoids')).toBe(true);
@@ -97,6 +97,7 @@ describe('filterCompanies', () => {
     const ipo = filterCompanies(COMPANIES, filters({ status: 'ipo' }));
     expect(ipo.map((row) => row.id).sort()).toEqual([
       'robotphoenix',
+      'switchbot', // 2025-12-30 HK IPO, added by the 2026-08-18 audit
       'ubtech-robotics',
       'unitree-robotics',
     ]);
@@ -418,6 +419,6 @@ describe('segment oracle', () => {
       (total, count) => total + count,
       0,
     );
-    expect(sum).toBe(112);
+    expect(sum).toBe(111);
   });
 });

@@ -312,7 +312,7 @@ export default function Home() {
               Market Map
             </h3>
             <p className="mt-1 text-sm text-text-dim">
-              The embodied-AI industry as data: 112 companies across six
+              The embodied-AI industry as data: 111 companies across six
               segments, filterable by approach, geography, stage, and funding.
             </p>
           </Link>

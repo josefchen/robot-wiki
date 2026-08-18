@@ -21,7 +21,7 @@ function statusSelect(page: Page) {
 }
 
 test.describe('market map visualization', () => {
-  test('renders 112 companies grouped by segment (VAL-MKT-001, VAL-MKT-002)', async ({
+  test('renders 111 companies grouped by segment (VAL-MKT-001, VAL-MKT-002)', async ({
     page,
   }) => {
     const response = await page.goto(ROUTE);
@@ -29,8 +29,8 @@ test.describe('market map visualization', () => {
     await expect(
       page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
-    await expect(page.locator('article[data-company-id]')).toHaveCount(112);
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(page.locator('article[data-company-id]')).toHaveCount(111);
     await expect(
       page.getByRole('heading', { name: /Foundation models/ }),
     ).toContainText('12');
@@ -57,31 +57,31 @@ test.describe('market map visualization', () => {
   }) => {
     await page.goto(ROUTE);
     await segmentSelect(page).selectOption('humanoids');
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await expect(page.locator('article[data-company-id]')).toHaveCount(35);
     expect(page.url()).toContain('segment=humanoids');
 
     await page.getByLabel('Country', { exact: true }).selectOption('US');
-    await expect(page.getByText('6 of 112 companies')).toBeVisible();
+    await expect(page.getByText('6 of 111 companies')).toBeVisible();
 
     await page.getByLabel('Confidence', { exact: true }).selectOption('high');
-    await expect(page.getByText('4 of 112 companies')).toBeVisible();
+    await expect(page.getByText('4 of 111 companies')).toBeVisible();
 
     const filteredUrl = page.url();
     await page.goto(filteredUrl);
-    await expect(page.getByText('4 of 112 companies')).toBeVisible();
+    await expect(page.getByText('4 of 111 companies')).toBeVisible();
     await expect(page.locator('article[data-company-id]')).toHaveCount(4);
 
     await page.getByRole('button', { name: 'Bubble' }).click();
     await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
-    await expect(page.getByText('4 of 112 companies')).toBeVisible();
+    await expect(page.getByText('4 of 111 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Timeline' }).click();
-    await expect(page.getByText('4 of 112 companies')).toBeVisible();
+    await expect(page.getByText('4 of 111 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Grid' }).click();
     await page.getByRole('button', { name: 'Clear filters' }).click();
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(new URL(page.url()).search).toBe('');
   });
 
@@ -93,7 +93,7 @@ test.describe('market map visualization', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     await page.goto(`${ROUTE}?segment=bogus&confidence=999`);
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -173,7 +173,7 @@ test.describe('market map visualization', () => {
     const marks = page.locator('circle[data-company-id]');
     const markCount = await marks.count();
     expect(markCount).toBeGreaterThan(0);
-    expect(markCount).toBeLessThan(112);
+    expect(markCount).toBeLessThan(111);
     await expect(page.getByText(/Founding year/)).toBeVisible();
     await expect(page.getByText(/excluded for missing/)).toBeVisible();
     await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(
@@ -192,7 +192,7 @@ test.describe('market map visualization', () => {
       page.getByText('No companies match these filters.'),
     ).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).first().click();
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
   });
 
   test('acquired and shut-down statuses are truthful (VAL-MKT-022)', async ({
@@ -228,7 +228,7 @@ test.describe('market map visualization', () => {
 
     await page.getByRole('button', { name: 'Filters' }).click();
     await segmentSelect(page).selectOption('humanoids');
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await page.getByRole('button', { name: 'Close filters' }).click();
     await expect(segmentSelect(page)).toBeHidden();
 
@@ -243,11 +243,11 @@ test.describe('market map visualization', () => {
     await page.goto(ROUTE);
     await segmentSelect(page).focus();
     await segmentSelect(page).selectOption('humanoids');
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await page.getByRole('button', { name: 'Timeline' }).press('Enter');
     await expect(page.getByText('Figure AI')).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).press('Enter');
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
   });
 
   test('uppercase letterspaced micro-labels stay at or under 5 (VAL-DESIGN-010)', async ({

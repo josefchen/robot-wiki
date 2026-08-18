@@ -201,7 +201,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     await expect(
       page.locator('[data-company-id="figure-ai"] > button'),
     ).toHaveAttribute('tabindex', '0');
-    await expect(page.getByText('112 of 112 companies')).toBeVisible();
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);
   });
 
@@ -210,7 +210,7 @@ test.describe('timeline view roving keyboard affordances', () => {
   }) => {
     await openTimeline(page);
     await page.locator('#filter-segment').selectOption('humanoids');
-    await expect(page.getByText('35 of 112 companies')).toBeVisible();
+    await expect(page.getByText('34 of 111 companies')).toBeVisible();
     const rows = rowButtons(page);
     expect(await rows.count()).toBeGreaterThan(1);
     const tabbables = await page.evaluate(
@@ -242,7 +242,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     await figure.focus();
     await expect(figure).toHaveAttribute('tabindex', '0');
     await page.locator('#filter-segment').selectOption('foundation-models');
-    await expect(page.getByText('12 of 112 companies')).toBeVisible();
+    await expect(page.getByText('12 of 111 companies')).toBeVisible();
     await expect(
       page.locator('[data-company-id="figure-ai"]'),
     ).toHaveCount(0);
