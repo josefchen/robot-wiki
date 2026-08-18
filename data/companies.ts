@@ -337,8 +337,8 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots',
-        title: 'Amazon hires Covariant founders, inks AI licensing deal',
-        asOf: '2026-08-06',
+        title: 'Amazon hires Covariant founders and ~25% of staff, licenses Covariant RFMs (first-party, 2024-08-31)',
+        asOf: '2026-08-18',
       },
       {
         url: 'https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/',
@@ -2501,9 +2501,9 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: 67000000,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series B',
+      amountUsd: 32000000,
+      date: '2022-10-17',
       valuationUsd: null,
       leadInvestors: [],
     },
@@ -2511,6 +2511,11 @@ const ROWS: Company[] = [
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://techcrunch.com/2022/10/17/ambi-robotics-secures-32m-infusion-to-deploy-its-item-sorting-robots/',
+        title: 'Ambi Robotics secures $32M infusion; has raised $67 million in venture funding (TechCrunch)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://tracxn.com/d/companies/ambirobotics/__XrOop2JyCNJqrJ5M89bPhPy1afXwAem',
         title: 'Ambi Robotics - Tracxn Profile',
@@ -3029,9 +3034,16 @@ const ROWS: Company[] = [
     deployments: [
       'Acquired Diligent Robotics (Jan 2026)',
       'Moxi hospital robots',
+      'Uber divested its entire stake (Q2 2026); partnership not expected to renew in early 2027',
+      'New Grubhub partnership and DoorDash expansion announced 2026-08-17',
     ],
     openSource: [],
     sources: [
+      {
+        url: 'https://techcrunch.com/2026/08/11/uber-surprised-robotics-company-serve-by-selling-its-entire-stake/',
+        title: 'Uber sells entire Serve Robotics stake; Serve pivots to Grubhub/DoorDash (TechCrunch, 2026-08-11)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://www.therobotreport.com/serve-robotics-to-acquire-hospital-logistics-provider-diligent-robotics/',
         title: 'Serve Robotics to acquire Diligent Robotics',
@@ -3156,18 +3168,25 @@ const ROWS: Company[] = [
       'cobot',
       'human-robot-interaction',
     ],
-    totalRaisedUsd: 140000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series B',
+      amountUsd: 100000000,
+      date: '2024-04-10',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'General Catalyst',
+      ],
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
+      {
+        url: 'https://www.prnewswire.com/news-releases/collaborative-robotics-raises-100-million-in-series-b-funding-302110842.html',
+        title: 'Collaborative Robotics Raises $100 Million in Series B, led by General Catalyst (first-party)',
+        asOf: '2026-08-18',
+      },
       {
         url: 'https://tracxn.com/d/companies/collaborativerobotics/__kUFtJJNfYnJGbssrsAZHjC',
         title: 'Collaborative Robotics - Tracxn Profile ($140M total)',
