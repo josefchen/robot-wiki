@@ -139,7 +139,7 @@
     "name": "Field AI",
     "aka": ["FieldAI"],
     "hq": { "city": "Irvine", "country": "US" },
-    "founded": null,
+    "founded": 2023,
     "segment": "foundation-models",
     "subSegment": "navigation-mobility",
     "description": "Builds field foundation models enabling robots across diverse embodiments to operate safely in unstructured real-world environments like construction sites.",
@@ -156,7 +156,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html", "title": "Nvidia, Bill Gates-backed robotics startup Field AI hits $2 billion valuation", "asOf": "2026-08-06" },
+      { "url": "https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html", "title": "Gates, Nvidia-backed robotics firm Field AI hits $2 billion valuation after recent raise", "asOf": "2026-08-18" },
       { "url": "https://www.constructiondive.com/news/fieldai-funding-robotics-startup-work/745017/", "title": "Robotic software startup FieldAI lands $405M in fresh funding", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -360,7 +360,7 @@
     "subSegment": "simulation-platforms",
     "description": "Builds vehicle software, simulation, validation, and autonomy AI stacks for automotive and defense; expanding into robotics with Dana natural-language service.",
     "approach": ["simulation", "validation", "autonomy-stack"],
-    "totalRaisedUsd": 1200000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series F",
       "amountUsd": 600000000,
@@ -372,7 +372,7 @@
     "deployments": ["18 of top 20 automakers", "AeroVironment Mayhem 10 drone swarm collaboration"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.appliedintuition.com/blog/series-f", "title": "Applied Intuition Series F funding drives $15B valuation", "asOf": "2026-08-06" },
+      { "url": "https://www.appliedintuition.com/blog/series-f", "title": "Series F funding drives $15B valuation (first-party; BlackRock and Kleiner Perkins led)", "asOf": "2026-08-18" },
       { "url": "https://tech.yahoo.com/ai/meta-ai/articles/applied-intuition-wants-turn-robotics-childs-play", "title": "Applied Intuition wants to turn robotics into child's play", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -416,16 +416,17 @@
     "approach": ["data-annotation", "data-curation", "robotics-data"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": null,
-      "amountUsd": null,
-      "date": null,
+      "type": "Series B",
+      "amountUsd": 30000000,
+      "date": "2024-08-13",
       "valuationUsd": null,
-      "leadInvestors": []
+      "leadInvestors": ["Next47"]
     },
     "status": "private",
     "deployments": ["Woven by Toyota", "300+ AI teams"],
     "openSource": [],
     "sources": [
+      { "url": "https://encord.com/blog/encord-announces-30-million-series-b/", "title": "Announcing Encord's $30 million Series B funding, led by Next47 (first-party)", "asOf": "2026-08-18" },
       { "url": "https://encord.com/data-collection-services/", "title": "Real-world training data collection for Physical AI", "asOf": "2026-08-06" },
       { "url": "https://www.businessinsider.com/ai-startups-robotics-pay-film-chores-encord-micro1-2025-10", "title": "AI startups pay people to film themselves doing chores for robotics training", "asOf": "2026-08-06" }
     ],
@@ -613,10 +614,10 @@
       "leadInvestors": ["Hyundai Motor Group"]
     },
     "status": "acquired",
-    "deployments": ["Hyundai Metaplant Georgia", "Hyundai committed 25,000 Atlas robots to own factories"],
+    "deployments": ["Hyundai Metaplant Georgia", "Hyundai committed 25,000 Atlas robots to own factories", "Atlas product unveiled Jan 2026; all 2026 deployments committed to Hyundai and Google DeepMind", "Hyundai preparing tens of thousands of robots; new US robotics factory planned at 30,000 robots/yr"],
     "openSource": [],
     "sources": [
-      { "url": "https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/", "title": "Boston Dynamics Unveils New Atlas Robot", "asOf": "2026-08-06" },
+      { "url": "https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/", "title": "Boston Dynamics unveils product Atlas at CES Jan 2026; Hyundai majority shareholder; 2026 fleets committed to Hyundai and Google DeepMind", "asOf": "2026-08-18" },
       { "url": "https://www.techtimes.com/articles/317005/20260522/hyundai-commits-25000-atlas-robots-own-factories.htm", "title": "Hyundai Commits 25,000 Atlas Robots to Own Factories", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -769,19 +770,19 @@
     "subSegment": "industrial-humanoids",
     "description": "Originally built Phoenix humanoid robots with hydraulic hands; pivoted in 2026 to selling AI software for other robots rather than building hardware.",
     "approach": ["ai-software-pivot", "hydraulic-hands", "cognitive-ai"],
-    "totalRaisedUsd": 140000000,
+    "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Series B",
+      "type": null,
       "amountUsd": null,
       "date": "2024-01-01",
-      "valuationUsd": 500000000,
-      "leadInvestors": ["Accenture", "Magna", "BDC Capital"]
+      "valuationUsd": null,
+      "leadInvestors": []
     },
     "status": "private",
-    "deployments": ["Pivoted to AI software for third-party robots"],
+    "deployments": ["Pivoted Jun 2026 to Physical AI software for third-party industrial robots"],
     "openSource": [],
     "sources": [
-      { "url": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review", "title": "Sanctuary AI Phoenix 2026: Price, Is It For Sale", "asOf": "2026-08-06" },
+      { "url": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review", "title": "Sanctuary AI Phoenix 2026: the June 2026 pivot to Physical AI software, funding history (fully sourced recap)", "asOf": "2026-08-18" },
       { "url": "https://sanctuary.ai/news/", "title": "Sanctuary AI deploys Physical AI with production-ready performance", "asOf": "2026-08-06" }
     ],
     "confidence": "medium"
@@ -823,20 +824,19 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds industrial humanoid robots for real-world tasks; UK's first humanoid robot for industrial use unveiled September 2025.",
     "approach": ["industrial-humanoid"],
-    "totalRaisedUsd": 152000000,
+    "totalRaisedUsd": 270000000,
     "latestRound": {
       "type": "Series A",
       "amountUsd": 152000000,
       "date": "2026-07-21",
       "valuationUsd": 1350000000,
-      "leadInvestors": ["Prime Movers Lab", "Schaeffler", "Bosch"]
+      "leadInvestors": ["Prime Movers Lab"]
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.reuters.com/business/robotics-startup-humanoid-raises-152-million-series-a-round-1-35-billion-valuation/", "title": "Humanoid raises $152 million Series A at $1.35 billion valuation", "asOf": "2026-08-06" },
-      { "url": "https://thehumanoid.ai/humanoid-raises-152-million-at-1-35-billion-post-money-valuation", "title": "Humanoid Raises $152M at $1.35B Post-Money Valuation", "asOf": "2026-08-06" }
+      { "url": "https://thehumanoid.ai/humanoid-raises-152-million-at-1-35-billion-post-money-valuation", "title": "Humanoid Raises $152 Million at $1.35 Billion Post-Money Valuation (first-party)", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
@@ -1278,7 +1278,7 @@
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Acquisition",
-      "amountUsd": null,
+      "amountUsd": 375000000,
       "date": "2023-03-24",
       "valuationUsd": null,
       "leadInvestors": ["SoftBank Group"]
@@ -1575,13 +1575,13 @@
       "amountUsd": 270000000,
       "date": "2026-02-04",
       "valuationUsd": 1750000000,
-      "leadInvestors": []
+      "leadInvestors": ["CapitalG", "Valor Atreides AI Fund"]
     },
     "status": "private",
     "deployments": ["65,000+ cubic yards moved on 130-acre site (supervised autonomy)"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.constructiondive.com/news/bedrock-robotics-raise-ai-automation-funding/745817/", "title": "Bedrock Robotics raises $270M", "asOf": "2026-08-06" },
+      { "url": "https://finance.yahoo.com/news/bedrock-robotics-raises-270m-red-131800649.html", "title": "Bedrock Robotics raises $270M in red-hot AI sector (Construction Dive via Yahoo; co-led by CapitalG and Valor Atreides AI Fund)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2025/07/16/ex-waymo-engineers-launch-bedrock-robotics-with-80m/", "title": "Ex-Waymo engineers launch Bedrock Robotics", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -1591,25 +1591,24 @@
     "name": "Chef Robotics",
     "aka": [],
     "hq": { "city": "San Francisco", "country": "US" },
-    "founded": 2017,
+    "founded": 2019,
     "segment": "vertical-applications",
     "subSegment": "food-kitchen",
     "description": "Builds AI-powered robotic arms for assembling cooked, ready-to-eat food on high-volume production lines under RaaS model.",
     "approach": ["food-assembly", "raas", "ai-manipulation"],
-    "totalRaisedUsd": 43000000,
+    "totalRaisedUsd": 65600000,
     "latestRound": {
       "type": "Series A",
       "amountUsd": 43100000,
       "date": "2025-03-31",
       "valuationUsd": null,
-      "leadInvestors": []
+      "leadInvestors": ["Avataar Ventures"]
     },
     "status": "private",
-    "deployments": ["Amy's Kitchen"],
+    "deployments": ["Amy's Kitchen", "Sunbasket", "Chef Bombay", "Cafe Spice"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.chefrobotics.ai/post/weve-raised-43-1m-to-accelerate-our-ai-enabled-robot", "title": "Chef Robotics raises $43.1M Series A", "asOf": "2026-08-06" },
-      { "url": "https://www.therobotreport.com/chef-robotics-brings-in-43m-to-deploy-more-food-assembly-robots/", "title": "Chef Robotics brings in $43M", "asOf": "2026-08-06" }
+      { "url": "https://www.therobotreport.com/chef-robotics-brings-in-43m-to-deploy-more-food-assembly-robots/", "title": "Chef Robotics brings in $43M (Series A: $20.6M equity + $22.5M debt; total capital $65.6M)", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },
@@ -2413,24 +2412,24 @@
     "name": "Mytra",
     "aka": [],
     "hq": { "city": null, "country": "US" },
-    "founded": null,
+    "founded": 2022,
     "segment": "industrial-logistics",
     "subSegment": "warehouse-automation",
     "description": "Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds.",
     "approach": ["modular-3d-storage", "warehouse-automation"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Series B",
-      "amountUsd": null,
-      "date": null,
+      "type": "Series C",
+      "amountUsd": 120000000,
+      "date": "2026-01-15",
       "valuationUsd": null,
-      "leadInvestors": ["Greenoaks", "Eclipse"]
+      "leadInvestors": ["Avenir Growth"]
     },
     "status": "private",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Greenoaks and Eclipse backed Mytra", "asOf": "2026-08-06" }
+      { "url": "https://mytra.ai/news/mytra-raises-120m-series-c", "title": "Mytra Raises $120M Series C led by Avenir Growth (first-party)", "asOf": "2026-08-18" }
     ],
     "confidence": "low"
   },
@@ -2681,9 +2680,9 @@
     "approach": ["autonomous-delivery", "last-mile"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": null,
-      "amountUsd": null,
-      "date": null,
+      "type": "Series B",
+      "amountUsd": 80000000,
+      "date": "2025-06-11",
       "valuationUsd": null,
       "leadInvestors": []
     },
@@ -2691,6 +2690,7 @@
     "deployments": ["Food delivery in multiple US cities"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/", "title": "Coco Robotics raises $80M to scale sidewalk delivery robots", "asOf": "2026-08-18" },
       { "url": "https://www.coco.delivery/", "title": "Coco - Autonomous Delivery Robots", "asOf": "2026-08-06" }
     ],
     "confidence": "low"
@@ -2848,7 +2848,7 @@
     "deployments": ["Symmetry Fulfillment platform sold to Skild AI"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html", "title": "Skild AI Acquires Zebra Technologies' Robotics Automation Business", "asOf": "2026-08-06" }
+      { "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html", "title": "Skild AI Acquires Zebra Technologies' Robotics Automation Business", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
