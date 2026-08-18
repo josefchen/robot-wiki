@@ -4041,6 +4041,48 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
+    // Sutton's essay, the reference statement of the scaling thesis. The
+    // original is http-only (self-signed cert; https 404s), so the registry
+    // carries the dated archival mirror per the settled policy in
+    // library/content-quality.md; author, title and the original March 13,
+    // 2019 date stay in the entry. Mirror verified live (200, 2026-08-18):
+    // "general methods that leverage computation are ultimately the most
+    // effective".
+    id: 'sutton-bitter-lesson-2019',
+    title: 'The Bitter Lesson',
+    authors: ['Rich Sutton'],
+    year: 2019,
+    url: 'https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html',
+    type: 'blog',
+  },
+  {
+    // Press source for Musk's "We already changed the design. This one
+    // didn't actually work." (X post, 2026-04-19, embedded in full); no
+    // first-party URL is machine-checkable (x.com bot-walls). The DROIDS
+    // patent writeup predates the post by two days and does not carry it.
+    id: 'teslarati-optimus-hand-2026',
+    title: 'Elon Musk reveals shocking Tesla Optimus patent detail',
+    authors: ['Joey Klender'],
+    year: 2026,
+    venue: 'Teslarati',
+    url: 'https://www.teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/',
+    type: 'press',
+  },
+  {
+    // Press source (no first-party page states the supervised-operations
+    // deployment detail; nucleuslab.ai is a one-line landing page): Nucleus
+    // emerged from stealth 2026-08 with humanoids in a German factory in
+    // under 90 days, run under human supervision that is faded out as the
+    // collected data improves the models.
+    id: 'nucleus-supervised-2026',
+    title:
+      'Nucleus Robotics Emerges From Stealth With Humanoids on the German Factory Floor',
+    authors: ['Rocking Robots'],
+    year: 2026,
+    url: 'https://www.rockingrobots.com/nucleus-robotics-emerges-from-stealth-with-humanoids-on-the-german-factory-floor/',
+    type: 'press',
+  },
+  {
     // Verified against the live arXiv abstract page (2026-08-12): coding
     // agents running a reset-execute-verify-refine loop reach 99% success
     // on dexterous tasks (pin-box organizing, zip tie, tool use), faster

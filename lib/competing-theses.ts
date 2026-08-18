@@ -70,11 +70,11 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Rodney Brooks argues the end-to-end wins in speech and vision rode on engineered front ends (MFCCs, CNNs), and that vision-only training gives a robot no tactile channel at all.',
+        text: 'Rodney Brooks argues the celebrated vision and speech wins rode on human-engineered front ends (convolutional networks for translational invariance, telephone-derived spectral processing for speech), and that vision-only training gives a robot no tactile channel at all.',
         citationIds: ['brooks-better-lesson-2019', 'brooks-dexterity-2025'],
       },
       {
-        text: "Ken Goldberg's 100,000-year data gap: robot data collection cannot match what evolution spent on dexterity, so engineering priors have to close the difference.",
+        text: "Ken Goldberg's 100,000-year data gap: it would take about 100,000 years of human reading to cover the text used to train LLMs, and robot data collection has nothing comparable, so engineering has to bootstrap the robots that collect it.",
         citationIds: ['goldberg-data-gap-2025'],
       },
       {
@@ -146,7 +146,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Cosmos 3 took roughly 10,000 H100 GPUs for three months to train; world models at useful fidelity are the most expensive objects in the pipeline.',
+        text: 'Cosmos 3 was pretrained on up to 31 trillion tokens, on clusters as large as 2,048 GB200 GPUs; world models at useful fidelity are the most expensive objects in the pipeline.',
         citationIds: ['cosmos-3-2026'],
       },
       {
@@ -188,7 +188,7 @@ const ROWS: Thesis[] = [
         citationIds: ['pistar06-2025', 'rl-100-2025'],
       },
       {
-        text: 'The generalist comparison is sobering: π0.7 matches specialist throughput only on tasks where it has distilled specialist experience.',
+        text: 'The generalist comparison is sobering: π0.7 matches specialist throughput on exactly the Recap tasks, by distilling specialist experience into the generalist.',
         citationIds: ['pi07-2026'],
       },
     ],
@@ -216,7 +216,7 @@ const ROWS: Thesis[] = [
         citationIds: ['technology-org-deployed-2026'],
       },
       {
-        text: 'Bessemer\'s data-flywheel thesis: deployment revenue funds the data collection that funds autonomy.',
+        text: 'Bessemer\'s data-flywheel thesis, in its words: turning robot data into better decisions, better models, and better deployments.',
         citationIds: ['bessemer-robotics-2026'],
       },
     ],

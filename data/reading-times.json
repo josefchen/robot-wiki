@@ -132,23 +132,23 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1499,
-    "minutes": 7
+    "words": 1505,
+    "minutes": 8
   },
   "frontier/dexterity": {
-    "words": 2081,
-    "minutes": 10
+    "words": 2111,
+    "minutes": 11
   },
   "frontier/generalization": {
-    "words": 1900,
+    "words": 1909,
     "minutes": 10
   },
   "frontier/competing-theses": {
-    "words": 2515,
+    "words": 2585,
     "minutes": 13
   },
   "frontier/bear-case": {
-    "words": 1829,
+    "words": 1832,
     "minutes": 9
   },
   "adjacent/autonomous-vehicles": {

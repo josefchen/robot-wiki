@@ -89,7 +89,7 @@ test.describe('frontier bear-case module', () => {
     // Unitree: profit halving despite volume leadership.
     expect(text).toMatch(/Unitree/);
     expect(text).toMatch(/5,500/);
-    expect(text).toMatch(/52% year over year/);
+    expect(text).toMatch(/52\.55% year over year/);
 
     // Computex: the on-stage collapse.
     expect(text).toMatch(/Computex 2026/);

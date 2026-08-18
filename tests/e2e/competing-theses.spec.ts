@@ -180,7 +180,7 @@ test.describe('frontier competing-theses module', () => {
 
     // World models: NVIDIA and Meta for; cost and contact fidelity against.
     expect(text).toMatch(/Cosmos 3 and Meta's V-JEPA 2/);
-    expect(text).toMatch(/10,000 H100 GPUs/);
+    expect(text).toMatch(/2,048 GB200 GPUs/);
 
     // Teleop: Nucleus and Bessemer for; Ian Glow against.
     expect(text).toMatch(/Nucleus/);

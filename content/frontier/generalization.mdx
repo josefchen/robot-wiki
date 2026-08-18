@@ -5,7 +5,7 @@ domain: frontier
 slug: generalization
 order: 3
 status: published
-lastReviewed: "2026-08-12"
+lastReviewed: "2026-08-18"
 citations:
   - pi05-2025
   - pi07-2026
@@ -75,7 +75,7 @@ The interactive below plots the law over its measured range and lets you do the 
 
 Three properties of the chart deserve attention. The measured range ends at 20k hours; everything right of the boundary is inference, and the paper's authors say so explicitly. The band is a pair of scenarios, not a confidence interval: nobody has measured the variance of a 100k-hour run. And the completion fit crosses 100% near 250k hours, which is impossible, so the curve must bend somewhere; the only question the chart cannot answer is where. Above all, the law is fit to validation loss, a proxy that correlates with real-robot performance but is not a <Term id="success-rate">success rate</Term> measured across unseen environments. No one has published a scaling law for that metric.
 
-Whether the proxy law is enough is a live, named disagreement. The scaling camp points to exactly this chart: EgoScale's law with no saturation in the explored regime, π0.7's compositional generalization from a deliberately diverse mixture, and investor analysis from Bessemer arguing the capability curve is steep <Cite id="egoscale-2026" /> <Cite id="pi07-2026" /> <Cite id="bessemer-robotics-2026" />. The structure camp answers that robotics has no internet-scale physical data source and never will: Ken Goldberg frames the shortfall as a 100,000-year data gap and argues good old-fashioned engineering, not pure scaling, closes it <Cite id="goldberg-data-gap-2025" />. Rodney Brooks argues the missing ingredient is tactile sensing and engineered priors, not more video <Cite id="brooks-dexterity-2025" />, and Karcini and co-authors argue policy scaling alone misses architectural pillars entirely <Cite id="karcini-position-2026" />. The observation that would settle it is precise: a 10x or 100x increase in data, with no architectural change, producing proportional gains in real-world success rate across unseen environments, or failing to.
+Whether the proxy law is enough is a live, named disagreement. The scaling camp points to exactly this chart: EgoScale's law with no saturation in the explored regime, π0.7's compositional generalization from a deliberately diverse mixture, and investor analysis from Bessemer arguing the capability curve is steep <Cite id="egoscale-2026" /> <Cite id="pi07-2026" /> <Cite id="bessemer-robotics-2026" />. The structure camp answers that robotics has no internet-scale physical data source and never will: Ken Goldberg frames the shortfall as a 100,000-year data gap and argues good old-fashioned engineering, not pure scaling, closes it <Cite id="goldberg-data-gap-2025" />. Rodney Brooks argues the missing ingredient is tactile sensing and engineered priors, not more video <Cite id="brooks-dexterity-2025" />, and Karcini and co-authors argue policy scaling alone misses the supervision layer entirely: converting unstructured physical experience into grounded robot supervision <Cite id="karcini-position-2026" />. The observation that would settle it is precise: a 10x or 100x increase in data, with no architectural change, producing proportional gains in real-world success rate across unseen environments, or failing to.
 
 ## What solved would look like
 

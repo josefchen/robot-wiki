@@ -5,7 +5,7 @@ domain: frontier
 slug: reliability-gap
 order: 1
 status: published
-lastReviewed: "2026-08-12"
+lastReviewed: "2026-08-18"
 citations:
   - bessemer-robotics-2026
   - pistar06-blog-2025
@@ -54,13 +54,13 @@ Three methods are doing measurable work, each with a known ceiling.
 
 **RL from experience.** Physical Intelligence's π*0.6 with Recap trains on the robot's own deployment experience, cutting failure rates by 2x or more on hard tasks and reaching above 90% success on espresso, laundry, and box-assembly after on-robot RL, with a 2x throughput improvement <Cite id="pistar06-blog-2025" />. RL-100 goes further on its task set: 100% success across 1,000 episodes on 8 tasks, including 250 consecutive successes on one task, and a juicing robot that served customers in a shopping mall for about seven hours without failure <Cite id="rl-100-2025" />. The ceiling is that both are per-task specialist results earned through on-robot training, not generalist reliability. RL-100's own zero-shot figure under environmental and dynamics shifts is about 90%, which is the gap reasserting itself one distribution over <Cite id="rl-100-2025" />.
 
-**Runtime monitors.** Google's ASIMOV-Agentic benchmark evaluates the orchestration layer around the policy rather than the policy itself: whether an embodied reasoning agent refuses unsafe tool calls from the VLA, predicts whether a task is feasible, and requests human intervention when uncertain <Cite id="asimov-agentic-2026" />. DeepMind describes Gemini Robotics 2 as its safest robotics model to date on safety-constraint-following and human-proximity benchmarks, with the ability to detect nearby humans and trigger safe stops <Cite id="gemini-robotics-2-2026" />. Monitoring catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
+**Runtime monitors.** Google's ASIMOV-Agentic benchmark evaluates the orchestration layer around the policy rather than the policy itself: whether an embodied reasoning agent refuses unsafe tool calls from the VLA, predicts whether a task is feasible, and requests human intervention when uncertain <Cite id="asimov-agentic-2026" /> <Cite id="gemini-robotics-2-2026" />. DeepMind describes Gemini Robotics ER 2 as its safest robotics model to date on safety-constraint-following and human-proximity benchmarks, with the ability to detect nearby humans and trigger safe stops <Cite id="gemini-robotics-2-2026" />. Monitoring catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
 
 **Human in the loop.** π0.7 accepts step-by-step language coaching that steers it through tasks it has not seen, recovering from failures that would otherwise end the episode <Cite id="pi07-2026" />. Supervised operation bridges the gap for paying customers while the autonomy catches up, but a bridged gap is not a closed one: the reliability number that matters is the one with the coach removed.
 
 ## What is actually deployed
 
-The gap is easiest to see in the deployment record, where claimed and verified numbers diverge. Circulating figures put Tesla's cumulative Optimus builds in the tens of thousands and Figure's deployments above ten thousand; neither figure comes from the companies they describe, and Tesla has never published a production count <Cite id="technology-org-deployed-2026" />. The verified record is narrower. Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities. Figure's eleven-month pilot at BMW Spartanburg logged more than 1,250 hours on a live assembly line. Unitree shipped roughly 5,500 humanoid units in 2025 at a price near \$16,000, though volume has not produced profit: Q1 2026 net profit fell 52% year over year <Cite id="technology-org-deployed-2026" />.
+The gap is easiest to see in the deployment record, where claimed and verified numbers diverge. Circulating figures put Tesla's cumulative Optimus builds in the tens of thousands and Figure's deployments above ten thousand; neither figure comes from the companies they describe, and Tesla has never published a production count <Cite id="technology-org-deployed-2026" />. The verified record is narrower. Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities. Figure's eleven-month pilot at BMW Spartanburg logged more than 1,250 hours on a live assembly line. Unitree shipped roughly 5,500 humanoid units in 2025, with its G1 starting near \$16,000, though volume has not produced profit: Q1 2026 adjusted net profit fell 52.55% year over year <Cite id="technology-org-deployed-2026" />.
 
 <DeploymentDashboard className="my-6" />
 
