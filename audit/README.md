@@ -175,12 +175,15 @@ existed; re-cited via Teslarati). The 2026-08-18 sweep found no others.
 ## How to re-run the checkers
 
 ```bash
+npm run validate:content    # content-pipeline validation; prints the live corpus
+                            # counts (42 modules, 307 citations, 111 companies)
 npm run check:links             # liveness of every registry URL (bot-walls via Crossref)
 npm run check:citations         # identity: fetched title vs registry title, per entry
 npm run check:dataset-sources   # liveness of every market-map company source URL
 ```
 
-All three exit non-zero on any dead link, unexplained bot-wall, or title
+The three network checkers all exit non-zero on any dead link, unexplained
+bot-wall, or title
 mismatch. Machine-unverifiable URLs need a documented exception in
 `data/link-check-exceptions.ts` (citation registry) or
 `data/dataset-source-exceptions.ts` (market-map dataset), each recording
@@ -222,6 +225,14 @@ and two consecutive runs printed byte-identical summaries. The totals
 (207 URLs, 0 dead, 0 error) are the reproducible result; any
 live-versus-exception split recorded before the fix was a snapshot of
 one run.
+
+Updated 2026-08-18 (second-sourcing): two additional dataset sources
+were added (rhoda-ai, wonik-robotics — see the ledger rows in
+`market-map.md`), taking the gate's reproducible total to 209 URLs
+across 111 records, 0 dead, 0 error, 10 documented exceptions. Both new
+URLs were probed live with the gate's own browser user agent before
+being written and are verified live by the gate itself; no figure
+changed and every existing source was retained.
 
 ## Unresolved items
 

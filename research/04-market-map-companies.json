@@ -238,7 +238,8 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html", "title": "Rhoda AI raises $450 million at $1.7 billion valuation (Reuters)", "asOf": "2026-08-18" }
+      { "url": "https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html", "title": "Rhoda AI raises $450 million at $1.7 billion valuation (Reuters)", "asOf": "2026-08-18" },
+      { "url": "https://techfundingnews.com/rhoda-ai-450m-series-a-stealth-exit-robotics/", "title": "Khosla-backed Rhoda raises $450M at $1.7B valuation for video-trained AI", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
@@ -2241,7 +2242,8 @@
     "deployments": ["Research institutions worldwide"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.allegrohand.com/", "title": "Allegro Hand - Wonik Robotics", "asOf": "2026-08-06" }
+      { "url": "https://www.allegrohand.com/", "title": "Allegro Hand - Wonik Robotics", "asOf": "2026-08-06" },
+      { "url": "https://wonikrobotics.com/index.php", "title": "Wonik Robotics (corporate site: Allegro Hand maker)", "asOf": "2026-08-18" }
     ],
     "confidence": "medium"
   },

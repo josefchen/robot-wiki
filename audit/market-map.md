@@ -261,3 +261,43 @@ full-suite run found 10 failures inside the same specs. The follow-up commit
   paragraph, the commit range, and the e2e rows above.
 
 Full-suite result on the follow-up commit (port 3200 killed before the run, 10.0m; this file is the only edit after that run, test-oracle content only): 572 passed / 0 failed / 1 skipped.
+
+## Second-sourcing the two single-source records (2026-08-18)
+
+rhoda-ai and wonik-robotics each carried exactly one source URL — compliant
+with the dataset rules, but the two most fragile cells (rhoda-ai's sole
+source sits on Yahoo, a host with a demonstrated flakiness history in this
+project). One additional independent live source was added to each record,
+for claims already recorded; no figure changed, no existing source was
+replaced, and no record carries a duplicate URL (checked per-record against
+the research file before and after).
+
+| Record | Claim already recorded | Source added (fetched live with the gate's browser user agent, 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| rhoda-ai | Series A $450M at $1.7B valuation, 2026-03-10; Palo Alto HQ; FutureVision video-predictive platform | https://techfundingnews.com/rhoda-ai-450m-series-a-stealth-exit-robotics/ (curl, HTTP 200; states "$450 million in Series A funding", "$1.7B valuation", "Palo Alto", "FutureVision") | verified | Second source added; Yahoo (Reuters wire) source retained unchanged. Reuters and Bloomberg originals were probed and rejected: reuters.com returns HTTP 401, bloomberg.com is a documented bot-wall host — neither is machine-verifiable without an exception entry, so neither was written. |
+| wonik-robotics | Builds Allegro Hand, robotic hand for research and automation | https://wonikrobotics.com/index.php (curl, HTTP 200 after redirect from https://www.wonikrobotics.com/; page text: "Wonik Robotics is a robotics automation comp[any]" offering "Allegro Hand solutions") | verified | Second source added — the manufacturer's own corporate site, distinct from allegrohand.com (the product site) already carried. Existing source retained unchanged. |
+
+Gate totals after the additions, from `npm run check:dataset-sources`
+(two consecutive runs, identical summaries, exit 0 both times):
+209 URLs across 111 records — 198 live, 0 dead, 0 error, 10 documented
+exceptions. One run reported "1 blocked": a transient HTTP 429 from
+coindesk.com on the neura-robotics URL (pre-existing, unrelated to this
+change, not dead on any run). The prior reproducible baseline was 207
+URLs / 197 live; the +2/+1 deltas are exactly the two added URLs.
+
+Gates run this session for this change (source-entry additions only; no
+dataset field or count changed, so no full e2e was required — the
+targeted market-map specs plus the unit suite are the documented
+sufficient evidence):
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: 209 URLs / 111 records — 198 live, 0 dead, 0 error, 10 exceptions (one run also showed 1 transient 429 blocked, see above) |
+| content validator | `npm run validate:content` | PASS (42 modules, 307 citations, 111 companies; duplicate-source gate green) |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| targeted unit specs | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop clean) |
+| targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |

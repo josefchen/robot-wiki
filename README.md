@@ -4,6 +4,8 @@ An open-source, encyclopedic guide to modern robotics, written for machine-learn
 
 The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend, no database, no tracking. It is live at <https://robot-wiki.com>.
 
+Every count quoted below is reproducible: `npm run validate:content` prints the live corpus figures (42 published articles, 307 citations, 111 companies) that this README and the opening paragraphs of [`audit/README.md`](audit/README.md) quote.
+
 ## Coverage
 
 The wiki is organized into seven domains:
@@ -84,7 +86,9 @@ npm run test          # unit + component tests (Vitest)
 npm run test:e2e      # end-to-end tests (Playwright, headless Chromium)
 npm run typecheck     # next typegen + tsc --noEmit (TypeScript strict)
 npm run lint          # ESLint
-npm run validate:content  # content-pipeline validation, also runs before every build
+npm run validate:content  # content-pipeline validation, also runs before every build;
+                          # prints the live corpus counts (published modules, citations,
+                          # glossary terms, companies) quoted in this README
 ```
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.
