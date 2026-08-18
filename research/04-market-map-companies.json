@@ -129,6 +129,7 @@
     "deployments": ["Beta deployments planned for fall 2026", "1,000+ person waitlist"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.globenewswire.com/news-release/2026/03/12/3254877/0/en/Sunday-Raises-165M-to-Launch-First-Autonomous-Robots-by-Thanksgiving.html", "title": "Sunday Raises $165M at $1.15B valuation, led by Coatue (first-party)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2026/03/12/humanoid-robotics-maker-sunday-reaches-1-15b-valuation/", "title": "Sunday reaches $1.15B valuation", "asOf": "2026-08-06" },
       { "url": "https://www.bloomberg.com/news/articles/2026-03-12/dishwashing-home-robot-maker-sunday-hits-1-15-billion-valuation", "title": "Sunday Hits $1.15 Billion Valuation", "asOf": "2026-08-06" }
     ],
@@ -210,6 +211,7 @@
     "deployments": [],
     "openSource": [],
     "sources": [
+      { "url": "https://www.prnewswire.com/news-releases/genesis-ai-emerges-from-stealth-with-105m-to-build-universal-physical-intelligence.html", "title": "Genesis AI Emerges From Stealth with $105M (first-party; seed round 2025-07-01)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2026/05/06/khosla-backed-robotics-startup-genesis-ai-has-gone-full-stack/", "title": "Genesis AI has gone full stack", "asOf": "2026-08-06" },
       { "url": "https://www.genesis.ai/press/genesis-ai-emerges-from-stealth-with-dollar105m", "title": "Genesis AI Emerges From Stealth with $105M", "asOf": "2026-08-06" }
     ],
@@ -496,18 +498,20 @@
     "subSegment": "home-humanoids",
     "description": "Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases.",
     "approach": ["home-humanoid", "passive-stability"],
-    "totalRaisedUsd": 125000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B",
       "amountUsd": 100000000,
       "date": "2024-01-01",
       "valuationUsd": 500000000,
-      "leadInvestors": ["OpenAI", "EQT Ventures"]
+      "leadInvestors": ["EQT Ventures"]
     },
     "status": "private",
     "deployments": ["Pre-orders open", "Industrial pilots"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.therobotreport.com/1x-technologies-raises-100m-series-b-advance-neo-humanoid-robot-development/", "title": "1X Technologies raises $100M Series B (led by EQT Ventures)", "asOf": "2026-08-18" },
+      { "url": "https://en.wikipedia.org/wiki/1X_Technologies", "title": "1X Technologies (funding history: $23.5M A2 led OpenAI Startup Fund 2023; $100M Series B led EQT Ventures 2024-01; Sept 2025 reported *seeking* $1B, not closed)", "asOf": "2026-08-18" },
       { "url": "https://www.1x.tech/discover/1x-secures-100m-in-series-b-funding", "title": "1X Secures $100M in Series B Funding", "asOf": "2026-08-06" },
       { "url": "https://techstartups.com/2025/09/24/norways-1x-raising-1b-at-10b-valuation/", "title": "Norway's 1X raising $1B at $10B valuation", "asOf": "2026-08-06" },
       { "url": "https://techcrunch.com/2025/12/11/1x-struck-a-deal-to-send-its-home-humanoids-to-factories/", "title": "1X struck a deal to send its home humanoids to factories", "asOf": "2026-08-06" }
@@ -524,7 +528,7 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI.",
     "approach": ["bipedal-locomotion", "warehouse-automation"],
-    "totalRaisedUsd": 641000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "SPAC",
       "amountUsd": null,
@@ -536,6 +540,7 @@
     "deployments": ["GXO Logistics", "Amazon fulfillment centers", "Schaeffler", "Toyota Motor Manufacturing Canada"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital-corp-xi", "title": "Agility Robotics to Go Public Through Merger with Churchill Capital Corp XI (first-party; $2.5B; ticker AGLT)", "asOf": "2026-08-18" },
       { "url": "https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital", "title": "Agility Robotics to Go Public Through Merger with Churchill Capital", "asOf": "2026-08-06" },
       { "url": "https://techcrunch.com/2026/06/24/agility-robotics-plans-to-go-public-via-spac-in-a-2-5b-deal/", "title": "Agility Robotics plans to go public via SPAC", "asOf": "2026-08-06" }
     ],
@@ -663,15 +668,16 @@
     "totalRaisedUsd": 940000000,
     "latestRound": {
       "type": "IPO",
-      "amountUsd": null,
+      "amountUsd": 130000000,
       "date": "2023-12-01",
       "valuationUsd": 5000000000,
-      "leadInvestors": ["Tencent", "CDH Investments"]
+      "leadInvestors": []
     },
     "status": "public",
     "deployments": ["Airbus manufacturing deal", "China-Vietnam border customs ($37M contract)", "1,000 Walker S2 robots produced"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.scmp.com/business/article/3246584/ubtech-maker-stormtrooper-robots-jumps-hong-kong-trading-debut", "title": "UBTech raised HK$1 billion (US$130 million) in its Hong Kong IPO, debut 2023-12-29 (SCMP)", "asOf": "2026-08-18" },
       { "url": "https://www.prnewswire.com/news-releases/ubtech-humanoid-robot-walker-s2-begins-mass-production-and-delivery", "title": "UBTECH Walker S2 Begins Mass Production and Delivery", "asOf": "2026-08-06" },
       { "url": "https://interestingengineering.com/ai-robotics/china-ubtech-builds-1000-human", "title": "UBTECH builds 1,000th Walker S2", "asOf": "2026-08-06" },
       { "url": "https://kelo.com/2026/01/21/ubtech-agrees-airbus-deal-to-expand-robot-use-in-aviation-manufacturing/", "title": "UBTech agrees Airbus deal", "asOf": "2026-08-06" }
@@ -688,18 +694,19 @@
     "subSegment": "care-companion-humanoids",
     "description": "Builds GR-series humanoid robots (GR-1, GR-2, GR-3) originating from rehabilitation exoskeletons; GR-3 designed as care-centric companion with DeepSeek AI partnership.",
     "approach": ["rehabilitation-heritage", "vision-only-navigation", "care-companion"],
-    "totalRaisedUsd": 109000000,
+    "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Series E",
-      "amountUsd": null,
-      "date": "2024-01-01",
-      "valuationUsd": 800000000,
-      "leadInvestors": ["SoftBank", "Saudi Aramco"]
+      "type": "Series D",
+      "amountUsd": 62000000,
+      "date": "2024-09-30",
+      "valuationUsd": null,
+      "leadInvestors": ["SoftBank Vision Fund 2"]
     },
     "status": "private",
     "deployments": ["GR-3 debuted at CES 2026"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.therobotreport.com/fourier-intelligence-raises-62m-healthcare-robotics/", "title": "Fourier Intelligence raises $62M (led by SoftBank Vision Fund 2, with Prosperity7 and Yuanjing Vision Plus Capital)", "asOf": "2026-08-18" },
       { "url": "https://aifunding.me/companies/fourier-intelligence", "title": "Fourier Intelligence - $109M Raised", "asOf": "2026-08-06" },
       { "url": "https://interestingengineering.com/ai-robotics/fouriers-gr-3-humanoid-at-ces-2026", "title": "Fourier's GR-3 humanoid at CES 2026", "asOf": "2026-08-06" },
       { "url": "https://techbullion.com/fourier-intelligence-partners-with-deepseek-to-launch-soft-designed-gr-3-humanoid-robot/", "title": "Fourier Intelligence Partners with DeepSeek for GR-3", "asOf": "2026-08-06" }
@@ -721,13 +728,14 @@
       "type": null,
       "amountUsd": 300000000,
       "date": "2025-12-19",
-      "valuationUsd": null,
+      "valuationUsd": 3000000000,
       "leadInvestors": []
     },
     "status": "private",
     "deployments": ["CATL battery production line", "Industrial manufacturing partnerships"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.prnewswire.com/news-releases/galbot-secures-over-300-million-in-new-funding-breaking-records-with-3-billion-valuation-in-chinas-humanoid-robot-sector.html", "title": "Galbot Secures Over $300 Million in New Funding (first-party; $3B valuation; total funding $800M)", "asOf": "2026-08-18" },
       { "url": "https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html", "title": "Galbot Secures Over $300 Million in New Funding", "asOf": "2026-08-06" },
       { "url": "https://interestingengineering.com/ai-robotics/catl-battery-powered-heavy-load", "title": "CATL deploys Galbot humanoid on production line", "asOf": "2026-08-06" }
     ],
@@ -1088,7 +1096,7 @@
     "subSegment": "exoskeleton-mobility",
     "description": "Builds self-balancing exoskeletons (Eve) for rehabilitation and personal mobility, with Renault partnership for industrial humanoid applications.",
     "approach": ["self-balancing-exoskeleton", "rehabilitation"],
-    "totalRaisedUsd": 125000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series D",
       "amountUsd": 75000000,
@@ -1100,6 +1108,7 @@
     "deployments": ["Renault Group partnership", "Clinical rehabilitation deployments"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.globenewswire.com/news-release/2025/06/11/3097632/0/en/wandercraft-announces-Series-D-Round-bringing-75M-in-total-funding.html", "title": "Wandercraft announces Series D Round (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.wandercraft.eu/articles/wandercraft-announces-series-d-round-bringing-75m-in-total-funding", "title": "Wandercraft announces Series D Round", "asOf": "2026-08-06" },
       { "url": "https://techfundingnews.com/wandercraft-snaps-75m-series-d-to-expand-ai-powered-robotics/", "title": "Wandercraft snaps $75M Series D", "asOf": "2026-08-06" }
     ],
@@ -1260,6 +1269,7 @@
     "deployments": ["Commercial partners testing trailer unloading"],
     "openSource": [],
     "sources": [
+      { "url": "https://finance.yahoo.com/news/dexterity-secures-95m-reaching-1-110002439.html", "title": "Dexterity secures $95m, reaching $1.65bn valuation (total funding nearly $300m)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/dexterity-picks-up-95m-funding-container-unloading-robots/", "title": "Dexterity picks up $95M in funding", "asOf": "2026-08-06" },
       { "url": "https://techcrunch.com/2025/03/11/yet-another-ai-robotics-firm-lands-major-funding/", "title": "Dexterity grabs $95M at $1.65B valuation", "asOf": "2026-08-06" }
     ],
@@ -1333,14 +1343,15 @@
     "latestRound": {
       "type": "Series C",
       "amountUsd": 106000000,
-      "date": "2024-09-26",
-      "valuationUsd": 1000000000,
+      "date": "2024-10-23",
+      "valuationUsd": 1100000000,
       "leadInvestors": ["FedEx"]
     },
     "status": "private",
     "deployments": ["FedEx Fulfillment service across North America"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.freightwaves.com/news/fedex-fulfillment-expands-through-strategic-alliance-with-nimble-robotics", "title": "FedEx strategic alliance with Nimble (FedEx co-led Nimble's $106M Series C, valuing it at $1.1B post-money)", "asOf": "2026-08-18" },
       { "url": "https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation", "title": "Nimble Closes $106M Series C at $1B Valuation", "asOf": "2026-08-06" },
       { "url": "https://www.inc.com/alison-stein/7-robotics-startups-to-watch-right-now-2026/", "title": "Nimble valued at $1B, revenue tripled", "asOf": "2026-08-06" }
     ],
@@ -1387,14 +1398,15 @@
     "latestRound": {
       "type": "Series D",
       "amountUsd": 233000000,
-      "date": "2025-12-01",
-      "valuationUsd": 1000000000,
+      "date": "2025-12-02",
+      "valuationUsd": null,
       "leadInvestors": []
     },
     "status": "private",
     "deployments": ["Warehouse and factory automation in Japan"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.businesswire.com/news/home/20251202560677/en/Mujin-Raises-US$-233-Million-to-Accelerate-Global-Growth-and-Drive-Industrial-Autonomy", "title": "Mujin Raises US$233 Million Series D, first closing (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.bloomberg.com/news/articles/2026-06-10/factory-robot-startup-mujin-targets-growth-with-new-funding-eyes-ipo", "title": "Mujin Targets Growth With New Funding, Eyes IPO", "asOf": "2026-08-06" },
       { "url": "https://www.investing.com/news/stock-market-news/mujin-raises-funds-on-factory-ai-demand-ahead-of-2030-ipo", "title": "Mujin raises funds on factory AI demand ahead of 2030 IPO", "asOf": "2026-08-06" }
     ],
@@ -1515,7 +1527,7 @@
     "subSegment": "agriculture",
     "description": "Built fully electric, driver-optional autonomous tractors; had mass layoffs and was acquired by Caterpillar after burning through ~$250M.",
     "approach": ["electric-autonomous-tractor"],
-    "totalRaisedUsd": 300000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Acquisition",
       "amountUsd": null,
@@ -1524,9 +1536,10 @@
       "leadInvestors": ["Caterpillar"]
     },
     "status": "acquired",
-    "deployments": ["Acquired by Caterpillar after mass layoffs"],
+    "deployments": ["Acquired by Caterpillar after mass layoffs", "Collapsed and sold assets to Caterpillar (2026-04)"],
     "openSource": [],
     "sources": [
+      { "url": "https://techcrunch.com/2026/04/15/monarch-tractors-collapse-ends-in-with-an-acquisition-by-caterpillar/", "title": "Monarch Tractor's collapse ends with an acquisition by Caterpillar (TechCrunch, 2026-04-15)", "asOf": "2026-08-18" },
       { "url": "https://igrownews.com/monarch-tractor-news/", "title": "Monarch Tractor's Future in Doubt After Mass Layoffs", "asOf": "2026-08-06" },
       { "url": "https://www.ttnews.com/articles/caterpillar-acquires-monarch", "title": "Caterpillar Buys Autonomous Electric Tractor Firm Monarch", "asOf": "2026-08-06" },
       { "url": "https://futurism.com/robots-and-machines/ai-tractor-startup-founders", "title": "AI-Powered Tractor Startup Burns Through Quarter Billion Dollars", "asOf": "2026-08-06" }
@@ -1732,7 +1745,7 @@
     "latestRound": {
       "type": "Series E",
       "amountUsd": 203000000,
-      "date": "2026-03-03",
+      "date": "2025-08-21",
       "valuationUsd": 6000000000,
       "leadInvestors": []
     },
@@ -1740,6 +1753,7 @@
     "deployments": ["Lucid Motors robotaxi partnership", "Autonomous delivery pilots"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.businesswire.com/news/home/20250821665495/en/Nuro-Closes-203-Million-Series-E-Financing-to-Advance-Its-AI-First-Autonomy-Platform", "title": "Nuro Closes $203 Million Series E Financing (first-party; $6B valuation)", "asOf": "2026-08-18" },
       { "url": "https://www.nuro.ai/blog/nuro-closes-203-million-series-e-financing-to-advance-its-ai-first", "title": "Nuro Closes $203M Series E Financing", "asOf": "2026-08-06" },
       { "url": "https://techcrunch.com/2025/04/09/nuros-106m-raise-backs-its-shift-from-delivery-robots-to-licensing/", "title": "Nuro's shift from delivery robots to licensing", "asOf": "2026-08-06" }
     ],
@@ -1783,7 +1797,7 @@
     "approach": ["infrastructure-inspection", "climbing-robots"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": null,
+      "type": "Series D",
       "amountUsd": 125000000,
       "date": "2025-06-12",
       "valuationUsd": 1250000000,
@@ -1793,7 +1807,8 @@
     "deployments": ["Largest-ever Navy contract (2026)", "Power plant inspections"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.cnbc.com/2025/06/12/gecko-robotics-raises-125-million-surpassing-billion-dollar-valuation.html", "title": "Gecko Robotics raises $125M surpassing billion-dollar valuation", "asOf": "2026-08-06" },
+      { "url": "https://www.geckorobotics.com/news/gecko-reaches-unicorn-status", "title": "Gecko Reaches Unicorn Status (first-party; Series D led by Cox Enterprises)", "asOf": "2026-08-18" },
+      { "url": "https://www.cnbc.com/2025/06/12/gecko-robotics-raises-125-million-surpassing-billion-dollar-valuation.html", "title": "Gecko Robotics raises $125 million, valuation $1.25 billion (CNBC)", "asOf": "2026-08-18" },
       { "url": "https://tsginvest.com/gecko-robotics/", "title": "Gecko Robotics Stock: $1.25B Valuation", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -2785,10 +2800,10 @@
     "subSegment": "healthcare",
     "description": "Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.",
     "approach": ["hospital-service-robot", "mobile-manipulation"],
-    "totalRaisedUsd": 55000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Acquisition",
-      "amountUsd": null,
+      "amountUsd": 29000000,
       "date": "2026-01-20",
       "valuationUsd": null,
       "leadInvestors": ["Serve Robotics"]
@@ -2797,6 +2812,8 @@
     "deployments": ["Moxi robots in 30+ hospitals", "22 health system clients"],
     "openSource": [],
     "sources": [
+      { "url": "https://www.bizjournals.com/austin/news/2026/01/20/austin-robotics-startup-acquired-serve-robotics.html", "title": "Diligent Robotics acquired by Serve Robotics for $29M (Austin Business Journal)", "asOf": "2026-08-18" },
+      { "url": "https://ir.serverobotics.com/news-releases/news-release-details/serve-robotics-acquire-diligent-robotics-expanding-physical-ai", "title": "Serve Robotics to Acquire Diligent Robotics (first-party; deal values Diligent common stock at $29M)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/serve-robotics-to-acquire-hospital-logistics-provider-diligent-robotics/", "title": "Serve Robotics acquires Diligent Robotics", "asOf": "2026-08-06" },
       { "url": "https://www.diligentrobots.com/moxi", "title": "Moxi - Diligent Robotics", "asOf": "2026-08-06" }
     ],
@@ -2919,7 +2936,7 @@
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Acquisition",
-      "amountUsd": 5400000000,
+      "amountUsd": 5375000000,
       "date": "2025-10-08",
       "valuationUsd": null,
       "leadInvestors": ["SoftBank Group"]
@@ -2928,6 +2945,7 @@
     "deployments": ["Industrial robot installations worldwide"],
     "openSource": [],
     "sources": [
+      { "url": "https://group.softbank/en/news/press/20251008", "title": "Acquisition of ABB Ltd's Robotics Business (SoftBank Group press release, 2025-10-08)", "asOf": "2026-08-18" },
       { "url": "https://www.channelnewsasia.com/business/softbank-buy-abbs-robotics-business-54-billion-deal", "title": "SoftBank to buy ABB's robotics business in $5.4 billion deal", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
