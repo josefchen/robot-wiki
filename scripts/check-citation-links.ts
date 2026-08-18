@@ -307,14 +307,23 @@ async function main(): Promise<void> {
   const rawResults = await sweep(entries, options);
   const results = rawResults.map((r) => applyException(r, exceptionsById.get(r.id)));
   // An exception whose URL now passes (unaided or via Crossref) is leftover
-  // paperwork, not a failure; surface it so the list stays honest. But a
-  // title-mismatch exception is invisible to this liveness sweep (a tagline
-  // <title> still resolves HTTP 200): the audit checker
-  // (scripts/check-citations.ts) owns that failure mode, so only it may
-  // declare those stale.
+  // paperwork, not a failure; surface it so the list stays honest. But the
+  // STALE verdict must be filtered by the exception's covered failure mode:
+  // a liveness sweep keyed on HTTP 200 cannot see a title-mismatch (a
+  // tagline <title> still resolves 200; only the audit checker
+  // scripts/check-citations.ts owns that mode), and it cannot clear a
+  // documented transient 'error' mode either (intermittent TLS resets pass
+  // on the runs where they do not fire, as with the Sutton archival mirror;
+  // a single passing fetch is not evidence the intermittent failure went
+  // away). Only a purely 'blocked' exception — a deterministic bot-wall —
+  // can be declared stale by a URL that now answers 200.
+  // Root cause recorded in library/content-quality.md (mission library).
   const staleExceptions = results
     .filter((r) => r.verdict === 'live' && exceptionsById.has(r.id))
-    .filter((r) => !exceptionsById.get(r.id)!.covers.includes('title-mismatch'))
+    .filter((r) => {
+      const covers = exceptionsById.get(r.id)!.covers;
+      return !covers.includes('title-mismatch') && !covers.includes('error');
+    })
     .map((r) => r.id);
 
   if (options.json) {

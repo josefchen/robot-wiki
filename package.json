@@ -21,6 +21,7 @@
     "regen:nav": "node scripts/regen-nav-fixture.ts",
     "check:links": "node scripts/check-citation-links.ts",
     "check:citations": "node scripts/check-citations.ts",
+    "check:dataset-sources": "node scripts/check-dataset-sources.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },
   "dependencies": {
