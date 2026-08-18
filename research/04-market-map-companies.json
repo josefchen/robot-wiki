@@ -48,8 +48,8 @@
     "deployments": ["Foxconn Blackwell assembly lines (with Nvidia)", "Acquired Zebra Technologies robotics automation business (Apr 2026)"],
     "openSource": [],
     "sources": [
-      { "url": "https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/", "title": "Skild AI hits $14B valuation", "asOf": "2026-08-06" },
-      { "url": "https://www.businesswire.com/news/home/20260114335623/en/Skild-AI-Raises-$1.4B", "title": "Skild AI Raises $1.4B, Now Valued Over $14B", "asOf": "2026-08-06" },
+      { "url": "https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/", "title": "Skild AI hits $14B valuation", "asOf": "2026-08-18" },
+      { "url": "https://www.businesswire.com/news/home/20260114335623/en/Skild-AI-Raises-$1.4B", "title": "Skild AI Raises $1.4B, Now Valued Over $14B", "asOf": "2026-08-18" },
       { "url": "https://www.reuters.com/business/media-telecom/skild-ai-nvidia-deploy-robot-brain-blackwell-assembly-lines", "title": "Skild AI, Nvidia deploy robot brain on Blackwell assembly lines", "asOf": "2026-08-06" }
     ],
     "confidence": "high"
@@ -468,21 +468,21 @@
     "subSegment": "industrial-humanoids",
     "description": "Builds general-purpose humanoid robots (Figure 01-03) controlled by in-house Helix VLA models for warehouse and manufacturing tasks.",
     "approach": ["vla", "helix", "full-stack", "in-house-models"],
-    "totalRaisedUsd": 1900000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series C",
       "amountUsd": 1000000000,
       "date": "2025-09-16",
       "valuationUsd": 39000000000,
-      "leadInvestors": ["Brookfield Asset Management", "NVIDIA", "Qualcomm", "Salesforce", "T-Mobile"]
+      "leadInvestors": ["Parkway Venture Capital"]
     },
     "status": "private",
     "deployments": ["BMW Spartanburg plant", "~740 robots operating internally as of Jun 2026"],
     "openSource": [],
     "sources": [
-      { "url": "https://www.figure.ai/news/series-c", "title": "Figure Exceeds $1B in Series C Funding at $39B Post-Money Valuation", "asOf": "2026-08-06" },
-      { "url": "https://en.wikipedia.org/wiki/Figure_AI", "title": "Figure AI - Wikipedia", "asOf": "2026-08-06" },
-      { "url": "https://www.thedailystar.net/news/tech-startup/news/figure-ai-now-employs-more-robots-humans-founder-says-4205101", "title": "Figure AI now employs more robots than humans", "asOf": "2026-08-06" }
+      { "url": "https://www.figure.ai/news/series-c", "title": "Figure Exceeds $1B in Series C Funding at $39B Post-Money Valuation", "asOf": "2026-08-18" },
+      { "url": "https://en.wikipedia.org/wiki/Figure_AI", "title": "Figure AI - Wikipedia", "asOf": "2026-08-18" },
+      { "url": "https://www.thedailystar.net/news/tech-startup/news/figure-ai-now-employs-more-robots-humans-founder-says-4205101", "title": "Figure AI now employs more robots than humans", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },
@@ -627,26 +627,26 @@
     "name": "Unitree Robotics",
     "aka": ["Yushu Technology"],
     "hq": { "city": "Hangzhou", "country": "CN" },
-    "founded": 2017,
+    "founded": 2016,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Builds G1/H1 humanoids and quadruped robots; first profitable humanoid company at scale with 5,500 humanoids sold in 2025, filing for Shanghai STAR Market IPO.",
+    "description": "Builds G1/H1 humanoids and quadruped robots; profitable since 2025 with 5,500 humanoids sold that year; priced its Shanghai STAR Market IPO in Aug 2026 at a $9.04B valuation.",
     "approach": ["vertical-integration", "self-developed-components", "cost-leadership"],
-    "totalRaisedUsd": 200000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "IPO",
-      "amountUsd": 618000000,
-      "date": "2026-08-10",
-      "valuationUsd": 6200000000,
+      "amountUsd": 904000000,
+      "date": "2026-08-06",
+      "valuationUsd": 9040000000,
       "leadInvestors": []
     },
     "status": "public",
     "deployments": ["5,500 humanoids sold in 2025", "30,000+ quadrupeds sold", "~33% of global humanoid sales", "DeepSeek strategic investment"],
     "openSource": [],
     "sources": [
-      { "url": "https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/", "title": "China robot maker Unitree files for $610 million Shanghai IPO", "asOf": "2026-08-06" },
-      { "url": "https://www.caixinglobal.com/2026-07-31/robotics-startup-unitree-launches-620-million-star-market-ipo/", "title": "Unitree Launches $620 Million STAR Market IPO", "asOf": "2026-08-06" },
-      { "url": "https://www.reuters.com/commentary/breakingviews/chinas-robot-champion-has-everything-to-lose/", "title": "China's robot champion has everything to lose", "asOf": "2026-08-06" }
+      { "url": "https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/", "title": "China robot maker Unitree files for $610 million Shanghai IPO", "asOf": "2026-08-18" },
+      { "url": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html", "title": "Chinese humanoid robot maker Unitree prices IPO at $9 billion valuation", "asOf": "2026-08-18" },
+      { "url": "https://en.wikipedia.org/wiki/Unitree_Robotics", "title": "Unitree Robotics - Wikipedia", "asOf": "2026-08-18" }
     ],
     "confidence": "high"
   },

@@ -156,12 +156,14 @@ describe('COMPANIES data', () => {
     expect(unitree, 'missing unitree-robotics').toBeDefined();
     expect(unitree?.status).toBe('public');
     expect(unitree?.latestRound?.type).toBe('IPO');
-    // Snapshot figure from research/04 (as of 2026-08-06). Later live
-    // writeups disagree on the raise ($610M filing vs $618M approval vs
-    // ~$900M priced); the shipped number stays the snapshot value rather
-    // than being averaged or silently replaced.
-    expect(unitree?.latestRound?.amountUsd).toBe(618_000_000);
-    expect(unitree?.latestRound?.date).toBe('2026-08-10');
+    // Priced 2026-08-06 at 150.8 yuan/share: 6.1B yuan raise at ~61B yuan
+    // valuation (Reuters via CNBC, fetched 2026-08-18; USD at the article's
+    // own 6.7488 rate, matching its printed $9.04B valuation). The old
+    // $618M/2026-08-10 snapshot was the pre-pricing approval figure carried
+    // by a since-dead Caixin URL.
+    expect(unitree?.latestRound?.amountUsd).toBe(904_000_000);
+    expect(unitree?.latestRound?.date).toBe('2026-08-06');
+    expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
   });
 
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {
