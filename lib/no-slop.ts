@@ -1,6 +1,6 @@
 /**
  * Global no-slop lint over the shipped prose and export (VAL-BUILD-004,
- * VAL-BUILD-007).
+ * VAL-BUILD-007, VAL-BUILD-008, VAL-BUILD-009).
  *
  * Two checks, both pure functions over strings so they are unit-testable:
  *
@@ -9,12 +9,26 @@
  *    MDX/JSX component tokens (a literal `<Figure`, `<Cite`, `<Term`,
  *    `<Image` rendered as text).
  *
- * 2. AI-writing marker lint over MDX prose: banned vocabulary per the
- *    humanizer skill's list (promotional language, inflated symbolism,
- *    vague attribution, filler transitions), em/en dashes in shipped
- *    prose, and rule-of-three padding heuristics. Code blocks, inline
- *    code, URLs, and quoted third-party titles are masked before
- *    matching, because those are not our prose.
+ * 2. AI-writing marker lint over shipped prose, in two places:
+ *    every MDX body in content/, and the rendered prose extracted from
+ *    the built export (component copy, data-file strings that render,
+ *    landing-page text, <title> and meta/og descriptions). The checks are
+ *    banned vocabulary per the humanizer skill's list (promotional
+ *    language, inflated symbolism, vague-attribution phrases, filler
+ *    transitions, superficial -ing tacks), em/en dashes, and rule-of-three
+ *    density. Before matching, maskNonProse blanks fenced code, inline
+ *    code, URLs, and JSX/HTML tags - and only those. Nothing else is
+ *    masked, and quotation marks are never masked.
+ *
+ *    The single carve-out for verbatim quoted source text is the
+ *    attribution-scoped exception registry in data/no-slop-exceptions.ts
+ *    (VAL-BUILD-008): a quotation is exempt only when its exact text is
+ *    registered there against a citation-registry id or a named source
+ *    URL, each entry carrying why the text is verbatim, how a human
+ *    verified it against the source, and when. The exemption comes from
+ *    that registration, never from punctuation: unregistered text inside
+ *    quotation marks still fails (VAL-BUILD-009), which the unit tests
+ *    pin from both directions.
  *
  * The CLI wrapper (scripts/lint-no-slop.ts) runs both against the real
  * repo/export and exits non-zero on any hit, wired into validate:content.
@@ -76,9 +90,6 @@ const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
   { word: 'underscores', category: 'inflated-significance' },
   { word: 'pivotal', category: 'inflated-significance' },
   { word: 'landscape', category: 'inflated-significance' },
-  // Vague attribution (humanizer §5).
-  { word: 'critics', category: 'vague-attribution' },
-  { word: 'observers', category: 'vague-attribution' },
   // Filler / throat-clearing (humanizer §23).
   { word: 'importantly', category: 'filler' },
   { word: 'needless', category: 'filler' },
@@ -86,6 +97,35 @@ const BANNED_VOCABULARY: Array<{ word: string; category: string }> = [
   // the strongest two markers.
   { word: 'fostering', category: 'superficial-ing' },
   { word: 'garnering', category: 'superficial-ing' },
+];
+
+/**
+ * Vague-attribution phrases (humanizer §5): opinions attributed to an
+ * unnamed authority. These are phrase-level, deliberately: the vice is the
+ * attribution construction ("critics say"), not the noun, so a concrete
+ * reference like "critics of the approach" passes, while "experts argue"
+ * and "it is widely believed" fail with no named source in sight.
+ */
+const VAGUE_ATTRIBUTION_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
+  {
+    label: 'authority + attribution verb',
+    pattern:
+      /\b(critics|observers|experts|analysts|skeptics|commentators)\s+(have\s+)?(say|says|said|cite|cites|cited|argue|argues|argued|believe|believes|believed|claim|claims|claimed|contend|contends|note|notes|noted|think|thinks|warn|warns|warned|suggest|suggests|suggested|maintain|maintains|maintained|agree|agrees|agreed|report|reports|reported)\b/i,
+  },
+  {
+    label: 'quantified unnamed authority',
+    pattern:
+      /\b(some|many|most|several)\s+(critics|observers|experts|analysts|skeptics|commentators|sources|publications)\b/i,
+  },
+  {
+    label: 'many + stance verb',
+    pattern:
+      /\bmany\s+(argue|argues|argued|believe|believes|believed|say|says|said|think|thinks|consider|considers|considered)\b/i,
+  },
+  {
+    label: 'widely believed',
+    pattern: /\b(?:it\s+is\s+)?widely\s+(believed|held|accepted|assumed|known|reported|considered)\b/i,
+  },
 ];
 
 /** Em and en dashes: zero in shipped prose (humanizer §14, hard rule). */
@@ -102,6 +142,157 @@ export function maskNonProse(body: string): string {
     .replace(/<\/?[A-Za-z][^>\n]*>/g, blank); // JSX/HTML tags
 }
 
+/**
+ * A registered exception exempting one verbatim quotation from the marker
+ * lint (VAL-BUILD-008). House pattern of data/link-check-exceptions.ts:
+ * every field is mandatory and the registry is validated before the lint
+ * runs, because an exception without evidence is a suppressed failure.
+ *
+ * The exemption is attribution-scoped and text-exact: `quote` must appear
+ * verbatim (whitespace-insensitively) in the scanned text, or nothing is
+ * masked. Registration, never punctuation, is what grants the exemption.
+ */
+export interface SlopQuotationException {
+  /** Citation id from data/citations.ts, or a stable slug for a non-citation source (then sourceUrl is required). */
+  id: string;
+  /** The verbatim text as it appears in shipped prose (minimum 3 words). */
+  quote: string;
+  /** Why this text is excepted: whose words, and why they must stay verbatim. */
+  reason: string;
+  /** How a human last verified the quote matches the named source. */
+  verifiedBy: string;
+  /** ISO calendar date (YYYY-MM-DD) of that verification. */
+  verifiedOn: string;
+  /** Required when `id` is not a citation-registry id: names the source the quote came from. */
+  sourceUrl?: string;
+}
+
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Validate the quotation-exception registry. Returns a list of problems;
+ * an empty list means every exception carries its justification. Anything
+ * else fails the lint before scanning, mirroring validateExceptions in
+ * lib/citation-links.ts.
+ */
+export function validateQuotationExceptions(
+  exceptions: readonly SlopQuotationException[],
+  citationIds: ReadonlySet<string>,
+  today: Date = new Date(),
+): string[] {
+  const problems: string[] = [];
+  const seen = new Set<string>();
+  for (const exception of exceptions) {
+    const label = exception.id || '(missing id)';
+    if (!exception.id) {
+      problems.push('An exception is missing its source id.');
+      continue;
+    }
+    if (!citationIds.has(exception.id) && !exception.sourceUrl) {
+      problems.push(
+        `'${label}' matches no citation in the registry and records no sourceUrl: an exemption must be attributable to a named source.`,
+      );
+    }
+    const key = `${exception.id}\u0000${exception.quote.trim()}`;
+    if (seen.has(key)) {
+      problems.push(`'${label}' registers the same quotation twice.`);
+    }
+    seen.add(key);
+    const tokens = exception.quote.trim().split(/\s+/).filter(Boolean);
+    if (tokens.length < 3) {
+      problems.push(
+        `'${label}' registers a quotation shorter than three words: a trivial entry (the em dash glyph alone, say) would exempt that token everywhere, so substance is an anti-abuse bound.`,
+      );
+    }
+    if (typeof exception.reason !== 'string' || exception.reason.trim().length === 0) {
+      problems.push(`'${label}' records no reason: whose words are these and why must they stay verbatim?`);
+    }
+    if (typeof exception.verifiedBy !== 'string' || exception.verifiedBy.trim().length === 0) {
+      problems.push(
+        `'${label}' records no verification method: how was the quote last checked against the source?`,
+      );
+    }
+    if (typeof exception.verifiedOn !== 'string' || !ISO_DATE.test(exception.verifiedOn)) {
+      problems.push(`'${label}' records no valid verification date (want YYYY-MM-DD).`);
+    } else {
+      const verified = new Date(`${exception.verifiedOn}T00:00:00Z`);
+      if (Number.isNaN(verified.getTime())) {
+        problems.push(`'${label}' verification date '${exception.verifiedOn}' is not a real date.`);
+      } else {
+        const todayUtc = Date.UTC(
+          today.getUTCFullYear(),
+          today.getUTCMonth(),
+          today.getUTCDate(),
+        );
+        if (verified.getTime() > todayUtc) {
+          problems.push(`'${label}' verification date '${exception.verifiedOn}' is in the future.`);
+        }
+      }
+    }
+  }
+  return problems;
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Whitespace-insensitive, text-exact matcher for a registered quotation:
+ * tokens must appear in order with any whitespace between them (MDX wraps
+ * lines; HTML collapses spaces), and no token may differ.
+ */
+export function quoteMatches(text: string, quote: string): boolean {
+  const source = quoteRegExpSource(quote);
+  if (!source) return false;
+  return new RegExp(source).test(text);
+}
+
+function quoteRegExpSource(quote: string): string | null {
+  const tokens = quote
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(escapeRegExp);
+  if (tokens.length === 0) return null;
+  return tokens.join('\\s+');
+}
+
+/**
+ * Blank every verbatim occurrence of a registered quotation, preserving
+ * newlines (match offsets keep their line numbers). Text that merely
+ * resembles a registered quote is untouched, so it still fails the lint.
+ */
+export function maskRegisteredQuotes(
+  text: string,
+  exceptions: readonly SlopQuotationException[],
+): string {
+  let masked = text;
+  for (const exception of exceptions) {
+    const source = quoteRegExpSource(exception.quote);
+    if (!source) continue;
+    masked = masked.replace(new RegExp(source, 'g'), (match) =>
+      match.replace(/[^\n]/g, ' '),
+    );
+  }
+  return masked;
+}
+
+/**
+ * Registry entries whose quotation no longer appears in any scanned text.
+ * A stale entry is leftover paperwork, not a failure; the runner surfaces
+ * each one so the registry stays honest (the same contract
+ * data/link-check-exceptions.ts holds with its [STALE] report).
+ */
+export function findStaleQuotationExceptions(
+  exceptions: readonly SlopQuotationException[],
+  texts: readonly string[],
+): SlopQuotationException[] {
+  return exceptions.filter(
+    (exception) => !texts.some((text) => quoteMatches(text, exception.quote)),
+  );
+}
+
 export interface SlopFinding {
   file: string;
   line: number;
@@ -109,8 +300,11 @@ export interface SlopFinding {
 }
 
 /** 1-based line numbers of every dash in an MDX body (prose only). */
-export function dashLines(body: string): number[] {
-  const masked = maskNonProse(body);
+export function dashLines(
+  body: string,
+  exceptions: readonly SlopQuotationException[] = [],
+): number[] {
+  const masked = maskRegisteredQuotes(maskNonProse(body), exceptions);
   const lines: number[] = [];
   masked.split('\n').forEach((line, i) => {
     if (DASH_PATTERN.test(line)) lines.push(i + 1);
@@ -119,8 +313,11 @@ export function dashLines(body: string): number[] {
 }
 
 /** Find banned vocabulary in an MDX body, prose only, with line numbers. */
-export function findBannedVocabulary(body: string): Array<SlopFinding & { word: string }> {
-  const masked = maskNonProse(body);
+export function findBannedVocabulary(
+  body: string,
+  exceptions: readonly SlopQuotationException[] = [],
+): Array<SlopFinding & { word: string }> {
+  const masked = maskRegisteredQuotes(maskNonProse(body), exceptions);
   const findings: Array<SlopFinding & { word: string }> = [];
   masked.split('\n').forEach((line, i) => {
     for (const { word, category } of BANNED_VOCABULARY) {
@@ -131,6 +328,17 @@ export function findBannedVocabulary(body: string): Array<SlopFinding & { word: 
           line: i + 1,
           word,
           message: `banned ${category} marker "${word}"`,
+        });
+      }
+    }
+    for (const { pattern } of VAGUE_ATTRIBUTION_PATTERNS) {
+      const match = pattern.exec(line);
+      if (match) {
+        findings.push({
+          file: '',
+          line: i + 1,
+          word: match[0],
+          message: `banned vague-attribution phrase "${match[0]}" (attribute to a named source)`,
         });
       }
     }
@@ -153,3 +361,48 @@ export function ruleOfThreeDensity(body: string): number {
 
 /** Density threshold for the rule-of-three check (triads per 1000 words). */
 export const RULE_OF_THREE_LIMIT = 22;
+
+/**
+ * Extract the reader-visible prose from an exported HTML document:
+ * text content of the body, the <title>, and the description metadata
+ * (meta description, og:description, og:title, twitter:description).
+ * Script/style/noscript/svg contents are dropped, <pre>/<code> contents
+ * are blanked (code is not prose, same as maskNonProse), tags become
+ * newlines so text nodes stay on their own lines, and entities are
+ * decoded so glyph rules see the real characters.
+ */
+export function extractRenderedProse(html: string): string {
+  const metadata = html
+    .match(
+      /<meta[^>]+(?:name|property)="(?:description|og:description|og:title|twitter:description)"[^>]*>/gi,
+    )
+    ?.map((tag) => {
+      const content = /content="([^"]*)"/i.exec(tag);
+      return content ? decodeEntities(content[1]) : '';
+    })
+    .join('\n');
+  const masked = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
+    .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')
+    .replace(/<pre[\s\S]*?<\/pre>/gi, (m) => m.replace(/[^\n]/g, ' '))
+    .replace(/<code[\s\S]*?<\/code>/gi, (m) => m.replace(/[^\n]/g, ' '));
+  const prose = masked.replace(/<[^>]+>/g, '\n');
+  const decoded = decodeEntities(prose).replace(/^\s+/, '');
+  return metadata ? `${decoded}\n${metadata}` : decoded;
+}
+
+/** Decode the named and numeric entities that appear in exported prose. */
+function decodeEntities(text: string): string {
+  return text
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex: string) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec: string) => String.fromCodePoint(parseInt(dec, 10)))
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&#39;/g, "'");
+}

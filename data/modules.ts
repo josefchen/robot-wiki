@@ -26,7 +26,7 @@ export const DOMAIN_META: Record<Domain, { name: string; description: string }> 
   'rl-sim2real': {
     name: 'RL, Sim-to-Real & Locomotion',
     description:
-      'Reinforcement learning at scale, massively parallel simulation, and the transfer problem.',
+      'Reinforcement learning at scale, from massively parallel simulation to the transfer problem.',
   },
   'world-models': {
     name: 'World Models',
@@ -61,7 +61,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'bc-foundations',
     'Behavior Cloning Foundations',
-    'Covariate shift, compounding error, and why naive imitation breaks in closed loop; the DAgger fix.',
+    'Covariate shift and compounding error: why naive imitation breaks in closed loop, with DAgger as the standard fix.',
   ],
   [
     'manipulation',
@@ -91,7 +91,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'generalist-policies',
     'Other Generalist Policies',
-    'Gemini Robotics, GR00T, Helix, Skild, and GO-2: the closed-model landscape and how to read vendor claims.',
+    'Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor claims.',
   ],
   [
     'manipulation',
@@ -115,7 +115,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'realtime-execution',
     'Real-Time Execution',
-    'Temporal ensembling, real-time chunking, and the latency budgets that decide whether the control loop closes.',
+    'Temporal ensembling and real-time chunking: the latency budgets that decide whether the control loop closes.',
   ],
   [
     'manipulation',
@@ -163,7 +163,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'rl-sim2real',
     'reward-design-mpc',
     'Reward Design and the MPC Debate',
-    'LLM-written rewards, curricula, and where classical trajectory optimization still wins.',
+    'LLM-written rewards and curricula; where classical trajectory optimization still wins.',
   ],
   [
     'world-models',
