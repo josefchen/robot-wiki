@@ -301,3 +301,130 @@ sufficient evidence):
 | lint | `npm run lint` | PASS (no output) |
 | build | `npm run build` | PASS (static export, 135 structured documents, no-slop clean) |
 | targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |
+
+## Provenance transparency pass (2026-08-18)
+
+Scope, re-derived from `research/04-market-map-companies.json` at HEAD
+(2255090) before acting: 111 records, source-count distribution
+1:40 / 2:49 / 3:17 / 4:5, totalling 209 source entries — every integer
+counted from the committed file with `node` over `sources.length`, not
+copied from the feature description. Single-sourcing is compliant with
+the dataset rules and is not a defect. Two patterns inside the 40
+single-sourced records are correlated or self-reported dependencies and
+were worked; the rest were deliberately left alone.
+
+### (1) The humanoidindex.org aggregator concentration
+
+Seven single-sourced records rested solely on humanoidindex.org. For
+each, the primary or an independent secondary was hunted; where
+independent reporting could not be found, the record keeps its sole
+aggregator source and the reason is stated here — a documented weak
+source beats a padded one.
+
+| Record | Claims on the sole source | Source added (probed live with the gate's browser user agent, 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| mentee-robotics | Seed $17M total raised | https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/ (curl, HTTP 200; fetched text: "raised $17 million in funding led by Ahren Innovation Capital") | verified | Independent secondary added. Corroborating primaries found but rejected for machine-verification reasons: Reuters (bot-wall 401) and TechCrunch. Also noted for a future pass: Reuters 2026-01-06 reports Mobileye agreed to acquire Mentee for ~$900M and a later ~$21M round; the record still says status private / $17M — figure and status NOT touched here (provenance-only rule). |
+| kepler-robot | totalRaised $100M, Series A, valuation $400M | none | unresolved (no source added) | Independent reporting found states the OPPOSITE direction: Hangzhou Kelin agreed in May 2026 to acquire a 41.57–51% stake in Shanghai Kepler Robotics for up to ~CNY 300M–722M (~$106M for 51%, implying a whole-company valuation near $208M, gasgoo.com and finance.biggo.com, snippet-grade 2026-08-18). No fetched primary or secondary states $100M raised or a $400M valuation. Figures NOT adjusted (provenance-only rule); flagged here as the record's weakest cell. |
+| clone-robotics | Seed $5M | none | unresolved (no source added) | Independent secondary (aparobot.com, snippet-grade 2026-08-18) states "$6.5 million in seed", not $5M; no fetched source states $5M. Figure NOT adjusted; flagged. |
+| booster-robotics | Seed $10M | none | unresolved (no source added) | Independent reporting disagrees on scale: Caixin (snippet-grade 2026-08-18) "raised over 100 million yuan (~$14M) across multiple rounds", tracxn.com profile "$27.9M". No fetched source states $10M. Figure NOT adjusted; flagged. |
+| leju-robotics | Series B $50M | none | unresolved (no source added) | The Robot Report (fetched-live title 2026-08-18) and Bloomberg (snippet-grade) report a $200M round in Oct 2025 ahead of a planned listing; Wikipedia corroborates CNY 50M Tencent strategic investment in 2017. No fetched source states a $50M Series B. Figure NOT adjusted; flagged. |
+| hanson-robotics | totalRaised $50M | none | unresolved (no source added) | getlatka.com (snippet-grade 2026-08-18) states "$21.7M across 2 rounds". No fetched source states $50M. Figure NOT adjusted; flagged. |
+| paxini | Series A $20M, JD.com lead | none | unresolved (no source added) | Independent reporting is far larger and later: Caixin 2026-03-07 "$145M round, valuation over $1.4B"; Yicai Global reports JD.com leading an investment round. No fetched source states a $20M Series A. Figure NOT adjusted; flagged. |
+
+Six of the seven aggregator-only figures remain uncorroborated, and five
+of those have independent reporting pointing at different numbers. They
+stay as recorded under this pass's provenance-only rule; the honest state
+of the dataset is that these six cells rest on one aggregator whose
+figures no independent source confirms. Correcting the figures is
+per-record audit work for a future pass (each correction moves a rendered
+figure and requires the full e2e suite).
+
+### (2) First-party-only single-sourced records
+
+Thirteen single-sourced records cite only the company's own domain
+(identified by comparing each sole source's host against the company
+name/domain): micro1, humanoid-uk, farm-ng, avidbots, shadow-robot,
+sharpa, xela-robotics, mytra, starship-technologies, knightscope,
+brain-corp, pollen-robotics, zebra-robotics-automation.
+
+| Record | Self-reported claims | Disposition | Source added (gate's user agent, 2026-08-18) | Verdict |
+|---|---|---|---|---|
+| humanoid-uk | $152M Series A, $1.35B valuation, 2026-07-21, Prime Movers Lab | corroborated | https://www.therobotreport.com/uk-based-humanoid-secures-152m-in-series-a-funding/ (HTTP 200) | verified |
+| avidbots | $70M Series C, 2022-09-27, Jeneration Capital | corroborated | https://techcrunch.com/2022/09/27/avidbots-maker-of-autonomous-industrial-cleaning-robots-nabs-70m/ (HTTP 200) | verified |
+| mytra | $120M Series C, 2026-01-15, Avenir Growth | corroborated | https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html (HTTP 200; the wire the first-party post mirrors) | verified |
+| sharpa | NVIDIA Isaac GR00T Reference Robot uses Sharpa hands; CES 2026 North robot | corroborated | https://www.prnewswire.com/news-releases/sharpa-brings-dexterous-tactile-manipulation-to-the-nvidia-isaac-gr00t-reference-humanoid-robot-302787201.html (HTTP 200) | verified |
+| brain-corp | leadInvestors Qualcomm Ventures, SoftBank | corroborated | https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz (HTTP 200; wire text: "led by returning investor SoftBank Vision Fund 1 ... an additional investment from Qualcomm Ventures LLC"; braincorp.com's own copy of the 2020 release is gone from its site, 404) | verified |
+| zebra-robotics-automation | Divestiture to Skild AI, 2026-04-15 | corroborated-in-principle, source NOT added | none — the claim is corroborated by five independent outlets (Bloomberg, Businesswire, Skild's own announcement, Yahoo Finance, roboticsandautomationnews; fetched titles and snippets, 2026-08-18), but every independent wire is bot-walled (403) and would need its own exception entry to be machine-verified, so adding one buys no verifiability. The record keeps its single live first-party pressroom source; the limit is named above. | verified (classification only; no source added) |
+| micro1 | first-party by nature | left | none — product description (expert-demonstrated teleoperation data); no funding/valuation/headcount figure recorded, so nothing needs corroboration | first-party by nature |
+| farm-ng | first-party by nature | left | none — product description (modular farm robots); no figure recorded | first-party by nature |
+| shadow-robot | first-party by nature | left | none — product identity (dexterous hands, founded 1987); no figure recorded | first-party by nature |
+| xela-robotics | first-party by nature | left | none — product description (3D tactile sensors); no figure recorded | first-party by nature |
+| starship-technologies | first-party by nature | left | none — product description (sidewalk delivery robots, founded 2014); no figure recorded | first-party by nature |
+| knightscope | first-party by nature | left | none — the only non-descriptive claim, NASDAQ: KSCP public status, is verifiable from the company's own IR page the record cites (first-party by nature for listing status; an exchange listing is a regulated fact, not a self-reported valuation) | first-party by nature |
+| pollen-robotics | first-party by nature | left | none — product names (Reachy, Reachy Mini), open-source status and the Hugging Face partnership are first-party claims about what the company makes and releases | first-party by nature |
+
+Counted from the two tables above: 13 first-party records classified —
+5 corroborated (independent source added), 7 first-party by nature
+(justified in the table), 1 (zebra-robotics-automation) classified as
+corroborated-in-principle but left with a single source, because its sole
+source is a Zebra pressroom URL and the obvious independent wires
+(Bloomberg 403; Businesswire 403, would need a new exception entry) are
+bot-walled; adding a third bot-walled URL buys no machine-verifiability.
+The claim (Skild AI acquired Zebra's robotics automation business,
+April 15 2026) is corroborated by five independent fetched titles
+recorded above. Honest state: this record's liveness rests on one live
+first-party URL.
+
+### (3) Provenance distribution (recounted after parts 1 and 2)
+
+Recounted from the committed file with `node` over `sources.length` per
+record, 2026-08-18: 111 records; distribution 1-source: 34, 2-source: 55,
+3-source: 17, 4-source: 5; 34 + 55 + 17 + 5 = 111; total source entries
+(1×34) + (2×55) + (3×17) + (4×5) = 34 + 110 + 51 + 20 = 215. Before this
+pass: 40 / 49 / 17 / 5 = 209. The deltas are the 6 added source entries
+(mentee-robotics, humanoid-uk, avidbots, sharpa, mytra, brain-corp), each
+moving one record from 1 to 2 sources: singles 40→34, doubles 49→55.
+
+Known limits, stated plainly:
+- **Aggregator concentration:** 6 records (kepler-robot, clone-robotics,
+  booster-robotics, leju-robotics, hanson-robotics, paxini) remain solely
+  sourced to humanoidindex.org, and 5 of those 6 carry figures no fetched
+  independent source confirms (see part 1).
+- **First-party-only records:** 7 records remain solely sourced to the
+  company's own site (micro1, farm-ng, shadow-robot, xela-robotics,
+  starship-technologies, knightscope, pollen-robotics) — all classified
+  first-party by nature, no self-reported valuation/headcount among them —
+  plus zebra-robotics-automation (see part 2).
+
+### (4) neura-robotics CoinDesk 429
+
+The coindesk.com URL returned HTTP 429 on 7 consecutive machine probes
+this session (4 curl + 3 gate runs with the gate's own browser user
+agent, gate exit 0 throughout, reported as blocked) — the intermittent
+429 recorded earlier on 2026-08-18 has hardened into a persistent
+rate-limit bot-wall. An independent fetch client (FetchUrl, 2026-08-18)
+retrieved the full article: "Tether leads $1.4 billion funding round in
+German robotics company Neura", Jun 11 2026, matching the record. Per the
+feature rule, a documented transient-error exception was added to
+`data/dataset-source-exceptions.ts` rather than replacing the live
+source; the record's other 2 sources are machine-verified live.
+
+### Gates run this pass (transcript)
+
+The diff adds only source entries (6 in the research file, regenerating
+`data/companies.ts`) plus one exception entry; no dataset field or count
+changed and no rendered figure moved, so per the documented rule the
+targeted market-map specs plus the unit suite are sufficient.
+
+| Gate | Command | Result |
+|---|---|---|
+| payload integrity | `node` strip-sources diff vs HEAD | identical: stripping every `sources` array leaves all 111 records byte-identical to HEAD |
+| duplicate URLs | per-record URL check | none |
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: 215 URLs / 111 records — 204 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| content validator | `npm run validate:content` | PASS (42 modules, 307 citations, 111 companies; no-slop source-only OK) |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| full unit suite | `npm run test` | 1727 passed, 1 skipped |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |

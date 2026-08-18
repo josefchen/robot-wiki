@@ -1514,6 +1514,11 @@ const ROWS: Company[] = [
         title: 'Humanoid Raises $152 Million at $1.35 Billion Post-Money Valuation (first-party)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.therobotreport.com/uk-based-humanoid-secures-152m-in-series-a-funding/',
+        title: 'U.K.-based Humanoid secures $152M in Series A funding (The Robot Report)',
+        asOf: '2026-08-18',
+      },
     ],
     confidence: 'high',
   },
@@ -2006,6 +2011,11 @@ const ROWS: Company[] = [
       {
         url: 'https://humanoidindex.org/companies/mentee-robotics',
         title: 'Mentee Robotics - Humanoid Index',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/',
+        title: 'Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI)',
         asOf: '2026-08-18',
       },
     ],
@@ -3500,6 +3510,11 @@ const ROWS: Company[] = [
         title: 'Avidbots raises $70M in Series C funding, led by Jeneration Capital (first-party)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://techcrunch.com/2022/09/27/avidbots-maker-of-autonomous-industrial-cleaning-robots-nabs-70m/',
+        title: 'Avidbots, maker of autonomous industrial cleaning robots, nabs $70M (TechCrunch)',
+        asOf: '2026-08-18',
+      },
     ],
     confidence: 'medium',
   },
@@ -3743,6 +3758,11 @@ const ROWS: Company[] = [
       {
         url: 'https://www.sharpa.com/',
         title: 'Sharpa company site (first-party)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/sharpa-brings-dexterous-tactile-manipulation-to-the-nvidia-isaac-gr00t-reference-humanoid-robot-302787201.html',
+        title: 'Sharpa Brings Dexterous, Tactile Manipulation to the NVIDIA Isaac GR00T Reference Humanoid Robot (PR Newswire)',
         asOf: '2026-08-18',
       },
     ],
@@ -4103,6 +4123,11 @@ const ROWS: Company[] = [
       {
         url: 'https://mytra.ai/news/mytra-raises-120m-series-c',
         title: 'Mytra Raises $120M Series C led by Avenir Growth (first-party)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html',
+        title: 'Mytra Raises $120M Series C to Scale Operating System for Supply Chain (PR Newswire)',
         asOf: '2026-08-18',
       },
     ],
@@ -4578,6 +4603,11 @@ const ROWS: Company[] = [
         url: 'https://www.braincorp.com/',
         title: 'Brain Corp - AI for Autonomous Floor Care',
         asOf: '2026-08-06',
+      },
+      {
+        url: 'https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz',
+        title: 'Brain Corp Raises $36M in Series D, led by SoftBank Vision Fund 1 with Qualcomm Ventures (VC News Daily)',
+        asOf: '2026-08-18',
       },
     ],
     confidence: 'low',

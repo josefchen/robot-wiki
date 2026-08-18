@@ -234,6 +234,44 @@ URLs were probed live with the gate's own browser user agent before
 being written and are verified live by the gate itself; no figure
 changed and every existing source was retained.
 
+Updated 2026-08-18 (provenance transparency): the market map's
+source-count distribution, recounted from the committed
+`research/04-market-map-companies.json` (counting `sources.length` per
+record with `node`): **111 records — 1 source: 34, 2 sources: 55,
+3 sources: 17, 4 sources: 5; 34 + 55 + 17 + 5 = 111; total source
+entries (1×34) + (2×55) + (3×17) + (4×5) = 34 + 110 + 51 + 20 = 215.**
+Single-sourcing is compliant with the dataset rules and is not itself a
+defect. Two known limits sit inside that distribution, both named rather
+than padded (see the provenance-transparency section of
+`audit/market-map.md` for the per-record rows):
+
+- **Aggregator concentration:** 6 records remain solely sourced to
+  humanoidindex.org (kepler-robot, clone-robotics, booster-robotics,
+  leju-robotics, hanson-robotics, paxini), and for 5 of the 6 no fetched
+  independent source confirms the recorded figure — several independent
+  reports point at different numbers. These figures stay as recorded
+  under the provenance-only rule of that pass; correcting them is
+  per-record audit work that moves rendered figures and earns a full e2e
+  run.
+- **First-party-only records:** 8 records remain solely sourced to the
+  company's own site. Seven (micro1, farm-ng, shadow-robot,
+  xela-robotics, starship-technologies, knightscope,
+  pollen-robotics) are first-party by nature — product names,
+  descriptions and founding years, no self-reported valuation or
+  headcount; zebra-robotics-automation's acquisition claim is
+  independently corroborated in the ledger but its only machine-live
+  source is the company's own pressroom.
+
+The same pass added 6 independent source entries (mentee-robotics,
+humanoid-uk, avidbots, sharpa, mytra, brain-corp) and documented the
+hardened coindesk.com 429 (neura-robotics) as a transient-error
+exception in `data/dataset-source-exceptions.ts` (now 11 entries),
+taking the gate's reproducible total to 215 URLs across 111 records —
+204 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions; two
+consecutive runs printed identical summaries, exit 0 both times. No
+figure changed: stripping every `sources` array from the dataset leaves
+the remaining payload byte-identical to the prior commit.
+
 ## Unresolved items
 
 Exactly one, recorded in `market-map.md`: the eka-robotics /

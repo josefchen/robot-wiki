@@ -120,4 +120,12 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
       'node fetch HEAD with the sweep user agent (2026-08-18): HTTP 200; curl GET with the same user agent: HTTP 200. Article: "UBTech makes HK trading debut amid gloomy market" (2023-12-29), matching the record.',
     verifiedOn: '2026-08-18',
   },
+  {
+    url: 'https://www.coindesk.com/business/2026/06/11/tether-leads-usd1-4-billion-funding-round-in-german-robotics-company-neura/',
+    reason:
+      'coindesk.com serves HTTP 429 to every machine client we can run: a persistent rate-limit bot-wall, not link rot and not transient. First observed 2026-08-18 as an intermittent 429 (2 of 4 runs, exit 0); on 2026-08-18 later the same day it returned 429 on 7 consecutive probes (4 curl + 3 gate runs, gate exit 0 throughout, reported as blocked). The record carries 2 other live sources, so no claim rests on this URL alone; it is retained rather than replaced.',
+    verifiedBy:
+      'Independent fetch client (FetchUrl, 2026-08-18): HTTP 200, full article served — "Tether leads $1.4 billion funding round in German robotics company Neura", Jun 11 2026, Tether-led $1.4B round with Qualcomm, Amazon and NVIDIA participation, matching the record.',
+    verifiedOn: '2026-08-18',
+  },
 ];
