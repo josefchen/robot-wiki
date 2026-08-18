@@ -161,11 +161,31 @@ re-run the same day. The sweep is now a gated, reproducible command
 run found real rot the one-off pass missed or that landed since: 223 URLs
 across 111 records — 150 live, 19 blocked (bot-walls), 10 error
 (inconclusive), 44 dead, leaving 9 records with no live source at all.
-Replacing those 44 is per-record audit work under this ledger's sourcing
-rules and is NOT done in the accounting sweep that recorded this; the gate
-exits 1 until it is. The dead URLs and affected records are listed in the
-gate's output (`npm run check:dataset-sources`), so the next market-map
-pass can work the list directly.
+
+**Resolution (2026-08-18, market-map-source-refresh):** the 44 dead URLs
+were worked from the gate's own output list. Every dead URL was replaced
+with a live URL for the SAME claim (verified live by a node-fetch probe
+with the sweep's browser user agent before being written in; no figure was
+changed while its provenance was replaced — the diffs touch `sources`
+entries only, never `latestRound`, `totalRaisedUsd` or any other field).
+Where a dead entry duplicated a claim another live source in the record
+already carried, the dead entry was removed rather than replaced, so no
+record gained a duplicate URL (the generator and validate:content gate
+this). The 9 records with no live source all gained live sources. The
+remaining bot-walls and machine-unverifiable pages (Businesswire,
+Bloomberg, Quartz, kelo, Yahoo's Node-fetch header overflow, two flaky
+hosts) were verified live by independent fetch and documented in
+`data/dataset-source-exceptions.ts` (17 entries, each with reason,
+verification method and date). The gate now exits 0:
+
+```
+Checked 207 dataset source URLs across 111 records: 190 live, 0 dead,
+0 blocked, 0 error, 17 documented exceptions.
+```
+
+(URL count 223→207: 16 dead or duplicate entries removed rather than
+replaced.) `data/companies.ts` was regenerated from the research file
+after the edits.
 
 ## Summary (counted from the tables above)
 
@@ -195,6 +215,15 @@ pass can work the list directly.
 | e2e (integration+search) | `npx playwright test tests/e2e/go-public-integration.spec.ts tests/e2e/search-structured.spec.ts` | 22 passed (these specs were genuinely green) |
 | e2e (full suite, follow-up) | `lsof -ti :3200 | xargs kill` then `npm run test:e2e` on the follow-up commit | **572 passed / 0 failed / 1 skipped** (the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip in see-also.spec.ts) |
 | source-URL sweep | `curl -sL` over all dataset source URLs | every row carries a live (200) or live-but-bot-walled (403/429) source; hard 404s replaced |
+| dataset-source gate (source-refresh, 2026-08-18) | `npm run check:dataset-sources` | PASS, exit 0: 207 URLs across 111 records — 190 live, 0 dead, 0 blocked, 0 error, 17 documented exceptions (see the resolution note above and `data/dataset-source-exceptions.ts`) |
+| source-refresh gates (2026-08-18) | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS |
+| source-refresh full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
+| source-refresh content validator | `npm run validate:content` | PASS (111 companies, zero violations) |
+| source-refresh regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| source-refresh typecheck | `npm run typecheck` | PASS |
+| source-refresh lint | `npm run lint` | PASS (no output) |
+| source-refresh build | `npm run build` | PASS (static export; 135 structured documents; no-slop rendered-prose sweep clean) |
+| source-refresh e2e (full) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | **572 passed / 0 failed / 1 skipped** (fresh server; the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip) |
 | ledger↔diff reconciliation | `git status --short` + `git diff --stat` | clean tree; all corrections on disk and committed (11 commits, 2dc0173..e180ed6; corrected on follow-up: the audit's final commit was a3cf112, so the range was 2dc0173..a3cf112) |
 
 ## Follow-up (2026-08-18): post-audit reconciliation

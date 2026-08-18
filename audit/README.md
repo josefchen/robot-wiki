@@ -199,14 +199,16 @@ exceptions, 4 titles unavailable, 0 mismatches.
 
 The dataset-source gate made the market-map URL sweep reproducible for the
 first time (it was previously a one-off `curl` pass). Its first full run
-the same day is recorded honestly rather than greened up: 223 URLs across
-111 records — 150 live, 19 blocked (bot-walls), 10 error (inconclusive),
-and 44 dead, with 9 records left without a single live source. Those 44
-are real rot the one-off sweep missed or that landed since; replacing them
-is market-map audit work with per-record sourcing rules, so it is recorded
-here as the known state for the next market-map pass, not patched in this
-accounting sweep. The gate fails (exit 1) until they are fixed — that is
-the point of gating it.
+the same day found real rot: 223 URLs across 111 records — 150 live, 19
+blocked (bot-walls), 10 error (inconclusive), and 44 dead, with 9 records
+left without a single live source. **Resolved 2026-08-18
+(market-map-source-refresh):** every dead URL was replaced with a live
+source for the same claim or removed where a live duplicate already
+covered it, no figures changed, and every remaining bot-wall /
+machine-unverifiable URL was verified live by independent fetch and
+documented in `data/dataset-source-exceptions.ts` (17 entries). The gate
+now exits 0: 207 URLs across 111 records — 190 live, 0 dead, 0 blocked,
+0 error, 17 documented exceptions.
 
 ## Unresolved items
 
