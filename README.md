@@ -1,6 +1,6 @@
 # robot-wiki
 
-An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. Articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 112 robotics companies, and a citation-backed glossary.
+An open-source, encyclopedic guide to modern robotics, written for machine-learning engineers moving into the field. Articles pair cited long-form prose with interactive explanations: a 3D kinematics playground with real forward and inverse kinematics, step-through denoising loops, a filterable market map of 111 robotics companies, and a citation-backed glossary.
 
 The site is fully static. Every page is pre-rendered at build time and all interactivity runs in the browser: no backend, no database, no tracking. It is live at <https://robot-wiki.com>.
 
@@ -16,7 +16,7 @@ The wiki is organized into seven domains:
 - **Frontier & Open Problems**: the reliability gap, dexterity, generalization, competing theses, the bear case.
 - **Adjacent Domains**: autonomous vehicles, drones, surgical robotics, space robotics.
 
-The 3D playground (<https://robot-wiki.com/playground/>) loads the SO-101 arm (Apache-2.0) and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target using a damped-least-squares solver, and trajectory record/replay with JSON export. The market map (<https://robot-wiki.com/market-map/>) filters 112 companies by segment, country, stage, and approach, with source links and funding data on every entry.
+The 3D playground (<https://robot-wiki.com/playground/>) loads the SO-101 arm (Apache-2.0) and runs forward kinematics from joint sliders, inverse kinematics from a click-to-reach target using a damped-least-squares solver, and trajectory record/replay with JSON export. The market map (<https://robot-wiki.com/market-map/>) filters 111 companies by segment, country, stage, and approach, with source links and funding data on every entry.
 
 ## Architecture
 

@@ -23,7 +23,7 @@ the citation registry (`data/citations.ts`, 307 entries).
 | classical.md | 5 classical articles | 79 rows | 73 | 6 | 0 | 0 |
 | frontier.md | 5 frontier articles + 4 lib files | 108 rows | 80 | 26 rows (24 defects) | 0 | 0 |
 | market-map.md | 111 company records + timeline | 98 ledger rows over 111 records | 14 V | 46 C (+21 C+N, and see ledger) | 1 record removed | 1 |
-| citations.md | 307 citation-registry entries | 307 | 293 ok + 10 exceptions (2026-08-18 run) | see ledger | 0 | 0 |
+| citations.md | 307 citation-registry entries | 307 | 303 (293 ok + 10 exceptions, 2026-08-18 run); 4 titles unavailable | see ledger | 0 | 0 |
 | adjacent.md | 4 adjacent-domain articles | 48 rows | 47 | 1 | 0 | 0 |
 | **Total** | **42 articles + all structured data + full registry** | **1,172 rows** | **983** | **142 rows** (+21 market-map C+N) | **3** | **1** |
 
@@ -32,9 +32,22 @@ registry entries, one per row of its table). Every cell above is counted
 from the ledger's own tables; the Total row is the column sum, shown
 exactly: 241+115+92+84+79+108+98+307+48 = 1,172 rows checked;
 225+108+76+57+73+80+14+303+47 = 983 verified (the citations ledger's 303
-is its 293 ok plus 10 documented exceptions);
+is its 293 ok plus 10 documented exceptions; the remaining 4 registry
+entries are counted in its 307 rows but sit outside the verified column
+because their titles were unavailable to the checker — 293 + 10 + 4 =
+307);
 15+7+16+25+6+26+46+0+1 = 142 corrected rows, plus the market-map ledger's
 21 combined C+N rows that its own summary reports separately.
+
+(Derivability note for the citations row, stated on this page per the
+convention above: the 307 registry entries break down as 293 title-verified
++ 10 documented exceptions + 4 titles-unavailable. The per-entry table in
+`citations.md` predates 7 later additions and covers 300 of the 307; those
+7 are verified as claim-level sources in their own domain ledgers and are
+covered by the 2026-08-18 re-run of both checkers, as the ledger's scope
+note records. So 303, not 307, is the figure derivable from the verdict
+columns alone, and the 4-entry gap is named here rather than left for the
+reader to discover in `citations.md`.)
 
 (The market-map totals count ledger rows, each row naming at least one
 record; several records were verified, corrected and nulled in one row, so

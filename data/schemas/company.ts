@@ -36,7 +36,7 @@ export const fundingRoundSchema = z.object({
   leadInvestors: z.array(z.string().min(1)),
 });
 
-/** Market-map company entry (data/companies.ts, 112 rows from research/04). */
+/** Market-map company entry (data/companies.ts, 111 rows from research/04). */
 export const companySchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
