@@ -465,3 +465,27 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | mev1-servicing-2025 | https://news.northropgrumman.com/satellites/Northrop-Grumman-Achieves-First-Ever-Undocking-Between-Two-Commercial-Spacecraft-in-Geosynchronous-Orbit | ok | match | none (verified as cited) | chain: 307 -> 200 https://news.northropgrumman.com/satellites/northrop-grumman-achieves-first-ever-undocking-between-two-commercial-spacecraft-in-geosynchronous-orbit; final: https://news.northropgrumman.com/satellites/northrop-grumman-achieves-first-ever-undocking-between-two-commercial-spacecraft-in-geosynchronous-orbit |
 | adras-j-15m-2024 | https://www.astroscale.com/en/news/astroscales-adras-j-achieves-historic-15-meter-approach-to-space-debris | ok | match | none (verified as cited) |  |
 | osam1-discontinued-2024 | https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/ | ok | match | none (verified as cited) |  |
+
+## Verification (recorded 2026-08-18, reconciliation sweep)
+
+This ledger previously ended with no record of the command gates; the
+registry sweep result line above was the only verification in the file,
+and the original session's other gate output was never recorded here. The
+checkers were re-run against the current tree during the 2026-08-18
+reconciliation sweep:
+
+| Gate | Command | Result |
+|---|---|---|
+| Link liveness | `npm run check:links` | 307 checked: 301 live (20 verified via Crossref), 0 dead, 0 blocked, 0 error, 6 documented exceptions; exit 0 |
+| Citation identity | `npm run check:citations` | 307 checked: 293 ok (46 via Crossref), 4 titles unavailable, 0 title mismatches, 10 documented exceptions, 1 archival capture; exit 0 |
+
+Scope note, stated honestly: the per-entry table above covers the 300
+registry entries that existed when this audit ran. Seven entries were
+added afterwards by the domain audits that needed them (cosmos-policy-2026,
+legged-gym-repo-2021, nucleus-supervised-2026, sutton-bitter-lesson-2019,
+teslarati-optimus-hand-2026, vasarhelyi-flocking-2018, wholebodyvla-2025);
+each is verified as a claim-level source in its own domain ledger, and
+both re-runs above cover all 307, so no entry in the registry is
+unverified. The original session's test/typecheck/build runs are not
+recorded here because their output was not preserved in the ledger and no
+handoff for that session exists.

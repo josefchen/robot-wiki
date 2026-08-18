@@ -12,25 +12,35 @@ Every published article (all 42 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,
 `data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`), the
 market-map dataset (`data/companies.ts`, 111 records), and every entry in
-the citation registry (`data/citations.ts`, 306 entries).
+the citation registry (`data/citations.ts`, 307 entries).
 
 | Ledger | Covers | Claims checked | Verified | Corrected | Cut | Unresolved |
 |---|---|---|---|---|---|---|
-| manipulation.md | 12 manipulation articles + methods.ts | 220 (61+73+86) | 208 | 10 (3+4+3) | 0 | 0 |
-| rl-sim2real.md | 6 RL/sim2real/locomotion articles | 81 | 75 | 5 (+1 micro-fix) | 0 | 0 |
-| world-models.md | 5 world-models articles | 89 | 79 | 10 | 0 | 0 |
-| data-hardware.md | 5 data/hardware articles + 4 data files | 84 | 61 | 21 defects (25 rows) | 2 | 0 |
-| classical.md | 5 classical articles | 79 | 73 | 6 | 0 | 0 |
-| frontier.md | 5 frontier articles + 4 lib files | 108 | 80 | 26 rows (24 defects) | 0 | 0 |
+| manipulation.md | 12 manipulation articles + methods.ts | 225 article rows (71+66+88) + 16 registry rows | 213 + 12 | 15 rows (13 distinct defects) | 0 | 0 |
+| rl-sim2real.md | 6 RL/sim2real/locomotion articles | 115 rows | 108 | 7 rows (6 defects) | 0 | 0 |
+| world-models.md | 5 world-models articles | 92 rows | 76 | 16 rows (11 defects) | 0 | 0 |
+| data-hardware.md | 5 data/hardware articles + 4 data files | 84 rows | 57 | 25 rows (21 defects) | 2 | 0 |
+| classical.md | 5 classical articles | 79 rows | 73 | 6 | 0 | 0 |
+| frontier.md | 5 frontier articles + 4 lib files | 108 rows | 80 | 26 rows (24 defects) | 0 | 0 |
 | market-map.md | 111 company records + timeline | 98 ledger rows over 111 records | 14 V | 46 C (+21 C+N, and see ledger) | 1 record removed | 1 |
-| citations.md | 306 citation-registry entries | 306 | 292+ per run | see ledger | 0 | 0 |
-| adjacent.md | 4 adjacent-domain articles | 62 | 61 | 1 | 0 | 0 |
-| **Total** | **42 articles + all structured data + full registry** | **~1,127 rows** | **~933** | **~125** | **3** | **1** |
+| citations.md | 307 citation-registry entries | 307 | 293 ok + 10 exceptions (2026-08-18 run) | see ledger | 0 | 0 |
+| adjacent.md | 4 adjacent-domain articles | 48 rows | 47 | 1 | 0 | 0 |
+| **Total** | **42 articles + all structured data + full registry** | **1,172 rows** | **983** | **142 rows** (+21 market-map C+N) | **3** | **1** |
+
+Counting unit for this table: ledger rows (the citations ledger counts
+registry entries, one per row of its table). Every cell above is counted
+from the ledger's own tables; the Total row is the column sum, shown
+exactly: 241+115+92+84+79+108+98+307+48 = 1,172 rows checked;
+225+108+76+57+73+80+14+303+47 = 983 verified (the citations ledger's 303
+is its 293 ok plus 10 documented exceptions);
+15+7+16+25+6+26+46+0+1 = 142 corrected rows, plus the market-map ledger's
+21 combined C+N rows that its own summary reports separately.
 
 (The market-map totals count ledger rows, each row naming at least one
 record; several records were verified, corrected and nulled in one row, so
 column arithmetic there is approximate in exactly the way its own summary
-states. Every other row is one claim.)
+states. Where any other ledger aggregates, the aggregation is stated in
+the row and the header, per the counting convention below.)
 
 ## Counting convention (applies to every ledger)
 
@@ -40,6 +50,25 @@ own summary.** A single defect fixed in three places (article prose,
 header and a table disagree, the header's unit is authoritative and the
 tables are its evidence; `data-hardware.md` is the worked example (21
 defects across 25 corrected rows, with the four multi-row defects named).
+
+**Every header total is derivable from the rows beneath it, under the unit
+the header states.** A reader with the ledger open must be able to count
+their way to every number: count the rows, group them by verdict, and land
+exactly on the header. Where units are mixed, the header shows the
+arithmetic ("21 distinct defects across 25 `C` rows"; "76 + 16 = 92 rows").
+A header total a reader cannot reproduce from the tables is a defect in
+itself, whatever direction it errs in, and an overstatement is the worst
+case: it claims verification the tables do not evidence.
+
+**An aggregating row must say what it aggregates and how it counts.** A
+ledger row may stand in for several table cells, dataset records or
+sub-claims, but only when the row itself names its scope (the market-map
+identity row names all 21 records it covers) or the header states the
+aggregation ("the 10 PolicyChunkingTable rows are counted individually
+here"). Silently reusing a total computed under a different unit than the
+tables publish is the failure this rule exists to prevent; it is what the
+2026-08-18 reconciliation sweep found in five ledgers and repaired by
+recounting every header from its own tables.
 
 ## The five audit properties
 
@@ -133,17 +162,38 @@ existed; re-cited via Teslarati). The 2026-08-18 sweep found no others.
 ## How to re-run the checkers
 
 ```bash
-npm run check:links      # liveness of every registry URL (bot-walls via Crossref)
-npm run check:citations  # identity: fetched title vs registry title, per entry
+npm run check:links             # liveness of every registry URL (bot-walls via Crossref)
+npm run check:citations         # identity: fetched title vs registry title, per entry
+npm run check:dataset-sources   # liveness of every market-map company source URL
 ```
 
-Both exit non-zero on any dead link, unexplained bot-wall, or title
+All three exit non-zero on any dead link, unexplained bot-wall, or title
 mismatch. Machine-unverifiable URLs need a documented exception in
-`data/link-check-exceptions.ts` (reason, verification method, date); an
-exception whose URL starts passing again is reported STALE by the liveness
-sweep and must be removed (title-mismatch exceptions are exempt from that
-sweep because only the citation checker can see their failure mode).
-Last clean run: 2026-08-18, 306 checked, 0 dead, 0 blocked, 0 mismatches.
+`data/link-check-exceptions.ts` (citation registry) or
+`data/dataset-source-exceptions.ts` (market-map dataset), each recording
+reason, verification method and date. An exception whose URL starts
+passing again is reported STALE by the liveness sweep and must be removed,
+unless it covers a failure mode a passing fetch cannot see: title-mismatch
+exceptions (only the citation checker observes them) and documented
+transient-error exceptions such as the Sutton archival mirror's
+intermittent TLS resets (a single passing fetch is not evidence an
+intermittent failure went away).
+
+Last clean run: 2026-08-18 — check:links 307 checked, 301 live (20
+verified via Crossref), 0 dead, 0 blocked, 0 error, 6 documented
+exceptions; check:citations 293 ok (46 via Crossref) + 10 documented
+exceptions, 4 titles unavailable, 0 mismatches.
+
+The dataset-source gate made the market-map URL sweep reproducible for the
+first time (it was previously a one-off `curl` pass). Its first full run
+the same day is recorded honestly rather than greened up: 223 URLs across
+111 records — 150 live, 19 blocked (bot-walls), 10 error (inconclusive),
+and 44 dead, with 9 records left without a single live source. Those 44
+are real rot the one-off sweep missed or that landed since; replacing them
+is market-map audit work with per-record sourcing rules, so it is recorded
+here as the known state for the next market-map pass, not patched in this
+accounting sweep. The gate fails (exit 1) until they are fixed — that is
+the point of gating it.
 
 ## Unresolved items
 
@@ -169,3 +219,18 @@ frontier, market-map, citation reachability). The consolidation pass
 adjacent-domain articles, decided and applied the two registry
 conventions above, re-fetched every claim resting on the discredited
 2026-08-09 pass, and wrote this README.
+
+The reconciliation sweep (2026-08-18) recounted every ledger header from
+its own tables and repaired the published totals: the manipulation
+ledger's Part 2 summary had claimed 73 article rows with 69 verified where
+the tables hold 66 rows with 61 verified, and that figure had propagated
+through the domain close-out and this README; the same recount fixed
+data-hardware's unreachable "Verified: 61", world-models' corrected count,
+and the rl-sim2real and adjacent headers. It added the derivability and
+aggregation rules to this convention, named the 21 records behind the
+market-map identity row, applied the founded-year rule consistently
+(the-bot-company's founded 2024 nulled like dyna-robotics'), corrected the
+registry-id mis-cite in the classical ledger, settled the orphan-registry
+policy note, and gated dataset-source liveness (`check:dataset-sources`).
+No article's factual content changed and no verdict was altered by the
+recount.

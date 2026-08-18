@@ -24,12 +24,28 @@ and for consistency with the corrected prose.
 
 ## Summary
 
-- Claims checked: 89
-- Verified: 79 (one of them needed a citation added for traceability)
-- Corrected: 10
+Counting unit: ledger rows, one claim per row, counted from the tables
+below. Recomputed by the 2026-08-18 reconciliation sweep; an earlier
+version of this header said "89 checked / 79 verified / 10 corrected",
+which matched neither the tables nor its own corrections list (the list
+below runs 1 to 11).
+
+- Claims checked: 92 rows (taxonomy 20, latent-dynamics 21,
+  generative-video 22, jepa 14, generative-sim 15)
+- Verified: 76 (one of them needed a citation added for traceability)
+- Corrected: 11 defects, recorded across 16 `C` rows (several defects were
+  fixed in more than one place: prose + Stat box + lib constant)
 - Cut: 0 (unsupported clauses were trimmed inside corrections; no claim was
   cut wholesale)
 - Unresolved: 0
+
+Arithmetic: 76 + 16 = 92 rows. The 11 defects are the numbered list below;
+the 16 corrected rows map to them as: TD-MPC2 headline 2 rows (1); horizon
+range 3 rows (2); Cosmos Nano size split 2 rows (3, with the workstation
+clause of 4 trimmed inside the same prose row); Cosmos-family rewrite 1 row
+(5); GTC launch date 1 row (6); Project Genie rationale 1 row (7); LeCun
+Meta-departure month 1 row (8); AMI Labs superlative 2 rows (9); RoboCasa
+object count 2 rows (10); Eureka reward-hacking 1 row (11).
 
 Corrections:
 

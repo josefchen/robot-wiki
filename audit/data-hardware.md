@@ -40,12 +40,18 @@ hardware-taxonomy + teleop-rigs + the data file; AgiBot World figures in
 data-bottleneck + datasets.mdx + the data row; the DROID license in
 datasets.mdx + data/datasets.ts; GelSight/DIGIT prices in prose + data).
 
-- Claims checked: 84
-- Verified: 61
+- Claims checked: 84 rows
+- Verified: 57
 - Corrected: 21 distinct defects (25 `C` rows in the tables below)
 - Cut: 2 (the GO-1 VRAM sentence, unsourceable at any reachable primary
   source; the VLA-Perf GPU card prices, which the paper never states)
 - Unresolved: 0
+
+Arithmetic: 57 V + 25 C + 2 cut = 84 rows, counted from the per-claim
+tables below (one row per claim). An earlier version of this header said
+"Verified: 61", which is unreachable under either counting unit: it came
+from 84 − 21 − 2, mixing the row-unit total with the defect-unit corrected
+count. Recomputed by the 2026-08-18 reconciliation sweep.
 
 The banked corrections from the interrupted session were all re-fetched
 and confirmed before being vouchs for; this audit's own additional

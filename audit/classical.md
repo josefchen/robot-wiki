@@ -208,8 +208,25 @@ which passes.
 Gates run after the corrections: `npm run typecheck`, `npm run lint`,
 `npm run test` (unit), `npm run validate:content`, `npm run build`, and the
 Playwright e2e spec for the edited article (tests/e2e/grasp-planning.spec.ts,
-updated to drop the removed bicchi-1995 chip). All green; see the handoff
-for command-level output.
+updated to drop the removed bicchi-1995 chip). All green at the time. The
+command-level output was not preserved in this ledger, and the sessions
+that ran them exited without submitting a handoff, so no such artifact
+exists for a reader to consult (a 2026-08-18 review caught this ledger
+pointing at one). The full gate set was re-run against the corrected tree
+during the 2026-08-18 reconciliation sweep and the results are recorded in
+the table below, in this file, rather than anywhere ephemeral.
+
+## Verification gates (re-run 2026-08-18, reconciliation sweep)
+
+| Gate | Command | Result |
+| --- | --- | --- |
+| Unit/component | `npm run test` | pass — 168 files, 1701 passed, 1 skipped (the pre-existing VAL-WIKI-012 vacuous-pass skip) |
+| Types | `npm run typecheck` | pass (next-env.d.ts regenerated after the e2e run) |
+| Lint | `npm run lint` | pass, no findings |
+| Content | `npm run validate:content` | OK — 42 modules, 307 citations, 68 terms, 7 images, 111 companies; no-slop OK |
+| Build | `npm run build` | pass — static export, 135 structured documents |
+| Full e2e | `npm run test:e2e` (port 3200 killed first) | 572 passed / 0 failed / 1 skipped |
+
 
 ## Re-verification addendum (second session, 2026-08-17)
 
@@ -267,7 +284,7 @@ attributions, and quoted phrases):
 - mcgee-schmidt-1985 (NTRS record + PDF): the relinearization passage is
   verbatim ("it soon became apparent that a relinearization about the
   current estimated state might offer substantial advantages").
-- isaac-gr00t-2025 (repo README, N1.7 release notes): "relative
+- isaac-gr00t-repo-2026 (repo README, N1.7 release notes): "relative
   end-effector action space shared across robot and human embodiments",
   verbatim.
 - bd-spot-rl-2024 (Boston Dynamics blog): "we've integrated reinforcement

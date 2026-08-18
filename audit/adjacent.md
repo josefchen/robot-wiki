@@ -14,11 +14,21 @@ first-party press release), as in the frontier audit.
 
 ## Summary
 
-- Claims checked: 62
-- Verified: 61
+Counting unit: ledger rows, one row per fetched source passage, counted
+from the tables below. Several rows verify several figures from a single
+fetch (e.g. the Waymo study row covers four published figures), so the row
+count is smaller than a per-figure claim count; an earlier version of this
+header said "62 claims / 61 verified" without stating that unit. Recomputed
+by the 2026-08-18 reconciliation sweep.
+
+- Claims checked: 48 rows (autonomous-vehicles 19, drones 11, surgical 8,
+  space 10)
+- Verified: 47
 - Corrected: 1 (a mis-citation, not a wrong number)
 - Cut: 0
 - Unresolved: 0
+
+Arithmetic: 47 + 1 = 48 rows.
 
 ## autonomous-vehicles.mdx
 

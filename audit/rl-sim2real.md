@@ -18,12 +18,25 @@ settles the claim. Interactive panels were checked for honest-unknown labeling
 
 ## Summary
 
-- Claims checked: 81
-- Verified: 75
-- Corrected: 5 (plus 1 quote-fidelity micro-fix)
-- Citation added for traceability: 1 (claim itself verified)
+Counting unit: ledger rows, one claim per row, counted from the tables
+below. Recomputed by the 2026-08-18 reconciliation sweep; an earlier
+version of this header said "81 checked / 75 verified / 5 corrected",
+which a reader cannot reproduce from the tables.
+
+- Claims checked: 115 rows (why-rl-locomotion 12, parallel-sim-rl 18,
+  sim2real-transfer 24, legged-locomotion 18, humanoid-wbc 20,
+  reward-design-mpc 23)
+- Verified: 108 (106 plain `verified` rows, 1 "verified (+ citation added)"
+  row whose claim verified but needed a registry entry for traceability,
+  and 1 verified-by-convention row recorded as the article's own framing)
+- Corrected: 7 rows covering 6 defects (the 5 numbered corrections below
+  plus the Lin-et-al. quote-fidelity micro-fix; the Rudin reward
+  enumeration spans 2 rows: the prose correction and the interactive's
+  wording)
 - Cut: 0
 - Unresolved: 0
+
+Arithmetic: 108 + 7 = 115 rows.
 
 Corrections:
 

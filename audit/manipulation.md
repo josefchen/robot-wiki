@@ -14,18 +14,33 @@ below record the source actually read and the passage that settles the claim.
 
 ## Summary
 
-- Claims checked: 61
-- Verified: 56
-- Corrected: 3
+Counting unit: ledger rows, one claim per row, counted from the tables
+below. The ten `PolicyChunkingTable` rows are counted individually (each
+names its own source), so this header reconciles against the tables by
+direct count. An earlier version of this header said "61 claims / 56
+verified / 3 corrected" by silently aggregating those ten rows into a
+single claim; the 2026-08-18 reconciliation sweep recomputed every total
+from the tables (counting convention in `audit/README.md`).
+
+- Claims checked: 71 rows (14 `bc-foundations` + 32 `action-chunking` +
+  25 `diffusion-policy`)
+- Verified: 67
+- Corrected: 4 rows — 3 from the original 2026-08-17 pass plus 1 added by
+  the 2026-08-18 consolidation sweep, which flipped the ACT
+  "14-dim continuous, two 7-DoF arms" row from verified to corrected
 - Cut: 0
 - Unresolved: 0
 
-Corrections were all in `action-chunking.mdx`: the chunk-size ablation was
+Corrections from the original pass: the ACT chunk-size ablation was
 attributed to the wrong setting (real-robot "ALOHA insertion and transfer
-tasks" instead of the paper's two simulated MuJoCo tasks), the temporal-
-ensembling weight index was inverted relative to the paper's stated
-convention, and two UI strings repeated the wrong setting. `bc-foundations`
-and `diffusion-policy` passed clean.
+tasks" instead of the paper's two simulated MuJoCo tasks) and the
+temporal-ensembling weight index was inverted relative to the paper's
+stated convention, both in `action-chunking.mdx`; the Diffusion Policy
+transformer-variant gloss "(DiT)" was dropped in `diffusion-policy.mdx`
+because the paper never uses that acronym. (An earlier version of this
+paragraph said all three were in `action-chunking.mdx` and that
+`diffusion-policy` passed clean; the tables say otherwise.)
+`bc-foundations` passed clean.
 
 ## bc-foundations.mdx
 
@@ -219,7 +234,7 @@ being kept.
 | Skild: "omni-bodied" brain claim; $1.4B Series C January 2026 at a valuation above $14B; nothing technical verifiable | Skild blog, skild.ai/blogs/series-c (Jan 14, 2026) | verified | "we have raised $1.4 billion ... catapults our valuation to over $14 billion"; "omni-bodied intelligence"; no paper, weights or benchmarks on the site. |
 | Stats block: 13 releases Feb 2025-Jul 2026; 4 open weights (GR00T N1 and N1.7, GO-1, π0.5); 5 arXiv papers; 7 vendor-only; callout's "seven of the thirteen" enumeration | lib/generalist-policies.ts GENERALIST_RELEASES + release dates verified above | verified | 13 entries; openWeights true for exactly gr00t-n1, agibot-go1, pi05-context, gr00t-n17; paper tier for GR1, GR1.5, GR00T N1, AgiBot World (GO-1), π0.5; blog/press tier for both Helix generations, π0.6, π0.7, GR2, GO-2, Skild = 7. Every release month verified against a primary source. |
 | Closing fork: GR00T N1.7 assumes human video needs an explicit shared action space; PI reports transfer emerging from scale alone | Isaac-GR00T repo (relative EEF shared space) + PI human-to-robot research note | verified | Repo: "relative end-effector action space shared across robot and human embodiments"; PI note: "transfer from human videos to robotic tasks emerges in robotic foundation models as we scale up the amount of robot training data", "without any explicit transfer learning mechanism". |
-| Frontmatter citations resolve to the intended documents (14 ids incl. pi-human-to-robot-2025, isaac-gr00t-repo-2026) | Each fetched during this audit | verified | Titles, years and URLs match the live documents; the removed agibot-go2-robotreport-2026 is a press repeater and no article cites it now (kept in the registry unused is not allowed by validate:content; it was removed from this article's frontmatter only). |
+| Frontmatter citations resolve to the intended documents (14 ids incl. pi-human-to-robot-2025, isaac-gr00t-repo-2026) | Each fetched during this audit | verified | Titles, years and URLs match the live documents; the removed agibot-go2-robotreport-2026 is a press repeater and no article cites it now. Correction of record (2026-08-18 reconciliation sweep): this row originally asserted that keeping an unused entry in the registry "is not allowed by validate:content". That is not what the gate does — validate:content checks citations used by articles, not registry entries that nothing cites, and it passes green with the orphan present (the entry still exists, unused, at data/citations.ts:1250, and check:links verifies it live). The entry was removed from this article's frontmatter only. Registry-hygiene note for a future pass: whether unused entries should be pruned is a policy decision the tooling does not currently enforce either way. |
 
 ## Registry (data/citations.ts) checks in this part
 
@@ -230,15 +245,30 @@ being kept.
 | octo-2024 author list (19 entries: Octo Model Team + 18) | arXiv 2405.12213 abs page | verified | Matches; fixed an in-repo comment that said "20-entry". |
 | openvla-2024 author list (18 names) | arXiv 2406.09246 abs page | verified | Full list matches. |
 | gr00t-n1-2025 author list (NVIDIA + 41 named) | arXiv 2503.14734 abs page | verified | Matches the abs page's org-first list (42 citation_author metas minus the page's ":" separator artifact). |
-| pi07-2026 title | π0.7 PDF title page | **corrected** | See pi-line table. |
+| pi07-2026 title | π0.7 PDF title page | **corrected** | See pi-line table. Same defect as that row, recorded here for registry completeness: ONE defect, TWO corrected rows across the two tables. Counted once as a distinct defect; both rows carry verdict C. |
 | pistar06-2025 title capitalization | π*0.6 PDF title page | **corrected** | Printed as "a VLA That Learns From Experience". |
 | Diffusion Policy abs-page "12 tasks" vs v5 "15" (part-1 note) | arXiv abs page vs paper v5 | no action | `check:citations` compares document titles against the registry, not abstract prose, so this divergence cannot trip it; the registry title matches the abs page and the article's 15 matches the cited document. Recorded here so the next reachability audit does not relitigate it. |
 
 ## Part 2 summary
 
-Claims checked: 73 article rows + 8 registry rows. Verdicts: 69 verified /
-4 corrected / 0 cut (article rows); registry: 5 verified / 2 corrected /
-1 documented-no-action. Corrections this session: the RT-2 "object that could
+Counting unit: ledger rows, one claim per row. Recomputed from the tables
+above by the 2026-08-18 reconciliation sweep. The original version of this
+summary claimed "73 article rows ... 69 verified / 4 corrected", and the
+commit message for 164a8b9 claimed a third count ("73 article claims
+checked: 68 verified, 5 corrected"); both overstated what the tables
+evidence. The tables are authoritative: 66 article rows with 61 verified
+and 5 corrected.
+
+- Article rows: 66 (vla-models 21: 20 V + 1 C; pi-line 24: 20 V + 4 C;
+  generalist-policies 21: 21 V + 0 C)
+- Verified: 61 / Corrected: 5 / Cut: 0 (article rows)
+- Registry rows: 8 — 5 verified / 2 corrected / 1 documented-no-action
+- The pi07-2026 title correction is intentionally represented twice, as a
+  corrected row in the pi-line table and as the pointer row in the registry
+  table: one defect, two corrected rows. The 7 corrected rows across both
+  tables therefore represent 6 distinct defects.
+
+Corrections this session: the RT-2 "object that could
 be used as a hammer" misquote (a paraphrase presented as a quotation, plus a
 conflation of the paper's rudimentary-reasoning and chain-of-thought
 findings), the KI spoon "dish container" (the paper's task is bussing a
@@ -424,9 +454,17 @@ paraphrase.
 
 ## Part 3 summary
 
-Claims checked: 86 article/table rows + 8 registry rows. Verdicts: 83
-verified / 3 corrected / 0 cut (article rows); registry: 7 verified /
-1 corrected.
+Counting unit: ledger rows, one claim per row. Recomputed from the tables
+above by the 2026-08-18 reconciliation sweep; the original summary said 86
+rows / 83 verified, which understated the tables even before the
+consolidation sweep added one more verified row (the cross-embodiment
+"7-DoF Franka emits 8 numbers" check).
+
+- Article/table rows: 88 (comparison-matrix 25: 25 V; hierarchical 16:
+  16 V; rl-finetuning 11: 11 V; realtime-execution 15: 14 V + 1 C;
+  cross-embodiment 11: 9 V + 2 C; knowledge-insulation 10: 10 V)
+- Verified: 85 / Corrected: 3 / Cut: 0 (article rows)
+- Registry rows: 8 — 7 verified / 1 corrected
 
 Corrections:
 
@@ -451,9 +489,47 @@ pi-line, generalist-policies), part 3 (comparison-matrix, hierarchical,
 rl-finetuning, realtime-execution, cross-embodiment, knowledge-insulation).
 No ledger row across the three parts is left unresolved.
 
-Domain totals: 61 + 73 + 86 = 220 article/table claims checked;
-56 + 69 + 83 = 208 verified; 3 + 4 + 3 = 10 corrected; 0 cut.
-Registry rows: 8 (part 2) + 8 (part 3): 12 verified, 3 corrected,
-1 documented-no-action. Every correction landed in the same commit as its
-article fix, and every numeric claim in the domain now traces to a fetched
-primary source.
+Domain totals, recomputed from the ledger tables by the 2026-08-18
+reconciliation sweep (unit: ledger rows):
+
+- Article/table rows: 71 + 66 + 88 = 225 checked; 67 + 61 + 85 = 213
+  verified; 4 + 5 + 3 = 12 corrected rows (11 distinct defects; the
+  pi07-2026 title defect is shared between the part-2 article tables and
+  the registry table); 0 cut.
+- Registry rows: 8 (part 2) + 8 (part 3) = 16: 12 verified, 3 corrected,
+  1 documented-no-action.
+- Two of the corrected article rows postdate the original 2026-08-17 pass:
+  the ACT DoF row (part 1) and its companion check were added by the
+  2026-08-18 consolidation sweep; the original three-part totals printed
+  here before recomputation (61+73+86 = 220 checked, 56+69+83 = 208
+  verified, 3+4+3 = 10 corrected) summed the overstated part-2 figures and
+  were withdrawn.
+- Every correction landed in the same commit as its
+  article fix, and every numeric claim in the domain now traces to a fetched
+  primary source.
+
+
+## Verification gates (2026-08-18 reconciliation sweep)
+
+The three manipulation passes originally recorded no gates table in this
+ledger. What can be established from the commits and the independent
+reviews: the part-1 session's transcript showed the full gate set green
+(typecheck, lint, validate:content, the then-1701-test suite, build), and
+the part-2 session skipped the mandated e2e grep-and-run step entirely (a
+review verified no spec asserted any string it changed, so nothing sat
+red, but the step was not performed and was not reported). The part-3
+session's e2e result is likewise not in this ledger. Rather than point a
+reader at artifacts that do not exist, the full gate set was re-run
+against the corrected tree during the 2026-08-18 reconciliation sweep:
+
+| Gate | Command | Result |
+|---|---|---|
+| Unit/component | `npm run test` | pass — 168 files, 1701 passed, 1 skipped |
+| Types | `npm run typecheck` | pass (next-env.d.ts regenerated after the e2e run) |
+| Lint | `npm run lint` | pass, no findings |
+| Content | `npm run validate:content` | OK — 42 modules, 307 citations, 68 terms, 7 images, 111 companies; no-slop OK |
+| Build | `npm run build` | pass — static export, 135 structured documents |
+| Full e2e | `npm run test:e2e` (port 3200 killed first) | 572 passed / 0 failed / 1 skipped |
+
+This ledger records only commands actually executed in that sweep; the
+original sessions' own outputs are gone and are not claimed here.
