@@ -12,11 +12,12 @@ const HORIZON = { name: /episode length/i };
  * component inside its prediction step (mounted at 95%/14 steps inside a
  * closed disclosure), so page-global slider locators would resolve to two
  * elements; every assertion here targets the original mount, the one
- * outside any [data-predict] region.
+ * placed directly in the prose rather than inside the [data-predict]
+ * section's disclosure.
  */
 function calculator(page: import('@playwright/test').Page) {
   return page.locator(
-    '//div[contains(@class, "rounded-md") and not(ancestor::*[@data-predict])][.//svg[starts-with(@aria-label, "Line chart of episode success")]]',
+    'div.prose > div.rounded-md:has(svg[aria-label^="Line chart of episode success"])',
   );
 }
 
