@@ -498,26 +498,23 @@ test.describe('prediction step (PredictThenReveal)', () => {
   /**
    * VAL-EDU-017 + VAL-EDU-041 corpus half: across every prediction step
    * and every self-check, option sets are non-degenerate and do not leak
-   * the answer by shape.
+   * the answer by shape. The route list is derived from the module
+   * registry, not hardcoded, so a region added on any published route is
+   * visited here; the per-kind counts at the end are the drift guard.
    */
   test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ page }) => {
     const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
     const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
-    const routes = [
-      '/classical/control/',
-      '/manipulation/bc-foundations/',
-      '/rl-sim2real/sim2real-transfer/',
-      '/world-models/taxonomy/',
-      '/data-hardware/evaluation-crisis/',
-      '/frontier/reliability-gap/',
-      '/manipulation/action-chunking/',
-      '/manipulation/realtime-execution/',
-      '/frontier/generalization/',
-      '/data-hardware/data-bottleneck/',
-    ];
+    const { publishedModules } = await import('../../data/modules');
+    const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
+    expect(routes.length, 'no published routes derived from the registry').toBeGreaterThan(0);
     const hist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
     let longestCount = 0;
     let regionCount = 0;
+    let predictCount = 0;
+    let selfCheckCount = 0;
+    const predictRoutes: string[] = [];
+    const selfCheckRoutes: string[] = [];
     for (const route of routes) {
       await page.goto(route);
       const regions = page.locator('[data-predict], [data-self-check]');
@@ -561,9 +558,29 @@ test.describe('prediction step (PredictThenReveal)', () => {
         ).toBe(true);
         hist[answerIdx + 1] += 1;
         regionCount += 1;
+        if (kind === 'predict') {
+          predictCount += 1;
+          predictRoutes.push(route);
+        } else {
+          selfCheckCount += 1;
+          selfCheckRoutes.push(route);
+        }
       }
     }
-    expect(regionCount).toBe(14);
+    // Non-zero cardinality before the property assertions: a sweep that
+    // matched zero regions fails here rather than passing vacuously.
+    expect(regionCount, 'sweep visited no regions on any published route').toBeGreaterThan(0);
+    // Drift guard replacing the old fixed total: per-kind oracles over the
+    // registry-derived walk. They currently protect 8 prediction steps and
+    // 6 self-checks; a region added on ANY published route changes one of
+    // them and the failure names the carrying routes. When a region is
+    // added on purpose, re-derive both literals from content/ and update
+    // them together.
+    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
+    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(6);
+    expect(regionCount, 'discovered regions vs regions the walk visited').toBe(
+      predictCount + selfCheckCount,
+    );
     expect(longestCount, 'correct-is-longest exceeds 6 of 14').toBeLessThanOrEqual(6);
     for (const pos of [1, 2, 3]) {
       expect(hist[pos], `ordinal position ${pos} exceeds 7 of 14`).toBeLessThanOrEqual(7);
@@ -572,28 +589,29 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
   /**
    * VAL-EDU-018: each correct option's reasoning carries a citation chip
-   * (registry id resolving to an absolute http(s) href) or an in-page
-   * anchor that resolves on that article. And VAL-EDU-019: digit-normalised
-   * prompts, takeaways and reasoning texts are pairwise distinct across
-   * all 14 regions.
+   * or an in-page anchor. A chip renders as #ref-<registry id>, an in-page
+   * href, so the chip check is a two-hop: the id must resolve to this
+   * article's References entry, and that entry's outbound link must be an
+   * absolute http(s) url matching the citation registry entry for the id.
+   * An in-page anchor passes by resolving to an element on the same route.
+   * And VAL-EDU-019: digit-normalised prompts, takeaways and reasoning
+   * texts are pairwise distinct across all 14 regions. Routes are derived
+   * from the module registry, not hardcoded, and the per-kind counts at
+   * the end catch a region added on any published route.
    */
   test('corpus sweep: cited answers and non-templated text (VAL-EDU-018, VAL-EDU-019)', async ({ page }) => {
-    const routes = [
-      '/classical/control/',
-      '/manipulation/bc-foundations/',
-      '/rl-sim2real/sim2real-transfer/',
-      '/world-models/taxonomy/',
-      '/data-hardware/evaluation-crisis/',
-      '/frontier/reliability-gap/',
-      '/manipulation/action-chunking/',
-      '/manipulation/realtime-execution/',
-      '/frontier/generalization/',
-      '/data-hardware/data-bottleneck/',
-    ];
+    const { publishedModules } = await import('../../data/modules');
+    const { getCitation } = await import('../../data/citations');
+    const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
+    expect(routes.length, 'no published routes derived from the registry').toBeGreaterThan(0);
     const digitNormalize = (text: string) => text.replace(/\d+/g, '#');
     const prompts = new Map<string, string>();
     const takeaways = new Map<string, string>();
     const reasonings = new Map<string, string>();
+    let predictCount = 0;
+    let selfCheckCount = 0;
+    const predictRoutes: string[] = [];
+    const selfCheckRoutes: string[] = [];
     for (const route of routes) {
       await page.goto(route);
       const regions = page.locator('[data-predict], [data-self-check]');
@@ -601,14 +619,53 @@ test.describe('prediction step (PredictThenReveal)', () => {
       for (let i = 0; i < count; i += 1) {
         const region = regions.nth(i);
         const isPredict = (await region.getAttribute('data-predict')) === '';
+        if (isPredict) {
+          predictCount += 1;
+          predictRoutes.push(route);
+        } else {
+          selfCheckCount += 1;
+          selfCheckRoutes.push(route);
+        }
         const correctReason = region.locator('[data-reason][data-correct="true"]');
-        // VAL-EDU-018: a citation chip with a registry id and an absolute
-        // href, or an in-page anchor resolving on this route.
+        // Cardinality first: exactly one reasoning element is marked
+        // correct, so the link checks below cannot pass on zero matches.
+        await expect(correctReason).toHaveCount(1);
         const links = await correctReason.locator('a').evaluateAll((els) =>
           els.map((e) => ({ href: (e as HTMLAnchorElement).getAttribute('href') ?? '' })),
         );
-        const hasChip = links.some((l) => /^https?:\/\//.test(l.href));
-        const anchors = links.filter((l) => l.href.startsWith('#'));
+        // VAL-EDU-018, chip half (the two-hop): every #ref-<id> chip
+        // resolves to this page's References entry, and that entry's
+        // outbound link is an absolute http(s) url that IS the registry
+        // entry's url for the id.
+        const chipIds = links
+          .filter((l) => l.href.startsWith('#ref-'))
+          .map((l) => l.href.slice('#ref-'.length));
+        for (const id of chipIds) {
+          const citation = getCitation(id);
+          expect(citation, `${route}: cite id ${id} is absent from the citation registry`).toBeTruthy();
+          const outbound = await page.evaluate((target) => {
+            const entry = document.getElementById(target);
+            const link = entry?.querySelector('a[href]');
+            return link ? (link as HTMLAnchorElement).href : null;
+          }, `ref-${id}`);
+          expect(
+            outbound,
+            `${route}: #ref-${id} does not resolve to a References entry with a link`,
+          ).toBeTruthy();
+          expect(
+            outbound,
+            `${route}: #ref-${id} outbound link is not absolute http(s)`,
+          ).toMatch(/^https?:\/\//);
+          expect(
+            outbound,
+            `${route}: #ref-${id} outbound link differs from the registry url`,
+          ).toBe(citation?.url);
+        }
+        // VAL-EDU-018, anchor half: a plain in-page anchor resolves to an
+        // element that exists on this route.
+        const anchors = links.filter(
+          (l) => l.href.startsWith('#') && !l.href.startsWith('#ref-'),
+        );
         let anchorResolves = false;
         for (const a of anchors) {
           const id = a.href.slice(1);
@@ -624,7 +681,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
           }
         }
         if (isPredict) {
-          expect(hasChip || anchorResolves, `${route}: uncited correct answer`).toBe(true);
+          // Cardinality before the union: a prediction step whose correct
+          // reasoning carries no link at all fails here, not vacuously in
+          // both branches.
+          expect(links.length, `${route}: correct reasoning carries no link`).toBeGreaterThan(0);
+          expect(chipIds.length > 0 || anchorResolves, `${route}: uncited correct answer`).toBe(true);
         }
 
         // VAL-EDU-019: digit-normalised uniqueness. innerText is empty
@@ -647,6 +708,18 @@ test.describe('prediction step (PredictThenReveal)', () => {
         }
       }
     }
+    // Non-zero cardinality before the totals: a sweep that matched zero
+    // regions fails here rather than passing vacuously.
+    expect(
+      prompts.size + takeaways.size + reasonings.size,
+      'sweep visited no regions on any published route',
+    ).toBeGreaterThan(0);
+    // Same drift guard as the option-set sweep: per-kind oracles over the
+    // registry-derived walk, currently protecting 8 prediction steps and
+    // 6 self-checks. Re-derive both literals from content/ when a region
+    // is added on purpose.
+    expect(predictCount, `prediction steps found on: ${predictRoutes.join(', ')}`).toBe(8);
+    expect(selfCheckCount, `self-checks found on: ${selfCheckRoutes.join(', ')}`).toBe(6);
     expect(prompts.size + takeaways.size + reasonings.size).toBe(14 * 3);
   });
 });
