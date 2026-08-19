@@ -36,7 +36,7 @@
     "minutes": 10
   },
   "manipulation/realtime-execution": {
-    "words": 1748,
+    "words": 1813,
     "minutes": 9
   },
   "manipulation/cross-embodiment": {
@@ -52,7 +52,7 @@
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1411,
+    "words": 1472,
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
@@ -60,7 +60,7 @@
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1467,
+    "words": 1470,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
@@ -92,7 +92,7 @@
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {
-    "words": 1601,
+    "words": 1677,
     "minutes": 8
   },
   "data-hardware/datasets": {
@@ -108,8 +108,8 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1692,
-    "minutes": 8
+    "words": 1736,
+    "minutes": 9
   },
   "classical/kinematics": {
     "words": 2282,
@@ -132,7 +132,7 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1594,
+    "words": 1638,
     "minutes": 8
   },
   "frontier/dexterity": {
@@ -140,7 +140,7 @@
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 1995,
+    "words": 2096,
     "minutes": 10
   },
   "frontier/competing-theses": {

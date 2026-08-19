@@ -92,7 +92,10 @@ for (const entry of CHART_DESCRIPTIONS) {
     continue;
   }
   const source = readFileSync(path, 'utf8');
-  if (!source.includes('<ChartDescription')) {
+  // Word-boundary JSX check: "<ChartDescription" followed by whitespace,
+  // ">" or "/>", so a renamed tag like <ChartDescriptionDisabled> does
+  // not satisfy the sweep (the mutation proof caught exactly that hole).
+  if (!/<ChartDescription[\s>/]/.test(source)) {
     wiringProblems.push(
       `${entry.component}: ${entry.file} no longer renders <ChartDescription>`,
     );
