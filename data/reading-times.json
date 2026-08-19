@@ -1,6 +1,6 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1181,
+    "words": 1240,
     "minutes": 6
   },
   "manipulation/action-chunking": {
@@ -56,7 +56,7 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1743,
+    "words": 1812,
     "minutes": 9
   },
   "rl-sim2real/legged-locomotion": {
@@ -72,8 +72,8 @@
     "minutes": 12
   },
   "world-models/taxonomy": {
-    "words": 1637,
-    "minutes": 8
+    "words": 1710,
+    "minutes": 9
   },
   "world-models/latent-dynamics": {
     "words": 1228,
@@ -108,7 +108,7 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1535,
+    "words": 1606,
     "minutes": 8
   },
   "classical/kinematics": {
@@ -120,7 +120,7 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2032,
+    "words": 2087,
     "minutes": 10
   },
   "classical/state-estimation": {
@@ -132,7 +132,7 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1503,
+    "words": 1581,
     "minutes": 8
   },
   "frontier/dexterity": {
