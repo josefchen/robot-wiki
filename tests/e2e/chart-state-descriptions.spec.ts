@@ -1,5 +1,5 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -214,15 +214,45 @@ const CHARTS: Array<{
   },
 ];
 
-const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];
-// humanoid-wbc already carries 3 full-width rules in the article chrome
-// (template hairline plus two section dividers). WbcDecomposition adds
-// none. Keep it in CHARTS for the state contract; leave it out of the
-// VAL-EDU-031 bound so a pre-existing article budget is not blamed on
-// the description retrofit.
-const DESIGN_BOUND_ROUTES = HOST_ROUTES.filter(
-  (route) => route !== '/rl-sim2real/humanoid-wbc',
-);
+/**
+ * VAL-EDU-031's population is "every published article route that hosts a
+ * retrofitted chart, a self-check, or a prediction step". That set is
+ * DERIVED from the rendered export, never hand-maintained: a route is in
+ * scope when its exported HTML carries an <article> plus one of
+ * [data-chart-description], [data-self-check] or [data-predict]. A
+ * hardcoded list here is what let 10 in-scope routes go ungraded.
+ */
+function deriveDesignBoundRoutes(outDir: string): string[] {
+  const marker = /data-chart-description|data-self-check|data-predict/;
+  const inScope = (html: string): boolean =>
+    /<article[\s>]/.test(html) && marker.test(html);
+  const routes: string[] = [];
+  const domains = readdirSync(outDir, { withFileTypes: true });
+  for (const domain of domains) {
+    if (!domain.isDirectory()) continue;
+    if (domain.name.startsWith('_') || domain.name.startsWith('.')) continue;
+    if (domain.name === '404' || domain.name === 'a-z') continue;
+    const domainDir = join(outDir, domain.name);
+    const domainIndex = join(domainDir, 'index.html');
+    if (existsSync(domainIndex)) {
+      if (inScope(readFileSync(domainIndex, 'utf8'))) routes.push(`/${domain.name}`);
+    }
+    for (const slug of readdirSync(domainDir, { withFileTypes: true })) {
+      if (!slug.isDirectory()) continue;
+      const articleIndex = join(domainDir, slug.name, 'index.html');
+      if (!existsSync(articleIndex)) continue;
+      if (inScope(readFileSync(articleIndex, 'utf8'))) {
+        routes.push(`/${domain.name}/${slug.name}`);
+      }
+    }
+  }
+  return routes.sort();
+}
+
+const OUT_DIR = join(process.cwd(), 'out');
+const DESIGN_BOUND_ROUTES = existsSync(join(OUT_DIR, 'index.html'))
+  ? deriveDesignBoundRoutes(OUT_DIR)
+  : [];
 
 async function setRange(page: Page, input: Locator, value: string) {
   await input.evaluate((el, v) => {
@@ -351,6 +381,16 @@ for (const chart of CHARTS) {
 }
 
 test.describe('article-route design bounds after the state retrofit (VAL-EDU-031)', () => {
+  test('the graded population is derived from the export and covers the corpus', () => {
+    // Not hardcoded: derived above from out/. >= 30 so a selector or
+    // export regression that silently empties the population fails
+    // loudly instead of passing vacuously.
+    expect(DESIGN_BOUND_ROUTES.length).toBeGreaterThan(0);
+    expect(DESIGN_BOUND_ROUTES.length).toBeGreaterThanOrEqual(30);
+    expect(DESIGN_BOUND_ROUTES).toContain('/rl-sim2real/humanoid-wbc');
+    expect(DESIGN_BOUND_ROUTES).toContain('/manipulation/action-chunking');
+  });
+
   for (const route of DESIGN_BOUND_ROUTES) {
     test(`${route} keeps micro-label, rule and boxing bounds`, async ({ page }) => {
       await page.setViewportSize({ width: 1440, height: 900 });
@@ -394,6 +434,36 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
             const single =
               (sides[0].w >= 1 && sides[0].a > 0) || (sides[2].w >= 1 && sides[2].a > 0);
             if (four) continue;
+            // VAL-DESIGN-018: "Bordered content boxes inside the prose
+            // are not dividers and are never counted ... any four-sided
+            // framed box contributes 0 to this count no matter how wide
+            // it is or which of its borders is visible." A candidate
+            // whose nearest bordered ancestor inside <main> is a fully
+            // bordered box is that box's edge (a framed-table caveat
+            // strip, a code-block title bar), not a section divider.
+            let boxedInsideFramedAncestor = false;
+            let anc = el.parentElement;
+            while (anc && anc !== main) {
+              const acs = getComputedStyle(anc);
+              const ancSides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
+                w: parseFloat(acs[`border${s}Width` as 'borderTopWidth']),
+                a: alpha(acs[`border${s}Color` as 'borderTopColor']),
+              }));
+              const any = ancSides.some((s) => s.w >= 1 && s.a > 0);
+              if (any) {
+                boxedInsideFramedAncestor = ancSides.every((s) => s.w >= 1 && s.a > 0);
+                break; // nearest bordered ancestor decides
+              }
+              anc = anc.parentElement;
+            }
+            if (boxedInsideFramedAncestor) continue;
+            // A divider paints on the horizontal axis only; side borders
+            // make the element the edge of a box (a titled code block's
+            // title bar carries top+left+right). Same rule as
+            // design-chrome.spec.ts, so the two counters agree.
+            const sideBordered =
+              (sides[1].w >= 1 && sides[1].a > 0) || (sides[3].w >= 1 && sides[3].a > 0);
+            if (el.tagName !== 'HR' && sideBordered) continue;
             if (!(el.tagName === 'HR' || single)) continue;
             const column =
               el.closest('article') ??

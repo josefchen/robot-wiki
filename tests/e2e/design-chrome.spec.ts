@@ -259,6 +259,34 @@ test.describe('design chrome discipline', () => {
           rejected.push({ ...describe(el), reason: 'side borders: box edge' });
           continue;
         }
+        // A candidate inside a fully bordered ancestor is that box's
+        // edge, not a section divider (VAL-DESIGN-018: "any four-sided
+        // framed box contributes 0 ... no matter which of its borders is
+        // visible"). The nearest bordered ancestor inside <main> decides:
+        // a framed-table caveat strip carries only border-top itself but
+        // sits inside a four-sided frame. Aligned with
+        // chart-state-descriptions.spec.ts so the two counters agree.
+        {
+          let anc = el.parentElement;
+          let rejectedAsBoxEdge = false;
+          while (anc && anc !== main) {
+            const acs = getComputedStyle(anc);
+            const any = sideOn(acs, 'top') || sideOn(acs, 'right') || sideOn(acs, 'bottom') || sideOn(acs, 'left');
+            if (any) {
+              rejectedAsBoxEdge =
+                sideOn(acs, 'top') &&
+                sideOn(acs, 'right') &&
+                sideOn(acs, 'bottom') &&
+                sideOn(acs, 'left');
+              break;
+            }
+            anc = anc.parentElement;
+          }
+          if (rejectedAsBoxEdge) {
+            rejected.push({ ...describe(el), reason: 'inside a framed ancestor box' });
+            continue;
+          }
+        }
         const column = textColumnOf(el);
         const columnWidth = column.getBoundingClientRect().width;
         const ratio =
