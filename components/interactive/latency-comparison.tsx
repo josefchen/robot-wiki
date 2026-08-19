@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import {
   HANDOFF_TICK,
   MAX_DELAY_MS,
@@ -60,6 +60,10 @@ export function LatencyComparison({
   defaultDelayMs = MIN_DELAY_MS,
   className,
 }: LatencyComparisonProps) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (a standalone mount plus a wrapped prediction figure), and a
+  // hardcoded id would duplicate and cross-bind the label.
+  const delayId = `${useId()}-lc-delay`;
   const [delayMs, setDelayMs] = useState(defaultDelayMs);
 
   const te = teThroughput(delayMs);
@@ -144,7 +148,7 @@ export function LatencyComparison({
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="lc-delay"
+            htmlFor={delayId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Injected inference delay
@@ -153,7 +157,7 @@ export function LatencyComparison({
             </span>
           </label>
           <input
-            id="lc-delay"
+            id={delayId}
             type="range"
             min={MIN_DELAY_MS}
             max={MAX_DELAY_MS}

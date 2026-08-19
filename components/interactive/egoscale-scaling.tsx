@@ -111,10 +111,31 @@ const X_TICKS: Array<{ hours: number; label: string }> = [
 const LOSS_TICKS = [0.005, 0.01, 0.015, 0.02, 0.025];
 const SCORE_TICKS = [0.25, 0.5, 0.75, 1];
 
-export function EgoScaleScaling({ className }: { className?: string }) {
-  const [sliderValue, setSliderValue] = useState(
-    hoursToSlider(DEFAULT_HORIZON_HOURS),
+type EgoScaleScalingProps = {
+  /**
+   * Initial extrapolation horizon in hours of egocentric human video.
+   * Defaults to the stock 100k; a prediction step mounts the chart at
+   * the horizon that answers its prompt.
+   */
+  defaultHorizonHours?: number;
+  className?: string;
+};
+
+export function EgoScaleScaling({
+  defaultHorizonHours = DEFAULT_HORIZON_HOURS,
+  className,
+}: EgoScaleScalingProps) {
+  const [sliderValue, setSliderValue] = useState(() =>
+    hoursToSlider(defaultHorizonHours),
   );
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultHours, setPrevDefaultHours] = useState(defaultHorizonHours);
+  if (defaultHorizonHours !== prevDefaultHours) {
+    setPrevDefaultHours(defaultHorizonHours);
+    setSliderValue(hoursToSlider(defaultHorizonHours));
+  }
   const horizon = sliderToHours(sliderValue);
   const extrapolating = horizon > MEASURED_MAX_HOURS * 1.001;
 
@@ -165,7 +186,7 @@ export function EgoScaleScaling({ className }: { className?: string }) {
   const boundaryX = xFor(MEASURED_MAX_HOURS);
 
   function reset() {
-    setSliderValue(hoursToSlider(DEFAULT_HORIZON_HOURS));
+    setSliderValue(hoursToSlider(defaultHorizonHours));
   }
 
   const barRelation = pastImpossible

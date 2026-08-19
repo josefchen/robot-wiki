@@ -69,4 +69,32 @@ describe('ControlLoopBudget', () => {
     expect(slider()).toHaveValue('3');
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('52.6 ms');
   });
+
+  it('honors a custom initial model size', () => {
+    render(<ControlLoopBudget defaultParamsB={1.1} />);
+    expect(slider()).toHaveValue('1.1');
+    expect(screen.getByTestId('params-readout')).toHaveTextContent(
+      '1.1B params',
+    );
+    expect(screen.getByTestId('latency-readout')).toHaveTextContent('19.3 ms');
+    expect(screen.getByTestId('hz-readout')).toHaveTextContent('52 Hz');
+    expect(verdict()).toHaveTextContent(/closes/i);
+  });
+
+  it('reset returns to the custom initial size, not the stock default', async () => {
+    const user = userEvent.setup();
+    render(<ControlLoopBudget defaultParamsB={1.1} />);
+    fireEvent.change(slider(), { target: { value: '9.1' } });
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(slider()).toHaveValue('1.1');
+    expect(screen.getByTestId('latency-readout')).toHaveTextContent('19.3 ms');
+  });
+
+  it('syncs a changed initial prop to state during render', () => {
+    const { rerender } = render(<ControlLoopBudget defaultParamsB={1.1} />);
+    expect(slider()).toHaveValue('1.1');
+    rerender(<ControlLoopBudget defaultParamsB={3} />);
+    expect(slider()).toHaveValue('3');
+    expect(screen.getByTestId('latency-readout')).toHaveTextContent('52.6 ms');
+  });
 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Badge } from '@/components/ui';
 import {
   CONTROL_PERIOD_MS,
@@ -42,6 +42,16 @@ const CHART = {
 
 const DEFAULT_PARAMS_B = PI0_ANCHOR.paramsB;
 
+type ControlLoopBudgetProps = {
+  /**
+   * Initial model size in billions of parameters. Defaults to the pi0
+   * anchor (3.0B). A prediction step mounts the figure at the size that
+   * answers its prompt; existing mounts pass nothing and are unchanged.
+   */
+  defaultParamsB?: number;
+  className?: string;
+};
+
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
@@ -54,8 +64,23 @@ function formatRefMs(ms: number): string {
   return Number.isInteger(ms) ? `${ms} ms` : formatMs(ms);
 }
 
-export function ControlLoopBudget({ className }: { className?: string }) {
-  const [paramsB, setParamsB] = useState<number>(DEFAULT_PARAMS_B);
+export function ControlLoopBudget({
+  defaultParamsB = DEFAULT_PARAMS_B,
+  className,
+}: ControlLoopBudgetProps) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (a standalone mount plus a wrapped prediction figure), and a
+  // hardcoded id would duplicate and cross-bind the label.
+  const modelSizeId = `${useId()}-clb-model-size`;
+  const [paramsB, setParamsB] = useState<number>(defaultParamsB);
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultParamsB, setPrevDefaultParamsB] = useState(defaultParamsB);
+  if (defaultParamsB !== prevDefaultParamsB) {
+    setPrevDefaultParamsB(defaultParamsB);
+    setParamsB(defaultParamsB);
+  }
 
   const inferenceMs = inferenceMsOnThor(paramsB);
   const closes = loopCloses(inferenceMs);
@@ -71,7 +96,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
   const overflowMs = Math.max(0, inferenceMs - WINDOW_MS);
 
   function reset() {
-    setParamsB(DEFAULT_PARAMS_B);
+    setParamsB(defaultParamsB);
   }
 
   return (
@@ -84,7 +109,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="clb-model-size"
+            htmlFor={modelSizeId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Model size
@@ -99,7 +124,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
             </span>
           </label>
           <input
-            id="clb-model-size"
+            id={modelSizeId}
             type="range"
             min={MIN_PARAMS_B}
             max={MAX_PARAMS_B}

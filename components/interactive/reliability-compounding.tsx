@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { compoundingCurve, compoundedSuccessRate } from '@/lib/reliability';
 import { cx } from '@/lib/utils';
 
@@ -55,6 +55,12 @@ export function ReliabilityCompounding({
   maxPerStepPercent = DEFAULT_MAX_PER_STEP_PERCENT,
   className,
 }: ReliabilityCompoundingProps) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (a standalone mount plus a wrapped prediction figure), and a
+  // hardcoded id would duplicate and cross-bind the labels.
+  const uid = useId();
+  const perStepId = `${uid}-rc-per-step`;
+  const stepsId = `${uid}-rc-steps`;
   const [perStepPercent, setPerStepPercent] = useState(defaultPerStep * 100);
   const [steps, setSteps] = useState(defaultSteps);
 
@@ -94,7 +100,7 @@ export function ReliabilityCompounding({
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="rc-per-step"
+            htmlFor={perStepId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Per-step success
@@ -103,7 +109,7 @@ export function ReliabilityCompounding({
             </span>
           </label>
           <input
-            id="rc-per-step"
+            id={perStepId}
             type="range"
             min={minPerStepPercent}
             max={maxPerStepPercent}
@@ -116,7 +122,7 @@ export function ReliabilityCompounding({
         </div>
         <div>
           <label
-            htmlFor="rc-steps"
+            htmlFor={stepsId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Episode length
@@ -125,7 +131,7 @@ export function ReliabilityCompounding({
             </span>
           </label>
           <input
-            id="rc-steps"
+            id={stepsId}
             type="range"
             min={1}
             max={maxSteps}

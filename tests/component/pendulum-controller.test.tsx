@@ -193,4 +193,42 @@ describe('PendulumController', () => {
     // so coarse playback advances the sim just like smooth playback does.
     expect(Math.abs(angleDeg())).toBeLessThan(11);
   });
+
+  it('honors a custom initial Kp without touching the other gains', () => {
+    render(<PendulumController defaultKp={9} />);
+    expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(
+      '9.0',
+    );
+    expect(screen.getByTestId('pendulum-gain-ki-value')).toHaveTextContent(
+      DEFAULT_GAINS.ki.toFixed(1),
+    );
+    expect(screen.getByTestId('pendulum-gain-kd-value')).toHaveTextContent(
+      DEFAULT_GAINS.kd.toFixed(1),
+    );
+  });
+
+  it('reset returns to the custom initial Kp, not the stock default', async () => {
+    const user = userEvent.setup();
+    render(<PendulumController defaultKp={9} />);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /proportional gain kp/i }),
+      { target: { value: '25' } },
+    );
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(
+      '9.0',
+    );
+    expect(angleText()).toBe('+12.0°');
+  });
+
+  it('syncs a changed initial Kp to state during render', () => {
+    const { rerender } = render(<PendulumController defaultKp={9} />);
+    expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(
+      '9.0',
+    );
+    rerender(<PendulumController defaultKp={25} />);
+    expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(
+      '25.0',
+    );
+  });
 });

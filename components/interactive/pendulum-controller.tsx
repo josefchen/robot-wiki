@@ -82,8 +82,32 @@ function payloadPosition(theta: number): { x: number; y: number } {
   return { x: tip.x + 11 * Math.cos(theta), y: tip.y + 11 * Math.sin(theta) };
 }
 
-export function PendulumController({ className }: { className?: string }) {
-  const [gains, setGains] = useState<PidGains>(DEFAULT_GAINS);
+type PendulumControllerProps = {
+  /**
+   * Initial proportional gain. Defaults to the stock 25; a prediction
+   * step mounts the loop at the Kp that answers its prompt (the mgl
+   * threshold region). Ki and Kd always start at their defaults.
+   */
+  defaultKp?: number;
+  className?: string;
+};
+
+export function PendulumController({
+  defaultKp = DEFAULT_GAINS.kp,
+  className,
+}: PendulumControllerProps) {
+  const [gains, setGains] = useState<PidGains>(() => ({
+    ...DEFAULT_GAINS,
+    kp: defaultKp,
+  }));
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync the Kp slice before painting.
+  const [prevDefaultKp, setPrevDefaultKp] = useState(defaultKp);
+  if (defaultKp !== prevDefaultKp) {
+    setPrevDefaultKp(defaultKp);
+    setGains((g) => ({ ...g, kp: defaultKp }));
+  }
   const [playing, setPlaying] = useState(false);
   const [run, setRun] = useState<{
     sim: PendulumState;
@@ -150,7 +174,7 @@ export function PendulumController({ className }: { className?: string }) {
 
   const reset = () => {
     setPlaying(false);
-    setGains(DEFAULT_GAINS);
+    setGains({ ...DEFAULT_GAINS, kp: defaultKp });
     setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
   };
 

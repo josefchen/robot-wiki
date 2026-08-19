@@ -48,6 +48,32 @@ How big a model can close the loop at all? On an H100 server, pi0 runs end-to-en
 
 VLA-Perf's takeaways are sobering for on-robot deployment <Cite id="vla-perf-2026" />. Roughly 10 Hz control is achievable on Jetson Thor for pi0-scale models, but 100 Hz control requires model-level architectural changes, not just faster hardware. Everything on the Thor is memory-bound, so latency tracks parameter count, which is why the paper points to lower-precision quantization as the lever on that platform. And server-side inference beats on-device inference in almost all scenarios except very poor networks, which is why the latency budget includes a network line at all.
 
+<PredictThenReveal
+  prompt="On Jetson Thor, latency is memory-bound and tracks parameter count. Roughly how large a VLA can still close a 50 Hz control loop?"
+  options={[
+    {
+      value: 'one-b',
+      label: 'About 1B parameters, a third of pi0’s size',
+      why: 'The 20 ms budget divided by the measured scaling: pi0’s 52.57 ms at 3B puts 20 ms near 1.1B parameters. The figure is mounted at 1.1B, one slider step inside the budget, and the next step up already misses the first deadline.'
+    },
+    {
+      value: 'three-b',
+      label: 'About 3B parameters, pi0’s own size on the robot',
+      why: 'This conflates running on the robot with closing the loop. VLA-Perf measures pi0 at 19.0 Hz on Thor, respectable for chunked execution but two and a half control periods of inference inside one 20 ms tick.'
+    },
+    {
+      value: 'nine-b',
+      label: 'About 9B parameters, given Thor’s server-class memory bandwidth',
+      why: 'This reads the hardware’s capacity as speed. The 9.1B pi0-L measured on the same device runs at 3.9 Hz: memory bandwidth is why big models run at all on Thor, not why they run fast.'
+    }
+  ]}
+  answer="one-b"
+  revealHint="The timeline is mounted at 1.1B params and 19.3 ms of inference, closing at 50 Hz with 52 Hz effective. Nudge the model-size slider up one step and the verdict flips."
+  takeaway="The 20 ms budget fits a model near 1.1B parameters, a third of pi0: on memory-bound hardware, loop closure caps model size long before capability does."
+>
+  <ControlLoopBudget defaultParamsB={1.1} className="mt-3" />
+</PredictThenReveal>
+
 ## Three ways to hand off a chunk
 
 Suppose inference takes d milliseconds. The policy has emitted a chunk, the robot is executing it, and a new chunk is on the way. What happens at the boundary is a design decision, and there are three options on the table.

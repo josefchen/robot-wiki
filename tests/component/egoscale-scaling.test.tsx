@@ -126,4 +126,28 @@ describe('EgoScaleScaling', () => {
     expect(caveat).toHaveTextContent(/not a confidence interval/i);
     expect(caveat).toHaveTextContent(/real-world success rate/i);
   });
+
+  it('honors a custom initial horizon', () => {
+    render(<EgoScaleScaling defaultHorizonHours={250_000} />);
+    expect(screen.getByTestId('horizon-readout')).toHaveTextContent('250k h');
+    // Deep in the extrapolated region the fit is past 100% and flagged.
+    expect(screen.getByTestId('completion-readout')).toHaveTextContent(
+      /impossible/i,
+    );
+  });
+
+  it('reset returns to the custom initial horizon, not the stock default', async () => {
+    const user = userEvent.setup();
+    render(<EgoScaleScaling defaultHorizonHours={250_000} />);
+    setHorizon(1_000_000);
+    expect(screen.getByTestId('horizon-readout')).toHaveTextContent('1M h');
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(screen.getByTestId('horizon-readout')).toHaveTextContent('250k h');
+  });
+
+  it('syncs a changed initial horizon to state during render', () => {
+    const { rerender } = render(<EgoScaleScaling defaultHorizonHours={250_000} />);
+    rerender(<EgoScaleScaling />);
+    expect(screen.getByTestId('horizon-readout')).toHaveTextContent('100k h');
+  });
 });

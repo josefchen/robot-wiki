@@ -38,9 +38,10 @@ import { cx } from '@/lib/utils';
  *   focus is never moved programmatically.
  *
  * Stable data hooks are part of this component's API: data-self-check on
- * the region, data-reveal on the disclosure, data-takeaway on the
- * takeaway, data-reason (value = the option it explains) on each
- * reasoning element.
+ * the self-check region, data-predict on the prediction-step region,
+ * data-reveal on the disclosure, data-reveal-hint on the hint,
+ * data-takeaway on the takeaway, data-reason (value = the option it
+ * explains) on each reasoning element.
  */
 
 /** One labelled choice with the reasoning a commit reveals. */
@@ -71,7 +72,7 @@ export interface CommitToRevealProps {
   takeaway: ReactNode;
   /**
    * Control over the revealed payload. SelfCheck renders its own
-   * reasoning list; a prediction step will pass a figure as children and
+   * reasoning list; a prediction step passes a figure as children and
    * a hint naming its mounted configuration.
    */
   children?: ReactNode;
@@ -79,6 +80,18 @@ export interface CommitToRevealProps {
   revealHint?: ReactNode;
   className?: string;
 }
+
+/**
+ * Which author-facing surface this mount is. Selects the stable region
+ * hook MDX validators select on. Internal: the named exports set it, MDX
+ * authors never pass it.
+ */
+type CommitRegion = 'self-check' | 'predict';
+
+/** Internal props: the public surface plus the region selector. */
+type CommitToRevealInternalProps = CommitToRevealProps & {
+  region?: CommitRegion;
+};
 
 export function CommitToReveal({
   kicker,
@@ -89,7 +102,8 @@ export function CommitToReveal({
   children,
   revealHint,
   className,
-}: CommitToRevealProps) {
+  region = 'self-check',
+}: CommitToRevealInternalProps) {
   // useId seeds every id and the radio group name: stable across server
   // and client, unique per mount.
   const uid = useId();
@@ -104,7 +118,8 @@ export function CommitToReveal({
 
   return (
     <section
-      data-self-check=""
+      data-self-check={region === 'self-check' ? '' : undefined}
+      data-predict={region === 'predict' ? '' : undefined}
       aria-labelledby={`${uid}-prompt`}
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
@@ -185,4 +200,31 @@ export function CommitToReveal({
  */
 export function SelfCheck(props: Omit<CommitToRevealProps, 'kicker'>) {
   return <CommitToReveal kicker="Self-check" {...props} />;
+}
+
+/**
+ * The prediction step: commit to a guess about a figure before the
+ * figure answers. The interactive itself is passed as children, mounted
+ * at the configuration that answers the prompt, with a required
+ * revealHint naming that configuration and a required takeaway the
+ * figure settles; a component with no thesis is unconstructible.
+ *
+ * The reveal's own summary is the mandatory escape path: a reader who
+ * declines to guess opens the answer without committing. It is natively
+ * focusable and Enter- or Space-activatable, and it sits after the
+ * fieldset in DOM order so a keyboard reader meets the question first.
+ * Activating it marks no option as chosen.
+ */
+export function PredictThenReveal(
+  props: Omit<
+    CommitToRevealProps,
+    'kicker' | 'children' | 'revealHint'
+  > & {
+    /** The figure, mounted at the configuration that answers the prompt. */
+    children: ReactNode;
+    /** One line naming the mounted configuration, rendered above the figure. */
+    revealHint: ReactNode;
+  },
+) {
+  return <CommitToReveal kicker="Prediction" region="predict" {...props} />;
 }

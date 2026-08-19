@@ -42,6 +42,32 @@ A success rate is an episode-level outcome, and an episode is a chain of decisio
 
 The calculator above computes that product. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. The inverse reading matters too. Two tasks that both report 80% episode success demand different per-step reliabilities: over five steps, 80% implies about 95.6% per step, while over thirty steps it implies about 99.3%. Without the step count, the two results are not comparable, and the step count is frequently absent from the report.
 
+<PredictThenReveal
+  prompt="A policy gets each decision right 95% of the time. Roughly how many decisions in a row can it make before the whole task succeeds only half the time?"
+  options={[
+    {
+      value: 'fourteen',
+      label: 'About 14 decisions, because the loss compounds at every step',
+      why: 'The product crosses one half between the 13th and 14th decision: 0.95 to the 14th is 48.8%, and the module’s own anchor of 30 steps already lands at 21.5%. Episode success halves roughly every 14 decisions, so the coin flip arrives early, not late.'
+    },
+    {
+      value: 'fifty',
+      label: 'About 50 decisions, since 95% leaves little room for error',
+      why: 'This reads the per-step number as if it carried over linearly to the task. The loss is multiplicative: by 50 decisions the product is 7.7%, far past a coin flip and heading for the floor.'
+    },
+    {
+      value: 'two-hundred',
+      label: 'About 200 decisions, because errors average out over an episode',
+      why: 'This encodes the belief that independent mistakes cancel like noise around a mean. A successful episode needs every decision right, so errors compound toward zero, and a longer episode is strictly worse, not safer.'
+    }
+  ]}
+  answer="fourteen"
+  revealHint="The curve is mounted at 95.0% per-step success over 14 steps, reading 48.8% episode success: just past the coin flip. Drag the episode-length slider and watch the readout fall."
+  takeaway="At 95% per step, the task is a coin flip after 14 decisions and down to 21.5% after 30: the per-step number cannot be read off the task-level number."
+>
+  <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} className="mt-3" />
+</PredictThenReveal>
+
 ## Ten trials is noise
 
 The second thing the number hides is its own uncertainty. Toyota Research Institute's Large Behavior Model program took the opposite approach to scale. The models extend the <Term id="diffusion-policy">Diffusion Policy</Term> recipe into multitask systems trained on about 1,700 hours of data: 468 hours of internally collected bimanual <Term id="teleoperation">teleoperation</Term>, 45 hours from simulation, 32 hours of UMI handheld collection, and roughly 1,150 hours curated from Open X-Embodiment <Cite id="diffusion-policy-2023" /> <Cite id="tri-lbm-2025" />. The evaluation budget was the point of the exercise: 1,800 real-world rollouts and over 47,000 simulation rollouts, at 50 real and 200 simulated attempts per task per policy per condition, scored in blind randomized A/B comparisons <Cite id="tri-lbm-2025" />.
