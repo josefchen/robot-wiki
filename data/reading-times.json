@@ -28,7 +28,7 @@
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1591,
+    "words": 1590,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
@@ -52,7 +52,7 @@
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1472,
+    "words": 1483,
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
@@ -68,7 +68,7 @@
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2556,
+    "words": 2563,
     "minutes": 13
   },
   "world-models/taxonomy": {
