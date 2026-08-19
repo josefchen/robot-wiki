@@ -89,11 +89,11 @@ test.describe('data-hardware data-bottleneck module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const xTicks = page.locator('[data-testid^="x-tick-"]');
+    const xTicks = chart(page).locator('[data-testid^="x-tick-"]');
     await expect(xTicks).toHaveCount(7);
     await expect(xTicks.first()).toHaveText('10⁰');
     await expect(xTicks.last()).toHaveText('10⁶');
-    const yTicks = page.locator('[data-testid^="y-tick-"]');
+    const yTicks = chart(page).locator('[data-testid^="y-tick-"]');
     await expect(yTicks).toHaveCount(6);
     await expect(yTicks.first()).toHaveText('10⁹');
     await expect(yTicks.last()).toHaveText('10¹⁴');

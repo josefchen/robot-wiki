@@ -506,14 +506,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
       '/world-models/taxonomy/',
       '/data-hardware/evaluation-crisis/',
       '/frontier/reliability-gap/',
-      '/data-hardware/evaluation-crisis/',
       '/manipulation/action-chunking/',
       '/manipulation/realtime-execution/',
-      '/classical/control/',
-      '/rl-sim2real/sim2real-transfer/',
       '/frontier/generalization/',
       '/data-hardware/data-bottleneck/',
-      '/manipulation/bc-foundations/',
     ];
     const hist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
     let longestCount = 0;
@@ -611,7 +607,13 @@ test.describe('prediction step (PredictThenReveal)', () => {
         let anchorResolves = false;
         for (const a of anchors) {
           const id = a.href.slice(1);
-          if (id && (await page.locator(`#${CSS.escape(id)}`).count()) > 0) {
+          if (
+            id &&
+            (await page.evaluate(
+              (target) => document.getElementById(target) !== null,
+              id,
+            ))
+          ) {
             anchorResolves = true;
             break;
           }

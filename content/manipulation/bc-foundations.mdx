@@ -68,7 +68,7 @@ The interactive below simulates the mechanism. A policy with per-step error $\va
     }
   ]}
   answer="quadruples"
-  revealHint="The figure is mounted at 5.0% per-step error over 240 steps with per-timestep prediction on: the accumulated-deviation readout shows 1505, about four times the 370 it reads at 120. Drag the horizon back and watch it quarter."
+  revealHint="The figure is mounted at 5.0% per-step error over 240 steps with per-timestep prediction on: the accumulated-deviation readout shows 1505 units. Drag the horizon back to 120 steps and watch it quarter."
   takeaway="Doubling the horizon roughly quadruples the accumulated deviation: uncorrected behavior cloning pays the quadratic term, and only on-policy supervision brings the growth back toward linear."
 >
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
