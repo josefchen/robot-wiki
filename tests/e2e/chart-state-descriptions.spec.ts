@@ -2,6 +2,7 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { DESIGN_DEFS } from './helpers/design-defs';
 
 /**
  * State-form chart descriptions (VAL-EDU-032..034) plus the article-route
@@ -392,7 +393,7 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
   });
 
   for (const route of DESIGN_BOUND_ROUTES) {
-    test(`${route} keeps micro-label, rule and boxing bounds`, async ({ page }) => {
+    test(`${route} keeps micro-label and rule bounds`, async ({ page }) => {
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.goto(`${BASE}${route}`);
       const report = await page.evaluate(() => {
@@ -493,4 +494,65 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
       }
     });
   }
+
+  // VAL-EDU-031, doubly-boxed clause: "zero doubly boxed controls, so no
+  // reveal summary, no chart data disclosure and no option list is a
+  // four-sided bordered box pressed inside or against another four-sided
+  // bordered box." Scoped to "the elements this milestone adds": reveal
+  // disclosures and summaries, chart-data disclosures and summaries,
+  // option-list containers and option labels, reasoning lists and items,
+  // and the in-reveal cite chip (including the wrapper the chip idiom
+  // puts around the anchor). NOT a re-grade of pre-existing bordered
+  // buttons sitting in pre-existing bordered interactive panels:
+  // VAL-DESIGN-019 (sealed) reasons those are content, not chrome, and
+  // this gate is a regression guard, not a replacement. Boxing is graded
+  // with the same doublyBoxed() definition as design-chrome.spec.ts
+  // (shared tests/e2e/helpers/design-defs.ts).
+  test('zero doubly boxed milestone-added elements (VAL-EDU-031)', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    const kinds: Array<[string, string]> = [
+      ['details[data-reveal]', 'reveal disclosure'],
+      ['details[data-reveal] > summary', 'reveal summary'],
+      ['details[data-chart-data]', 'chart data disclosure'],
+      ['details[data-chart-data] > summary', 'chart data summary'],
+      ['section[data-self-check] fieldset', 'option list'],
+      ['section[data-self-check] fieldset label', 'option label'],
+      ['section[data-predict] fieldset', 'option list'],
+      ['section[data-predict] fieldset label', 'option label'],
+      ['details[data-reveal] ul', 'reasoning list'],
+      ['details[data-reveal] li[data-reason]', 'reasoning item'],
+      ['details[data-reveal] a[href^="#ref-"]', 'in-reveal cite chip'],
+      ['details[data-reveal] a[href^="#ref-"] ~ span', 'in-reveal cite chip'],
+    ];
+    const totals = new Map<string, number>();
+    const hits: string[] = [];
+    for (const route of DESIGN_BOUND_ROUTES) {
+      await page.goto(`${BASE}${route}`);
+      const report = (await page.evaluate(
+        `(() => {
+          ${DESIGN_DEFS};
+          const kinds = ${JSON.stringify(kinds)};
+          const totals = {};
+          const hits = [];
+          for (const [sel, kind] of kinds) {
+            const els = Array.from(document.querySelectorAll(sel));
+            totals[kind] = (totals[kind] || 0) + els.length;
+            for (const bad of doublyBoxedAmong(els)) hits.push(kind + ' :: ' + bad);
+          }
+          return { totals, hits };
+        })()`,
+      )) as { totals: Record<string, number>; hits: string[] };
+      for (const [kind, n] of Object.entries(report.totals)) {
+        totals.set(kind, (totals.get(kind) ?? 0) + n);
+      }
+      hits.push(...report.hits);
+    }
+    // Population sanity: a selector that matches zero everywhere grades
+    // nothing, and a green sweep over an empty population is vacuous.
+    // Every kind the contract names must exist somewhere in the corpus.
+    for (const [, kind] of kinds) {
+      expect(totals.get(kind) ?? 0, `population of ${kind} is non-empty`).toBeGreaterThan(0);
+    }
+    expect(hits, 'doubly boxed milestone-added elements').toEqual([]);
+  });
 });

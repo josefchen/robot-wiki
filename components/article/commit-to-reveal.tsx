@@ -201,12 +201,19 @@ export function CommitToReveal({
                 <span>
                   {option.why}
                   {option.cite ? (
-                    <a
-                      href={`#ref-${option.cite}`}
-                      className="ml-1 rounded-xs border border-border bg-surface-2 px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:border-accent hover:text-accent"
-                    >
-                      {option.cite}
-                    </a>
+                    // House cite-chip idiom (components/ui/cite.tsx): the
+                    // border and chip surface live on a non-interactive
+                    // wrapping span, and the anchor itself carries no
+                    // border. A bordered anchor inside the fully bordered
+                    // reveal shell is a doubly boxed control (VAL-EDU-031).
+                    <span className="ml-1 inline-block rounded-xs border border-border bg-surface-2 align-baseline transition-colors hover:border-accent">
+                      <a
+                        href={`#ref-${option.cite}`}
+                        className="px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:text-accent"
+                      >
+                        {option.cite}
+                      </a>
+                    </span>
                   ) : null}
                   {option.anchorHref && option.anchorLabel ? (
                     <a

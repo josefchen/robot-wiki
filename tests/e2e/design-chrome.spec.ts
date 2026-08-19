@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DESIGN_DEFS } from './helpers/design-defs';
 
 /**
  * Design chrome discipline (VAL-DESIGN-016 through VAL-DESIGN-022): the
@@ -26,87 +27,7 @@ const AUDITED_ROUTES = [
 ];
 
 /** The shared definitions from contract/design-integrity.md, in-page. */
-const DEFS = `
-function alpha(color) {
-  const m = color.match(/rgba?\\(([^)]+)\\)/);
-  if (!m) return 1;
-  const parts = m[1].split(',').map((s) => parseFloat(s));
-  return parts.length === 4 ? parts[3] : 1;
-}
-function visible(el) {
-  const r = el.getBoundingClientRect();
-  const cs = getComputedStyle(el);
-  return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none';
-}
-function fullyBordered(el) {
-  const cs = getComputedStyle(el);
-  return ['Top', 'Right', 'Bottom', 'Left'].every(
-    (s) => parseFloat(cs['border' + s + 'Width']) >= 1 && alpha(cs['border' + s + 'Color']) > 0,
-  );
-}
-function realInput(el) {
-  return ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName) || el.hasAttribute('contenteditable');
-}
-function microLabels() {
-  const out = [];
-  for (const el of document.querySelectorAll('*')) {
-    if (el.children.length > 0) continue;
-    const text = (el.textContent || '').trim();
-    if (text.length < 3) continue;
-    const cs = getComputedStyle(el);
-    const fs = parseFloat(cs.fontSize);
-    if (fs > 15) continue;
-    const ls = cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
-    if (ls / fs < 0.02) continue;
-    const upper = cs.textTransform === 'uppercase' || (text === text.toUpperCase() && /[A-Z]/.test(text));
-    if (!upper || !visible(el)) continue;
-    out.push({ text, em: Math.round((ls / fs) * 1000) / 1000 });
-  }
-  return out;
-}
-function eyebrows() {
-  const headings = [...document.querySelectorAll('h1, h2, h3')];
-  return microLabels().filter((l) => {
-    const el = [...document.querySelectorAll('*')].find(
-      (e) => e.children.length === 0 && (e.textContent || '').trim() === l.text,
-    );
-    if (!el) return false;
-    if (el.tagName === 'LABEL') return false; // a control's own label is not an eyebrow
-    const r = el.getBoundingClientRect();
-    return headings.some((h) => {
-      const hr = h.getBoundingClientRect();
-      return hr.top - r.bottom >= -1 && hr.top - r.bottom <= 48 && Math.abs(hr.left - r.left) <= 8;
-    });
-  });
-}
-function doublyBoxed() {
-  const out = [];
-  for (const el of document.querySelectorAll('button, a, [role="button"], [aria-hidden="true"]')) {
-    if (!visible(el) || realInput(el) || !fullyBordered(el)) continue;
-    let anc = el.parentElement;
-    let nested = false;
-    while (anc) {
-      const cs = getComputedStyle(anc);
-      const any = ['Top', 'Right', 'Bottom', 'Left'].some(
-        (s) => parseFloat(cs['border' + s + 'Width']) >= 1 && alpha(cs['border' + s + 'Color']) > 0,
-      );
-      if (any) { nested = fullyBordered(anc); break; }
-      anc = anc.parentElement;
-    }
-    let flush = false;
-    const r = el.getBoundingClientRect();
-    for (const sib of [el.previousElementSibling, el.nextElementSibling]) {
-      if (!sib || realInput(sib) || !fullyBordered(sib)) continue;
-      const sr = sib.getBoundingClientRect();
-      const hGap = Math.max(r.left - sr.right, sr.left - r.right);
-      const vGap = Math.max(r.top - sr.bottom, sr.top - r.bottom);
-      if (hGap < 4 && vGap < 4) flush = true;
-    }
-    if (nested || flush) out.push(el.tagName + '.' + (el.getAttribute('class') || '').slice(0, 40));
-  }
-  return out;
-}
-`;
+const DEFS = DESIGN_DEFS;
 
 function evaluateDefs<T>(page: Page, call: string): Promise<T> {
   return page.evaluate(`(() => { ${DEFS}; return ${call}; })()`) as Promise<T>;
