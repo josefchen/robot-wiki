@@ -1,6 +1,6 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1386,
+    "words": 1415,
     "minutes": 7
   },
   "manipulation/action-chunking": {
@@ -8,15 +8,15 @@
     "minutes": 8
   },
   "manipulation/diffusion-policy": {
-    "words": 1364,
+    "words": 1433,
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1696,
-    "minutes": 8
+    "words": 1738,
+    "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 2561,
+    "words": 2606,
     "minutes": 13
   },
   "manipulation/generalist-policies": {
@@ -28,7 +28,7 @@
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1553,
+    "words": 1591,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
@@ -40,11 +40,11 @@
     "minutes": 9
   },
   "manipulation/cross-embodiment": {
-    "words": 1213,
+    "words": 1250,
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
-    "words": 1178,
+    "words": 1222,
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
@@ -112,15 +112,15 @@
     "minutes": 9
   },
   "classical/kinematics": {
-    "words": 2282,
-    "minutes": 11
+    "words": 2316,
+    "minutes": 12
   },
   "classical/motion-planning": {
-    "words": 1963,
+    "words": 1995,
     "minutes": 10
   },
   "classical/control": {
-    "words": 2187,
+    "words": 2224,
     "minutes": 11
   },
   "classical/state-estimation": {
@@ -128,7 +128,7 @@
     "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 1995,
+    "words": 2061,
     "minutes": 10
   },
   "frontier/reliability-gap": {
