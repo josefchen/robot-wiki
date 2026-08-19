@@ -42,6 +42,8 @@ const CHARTS: Array<{
   /** Two non-default values for the primary control, then the default. */
   moves: string[];
   def: string;
+  /** When set, pick the description whose text contains this substring. */
+  match?: string;
 }> = [
   { route: '/', name: 'reliability', control: 'range', moves: ['90', '99'], def: '95' },
   { route: '/frontier/generalization', name: 'egoscale', control: 'range', moves: ['5600', '4301'], def: '5000' },
@@ -49,6 +51,15 @@ const CHARTS: Array<{
   { route: '/rl-sim2real/legged-locomotion', name: 'gait', control: 'gait-phase', moves: ['50', '75'], def: '0' },
   { route: '/rl-sim2real/parallel-sim-rl', name: 'trainingtime', control: 'range', moves: ['7', '13'], def: '12' },
   { route: '/manipulation/realtime-execution', name: 'controlloop', control: 'range', moves: ['1.0', '9.1'], def: '3.0' },
+  { route: '/classical/state-estimation', name: 'kalman', control: 'range', moves: ['0.5', '1'], def: '0.2' },
+  { route: '/manipulation/bc-foundations', name: 'compounding', control: 'range', moves: ['10', '1'], def: '5' },
+  { route: '/manipulation/action-chunking', name: 'chunksize', control: 'range', moves: ['1', '400'], def: '100', match: 'chunk size' },
+  { route: '/manipulation/action-chunking', name: 'latency-throughput', control: 'range', moves: ['140', '200'], def: '0', match: 'task throughput' },
+  { route: '/manipulation/realtime-execution', name: 'execution', control: 'range', moves: ['80', '200'], def: '0', match: 'synchronous velocity' },
+  { route: '/manipulation/vla-models', name: 'tokenization', control: 'range', moves: ['0', '15'], def: '7' },
+  { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '0' },
+  { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80' },
+  { route: '/world-models/latent-dynamics', name: 'latent', control: 'range', moves: ['30', '50'], def: '15' },
 ];
 
 /** Set a range input the way React's controlled component sees it. */
@@ -70,7 +81,9 @@ for (const chart of CHARTS) {
   test.describe(`${chart.name} chart description (${chart.route})`, () => {
     test('SVG resolves a real description and a short name', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
-      const desc = page.locator('[data-chart-description]').first();
+      const desc = chart.match
+        ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
+        : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
       const svg = shell.locator('svg[role]').first();
@@ -106,7 +119,9 @@ for (const chart of CHARTS) {
 
     test('disclosure declares a table form with a scoped, non-empty sample', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
-      const desc = page.locator('[data-chart-description]').first();
+      const desc = chart.match
+        ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
+        : page.locator('[data-chart-description]').first();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
       const details = shell.locator('details[data-chart-data]').first();
       await expect(details).toBeAttached();
@@ -131,7 +146,9 @@ for (const chart of CHARTS) {
 
     test('description tracks the primary control and restores exactly', async ({ page }) => {
       await page.goto(`${BASE}${chart.route}`);
-      const desc = page.locator('[data-chart-description]').first();
+      const desc = chart.match
+        ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
+        : page.locator('[data-chart-description]').first();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
       const details = shell.locator('details[data-chart-data]').first();
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
@@ -167,7 +184,9 @@ for (const chart of CHARTS) {
       const context = await browser.newContext({ javaScriptEnabled: false });
       const page = await context.newPage();
       await page.goto(`${BASE}${chart.route}`);
-      const desc = page.locator('[data-chart-description]').first();
+      const desc = chart.match
+        ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
+        : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
       const text = (await desc.innerText()).trim();
       expect(text.length).toBeGreaterThanOrEqual(60);

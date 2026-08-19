@@ -116,4 +116,19 @@ describe('ActionTokenization', () => {
     render(<ActionTokenization />);
     expect(screen.getByText(/illustrative/i)).toBeInTheDocument();
   });
+
+  it('describes the traces root with a sampled table and leaves the bin chart undescribed', () => {
+    const { container } = render(<ActionTokenization />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed rules/i);
+    expect(desc?.textContent).toMatch(/action/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    const rowCount = details?.querySelectorAll('tbody tr').length ?? 0;
+    expect(rowCount).toBeGreaterThanOrEqual(5);
+    expect(rowCount).toBeLessThanOrEqual(10);
+    const imgs = screen.getAllByRole('img');
+    expect(imgs[0]).toHaveAttribute('aria-describedby');
+    expect(imgs[1]).not.toHaveAttribute('aria-describedby');
+  });
 });

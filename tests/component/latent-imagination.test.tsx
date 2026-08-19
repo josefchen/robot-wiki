@@ -121,4 +121,22 @@ describe('LatentImagination', () => {
     // The published 3-15 step horizon range is annotated on the chart.
     expect(screen.getByTestId('typical-range-band')).toBeInTheDocument();
   });
+
+  it('describes the deviation chart with a sampled table and leaves the rollout undescribed', () => {
+    const { container } = render(<LatentImagination />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/shaded band/i);
+    expect(desc?.textContent).toMatch(/published 3 to 15/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
+    expect(rows).toBeGreaterThanOrEqual(5);
+    expect(rows).toBeLessThanOrEqual(10);
+    expect(
+      screen.getByRole('img', { name: /latent deviation/i }),
+    ).toHaveAttribute('aria-describedby');
+    expect(
+      screen.getByRole('img', { name: /imagined rollout/i }),
+    ).not.toHaveAttribute('aria-describedby');
+  });
 });

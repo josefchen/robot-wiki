@@ -78,6 +78,72 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['inference', 'ms'],
     text: 'A 3.0B-parameter model takes 52.6 ms of inference against the 20 ms budget of a 50 Hz loop, missing 2 deadlines and running at 19 Hz; inference stays under budget only below about 1.1B parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the scaling is modeled rather than measured.',
   },
+  {
+    component: 'KalmanTracker',
+    file: 'components/interactive/kalman-tracker.tsx',
+    quantityNames: ['estimate', 'position'],
+    text: "Over the 61-step window ending at step 60, the estimate stays within 0.90 units rms of the true path while roughly one reading in five drops out, and the shaded band is the filter's own plus or minus two sigma position uncertainty under the assumed noise levels (sigma q 0.20, sigma r 1.00), not a measured error bar, so it swells wherever the estimate coasted between fixes.",
+  },
+  {
+    component: 'ChunkSizeCurve',
+    file: 'components/interactive/chunk-size-curve.tsx',
+    quantityNames: ['success', 'chunk'],
+    text: 'Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = 100 the curve reads 44% success against 4 closed-loop decisions per 400-step episode; the dashed region past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.',
+  },
+  {
+    component: 'CompoundingError',
+    file: 'components/interactive/compounding-error.tsx',
+    quantityNames: ['deviation', 'horizon'],
+    text: 'With per-step error 5.0% over a 120-step horizon, the simulated accumulated deviation reaches 370 units against the quadratic epsilon T(T+1)/2 bound of 363 and the linear epsilon T bound of 6.0; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.',
+  },
+  {
+    component: 'ExecutionModes',
+    file: 'components/interactive/execution-modes.tsx',
+    quantityNames: ['velocity', 'delay'],
+    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 limit; the three traces model the published behaviour and are not measured robot data, and the dashed guide is the uninterrupted old plan each executed trace departs from.',
+  },
+  {
+    component: 'ActionTokenization',
+    file: 'components/interactive/action-tokenization.tsx',
+    quantityNames: ['action', 'step'],
+    text: 'Along the Δx action lane of the 16-step chunk, the continuous command runs from 0.183 at t = 0 to 0.183 at t = 15, and at the current step 7 the value -0.056 falls in bin 120 of 255; the 7 dashed rules are each dimension\'s zero line, and the chunk is a fixed synthetic example rather than measured robot data.',
+  },
+  {
+    component: 'LatencyComparisonThroughput',
+    file: 'components/interactive/latency-comparison.tsx',
+    quantityNames: ['throughput', 'delay'],
+    text: 'At 0 ms of injected delay temporal ensembling holds 100% of task throughput and real-time chunking holds 100%, and ensembling falls to zero across the shaded 100 to 200 ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.',
+  },
+  {
+    component: 'LatencyComparisonTraces',
+    file: 'components/interactive/latency-comparison.tsx',
+    quantityNames: ['action', 'mode'],
+    text: 'Across the 24-tick hand-off at 0 ms of delay the real-time chunking action stays flat on the committed mode at 0.80 while the ensembled action holds within tolerance and ends at 0.80; the shaded band between the two dashed mode lines is the invalid middle no demonstration ever commanded, and those lines are the modelled modes rather than measured actions.',
+  },
+  {
+    component: 'AdvantageScrubber',
+    file: 'components/interactive/advantage-scrubber.tsx',
+    quantityNames: ['value', 'advantage'],
+    text: 'At t = 0.0 s the value trace sits at 30.0 inside the Reach segment, tagged high advantage because value changes by +8.0 across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at 32 s on the grasp 20 s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.',
+  },
+  {
+    component: 'MpcVsRl',
+    file: 'components/interactive/mpc-vs-rl.tsx',
+    quantityNames: ['deviation', 'step'],
+    text: 'After a lateral push at step 4 the MPC base-height deviation peaks at 6.00 cm and ends at 0.02 cm while the RL policy peaks at 8.00 cm and ends at -0.24 cm; MPC compute per step re-solves iLQR against the current state at every control step, the RL policy is one network forward pass, weights fixed at training, and the dashed RL trace is an illustrative teaching model rather than measured hardware data.',
+  },
+  {
+    component: 'FrictionTransfer',
+    file: 'components/interactive/friction-transfer.tsx',
+    quantityNames: ['success', 'friction'],
+    text: 'At real-robot friction 0.80 the point-trained policy scores 97% against the DR policy\'s 74%, with the DR plateau at 74% across the shaded training band of half-width 0.35; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.',
+  },
+  {
+    component: 'LatentImagination',
+    file: 'components/interactive/latent-imagination.tsx',
+    quantityNames: ['deviation', 'step'],
+    text: 'Latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under 2.0% one-step error, compounding rather than staying flat; the shaded band marks the published 3 to 15 step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

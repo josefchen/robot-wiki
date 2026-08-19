@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   DEFAULT_SEED,
   DEFAULT_SETTINGS,
@@ -86,6 +87,7 @@ const SLIDERS: {
 ];
 
 export function KalmanTracker({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-kalman-description`;
   const [settings, setSettings] = useState<KalmanSettings>(DEFAULT_SETTINGS);
   const [seed, setSeed] = useState(DEFAULT_SEED);
   const [step, setStep] = useState(INITIAL_STEP);
@@ -123,6 +125,43 @@ export function KalmanTracker({ className }: { className?: string }) {
   const windowStart = Math.max(0, step - WINDOW + 1);
   const visible = frames.slice(windowStart);
   const rms = rmsError(visible, episode.truth);
+
+  // The sample is read out of the same frames the traces are drawn from, so
+  // the table and the chart cannot disagree.
+  const sampleRows = useMemo(() => {
+    const start = Math.max(0, step - WINDOW + 1);
+    const first = frames[start].t;
+    const last = frames[frames.length - 1].t;
+    const picks = 6;
+    const steps = [
+      ...new Set(
+        Array.from({ length: picks }, (_, i) =>
+          Math.round(first + ((last - first) * i) / (picks - 1)),
+        ),
+      ),
+    ];
+    return steps.map((t) => {
+      const fr = frames[t];
+      const reading = episode.measurements[t];
+      return {
+        label: `${t}`,
+        values: [
+          episode.truth[t].toFixed(2),
+          fr.est.toFixed(2),
+          (2 * fr.sigma).toFixed(2),
+          reading === null ? 'n/a' : reading.toFixed(2),
+        ],
+      };
+    });
+  }, [frames, episode, step]);
+
+  const descriptionText = `Over the ${visible.length}-step window ending at step ${step}, the estimate stays within ${rms.toFixed(
+    2,
+  )} units rms of the true path while roughly one reading in five drops out, and the shaded band is the filter's own plus or minus two sigma position uncertainty under the assumed noise levels (sigma q ${settings.sigmaQ.toFixed(
+    2,
+  )}, sigma r ${settings.sigmaR.toFixed(
+    2,
+  )}), not a measured error bar, so it swells wherever the estimate coasted between fixes.`;
 
   const xPx = (t: number) =>
     f(PLOT.left + ((t - windowStart) / (WINDOW - 1)) * PLOT_W);
@@ -230,6 +269,7 @@ export function KalmanTracker({ className }: { className?: string }) {
         aria-label={`Kalman filter tracking a wandering target, step ${step} of ${lastStep}. Position uncertainty sigma ${frame.sigma.toFixed(
           2,
         )}, Kalman gain ${frame.gain.toFixed(2)}.`}
+        aria-describedby={descriptionId}
         data-testid="kalman-scene"
         className="mt-4 block w-full"
       >
@@ -436,6 +476,22 @@ export function KalmanTracker({ className }: { className?: string }) {
         and watch the estimate hug every reading while the band swells
         between fixes.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled truth, estimate and uncertainty across the window"
+        rowHeader="step"
+        columns={[
+          { header: 'true', numeric: true },
+          { header: 'estimate', numeric: true },
+          { header: '±2σ', numeric: true },
+          { header: 'reading', numeric: true },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

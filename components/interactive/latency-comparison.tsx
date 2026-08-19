@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   HANDOFF_TICK,
   MAX_DELAY_MS,
@@ -98,6 +99,19 @@ export function LatencyComparison({
       rtcMarkerY: y(rtc),
       windowFromX: x(FAILURE_WINDOW.from),
       windowToX: x(FAILURE_WINDOW.to),
+      // Sampled from teThroughput/rtcThroughput, the two functions the
+      // curves are drawn from.
+      sampleRows: [...new Set([0, 60, 100, 140, 200, MAX_DELAY_MS, delayMs])]
+        .sort((a, b) => a - b)
+        .map((d) => ({
+          label: `${d}`,
+          values: [
+            `${Math.round(teThroughput(d) * 100)}%`,
+            `${Math.round(rtcThroughput(d) * 100)}%`,
+            teStatus(d),
+            d === delayMs ? 'playhead' : 'off',
+          ],
+        })),
     };
   }, [delayMs, te, rtc]);
 
@@ -131,8 +145,43 @@ export function LatencyComparison({
       negModeY: y(-MODE_VALUE),
       floorY: y(VALID_ACTION_FLOOR),
       negFloorY: y(-VALID_ACTION_FLOOR),
+      teEndAction: tePoints.at(-1)?.action ?? 0,
+      // Sampled from the same two trace functions, so a row and a plotted
+      // vertex are the same number.
+      sampleRows: [0, 4, HANDOFF_TICK, 12, 18, TRACE_TICKS - 1].map((tick) => {
+        const teAction = tePoints.find((p) => p.tick === tick)?.action ?? 0;
+        const rtcAction = rtcPoints.find((p) => p.tick === tick)?.action ?? 0;
+        return {
+          label: `${tick}`,
+          values: [
+            teAction.toFixed(2),
+            rtcAction.toFixed(2),
+            isValidModeAction(teAction) ? 'on a mode' : 'off-mode',
+          ],
+        };
+      }),
     };
   }, [delayMs]);
+
+  const throughputDescription = `At ${formatMs(
+    delayMs,
+  )} of injected delay temporal ensembling holds ${Math.round(
+    te * 100,
+  )}% of task throughput and real-time chunking holds ${Math.round(
+    rtc * 100,
+  )}%, and ensembling falls to zero across the shaded ${FAILURE_WINDOW.from} to ${
+    FAILURE_WINDOW.to
+  } ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.`;
+
+  const traceDescription = `Across the ${TRACE_TICKS}-tick hand-off at ${formatMs(
+    delayMs,
+  )} of delay the real-time chunking action stays flat on the committed mode at ${MODE_VALUE.toFixed(
+    2,
+  )} while the ensembled action ${
+    offMode
+      ? `leaves both valid modes and ends at ${traceChart.teEndAction.toFixed(2)}`
+      : `holds within tolerance and ends at ${traceChart.teEndAction.toFixed(2)}`
+  }; the shaded band between the two dashed mode lines is the invalid middle no demonstration ever commanded, and those lines are the modelled modes rather than measured actions.`;
 
   function reset() {
     setDelayMs(defaultDelayMs);
@@ -183,6 +232,7 @@ export function LatencyComparison({
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
         role="img"
         aria-label={`Chart of task throughput against injected inference delay. Temporal ensembling collapses to zero inside the 100 to 200 millisecond failure window while real-time chunking holds at 100 percent. Current delay ${formatMs(delayMs)}.`}
+        aria-describedby={`${delayId}-throughput-description`}
         className="mt-4 block w-full"
       >
         {/* Documented TE failure window. */}
@@ -333,11 +383,28 @@ export function LatencyComparison({
         </g>
       </svg>
 
+      <ChartDescription
+        id={`${delayId}-throughput-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled throughput for both schemes by injected delay"
+        rowHeader="delay (ms)"
+        columns={[
+          { header: 'ensembling', numeric: true },
+          { header: 'chunking', numeric: true },
+          { header: 'ensembling status', numeric: false },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={throughputChart.sampleRows}
+        description={throughputDescription}
+      />
+
       {/* Panel 2: executed action across one chunk hand-off. */}
       <svg
         viewBox={`0 0 ${TRACE.width} ${TRACE.height}`}
         role="img"
         aria-label={`Trace of the executed action across a chunk hand-off at ${formatMs(delayMs)} delay. The temporal ensembling trace ${offMode ? 'leaves both valid modes' : 'stays on the committed mode'}; the real-time chunking trace stays flat on the committed mode.`}
+        aria-describedby={`${delayId}-trace-description`}
         className="mt-2 block w-full"
       >
         {/* Invalid middle band: between the two valid modes. */}
@@ -482,6 +549,21 @@ export function LatencyComparison({
           </g>
         )}
       </svg>
+
+      <ChartDescription
+        id={`${delayId}-trace-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled executed action across the hand-off"
+        rowHeader="tick"
+        columns={[
+          { header: 'ensembling', numeric: true },
+          { header: 'chunking', numeric: true },
+          { header: 'ensembling validity', numeric: false },
+        ]}
+        rows={traceChart.sampleRows}
+        description={traceDescription}
+      />
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">d = {formatMs(delayMs)}:</span>{' '}

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Badge } from '@/components/ui';
+import { useId, useMemo, useState } from 'react';
+import { Badge, ChartDescription } from '@/components/ui';
 import {
   CREDIT_ASSIGNMENT,
   EPISODE_LENGTH_S,
@@ -87,6 +87,7 @@ function formatDelta(delta: number): string {
 }
 
 export function AdvantageScrubber({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-adv-description`;
   const [view, setView] = useState<View>('episode');
   const [playhead, setPlayhead] = useState(0);
 
@@ -95,6 +96,22 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   const value = valueAt(playhead);
   const highCount = tagged.filter((s) => s.tag === 'high').length;
   const lowCount = tagged.length - highCount;
+
+  const sampleRows = useMemo(() => {
+    const times = [...new Set([0, 8, 16, 26, 32, EPISODE_LENGTH_S, playhead])].sort(
+      (a, b) => a - b,
+    );
+    return times.map((t) => ({
+      label: `${t}`,
+      values: [
+        valueAt(t).toFixed(1),
+        segmentAt(t).label,
+        t === playhead ? 'playhead' : 'off',
+      ],
+    }));
+  }, [playhead]);
+
+  const descriptionText = `At t = ${playhead.toFixed(1)} s the value trace sits at ${value.toFixed(1)} inside the ${current.label} segment, tagged ${current.tag} advantage because value changes by ${formatDelta(current.delta)} across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s on the grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.`;
 
   function reset() {
     setView('episode');
@@ -177,7 +194,8 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           <svg
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
             role="img"
-            aria-label={`Value-function trace over a 40 second espresso episode. The playhead is at ${playhead.toFixed(1)} seconds inside the ${current.label} segment, tagged ${current.tag} advantage. Segments where the value rises are outlined green, where it falls, red. A dashed arc links the failed insertion back to the grasp 20 seconds earlier.`}
+            aria-label={`Value-function trace over a 40 second espresso episode. Playhead at ${playhead.toFixed(1)} seconds in the ${current.label} segment, tagged ${current.tag} advantage.`}
+            aria-describedby={descriptionId}
             className="mt-2 block w-full"
           >
             {/* Credit-assignment arc: failure at insertion blamed on the grasp. */}
@@ -350,6 +368,21 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </ul>
         </>
       )}
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled value along the espresso episode"
+        rowHeader="time (s)"
+        columns={[
+          { header: 'value', numeric: true },
+          { header: 'segment', numeric: false },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
 
       {view === 'training' && (
         <div data-testid="training-view" className="mt-3">

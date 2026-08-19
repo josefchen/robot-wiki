@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ACT_CHUNK_ANCHORS,
   MAX_CHUNK,
@@ -49,6 +50,7 @@ export function ChunkSizeCurve({
   episodeSteps = 400,
   className,
 }: ChunkSizeCurveProps) {
+  const descriptionId = `${useId()}-csc-description`;
   const [chunkSize, setChunkSize] = useState(defaultChunkSize);
 
   const success = successAtChunkSize(chunkSize);
@@ -87,6 +89,28 @@ export function ChunkSizeCurve({
 
   const plotWidth = WIDTH - PAD.left - PAD.right;
   const plotHeight = HEIGHT - PAD.top - PAD.bottom;
+
+  // Sampled from successAtChunkSize, the same function the path is drawn
+  // from; the provenance column carries the dashed region's qualification
+  // into the table rather than leaving it to the picture.
+  const sampleRows = useMemo(() => {
+    const measuredK = new Set(ACT_CHUNK_ANCHORS.map((a) => a.k));
+    return [1, 25, 50, 100, 200, 300, 400].map((k) => ({
+      label: `${k}`,
+      values: [
+        formatPercent(successAtChunkSize(k)),
+        `${decisionsPerEpisode(episodeSteps, k)}`,
+        measuredK.has(k) ? 'measured' : k < peakK ? 'interpolated' : 'past the measured range',
+        k === chunkSize ? 'playhead' : 'off',
+      ],
+    }));
+  }, [chunkSize, episodeSteps, peakK]);
+
+  const descriptionText = `Task success rises from 1% at chunk size k = 1 to the measured 44% peak at k = 100, and at the current k = ${chunkSize} the curve reads ${formatPercent(
+    success,
+  )} success against ${decisions} closed-loop ${
+    decisions === 1 ? 'decision' : 'decisions'
+  } per ${episodeSteps}-step episode; the dashed region past k = 100 is interpolated beyond the measured ACT ablation, which reports a slight decline at k = 200 and k = 400 without exact numbers.`;
 
   function reset() {
     setChunkSize(defaultChunkSize);
@@ -136,6 +160,7 @@ export function ChunkSizeCurve({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Line chart of task success rate against chunk size k. Success rises to 44 percent at k of 100, then tapers. Current position k equals ${chunkSize}, success ${formatPercent(success)}.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {[0.1, 0.2, 0.3, 0.4, 0.5].map((p) => {
@@ -255,6 +280,22 @@ export function ChunkSizeCurve({
         interpolated: the paper reports a slight decline at k=200 and k=400
         without exact numbers.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled success rate and decision count by chunk size"
+        rowHeader="chunk size k"
+        columns={[
+          { header: 'success', numeric: true },
+          { header: 'decisions', numeric: true },
+          { header: 'provenance', numeric: false },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

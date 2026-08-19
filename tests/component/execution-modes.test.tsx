@@ -75,4 +75,19 @@ describe('ExecutionModes', () => {
     expect(slider()).toHaveValue('0');
     expect(screen.getByTestId('verdict-naive')).toHaveTextContent(/within/i);
   });
+
+  it('renders a table-form chart description that names the dashed guide', () => {
+    const { container } = render(<ExecutionModes />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed guide/i);
+    expect(desc?.textContent).toMatch(/velocity/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    expect(details?.querySelectorAll('tbody tr').length).toBe(6);
+    const before = desc?.textContent ?? '';
+    fireEvent.change(slider(), { target: { value: '200' } });
+    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
+      before,
+    );
+  });
 });

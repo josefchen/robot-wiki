@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ACTION_DIMS,
   BIN_COUNT,
@@ -76,6 +77,7 @@ export function ActionTokenization({
   defaultDim = 0,
   className,
 }: ActionTokenizationProps) {
+  const descriptionId = `${useId()}-at-description`;
   const [step, setStep] = useState(defaultStep);
   const [dim, setDim] = useState(defaultDim);
   const chunk = useMemo(() => generateActionChunk(), []);
@@ -96,6 +98,23 @@ export function ActionTokenization({
   const zoomValueMin = VALUE_MIN + zoomStart * bw;
   const zoomX = (v: number) =>
     f(PAD.left + ((v - zoomValueMin) / (ZOOM_BINS * bw)) * PLOT_W);
+
+  // Sampled along the selected lane, the same polyline the traces root
+  // draws. Endpoints are t = 0 and t = 15, matching the axis ticks, and
+  // the playhead column moves with the step slider.
+  const sampleTicks = [...new Set([0, 3, 6, 9, 12, CHUNK_STEPS - 1, step])].sort(
+    (a, b) => a - b,
+  );
+  const sampleRows = sampleTicks.map((t) => ({
+    label: `${t}`,
+    values: [
+      chunk[dim][t].toFixed(3),
+      `${binIndex(chunk[dim][t])}`,
+      t === step ? 'playhead' : 'off',
+    ],
+  }));
+
+  const descriptionText = `Along the ${ACTION_DIMS[dim].label} action lane of the ${CHUNK_STEPS}-step chunk, the continuous command runs from ${chunk[dim][0].toFixed(3)} at t = 0 to ${chunk[dim][CHUNK_STEPS - 1].toFixed(3)} at t = ${CHUNK_STEPS - 1}, and at the current step ${step} the value ${value.toFixed(3)} falls in bin ${bin} of ${BIN_COUNT - 1}; the ${ACTION_DIMS.length} dashed rules are each dimension's zero line, and the chunk is a fixed synthetic example rather than measured robot data.`;
 
   return (
     <div
@@ -169,6 +188,7 @@ export function ActionTokenization({
         viewBox={`0 0 ${WIDTH} ${CHART_H}`}
         role="img"
         aria-label={`Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps. The marker at step ${step} selects the action vector being tokenized.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {ACTION_DIMS.map((d, i) => {
@@ -237,6 +257,21 @@ export function ActionTokenization({
           </text>
         ))}
       </svg>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled action value along the selected dimension"
+        rowHeader="step"
+        columns={[
+          { header: 'value', numeric: true },
+          { header: 'bin', numeric: true },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
 
       {/* Binning detail: 256-bin strip plus zoom window for the selected dim */}
       <svg

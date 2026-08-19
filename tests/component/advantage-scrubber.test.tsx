@@ -127,4 +127,21 @@ describe('AdvantageScrubber', () => {
       screen.getByRole('button', { name: /^episode$/i }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
+
+  it('renders a table-form chart description that names the dashed credit-assignment arc', () => {
+    const { container } = render(<AdvantageScrubber />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed arc/i);
+    expect(desc?.textContent).toMatch(/advantage/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
+    expect(rows).toBeGreaterThanOrEqual(5);
+    expect(rows).toBeLessThanOrEqual(10);
+    const before = desc?.textContent ?? '';
+    scrubTo(12);
+    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
+      before,
+    );
+  });
 });

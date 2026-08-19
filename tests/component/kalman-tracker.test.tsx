@@ -263,4 +263,19 @@ describe('KalmanTracker', () => {
     const step = Number.parseInt(readout('kalman-step-readout'), 10);
     expect(step).toBe(INITIAL_STEP + 8);
   });
+
+  it('renders a table-form chart description that names the shaded uncertainty band', () => {
+    const { container } = render(<KalmanTracker />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/shaded band/i);
+    expect(desc?.textContent).toMatch(/assumed/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
+    expect(rows).toBeGreaterThanOrEqual(5);
+    expect(rows).toBeLessThanOrEqual(10);
+    expect(screen.getByTestId('kalman-scene')).toHaveAttribute(
+      'aria-describedby',
+    );
+  });
 });

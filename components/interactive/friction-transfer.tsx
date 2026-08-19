@@ -1,6 +1,7 @@
 'use client';
 
-import { useId, useRef, useState } from 'react';
+import { useId, useMemo, useRef, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   DEFAULT_DR_RANGE,
   DEFAULT_REAL_MU,
@@ -103,6 +104,22 @@ export function FrictionTransfer({
     setRange(defaultRange);
   }
 
+  const sampleRows = useMemo(() => {
+    const mus = [...new Set([0.2, 0.5, 0.8, 1.1, 1.5, realMu])].sort(
+      (a, b) => a - b,
+    );
+    return mus.map((mu) => ({
+      label: formatMu(mu),
+      values: [
+        formatPct(pointSuccess(mu)),
+        formatPct(drSuccess(mu, range)),
+        Math.abs(mu - realMu) < 0.001 ? 'playhead' : 'off',
+      ],
+    }));
+  }, [realMu, range]);
+
+  const descriptionText = `At real-robot friction ${formatMu(realMu)} the point-trained policy scores ${formatPct(point)} against the DR policy's ${formatPct(dr)}, with the DR plateau at ${formatPct(drPeakValue)} across the shaded training band of half-width ${formatMu(range)}; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.`;
+
   const lineX = xFor(realMu);
   const labelAnchor = lineX > WIDTH - 150 ? 'end' : 'start';
   const labelX = labelAnchor === 'end' ? f(lineX - 8) : f(lineX + 8);
@@ -202,7 +219,8 @@ export function FrictionTransfer({
         ref={svgRef}
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Task success against ground friction. The point-trained policy peaks at ${formatPct(POINT_PEAK)} at its training friction ${formatMu(MU_TRAIN)} and falls off sharply; the distribution-trained policy holds a plateau near ${formatPct(drPeakValue)} over its randomization range. The real robot line sits at mu ${formatMu(realMu)}, where the point policy scores ${formatPct(point)} and the DR policy ${formatPct(dr)}.`}
+        aria-label={`Task success against ground friction. Point policy ${formatPct(point)} vs DR policy ${formatPct(dr)} at mu ${formatMu(realMu)}.`}
+        aria-describedby={`${uid}-ft-description`}
         className="mt-3 block w-full"
         onPointerMove={(e) => {
           if (dragging) setRealMu(muFromPointer(e.clientX));
@@ -447,6 +465,21 @@ export function FrictionTransfer({
           ? 'The real robot sits inside the training distribution, where the point-trained policy wins: specializing at one friction bought it a higher peak than any robust policy reaches. Move the line outside the shaded band and the ranking flips.'
           : 'The real robot sits outside the point policy\'s narrow spike, so its success collapses while the distribution-trained policy still covers this friction. That wider basin is what domain randomization buys; the lower plateau is what it costs.'}
       </p>
+
+      <ChartDescription
+        id={`${uid}-ft-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled task success against ground friction"
+        rowHeader="mu"
+        columns={[
+          { header: 'point policy', numeric: true },
+          { header: 'DR policy', numeric: true },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

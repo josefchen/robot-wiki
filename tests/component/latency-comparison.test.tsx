@@ -76,7 +76,7 @@ describe('LatencyComparison', () => {
 
   it('labels the modeled curves as a qualitative model of published results', () => {
     render(<LatencyComparison />);
-    expect(screen.getByText(/qualitative model/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/qualitative model/i).length).toBeGreaterThan(0);
   });
 
   it('honors a custom default delay', () => {
@@ -85,5 +85,21 @@ describe('LatencyComparison', () => {
     expect(screen.getByTestId('te-status-readout')).toHaveTextContent(
       /failed/i,
     );
+  });
+
+  it('describes both series roots with sampled tables and names the honesty markers', () => {
+    const { container } = render(<LatencyComparison />);
+    const descs = [...container.querySelectorAll('[data-chart-description]')];
+    expect(descs).toHaveLength(2);
+    expect(descs[0].textContent).toMatch(/shaded 100 to 200 ms failure window/i);
+    expect(descs[1].textContent).toMatch(/shaded band/i);
+    expect(descs[1].textContent).toMatch(/dashed mode lines/i);
+    const tables = container.querySelectorAll('details[data-chart-data][data-chart-form="table"]');
+    expect(tables).toHaveLength(2);
+    for (const table of tables) {
+      const rows = table.querySelectorAll('tbody tr').length;
+      expect(rows).toBeGreaterThanOrEqual(5);
+      expect(rows).toBeLessThanOrEqual(10);
+    }
   });
 });

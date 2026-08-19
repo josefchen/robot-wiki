@@ -114,4 +114,18 @@ describe('CompoundingError', () => {
     expect(screen.getByTestId('bc-bound-curve')).toBeInTheDocument();
     expect(screen.getByTestId('dagger-bound-curve')).toBeInTheDocument();
   });
+
+  it('describes the bound chart with a sampled table and names the dashed bounds', () => {
+    const { container } = render(<CompoundingError />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed curves/i);
+    expect(desc?.textContent).toMatch(/deviation/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    expect(details?.querySelectorAll('tbody tr').length).toBe(6);
+    const boundsImg = screen.getByRole('img', { name: /regret bounds/i });
+    expect(boundsImg).toHaveAttribute('aria-describedby');
+    const rolloutImg = screen.getByRole('img', { name: /rollout trace/i });
+    expect(rolloutImg).not.toHaveAttribute('aria-describedby');
+  });
 });

@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   accumulatedCost,
   bcBound,
@@ -167,8 +168,34 @@ export function CompoundingError({
       marker: { cx: x(steps), cy: y(Math.min(simAtT, yMax)) },
       bcAtT: bcBound(epsilon, steps),
       daggerAtT: daggerBound(epsilon, steps),
+      // Sampled from the same cumulative sum and the same two bound
+      // functions the three curves are drawn from.
+      sampleRows: [0, 48, 96, 144, 192, maxSteps].map((t) => {
+        let sum = 0;
+        for (let i = 0; i <= t; i += 1) sum += Math.abs(deviation[i]);
+        return {
+          label: `${t}`,
+          values: [
+            formatUnits(sum),
+            formatUnits(bcBound(epsilon, t)),
+            formatUnits(daggerBound(epsilon, t)),
+          ],
+        };
+      }),
     };
   }, [epsilon, steps, mode, chunkSize, dagger, maxSteps]);
+
+  const descriptionText = `With per-step error ${epsilonPercent.toFixed(
+    1,
+  )}% over a ${steps}-step horizon${
+    dagger ? ` and expert relabeling every ${DAGGER_INTERVAL} steps` : ''
+  }, the simulated accumulated deviation reaches ${formatUnits(
+    rollout.cost,
+  )} units against the quadratic epsilon T(T+1)/2 bound of ${formatUnits(
+    bounds.bcAtT,
+  )} and the linear epsilon T bound of ${formatUnits(
+    bounds.daggerAtT,
+  )}; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.`;
 
   function reset() {
     setEpsilonPercent(defaultEpsilon * 100);
@@ -341,6 +368,7 @@ export function CompoundingError({
         viewBox={`0 0 ${BOUNDS_W} ${BOUNDS_H}`}
         role="img"
         aria-label={`Accumulated deviation and regret bounds over the episode horizon; the simulated cost tracks the quadratic epsilon T squared bound and outgrows the linear epsilon T bound.`}
+        aria-describedby={`${uid}-bounds-description`}
         className="mt-2 block w-full"
       >
         <text
@@ -475,6 +503,21 @@ export function CompoundingError({
         bounds at T = {steps}: εT(T+1)/2 = {formatUnits(bounds.bcAtT)}, εT ={' '}
         {formatUnits(bounds.daggerAtT)}
       </p>
+
+      <ChartDescription
+        id={`${uid}-bounds-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled accumulated deviation against both bounds by horizon"
+        rowHeader="horizon T"
+        columns={[
+          { header: 'simulated', numeric: true },
+          { header: 'εT(T+1)/2', numeric: true },
+          { header: 'εT', numeric: true },
+        ]}
+        rows={bounds.sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

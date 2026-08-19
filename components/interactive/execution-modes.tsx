@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   HANDOFF_TICK,
   JERK_LIMIT,
@@ -65,9 +66,12 @@ const f = (v: number) => Number(v.toFixed(2));
 function ModePanel({
   mode,
   delayMs,
+  descriptionId,
 }: {
   mode: ExecutionMode;
   delayMs: number;
+  /** All three panels share one takeaway, so all three point at it. */
+  descriptionId: string;
 }) {
   const meta = MODE_META[mode];
   const trace = executedTrace(mode, delayMs);
@@ -132,6 +136,7 @@ function ModePanel({
         viewBox={`0 0 ${PANEL.width} ${PANEL.height}`}
         role="img"
         aria-label={`Commanded velocity trace for ${meta.label} execution at ${delayMs} milliseconds of inference delay. Peak per-tick velocity step ${peak.toFixed(2)}, ${within ? 'within' : 'above'} the ${JERK_LIMIT.toFixed(2)} jerk limit.`}
+        aria-describedby={descriptionId}
         className="mt-1 block w-full"
       >
         {/* Pause window (synchronous only). */}
@@ -262,10 +267,37 @@ function ModePanel({
 }
 
 export function ExecutionModes({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-em-description`;
   const [delayMs, setDelayMs] = useState(MIN_DELAY_MS);
 
   const naivePeak = peakDeltaV(executedTrace('naive', delayMs));
   const naiveFails = naivePeak > JERK_LIMIT;
+  const rtcPeak = peakDeltaV(executedTrace('rtc', delayMs));
+  const deadMs = pauseTicks(delayMs) * TICK_MS;
+
+  // Sampled from the same executedTrace calls the three panels draw, so a
+  // cell and a plotted vertex are the same number and the table moves
+  // with the delay slider.
+  const sampleRows = useMemo(() => {
+    const traces = Object.fromEntries(
+      MODE_ORDER.map((mode) => [mode, executedTrace(mode, delayMs)]),
+    ) as Record<ExecutionMode, ReturnType<typeof executedTrace>>;
+    return [0, 6, 12, 18, 24, TRACE_TICKS - 1].map((tick) => ({
+      label: `${tick}`,
+      values: MODE_ORDER.map((mode) => {
+        const point = traces[mode].find((p) => p.tick === tick);
+        return (point?.v ?? 0).toFixed(2);
+      }),
+    }));
+  }, [delayMs]);
+
+  const descriptionText = `At ${delayMs} ms of inference delay the synchronous velocity trace stops for ${deadMs} ms of dead time, while the naive switch reaches a peak velocity step of ${naivePeak.toFixed(
+    2,
+  )} per 20 ms tick and real-time chunking reaches ${rtcPeak.toFixed(
+    2,
+  )}, both read against the illustrative ${JERK_LIMIT.toFixed(
+    2,
+  )} limit; the three traces model the published behaviour and are not measured robot data, and the dashed guide is the uninterrupted old plan each executed trace departs from.`;
 
   function reset() {
     setDelayMs(MIN_DELAY_MS);
@@ -328,7 +360,12 @@ export function ExecutionModes({ className }: { className?: string }) {
 
       <div className="mt-3 grid gap-4">
         {MODE_ORDER.map((mode) => (
-          <ModePanel key={mode} mode={mode} delayMs={delayMs} />
+          <ModePanel
+            key={mode}
+            mode={mode}
+            delayMs={delayMs}
+            descriptionId={descriptionId}
+          />
         ))}
       </div>
 
@@ -340,6 +377,21 @@ export function ExecutionModes({ className }: { className?: string }) {
         limit is an illustrative threshold, stated so the comparison is
         numeric.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled commanded velocity across the hand-off"
+        rowHeader="tick"
+        columns={[
+          { header: 'synchronous', numeric: true },
+          { header: 'naive', numeric: true },
+          { header: 'chunking', numeric: true },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

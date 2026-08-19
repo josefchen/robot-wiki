@@ -75,4 +75,21 @@ describe('MpcVsRl', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByTestId('mpc-status').textContent).toMatch(/recovers/i);
   });
+
+  it('renders a table-form chart description that names compute figures and the dashed RL trace', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<MpcVsRl />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed RL trace/i);
+    expect(desc?.textContent).toMatch(/re-solves iLQR/i);
+    expect(desc?.textContent).toMatch(/forward pass/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    expect(details?.querySelectorAll('tbody tr').length).toBe(6);
+    const before = desc?.textContent ?? '';
+    await user.click(screen.getByRole('button', { name: /payload/i }));
+    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
+      before,
+    );
+  });
 });

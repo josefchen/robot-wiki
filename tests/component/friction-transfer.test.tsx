@@ -69,4 +69,21 @@ describe('FrictionTransfer', () => {
     expect(readout('point-readout')).toBe('97%');
     expect(readout('dr-readout')).toBe('74%');
   });
+
+  it('renders a table-form chart description that names the shaded training band', () => {
+    const { container } = render(<FrictionTransfer />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/shaded training band/i);
+    expect(desc?.textContent).toMatch(/dashed edges/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
+    expect(rows).toBeGreaterThanOrEqual(5);
+    expect(rows).toBeLessThanOrEqual(10);
+    const before = desc?.textContent ?? '';
+    fireEvent.change(realMuSlider(), { target: { value: '50' } });
+    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
+      before,
+    );
+  });
 });
