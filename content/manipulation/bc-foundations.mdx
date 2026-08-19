@@ -90,17 +90,17 @@ Every module in this section is, in part, a different answer to the bound above.
     {
       value: 'more-data',
       label: 'Collect ten times more demonstrations of the same task',
-      why: 'More i.i.d. data shrinks the per-step error but leaves the horizon term untouched: Ross, Gordon, and Bagnell's bound grows quadratically in episode length under i.i.d. training, and on long episodes the horizon term dominates. This is the exact belief the DAgger paper was written against.'
+      why: 'More i.i.d. data shrinks the per-step error but leaves the horizon term untouched: Ross, Gordon, and Bagnell’s bound grows quadratically in episode length under i.i.d. training, and on long episodes the horizon term dominates. This is the exact belief the DAgger paper was written against.'
     },
     {
       value: 'chunking',
       label: 'Commit to a chunk of 25 predicted actions per inference',
-      why: 'This one is real but only partial: chunking cuts the number of closed-loop decisions by the chunk size, which is why ACT's accumulated deviation drops over 120 steps. It stretches the horizon the policy can survive; it does not change the quadratic structure, so a two-minute episode can still outrun it.'
+      why: 'This one is real but only partial: chunking cuts the number of closed-loop decisions by the chunk size, which is why ACT’s accumulated deviation drops over 120 steps. It stretches the horizon the policy can survive; it does not change the quadratic structure, so a two-minute episode can still outrun it.'
     },
     {
       value: 'visited-states',
       label: 'Supervision on the states the policy itself visits',
-      why: 'This is the structural fix. The bound's quadratic term comes from testing on the expert's state distribution while deploying on the policy's own; DAgger-style relabeling trains on visited states, keeps deviation bounded, and brings the cost down to near-linear in the horizon.'
+      why: 'This is the structural fix. The bound’s quadratic term comes from testing on the expert’s state distribution while deploying on the policy’s own; DAgger-style relabeling trains on visited states, keeps deviation bounded, and brings the cost down to near-linear in the horizon.'
     }
   ]}
   answer="visited-states"
