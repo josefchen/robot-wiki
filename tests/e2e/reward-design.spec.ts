@@ -53,9 +53,13 @@ test.describe('RL reward-design and MPC module', () => {
       .locator('span');
     await expect(phaseReadout).toHaveText('0%');
     await page.getByRole('button', { name: /play rollout preview/i }).click();
-    // One immediate read, deliberately NOT auto-retrying: the first coarse
-    // tick cannot fire before 200 ms, but a smooth tick would land at 50 ms.
-    await page.waitForTimeout(120);
+    // Immediate read, then one short wait still inside the 200 ms coarse
+    // tick. A 120 ms wait under a long suite can overshoot the first
+    // reduced-motion tick and land on 13%, which is the coarse step, not
+    // a smooth cadence. 80 ms stays inside the 200 ms floor and still
+    // past the 50 ms smooth tick.
+    expect(await phaseReadout.textContent()).toBe('0%');
+    await page.waitForTimeout(80);
     expect(await phaseReadout.textContent()).toBe('0%');
     await expect
       .poll(async () => (await phaseReadout.textContent()) ?? '', { timeout: 5_000 })

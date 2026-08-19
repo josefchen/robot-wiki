@@ -71,6 +71,7 @@ const CHARTS: Array<{
     control: 'button',
     moves: ['low-friction patch', '+5 kg payload'],
     def: 'lateral push',
+    match: 'MPC base-height',
   },
 ];
 
