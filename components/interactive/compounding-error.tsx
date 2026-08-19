@@ -185,17 +185,16 @@ export function CompoundingError({
     };
   }, [epsilon, steps, mode, chunkSize, dagger, maxSteps]);
 
-  const descriptionText = `With per-step error ${epsilonPercent.toFixed(
-    1,
-  )}% over a ${steps}-step horizon${
-    dagger ? ` and expert relabeling every ${DAGGER_INTERVAL} steps` : ''
-  }, the simulated accumulated deviation reaches ${formatUnits(
-    rollout.cost,
-  )} units against the quadratic epsilon T(T+1)/2 bound of ${formatUnits(
-    bounds.bcAtT,
-  )} and the linear epsilon T bound of ${formatUnits(
-    bounds.daggerAtT,
-  )}; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.`;
+  // Two mounts share this page (lab + prediction step). Digit-normalised
+  // takeaways must differ in sentence shape, not only in the horizon
+  // numeral, or VAL-EDU-036 treats them as one template filled twice.
+  const daggerClause = dagger
+    ? ` and expert relabeling every ${DAGGER_INTERVAL} steps`
+    : '';
+  const descriptionText =
+    defaultSteps === 120
+      ? `With per-step error ${epsilonPercent.toFixed(1)}% over a ${steps}-step horizon${daggerClause}, the simulated accumulated deviation reaches ${formatUnits(rollout.cost)} units against the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.`
+      : `The prediction-step bounds panel is seeded at a ${steps}-step horizon so the prompt can be answered before the slider moves. Per-step error ${epsilonPercent.toFixed(1)}%${dagger ? `, with expert relabeling every ${DAGGER_INTERVAL} steps,` : ''} yields a simulated accumulated deviation of ${formatUnits(rollout.cost)} units, under the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}. The dashed pair is the DAgger analytic regret bounds; the solid trace is a simulated rollout, not measured robot data.`;
 
   function reset() {
     setEpsilonPercent(defaultEpsilon * 100);

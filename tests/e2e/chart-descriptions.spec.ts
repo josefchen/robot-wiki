@@ -4,8 +4,8 @@ import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
- * Chart-description contract (VAL-EDU-021..025) over the six retrofitted
- * charts, against the shipped static export (OS-assigned port, same
+ * Chart-description contract (VAL-EDU-021..025) over the retrofitted
+ * series charts, against the shipped static export (OS-assigned port, same
  * convention as the article-header spec).
  *
  * Per route: the SVG carries aria-describedby resolving to a visible
@@ -16,6 +16,11 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * restores the original text exactly; and with JavaScript disabled the
  * description renders and the disclosure opens with numbers matching the
  * no-JS readout.
+ *
+ * CompoundingError mounts two roots in one shell (bounds table + rollout
+ * state). Series assertions select the table disclosure by form, never
+ * `.first()` on a bare `[data-chart-data]`. The rollout state root has
+ * its own assertion at the bottom of this file.
  */
 
 let BASE: string;
@@ -102,6 +107,11 @@ async function setControl(
   await setRange(page, control, value);
 }
 
+/** A dual-root chart can carry both forms. Never `.first()` a bare hook. */
+function tableDisclosure(shell: Locator) {
+  return shell.locator('details[data-chart-data][data-chart-form="table"]');
+}
+
 for (const chart of CHARTS) {
   test.describe(`${chart.name} chart description (${chart.route})`, () => {
     test('SVG resolves a real description and a short name', async ({ page }) => {
@@ -111,13 +121,15 @@ for (const chart of CHARTS) {
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
       const shell = page.locator('div.rounded-md.border', { has: desc }).first();
-      // A component can paint more than one SVG (rollout + bounds,
-      // imagined path + deviation). The described root is the one that
-      // actually carries aria-describedby; `.first()` silently picks a
-      // sibling diagram and reports a false miss.
-      const svg = shell.locator('svg[role][aria-describedby]').first();
+      // Bind the SVG to the takeaway we selected. `.first()` on
+      // svg[role][aria-describedby] silently picks CompoundingError's
+      // rollout root when the test meant the bounds series.
+      const descId = await desc.getAttribute('id');
+      expect(descId, 'description has an id').toBeTruthy();
+      const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`);
+      await expect(svg).toBeAttached();
       const describedby = await svg.getAttribute('aria-describedby');
-      expect(describedby, 'aria-describedby is set').toBeTruthy();
+      expect(describedby, 'aria-describedby is set').toBe(descId);
       // The id resolves, inside this shell, to the takeaway paragraph.
       // Resolved via getElementById (a CSS-escaped selector would also
       // work, but the id contains useId colons).
@@ -155,7 +167,7 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
-      const details = shell.locator('details[data-chart-data]').first();
+      const details = tableDisclosure(shell);
       await expect(details).toBeAttached();
       await expect(details).toHaveAttribute('data-chart-form', 'table');
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
@@ -182,7 +194,7 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
-      const details = shell.locator('details[data-chart-data]').first();
+      const details = tableDisclosure(shell);
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
       const original = (await desc.innerText()).trim();
       const digit = (s: string) => (s.match(/\S*\d\S*/g) ?? []).join(' ');
@@ -230,7 +242,7 @@ for (const chart of CHARTS) {
         `at least some digit tokens appear in the no-JS readout (${digits.join(', ')} -> ${plotted.join(', ')})`,
       ).toBeGreaterThanOrEqual(1);
       // The disclosure opens without script.
-      const details = shell.locator('details[data-chart-data]').first();
+      const details = tableDisclosure(shell);
       const opened = await details.evaluate((el) => {
         const d = el as HTMLDetailsElement;
         d.open = true;
@@ -241,3 +253,45 @@ for (const chart of CHARTS) {
     });
   });
 }
+
+test.describe('compounding rollout state description (/manipulation/bc-foundations)', () => {
+  test('rollout root declares a state-form dl with labelled pairs and no table', async ({
+    page,
+  }) => {
+    await page.goto(`${BASE}/manipulation/bc-foundations`);
+    const desc = page
+      .locator('[data-chart-description]', { hasText: 'Per-timestep prediction' })
+      .first();
+    await expect(desc).toBeAttached();
+    const shell = page.locator('div.rounded-md.border', { has: desc }).first();
+    const descId = await desc.getAttribute('id');
+    expect(descId, 'description has an id').toBeTruthy();
+    const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`);
+    await expect(svg).toBeAttached();
+
+    const details = desc.locator('xpath=../details[@data-chart-data]');
+    await expect(details).toHaveAttribute('data-chart-form', 'state');
+    await details.evaluate((el) => {
+      (el as HTMLDetailsElement).open = true;
+    });
+    await expect(details.locator('table')).toHaveCount(0);
+    await expect(details.locator('dl')).toHaveCount(1);
+    const terms = details.locator('dt');
+    const values = details.locator('dd');
+    const termCount = await terms.count();
+    expect(termCount).toBeGreaterThanOrEqual(3);
+    expect(await values.count()).toBe(termCount);
+    let rich = 0;
+    for (let i = 0; i < termCount; i += 1) {
+      const term = ((await terms.nth(i).innerText()) ?? '').trim();
+      const value = ((await values.nth(i).innerText()) ?? '').trim();
+      expect(term.length, 'term non-empty').toBeGreaterThan(0);
+      expect(value.length, 'value non-empty').toBeGreaterThan(0);
+      if (/\d/.test(value) || /[A-Za-z]{3,}/.test(value)) rich += 1;
+    }
+    expect(rich, 'at least 2 digit or named-regime values').toBeGreaterThanOrEqual(2);
+
+    await expect(shell.locator('details[data-chart-data][data-chart-form="table"]')).toHaveCount(1);
+    await expect(shell.locator('details[data-chart-data][data-chart-form="state"]')).toHaveCount(1);
+  });
+});
