@@ -288,6 +288,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['weights', 'total'],
     text: 'The 12 reward weights sum to a total of -5.52 per step, and the preview is a balanced trot: torque 0.8 and air time 0.6 stay below the 2.5 attractor bar, so the quadruped tracks velocity instead of freezing, prancing, or chattering.',
   },
+  {
+    component: 'WmDisambiguator',
+    file: 'components/interactive/wm-disambiguator.tsx',
+    quantityNames: ['latent', 'reward'],
+    text: 'Latent-dynamics (Dreamer-style) predicts the next latent, a reward of 0.83 and a continue flag of 1, plus a fuzzy decoded frame used at training only; of the 4 uses, only policy learning is lit.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

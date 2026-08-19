@@ -17,6 +17,7 @@ import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
 import { RewardShaping } from '@/components/interactive/reward-shaping';
+import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
@@ -257,6 +258,19 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('WmDisambiguator describes the selected paradigm and tracks the panels', () => {
+    const { container } = render(<WmDisambiguator />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /latent-dynamics panel art/i }),
+      container,
+    );
+    expect(text).toMatch(/Dreamer-style/);
+    fireEvent.click(screen.getByRole('button', { name: /^JEPA/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/dist 0\.31/);
   });
 
   it('RewardShaping names the attractor and tracks a dominant weight', () => {

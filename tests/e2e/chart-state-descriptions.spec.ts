@@ -202,6 +202,16 @@ const CHARTS: Array<{
     def: '10',
     match: 'reward weights',
   },
+  {
+    route: '/world-models/taxonomy',
+    name: 'wm-disambiguator',
+    control: 'button',
+    moves: [
+      'JEPA: predicts an embedding vector and a goal-distance meter, with an explicit no-decoder marker',
+    ],
+    def: 'Latent dynamics: predicts a latent vector, a reward scalar, and a fuzzy decoded reconstruction',
+    match: 'Dreamer-style',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];
