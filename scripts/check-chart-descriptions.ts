@@ -240,6 +240,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['layers', 'actuators'],
     text: 'Motion-tracking RL, represented by Figure Helix 02 S0, stacks 3 control layers ending at a 1000 Hz S0 actuator loop; amber marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.',
   },
+  {
+    component: 'PerceptionLatency',
+    file: 'components/interactive/perception-latency.tsx',
+    quantityNames: ['latency', 'speed'],
+    text: 'At 70 ms of perception latency and 25 m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of 19.21 m/s: 70 ms is lost before control acts, 346 ms is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at 416 ms time to contact.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

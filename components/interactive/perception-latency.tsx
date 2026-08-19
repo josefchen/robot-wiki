@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   AGILITY_STEPS,
   DEFAULT_AGILITY,
@@ -47,6 +48,7 @@ const TICK_Y = LANE_Y + LANE_H + 38;
 const f = (v: number) => Number(v.toFixed(2));
 
 export function PerceptionLatency({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-description`;
   const [latencyMs, setLatencyMs] = useState(DEFAULT_LATENCY_MS);
   const [agility, setAgility] = useState<number>(DEFAULT_AGILITY);
 
@@ -159,6 +161,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
         )} at ${agility} meters per second squared of lateral acceleration. Time to contact ${formatSeconds(
           ttc,
         )}.`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {/* Interval band: latency (dead time) then avoidance maneuver. */}
@@ -294,6 +297,20 @@ export function PerceptionLatency({ className }: { className?: string }) {
         ))}
       </svg>
 
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current sense-and-avoid budget"
+        description={`At ${formatSeconds(latencyS)} of perception latency and ${agility} m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of ${formatSpeed(outcome.maxSpeedMs)}: ${formatSeconds(latencyS)} is lost before control acts, ${formatSeconds(tAvoid)} is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at ${formatSeconds(ttc)} time to contact.`}
+        states={[
+          { label: 'latency', value: formatSeconds(latencyS) },
+          { label: 'agility', value: `${agility} m/s²` },
+          { label: 'max speed', value: formatSpeed(outcome.maxSpeedMs) },
+          { label: 'time to contact', value: formatSeconds(ttc) },
+          { label: 'avoidance', value: formatSeconds(tAvoid) },
+        ]}
+      />
       <p className="mt-3 font-mono text-[11px] leading-relaxed text-text-dim">
         Reference latencies from the study (8 m sensing range):{' '}
         {SENSORS.map((s, i) => (

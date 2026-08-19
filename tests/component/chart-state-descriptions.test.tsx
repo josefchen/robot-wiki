@@ -8,6 +8,7 @@ import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { PerceptionLatency } from '@/components/interactive/perception-latency';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
@@ -249,6 +250,18 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('PerceptionLatency describes the sense-and-avoid budget', () => {
+    const { container } = render(<PerceptionLatency />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/70 ms of perception latency/);
+    fireEvent.change(screen.getByRole('slider', { name: /perception latency/i }), {
+      target: { value: '150' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/150 ms/);
   });
 
   it('WbcDecomposition describes the Helix stack and tracks approach buttons', () => {

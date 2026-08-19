@@ -137,6 +137,14 @@ const CHARTS: Array<{
     def: 'Motion-tracking RL',
     match: 'Motion-tracking RL',
   },
+  {
+    route: '/adjacent/drones',
+    name: 'perception-latency',
+    control: 'range',
+    moves: ['150', '0'],
+    def: '70',
+    match: 'perception latency',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

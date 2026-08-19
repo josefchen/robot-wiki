@@ -85,6 +85,24 @@ describe('PerceptionLatency', () => {
     expect(text).toContain('Event camera 12 ms');
   });
 
+  it('describes the sense-and-avoid timeline and tracks latency', () => {
+    const { container } = render(<PerceptionLatency />);
+    const img = screen.getByRole('img');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/70 ms of perception latency/);
+    expect(desc?.textContent).toMatch(/dashed margin/);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /perception latency/i }),
+      { target: { value: '150' } },
+    );
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/150 ms/);
+    expect(moved).not.toMatch(/70 ms of perception latency/);
+  });
+
   it('announces the timeline readout in a polite live region (VAL-EDU-038)', () => {
     render(<PerceptionLatency />);
     const live = screen.getByTestId('max-speed-readout').closest('[aria-live]');
