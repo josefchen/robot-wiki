@@ -501,9 +501,8 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
   // bordered box." Scoped to "the elements this milestone adds": reveal
   // disclosures and summaries, chart-data disclosures and summaries,
   // option-list containers and option labels, reasoning lists and items,
-  // and the in-reveal cite chip (including the wrapper the chip idiom
-  // puts around the anchor). NOT a re-grade of pre-existing bordered
-  // buttons sitting in pre-existing bordered interactive panels:
+  // and the in-reveal cite chip anchor. NOT a re-grade of pre-existing
+  // bordered buttons sitting in pre-existing bordered interactive panels:
   // VAL-DESIGN-019 (sealed) reasons those are content, not chrome, and
   // this gate is a regression guard, not a replacement. Boxing is graded
   // with the same doublyBoxed() definition as design-chrome.spec.ts
@@ -522,7 +521,31 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
       ['details[data-reveal] ul', 'reasoning list'],
       ['details[data-reveal] li[data-reason]', 'reasoning item'],
       ['details[data-reveal] a[href^="#ref-"]', 'in-reveal cite chip'],
-      ['details[data-reveal] a[href^="#ref-"] ~ span', 'in-reveal cite chip'],
+      // Deliberately NO entry for the cite chip's wrapper span. A
+      // 'details[data-reveal] a[href^="#ref-"] ~ span' entry used to sit
+      // here matching zero elements on every route: `~` is the
+      // following-sibling combinator, the wrapper is the anchor's PARENT
+      // (<span class="...border..."><a href="#ref-...">id</a></span>),
+      // and the anchor has no following span sibling. It survived the
+      // population guard only because totals were keyed by LABEL and the
+      // anchor entry's own matches satisfied the shared 'in-reveal cite
+      // chip' label on its behalf. Do not reintroduce it, and do not
+      // "repair" it to match the wrapper either: the wrapper is NOT a
+      // candidate under the VAL-DESIGN-019 definition this sweep
+      // inherits ("an interactive element (button, a, [role="button"],
+      // or a label wrapping a control) or a purely decorative element
+      // ([aria-hidden="true"]) that is itself a fully bordered
+      // element...") — it is a plain non-interactive,
+      // non-aria-hidden span, outside the candidate set by construction.
+      // That exclusion is what makes the house idiom
+      // (components/ui/cite.tsx, components/article/commit-to-reveal.tsx)
+      // correct: it parks the border on a non-interactive wrapper so the
+      // interactive element carries none. And doublyBoxedAmong() does
+      // NOT re-apply the candidate filter (it lives in doublyBoxed()'s
+      // selector list), so a wrapper-matching selector would flag it —
+      // fully bordered, nearest bordered ancestor the fully bordered
+      // reveal section — turning this gate RED on exactly the markup the
+      // definition endorses.
     ];
     const totals = new Map<string, number>();
     const hits: string[] = [];
@@ -536,22 +559,26 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
           const hits = [];
           for (const [sel, kind] of kinds) {
             const els = Array.from(document.querySelectorAll(sel));
-            totals[kind] = (totals[kind] || 0) + els.length;
+            totals[sel] = (totals[sel] || 0) + els.length;
             for (const bad of doublyBoxedAmong(els)) hits.push(kind + ' :: ' + bad);
           }
           return { totals, hits };
         })()`,
       )) as { totals: Record<string, number>; hits: string[] };
-      for (const [kind, n] of Object.entries(report.totals)) {
-        totals.set(kind, (totals.get(kind) ?? 0) + n);
+      for (const [sel, n] of Object.entries(report.totals)) {
+        totals.set(sel, (totals.get(sel) ?? 0) + n);
       }
       hits.push(...report.hits);
     }
     // Population sanity: a selector that matches zero everywhere grades
     // nothing, and a green sweep over an empty population is vacuous.
-    // Every kind the contract names must exist somewhere in the corpus.
-    for (const [, kind] of kinds) {
-      expect(totals.get(kind) ?? 0, `population of ${kind} is non-empty`).toBeGreaterThan(0);
+    // Asserted PER-SELECTOR, never per label: the guard used to key
+    // totals by kind label, which let two selectors sharing one label
+    // mask each other — the dead '~ span' entry above borrowed its
+    // non-emptiness from the anchor entry until per-selector keying
+    // exposed it. Every selector must match a real population itself.
+    for (const [sel] of kinds) {
+      expect(totals.get(sel) ?? 0, `population of ${sel} is non-empty`).toBeGreaterThan(0);
     }
     expect(hits, 'doubly boxed milestone-added elements').toEqual([]);
   });
