@@ -84,4 +84,11 @@ describe('PerceptionLatency', () => {
     expect(text).toContain('Stereo frame camera 70 ms');
     expect(text).toContain('Event camera 12 ms');
   });
+
+  it('announces the timeline readout in a polite live region (VAL-EDU-038)', () => {
+    render(<PerceptionLatency />);
+    const live = screen.getByTestId('max-speed-readout').closest('[aria-live]');
+    expect(live).toHaveAttribute('aria-live', 'polite');
+    expect(live).not.toHaveAttribute('aria-live', 'assertive');
+  });
 });

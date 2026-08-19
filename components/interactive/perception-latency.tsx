@@ -120,7 +120,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs">
+      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs" aria-live="polite">
         <span className="text-text-dim">
           max speed:{' '}
           <span data-testid="max-speed-readout" className="text-accent">

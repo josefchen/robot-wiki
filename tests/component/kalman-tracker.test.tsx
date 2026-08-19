@@ -278,4 +278,11 @@ describe('KalmanTracker', () => {
       'aria-describedby',
     );
   });
+
+  it('announces the tracker readout in a polite live region (VAL-EDU-038)', () => {
+    render(<KalmanTracker />);
+    const live = screen.getByTestId('kalman-step-readout').closest('[aria-live]');
+    expect(live).toHaveAttribute('aria-live', 'polite');
+    expect(live).not.toHaveAttribute('aria-live', 'assertive');
+  });
 });

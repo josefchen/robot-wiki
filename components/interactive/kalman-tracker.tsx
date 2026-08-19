@@ -440,7 +440,7 @@ export function KalmanTracker({ className }: { className?: string }) {
         </button>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text">
+      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">step</span>{' '}
         <span data-testid="kalman-step-readout" className="text-text">
           {step} / {lastStep}
