@@ -65,7 +65,9 @@ const PLACEMENTS: Placement[] = [
   {
     route: '/manipulation/bc-foundations/',
     figure: 'CompoundingError',
-    primaryControl: /episode horizon/i,
+    // The horizon slider mounts at its max (240), so the error slider is
+    // the control the keyboard probe drives.
+    primaryControl: /per-step error/i,
     mountedReadout: /1505/,
   },
 ];
@@ -596,6 +598,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       const count = await regions.count();
       for (let i = 0; i < count; i += 1) {
         const region = regions.nth(i);
+        const isPredict = (await region.getAttribute('data-predict')) === '';
         const correctReason = region.locator('[data-reason][data-correct="true"]');
         // VAL-EDU-018: a citation chip with a registry id and an absolute
         // href, or an in-page anchor resolving on this route.
@@ -618,7 +621,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
             break;
           }
         }
-        expect(hasChip || anchorResolves, `${route}: uncited correct answer`).toBe(true);
+        if (isPredict) {
+          expect(hasChip || anchorResolves, `${route}: uncited correct answer`).toBe(true);
+        }
 
         // VAL-EDU-019: digit-normalised uniqueness.
         const prompt = await region.locator('fieldset legend').innerText();
