@@ -116,6 +116,22 @@ describe('RewardShaping', () => {
     ).toMatch(/chatter attractor/);
   });
 
+  it('stays balanced at torque 4.0 with velTrack 4.0 and states the relative threshold', () => {
+    // Reproduction of the published false claim: torque 4.0 with
+    // velTrack 4.0 classifies balanced (4.0 >= 2.5 but 4.0 < 2x4.0), so
+    // an absolute "stay below the 2.5 bar" sentence was false here.
+    const { container } = render(<RewardShaping />);
+    fireEvent.change(slider(/torque/i), { target: { value: '40' } });
+    fireEvent.change(slider(/linear velocity/i), { target: { value: '40' } });
+    expect(statusText()).toMatch(/balanced/i);
+    const desc =
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(desc).toMatch(
+      /neither torque 4\.0 nor air time 0\.6 clears the 2\.5 attractor bar and 2x the 4\.0 velocity-tracking weight together/,
+    );
+    expect(desc).not.toMatch(/stay below/);
+  });
+
   it('play toggles to pause and back', async () => {
     const user = userEvent.setup();
     render(<RewardShaping />);

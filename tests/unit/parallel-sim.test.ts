@@ -1,16 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import {
   DEFAULT_ENVS,
+  LEARN_SECONDS,
   MAX_ENVS,
   MIN_ENVS,
   ROLLOUT_STEPS,
   RUDIN_MARKERS,
+  SIM_FIXED_SECONDS,
   TARGET_TRANSITIONS,
+  CPU_PER_ENV_SECONDS,
+  SIM_PER_ENV_SECONDS,
+  TRANSFER_SECONDS,
   curvePoints,
   formatFps,
   formatWallClock,
   iterationBreakdown,
   iterationsToTarget,
+  simulationOvertakeEnvs,
   throughputFps,
   wallClockSeconds,
 } from '@/lib/parallel-sim';
@@ -85,6 +91,36 @@ describe('parallel-sim training-time model', () => {
     expect(fps).toBeLessThan(2e6);
     expect(throughputFps(MAX_ENVS, false)).toBeGreaterThan(fps);
     expect(throughputFps(MIN_ENVS, false)).toBeLessThan(fps);
+  });
+
+  it('simulation draws level with the rest of the iteration at 12,500 envs, default mode only', () => {
+    // Derived from the cost constants, never a hardcoded prose number:
+    // (LEARN + TRANSFER - SIM_FIXED) / SIM_PER_ENV.
+    const overtake = simulationOvertakeEnvs(false);
+    expect(overtake).toBe(
+      (LEARN_SECONDS + TRANSFER_SECONDS - SIM_FIXED_SECONDS) /
+        SIM_PER_ENV_SECONDS,
+    );
+    // 0.05 / 4e-6 in binary floating point; the component rounds for prose.
+    expect(overtake).toBeCloseTo(12500, 6);
+    expect(Math.round(overtake!)).toBe(12500);
+    // At the crossover, simulation equals learn + transfer exactly.
+    expect(iterationBreakdown(overtake!, false).simSeconds).toBeCloseTo(
+      LEARN_SECONDS + TRANSFER_SECONDS,
+      10,
+    );
+    // Simulation is the smaller bucket before the crossover and the
+    // larger one at the top of the slider range.
+    expect(iterationBreakdown(MIN_ENVS, false).simSeconds).toBeLessThan(
+      LEARN_SECONDS + TRANSFER_SECONDS,
+    );
+    expect(iterationBreakdown(MAX_ENVS, false).simSeconds).toBeGreaterThan(
+      LEARN_SECONDS + TRANSFER_SECONDS,
+    );
+    // Bottleneck mode: the per-env CPU cost outgrows simulation
+    // (CPU_PER_ENV > SIM_PER_ENV), so no crossover exists at any env count.
+    expect(CPU_PER_ENV_SECONDS).toBeGreaterThan(SIM_PER_ENV_SECONDS);
+    expect(simulationOvertakeEnvs(true)).toBeNull();
   });
 
   it('Rudin ground-truth markers pin 4 and 20 minutes at 4,096 envs', () => {

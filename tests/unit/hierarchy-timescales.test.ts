@@ -4,9 +4,12 @@ import {
   HIERARCHY_SYSTEMS,
   HORIZON_MS,
   displayTicks,
+  fastestLane,
   getSystem,
   laneEventTimes,
+  laneTickRatio,
   lastUpdateAt,
+  slowestPeriodicLane,
   updateCountAt,
 } from '@/lib/hierarchy-timescales';
 
@@ -136,6 +139,25 @@ describe('updateCountAt and lastUpdateAt', () => {
     expect(lastUpdateAt(control, 1020)).toBe(1020);
     expect(lastUpdateAt(control, 1080)).toBe(1080);
     expect(lastUpdateAt(subtask, 1020)).toBe(lastUpdateAt(subtask, 1080));
+  });
+});
+
+describe('fastestLane, slowestPeriodicLane and laneTickRatio', () => {
+  it('derives the per-system ratio from the fastest and slowest periodic lanes', () => {
+    expect(fastestLane(getSystem('pi05')).id).toBe('control');
+    expect(slowestPeriodicLane(getSystem('pi05')).id).toBe('subtask');
+    expect(laneTickRatio(getSystem('pi05'))).toBe(50);
+    expect(laneTickRatio(getSystem('gemini-15'))).toBe(100);
+    expect(laneTickRatio(getSystem('helix-02'))).toBe(1000);
+    expect(laneTickRatio(getSystem('go2'))).toBe(100);
+  });
+
+  it('never treats the once-only instruction lane as a periodic lane', () => {
+    for (const system of HIERARCHY_SYSTEMS) {
+      expect(fastestLane(system).periodMs).not.toBeNull();
+      expect(fastestLane(system).id).not.toBe('instruction');
+      expect(slowestPeriodicLane(system).id).not.toBe('instruction');
+    }
   });
 });
 

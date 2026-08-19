@@ -224,6 +224,37 @@ export function getSystem(id: string): TimescaleSystem {
 }
 
 /**
+ * The system's fastest periodic lane (smallest periodMs). The instruction
+ * lane (periodMs null) fires once at t=0 and is never a rate, so it is
+ * excluded from both ends of every fastest/slowest comparison.
+ */
+export function fastestLane(system: TimescaleSystem): TimescaleLane {
+  const periodic = system.lanes.filter((l) => l.periodMs !== null);
+  if (periodic.length === 0) throw new Error(`system has no periodic lanes: ${system.id}`);
+  return periodic.reduce((a, b) => (a.periodMs! <= b.periodMs! ? a : b));
+}
+
+/**
+ * The system's slowest periodic lane (largest periodMs; the earliest lane
+ * wins ties, as with pi0.5's equal 1000 ms subtask and chunk lanes).
+ */
+export function slowestPeriodicLane(system: TimescaleSystem): TimescaleLane {
+  const periodic = system.lanes.filter((l) => l.periodMs !== null);
+  if (periodic.length === 0) throw new Error(`system has no periodic lanes: ${system.id}`);
+  return periodic.reduce((a, b) => (a.periodMs! >= b.periodMs! ? a : b));
+}
+
+/**
+ * How many times the fastest lane ticks per update of the slowest periodic
+ * lane: slowestPeriodMs / fastestPeriodMs. This is the per-system ratio a
+ * description may quote; it is derived, never authored, so a system with
+ * no 1 kHz lane can never be described as having one.
+ */
+export function laneTickRatio(system: TimescaleSystem): number {
+  return slowestPeriodicLane(system).periodMs! / fastestLane(system).periodMs!;
+}
+
+/**
  * All update times for a lane within the horizon. A null period fires once
  * at t=0; a periodic lane fires at each multiple of its period, starting
  * with the first one (nothing fires at t=0 for periodic lanes).
