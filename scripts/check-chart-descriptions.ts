@@ -276,6 +276,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['latent', 'distance'],
     text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is a single sample at step 0.',
   },
+  {
+    component: 'ActionConditioning',
+    file: 'components/interactive/action-conditioning.tsx',
+    quantityNames: ['sensitivity', 'realism'],
+    text: 'Under strong conditioning, push left and lift gripper diverge across 4 predicted frames from the shared initial pose; action sensitivity is 0.419 against the 0.30 threshold while visual realism stays 0.91 in both modes.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

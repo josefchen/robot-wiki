@@ -186,6 +186,14 @@ const CHARTS: Array<{
     def: '24',
     match: 'search budget of',
   },
+  {
+    route: '/world-models/generative-video',
+    name: 'action-conditioning',
+    control: 'button',
+    moves: ['Weak conditioning', 'Strong conditioning'],
+    def: 'Strong conditioning',
+    match: 'action sensitivity',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

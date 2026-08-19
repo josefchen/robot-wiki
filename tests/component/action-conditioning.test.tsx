@@ -122,4 +122,29 @@ describe('ActionConditioning', () => {
       screen.getByRole('img', { name: /rollout b/i }),
     ).toBeInTheDocument();
   });
+
+  it('shares one state description across the three roots and tracks conditioning', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<ActionConditioning />);
+    const initial = screen.getByRole('img', { name: /shared initial frame/i });
+    const rolloutA = screen.getByRole('img', { name: /rollout a/i });
+    const rolloutB = screen.getByRole('img', { name: /rollout b/i });
+    expect(initial.getAttribute('aria-describedby')).toBe(
+      rolloutA.getAttribute('aria-describedby'),
+    );
+    expect(rolloutA.getAttribute('aria-describedby')).toBe(
+      rolloutB.getAttribute('aria-describedby'),
+    );
+    const id = initial.getAttribute('aria-describedby');
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/action sensitivity is 0\.419/);
+    expect(desc?.textContent).toMatch(/diverge across 4 predicted frames/);
+    await user.click(screen.getByRole('button', { name: /weak conditioning/i }));
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/stay near-identical across 4 predicted frames/);
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/action sensitivity is 0\.017/);
+  });
 });

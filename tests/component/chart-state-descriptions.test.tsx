@@ -15,6 +15,7 @@ import { PiGenerationTimeline } from '@/components/interactive/pi-generation-tim
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
+import { ActionConditioning } from '@/components/interactive/action-conditioning';
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
@@ -255,6 +256,25 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('ActionConditioning shares one description across the three frames', () => {
+    const { container } = render(<ActionConditioning />);
+    const initial = screen.getByRole('img', { name: /shared initial frame/i });
+    const rolloutA = screen.getByRole('img', { name: /rollout a/i });
+    const rolloutB = screen.getByRole('img', { name: /rollout b/i });
+    expect(initial.getAttribute('aria-describedby')).toBe(
+      rolloutA.getAttribute('aria-describedby'),
+    );
+    expect(rolloutA.getAttribute('aria-describedby')).toBe(
+      rolloutB.getAttribute('aria-describedby'),
+    );
+    const { text } = assertDescribed(initial, container);
+    expect(text).toMatch(/action sensitivity is 0\.419/);
+    fireEvent.click(screen.getByRole('button', { name: /weak conditioning/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/0\.017/);
   });
 
   it('JepaPlanning shares one description across plane and trace', () => {
