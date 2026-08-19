@@ -162,6 +162,14 @@ const CHARTS: Array<{
     def: 'π0',
     match: 'openpi stops',
   },
+  {
+    route: '/manipulation/generalist-policies',
+    name: 'generalist-timeline',
+    control: 'button',
+    moves: ['GR00T N1', 'Skild Brain'],
+    def: 'Helix',
+    match: 'generalist policies',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

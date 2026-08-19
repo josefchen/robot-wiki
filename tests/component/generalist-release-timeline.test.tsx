@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
@@ -98,6 +98,20 @@ describe('GeneralistReleaseTimeline', () => {
     await user.click(screen.getByRole('button', { name: /^Helix$/i }));
     await user.click(screen.getByRole('button', { name: /^open$/i }));
     expect(screen.getByTestId('release-detail')).toHaveTextContent('GR00T N1');
+  });
+
+  it('describes the release axis and tracks the selected policy', () => {
+    const { container } = render(<GeneralistReleaseTimeline />);
+    const img = screen.getByRole('img');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/13 of 13 generalist policies/);
+    expect(desc?.textContent).toMatch(/selected is Helix/);
+    fireEvent.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/selected is GR00T N1/);
   });
 
   it('reset restores the default filter and selection', async () => {

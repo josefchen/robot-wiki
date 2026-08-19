@@ -10,6 +10,7 @@ import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
 import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
 import { PerceptionLatency } from '@/components/interactive/perception-latency';
+import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
@@ -252,6 +253,16 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('GeneralistReleaseTimeline describes the policy axis and tracks selection', () => {
+    const { container } = render(<GeneralistReleaseTimeline />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/selected is Helix/);
+    fireEvent.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/GR00T N1/);
   });
 
   it('PiGenerationTimeline describes the open-weights cut and tracks selection', () => {

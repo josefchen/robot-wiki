@@ -258,6 +258,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['generations', 'weights'],
     text: 'The π line places 7 generations from Oct 2024 to Apr 2026, with the dashed divider after π0.5 marking where openpi stops; selected now is π0 (PaliGemma 3B + 300M action expert, open weights) and 4 later generations are closed.',
   },
+  {
+    component: 'GeneralistReleaseTimeline',
+    file: 'components/interactive/generalist-release-timeline.tsx',
+    quantityNames: ['policies', 'weights'],
+    text: '13 of 13 generalist policies sit on a Feb 2025 to Apr 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and amber nodes mark open weights while dim nodes mark closed ones.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);
