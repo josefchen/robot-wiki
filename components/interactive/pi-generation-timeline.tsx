@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import { citationLabel, getCitation } from '@/data/citations';
 import {
   PI_GENERATIONS,
@@ -54,6 +55,7 @@ export function PiGenerationTimeline({
   defaultSelected = 'pi0',
   className,
 }: PiGenerationTimelineProps) {
+  const descriptionId = `${useId()}-description`;
   const [selectedId, setSelectedId] = useState(defaultSelected);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -96,6 +98,7 @@ export function PiGenerationTimeline({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Timeline of Physical Intelligence model generations from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. Open weights stop at ${frontier.name}; the ${behind} newer generations are closed.`}
+        aria-describedby={descriptionId}
         className="block w-full"
       >
         {/* Closed-weights region */}
@@ -320,6 +323,20 @@ export function PiGenerationTimeline({
           </p>
         )}
       </div>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current π generation"
+        description={`The π line places ${PI_GENERATIONS.length} generations from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}, with the dashed divider after ${frontier.name} marking where openpi stops; selected now is ${selected.name} (${selected.backbone}, ${selected.openWeights ? 'open' : 'closed'} weights) and ${behind} later generations are closed.`}
+        states={[
+          { label: 'selected', value: selected.name },
+          { label: 'released', value: selected.dateLabel },
+          { label: 'weights', value: selected.openWeights ? 'open' : 'closed' },
+          { label: 'generations', value: String(PI_GENERATIONS.length) },
+          { label: 'closed since openpi', value: String(behind) },
+        ]}
+      />
     </div>
   );
 }

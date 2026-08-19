@@ -91,6 +91,7 @@ const CHARTS: Array<{
     control: 'range',
     moves: ['1', '50'],
     def: '10',
+    match: 'Euler',
   },
   {
     route: '/manipulation/knowledge-insulation',
@@ -152,6 +153,14 @@ const CHARTS: Array<{
     moves: ['8', '1'],
     def: '4',
     match: 'physics proxy is off',
+  },
+  {
+    route: '/manipulation/pi-line',
+    name: 'pi-timeline',
+    control: 'button',
+    moves: ['π0.5', 'π0.7'],
+    def: 'π0',
+    match: 'openpi stops',
   },
 ];
 

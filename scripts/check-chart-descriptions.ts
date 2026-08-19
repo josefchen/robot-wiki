@@ -252,6 +252,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['appearance', 'displacement'],
     text: 'Appearance is on and simulation is on, physics proxy is off, so a 4.0 N push leaves the mug at 0.0 cm of displacement; the pixels have no mass until the physics proxy supplies a collision hull.',
   },
+  {
+    component: 'PiGenerationTimeline',
+    file: 'components/interactive/pi-generation-timeline.tsx',
+    quantityNames: ['generations', 'weights'],
+    text: 'The π line places 7 generations from Oct 2024 to Apr 2026, with the dashed divider after π0.5 marking where openpi stops; selected now is π0 (PaliGemma 3B + 300M action expert, open weights) and 4 later generations are closed.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

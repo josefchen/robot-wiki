@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
@@ -61,6 +61,20 @@ describe('PiGenerationTimeline', () => {
     ).toHaveAttribute('aria-pressed', 'true');
     await user.keyboard('{ArrowLeft}');
     expect(first).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('describes the π line and tracks the selected generation', () => {
+    const { container } = render(<PiGenerationTimeline />);
+    const img = screen.getByRole('img');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/7 generations/);
+    expect(desc?.textContent).toMatch(/selected now is π0/);
+    fireEvent.click(screen.getByRole('button', { name: /^π0\.7$/i }));
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/selected now is π0\.7/);
   });
 
   it('reset restores the default selection', async () => {
