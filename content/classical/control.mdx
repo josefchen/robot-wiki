@@ -67,7 +67,7 @@ with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance fro
     {
       value: 'mgl-threshold',
       label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole falls no matter how high the damping',
-      why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units <Cite id="tedrake-underactuated" />. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole up.'
+      why: {<>Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units <Cite id="tedrake-underactuated" />. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole up.</>}
     },
     {
       value: 'any-positive',

@@ -1,7 +1,7 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1240,
-    "minutes": 6
+    "words": 1322,
+    "minutes": 7
   },
   "manipulation/action-chunking": {
     "words": 1374,
@@ -56,8 +56,8 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1812,
-    "minutes": 9
+    "words": 1909,
+    "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
     "words": 1467,
@@ -92,7 +92,7 @@
     "minutes": 7
   },
   "data-hardware/data-bottleneck": {
-    "words": 1514,
+    "words": 1601,
     "minutes": 8
   },
   "data-hardware/datasets": {
@@ -108,7 +108,7 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1669,
+    "words": 1692,
     "minutes": 8
   },
   "classical/kinematics": {
@@ -120,8 +120,8 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2087,
-    "minutes": 10
+    "words": 2187,
+    "minutes": 11
   },
   "classical/state-estimation": {
     "words": 2319,
@@ -132,7 +132,7 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1581,
+    "words": 1594,
     "minutes": 8
   },
   "frontier/dexterity": {
@@ -140,7 +140,7 @@
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 1901,
+    "words": 1995,
     "minutes": 10
   },
   "frontier/competing-theses": {
