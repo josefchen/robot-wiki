@@ -15,6 +15,7 @@ import { PiGenerationTimeline } from '@/components/interactive/pi-generation-tim
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
+import { JepaPlanning } from '@/components/interactive/jepa-planning';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
@@ -254,6 +255,23 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('JepaPlanning shares one description across plane and trace', () => {
+    const { container } = render(<JepaPlanning />);
+    const plane = screen.getByRole('img', { name: /latent space/i });
+    const trace = screen.getByRole('img', { name: /goal-embedding distance/i });
+    expect(plane.getAttribute('aria-describedby')).toBe(
+      trace.getAttribute('aria-describedby'),
+    );
+    const { text } = assertDescribed(plane, container);
+    expect(text).toMatch(/search budget of 24 sequences/);
+    fireEvent.change(screen.getByRole('slider', { name: /search budget/i }), {
+      target: { value: '8' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/8 sequences/);
   });
 
   it('LatentImagination rollout describes the peel and tracks horizon', () => {

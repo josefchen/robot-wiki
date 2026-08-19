@@ -178,6 +178,14 @@ const CHARTS: Array<{
     def: '15',
     match: 'latent rollout view',
   },
+  {
+    route: '/world-models/jepa',
+    name: 'jepa-planning',
+    control: 'range',
+    moves: ['8', '48'],
+    def: '24',
+    match: 'search budget of',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

@@ -270,6 +270,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['policies', 'weights'],
     text: '13 of 13 generalist policies sit on a Feb 2025 to Apr 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and amber nodes mark open weights while dim nodes mark closed ones.',
   },
+  {
+    component: 'JepaPlanning',
+    file: 'components/interactive/jepa-planning.tsx',
+    quantityNames: ['latent', 'distance'],
+    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

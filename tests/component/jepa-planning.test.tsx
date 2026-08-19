@@ -120,4 +120,22 @@ describe('JepaPlanning', () => {
       screen.getByRole('img', { name: /goal-embedding distance/i }),
     ).toBeInTheDocument();
   });
+
+  it('shares one state description across both roots and tracks the budget', () => {
+    const { container } = render(<JepaPlanning />);
+    const plane = screen.getByRole('img', { name: /latent space/i });
+    const trace = screen.getByRole('img', { name: /goal-embedding distance/i });
+    expect(plane.getAttribute('aria-describedby')).toBe(
+      trace.getAttribute('aria-describedby'),
+    );
+    const id = plane.getAttribute('aria-describedby');
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/search budget of 24 sequences/);
+    fireEvent.change(screen.getByRole('slider', { name: /search budget/i }), {
+      target: { value: '8' },
+    });
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/search budget of 8 sequences/);
+  });
 });

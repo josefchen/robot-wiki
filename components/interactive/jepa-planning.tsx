@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_CANDIDATES,
   GOALS,
@@ -102,6 +103,7 @@ export function JepaPlanning({
   defaultCandidates = DEFAULT_CANDIDATES,
   className,
 }: JepaPlanningProps) {
+  const descriptionId = `${useId()}-description`;
   const [candidateCount, setCandidateCount] = useState(defaultCandidates);
   const [goalIndex, setGoalIndex] = useState(0);
   const [history, setHistory] = useState<LatentPoint[]>([INITIAL_STATE]);
@@ -233,6 +235,7 @@ export function JepaPlanning({
         viewBox={`0 0 ${PLANE_W} ${PLANE_H}`}
         role="img"
         aria-label={`Latent space planning view. The current latent is at distance ${formatDistance(distance)} from the goal latent after ${steps} planning steps toward ${goal.label}.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         <text x={PLANE_PAD} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
@@ -375,6 +378,7 @@ export function JepaPlanning({
         viewBox={`0 0 ${TRACE_W} ${TRACE_H}`}
         role="img"
         aria-label={`Goal-embedding distance per planning step. The distance falls from ${formatDistance(initialDistance)} at step 0 to ${formatDistance(distance)} at step ${steps}.`}
+        aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
         <text
@@ -470,6 +474,19 @@ export function JepaPlanning({
           </>
         )}
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current JEPA planning state"
+        description={`At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
+        states={[
+          { label: 'search budget', value: `${candidateCount} sequences` },
+          { label: 'goal', value: goal.label },
+          { label: 'steps', value: String(steps) },
+          { label: 'distance', value: formatDistance(distance) },
+        ]}
+      />
     </div>
   );
 }
