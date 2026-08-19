@@ -56,6 +56,21 @@ export interface CommitOption {
    * is. Must read complete with JavaScript disabled.
    */
   why: ReactNode;
+  /**
+   * Optional citation registry id. MDX cannot embed a <Cite> chip inside
+   * an attribute expression (they are ES expressions, not JSX), so the
+   * component renders the chip itself: a small mono link to this
+   * article's References entry (#ref-<id>), which exists on every
+   * article that lists the id in its frontmatter citations. This is how
+   * a correct answer stays traceable to its source (VAL-EDU-018).
+   */
+  cite?: string;
+  /**
+   * Optional in-page anchor rendered at the end of this option's
+   * reasoning, for answers whose evidence is the article's own section
+   * or interactive rather than an external source.
+   */
+  anchor?: { href: string; label: string };
 }
 
 /** Props shared by every commit-to-reveal surface. */
@@ -180,7 +195,25 @@ export function CommitToReveal({
                 )}
               >
                 <span className="font-medium">{option.label}</span>
-                <span>{option.why}</span>
+                <span>
+                  {option.why}
+                  {option.cite ? (
+                    <a
+                      href={`#ref-${option.cite}`}
+                      className="ml-1 rounded-xs border border-border bg-surface-2 px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:border-accent hover:text-accent"
+                    >
+                      {option.cite}
+                    </a>
+                  ) : null}
+                  {option.anchor ? (
+                    <a
+                      href={option.anchor.href}
+                      className="ml-1 text-[0.72em] text-text-dim underline decoration-border transition-colors hover:text-accent"
+                    >
+                      {option.anchor.label}
+                    </a>
+                  ) : null}
+                </span>
               </li>
             ))}
           </ul>
