@@ -81,6 +81,7 @@ describe('filterCompanies', () => {
         'irobot',
         'berkshire-grey',
         'abb-robotics',
+        'mentee-robotics', // 2026-08-18: Mobileye completed the acquisition on 2026-02-03 (Form 8-K)
       ]),
     );
     expect(acquired.every((row) => row.status === 'acquired')).toBe(true);
@@ -359,7 +360,12 @@ describe('timelineEvents', () => {
       date: '2026-01-14',
     });
     expect(byId['neura-robotics']).toMatchObject({
-      amountUsd: 1_400_000_000,
+      // amountUsd nulled 2026-08-18 (batch-3 re-verification): every fetched
+      // body — the company's own release, CNBC, TNW — phrases the round as
+      // "up to $1.4 billion", a bound the issuer declined to make exact.
+      // Type, date and the Tether lead survive from the same fetches.
+      amountUsd: null,
+      type: 'Series C',
       date: '2026-06-10',
     });
     expect(byId['unitree-robotics']).toMatchObject({

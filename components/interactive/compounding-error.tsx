@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   accumulatedCost,
   bcBound,
@@ -59,6 +60,10 @@ export function CompoundingError({
   chunkSize = 25,
   className,
 }: CompoundingErrorProps) {
+  // useId-derived input ids: this component legitimately renders twice
+  // on one page (article prose plus a prediction-step figure), and
+  // hardcoded ids would duplicate and cross-bind labels between mounts.
+  const uid = useId();
   const [epsilonPercent, setEpsilonPercent] = useState(defaultEpsilon * 100);
   const [steps, setSteps] = useState(defaultSteps);
   const [mode, setMode] = useState<PredictionMode>('per-step');
@@ -163,8 +168,33 @@ export function CompoundingError({
       marker: { cx: x(steps), cy: y(Math.min(simAtT, yMax)) },
       bcAtT: bcBound(epsilon, steps),
       daggerAtT: daggerBound(epsilon, steps),
+      // Sampled from the same cumulative sum and the same two bound
+      // functions the three curves are drawn from.
+      sampleRows: [0, 48, 96, 144, 192, maxSteps].map((t) => {
+        let sum = 0;
+        for (let i = 0; i <= t; i += 1) sum += Math.abs(deviation[i]);
+        return {
+          label: `${t}`,
+          values: [
+            formatUnits(sum),
+            formatUnits(bcBound(epsilon, t)),
+            formatUnits(daggerBound(epsilon, t)),
+          ],
+        };
+      }),
     };
   }, [epsilon, steps, mode, chunkSize, dagger, maxSteps]);
+
+  // Two mounts share this page (lab + prediction step). Digit-normalised
+  // takeaways must differ in sentence shape, not only in the horizon
+  // numeral, or VAL-EDU-036 treats them as one template filled twice.
+  const daggerClause = dagger
+    ? ` and expert relabeling every ${DAGGER_INTERVAL} steps`
+    : '';
+  const descriptionText =
+    defaultSteps === 120
+      ? `With per-step error ${epsilonPercent.toFixed(1)}% over a ${steps}-step horizon${daggerClause}, the simulated accumulated deviation reaches ${formatUnits(rollout.cost)} units against the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.`
+      : `The prediction-step bounds panel is seeded at a ${steps}-step horizon so the prompt can be answered before the slider moves. Per-step error ${epsilonPercent.toFixed(1)}%${dagger ? `, with expert relabeling every ${DAGGER_INTERVAL} steps,` : ''} yields a simulated accumulated deviation of ${formatUnits(rollout.cost)} units, under the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}. The dashed pair is the DAgger analytic regret bounds; the solid trace is a simulated rollout, not measured robot data.`;
 
   function reset() {
     setEpsilonPercent(defaultEpsilon * 100);
@@ -189,7 +219,7 @@ export function CompoundingError({
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="ce-epsilon"
+            htmlFor={`${uid}-epsilon`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Per-step error
@@ -198,7 +228,7 @@ export function CompoundingError({
             </span>
           </label>
           <input
-            id="ce-epsilon"
+            id={`${uid}-epsilon`}
             type="range"
             min={MIN_EPSILON_PERCENT}
             max={MAX_EPSILON_PERCENT}
@@ -211,7 +241,7 @@ export function CompoundingError({
         </div>
         <div>
           <label
-            htmlFor="ce-horizon"
+            htmlFor={`${uid}-horizon`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Episode horizon
@@ -220,7 +250,7 @@ export function CompoundingError({
             </span>
           </label>
           <input
-            id="ce-horizon"
+            id={`${uid}-horizon`}
             type="range"
             min={MIN_STEPS}
             max={maxSteps}
@@ -278,6 +308,7 @@ export function CompoundingError({
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
         role="img"
         aria-label={`Rollout trace of a policy with per-step error ${epsilonPercent.toFixed(1)} percent over ${steps} steps, drifting away from the demonstrated path.`}
+        aria-describedby={`${uid}-rollout-description`}
         className="mt-4 block w-full"
       >
         <text
@@ -337,6 +368,7 @@ export function CompoundingError({
         viewBox={`0 0 ${BOUNDS_W} ${BOUNDS_H}`}
         role="img"
         aria-label={`Accumulated deviation and regret bounds over the episode horizon; the simulated cost tracks the quadratic epsilon T squared bound and outgrows the linear epsilon T bound.`}
+        aria-describedby={`${uid}-bounds-description`}
         className="mt-2 block w-full"
       >
         <text
@@ -471,6 +503,45 @@ export function CompoundingError({
         bounds at T = {steps}: εT(T+1)/2 = {formatUnits(bounds.bcAtT)}, εT ={' '}
         {formatUnits(bounds.daggerAtT)}
       </p>
+
+      <ChartDescription
+        id={`${uid}-rollout-description`}
+        className="mt-3"
+        form="state"
+        summary="Current rollout regime"
+        description={
+          defaultSteps === 120
+            ? `${mode === 'per-step' ? 'Per-timestep prediction' : `Chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent per-step error over ${steps} steps, DAgger relabeling ${dagger ? 'on' : 'off'}, leaves the rollout drifting from the demonstrated path with accumulated deviation ${formatUnits(rollout.cost)} units.`
+            : `The doubled-horizon figure keeps ${mode === 'per-step' ? 'per-timestep prediction' : `chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent error across ${steps} steps with DAgger ${dagger ? 'on' : 'off'}, so the rollout accumulated deviation is ${formatUnits(rollout.cost)} units before any expert correction.`
+        }
+        states={[
+          {
+            label: 'mode',
+            value:
+              mode === 'per-step'
+                ? 'per-timestep prediction'
+                : `chunk of ${chunkSize}`,
+          },
+          { label: 'epsilon', value: `${epsilonPercent.toFixed(1)}%` },
+          { label: 'horizon', value: `${steps} steps` },
+          { label: 'DAgger', value: dagger ? 'on' : 'off' },
+          { label: 'deviation', value: `${formatUnits(rollout.cost)} units` },
+        ]}
+      />
+      <ChartDescription
+        id={`${uid}-bounds-description`}
+        className="mt-3"
+        form="table"
+        summary="Sampled accumulated deviation against both bounds by horizon"
+        rowHeader="horizon T"
+        columns={[
+          { header: 'simulated', numeric: true },
+          { header: 'εT(T+1)/2', numeric: true },
+          { header: 'εT', numeric: true },
+        ]}
+        rows={bounds.sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

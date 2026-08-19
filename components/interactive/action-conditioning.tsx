@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   ACTIONS,
   INITIAL_STATE,
@@ -140,6 +141,7 @@ export function ActionConditioning({
   defaultConditioning = 'strong',
   className,
 }: ActionConditioningProps) {
+  const descriptionId = `${useId()}-description`;
   const [actionA, setActionA] = useState<ActionId>(defaultActionA);
   const [actionB, setActionB] = useState<ActionId>(defaultActionB);
   const [conditioning, setConditioning] =
@@ -211,6 +213,7 @@ export function ActionConditioning({
           viewBox={`0 0 ${width} ${SCENE_H + 16}`}
           role="img"
           aria-label={`Rollout ${panel.toUpperCase()}: predicted frames under the action ${actionLabel(action)}, ${conditioning} conditioning.`}
+          aria-describedby={descriptionId}
           className="mt-1.5 block w-full"
         >
           {frames.slice(1).map((state, i) => {
@@ -287,6 +290,7 @@ export function ActionConditioning({
           viewBox={`0 0 ${SCENE_W} ${SCENE_H}`}
           role="img"
           aria-label="Shared initial frame: a block centered on a table with a gripper above it and a goal zone marked on the left."
+          aria-describedby={descriptionId}
           className="mt-1.5 block w-full max-w-[240px]"
         >
           <Scene state={INITIAL_STATE} />
@@ -315,6 +319,24 @@ export function ActionConditioning({
         model still renders sharp, plausible video: it just renders the same
         future no matter which action you choose.
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current action-conditioning pair"
+        description={
+          diverged
+            ? `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} diverge across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
+            : `Under ${conditioning} conditioning, ${actionLabel(actionA).toLowerCase()} and ${actionLabel(actionB).toLowerCase()} stay near-identical across ${ROLLOUT_STEPS} predicted frames from the shared initial pose; action sensitivity is ${sensitivity.toFixed(3)} against the ${SENSITIVITY_THRESHOLD.toFixed(2)} threshold while visual realism stays ${realism.toFixed(2)} in both modes.`
+        }
+        states={[
+          { label: 'conditioning', value: conditioning },
+          { label: 'rollout A', value: actionLabel(actionA).toLowerCase() },
+          { label: 'rollout B', value: actionLabel(actionB).toLowerCase() },
+          { label: 'sensitivity', value: sensitivity.toFixed(3) },
+          { label: 'realism', value: realism.toFixed(2) },
+        ]}
+      />
     </div>
   );
 }

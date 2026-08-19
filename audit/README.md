@@ -342,3 +342,14 @@ registry-id mis-cite in the classical ledger, settled the orphan-registry
 policy note, and gated dataset-source liveness (`check:dataset-sources`).
 No article's factual content changed and no verdict was altered by the
 recount.
+
+The batch-3 re-verification (2026-08-18) revisited the twelve remaining
+records whose fields came from the b1b161f aggregator pass, after the six
+checked at ba0c1e9 all proved defective: 10 of 12 were corrected, 2
+confirmed, and 8 corrections nulled a figure the sources only hedge or
+contradict. The dataset grew 229 → 249 URLs, all live or documented
+exceptions on two identical consecutive gate runs (exit 0). One host fact
+recorded for future passes: thenextweb.com answers HEAD with 404 while
+serving GET 200, so its articles can be fetched as evidence but cannot be
+carried as dataset sources under the gate's HEAD-first check, and dead is
+never exceptable.

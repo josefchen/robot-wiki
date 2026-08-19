@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DENOISING_STEPS,
   MODE_CENTERS,
@@ -59,6 +60,7 @@ function statusLabel(step: number): string {
 }
 
 export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps) {
+  const descriptionId = `${useId()}-description`;
   const [step, setStep] = useState(defaultStep);
   const trajectory = useMemo(() => generateDenoisingTrajectory(), []);
   const samples = useMemo(() => samplesAtStep(trajectory, step), [trajectory, step]);
@@ -143,6 +145,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Scatter plot of 60 action samples in a 2D action space at denoising step ${step} of ${DENOISING_STEPS}. The cloud is ${statusLabel(step)}. Two target modes are marked with crosses.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Axes */}
@@ -226,6 +229,19 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
           {dispersion.toFixed(2)}
         </span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current denoising cloud"
+        description={`At denoising step ${step} of ${DENOISING_STEPS} the 60-sample cloud is ${statusLabel(step)}, mean distance to mode ${dispersion.toFixed(2)}; DDIM inference is pulling mass toward the two target crosses.`}
+        states={[
+          { label: 'step', value: `${step} / ${DENOISING_STEPS}` },
+          { label: 'cloud', value: statusLabel(step) },
+          { label: 'mean distance', value: dispersion.toFixed(2) },
+          { label: 'samples', value: '60' },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Illustrative model: 60 samples with a fixed seed, transported toward
         two demonstration modes over {DENOISING_STEPS} steps, the DDIM

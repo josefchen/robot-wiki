@@ -54,7 +54,7 @@ describe('ChunkSizeCurve', () => {
 
   it('marks the interpolated region as not measured', () => {
     render(<ChunkSizeCurve />);
-    expect(screen.getByText(/interpolat/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/interpolat/i).length).toBeGreaterThan(0);
   });
 
   it('reset restores the default state', async () => {
@@ -80,5 +80,21 @@ describe('ChunkSizeCurve', () => {
     expect(
       screen.getByTestId('chunk-decisions-readout'),
     ).toHaveTextContent('8');
+  });
+
+  it('renders a table-form chart description that names the dashed region', () => {
+    const { container } = render(<ChunkSizeCurve />);
+    const desc = container.querySelector('[data-chart-description]');
+    expect(desc?.textContent).toMatch(/dashed region past k = 100/i);
+    const details = container.querySelector('details[data-chart-data]');
+    expect(details).toHaveAttribute('data-chart-form', 'table');
+    expect(details?.querySelectorAll('tbody tr').length).toBeGreaterThanOrEqual(5);
+    const before = desc?.textContent ?? '';
+    fireEvent.change(screen.getByRole('slider', { name: /chunk size/i }), {
+      target: { value: '1' },
+    });
+    expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
+      before,
+    );
   });
 });

@@ -114,4 +114,27 @@ describe('ContactGeometry', () => {
       screen.getAllByTestId(/^contact-marker-/).length,
     ).toBeGreaterThan(12);
   });
+
+  it('describes the stance and tracks the error slider (VAL-EDU-032/034)', () => {
+    const { container } = render(<ContactGeometry />);
+    const img = screen.getByRole('img');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/Locomotion at 2\.0 mm/);
+    expect(desc?.textContent).toMatch(/dashed tolerance band/);
+    const details = container.querySelector(
+      'details[data-chart-data][data-chart-form="state"]',
+    );
+    expect(details).toBeTruthy();
+    expect(details?.querySelectorAll('dt').length).toBeGreaterThanOrEqual(3);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /contact-model error/i }),
+      { target: { value: '25' } },
+    );
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/25\.0 mm/);
+    expect(moved).not.toMatch(/stays stable/);
+  });
 });

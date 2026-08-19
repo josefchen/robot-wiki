@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import {
@@ -8,6 +8,18 @@ import {
 } from '@/lib/egoscale-law';
 
 const ROUTE = '/frontier/generalization/';
+
+/**
+ * The standalone article mount of the scaling chart. The article also
+ * renders a second EgoScaleScaling inside the prediction step's
+ * disclosure, so every per-mount locator must be scoped to exactly one.
+ */
+function egs(page: Page) {
+  return page
+    .locator('div.prose > div.rounded-md:has([data-testid="horizon-readout"])')
+    .first();
+}
+
 
 const HORIZON = { name: /extrapolation horizon/i };
 
@@ -102,50 +114,50 @@ test.describe('frontier generalization module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const slider = page.getByRole('slider', HORIZON);
+    const slider = egs(page).getByRole('slider', HORIZON);
     await expect(slider).toBeVisible();
     await expect(
-      page.getByRole('button', { name: /reset/i }).first(),
+      egs(page).getByRole('button', { name: /reset/i }),
     ).toBeVisible();
 
     // Default 100k horizon: the band and dashed extrapolation are visible
     // on load, and both scenarios are read out.
-    const band = page.getByTestId('uncertainty-band');
+    const band = egs(page).getByTestId('uncertainty-band');
     await expect(band).toBeVisible();
-    await expect(page.getByTestId('extrapolated-loss-law')).toBeVisible();
-    await expect(page.getByTestId('horizon-readout')).toHaveText('100k h');
-    await expect(page.getByTestId('loss-readout')).toContainText('0.0102');
-    await expect(page.getByTestId('loss-readout')).toContainText('0.0150');
+    await expect(egs(page).getByTestId('extrapolated-loss-law')).toBeVisible();
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
+    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0102');
+    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0150');
 
     // The validation-loss caveat is stated next to the chart.
-    const caveat = page.getByTestId('scaling-caveat');
+    const caveat = egs(page).getByTestId('scaling-caveat');
     await expect(caveat).toContainText(/validation loss/i);
     await expect(caveat).toContainText(/not a confidence interval/i);
     await expect(caveat).toContainText(/real-world success rate/i);
 
     // Pulling back to the measured-range boundary removes the band.
     await setSlider(slider, SLIDER_MIN);
-    await expect(page.getByTestId('horizon-readout')).toHaveText('20k h');
-    await expect(page.getByTestId('uncertainty-band')).toHaveCount(0);
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('20k h');
+    await expect(egs(page).getByTestId('uncertainty-band')).toHaveCount(0);
 
     // Pushing to 1M updates the projection and flags the impossible fit.
     await setSlider(slider, SLIDER_MAX);
-    await expect(page.getByTestId('horizon-readout')).toHaveText('1M h');
-    await expect(page.getByTestId('loss-readout')).toContainText('0.0033');
-    await expect(page.getByTestId('impossible-note')).toBeVisible();
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('1M h');
+    await expect(egs(page).getByTestId('loss-readout')).toContainText('0.0033');
+    await expect(egs(page).getByTestId('impossible-note')).toBeVisible();
 
     // Keyboard operation moves the horizon.
     await setSlider(slider, hoursToSlider(100_000));
-    const before = await page.getByTestId('horizon-readout').textContent();
+    const before = await egs(page).getByTestId('horizon-readout').textContent();
     await slider.focus();
     for (let i = 0; i < 50; i += 1) await page.keyboard.press('ArrowRight');
-    await expect(page.getByTestId('horizon-readout')).not.toHaveText(
+    await expect(egs(page).getByTestId('horizon-readout')).not.toHaveText(
       before ?? '',
     );
 
     // Reset restores the default.
-    await page.getByRole('button', { name: /reset/i }).first().click();
-    await expect(page.getByTestId('horizon-readout')).toHaveText('100k h');
+    await egs(page).getByRole('button', { name: /reset/i }).click();
+    await expect(egs(page).getByTestId('horizon-readout')).toHaveText('100k h');
   });
 
   test('defines the solved bar and notes no system meets it (VAL-FRONT-012)', async ({
@@ -163,8 +175,8 @@ test.describe('frontier generalization module', () => {
       /no current system has been evaluated this way/i,
     );
     // The bar is drawn on the chart and every measured point sits below it.
-    await expect(page.getByTestId('solved-bar')).toBeVisible();
-    await expect(page.getByTestId('completion-readout')).toContainText(
+    await expect(egs(page).getByTestId('solved-bar')).toBeVisible();
+    await expect(egs(page).getByTestId('completion-readout')).toContainText(
       /below the solved bar/i,
     );
   });

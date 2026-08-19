@@ -3,6 +3,17 @@ import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/classical/control/';
 
+/**
+ * The standalone article mount of the pendulum lab. The article also
+ * renders a second PendulumController inside the prediction step's
+ * disclosure, so every per-mount locator must be scoped to exactly one.
+ */
+function pendulum(page: Page) {
+  return page
+    .locator('div.prose > div.rounded-md:has([data-testid="pendulum-scene"])')
+    .first();
+}
+
 function collectPageErrors(page: Page): string[] {
   const errors: string[] = [];
   page.on('pageerror', (err) => errors.push(err.message));
@@ -27,7 +38,7 @@ async function visibleArticleText(page: Page): Promise<string> {
 
 async function angleDeg(page: Page): Promise<number> {
   const text =
-    (await page.getByTestId('pendulum-angle-readout').textContent()) ?? '';
+    (await pendulum(page).getByTestId('pendulum-angle-readout').textContent()) ?? '';
   const value = Number.parseFloat(text.replace('°', ''));
   expect(Number.isFinite(value)).toBe(true);
   return value;
@@ -152,42 +163,42 @@ test.describe('classical control module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const scene = page.getByTestId('pendulum-scene');
+    const scene = pendulum(page).getByTestId('pendulum-scene');
     await expect(scene).toBeVisible();
-    await expect(page.getByTestId('pendulum-rod')).toBeVisible();
-    await expect(page.getByTestId('pendulum-mass')).toBeVisible();
-    await expect(page.getByTestId('pendulum-payload')).toBeVisible();
+    await expect(pendulum(page).getByTestId('pendulum-rod')).toBeVisible();
+    await expect(pendulum(page).getByTestId('pendulum-mass')).toBeVisible();
+    await expect(pendulum(page).getByTestId('pendulum-payload')).toBeVisible();
     await expect(
-      page.getByRole('slider', { name: /proportional gain kp/i }),
+      pendulum(page).getByRole('slider', { name: /proportional gain kp/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('slider', { name: /integral gain ki/i }),
+      pendulum(page).getByRole('slider', { name: /integral gain ki/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('slider', { name: /derivative gain kd/i }),
+      pendulum(page).getByRole('slider', { name: /derivative gain kd/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('button', { name: /run the simulation/i }),
+      pendulum(page).getByRole('button', { name: /run the simulation/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('button', { name: /push the pole/i }),
+      pendulum(page).getByRole('button', { name: /push the pole/i }),
     ).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
+    await expect(pendulum(page).getByRole('button', { name: /reset/i })).toBeVisible();
     // Initial readouts: the 12-degree release, not yet running.
-    await expect(page.getByTestId('pendulum-angle-readout')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-angle-readout')).toHaveText(
       '+12.0°',
     );
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       /holding at release/i,
     );
 
     // No layout shift: the scene box is stable before and after interaction.
     const before = await scene.boundingBox();
-    await page.getByRole('button', { name: /run the simulation/i }).click();
+    await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     const after = await scene.boundingBox();
     expect(after?.width).toBe(before?.width);
     expect(after?.height).toBe(before?.height);
-    await page.getByRole('button', { name: /pause the simulation/i }).click();
+    await pendulum(page).getByRole('button', { name: /pause the simulation/i }).click();
   });
 
   test('gain changes visibly alter stability live; reset restores (VAL-CLASS-019)', async ({
@@ -197,8 +208,8 @@ test.describe('classical control module', () => {
     await page.goto(ROUTE);
 
     // Default gains: the loop settles into its small steady lean.
-    await page.getByRole('button', { name: /run the simulation/i }).click();
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
       { timeout: 20_000 },
     );
@@ -207,29 +218,29 @@ test.describe('classical control module', () => {
     expect(Math.abs(settledAngle)).toBeLessThan(6);
 
     // Weaken the proportional gain to zero while running: the pole falls.
-    const kp = page.getByRole('slider', { name: /proportional gain kp/i });
+    const kp = pendulum(page).getByRole('slider', { name: /proportional gain kp/i });
     await kp.focus();
     await kp.press('Home');
-    await expect(page.getByTestId('pendulum-gain-kp-value')).toHaveText('0.0');
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-gain-kp-value')).toHaveText('0.0');
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'fallen',
       { timeout: 15_000 },
     );
     expect(Math.abs(await angleDeg(page))).toBeGreaterThan(60);
 
     // Reset restores the release state and the default gains.
-    await page.getByRole('button', { name: /reset/i }).click();
-    await expect(page.getByTestId('pendulum-angle-readout')).toHaveText(
+    await pendulum(page).getByRole('button', { name: /reset/i }).click();
+    await expect(pendulum(page).getByTestId('pendulum-angle-readout')).toHaveText(
       '+12.0°',
     );
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       /holding at release/i,
     );
-    await expect(page.getByTestId('pendulum-gain-kp-value')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-gain-kp-value')).toHaveText(
       '25.0',
     );
     await expect(
-      page.getByRole('button', { name: /run the simulation/i }),
+      pendulum(page).getByRole('button', { name: /run the simulation/i }),
     ).toBeVisible();
   });
 
@@ -238,20 +249,20 @@ test.describe('classical control module', () => {
   }) => {
     test.setTimeout(60_000);
     await page.goto(ROUTE);
-    await page.getByRole('button', { name: /run the simulation/i }).click();
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
       { timeout: 20_000 },
     );
     const before = await angleDeg(page);
 
-    await page.getByRole('button', { name: /push the pole/i }).click();
+    await pendulum(page).getByRole('button', { name: /push the pole/i }).click();
     // The 2 rad/s kick is immediately visible in the angle readout.
     await expect
       .poll(async () => Math.abs(await angleDeg(page)), { timeout: 5_000 })
       .toBeGreaterThan(Math.abs(before) + 5);
     // And the tuned loop pulls it back.
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
+    await expect(pendulum(page).getByTestId('pendulum-status-readout')).toHaveText(
       'settled',
       { timeout: 20_000 },
     );
@@ -259,17 +270,17 @@ test.describe('classical control module', () => {
 
   test('the interactive is keyboard-operable', async ({ page }) => {
     await page.goto(ROUTE);
-    const kd = page.getByRole('slider', { name: /derivative gain kd/i });
+    const kd = pendulum(page).getByRole('slider', { name: /derivative gain kd/i });
     await kd.focus();
     await expect(kd).toBeFocused();
     await kd.press('ArrowRight');
-    await expect(page.getByTestId('pendulum-gain-kd-value')).toHaveText('3.1');
+    await expect(pendulum(page).getByTestId('pendulum-gain-kd-value')).toHaveText('3.1');
     // The run control takes focus and toggles with the keyboard.
-    const run = page.getByRole('button', { name: /run the simulation/i });
+    const run = pendulum(page).getByRole('button', { name: /run the simulation/i });
     await run.focus();
     await page.keyboard.press('Enter');
     await expect(
-      page.getByRole('button', { name: /pause the simulation/i }),
+      pendulum(page).getByRole('button', { name: /pause the simulation/i }),
     ).toBeVisible();
     // Stop it again so the spec leaves no timer running.
     await page.keyboard.press('Enter');
@@ -281,7 +292,7 @@ test.describe('classical control module', () => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
-    await page.getByRole('button', { name: /run the simulation/i }).click();
+    await pendulum(page).getByRole('button', { name: /run the simulation/i }).click();
     // Coarse ticks at 320 ms: within 4 s the pole has visibly moved in from
     // the 12-degree release.
     await expect

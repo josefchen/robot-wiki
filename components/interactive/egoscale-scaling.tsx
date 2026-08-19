@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   COMPLETION_FIT,
   COMPLETION_POINTS,
@@ -21,6 +22,7 @@ import {
   plateauCompletion,
   plateauLoss,
   sliderToHours,
+  solvedBarCrossingHours,
   validationLoss,
 } from '@/lib/egoscale-law';
 import { cx } from '@/lib/utils';
@@ -111,10 +113,36 @@ const X_TICKS: Array<{ hours: number; label: string }> = [
 const LOSS_TICKS = [0.005, 0.01, 0.015, 0.02, 0.025];
 const SCORE_TICKS = [0.25, 0.5, 0.75, 1];
 
-export function EgoScaleScaling({ className }: { className?: string }) {
-  const [sliderValue, setSliderValue] = useState(
-    hoursToSlider(DEFAULT_HORIZON_HOURS),
+type EgoScaleScalingProps = {
+  /**
+   * Initial extrapolation horizon in hours of egocentric human video.
+   * Defaults to the stock 100k; a prediction step mounts the chart at
+   * the horizon that answers its prompt.
+   */
+  defaultHorizonHours?: number;
+  className?: string;
+};
+
+export function EgoScaleScaling({
+  defaultHorizonHours = DEFAULT_HORIZON_HOURS,
+  className,
+}: EgoScaleScalingProps) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and a
+  // hardcoded id would duplicate and cross-bind labels between the mounts.
+  const horizonId = `${useId()}-horizon`;
+  const descriptionId = `${useId()}-description`;
+  const [sliderValue, setSliderValue] = useState(() =>
+    hoursToSlider(defaultHorizonHours),
   );
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultHours, setPrevDefaultHours] = useState(defaultHorizonHours);
+  if (defaultHorizonHours !== prevDefaultHours) {
+    setPrevDefaultHours(defaultHorizonHours);
+    setSliderValue(hoursToSlider(defaultHorizonHours));
+  }
   const horizon = sliderToHours(sliderValue);
   const extrapolating = horizon > MEASURED_MAX_HOURS * 1.001;
 
@@ -165,7 +193,7 @@ export function EgoScaleScaling({ className }: { className?: string }) {
   const boundaryX = xFor(MEASURED_MAX_HOURS);
 
   function reset() {
-    setSliderValue(hoursToSlider(DEFAULT_HORIZON_HOURS));
+    setSliderValue(hoursToSlider(defaultHorizonHours));
   }
 
   const barRelation = pastImpossible
@@ -184,7 +212,7 @@ export function EgoScaleScaling({ className }: { className?: string }) {
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="egs-horizon"
+            htmlFor={horizonId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Extrapolation horizon
@@ -193,7 +221,7 @@ export function EgoScaleScaling({ className }: { className?: string }) {
             </span>
           </label>
           <input
-            id="egs-horizon"
+            id={horizonId}
             type="range"
             min={SLIDER_MIN}
             max={SLIDER_MAX}
@@ -240,7 +268,8 @@ export function EgoScaleScaling({ className }: { className?: string }) {
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Line chart of EgoScale's log-linear scaling law. Validation loss falls from 0.024 at 1k hours to 0.015 at 20k hours of human video pretraining, the end of the measured range; downstream task completion rises from 0.30 to 0.71 over the same range. The extrapolation horizon is set to ${formatHours(horizon)}, where the dashed projections are bracketed by a scenario band and the dotted solved bar at 90 percent remains unmet by every measured system.`}
+        aria-label={`EgoScale scaling law: validation loss and task completion against pretraining hours, horizon ${formatHours(horizon)}`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         <text
@@ -551,6 +580,31 @@ export function EgoScaleScaling({ className }: { className?: string }) {
           </span>
         )}
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled loss and completion by pretraining hours"
+        rowHeader="pretraining hours"
+        columns={[
+          { header: 'loss (MSE)', numeric: true },
+          { header: 'task completion', numeric: true },
+          { header: 'region', numeric: false },
+        ]}
+        rows={[
+          { label: '1k h', values: [formatLoss(validationLoss(1000)), formatScore(completionFit(1000)), 'measured'] },
+          { label: '4k h', values: [formatLoss(validationLoss(4000)), formatScore(completionFit(4000)), 'measured'] },
+          { label: '10k h', values: [formatLoss(validationLoss(10_000)), formatScore(completionFit(10_000)), 'measured'] },
+          { label: '20k h', values: [formatLoss(validationLoss(20_000)), formatScore(completionFit(20_000)), 'measured range ends'] },
+          { label: '100k h', values: [`${formatLoss(validationLoss(100_000))} holds / ${formatLoss(plateauLoss(100_000))} plateau`, `${formatScore(completionFit(100_000))} holds / ${formatScore(plateauCompletion(100_000))} plateau`, 'extrapolated, dashed'] },
+          { label: '1M h', values: [`${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`, `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`, 'extrapolated, dashed'] },
+        ]}
+        description={
+          defaultHorizonHours !== DEFAULT_HORIZON_HOURS
+            ? `The generalization prediction-step law panel is seeded past the 100 percent crossing: validation loss still falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, but the completion fit is already flagged as impossible at the ${formatHours(horizon)} horizon rather than drawn through 100 percent.`
+            : `Validation loss falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, the end of the measured range, while task completion rises from 0.30 to 0.71; past that boundary the dashed extrapolation to the ${formatHours(horizon)} horizon reads ${formatLoss(lawAtHorizon)} if the law holds against ${formatLoss(plateauAtHorizon)} at the plateau, the shaded scenario band between them is a scenario bracket and not a confidence interval, the completion fit stays below the 90 percent solved bar until ${Math.round(solvedBarCrossingHours() / 1000)}k hours, and it exceeds 100 percent past ${Math.round(impossibleHours / 1000)}k hours, which the chart flags instead of drawing.`
+        }
+      />
       <p
         data-testid="scaling-caveat"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"

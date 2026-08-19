@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
+import { ChartDescription } from '@/components/ui';
 import {
   RRT_SCENE,
   buildRrt,
@@ -54,6 +55,7 @@ function statusText(iteration: number, goalIteration: number | null): string {
 }
 
 export function RrtExplorer({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-description`;
   const result = useMemo(() => buildRrt(RRT_SCENE), []);
   const total = result.nodes.length - 1;
   const [iteration, setIteration] = useState(0);
@@ -185,6 +187,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`RRT exploration of a 2D planning scene with ${RRT_SCENE.obstacles.length} obstacles between a start on the left and a goal on the right. Iteration ${iteration} of ${total}, ${nodes.length} nodes. Status: ${status}.`}
+        aria-describedby={descriptionId}
         data-testid="rrt-scene"
         className="mt-4 block w-full"
       >
@@ -323,6 +326,22 @@ export function RrtExplorer({ className }: { className?: string }) {
           {goalReached ? `${formatLength(result.pathLength)} units` : 'n/a'}
         </span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current RRT tree state"
+        description={`The RRT tree is at iteration ${iteration} of ${total} with ${nodes.length} ${nodes.length === 1 ? 'node' : 'nodes'} and status ${status}; path length is ${goalReached ? `${formatLength(result.pathLength)} units` : 'n/a'} until a branch first reaches the goal.`}
+        states={[
+          { label: 'iteration', value: `${iteration} / ${total}` },
+          { label: 'nodes', value: String(nodes.length) },
+          { label: 'status', value: status },
+          {
+            label: 'path length',
+            value: goalReached ? `${formatLength(result.pathLength)} units` : 'n/a',
+          },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         One accepted extension per iteration from a fixed seed, so the growth
         is identical on every load. Each step samples a random point (2% of

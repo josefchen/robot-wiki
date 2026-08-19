@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import { citationLabel, getCitation } from '@/data/citations';
 import {
   LAYER_COUNT,
@@ -68,6 +69,7 @@ const SUPERVISION_LABEL: Record<string, string> = {
 };
 
 export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsulationProps) {
+  const descriptionId = `${useId()}-description`;
   const [pass, setPass] = useState<Pass>('forward');
   const [stopGradient, setStopGradient] = useState(true);
   const [step, setStep] = useState(defaultStep);
@@ -185,6 +187,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Mixture-of-Transformers diagram. ${passDescription}`}
+        aria-describedby={descriptionId}
         data-testid="mot-diagram"
         className="mt-4 block w-full"
       >
@@ -491,6 +494,21 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           to the same bussing-task performance vs pi0
         </span>
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current MoT pass"
+        description={`${pass === 'forward' ? 'Forward' : 'Backward'} pass at depth ${step} of ${LAYER_COUNT} keeps backbone supervision on ${SUPERVISION_LABEL[supervision]}, language following at ${score} of 100, and the measured ${TRAINING_STEP_SPEEDUP}x fewer training steps vs pi0; the stop-gradient is ${stopGradient ? 'on' : 'off'} so expert gradients ${stopGradient ? 'stay inside the action expert' : 'cross into the backbone'}.`}
+        states={[
+          { label: 'pass', value: pass },
+          { label: 'depth', value: `${step} / ${LAYER_COUNT}` },
+          { label: 'stop-gradient', value: stopGradient ? 'on' : 'off' },
+          { label: 'supervision', value: SUPERVISION_LABEL[supervision] },
+          { label: 'language score', value: `${score} / 100` },
+        ]}
+      />
 
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
         <span className="font-mono text-[10px] text-text-dim">

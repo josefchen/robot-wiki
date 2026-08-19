@@ -38,7 +38,7 @@ A robot that finishes a task 80% of the time is a demo. A robot that finishes it
 
 A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either.
 
-<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} className="my-6" />
+<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="reliability" className="my-6" />
 
 The calculator computes the product at any setting, and its sliders span the full range so the boundary cases stay honest: at 100% per-step the task always completes, at 0% it never does, and at a horizon of one step the readout equals the per-step value. Two refinements matter for reading real systems. First, the independence assumption is generous: a mistake carries the robot into a state outside its training distribution, where the next mistake is more likely, so <Term id="compounding-error">compounding error</Term> makes the true curve worse than the calculator's. Second, the inverse reading sets the engineering bar. Holding 99% end-to-end success on a 50-step task requires about 99.98% per-step reliability, a figure no generalist policy publishes.
 
@@ -69,3 +69,26 @@ The dashboard keeps the two classes apart. A verified row is documented against 
 ## What solved would look like
 
 A closed reliability gap has a measurable shape: a deployed system with a documented mean time between failures above 1,000 hours on real tasks, formal safety guarantees for human-robot interaction, and a published protocol for the failure modes that remain. No current system publishes any of the three. Until one does, the honest unit of progress is not the demo but the verified operating hour, and on that metric the field measures tens of thousands of hours against the millions that general-purpose deployment implies.
+
+<SelfCheck
+  prompt="Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?"
+  options={[
+    {
+      value: 'monitor-closes',
+      label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',
+      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'
+    },
+    {
+      value: 'monitor-no',
+      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',
+      why: 'This is the module’s own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'
+    },
+    {
+      value: 'human-coach',
+      label: 'No, so put a human coach on every episode instead',
+      why: 'Coaching works, and π0.7 accepts step-by-step language correction to recover failures it has not seen. But a bridged gap is not a closed one: the reliability number that matters is the one with the coach removed, and supervised operation is a deployment tactic, not a path to the customer’s 99%.'
+    }
+  ]}
+  answer="monitor-no"
+  takeaway="Monitors make failures visible and coaches rescue episodes, but only on-robot experience moves the policy’s own per-step number: detection is not prevention."
+/>

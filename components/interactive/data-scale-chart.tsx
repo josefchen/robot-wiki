@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   COLLECTION_RATES,
   DEFAULT_RIGS,
@@ -106,13 +107,30 @@ const TIER_OFFSETS: Record<0 | 1 | 2, { label: number; value: number }> = {
 
 export function DataScaleChart({
   defaultRigs = DEFAULT_RIGS,
+  defaultRate = 'dedicated',
   className,
 }: {
   defaultRigs?: number;
+  /** Initial collection-rate assumption; a prediction step mounts the
+   *  chart at the rate that answers its prompt. */
+  defaultRate?: CollectionRateId;
   className?: string;
 }) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and a
+  // hardcoded id would duplicate and cross-bind labels between the mounts.
+  const rigsId = `${useId()}-rigs`;
+  const descriptionId = `${useId()}-description`;
   const [rigs, setRigs] = useState(defaultRigs);
-  const [rateId, setRateId] = useState<CollectionRateId>('dedicated');
+  const [rateId, setRateId] = useState<CollectionRateId>(defaultRate);
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultRate, setPrevDefaultRate] = useState(defaultRate);
+  if (defaultRate !== prevDefaultRate) {
+    setPrevDefaultRate(defaultRate);
+    setRateId(defaultRate);
+  }
 
   const rate = rateById(rateId);
   const perYear = hoursPerYear(rigs, rateId);
@@ -145,7 +163,7 @@ export function DataScaleChart({
 
   function reset() {
     setRigs(defaultRigs);
-    setRateId('dedicated');
+    setRateId(defaultRate);
   }
 
   return (
@@ -158,7 +176,7 @@ export function DataScaleChart({
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="dsc-rigs"
+            htmlFor={rigsId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Teleoperation rigs
@@ -167,7 +185,7 @@ export function DataScaleChart({
             </span>
           </label>
           <input
-            id="dsc-rigs"
+            id={rigsId}
             type="range"
             min={MIN_RIGS}
             max={MAX_RIGS}
@@ -241,7 +259,8 @@ export function DataScaleChart({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Log-log chart of demonstration hours against pretraining tokens. Robot and human datasets sit on the hours axis from DROID at 350 hours to EgoScale at 20,854 hours; language corpora sit on the tokens axis from GPT-3 at 300 billion to Llama 3 at 15 trillion, over ${gapDecades} orders of magnitude apart. Your projected farm of ${formatRigs(rigs)} rigs yields ${formatHours(perYear)} per year.`}
+        aria-label={`Demonstration hours against pretraining tokens, ${formatRigs(rigs)}-rig farm projection`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         <text
@@ -493,6 +512,49 @@ export function DataScaleChart({
         {rate.note} Hours marked ~ are estimates; everything else is a
         published count from the cited source.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Datasets and corpora by scale, with the farm projection"
+        rowHeader="dataset"
+        columns={[
+          { header: 'demonstration hours', numeric: true },
+          { header: 'pretraining tokens', numeric: true },
+        ]}
+        rows={[
+          // A robot dataset has no token count and a language corpus has
+          // no demonstration hours: the value is genuinely inapplicable
+          // (the house "n/a", not a withheld "not disclosed").
+          ...ROBOT_POINTS.map((p) => ({
+            label: p.label,
+            values: [p.value, 'n/a'] as Array<string>,
+          })),
+          ...LLM_POINTS.map((p) => ({
+            label: p.label,
+            values: ['n/a', p.value] as Array<string>,
+          })),
+          {
+            label: `your farm (${formatRigs(rigs)} rigs)`,
+            values: [`${formatHours(perYear)}/yr`, 'n/a'],
+          },
+        ]}
+        description={
+          <>
+            Demonstration hours span {ROBOT_POINTS[0].value} (DROID) to{' '}
+            {ROBOT_POINTS[ROBOT_POINTS.length - 1].value} (EgoScale) across{' '}
+            {ROBOT_POINTS.length} robot and human datasets, while pretraining tokens
+            span {LLM_POINTS[0].value.replace(' tokens', '')} (GPT-3) to{' '}
+            {LLM_POINTS[LLM_POINTS.length - 1].value.replace(' tokens', '')} (Llama
+            3), {gapDecades} orders of magnitude apart with no honest hour-to-token
+            exchange rate between the lanes; your {formatRigs(rigs)}-rig farm at the{' '}
+            {rate.label.toLowerCase()} rate projects {formatHours(perYear)} per year,
+            reaching OXE scale in {formatDuration(oxeYears)} and 100x OXE in{' '}
+            {formatDuration(frontierYears)}.
+          </>
+        }
+      />
     </div>
   );
 }

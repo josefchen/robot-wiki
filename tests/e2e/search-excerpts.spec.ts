@@ -671,3 +671,102 @@ test.describe('excerpt chrome: article header metadata row', () => {
     }
   });
 });
+
+/**
+ * VAL-EDU-039: chart takeaways stay searchable and sampled disclosure
+ * values do not fuse into excerpts. Queries are drawn from published
+ * prose and from takeaway sentences, never from the ignored `details`.
+ */
+test.describe('VAL-EDU-039 search excerpts do not degrade', () => {
+  const proseQueries: Array<{ query: string; href: string }> = [
+    { query: 'covariate shift', href: '/manipulation/bc-foundations/' },
+    { query: 'sim-to-real', href: '/rl-sim2real/sim2real-transfer/' },
+    { query: 'conditioning-strength problem', href: '/world-models/generative-video/' },
+    { query: 'joint-embedding', href: '/world-models/jepa/' },
+    { query: 'force closure', href: '/classical/grasp-planning/' },
+  ];
+  const takeawayQueries: Array<{ query: string; href: string }> = [
+    { query: 'Dreamer-style', href: '/world-models/taxonomy/' },
+    { query: 'attractor bar', href: '/rl-sim2real/reward-design-mpc/' },
+  ];
+
+  test('prose queries still return a readable article excerpt', async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    for (const { query, href } of proseQueries) {
+      const excerpts = await searchExcerpts(page, query);
+      const prose = page.getByRole('region', { name: 'Modules' });
+      await expect(
+        prose.locator(`a[data-search-result][href="${href}"]`),
+      ).toHaveCount(1);
+      expect(excerpts.length, `query "${query}" returns excerpts`).toBeGreaterThan(0);
+      const excerpt = excerpts[0] ?? '';
+      const tokens = excerpt.split(/\s+/).filter(Boolean);
+      const digitTokens = tokens.filter((token) => /\d/.test(token));
+      expect(tokens.length, `"${query}" excerpt word count`).toBeGreaterThanOrEqual(8);
+      expect(
+        digitTokens.length / Math.max(tokens.length, 1),
+        `"${query}" excerpt digit ratio`,
+      ).toBeLessThanOrEqual(0.3);
+    }
+  });
+
+  test('takeaway-derived queries find their hosting article', async ({
+    page,
+  }) => {
+    test.setTimeout(90_000);
+    for (const { query, href } of takeawayQueries) {
+      await searchExcerpts(page, query);
+      const prose = page.getByRole('region', { name: 'Modules' });
+      await expect(
+        prose.locator(`a[data-search-result][href="${href}"]`),
+      ).toHaveCount(1);
+    }
+  });
+
+  test('no excerpt carries three contiguous disclosure values', async ({
+    page,
+  }) => {
+    test.setTimeout(180_000);
+    const disclosureValues: string[] = [];
+    const cellRe = /<(?:dd|td)\b[^>]*>([\s\S]*?)<\/(?:dd|td)>/gi;
+    for (const route of [
+      'world-models/taxonomy',
+      'rl-sim2real/reward-design-mpc',
+      'world-models/jepa',
+      'world-models/generative-video',
+    ]) {
+      const html = readFileSync(
+        join(process.cwd(), 'out', route, 'index.html'),
+        'utf8',
+      );
+      const blocks = html.match(/<details[^>]*data-chart-data[\s\S]*?<\/details>/g) ?? [];
+      for (const block of blocks) {
+        for (const match of block.matchAll(cellRe)) {
+          const text = match[1].replace(/<[^>]+>/g, '').trim();
+          if (text) disclosureValues.push(text);
+        }
+      }
+    }
+    expect(disclosureValues.length, 'export has chart-data cells').toBeGreaterThan(0);
+
+    const queries = [...proseQueries, ...takeawayQueries];
+    for (const { query } of queries) {
+      const excerpts = await searchExcerpts(page, query);
+      for (const excerpt of excerpts) {
+        const tokens = excerpt.split(/\s+/).filter(Boolean);
+        for (let i = 0; i < tokens.length - 2; i += 1) {
+          const run = [tokens[i], tokens[i + 1], tokens[i + 2]];
+          const allFromDisclosure = run.every((token) =>
+            disclosureValues.includes(token),
+          );
+          expect(
+            allFromDisclosure,
+            `excerpt for "${query}" fuses disclosure values "${run.join(' ')}"`,
+          ).toBe(false);
+        }
+      }
+    }
+  });
+});

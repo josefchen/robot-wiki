@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   MAX_HORIZON,
   TYPICAL_HORIZON,
@@ -143,6 +144,8 @@ export function LatentImagination({
   defaultEpsilon = 0.02,
   className,
 }: LatentImaginationProps) {
+  const descriptionId = `${useId()}-li-description`;
+  const rolloutDescriptionId = `${useId()}-li-rollout`;
   const [horizon, setHorizon] = useState(defaultHorizon);
   const [epsilonPercent, setEpsilonPercent] = useState(defaultEpsilon * 100);
   const [mode, setMode] = useState<ImaginationMode>('decoder');
@@ -209,6 +212,27 @@ export function LatentImagination({
 
   const deviationNow = deviationAt({ epsilon, horizon });
   const rewardError = rewardPredictionError({ epsilon, horizon });
+
+  const sampleRows = useMemo(() => {
+    const series = imagineDeviation({ epsilon, horizon: MAX_HORIZON });
+    const steps = [...new Set([0, 10, 20, 30, 40, MAX_HORIZON, horizon])].sort(
+      (a, b) => a - b,
+    );
+    return steps.map((t) => ({
+      label: `${t}`,
+      values: [
+        formatUnits(series[t]),
+        t >= TYPICAL_HORIZON[0] && t <= TYPICAL_HORIZON[1]
+          ? 'inside published range'
+          : t < TYPICAL_HORIZON[0]
+            ? 'before published range'
+            : 'past published range',
+        t === horizon ? 'playhead' : 'off',
+      ],
+    }));
+  }, [epsilon, horizon]);
+
+  const descriptionText = `Latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under ${epsilonPercent.toFixed(1)}% one-step error, compounding rather than staying flat; the shaded band marks the published ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.`;
 
   // Decoded frames at quarter, half, and full horizon (decoder mode only).
   const frameSteps = [
@@ -317,6 +341,7 @@ export function LatentImagination({
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
         role="img"
         aria-label={`Imagined rollout in latent space over ${horizon} steps, peeling away from the true latent trajectory as one-step errors compound.`}
+        aria-describedby={rolloutDescriptionId}
         className="mt-4 block w-full"
       >
         <text x={16} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
@@ -368,6 +393,7 @@ export function LatentImagination({
         viewBox={`0 0 ${DEV_W} ${DEV_H}`}
         role="img"
         aria-label={`Latent deviation versus imagination step. Deviation compounds superlinearly and reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the published horizons of 3 to 15 steps.`}
+        aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
         <text x={DEV_PAD.left} y={11} fill={DIM} fontSize={10} fontFamily={MONO}>
@@ -522,6 +548,34 @@ export function LatentImagination({
           </>
         )}
       </p>
+
+      <ChartDescription
+        id={rolloutDescriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current imagined rollout"
+        description={`In the latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and finishes ${formatUnits(deviationNow)} units away at t = ${horizon} of ${MAX_HORIZON}; that peel is the visual form of one-step error compounding, not a second plot of the same deviation series.`}
+        states={[
+          { label: 'horizon', value: `${horizon} steps` },
+          { label: 'one-step error', value: `${epsilonPercent.toFixed(1)}%` },
+          { label: 'endpoint deviation', value: formatUnits(deviationNow) },
+          { label: 'mode', value: mode === 'decoder' ? 'with decoder' : 'decoder-free' },
+        ]}
+      />
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled latent deviation by imagination step"
+        rowHeader="step"
+        columns={[
+          { header: 'deviation', numeric: true },
+          { header: 'range', numeric: false },
+          { header: 'playhead', numeric: false },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

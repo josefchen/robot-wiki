@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   APPROACH_ORDER,
   DEFAULT_APPROACH,
   approachById,
   fastestRateLabel,
+  type WbcApproach,
   type WbcApproachId,
 } from '@/lib/wbc-decomposition';
 import { cx } from '@/lib/utils';
@@ -40,6 +42,16 @@ const BOX_H = 44;
 const GAP = 28;
 const ROBOT_H = 30;
 
+function wbcTakeaway(approach: WbcApproach, fastest: string): string {
+  if (approach.id === 'tracking-rl') {
+    return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 actuator loop; amber marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.`;
+  }
+  if (approach.id === 'latent-action') {
+    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over an undisclosed-rate controller); amber still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
+  }
+  return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; amber marks the VLA itself as the layer that talks to the actuators across 3 embodiments, because there is no internal interface between policy and robot.`;
+}
+
 export function WbcDecomposition({
   defaultApproach = DEFAULT_APPROACH,
   className,
@@ -47,6 +59,7 @@ export function WbcDecomposition({
   defaultApproach?: WbcApproachId;
   className?: string;
 }) {
+  const descriptionId = `${useId()}-description`;
   const [approachId, setApproachId] = useState<WbcApproachId>(defaultApproach);
   const approach = approachById(approachId);
   const fastest = fastestRateLabel(approach);
@@ -124,6 +137,7 @@ export function WbcDecomposition({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Whole-body control stack for the ${approach.name} decomposition, representative system ${approach.representative}. ${approach.layers.length} layers from ${approach.layers[0].name} down to full-body actuators. Fastest disclosed loop ${fastest}.`}
+        aria-describedby={descriptionId}
         data-testid="wbc-diagram"
         className="mt-3 block w-full"
       >
@@ -284,6 +298,20 @@ export function WbcDecomposition({
         <span className="text-text-dim">Fastest loop</span>{' '}
         <span className="text-text">{fastest}</span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current whole-body stack"
+        description={wbcTakeaway(approach, fastest)}
+        states={[
+          { label: 'approach', value: approach.name },
+          { label: 'representative', value: approach.representative },
+          { label: 'layers', value: String(approach.layers.length) },
+          { label: 'fastest loop', value: fastest },
+          { label: 'top layer', value: approach.layers[0].name },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         {approach.idea} In this stack, {approach.interfaceNote}. Amber marks
         the layer that talks to the actuators. Openness: {approach.openness}.

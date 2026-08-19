@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Badge } from '@/components/ui';
+import { useId, useState } from 'react';
+import { Badge, ChartDescription } from '@/components/ui';
 import {
+  CONTROL_HZ,
   CONTROL_PERIOD_MS,
   LATENCY_REFERENCES,
   MAX_PARAMS_B,
@@ -42,6 +43,16 @@ const CHART = {
 
 const DEFAULT_PARAMS_B = PI0_ANCHOR.paramsB;
 
+type ControlLoopBudgetProps = {
+  /**
+   * Initial model size in billions of parameters. Defaults to the pi0
+   * anchor (3.0B). A prediction step mounts the figure at the size that
+   * answers its prompt; existing mounts pass nothing and are unchanged.
+   */
+  defaultParamsB?: number;
+  className?: string;
+};
+
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
@@ -54,8 +65,24 @@ function formatRefMs(ms: number): string {
   return Number.isInteger(ms) ? `${ms} ms` : formatMs(ms);
 }
 
-export function ControlLoopBudget({ className }: { className?: string }) {
-  const [paramsB, setParamsB] = useState<number>(DEFAULT_PARAMS_B);
+export function ControlLoopBudget({
+  defaultParamsB = DEFAULT_PARAMS_B,
+  className,
+}: ControlLoopBudgetProps) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (a standalone mount plus a wrapped prediction figure), and a
+  // hardcoded id would duplicate and cross-bind the label.
+  const modelSizeId = `${useId()}-clb-model-size`;
+  const descriptionId = `${useId()}-clb-description`;
+  const [paramsB, setParamsB] = useState<number>(defaultParamsB);
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultParamsB, setPrevDefaultParamsB] = useState(defaultParamsB);
+  if (defaultParamsB !== prevDefaultParamsB) {
+    setPrevDefaultParamsB(defaultParamsB);
+    setParamsB(defaultParamsB);
+  }
 
   const inferenceMs = inferenceMsOnThor(paramsB);
   const closes = loopCloses(inferenceMs);
@@ -71,7 +98,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
   const overflowMs = Math.max(0, inferenceMs - WINDOW_MS);
 
   function reset() {
-    setParamsB(DEFAULT_PARAMS_B);
+    setParamsB(defaultParamsB);
   }
 
   return (
@@ -84,7 +111,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="clb-model-size"
+            htmlFor={modelSizeId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Model size
@@ -99,7 +126,7 @@ export function ControlLoopBudget({ className }: { className?: string }) {
             </span>
           </label>
           <input
-            id="clb-model-size"
+            id={modelSizeId}
             type="range"
             min={MIN_PARAMS_B}
             max={MAX_PARAMS_B}
@@ -124,7 +151,8 @@ export function ControlLoopBudget({ className }: { className?: string }) {
       <svg
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
         role="img"
-        aria-label={`Control-loop timeline. One inference of ${formatMs(inferenceMs)} for a ${paramsB.toFixed(1)} billion parameter model against the 20 millisecond budget of a 50 hertz loop. The loop ${closes ? 'closes' : 'does not close'} at this size.`}
+        aria-label={`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Tick gridlines, one per 20 ms control period. */}
@@ -282,6 +310,41 @@ export function ControlLoopBudget({ className }: { className?: string }) {
         scaling between and below them is an illustrative memory-bound
         model, not a measurement.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Inference latency by model size, against the 20 ms budget"
+        rowHeader="model size"
+        columns={[
+          { header: 'inference', numeric: true },
+          { header: 'effective rate', numeric: true },
+          { header: 'loop', numeric: false },
+        ]}
+        rows={[0.5, 1.0, 2.0, 3.0, 6.0, 9.1].map((b) => {
+          const ms = inferenceMsOnThor(b);
+          return {
+            label: `${b.toFixed(1)}B`,
+            values: [
+              formatMs(ms),
+              `${Math.round(effectiveHz(ms))} Hz`,
+              loopCloses(ms) ? 'closes' : 'does not close',
+            ],
+          };
+        })}
+        description={
+          <>
+            A {paramsB.toFixed(1)}B-parameter model takes {formatMs(inferenceMs)} of
+            inference against the {Math.round(CONTROL_PERIOD_MS)} ms budget of a{' '}
+            {CONTROL_HZ} Hz loop, {closes ? 'closing the loop' : `missing ${missed} ${missed === 1 ? 'deadline' : 'deadlines'} and running at ${Math.round(hz)} Hz`};
+            inference stays under budget only below about{' '}
+            {(PI0_ANCHOR.paramsB * CONTROL_PERIOD_MS / PI0_ANCHOR.inferenceMs).toFixed(1)}B
+            parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the
+            scaling is modeled rather than measured.
+          </>
+        }
+      />
 
       <ul className="mt-4 divide-y divide-border border-t border-border">
         {LATENCY_REFERENCES.map((ref) => {

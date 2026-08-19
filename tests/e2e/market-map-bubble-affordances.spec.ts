@@ -94,9 +94,26 @@ test.describe('bubble view hover/focus affordances', () => {
     // extreme-top mark at cy=35.61; paintedTop = cy - r - halfStroke =
     // 35.61 - 8.5 - 1 = 26.11. The bound protects "the painted ring edge
     // sits above the clip rect's top edge (y=24) plus a 3-unit tolerance
-    // for scale drift from plotted-set changes", so 27 is the new bound;
-    // the ring itself is NOT clipped (insideClip stays false) and still
-    // paints fully outside the clip group.
+    // for scale drift from plotted-set changes", so 27 was the bound.
+    // Re-baselined again 2026-08-18 (figure-corrections pass: the plotted
+    // set shrank 37 -> 32 when four contradicted figures were nulled and
+    // the log-scale floor rose with the $5M clone-robotics total gone):
+    // anduril's paintedTop was 27.72, so 28 was the bound; the ring
+    // itself is NOT clipped (insideClip stays false) and still paints
+    // fully outside the clip group.
+    // Re-baselined a third time 2026-08-18 (Mentee acquisition-status
+    // correction: mentee-robotics left the plotted set 32 -> 31 when its
+    // $17M aggregator-only total was nulled — the $900M Mobileye
+    // acquisition is a deal value, not a funding total or valuation —
+    // nudging the log scale again): anduril's paintedTop is now 30.10,
+    // so 31 is the bound.
+    // Checked 2026-08-18 (batch-3 re-verification: the plotted set shrank
+    // 31 -> 28 as three more valuations were nulled and one corrected off a
+    // fabricated figure): anduril's paintedTop measured 30.0957 in the
+    // rendered page, unchanged — the removed values were interior points
+    // of the plotted range, so neither the log-scale floor nor the max
+    // moved and anduril's cy is the same. The bound stays 31 with the same
+    // 0.9 margin; no re-baseline needed.
     await mark(page, 'anduril').focus();
     const ringFacts = await page.evaluate(() => {
       const ring = document.querySelector('circle[data-focus-ring]');
@@ -110,7 +127,7 @@ test.describe('bubble view hover/focus affordances', () => {
       };
     });
     expect(ringFacts.insideClip).toBe(false);
-    expect(ringFacts.paintedTop).toBeLessThan(27);
+    expect(ringFacts.paintedTop).toBeLessThan(31);
     // The ring clears when focus leaves the mark.
     await page.evaluate(() => (document.activeElement as HTMLElement).blur());
     await expect(ring).toHaveCount(0);

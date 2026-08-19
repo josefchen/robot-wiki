@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_FORCE_N,
   FRICTION_MU,
@@ -95,6 +96,7 @@ export function AppearancePhysicsPush({
   defaultForceN = DEFAULT_FORCE_N,
   className,
 }: AppearancePhysicsPushProps) {
+  const descriptionId = `${useId()}-description`;
   const [layers, setLayers] = useState<LayerState>(INITIAL_LAYERS);
   const [mug, setMug] = useState(INITIAL_MUG);
   const [forceN, setForceN] = useState(defaultForceN);
@@ -225,6 +227,7 @@ export function AppearancePhysicsPush({
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         role="img"
         aria-label={`Three-layer scene. Appearance layer ${layers.appearance ? 'on' : 'off'}, physics proxy ${layers.physics ? 'on' : 'off'}, simulation layer ${layers.simulation ? 'on' : 'off'}. Mug displacement ${formatCm(mug.position)} after ${mug.effectivePushes} effective pushes.`}
+        aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
         <defs>
@@ -453,6 +456,24 @@ export function AppearancePhysicsPush({
         </text>
       </svg>
 
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current push-test layers"
+        description={
+          layers.physics
+            ? `Physics proxy is on, so a ${formatN(forceN)} impulse can move the mug: appearance ${layers.appearance ? 'renders' : 'is hidden'} and simulation ${layers.simulation ? 'integrates' : 'is off'}, current displacement ${formatCm(mug.position)} after ${mug.effectivePushes} effective pushes.`
+            : `Appearance ${layers.appearance ? 'is on' : 'is off'} and simulation ${layers.simulation ? 'is on' : 'is off'}, physics proxy is off, so a ${formatN(forceN)} push leaves the mug at ${formatCm(mug.position)} of displacement; the pixels have no mass until the physics proxy supplies a collision hull.`
+        }
+        states={[
+          { label: 'appearance', value: layers.appearance ? 'on' : 'off' },
+          { label: 'physics proxy', value: layers.physics ? 'on' : 'off' },
+          { label: 'simulation', value: layers.simulation ? 'on' : 'off' },
+          { label: 'force', value: formatN(forceN) },
+          { label: 'displacement', value: formatCm(mug.position) },
+        ]}
+      />
       <div data-testid="push-test-note" className="mt-3 flex items-start gap-3">
         <svg viewBox="0 0 88 56" aria-hidden="true" className="block w-24 shrink-0">
           <rect

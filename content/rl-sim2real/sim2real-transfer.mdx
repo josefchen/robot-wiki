@@ -55,6 +55,32 @@ The interactive makes the trade concrete. The gray spike is a policy trained at 
   Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.
 </Callout>
 
+<PredictThenReveal
+  prompt="Widen the friction randomization range and the DR plateau covers more ground. What happens to the plateau's peak at the training friction while the range widens?"
+  options={[
+    {
+      value: 'both-ways',
+      label: 'The plateau widens and its peak sinks, so coverage and peak trade against each other along one frontier',
+      why: 'Randomizing over a wide dynamics distribution produces a policy that is optimal for none of it: DR buys a wider basin of transfer at the price of peak performance, a cost the papers almost never quantify. In the figure, the widest range holds 57% where the stock range holds 74%.',
+      cite: 'peng-2018'
+    },
+    {
+      value: 'monotone-up',
+      label: 'Coverage typically grows and the peak holds or rises too, since more training variety rarely hurts the trained policy at its own training point',
+      why: 'This is the monotone-improvement reading, and the figure is built to break it. The distribution-trained policy spreads its capacity across the range it is trained over; concentrating it back at one friction is what earned the specialist its 97% spike in the first place.'
+    },
+    {
+      value: 'peak-flat',
+      label: 'The peak usually stays roughly flat: the extra range is coverage the policy gets for free, and the training distribution widens without changing the midpoint',
+      why: 'Free coverage is the sales pitch, not the mechanics. The plateau’s height is set by how much of the distribution the policy can serve near-optimally; widen the range and the same capacity is spread thinner, which is exactly the sink the widest setting shows.'
+    }
+  ]}
+  answer="both-ways"
+  revealHint="The chart is mounted at the widest randomization range of 0.65 around the training point: the plateau spans most of the axis and tops out at 57 percent. Drag the half-width slider down toward its minimum and watch the peak climb as the plateau narrows."
+  takeaway="Widening the randomization range buys coverage and pays for it in peak: the plateau spans more frictions at a lower success rate, not the same rate over more ground."
+>
+  <FrictionTransfer defaultRange={0.65} className="mt-3" />
+</PredictThenReveal>
 ## Teacher-student distillation: privilege in, proprioception out
 
 Domain randomization still asks the policy to act on what the robot can sense. The teacher-student pattern separates those problems. Phase one trains a teacher with privileged, simulator-only observations: terrain geometry under the feet, friction coefficients, applied disturbances. Phase two trains a student that sees only deployable sensing, usually a short history of <Term id="proprioception">proprioception</Term>, to imitate the teacher's actions.
@@ -90,3 +116,26 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 ## Where each family breaks
 
 Each family's failure mode is worth holding onto. Domain randomization's conservatism cost is real and almost never quantified in the papers that rely on it. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
+
+<SelfCheck
+  prompt="A quadruped must cross terrain whose friction varies patch to patch, and you have a simulator that knows the friction map. Which training scheme lets the deployed policy act on that friction at control rate?"
+  options={[
+    {
+      value: 'dr-wide',
+      label: 'Domain randomization over a very wide friction range',
+      why: 'This buys a wider basin of transfer at the price of peak performance: the trained policy is optimal for none of the simulated frictions, and the cost is almost never quantified in the papers that rely on it. It also never acts on the actual friction under the feet; it tolerates it.'
+    },
+    {
+      value: 'latent-adaptation',
+      label: 'A privileged teacher distilled into a student with an online adaptation module',
+      why: 'This is the scheme the crossing needs. RMA’s adaptation module regresses a latent extrinsics vector from recent proprioception and the base policy conditions on it, adapting to new payloads and terrains in fractions of a second at control rate. The floor is partial observability: friction that leaves no proprioceptive signature cannot be recovered, but friction that shows up in the gait can.'
+    },
+    {
+      value: 'ground-truth-friction',
+      label: 'Give the deployed policy the friction coefficient as an input',
+      why: 'This is the teacher’s input, not the student’s. The deployed robot has no friction sensor; handing the policy a value nobody can measure at runtime is exactly the input mismatch the teacher-student pattern exists to remove.'
+    }
+  ]}
+  answer="latent-adaptation"
+  takeaway="Privilege goes into the teacher, but only what leaves a trace in proprioception can come back out in the student: the adaptation module is system identification in latent space, done online by the policy."
+/>

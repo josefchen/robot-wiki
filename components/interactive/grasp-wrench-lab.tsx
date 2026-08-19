@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_CONTACTS,
   DEFAULT_MU,
@@ -74,6 +75,9 @@ function conePath(point: { x: number; y: number }, normal: { x: number; y: numbe
 }
 
 export function GraspWrenchLab({ className }: { className?: string }) {
+  const uid = useId();
+  const objectDescriptionId = `${uid}-object-description`;
+  const wrenchDescriptionId = `${uid}-wrench-description`;
   const [mu, setMu] = useState(DEFAULT_MU);
   const [contacts, setContacts] = useState<number[]>(DEFAULT_CONTACTS);
 
@@ -218,6 +222,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           role="img"
           aria-label={`Square object held by ${contacts.length} frictional point contacts; each contact shows its friction cone opening inward.`}
+          aria-describedby={objectDescriptionId}
           data-testid="grasp-object-view"
           className="block w-full"
         >
@@ -301,6 +306,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           role="img"
           aria-label={`Grasp wrench space: the convex hull of the primitive contact wrenches. Force closure ${analysis.forceClosure ? 'yes' : 'no'}, quality epsilon ${analysis.epsilon.toFixed(3)}.`}
+          aria-describedby={wrenchDescriptionId}
           data-testid="grasp-wrench-view"
           className="block w-full"
         >
@@ -442,7 +448,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         </button>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text">
+      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">contacts</span>{' '}
         <span data-testid="grasp-contacts-readout" className="text-text">
           {contacts.length}
@@ -459,6 +465,39 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           {analysis.epsilon.toFixed(3)}
         </span>
       </p>
+
+      <ChartDescription
+        id={objectDescriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current object contacts and cones"
+        description={`${contacts.length} frictional contacts on the unit square at mu ${mu.toFixed(2)} open inward cones of half-angle ${(Math.atan(mu) * 180 / Math.PI).toFixed(1)} degrees; each contact can push along its cone but cannot pull.`}
+        states={[
+          { label: 'contacts', value: String(contacts.length) },
+          { label: 'mu', value: mu.toFixed(2) },
+          { label: 'cone half-angle', value: `${(Math.atan(mu) * 180 / Math.PI).toFixed(1)}°` },
+          {
+            label: 'regime',
+            value: analysis.forceClosure ? 'push-only cones, closed grasp' : 'push-only cones, open grasp',
+          },
+        ]}
+      />
+      <ChartDescription
+        id={wrenchDescriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current wrench-space quality"
+        description={`The grasp wrench hull of ${contacts.length} contacts currently reports force closure ${analysis.forceClosure ? 'yes' : 'no'} with Ferrari-Canny quality epsilon ${analysis.epsilon.toFixed(3)}; that radius is the largest origin-centered wrench ball that still fits inside the hull.`}
+        states={[
+          { label: 'force closure', value: analysis.forceClosure ? 'yes' : 'no' },
+          { label: 'epsilon', value: analysis.epsilon.toFixed(3) },
+          {
+            label: 'origin',
+            value: analysis.forceClosure ? 'inside the hull' : 'outside the hull',
+          },
+          { label: 'contacts', value: String(contacts.length) },
+        ]}
+      />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Left: the object and its friction cones, half-angle arctan μ. Right:

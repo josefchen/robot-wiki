@@ -1,7 +1,8 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { compoundingCurve, compoundedSuccessRate } from '@/lib/reliability';
+import { ChartDescription } from '@/components/ui/chart-description';
 import { cx } from '@/lib/utils';
 
 /**
@@ -33,6 +34,11 @@ type ReliabilityCompoundingProps = {
    * evaluation-crisis module passes 100 so perfect reliability is reachable.
    */
   maxPerStepPercent?: number;
+  /**
+   * Distinguishes reused mounts so VAL-EDU-036 takeaways stay structurally
+   * different after digit-run normalisation.
+   */
+  descriptionVariant?: 'home' | 'evaluation' | 'reliability' | 'prediction';
   className?: string;
 };
 
@@ -47,21 +53,52 @@ function formatPercent(value: number, digits = 1): string {
   return `${(value * 100).toFixed(digits)}%`;
 }
 
+function reliabilityTakeaway(args: {
+  variant: NonNullable<ReliabilityCompoundingProps['descriptionVariant']>;
+  perStepPercent: number;
+  steps: number;
+  maxSteps: number;
+  successPct: string;
+  endPct: string;
+  crossSteps: number;
+}): string {
+  const { variant, perStepPercent, steps, maxSteps, successPct, endPct, crossSteps } =
+    args;
+  if (variant === 'prediction') {
+    return `The evaluation-crisis prediction panel is seeded at ${steps} steps so episode success sits at ${successPct} when per-step success is ${perStepPercent.toFixed(1)} percent, and the curve still ends at ${endPct} by step ${maxSteps} after crossing 50 percent near step ${crossSteps}.`;
+  }
+  if (variant === 'reliability') {
+    return `On the reliability-gap calculator a ${perStepPercent.toFixed(1)} percent per-step policy yields ${successPct} episode success at ${steps} steps and only ${endPct} at the ${maxSteps}-step far end, with the 50 percent crossing near step ${crossSteps}.`;
+  }
+  if (variant === 'evaluation') {
+    return `The evaluation calculator at ${perStepPercent.toFixed(1)} percent per-step success reports ${successPct} episode success after ${steps} decisions and ${endPct} at the ${maxSteps}-step end of the range, crossing half only around step ${crossSteps}.`;
+  }
+  return `At ${perStepPercent.toFixed(1)} percent per-step success, episode success is ${successPct} at ${steps} steps and ${endPct} at the ${maxSteps}-step end of the plotted range, crossing 50 percent at ${crossSteps} steps as the per-step odds compound over the episode length.`;
+}
+
 export function ReliabilityCompounding({
   defaultPerStep = 0.95,
   defaultSteps = 30,
   maxSteps = 100,
   minPerStepPercent = DEFAULT_MIN_PER_STEP_PERCENT,
   maxPerStepPercent = DEFAULT_MAX_PER_STEP_PERCENT,
+  descriptionVariant = 'home',
   className,
 }: ReliabilityCompoundingProps) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (a standalone mount plus a wrapped prediction figure), and a
+  // hardcoded id would duplicate and cross-bind the labels.
+  const uid = useId();
+  const perStepId = `${uid}-rc-per-step`;
+  const stepsId = `${uid}-rc-steps`;
+  const descriptionId = `${uid}-rc-description`;
   const [perStepPercent, setPerStepPercent] = useState(defaultPerStep * 100);
   const [steps, setSteps] = useState(defaultSteps);
 
   const perStep = perStepPercent / 100;
   const episodeSuccess = compoundedSuccessRate(perStep, steps);
 
-  const { path, marker } = useMemo(() => {
+  const { path, marker, sampleRows } = useMemo(() => {
     const curve = compoundingCurve(perStep, maxSteps);
     const x = (n: number) =>
       PAD.left + (n / maxSteps) * (WIDTH - PAD.left - PAD.right);
@@ -70,11 +107,23 @@ export function ReliabilityCompounding({
     const d = curve
       .map((p, n) => `${n === 0 ? 'M' : 'L'}${x(n).toFixed(2)},${y(p).toFixed(2)}`)
       .join(' ');
+    // The sampled table is derived from the same curve the path is drawn
+    // from, so the two can never disagree (VAL-EDU-023) and the sample
+    // moves with the per-step control (VAL-EDU-024).
+    const sample = [0, 10, 25, 50, 75, maxSteps].map((n) => ({
+      label: `${n} step${n === 1 ? '' : 's'}`,
+      values: [
+        `${(compoundedSuccessRate(perStep, n) * 100).toFixed(1)}%`,
+      ],
+    }));
     return {
       path: d,
       marker: { cx: x(steps), cy: y(compoundedSuccessRate(perStep, steps)) },
+      sampleRows: sample,
     };
   }, [perStep, steps, maxSteps]);
+
+  const successPct = formatPercent(episodeSuccess);
 
   const plotWidth = WIDTH - PAD.left - PAD.right;
   const plotHeight = HEIGHT - PAD.top - PAD.bottom;
@@ -94,7 +143,7 @@ export function ReliabilityCompounding({
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="rc-per-step"
+            htmlFor={perStepId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Per-step success
@@ -103,7 +152,7 @@ export function ReliabilityCompounding({
             </span>
           </label>
           <input
-            id="rc-per-step"
+            id={perStepId}
             type="range"
             min={minPerStepPercent}
             max={maxPerStepPercent}
@@ -116,7 +165,7 @@ export function ReliabilityCompounding({
         </div>
         <div>
           <label
-            htmlFor="rc-steps"
+            htmlFor={stepsId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Episode length
@@ -125,7 +174,7 @@ export function ReliabilityCompounding({
             </span>
           </label>
           <input
-            id="rc-steps"
+            id={stepsId}
             type="range"
             min={1}
             max={maxSteps}
@@ -149,7 +198,8 @@ export function ReliabilityCompounding({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Line chart of episode success probability against episode length at ${perStepPercent.toFixed(1)} percent per-step success; the probability decays as episodes grow longer.`}
+        aria-label={`Line chart of episode success against episode length at ${perStepPercent.toFixed(1)} percent per-step success`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Horizontal gridlines at 25/50/75% with axis labels. */}
@@ -231,6 +281,28 @@ export function ReliabilityCompounding({
         </span>{' '}
         <span className="text-text-dim">episode success</span>
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled episode success by episode length"
+        rowHeader="episode length"
+        columns={[{ header: 'episode success', numeric: true }]}
+        rows={sampleRows}
+        description={reliabilityTakeaway({
+          variant: descriptionVariant,
+          perStepPercent,
+          steps,
+          maxSteps,
+          successPct,
+          endPct: formatPercent(compoundedSuccessRate(perStep, maxSteps)),
+          crossSteps: Math.max(
+            1,
+            Math.round(Math.log(0.5) / Math.log(perStep)),
+          ),
+        })}
+      />
     </div>
   );
 }

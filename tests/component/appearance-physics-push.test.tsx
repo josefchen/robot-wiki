@@ -147,4 +147,20 @@ describe('AppearancePhysicsPush', () => {
       screen.getByRole('img', { name: /three-layer scene/i }),
     ).toBeInTheDocument();
   });
+
+  it('describes the idle push test and tracks the force slider', () => {
+    const { container } = render(<AppearancePhysicsPush />);
+    const img = screen.getByRole('img', { name: /three-layer scene/i });
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/4\.0 N push/);
+    expect(desc?.textContent).toMatch(/0\.0 cm of displacement/);
+    fireEvent.change(screen.getByRole('slider', { name: /push force/i }), {
+      target: { value: '8' },
+    });
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/8\.0 N push/);
+  });
 });

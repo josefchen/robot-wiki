@@ -1,26 +1,26 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1181,
-    "minutes": 6
-  },
-  "manipulation/action-chunking": {
-    "words": 1311,
+    "words": 1415,
     "minutes": 7
   },
+  "manipulation/action-chunking": {
+    "words": 1590,
+    "minutes": 8
+  },
   "manipulation/diffusion-policy": {
-    "words": 1364,
+    "words": 1433,
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1627,
-    "minutes": 8
+    "words": 1738,
+    "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 2561,
+    "words": 2649,
     "minutes": 13
   },
   "manipulation/generalist-policies": {
-    "words": 1703,
+    "words": 1741,
     "minutes": 9
   },
   "manipulation/comparison-matrix": {
@@ -28,71 +28,71 @@
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1553,
+    "words": 1591,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
-    "words": 2038,
-    "minutes": 10
+    "words": 2110,
+    "minutes": 11
   },
   "manipulation/realtime-execution": {
-    "words": 1696,
-    "minutes": 8
+    "words": 1890,
+    "minutes": 9
   },
   "manipulation/cross-embodiment": {
-    "words": 1213,
+    "words": 1250,
     "minutes": 6
   },
   "manipulation/knowledge-insulation": {
-    "words": 1178,
+    "words": 1222,
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1180,
+    "words": 1219,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1411,
+    "words": 1472,
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1743,
-    "minutes": 9
+    "words": 2015,
+    "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1467,
+    "words": 1470,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1765,
+    "words": 1812,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2431,
-    "minutes": 12
+    "words": 2556,
+    "minutes": 13
   },
   "world-models/taxonomy": {
-    "words": 1637,
-    "minutes": 8
+    "words": 1791,
+    "minutes": 9
   },
   "world-models/latent-dynamics": {
-    "words": 1228,
-    "minutes": 6
+    "words": 1336,
+    "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1550,
+    "words": 1587,
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1166,
+    "words": 1214,
     "minutes": 6
   },
   "world-models/generative-sim": {
-    "words": 1463,
-    "minutes": 7
+    "words": 1503,
+    "minutes": 8
   },
   "data-hardware/data-bottleneck": {
-    "words": 1514,
+    "words": 1677,
     "minutes": 8
   },
   "data-hardware/datasets": {
@@ -108,31 +108,31 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1535,
-    "minutes": 8
+    "words": 1728,
+    "minutes": 9
   },
   "classical/kinematics": {
-    "words": 2282,
-    "minutes": 11
-  },
-  "classical/motion-planning": {
-    "words": 1963,
-    "minutes": 10
-  },
-  "classical/control": {
-    "words": 2032,
-    "minutes": 10
-  },
-  "classical/state-estimation": {
-    "words": 2319,
+    "words": 2316,
     "minutes": 12
   },
-  "classical/grasp-planning": {
+  "classical/motion-planning": {
     "words": 1995,
     "minutes": 10
   },
+  "classical/control": {
+    "words": 2224,
+    "minutes": 11
+  },
+  "classical/state-estimation": {
+    "words": 2394,
+    "minutes": 12
+  },
+  "classical/grasp-planning": {
+    "words": 2061,
+    "minutes": 10
+  },
   "frontier/reliability-gap": {
-    "words": 1503,
+    "words": 1632,
     "minutes": 8
   },
   "frontier/dexterity": {
@@ -140,7 +140,7 @@
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 1901,
+    "words": 2094,
     "minutes": 10
   },
   "frontier/competing-theses": {
@@ -156,8 +156,8 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2259,
-    "minutes": 11
+    "words": 2311,
+    "minutes": 12
   },
   "adjacent/surgical": {
     "words": 2057,

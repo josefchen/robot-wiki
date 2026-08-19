@@ -112,7 +112,11 @@ describe('COMPANIES data', () => {
 
   it('carries aka through from the research source', () => {
     const withAka = COMPANIES.filter((c) => c.aka.length > 0);
-    expect(withAka.length).toBe(26);
+    // 26 -> 27 on 2026-08-18: the batch-3 re-verification confirmed
+    // SwitchBot's HK listing under the registered name "OneRobotics
+    // (Shenzhen) Co." (Caixin, fetched), so the brand-name record now
+    // carries its listed entity as an aka.
+    expect(withAka.length).toBe(27);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     expect(pi?.aka).toEqual(['Pi', 'π']);
   });

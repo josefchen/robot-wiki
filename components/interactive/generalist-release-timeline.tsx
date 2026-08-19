@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import { citationLabel, getCitation } from '@/data/citations';
 import {
   GENERALIST_RELEASES,
@@ -133,6 +134,7 @@ export function GeneralistReleaseTimeline({
   defaultSelected = 'helix',
   className,
 }: GeneralistReleaseTimelineProps) {
+  const descriptionId = `${useId()}-description`;
   const [filter, setFilter] = useState<OpenFilter>('all');
   const [selectedId, setSelectedId] = useState(defaultSelected);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -227,6 +229,7 @@ export function GeneralistReleaseTimeline({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Release timeline of generalist robot policies from ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel}. Amber nodes are open weights, dim nodes are closed. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {/* Time axis */}
@@ -415,6 +418,20 @@ export function GeneralistReleaseTimeline({
           </p>
         )}
       </div>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current generalist release"
+        description={`${visible.length} of ${GENERALIST_RELEASES.length} generalist policies sit on a ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel} axis; selected is ${selected.name} from ${selected.org} (${selected.openWeights ? 'open' : 'closed'}, ${provenanceLabel(selected.provenance)}) and amber nodes mark open weights while dim nodes mark closed ones.`}
+        states={[
+          { label: 'selected', value: selected.name },
+          { label: 'org', value: selected.org },
+          { label: 'released', value: selected.dateLabel },
+          { label: 'weights', value: selected.openWeights ? 'open' : 'closed' },
+          { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
+        ]}
+      />
     </div>
   );
 }

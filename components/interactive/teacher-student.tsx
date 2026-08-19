@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_DEGRADATION,
   TERRAIN,
@@ -58,6 +59,7 @@ export function TeacherStudent({
   defaultDegradation?: number;
   className?: string;
 }) {
+  const descriptionId = `${useId()}-description`;
   const [degradation, setDegradation] = useState(defaultDegradation);
 
   const readings = proprioReadings(degradation);
@@ -132,6 +134,7 @@ export function TeacherStudent({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Teacher-student distillation at ${Math.round(degradation * 100)} percent degradation. Top panel: the teacher's privileged terrain heightfield. Middle panel: the student's proprioceptive history, ${occludedCount} of ${TERRAIN_CELLS} channels occluded. Bottom panel: the student's reconstructed terrain, mean absolute error ${formatMeters(mae)}. Teacher-student action divergence ${formatDivergence(divergence)}.`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {/* Teacher: privileged terrain heightfield. */}
@@ -252,6 +255,19 @@ export function TeacherStudent({
         <span className="text-text-dim">divergence</span>{' '}
         <span className="text-accent">{formatDivergence(divergence)}</span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current teacher-student gap"
+        description={`At ${Math.round(degradation * 100)} percent proprioceptive degradation the student reconstruction of the teacher terrain sits at ${formatMeters(mae)} MAE with action divergence ${formatDivergence(divergence)}, and ${occludedCount} of ${TERRAIN_CELLS} input channels are already dashed-occluded; the three stacked panels are the privileged heightfield, the proprioceptive history, and that reconstruction.`}
+        states={[
+          { label: 'degradation', value: `${Math.round(degradation * 100)}%` },
+          { label: 'reconstruction MAE', value: formatMeters(mae) },
+          { label: 'action divergence', value: formatDivergence(divergence) },
+          { label: 'occluded channels', value: `${occludedCount}/${TERRAIN_CELLS}` },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Brighter cells are higher terrain; the teacher sees them directly. The
         student sees only the bar strip: joint positions, velocities, and

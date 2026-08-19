@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   APPLY_STEP,
   CONTROLLERS,
@@ -52,6 +53,7 @@ function xFor(step: number): number {
 }
 
 export function MpcVsRl({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-mpc-description`;
   const [selected, setSelected] = useState(DEFAULT_PERTURBATION);
   const perturbation =
     PERTURBATIONS.find((p) => p.id === selected) ?? PERTURBATIONS[0];
@@ -62,6 +64,24 @@ export function MpcVsRl({ className }: { className?: string }) {
     ...perturbation.rl.trace,
   );
   const yMax = Math.ceil(maxDeviation / 4) * 4;
+
+  const sampleRows = useMemo(
+    () =>
+      [0, APPLY_STEP, 10, 20, 30, TRACE_STEPS - 1].map((step) => ({
+        label: `${step}`,
+        values: [
+          perturbation.mpc.trace[step].toFixed(2),
+          perturbation.rl.trace[step].toFixed(2),
+        ],
+      })),
+    [perturbation],
+  );
+
+  const mpcEnd = perturbation.mpc.trace[TRACE_STEPS - 1];
+  const rlEnd = perturbation.rl.trace[TRACE_STEPS - 1];
+  const mpcPeak = Math.max(...perturbation.mpc.trace);
+  const rlPeak = Math.max(...perturbation.rl.trace);
+  const descriptionText = `After a ${perturbation.label} at step ${APPLY_STEP} the MPC base-height deviation peaks at ${mpcPeak.toFixed(2)} cm and ends at ${mpcEnd.toFixed(2)} cm while the RL policy peaks at ${rlPeak.toFixed(2)} cm and ends at ${rlEnd.toFixed(2)} cm; MPC compute per step ${CONTROLLERS.mpc.compute}, the RL policy is ${CONTROLLERS.rl.compute}, and the dashed RL trace is an illustrative teaching model rather than measured hardware data.`;
 
   function yFor(deviation: number): number {
     return f(PLOT.bottom - (deviation / yMax) * (PLOT.bottom - PLOT.top));
@@ -116,6 +136,7 @@ export function MpcVsRl({ className }: { className?: string }) {
         role="img"
         data-testid="perturbation-chart"
         aria-label={`Base-height deviation after a ${perturbation.label}. MPC: ${STATUS_META[perturbation.mpc.status].label}. RL policy: ${STATUS_META[perturbation.rl.status].label}.`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         <text
@@ -298,6 +319,20 @@ export function MpcVsRl({ className }: { className?: string }) {
         illustrative model of the failure modes the literature reports, not
         measured hardware data.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled base-height deviation for both controllers"
+        rowHeader="step"
+        columns={[
+          { header: 'MPC (cm)', numeric: true },
+          { header: 'RL (cm)', numeric: true },
+        ]}
+        rows={sampleRows}
+        description={descriptionText}
+      />
     </div>
   );
 }

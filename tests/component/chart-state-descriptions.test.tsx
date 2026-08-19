@@ -1,0 +1,432 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { ActionTokenization } from '@/components/interactive/action-tokenization';
+import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
+import { CompoundingError } from '@/components/interactive/compounding-error';
+import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
+import { DenoisingLoop } from '@/components/interactive/denoising-loop';
+import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
+import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
+import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
+import { PerceptionLatency } from '@/components/interactive/perception-latency';
+import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
+import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
+import { TeacherStudent } from '@/components/interactive/teacher-student';
+import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
+import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
+import { ActionConditioning } from '@/components/interactive/action-conditioning';
+import { RewardShaping } from '@/components/interactive/reward-shaping';
+import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
+import { JepaPlanning } from '@/components/interactive/jepa-planning';
+import { LatentImagination } from '@/components/interactive/latent-imagination';
+import { MotInsulation } from '@/components/interactive/mot-insulation';
+import { PendulumController } from '@/components/interactive/pendulum-controller';
+import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
+import { RecedingHorizon } from '@/components/interactive/receding-horizon';
+import { RrtExplorer } from '@/components/interactive/rrt-explorer';
+
+function mockReducedMotion(matches = false) {
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    matches,
+    media: query,
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    addListener: () => {},
+    removeListener: () => {},
+    onchange: null,
+    dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+}
+
+function digitOrRegime(value: string): boolean {
+  return /\d/.test(value) || /[A-Za-z]{3,}/.test(value);
+}
+
+function assertStateDisclosure(
+  details: Element,
+  opts: { minPairs?: number } = {},
+) {
+  const minPairs = opts.minPairs ?? 3;
+  expect(details).toHaveAttribute('data-chart-form', 'state');
+  expect(details.querySelector('table')).toBeNull();
+  expect(details.querySelectorAll('dl')).toHaveLength(1);
+  const terms = [...details.querySelectorAll('dt')].map(
+    (el) => (el.textContent ?? '').trim(),
+  );
+  const values = [...details.querySelectorAll('dd')].map(
+    (el) => (el.textContent ?? '').trim(),
+  );
+  expect(terms.length).toBe(values.length);
+  expect(terms.length).toBeGreaterThanOrEqual(minPairs);
+  expect(terms.every((t) => t.length > 0)).toBe(true);
+  expect(values.every((v) => v.length > 0)).toBe(true);
+  expect(values.filter(digitOrRegime).length).toBeGreaterThanOrEqual(2);
+}
+
+function assertDescribed(
+  img: HTMLElement,
+  container: HTMLElement,
+): { text: string; details: Element } {
+  const id = img.getAttribute('aria-describedby');
+  expect(id, 'aria-describedby is set').toBeTruthy();
+  const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+  expect(desc, 'describedby target exists').toBeTruthy();
+  const text = (desc!.textContent ?? '').trim();
+  expect(text.length).toBeGreaterThanOrEqual(60);
+  const label = (img.getAttribute('aria-label') ?? '').trim();
+  const norm = (s: string) => s.replace(/\s+/g, ' ').toLowerCase();
+  expect(norm(label).includes(norm(text))).toBe(false);
+  const details = desc!.parentElement?.querySelector(
+    'details[data-chart-data]',
+  );
+  expect(details).toBeTruthy();
+  assertStateDisclosure(details!);
+  return { text, details: details! };
+}
+
+describe('state-form chart descriptions', () => {
+  beforeEach(() => mockReducedMotion(false));
+
+  it('PendulumController describes the scene and lives the readout', () => {
+    const { container } = render(<PendulumController />);
+    const img = screen.getByTestId('pendulum-scene');
+    const { text } = assertDescribed(img, container);
+    expect(text).toMatch(/Kp 25\.0/);
+    expect(text).toMatch(/holding at release/);
+    const readout = screen.getByTestId('pendulum-angle-readout').closest('p');
+    expect(readout).toHaveAttribute('aria-live', 'polite');
+    fireEvent.change(screen.getByRole('slider', { name: /proportional gain kp/i }), {
+      target: { value: '9.5' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).toMatch(/Kp 9\.5/);
+    expect(moved).not.toBe(text);
+  });
+
+  it('PendulumController prediction mount uses a structurally different takeaway', () => {
+    const { container: lab } = render(<PendulumController />);
+    const { container: pred } = render(<PendulumController defaultKp={9.5} />);
+    const labText = lab.querySelector('[data-chart-description]')?.textContent ?? '';
+    const predText = pred.querySelector('[data-chart-description]')?.textContent ?? '';
+    const norm = (s: string) => s.replace(/\d/g, '#').replace(/\s+/g, ' ').toLowerCase();
+    expect(labText.length).toBeGreaterThan(60);
+    expect(predText.length).toBeGreaterThan(60);
+    expect(norm(labText)).not.toBe(norm(predText));
+  });
+
+  it('GraspWrenchLab describes both roots and lives the readout', () => {
+    const { container } = render(<GraspWrenchLab />);
+    const object = screen.getByTestId('grasp-object-view');
+    const wrench = screen.getByTestId('grasp-wrench-view');
+    const a = assertDescribed(object, container);
+    const b = assertDescribed(wrench, container);
+    expect(a.text).not.toBe(b.text);
+    expect(screen.getByTestId('grasp-epsilon-readout').closest('p')).toHaveAttribute(
+      'aria-live',
+      'polite',
+    );
+    fireEvent.change(screen.getByRole('slider', { name: /friction coefficient mu/i }), {
+      target: { value: '0.20' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(a.text);
+  });
+
+  it('RrtExplorer describes the tree state', () => {
+    const { container } = render(<RrtExplorer />);
+    const { text } = assertDescribed(screen.getByTestId('rrt-scene'), container);
+    expect(text).toMatch(/tree not started|iteration 0/);
+    fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), {
+      target: { value: '40' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('PlanarFkArm describes the pose', () => {
+    const { container } = render(<PlanarFkArm />);
+    const img = screen.getByRole('img');
+    const { text } = assertDescribed(img, container);
+    expect(text).toMatch(/110/);
+    fireEvent.change(screen.getByRole('slider', { name: /base joint/i }), {
+      target: { value: '40' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('CompoundingError describes the rollout root as state', () => {
+    const { container } = render(<CompoundingError />);
+    const rollout = screen.getByRole('img', { name: /rollout trace/i });
+    const { text } = assertDescribed(rollout, container);
+    expect(text).toMatch(/rollout/i);
+    fireEvent.change(screen.getByRole('slider', { name: /per-step error/i }), {
+      target: { value: '10' },
+    });
+    const moved =
+      container.querySelector(
+        `[id="${CSS.escape(rollout.getAttribute('aria-describedby')!)}"]`,
+      )?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('DenoisingLoop describes the cloud', () => {
+    const { container } = render(<DenoisingLoop />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/Gaussian noise|step 0/);
+    fireEvent.change(screen.getByRole('slider', { name: /denoising step/i }), {
+      target: { value: '10' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('RecedingHorizon describes the plan', () => {
+    const { container } = render(<RecedingHorizon />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/T_p 16/);
+    fireEvent.change(screen.getByRole('slider', { name: /predicted horizon/i }), {
+      target: { value: '24' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('ActionTokenization describes the bin-detail root as state', () => {
+    const { container } = render(<ActionTokenization />);
+    const imgs = screen.getAllByRole('img');
+    expect(imgs).toHaveLength(2);
+    const { text } = assertDescribed(imgs[1], container);
+    expect(text).toMatch(/bin/i);
+    fireEvent.change(screen.getByRole('slider', { name: /control step/i }), {
+      target: { value: '0' },
+    });
+    const moved =
+      container.querySelector(
+        `[id="${CSS.escape(imgs[1].getAttribute('aria-describedby')!)}"]`,
+      )?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('FlowMatchingTrajectory describes the transport', () => {
+    const { container } = render(<FlowMatchingTrajectory />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/Euler/);
+    fireEvent.change(screen.getByRole('slider', { name: /integration steps/i }), {
+      target: { value: '1' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('MotInsulation describes the pass', () => {
+    const { container } = render(<MotInsulation />);
+    const { text } = assertDescribed(screen.getByTestId('mot-diagram'), container);
+    expect(text).toMatch(/Forward pass|backbone/);
+    fireEvent.change(screen.getByRole('slider', { name: /pass depth/i }), {
+      target: { value: '3' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('CrossEmbodimentStrategies shares one description across every strip', () => {
+    const { container } = render(<CrossEmbodimentStrategies />);
+    const imgs = screen.getAllByRole('img');
+    expect(imgs.length).toBeGreaterThan(1);
+    const ids = imgs.map((img) => img.getAttribute('aria-describedby'));
+    expect(new Set(ids).size).toBe(1);
+    const { text } = assertDescribed(imgs[0], container);
+    expect(container.querySelectorAll('[data-chart-description]')).toHaveLength(1);
+    expect(text).toMatch(/Padded|human video/i);
+    fireEvent.click(screen.getByRole('button', { name: /relative/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('HierarchyTimescales describes the Gantt and lives the playhead', () => {
+    const { container } = render(<HierarchyTimescales />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/playhead 0 ms/);
+    expect(screen.getByTestId('playhead-readout')).toHaveAttribute(
+      'aria-live',
+      'polite',
+    );
+    fireEvent.change(screen.getByRole('slider', { name: /playhead position/i }), {
+      target: { value: '400' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+  });
+
+  it('WmDisambiguator describes the selected paradigm and tracks the panels', () => {
+    const { container } = render(<WmDisambiguator />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /latent-dynamics panel art/i }),
+      container,
+    );
+    expect(text).toMatch(/Dreamer-style/);
+    fireEvent.click(screen.getByRole('button', { name: /^JEPA/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/dist 0\.31/);
+  });
+
+  it('RewardShaping names the attractor and tracks a dominant weight', () => {
+    const { container } = render(<RewardShaping />);
+    const { text } = assertDescribed(screen.getByTestId('quad-preview'), container);
+    expect(text).toMatch(/balanced trot/);
+    fireEvent.change(screen.getByRole('slider', { name: /torque/i }), {
+      target: { value: '40' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/freeze attractor/);
+  });
+
+  it('ActionConditioning shares one description across the three frames', () => {
+    const { container } = render(<ActionConditioning />);
+    const initial = screen.getByRole('img', { name: /shared initial frame/i });
+    const rolloutA = screen.getByRole('img', { name: /rollout a/i });
+    const rolloutB = screen.getByRole('img', { name: /rollout b/i });
+    expect(initial.getAttribute('aria-describedby')).toBe(
+      rolloutA.getAttribute('aria-describedby'),
+    );
+    expect(rolloutA.getAttribute('aria-describedby')).toBe(
+      rolloutB.getAttribute('aria-describedby'),
+    );
+    const { text } = assertDescribed(initial, container);
+    expect(text).toMatch(/action sensitivity is 0\.419/);
+    fireEvent.click(screen.getByRole('button', { name: /weak conditioning/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/0\.017/);
+  });
+
+  it('JepaPlanning shares one description across plane and trace', () => {
+    const { container } = render(<JepaPlanning />);
+    const plane = screen.getByRole('img', { name: /latent space/i });
+    const trace = screen.getByRole('img', { name: /goal-embedding distance/i });
+    expect(plane.getAttribute('aria-describedby')).toBe(
+      trace.getAttribute('aria-describedby'),
+    );
+    const { text } = assertDescribed(plane, container);
+    expect(text).toMatch(/search budget of 24 sequences/);
+    fireEvent.change(screen.getByRole('slider', { name: /search budget/i }), {
+      target: { value: '8' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/8 sequences/);
+  });
+
+  it('LatentImagination rollout describes the peel and tracks horizon', () => {
+    const { container } = render(<LatentImagination />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /imagined rollout/i }),
+      container,
+    );
+    expect(text).toMatch(/latent rollout view/);
+    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
+      target: { value: '30' },
+    });
+    const moved = [...container.querySelectorAll('[data-chart-description]')].find(
+      (el) => /latent rollout view/.test(el.textContent ?? ''),
+    )?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/t = 30 of 50/);
+  });
+
+  it('GeneralistReleaseTimeline describes the policy axis and tracks selection', () => {
+    const { container } = render(<GeneralistReleaseTimeline />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/selected is Helix/);
+    fireEvent.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/GR00T N1/);
+  });
+
+  it('PiGenerationTimeline describes the open-weights cut and tracks selection', () => {
+    const { container } = render(<PiGenerationTimeline />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/selected now is π0/);
+    fireEvent.click(screen.getByRole('button', { name: /^π0\.7$/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/π0\.7/);
+  });
+
+  it('AppearancePhysicsPush describes the idle mug and tracks force', () => {
+    const { container } = render(<AppearancePhysicsPush />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /three-layer scene/i }),
+      container,
+    );
+    expect(text).toMatch(/4\.0 N push/);
+    fireEvent.change(screen.getByRole('slider', { name: /push force/i }), {
+      target: { value: '8' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/8\.0 N/);
+  });
+
+  it('PerceptionLatency describes the sense-and-avoid budget', () => {
+    const { container } = render(<PerceptionLatency />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/70 ms of perception latency/);
+    fireEvent.change(screen.getByRole('slider', { name: /perception latency/i }), {
+      target: { value: '150' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/150 ms/);
+  });
+
+  it('WbcDecomposition describes the Helix stack and tracks approach buttons', () => {
+    const { container } = render(<WbcDecomposition />);
+    const { text } = assertDescribed(screen.getByTestId('wbc-diagram'), container);
+    expect(text).toMatch(/Motion-tracking RL/);
+    fireEvent.click(screen.getByRole('button', { name: /latent-action hierarchy/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/Latent-action hierarchy/);
+  });
+
+  it('TeacherStudent describes the stacked panels and tracks degradation', () => {
+    const { container } = render(<TeacherStudent />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/15 percent proprioceptive degradation/);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /proprioceptive degradation/i }),
+      { target: { value: '90' } },
+    );
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/90 percent/);
+  });
+
+  it('ContactGeometry describes the stance and lives the readout', () => {
+    const { container } = render(<ContactGeometry />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/Locomotion at 2\.0 mm/);
+    expect(screen.getByTestId('error-readout').closest('[aria-live]')).toHaveAttribute(
+      'aria-live',
+      'polite',
+    );
+    fireEvent.change(screen.getByRole('slider', { name: /contact-model error/i }), {
+      target: { value: '25' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/25\.0 mm/);
+  });
+
+  it('AdvantageScrubber lives the episode readout', () => {
+    render(<AdvantageScrubber />);
+    const live = screen.getByTestId('time-readout').closest('[aria-live]');
+    expect(live).toHaveAttribute('aria-live', 'polite');
+  });
+});

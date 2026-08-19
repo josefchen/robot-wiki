@@ -114,4 +114,41 @@ describe('CompoundingError', () => {
     expect(screen.getByTestId('bc-bound-curve')).toBeInTheDocument();
     expect(screen.getByTestId('dagger-bound-curve')).toBeInTheDocument();
   });
+
+  it('describes the bound chart with a sampled table and names the dashed bounds', () => {
+    const { container } = render(<CompoundingError />);
+    const table = container.querySelector(
+      'details[data-chart-data][data-chart-form="table"]',
+    );
+    const desc = table?.previousElementSibling;
+    expect(desc?.textContent).toMatch(/dashed curves/i);
+    expect(desc?.textContent).toMatch(/deviation/i);
+    const details = container.querySelector(
+      'details[data-chart-data][data-chart-form="table"]',
+    );
+    expect(details).toBeTruthy();
+    expect(details?.querySelectorAll('tbody tr').length).toBe(6);
+    const boundsImg = screen.getByRole('img', { name: /regret bounds/i });
+    expect(boundsImg).toHaveAttribute('aria-describedby');
+    const rolloutImg = screen.getByRole('img', { name: /rollout trace/i });
+    expect(rolloutImg).toHaveAttribute('aria-describedby');
+  });
+
+  it('gives the doubled-horizon mount a structurally different bounds takeaway', () => {
+    const lab = render(<CompoundingError defaultSteps={120} />);
+    const labText =
+      lab.container.querySelector('details[data-chart-form="table"]')
+        ?.previousElementSibling?.textContent ?? '';
+    lab.unmount();
+    const pred = render(<CompoundingError defaultSteps={240} />);
+    const predText =
+      pred.container.querySelector('details[data-chart-form="table"]')
+        ?.previousElementSibling?.textContent ?? '';
+    const norm = (s: string) =>
+      s.toLowerCase().replace(/\s+/g, ' ').replace(/\d+/g, '#').trim();
+    expect(labText.length).toBeGreaterThan(60);
+    expect(predText.length).toBeGreaterThan(60);
+    expect(norm(labText)).not.toBe(norm(predText));
+    expect(predText).toMatch(/prediction-step bounds panel/i);
+  });
 });

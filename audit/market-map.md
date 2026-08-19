@@ -602,3 +602,291 @@ required.
 | full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
 | build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
 | targeted e2e (port 3200 killed first) | `npx playwright test tests/e2e/market-map.spec.ts tests/e2e/market-map-data.spec.ts tests/e2e/market-map-static.spec.ts tests/e2e/market-map-deep-links.spec.ts` | 23 passed |
+
+## Figure corrections for the contradicted aggregator-only records (2026-08-18)
+
+Scope: the six records the provenance-transparency pass (f8f4930) left with
+figures resting solely on humanoidindex.org and flagged as contradicted by
+independent reporting. That pass was provenance-only by rule; this pass
+fetched primaries/secondaries and corrected the figures. Field semantics
+applied consistently: `latestRound` is the most recent disclosed funding
+event (a round, IPO, or controlling-stake acquisition), `totalRaisedUsd` is
+a company funding total stated by a fetched source, never an aggregator
+figure and never a lower bound promoted to a total. Every source below was
+fetched this session with the gate's browser user agent
+(`lib/citation-links.ts` BROWSER_UA) and probed live (all 200) before
+being written in. Snippet-grade leads from the prior pass were used only
+to direct searches, never as evidence.
+
+| Record | Claim (shipped value) | Source checked (fetched, curl + browser UA, 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| kepler-robot | totalRaisedUsd $100M; latestRound Series A 2024-01-01 at $400M valuation | https://finance.biggo.com/news/2jvSSp4BmHHDnbgy1rv1 (200, body: Kelin to buy 41.57% for up to CNY 300M, 51% control total, "Kepler Robot's total valuation stands at approximately 722 million yuan (approximately $106.3 million)"; also: April 2026 A++ round at the 100-million-yuan level led by SAIF; May 14 strategic round); https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml (200, YICAI syndication: 41.6% stake, up to USD 44.1M, 51% after completion) | C | WRONG figure, and a wrong event class: no fetched source states $100M raised or a $400M valuation; the reported "CNY 300M-722M" range in the prior pass's lead was two different quantities (deal size vs whole-company valuation). Corrected: totalRaisedUsd nulled (no source states a company total); latestRound set to Acquisition (controlling stake), 2026-05-20, valuation $106.3M (the 722M yuan whole-company valuation both fetched sources state), lead Hangzhou Kelin; acquisition noted in deployments. Status stays private (deal announced, not confirmed closed). Sources added: biggo + SSE/YICAI; humanoidindex retained. Confidence low -> medium. Kepler remains plotted in the bubble chart via the $106.3M valuation. |
+| leju-robotics | totalRaisedUsd $50M; latestRound Series B 2024-01-01 | https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/ (200, fetched body text: "Leju Robotics Technology Co. this week reportedly raised 1.5 billion yuan, or about $200 million U.S."; "The company raised 36.2 million in Series B funding in June 2019"; investors CITIC Goldstone, Shenzhen Investment Holdings et al.; IPO reportedly planned) | C | STALE figure: the shipped "$50M Series B" matches no fetched source (TRR prints the actual Series B as $36.2M in 2019). Corrected: latestRound set to Pre-IPO $200M, 2025-10-22 (1.5B yuan as reported); totalRaisedUsd nulled (no fetched source states a company total). TRR added as source of record; humanoidindex retained. Confidence low -> medium. |
+| booster-robotics | totalRaisedUsd $10M; latestRound Seed 2024-01-01 | https://www.sohu.com/a/975073436_116132 (200, TMTPost piece, fetched body: "raised more than 100 million yuan ($14 million) in a new funding round ... The round was led by venture capital firm IDG Capital"; "total Series A financing to nearly 500 million yuan" across five rounds) | C | WRONG figure: nothing states a $10M seed. The field-semantics question (one round vs total) is resolved per the stated rule. Corrected: latestRound set to Series A+ $14M (over 100M yuan), 2026-01-12, lead IDG Capital; totalRaisedUsd nulled (the "nearly 500 million yuan Series A" is a series aggregate in yuan, not a company total in USD; no USD total stated). TMTPost added; humanoidindex retained. Confidence low -> medium. |
+| clone-robotics | totalRaisedUsd $5M; latestRound Seed 2024-01-01 | https://www.aparobot.com/companies/clone-robotics (200, fetched body: "Clone Robotics has raised $6.5 million in seed funding"); searches this session for a primary (clonecompany.com unreachable, republic.com bot-walled, Crunchbase/Tracxn/PitchBook aggregator pages only, tracxn self-contradicts $80M vs $6.5M-class figures) | C (nulled) | GENUINE CONFLICT, no primary resolves it: humanoidindex says $5M, aparobot says $6.5M, aggregators disagree with each other, no first-party or named-wire primary is reachable. Figure NULLED (totalRaisedUsd null; round date nulled; type Seed retained as uncontested). Both secondary profiles retained as sources so the disagreement is visible in the record; confidence stays low. The honest gap is the publishable state; a confident $5M or $6.5M would not be. |
+| hanson-robotics | totalRaisedUsd $50M; latestRound Series B 2021-01-01 | https://getlatka.com/companies/hanson-robotics-limited (200, fetched body: "has raised $21.7M in total funding across 2 rounds, with its most recent round in 2018"); searches for a primary (hansonrobotics.com funding page none, Crunchbase/PitchBook/Seedtable bot-walled or aggregator-only) | C (nulled) | GENUINE CONFLICT, no primary: humanoidindex says $50M, getlatka says $21.7M, neither is a primary, no fetched source supports $50M at all. Figure NULLED (totalRaisedUsd null; the fabricated "Series B 2021" round nulled wholesale, type null). getlatka retained beside humanoidindex so the disagreement is documented in the record; confidence stays low. |
+| paxini | totalRaisedUsd $20M; latestRound Series A 2024-01-01 led JD.com; HQ Tokyo/JP; founded 2020 | https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing (200, fetched body: "completed a Series B financing round exceeding RMB 1 billion, bringing the company's valuation to over RMB 10 billion"; jointly led by Whampoa Capital, Caitai Capital, Xin'an Capital); https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/ (200, fetched body: "raised more than 1 billion yuan ($148 million) in a funding round in March"; "founded in June 2021"; Shenzhen-based; BYD backer); https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ (200, fetched body: Aug 3 RMB1B strategic round, "cumulative fundraising to RMB3.5 billion") | C | The feature premise said paxini had no contradicting reporting and to leave it alone if confirmed; the committed ledger's own part-1 row already contradicted that premise (Caixin $145M/$1.4B), and this session's fetches confirm the contradiction, so the tree wins and paxini was corrected. Corrected: latestRound set to Series B $148M (RMB1B+ at CnEVPost's own conversion), 2026-03-09, valuation $1.4B (RMB10B+), leads Whampoa/Caitai/Xin'an; totalRaisedUsd nulled (RMB3.5B cumulative is yuan-denominated and company-stated via TechNode; kept in deployments note rather than converted into a USD total field); HQ Tokyo/JP -> Shenzhen/CN and founded 2020 -> 2021 (June 2021, CnEVPost) — the prior pass's Tokyo/2020 "correction" was itself wrong; JD.com lead dropped (JD is a backer per CnEVPost, not a named lead of the Series B). CN country-filter oracle updated 20 -> 21 in the same commit. Description and deployments updated from the fetched sources. Confidence low -> medium. |
+
+Counted from the table above: 6 rows, 6 corrected (2 of them corrections
+whose fix is a null with the conflict documented). Wrong vs stale, stated
+per record: kepler WRONG, leju STALE, booster WRONG, clone CONFLICT-nulled,
+hanson CONFLICT-nulled, paxini WRONG. Two records (clone, hanson) have
+figures nulled; null handling was checked in the renderers: the bubble
+chart skips null-y rows (`bubblePoints` in `lib/market-map.ts`), the
+company card renders "not disclosed" for null funding per the dataset
+convention, and filters/sorts treat null totals as absent (plotted set
+36 -> 32, timeline 73 -> 72, both re-baselined below).
+
+Snippet-tier disclosure for this pass: no row above rests on snippet-grade
+evidence; every quoted sentence comes from a document fetched this session.
+WebSearch was used only to locate the documents.
+
+Oracles updated with the counts that moved (all others re-derived and
+unchanged: 111 records, humanoids 34, segment counts, IPO-status list):
+timeline rows 73 -> 72 (tests/component/market-map-timeline-focus.test.tsx
+x2, tests/e2e/market-map-timeline-affordances.spec.ts), bubble plotted set
+36 -> 32 (tests/component/market-map-bubble-view.test.tsx), CN filter
+20 -> 21 (tests/component/market-map.test.tsx x2,
+tests/e2e/market-map-deep-links.spec.ts x2). Grep of old and new values
+(`$100M`, `$400M`, `$5M`, `$10M`, `$50M`, `$20M`, `36`, `73`, `20 of 111`)
+across tests/, scripts/, lib/, data/, README.md, audit/ found no further
+stale occurrences (the $-strings appear nowhere in tests; the counts only
+in the oracles updated above).
+
+### Gates for this pass (transcript of commands actually run)
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: 227 URLs / 111 records — 216 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| duplicate URLs | per-record URL check over the committed file (node, Set per record) | 0 duplicates |
+| content validator | `npm run validate:content` | PASS (42 MDX files clean, 3 registered quotation exceptions) |
+| typecheck | `npm run typecheck` | PASS (run again after the e2e runs to restore next-env.d.ts) |
+| lint | `npm run lint` | PASS (no output) |
+| targeted unit | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS (after oracle updates) |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| shadow sweep | `find out -maxdepth 1 -name "* [0-9]*"` + `.next` scan | one cloud-sync shadow (`.next/cache 2`) found and removed before e2e |
+| e2e (full, run 1) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | 571 passed / 1 failed / 1 skipped — the failure was the bubble paintedTop bound (26.11 -> 27.72 after the plotted set shrank 37 -> 32 and the log-scale floor rose; documented and re-baselined 27 -> 28 in the spec with the cause named) |
+| e2e (full, run 2, after re-baseline) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | **572 passed / 0 failed / 1 skipped** (fresh server; the skip is the pre-existing VAL-WIKI-012 vacuous-pass skip) |
+| rendered-output check | Playwright headless against the static export on 3201, six corrected cards, console-error listener | all six cards render: kepler $106M valuation, booster $14M, leju $200M, paxini $148M / $1.4B; clone and hanson figures degrade to "not disclosed"; zero console errors; screenshots at /tmp/card-<id>.png |
+
+Note on `lastReviewed` and the humanizer: this pass changed dataset
+records and test oracles only, no article prose, so per the documented
+rule neither applies.
+
+## Mentee Robotics acquisition-status correction (2026-08-18, feature market-map-mentee-acquisition-status)
+
+Scope: one record, `mentee-robotics`, wrong on its most consequential
+field. The shipped row said status `private`, $17M total raised, a Seed
+round dated 2023-01-01, confidence low. Reuters (2026-01-06) had reported
+Mobileye agreed to acquire Mentee for roughly $900M plus a later ~$21M
+round. The deal's actual state was established from fetched primaries
+before anything was written.
+
+What actually happened, from the primaries:
+
+- **Announcement.** Mobileye's own press release (ir.mobileye.com,
+  Businesswire wire, fetched this session, 200): "Mobileye today announced
+  entry into a definitive agreement to acquire Mentee Robotics Ltd."
+  dated Jan 6, 2026, CES Las Vegas. Total consideration "$900 million
+  (subject to certain adjustments), comprising approximately $612 million
+  in cash and up to about 26.2 million shares of Mobileye Class A common
+  stock". Expected close: first quarter of 2026. Approved by Mobileye's
+  Board, a strategic transaction committee of independent directors, and
+  Intel as sole Class B shareholder; Shashua (Mobileye CEO and Mentee
+  co-founder/chairman) recused.
+- **Closure — the deal CLOSED, it did not stay pending.** Mobileye Form
+  8-K, SEC EDGAR, date of report February 3, 2026 (fetched this session
+  with a declared user agent, full text read): "On February 3, 2026, the
+  Corporation and MEIL completed the Acquisition and paid the aggregate
+  purchase price of $900,000,000, consisting of $611,914,666 in cash and
+  26,279,824 shares of Class A Stock." Signed by CFO Moran Shemesh
+  Rojansky, February 5, 2026. URL:
+  https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm
+- The ~$21M March round: Reuters's body text (bot-walled on reuters.com
+  and every syndication tried this session: Yahoo 404, kfgo/wmbd 403,
+  investing.com served unrelated content, zawya/CNA page-not-found)
+  survives only as concordant search snippets across four independent
+  syndications (reuters.com, investing.com, techstartups, channelnewsasia):
+  "Mentee raised about $21 million in a funding round in March, valuing
+  the startup at roughly $162 million." Per the snippet-tier rule this is
+  **snippet-grade (WebSearch 2026-08-18) query: "Mentee raised about $21
+  million in a funding round in March" Mobileye** — corroboration that
+  some document states it, not a fetched document. It may not set a
+  load-bearing numeric. It is recorded here as the lead for a future pass
+  and was NOT written into the dataset.
+
+Schema question, answered concretely: the site could already represent an
+acquired company. `companyStatusSchema` accepts `private | public |
+acquired | dead`; the bubble chart, grid card (`data-field="status"` →
+"Acquired"), status filter (option "Acquired"), timeline, and structured
+search index all consume the existing value. No schema change was needed
+and none was made — the smallest honest change is the one-word data edit
+the schema already supported. Ten records were already `acquired`
+(covariant, irobot, berkshire-grey, abb-robotics among them), and the
+house pattern for a closed acquisition is `latestRound.type:
+"Acquisition"` with amountUsd = deal value and the buyer in leadInvestors
+(berkshire-grey: $375M / SoftBank, set by the earlier audit from the
+first-party release). Mentee now follows that pattern exactly.
+
+Ledger rows:
+
+| Record | Claim (shipped value) | Source checked (fetched 2026-08-18) | Verdict | Note |
+|---|---|---|---|---|
+| mentee-robotics | status `private` | https://ir.mobileye.com/news-releases/news-release-details/mobileye-acquire-mentee-robotics-accelerate-physical-ai (200, first-party: definitive agreement announced 2026-01-06, $900M consideration ~$612M cash + up to ~26.2M Class A shares, close expected Q1 2026); https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm (Mobileye Form 8-K, fetched in full: acquisition COMPLETED 2026-02-03 for $900,000,000 = $611,914,666 cash + 26,279,824 Class A shares) | C | status corrected `private` → `acquired`. The deal is CLOSED (8-K, Feb 3 2026), not announced-pending: today is 2026-08-18, past the Q1-2026 expected close, and the filing states completion in the past tense with the final paid consideration. So `acquired` (completed) is the correct existing enum value, and no "being-acquired" representation was needed. latestRound set to Acquisition $900M, 2026-02-03, lead `['Mobileye']` — the same convention as berkshire-grey. Record kept: still 111 records, humanoids still 34 (mentee stays in its segment; an acquired company is part of the market's history). |
+| mentee-robotics | totalRaisedUsd $17M; latestRound Seed, null amount, 2023-01-01 | same two primaries; startuphub.ai piece (previously the $17M source) not re-fetchable as a full round statement this session; Reuters ~$21M March round is snippet-grade only (tier and query above) | C (nulled) | totalRaisedUsd $17M NULLED: the startuphub $17M was a single seed round, not a stated company total, and the only newer round figure (~$21M, March, ~$162M valuation per Reuters) is snippet-grade and may not set a load-bearing numeric — it stays a recorded lead, not a dataset figure. Consistent with the sibling feature's reading: totalRaisedUsd is a stated company total, never a round figure promoted to a total. The old Seed/2023-01-01 round is replaced by the acquisition event. Confidence low → high (two fetched primaries: first-party announcement + SEC filing). Description and deployments updated from the fetched release ("operates as an independent unit within Mobileye; first on-site proof-of-concept deployments expected 2026, series production targeted 2028"). |
+
+Counted from the table above: 2 rows, 2 corrected (1 status+round, 1
+figure nulled with the acquisition event written in). Sources added: 2
+(Mobileye IR release, SEC 8-K); existing 2 retained; no URLs lost; no
+duplicates (checked per-record after regeneration).
+
+Cascade sweep, old and new values greped across tests/, scripts/, lib/,
+data/, README.md, audit/, schema doc comments (`'private'`, `'acquired'`,
+`$17M`, `$900M`, `17000000`, `900000000`, `mentee`): no prose surface
+quotes a private/acquired company count, so no README or landing copy
+moved; the status label "Acquired" is data-driven, not hardcoded per
+count. Counts that moved, with the oracles updated in the same commit:
+
+- status partition: private 82 → 81, acquired 10 → 11 (no hardcoded
+  oracle; verified by re-derivation, command below).
+- bubble plotted set 32 → 31 (mentee's y-value source, the $17M total,
+  became null and the $900M acquisition is not a valuation/total, so the
+  row no longer plots): tests/component/market-map-bubble-view.test.tsx
+  re-baselined with the cause named.
+- timeline rows 72 → 72 UNCHANGED (the old 2023-01-01 seed predates the
+  2023-2026 window and never rendered; the new 2026-02-03 acquisition
+  event enters the window). Verified by re-derivation.
+- 111 total, humanoids 34, US∩humanoids 6, US∩humanoids∩high 4: all
+  unchanged (mentee is IL, was already low-confidence, already counted).
+- status-filter membership: 'mentee-robotics' added to the
+  acquired-status expectations in tests/unit/market-map.test.ts and
+  tests/e2e/market-map.spec.ts (VAL-MKT-022).
+
+Re-derivation commands (run this session, after the edit):
+`npx tsx -e "import {COMPANIES} from './data/companies.ts'; ..."` →
+total 111, timeline events 72, acquired 11, private 81, humanoids 34,
+plotted 31 (mentee absent).
+
+### Gates for this pass (transcript of commands actually run)
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: "Checked 229 dataset source URLs across 111 records: 218 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions." (227 → 229 URLs: the 2 added primaries) |
+| regeneration | `npm run generate:companies` | "wrote 111 rows" |
+| duplicate URLs | per-record URL check | 0 duplicates |
+| content validator | `npm run validate:content` | PASS (no-slop source-only OK) |
+| typecheck | `npm run typecheck` | PASS |
+| lint | `npm run lint` | PASS (no output) |
+| targeted unit | `npm run test -- companies market-map structured-search` | 8 files / 111 tests PASS |
+| full unit suite | `npm run test` | 168 files / 1727 passed, 1 skipped (the pre-existing VAL-WIKI-012 vacuous-pass skip) |
+| build | `npm run build` | PASS (static export, 135 structured documents, no-slop rendered sweep OK) |
+| shadow sweep | `find out -maxdepth 1 -name "* [0-9]*"` + `.next` scan | no cloud-sync shadows found |
+| e2e (FULL suite, run 1) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | 570 passed / 2 failed / 1 skipped. Failure 1: the bubble paintedTop bound (anduril 27.72 → 30.10 after the plotted set shrank 32 → 31) — re-baselined 28 → 31 in the spec with the cause named, the documented tripwire procedure. Failure 2: search-facet-pending clock flake ("Cannot fast-forward to the past", a Playwright clock.pauseAt issue in a spec my diff does not touch); it passed on targeted re-run below and in full run 2. |
+| e2e (targeted re-run, port 3200 killed first) | `npx playwright test tests/e2e/market-map-bubble-affordances.spec.ts tests/e2e/search-facet-pending.spec.ts` | 11 passed |
+| e2e (FULL suite, run 2, after re-baseline) | `lsof -ti :3200 \| xargs kill` then `npm run test:e2e` | **572 passed / 0 failed / 1 skipped** (fresh server; recorded below at commit time) |
+| rendered-output check | Playwright headless, dev server 3200, `?status=acquired` | mentee card renders: Status "Acquired", latest round $900M, description names Mobileye; 11 acquired cards; zero console errors; screenshot /tmp/mentee-card.png |
+
+Note on `lastReviewed` and the humanizer: this pass changed a dataset
+record and test oracles only, no article prose, so per the documented
+rule neither applies.
+
+## Batch-3 re-verification: the twelve remaining Crunchbase/humanoidindex records (2026-08-18)
+
+**Why this pass exists.** Commit b1b161f ("batch 3 — Crunchbase/humanoidindex
+cluster, 24 rows") set fields on 19 records from Crunchbase news pages and
+humanoidindex.org profiles. The figure-corrections pass (ba0c1e9) then checked
+six of those 19 against fetched primaries and named outlets, and **all six
+were wrong** (kepler-robot, leju-robotics, booster-robotics, clone-robotics,
+hanson-robotics, paxini — wrong figures, wrong event classes, and one record
+wrong on five fields at once, including a "correction" that was itself
+wrong). Six for six is evidence about a method, not a sampling artifact: that
+pass treated aggregator pages as primary sources. This pass re-verified the
+twelve remaining batch-3 records against fetched primaries, so that no
+field the aggregator pass touched rests on its word alone. mentee-robotics
+is out of scope (sibling feature, resolved at 5d0da0d).
+
+Method: every source below was fetched in this session with the gate's own
+browser user agent (`lib/citation-links.ts` BROWSER_UA, via curl), probed
+live (HTTP 200) before being written into the dataset, and the quoted
+sentence comes from that fetch. A Crunchbase news page or humanoidindex
+profile was read only as a lead; no field below is evidenced by either.
+Dispositions per the publisher-independence procedure (issuer resolved, not
+host): `independent (different publisher: X)` for named outlets and wires
+with their own editorial responsibility; `durability addition (first-party,
+issuer: X)` for the companies' own releases; aggregator sources already on
+the records were retained (no URL removals this pass) but never counted as
+evidence. The three outcomes are per-record: CONFIRMED (a fetched primary
+states the recorded value), CORRECTED (it states something different),
+NULLED (nothing reachable supports it, or fetched sources genuinely conflict
+with no primary to resolve it).
+
+| Record | Claim (shipped value) | Source checked (fetched, browser UA, 2026-08-18) | Disposition | Note |
+|---|---|---|---|---|
+| spirit-ai | latestRound Series A extension $145M, 2026-04-01, $1.5B valuation, leads [Chaos Investment, YF Capital] | https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html (200, first-party, 2026-02-25: "Spirit AI has raised $280 million USD to scale the deployment of general-purpose embodied models"; "This Beijing-based company"); https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/ (200, independent: StackFutures, 2026-06-03: "Spirit AI announced the RoboArena result alongside a 1.5 billion yuan ($222 million) Series A+ financing on June 3 — its fourth round in three months"); https://news.pedaily.cn/202606/564786.shtml (200, independent: PEdaily, 2026-06-03: "今日（6月3日），千寻智能宣布完成15亿元A+轮融资" — ¥1.5B A+ round announced June 3); https://eu.36kr.com/en/p/3701216103281408 (200, independent: 36Kr, 2026-02-27: "On February 24th, Spirit AI announced that it had completed two consecutive rounds of financing totaling nearly 2 billion yuan"; "Spirit AI, founded in 2024") | CORRECTED | The April "$145M extension" exists in no fetched source, and the aggregator's Spirit figures ($290M + $145M ext = $435M) are a mirror of its Galaxea figures ($145M + $290M ext = $435M) — the two records were contaminated with each other's numbers in the same Crunchbase article. Corrected to the real latest event: Series A+ $222M (¥1.5B at TNW's own conversion), 2026-06-03, lead investors unnamed in every fetched body ("一线美元基金以及大型产业投资方"), valuation null (only ">¥10B (≈$1.4B)" is stated, a bound; $1.5B is stated by no fetched source). Chaos Investment/YF Capital appear as round tags in DealStreetAsia's paywalled listing and in the STCN/QbitAI coverage as Feb-round participants, but no fetched body names a lead, so leadInvestors is emptied rather than kept on aggregator word. Founded 2024 CONFIRMED (PEdaily: founded January 2024, founders Han Fengtao/Gao Yang/Zheng Lingyin). HQ Beijing CONFIRMED by the company's own release ("This Beijing-based company", Beijing dateline); TNW's same-week characterization "a startup from Hangzhou" is noted as a disagreement — the company's own self-description wins over a secondary's. Sources added: 4 (1 first-party-adjacent wire, 3 independent). Access note: TNW's article was also fetched this session (200) and states the same $222M conversion, but thenextweb.com answers HEAD with 404 while serving GET 200 — the gate HEADs first and dead is never exceptable — so StackFutures, which states the identical figure and HEADs clean, is the URL carried in the dataset. |
+| engineai | latestRound Series B $200M, 2026-05-01, $1.5B valuation, leads [Henan CICC Huirong Fund Management, Luxshare-ICT] | https://cryptobriefing.com/engineai-hong-kong-ipo-filing/ (200, independent: Crypto Briefing, 2026-06-11: "a $200 million Series B funding round that valued the company at $1.5 billion. That round was led by Henan CICC Huirong Fund Management and Luxshare-ICT"; "The $200 million Series B that followed in April 2026"); https://www.lanjinger.com/d/1778055085697120105 (200, independent: Blue Whale Finance, 2026-05-06: "此前4月9日，众擎机器人完成了B轮融资的交割。据官方介绍，B轮融资由河南投资集团汇融基金与立讯精密联合领投" — Series B closing on April 9, co-led by Henan Investment Group Huirong Fund and Luxshare Precision; "已完成B+轮融资，具体融资规模及投资方仍有待公布" — a B+ round has since completed, terms unannounced) | CONFIRMED + CORRECTED (date) | Amount $200M, valuation $1.5B and both co-leads confirmed by fetched bodies (Blue Whale adds the official Chinese naming: 河南投资集团汇融基金 = Henan CICC Huirong Fund Management, 立讯精密 = Luxshare). Date corrected 2026-05-01 → 2026-04-09 (the closing date Blue Whale states; the batch-3 date was the aggregator's "last month" guess). The May 2026 Series B+ (terms undisclosed) is recorded in the description rather than displacing the fully-disclosed April round. founded 2024 retained (predates batch 3; not contradicted by any fetched source). totalRaisedUsd null retained (no fetched total; Blue Whale/Crypto Briefing give only round pieces). Confidence medium → high. Sources added: 2 (both independent). |
+| tars-robotics | latestRound Seed $513M, 2026-05-01, $1.9B valuation, leads [Hillhouse Capital, HSG] | https://olachina.org/tars-ai/ (200, independent: Ola China, 2026-04-16: "TARS AI (它石智航), a Shanghai-based embodied intelligence startup... On April 16, 2026, the company announced the completion of a $455 million Pre-A round"; "TARS AI officially launched in February 2025"; "On the financial investor side, Hillhouse Ventures and Sequoia China co-led the round. Meituan Dragon Ball, CICC Capital... followed") | CORRECTED | Wrong amount, wrong round class, wrong date: the real event is a $455M Pre-A announced 2026-04-16, not a $513M seed in May. (The aggregator's "$513M seed" also collides with a different Houston company's $513M seed in the same search space.) Corrected: Seed → Pre-A, $513M → $455M, 2026-05-01 → 2026-04-16. Valuation $1.9B NULLED: stated by no fetched body (the unicorn-board framing in the aggregator's own unicorn post is snippet-grade; snippet-grade (WebSearch, no fetched document) query: "TARS Robotics 它石智航 seed round $513 million Hillhouse HSG 2026"). Leads kept [Hillhouse Capital, HSG] — the fetched body names Hillhouse and Sequoia China as co-leads, and Sequoia China = HongShan = HSG (CNBC's fetched gloss: "HongShan, formerly Sequoia Capital China"). Recorded disagreement: investor Grishin Robotics' post (snippet-grade, same query) says the round was "co-led by GL Ventures, HSG, and Meituan" — GL Ventures appears in no fetched body; Meituan's strategic arm co-led per the fetched body. founded 2025 CONFIRMED ("officially launched in February 2025"). HQ Shanghai CONFIRMED. Source added: 1 (independent). |
+| galaxea-ai | latestRound Series B extension $290M, 2026-04-01, $1.4B valuation, lead [Jinding Capital] | https://www.cxodigitalpulse.com/chinas-galaxea-ai-raises-290-4-million-in-series-b-round-to-accelerate-robotics-push/ (200, independent: CXO Digitalpulse, 2026-04-03: "Chinese embodied AI startup Galaxea AI has raised $290.4 million in a Series B+ funding round"; "Founded in 2023 and based in Beijing"); https://theaiinsider.tech/2026/04/04/chinese-robotics-startup-galaxea-ai-raises-290m-usd-in-series-b-funding-valued-at-29b-usd/ (200, independent: The AI Insider citing Yicai Global, 2026-04-04: "raised about $290 million in a Series B+ round... following a separate funding round of about $140 million completed in February") | CORRECTED | Round class corrected: Series B extension → Series B+ (both fetched bodies; the February predecessor was the ~$140M/¥1B Series B, which is what the aggregator's "led by Jinding Capital" sentence described — no fetched source names the B+ lead, so leadInvestors is emptied). Amount $290M confirmed within reporting variance ($290M / $290.4M fetched; Caixin's headline says $291M, unfetched). Date corrected 2026-04-01 → 2026-04-02; basis disclosed as snippet-grade (WebSearch, no fetched document) query: "Yicai Galaxea AI Series B+ $290 million 星海图 humanoid funding" — Yicai's body snippet reads "announced today" under its 2026-04-02 13:44 timestamp and Caixin's piece is dated 2026-04-02 by URL; the date is non-load-bearing (it only orders the timeline). Valuation $1.4B NULLED: the fetched sources genuinely disagree and no primary resolves it — Yicai reports "roughly $29 billion" (uncorroborated by any other fetched body and inconsistent with the sector's valuations), the aggregator's $1.4B described the February round, and humanoidindex's $700M is an Aug-2025 snapshot; naming all three rather than preferring one. founded 2023 CONFIRMED (CXO Digitalpulse). HQ Beijing CONFIRMED. Sources added: 2 (both independent). |
+| robot-era | latestRound $200M, 2026-04-01, type null, leads [] | https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/ (200, independent: Pulse 2.0, 2026-05-08: "ROBOTERA announced it has raised more than $200 million in a new financing round led by SF Group"); https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/ (200, independent: Frontier Enterprise, 2026-05-15: "RobotEra has raised over US$200 million in a new financing round led by SF Group, following its RMB1 billion strategic round in March"); https://www.therobotreport.com/robotera-gets-series-a-funding-partners-unido-embodied-intelligence/ (200, independent: The Robot Report, 2025-12-01: "ROBOTERA last week secured nearly RMB 1 billion, or about $140 million U.S., in Series A+ financing... Geeley Capital led Robotera's round"; "The Beijing-based company") | CORRECTED (figure NULLED) | The round is real but its size is a bound in every fetched body: "more than $200 million" / "over US$200 million" is a lower bound the reporters did not make exact, so amountUsd is nulled rather than promoted to a flat $200M (the Skild rule; contrast booster-robotics, where the outlet itself printed a flat USD parenthetical). Lead corrected [] → [SF Group] (both fetched bodies: "led by SF Group"; HSG, IDG, Hillhouse participated). Date NULLED: no fetched body states the day; Caixin's piece is dated 2026-04-27 by URL but is unfetchable this session (snippet-grade (WebSearch, no fetched document) query: "site:caixinglobal.com Robot Era raises more than $200 million SF Express"), so the aggregator-only 2026-04-01 comes out and the row leaves the timeline. Type stays null ("a new financing round"; the March ¥1B strategic round and the Dec 2025 Series A+ precede it). HQ city null → Beijing (The Robot Report). Sources added: 2 (both independent). |
+| rhoda-ai | latestRound Series A $450M, 2026-03-10, $1.7B valuation, leads []; HQ Palo Alto; founded null; totalRaisedUsd null | https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html (200, independent: Reuters via Yahoo, 2026-03-10: "Rhoda AI on Tuesday said it has raised $450 million in a Series A funding round that values the company at $1.7 billion"; "emerged from stealth"; backers "Khosla Ventures, Temasek, Mayfield, Premji Invest and Capricorn Investment Group, among others" — none named as lead); https://techfundingnews.com/rhoda-ai-450m-series-a-stealth-exit-robotics/ (200, independent: TechFundingNews: "Based in Palo Alto, Rhoda AI") | CONFIRMED | Every batch-3-adjacent field verified against the fetched wire and secondary: amount, round class, date, valuation, empty lead list (backers named, no lead), Palo Alto HQ, null founded (no fetched source states a year; "emerged from stealth after 18 months" is not a founding date), null total (no source states a company total). No edit made. This is the one Tier-2 record whose non-aggregator sources already said exactly what the record says. |
+| mind-robotics | latestRound $400M, 2026-05-13, $3.4B valuation, lead [Kleiner Perkins]; totalRaisedUsd null; founded null | https://finance.yahoo.com/news/rivian-spinout-mind-robotics-valued-154827510.html (200, independent: Reuters via Yahoo, 2026-05-13: "Mind Robotics, a spinout from Rivian, was valued at $3.4 billion in a new funding round, up from the $2 billion valuation it secured during its Series A raise in March"; "raised $400 million in the Kleiner Perkins-led round"); https://techcrunch.com/2026/05/13/rivian-spinoff-mind-robotics-raises-another-400m/ (200, independent: TechCrunch: "after it was created in 2025"; "brings the total raised to more than $1 billion"); https://www.therobotreport.com/mind-robotics-raises-400m-scale-ai-powered-robots-in-manufacturing/ (200, independent: The Robot Report: "spun out Mind Robotics in November 2025") | CONFIRMED + CORRECTED (founded) | Amount, date, lead, and the $3.4B valuation confirmed by the fetched Reuters syndication (the valuation's source of record, now added to the record; b1b161f had dropped the bot-walled reuters.com original while keeping its figure). totalRaisedUsd null confirmed correct ("more than $1 billion" is a bound, not a total). One correction: founded null → 2025 (TechCrunch "created in 2025"; The Robot Report "spun out... in November 2025"). Source added: 1 (independent). |
+| agibot | latestRound Series B, null amount, 2024-01-01, $1B valuation, lead [CATL]; HQ Suzhou; totalRaisedUsd $83.8M; deployments "Backdoor listing via Swancor ($290M for 63.62%)" | https://finance.yahoo.com/news/chinese-robot-maker-agibot-completes-104808083.html (200, independent: Reuters via Yahoo, 2025-08-01: "AGIBot has completed a new round of strategic financing with investors including LG Electronics and Mirae Asset, the company said in a statement to Reuters... declined to disclose the size of the fundraising round"); https://en.tmtpost.com/post/7620691 (200, independent: TMTPost, 2025-07-09: "will acquire control of the listed company by purchasing at least 63.62% of its shares"; "2.1 billion yuan, or around $290 million"; "AgiBot Robotics emphasized that the acquisition is not a backdoor listing under current Chinese capital market regulations"); https://agibot.com/ (200, first-party: site title "AGIBOT Innovation (Shanghai) Technology Co., Ltd."); https://finance.yahoo.com/news/exclusive-chinese-robot-maker-agibot-092020928.html (200, independent: Reuters via Yahoo, 2025-10-10: "The Shanghai-based company"; "backed by investors such as Tencent and HongShan Capital Group (HSG)"; "According to PitchBook, it reached a valuation of $2.07 billion as of March"); https://futurism.com/robots-and-machines/robot-agibot-humanoid-walking (200, independent: Futurism, 2025-11: "completed a 66-mile pilgrimage from Jinji Lake in Suzhou to Shanghai... set a new Guinness world record"); https://www.prnewswire.com/news-releases/omdia-ranks-agibot-no1-worldwide-in-humanoid-robot-shipments-in-2025-302656788.html (200, durability addition, first-party, issuer: AgiBot, PR Newswire 2026-01-08: "shipped more than 5,100 humanoid robots during the year, capturing 39% of global market share") | CORRECTED | HQ corrected Suzhou → Shanghai (company's own site title + two Reuters wires; no fetched source says Suzhou). latestRound corrected: the "Series B (2024) at $1B led CATL" framing is humanoidindex-derived and supported by no fetched body; the most recent disclosed funding event is the 2025-08-01 strategic round (LG Electronics and Mirae Asset participating, size declined), recorded as type Strategic with null figures. CATL dropped as lead: no fetched source names CATL leading anything at AgiBot (its fetched backers are Tencent and HongShan; the March 2025 round was Tencent-led at ¥15B ≈ $2.07B per PitchBook-via-Reuters — kept in the ledger, not in the round fields, since that round is not the latest). totalRaisedUsd $83.8M NULLED: aggregator-derived (Tracxn-style "$83.8M over 3 rounds"); no fetched primary states a company total. Deployments rewritten from fetched sources: the "backdoor listing" framing is the company's explicitly denied characterization ("emphasized that the acquisition is not a backdoor listing"), so the text now states the deal (≥63.62% for ¥2.1B ≈ $290M) and the denial; the 66-mile Guinness walk and the Omdia No.1 shipment rank are kept with fetched sources. Description updated the same way and notes the HK IPO preparation (Reuters). founded 2023 retained (predates batch 3; not contradicted). Status stays private (IPO filing, not priced). Confidence medium → high. Sources added: 5 (4 independent, 1 first-party durability). |
+| neura-robotics | latestRound Series C $1.4B, 2026-06-10, lead [Tether]; valuation null | https://neura-robotics.com/record-series-c/ (200, first-party, 2026-06-10: "Metzingen, Germany: June 10, 2026 – NEURA Robotics... today announced a landmark Series C financing with a total round size of up to $1.4 billion"); https://www.coindesk.com/business/2026/06/11/tether-leads-usd1-4-billion-funding-round-in-german-robotics-company-neura/ (fetched this session via an independent client after its curl 429s: HTTP 200, CoinDesk, 2026-06-11: "Tether Investments led a $1.4 billion funding round for Neura Robotics, a German startup developing AI-powered humanoid robots"); https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html (200, independent: CNBC: "raised a round of up to $1.4 billion, the company said on Wednesday"; valuation "around $7 billion, according to a source... The company declined to comment") | CORRECTED (amount NULLED) | Type (Series C), date (2026-06-10) and lead (Tether) confirmed by fetched bodies. amountUsd $1.4B → null: the company's own release — the primary — phrases the round as "up to $1.4 billion", and every fetched body repeats the hedge; a bound is never promoted to a precise value (the Skild rule; the same discipline that nulled generalist-ai's "more than half a billion"). The bound stays visible to readers in the first-party source title carried on the record ("Series C of up to $1.4B"). valuationUsd null retained as correct: the only figures in fetched bodies are "around/approximately $7 billion" from anonymous sources, which the company declined to confirm — and CoinDesk's own caption says "raised $1.5 billion" while its body says "$1.4 billion", so the secondary flat figures cannot settle what the primary hedges. founded 2019 / HQ Metzingen retained (dateline confirms HQ; founded predates batch 3). Sources added: 0 net — the fetched TNW corroboration ("Tether led the round") was withheld from the dataset because thenextweb.com answers HEAD 404 / GET 200 and the gate would classify it dead (dead is never exceptable); the CoinDesk URL already on the record, re-fetched this session, carries the lead attribution. |
+| x-square-robot | latestRound Series B $293M, 2026-04-01, leads [Xiaomi, HSG]; HQ city null; founded null | https://kr-asia.com/xiaomi-hongshan-back-x-square-robot-in-series-b-round (200, independent: KrASIA, 2026-04-21: "X Square Robot has completed a Series B funding round, raising nearly RMB 2 billion (USD 292.8 million), 36Kr reported. Xiaomi and HongShan co-led the investment"); https://theaiinsider.tech/2026/04/22/x-square-robot-raises-276m-in-series-b-funding-for-household-robots/ (200, independent: The AI Insider citing China Daily, 2026-04-22: "raised nearly $276 million in a Series B round led by Xiaomi's strategic investment arm"); https://www.cnbc.com/2025/09/08/alibaba-leads-100-million-investment-in-chinese-humanoid-robot-startup.html (200, independent: CNBC, 2025-09-07: "the Shenzhen-based startup's eighth round of financing since the company launched less than two years ago in December 2023, according to Chief Operating Officer Yang Qian") | CORRECTED (amount NULLED on conflict) | The batch-3 "correction" moved this record away from the truth: the pre-batch $276M / 2026-04-21 matched fetched reporting; batch-3 rewrote it to $293M / 2026-04-01 from the aggregator. The underlying round is ~¥2B, and the two fetched named outlets convert it inconsistently — KrASIA prints "(USD 292.8 million)" (a stale-rate conversion) while China Daily via The AI Insider prints "nearly $276 million" — so amountUsd is NULLED with the disagreement named rather than either figure promoted. Date restored to 2026-04-21 (KrASIA's report date). Leads [Xiaomi, HSG] CONFIRMED (Xiaomi and HongShan co-led; HSG = HongShan). HQ city null → Shenzhen and founded null → 2023 from the fetched CNBC piece (COO statement: launched December 2023). Deployments "Home trials targeted by May 2026" confirmed (The AI Insider: launch "starting in late May" with 58.com home trials). Sources added: 2 (both independent). |
+| limx-dynamics | latestRound Series B $200M, 2026-02-03; HQ city null; founded 2022 | https://technode.com/2026/02/03/limx-dynamics-raises-200-million-in-series-b-to-scale-humanoid-robotics/ (200, independent: TechNode, 2026-02-03: "Shenzhen-based humanoid robot maker LimX Dynamics said on Monday it had raised $200 million in a Series B funding round"); https://finance.biggo.com/news/269a54b1-070f-49ab-bce0-ff7a5776dd0f (200, independent: BigGo Finance, 2026-07-14: "announced on July 14 the completion of a nearly $200 million Pre-IPO funding round, pushing its post-money valuation to 15 billion yuan (approximately $2.2 billion)"; "Founded in 2022 by... Zhang Wei"); https://eu.36kr.com/en/p/3893976502287618 (200, independent: 36Kr EN, 2026-07-14: "announced the completion of its Pre-IPO funding round, raising nearly $200 million... post-money valuation has reached 15 billion RMB"); https://cryptobriefing.com/limx-dynamics-ipo-200m-pre-ipo-funding/ (200, independent: Crypto Briefing, 2026-07-14: "founded in January 2022"; "The pre-IPO round, completed on July 14, 2026") | CORRECTED | The February Series B was flat-verified at TechNode ($200M, Shenzhen-based) — but it is no longer the latest event: a pre-IPO round completed 2026-07-14 supersedes it, and its figures are bounds in every fetched body ("nearly $200 million"; the ¥15B post-money converts to "approximately $2.2 billion" at BigGo and "about $2.21 billion" at Crypto Briefing — FX-rate disagreement), so the round is recorded as Pre-IPO 2026-07-14 with amountUsd and valuationUsd null and both bases documented here. HQ city null → Shenzhen (TechNode, BigGo). founded 2022 CONFIRMED (January 2022, Crypto Briefing). Confidence low → medium. Sources added: 2 (both independent). |
+| switchbot | latestRound IPO $206M, 2025-12-30; status public; HQ Shenzhen; founded 2015 | https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html (200, independent: Caixin Global, 2025-12-31: "OneRobotics (Shenzhen) Co., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering. Founded in 2015 by two graduates of the Harbin Institute of Technology, OneRobotics is best known for its SwitchBot line of home-automation gadgets") | CONFIRMED | Every batch-3-set field verified against the fetched Caixin piece: HK$1.64B ($206M) IPO, debut Tuesday 2025-12-30 (the piece is dated Wednesday Dec 31 and says "on Tuesday"), status public, Shenzhen, founded 2015. One addition: aka [] → ["OneRobotics (Shenzhen) Co."] so the registered listing entity is findable from the brand-name record (named in the same fetched sentence). humanoidindex's "$50M+ raised / Series B 2023" is a pre-IPO snapshot, not a conflict. No figure changed. |
+
+Counted from the table above: **12 rows — 2 CONFIRMED (rhoda-ai, switchbot;
+engineai confirmed on amount/valuation/leads with a date correction), 10
+CORRECTED (spirit-ai, tars-robotics, galaxea-ai, robot-era, mind-robotics,
+agibot, neura-robotics, x-square-robot, limx-dynamics, engineai's date), 8
+of the corrections null at least one figure on bound or conflict grounds
+(spirit-ai valuation, tars-robotics valuation, galaxea-ai valuation,
+robot-era amount+date, agibot totalRaised, neura-robotics amount,
+x-square-robot amount, limx-dynamics amount+valuation on the newer
+round).** Under the wrong-vs-stale taxonomy:
+spirit-ai WRONG (fabricated extension round; cross-contaminated figures),
+tars-robotics WRONG (amount, class, date), galaxea-ai WRONG class + stale
+valuation, robot-era WRONG precision + missing lead, mind-robotics gap
+filled, agibot WRONG (HQ, round record, total, denied-framing kept as fact),
+neura-robotics bound over-precision, x-square-robot WRONG (the batch-3 move
+was away from the truth), limx-dynamics STALE (superseded round), rhoda-ai
+and switchbot clean.
+
+Pattern finding, stated per the skill's rule on reporting batch size: this
+pass found defects on 10 of 12 records from the same aggregator-sourced
+batch (b1b161f touched 19; 6 were already corrected at ba0c1e9, 12 here, 1
+was mentee's sibling feature). The batch's cumulative defect rate is 16 of
+18 verified records wrong or imprecise. The mechanism was visible twice
+this session: the aggregator contaminated Spirit's paragraph with Galaxea's
+numbers, and its X Square "correction" pushed a verified value to a
+stale-FX conversion. No field sourced solely to news.crunchbase.com or
+humanoidindex.org should be treated as verified.
+
+Snippet-grade rows in this section: 2 cells carry snippet-tier material
+(both disclosed inline with their queries above) — tars-robotics'
+valuation-null note and lead disagreement, and galaxea-ai's round date. No
+load-bearing numeric on any row rests on a snippet; every figure that
+survives in the dataset is stated by a fetched body quoted above.
+
+### Batch-3 re-verification gates (2026-08-18)
+
+| Gate | Command | Result |
+|---|---|---|
+| dataset-source gate (×2) | `npm run check:dataset-sources` | exit 0 both runs, identical summaries: "Checked 249 dataset source URLs across 111 records: 238 live, 0 dead, 0 blocked, 0 error, 11 documented exceptions." (229 → 249 URLs: +20 net — 22 added, of which the two thenextweb.com additions were swapped out because that host answers HEAD 404 / GET 200 and the gate, which HEADs first, would classify it dead; dead is never exceptable. Every added URL was HEAD-probed with the gate's browser UA before writing.) |
+| content validation | `npm run validate:content` | exit 0 (no-slop sweeps over 42 MDX files, 3 registered quotation exceptions unchanged) |
+| typecheck | `npm run typecheck` | exit 0 (route types regenerated) |
+| lint | `npm run lint` | exit 0 |
+| build | `npm run build` | exit 0 (no Turbopack postcss failure; 58 exported HTML files swept clean) |
+| unit suite | `npm run test` | exit 0 — 168 files, 1727 passed, 1 skipped (same skip as the ba0c1e9 baseline) |
+| full e2e | `npm run test:e2e` (port 3200 killed first) | exit 0 — 573 tests: 572 passed, 0 failed, 1 skipped (identical counts to the ba0c1e9 baseline; all 43 market-map specs green). Bubble paintedTop measured on the rendered page post-change: anduril 30.0957, unchanged from the mentee-pass baseline, so the < 31 drift bound held without re-baselining (comment added at the assertion). |
+
+Outcome summary for this pass: 111 records (unchanged), 12 rows above, 2
+CONFIRMED / 10 CORRECTED / 8 with a nulled figure. The mentee-robotics
+record was not touched (sibling feature owns its status). Timeline rows
+72 → 71 (robot-era round date nulled), bubble focusable cards 31 → 28
+(spirit-ai, tars-robotics, galaxea-ai valuations nulled; agibot valuation
+corrected off the fabricated figure; mind-robotics enters on its
+confirmed valuation), aka entries 26 → 27 (SwitchBot's listed entity).
+Every moved oracle carries a cause comment at its assertion.

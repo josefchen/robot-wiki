@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_PARADIGM,
   WM_PARADIGMS,
   WM_USES,
   paradigmById,
+  type WmParadigm,
   type WmParadigmId,
 } from '@/lib/world-model-taxonomy';
 import { cx } from '@/lib/utils';
@@ -86,11 +88,52 @@ function VideoScene({ x, y, width: w, height: h }: { x: number; y: number; width
   );
 }
 
-function PanelArt({ id }: { id: WmParadigmId }) {
+const PANEL_ART_LABEL: Record<WmParadigmId, string> = {
+  'latent-dynamics':
+    'Latent-dynamics panel art: latent cells, reward scalar, fuzzy reconstruction',
+  'decoder-free-latent':
+    'Decoder-free panel art: latent cells and MPPI candidate fan',
+  'generative-video':
+    'Generative-video panel art: predicted frame plus action or text condition',
+  jepa: 'JEPA panel art: embedding cells, goal marker, distance meter',
+  'world-action':
+    'World-action panel art: predicted frame beside an action chunk',
+  symbolic: 'Symbolic panel art: predicate list and pick transition',
+};
+
+function paradigmTakeaway(p: WmParadigm): string {
+  switch (p.id) {
+    case 'latent-dynamics':
+      return 'Latent-dynamics (Dreamer-style) predicts the next latent, a reward of 0.83 and a continue flag of 1, plus a fuzzy decoded frame used at training only; of the 4 uses, only policy learning is lit.';
+    case 'decoder-free-latent':
+      return 'Decoder-free latent (TD-MPC-style) predicts the next latent and a reward with no image: 4 MPPI candidates fan from the current state and the decoder is crossed out; of the 4 uses, policy learning and planning are lit.';
+    case 'generative-video':
+      return 'Generative video predicts future pixels: the panel shows predicted frame t+1 conditioned on action or text, pixels in and pixels out; of the 4 uses, policy learning, evaluation, and data generation are lit.';
+    case 'jepa':
+      return 'JEPA predicts a future embedding, never pixels, and the panel meter reads dist 0.31 to the goal with the decoder crossed out; of the 4 uses, only planning is lit.';
+    case 'world-action':
+      return 'World-action predicts future frames and an action chunk from one backbone: 4 action bars sit beside predicted frame t+1; of the 4 uses, only policy learning is lit.';
+    case 'symbolic':
+      return 'Symbolic predicts predicate transitions: on(cup, table) becomes in(cup, gripper) after pick(cup); of the 4 uses, only planning is lit.';
+  }
+}
+
+function PanelArt({
+  id,
+  hidden,
+  describedBy,
+}: {
+  id: WmParadigmId;
+  hidden: boolean;
+  describedBy?: string;
+}) {
   return (
     <svg
       viewBox="0 0 200 120"
-      aria-hidden="true"
+      aria-hidden={hidden ? true : undefined}
+      role={hidden ? undefined : 'img'}
+      aria-label={hidden ? undefined : PANEL_ART_LABEL[id]}
+      aria-describedby={hidden ? undefined : describedBy}
       data-testid={`panel-art-${id}`}
       className="block w-full"
     >
@@ -231,6 +274,7 @@ export function WmDisambiguator({
   defaultParadigm?: WmParadigmId;
   className?: string;
 }) {
+  const descriptionId = `${useId()}-description`;
   const [selectedId, setSelectedId] = useState<WmParadigmId>(defaultParadigm);
   const selected = paradigmById(selectedId);
 
@@ -291,7 +335,11 @@ export function WmDisambiguator({
                   : 'border-border bg-surface-2 hover:border-border-strong',
               )}
             >
-              <PanelArt id={p.id} />
+              <PanelArt
+                id={p.id}
+                hidden={!active}
+                describedBy={active ? descriptionId : undefined}
+              />
               <span
                 className={cx(
                   'mt-1.5 block font-mono text-[11px]',
@@ -299,6 +347,12 @@ export function WmDisambiguator({
                 )}
               >
                 {p.short}
+              </span>
+              <span
+                data-testid={`predicts-${p.id}`}
+                className="mt-1 block font-sans text-xs leading-relaxed text-text-dim"
+              >
+                {p.predicts}
               </span>
             </button>
           );
@@ -346,6 +400,19 @@ export function WmDisambiguator({
           .join(', ')}
         . Representative systems: {selected.systems}.
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current world-model paradigm"
+        description={paradigmTakeaway(selected)}
+        states={[
+          { label: 'paradigm', value: selected.short },
+          { label: 'predicts', value: selected.predicts },
+          { label: 'space', value: selected.space },
+          { label: 'uses', value: selected.uses.length === 1 ? '1 of 4' : `${selected.uses.length} of 4` },
+        ]}
+      />
     </div>
   );
 }

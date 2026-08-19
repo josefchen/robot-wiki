@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
 import {
   DEFAULT_GAINS,
@@ -18,6 +18,7 @@ import {
   type PendulumState,
   type Stability,
 } from '@/lib/pendulum';
+import { ChartDescription } from '@/components/ui';
 import { cx } from '@/lib/utils';
 
 /**
@@ -82,8 +83,37 @@ function payloadPosition(theta: number): { x: number; y: number } {
   return { x: tip.x + 11 * Math.cos(theta), y: tip.y + 11 * Math.sin(theta) };
 }
 
-export function PendulumController({ className }: { className?: string }) {
-  const [gains, setGains] = useState<PidGains>(DEFAULT_GAINS);
+type PendulumControllerProps = {
+  /**
+   * Initial proportional gain. Defaults to the stock 25; a prediction
+   * step mounts the loop at the Kp that answers its prompt (the mgl
+   * threshold region). Ki and Kd always start at their defaults.
+   */
+  defaultKp?: number;
+  className?: string;
+};
+
+export function PendulumController({
+  defaultKp = DEFAULT_GAINS.kp,
+  className,
+}: PendulumControllerProps) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and hardcoded
+  // ids would duplicate and cross-bind labels between the two mounts.
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const [gains, setGains] = useState<PidGains>(() => ({
+    ...DEFAULT_GAINS,
+    kp: defaultKp,
+  }));
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync the Kp slice before painting.
+  const [prevDefaultKp, setPrevDefaultKp] = useState(defaultKp);
+  if (defaultKp !== prevDefaultKp) {
+    setPrevDefaultKp(defaultKp);
+    setGains((g) => ({ ...g, kp: defaultKp }));
+  }
   const [playing, setPlaying] = useState(false);
   const [run, setRun] = useState<{
     sim: PendulumState;
@@ -150,7 +180,7 @@ export function PendulumController({ className }: { className?: string }) {
 
   const reset = () => {
     setPlaying(false);
-    setGains(DEFAULT_GAINS);
+    setGains({ ...DEFAULT_GAINS, kp: defaultKp });
     setRun({ sim: INITIAL_STATE, history: [INITIAL_STATE] });
   };
 
@@ -168,7 +198,7 @@ export function PendulumController({ className }: { className?: string }) {
         {GAIN_SPECS.map((spec) => (
           <div key={spec.id}>
             <label
-              htmlFor={`pendulum-gain-${spec.id}`}
+              htmlFor={`${uid}-gain-${spec.id}`}
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
             >
               {spec.symbol} {spec.id === 'kp' ? 'proportional' : spec.id === 'ki' ? 'integral' : 'derivative'}
@@ -180,7 +210,7 @@ export function PendulumController({ className }: { className?: string }) {
               </span>
             </label>
             <input
-              id={`pendulum-gain-${spec.id}`}
+              id={`${uid}-gain-${spec.id}`}
               type="range"
               min={spec.min}
               max={spec.max}
@@ -207,6 +237,7 @@ export function PendulumController({ className }: { className?: string }) {
         aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
           sim.theta,
         )} degrees from upright, status ${status}.`}
+        aria-describedby={descriptionId}
         data-testid="pendulum-scene"
         className="mt-4 block w-full"
       >
@@ -350,7 +381,7 @@ export function PendulumController({ className }: { className?: string }) {
         </button>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text">
+      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">angle</span>{' '}
         <span data-testid="pendulum-angle-readout" className="text-accent">
           {formatDeg(sim.theta)}°
@@ -375,6 +406,25 @@ export function PendulumController({ className }: { className?: string }) {
           {status}
         </span>
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current pendulum gains and regime"
+        description={
+          defaultKp === DEFAULT_GAINS.kp
+            ? `Default gains Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status stay frozen until Run or Push.`
+            : `The prediction-step pole starts at Kp ${gains.kp.toFixed(1)}, under the 9.81 mgl hold threshold, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
+        }
+        states={[
+          { label: 'Kp', value: gains.kp.toFixed(1) },
+          { label: 'Ki', value: gains.ki.toFixed(1) },
+          { label: 'Kd', value: gains.kd.toFixed(1) },
+          { label: 'angle', value: `${formatDeg(sim.theta)}°` },
+          { label: 'status', value: status },
+        ]}
+      />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         A point mass on a 1 m rod with torque applied at the pivot. The dot

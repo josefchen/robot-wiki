@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_ANGLES_DEG,
   JOINT_LIMIT_DEG,
@@ -54,6 +55,7 @@ function toSvgY(y: number): number {
 }
 
 export function PlanarFkArm({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-description`;
   const [angles, setAngles] = useState<number[]>([...DEFAULT_ANGLES_DEG]);
 
   const { pivots, effector } = planarForwardKinematics(LINK_LENGTHS, angles);
@@ -118,6 +120,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Planar three-link arm. Base angle ${angles[0]} degrees, elbow ${angles[1]} degrees, wrist ${angles[2]} degrees. End effector at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Reachable workspace disc. */}
@@ -246,6 +249,20 @@ export function PlanarFkArm({ className }: { className?: string }) {
         </span>{' '}
         <span className="text-text-dim">link units</span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current arm pose"
+        description={`With base ${angles[0]} degrees, elbow ${angles[1]} degrees and wrist ${angles[2]} degrees the end effector sits at x ${formatSigned(effector.x)}, y ${formatSigned(effector.y)} link units; those three link lengths are 1.00, 0.75 and 0.55.`}
+        states={[
+          { label: 'base', value: `${angles[0]}°` },
+          { label: 'elbow', value: `${angles[1]}°` },
+          { label: 'wrist', value: `${angles[2]}°` },
+          { label: 'end effector x', value: formatSigned(effector.x) },
+          { label: 'end effector y', value: formatSigned(effector.y) },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Link lengths 1.00, 0.75, and 0.55. Each angle is measured relative to
         its parent link, and the plotted position is the running sum of the
