@@ -8,7 +8,7 @@
     "minutes": 8
   },
   "manipulation/diffusion-policy": {
-    "words": 1433,
+    "words": 1436,
     "minutes": 7
   },
   "manipulation/vla-models": {
@@ -48,7 +48,7 @@
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1219,
+    "words": 1220,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -84,7 +84,7 @@
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1214,
+    "words": 1213,
     "minutes": 6
   },
   "world-models/generative-sim": {
