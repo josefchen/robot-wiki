@@ -49,6 +49,21 @@ describe('TeacherStudent', () => {
     expect(high).not.toBe(low);
   });
 
+  it('describes the three stacked panels and tracks degradation', () => {
+    const { container } = render(<TeacherStudent />);
+    const img = screen.getByRole('img');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/15 percent proprioceptive degradation/);
+    expect(desc?.textContent).toMatch(/dashed-occluded/);
+    fireEvent.change(slider(), { target: { value: '90' } });
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/90 percent/);
+    expect(moved).not.toMatch(/15 percent/);
+  });
+
   it('reset restores the default degradation', async () => {
     const user = userEvent.setup();
     render(<TeacherStudent />);

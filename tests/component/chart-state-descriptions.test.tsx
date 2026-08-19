@@ -8,6 +8,7 @@ import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
@@ -247,6 +248,19 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('TeacherStudent describes the stacked panels and tracks degradation', () => {
+    const { container } = render(<TeacherStudent />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/15 percent proprioceptive degradation/);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /proprioceptive degradation/i }),
+      { target: { value: '90' } },
+    );
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/90 percent/);
   });
 
   it('ContactGeometry describes the stance and lives the readout', () => {

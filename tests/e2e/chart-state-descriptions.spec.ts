@@ -121,6 +121,14 @@ const CHARTS: Array<{
     def: '2',
     match: 'Locomotion at',
   },
+  {
+    route: '/rl-sim2real/sim2real-transfer',
+    name: 'teacher-student',
+    control: 'range',
+    moves: ['40', '90'],
+    def: '15',
+    match: 'proprioceptive degradation',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];
