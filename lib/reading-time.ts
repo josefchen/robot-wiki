@@ -236,6 +236,15 @@ interface Frame {
   closedDetails: boolean;
   /** True for a `<summary>` that is a direct child of a closed `<details>`. */
   detailsSummary: boolean;
+  /**
+   * On a closed `<details>`: whether a direct-child `<summary>` has already
+   * been seen. Chromium renders only the FIRST direct-child summary of a
+   * closed disclosure (measured 2026-08-19: two summaries -> innerText
+   * "alpha beta", 2 words; three -> still the first one), while an OPEN
+   * details renders all of them. Tracked on the parent frame so the
+   * open-state path never consults it.
+   */
+  summarySeen: boolean;
 }
 
 /**
@@ -341,7 +350,11 @@ export function visibleTextInMarkup(markup: string): string {
     // context, so hidden ancestors still win) keeps a summary inside a
     // nested closed body correctly excluded, as Chromium excludes it.
     const detailsSummary =
-      name === 'summary' && !skipping() && parent?.closedDetails === true;
+      name === 'summary' &&
+      !skipping() &&
+      parent?.closedDetails === true &&
+      !parent.summarySeen;
+    if (detailsSummary && parent) parent.summarySeen = true;
     const skipped =
       skipping() ||
       (closedDetailsPosition(stack) === 'body' && !detailsSummary) ||
@@ -371,6 +384,7 @@ export function visibleTextInMarkup(markup: string): string {
         fuses,
         closedDetails: name === 'details' && !attributeNames(attrs).has('open'),
         detailsSummary,
+        summarySeen: false,
       });
     }
   }

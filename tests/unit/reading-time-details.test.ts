@@ -134,6 +134,41 @@ describe('countVisibleWords: disclosures mirror Chromium innerText', () => {
     expect(countVisibleWords(markup)).toBe(5);
   });
 
+  it('counts only the FIRST direct-child summary of a closed disclosure', () => {
+    // Measured in headless Chromium 2026-08-19 (visual-details-summary-probe):
+    // innerText "alpha beta", 2 tokens. Chromium renders only the first
+    // direct-child <summary> of a closed <details>; the second is absent.
+    // The orchestrator's independent measurement returned the same numbers.
+    const markup =
+      '<details><summary>alpha beta</summary><summary>gamma delta</summary></details>';
+    expect(countVisibleWords(markup)).toBe(2);
+  });
+
+  it('counts ALL direct-child summaries once the disclosure is open', () => {
+    // Measured 4 tokens: an open details renders every direct-child
+    // summary, so the closed-state cardinality rule must not leak into
+    // the open state.
+    const markup =
+      '<details open><summary>alpha beta</summary><summary>gamma delta</summary></details>';
+    expect(countVisibleWords(markup)).toBe(4);
+  });
+
+  it('counts only the first of three summaries in a closed disclosure', () => {
+    // Measured 2 tokens ("s one"): with three direct-child summaries a
+    // closed details still renders exactly the first one.
+    const markup =
+      '<details><summary>s one</summary><summary>s two</summary><summary>s three</summary></details>';
+    expect(countVisibleWords(markup)).toBe(2);
+  });
+
+  it('ignores a leading <p> when finding the first summary of a closed disclosure', () => {
+    // Measured 2 tokens ("s one"): a <p> before the summaries changes
+    // nothing; the first direct-child summary still renders alone.
+    const markup =
+      '<details><p>p one two</p><summary>s one</summary><summary>s two</summary></details>';
+    expect(countVisibleWords(markup)).toBe(2);
+  });
+
   it('flips with the open attribute: the cheap experiment VAL-EDU-002 names', () => {
     // One attribute added to one shipped disclosure must move the count
     // by exactly the body's word count, in both directions. This is the
