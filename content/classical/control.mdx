@@ -118,3 +118,26 @@ The decision variables are joint accelerations, torques, and contact forces at o
 Classical control did not lose to learning; it became the floor learning stands on. Every actuator in a learned-policy demo still closes a current loop, usually PI, at kilohertz. The interesting boundary is one level up. MPC has no sim-to-real gap in the reinforcement-learning sense, because it re-solves against the measured state every step rather than baking a model into weights; the [sim-to-real transfer](/rl-sim2real/sim2real-transfer) problem is largely a problem of open-loop policies. The honest 2026 picture is hybrid: Boston Dynamics added reinforcement learning to Spot's existing MPC stack to handle variability, rather than replacing it <Cite id="bd-spot-rl-2024" />, and the classical floor a learning paper must clear now includes an iLQR controller the authors kept deliberately simple, an easy-to-reproduce hardware baseline by design <Cite id="mujoco-ilqr-2026" />.
 
 The stack you have now seen end to end, [kinematics](/classical/kinematics) to locate the body, [planning](/classical/motion-planning) to pick the motion, control to execute it, is the half of robotics that learning has absorbed least. [State estimation](/classical/state-estimation), the module after this one, closes the loop: none of these controllers know where the robot is without it.
+
+<SelfCheck
+  prompt="A payload bolted off-center puts a constant torque bias on one joint of a walking robot. Which layer of the stack removes that bias without retraining anything?"
+  options={[
+    {
+      value: 'retrain',
+      label: 'Retrain the walking policy with the payload present',
+      why: 'This encodes the belief that a constant disturbance is a data problem. The module's own estimate says more than 95% of industrial control problems are solved by PID feedback, most without any learning: the loop exists precisely so that constant offsets are removed at runtime rather than trained away.'
+    },
+    {
+      value: 'integral',
+      label: 'The integral term of the joint-level controller',
+      why: 'Proportional action alone always leaves a steady-state error, because a nonzero error is what generates the corrective torque. The integral term accumulates that residual error and erases a constant offset, which is why the current loop inside every actuator of a learned-policy demo is usually PI.'
+    },
+    {
+      value: 'faster-mpc',
+      label: 'A higher MPC re-solve rate at the whole-body layer',
+      why: 'Re-solving faster does not remove a bias the model omits: MPC re-solves against the measured state every step, so tracking improves, but a constant unmodeled offset survives each re-solve exactly as it survived the last one. Speed pays for constraints and horizon, not for erasing offsets.'
+    }
+  ]}
+  answer="integral"
+  takeaway="A constant disturbance is the textbook case for integral action: the loop removes it at runtime, whatever learned policy sits above it."
+/>

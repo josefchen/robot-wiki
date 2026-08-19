@@ -83,3 +83,26 @@ The catch is the expert. Classic DAgger needs a supervisor who can look at an ar
 ## Where this leads
 
 Every module in this section is, in part, a different answer to the bound above. [Action chunking](/manipulation/action-chunking) shrinks the effective horizon by predicting sequences instead of single steps. Diffusion policies fix the multimodality that MSE regression destroys. RL fine-tuning and Recap-style coaching put DAgger's on-policy supervision into a form that scales to frontier VLAs. The terminology changed over fifteen years; the quadratic term never went away.
+
+<SelfCheck
+  prompt="A behavior-cloned pick-and-place policy demos perfectly on 20-second trials but drifts off the object within two minutes on the line. Where does the fix have to come from?"
+  options={[
+    {
+      value: 'more-data',
+      label: 'Collect ten times more demonstrations of the same task',
+      why: 'More i.i.d. data shrinks the per-step error but leaves the horizon term untouched: Ross, Gordon, and Bagnell's bound grows quadratically in episode length under i.i.d. training, and on long episodes the horizon term dominates. This is the exact belief the DAgger paper was written against.'
+    },
+    {
+      value: 'chunking',
+      label: 'Commit to a chunk of 25 predicted actions per inference',
+      why: 'This one is real but only partial: chunking cuts the number of closed-loop decisions by the chunk size, which is why ACT's accumulated deviation drops over 120 steps. It stretches the horizon the policy can survive; it does not change the quadratic structure, so a two-minute episode can still outrun it.'
+    },
+    {
+      value: 'visited-states',
+      label: 'Supervision on the states the policy itself visits',
+      why: 'This is the structural fix. The bound's quadratic term comes from testing on the expert's state distribution while deploying on the policy's own; DAgger-style relabeling trains on visited states, keeps deviation bounded, and brings the cost down to near-linear in the horizon.'
+    }
+  ]}
+  answer="visited-states"
+  takeaway="Compounding error is a distribution problem, not a data-quantity problem: the fix supervises the states the policy actually visits."
+/>

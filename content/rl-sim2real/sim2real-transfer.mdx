@@ -90,3 +90,26 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 ## Where each family breaks
 
 Each family's failure mode is worth holding onto. Domain randomization's conservatism cost is real and almost never quantified in the papers that rely on it. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
+
+<SelfCheck
+  prompt="A quadruped must cross terrain whose friction varies patch to patch, and you have a simulator that knows the friction map. Which training scheme lets the deployed policy act on that friction at control rate?"
+  options={[
+    {
+      value: 'dr-wide',
+      label: 'Domain randomization over a very wide friction range',
+      why: 'This buys a wider basin of transfer at the price of peak performance: the trained policy is optimal for none of the simulated frictions, and the cost is almost never quantified in the papers that rely on it. It also never acts on the actual friction under the feet; it tolerates it.'
+    },
+    {
+      value: 'latent-adaptation',
+      label: 'A privileged teacher distilled into a student with an online adaptation module',
+      why: 'This is the scheme the crossing needs. RMA's adaptation module regresses a latent extrinsics vector from recent proprioception and the base policy conditions on it, adapting to new payloads and terrains in fractions of a second at control rate. The floor is partial observability: friction that leaves no proprioceptive signature cannot be recovered, but friction that shows up in the gait can.'
+    },
+    {
+      value: 'ground-truth-friction',
+      label: 'Give the deployed policy the friction coefficient as an input',
+      why: 'This is the teacher's input, not the student's. The deployed robot has no friction sensor; handing the policy a value nobody can measure at runtime is exactly the input mismatch the teacher-student pattern exists to remove.'
+    }
+  ]}
+  answer="latent-adaptation"
+  takeaway="Privilege goes into the teacher, but only what leaves a trace in proprioception can come back out in the student: the adaptation module is system identification in latent space, done online by the policy."
+/>

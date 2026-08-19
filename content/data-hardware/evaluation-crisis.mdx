@@ -67,3 +67,26 @@ The last bias is the room. A policy evaluated in one lab, in one scene, scored b
 ## Reading a result table
 
 Five questions recover what the single number hides. How many rollouts produced it, and does the paper report the uncertainty around it at all, whether as an interval or a posterior; TRI needed 50 real attempts per condition before it would compare two policies <Cite id="tri-lbm-2025" />. How long is the task, because the same episode success implies different per-step reliabilities at different horizons, and the calculator above shows the arithmetic. What survives perturbation, because a clean-benchmark score needs a robustness counterpart before it means deployment <Cite id="libero-plus-2025" />. Who scored it and where, because blind multi-site comparison beats single-lab self-report <Cite id="roboarena-2025" />. And what correlation backs any simulation number, because sim agreement is task-dependent and must be measured, not assumed <Cite id="simpler-2024" />. The field's response to the crisis is exactly this instrumentation: sequential tests that spend trials efficiently, perturbation benchmarks that probe brittleness, sim proxies with stated correlations, and blind distributed arenas. Adoption remains partial, which is why the questions are still worth asking of every table you read.
+
+<SelfCheck
+  prompt="Two policies both report 80% success on the same nominal task. One was scored on 10 trials, the other on 50 with a Bayesian posterior attached. What can you actually conclude?"
+  options={[
+    {
+      value: 'equal',
+      label: 'They are equivalent: 80% is 80%',
+      why: 'This reads a point estimate as the quantity itself. Snyder et al. frame the feasible sample size for a comparison as 10 to 50 trials, and at those counts differences of 10 to 15 points sit inside the noise floor. An 80% over 10 trials is consistent with anything from a coin flip to a near-deterministic policy.'
+    },
+    {
+      value: 'b-signals',
+      label: 'Only the 50-trial number with its posterior is interpretable; the 10-trial number could hide a 15-point difference either way',
+      why: 'This is what the small-N statistics actually support. TRI's authors are blunt that many papers are measuring noise from insufficient statistical power rather than showing methods are equivalent, and TRI itself would not compare two policies below 50 real attempts per condition. The posterior is what makes the width of the claim visible.'
+    },
+    {
+      value: 'b-more-efficient',
+      label: 'Policy B is better because it used the more rigorous protocol',
+      why: 'Protocol quality measures the evaluation, not the policy. The rigorous number is interpretable; it is not higher. Confusing how a result was measured with what the result was is exactly the reading error the module is about.'
+    }
+  ]}
+  answer="b-signals"
+  takeaway="Without a reported interval or posterior, a 10-trial success rate cannot separate a 15-point gap from zero: the trial count is part of the result."
+/>

@@ -69,3 +69,26 @@ The dashboard keeps the two classes apart. A verified row is documented against 
 ## What solved would look like
 
 A closed reliability gap has a measurable shape: a deployed system with a documented mean time between failures above 1,000 hours on real tasks, formal safety guarantees for human-robot interaction, and a published protocol for the failure modes that remain. No current system publishes any of the three. Until one does, the honest unit of progress is not the demo but the verified operating hour, and on that metric the field measures tens of thousands of hours against the millions that general-purpose deployment implies.
+
+<SelfCheck
+  prompt="Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?"
+  options={[
+    {
+      value: 'monitor-closes',
+      label: 'Yes: detecting every failure before it compounds means the task completes',
+      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy's own success rate.'
+    },
+    {
+      value: 'monitor-no',
+      label: 'No: a monitor converts failures into safe stops and human escalations; closing the gap itself takes on-robot experience',
+      why: 'This is the module's own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'
+    },
+    {
+      value: 'human-coach',
+      label: 'No, so put a human coach on every episode instead',
+      why: 'Coaching works, and π0.7 accepts step-by-step language correction to recover failures it has not seen. But a bridged gap is not a closed one: the reliability number that matters is the one with the coach removed, and supervised operation is a deployment tactic, not a path to the customer's 99%.'
+    }
+  ]}
+  answer="monitor-no"
+  takeaway="Monitors make failures visible and coaches rescue episodes, but only on-robot experience moves the policy's own per-step number: detection is not prevention."
+/>

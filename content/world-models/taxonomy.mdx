@@ -94,3 +94,26 @@ The panel grid below draws what each paradigm predicts. Select a panel and the u
 ## Reading world-model claims
 
 When a paper or a vendor says "world model," three questions disambiguate it: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.
+
+<SelfCheck
+  prompt="A vendor pitches a photorealistic 3D Gaussian Splatting reconstruction of your workcell as a world model for training a manipulation policy. What is the honest engineering verdict?"
+  options={[
+    {
+      value: 'yes-world-model',
+      label: 'It qualifies: it predicts the scene from any camera pose, which is a prediction',
+      why: 'This is the most common misreading of the real-to-sim literature. A 3DGS twin is a learned renderer: it predicts appearance from a new viewpoint and has no answer to what happens under an action. The survey's functional cut is explicit on this: generating plausible future images alone does not qualify a model as a world model.'
+    },
+    {
+      value: 'renderer-plus-physics',
+      label: 'It is a learned renderer bolted onto a physics engine: appearance is learned, dynamics are not',
+      why: 'This is the correct division of labor. The splat supplies appearance while a conventional physics engine still supplies dynamics, and the reconstruction freezes the scene it captured: articulated objects, deformables, and lighting changes each need extra machinery on top.'
+    },
+    {
+      value: 'only-learned',
+      label: 'It fails the cut because nothing hand-specified counts as a world model',
+      why: 'The cut is about action-dependence, not about being learned. MuJoCo is an explicit, hand-specified state-transition model and it qualifies: given a state and an action it predicts the next state. The 3DGS twin fails for having no action answer, not for lacking weights.'
+    }
+  ]}
+  answer="renderer-plus-physics"
+  takeaway="Ask what happens under an action: a renderer that only answers where the camera goes fails the functional cut, whatever the video looks like."
+/>
