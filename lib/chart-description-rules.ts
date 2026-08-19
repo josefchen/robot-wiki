@@ -133,3 +133,69 @@ export function validateChartDescriptions(
 function escapeForWord(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+/** One source file and how many `<ChartDescription>` mounts it renders. */
+export interface ChartMountCount {
+  /** Repo-relative source file. */
+  file: string;
+  /** Number of `<ChartDescription` JSX mounts found in the file. */
+  mounts: number;
+}
+
+/**
+ * Rule 5: the registry must cover the population the tree actually holds.
+ *
+ * The population is DERIVED by sweeping the component tree for
+ * `<ChartDescription>` mounts, never typed by hand, because a
+ * hand-maintained list inverts the gate's meaning: the more charts are
+ * retrofitted the likelier the miss, and an unregistered mount is swept by
+ * nothing, so its description can open with a banned opener, carry one
+ * digit or duplicate another chart's sentence and the gate still exits 0.
+ * A file's mount count and its registered-entry count must agree exactly,
+ * so a second chart added to an already-registered component is a loud
+ * failure naming the file rather than a silent pass.
+ */
+export function validateChartDescriptionCoverage(
+  mounts: readonly ChartMountCount[],
+  entries: readonly ChartDescriptionEntry[],
+): ChartDescriptionProblem[] {
+  const problems: ChartDescriptionProblem[] = [];
+  const entriesByFile = new Map<string, ChartDescriptionEntry[]>();
+  for (const entry of entries) {
+    const list = entriesByFile.get(entry.file);
+    if (list) list.push(entry);
+    else entriesByFile.set(entry.file, [entry]);
+  }
+
+  for (const mount of mounts) {
+    if (mount.mounts === 0) continue;
+    const registered = entriesByFile.get(mount.file) ?? [];
+    if (registered.length === 0) {
+      problems.push({
+        component: mount.file,
+        message: `renders ${mount.mounts} <ChartDescription> mount(s) but no CHART_DESCRIPTIONS entry covers it, so its description is swept by nothing`,
+      });
+      continue;
+    }
+    if (registered.length !== mount.mounts) {
+      problems.push({
+        component: mount.file,
+        message: `renders ${mount.mounts} <ChartDescription> mount(s) but ${registered.length} registered entry/entries (${registered
+          .map((e) => e.component)
+          .join(', ')})`,
+      });
+    }
+  }
+
+  const swept = new Set(mounts.filter((m) => m.mounts > 0).map((m) => m.file));
+  for (const [file, list] of entriesByFile) {
+    if (!swept.has(file)) {
+      problems.push({
+        component: list[0].component,
+        message: `${file} is registered but renders no <ChartDescription> mount`,
+      });
+    }
+  }
+
+  return problems;
+}

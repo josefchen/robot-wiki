@@ -4,6 +4,7 @@ import {
   digitTokens,
   normalizeDigits,
   validateChartDescription,
+  validateChartDescriptionCoverage,
   validateChartDescriptions,
 } from '@/lib/chart-description-rules';
 
@@ -113,5 +114,63 @@ describe('validateChartDescriptions (rule 4, set-level)', () => {
       { ...base, component: 'F', quantityNames: ['walk', 'feet'], text: 'The walk keeps 3 feet down at duty factor 0.75 across the whole cycle.' },
     ];
     expect(validateChartDescriptions(entries)).toEqual([]);
+  });
+});
+
+describe('validateChartDescriptionCoverage (rule 5, derived population)', () => {
+  const covered = { file: 'components/interactive/reliability-compounding.tsx', mounts: 1 };
+
+  it('passes when every swept mount has exactly one registered entry', () => {
+    expect(
+      validateChartDescriptionCoverage([covered], [ENTRY]),
+    ).toEqual([]);
+  });
+
+  it('fails an unregistered mount and names the file', () => {
+    const problems = validateChartDescriptionCoverage(
+      [covered, { file: 'components/interactive/kalman-tracker.tsx', mounts: 1 }],
+      [ENTRY],
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0].component).toBe('components/interactive/kalman-tracker.tsx');
+    expect(problems[0].message).toMatch(/no CHART_DESCRIPTIONS entry covers it/);
+  });
+
+  it('fails a second mount added to an already-registered file', () => {
+    const problems = validateChartDescriptionCoverage(
+      [{ ...covered, mounts: 2 }],
+      [ENTRY],
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0].message).toMatch(/renders 2 <ChartDescription> mount\(s\) but 1 registered/);
+  });
+
+  it('accepts two mounts in one file when both are registered', () => {
+    const second = {
+      ...ENTRY,
+      component: 'ReliabilityCompounding (second root)',
+      text: 'Per-step success of 90.0 percent leaves episode success at 4.2 percent over 30 steps of the plotted range.',
+    };
+    expect(
+      validateChartDescriptionCoverage([{ ...covered, mounts: 2 }], [ENTRY, second]),
+    ).toEqual([]);
+  });
+
+  it('fails a registered file that renders no mount', () => {
+    const problems = validateChartDescriptionCoverage(
+      [{ ...covered, mounts: 0 }],
+      [ENTRY],
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0].message).toMatch(/registered but renders no <ChartDescription> mount/);
+  });
+
+  it('ignores files with no mounts', () => {
+    expect(
+      validateChartDescriptionCoverage(
+        [covered, { file: 'components/interactive/gait-diagram.tsx', mounts: 0 }],
+        [ENTRY],
+      ),
+    ).toEqual([]);
   });
 });

@@ -26,11 +26,13 @@
  * a digit-normalised duplicate each fail the gate naming the component,
  * and the restored tree passes.
  */
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 import {
+  validateChartDescriptionCoverage,
   validateChartDescriptions,
   type ChartDescriptionEntry,
+  type ChartMountCount,
 } from '../lib/chart-description-rules.ts';
 
 /**
@@ -80,34 +82,74 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);
 
-// Wiring check: each registered component must still render the
-// primitive. A deleted description (the VAL-EDU-026(a) mutation) fails
-// here with the file named.
 const root = join(import.meta.dirname, '..');
-const wiringProblems: string[] = [];
-for (const entry of CHART_DESCRIPTIONS) {
-  const path = join(root, entry.file);
-  if (!existsSync(path)) {
-    wiringProblems.push(`${entry.component}: ${entry.file} does not exist`);
-    continue;
-  }
-  const source = readFileSync(path, 'utf8');
-  // Word-boundary JSX check: "<ChartDescription" followed by whitespace,
-  // ">" or "/>", so a renamed tag like <ChartDescriptionDisabled> does
-  // not satisfy the sweep (the mutation proof caught exactly that hole).
-  if (!/<ChartDescription[\s>/]/.test(source)) {
-    wiringProblems.push(
-      `${entry.component}: ${entry.file} no longer renders <ChartDescription>`,
-    );
-  }
+
+/**
+ * The primitive's own definition and the barrel that re-exports it are not
+ * mounts; every other component file that renders `<ChartDescription>` is
+ * part of the population whether or not anyone remembered to register it.
+ */
+const NON_MOUNT_FILES = new Set([
+  'components/ui/chart-description.tsx',
+  'components/ui/index.ts',
+]);
+
+/**
+ * Word-boundary JSX check: "<ChartDescription" followed by whitespace, ">"
+ * or "/>", so a renamed tag like <ChartDescriptionDisabled> does not
+ * satisfy the sweep (the primitive feature's mutation proof caught exactly
+ * that hole).
+ */
+const MOUNT_PATTERN = /<ChartDescription(?=[\s>/])/g;
+
+function sweepMounts(dir: string): ChartMountCount[] {
+  const found: ChartMountCount[] = [];
+  const walk = (absolute: string) => {
+    for (const entry of readdirSync(absolute, { withFileTypes: true })) {
+      const child = join(absolute, entry.name);
+      if (entry.isDirectory()) {
+        walk(child);
+        continue;
+      }
+      if (!/\.(tsx|ts)$/.test(entry.name)) continue;
+      const file = relative(root, child).split(sep).join('/');
+      if (NON_MOUNT_FILES.has(file)) continue;
+      const mounts = (readFileSync(child, 'utf8').match(MOUNT_PATTERN) ?? [])
+        .length;
+      if (mounts > 0) found.push({ file, mounts });
+    }
+  };
+  walk(dir);
+  return found.sort((a, b) => a.file.localeCompare(b.file));
 }
 
-if (ruleProblems.length > 0 || wiringProblems.length > 0) {
-  console.error(`chart-descriptions: FAILED (${ruleProblems.length + wiringProblems.length} finding(s))`);
-  for (const p of ruleProblems) console.error(`  ${p.component}: ${p.message}`);
-  for (const w of wiringProblems) console.error(`  ${w}`);
+const mounts = sweepMounts(join(root, 'components'));
+
+// Coverage check over the DERIVED population: an unregistered mount is a
+// loud failure naming its file, and a registered file that lost its mount
+// (the VAL-EDU-026(a) deleted-description mutation) fails the same way.
+const coverageProblems = validateChartDescriptionCoverage(
+  mounts,
+  CHART_DESCRIPTIONS,
+);
+
+// Registered files must still exist; a stale path would otherwise report
+// only as "renders no mount", which reads as a deleted description rather
+// than a moved file.
+const missingFiles = CHART_DESCRIPTIONS.filter(
+  (entry) => !existsSync(join(root, entry.file)),
+).map((entry) => ({
+  component: entry.component,
+  message: `${entry.file} does not exist`,
+}));
+
+const problems = [...ruleProblems, ...coverageProblems, ...missingFiles];
+if (problems.length > 0) {
+  console.error(`chart-descriptions: FAILED (${problems.length} finding(s))`);
+  for (const p of problems) console.error(`  ${p.component}: ${p.message}`);
   process.exit(1);
 }
+const mountTotal = mounts.reduce((sum, m) => sum + m.mounts, 0);
 console.log(
-  `chart-descriptions: OK (${CHART_DESCRIPTIONS.length} registered chart description(s) pass the four rules and the wiring sweep)`,
+  `chart-descriptions: OK (${mountTotal} <ChartDescription> mount(s) swept from ${mounts.length} component file(s); all covered by ${CHART_DESCRIPTIONS.length} registered description(s) passing the five rules)`,
 );
