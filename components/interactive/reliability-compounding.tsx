@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState } from 'react';
 import { compoundingCurve, compoundedSuccessRate } from '@/lib/reliability';
+import { ChartDescription } from '@/components/ui/chart-description';
 import { cx } from '@/lib/utils';
 
 /**
@@ -61,13 +62,14 @@ export function ReliabilityCompounding({
   const uid = useId();
   const perStepId = `${uid}-rc-per-step`;
   const stepsId = `${uid}-rc-steps`;
+  const descriptionId = `${uid}-rc-description`;
   const [perStepPercent, setPerStepPercent] = useState(defaultPerStep * 100);
   const [steps, setSteps] = useState(defaultSteps);
 
   const perStep = perStepPercent / 100;
   const episodeSuccess = compoundedSuccessRate(perStep, steps);
 
-  const { path, marker } = useMemo(() => {
+  const { path, marker, sampleRows } = useMemo(() => {
     const curve = compoundingCurve(perStep, maxSteps);
     const x = (n: number) =>
       PAD.left + (n / maxSteps) * (WIDTH - PAD.left - PAD.right);
@@ -76,11 +78,23 @@ export function ReliabilityCompounding({
     const d = curve
       .map((p, n) => `${n === 0 ? 'M' : 'L'}${x(n).toFixed(2)},${y(p).toFixed(2)}`)
       .join(' ');
+    // The sampled table is derived from the same curve the path is drawn
+    // from, so the two can never disagree (VAL-EDU-023) and the sample
+    // moves with the per-step control (VAL-EDU-024).
+    const sample = [0, 10, 25, 50, 75, maxSteps].map((n) => ({
+      label: `${n} step${n === 1 ? '' : 's'}`,
+      values: [
+        `${(compoundedSuccessRate(perStep, n) * 100).toFixed(1)}%`,
+      ],
+    }));
     return {
       path: d,
       marker: { cx: x(steps), cy: y(compoundedSuccessRate(perStep, steps)) },
+      sampleRows: sample,
     };
   }, [perStep, steps, maxSteps]);
+
+  const successPct = formatPercent(episodeSuccess);
 
   const plotWidth = WIDTH - PAD.left - PAD.right;
   const plotHeight = HEIGHT - PAD.top - PAD.bottom;
@@ -155,7 +169,8 @@ export function ReliabilityCompounding({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Line chart of episode success probability against episode length at ${perStepPercent.toFixed(1)} percent per-step success; the probability decays as episodes grow longer.`}
+        aria-label={`Episode success probability against episode length at ${perStepPercent.toFixed(1)} percent per-step success`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Horizontal gridlines at 25/50/75% with axis labels. */}
@@ -237,6 +252,26 @@ export function ReliabilityCompounding({
         </span>{' '}
         <span className="text-text-dim">episode success</span>
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled episode success by episode length"
+        rowHeader="episode length"
+        columns={[{ header: 'episode success', numeric: true }]}
+        rows={sampleRows}
+        description={
+          <>
+            At {perStepPercent.toFixed(1)} percent per-step success, episode
+            success is {successPct} at {steps} steps and{' '}
+            {formatPercent(compoundedSuccessRate(perStep, maxSteps))} at the{' '}
+            {maxSteps}-step end of the plotted range, crossing 50 percent at{' '}
+            {Math.max(1, Math.round(Math.log(0.5) / Math.log(perStep)))} steps as
+            the per-step odds compound over the episode length.
+          </>
+        }
+      />
     </div>
   );
 }

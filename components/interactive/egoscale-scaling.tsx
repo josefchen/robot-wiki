@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   COMPLETION_FIT,
   COMPLETION_POINTS,
@@ -21,6 +22,7 @@ import {
   plateauCompletion,
   plateauLoss,
   sliderToHours,
+  solvedBarCrossingHours,
   validationLoss,
 } from '@/lib/egoscale-law';
 import { cx } from '@/lib/utils';
@@ -129,6 +131,7 @@ export function EgoScaleScaling({
   // one page (article prose plus a prediction-step figure), and a
   // hardcoded id would duplicate and cross-bind labels between the mounts.
   const horizonId = `${useId()}-horizon`;
+  const descriptionId = `${useId()}-description`;
   const [sliderValue, setSliderValue] = useState(() =>
     hoursToSlider(defaultHorizonHours),
   );
@@ -265,7 +268,8 @@ export function EgoScaleScaling({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Line chart of EgoScale's log-linear scaling law. Validation loss falls from 0.024 at 1k hours to 0.015 at 20k hours of human video pretraining, the end of the measured range; downstream task completion rises from 0.30 to 0.71 over the same range. The extrapolation horizon is set to ${formatHours(horizon)}, where the dashed projections are bracketed by a scenario band and the dotted solved bar at 90 percent remains unmet by every measured system.`}
+        aria-label={`EgoScale scaling law: validation loss and task completion against pretraining hours, horizon ${formatHours(horizon)}`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         <text
@@ -576,6 +580,41 @@ export function EgoScaleScaling({
           </span>
         )}
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled loss and completion by pretraining hours"
+        rowHeader="pretraining hours"
+        columns={[
+          { header: 'loss (MSE)', numeric: true },
+          { header: 'task completion', numeric: true },
+          { header: 'region', numeric: false },
+        ]}
+        rows={[
+          { label: '1k h', values: [formatLoss(validationLoss(1000)), formatScore(completionFit(1000)), 'measured'] },
+          { label: '4k h', values: [formatLoss(validationLoss(4000)), formatScore(completionFit(4000)), 'measured'] },
+          { label: '10k h', values: [formatLoss(validationLoss(10_000)), formatScore(completionFit(10_000)), 'measured'] },
+          { label: '20k h', values: [formatLoss(validationLoss(20_000)), formatScore(completionFit(20_000)), 'measured range ends'] },
+          { label: '100k h', values: [`${formatLoss(validationLoss(100_000))} holds / ${formatLoss(plateauLoss(100_000))} plateau`, `${formatScore(completionFit(100_000))} holds / ${formatScore(plateauCompletion(100_000))} plateau`, 'extrapolated, dashed'] },
+          { label: '1M h', values: [`${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`, `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`, 'extrapolated, dashed'] },
+        ]}
+        description={
+          <>
+            Validation loss falls from {formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k
+            hours to {formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, the end
+            of the measured range, while task completion rises from 0.30 to 0.71; past
+            that boundary the dashed extrapolation to the {formatHours(horizon)} horizon
+            reads {formatLoss(lawAtHorizon)} if the law holds against{' '}
+            {formatLoss(plateauAtHorizon)} at the plateau, the shaded scenario band
+            between them is a scenario bracket and not a confidence interval, the
+            completion fit stays below the 90 percent solved bar until{' '}
+            {Math.round(solvedBarCrossingHours() / 1000)}k hours, and it exceeds 100
+            percent past {Math.round(impossibleHours / 1000)}k hours, which the chart
+            flags instead of drawing.
+          </>
+        }
+      />
       <p
         data-testid="scaling-caveat"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"

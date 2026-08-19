@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   DEFAULT_ENVS,
   MAX_ENVS,
@@ -82,6 +83,8 @@ export function TrainingTimeChart({
   defaultEnvs?: number;
   className?: string;
 }) {
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
   const [log2Envs, setLog2Envs] = useState(Math.log2(defaultEnvs));
   const [cpuBound, setCpuBound] = useState(false);
 
@@ -184,7 +187,8 @@ export function TrainingTimeChart({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Wall-clock training time against parallel environment count. At ${formatEnvs(envs)} environments the model predicts ${formatWallClock(wallSeconds)} to the target reward. ${cpuBound ? 'CPU single-core bottleneck mode is on.' : 'GPU scaling mode.'} Ground-truth markers: Rudin 2021 flat terrain under 4 minutes, uneven terrain 20 minutes, both at 4,096 environments.`}
+        aria-label={`Wall-clock training time against parallel environments, ${formatEnvs(envs)} envs`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {/* Axes caption. */}
@@ -379,6 +383,41 @@ export function TrainingTimeChart({
           ? 'With the PhysX CPU APIs and the main training loop bound to a single core, every added environment carries a CPU cost the GPU cannot absorb, and the curve flattens (dashed: the same run without the bottleneck). This is the Isaac Lab finding behind a single 5090 workstation approaching a 2x RTX PRO 6000 server on the Franka task.'
           : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds are measured wall-clock from Rudin et al. 2021 at 4,096 envs on one workstation GPU.'}
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Sampled wall-clock by parallel environment count"
+        rowHeader="parallel envs"
+        columns={[
+          { header: 'wall-clock', numeric: true },
+          { header: 'throughput', numeric: true },
+        ]}
+        rows={X_TICKS.map((n) => ({
+          label: formatEnvs(n),
+          values: [
+            formatWallClock(wallClockSeconds(n, cpuBound)),
+            formatFps(throughputFps(n, cpuBound)),
+          ],
+        }))}
+        description={
+          <>
+            Wall-clock to the target reward falls steeply from{' '}
+            {formatWallClock(wallClockSeconds(MIN_ENVS, cpuBound))} at {formatEnvs(MIN_ENVS)}{' '}
+            envs to {formatWallClock(wallClockSeconds(envs, cpuBound))} at the current{' '}
+            {formatEnvs(envs)} envs, then flattens toward{' '}
+            {formatWallClock(wallClockSeconds(MAX_ENVS, cpuBound))} at{' '}
+            {formatEnvs(MAX_ENVS)}: the knee sits near 1,024 envs where simulation
+            overtakes the fixed per-iteration costs, and the Rudin flat-terrain
+            measurement (under 4 min) sits at 4,096 envs
+            {cpuBound
+              ? '; with the CPU single-core bottleneck on, the curve flattens earlier and higher'
+              : ''}
+            .
+          </>
+        }
+      />
     </div>
   );
 }

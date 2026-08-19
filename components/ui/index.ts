@@ -2,6 +2,7 @@ export { Aside } from './aside';
 export { Badge } from './badge';
 export { Callout } from './callout';
 export { Card } from './card';
+export { ChartDescription } from './chart-description';
 export { Cite } from './cite';
 export { CodeBlock } from './code-block';
 export { Figure } from './figure';

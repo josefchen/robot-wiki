@@ -1,13 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
+import { ChartDescription } from '@/components/ui/chart-description';
 import {
   DEFAULT_GAIT,
   DEFAULT_PHASE,
   GAITS,
   GAIT_ORDER,
   LEGS,
+  footfallOrder,
   formatDuty,
   formatPhase,
   hasFlightPhase,
@@ -102,6 +104,7 @@ export function GaitDiagram({
   const [phase, setPhase] = useState(DEFAULT_PHASE);
   const [playing, setPlaying] = useState(false);
   const timerRef = useRef<number | null>(null);
+  const descriptionId = `${useId()}-description`;
 
   const gait = GAITS[gaitId];
   const stance = stanceLegs(gait, phase);
@@ -291,7 +294,8 @@ export function GaitDiagram({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Footfall timing diagram for the ${gait.name} gait. Duty factor ${formatDuty(gait.dutyFactor)}. Cycle phase ${formatPhase(phase)}. Feet on the ground: ${stanceText}. ${gait.note}`}
+        aria-label={`Footfall timing for the ${gait.name} gait, duty factor ${formatDuty(gait.dutyFactor)}, phase ${formatPhase(phase)}`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         <text
@@ -425,12 +429,48 @@ export function GaitDiagram({
         <span className="text-text-dim">duty</span>{' '}
         <span className="text-text">{formatDuty(gait.dutyFactor)}</span>
       </p>
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        {gait.note} Amber blocks mark the feet touching the ground at the
-        playhead. Step through the cycle or press play; the walk never drops
-        below three feet of support, the trot balances on diagonal pairs,
-        and the bound and pronk spend part of every cycle airborne.
-      </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary={`Footfall timing for the ${gait.name.toLowerCase()}`}
+        rowHeader="cycle phase"
+        columns={[
+          { header: 'feet down', numeric: true },
+          { header: 'feet striking', numeric: false },
+        ]}
+        rows={[0, 0.25, 0.5, 0.75].map((sample) => {
+          const down = stanceLegs(gait, sample)
+            .map((id) => LEGS.find((l) => l.id === id)!.short)
+            .join(' + ');
+          const strikes = LEGS.filter(
+            (l) => Math.abs(gait.offsets[l.id] - sample) < 0.001,
+          )
+            .map((l) => l.short)
+            .join(' + ');
+          return {
+            label: `${Math.round(sample * 100)}%`,
+            values: [down || 'none', strikes || 'none'],
+          };
+        })}
+        description={
+          <>
+            In the {gait.name.toLowerCase()}, {supportText(gaitId)} at duty factor{' '}
+            {formatDuty(gait.dutyFactor)}, and the footfall offsets around the cycle
+            are ({footfallOrder(gait)
+              .map(
+                (id) =>
+                  `${LEGS.find((l) => l.id === id)!.short} at ${Math.round(
+                    gait.offsets[id] * 100,
+                  )}%`,
+              )
+              .join(', ')}
+            ); at the current phase of {formatPhase(phase)} the feet down are{' '}
+            {stanceText}.
+          </>
+        }
+      />
     </div>
   );
 }

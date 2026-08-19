@@ -1,8 +1,9 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { Badge } from '@/components/ui';
+import { Badge, ChartDescription } from '@/components/ui';
 import {
+  CONTROL_HZ,
   CONTROL_PERIOD_MS,
   LATENCY_REFERENCES,
   MAX_PARAMS_B,
@@ -72,6 +73,7 @@ export function ControlLoopBudget({
   // one page (a standalone mount plus a wrapped prediction figure), and a
   // hardcoded id would duplicate and cross-bind the label.
   const modelSizeId = `${useId()}-clb-model-size`;
+  const descriptionId = `${useId()}-clb-description`;
   const [paramsB, setParamsB] = useState<number>(defaultParamsB);
   // Derive state during render when the initial prop changes (the repo
   // pattern, never useEffect): compare against the previous prop value
@@ -149,7 +151,8 @@ export function ControlLoopBudget({
       <svg
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
         role="img"
-        aria-label={`Control-loop timeline. One inference of ${formatMs(inferenceMs)} for a ${paramsB.toFixed(1)} billion parameter model against the 20 millisecond budget of a 50 hertz loop. The loop ${closes ? 'closes' : 'does not close'} at this size.`}
+        aria-label={`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Tick gridlines, one per 20 ms control period. */}
@@ -307,6 +310,41 @@ export function ControlLoopBudget({
         scaling between and below them is an illustrative memory-bound
         model, not a measurement.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="table"
+        summary="Inference latency by model size, against the 20 ms budget"
+        rowHeader="model size"
+        columns={[
+          { header: 'inference', numeric: true },
+          { header: 'effective rate', numeric: true },
+          { header: 'loop', numeric: false },
+        ]}
+        rows={[0.5, 1.0, 2.0, 3.0, 6.0, 9.1].map((b) => {
+          const ms = inferenceMsOnThor(b);
+          return {
+            label: `${b.toFixed(1)}B`,
+            values: [
+              formatMs(ms),
+              `${Math.round(effectiveHz(ms))} Hz`,
+              loopCloses(ms) ? 'closes' : 'does not close',
+            ],
+          };
+        })}
+        description={
+          <>
+            A {paramsB.toFixed(1)}B-parameter model takes {formatMs(inferenceMs)} of
+            inference against the {Math.round(CONTROL_PERIOD_MS)} ms budget of a{' '}
+            {CONTROL_HZ} Hz loop, {closes ? 'closing the loop' : `missing ${missed} ${missed === 1 ? 'deadline' : 'deadlines'} and running at ${Math.round(hz)} Hz`};
+            inference stays under budget only below about{' '}
+            {(PI0_ANCHOR.paramsB * CONTROL_PERIOD_MS / PI0_ANCHOR.inferenceMs).toFixed(1)}B
+            parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the
+            scaling is modeled rather than measured.
+          </>
+        }
+      />
 
       <ul className="mt-4 divide-y divide-border border-t border-border">
         {LATENCY_REFERENCES.map((ref) => {
