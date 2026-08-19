@@ -282,6 +282,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['sensitivity', 'realism'],
     text: 'Under strong conditioning, push left and lift gripper diverge across 4 predicted frames from the shared initial pose; action sensitivity is 0.419 against the 0.30 threshold while visual realism stays 0.91 in both modes.',
   },
+  {
+    component: 'RewardShaping',
+    file: 'components/interactive/reward-shaping.tsx',
+    quantityNames: ['weights', 'total'],
+    text: 'The 12 reward weights sum to a total of -5.52 per step, and the preview is a balanced trot: torque 0.8 and air time 0.6 stay below the 2.5 attractor bar, so the quadruped tracks velocity instead of freezing, prancing, or chattering.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

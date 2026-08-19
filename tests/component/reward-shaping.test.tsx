@@ -93,6 +93,29 @@ describe('RewardShaping', () => {
     expect(TERMS.length).toBe(12);
   });
 
+  it('describes the attractor instead of enumerating the twelve weights', () => {
+    const { container } = render(<RewardShaping />);
+    const img = screen.getByTestId('quad-preview');
+    const id = img.getAttribute('aria-describedby');
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/balanced trot/);
+    expect(desc?.textContent).toMatch(/total of -5\.52 per step/);
+    expect(desc?.textContent).not.toMatch(/Linear velocity tracking/);
+    fireEvent.change(slider(/torque/i), { target: { value: '40' } });
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/freeze attractor/);
+    fireEvent.change(slider(/torque/i), { target: { value: '8' } });
+    fireEvent.change(slider(/foot air time/i), { target: { value: '40' } });
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/prance attractor/);
+    fireEvent.change(slider(/action-rate/i), { target: { value: '0' } });
+    expect(
+      container.querySelector('[data-chart-description]')?.textContent,
+    ).toMatch(/chatter attractor/);
+  });
+
   it('play toggles to pause and back', async () => {
     const user = userEvent.setup();
     render(<RewardShaping />);

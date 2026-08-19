@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
+import { ChartDescription } from '@/components/ui';
 import { type LegId } from '@/lib/gait';
 import {
   BEHAVIORS,
@@ -82,7 +83,26 @@ function fromSlider(value: number): number {
   return value / 10;
 }
 
+function attractorTakeaway(
+  behaviorId: BehaviorId,
+  weights: Weights,
+  total: string,
+): string {
+  const n = TERMS.length;
+  if (behaviorId === 'frozen') {
+    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the freeze attractor: torque ${formatWeight(weights.torque)} now outweighs velocity tracking, so standing still pays more than walking.`;
+  }
+  if (behaviorId === 'prancing') {
+    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the prance attractor: foot air time ${formatWeight(weights.airTime)} now outweighs velocity tracking, so the robot bounces in place.`;
+  }
+  if (behaviorId === 'chatter') {
+    return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the chatter attractor: action-rate is only ${formatWeight(weights.actionRate)}, so nothing prices step-to-step joint vibration.`;
+  }
+  return `The ${n} reward weights sum to a total of ${total} per step, and the preview is a balanced trot: torque ${formatWeight(weights.torque)} and air time ${formatWeight(weights.airTime)} stay below the 2.5 attractor bar, so the quadruped tracks velocity instead of freezing, prancing, or chattering.`;
+}
+
 export function RewardShaping({ className }: { className?: string }) {
+  const descriptionId = `${useId()}-description`;
   const [weights, setWeights] = useState<Weights>(() => defaultWeights());
   const [phase, setPhase] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -203,6 +223,7 @@ export function RewardShaping({ className }: { className?: string }) {
         role="img"
         data-testid="quad-preview"
         aria-label={`Rollout preview: ${behavior.status}. ${behavior.description}`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {/* Status annotation in the guaranteed-empty sky region */}
@@ -391,6 +412,20 @@ export function RewardShaping({ className }: { className?: string }) {
         <span className={TONE_TEXT[behavior.tone]}>{behavior.status}.</span>{' '}
         {behavior.description}
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current reward-weight attractor"
+        description={attractorTakeaway(behaviorId, weights, formatTotal(total))}
+        states={[
+          { label: 'attractor', value: behavior.name },
+          { label: 'total', value: `${formatTotal(total)} / step` },
+          { label: 'torque', value: formatWeight(weights.torque) },
+          { label: 'air time', value: formatWeight(weights.airTime) },
+          { label: 'action-rate', value: formatWeight(weights.actionRate) },
+        ]}
+      />
     </div>
   );
 }

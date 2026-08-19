@@ -16,6 +16,7 @@ import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
+import { RewardShaping } from '@/components/interactive/reward-shaping';
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
@@ -256,6 +257,18 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('RewardShaping names the attractor and tracks a dominant weight', () => {
+    const { container } = render(<RewardShaping />);
+    const { text } = assertDescribed(screen.getByTestId('quad-preview'), container);
+    expect(text).toMatch(/balanced trot/);
+    fireEvent.change(screen.getByRole('slider', { name: /torque/i }), {
+      target: { value: '40' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/freeze attractor/);
   });
 
   it('ActionConditioning shares one description across the three frames', () => {

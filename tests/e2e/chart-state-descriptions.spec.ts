@@ -194,6 +194,14 @@ const CHARTS: Array<{
     def: 'Strong conditioning',
     match: 'action sensitivity',
   },
+  {
+    route: '/rl-sim2real/reward-design-mpc',
+    name: 'reward-shaping',
+    control: 'range',
+    moves: ['40', '0'],
+    def: '10',
+    match: 'reward weights',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];
