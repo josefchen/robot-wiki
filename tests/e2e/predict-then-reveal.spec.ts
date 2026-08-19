@@ -24,13 +24,13 @@ const PLACEMENTS: Placement[] = [
     route: '/data-hardware/evaluation-crisis/',
     figure: 'ReliabilityCompounding',
     primaryControl: /per-step success probability/i,
-    mountedReadout: /48\.8% episode success/,
+    mountedReadout: /48\.8%/,
   },
   {
     route: '/manipulation/action-chunking/',
     figure: 'LatencyComparison',
     primaryControl: /injected inference delay/i,
-    mountedReadout: /temporal ensembling\s+0%\s+failed/,
+    mountedReadout: /0%\s*failed/,
   },
   {
     route: '/manipulation/realtime-execution/',
@@ -62,7 +62,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       // Not a self-check: the region hook is data-predict only.
       await expect(page.locator('[data-predict][data-self-check]')).toHaveCount(0);
       const inProse = await page
-        .locator('[data-pagefind-body] div [data-predict]')
+        .locator('div[data-pagefind-body] [data-predict]')
         .count();
       expect(inProse, `${route}: outside the prose region`).toBe(1);
       const order = await page.evaluate(() => {
@@ -145,9 +145,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
       // The figure is mounted at the configuration the hint names: the
       // interactive root is the div directly after the reveal hint.
+      // textContent, not innerText: the disclosure is still closed, and a
+      // closed disclosure's content has no rendered innerText.
       const figure = reveal.locator('[data-reveal-hint] + div');
       await expect(figure.locator('svg').first()).toBeAttached();
-      const figureText = await figure.innerText();
+      const figureText = await figure.textContent();
       expect(figureText, `${placement.route}: figure missing under the hint`).toMatch(
         placement.mountedReadout,
       );

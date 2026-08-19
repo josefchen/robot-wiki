@@ -102,9 +102,9 @@ The dial below injects inference delay into both execution strategies. Temporal 
   prompt="Temporal ensembling averages overlapping chunks and assumes inference keeps up. Roughly how much injected inference delay does it take before the scheme fails outright?"
   options={[
     {
-      value: 'hundred',
-      label: 'Around 100 ms, a tenth of the way to a full second',
-      why: 'Physical Intelligence documents ensembling failing outright at +100 ms and +200 ms of injected delay: the weighted average of two disagreeing chunks lands between the modes, where no valid action exists. The mounted figure sits at that boundary, and real-time chunking holds full throughput at the same delay.'
+      value: 'second',
+      label: 'Around a full second, the length of a 50-step chunk at 50 Hz',
+      why: 'This encodes the belief that ensembling tolerates anything shorter than the chunk itself. The documented failure arrives at a tenth of that, because the averaged action leaves the valid mode long before the whole chunk is replaced.'
     },
     {
       value: 'half-second',
@@ -112,13 +112,13 @@ The dial below injects inference delay into both execution strategies. Temporal 
       why: 'This encodes the belief that failure needs the entire chunk horizon to turn over. It does not: the newest chunk in the average is already stale by one full round trip, so the average degrades as soon as the delay is a meaningful fraction of the weighting horizon.'
     },
     {
-      value: 'second',
-      label: 'Around a full second, the length of a 50-step chunk at 50 Hz',
-      why: 'This encodes the belief that ensembling tolerates anything shorter than the chunk itself. The documented failure arrives at a tenth of that, because the averaged action leaves the valid mode long before the whole chunk is replaced.'
+      value: 'hundred',
+      label: 'Around 100 ms, a tenth of the way to a full second',
+      why: 'Physical Intelligence documents ensembling failing outright at +100 ms and +200 ms of injected delay: the weighted average of two disagreeing chunks lands between the modes, where no valid action exists. The mounted figure sits at that boundary, and real-time chunking holds full throughput at the same delay.'
     }
   ]}
   answer="hundred"
-  revealHint="Both panels are mounted at 100 ms of injected delay: temporal ensembling reads 0% and failed while real-time chunking holds 100%. Drag the delay slider down to find where the collapse begins."
+  revealHint="Both panels are mounted at 100 ms of injected delay: temporal ensembling reads 0% and failed while real-time chunking holds 100% throughput. Drag the delay slider down to find where the collapse begins."
   takeaway="Averaging stale chunks fails outright at 100 ms of injected delay, a tenth of a second, while real-time chunking holds throughput flat to 200 ms."
 >
   <LatencyComparison defaultDelayMs={100} className="mt-3" />

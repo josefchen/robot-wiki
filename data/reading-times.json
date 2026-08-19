@@ -4,7 +4,7 @@
     "minutes": 6
   },
   "manipulation/action-chunking": {
-    "words": 1311,
+    "words": 1374,
     "minutes": 7
   },
   "manipulation/diffusion-policy": {
@@ -36,8 +36,8 @@
     "minutes": 10
   },
   "manipulation/realtime-execution": {
-    "words": 1696,
-    "minutes": 8
+    "words": 1748,
+    "minutes": 9
   },
   "manipulation/cross-embodiment": {
     "words": 1213,
@@ -108,7 +108,7 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1606,
+    "words": 1669,
     "minutes": 8
   },
   "classical/kinematics": {
