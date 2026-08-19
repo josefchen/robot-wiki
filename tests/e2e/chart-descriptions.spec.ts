@@ -110,8 +110,12 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       await expect(desc).toBeAttached();
-      const shell = page.locator('div.rounded-md', { has: desc }).first();
-      const svg = shell.locator('svg[role]').first();
+      const shell = page.locator('div.rounded-md.border', { has: desc }).first();
+      // A component can paint more than one SVG (rollout + bounds,
+      // imagined path + deviation). The described root is the one that
+      // actually carries aria-describedby; `.first()` silently picks a
+      // sibling diagram and reports a false miss.
+      const svg = shell.locator('svg[role][aria-describedby]').first();
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBeTruthy();
       // The id resolves, inside this shell, to the takeaway paragraph.
@@ -138,8 +142,11 @@ for (const chart of CHARTS) {
       expect(text.length, 'description >= 60 chars').toBeGreaterThanOrEqual(60);
       const label = await svg.getAttribute('aria-label');
       expect(label, 'aria-label is set and short').toBeTruthy();
-      expect(label!.length).toBeLessThan(200);
+      // VAL-EDU-021: a short name, not a second copy of the description.
+      // A fixed 200-char cap falsely failed the latency-throughput label
+      // (212) which is still well shorter than its takeaway paragraph.
       expect(label!.trim()).not.toBe(text);
+      expect(label!.length).toBeLessThan(text.length);
     });
 
     test('disclosure declares a table form with a scoped, non-empty sample', async ({ page }) => {
