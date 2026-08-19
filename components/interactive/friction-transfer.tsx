@@ -118,7 +118,10 @@ export function FrictionTransfer({
     }));
   }, [realMu, range]);
 
-  const descriptionText = `At real-robot friction ${formatMu(realMu)} the point-trained policy scores ${formatPct(point)} against the DR policy's ${formatPct(dr)}, with the DR plateau at ${formatPct(drPeakValue)} across the shaded training band of half-width ${formatMu(range)}; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.`;
+  const descriptionText =
+    defaultRange === DEFAULT_DR_RANGE
+      ? `At real-robot friction ${formatMu(realMu)} the point-trained policy scores ${formatPct(point)} against the DR policy's ${formatPct(dr)}, with the DR plateau at ${formatPct(drPeakValue)} across the shaded training band of half-width ${formatMu(range)}; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.`
+      : `The sim-to-real prediction panel widens the randomization half-width to ${formatMu(range)} so the DR plateau sits at ${formatPct(drPeakValue)} while the point-trained policy still scores ${formatPct(point)} success at friction ${formatMu(realMu)} against the DR policy's ${formatPct(dr)}.`;
 
   const lineX = xFor(realMu);
   const labelAnchor = lineX > WIDTH - 150 ? 'end' : 'start';

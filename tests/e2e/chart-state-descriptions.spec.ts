@@ -310,19 +310,22 @@ for (const chart of CHARTS) {
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
-      const shell = page.locator('div.rounded-md.border', { has: desc }).first();
-      const details = desc.locator('xpath=../details[@data-chart-data]').first();
+      const descId = await desc.getAttribute('id');
+      expect(descId, 'takeaway has an id').toBeTruthy();
+      const descById = page.locator(`[id="${CSS.escape(descId!)}"]`);
+      const shell = page.locator('div.rounded-md.border', { has: descById }).first();
+      const details = descById.locator('xpath=../details[@data-chart-data]').first();
       await details.evaluate((el) => {
         (el as HTMLDetailsElement).open = true;
       });
-      const original = (await desc.innerText()).trim();
+      const original = (await descById.innerText()).trim();
       const originalValues = await details.locator('dd').evaluateAll((els) =>
         els.map((el) => (el.textContent ?? '').trim()),
       );
       const tokenKey = (s: string) =>
         digitOrRegimeTokens(s).join(' ');
       await setControl(page, shell, chart, chart.moves[0]);
-      const moved = (await desc.innerText()).trim();
+      const moved = (await descById.innerText()).trim();
       const movedValues = await details.locator('dd').evaluateAll((els) =>
         els.map((el) => (el.textContent ?? '').trim()),
       );
@@ -334,7 +337,7 @@ for (const chart of CHARTS) {
         'a digit or named-regime token in the takeaway changes',
       ).toBe(true);
       await setControl(page, shell, chart, chart.def);
-      await expect.poll(async () => (await desc.innerText()).trim()).toBe(original);
+      await expect.poll(async () => (await descById.innerText()).trim()).toBe(original);
     });
   });
 }

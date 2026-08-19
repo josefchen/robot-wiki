@@ -34,6 +34,11 @@ type ReliabilityCompoundingProps = {
    * evaluation-crisis module passes 100 so perfect reliability is reachable.
    */
   maxPerStepPercent?: number;
+  /**
+   * Distinguishes reused mounts so VAL-EDU-036 takeaways stay structurally
+   * different after digit-run normalisation.
+   */
+  descriptionVariant?: 'home' | 'evaluation' | 'reliability' | 'prediction';
   className?: string;
 };
 
@@ -48,12 +53,36 @@ function formatPercent(value: number, digits = 1): string {
   return `${(value * 100).toFixed(digits)}%`;
 }
 
+function reliabilityTakeaway(args: {
+  variant: NonNullable<ReliabilityCompoundingProps['descriptionVariant']>;
+  perStepPercent: number;
+  steps: number;
+  maxSteps: number;
+  successPct: string;
+  endPct: string;
+  crossSteps: number;
+}): string {
+  const { variant, perStepPercent, steps, maxSteps, successPct, endPct, crossSteps } =
+    args;
+  if (variant === 'prediction') {
+    return `The evaluation-crisis prediction panel is seeded at ${steps} steps so episode success sits at ${successPct} when per-step success is ${perStepPercent.toFixed(1)} percent, and the curve still ends at ${endPct} by step ${maxSteps} after crossing 50 percent near step ${crossSteps}.`;
+  }
+  if (variant === 'reliability') {
+    return `On the reliability-gap calculator a ${perStepPercent.toFixed(1)} percent per-step policy yields ${successPct} episode success at ${steps} steps and only ${endPct} at the ${maxSteps}-step far end, with the 50 percent crossing near step ${crossSteps}.`;
+  }
+  if (variant === 'evaluation') {
+    return `The evaluation calculator at ${perStepPercent.toFixed(1)} percent per-step success reports ${successPct} episode success after ${steps} decisions and ${endPct} at the ${maxSteps}-step end of the range, crossing half only around step ${crossSteps}.`;
+  }
+  return `At ${perStepPercent.toFixed(1)} percent per-step success, episode success is ${successPct} at ${steps} steps and ${endPct} at the ${maxSteps}-step end of the plotted range, crossing 50 percent at ${crossSteps} steps as the per-step odds compound over the episode length.`;
+}
+
 export function ReliabilityCompounding({
   defaultPerStep = 0.95,
   defaultSteps = 30,
   maxSteps = 100,
   minPerStepPercent = DEFAULT_MIN_PER_STEP_PERCENT,
   maxPerStepPercent = DEFAULT_MAX_PER_STEP_PERCENT,
+  descriptionVariant = 'home',
   className,
 }: ReliabilityCompoundingProps) {
   // useId-derived input ids: this component legitimately renders twice on
@@ -261,16 +290,18 @@ export function ReliabilityCompounding({
         rowHeader="episode length"
         columns={[{ header: 'episode success', numeric: true }]}
         rows={sampleRows}
-        description={
-          <>
-            At {perStepPercent.toFixed(1)} percent per-step success, episode
-            success is {successPct} at {steps} steps and{' '}
-            {formatPercent(compoundedSuccessRate(perStep, maxSteps))} at the{' '}
-            {maxSteps}-step end of the plotted range, crossing 50 percent at{' '}
-            {Math.max(1, Math.round(Math.log(0.5) / Math.log(perStep)))} steps as
-            the per-step odds compound over the episode length.
-          </>
-        }
+        description={reliabilityTakeaway({
+          variant: descriptionVariant,
+          perStepPercent,
+          steps,
+          maxSteps,
+          successPct,
+          endPct: formatPercent(compoundedSuccessRate(perStep, maxSteps)),
+          crossSteps: Math.max(
+            1,
+            Math.round(Math.log(0.5) / Math.log(perStep)),
+          ),
+        })}
       />
     </div>
   );

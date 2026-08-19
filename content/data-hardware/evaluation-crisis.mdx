@@ -38,7 +38,7 @@ A robot learning paper announces its headline result as a single number: the <Te
 
 A success rate is an episode-level outcome, and an episode is a chain of decisions. A policy that must make 30 correct decisions in a row, each succeeding 95% of the time, completes the whole task 0.95 to the power 30 of the time, which is 21.5%. The per-step number sounded strong; the task-level number is a coin flip weighted toward failure. The product is the deployment metric, because users experience whole tasks, and it is not what most tables report.
 
-<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} className="my-6" />
+<ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="my-6" />
 
 The calculator above computes that product. The per-step slider spans the full range on purpose, so the boundary cases are honest: at 0% per-step the task never completes once the horizon is at least one step, at 100% it always completes, and at a horizon of exactly one step the readout equals the per-step value. No setting produces a meaningless number, and the decay curve is the point. The inverse reading matters too. Two tasks that both report 80% episode success demand different per-step reliabilities: over five steps, 80% implies about 95.6% per step, while over thirty steps it implies about 99.3%. Without the step count, the two results are not comparable, and the step count is frequently absent from the report.
 
@@ -67,7 +67,7 @@ The calculator above computes that product. The per-step slider spans the full r
   revealHint="The curve is mounted at 95.0% per-step success over 14 steps, reading 48.8% episode success: just past the coin flip. Drag the episode-length slider and watch the readout fall."
   takeaway="At 95% per step, the task is a coin flip after 14 decisions and down to 21.5% after 30: the per-step number cannot be read off the task-level number."
 >
-  <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} className="mt-3" />
+  <ReliabilityCompounding defaultPerStep={0.95} defaultSteps={14} descriptionVariant="prediction" className="mt-3" />
 </PredictThenReveal>
 
 ## Ten trials is noise

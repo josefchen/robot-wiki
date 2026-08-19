@@ -163,15 +163,24 @@ export function LatencyComparison({
     };
   }, [delayMs]);
 
-  const throughputDescription = `At ${formatMs(
-    delayMs,
-  )} of injected delay temporal ensembling holds ${Math.round(
-    te * 100,
-  )}% of task throughput and real-time chunking holds ${Math.round(
-    rtc * 100,
-  )}%, and ensembling falls to zero across the shaded ${FAILURE_WINDOW.from} to ${
-    FAILURE_WINDOW.to
-  } ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.`;
+  const throughputDescription =
+    defaultDelayMs === MIN_DELAY_MS
+      ? `At ${formatMs(
+          delayMs,
+        )} of injected delay temporal ensembling holds ${Math.round(
+          te * 100,
+        )}% of task throughput and real-time chunking holds ${Math.round(
+          rtc * 100,
+        )}%, and ensembling falls to zero across the shaded ${FAILURE_WINDOW.from} to ${
+          FAILURE_WINDOW.to
+        } ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.`
+      : `The action-chunking prediction panel opens inside the documented failure window: at ${formatMs(
+          delayMs,
+        )} of injected delay temporal ensembling has already dropped to ${Math.round(
+          te * 100,
+        )}% task throughput while real-time chunking still holds ${Math.round(
+          rtc * 100,
+        )}%, across the shaded ${FAILURE_WINDOW.from} to ${FAILURE_WINDOW.to} ms collapse the paper records.`;
 
   const traceDescription = `Across the ${TRACE_TICKS}-tick hand-off at ${formatMs(
     delayMs,

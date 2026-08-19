@@ -600,19 +600,9 @@ export function EgoScaleScaling({
           { label: '1M h', values: [`${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`, `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`, 'extrapolated, dashed'] },
         ]}
         description={
-          <>
-            Validation loss falls from {formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k
-            hours to {formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, the end
-            of the measured range, while task completion rises from 0.30 to 0.71; past
-            that boundary the dashed extrapolation to the {formatHours(horizon)} horizon
-            reads {formatLoss(lawAtHorizon)} if the law holds against{' '}
-            {formatLoss(plateauAtHorizon)} at the plateau, the shaded scenario band
-            between them is a scenario bracket and not a confidence interval, the
-            completion fit stays below the 90 percent solved bar until{' '}
-            {Math.round(solvedBarCrossingHours() / 1000)}k hours, and it exceeds 100
-            percent past {Math.round(impossibleHours / 1000)}k hours, which the chart
-            flags instead of drawing.
-          </>
+          defaultHorizonHours !== DEFAULT_HORIZON_HOURS
+            ? `The generalization prediction-step law panel is seeded past the 100 percent crossing: validation loss still falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, but the completion fit is already flagged as impossible at the ${formatHours(horizon)} horizon rather than drawn through 100 percent.`
+            : `Validation loss falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, the end of the measured range, while task completion rises from 0.30 to 0.71; past that boundary the dashed extrapolation to the ${formatHours(horizon)} horizon reads ${formatLoss(lawAtHorizon)} if the law holds against ${formatLoss(plateauAtHorizon)} at the plateau, the shaded scenario band between them is a scenario bracket and not a confidence interval, the completion fit stays below the 90 percent solved bar until ${Math.round(solvedBarCrossingHours() / 1000)}k hours, and it exceeds 100 percent past ${Math.round(impossibleHours / 1000)}k hours, which the chart flags instead of drawing.`
         }
       />
       <p
