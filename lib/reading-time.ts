@@ -13,7 +13,10 @@
  * nothing (the HTML `hidden` attribute, Tailwind's `hidden`/`invisible`
  * utilities, inline display:none/visibility:hidden), non-rendered
  * containers contribute nothing (script, style, template, noscript, SVG
- * metadata, and the MathML `<annotation>` holding raw TeX), and elements
+ * metadata, and the MathML `<annotation>` holding raw TeX), a closed
+ * `<details>` contributes its `<summary>` and nothing else (an open one
+ * counts in full, and a nested one is judged on its own `open` state
+ * rather than inheriting its parent's, which is what innerText does), and elements
  * that are hidden only below a breakpoint (`hidden sm:block`) or only
  * until interaction (`group-hover:block`) count the same way they render
  * on a resting desktop page. The citation chips' hover tooltips
@@ -185,6 +188,43 @@ function classTokensOf(attrs: string): string[] {
   return classMatch[1].split(/\s+/).filter(Boolean);
 }
 
+/**
+ * The attribute names of an opening tag, ignoring quoted values. Whole
+ * attribute names are what disclosure state lives on (`open` on a
+ * `<details>`), so a value that merely contains the word open, such as
+ * aria-label="press open to expand", must never read as the attribute.
+ */
+function attributeNames(attrs: string): Set<string> {
+  const names = new Set<string>();
+  let i = 0;
+  const n = attrs.length;
+  while (i < n) {
+    while (i < n && /[\s/]/.test(attrs[i])) i += 1;
+    if (i >= n) break;
+    const start = i;
+    while (i < n && !/[\s=/>]/.test(attrs[i])) i += 1;
+    if (i > start) names.add(attrs.slice(start, i).toLowerCase());
+    // Skip the value when this attribute carries one, so quoted prose
+    // never leaks into the name scan.
+    let j = i;
+    while (j < n && /\s/.test(attrs[j])) j += 1;
+    if (attrs[j] === '=') {
+      j += 1;
+      while (j < n && /\s/.test(attrs[j])) j += 1;
+      const quote = attrs[j];
+      if (quote === '"' || quote === "'") {
+        j += 1;
+        while (j < n && attrs[j] !== quote) j += 1;
+        j += 1;
+      } else {
+        while (j < n && !/[\s>]/.test(attrs[j])) j += 1;
+      }
+      i = j;
+    }
+  }
+  return names;
+}
+
 interface Frame {
   name: string;
   skipped: boolean;
@@ -192,6 +232,24 @@ interface Frame {
   katexHtml: boolean;
   /** Inside `.katex-html`: true when this element is a fused inline run. */
   fuses: boolean;
+  /** True for a `<details>` carrying no `open` attribute. */
+  closedDetails: boolean;
+  /** True for a `<summary>` that is a direct child of a closed `<details>`. */
+  detailsSummary: boolean;
+}
+
+/**
+ * Where the insertion point sits relative to the nearest enclosing closed
+ * `<details>`: inside its `<summary>` (rendered at rest), inside its
+ * hidden body, or outside any closed disclosure. The scan runs from the
+ * stack top so an inner disclosure is judged before an outer one.
+ */
+function closedDetailsPosition(stack: Frame[]): 'summary' | 'body' | undefined {
+  for (let s = stack.length - 1; s >= 0; s -= 1) {
+    if (stack[s].detailsSummary) return 'summary';
+    if (stack[s].closedDetails) return 'body';
+  }
+  return undefined;
 }
 
 /**
@@ -215,16 +273,20 @@ export function visibleTextInMarkup(markup: string): string {
   const stack: Frame[] = [];
   const skipping = () => stack.some((frame) => frame.skipped);
   const inKatexHtml = () => stack.some((frame) => frame.katexHtml);
+  // Text is excluded when any enclosing element is skipped, or when it
+  // sits in the body of a closed disclosure: innerText drops both.
+  const obscured = () =>
+    skipping() || closedDetailsPosition(stack) === 'body';
 
   let i = 0;
   const n = markup.length;
   while (i < n) {
     const lt = markup.indexOf('<', i);
     if (lt === -1) {
-      if (!skipping()) parts.push(markup.slice(i));
+      if (!obscured()) parts.push(markup.slice(i));
       break;
     }
-    if (lt > i && !skipping()) parts.push(markup.slice(i, lt));
+    if (lt > i && !obscured()) parts.push(markup.slice(i, lt));
 
     if (markup.startsWith('<!--', lt)) {
       // A tag boundary always separates words, even for skipped subtrees;
@@ -237,7 +299,7 @@ export function visibleTextInMarkup(markup: string): string {
     const gt = markup.indexOf('>', lt);
     if (gt === -1) {
       // Malformed tail: treat the remainder as text.
-      if (!skipping()) parts.push(markup.slice(lt));
+      if (!obscured()) parts.push(markup.slice(lt));
       break;
     }
     const tag = markup.slice(lt + 1, gt);
@@ -272,7 +334,18 @@ export function visibleTextInMarkup(markup: string): string {
     const name = nameMatch[1].toLowerCase();
     const attrs = tag.slice(nameMatch[0].length);
     const selfClosing = tag.endsWith('/') || VOID_ELEMENTS.has(name);
-    const skipped = skipping() || hiddenAtRest(name, attrs);
+    const parent = stack[stack.length - 1];
+    // A <summary> renders even while its own disclosure is closed; every
+    // other element of that closed body stays hidden at rest. Requiring
+    // the direct child of the closed disclosure (and an unskipped
+    // context, so hidden ancestors still win) keeps a summary inside a
+    // nested closed body correctly excluded, as Chromium excludes it.
+    const detailsSummary =
+      name === 'summary' && !skipping() && parent?.closedDetails === true;
+    const skipped =
+      skipping() ||
+      (closedDetailsPosition(stack) === 'body' && !detailsSummary) ||
+      hiddenAtRest(name, attrs);
     const classTokens = classTokensOf(attrs);
     const katexHtml = classTokens.includes('katex-html');
     // A classless span nested directly inside a fused run is a KaTeX
@@ -280,7 +353,6 @@ export function visibleTextInMarkup(markup: string): string {
     // margined "g" span): innerText fuses straight across it. Classless
     // spans elsewhere in the visual layer are the vlist positioning
     // boxes, which must keep separating.
-    const parent = stack[stack.length - 1];
     const fuses =
       KATEX_HTML_FUSE_CLASSES.has(classTokens[0] ?? '') ||
       (name === 'span' &&
@@ -292,7 +364,14 @@ export function visibleTextInMarkup(markup: string): string {
     // this decision, so inKatexHtml() is false for it here.
     if (!inKatexHtml() || !fuses) parts.push(' ');
     if (!selfClosing) {
-      stack.push({ name, skipped, katexHtml, fuses });
+      stack.push({
+        name,
+        skipped,
+        katexHtml,
+        fuses,
+        closedDetails: name === 'details' && !attributeNames(attrs).has('open'),
+        detailsSummary,
+      });
     }
   }
 
