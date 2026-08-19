@@ -77,7 +77,9 @@ export function ActionTokenization({
   defaultDim = 0,
   className,
 }: ActionTokenizationProps) {
-  const descriptionId = `${useId()}-at-description`;
+  const uid = useId();
+  const descriptionId = `${uid}-at-description`;
+  const binDescriptionId = `${uid}-at-bin-description`;
   const [step, setStep] = useState(defaultStep);
   const [dim, setDim] = useState(defaultDim);
   const chunk = useMemo(() => generateActionChunk(), []);
@@ -278,6 +280,7 @@ export function ActionTokenization({
         viewBox={`0 0 ${WIDTH} ${DETAIL_H}`}
         role="img"
         aria-label={`Binning detail for ${ACTION_DIMS[dim].label}: the value ${value.toFixed(3)} at step ${step} falls into bin ${bin} of 255 on a uniform grid of 256 bins per dimension. A zoomed window shows individual bins around the assigned bin.`}
+        aria-describedby={binDescriptionId}
         className="mt-2 block w-full"
       >
         <text
@@ -399,6 +402,24 @@ export function ActionTokenization({
           strokeWidth={1}
         />
       </svg>
+
+      <ChartDescription
+        id={binDescriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current bin assignment"
+        description={`On the ${ACTION_DIMS[dim].label} axis the continuous action ${value.toFixed(3)} at step ${step} falls in bin ${bin} of ${BIN_COUNT - 1} and reconstructs to ${center.toFixed(4)} with quantization error ${error >= 0 ? '+' : ''}${error.toFixed(4)}; the ${BIN_COUNT}-bin strip is a uniform grid on [${VALUE_MIN}, ${VALUE_MAX}], not a learned codebook.`}
+        states={[
+          { label: 'dimension', value: ACTION_DIMS[dim].label },
+          { label: 'step', value: String(step) },
+          { label: 'action', value: value.toFixed(3) },
+          { label: 'bin', value: `${bin} of ${BIN_COUNT - 1}` },
+          {
+            label: 'reconstructed',
+            value: `${center.toFixed(4)} (${error >= 0 ? '+' : ''}${error.toFixed(4)})`,
+          },
+        ]}
+      />
 
       {/* Serialized token stream for the selected control step */}
       <div className="mt-4">

@@ -1,9 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import { citationLabel, getCitation } from '@/data/citations';
 import {
+  EEF_SPACE_DIMS,
   EMBODIMENT_ORDER,
+  LATENT_DIMS,
   SHARED_WIDTH,
   STRATEGIES,
   STRATEGY_ORDER,
@@ -82,9 +85,11 @@ function slotAria(state: SlotState): string {
 function EmbodimentRow({
   strategy,
   embodimentId,
+  describedBy,
 }: {
   strategy: StrategyId;
   embodimentId: (typeof EMBODIMENT_ORDER)[number];
+  describedBy: string;
 }) {
   const body = embodimentById(embodimentId);
   const summary = rowSummary(strategy, embodimentId);
@@ -112,6 +117,7 @@ function EmbodimentRow({
         viewBox={`0 0 ${STRIP.width} ${STRIP.height}`}
         role="img"
         aria-label={`Action-space slot strip for ${body.label} under the ${STRATEGIES[strategy].label} strategy. ${summary.note}.`}
+        aria-describedby={describedBy}
         className="mt-1 block w-full"
       >
         {slots.map((slot) => (
@@ -149,6 +155,7 @@ export function CrossEmbodimentStrategies({
   defaultStrategy?: StrategyId;
   className?: string;
 }) {
+  const descriptionId = `${useId()}-description`;
   const [strategyId, setStrategyId] = useState<StrategyId>(defaultStrategy);
   const strategy = STRATEGIES[strategyId];
   const citation = getCitation(strategy.citationId);
@@ -212,7 +219,12 @@ export function CrossEmbodimentStrategies({
 
       <div className="mt-2 divide-y divide-border">
         {EMBODIMENT_ORDER.map((id) => (
-          <EmbodimentRow key={id} strategy={strategyId} embodimentId={id} />
+          <EmbodimentRow
+            key={id}
+            strategy={strategyId}
+            embodimentId={id}
+            describedBy={descriptionId}
+          />
         ))}
       </div>
 
@@ -230,6 +242,29 @@ export function CrossEmbodimentStrategies({
           faint outline: unused
         </span>
       </div>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current cross-embodiment mapping"
+        description={
+          strategyId === 'padded'
+            ? `Padded shared vector leaves human video unable to enter this space directly: the ${SHARED_WIDTH}-slot strips zero-pad unused dims on each of the ${EMBODIMENT_ORDER.length} bodies and leave the human hand with no slot at all.`
+            : strategyId === 'motion-transfer'
+              ? `Motion transfer routes every body through a ${LATENT_DIMS}-dim shared latent that is publicly under-specified; human-video path not disclosed, so the green slots on the ${SHARED_WIDTH}-slot strips are schematic rather than a published mapping.`
+              : `Shared relative end-effector space lets human video enter directly: 20,000 hours of EgoScale, because every embodiment including the human hand acts in the same ${EEF_SPACE_DIMS}-dim delta space.`
+        }
+        states={[
+          { label: 'strategy', value: strategy.label },
+          { label: 'human video', value: strategy.humanVideoVerdict },
+          { label: 'embodiments', value: String(EMBODIMENT_ORDER.length) },
+          {
+            label: 'strip width',
+            value: `${SHARED_WIDTH} slots`,
+          },
+        ]}
+      />
 
       <div
         data-testid="strategy-detail"

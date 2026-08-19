@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   FLOW_MODES,
   MAX_STEPS,
@@ -60,6 +61,7 @@ export function FlowMatchingTrajectory({
   defaultSteps = PI0_STEPS,
   className,
 }: FlowMatchingTrajectoryProps) {
+  const descriptionId = `${useId()}-description`;
   const [steps, setSteps] = useState(defaultSteps);
   const field = useMemo(() => generateFlowField(), []);
   const arrows = useMemo(
@@ -155,6 +157,7 @@ export function FlowMatchingTrajectory({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`2D action-space view with the learned vector field at mid-transport. ${field.samples.length} samples start as Gaussian noise and are transported toward two action modes along near-straight paths. With ${steps} integration steps the mean endpoint error is ${dispersion.toFixed(2)}.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {/* Axes */}
@@ -295,6 +298,27 @@ export function FlowMatchingTrajectory({
           {dispersion.toFixed(2)}
         </span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current flow-matching transport"
+        description={`With ${steps} Euler steps the ${field.samples.length} samples travel near-straight from Gaussian noise toward the two action modes and finish at mean endpoint error ${dispersion.toFixed(2)}; one step would cut the corner, 50 steps is more compute than a 50 Hz loop can spend.`}
+        states={[
+          { label: 'Euler steps', value: String(steps) },
+          { label: 'samples', value: String(field.samples.length) },
+          { label: 'endpoint error', value: dispersion.toFixed(2) },
+          {
+            label: 'regime',
+            value:
+              steps <= 2
+                ? 'too few, cutting the corner'
+                : steps >= 50
+                  ? 'accurate but unaffordable'
+                  : 'on the modes',
+          },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Illustrative model: {field.samples.length} samples with a fixed seed,
         transported from Gaussian noise to two action modes along the

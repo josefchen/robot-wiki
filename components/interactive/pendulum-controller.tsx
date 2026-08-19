@@ -18,6 +18,7 @@ import {
   type PendulumState,
   type Stability,
 } from '@/lib/pendulum';
+import { ChartDescription } from '@/components/ui';
 import { cx } from '@/lib/utils';
 
 /**
@@ -100,6 +101,7 @@ export function PendulumController({
   // one page (article prose plus a prediction-step figure), and hardcoded
   // ids would duplicate and cross-bind labels between the two mounts.
   const uid = useId();
+  const descriptionId = `${uid}-description`;
   const [gains, setGains] = useState<PidGains>(() => ({
     ...DEFAULT_GAINS,
     kp: defaultKp,
@@ -235,6 +237,7 @@ export function PendulumController({
         aria-label={`Inverted pendulum with PID control. Pole angle ${formatDeg(
           sim.theta,
         )} degrees from upright, status ${status}.`}
+        aria-describedby={descriptionId}
         data-testid="pendulum-scene"
         className="mt-4 block w-full"
       >
@@ -378,7 +381,7 @@ export function PendulumController({
         </button>
       </div>
 
-      <p className="mt-3 font-mono text-sm text-text">
+      <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">angle</span>{' '}
         <span data-testid="pendulum-angle-readout" className="text-accent">
           {formatDeg(sim.theta)}°
@@ -403,6 +406,25 @@ export function PendulumController({
           {status}
         </span>
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current pendulum gains and regime"
+        description={
+          defaultKp === DEFAULT_GAINS.kp
+            ? `Default gains Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status stay frozen until Run or Push.`
+            : `The prediction-step pole starts at Kp ${gains.kp.toFixed(1)}, under the 9.81 mgl hold threshold, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
+        }
+        states={[
+          { label: 'Kp', value: gains.kp.toFixed(1) },
+          { label: 'Ki', value: gains.ki.toFixed(1) },
+          { label: 'Kd', value: gains.kd.toFixed(1) },
+          { label: 'angle', value: `${formatDeg(sim.theta)}°` },
+          { label: 'status', value: status },
+        ]}
+      />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         A point mass on a 1 m rod with torque applied at the pivot. The dot

@@ -167,7 +167,10 @@ export function AdvantageScrubber({ className }: { className?: string }) {
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
             >
               Episode time
-              <span className="font-mono text-xs normal-case tracking-normal text-text">
+              <span
+                aria-live="polite"
+                className="font-mono text-xs normal-case tracking-normal text-text"
+              >
                 <span data-testid="time-readout">
                   t = {playhead.toFixed(1)} s
                 </span>

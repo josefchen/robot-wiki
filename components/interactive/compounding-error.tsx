@@ -309,6 +309,7 @@ export function CompoundingError({
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
         role="img"
         aria-label={`Rollout trace of a policy with per-step error ${epsilonPercent.toFixed(1)} percent over ${steps} steps, drifting away from the demonstrated path.`}
+        aria-describedby={`${uid}-rollout-description`}
         className="mt-4 block w-full"
       >
         <text
@@ -504,6 +505,30 @@ export function CompoundingError({
         {formatUnits(bounds.daggerAtT)}
       </p>
 
+      <ChartDescription
+        id={`${uid}-rollout-description`}
+        className="mt-3"
+        form="state"
+        summary="Current rollout regime"
+        description={
+          defaultSteps === 120
+            ? `${mode === 'per-step' ? 'Per-timestep prediction' : `Chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent per-step error over ${steps} steps, DAgger relabeling ${dagger ? 'on' : 'off'}, leaves the rollout drifting from the demonstrated path with accumulated deviation ${formatUnits(rollout.cost)} units.`
+            : `The doubled-horizon figure keeps ${mode === 'per-step' ? 'per-timestep prediction' : `chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent error across ${steps} steps with DAgger ${dagger ? 'on' : 'off'}, so the rollout accumulated deviation is ${formatUnits(rollout.cost)} units before any expert correction.`
+        }
+        states={[
+          {
+            label: 'mode',
+            value:
+              mode === 'per-step'
+                ? 'per-timestep prediction'
+                : `chunk of ${chunkSize}`,
+          },
+          { label: 'epsilon', value: `${epsilonPercent.toFixed(1)}%` },
+          { label: 'horizon', value: `${steps} steps` },
+          { label: 'DAgger', value: dagger ? 'on' : 'off' },
+          { label: 'deviation', value: `${formatUnits(rollout.cost)} units` },
+        ]}
+      />
       <ChartDescription
         id={`${uid}-bounds-description`}
         className="mt-3"

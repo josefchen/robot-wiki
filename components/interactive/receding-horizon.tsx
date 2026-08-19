@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   CONTROL_HZ,
   DIFFUSION_POLICY_HORIZON,
@@ -50,6 +51,7 @@ export function RecedingHorizon({
   windowSteps = 32,
   className,
 }: RecedingHorizonProps) {
+  const descriptionId = `${useId()}-description`;
   const [horizon, setHorizon] = useState<{ tp: number; ta: number }>({
     tp: DIFFUSION_POLICY_HORIZON.tp,
     ta: DIFFUSION_POLICY_HORIZON.ta,
@@ -160,6 +162,7 @@ export function RecedingHorizon({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`Receding horizon rolling plan over ${windowSteps} control steps. ${chunks.length} chunks, each predicting T_p of ${clamped.tp} actions and committing the first T_a of ${clamped.ta}. Committed portions are solid, predicted tails are outlined.`}
+        aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >
         {chunks.map((c) => {
@@ -252,6 +255,20 @@ export function RecedingHorizon({
         </span>{' '}
         <span className="text-text-dim">committed per plan</span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current receding-horizon plan"
+        description={`A receding-horizon plan with T_p ${clamped.tp} and T_a ${clamped.ta} issues ${chunks.length} chunks across the ${windowSteps}-step window, replanning at ${formatHz(replanRateHz(clamped.ta))} and committing ${formatSeconds(commitDurationS(clamped.ta))} per plan; solid bars are executed, outlined tails are thrown away.`}
+        states={[
+          { label: 'T_p', value: String(clamped.tp) },
+          { label: 'T_a', value: String(clamped.ta) },
+          { label: 'chunks', value: String(chunks.length) },
+          { label: 'replan rate', value: formatHz(replanRateHz(clamped.ta)) },
+          { label: 'committed', value: formatSeconds(commitDurationS(clamped.ta)) },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         Solid segments are executed; outlined tails are revised away by the
         next inference. Small T_a reacts quickly but re-samples (and can

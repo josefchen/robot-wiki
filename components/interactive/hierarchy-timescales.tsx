@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import { citationLabel, getCitation } from '@/data/citations';
 import {
   HIERARCHY_SYSTEMS,
@@ -60,6 +61,7 @@ export function HierarchyTimescales({
   defaultSystem = 'pi05',
   className,
 }: HierarchyTimescalesProps) {
+  const descriptionId = `${useId()}-description`;
   const [systemId, setSystemId] = useState(defaultSystem);
   const [playhead, setPlayhead] = useState(0);
 
@@ -67,6 +69,10 @@ export function HierarchyTimescales({
     HIERARCHY_SYSTEMS.find((s) => s.id === systemId) ?? HIERARCHY_SYSTEMS[0];
   const citation = getCitation(system.citationId);
   const height = TOP_PAD + system.lanes.length * LANE_HEIGHT + AXIS_AREA;
+  const updatesFired = system.lanes.reduce(
+    (n, lane) => n + updateCountAt(lane, playhead),
+    0,
+  );
 
   function reset() {
     setSystemId(defaultSystem);
@@ -122,6 +128,7 @@ export function HierarchyTimescales({
           Playhead
           <span
             data-testid="playhead-readout"
+            aria-live="polite"
             className="font-mono text-xs normal-case tracking-normal text-text"
           >
             t = {playhead} ms
@@ -145,6 +152,7 @@ export function HierarchyTimescales({
         viewBox={`0 0 ${WIDTH} ${height}`}
         role="img"
         aria-label={`Timescale lanes for ${system.name} by ${system.org}. Four lanes run at different rates from a single task instruction down to motor commands. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
+        aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
         {/* Lane baselines, labels, and update ticks. */}
@@ -236,6 +244,20 @@ export function HierarchyTimescales({
         pending. Rates tagged (schematic) are not stated in the primary
         source.
       </p>
+
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current timescale playhead"
+        description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the 1 kHz motor lane will tick 50 times before the ~1 Hz planner fires once.`}
+        states={[
+          { label: 'system', value: system.name },
+          { label: 'playhead', value: `${playhead} ms` },
+          { label: 'lanes', value: String(system.lanes.length) },
+          { label: 'updates fired', value: String(updatesFired) },
+        ]}
+      />
 
       <ul className="mt-3 divide-y divide-border border-t border-border">
         {system.lanes.map((lane) => {

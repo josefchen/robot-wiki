@@ -98,8 +98,19 @@ export function ChartDescription({
   if (form === 'table' && (!columns || !rows || rows.length === 0)) {
     throw new Error('ChartDescription: form="table" requires columns and rows');
   }
-  if (form === 'state' && (!states || states.length === 0)) {
-    throw new Error('ChartDescription: form="state" requires states');
+  if (form === 'state') {
+    if (!states || states.length < 3) {
+      throw new Error(
+        'ChartDescription: form="state" requires at least 3 states',
+      );
+    }
+    for (const state of states) {
+      if (!state.label.trim() || !state.value.trim()) {
+        throw new Error(
+          'ChartDescription: form="state" requires a non-empty label and value on every pair',
+        );
+      }
+    }
   }
 
   return (

@@ -144,6 +144,84 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['deviation', 'step'],
     text: 'Latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under 2.0% one-step error, compounding rather than staying flat; the shaded band marks the published 3 to 15 step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.',
   },
+  {
+    component: 'PendulumController',
+    file: 'components/interactive/pendulum-controller.tsx',
+    quantityNames: ['angle', 'torque'],
+    text: 'Default gains Kp 25.0, Ki 0.0 and Kd 3.0 leave the lab pole holding at release at +12.0 degrees with torque -5.2 N·m; angle and status stay frozen until Run or Push.',
+  },
+  {
+    component: 'GraspWrenchLabObject',
+    file: 'components/interactive/grasp-wrench-lab.tsx',
+    quantityNames: ['contacts', 'cones'],
+    text: '3 frictional contacts on the unit square at mu 0.70 open inward cones of half-angle 35.0 degrees; each contact can push along its cone but cannot pull.',
+  },
+  {
+    component: 'GraspWrenchLabWrench',
+    file: 'components/interactive/grasp-wrench-lab.tsx',
+    quantityNames: ['wrench', 'epsilon'],
+    text: 'The grasp wrench hull of 3 contacts currently reports force closure yes with Ferrari-Canny quality epsilon 0.444; that radius is the largest origin-centered wrench ball that still fits inside the hull.',
+  },
+  {
+    component: 'RrtExplorer',
+    file: 'components/interactive/rrt-explorer.tsx',
+    quantityNames: ['iteration', 'node'],
+    text: 'The RRT tree is at iteration 0 of 288 with 1 node and status tree not started; path length is n/a until a branch first reaches the goal.',
+  },
+  {
+    component: 'PlanarFkArm',
+    file: 'components/interactive/planar-fk-arm.tsx',
+    quantityNames: ['effector', 'degrees'],
+    text: 'With base 110 degrees, elbow -45 degrees and wrist -35 degrees the end effector sits at x +0.45, y +1.89 link units; those three link lengths are 1.00, 0.75 and 0.55.',
+  },
+  {
+    component: 'CompoundingErrorRollout',
+    file: 'components/interactive/compounding-error.tsx',
+    quantityNames: ['rollout', 'deviation'],
+    text: 'Per-timestep prediction at 5.0 percent per-step error over 120 steps, DAgger relabeling off, leaves the rollout drifting from the demonstrated path with accumulated deviation 370 units.',
+  },
+  {
+    component: 'DenoisingLoop',
+    file: 'components/interactive/denoising-loop.tsx',
+    quantityNames: ['step', 'mode'],
+    text: 'At denoising step 0 of 10 the 60-sample cloud is pure Gaussian noise, mean distance to mode 1.79; DDIM inference is pulling mass toward the two target crosses.',
+  },
+  {
+    component: 'RecedingHorizon',
+    file: 'components/interactive/receding-horizon.tsx',
+    quantityNames: ['chunks', 'plan'],
+    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed, outlined tails are thrown away.',
+  },
+  {
+    component: 'ActionTokenizationBin',
+    file: 'components/interactive/action-tokenization.tsx',
+    quantityNames: ['bin', 'action'],
+    text: 'On the Δx axis the continuous action -0.056 at step 7 falls in bin 120 of 255 and reconstructs to -0.0586 with quantization error +0.0025; the 256-bin strip is a uniform grid on [-1, 1], not a learned codebook.',
+  },
+  {
+    component: 'FlowMatchingTrajectory',
+    file: 'components/interactive/flow-matching-trajectory.tsx',
+    quantityNames: ['steps', 'error'],
+    text: 'With 10 Euler steps the 48 samples travel near-straight from Gaussian noise toward the two action modes and finish at mean endpoint error 0.05; one step would cut the corner, 50 steps is more compute than a 50 Hz loop can spend.',
+  },
+  {
+    component: 'MotInsulation',
+    file: 'components/interactive/mot-insulation.tsx',
+    quantityNames: ['backbone', 'expert'],
+    text: 'Forward pass at depth 8 of 8 keeps backbone supervision on no gradients (inference), language following at 92 of 100, and the measured 7.5x fewer training steps vs pi0; the stop-gradient is on so expert gradients stay inside the action expert.',
+  },
+  {
+    component: 'CrossEmbodimentStrategies',
+    file: 'components/interactive/cross-embodiment-strategies.tsx',
+    quantityNames: ['human', 'slot'],
+    text: 'Padded shared vector leaves human video unable to enter this space directly: the 32-slot strips zero-pad unused dims on each of the 4 bodies and leave the human hand with no slot at all.',
+  },
+  {
+    component: 'HierarchyTimescales',
+    file: 'components/interactive/hierarchy-timescales.tsx',
+    quantityNames: ['playhead', 'lanes'],
+    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 1 kHz motor lane will tick 50 times before the ~1 Hz planner fires once.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);
