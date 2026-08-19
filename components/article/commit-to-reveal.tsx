@@ -68,9 +68,12 @@ export interface CommitOption {
   /**
    * Optional in-page anchor rendered at the end of this option's
    * reasoning, for answers whose evidence is the article's own section
-   * or interactive rather than an external source.
+   * or interactive rather than an external source. Two flat string
+   * props rather than an object: MDX attribute expressions are parsed
+   * by acorn without JSX, and a nested object literal trips it.
    */
-  anchor?: { href: string; label: string };
+  anchorHref?: string;
+  anchorLabel?: string;
 }
 
 /** Props shared by every commit-to-reveal surface. */
@@ -205,12 +208,12 @@ export function CommitToReveal({
                       {option.cite}
                     </a>
                   ) : null}
-                  {option.anchor ? (
+                  {option.anchorHref && option.anchorLabel ? (
                     <a
-                      href={option.anchor.href}
+                      href={option.anchorHref}
                       className="ml-1 text-[0.72em] text-text-dim underline decoration-border transition-colors hover:text-accent"
                     >
-                      {option.anchor.label}
+                      {option.anchorLabel}
                     </a>
                   ) : null}
                 </span>
