@@ -7,9 +7,24 @@ const ROUTE = '/data-hardware/evaluation-crisis/';
 const PER_STEP = { name: /per-step success/i };
 const HORIZON = { name: /episode length/i };
 
+/**
+ * The standalone calculator mount. The article also renders the same
+ * component inside its prediction step (mounted at 95%/14 steps inside a
+ * closed disclosure), so page-global slider locators would resolve to two
+ * elements; every assertion here targets the original mount, the one
+ * outside any [data-predict] region.
+ */
+function calculator(page: import('@playwright/test').Page) {
+  return page.locator(
+    '//div[contains(@class, "rounded-md") and not(ancestor::*[@data-predict])][.//svg[starts-with(@aria-label, "Line chart of episode success")]]',
+  );
+}
+
 /** Parse the compounded-success readout, e.g. "21.5%" -> 21.5. */
-async function readoutValue(page: import('@playwright/test').Page): Promise<number> {
-  const text = (await page.getByTestId('episode-success-readout').textContent()) ?? '';
+async function readoutValue(
+  mount: import('@playwright/test').Locator,
+): Promise<number> {
+  const text = (await mount.getByTestId('episode-success-readout').textContent()) ?? '';
   expect(text).not.toContain('NaN');
   const value = Number.parseFloat(text);
   expect(Number.isFinite(value)).toBe(true);
@@ -117,12 +132,13 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const perStep = page.getByRole('slider', PER_STEP);
-    const horizon = page.getByRole('slider', HORIZON);
+    const mount = calculator(page);
+    const perStep = mount.getByRole('slider', PER_STEP);
+    const horizon = mount.getByRole('slider', HORIZON);
     await expect(perStep).toBeVisible();
     await expect(horizon).toBeVisible();
-    await expect(page.getByTestId('episode-success-readout')).toBeVisible();
-    await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
+    await expect(mount.getByTestId('episode-success-readout')).toBeVisible();
+    await expect(mount.getByRole('button', { name: /reset/i })).toBeVisible();
     // Full-range bounds: the boundary inputs 0% and 100% are reachable.
     await expect(perStep).toHaveAttribute('min', '0');
     await expect(perStep).toHaveAttribute('max', '100');
@@ -132,58 +148,61 @@ test.describe('data-hardware evaluation-crisis module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const perStep = page.getByRole('slider', PER_STEP);
-    const readout = page.getByTestId('episode-success-readout');
+    const mount = calculator(page);
+    const perStep = mount.getByRole('slider', PER_STEP);
+    const readout = mount.getByTestId('episode-success-readout');
 
     // Anchor: 95% per-step over 30 steps lands near 21% (+/- 2pp).
     await setSlider(perStep, 95);
-    await setSlider(page.getByRole('slider', HORIZON), 30);
+    await setSlider(mount.getByRole('slider', HORIZON), 30);
     await expect(readout).toHaveText('21.5%');
-    expect(await readoutValue(page)).toBeCloseTo(21.5, 0);
+    expect(await readoutValue(mount)).toBeCloseTo(21.5, 0);
 
     // Monotone, direction-consistent response to the slider.
     await setSlider(perStep, 99);
-    expect(await readoutValue(page)).toBeGreaterThan(70);
+    expect(await readoutValue(mount)).toBeGreaterThan(70);
     await setSlider(perStep, 90);
-    expect(await readoutValue(page)).toBeLessThan(10);
+    expect(await readoutValue(mount)).toBeLessThan(10);
 
     // Keyboard operation: arrow keys move the readout in the right direction.
     await setSlider(perStep, 95);
     await expect(readout).toHaveText('21.5%');
     await perStep.focus();
     await page.keyboard.press('ArrowUp');
-    expect(await readoutValue(page)).toBeGreaterThan(21.5);
+    expect(await readoutValue(mount)).toBeGreaterThan(21.5);
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('ArrowDown');
-    expect(await readoutValue(page)).toBeLessThan(21.5);
+    expect(await readoutValue(mount)).toBeLessThan(21.5);
   });
 
   test('task-horizon control drives the compounding readout (VAL-DATA-027)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const horizon = page.getByRole('slider', HORIZON);
-    await setSlider(page.getByRole('slider', PER_STEP), 95);
+    const mount = calculator(page);
+    const horizon = mount.getByRole('slider', HORIZON);
+    await setSlider(mount.getByRole('slider', PER_STEP), 95);
 
     await setSlider(horizon, 30);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
     // 0.95^60 = 4.61%, contract tolerance +/-1pp.
     await setSlider(horizon, 60);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('4.6%');
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('4.6%');
     // Decreasing N monotonically raises the readout.
     await setSlider(horizon, 10);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('59.9%');
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('59.9%');
     await setSlider(horizon, 30);
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
   });
 
   test('boundary inputs produce honest outputs (VAL-DATA-028)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const perStep = page.getByRole('slider', PER_STEP);
-    const horizon = page.getByRole('slider', HORIZON);
-    const readout = page.getByTestId('episode-success-readout');
+    const mount = calculator(page);
+    const perStep = mount.getByRole('slider', PER_STEP);
+    const horizon = mount.getByRole('slider', HORIZON);
+    const readout = mount.getByTestId('episode-success-readout');
 
     // 100% per-step yields 100% at any horizon.
     await setSlider(perStep, 100);
@@ -219,12 +238,13 @@ test.describe('data-hardware evaluation-crisis module', () => {
 
   test('reset restores the anchor state', async ({ page }) => {
     await page.goto(ROUTE);
-    await setSlider(page.getByRole('slider', PER_STEP), 0);
-    await setSlider(page.getByRole('slider', HORIZON), 100);
-    await page.getByRole('button', { name: /reset/i }).click();
-    await expect(page.getByTestId('episode-success-readout')).toHaveText('21.5%');
-    await expect(page.getByRole('slider', PER_STEP)).toHaveValue('95');
-    await expect(page.getByRole('slider', HORIZON)).toHaveValue('30');
+    const mount = calculator(page);
+    await setSlider(mount.getByRole('slider', PER_STEP), 0);
+    await setSlider(mount.getByRole('slider', HORIZON), 100);
+    await mount.getByRole('button', { name: /reset/i }).click();
+    await expect(mount.getByTestId('episode-success-readout')).toHaveText('21.5%');
+    await expect(mount.getByRole('slider', PER_STEP)).toHaveValue('95');
+    await expect(mount.getByRole('slider', HORIZON)).toHaveValue('30');
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {
