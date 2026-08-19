@@ -129,6 +129,14 @@ const CHARTS: Array<{
     def: '15',
     match: 'proprioceptive degradation',
   },
+  {
+    route: '/rl-sim2real/humanoid-wbc',
+    name: 'wbc',
+    control: 'button',
+    moves: ['Latent-action hierarchy', 'End-to-end VLA'],
+    def: 'Motion-tracking RL',
+    match: 'Motion-tracking RL',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

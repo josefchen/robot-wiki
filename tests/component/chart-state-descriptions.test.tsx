@@ -9,6 +9,7 @@ import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-t
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
+import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
@@ -248,6 +249,16 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('WbcDecomposition describes the Helix stack and tracks approach buttons', () => {
+    const { container } = render(<WbcDecomposition />);
+    const { text } = assertDescribed(screen.getByTestId('wbc-diagram'), container);
+    expect(text).toMatch(/Motion-tracking RL/);
+    fireEvent.click(screen.getByRole('button', { name: /latent-action hierarchy/i }));
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/Latent-action hierarchy/);
   });
 
   it('TeacherStudent describes the stacked panels and tracks degradation', () => {

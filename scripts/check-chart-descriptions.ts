@@ -234,6 +234,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['terrain', 'degradation'],
     text: 'At 15 percent proprioceptive degradation the student reconstruction of the teacher terrain sits at 0.01 m MAE with action divergence 0.02, and 3 of 24 input channels are already dashed-occluded; the three stacked panels are the privileged heightfield, the proprioceptive history, and that reconstruction.',
   },
+  {
+    component: 'WbcDecomposition',
+    file: 'components/interactive/wbc-decomposition.tsx',
+    quantityNames: ['layers', 'actuators'],
+    text: 'Motion-tracking RL, represented by Figure Helix 02 S0, stacks 3 control layers ending at a 1000 Hz S0 actuator loop; amber marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

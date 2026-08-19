@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
@@ -97,6 +97,21 @@ describe('WbcDecomposition', () => {
     expect(screen.getByTestId('fastest-loop-readout')).toHaveTextContent(
       '1000 Hz',
     );
+  });
+
+  it('describes the default Helix stack and tracks the approach buttons', () => {
+    const { container } = render(<WbcDecomposition />);
+    const img = screen.getByTestId('wbc-diagram');
+    const id = img.getAttribute('aria-describedby');
+    expect(id).toBeTruthy();
+    const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
+    expect(desc?.textContent).toMatch(/Motion-tracking RL/);
+    expect(desc?.textContent).toMatch(/1000 Hz/);
+    fireEvent.click(approachButton(/latent-action hierarchy/i));
+    const moved = container.querySelector('[data-chart-description]')
+      ?.textContent ?? '';
+    expect(moved).toMatch(/Latent-action hierarchy/);
+    expect(moved).not.toMatch(/Motion-tracking RL/);
   });
 
   it('exposes an accessible svg label that tracks the selected approach', async () => {
