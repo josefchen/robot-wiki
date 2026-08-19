@@ -170,6 +170,14 @@ const CHARTS: Array<{
     def: 'Helix',
     match: 'generalist policies',
   },
+  {
+    route: '/world-models/latent-dynamics',
+    name: 'latent-rollout',
+    control: 'range',
+    moves: ['30', '50'],
+    def: '15',
+    match: 'latent rollout view',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

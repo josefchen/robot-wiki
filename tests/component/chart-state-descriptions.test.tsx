@@ -15,6 +15,7 @@ import { PiGenerationTimeline } from '@/components/interactive/pi-generation-tim
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
+import { LatentImagination } from '@/components/interactive/latent-imagination';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
@@ -253,6 +254,23 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('LatentImagination rollout describes the peel and tracks horizon', () => {
+    const { container } = render(<LatentImagination />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /imagined rollout/i }),
+      container,
+    );
+    expect(text).toMatch(/latent rollout view/);
+    fireEvent.change(screen.getByRole('slider', { name: /imagination horizon/i }), {
+      target: { value: '30' },
+    });
+    const moved = [...container.querySelectorAll('[data-chart-description]')].find(
+      (el) => /latent rollout view/.test(el.textContent ?? ''),
+    )?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/t = 30 of 50/);
   });
 
   it('GeneralistReleaseTimeline describes the policy axis and tracks selection', () => {

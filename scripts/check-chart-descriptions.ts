@@ -145,6 +145,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'Latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under 2.0% one-step error, compounding rather than staying flat; the shaded band marks the published 3 to 15 step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.',
   },
   {
+    component: 'LatentImaginationRollout',
+    file: 'components/interactive/latent-imagination.tsx',
+    quantityNames: ['latent', 'trajectory'],
+    text: 'In the latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and finishes 0.301 units away at t = 15 of 50; that peel is the visual form of one-step error compounding, not a second plot of the same deviation series.',
+  },
+  {
     component: 'PendulumController',
     file: 'components/interactive/pendulum-controller.tsx',
     quantityNames: ['angle', 'torque'],

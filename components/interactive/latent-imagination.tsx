@@ -145,6 +145,7 @@ export function LatentImagination({
   className,
 }: LatentImaginationProps) {
   const descriptionId = `${useId()}-li-description`;
+  const rolloutDescriptionId = `${useId()}-li-rollout`;
   const [horizon, setHorizon] = useState(defaultHorizon);
   const [epsilonPercent, setEpsilonPercent] = useState(defaultEpsilon * 100);
   const [mode, setMode] = useState<ImaginationMode>('decoder');
@@ -340,6 +341,7 @@ export function LatentImagination({
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
         role="img"
         aria-label={`Imagined rollout in latent space over ${horizon} steps, peeling away from the true latent trajectory as one-step errors compound.`}
+        aria-describedby={rolloutDescriptionId}
         className="mt-4 block w-full"
       >
         <text x={16} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
@@ -547,6 +549,19 @@ export function LatentImagination({
         )}
       </p>
 
+      <ChartDescription
+        id={rolloutDescriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current imagined rollout"
+        description={`In the latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and finishes ${formatUnits(deviationNow)} units away at t = ${horizon} of ${MAX_HORIZON}; that peel is the visual form of one-step error compounding, not a second plot of the same deviation series.`}
+        states={[
+          { label: 'horizon', value: `${horizon} steps` },
+          { label: 'one-step error', value: `${epsilonPercent.toFixed(1)}%` },
+          { label: 'endpoint deviation', value: formatUnits(deviationNow) },
+          { label: 'mode', value: mode === 'decoder' ? 'with decoder' : 'decoder-free' },
+        ]}
+      />
       <ChartDescription
         id={descriptionId}
         className="mt-3"

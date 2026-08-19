@@ -122,21 +122,34 @@ describe('LatentImagination', () => {
     expect(screen.getByTestId('typical-range-band')).toBeInTheDocument();
   });
 
-  it('describes the deviation chart with a sampled table and leaves the rollout undescribed', () => {
+  it('describes the deviation chart with a sampled table and the rollout as state', () => {
     const { container } = render(<LatentImagination />);
-    const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/shaded band/i);
-    expect(desc?.textContent).toMatch(/published 3 to 15/i);
-    const details = container.querySelector('details[data-chart-data]');
-    expect(details).toHaveAttribute('data-chart-form', 'table');
-    const rows = details?.querySelectorAll('tbody tr').length ?? 0;
+    const tableDesc = [...container.querySelectorAll('[data-chart-description]')].find(
+      (el) => /shaded band/i.test(el.textContent ?? ''),
+    );
+    expect(tableDesc?.textContent).toMatch(/published 3 to 15/i);
+    const table = container.querySelector(
+      'details[data-chart-data][data-chart-form="table"]',
+    );
+    expect(table).toBeTruthy();
+    const rows = table?.querySelectorAll('tbody tr').length ?? 0;
     expect(rows).toBeGreaterThanOrEqual(5);
     expect(rows).toBeLessThanOrEqual(10);
     expect(
       screen.getByRole('img', { name: /latent deviation/i }),
     ).toHaveAttribute('aria-describedby');
-    expect(
-      screen.getByRole('img', { name: /imagined rollout/i }),
-    ).not.toHaveAttribute('aria-describedby');
+    const rollout = screen.getByRole('img', { name: /imagined rollout/i });
+    const rolloutId = rollout.getAttribute('aria-describedby');
+    expect(rolloutId).toBeTruthy();
+    const rolloutDesc = container.querySelector(`[id="${CSS.escape(rolloutId!)}"]`);
+    expect(rolloutDesc?.textContent).toMatch(/latent rollout view/);
+    expect(rolloutDesc?.textContent).toMatch(/dashed true trajectory/);
+    fireEvent.change(
+      screen.getByRole('slider', { name: /imagination horizon/i }),
+      { target: { value: '30' } },
+    );
+    const moved = container.querySelector(`#${CSS.escape(rolloutId!)}`)
+      ?.textContent ?? '';
+    expect(moved).toMatch(/t = 30 of 50/);
   });
 });
