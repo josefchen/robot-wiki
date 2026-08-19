@@ -107,9 +107,9 @@ async function setControl(
   await setRange(page, control, value);
 }
 
-/** A dual-root chart can carry both forms. Never `.first()` a bare hook. */
-function tableDisclosure(shell: Locator) {
-  return shell.locator('details[data-chart-data][data-chart-form="table"]');
+/** The disclosure that belongs to this takeaway, not every one in the shell. */
+function disclosureFor(desc: Locator) {
+  return desc.locator('xpath=../details[@data-chart-data]');
 }
 
 for (const chart of CHARTS) {
@@ -126,7 +126,10 @@ for (const chart of CHARTS) {
       // rollout root when the test meant the bounds series.
       const descId = await desc.getAttribute('id');
       expect(descId, 'description has an id').toBeTruthy();
-      const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`);
+      // Bind by describedby so a sibling root is not checked. Several
+      // strips may share one takeaway (ExecutionModes); take the first
+      // of those matches rather than requiring uniqueness.
+      const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`).first();
       await expect(svg).toBeAttached();
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBe(descId);
@@ -166,8 +169,7 @@ for (const chart of CHARTS) {
       const desc = chart.match
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
-      const shell = page.locator('div.rounded-md', { has: desc }).first();
-      const details = tableDisclosure(shell);
+      const details = disclosureFor(desc);
       await expect(details).toBeAttached();
       await expect(details).toHaveAttribute('data-chart-form', 'table');
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
@@ -194,7 +196,7 @@ for (const chart of CHARTS) {
         ? page.locator('[data-chart-description]', { hasText: chart.match }).first()
         : page.locator('[data-chart-description]').first();
       const shell = page.locator('div.rounded-md', { has: desc }).first();
-      const details = tableDisclosure(shell);
+      const details = disclosureFor(desc);
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
       const original = (await desc.innerText()).trim();
       const digit = (s: string) => (s.match(/\S*\d\S*/g) ?? []).join(' ');
@@ -242,7 +244,7 @@ for (const chart of CHARTS) {
         `at least some digit tokens appear in the no-JS readout (${digits.join(', ')} -> ${plotted.join(', ')})`,
       ).toBeGreaterThanOrEqual(1);
       // The disclosure opens without script.
-      const details = tableDisclosure(shell);
+      const details = disclosureFor(desc);
       const opened = await details.evaluate((el) => {
         const d = el as HTMLDetailsElement;
         d.open = true;
@@ -266,7 +268,7 @@ test.describe('compounding rollout state description (/manipulation/bc-foundatio
     const shell = page.locator('div.rounded-md.border', { has: desc }).first();
     const descId = await desc.getAttribute('id');
     expect(descId, 'description has an id').toBeTruthy();
-    const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`);
+    const svg = shell.locator(`svg[role][aria-describedby="${descId}"]`).first();
     await expect(svg).toBeAttached();
 
     const details = desc.locator('xpath=../details[@data-chart-data]');
