@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import {
   accumulatedCost,
   bcBound,
@@ -59,6 +59,10 @@ export function CompoundingError({
   chunkSize = 25,
   className,
 }: CompoundingErrorProps) {
+  // useId-derived input ids: this component legitimately renders twice
+  // on one page (article prose plus a prediction-step figure), and
+  // hardcoded ids would duplicate and cross-bind labels between mounts.
+  const uid = useId();
   const [epsilonPercent, setEpsilonPercent] = useState(defaultEpsilon * 100);
   const [steps, setSteps] = useState(defaultSteps);
   const [mode, setMode] = useState<PredictionMode>('per-step');
@@ -189,7 +193,7 @@ export function CompoundingError({
       <div className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="ce-epsilon"
+            htmlFor={`${uid}-epsilon`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Per-step error
@@ -198,7 +202,7 @@ export function CompoundingError({
             </span>
           </label>
           <input
-            id="ce-epsilon"
+            id={`${uid}-epsilon`}
             type="range"
             min={MIN_EPSILON_PERCENT}
             max={MAX_EPSILON_PERCENT}
@@ -211,7 +215,7 @@ export function CompoundingError({
         </div>
         <div>
           <label
-            htmlFor="ce-horizon"
+            htmlFor={`${uid}-horizon`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Episode horizon
@@ -220,7 +224,7 @@ export function CompoundingError({
             </span>
           </label>
           <input
-            id="ce-horizon"
+            id={`${uid}-horizon`}
             type="range"
             min={MIN_STEPS}
             max={maxSteps}

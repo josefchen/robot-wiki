@@ -2,12 +2,12 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
 /**
- * Prediction-step contract (VAL-EDU-011..014) over the three placement
+ * Prediction-step contract (VAL-EDU-011..020) over the eight placement
  * routes, plus the checked-in half of VAL-EDU-015: existing mounts of the
- * three components that gained initial-state props keep their exact
- * default readouts and control values (the pre-change baseline was
- * captured before the props landed; pixel boxes are compared in the
- * feature's evidence, the deterministic text is pinned here).
+ * components that gained initial-state props keep their exact default
+ * readouts and control values (the pre-change baseline was captured before
+ * the props landed; pixel boxes are compared in the feature's evidence,
+ * the deterministic text is pinned here).
  */
 
 interface Placement {
@@ -38,6 +38,36 @@ const PLACEMENTS: Placement[] = [
     primaryControl: /model size in billions/i,
     mountedReadout: /closes at 50 Hz/,
   },
+  {
+    route: '/classical/control/',
+    figure: 'PendulumController',
+    primaryControl: /proportional gain kp/i,
+    mountedReadout: /9\.5/,
+  },
+  {
+    route: '/rl-sim2real/sim2real-transfer/',
+    figure: 'FrictionTransfer',
+    primaryControl: /randomization half-width/i,
+    mountedReadout: /57%/,
+  },
+  {
+    route: '/frontier/generalization/',
+    figure: 'EgoScaleScaling',
+    primaryControl: /extrapolation horizon/i,
+    mountedReadout: /250k h/,
+  },
+  {
+    route: '/data-hardware/data-bottleneck/',
+    figure: 'DataScaleChart',
+    primaryControl: /teleoperation rigs/i,
+    mountedReadout: /143 yr/,
+  },
+  {
+    route: '/manipulation/bc-foundations/',
+    figure: 'CompoundingError',
+    primaryControl: /episode horizon/i,
+    mountedReadout: /1505/,
+  },
 ];
 
 /** Whitespace/case normalisation, per the contract's definitions. */
@@ -55,7 +85,7 @@ async function region(page: Page) {
 }
 
 test.describe('prediction step (PredictThenReveal)', () => {
-  test('exactly the three placement routes render one prediction step each', async ({ page }) => {
+  test('exactly the eight placement routes render one prediction step each', async ({ page }) => {
     for (const { route } of PLACEMENTS) {
       await page.goto(route);
       await expect(page.locator('[data-predict]')).toHaveCount(1);
@@ -361,27 +391,48 @@ test.describe('prediction step (PredictThenReveal)', () => {
     );
     await expect(clbStandalone.getByTestId('missed-readout')).toHaveText('2');
 
-    // /classical/control/ : PendulumController.
+    // /classical/control/ : PendulumController (the standalone article
+    // mount, document order puts it before the wrapped prediction figure).
     await page.goto('/classical/control/');
-    await expect(page.getByTestId('pendulum-gain-kp-value')).toHaveText('25.0');
-    await expect(page.getByTestId('pendulum-gain-ki-value')).toHaveText('0.0');
-    await expect(page.getByTestId('pendulum-gain-kd-value')).toHaveText('3.0');
-    await expect(page.getByTestId('pendulum-angle-readout')).toHaveText('+12.0°');
-    await expect(page.getByTestId('pendulum-status-readout')).toHaveText(
-      'holding at release',
-    );
+    const pendulumStandalone = page
+      .locator('div.rounded-md')
+      .filter({
+        has: page.locator('svg[aria-label^="Inverted pendulum with PID control"]'),
+      })
+      .first();
+    await expect(
+      pendulumStandalone.getByTestId('pendulum-gain-kp-value'),
+    ).toHaveText('25.0');
+    await expect(
+      pendulumStandalone.getByTestId('pendulum-gain-ki-value'),
+    ).toHaveText('0.0');
+    await expect(
+      pendulumStandalone.getByTestId('pendulum-gain-kd-value'),
+    ).toHaveText('3.0');
+    await expect(
+      pendulumStandalone.getByTestId('pendulum-angle-readout'),
+    ).toHaveText('+12.0°');
+    await expect(
+      pendulumStandalone.getByTestId('pendulum-status-readout'),
+    ).toHaveText('holding at release');
 
-    // /frontier/generalization/ : EgoScaleScaling.
+    // /frontier/generalization/ : EgoScaleScaling (the standalone mount).
     await page.goto('/frontier/generalization/');
-    const egsSlider = page.getByRole('slider', {
+    const egsStandalone = page
+      .locator('div.rounded-md')
+      .filter({
+        has: page.locator('[data-testid="horizon-readout"]'),
+      })
+      .first();
+    const egsSlider = egsStandalone.getByRole('slider', {
       name: /extrapolation horizon in hours/i,
     });
     await expect(egsSlider).toHaveValue('5000');
-    await expect(page.getByTestId('horizon-readout')).toHaveText('100k h');
-    await expect(page.getByTestId('loss-readout')).toHaveText(
+    await expect(egsStandalone.getByTestId('horizon-readout')).toHaveText('100k h');
+    await expect(egsStandalone.getByTestId('loss-readout')).toHaveText(
       '0.0102 holds / 0.0150 plateau',
     );
-    await expect(page.getByTestId('completion-readout')).toHaveText(
+    await expect(egsStandalone.getByTestId('completion-readout')).toHaveText(
       '0.89 holds / 0.71 plateau, below the solved bar',
     );
 
@@ -400,5 +451,191 @@ test.describe('prediction step (PredictThenReveal)', () => {
         .analyze();
       expect(axe.violations, `${route}: axe violations`).toEqual([]);
     }
+  });
+  /**
+   * VAL-EDU-016 corpus half: sweeping every published article route,
+   * exactly 8 render a prediction step and none renders two. The route
+   * list is derived from the module registry, not hardcoded.
+   */
+  test('corpus sweep: exactly 8 of the 42 published routes render a prediction step (VAL-EDU-016)', async ({ page }) => {
+    const { publishedModules } = await import('../../data/modules');
+    const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
+    expect(routes.length).toBe(42);
+    const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
+    for (const route of routes) {
+      await page.goto(route);
+      const predicts = await page.locator('[data-predict]').count();
+      const selfChecks = await page.locator('[data-self-check]').count();
+      expect(predicts, `${route}: more than one prediction step`).toBeLessThanOrEqual(1);
+      if (predicts === 1) carriers.push({ route, predicts, selfChecks });
+    }
+    expect(carriers.length).toBe(8);
+    // On routes carrying both regions, the two are distinct elements with
+    // distinct radio name values.
+    for (const { route } of carriers.filter((c) => c.selfChecks > 0)) {
+      await page.goto(route);
+      const names = await page.evaluate(() => {
+        const collect = (root: Element | null) =>
+          root
+            ? Array.from(root.querySelectorAll('fieldset input[type="radio"]')).map(
+                (e) => (e as HTMLInputElement).name,
+              )
+            : [];
+        const predict = collect(document.querySelector('[data-predict]'));
+        const check = collect(document.querySelector('[data-self-check]'));
+        return { predict, check };
+      });
+      expect(new Set([...names.predict]).size, `${route}: predict radios share no single name`).toBe(1);
+      expect(new Set([...names.check]).size, `${route}: self-check radios share no single name`).toBe(1);
+      expect(names.predict[0], `${route}: regions share a radio name`).not.toBe(names.check[0]);
+    }
+  });
+
+  /**
+   * VAL-EDU-017 + VAL-EDU-041 corpus half: across every prediction step
+   * and every self-check, option sets are non-degenerate and do not leak
+   * the answer by shape.
+   */
+  test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ page }) => {
+    const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
+    const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
+    const routes = [
+      '/classical/control/',
+      '/manipulation/bc-foundations/',
+      '/rl-sim2real/sim2real-transfer/',
+      '/world-models/taxonomy/',
+      '/data-hardware/evaluation-crisis/',
+      '/frontier/reliability-gap/',
+      '/data-hardware/evaluation-crisis/',
+      '/manipulation/action-chunking/',
+      '/manipulation/realtime-execution/',
+      '/classical/control/',
+      '/rl-sim2real/sim2real-transfer/',
+      '/frontier/generalization/',
+      '/data-hardware/data-bottleneck/',
+      '/manipulation/bc-foundations/',
+    ];
+    const hist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
+    let longestCount = 0;
+    let regionCount = 0;
+    for (const route of routes) {
+      await page.goto(route);
+      const regions = page.locator('[data-predict], [data-self-check]');
+      const count = await regions.count();
+      for (let i = 0; i < count; i += 1) {
+        const region = regions.nth(i);
+        const kind = (await region.getAttribute('data-predict')) === '' ? 'predict' : 'self-check';
+        const radios = region.locator('fieldset input[type="radio"]');
+        await expect(radios).toHaveCount(3);
+        const correctValue = await region
+          .locator('[data-reason][data-correct="true"]')
+          .getAttribute('data-reason');
+        const labels = await region.locator('fieldset label span').allInnerTexts();
+        const values = await radios.evaluateAll((els) =>
+          els.map((e) => (e as HTMLInputElement).value),
+        );
+        const answerIdx = values.indexOf(correctValue ?? '');
+        expect(answerIdx, `${route} ${kind}: no single correct option`).toBeGreaterThanOrEqual(0);
+        // Non-degenerate: 3+ words or digit token, no filler, no dupes.
+        for (const label of labels) {
+          const words = label.trim().split(/\s+/).filter(Boolean);
+          expect(words.length >= 3 || /\d/.test(label), `${route} ${kind}: thin label`).toBe(true);
+          expect(FILLER.test(label), `${route} ${kind}: filler option`).toBe(false);
+        }
+        const normalized = labels.map((l) => normalize(l));
+        expect(new Set(normalized).size, `${route} ${kind}: duplicated labels`).toBe(3);
+        // Shape: length ratio, longest, hedging, ordinal.
+        const correct = labels[answerIdx];
+        const distractors = labels.filter((_, idx) => idx !== answerIdx);
+        const maxD = Math.max(...distractors.map((l) => l.length));
+        expect(
+          correct.length / maxD,
+          `${route} ${kind}: correct label exceeds 1.5x longest distractor`,
+        ).toBeLessThanOrEqual(1.5);
+        if (correct.length > maxD) longestCount += 1;
+        const correctHedged = HEDGE.test(correct);
+        const anyDistractorHedged = distractors.some((l) => HEDGE.test(l));
+        expect(
+          !correctHedged || anyDistractorHedged,
+          `${route} ${kind}: correct option is the only hedged label`,
+        ).toBe(true);
+        hist[answerIdx + 1] += 1;
+        regionCount += 1;
+      }
+    }
+    expect(regionCount).toBe(14);
+    expect(longestCount, 'correct-is-longest exceeds 6 of 14').toBeLessThanOrEqual(6);
+    for (const pos of [1, 2, 3]) {
+      expect(hist[pos], `ordinal position ${pos} exceeds 7 of 14`).toBeLessThanOrEqual(7);
+    }
+  });
+
+  /**
+   * VAL-EDU-018: each correct option's reasoning carries a citation chip
+   * (registry id resolving to an absolute http(s) href) or an in-page
+   * anchor that resolves on that article. And VAL-EDU-019: digit-normalised
+   * prompts, takeaways and reasoning texts are pairwise distinct across
+   * all 14 regions.
+   */
+  test('corpus sweep: cited answers and non-templated text (VAL-EDU-018, VAL-EDU-019)', async ({ page }) => {
+    const routes = [
+      '/classical/control/',
+      '/manipulation/bc-foundations/',
+      '/rl-sim2real/sim2real-transfer/',
+      '/world-models/taxonomy/',
+      '/data-hardware/evaluation-crisis/',
+      '/frontier/reliability-gap/',
+      '/manipulation/action-chunking/',
+      '/manipulation/realtime-execution/',
+      '/frontier/generalization/',
+      '/data-hardware/data-bottleneck/',
+    ];
+    const digitNormalize = (text: string) => text.replace(/\d+/g, '#');
+    const prompts = new Map<string, string>();
+    const takeaways = new Map<string, string>();
+    const reasonings = new Map<string, string>();
+    for (const route of routes) {
+      await page.goto(route);
+      const regions = page.locator('[data-predict], [data-self-check]');
+      const count = await regions.count();
+      for (let i = 0; i < count; i += 1) {
+        const region = regions.nth(i);
+        const correctReason = region.locator('[data-reason][data-correct="true"]');
+        // VAL-EDU-018: a citation chip with a registry id and an absolute
+        // href, or an in-page anchor resolving on this route.
+        const links = await correctReason.locator('a').evaluateAll((els) =>
+          els.map((e) => ({ href: (e as HTMLAnchorElement).getAttribute('href') ?? '' })),
+        );
+        const hasChip = links.some((l) => /^https?:\/\//.test(l.href));
+        const anchors = links.filter((l) => l.href.startsWith('#'));
+        let anchorResolves = false;
+        for (const a of anchors) {
+          const id = a.href.slice(1);
+          if (id && (await page.locator(`#${CSS.escape(id)}`).count()) > 0) {
+            anchorResolves = true;
+            break;
+          }
+        }
+        expect(hasChip || anchorResolves, `${route}: uncited correct answer`).toBe(true);
+
+        // VAL-EDU-019: digit-normalised uniqueness.
+        const prompt = await region.locator('fieldset legend').innerText();
+        const takeaway = await region.locator('[data-takeaway]').innerText();
+        const reasoning = await correctReason.innerText();
+        for (const [text, set, kind] of [
+          [prompt, prompts, 'prompt'],
+          [takeaway, takeaways, 'takeaway'],
+          [reasoning, reasonings, 'reasoning'],
+        ] as Array<[string, Map<string, string>, string]>) {
+          const key = digitNormalize(normalize(text));
+          expect(
+            set.has(key),
+            `${route}: digit-normalised ${kind} duplicates ${set.get(key)}`,
+          ).toBe(false);
+          set.set(key, route);
+        }
+      }
+    }
+    expect(prompts.size + takeaways.size + reasonings.size).toBe(14 * 3);
   });
 });

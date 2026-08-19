@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import {
   DEFAULT_DR_RANGE,
   DEFAULT_REAL_MU,
@@ -73,6 +73,10 @@ export function FrictionTransfer({
   defaultRange?: number;
   className?: string;
 }) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and hardcoded
+  // ids would duplicate and cross-bind labels between the two mounts.
+  const uid = useId();
   const [realMu, setRealMu] = useState(defaultRealMu);
   const [range, setRange] = useState(defaultRange);
   const [dragging, setDragging] = useState(false);
@@ -113,7 +117,7 @@ export function FrictionTransfer({
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
         <div>
           <label
-            htmlFor="ft-real-mu"
+            htmlFor={`${uid}-real-mu`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Real robot mu
@@ -122,7 +126,7 @@ export function FrictionTransfer({
             </span>
           </label>
           <input
-            id="ft-real-mu"
+            id={`${uid}-real-mu`}
             type="range"
             min={Math.round(MU_MIN * 100)}
             max={Math.round(MU_MAX * 100)}
@@ -135,7 +139,7 @@ export function FrictionTransfer({
         </div>
         <div>
           <label
-            htmlFor="ft-range"
+            htmlFor={`${uid}-range`}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             DR half-width
@@ -144,7 +148,7 @@ export function FrictionTransfer({
             </span>
           </label>
           <input
-            id="ft-range"
+            id={`${uid}-range`}
             type="range"
             min={Math.round(DR_RANGE_MIN * 100)}
             max={Math.round(DR_RANGE_MAX * 100)}

@@ -75,12 +75,12 @@ A closed reliability gap has a measurable shape: a deployed system with a docume
   options={[
     {
       value: 'monitor-closes',
-      label: 'Yes: detecting every failure before it compounds means the task completes',
+      label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',
       why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'
     },
     {
       value: 'monitor-no',
-      label: 'No: a monitor converts failures into safe stops and human escalations; closing the gap itself takes on-robot experience',
+      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',
       why: 'This is the module’s own division of labor. Monitoring catches failures instead of preventing them, and the methods that actually move per-step reliability are RL from experience, where π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, but as per-task specialists with known ceilings.'
     },
     {

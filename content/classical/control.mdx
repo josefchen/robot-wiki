@@ -61,6 +61,32 @@ with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance fro
 
 <PendulumController className="my-6" />
 
+<PredictThenReveal
+  prompt="The lab above is released 12 degrees off vertical with the payload bias in place. Below what proportional gain does the loop lose the pole entirely, however the other two gains are set?"
+  options={[
+    {
+      value: 'mgl-threshold',
+      label: 'Kp must clear the weight threshold, about 9.8 here; below it the pole falls no matter how high the damping',
+      why: 'Linearized about upright, the loop is stable only when Kp exceeds m g l, 9.81 in the slider’s units <Cite id="tedrake-underactuated" />. The derivative term can shape the recovery but cannot create a restoring torque the proportional term does not supply, so below the threshold nothing holds the pole up.'
+    },
+    {
+      value: 'any-positive',
+      label: 'Any positive Kp holds the pole in the usual case; a small gain only corrects more slowly and the lean settles out',
+      why: 'This is the expectation the lab exists to break. Proportional action generates corrective torque from error, and below the gravity torque the correction is always outrun: the mounted figure sits half a unit under the threshold and the status reads fallen within seconds of Run.'
+    },
+    {
+      value: 'damping-saves',
+      label: 'A Kp below the threshold can still work, provided Kd is raised enough for the damping to hold the pole up',
+      why: 'Damping opposes rate, not position. With the pole leaning and accelerating away, a high Kd slows the fall and can hold it ringing at large angles, but the classification still lands on fallen: drag Kd to its ceiling in the figure and watch the status line.'
+    }
+  ]}
+  answer="mgl-threshold"
+  revealHint="The lab is mounted at Kp 9.5, half a unit below the 9.81 threshold: press Run and the pole falls. Raise the gain one step and it holds."
+  takeaway="Proportional gain has a floor set by gravity itself: below m g l the loop is unstable, and no amount of damping buys it back."
+>
+  <PendulumController defaultKp={9.5} className="mt-3" />
+</PredictThenReveal>
+
 ## State space and LQR
 
 PID acts on one error. State feedback acts on the whole state. Write the plant in state-space form, $\dot{x} = Ax + Bu$, and close the loop with $u = -Kx$: every state gets its own gain, and pole placement becomes a linear-algebra exercise <Cite id="astrom-murray-2008" />. The natural question is which $K$ is best, and Kalman's 1960 formulation made that precise <Cite id="kalman-1960" />: pick the gain that minimizes a quadratic cost trading state error against control effort,

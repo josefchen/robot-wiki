@@ -46,6 +46,31 @@ The chart below plots both universes on one log-log plane. Robot and human demon
 
 <DataScaleChart className="my-6" />
 
+<PredictThenReveal
+  prompt="A distributed collection effort runs at the measured DROID rate, about 7 productive hours per collector-year. At a fleet of 10 rigs, roughly how long until it reaches OXE scale, on the order of ten thousand hours?"
+  options={[
+    {
+      value: 'century-plus',
+      label: 'Well over a century, on the order of 140 years at that throughput',
+      why: 'The arithmetic is 10,000 hours at 70 hours a year, roughly 143 years: the measured DROID rate, 350 hours from 50 collectors in 12 months <Cite id="droid-2024" />. The mounted chart is set to that fleet and rate, and the OXE readout says it outright.'
+    },
+    {
+      value: 'few-years',
+      label: 'A few years, since ten rigs collecting steadily usually cover thousands of hours per rig over that span',
+      why: 'This reads a rig as roughly a full-time worker. The measured rate says otherwise: part-time distributed collection runs at about 7 hours per collector-year, so thousands of hours per rig takes centuries, not years. Flip the chart’s rate toggle to dedicated-farm and years is the right answer at 4 hours a day.'
+    },
+    {
+      value: 'few-decades',
+      label: 'A couple of decades, splitting the difference between a full-time farm and a hobbyist effort',
+      why: 'The split-the-difference instinct is reasonable and still off by an order of magnitude: two decades at this fleet needs roughly 500 hours a year, seventy times the measured rate. The gap between the two rate assumptions is the whole reason the chart carries a toggle.'
+    }
+  ]}
+  answer="century-plus"
+  revealHint="The chart is mounted at 10 rigs on the measured DROID rate: the throughput reads 70 h/yr and the OXE-scale readout says 143 yr. Switch the rate to dedicated farm and it collapses to under half a year."
+  takeaway="At the measured DROID rate, 10 rigs need about 143 years to reach OXE scale: distributed part-time collection is roughly seventy times slower than the dedicated-farm assumption."
+>
+  <DataScaleChart defaultRigs={10} defaultRate="droid-measured" className="mt-3" />
+</PredictThenReveal>
 The slider projects a <Term id="teleoperation">teleoperation</Term> farm. Under the dedicated-farm assumption, about four productive teleop hours per rig per day, ten rigs accumulate OXE-scale data in a year. Switch to the measured DROID rate, 350 hours from 50 collectors in 12 months, and the same target takes over a century at that fleet size. Real efforts sit between these poles, but the arithmetic explains the industry's response: teleoperation farms, where rows of operators drive fleets of rigs full time. It also gives you the two questions to ask of any data-scale claim. First, how many hours, because episode counts hide trajectory length. Second, how diverse, which is where the <Term id="scaling-law">scaling laws</Term> come in.
 
 ## What the scaling laws say: diversity beats density

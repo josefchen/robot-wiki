@@ -1,8 +1,21 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import type { Page } from '@playwright/test';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
+
+/**
+ * The standalone article mount of the friction chart. The article also
+ * renders a second FrictionTransfer inside the prediction step's
+ * disclosure, so every per-mount locator must be scoped to exactly one.
+ */
+function friction(page: Page) {
+  return page
+    .locator('div.prose > div.rounded-md:has([data-testid="real-mu-readout"])')
+    .first();
+}
+
 
 test.describe('sim2real-transfer module', () => {
   test('renders the four transfer families and sidebar state', async ({
@@ -53,44 +66,44 @@ test.describe('sim2real-transfer module', () => {
     await page.goto(ROUTE);
 
     // Default: real robot at the training friction, point policy ahead.
-    await expect(page.getByTestId('real-mu-readout')).toHaveText('0.80');
-    await expect(page.getByTestId('point-readout')).toHaveText('97%');
-    await expect(page.getByTestId('dr-readout')).toHaveText('74%');
-    await expect(page.getByTestId('delta-readout')).toHaveText(
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
+    await expect(friction(page).getByTestId('point-readout')).toHaveText('97%');
+    await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
+    await expect(friction(page).getByTestId('delta-readout')).toHaveText(
       /point \+\d+ pts/,
     );
-    await expect(page.getByTestId('point-curve')).toBeVisible();
-    await expect(page.getByTestId('dr-curve')).toBeVisible();
-    await expect(page.getByTestId('real-line')).toBeVisible();
+    await expect(friction(page).getByTestId('point-curve')).toBeVisible();
+    await expect(friction(page).getByTestId('dr-curve')).toBeVisible();
+    await expect(friction(page).getByTestId('real-line')).toBeVisible();
 
     // Drag the real-robot line far off the training friction: DR wins.
     // setSlider (not fill) drives every range input: fill() can leave
     // React's change tracking one event behind under load (quirk 9).
-    const muSlider = page.getByRole('slider', {
+    const muSlider = friction(page).getByRole('slider', {
       name: /real robot friction/i,
     });
     await setSlider(muSlider, 35);
-    await expect(page.getByTestId('real-mu-readout')).toHaveText('0.35');
-    await expect(page.getByTestId('point-readout')).toHaveText('0%');
-    await expect(page.getByTestId('delta-readout')).toHaveText(/DR \+\d+ pts/);
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.35');
+    await expect(friction(page).getByTestId('point-readout')).toHaveText('0%');
+    await expect(friction(page).getByTestId('delta-readout')).toHaveText(/DR \+\d+ pts/);
 
     // Keyboard path on the slider.
     await muSlider.focus();
     await page.keyboard.press('ArrowRight');
-    await expect(page.getByTestId('real-mu-readout')).toHaveText('0.36');
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.36');
 
     // Widen the randomization range: the DR peak drops.
     await setSlider(muSlider, 80);
-    const rangeSlider = page.getByRole('slider', {
+    const rangeSlider = friction(page).getByRole('slider', {
       name: /randomization half-width/i,
     });
     await setSlider(rangeSlider, 65);
-    await expect(page.getByTestId('dr-readout')).toHaveText('57%');
+    await expect(friction(page).getByTestId('dr-readout')).toHaveText('57%');
 
     // Reset restores everything.
-    await page.getByRole('button', { name: 'Reset' }).first().click();
-    await expect(page.getByTestId('real-mu-readout')).toHaveText('0.80');
-    await expect(page.getByTestId('dr-readout')).toHaveText('74%');
+    await friction(page).getByRole('button', { name: 'Reset' }).click();
+    await expect(friction(page).getByTestId('real-mu-readout')).toHaveText('0.80');
+    await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
   });
 
   test('teacher-student panel: degradation drives divergence up', async ({

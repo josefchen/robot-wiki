@@ -1,7 +1,21 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/manipulation/bc-foundations/';
+
+/**
+ * The standalone article mount of the compounding-error figure. The
+ * article also renders a second CompoundingError inside the prediction
+ * step's disclosure, so every per-mount locator must be scoped to one.
+ */
+function ce(page: Page) {
+  return page
+    .locator(
+      'div.prose > div.rounded-md:has([data-testid="accumulated-deviation-readout"])',
+    )
+    .first();
+}
+
 
 test.describe('bc-foundations module', () => {
   test('renders the module with prose, math, figure, and sidebar state', async ({
@@ -38,29 +52,29 @@ test.describe('bc-foundations module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const readout = page.getByTestId('accumulated-deviation-readout');
+    const readout = ce(page).getByTestId('accumulated-deviation-readout');
     const initial = Number.parseFloat((await readout.textContent()) ?? '');
     expect(Number.isFinite(initial)).toBe(true);
 
     // Raising the per-step error grows the accumulated deviation.
-    const errorSlider = page.getByRole('slider', { name: /per-step error/i });
+    const errorSlider = ce(page).getByRole('slider', { name: /per-step error/i });
     await errorSlider.focus();
     for (let i = 0; i < 10; i += 1) await page.keyboard.press('ArrowUp');
     const raised = Number.parseFloat((await readout.textContent()) ?? '');
     expect(raised).toBeGreaterThan(initial);
 
     // Chunked prediction at identical settings is strictly lower.
-    await page.getByRole('button', { name: /chunk of 25 actions/i }).click();
+    await ce(page).getByRole('button', { name: /chunk of 25 actions/i }).click();
     const chunked = Number.parseFloat((await readout.textContent()) ?? '');
     expect(chunked).toBeLessThan(raised);
 
     // DAgger relabeling lowers it further.
-    await page.getByRole('button', { name: /dagger/i }).click();
+    await ce(page).getByRole('button', { name: /dagger/i }).click();
     const corrected = Number.parseFloat((await readout.textContent()) ?? '');
     expect(corrected).toBeLessThan(chunked);
 
     // Reset returns to the initial state.
-    await page.getByRole('button', { name: /reset/i }).click();
+    await ce(page).getByRole('button', { name: /reset/i }).click();
     const restored = Number.parseFloat((await readout.textContent()) ?? '');
     expect(restored).toBeCloseTo(initial, 5);
   });

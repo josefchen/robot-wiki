@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import {
   COMPLETION_FIT,
   COMPLETION_POINTS,
@@ -125,6 +125,10 @@ export function EgoScaleScaling({
   defaultHorizonHours = DEFAULT_HORIZON_HOURS,
   className,
 }: EgoScaleScalingProps) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and a
+  // hardcoded id would duplicate and cross-bind labels between the mounts.
+  const horizonId = `${useId()}-horizon`;
   const [sliderValue, setSliderValue] = useState(() =>
     hoursToSlider(defaultHorizonHours),
   );
@@ -205,7 +209,7 @@ export function EgoScaleScaling({
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="egs-horizon"
+            htmlFor={horizonId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Extrapolation horizon
@@ -214,7 +218,7 @@ export function EgoScaleScaling({
             </span>
           </label>
           <input
-            id="egs-horizon"
+            id={horizonId}
             type="range"
             min={SLIDER_MIN}
             max={SLIDER_MAX}

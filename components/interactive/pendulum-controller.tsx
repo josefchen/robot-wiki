@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Pause, Play } from '@phosphor-icons/react';
 import {
   DEFAULT_GAINS,
@@ -96,6 +96,10 @@ export function PendulumController({
   defaultKp = DEFAULT_GAINS.kp,
   className,
 }: PendulumControllerProps) {
+  // useId-derived input ids: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and hardcoded
+  // ids would duplicate and cross-bind labels between the two mounts.
+  const uid = useId();
   const [gains, setGains] = useState<PidGains>(() => ({
     ...DEFAULT_GAINS,
     kp: defaultKp,
@@ -192,7 +196,7 @@ export function PendulumController({
         {GAIN_SPECS.map((spec) => (
           <div key={spec.id}>
             <label
-              htmlFor={`pendulum-gain-${spec.id}`}
+              htmlFor={`${uid}-gain-${spec.id}`}
               className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
             >
               {spec.symbol} {spec.id === 'kp' ? 'proportional' : spec.id === 'ki' ? 'integral' : 'derivative'}
@@ -204,7 +208,7 @@ export function PendulumController({
               </span>
             </label>
             <input
-              id={`pendulum-gain-${spec.id}`}
+              id={`${uid}-gain-${spec.id}`}
               type="range"
               min={spec.min}
               max={spec.max}

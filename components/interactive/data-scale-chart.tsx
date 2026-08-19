@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import {
   COLLECTION_RATES,
   DEFAULT_RIGS,
@@ -106,13 +106,29 @@ const TIER_OFFSETS: Record<0 | 1 | 2, { label: number; value: number }> = {
 
 export function DataScaleChart({
   defaultRigs = DEFAULT_RIGS,
+  defaultRate = 'dedicated',
   className,
 }: {
   defaultRigs?: number;
+  /** Initial collection-rate assumption; a prediction step mounts the
+   *  chart at the rate that answers its prompt. */
+  defaultRate?: CollectionRateId;
   className?: string;
 }) {
+  // useId-derived input id: this component legitimately renders twice on
+  // one page (article prose plus a prediction-step figure), and a
+  // hardcoded id would duplicate and cross-bind labels between the mounts.
+  const rigsId = `${useId()}-rigs`;
   const [rigs, setRigs] = useState(defaultRigs);
-  const [rateId, setRateId] = useState<CollectionRateId>('dedicated');
+  const [rateId, setRateId] = useState<CollectionRateId>(defaultRate);
+  // Derive state during render when the initial prop changes (the repo
+  // pattern, never useEffect): compare against the previous prop value
+  // and resync before painting.
+  const [prevDefaultRate, setPrevDefaultRate] = useState(defaultRate);
+  if (defaultRate !== prevDefaultRate) {
+    setPrevDefaultRate(defaultRate);
+    setRateId(defaultRate);
+  }
 
   const rate = rateById(rateId);
   const perYear = hoursPerYear(rigs, rateId);
@@ -145,7 +161,7 @@ export function DataScaleChart({
 
   function reset() {
     setRigs(defaultRigs);
-    setRateId('dedicated');
+    setRateId(defaultRate);
   }
 
   return (
@@ -158,7 +174,7 @@ export function DataScaleChart({
       <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
           <label
-            htmlFor="dsc-rigs"
+            htmlFor={rigsId}
             className="flex items-baseline justify-between gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim"
           >
             Teleoperation rigs
@@ -167,7 +183,7 @@ export function DataScaleChart({
             </span>
           </label>
           <input
-            id="dsc-rigs"
+            id={rigsId}
             type="range"
             min={MIN_RIGS}
             max={MAX_RIGS}

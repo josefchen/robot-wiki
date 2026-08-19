@@ -1,7 +1,19 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/data-hardware/data-bottleneck/';
+
+/**
+ * The standalone article mount of the data-scale chart. The article also
+ * renders a second DataScaleChart inside the prediction step's
+ * disclosure, so every per-mount locator must be scoped to exactly one.
+ */
+function chart(page: Page) {
+  return page
+    .locator('div.prose > div.rounded-md:has([data-testid="hours-readout"])')
+    .first();
+}
+
 
 test.describe('data-hardware data-bottleneck module', () => {
   test('renders the three prose strands and the active sidebar state', async ({
@@ -85,22 +97,22 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(yTicks).toHaveCount(6);
     await expect(yTicks.first()).toHaveText('10⁹');
     await expect(yTicks.last()).toHaveText('10¹⁴');
-    await expect(page.getByTestId('robot-marker-droid')).toBeVisible();
-    await expect(page.getByTestId('robot-marker-agibot')).toBeVisible();
-    await expect(page.getByTestId('llm-marker-llama3')).toBeVisible();
-    await expect(page.getByTestId('gap-line')).toBeVisible();
+    await expect(chart(page).getByTestId('robot-marker-droid')).toBeVisible();
+    await expect(chart(page).getByTestId('robot-marker-agibot')).toBeVisible();
+    await expect(chart(page).getByTestId('llm-marker-llama3')).toBeVisible();
+    await expect(chart(page).getByTestId('gap-line')).toBeVisible();
   });
 
   test('teleop-farm slider is keyboard-operable with a consistent readout', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const hours = page.getByTestId('hours-readout');
-    const oxe = page.getByTestId('oxe-years-readout');
+    const hours = chart(page).getByTestId('hours-readout');
+    const oxe = chart(page).getByTestId('oxe-years-readout');
     await expect(hours).toHaveText('15,000 h/yr');
     await expect(oxe).toHaveText('8 mo');
 
-    const slider = page.getByRole('slider', { name: /teleoperation rigs/i });
+    const slider = chart(page).getByRole('slider', { name: /teleoperation rigs/i });
     await slider.focus();
     // Arrow up: more rigs, more throughput, fewer years.
     await page.keyboard.press('ArrowRight');
@@ -118,14 +130,14 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(oxe).toHaveText('10.0 yr');
 
     // Rate toggle switches to the measured DROID throughput.
-    await page.getByRole('button', { name: /droid-measured/i }).click();
+    await chart(page).getByRole('button', { name: /droid-measured/i }).click();
     await expect(hours).toHaveText('7 h/yr');
 
     // Reset restores the default fleet and rate.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await chart(page).getByRole('button', { name: 'Reset' }).click();
     await expect(hours).toHaveText('15,000 h/yr');
     await expect(
-      page.getByRole('button', { name: /dedicated farm/i }),
+      chart(page).getByRole('button', { name: /dedicated farm/i }),
     ).toHaveAttribute('aria-pressed', 'true');
   });
 

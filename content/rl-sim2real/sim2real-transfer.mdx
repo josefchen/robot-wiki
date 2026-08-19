@@ -55,6 +55,31 @@ The interactive makes the trade concrete. The gray spike is a policy trained at 
   Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.
 </Callout>
 
+<PredictThenReveal
+  prompt="Widen the friction randomization range and the DR plateau covers more ground. What happens to the plateau's peak at the training friction while the range widens?"
+  options={[
+    {
+      value: 'both-ways',
+      label: 'The plateau widens and its peak sinks, so coverage and peak trade against each other along one frontier',
+      why: 'Randomizing over a wide dynamics distribution produces a policy that is optimal for none of it: DR buys a wider basin of transfer at the price of peak performance, a cost the papers almost never quantify <Cite id="peng-2018" />. In the figure, the widest range holds 57% where the stock range holds 74%.'
+    },
+    {
+      value: 'monotone-up',
+      label: 'Coverage typically grows and the peak holds or rises too, since more training variety rarely hurts the trained policy at its own training point',
+      why: 'This is the monotone-improvement reading, and the figure is built to break it. The distribution-trained policy spreads its capacity across the range it is trained over; concentrating it back at one friction is what earned the specialist its 97% spike in the first place.'
+    },
+    {
+      value: 'peak-flat',
+      label: 'The peak usually stays roughly flat: the extra range is coverage the policy gets for free, and the training distribution widens without changing the midpoint',
+      why: 'Free coverage is the sales pitch, not the mechanics. The plateau’s height is set by how much of the distribution the policy can serve near-optimally; widen the range and the same capacity is spread thinner, which is exactly the sink the widest setting shows.'
+    }
+  ]}
+  answer="both-ways"
+  revealHint="The chart is mounted at the widest randomization range, plus or minus 0.65: the plateau spans most of the axis and tops out at 57%. Drag the half-width down to the stock range and watch the peak climb to 74% as the plateau narrows."
+  takeaway="Widening the randomization range buys coverage and pays for it in peak: the plateau spans more frictions at a lower success rate, not the same rate over more ground."
+>
+  <FrictionTransfer defaultRange={0.65} className="mt-3" />
+</PredictThenReveal>
 ## Teacher-student distillation: privilege in, proprioception out
 
 Domain randomization still asks the policy to act on what the robot can sense. The teacher-student pattern separates those problems. Phase one trains a teacher with privileged, simulator-only observations: terrain geometry under the feet, friction coefficients, applied disturbances. Phase two trains a student that sees only deployable sensing, usually a short history of <Term id="proprioception">proprioception</Term>, to imitate the teacher's actions.
