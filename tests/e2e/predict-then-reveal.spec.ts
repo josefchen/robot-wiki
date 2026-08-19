@@ -47,7 +47,9 @@ const PLACEMENTS: Placement[] = [
   {
     route: '/rl-sim2real/sim2real-transfer/',
     figure: 'FrictionTransfer',
-    primaryControl: /randomization half-width/i,
+    // The half-width slider mounts at its max (0.65), so the real-robot
+    // friction slider is the control the keyboard probe drives.
+    primaryControl: /real robot friction/i,
     mountedReadout: /57%/,
   },
   {
@@ -625,7 +627,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
           expect(hasChip || anchorResolves, `${route}: uncited correct answer`).toBe(true);
         }
 
-        // VAL-EDU-019: digit-normalised uniqueness.
+        // VAL-EDU-019: digit-normalised uniqueness. innerText is empty
+        // inside a closed disclosure, so open the reveal before reading.
+        await region.locator('details[data-reveal] summary').click();
         const prompt = await region.locator('fieldset legend').innerText();
         const takeaway = await region.locator('[data-takeaway]').innerText();
         const reasoning = await correctReason.innerText();
