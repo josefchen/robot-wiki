@@ -145,6 +145,14 @@ const CHARTS: Array<{
     def: '70',
     match: 'perception latency',
   },
+  {
+    route: '/world-models/generative-sim',
+    name: 'appearance-physics',
+    control: 'range',
+    moves: ['8', '1'],
+    def: '4',
+    match: 'physics proxy is off',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

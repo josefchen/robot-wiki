@@ -246,6 +246,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['latency', 'speed'],
     text: 'At 70 ms of perception latency and 25 m/s² lateral agility the sense-and-avoid timeline supports a maximum speed of 19.21 m/s: 70 ms is lost before control acts, 346 ms is the avoidance maneuver, and the remaining dashed margin still reaches the obstacle at 416 ms time to contact.',
   },
+  {
+    component: 'AppearancePhysicsPush',
+    file: 'components/interactive/appearance-physics-push.tsx',
+    quantityNames: ['appearance', 'displacement'],
+    text: 'Appearance is on and simulation is on, physics proxy is off, so a 4.0 N push leaves the mug at 0.0 cm of displacement; the pixels have no mass until the physics proxy supplies a collision hull.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

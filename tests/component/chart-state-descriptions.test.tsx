@@ -8,6 +8,7 @@ import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { AppearancePhysicsPush } from '@/components/interactive/appearance-physics-push';
 import { PerceptionLatency } from '@/components/interactive/perception-latency';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
 import { WbcDecomposition } from '@/components/interactive/wbc-decomposition';
@@ -250,6 +251,21 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('AppearancePhysicsPush describes the idle mug and tracks force', () => {
+    const { container } = render(<AppearancePhysicsPush />);
+    const { text } = assertDescribed(
+      screen.getByRole('img', { name: /three-layer scene/i }),
+      container,
+    );
+    expect(text).toMatch(/4\.0 N push/);
+    fireEvent.change(screen.getByRole('slider', { name: /push force/i }), {
+      target: { value: '8' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/8\.0 N/);
   });
 
   it('PerceptionLatency describes the sense-and-avoid budget', () => {
