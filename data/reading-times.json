@@ -16,11 +16,11 @@
     "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 2606,
+    "words": 2649,
     "minutes": 13
   },
   "manipulation/generalist-policies": {
-    "words": 1703,
+    "words": 1741,
     "minutes": 9
   },
   "manipulation/comparison-matrix": {
@@ -48,7 +48,7 @@
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1180,
+    "words": 1219,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -56,7 +56,7 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1968,
+    "words": 2015,
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
@@ -64,32 +64,32 @@
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1765,
+    "words": 1812,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2511,
+    "words": 2556,
     "minutes": 13
   },
   "world-models/taxonomy": {
-    "words": 1710,
+    "words": 1791,
     "minutes": 9
   },
   "world-models/latent-dynamics": {
-    "words": 1284,
-    "minutes": 6
+    "words": 1336,
+    "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1550,
+    "words": 1587,
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1166,
+    "words": 1214,
     "minutes": 6
   },
   "world-models/generative-sim": {
-    "words": 1463,
-    "minutes": 7
+    "words": 1503,
+    "minutes": 8
   },
   "data-hardware/data-bottleneck": {
     "words": 1677,
@@ -108,7 +108,7 @@
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1736,
+    "words": 1728,
     "minutes": 9
   },
   "classical/kinematics": {
@@ -132,7 +132,7 @@
     "minutes": 10
   },
   "frontier/reliability-gap": {
-    "words": 1638,
+    "words": 1632,
     "minutes": 8
   },
   "frontier/dexterity": {
@@ -140,7 +140,7 @@
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 2096,
+    "words": 2094,
     "minutes": 10
   },
   "frontier/competing-theses": {
@@ -156,8 +156,8 @@
     "minutes": 18
   },
   "adjacent/drones": {
-    "words": 2259,
-    "minutes": 11
+    "words": 2311,
+    "minutes": 12
   },
   "adjacent/surgical": {
     "words": 2057,
