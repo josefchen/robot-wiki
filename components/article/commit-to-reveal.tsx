@@ -140,7 +140,7 @@ export function CommitToReveal({
         data-reveal=""
         open={open}
         onToggle={(event) => setOpen((event.target as HTMLDetailsElement).open)}
-        className="mt-3 rounded-sm border border-border bg-surface-2 p-3 text-sm"
+        className="mt-3 bg-surface-2 p-3 text-sm"
       >
         <summary className="cursor-pointer text-text-dim">
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
