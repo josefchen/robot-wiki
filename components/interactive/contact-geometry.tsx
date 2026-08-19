@@ -316,7 +316,7 @@ export function ContactGeometry({
   const takeaway =
     scenarioId === 'locomotion'
       ? outcome === 'ok'
-        ? `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error stays stable with all ${nContacts} feet loaded inside the ${formatMm(spec.toleranceMm)} dashed tolerance band; the near-point contacts remain recoverable because ${errorMm.toFixed(1)} mm sits well under that gait-scale band.`
+        ? `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error stays stable with all ${nContacts} feet loaded inside the ${formatMm(spec.toleranceMm)} dashed tolerance band; the near-point contacts remain recoverable with ${(spec.toleranceMm - errorMm).toFixed(1)} mm of margin left inside that gait-scale band.`
         : `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error loses support: foot float exceeds the ${formatMm(spec.toleranceMm)} dashed tolerance band, so the ${nContacts} near-point contacts have already left the recoverable region.`
       : outcome === 'ok'
         ? `Manipulation at ${errorMm.toFixed(1)} mm of injected contact-model error still seats: the peg clears both walls inside the ${formatMm(spec.toleranceMm)} dashed clearance; the ${nContacts} distributed contacts have not yet used up that insertion tolerance.`

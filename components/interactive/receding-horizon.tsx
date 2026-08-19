@@ -74,6 +74,14 @@ export function RecedingHorizon({
     setHorizon(clampHorizon(tp, ta));
   }
 
+  // Tail width in control steps: T_p - T_a after clamping. At zero there
+  // is no outlined tail on any lane, so the takeaway must not claim one.
+  const tailSteps = clamped.tp - clamped.ta;
+  const tailClause =
+    tailSteps > 0
+      ? `solid bars are executed while the outlined ${tailSteps}-step tails are thrown away`
+      : 'with T_a equal to T_p there is no outlined tail to throw away: every predicted action is executed, so the policy runs open-loop between inferences';
+
   const defaults = {
     tp: DIFFUSION_POLICY_HORIZON.tp,
     ta: DIFFUSION_POLICY_HORIZON.ta,
@@ -260,7 +268,7 @@ export function RecedingHorizon({
         className="mt-3"
         form="state"
         summary="Current receding-horizon plan"
-        description={`A receding-horizon plan with T_p ${clamped.tp} and T_a ${clamped.ta} issues ${chunks.length} chunks across the ${windowSteps}-step window, replanning at ${formatHz(replanRateHz(clamped.ta))} and committing ${formatSeconds(commitDurationS(clamped.ta))} per plan; solid bars are executed, outlined tails are thrown away.`}
+        description={`A receding-horizon plan with T_p ${clamped.tp} and T_a ${clamped.ta} issues ${chunks.length} chunks across the ${windowSteps}-step window, replanning at ${formatHz(replanRateHz(clamped.ta))} and committing ${formatSeconds(commitDurationS(clamped.ta))} per plan; ${tailClause}.`}
         states={[
           { label: 'T_p', value: String(clamped.tp) },
           { label: 'T_a', value: String(clamped.ta) },

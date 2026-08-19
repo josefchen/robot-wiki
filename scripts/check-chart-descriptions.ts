@@ -203,7 +203,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'RecedingHorizon',
     file: 'components/interactive/receding-horizon.tsx',
     quantityNames: ['chunks', 'plan'],
-    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed, outlined tails are thrown away.',
+    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed while the outlined 8-step tails are thrown away.',
   },
   {
     component: 'ActionTokenizationBin',
@@ -239,7 +239,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'ContactGeometry',
     file: 'components/interactive/contact-geometry.tsx',
     quantityNames: ['error', 'tolerance'],
-    text: 'Locomotion at 2.0 mm of injected contact-model error stays stable with all 4 feet loaded inside the 20 mm dashed tolerance band; the near-point contacts remain recoverable because 2.0 mm sits well under that gait-scale band.',
+    text: 'Locomotion at 2.0 mm of injected contact-model error stays stable with all 4 feet loaded inside the 20 mm dashed tolerance band; the near-point contacts remain recoverable with 18.0 mm of margin left inside that gait-scale band.',
   },
   {
     component: 'TeacherStudent',
@@ -281,7 +281,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'JepaPlanning',
     file: 'components/interactive/jepa-planning.tsx',
     quantityNames: ['latent', 'distance'],
-    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
   },
   {
     component: 'ActionConditioning',

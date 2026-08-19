@@ -139,3 +139,23 @@ describe('JepaPlanning', () => {
     ).toMatch(/search budget of 8 sequences/);
   });
 });
+
+  it('tracks the plane clause against executed planning steps', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<JepaPlanning />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Step 0: the plane really is two latents and nothing else.
+    expect(read()).toMatch(/two points/);
+    // State 1: one Plan step executes; the fan and the executed path are
+    // on the plane, so the two-points claim must be gone.
+    await user.click(screen.getByRole('button', { name: /plan step/i }));
+    expect(screen.getAllByTestId('candidate-sequence').length).toBeGreaterThan(
+      0,
+    );
+    expect(read()).not.toMatch(/two points/);
+    expect(read()).toMatch(/candidate fan/i);
+    // State 2: reset returns the plane to the two-latent start.
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(read()).toMatch(/two points/);
+  });

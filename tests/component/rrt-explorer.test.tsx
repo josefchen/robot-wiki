@@ -195,3 +195,23 @@ describe('RrtExplorer', () => {
     expect(iterationText()).toBe(`${TOTAL} / ${TOTAL}`);
   });
 });
+
+  it('derives the path clause from whether the goal is reached', () => {
+    const { container } = render(<RrtExplorer />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Before the goal: the length genuinely does not exist yet.
+    expect(read()).toMatch(/n\/a/);
+    expect(read()).toMatch(/until a branch first reaches the goal/);
+    // Scrub to the end: a path exists, so the sentence must report its
+    // length without asserting the length is still pending.
+    fireEvent.change(
+      screen.getByRole('slider', { name: /exploration iteration/i }),
+      { target: { value: String(TOTAL) } },
+    );
+    expect(screen.getByTestId('rrt-path')).toBeInTheDocument();
+    expect(read()).not.toMatch(/n\/a/);
+    expect(read()).not.toMatch(/until a branch first reaches the goal/);
+    const lengthText = screen.getByTestId('rrt-path-readout').textContent ?? '';
+    expect(read()).toContain(lengthText.split(' ')[0]);
+  });

@@ -156,6 +156,16 @@ export function JepaPlanning({
     .map((d, i) => `${i === 0 ? 'M' : 'L'}${traceX(i).toFixed(1)},${traceY(d).toFixed(1)}`)
     .join(' ');
 
+  // The plane clause follows what the plane actually renders: two latents
+  // at step 0, then the executed path plus the searched candidate fan from
+  // the first Plan step on. lastPlan is set by the same click that grows
+  // history, so steps >= 1 always has a fan to count.
+  const fanCount = lastPlan ? lastPlan.candidates.length : candidateCount;
+  const planeClause =
+    steps === 0
+      ? 'shows the start and goal as two points'
+      : `shows the executed path and the candidate fan of ${fanCount} scored sequences`;
+
   const toggleBase =
     'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]';
   const toggleOn = 'border-accent text-accent';
@@ -479,7 +489,7 @@ export function JepaPlanning({
         className="mt-3"
         form="state"
         summary="Current JEPA planning state"
-        description={`At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
+        description={`At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane ${planeClause}, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
         states={[
           { label: 'search budget', value: `${candidateCount} sequences` },
           { label: 'goal', value: goal.label },
