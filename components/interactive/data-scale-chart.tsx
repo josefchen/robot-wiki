@@ -524,17 +524,20 @@ export function DataScaleChart({
           { header: 'pretraining tokens', numeric: true },
         ]}
         rows={[
+          // A robot dataset has no token count and a language corpus has
+          // no demonstration hours: the value is genuinely inapplicable
+          // (the house "n/a", not a withheld "not disclosed").
           ...ROBOT_POINTS.map((p) => ({
             label: p.label,
-            values: [p.value, ''] as Array<string>,
+            values: [p.value, 'n/a'] as Array<string>,
           })),
           ...LLM_POINTS.map((p) => ({
             label: p.label,
-            values: ['', p.value] as Array<string>,
+            values: ['n/a', p.value] as Array<string>,
           })),
           {
             label: `your farm (${formatRigs(rigs)} rigs)`,
-            values: [`${formatHours(perYear)}/yr`, ''],
+            values: [`${formatHours(perYear)}/yr`, 'n/a'],
           },
         ]}
         description={

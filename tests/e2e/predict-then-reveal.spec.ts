@@ -135,7 +135,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
       // Stable hooks: reveal, reveal hint, takeaway, three reasons keyed
       // by option value, one marked correct.
-      const reveal = root.locator('details[data-reveal]');
+      const reveal = root.locator(':scope > details[data-reveal]');
       await expect(reveal).toHaveCount(1);
       await expect(root.locator('[data-reveal-hint]')).toHaveCount(1);
       await expect(root.locator('[data-takeaway]')).toHaveCount(1);
@@ -194,9 +194,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
       const page = await context.newPage();
       await page.goto(placement.route);
       const root = await region(page);
-      const reveal = root.locator('details[data-reveal]');
+      const reveal = root.locator(':scope > details[data-reveal]');
       await expect(reveal).not.toHaveAttribute('open');
-      await reveal.locator('summary').click();
+      await reveal.locator(':scope > summary').click();
       await expect(reveal).toHaveAttribute('open');
       const svg = reveal.locator('svg').first();
       await expect(svg).toBeVisible();
@@ -212,8 +212,8 @@ test.describe('prediction step (PredictThenReveal)', () => {
       for (const key of ['Enter', 'Space']) {
         await page.goto(placement.route);
         const root = await region(page);
-        const reveal = root.locator('details[data-reveal]');
-        const summary = reveal.locator('summary');
+        const reveal = root.locator(':scope > details[data-reveal]');
+        const summary = reveal.locator(':scope > summary');
         // Tab-reachability: the radio group is the tab stop before the
         // summary; Tab from the group lands on the summary.
         const lastRadio = root.locator('fieldset input[type="radio"]').last();
@@ -252,7 +252,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       const root = await region(page);
 
       // Path 1: the escape summary.
-      await root.locator('details[data-reveal] summary').click();
+      await root.locator(':scope > details[data-reveal] > summary').click();
       const takeawayBySummary = await root.locator('[data-takeaway]').innerText();
 
       // Path 2: a committed option.
@@ -288,8 +288,8 @@ test.describe('prediction step (PredictThenReveal)', () => {
     test(`${placement.route}: hint tokens match the mounted figure and the control stays live`, async ({ page }) => {
       await page.goto(placement.route);
       const root = await region(page);
-      const reveal = root.locator('details[data-reveal]');
-      await root.locator('details[data-reveal] summary').click();
+      const reveal = root.locator(':scope > details[data-reveal]');
+      await root.locator(':scope > details[data-reveal] > summary').click();
       await expect(reveal).toHaveAttribute('open');
 
       const hint = await root.locator('[data-reveal-hint]').innerText();
@@ -690,7 +690,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
 
         // VAL-EDU-019: digit-normalised uniqueness. innerText is empty
         // inside a closed disclosure, so open the reveal before reading.
-        await region.locator('details[data-reveal] summary').click();
+        await region.locator(':scope > details[data-reveal] > summary').click();
         const prompt = await region.locator('fieldset legend').innerText();
         const takeaway = await region.locator('[data-takeaway]').innerText();
         const reasoning = await correctReason.innerText();

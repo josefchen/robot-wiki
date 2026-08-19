@@ -169,7 +169,7 @@ export function ReliabilityCompounding({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Episode success probability against episode length at ${perStepPercent.toFixed(1)} percent per-step success`}
+        aria-label={`Line chart of episode success against episode length at ${perStepPercent.toFixed(1)} percent per-step success`}
         aria-describedby={descriptionId}
         className="mt-4 block w-full"
       >

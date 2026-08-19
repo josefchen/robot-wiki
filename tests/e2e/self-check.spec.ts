@@ -208,7 +208,7 @@ test.describe('self-check (CommitToReveal)', () => {
       // Summary reachable by Tab and after the fieldset in document order.
       const summaryAfterFieldset = await page.evaluate(() => {
         const fieldset = document.querySelector('[data-self-check] fieldset')!;
-        const summary = document.querySelector('[data-self-check] details[data-reveal] summary')!;
+        const summary = document.querySelector('[data-self-check] > details[data-reveal] > summary')!;
         return (
           summary.compareDocumentPosition(fieldset) & Node.DOCUMENT_POSITION_FOLLOWING
         ) === 0 || (fieldset.compareDocumentPosition(summary) & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;

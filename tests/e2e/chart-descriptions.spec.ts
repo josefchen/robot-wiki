@@ -77,15 +77,26 @@ for (const chart of CHARTS) {
       const describedby = await svg.getAttribute('aria-describedby');
       expect(describedby, 'aria-describedby is set').toBeTruthy();
       // The id resolves, inside this shell, to the takeaway paragraph.
-      const target = shell.locator(`#${CSS.escape(describedby!)}`);
-      await expect(target).toHaveCount(1);
-      const hidden = await target.evaluate(
-        (el) =>
-          el.closest('[aria-hidden="true"]') !== null ||
-          el.getAttribute('aria-hidden') === 'true',
+      // Resolved via getElementById (a CSS-escaped selector would also
+      // work, but the id contains useId colons).
+      const resolved = await shell.evaluate(
+        (el, id) => {
+          const target = el.querySelector(`[id="${id}"]`);
+          if (!target) return null;
+          return {
+            tag: target.tagName,
+            text: (target.textContent ?? '').trim(),
+            hidden:
+              target.closest('[aria-hidden="true"]') !== null ||
+              target.getAttribute('aria-hidden') === 'true',
+          };
+        },
+        describedby!,
       );
-      expect(hidden).toBe(false);
-      const text = (await target.innerText()).trim();
+      expect(resolved, 'describedby target exists in the shell').toBeTruthy();
+      expect(resolved!.tag.toLowerCase()).toBe('p');
+      expect(resolved!.hidden).toBe(false);
+      const text = resolved!.text;
       expect(text.length, 'description >= 60 chars').toBeGreaterThanOrEqual(60);
       const label = await svg.getAttribute('aria-label');
       expect(label, 'aria-label is set and short').toBeTruthy();

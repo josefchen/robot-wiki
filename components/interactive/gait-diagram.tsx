@@ -440,7 +440,7 @@ export function GaitDiagram({
           { header: 'feet down', numeric: true },
           { header: 'feet striking', numeric: false },
         ]}
-        rows={[0, 0.25, 0.5, 0.75].map((sample) => {
+        rows={[0, 0.2, 0.4, 0.6, 0.8].map((sample) => {
           const down = stanceLegs(gait, sample)
             .map((id) => LEGS.find((l) => l.id === id)!.short)
             .join(' + ');
