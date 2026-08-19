@@ -28,17 +28,21 @@ test.describe('self-check (CommitToReveal)', () => {
         .count();
       expect(inProse, `${route}: self-check outside prose region`).toBe(1);
       const order = await page.evaluate(() => {
-        const prose = document.querySelector('[data-pagefind-body]')!;
-        const check = prose.querySelector('[data-self-check]')!;
-        const hr = prose.querySelector('[data-self-check]')!.closest('article')!.querySelector('hr');
-        if (!hr) return 'no-hr';
+        const check = document.querySelector('[data-self-check]');
+        const article = check?.closest('article');
+        const hr = article?.querySelector('hr');
+        if (!check || !hr) return `missing:${!check ? 'check' : 'hr'}`;
         return check.compareDocumentPosition(hr) & Node.DOCUMENT_POSITION_FOLLOWING
           ? 'before-hr'
           : 'after-hr';
       });
       expect(order, `${route}: self-check must precede the hairline`).toBe('before-hr');
       const lastBlock = await page.evaluate(() => {
-        const prose = document.querySelector('[data-pagefind-body]')!;
+        // The header also carries data-pagefind-body; the prose region is
+        // the div.prose one.
+        const prose = Array.from(
+          document.querySelectorAll('[data-pagefind-body]'),
+        ).find((e) => e.tagName === 'DIV')!;
         const blocks = Array.from(prose.children);
         return blocks[blocks.length - 1].hasAttribute('data-self-check')
           ? 'self-check'
@@ -70,7 +74,9 @@ test.describe('self-check (CommitToReveal)', () => {
       expect(names).toHaveLength(1);
       expect(names[0].length).toBeGreaterThan(0);
       expect(await region.locator('[role="radiogroup"]').count()).toBe(0);
-      expect(await page.locator('button[type="submit"], input[type="submit"]').count()).toBe(0);
+      // Scoped to the self-check: the site chrome (search) carries its own
+      // submit control, which is not this component's.
+      expect(await region.locator('button[type="submit"], input[type="submit"]').count()).toBe(0);
 
       // Stable hooks: reveal, takeaway, three reasons keyed by option value.
       const reveal = region.locator('details[data-reveal]');

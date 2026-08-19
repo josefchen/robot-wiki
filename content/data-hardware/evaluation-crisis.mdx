@@ -74,11 +74,11 @@ Five questions recover what the single number hides. How many rollouts produced 
     {
       value: 'equal',
       label: 'They are equivalent: 80% is 80%',
-      why: 'This reads a point estimate as the quantity itself. Snyder et al. frame the feasible sample size for a comparison as 10 to 50 trials, and at those counts differences of 10 to 15 points sit inside the noise floor. An 80% over 10 trials is consistent with anything from a coin flip to a near-deterministic policy.'
+      why: 'This reads a point estimate as the quantity itself. Snyder et al. frame the feasible sample size for a comparison as 10 to 50 trials, and at those counts differences of 10 to 15 percentage units sit inside the noise floor. An 80% over 10 trials is consistent with anything from a coin flip to a near-deterministic policy.'
     },
     {
       value: 'b-signals',
-      label: 'Only the 50-trial number with its posterior is interpretable; the 10-trial number could hide a 15-point difference either way',
+      label: 'Only the 50-trial number with its posterior is interpretable; the 10-trial number could hide a 15-unit difference either way',
       why: 'This is what the small-N statistics actually support. TRI’s authors are blunt that many papers are measuring noise from insufficient statistical power rather than showing methods are equivalent, and TRI itself would not compare two policies below 50 real attempts per condition. The posterior is what makes the width of the claim visible.'
     },
     {
@@ -88,5 +88,5 @@ Five questions recover what the single number hides. How many rollouts produced 
     }
   ]}
   answer="b-signals"
-  takeaway="Without a reported interval or posterior, a 10-trial success rate cannot separate a 15-point gap from zero: the trial count is part of the result."
+  takeaway="Without a reported interval or posterior, a 10-trial success rate cannot separate a 15-unit gap from zero: the trial count is part of the result."
 />
