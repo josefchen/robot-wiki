@@ -113,6 +113,14 @@ const CHARTS: Array<{
     moves: ['400', '1000'],
     def: '0',
   },
+  {
+    route: '/rl-sim2real/why-rl-locomotion',
+    name: 'contact-geometry',
+    control: 'range',
+    moves: ['8', '25'],
+    def: '2',
+    match: 'Locomotion at',
+  },
 ];
 
 const HOST_ROUTES = [...new Set(CHARTS.map((c) => c.route))];

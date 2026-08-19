@@ -222,6 +222,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     quantityNames: ['playhead', 'lanes'],
     text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 1 kHz motor lane will tick 50 times before the ~1 Hz planner fires once.',
   },
+  {
+    component: 'ContactGeometry',
+    file: 'components/interactive/contact-geometry.tsx',
+    quantityNames: ['error', 'tolerance'],
+    text: 'Locomotion at 2.0 mm of injected contact-model error stays stable with all 4 feet loaded inside the 20 mm dashed tolerance band; the near-point contacts remain recoverable because 2.0 mm sits well under that gait-scale band.',
+  },
 ];
 
 const ruleProblems = validateChartDescriptions(CHART_DESCRIPTIONS);

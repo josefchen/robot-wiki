@@ -7,6 +7,7 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 import { DenoisingLoop } from '@/components/interactive/denoising-loop';
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
+import { ContactGeometry } from '@/components/interactive/contact-geometry';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
@@ -246,6 +247,22 @@ describe('state-form chart descriptions', () => {
     });
     const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
     expect(moved).not.toBe(text);
+  });
+
+  it('ContactGeometry describes the stance and lives the readout', () => {
+    const { container } = render(<ContactGeometry />);
+    const { text } = assertDescribed(screen.getByRole('img'), container);
+    expect(text).toMatch(/Locomotion at 2\.0 mm/);
+    expect(screen.getByTestId('error-readout').closest('[aria-live]')).toHaveAttribute(
+      'aria-live',
+      'polite',
+    );
+    fireEvent.change(screen.getByRole('slider', { name: /contact-model error/i }), {
+      target: { value: '25' },
+    });
+    const moved = container.querySelector('[data-chart-description]')?.textContent ?? '';
+    expect(moved).not.toBe(text);
+    expect(moved).toMatch(/25\.0 mm/);
   });
 
   it('AdvantageScrubber lives the episode readout', () => {

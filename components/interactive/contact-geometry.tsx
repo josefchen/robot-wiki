@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
+import { ChartDescription } from '@/components/ui';
 import {
   DEFAULT_ERROR_MM,
   FOOT_XS,
@@ -303,6 +304,7 @@ export function ContactGeometry({
   defaultErrorMm?: number;
   className?: string;
 }) {
+  const descriptionId = `${useId()}-description`;
   const [scenarioId, setScenarioId] = useState<ScenarioId>(defaultScenario);
   const [errorMm, setErrorMm] = useState(defaultErrorMm);
 
@@ -310,6 +312,15 @@ export function ContactGeometry({
   const outcome = outcomeFor(spec, errorMm);
   const outcomeText =
     outcome === 'ok' ? spec.outcomeOk : spec.outcomeFail;
+  const nContacts = contactCount(spec);
+  const takeaway =
+    scenarioId === 'locomotion'
+      ? outcome === 'ok'
+        ? `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error stays stable with all ${nContacts} feet loaded inside the ${formatMm(spec.toleranceMm)} dashed tolerance band; the near-point contacts remain recoverable because ${errorMm.toFixed(1)} mm sits well under that gait-scale band.`
+        : `Locomotion at ${errorMm.toFixed(1)} mm of injected contact-model error loses support: foot float exceeds the ${formatMm(spec.toleranceMm)} dashed tolerance band, so the ${nContacts} near-point contacts have already left the recoverable region.`
+      : outcome === 'ok'
+        ? `Manipulation at ${errorMm.toFixed(1)} mm of injected contact-model error still seats: the peg clears both walls inside the ${formatMm(spec.toleranceMm)} dashed clearance; the ${nContacts} distributed contacts have not yet used up that insertion tolerance.`
+        : `Manipulation at ${errorMm.toFixed(1)} mm of injected contact-model error jams: the peg binds against the wall, well past the ${formatMm(spec.toleranceMm)} dashed clearance, so the ${nContacts} distributed contacts cannot absorb millimeters the way a gait can.`;
 
   function reset() {
     setScenarioId(defaultScenario);
@@ -411,6 +422,7 @@ export function ContactGeometry({
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label={`${spec.label} contact geometry. ${spec.sceneCaption} Injected contact-model error ${errorMm.toFixed(1)} millimeters. Outcome: ${outcomeText}.`}
+        aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
         {scenarioId === 'locomotion' ? (
@@ -433,6 +445,20 @@ export function ContactGeometry({
           {outcomeText}
         </span>
       </p>
+      <ChartDescription
+        id={descriptionId}
+        className="mt-3"
+        form="state"
+        summary="Current contact-model error"
+        description={takeaway}
+        states={[
+          { label: 'scenario', value: spec.label },
+          { label: 'error', value: `${errorMm.toFixed(1)} mm` },
+          { label: 'tolerance', value: formatMm(spec.toleranceMm) },
+          { label: 'contacts', value: String(nContacts) },
+          { label: 'outcome', value: outcomeText },
+        ]}
+      />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         {spec.sceneCaption} Contact counts and patch radii are illustrative
         renderings of the asymmetry, not one simulator&apos;s solver output.
