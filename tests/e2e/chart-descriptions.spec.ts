@@ -38,7 +38,7 @@ test.afterAll(async () => {
 const CHARTS: Array<{
   route: string;
   name: string;
-  control: 'range' | 'gait-phase';
+  control: 'range' | 'gait-phase' | 'button';
   /** Two non-default values for the primary control, then the default. */
   moves: string[];
   def: string;
@@ -60,6 +60,13 @@ const CHARTS: Array<{
   { route: '/manipulation/rl-finetuning', name: 'advantage', control: 'range', moves: ['12', '32'], def: '0' },
   { route: '/rl-sim2real/sim2real-transfer', name: 'friction', control: 'range', moves: ['50', '120'], def: '80' },
   { route: '/world-models/latent-dynamics', name: 'latent', control: 'range', moves: ['30', '50'], def: '15' },
+  {
+    route: '/rl-sim2real/reward-design-mpc',
+    name: 'mpc-vs-rl',
+    control: 'button',
+    moves: ['low-friction patch', '+5 kg payload'],
+    def: 'lateral push',
+  },
 ];
 
 /** Set a range input the way React's controlled component sees it. */
@@ -75,6 +82,24 @@ async function setRange(page: Page, input: Locator, value: string) {
     target.dispatchEvent(new Event('change', { bubbles: true }));
   }, value);
   await page.waitForTimeout(150);
+}
+
+/** Drive the chart's primary control: range, gait-phase, or perturbation buttons. */
+async function setControl(
+  page: Page,
+  shell: Locator,
+  chart: (typeof CHARTS)[number],
+  value: string,
+) {
+  if (chart.control === 'button') {
+    await shell.getByRole('button', { name: value, exact: true }).click();
+    await page.waitForTimeout(150);
+    return;
+  }
+  const control = shell
+    .locator(chart.control === 'gait-phase' ? '#gait-phase' : 'input[type="range"]')
+    .first();
+  await setRange(page, control, value);
 }
 
 for (const chart of CHARTS) {
@@ -152,14 +177,11 @@ for (const chart of CHARTS) {
       const shell = page.locator('div.rounded-md', { has: desc }).first();
       const details = shell.locator('details[data-chart-data]').first();
       await details.evaluate((el) => (el as HTMLDetailsElement).open = true);
-      const control = shell
-        .locator(chart.control === 'gait-phase' ? '#gait-phase' : 'input[type="range"]')
-        .first();
       const original = (await desc.innerText()).trim();
       const digit = (s: string) => (s.match(/\S*\d\S*/g) ?? []).join(' ');
       let previous = original;
       for (const value of chart.moves) {
-        await setRange(page, control, value);
+        await setControl(page, shell, chart, value);
         const moved = (await desc.innerText()).trim();
         expect(
           digit(moved) !== digit(previous),
@@ -174,7 +196,7 @@ for (const chart of CHARTS) {
         ).toBe(false);
         previous = moved;
       }
-      await setRange(page, control, chart.def);
+      await setControl(page, shell, chart, chart.def);
       await expect
         .poll(async () => (await desc.innerText()).trim())
         .toBe(original);
