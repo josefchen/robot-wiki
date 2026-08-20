@@ -6,6 +6,23 @@
  * Add entries from the /research reports only; never invent arXiv ids, urls,
  * or author lists.
  *
+ * AUTHOR-FIELD POLICY (binding since 2026-08-20): render what the source
+ * publishes. If Crossref or the publisher's own byline gives an initial,
+ * keep the initial; do not expand it from memory or from a web search of a
+ * name you think you recognise — expanding an initial into a full given
+ * name the source never printed is invention about a named person, the
+ * defect this rule was written after (five fabricated given names landed in
+ * one session with every DOI verified). Expanding is acceptable ONLY when
+ * a fuller transcription of the record corroborates it (the paper's own
+ * byline, or a metadata aggregator that prints the full name), and then the
+ * entry comment must say where the full name came from. This is the same
+ * principle the DOI/arXiv rules above already bind, applied to the author
+ * field. `npm run check:crossref-authors` (run it whenever a citation is
+ * added or an author field is edited) compares every DOI-bearing entry
+ * against api.crossref.org and flags family-name, year and title mismatches
+ * plus exactly this expansion pattern; byline-backed expansions are
+ * documented in data/crossref-author-exceptions.ts.
+ *
  * Urls are https. The one sanctioned exception pattern, for a canonical
  * source genuinely served over http only, is a DATED web.archive.org
  * capture (https://web.archive.org/web/<timestamp>/<original-url>); the
@@ -1798,12 +1815,14 @@ export const CITATIONS: Citation[] = [
     id: 'choi-2023',
     title: 'Learning Quadrupedal Locomotion on Deformable Terrain',
     authors: [
+      // Authors exactly as Crossref prints them (verified 2026-08-20; the
+      // previous registry row carried four invented given names).
       'Suyoung Choi',
-      'Gwanghyun Ji',
+      'Gwanghyeon Ji',
       'Jeongsoo Park',
-      'Hyunwoo Kim',
-      'Juhwan Mun',
-      'Jun Ho Lee',
+      'Hyeongjun Kim',
+      'Juhyeok Mun',
+      'Jeong Hyun Lee',
       'Jemin Hwangbo',
     ],
     year: 2023,
@@ -3601,10 +3620,14 @@ export const CITATIONS: Citation[] = [
     title:
       'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces',
     authors: [
+      // Crossref and OpenAlex both print initials for authors 2-4
+      // (P. Švestka, J.-C. Latombe, M. H. Overmars), so the initials are
+      // kept per the author-field policy; only Lydia E. Kavraki's full
+      // name is corroborated by a fuller record (OpenAlex, 2026-08-20).
       'Lydia E. Kavraki',
-      'Petr Svestka',
-      'Jean-Claude Latombe',
-      'Mark H. Overmars',
+      'P. Švestka',
+      'J.-C. Latombe',
+      'M. H. Overmars',
     ],
     year: 1996,
     venue: 'IEEE Trans. Robotics and Automation',
@@ -3749,7 +3772,11 @@ export const CITATIONS: Citation[] = [
     // the classic relay tuning rules for PID gains.
     id: 'ziegler-nichols-1942',
     title: 'Optimum Settings for Automatic Controllers',
-    authors: ['John G. Ziegler', 'Nathaniel B. Nichols'],
+    // Crossref prints only initials (J. G. Ziegler, N. B. Nichols) and the
+    // secondary records disagree about the given names (OpenAlex: "Jens"
+    // and "Nancy"), so the printed initials are kept per the
+    // author-field policy rather than trusting any expansion.
+    authors: ['J. G. Ziegler', 'N. B. Nichols'],
     year: 1942,
     venue: 'Trans. ASME',
     url: 'https://doi.org/10.1115/1.2899060',
@@ -3762,7 +3789,9 @@ export const CITATIONS: Citation[] = [
     // optimal state-feedback problem LQR solves.
     id: 'kalman-1960',
     title: 'Contributions to the Theory of Optimal Control',
-    authors: ['Rudolf E. Kalman'],
+    // Crossref and OpenAlex both print "R. E. Kalman"; the initial is
+    // kept per the author-field policy.
+    authors: ['R. E. Kalman'],
     year: 1960,
     venue: 'Bol. Soc. Mat. Mexicana',
     url: 'https://doi.org/10.1109/9780470544334.ch8',
@@ -3800,10 +3829,13 @@ export const CITATIONS: Citation[] = [
     title:
       'Constrained Model Predictive Control: Stability and Optimality',
     authors: [
-      'David Q. Mayne',
+      // Crossref prints initials for all four; OpenAlex corroborates full
+      // names only for Rawlings and Rao (read 2026-08-20), so Mayne and
+      // Scokaert keep the printed initials.
+      'D. Q. Mayne',
       'James B. Rawlings',
       'Christopher V. Rao',
-      'Pierre O. M. Scokaert',
+      'P. O. M. Scokaert',
     ],
     year: 2000,
     venue: 'Automatica',
@@ -3879,7 +3911,9 @@ export const CITATIONS: Citation[] = [
     // state-estimation module is built around.
     id: 'kalman-1960-filter',
     title: 'A New Approach to Linear Filtering and Prediction Problems',
-    authors: ['Rudolf E. Kalman'],
+    // Crossref and OpenAlex both print "R. E. Kalman"; the initial is
+    // kept per the author-field policy.
+    authors: ['R. E. Kalman'],
     year: 1960,
     venue: 'J. Basic Engineering',
     url: 'https://doi.org/10.1115/1.3662552',
@@ -4123,7 +4157,10 @@ export const CITATIONS: Citation[] = [
     // 1990's own abstract.
     id: 'mishra-1987',
     title: 'On the Existence and Synthesis of Multifinger Positive Grips',
-    authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
+    // Given name corrected 2026-08-20: the author is Brajendra Mishra
+    // (Crossref prints only "B."; the fuller record is OpenAlex's
+    // transcription of the Springer byline, read 2026-08-20).
+    authors: ['Brajendra Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
     year: 1987,
     venue: 'Algorithmica',
     url: 'https://doi.org/10.1007/BF01840373',
@@ -4173,7 +4210,9 @@ export const CITATIONS: Citation[] = [
     // ends 844081; neighboring 844777 is a different ICRA 2000 paper.
     id: 'bicchi-kumar-2000',
     title: 'Robotic Grasping and Contact: A Review',
-    authors: ['Antonio Bicchi', 'Vijay Kumar'],
+    // Crossref prints "A." and "V."; OpenAlex corroborates only "Antonio
+    // Bicchi" in full (read 2026-08-20), so Kumar keeps the initial.
+    authors: ['Antonio Bicchi', 'V. Kumar'],
     year: 2000,
     venue: 'ICRA 2000',
     url: 'https://doi.org/10.1109/ROBOT.2000.844081',
@@ -5068,8 +5107,11 @@ export const CITATIONS: Citation[] = [
     // in per the link-check exception policy.
     id: 'vasarhelyi-flocking-2018',
     title: 'Optimized flocking of autonomous drones in confined environments',
+    // First author corrected 2026-08-20: Crossref publishes Gábor
+    // Vásárhelyi as first author (the registry previously said Tamás, who
+    // is the fourth author).
     authors: [
-      'Tamás Vásárhelyi',
+      'Gábor Vásárhelyi',
       'Csaba Virágh',
       'Gergő Somorjai',
       'Tamás Nepusz',
@@ -5594,9 +5636,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // DOI verified via Crossref 2026-08-20: 19th IEEE CDC, Albuquerque.
+    // Crossref publishes the author as "J. Salisbury"; the initial is kept
+    // per the author-field policy (J. Kenneth Salisbury is the person, but
+    // the source record prints only the J.).
     id: 'salisbury-1980',
     title: 'Active Stiffness Control of a Manipulator in Cartesian Coordinates',
-    authors: ['Kenneth Salisbury'],
+    authors: ['J. Salisbury'],
     year: 1980,
     venue: '19th IEEE Conf. Decision and Control',
     url: 'https://doi.org/10.1109/CDC.1980.272026',
@@ -5617,7 +5662,10 @@ export const CITATIONS: Citation[] = [
     // Albu-Schaeffer, Kugi, Hirzinger.
     id: 'albu-schaffer-2003',
     title: 'Decoupling Based Cartesian Impedance Control of Flexible Joint Robots',
-    authors: ['Christian Ott', 'Alin Albu-Sch\u00e4ffer', 'Andreas Kugi', 'Gerd Hirzinger'],
+    // Crossref prints initials for all four (C., A., A., G.); OpenAlex
+    // corroborates the first three in full (read 2026-08-20); Hirzinger
+    // keeps the printed initial.
+    authors: ['Christian Ott', 'Alin Albu-Schäffer', 'Andreas Kugi', 'G. Hirzinger'],
     year: 2003,
     venue: 'IEEE Int. Conf. Robotics and Automation',
     url: 'https://doi.org/10.1109/ROBOT.2003.1242067',
@@ -5625,20 +5673,26 @@ export const CITATIONS: Citation[] = [
   },
   {
     // DOI verified via Crossref 2026-08-20: ICRA 2010, Anchorage.
+    // Crossref author list: Christian Ott, Ranjan Mukherjee, Yoshihiko
+    // Nakamura (the 2026-08-20 audit corrected a fabricated given name,
+    // "Ryojun", that contradicted the record).
     id: 'ott-2010',
     title: 'Unified Impedance and Admittance Control',
-    authors: ['Christian Ott', 'Ryojun Mukherjee', 'Yoshihiko Nakamura'],
+    authors: ['Christian Ott', 'Ranjan Mukherjee', 'Yoshihiko Nakamura'],
     year: 2010,
     venue: 'IEEE Int. Conf. Robotics and Automation',
     url: 'https://doi.org/10.1109/ROBOT.2010.5509861',
     type: 'paper',
   },
   {
-    // DOI verified via Crossref 2026-08-20: IROS 2019, Macau.
+    // DOI verified via Crossref 2026-08-20: IROS 2019, Macau. Crossref
+    // authors: Roberto Martin-Martin, Michelle A. Lee, Rachel Gardner,
+    // Silvio Savarese, Jeannette Bohg, Animesh Garg (the 2026-08-20 audit
+    // corrected two fabricated given names: "Josef" and "Munhee").
     id: 'martin-martin-2019',
     title:
       'Variable Impedance Control in End-Effector Space: An Action Space for Reinforcement Learning in Contact-Rich Tasks',
-    authors: ['Josef Martin-Martin', 'Munhee Lee', 'Rachel Gardner', 'Silvio Savarese', 'Jeannette Bohg', 'Animesh Garg'],
+    authors: ['Roberto Martin-Martin', 'Michelle A. Lee', 'Rachel Gardner', 'Silvio Savarese', 'Jeannette Bohg', 'Animesh Garg'],
     year: 2019,
     venue: 'IEEE/RSJ Int. Conf. Intelligent Robots and Systems',
     url: 'https://doi.org/10.1109/IROS40897.2019.8968201',
@@ -5649,10 +5703,16 @@ export const CITATIONS: Citation[] = [
     // 11:1374999. 75th-percentile transient-contact force pain thresholds
     // measured on 37 subjects; the biomechanical research basis for the
     // impedance lab's contact-force reference line.
+    // Authors exactly as Crossref prints them (D. Han, M. Y. Park, J. Choi,
+    // H. Shin, R. Behrens, S. Rhim): the byline gives initials for six of
+    // six, so the initials are kept per the author-field policy. The
+    // 2026-08-20 audit removed six unverifiable expansions, two of which
+    // ("Seungjae Shin", "Yongsik Rhim") outright contradicted the printed
+    // initials H. and S.
     id: 'han-force-pain-2024',
     title:
       'Evaluation of force pain thresholds to ensure collision safety in worker-robot collaborative operations',
-    authors: ['Donghwan Han', 'Minki Park', 'Jinsoo Choi', 'Seungjae Shin', 'Rainer Behrens', 'Yongsik Rhim'],
+    authors: ['D. Han', 'M. Y. Park', 'J. Choi', 'H. Shin', 'R. Behrens', 'S. Rhim'],
     year: 2024,
     venue: 'Frontiers in Robotics and AI',
     url: 'https://doi.org/10.3389/frobt.2024.1374999',
