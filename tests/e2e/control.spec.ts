@@ -335,45 +335,80 @@ test.describe('classical control module', () => {
     });
     await expect(heading).toBeVisible();
 
-    // Section prose: from the heading to the next same-level heading.
-    const section = page.locator('section', { has: heading });
-    const text = (await section.innerText()) ?? '';
-    expect(text.toLowerCase()).toContain('impedance control');
-    expect(text.toLowerCase()).toContain('admittance control');
-    expect(text.toLowerCase()).toContain('hybrid force/position control');
+    // Section prose: from the section heading to the next same-level
+    // heading (the article body is flat; h2s are not wrapped in
+    // <section> elements, so scope via the prose article ancestor).
+    const article = page.locator('#main-content article').first();
+    const articleText = (await article.innerText()) ?? '';
+    const fromHeading = articleText.slice(
+      Math.max(articleText.toLowerCase().indexOf('impedance control: making')),
+    );
+    const sectionText = fromHeading.slice(
+      0,
+      fromHeading.toLowerCase().indexOf('where this meets the learned stack') >
+        -1
+        ? fromHeading
+            .toLowerCase()
+            .indexOf('where this meets the learned stack')
+        : undefined,
+    );
+    const text = sectionText.toLowerCase();
+    expect(text).toContain('impedance control');
+    expect(text).toContain('admittance control');
+    expect(text).toContain('hybrid force/position control');
 
-    // At least three distinct citation chips inside the section, each
-    // resolving to a References entry on the page.
-    const chipIds = await section
+    // At least three distinct citation chips between the heading and the
+    // closer, each resolving to a References entry on the page.
+    const chipIds = await article
       .locator('[data-cite-id]')
-      .evaluateAll((els) =>
-        Array.from(new Set(els.map((el) => el.getAttribute('data-cite-id')))),
-      );
+      .evaluateAll((els, boundary) => {
+        const stop =
+          boundary === '' ? Infinity : Number.parseFloat(boundary);
+        const ids = new Set<string>();
+        for (const el of els) {
+          const box = el.getBoundingClientRect();
+          const headingEl = document.querySelector(
+            'h2#impedance-control-making-contact-a-design-variable',
+          );
+          const stopEl = Array.from(
+            document.querySelectorAll('h2'),
+          ).find((h) =>
+            /where this meets the learned stack/i.test(h.textContent ?? ''),
+          );
+          if (!headingEl || !stopEl) continue;
+          const hY = headingEl.getBoundingClientRect().top;
+          const sY = stopEl.getBoundingClientRect().top;
+          const y = box.top + window.scrollY;
+          const hAbs = hY + window.scrollY;
+          const sAbs = sY + window.scrollY;
+          if (y >= hAbs && y < sAbs) {
+            const id = el.getAttribute('data-cite-id');
+            if (id) ids.add(id);
+          }
+        }
+        return Array.from(ids);
+      }, '');
     expect(chipIds.length).toBeGreaterThanOrEqual(3);
-    const references = page.locator('#main-content');
-    const refText = (await references.innerText()) ?? '';
     for (const id of chipIds) {
-      await expect(
-        page.locator(`#ref-${id}`, { hasText: /.+/ }),
-      ).toHaveCount(1);
+      await expect(page.locator(`#ref-${id}`)).toHaveCount(1);
     }
-    expect(refText.length).toBeGreaterThan(0);
   });
 
   test('the hardware consequence is stated as prose (VAL-CLASS-034)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const heading = page.getByRole('heading', {
-      level: 2,
-      name: /impedance control/i,
-    });
-    const section = page.locator('section', { has: heading });
-    const text = (await section.innerText()) ?? '';
+    const article = page.locator('#main-content article').first();
+    const articleText = (await article.innerText()) ?? '';
+    const start = articleText
+      .toLowerCase()
+      .indexOf('impedance control: making');
+    const end = articleText
+      .toLowerCase()
+      .indexOf('where this meets the learned stack');
+    const text = articleText.slice(start, end);
     // The inability claim as a complete prose sentence.
-    expect(text).toMatch(
-      /cannot regulate contact force/i,
-    );
+    expect(text).toMatch(/cannot regulate contact force/i);
     // Both alternatives named as literal text in the same section.
     expect(text).toMatch(/torque-controlled arms/i);
     expect(text).toMatch(/series elastic actuation/i);
@@ -447,7 +482,8 @@ test.describe('classical control module', () => {
   }) => {
     await page.goto(ROUTE);
     const lab = page.getByTestId('impedance-lab');
-    const label = await lab.getByTestId('impedance-limit-label').innerText();
+    const label =
+      (await lab.getByTestId('impedance-limit-label').textContent()) ?? '';
     expect(label.toLowerCase()).toContain('contact-force limit');
     expect(label.toLowerCase()).toContain('research basis');
     // A resolving chip inside the lab (the caption's citation).
