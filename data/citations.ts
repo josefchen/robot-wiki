@@ -5545,6 +5545,142 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/',
     type: 'press',
   },
+  {
+    // DOI verified via Crossref 2026-08-20: Part I of the three-part
+    // monograph, ASME J. Dynamic Systems, Measurement, and Control 107(1).
+    id: 'hogan-1985',
+    title:
+      'Impedance Control: An Approach to Manipulation: Part I\u2014Theory',
+    authors: ['Neville Hogan'],
+    year: 1985,
+    venue: 'ASME J. Dynamic Systems, Measurement, and Control',
+    url: 'https://doi.org/10.1115/1.3140702',
+    type: 'paper',
+  },
+  {
+    // Public ISO catalogue entry for ISO/TS 15066:2016 (title, edition,
+    // scope). iso.org returns HTTP 403 to non-browser clients, a
+    // bot-wall; the page is live in a real browser (checked 2026-08-20)
+    // and no DOI exists for a technical specification, so this entry
+    // needs a link-check exception rather than a Crossref fallback.
+    id: 'iso-ts-15066',
+    title: 'ISO/TS 15066:2016, Robots and robotic devices \u2014 Collaborative robots',
+    authors: ['ISO'],
+    year: 2016,
+    venue: 'ISO Technical Specification (public catalogue entry)',
+    url: 'https://www.iso.org/standard/62996.html',
+    type: 'docs',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: JDSMC 103(2), 126-133.
+    id: 'raibert-craig-1981',
+    title: 'Hybrid Position/Force Control of Manipulators',
+    authors: ['Marc Raibert', 'John Craig'],
+    year: 1981,
+    venue: 'ASME J. Dynamic Systems, Measurement, and Control',
+    url: 'https://doi.org/10.1115/1.3139652',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IEEE Trans. Systems, Man, and
+    // Cybernetics SMC-11(6), 418-432.
+    id: 'mason-1981',
+    title: 'Compliance and Force Control for Computer Controlled Manipulators',
+    authors: ['Matthew Mason'],
+    year: 1981,
+    venue: 'IEEE Trans. Systems, Man, and Cybernetics',
+    url: 'https://doi.org/10.1109/TSMC.1981.4308708',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: 19th IEEE CDC, Albuquerque.
+    id: 'salisbury-1980',
+    title: 'Active Stiffness Control of a Manipulator in Cartesian Coordinates',
+    authors: ['Kenneth Salisbury'],
+    year: 1980,
+    venue: '19th IEEE Conf. Decision and Control',
+    url: 'https://doi.org/10.1109/CDC.1980.272026',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IROS 1995, Pittsburgh.
+    id: 'pratt-williamson-1995',
+    title: 'Series Elastic Actuators',
+    authors: ['Gill Pratt', 'Matthew Williamson'],
+    year: 1995,
+    venue: 'IEEE/RSJ Int. Conf. Intelligent Robots and Systems',
+    url: 'https://doi.org/10.1109/IROS.1995.525827',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: ICRA 2003, Taipei; Ott,
+    // Albu-Schaeffer, Kugi, Hirzinger.
+    id: 'albu-schaffer-2003',
+    title: 'Decoupling Based Cartesian Impedance Control of Flexible Joint Robots',
+    authors: ['Christian Ott', 'Alin Albu-Sch\u00e4ffer', 'Andreas Kugi', 'Gerd Hirzinger'],
+    year: 2003,
+    venue: 'IEEE Int. Conf. Robotics and Automation',
+    url: 'https://doi.org/10.1109/ROBOT.2003.1242067',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: ICRA 2010, Anchorage.
+    id: 'ott-2010',
+    title: 'Unified Impedance and Admittance Control',
+    authors: ['Christian Ott', 'Ryojun Mukherjee', 'Yoshihiko Nakamura'],
+    year: 2010,
+    venue: 'IEEE Int. Conf. Robotics and Automation',
+    url: 'https://doi.org/10.1109/ROBOT.2010.5509861',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IROS 2019, Macau.
+    id: 'martin-martin-2019',
+    title:
+      'Variable Impedance Control in End-Effector Space: An Action Space for Reinforcement Learning in Contact-Rich Tasks',
+    authors: ['Josef Martin-Martin', 'Munhee Lee', 'Rachel Gardner', 'Silvio Savarese', 'Jeannette Bohg', 'Animesh Garg'],
+    year: 2019,
+    venue: 'IEEE/RSJ Int. Conf. Intelligent Robots and Systems',
+    url: 'https://doi.org/10.1109/IROS40897.2019.8968201',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: Frontiers in Robotics and AI
+    // 11:1374999. 75th-percentile transient-contact force pain thresholds
+    // measured on 37 subjects; the biomechanical research basis for the
+    // impedance lab's contact-force reference line.
+    id: 'han-force-pain-2024',
+    title:
+      'Evaluation of force pain thresholds to ensure collision safety in worker-robot collaborative operations',
+    authors: ['Donghwan Han', 'Minki Park', 'Jinsoo Choi', 'Seungjae Shin', 'Rainer Behrens', 'Yongsik Rhim'],
+    year: 2024,
+    venue: 'Frontiers in Robotics and AI',
+    url: 'https://doi.org/10.3389/frobt.2024.1374999',
+    type: 'paper',
+  },
+  {
+    // Live as of 2026-08-20 (HTTP 200): the FCI documentation, including
+    // the 1 kHz torque-level control interface and the Cartesian impedance
+    // example controllers.
+    id: 'franka-fci-docs',
+    title: 'Franka Control Interface Documentation',
+    authors: ['Franka Robotics'],
+    year: 2026,
+    venue: 'Franka Robotics, as of 2026-08-20',
+    url: 'https://frankarobotics.github.io/docs/',
+    type: 'docs',
+  },
+  {
+    // Live as of 2026-08-20 (HTTP 200): URScript dynamic force control,
+    // the force-mode behavior exposed to UR programs.
+    id: 'ur-force-mode-docs',
+    title: 'URScript: Dynamic Force Control',
+    authors: ['Universal Robots'],
+    year: 2025,
+    venue: 'Universal Robots, as of 2026-08-20',
+    url: 'https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

@@ -164,6 +164,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'Default gains Kp 25.0, Ki 0.0 and Kd 3.0 leave the lab pole holding at release at +12.0 degrees with torque -5.2 N·m; angle and status stay frozen until Run or Push.',
   },
   {
+    component: 'ImpedanceContactLab',
+    file: 'components/interactive/impedance-contact-lab.tsx',
+    quantityNames: ['force', 'outcome'],
+    text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, contact force peaks at 43.2 N and settles at 1.6 N against the 255 N research-basis transient limit, and the outcome is task succeeded.',
+  },
+  {
     component: 'GraspWrenchLabObject',
     file: 'components/interactive/grasp-wrench-lab.tsx',
     quantityNames: ['contacts', 'cones'],

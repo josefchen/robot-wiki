@@ -27,6 +27,15 @@ import type { LinkCheckException } from '../lib/citation-links.ts';
 
 export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
   {
+    id: 'iso-ts-15066',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client (curl and node fetch, regardless of headers): a bot-wall, not link rot. The technical specification has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Browser check on 2026-08-20: the catalogue page for ISO/TS 15066:2016 loads and states the title "Robots and robotic devices — Collaborative robots", edition 1, matching the registry entry. Only the public catalogue metadata is cited; no clause or table from the paywalled document is quoted anywhere on the site.',
+    verifiedOn: '2026-08-20',
+  },
+  {
     id: 'llama-3-2024',
     covers: ['error'],
     reason:

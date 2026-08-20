@@ -1,6 +1,6 @@
 ---
 title: "Control"
-description: "PID, LQR, MPC, and whole-body QP: the feedback stack between a plan and a moving robot, with a live inverted-pendulum lab you can destabilize."
+description: "PID, LQR, MPC, whole-body QP, and the compliance half: impedance, admittance, and hybrid force control, with a live inverted-pendulum lab and a contact-force lab you can push past its limits."
 domain: classical
 slug: control
 order: 3
@@ -19,6 +19,17 @@ citations:
   - khatib-1987
   - sentis-khatib-2005
   - bd-spot-rl-2024
+  - hogan-1985
+  - raibert-craig-1981
+  - mason-1981
+  - salisbury-1980
+  - pratt-williamson-1995
+  - albu-schaffer-2003
+  - ott-2010
+  - franka-fci-docs
+  - ur-force-mode-docs
+  - iso-ts-15066
+  - han-force-pain-2024
 seeAlso:
   - "classical/motion-planning"
   - "classical/kinematics"
@@ -27,6 +38,7 @@ seeAlso:
 ---
 
 import { PendulumController } from '@/components/interactive/pendulum-controller';
+import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-lab';
 
 [Motion planning](/classical/motion-planning) decides where the robot should go. Control is what makes the robot actually go there, in a world where the model is slightly wrong, the payload shifted, and the floor is never quite flat. The tool is feedback: measure where the robot is, compare it to where it should be, and correct. That loop runs at every level of the stack, from the motor current loops deep inside an actuator to the whole-body torque controller of a humanoid, and it keeps running underneath whatever learned policy sits on top.
 
@@ -139,6 +151,20 @@ $$
 $$
 
 The decision variables are joint accelerations, torques, and contact forces at once; the equality constraint is the rigid-body dynamics itself; $\mathcal{F}$ is the friction cones that keep feet from slipping. Every task, hold the torso upright, track the swing foot, keep the head level, is a weighted row in the objective. This is <Term id="whole-body-control">whole-body control</Term> as it ships on humanoids today, and the [humanoid whole-body control](/rl-sim2real/humanoid-wbc) module covers how learned policies relate to it.
+
+## Impedance control: making contact a design variable
+
+Everything above regulates motion in free space. The half it leaves out is contact, and contact changes the objective itself. A stiff position controller is the right answer where the world is exactly where the model says it is, and the wrong one the moment it is not: drive a rigid arm into a surface 2 mm nearer than modeled, and the position error no longer measures a tracking mistake, it measures stored energy in a collision. The stiffness-versus-compliance tradeoff is therefore a control objective, not a gain choice. You decide, as part of specifying the task, whether the arm should push back like a spring or yield like a suspension, and the controller implements that decision at the contact.
+
+Hogan's <Term id="impedance-control">impedance control</Term> from 1985 is the founding formulation: stop commanding position or force and command the relationship between them instead, so the manipulator presents itself to the environment as a programmable mass-spring-damper whose stiffness and damping you choose <Cite id="hogan-1985" />. The argument underneath is a port argument. A contact is an interaction port whose conjugate variables are force and velocity, and a duality governs it: you may command motion or force at a contact, but not both independently, because the environment fixes the other one. Salisbury's active stiffness control, five years earlier, was already the special case: set the apparent Cartesian stiffness matrix per task axis <Cite id="salisbury-1980" />. <Term id="admittance-control">Admittance control</Term> is the dual assignment: measure force with a wrist sensor, command motion. Each has a natural home. A low-inertia, backdrivable direct-drive arm realizes an impedance directly, because torque commands are its native language; a stiff geared arm with a wrist force-torque sensor runs admittance control in software on top of its excellent position loop. Ott, Mukherjee and Nakamura's unified formulation shows the two are the same port with the causality flipped, and how to switch between them without losing passivity <Cite id="ott-2010" />.
+
+Where the task geometry allows it, the older and still dominant scheme is Mason's and Raibert and Craig's <Term id="hybrid-force-position-control">hybrid force/position control</Term>: decompose the contact into a task frame from its geometry, control force along the constrained axes and position along the free ones, never both on the same axis <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />. Polishing controls force normal to the surface and tracks a path tangent to it. The decomposition is a property of the task, which is both its strength, nothing is guessed, and its limit: someone must supply the contact geometry in advance.
+
+Then comes the hardware consequence, and it is the one that matters for everything the learned stack wants to do. A position-controlled, non-backdrivable geared arm cannot regulate contact force at all: it has no force channel, so the contact force is set by the position error, the gear ratio, and whatever the surface does, which is to say by nothing the controller commanded. A learned policy that outputs joint positions on that hardware is therefore structurally unable to perform the contact-rich tasks the [dexterity](/frontier/dexterity) module argues are the frontier; no amount of training data creates a force channel the actuator does not have. The alternatives are named in every contact-rich paper for a reason: torque-controlled arms, whose joint torques are commanded directly, and <Term id="series-elastic-actuator">series elastic actuation</Term>, which puts a deliberate spring between the gear and the load so the drivetrain has a mechanical force sensor and impact filter <Cite id="pratt-williamson-1995" />. Cartesian impedance controllers of the Albu-Schäffer line made torque-controlled flexible-joint arms practical for fine contact work <Cite id="albu-schaffer-2003" />, and the shipped evidence is vendor-level: Franka's interface exposes a 1 kHz impedance layer as the product's core feature <Cite id="franka-fci-docs" />, while Universal Robots, the archetype of the geared collaborative arm, implements force mode as an admittance loop in software <Cite id="ur-force-mode-docs" />. Backdrivability, in the end, is an actuator decision made long before any controller or policy runs, and <Term id="backdrivability">backdrivability</Term> is the property that decides which of these schemes the hardware can even attempt.
+
+The lab below makes the hardware claim tangible. Command a penetration depth, program the stiffness and damping of the contact impedance, and watch the peak force move against the object's crush limit and a transient contact-force limit stated from published biomechanical measurements <Cite id="han-force-pain-2024" /> rather than the paywalled ISO table <Cite id="iso-ts-15066" />. Then select the position-controlled arm and watch the sliders grey out: there is nothing to program, because the position loop has already decided the force.
+
+<ImpedanceContactLab className="my-6" />
 
 ## Where this meets the learned stack
 
