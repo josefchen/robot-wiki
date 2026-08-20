@@ -281,7 +281,11 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // chart drifting into skip fails loudly, and the skip CAP keeps a
   // future mass carve-out from passing silently (before the repair,
   // nothing stopped aFails from being empty because the comparability
-  // predicate ate the failures).
+  // predicate ate the failures). Re-measured after the cyclic-wrap
+  // exemption was deleted and the gait table moved to the quarter-cycle
+  // tick grid (gait passes by exact endpoint match): population=27
+  // pass=21 skip=6 fail=0, unchanged, because the gait chart moved from
+  // exemption-pass to exact-pass, not from pass to skip.
   expect(
     aGraded.length,
     'clause (a) graded population (measured 21 of 27 after the tick-extractor repair; 17 leaves margin for one honest new carve-out)',

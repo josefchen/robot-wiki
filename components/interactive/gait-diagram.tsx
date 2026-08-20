@@ -440,7 +440,7 @@ export function GaitDiagram({
           { header: 'feet down', numeric: true },
           { header: 'feet striking', numeric: false },
         ]}
-        rows={[0, 0.2, 0.4, 0.6, 0.8].map((sample) => {
+        rows={[0, 0.25, 0.5, 0.75, 1].map((sample) => {
           const down = stanceLegs(gait, sample)
             .map((id) => LEGS.find((l) => l.id === id)!.short)
             .join(' + ');
@@ -467,7 +467,9 @@ export function GaitDiagram({
               )
               .join(', ')}
             ); at the current phase of {formatPhase(phase)} the feet down are{' '}
-            {stanceText}.
+            {stanceText}. The sampled table carries the rendered tick grid
+            exactly: rows at 0%, 25%, 50%, 75% and 100%, the last row being
+            the same instant as the cycle start.
           </>
         }
       />

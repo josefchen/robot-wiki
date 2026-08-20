@@ -161,6 +161,48 @@ describe('GaitDiagram', () => {
     expect(phaseText()).toBe('10%');
   });
 
+  it('samples the disclosure table on the rendered tick grid, endpoints included', async () => {
+    // VAL-EDU-023 clause (a): the table must carry the plotted range's
+    // endpoints, so it samples the rendered tick set [0, 0.25, 0.5, 0.75,
+    // 1] exactly rather than a 20% grid that stops at 80%. Every cell
+    // must be non-empty (VAL-EDU-028), and the closing 100% row must
+    // equal phase 0 (the cycle wraps: 100% labels the same instant).
+    const user = userEvent.setup();
+    render(<GaitDiagram />);
+    const details = screen.getByText('Footfall timing for the walk', { exact: false }).closest('div')!.querySelector('details[data-chart-data]') as HTMLElement;
+    (details as HTMLDetailsElement).open = true;
+    const rows = Array.from(details.querySelectorAll('tbody tr'));
+    expect(rows.map((r) => r.querySelector('th')!.textContent)).toEqual([
+      '0%', '25%', '50%', '75%', '100%',
+    ]);
+    for (const row of rows) {
+      for (const cell of Array.from(row.querySelectorAll('th,td'))) {
+        expect((cell.textContent ?? '').trim().length).toBeGreaterThan(0);
+      }
+    }
+    // Walk: the quarter grid lands rows exactly on the footfall offsets
+    // (LH 0, LF 0.25, RH 0.5, RF 0.75), so the strike column fires on
+    // every row except the closing endpoint.
+    const strikes = rows.map((r) => r.querySelectorAll('td')[1].textContent);
+    expect(strikes).toEqual(['LH', 'LF', 'RH', 'RF', 'none']);
+    // The closing 100% row carries phase 0's stance.
+    expect(rows[4].querySelectorAll('td')[0].textContent).toBe(
+      rows[0].querySelectorAll('td')[0].textContent,
+    );
+    // Pronk keeps every cell non-empty on the same grid (airborne at
+    // mid-cycle prints "none", which is a value, not an empty cell).
+    await user.click(gaitButton(/pronk/i));
+    const pronkRows = Array.from(details.querySelectorAll('tbody tr'));
+    expect(pronkRows.map((r) => r.querySelector('th')!.textContent)).toEqual([
+      '0%', '25%', '50%', '75%', '100%',
+    ]);
+    for (const row of pronkRows) {
+      for (const cell of Array.from(row.querySelectorAll('th,td'))) {
+        expect((cell.textContent ?? '').trim().length).toBeGreaterThan(0);
+      }
+    }
+  });
+
   it('reset returns to the default gait and phase after interaction', async () => {
     const user = userEvent.setup();
     render(<GaitDiagram />);

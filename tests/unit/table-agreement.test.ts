@@ -233,19 +233,63 @@ describe('clause (a)', () => {
     };
     expect(checkClauseA(snap).status).toBe('pass');
   });
-  it('wraps the cyclic 100% phase tick', () => {
-    const snap: ChartSnapshot = {
+  it('passes the gait quarter-cycle grid by exact endpoint match, with no cyclic exemption', () => {
+    // The gait table samples the rendered tick set [0, 0.25, 0.5, 0.75, 1]
+    // exactly, so clause (a) holds by the matching branch. The old
+    // cyclic-wrap branch (rewriting the 100% tick to the first row) is
+    // deleted: the contract carries no cyclic exemption, and the 20%-grid
+    // table it used to rescue now fails ("table spans [0, 80] but ticks
+    // span [0, 100]").
+    const quarter: ChartSnapshot = {
       route: '/rl-sim2real/legged-locomotion/',
       desc: '',
       headers: ['cycle phase', 'feet down'],
       rows: [
         { label: '0%', cells: ['a'] },
-        { label: '20%', cells: ['b'] },
-        { label: '80%', cells: ['c'] },
+        { label: '25%', cells: ['b'] },
+        { label: '50%', cells: ['c'] },
+        { label: '75%', cells: ['d'] },
+        { label: '100%', cells: ['e'] },
       ],
       ticks: ['0%', '25%', '50%', '75%', '100%'],
     };
-    expect(checkClauseA(snap).status).toBe('pass');
+    expect(checkClauseA(quarter).status).toBe('pass');
+    const legacy20: ChartSnapshot = {
+      ...quarter,
+      rows: [
+        { label: '0%', cells: ['a'] },
+        { label: '20%', cells: ['b'] },
+        { label: '80%', cells: ['c'] },
+      ],
+    };
+    const a = checkClauseA(legacy20);
+    expect(a.status).toBe('fail');
+    expect(a.detail).toContain('ticks span [0, 100]');
+  });
+  it('fails an over-wide table range under the symmetric containment check', () => {
+    // The planted-defect shape from the live DOM mutation against
+    // /rl-sim2real/sim2real-transfer/: last row pushed to 3.00 against
+    // ticks that stop at 1.50. The old one-sided inside check
+    // (tmin >= first && tmax <= last) passed this unconditionally; the
+    // symmetric form fails it, because the contract requires the rows to
+    // carry "the endpoint x-values of the plotted range".
+    const snap: ChartSnapshot = {
+      route: '/rl-sim2real/sim2real-transfer/',
+      desc: '',
+      headers: ['mu'],
+      rows: [
+        { label: '0.20', cells: ['a'] },
+        { label: '0.50', cells: ['b'] },
+        { label: '0.80', cells: ['c'] },
+        { label: '1.10', cells: ['d'] },
+        { label: '3.00', cells: ['e'] },
+      ],
+      ticks: ['0.20', '0.50', '0.80', '1.10', '1.50'],
+      axisNote: ['ground friction coefficient mu'],
+    };
+    const a = checkClauseA(snap);
+    expect(a.status).toBe('fail');
+    expect(a.detail).toContain('ticks span [0.2, 1.5]');
   });
   it('fails when a rendered tick lies outside the table range', () => {
     const snap: ChartSnapshot = {

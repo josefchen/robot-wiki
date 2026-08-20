@@ -71,7 +71,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GaitDiagram',
     file: 'components/interactive/gait-diagram.tsx',
     quantityNames: ['feet', 'duty'],
-    text: 'In the walk, always 3 feet down at duty factor 0.75, and the footfall offsets around the cycle are (LH at 0%, LF at 25%, RH at 50%, RF at 75%); at the current phase of 0% the feet down are RF + LH + RH.',
+    text: 'In the walk, always 3 feet down at duty factor 0.75, and the footfall offsets around the cycle are (LH at 0%, LF at 25%, RH at 50%, RF at 75%); at the current phase of 0% the feet down are RF + LH + RH. The sampled table carries the rendered tick grid exactly: rows at 0%, 25%, 50%, 75% and 100%, the last row being the same instant as the cycle start.',
   },
   {
     component: 'TrainingTimeChart',

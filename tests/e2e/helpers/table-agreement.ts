@@ -321,10 +321,6 @@ export function checkClauseA(chart: ChartSnapshot): ClauseAResult {
     .map((t) => parseNumericToken(t))
     .filter((n): n is number => n != null);
   const numericRows = chart.rows.filter((_, i) => rowXs[i] != null);
-  const cyclic =
-    chart.ticks.some((t) => t.trim() === '0%') &&
-    chart.ticks.some((t) => t.trim() === '100%') &&
-    chart.rows.every((r) => r.label.trim().endsWith('%'));
   if (numericRows.length < 2 || tickNums.length < 2) {
     return {
       status: 'skip',
@@ -332,7 +328,7 @@ export function checkClauseA(chart: ChartSnapshot): ClauseAResult {
     };
   }
   const qty = axisQuantityComparable(chart);
-  if (!cyclic && !qty.ok) {
+  if (!qty.ok) {
     return {
       status: 'skip',
       detail: `non-comparable axis: ${qty.why} (rows x=${rowXs.join(',')} ticks=${tickNums.join(',')})`,
@@ -341,14 +337,21 @@ export function checkClauseA(chart: ChartSnapshot): ClauseAResult {
   const xs = rowXs.filter((x): x is number => x != null);
   const first = xs[0];
   const last = xs[xs.length - 1];
-  // On a cyclic phase axis the closing 100% tick labels the same phase as
-  // the 0% first row, so it is wrapped to 0 for the range check.
-  const ticks = cyclic ? tickNums.map((t) => (t === Math.max(...tickNums) && t > last ? first : t)) : tickNums;
-  const tmin = Math.min(...ticks);
-  const tmax = Math.max(...ticks);
+  const tmin = Math.min(...tickNums);
+  const tmax = Math.max(...tickNums);
   const eps = 1e-9;
   const exact = Math.abs(first - tmin) < eps && Math.abs(last - tmax) < eps;
-  const inside = tmin >= first - eps && tmax <= last + eps;
+  // Symmetric containment: the rows must lie inside the tick range AND
+  // no rendered tick may lie outside the row range. The old one-sided
+  // form (tmin >= first && tmax <= last) let a table overstate the
+  // plotted range (last row 3.00 against ticks ending 1.50) pass
+  // unconditionally, which the contract's "carry the endpoint x-values
+  // of the plotted range" forbids.
+  const inside =
+    tmin >= first - eps &&
+    tmax <= last + eps &&
+    first >= tmin - eps &&
+    last <= tmax + eps;
   if (exact || inside) {
     return { status: 'pass', detail: `rows [${first},${last}] ticks [${tmin},${tmax}]` };
   }
