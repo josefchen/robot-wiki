@@ -31,12 +31,12 @@ export const DOMAIN_META: Record<Domain, { name: string; description: string }> 
   'world-models': {
     name: 'World Models',
     description:
-      'Learned simulators, action-conditioned video prediction, and the JEPA counterargument.',
+      'Learned simulators and action-conditioned video prediction, with the JEPA counterargument.',
   },
   'data-hardware': {
     name: 'Data, Hardware & Evaluation',
     description:
-      'The embodied data bottleneck, the machines themselves, and the measurement crisis.',
+      'The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.',
   },
   classical: {
     name: 'Classical Foundations',
@@ -193,7 +193,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'generative-sim',
     'Generative Simulation',
-    'RoboGen, Holodeck, and RoboCasa: generated content inside real physics engines beats generated dynamics.',
+    'Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.',
   ],
   [
     'data-hardware',
@@ -205,7 +205,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'data-hardware',
     'datasets',
     'Major Datasets',
-    'Open X-Embodiment, DROID, BridgeData V2, AgiBot World, and RoboMIND compared.',
+    'Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.',
   ],
   [
     'data-hardware',
@@ -223,7 +223,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'data-hardware',
     'evaluation-crisis',
     'The Evaluation Crisis',
-    'N-of-10 trials, unreported variance, and why 95% per-step success is unusable at 30 steps.',
+    'Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.',
   ],
   [
     'classical',
