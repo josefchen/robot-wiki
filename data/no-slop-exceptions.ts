@@ -28,6 +28,26 @@ import type { SlopQuotationException } from '../lib/no-slop.ts';
 
 export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
   {
+    id: 'hogan-1985',
+    quote:
+      'Impedance Control: An Approach to Manipulation: Part I—Theory',
+    reason:
+      "Published title of Hogan's 1985 ASME JDSMC paper (Part I of the three-part monograph), rendered verbatim in the control module's References bibliography. The em dash is the journal's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Crossref record for doi:10.1115/1.3140702 returns the title with U+2014 exactly where the registry entry has it (checked 2026-08-20 during live-source verification for the citation entry).',
+    verifiedOn: '2026-08-20',
+  },
+  {
+    id: 'iso-ts-15066',
+    quote:
+      'ISO/TS 15066:2016, Robots and robotic devices — Collaborative robots',
+    reason:
+      "The official title of the technical specification as printed in ISO's public catalogue, rendered verbatim in the control module's References entry. The en dash is ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 62996 (loaded in a browser on 2026-08-20; iso.org bot-walls non-browser clients, see the link-check exception) states the title 'Robots and robotic devices — Collaborative robots', edition 1, 2016.",
+    verifiedOn: '2026-08-20',
+  },
+  {
     id: 'brooks-better-lesson-2019',
     quote:
       'we can not afford to put even the results of machine learning (let alone the actual learning) on many of our small robots–self driving cars require about 2,500 Watts of power for computation–a human brain only requires 20 Watts',
