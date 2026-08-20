@@ -57,6 +57,16 @@ describe('parseNumericToken', () => {
     expect(parseNumericToken('DROID')).toBeNull();
     expect(parseNumericToken('T(T+1)/2')).toBeNull();
   });
+  it('parses prefixed and suffixed tick labels', () => {
+    // /manipulation/vla-models/ renders "t=0 t=5 t=10 t=15"; the old
+    // leading-digit-only parser yielded zero ticks there.
+    expect(parseNumericToken('t=0')).toBe(0);
+    expect(parseNumericToken('t=15')).toBe(15);
+    // /manipulation/rl-finetuning/ renders "0 s 10 s ..."; only "0 s"
+    // parsed before, collapsing the tick set to one.
+    expect(parseNumericToken('0 s')).toBe(0);
+    expect(parseNumericToken('40 s')).toBe(40);
+  });
 });
 
 describe('splitClauses', () => {
@@ -79,6 +89,67 @@ describe('extractXTicks', () => {
     const ticks = extractXTicks(texts, [56, 254, 452, 560]);
     expect(ticks).toEqual(['1k', '10k']);
   });
+  it('extracts ticks without any gridlines (hand-rolled SVGs)', () => {
+    // /manipulation/bc-foundations/ draws no <line> gridlines; the old
+    // gate dropped every tick and skipped all of them.
+    const texts = [
+      { content: 'accumulated deviation vs step', x: 56, y: 10 },
+      { content: '1139', x: 48, y: 115 },
+      { content: '2277', x: 48, y: 82 },
+      { content: '3416', x: 48, y: 49 },
+      { content: '4555', x: 48, y: 16 },
+      { content: '0', x: 56, y: 162 },
+      { content: '120', x: 340, y: 162 },
+      { content: '240', x: 624, y: 162 },
+    ];
+    expect(extractXTicks(texts, [])).toEqual(['0', '120', '240']);
+  });
+  it('never mistakes the axis title for ticks', () => {
+    // /rl-sim2real/parallel-sim-rl/: ticks at y=330, title "parallel
+    // environments (log2)" at y=352. The old lowest-text anchor admitted
+    // only the title.
+    const texts = [
+      { content: '1 min', x: 56, y: 319 },
+      { content: '10 min', x: 56, y: 198 },
+      { content: '64', x: 64, y: 330 },
+      { content: '256', x: 204, y: 330 },
+      { content: '1,024', x: 344, y: 330 },
+      { content: '4,096', x: 484, y: 330 },
+      { content: '16,384', x: 624, y: 330 },
+      { content: 'parallel environments (log2)', x: 344, y: 352 },
+    ];
+    expect(extractXTicks(texts, [])).toEqual(['64', '256', '1,024', '4,096', '16,384']);
+  });
+  it('keeps end-anchored ticks by attr x, not bbox center', () => {
+    // "16,384" is anchored end at the plot edge: attr x=624, bbox center
+    // ~606. Grading by bbox centers drops it (measured pass=4 skip=23);
+    // attr x keeps it.
+    const texts = [
+      { content: '0', x: 48, y: 330 },
+      { content: '50', x: 340, y: 330 },
+      { content: '100', x: 624, y: 330 },
+      { content: 'steps', x: 624, y: 350 },
+    ];
+    expect(extractXTicks(texts, [48, 340, 624])).toEqual(['0', '50', '100']);
+  });
+  it('extracts prefixed and suffixed tick labels', () => {
+    const tPrefix = [
+      { content: 'Δx', x: 48, y: 28 },
+      { content: 't=0', x: 56, y: 238 },
+      { content: 't=5', x: 245, y: 238 },
+      { content: 't=10', x: 434, y: 238 },
+      { content: 't=15', x: 624, y: 238 },
+    ];
+    expect(extractXTicks(tPrefix, [])).toEqual(['t=0', 't=5', 't=10', 't=15']);
+    const tSuffix = [
+      { content: '0 s', x: 44, y: 200 },
+      { content: '10 s', x: 210, y: 200 },
+      { content: '20 s', x: 376, y: 200 },
+      { content: '30 s', x: 542, y: 200 },
+      { content: '40 s', x: 708, y: 200 },
+    ];
+    expect(extractXTicks(tSuffix, [])).toEqual(['0 s', '10 s', '20 s', '30 s', '40 s']);
+  });
 });
 
 describe('clause (a)', () => {
@@ -89,11 +160,78 @@ describe('clause (a)', () => {
     const snap: ChartSnapshot = {
       route: '/manipulation/realtime-execution/',
       desc: '',
-      headers: ['model size', 'inference'],
+      headers: ['model size'],
       rows: [{ label: '0.5B', cells: ['9.8 ms'] }, { label: '9.1B', cells: ['178 ms'] }],
       ticks: ['0', '40', '80', '120', '160', '200', '240', '280'],
+      axisNote: ['time (ms)'],
     };
     expect(checkClauseA(snap).status).toBe('skip');
+  });
+  it('skips when the axis unit differs from the row quantity (ms vs tick index)', () => {
+    // /manipulation/realtime-execution/ panel-synchronous: axis in ms,
+    // table x in ticks (TICK_MS=20). Same variable, different unit the
+    // gate cannot convert: honest non-comparable.
+    const snap: ChartSnapshot = {
+      route: '/manipulation/realtime-execution/',
+      desc: '',
+      headers: ['tick'],
+      rows: [{ label: '0', cells: ['a'] }, { label: '29', cells: ['b'] }],
+      ticks: ['0', '200', '400', '580'],
+      axisNote: ['ms'],
+    };
+    expect(checkClauseA(snap).status).toBe('skip');
+  });
+  it('skips categorical rows against numeric ticks', () => {
+    // /data-hardware/data-bottleneck/: rows are dataset names, ticks are
+    // log decades. Non-comparable by population, not by coincidence.
+    const snap: ChartSnapshot = {
+      route: '/data-hardware/data-bottleneck/',
+      desc: '',
+      headers: ['dataset'],
+      rows: [{ label: 'DROID', cells: ['350 h'] }, { label: 'GPT-3', cells: ['300B tokens'] }],
+      ticks: ['10⁰', '10¹', '10²', '10³'],
+      axisNote: ['demonstration hours (log)'],
+    };
+    expect(checkClauseA(snap).status).toBe('skip');
+  });
+  it('grades an off-grid table whose range excludes every tick: FAIL, not skip', () => {
+    // The planted-defect shape from the live DOM mutation against
+    // /rl-sim2real/sim2real-transfer/ chart 0: rows moved off-grid to
+    // 0.55..0.95 against a rendered axis of 0.20..1.50. The old
+    // shared-non-zero-tick comparability predicate returned
+    // "non-comparable axis"; the quantity-based one grades and fails,
+    // because comparability is a property of the axis, not of the sample
+    // points landing on tick marks.
+    const snap: ChartSnapshot = {
+      route: '/rl-sim2real/sim2real-transfer/',
+      desc: '',
+      headers: ['mu'],
+      rows: [
+        { label: '0.55', cells: ['a'] },
+        { label: '0.65', cells: ['b'] },
+        { label: '0.75', cells: ['c'] },
+        { label: '0.85', cells: ['d'] },
+        { label: '0.95', cells: ['e'] },
+      ],
+      ticks: ['0.20', '0.50', '0.80', '1.10', '1.50'],
+      axisNote: ['ground friction coefficient mu'],
+    };
+    const a = checkClauseA(snap);
+    expect(a.status).toBe('fail');
+    expect(a.detail).toContain('ticks span [0.2, 1.5]');
+  });
+  it('passes a same-quantity axis even when no tick equals any row', () => {
+    // Same quantity (seconds on both sides), rows between the ticks: the
+    // endpoint rule (rows inside the tick range) is what grades it, not a
+    // numeric coincidence.
+    const snap: ChartSnapshot = {
+      route: '/x/',
+      desc: '',
+      headers: ['time (s)'],
+      rows: [{ label: '0 s', cells: ['1'] }, { label: '40 s', cells: ['2'] }],
+      ticks: ['0 s', '10 s', '20 s', '30 s', '40 s'],
+    };
+    expect(checkClauseA(snap).status).toBe('pass');
   });
   it('wraps the cyclic 100% phase tick', () => {
     const snap: ChartSnapshot = {

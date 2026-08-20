@@ -26,8 +26,12 @@
  *   recorded unattached, not graded; the attachment grammar is what makes
  *   the comparison per-quantity and per-x rather than any-cell-in-table.
  * - Clause (a) is only graded where tick labels and row labels measure
- *   the same quantity, detected by a shared non-zero exact value (or a
- *   cyclic 0%-100% phase axis). Charts whose SVG x-axis is a different
+ *   the same quantity, detected from UNITS and the axis annotation
+ *   (shared unit stem on ticks/axis note vs rows/row header), never from
+ *   numeric coincidence between a tick and a row: "some tick equals some
+ *   row" conflated "same axis" with "the sample points land on tick
+ *   marks" and preferentially swallowed exactly the off-grid tables the
+ *   clause exists to fail. Charts whose SVG x-axis is a different
  *   quantity from the table's row axis (latency ticks against a
  *   model-size table) are recorded non-comparable.
  */
@@ -45,6 +49,12 @@ export interface ChartSnapshot {
   rows: TableRow[];
   /** X-axis tick labels extracted from the described SVG. */
   ticks: string[];
+  /**
+   * Non-numeric axis annotation captured with the ticks (the axis title
+   * or unit word). Comparability is decided from this quantity evidence,
+   * never from numeric coincidence between a tick and a row value.
+   */
+  axisNote?: string[];
 }
 
 export interface SliderInfo {
@@ -64,14 +74,30 @@ const SUFFIX_MULT: Record<string, number> = { k: 1e3, m: 1e6, b: 1e9 };
  * number ("DROID", "T(T+1)/2").
  */
 /**
- * Parse a numeric token that may trail a unit word: "44% peak" as an
- * x-phrase is not needed here; this parses "3.6" from "3.6 h" style
- * labels only. Kept for prose x-phrases like "at 64 envs" where the unit
- * word follows the number on the row label too.
+ * Unit word a numeric label can trail/carry, used for quantity
+ * comparability: "0 s" (seconds), "t=0" (steps/time), "30 steps".
+ * Pure dimension words ("vs", "log") mean no unit.
  */
+const UNIT_WORDS = new Set([
+  's', 'sec', 'secs', 'second', 'seconds', 'ms', 'min', 'mins', 'h', 'hr',
+  'hrs', 'hours', 'hz', 'step', 'steps', 'tick', 'ticks', 'k', 'env',
+  'envs', 'episode', 'episodes', 'env.', 'µ', 'mu', 'x',
+]);
+
+/** The unit of a tick label or row label, or null for a bare number. */
+export function labelUnit(raw: string): string | null {
+  const s = raw.trim().replace(/,/g, '');
+  const m = s.match(/^(?:[A-Za-z]=)?-?\d+(?:\.\d+)?([kKmMbB])?\s*(.*)$/);
+  if (!m) return null;
+  if (m[1]) return null; // 1k/1M magnitude suffixes carry no unit word
+  const rest = m[2].trim();
+  if (!rest) return null;
+  const first = rest.split(/[\s(/]+/)[0].replace(/[.,;:)]+$/, '');
+  return UNIT_WORDS.has(first.toLowerCase()) ? first.toLowerCase() : null;
+}
 export function parseNumericToken(raw: string): number | null {
   const s = raw.trim().replace(/,/g, '');
-  const m = s.match(/^(-?\d+(?:\.\d+)?)([kKmMbB])?/);
+  const m = s.match(/^(?:[A-Za-z]=)?(-?\d+(?:\.\d+)?)([kKmMbB])?/);
   if (!m) return null;
   const mult = m[2] ? SUFFIX_MULT[m[2].toLowerCase()] : 1;
   return parseFloat(m[1]) * mult;
@@ -142,22 +168,88 @@ export function cellTokenInReadout(cell: string, readout: string): boolean {
 }
 
 /**
- * X-axis tick labels: digit-bearing SVG texts in the bottom label cluster
- * whose x coordinate matches a vertical gridline/tick line. The line match
- * is what excludes y-axis labels (they sit left of the plot, on no
- * vertical line) and in-plot annotations.
+ * X-axis tick labels, located STRUCTURALLY rather than by lowest text.
+ *
+ * The tick row is the row of numeric texts with the largest y whose
+ * members are horizontally SPREAD (x range wider than 3x their gap), which
+ * is what excludes y-axis stacks (all near one x) and legend rows. The
+ * axis title (largest y, single text) never qualifies, so it can neither
+ * be mistaken for ticks (the parallel-sim-rl failure, where maxY anchored
+ * on the title) nor displace them. Hand-rolled SVGs without <line>
+ * gridlines are graded: gridlines only refine the row when present. The
+ * row is NOT required to sit at the extreme bottom, so a title below the
+ * ticks does not push them out of the band.
  */
 export function extractXTicks(
-  texts: Array<{ content: string; x: number; y: number }>,
+  texts: Array<{ content: string; x: number; y: number; anchor?: string }>,
   verticalLineXs: number[],
 ): string[] {
-  const digit = texts.filter((t) => /\d/.test(t.content));
-  if (digit.length === 0) return [];
-  const maxY = Math.max(...digit.map((t) => t.y));
-  const bottom = digit.filter((t) => t.y >= maxY - 14);
-  return bottom
-    .filter((t) => verticalLineXs.some((lx) => Math.abs(lx - t.x) <= 2.5))
+  return extractXAxis(texts, verticalLineXs).ticks;
+}
+
+export interface XAxis {
+  ticks: string[];
+  /**
+   * Non-numeric texts structurally adjacent to the tick row (same y, or
+   * up to 24px below it): the axis title and unit annotation ("steps",
+   * "time (ms)", "ms"). This is the quantity evidence comparability is
+   * decided from, instead of numeric coincidence between a tick and a
+   * row value.
+   */
+  note: string[];
+}
+
+export function extractXAxis(
+  texts: Array<{ content: string; x: number; y: number; anchor?: string }>,
+  verticalLineXs: number[],
+): XAxis {
+  const numeric = texts.filter((t) => parseNumericToken(t.content) != null);
+  if (numeric.length === 0) return { ticks: [], note: [] };
+  // Group by y (SVG rows share an exact y). Only rows with >= 2 members
+  // can be tick rows; a single numeric text is never an x tick set.
+  const byY = new Map<number, typeof numeric>();
+  for (const t of numeric) {
+    const row = byY.get(t.y) ?? [];
+    row.push(t);
+    byY.set(t.y, row);
+  }
+  const candidates = Array.from(byY.entries())
+    .filter(([, row]) => row.length >= 2)
+    .map(([y, row]) => {
+      const xs = row.map((t) => t.x).sort((a, b) => a - b);
+      const span = xs[xs.length - 1] - xs[0];
+      const minGap = Math.min(...xs.slice(1).map((x, i) => x - xs[i]));
+      return { y, row, span, minGap };
+    })
+    // Tick rows are spread; y-axis stacks and legend columns are tight.
+    .filter((c) => c.span > 30 && c.minGap > 8);
+  if (candidates.length === 0) return { ticks: [], note: [] };
+  candidates.sort((a, b) => b.y - a.y);
+  let chosen = candidates[0];
+  // Gridline refinement when the chart draws vertical lines: prefer the
+  // candidate row whose members sit on them (end-anchored ticks keep
+  // their attr x against a line at the plot edge; y-axis rows never do).
+  if (verticalLineXs.length >= 2) {
+    const onLines = (r: typeof chosen.row) =>
+      r.filter((t) => verticalLineXs.some((lx) => Math.abs(lx - t.x) <= 2.5)).length;
+    const refined = candidates
+      .filter((c) => onLines(c.row) >= 2)
+      .sort((a, b) => b.y - a.y);
+    if (refined.length > 0) chosen = refined[0];
+  }
+  const ticks = chosen.row
+    .slice()
+    .sort((a, b) => a.x - b.x)
     .map((t) => t.content);
+  const note = texts
+    .filter(
+      (t) =>
+        parseNumericToken(t.content) == null &&
+        t.y >= chosen.y - 0.5 &&
+        t.y <= chosen.y + 24,
+    )
+    .map((t) => t.content);
+  return { ticks, note };
 }
 
 /* ------------------------------------------------------------------ */
@@ -167,6 +259,60 @@ export function extractXTicks(
 export interface ClauseAResult {
   status: 'pass' | 'skip' | 'fail';
   detail: string;
+}
+
+/**
+ * Do the ticks and the table rows measure the SAME QUANTITY? Decided
+ * from units and axis notes, never from numeric coincidence: "some tick
+ * equals some row" conflates "same axis" with "the sample points happen
+ * to land on tick marks", and because wrong endpoints tend to mean
+ * off-grid rows, that predicate preferentially swallowed exactly the
+ * charts clause (a) exists to fail.
+ *
+ * Axis units come from the tick labels ("0 s") and the axis note
+ * ("time (ms)", "steps", "chunk size k"); row-side units from the row
+ * labels ("0 steps") and the row-header column ("time (s)"). An axis
+ * with NO unit evidence is treated as comparable (both sides bare
+ * numbers). An axis with units is comparable only when the row side
+ * carries the same unit stem ("steps" ~ "step"): ms ticks against a
+ * model-size table, or ms ticks against a tick-index table, are a
+ * different quantity (or the same one in a unit the gate cannot
+ * convert) and are skipped as non-comparable.
+ */
+function stem(unit: string): string {
+  if (unit === 'ms') return 'ms'; // milliseconds are not the plural of "m"
+  return unit.replace(/s$/, '');
+}
+
+function axisQuantityComparable(chart: ChartSnapshot): { ok: boolean; why: string } {
+  const rowHeader = chart.headers[0] ?? '';
+  const headerLower = rowHeader.toLowerCase();
+  const headerUnits = [...UNIT_WORDS].filter((u) =>
+    new RegExp(`(^|[^a-z])${u}([^a-z]|$)`).test(headerLower),
+  );
+  const rowUnits = chart.rows
+    .map((r) => labelUnit(r.label))
+    .filter((u): u is string => u != null);
+  const tickUnits = chart.ticks
+    .map((t) => labelUnit(t))
+    .filter((u): u is string => u != null);
+  const note = (chart.axisNote ?? []).join(' ').toLowerCase();
+  const noteUnits = [...UNIT_WORDS].filter((u) =>
+    new RegExp(`(^|[^a-z])${u}([^a-z]|$)`).test(note),
+  );
+
+  const axisStems = new Set([...tickUnits, ...noteUnits].map(stem));
+  if (axisStems.size === 0) {
+    return { ok: true, why: 'no unit evidence on the axis; numeric rows' };
+  }
+  const rowStems = new Set([...rowUnits, ...headerUnits].map(stem));
+  for (const a of axisStems) {
+    if (rowStems.has(a)) return { ok: true, why: `shared unit stem "${a}"` };
+  }
+  return {
+    ok: false,
+    why: `axis unit [${[...axisStems].join(',')}] absent from rows/header "${rowHeader}"`,
+  };
 }
 
 export function checkClauseA(chart: ChartSnapshot): ClauseAResult {
@@ -179,14 +325,17 @@ export function checkClauseA(chart: ChartSnapshot): ClauseAResult {
     chart.ticks.some((t) => t.trim() === '0%') &&
     chart.ticks.some((t) => t.trim() === '100%') &&
     chart.rows.every((r) => r.label.trim().endsWith('%'));
-  const sharedNonZero = tickNums.some(
-    (t) => t !== 0 && rowXs.some((r) => r != null && r === t),
-  );
-  void sharedNonZero;
-  if (numericRows.length < 2 || tickNums.length < 2 || !(sharedNonZero || cyclic)) {
+  if (numericRows.length < 2 || tickNums.length < 2) {
     return {
       status: 'skip',
-      detail: `non-comparable axis (rows x=${rowXs.join(',')} ticks=${tickNums.join(',')})`,
+      detail: `non-comparable axis (rows x=${rowXs.join(',')} ticks=${chart.ticks.join(',')})`,
+    };
+  }
+  const qty = axisQuantityComparable(chart);
+  if (!cyclic && !qty.ok) {
+    return {
+      status: 'skip',
+      detail: `non-comparable axis: ${qty.why} (rows x=${rowXs.join(',')} ticks=${tickNums.join(',')})`,
     };
   }
   const xs = rowXs.filter((x): x is number => x != null);

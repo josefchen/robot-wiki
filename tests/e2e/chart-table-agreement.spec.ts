@@ -7,6 +7,7 @@ import {
   cellTokenInReadout,
   checkClauseA,
   checkClauseB,
+  extractXAxis,
   inferSliderTransform,
   parseNumericToken,
   sliderMatchesRowAxis,
@@ -80,6 +81,7 @@ interface CapturedChart extends ChartSnapshot {
   aDetail: string;
   bViolations: string[];
   bRecords: Array<{ token: string; row: string; outcome: string }>;
+  axisNote: string[];
 }
 
 /** A clause (c) probe record, with per-column failure detail. */
@@ -103,7 +105,8 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
     desc: string;
     headers: string[];
     rows: Array<{ label: string; cells: string[] }>;
-    ticks: string[];
+    texts: Array<{ content: string; x: number; y: number }>;
+    vLineXs: number[];
     sliders: Array<{
       index: number;
       label: string;
@@ -114,7 +117,7 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
     }>;
     sliderDefaults: string[];
   }> => {
-    const digitTextsOf = (svg: Element) =>
+    const textsOf = (svg: Element) =>
       Array.from(svg.querySelectorAll('text')).map((t) => ({
         content: (t.textContent ?? '').trim(),
         x: parseFloat(t.getAttribute('x') ?? '0'),
@@ -129,7 +132,8 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
       desc: string;
       headers: string[];
       rows: Array<{ label: string; cells: string[] }>;
-      ticks: string[];
+      texts: Array<{ content: string; x: number; y: number }>;
+      vLineXs: number[];
       sliders: Array<{
         index: number;
         label: string;
@@ -164,7 +168,8 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
           rows: Array.from(d.querySelectorAll('tbody tr')).map((tr) =>
             Array.from(tr.querySelectorAll('th,td')).map((c) => (c.textContent ?? '').trim()),
           ).map((cells) => ({ label: cells[0] ?? '', cells: cells.slice(1) })),
-          ticks: svg ? extractInPage(digitTextsOf(svg), vLinesOf(svg)) : [],
+          texts: svg ? textsOf(svg) : [],
+          vLineXs: svg ? vLinesOf(svg) : [],
           sliders: sliders.map((r, i) => ({
             index: i,
             label: r.getAttribute('aria-label') ?? '',
@@ -175,24 +180,24 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
           })),
           sliderDefaults: sliders.map((r) => r.value),
         });
-        // expose the tick extractor (pure fn is not serializable across
-        // evaluate, so a copy runs in page; see helper for the tested one)
-        function extractInPage(
-          texts: Array<{ content: string; x: number; y: number }>,
-          vLines: number[],
-        ): string[] {
-          const digit = texts.filter((t) => /\d/.test(t.content));
-          if (!digit.length) return [];
-          const maxY = Math.max(...digit.map((t) => t.y));
-          return digit
-            .filter((t) => t.y >= maxY - 14)
-            .filter((t) => vLines.some((lx) => Math.abs(lx - t.x) <= 2.5))
-            .map((t) => t.content);
-        }
       });
     return out;
   });
-  return raw.map((c) => ({ ...c, aDetail: '', bViolations: [], bRecords: [] }));
+  // Tick extraction runs in Node against the tested helper (the pure fn
+  // is not serializable across evaluate; the old in-page copy drifted
+  // from the tested one, which is how the round-1 gate disagreed with
+  // the round-2 probe extractor without anyone noticing).
+  return raw.map((c) => {
+    const axis = extractXAxis(c.texts, c.vLineXs);
+    return {
+      ...c,
+      ticks: axis.ticks,
+      axisNote: axis.note,
+      aDetail: '',
+      bViolations: [],
+      bRecords: [],
+    };
+  });
 }
 
 test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ page }) => {
@@ -201,7 +206,14 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(150);
     for (const c of await captureCharts(page)) {
-      const snap: ChartSnapshot = { route, desc: c.desc, headers: c.headers, rows: c.rows, ticks: c.ticks };
+      const snap: ChartSnapshot = {
+        route,
+        desc: c.desc,
+        headers: c.headers,
+        rows: c.rows,
+        ticks: c.ticks,
+        axisNote: c.axisNote,
+      };
       const a = checkClauseA(snap);
       const b = checkClauseB(snap);
       charts.push({
@@ -232,6 +244,7 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // otherwise).
   const aFails = charts.filter((c) => checkClauseA(c).status === 'fail');
   const aGraded = charts.filter((c) => checkClauseA(c).status === 'pass');
+  const aSkips = charts.filter((c) => checkClauseA(c).status === 'skip');
   expect(
     aFails.map((c) => `${c.route} :: ${checkClauseA(c).detail}`),
     'clause (a): rendered ticks must not fall outside the sampled range',
@@ -256,10 +269,27 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   expect(unsampled.length, 'unsampled carve-out branch exercised').toBeGreaterThanOrEqual(4);
   expect(sampledGraded.length, 'sampled-agreement branch exercised').toBeGreaterThanOrEqual(4);
 
-  // Clause (a) coverage guard: enough charts must have a comparable axis
-  // that the endpoint rule is actually exercised (round 1 graded 10 of 27;
-  // this matcher's stricter shared-value comparability check grades fewer).
-  expect(aGraded.length, 'clause (a) graded population').toBeGreaterThanOrEqual(5);
+  // Clause (a) coverage guards, re-derived from the measured population.
+  // Before the extractor repair (HEAD 936193b, measured by the orchestrator
+  // audit and re-measured before this change) the sweep graded
+  // population=27 pass=5 skip=22 fail=0: 16 of the 22 carve-outs were
+  // parse failures, not non-comparable axes. After the repair the same
+  // walk measures population=27 pass=21 skip=6 fail=0; the 6 honest
+  // carve-outs are the two realtime-execution ms-vs-model-size axes, the
+  // ms-vs-tick-index panel, the two categorical data-bottleneck axes and
+  // the label-less kalman chart. The floor sits at 21 - 4 = 17 so one
+  // chart drifting into skip fails loudly, and the skip CAP keeps a
+  // future mass carve-out from passing silently (before the repair,
+  // nothing stopped aFails from being empty because the comparability
+  // predicate ate the failures).
+  expect(
+    aGraded.length,
+    'clause (a) graded population (measured 21 of 27 after the tick-extractor repair; 17 leaves margin for one honest new carve-out)',
+  ).toBeGreaterThanOrEqual(17);
+  expect(
+    aSkips.length,
+    'clause (a) skip count (measured 6 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently)',
+  ).toBeLessThanOrEqual(8);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ page }) => {
