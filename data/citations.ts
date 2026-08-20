@@ -27,10 +27,11 @@
  * principle the DOI/arXiv rules above already bind, applied to the author
  * field. `npm run check:crossref-authors` (run it whenever a citation is
  * added or an author field is edited) compares every DOI-bearing entry
- * against api.crossref.org and flags family-name, year and title mismatches
- * plus exactly this expansion pattern; byline-backed expansions are
- * documented in data/crossref-author-exceptions.ts, one authorIndex per
- * entry — a blanket entry there is rejected by the sweep.
+ * against api.crossref.org and every arXiv-url entry against the arXiv
+ * Atom API, flagging family-name, year and title mismatches plus exactly
+ * this expansion pattern; byline-backed expansions are documented in
+ * data/crossref-author-exceptions.ts, one authorIndex per entry — a
+ * blanket entry there is rejected by the sweep.
  *
  * Urls are https. The one sanctioned exception pattern, for a canonical
  * source genuinely served over http only, is a DATED web.archive.org
