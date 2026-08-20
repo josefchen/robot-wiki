@@ -104,3 +104,22 @@ describe('RecedingHorizon', () => {
     );
   });
 });
+
+  it('derives the discarded-tail clause from the T_a to T_p gap', () => {
+    const { container } = render(<RecedingHorizon />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Default 16/8: every chunk carries an 8-step outlined tail.
+    expect(read()).toMatch(/thrown away/);
+    expect(read()).toMatch(/8-step tails/);
+    // State 1: T_a raised to T_p; every tail is zero steps wide, so no
+    // outlined tail exists to throw away and the clause must say so.
+    fireEvent.change(executedSlider(), { target: { value: '16' } });
+    expect(screen.queryAllByTestId('rh-predicted')).toHaveLength(0);
+    expect(read()).not.toMatch(/thrown away/);
+    expect(read()).toMatch(/open-loop/);
+    // State 2: back below T_p, the discarded tails return.
+    fireEvent.change(executedSlider(), { target: { value: '8' } });
+    expect(read()).toMatch(/8-step tails/);
+    expect(read()).toMatch(/thrown away/);
+  });

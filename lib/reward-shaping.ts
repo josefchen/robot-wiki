@@ -236,8 +236,18 @@ export const BEHAVIORS: Record<BehaviorId, Behavior> = {
  * term to both clear an absolute bar and dominate the velocity reward.
  */
 const CHATTER_ACTION_RATE_MAX = 0.2;
-const ATTRACTOR_WEIGHT_MIN = 2.5;
-const ATTRACTOR_DOMINANCE_RATIO = 2;
+/**
+ * Absolute floor an attractor term must clear. Exported because the
+ * component's balanced-regime takeaway quotes it; keeping the prose tied
+ * to this constant is what makes the sentence traceable to the classifier.
+ */
+export const ATTRACTOR_WEIGHT_MIN = 2.5;
+/**
+ * Multiple of the velocity-tracking weight an attractor term must ALSO
+ * reach: the threshold is relative, not absolute. Raising velTrack keeps a
+ * heavy penalty inside the balanced regime.
+ */
+export const ATTRACTOR_DOMINANCE_RATIO = 2;
 
 export function classifyBehavior(w: Weights): BehaviorId {
   if (w.actionRate <= CHATTER_ACTION_RATE_MAX) return 'chatter';

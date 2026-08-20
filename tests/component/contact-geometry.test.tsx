@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { SCENARIOS } from '@/lib/contact-geometry';
 
 function scenarioButton(name: RegExp) {
   return screen.getByRole('button', { name });
@@ -138,3 +139,27 @@ describe('ContactGeometry', () => {
     expect(moved).not.toMatch(/stays stable/);
   });
 });
+
+  it('derives the margin qualifier from the gap between error and tolerance', () => {
+    const { container } = render(<ContactGeometry />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    const tolerance = SCENARIOS.locomotion.toleranceMm;
+    // Default 2.0 mm of a 20 mm band: the margin is a number, not a hedge.
+    expect(read()).toMatch(
+      new RegExp(`${(tolerance - 2).toFixed(1)} mm of margin`),
+    );
+    // State 1: 19.9 mm is still inside the band, but only just; a
+    // "well under" judgment would be false here.
+    fireEvent.change(screen.getByRole('slider', { name: /contact-model error/i }), {
+      target: { value: '19.9' },
+    });
+    expect(read()).toMatch(/stays stable/);
+    expect(read()).toMatch(/0\.1 mm of margin/);
+    expect(read()).not.toMatch(/well under/);
+    // State 2: past the band the ok branch, margin clause and all, is gone.
+    fireEvent.change(screen.getByRole('slider', { name: /contact-model error/i }), {
+      target: { value: '25' },
+    });
+    expect(read()).not.toMatch(/of margin/);
+  });

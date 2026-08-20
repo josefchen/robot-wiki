@@ -232,3 +232,40 @@ describe('PendulumController', () => {
     );
   });
 });
+
+  it('derives the takeaway from live gains and playback state, not the mount default', () => {
+    vi.useFakeTimers();
+    const { container } = render(<PendulumController />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Default state: gains match DEFAULT_GAINS and playback is paused.
+    expect(read()).toMatch(/Default gains/);
+    // State 1: the reader retunes Kp; the numbers are the reader's, so the
+    // "Default" label must follow the gains, not the mount.
+    fireEvent.change(
+      screen.getByRole('slider', { name: /proportional gain kp/i }),
+      { target: { value: '40' } },
+    );
+    expect(read()).toMatch(/Kp 40\.0/);
+    expect(read()).not.toMatch(/Default gains/);
+    // Moving Kp back to the stock value restores the label.
+    fireEvent.change(
+      screen.getByRole('slider', { name: /proportional gain kp/i }),
+      { target: { value: '25' } },
+    );
+    expect(read()).toMatch(/Default gains/);
+    // State 2: playback running; the readouts advance every tick, so the
+    // takeaway must not claim they are frozen.
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
+    act(() => {
+      vi.advanceTimersByTime(400);
+    });
+    expect(read()).not.toMatch(/frozen/);
+    // Pausing freezes them again, and Run or Push is what unfreezes them.
+    fireEvent.click(
+      screen.getByRole('button', { name: /pause the simulation/i }),
+    );
+    expect(read()).toMatch(/frozen until Run or Push/);
+  });

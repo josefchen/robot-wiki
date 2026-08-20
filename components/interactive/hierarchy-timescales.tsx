@@ -7,7 +7,10 @@ import {
   HIERARCHY_SYSTEMS,
   HORIZON_MS,
   displayTicks,
+  fastestLane,
+  laneTickRatio,
   lastUpdateAt,
+  slowestPeriodicLane,
   updateCountAt,
   type TimescaleSystem,
 } from '@/lib/hierarchy-timescales';
@@ -17,10 +20,11 @@ import { cx } from '@/lib/utils';
  * HierarchyTimescales: one horizontal wall-clock timeline per system, with
  * one lane per level of its control hierarchy. A scrub slider moves a
  * playhead across 2 seconds; each lane lights the updates that have fired
- * by then, so the reader sees a 1 kHz controller tick 50 times while a
- * ~1 Hz subtask planner fires once. System overlays (pi0.5, Gemini
- * Robotics 1.5, Helix 02, GO-2) swap the lane structure so the same
- * pattern can be compared across four 2025-2026 stacks.
+ * by then, so the reader sees how many times the selected system's own
+ * fastest lane ticks per update of its slowest periodic lane. System
+ * overlays (pi0.5, Gemini Robotics 1.5, Helix 02, GO-2) swap the lane
+ * structure so the same pattern can be compared across four 2025-2026
+ * stacks.
  *
  * Rates marked "schematic" are not in the primary source; the lane exists
  * because the architectural split is disclosed, but the rate is our
@@ -73,6 +77,14 @@ export function HierarchyTimescales({
     (n, lane) => n + updateCountAt(lane, playhead),
     0,
   );
+  // The trailing clause is derived from the selected system's own lanes:
+  // its real fastest lane, its real slowest periodic lane, and the ratio
+  // between them. Never a fixed sentence, which is how the old copy
+  // claimed a 1 kHz lane on systems that have none.
+  const fastest = fastestLane(system);
+  const slowest = slowestPeriodicLane(system);
+  const ratio = laneTickRatio(system);
+  const ratioText = Number.isInteger(ratio) ? String(ratio) : ratio.toFixed(1);
 
   function reset() {
     setSystemId(defaultSystem);
@@ -250,7 +262,7 @@ export function HierarchyTimescales({
         className="mt-3"
         form="state"
         summary="Current timescale playhead"
-        description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the 1 kHz motor lane will tick 50 times before the ~1 Hz planner fires once.`}
+        description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the ${fastest.rate} ${fastest.label} lane ticks ${ratioText} times per ${slowest.periodMs} ms ${slowest.label} update.`}
         states={[
           { label: 'system', value: system.name },
           { label: 'playhead', value: `${playhead} ms` },

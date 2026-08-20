@@ -117,6 +117,14 @@ export function RrtExplorer({ className }: { className?: string }) {
   const reset = () => scrub(0);
 
   const status = statusText(iteration, result.goalNodeId);
+  // The path clause has two honest forms: before the connection the
+  // length does not exist yet, and after it the sentence reports the
+  // measurement instead of asserting it is still pending.
+  const goalIteration = result.goalNodeId;
+  const pathClause =
+    goalReached && goalIteration !== null
+      ? `the highlighted start-to-goal path measures ${formatLength(result.pathLength)} units after a branch first reached the goal at iteration ${goalIteration}`
+      : 'path length is n/a until a branch first reaches the goal';
   const buttonBase =
     'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40';
 
@@ -331,7 +339,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         className="mt-3"
         form="state"
         summary="Current RRT tree state"
-        description={`The RRT tree is at iteration ${iteration} of ${total} with ${nodes.length} ${nodes.length === 1 ? 'node' : 'nodes'} and status ${status}; path length is ${goalReached ? `${formatLength(result.pathLength)} units` : 'n/a'} until a branch first reaches the goal.`}
+        description={`The RRT tree is at iteration ${iteration} of ${total} with ${nodes.length} ${nodes.length === 1 ? 'node' : 'nodes'} and status ${status}; ${pathClause}.`}
         states={[
           { label: 'iteration', value: `${iteration} / ${total}` },
           { label: 'nodes', value: String(nodes.length) },

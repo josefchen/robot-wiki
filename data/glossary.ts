@@ -493,6 +493,41 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'adras-j-15m-2024',
     ],
   },
+  {
+    id: 'impedance-control',
+    term: 'impedance control',
+    definition:
+      'Hogan\'s 1985 formulation of compliant contact control: instead of commanding a position or a force, the controller programs the relationship between them, making the manipulator behave at the contact like a mass-spring-damper whose stiffness and damping the programmer chooses. The position error drives a force through the desired mechanical impedance, so the arm yields when it meets the environment and pushes back only as much as the programmed spring says. The port-based argument underneath is a duality: at a contact you may command motion or force, the two conjugate variables of the interaction port, but not both independently, and impedance control takes the motion as input and force as output.',
+    citations: ['hogan-1985'],
+  },
+  {
+    id: 'admittance-control',
+    term: 'admittance control',
+    definition:
+      'The dual of impedance control: force is measured and motion is commanded. A wrist force-torque sensor reads the contact force, the admittance law converts it into a position or velocity correction, and the underlying motion controller executes it. It is the natural choice on a stiff, geared, non-backdrivable arm, where the position loop is excellent but no torque command channel exists: admittance control synthesizes compliance in software on top of a position-controlled machine, at the cost of the measurement and the loop delay. Ott, Mukherjee and Nakamura\'s unified formulation shows the two schemes as the two causal assignments of the same interaction port.',
+    citations: ['ott-2010'],
+  },
+  {
+    id: 'hybrid-force-position-control',
+    term: 'hybrid force/position control',
+    definition:
+      'Raibert and Craig\'s decomposition of a contact task into orthogonal subspaces: in a task frame chosen from the geometry of the contact, force is controlled along the axes constrained by the environment and position is controlled along the free axes, never both on the same axis. Polishing a surface controls force normal to it and tracks a path tangent to it; sliding a block in a slot controls force pressing into the slot walls and position along the slot. Mason\'s predecessor analysis established how to pick the constrained and free directions from contact geometry, which is what makes the decomposition a property of the task rather than a tuning choice.',
+    citations: ['raibert-craig-1981', 'mason-1981'],
+  },
+  {
+    id: 'series-elastic-actuator',
+    term: 'series elastic actuator',
+    definition:
+      'An actuator with a deliberately soft spring placed between the gear train and the load, proposed by Pratt and Williamson in 1995. The spring is a sensor as much as a compliance: its deflection measures the transmitted force cheaply and robustly, the force loop closes on the spring rather than on a fragile wrist sensor, and the spring mechanically low-passes impact forces so a collision loads the drivetrain far below what a rigid joint would see. The cost is bandwidth and position accuracy, which is why the design dominates in legged robots and collaborative arms, where force fidelity and impact tolerance matter more than stiffness.',
+    citations: ['pratt-williamson-1995'],
+  },
+  {
+    id: 'backdrivability',
+    term: 'backdrivability',
+    definition:
+      'The ease with which an external force can move a joint with the actuators passive: a direct-drive or quasi-direct-drive arm is backdrivable, because pushing on the link turns the motor with little resistance, while a high-ratio geared arm is not, because the gears and the controller\'s position loop hold the joint rigid against the push. It decides which compliance scheme fits the hardware: impedance control assumes the arm can be commanded as a force source, which suits a low-inertia backdrivable design, while a non-backdrivable geared arm needs admittance control built on a force sensor, or a series elastic element to restore a mechanical force channel.',
+    citations: ['hogan-1985', 'pratt-williamson-1995'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

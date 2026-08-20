@@ -111,7 +111,62 @@ export function AdvantageScrubber({ className }: { className?: string }) {
     }));
   }, [playhead]);
 
-  const descriptionText = `At t = ${playhead.toFixed(1)} s the value trace sits at ${value.toFixed(1)} inside the ${current.label} segment, tagged ${current.tag} advantage because value changes by ${formatDelta(current.delta)} across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s on the grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.`;
+  // One description per view: the episode sentence names the dashed arc,
+  // the tinted stage blocks and the playhead, and those elements render
+  // only in the episode view. The training and execution views get
+  // sentences (and disclosure samples) naming what they actually render.
+  const descriptionText =
+    view === 'episode'
+      ? `At t = ${playhead.toFixed(1)} s the value trace sits at ${value.toFixed(1)} inside the ${current.label} segment, tagged ${current.tag} advantage because value changes by ${formatDelta(current.delta)} across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s on the grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.`
+      : view === 'training'
+        ? `The training-data view keeps all ${tagged.length} transitions from the espresso episode, ${highCount} tagged high advantage and ${lowCount} low advantage; every stage stays in the dataset with its binary tag, an illustrative Recap labeling of this episode rather than measured value-function output.`
+        : `At execution the policy is conditioned on the high-advantage tag only: of the ${tagged.length} stages in the episode, ${highCount} are reproduced and ${lowCount} suppressed by conditioning; the bad grasp stays in the training data and is simply not what the model is asked to reproduce.`;
+
+  const viewTable =
+    view === 'episode'
+      ? {
+          summary: 'Sampled value along the espresso episode',
+          rowHeader: 'time (s)',
+          columns: [
+            { header: 'value', numeric: true },
+            { header: 'segment', numeric: false },
+            { header: 'playhead', numeric: false },
+          ],
+          rows: sampleRows,
+        }
+      : view === 'training'
+        ? {
+            summary: 'Training transitions kept with their advantage tags',
+            rowHeader: 'stage',
+            columns: [
+              { header: 'delta V', numeric: true },
+              { header: 'tag', numeric: false },
+            ],
+            rows: tagged.map((segment) => ({
+              label: segment.label,
+              values: [
+                formatDelta(segment.delta),
+                `${segment.tag} advantage`,
+              ] as Array<string | number>,
+            })),
+          }
+        : {
+            summary: 'Execution treatment of each stage',
+            rowHeader: 'stage',
+            columns: [
+              { header: 'tag', numeric: false },
+              { header: 'treatment', numeric: false },
+            ],
+            rows: tagged.map((segment) => ({
+              label: segment.label,
+              values: [
+                `${segment.tag} advantage`,
+                segment.tag === 'high'
+                  ? 'reproduced'
+                  : 'suppressed by conditioning',
+              ] as Array<string | number>,
+            })),
+          };
 
   function reset() {
     setView('episode');
@@ -376,14 +431,10 @@ export function AdvantageScrubber({ className }: { className?: string }) {
         id={descriptionId}
         className="mt-3"
         form="table"
-        summary="Sampled value along the espresso episode"
-        rowHeader="time (s)"
-        columns={[
-          { header: 'value', numeric: true },
-          { header: 'segment', numeric: false },
-          { header: 'playhead', numeric: false },
-        ]}
-        rows={sampleRows}
+        summary={viewTable.summary}
+        rowHeader={viewTable.rowHeader}
+        columns={viewTable.columns}
+        rows={viewTable.rows}
         description={descriptionText}
       />
 

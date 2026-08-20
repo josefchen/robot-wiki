@@ -4,6 +4,8 @@ import { Geist, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
+import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
+import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
 const geistSans = Geist({
@@ -32,6 +34,13 @@ export const metadata: Metadata = {
   title: { default: 'robot-wiki', template: '%s - robot-wiki' },
   description:
     'An encyclopedic interactive guide to modern robotics for ML engineers.',
+  // Author identity (VAL-DIST-009): declared once in the root layout so
+  // every route inherits meta[name=author] (a route-level metadata object
+  // replaces only the keys it declares; authors is never overridden).
+  // The value must stay byte-identical with the footer occurrence and the
+  // /credits occurrence, so it imports from lib/identity.ts.
+  authors: [{ name: AUTHOR_NAME, url: AUTHOR_PROFILE_URL }],
+  creator: AUTHOR_NAME,
   // './' resolves against each route's own pathname, so every page gets a
   // route-correct canonical and og:url on the apex origin.
   alternates: { canonical: './' },
@@ -39,7 +48,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: './',
     siteName: 'robot-wiki',
+    // Site-level social card (VAL-DIST-002/005): a build-time PNG under
+    // /og/, served as a plain static file. Non-article routes inherit
+    // this block; routes that declare their own openGraph object (which
+    // replaces this one, no deep merge) re-declare images themselves.
+    images: siteOgImage(),
   },
+  // summary_large_image: the card is the 1.91:1 asset above, not a small
+  // square thumbnail (VAL-DIST-001).
+  twitter: largeCardTwitter(),
   // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
   // single switch). True since the go-public decision of 2026-08-16, so
   // this resolves to undefined and no meta tag ships; /404/ pins its own

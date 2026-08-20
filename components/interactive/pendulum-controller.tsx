@@ -160,6 +160,13 @@ export function PendulumController({
   const tip = tipPosition(sim.theta, ROD_PX, PIVOT);
   const payload = payloadPosition(sim.theta);
   const torque = controlTorque(sim, gains, PENDULUM_PARAMS);
+  // The takeaway names the gains "Default" only while they actually are
+  // the defaults: the label follows the live sliders, not the mount, so
+  // retuning Kp to 40 stops calling 40 the default.
+  const gainsAtDefault =
+    gains.kp === DEFAULT_GAINS.kp &&
+    gains.ki === DEFAULT_GAINS.ki &&
+    gains.kd === DEFAULT_GAINS.kd;
 
   // Angle arc from the upright setpoint to the rod, plus its label placed
   // along the bisector. Hidden while the pole sits on the setpoint.
@@ -414,7 +421,7 @@ export function PendulumController({
         summary="Current pendulum gains and regime"
         description={
           defaultKp === DEFAULT_GAINS.kp
-            ? `Default gains Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status stay frozen until Run or Push.`
+            ? `${gainsAtDefault ? 'Default gains' : 'Retuned gains'} Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status ${playing ? 'update on every playback tick' : 'stay frozen until Run or Push'}.`
             : `The prediction-step pole starts at Kp ${gains.kp.toFixed(1)}, under the 9.81 mgl hold threshold, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
         }
         states={[

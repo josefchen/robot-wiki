@@ -6,6 +6,14 @@ import AxeBuilder from '@axe-core/playwright';
  * in a real browser (jsdom has no layout, no hit-testing, no computed
  * focus-visible styles). VAL-MKT-023 stays green: selection semantics are
  * regression-checked alongside the new affordances.
+ *
+ * Tab-search budget note (VAL-DIST-006/007): the site footer ships two
+ * tabbable links on every route, after <main>. Chromium keeps the blurred
+ * element's document position as the sequential-focus starting point, so
+ * a Tab search that starts after a programmatic blur visits the footer
+ * links before wrapping to the skip link. The 40-press budget below
+ * absorbs that contract-mandated chrome; the property under test (the
+ * chart is one tab stop and re-enters on the roving mark) is unchanged.
  */
 
 const ROUTE = '/market-map/';
@@ -48,7 +56,7 @@ test.describe('bubble view hover/focus affordances', () => {
     await openBubble(page);
     // The marks are one tab stop (roving tabindex). Reach it from the top
     // of the page: skip link -> shell controls -> the chart.
-    for (let i = 0; i < 30; i += 1) {
+    for (let i = 0; i < 40; i += 1) {
       await page.keyboard.press('Tab');
       const active = await page.evaluate(() =>
         document.activeElement?.matches('circle[data-company-id]'),
@@ -137,7 +145,7 @@ test.describe('bubble view hover/focus affordances', () => {
     page,
   }) => {
     await openBubble(page);
-    for (let i = 0; i < 30; i += 1) {
+    for (let i = 0; i < 40; i += 1) {
       await page.keyboard.press('Tab');
       const active = await page.evaluate(() =>
         document.activeElement?.matches('circle[data-company-id]'),
@@ -217,8 +225,10 @@ test.describe('bubble view hover/focus affordances', () => {
     expect(stop).toBe(movedId);
     // Tab forward from the top of the page until the chart takes focus
     // again: the chart is one tab stop, and it must be the same mark.
+    // (40 presses: the footer's two tabbable links sit between the
+    // blurred chart and the wrap-around to the skip link.)
     let reentered: string | null = null;
-    for (let i = 0; i < 30; i += 1) {
+    for (let i = 0; i < 40; i += 1) {
       await page.keyboard.press('Tab');
       const active = await page.evaluate(
         () => document.activeElement?.getAttribute('data-company-id'),

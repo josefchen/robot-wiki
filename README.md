@@ -52,6 +52,7 @@ audit/        Per-claim content-integrity audit ledgers: every published
 - Draft modules are excluded from the export, the sidebar, the search indexes, and the sitemap.
 - Search uses two indexes built at build time: Pagefind over prose, MiniSearch over structured data.
 - `npm run check:links` sweeps every citation URL for liveness, and `npm run check:citations` verifies each fetched document's identity against the registry entry. Neither is part of the build (200+ network calls); run them on demand. The evidence trail for every audited claim, including how to read the ledgers and re-run the checkers, is in [`audit/README.md`](audit/README.md).
+- `npm run check:crossref-authors` queries Crossref for every DOI-bearing citation and compares the registry's author names, year and title against the record, flagging family-name mismatches and given names that expand an initial the source publishes only as an initial (the registry's author-field policy, in the header of `data/citations.ts`, is to render what the source publishes). On demand, not in the build; run it whenever a citation is added or an author field is edited. Byline-backed full names are documented with evidence in `data/crossref-author-exceptions.ts`.
 
 ## Setup
 

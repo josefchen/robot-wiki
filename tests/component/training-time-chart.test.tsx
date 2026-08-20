@@ -98,4 +98,25 @@ describe('TrainingTimeChart', () => {
     expect(toggle()).toHaveAttribute('aria-pressed', 'false');
     expect(wallClock()).toBe('4.0 min');
   });
+
+  it('description quotes the derived crossover in default mode and its absence in cpuBound mode', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<TrainingTimeChart />);
+    const desc = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Default mode: simulation draws level with learn+transfer at 12,500
+    // envs, not at the old false "knee near 1,024".
+    expect(desc()).toMatch(
+      /simulation draws level with the fixed learn-and-transfer costs near 12,500 envs/,
+    );
+    expect(desc()).not.toMatch(/1,024/);
+    // cpuBound mode: no crossover exists at any reachable env count, so
+    // the description must not quote one.
+    await user.click(toggle());
+    expect(desc()).toMatch(
+      /the per-environment CPU cost outgrows simulation at every env count, so simulation never draws level with the rest of the iteration/,
+    );
+    expect(desc()).not.toMatch(/12,500/);
+    expect(desc()).not.toMatch(/1,024/);
+  });
 });

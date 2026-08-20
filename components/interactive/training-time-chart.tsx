@@ -13,6 +13,7 @@ import {
   formatWallClock,
   iterationBreakdown,
   iterationsToTarget,
+  simulationOvertakeEnvs,
   throughputFps,
   wallClockSeconds,
 } from '@/lib/parallel-sim';
@@ -97,6 +98,11 @@ export function TrainingTimeChart({
   const simPct = f((breakdown.simSeconds / breakdown.totalSeconds) * 100);
   const learnPct = f((breakdown.learnSeconds / breakdown.totalSeconds) * 100);
   const cpuPct = f((breakdown.cpuSeconds / breakdown.totalSeconds) * 100);
+  // Where simulation draws level with the rest of one iteration. Exists
+  // only in the default mode; in cpuBound mode there is no crossover, so
+  // the description states that instead of quoting a number that cannot
+  // be right in both states.
+  const overtakeEnvs = simulationOvertakeEnvs(false) ?? 0;
 
   function reset() {
     setLog2Envs(Math.log2(defaultEnvs));
@@ -408,9 +414,22 @@ export function TrainingTimeChart({
             envs to {formatWallClock(wallClockSeconds(envs, cpuBound))} at the current{' '}
             {formatEnvs(envs)} envs, then flattens toward{' '}
             {formatWallClock(wallClockSeconds(MAX_ENVS, cpuBound))} at{' '}
-            {formatEnvs(MAX_ENVS)}: the knee sits near 1,024 envs where simulation
-            overtakes the fixed per-iteration costs, and the Rudin flat-terrain
-            measurement (under 4 min) sits at 4,096 envs
+            {formatEnvs(MAX_ENVS)}:{' '}
+            {cpuBound ? (
+              <>
+                the per-environment CPU cost outgrows simulation at every env
+                count, so simulation never draws level with the rest of the
+                iteration
+              </>
+            ) : (
+              <>
+                simulation draws level with the fixed learn-and-transfer costs
+                near {formatEnvs(Math.round(overtakeEnvs))} envs, between the
+                8,192 and 16,384 stops, and is the larger bucket beyond
+              </>
+            )}
+            , and the Rudin flat-terrain measurement (under 4 min) sits at 4,096
+            envs
             {cpuBound
               ? '; with the CPU single-core bottleneck on, the curve flattens earlier and higher'
               : ''}

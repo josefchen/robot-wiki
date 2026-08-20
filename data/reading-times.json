@@ -8,7 +8,7 @@
     "minutes": 8
   },
   "manipulation/diffusion-policy": {
-    "words": 1433,
+    "words": 1436,
     "minutes": 7
   },
   "manipulation/vla-models": {
@@ -28,11 +28,11 @@
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1591,
+    "words": 1590,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
-    "words": 2110,
+    "words": 2107,
     "minutes": 11
   },
   "manipulation/realtime-execution": {
@@ -48,11 +48,11 @@
     "minutes": 6
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1219,
+    "words": 1220,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
-    "words": 1472,
+    "words": 1483,
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
@@ -60,7 +60,7 @@
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1470,
+    "words": 1498,
     "minutes": 7
   },
   "rl-sim2real/humanoid-wbc": {
@@ -68,7 +68,7 @@
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2556,
+    "words": 2563,
     "minutes": 13
   },
   "world-models/taxonomy": {
@@ -84,7 +84,7 @@
     "minutes": 8
   },
   "world-models/jepa": {
-    "words": 1214,
+    "words": 1213,
     "minutes": 6
   },
   "world-models/generative-sim": {
@@ -120,8 +120,8 @@
     "minutes": 10
   },
   "classical/control": {
-    "words": 2224,
-    "minutes": 11
+    "words": 3222,
+    "minutes": 16
   },
   "classical/state-estimation": {
     "words": 2394,

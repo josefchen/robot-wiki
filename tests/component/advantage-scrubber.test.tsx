@@ -145,3 +145,31 @@ describe('AdvantageScrubber', () => {
     );
   });
 });
+
+  it('branches the chart description per view, naming only rendered elements', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<AdvantageScrubber />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // Episode view (default): the arc and the stage blocks are on the page.
+    expect(read()).toMatch(/dashed arc/);
+    expect(read()).toMatch(/tinted stage blocks/);
+    const tagged = taggedSegments();
+    const high = tagged.filter((s) => s.tag === 'high').length;
+    const low = tagged.length - high;
+    // Training view: no arc, no stage blocks, no playhead leading clause.
+    await user.click(screen.getByRole('button', { name: /training data/i }));
+    expect(read()).not.toMatch(/dashed arc/);
+    expect(read()).not.toMatch(/tinted stage blocks/);
+    expect(read()).not.toMatch(/^At t = /);
+    expect(read()).toMatch(new RegExp(`\\b${tagged.length} transitions\\b`));
+    expect(read()).toMatch(new RegExp(`\\b${high} tagged high advantage\\b`));
+    // Execution view: describes conditioning, still no episode-only elements.
+    await user.click(screen.getByRole('button', { name: /at execution/i }));
+    expect(read()).not.toMatch(/dashed arc/);
+    expect(read()).toMatch(new RegExp(`\\b${high} are reproduced\\b`));
+    expect(read()).toMatch(new RegExp(`\\b${low} suppressed\\b`));
+    // Back to the episode view: the episode text returns.
+    await user.click(screen.getByRole('button', { name: /^episode$/i }));
+    expect(read()).toMatch(/dashed arc/);
+  });

@@ -5,6 +5,8 @@ import { Pause, Play } from '@phosphor-icons/react';
 import { ChartDescription } from '@/components/ui';
 import { type LegId } from '@/lib/gait';
 import {
+  ATTRACTOR_DOMINANCE_RATIO,
+  ATTRACTOR_WEIGHT_MIN,
   BEHAVIORS,
   STRIDE_PX,
   TERMS,
@@ -98,7 +100,11 @@ function attractorTakeaway(
   if (behaviorId === 'chatter') {
     return `The ${n} reward weights sum to a total of ${total} per step, and the preview is the chatter attractor: action-rate is only ${formatWeight(weights.actionRate)}, so nothing prices step-to-step joint vibration.`;
   }
-  return `The ${n} reward weights sum to a total of ${total} per step, and the preview is a balanced trot: torque ${formatWeight(weights.torque)} and air time ${formatWeight(weights.airTime)} stay below the 2.5 attractor bar, so the quadruped tracks velocity instead of freezing, prancing, or chattering.`;
+  // The balanced regime's real exit condition is relative: a term leaves
+  // balanced only when it BOTH clears ATTRACTOR_WEIGHT_MIN and reaches
+  // ATTRACTOR_DOMINANCE_RATIO x velTrack. High velTrack keeps heavy
+  // penalties balanced, so an absolute "below 2.5" claim would be false.
+  return `The ${n} reward weights sum to a total of ${total} per step, and the preview is a balanced trot: neither torque ${formatWeight(weights.torque)} nor air time ${formatWeight(weights.airTime)} clears the ${ATTRACTOR_WEIGHT_MIN} attractor bar and ${ATTRACTOR_DOMINANCE_RATIO}x the ${formatWeight(weights.velTrack)} velocity-tracking weight together, so the quadruped tracks velocity instead of freezing, prancing, or chattering.`;
 }
 
 export function RewardShaping({ className }: { className?: string }) {

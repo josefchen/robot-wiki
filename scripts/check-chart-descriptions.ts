@@ -16,10 +16,14 @@
  * The registry of default texts lives here, not in the components, because
  * the gate runs under Node (prebuild, no bundler) and the components build
  * their live descriptions from props and state at render time. Keep a
- * component's entry text in sync with its default render; VAL-EDU-023/024
- * e2e checks compare the rendered DOM against the chart itself, so a
- * drifting registry entry is caught downstream even though this gate
- * cannot see the DOM.
+ * component's entry text in sync with its default render BY HAND: nothing
+ * downstream catches a drift. The VAL-EDU-023/024 e2e checks compare the
+ * rendered description against the chart's own DOM (structure, control
+ * tracking, restore-to-default) and never read this registry, and their
+ * population is a 16-chart subset of these entries, so a stale entry here
+ * passes every gate. The GeneralistReleaseTimeline entry drifted one
+ * release (registry "Apr 2026" against a rendered "Jul 2026") and nothing
+ * failed anywhere; caught by hand and fixed 2026-08-19.
  *
  * Exits non-zero on any finding. Proved by mutation in the feature
  * handoff: removed description, banned opener, one-digit description and
@@ -38,8 +42,11 @@ import {
 /**
  * Default-state takeaways at each chart's default configuration, exactly
  * as the component renders them (verified in a browser; see the feature
- * handoff). The text is also asserted against the rendered DOM by the
- * chart-descriptions e2e spec, which is what keeps this registry honest.
+ * handoff). No check asserts this text against the rendered DOM: the
+ * chart-descriptions e2e spec validates the rendered description against
+ * the chart itself, never against this registry. Entries stay honest only
+ * by re-verifying the default render whenever a component or its data
+ * module changes.
  */
 export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
   {
@@ -64,13 +71,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GaitDiagram',
     file: 'components/interactive/gait-diagram.tsx',
     quantityNames: ['feet', 'duty'],
-    text: 'In the walk, always 3 feet down at duty factor 0.75, and the footfall offsets around the cycle are (LH at 0%, LF at 25%, RH at 50%, RF at 75%); at the current phase of 0% the feet down are RF + LH + RH.',
+    text: 'In the walk, always 3 feet down at duty factor 0.75, and the footfall offsets around the cycle are (LH at 0%, LF at 25%, RH at 50%, RF at 75%); at the current phase of 0% the feet down are RF + LH + RH. The sampled table carries the rendered tick grid exactly: rows at 0%, 25%, 50%, 75% and 100%, the last row being the same instant as the cycle start.',
   },
   {
     component: 'TrainingTimeChart',
     file: 'components/interactive/training-time-chart.tsx',
     quantityNames: ['wall-clock', 'envs'],
-    text: 'Wall-clock to the target reward falls steeply from 3.6 h at 64 envs to 4.0 min at the current 4,096 envs, then flattens toward 1.5 min at 16,384: the knee sits near 1,024 envs where simulation overtakes the fixed per-iteration costs, and the Rudin flat-terrain measurement (under 4 min) sits at 4,096 envs.',
+    text: 'Wall-clock to the target reward falls steeply from 3.6 h at 64 envs to 4.0 min at the current 4,096 envs, then flattens toward 1.5 min at 16,384: simulation draws level with the fixed learn-and-transfer costs near 12,500 envs, between the 8,192 and 16,384 stops, and is the larger bucket beyond, and the Rudin flat-terrain measurement (under 4 min) sits at 4,096 envs.',
   },
   {
     component: 'ControlLoopBudget',
@@ -157,6 +164,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'Default gains Kp 25.0, Ki 0.0 and Kd 3.0 leave the lab pole holding at release at +12.0 degrees with torque -5.2 N·m; angle and status stay frozen until Run or Push.',
   },
   {
+    component: 'ImpedanceContactLab',
+    file: 'components/interactive/impedance-contact-lab.tsx',
+    quantityNames: ['force', 'outcome'],
+    text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, contact force peaks at 43.2 N and settles at 1.6 N against the 255 N research-basis transient limit, and the outcome is task succeeded.',
+  },
+  {
     component: 'GraspWrenchLabObject',
     file: 'components/interactive/grasp-wrench-lab.tsx',
     quantityNames: ['contacts', 'cones'],
@@ -196,7 +209,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'RecedingHorizon',
     file: 'components/interactive/receding-horizon.tsx',
     quantityNames: ['chunks', 'plan'],
-    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed, outlined tails are thrown away.',
+    text: 'A receding-horizon plan with T_p 16 and T_a 8 issues 4 chunks across the 32-step window, replanning at 1.25 Hz and committing 0.8 s per plan; solid bars are executed while the outlined 8-step tails are thrown away.',
   },
   {
     component: 'ActionTokenizationBin',
@@ -226,13 +239,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'HierarchyTimescales',
     file: 'components/interactive/hierarchy-timescales.tsx',
     quantityNames: ['playhead', 'lanes'],
-    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 1 kHz motor lane will tick 50 times before the ~1 Hz planner fires once.',
+    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 50 Hz Motor commands lane ticks 50 times per 1000 ms Subtask prediction update.',
   },
   {
     component: 'ContactGeometry',
     file: 'components/interactive/contact-geometry.tsx',
     quantityNames: ['error', 'tolerance'],
-    text: 'Locomotion at 2.0 mm of injected contact-model error stays stable with all 4 feet loaded inside the 20 mm dashed tolerance band; the near-point contacts remain recoverable because 2.0 mm sits well under that gait-scale band.',
+    text: 'Locomotion at 2.0 mm of injected contact-model error stays stable with all 4 feet loaded inside the 20 mm dashed tolerance band; the near-point contacts remain recoverable with 18.0 mm of margin left inside that gait-scale band.',
   },
   {
     component: 'TeacherStudent',
@@ -268,13 +281,13 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GeneralistReleaseTimeline',
     file: 'components/interactive/generalist-release-timeline.tsx',
     quantityNames: ['policies', 'weights'],
-    text: '13 of 13 generalist policies sit on a Feb 2025 to Apr 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and amber nodes mark open weights while dim nodes mark closed ones.',
+    text: '13 of 13 generalist policies sit on a Feb 2025 to Jul 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and amber nodes mark open weights while dim nodes mark closed ones.',
   },
   {
     component: 'JepaPlanning',
     file: 'components/interactive/jepa-planning.tsx',
     quantityNames: ['latent', 'distance'],
-    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane still shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
   },
   {
     component: 'ActionConditioning',
@@ -286,7 +299,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'RewardShaping',
     file: 'components/interactive/reward-shaping.tsx',
     quantityNames: ['weights', 'total'],
-    text: 'The 12 reward weights sum to a total of -5.52 per step, and the preview is a balanced trot: torque 0.8 and air time 0.6 stay below the 2.5 attractor bar, so the quadruped tracks velocity instead of freezing, prancing, or chattering.',
+    text: 'The 12 reward weights sum to a total of -5.52 per step, and the preview is a balanced trot: neither torque 0.8 nor air time 0.6 clears the 2.5 attractor bar and 2x the 1.0 velocity-tracking weight together, so the quadruped tracks velocity instead of freezing, prancing, or chattering.',
   },
   {
     component: 'WmDisambiguator',

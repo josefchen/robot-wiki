@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 /**
  * Domain landing view: the entry point every home card and sidebar overview
@@ -37,6 +38,16 @@ export async function generateMetadata({
   return {
     title: meta.name,
     description: meta.description,
+    // Full openGraph and twitter blocks, restated because a route-level
+    // object replaces the layout's for the same key (no deep merge).
+    // og:title is the plain domain name: the card title must equal the
+    // page's rendered h1 (VAL-DIST-004), not the templated document
+    // title. Non-article destinations share the site-level card
+    // (VAL-DIST-003). og:url './' resolves against this route's own
+    // pathname, keeping canonical and og:url route-correct
+    // (VAL-BRAND-003).
+    openGraph: routeOpenGraph(meta.name),
+    twitter: routeTwitter(meta.name),
   };
 }
 

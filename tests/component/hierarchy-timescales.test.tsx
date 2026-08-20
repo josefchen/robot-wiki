@@ -57,6 +57,35 @@ describe('HierarchyTimescales', () => {
     );
   });
 
+  it('derives the tick-ratio clause from the selected system, not a fixed sentence', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<HierarchyTimescales />);
+    const desc = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    // pi0.5: 50 Hz control against the 1000 ms subtask lane = 50.
+    expect(desc()).toMatch(
+      /the 50 Hz Motor commands lane ticks 50 times per 1000 ms Subtask prediction update\./,
+    );
+    // Gemini Robotics 1.5: no 1 kHz lane; 20 ms control against 2000 ms ER = 100.
+    await user.click(
+      screen.getByRole('button', { name: /Gemini Robotics 1\.5/i }),
+    );
+    expect(desc()).toMatch(
+      /the 50 Hz Motor commands lane ticks 100 times per 2000 ms ER 1\.5 orchestration update\./,
+    );
+    // Helix 02: the one system with a real 1 kHz lane, ratio 1000, not 50.
+    await user.click(screen.getByRole('button', { name: /Helix 02/i }));
+    expect(desc()).toMatch(
+      /the 1 kHz S0 whole-body controller lane ticks 1000 times per 1000 ms S2 behavior sequencing update\./,
+    );
+    // GO-2: 20 ms control against the 2000 ms planner = 100.
+    await user.click(screen.getByRole('button', { name: /GO-2/i }));
+    expect(desc()).toMatch(
+      /the 50 Hz Motor commands lane ticks 100 times per 2000 ms Intent planner \(action CoT\) update\./,
+    );
+    expect(desc()).not.toMatch(/1 kHz motor lane will tick 50/);
+  });
+
   it('scrubbing the playhead updates the readout and per-lane counters', () => {
     render(<HierarchyTimescales />);
     scrubTo(20);

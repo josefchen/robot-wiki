@@ -6,11 +6,26 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
+import {
+  AUTHOR_BIO,
+  AUTHOR_HANDLE,
+  AUTHOR_NAME,
+  AUTHOR_PROFILE_URL,
+} from '@/lib/identity';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+
+const title = 'Credits';
 
 export const metadata: Metadata = {
-  title: 'Credits',
+  title,
   description:
     'Every photograph and diagram on robot-wiki, with its creator, source, and licence.',
+  // Full card blocks restated: a route-level object replaces the
+  // layout's for the same key (no deep merge). og:title is the plain
+  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // instead of the templated ' - robot-wiki' document title.
+  openGraph: routeOpenGraph(title),
+  twitter: routeTwitter(title),
 };
 
 /**
@@ -85,7 +100,57 @@ export default function CreditsPage() {
           on this site, and no image is AI-generated. The site&apos;s own
           text and original diagrams are available under CC BY 4.0.
         </p>
+        {/* Author identity (VAL-DIST-009): the /credits occurrence of the
+            owner-supplied name, byte-identical with meta[name=author] and
+            the footer occurrence, linked to the external profile. */}
+        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+          Written and maintained by{' '}
+          <a
+            href={AUTHOR_PROFILE_URL}
+            target="_blank"
+            rel="noopener"
+            className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            {AUTHOR_NAME}
+          </a>{' '}
+          ({AUTHOR_HANDLE}). {AUTHOR_BIO}.
+        </p>
       </header>
+
+      {/* About section (VAL-DIST-008): why this site exists, kept in its
+          own <section> so the licence list below stays the registry-
+          generated surface VAL-IMG-004 grades. Biographical facts come
+          only from the owner-supplied constants in lib/identity.ts. */}
+      <section aria-labelledby="about-heading" className="mt-12">
+        <h2
+          id="about-heading"
+          className="font-sans text-lg font-semibold tracking-tight text-text"
+        >
+          Who is behind this wiki
+        </h2>
+        <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
+          I am {AUTHOR_NAME}, and I spent 3 years building and deploying
+          robots at KAIKAKU (acquired by REEF). That work kept me reading
+          the same scattered sources: papers that leave out the deployment
+          context, and demos that never mention the failure rates behind
+          them. This wiki is the reference I wanted within reach during
+          those years, written for engineers arriving from ML who need the
+          field mapped without the promotion. Every claim links to its
+          source, so you can check me.
+        </p>
+        <p className="mt-4 font-sans text-sm text-text-dim">
+          Corrections and source disputes are welcome:{' '}
+          <a
+            href={AUTHOR_PROFILE_URL}
+            target="_blank"
+            rel="noopener"
+            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            contact {AUTHOR_HANDLE} on GitHub
+          </a>
+          .
+        </p>
+      </section>
 
       <ol className="mt-10 list-none border-t border-border">
         {IMAGES.map((image) => {

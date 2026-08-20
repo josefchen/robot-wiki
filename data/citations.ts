@@ -6,6 +6,33 @@
  * Add entries from the /research reports only; never invent arXiv ids, urls,
  * or author lists.
  *
+ * AUTHOR-FIELD POLICY (binding since 2026-08-20): render what the source
+ * publishes. If Crossref or the publisher's own byline gives an initial,
+ * keep the initial; do not expand it from memory or from a web search of a
+ * name you think you recognise — expanding an initial into a full given
+ * name the source never printed is invention about a named person, the
+ * defect this rule was written after (five fabricated given names landed in
+ * one session with every DOI verified). Expanding is acceptable ONLY when
+ * a record that genuinely transcribes or states the byline corroborates
+ * it: the publisher's landing page or PDF byline, a DBLP publication
+ * record, or the ORCID profile of the correct person with this work
+ * actually listed (verify the affiliation and subject area match the
+ * paper before trusting an ORCID). An aggregator's DISPLAY NAME is a
+ * cluster-level guess about identity, NOT corroboration — OpenAlex
+ * display_name mis-clustered doi:10.1007/BF01840373 onto a different
+ * Mishra on 2026-08-20. OpenAlex's raw_author_name does transcribe the
+ * byline, so it counts only where it actually prints the full name.
+ * Where no transcription exists, keep the initial, and say where the full
+ * name came from in the entry comment when one does. This is the same
+ * principle the DOI/arXiv rules above already bind, applied to the author
+ * field. `npm run check:crossref-authors` (run it whenever a citation is
+ * added or an author field is edited) compares every DOI-bearing entry
+ * against api.crossref.org and every arXiv-url entry against the arXiv
+ * Atom API, flagging family-name, year and title mismatches plus exactly
+ * this expansion pattern; byline-backed expansions are documented in
+ * data/crossref-author-exceptions.ts, one authorIndex per entry — a
+ * blanket entry there is rejected by the sweep.
+ *
  * Urls are https. The one sanctioned exception pattern, for a canonical
  * source genuinely served over http only, is a DATED web.archive.org
  * capture (https://web.archive.org/web/<timestamp>/<original-url>); the
@@ -640,10 +667,18 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Author list re-verified against the DBLP record 2026-08-20 (arXiv
+    // author sweep): DBLP (journals/corr/abs-2504-16054) transcribes the
+    // arXiv byline as 36 entries, "Physical Intelligence, Kevin Black,
+    // Noah Brown, ... Ury Zhilinsky" — the org credit is the first
+    // element of the published byline itself, so the registry holds the
+    // full transcribed sequence rather than the previous "first three
+    // named" sample. Registry order = DBLP order.
     id: 'pi05-2025',
     title:
       'π0.5: a Vision-Language-Action Model with Open-World Generalization',
     authors: [
+      'Physical Intelligence',
       'Kevin Black',
       'Noah Brown',
       'James Darpinian',
@@ -1320,6 +1355,10 @@ export const CITATIONS: Citation[] = [
       'Yu Wang',
       'Chao Yu',
     ],
+    // Kept as 2026 (arXiv author sweep, 2026-08-20): arXiv prints the v1
+    // submission year 2025, but the entry cites v3 (2026-01-29) and the
+    // registry year deliberately names the cited version; see
+    // data/crossref-author-exceptions.ts.
     year: 2026,
     arxiv: '2510.25889',
     url: 'https://arxiv.org/abs/2510.25889',
@@ -1578,6 +1617,12 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Byline re-verified against the arXiv abs page and the DBLP record
+    // 2026-08-20 (author sweep): the feed's stray ":" after NVIDIA and the
+    // abs page's "NVIDIA, :, Mittal, Mayank" are arXiv metadata artifacts;
+    // DBLP (journals/corr/abs-2511-04831) transcribes the org credit and
+    // Mayank Mittal as the two credited authors, exactly as the registry
+    // holds it.
     id: 'isaac-lab-2025',
     title:
       'Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning',
@@ -1798,12 +1843,14 @@ export const CITATIONS: Citation[] = [
     id: 'choi-2023',
     title: 'Learning Quadrupedal Locomotion on Deformable Terrain',
     authors: [
+      // Authors exactly as Crossref prints them (verified 2026-08-20; the
+      // previous registry row carried four invented given names).
       'Suyoung Choi',
-      'Gwanghyun Ji',
+      'Gwanghyeon Ji',
       'Jeongsoo Park',
-      'Hyunwoo Kim',
-      'Juhwan Mun',
-      'Jun Ho Lee',
+      'Hyeongjun Kim',
+      'Juhyeok Mun',
+      'Jeong Hyun Lee',
       'Jemin Hwangbo',
     ],
     year: 2023,
@@ -2411,6 +2458,9 @@ export const CITATIONS: Citation[] = [
     // Verified against the arXiv abs page (2026-08-08): 5 authors; shapes
     // the JEPA representation space so embedding distance approximates the
     // negative goal-conditioned value, improving planning.
+    // Year corrected 2026-08-20 (arXiv author sweep): the abs page prints
+    // "[Submitted on 28 Dec 2025]", so the registry carries the year the
+    // source itself publishes.
     id: 'jepa-value-planning-2026',
     title: 'Value-guided action planning with JEPA world models',
     authors: [
@@ -2420,7 +2470,7 @@ export const CITATIONS: Citation[] = [
       'Jean Ponce',
       'Yann LeCun',
     ],
-    year: 2026,
+    year: 2025,
     arxiv: '2601.00844',
     url: 'https://arxiv.org/abs/2601.00844',
     type: 'paper',
@@ -3601,10 +3651,15 @@ export const CITATIONS: Citation[] = [
     title:
       'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces',
     authors: [
+      // Crossref and OpenAlex's raw_author_name both print initials for
+      // authors 2-4 (P. Švestka, J.-C. Latombe, M. H. Overmars), so the
+      // initials are kept per the author-field policy; only Lydia E.
+      // Kavraki's full name is corroborated by a byline transcription
+      // (DBLP journals/trob/KavrakiSLO96, read 2026-08-20).
       'Lydia E. Kavraki',
-      'Petr Svestka',
-      'Jean-Claude Latombe',
-      'Mark H. Overmars',
+      'P. Švestka',
+      'J.-C. Latombe',
+      'M. H. Overmars',
     ],
     year: 1996,
     venue: 'IEEE Trans. Robotics and Automation',
@@ -3749,7 +3804,11 @@ export const CITATIONS: Citation[] = [
     // the classic relay tuning rules for PID gains.
     id: 'ziegler-nichols-1942',
     title: 'Optimum Settings for Automatic Controllers',
-    authors: ['John G. Ziegler', 'Nathaniel B. Nichols'],
+    // Crossref prints only initials (J. G. Ziegler, N. B. Nichols) and the
+    // secondary records disagree about the given names (OpenAlex: "Jens"
+    // and "Nancy"), so the printed initials are kept per the
+    // author-field policy rather than trusting any expansion.
+    authors: ['J. G. Ziegler', 'N. B. Nichols'],
     year: 1942,
     venue: 'Trans. ASME',
     url: 'https://doi.org/10.1115/1.2899060',
@@ -3762,7 +3821,9 @@ export const CITATIONS: Citation[] = [
     // optimal state-feedback problem LQR solves.
     id: 'kalman-1960',
     title: 'Contributions to the Theory of Optimal Control',
-    authors: ['Rudolf E. Kalman'],
+    // Crossref and OpenAlex both print "R. E. Kalman"; the initial is
+    // kept per the author-field policy.
+    authors: ['R. E. Kalman'],
     year: 1960,
     venue: 'Bol. Soc. Mat. Mexicana',
     url: 'https://doi.org/10.1109/9780470544334.ch8',
@@ -3800,10 +3861,14 @@ export const CITATIONS: Citation[] = [
     title:
       'Constrained Model Predictive Control: Stability and Optimality',
     authors: [
-      'David Q. Mayne',
+      // Crossref prints initials for all four; the DBLP record
+      // (journals/automatica/MayneRRS00, read 2026-08-20) transcribes
+      // full names for all four, but the registry expands only Rawlings
+      // and Rao; Mayne and Scokaert keep the printed initials.
+      'D. Q. Mayne',
       'James B. Rawlings',
       'Christopher V. Rao',
-      'Pierre O. M. Scokaert',
+      'P. O. M. Scokaert',
     ],
     year: 2000,
     venue: 'Automatica',
@@ -3879,7 +3944,9 @@ export const CITATIONS: Citation[] = [
     // state-estimation module is built around.
     id: 'kalman-1960-filter',
     title: 'A New Approach to Linear Filtering and Prediction Problems',
-    authors: ['Rudolf E. Kalman'],
+    // Crossref and OpenAlex both print "R. E. Kalman"; the initial is
+    // kept per the author-field policy.
+    authors: ['R. E. Kalman'],
     year: 1960,
     venue: 'J. Basic Engineering',
     url: 'https://doi.org/10.1115/1.3662552',
@@ -4123,6 +4190,16 @@ export const CITATIONS: Citation[] = [
     // 1990's own abstract.
     id: 'mishra-1987',
     title: 'On the Existence and Synthesis of Multifinger Positive Grips',
+    // Author 1 restored 2026-08-20: the author is Bhubaneswar Mishra
+    // ("Bud" Mishra, NYU Courant). DBLP's publication record for this DOI
+    // lists "Bhubaneswar Mishra, Jacob T. Schwartz, Micha Sharir" (author
+    // pid m/BhubaneswarMishra, New York University), and the Courant
+    // co-authors corroborate the identity. OpenAlex's display_name
+    // "Brajendra Mishra" is MIS-CLUSTERED here: that name is attached to
+    // ORCID 0000-0001-7897-1817, a materials scientist at Worcester
+    // Polytechnic whose topics are extraction, corrosion and hydrogen
+    // embrittlement, and OpenAlex's own raw_author_name for this record
+    // prints only "B. Mishra". Do not "correct" this back from OpenAlex.
     authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
     year: 1987,
     venue: 'Algorithmica',
@@ -4173,7 +4250,10 @@ export const CITATIONS: Citation[] = [
     // ends 844081; neighboring 844777 is a different ICRA 2000 paper.
     id: 'bicchi-kumar-2000',
     title: 'Robotic Grasping and Contact: A Review',
-    authors: ['Antonio Bicchi', 'Vijay Kumar'],
+    // Crossref prints "A." and "V."; the DBLP record (conf/icra/BicchiK00,
+    // read 2026-08-20) transcribes "Antonio Bicchi" in full, so Kumar
+    // keeps the initial.
+    authors: ['Antonio Bicchi', 'V. Kumar'],
     year: 2000,
     venue: 'ICRA 2000',
     url: 'https://doi.org/10.1109/ROBOT.2000.844081',
@@ -5055,7 +5135,10 @@ export const CITATIONS: Citation[] = [
       'Ziwei Liu',
       'Junwei Liang',
     ],
-    year: 2026,
+    // Year corrected 2026-08-20 (arXiv author sweep): v1 submitted
+    // 2025-12-18; the "2026 survey" phrasing in the citing article now
+    // reads "a late-2025 survey".
+    year: 2025,
     arxiv: '2512.16760',
     url: 'https://arxiv.org/abs/2512.16760',
     type: 'paper',
@@ -5068,8 +5151,11 @@ export const CITATIONS: Citation[] = [
     // in per the link-check exception policy.
     id: 'vasarhelyi-flocking-2018',
     title: 'Optimized flocking of autonomous drones in confined environments',
+    // First author corrected 2026-08-20: Crossref publishes Gábor
+    // Vásárhelyi as first author (the registry previously said Tamás, who
+    // is the fourth author).
     authors: [
-      'Tamás Vásárhelyi',
+      'Gábor Vásárhelyi',
       'Csaba Virágh',
       'Gergő Somorjai',
       'Tamás Nepusz',
@@ -5545,6 +5631,166 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.nasa.gov/missions/update-on-status-of-nasas-osam-1-project/',
     type: 'press',
   },
+  {
+    // DOI verified via Crossref 2026-08-20: Part I of the three-part
+    // monograph, ASME J. Dynamic Systems, Measurement, and Control 107(1).
+    id: 'hogan-1985',
+    title:
+      'Impedance Control: An Approach to Manipulation: Part I\u2014Theory',
+    authors: ['Neville Hogan'],
+    year: 1985,
+    venue: 'ASME J. Dynamic Systems, Measurement, and Control',
+    url: 'https://doi.org/10.1115/1.3140702',
+    type: 'paper',
+  },
+  {
+    // Public ISO catalogue entry for ISO/TS 15066:2016 (title, edition,
+    // scope). iso.org returns HTTP 403 to non-browser clients, a
+    // bot-wall; the page is live in a real browser (checked 2026-08-20)
+    // and no DOI exists for a technical specification, so this entry
+    // needs a link-check exception rather than a Crossref fallback.
+    id: 'iso-ts-15066',
+    title: 'ISO/TS 15066:2016, Robots and robotic devices \u2014 Collaborative robots',
+    authors: ['ISO'],
+    year: 2016,
+    venue: 'ISO Technical Specification (public catalogue entry)',
+    url: 'https://www.iso.org/standard/62996.html',
+    type: 'docs',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: JDSMC 103(2), 126-133.
+    id: 'raibert-craig-1981',
+    title: 'Hybrid Position/Force Control of Manipulators',
+    // Authors keep the printed initials (2026-08-20): the ASME landing
+    // page itself prints "M. H. Raibert" and "J. J. Craig", DBLP does not
+    // index JDSMC, and no record transcribes a fuller byline, so the
+    // earlier "Marc Raibert" / "John Craig" expansion (sourced from
+    // OpenAlex display_name) was dropped per the author-field policy.
+    authors: ['M. H. Raibert', 'J. J. Craig'],
+    year: 1981,
+    venue: 'ASME J. Dynamic Systems, Measurement, and Control',
+    url: 'https://doi.org/10.1115/1.3139652',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IEEE Trans. Systems, Man, and
+    // Cybernetics SMC-11(6), 418-432.
+    id: 'mason-1981',
+    title: 'Compliance and Force Control for Computer Controlled Manipulators',
+    authors: ['Matthew Mason'],
+    year: 1981,
+    venue: 'IEEE Trans. Systems, Man, and Cybernetics',
+    url: 'https://doi.org/10.1109/TSMC.1981.4308708',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: 19th IEEE CDC, Albuquerque.
+    // Crossref publishes the author as "J. Salisbury"; the initial is kept
+    // per the author-field policy (J. Kenneth Salisbury is the person, but
+    // the source record prints only the J.).
+    id: 'salisbury-1980',
+    title: 'Active Stiffness Control of a Manipulator in Cartesian Coordinates',
+    authors: ['J. Salisbury'],
+    year: 1980,
+    venue: '19th IEEE Conf. Decision and Control',
+    url: 'https://doi.org/10.1109/CDC.1980.272026',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IROS 1995, Pittsburgh.
+    id: 'pratt-williamson-1995',
+    title: 'Series Elastic Actuators',
+    authors: ['Gill Pratt', 'Matthew Williamson'],
+    year: 1995,
+    venue: 'IEEE/RSJ Int. Conf. Intelligent Robots and Systems',
+    url: 'https://doi.org/10.1109/IROS.1995.525827',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: ICRA 2003, Taipei; Ott,
+    // Albu-Schaeffer, Kugi, Hirzinger.
+    id: 'albu-schaffer-2003',
+    title: 'Decoupling Based Cartesian Impedance Control of Flexible Joint Robots',
+    // Crossref prints initials for all four (C., A., A., G.); the DBLP
+    // record for the DOI (read 2026-08-20) transcribes the first three in
+    // full (Christian Ott, Alin Albu-Schäffer, Andreas Kugi); Hirzinger
+    // keeps the printed initial.
+    authors: ['Christian Ott', 'Alin Albu-Schäffer', 'Andreas Kugi', 'G. Hirzinger'],
+    year: 2003,
+    venue: 'IEEE Int. Conf. Robotics and Automation',
+    url: 'https://doi.org/10.1109/ROBOT.2003.1242067',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: ICRA 2010, Anchorage.
+    // Crossref author list: Christian Ott, Ranjan Mukherjee, Yoshihiko
+    // Nakamura (the 2026-08-20 audit corrected a fabricated given name,
+    // "Ryojun", that contradicted the record).
+    id: 'ott-2010',
+    title: 'Unified Impedance and Admittance Control',
+    authors: ['Christian Ott', 'Ranjan Mukherjee', 'Yoshihiko Nakamura'],
+    year: 2010,
+    venue: 'IEEE Int. Conf. Robotics and Automation',
+    url: 'https://doi.org/10.1109/ROBOT.2010.5509861',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: IROS 2019, Macau. Crossref
+    // authors: Roberto Martin-Martin, Michelle A. Lee, Rachel Gardner,
+    // Silvio Savarese, Jeannette Bohg, Animesh Garg (the 2026-08-20 audit
+    // corrected two fabricated given names: "Josef" and "Munhee").
+    id: 'martin-martin-2019',
+    title:
+      'Variable Impedance Control in End-Effector Space: An Action Space for Reinforcement Learning in Contact-Rich Tasks',
+    authors: ['Roberto Martin-Martin', 'Michelle A. Lee', 'Rachel Gardner', 'Silvio Savarese', 'Jeannette Bohg', 'Animesh Garg'],
+    year: 2019,
+    venue: 'IEEE/RSJ Int. Conf. Intelligent Robots and Systems',
+    url: 'https://doi.org/10.1109/IROS40897.2019.8968201',
+    type: 'paper',
+  },
+  {
+    // DOI verified via Crossref 2026-08-20: Frontiers in Robotics and AI
+    // 11:1374999. 75th-percentile transient-contact force pain thresholds
+    // measured on 37 subjects; the biomechanical research basis for the
+    // impedance lab's contact-force reference line.
+    // Authors exactly as Crossref prints them (D. Han, M. Y. Park, J. Choi,
+    // H. Shin, R. Behrens, S. Rhim): the byline gives initials for six of
+    // six, so the initials are kept per the author-field policy. The
+    // 2026-08-20 audit removed six unverifiable expansions, two of which
+    // ("Seungjae Shin", "Yongsik Rhim") outright contradicted the printed
+    // initials H. and S.
+    id: 'han-force-pain-2024',
+    title:
+      'Evaluation of force pain thresholds to ensure collision safety in worker-robot collaborative operations',
+    authors: ['D. Han', 'M. Y. Park', 'J. Choi', 'H. Shin', 'R. Behrens', 'S. Rhim'],
+    year: 2024,
+    venue: 'Frontiers in Robotics and AI',
+    url: 'https://doi.org/10.3389/frobt.2024.1374999',
+    type: 'paper',
+  },
+  {
+    // Live as of 2026-08-20 (HTTP 200): the FCI documentation, including
+    // the 1 kHz torque-level control interface and the Cartesian impedance
+    // example controllers.
+    id: 'franka-fci-docs',
+    title: 'Franka Control Interface Documentation',
+    authors: ['Franka Robotics'],
+    year: 2026,
+    venue: 'Franka Robotics, as of 2026-08-20',
+    url: 'https://frankarobotics.github.io/docs/',
+    type: 'docs',
+  },
+  {
+    // Live as of 2026-08-20 (HTTP 200): URScript dynamic force control,
+    // the force-mode behavior exposed to UR programs.
+    id: 'ur-force-mode-docs',
+    title: 'URScript: Dynamic Force Control',
+    authors: ['Universal Robots'],
+    year: 2025,
+    venue: 'Universal Robots, as of 2026-08-20',
+    url: 'https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -5566,7 +5812,16 @@ const SURNAME_OVERRIDES = new Map<string, string>([
   // not a surname, so the chip would read "Grumman 2025" / "Japan 2024".
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Astroscale Japan', 'Astroscale'],
+  // π0.5's byline begins with the collective "Physical Intelligence"
+  // credit (verified 2026-08-20), followed by the named authors. Only that
+  // entry takes the override; the blog/model-card entries whose sole
+  // author IS the org keep the "Physical Intelligence" chip.
+  [
+    'Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury Zhilinsky',
+    'Black',
+  ],
 ]);
+const BYLINE_OVERRIDES = new Set(SURNAME_OVERRIDES.keys());
 const ORG_TOKENS = new Set([
   'Team',
   'Labs',
@@ -5596,8 +5851,17 @@ const ORG_TOKENS = new Set([
 
 export function citationLabel(citation: Citation): string {
   const firstAuthor = citation.authors[0];
+  // A byline-keyed override wins only when it names THIS entry's full
+  // byline, so "Physical Intelligence" as a sole org author keeps its
+  // whole-name chip while π0.5's org-plus-named-authors byline chips as
+  // its first named human author.
+  const fullByline = citation.authors.join(', ');
   const tokens = firstAuthor.split(' ');
-  const surname = SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
+  const surname =
+    (BYLINE_OVERRIDES.has(fullByline) ? SURNAME_OVERRIDES.get(fullByline) : undefined) ??
+    SURNAME_OVERRIDES.get(firstAuthor) ??
+    tokens.at(-1) ??
+    firstAuthor;
   const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }

@@ -91,6 +91,25 @@ export function iterationsToTarget(envs: number): number {
   return TARGET_TRANSITIONS / (envs * ROLLOUT_STEPS);
 }
 
+/**
+ * Env count at which per-iteration simulation draws level with the rest of
+ * the iteration (learning update + transfer, plus the per-environment CPU
+ * cost when bottlenecked): (LEARN + TRANSFER - SIM_FIXED) / (SIM_PER_ENV -
+ * CPU_PER_ENV when bottlenecked). In the default mode that is 12,500 envs;
+ * past it, simulation is the larger fixed-size bucket per iteration. In
+ * cpuBound mode the per-environment CPU cost grows faster than simulation
+ * (2.2e-5 vs 4e-6 s/env), so simulation never draws level at any env
+ * count and there is no crossover: returns null then. Derived from the
+ * cost constants; a description may quote it but never hardcode it.
+ */
+export function simulationOvertakeEnvs(cpuBound: boolean): number | null {
+  const perEnvGap = SIM_PER_ENV_SECONDS - (cpuBound ? CPU_PER_ENV_SECONDS : 0);
+  if (perEnvGap <= 0) return null;
+  const envs =
+    (LEARN_SECONDS + TRANSFER_SECONDS - SIM_FIXED_SECONDS) / perEnvGap;
+  return envs > 0 ? envs : null;
+}
+
 /** Wall-clock seconds to the target reward. */
 export function wallClockSeconds(envs: number, cpuBound: boolean): number {
   return iterationsToTarget(envs) * iterationBreakdown(envs, cpuBound).totalSeconds;

@@ -509,6 +509,8 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
     expect(routes.length, 'no published routes derived from the registry').toBeGreaterThan(0);
     const hist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
+    const predictHist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
+    const selfCheckHist: Record<number, number> = { 1: 0, 2: 0, 3: 0 };
     let longestCount = 0;
     let regionCount = 0;
     let predictCount = 0;
@@ -557,6 +559,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
           `${route} ${kind}: correct option is the only hedged label`,
         ).toBe(true);
         hist[answerIdx + 1] += 1;
+        if (kind === 'predict') {
+          predictHist[answerIdx + 1] += 1;
+        } else {
+          selfCheckHist[answerIdx + 1] += 1;
+        }
         regionCount += 1;
         if (kind === 'predict') {
           predictCount += 1;
@@ -584,6 +591,35 @@ test.describe('prediction step (PredictThenReveal)', () => {
     expect(longestCount, 'correct-is-longest exceeds 6 of 14').toBeLessThanOrEqual(6);
     for (const pos of [1, 2, 3]) {
       expect(hist[pos], `ordinal position ${pos} exceeds 7 of 14`).toBeLessThanOrEqual(7);
+    }
+    // Per-kind ordinal-position band (VAL-EDU-041, tightened 2026-08-20).
+    // The aggregate histogram can hide opposite per-kind habits by
+    // cancellation: predict placements sat at 6/1/1 while self-checks sat
+    // at 0/5/1, an aggregate of 6/6/2 that read as uniform. A reader who
+    // learns "pick first on a prediction, second on a self-check" scored
+    // 11 of 14 against a 1-in-3 base rate. The band is loose because the
+    // per-kind corpora are small: every position is used at least once,
+    // and no position holds more than half of that kind's placements
+    // (matching the contract's aggregate "more than half" rule at the
+    // per-kind granularity). Bounds are derived from each kind's own
+    // count so the gate scales as placements are added. No chi-square
+    // threshold: at n=8 and n=6 a single added placement swings it.
+    const perKindBands: Array<[string, Record<number, number>, number]> = [
+      ['prediction steps', predictHist, predictCount],
+      ['self-checks', selfCheckHist, selfCheckCount],
+    ];
+    for (const [kindName, kindHist, kindCount] of perKindBands) {
+      expect(kindCount, `per-kind band walked zero ${kindName}`).toBeGreaterThan(0);
+      for (const pos of [1, 2, 3]) {
+        expect(
+          kindHist[pos],
+          `${kindName}: ordinal position ${pos} unused (floor is 1 of ${kindCount})`,
+        ).toBeGreaterThanOrEqual(1);
+        expect(
+          kindHist[pos],
+          `${kindName}: ordinal position ${pos} exceeds half of ${kindCount} (${kindHist[pos]}/${kindCount})`,
+        ).toBeLessThanOrEqual(Math.floor(kindCount / 2));
+      }
     }
   });
 
