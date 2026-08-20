@@ -225,6 +225,8 @@ describe('companySchema', () => {
     id: 'physical-intelligence',
     name: 'Physical Intelligence',
     aka: ['Pi'],
+    website: 'https://www.pi.website',
+    logo: null,
     hq: { city: 'San Francisco', country: 'US' },
     founded: 2024,
     segment: 'foundation-models',
@@ -301,6 +303,20 @@ describe('companySchema', () => {
   it('rejects an invalid confidence level', () => {
     expect(
       companySchema.safeParse({ ...valid, confidence: 'guessed' }).success,
+    ).toBe(false);
+  });
+
+  it('accepts a null website and a licensed logo registry id', () => {
+    expect(
+      companySchema.safeParse({ ...valid, website: null, logo: 'nvidia-logo' })
+        .success,
+    ).toBe(true);
+  });
+
+  it('rejects a non-https website', () => {
+    expect(
+      companySchema.safeParse({ ...valid, website: 'http://www.pi.website' })
+        .success,
     ).toBe(false);
   });
 });

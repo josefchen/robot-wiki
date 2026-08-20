@@ -41,8 +41,8 @@ export const imageSchema = z
       .string()
       .min(1)
       .regex(
-        /^\/images\/[\w.-]+$/,
-        'image files live directly under public/images/',
+        /^\/images\/(?:logos\/)?[\w.-]+$/,
+        'image files live under public/images/ or public/images/logos/',
       ),
     /**
      * Meaningful description: at least 15 characters, never

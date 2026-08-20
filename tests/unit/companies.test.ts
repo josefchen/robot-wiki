@@ -172,6 +172,19 @@ describe('COMPANIES data', () => {
     expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
   });
 
+  it('carries website and logo through from the research source', () => {
+    const withLogo = COMPANIES.filter((company) => company.logo !== null);
+    const withSite = COMPANIES.filter((company) => company.website !== null);
+    expect(withLogo.length).toBe(34);
+    expect(withSite.length).toBe(103);
+    const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
+    expect(nvidia?.website).toBe('https://www.nvidia.com');
+    expect(nvidia?.logo).toBe('nvidia-logo');
+    const skild = COMPANIES.find((company) => company.id === 'skild-ai');
+    expect(skild?.website).toBe('https://www.skild.ai');
+    expect(skild?.logo).toBeNull();
+  });
+
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {
     const covariant = COMPANIES.find((c) => c.id === 'covariant');
     expect(covariant?.status).toBe('acquired');

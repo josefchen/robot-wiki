@@ -332,12 +332,13 @@ test.describe('licensed imagery', () => {
     // for them (share-alike stays attached to the image, not the site).
     const shareAlike = IMAGES.filter((i) => i.licence === 'cc-by-sa-4.0');
     expect(shareAlike.length).toBeGreaterThanOrEqual(2);
+    const articleRoutes: Record<string, string> = {
+      'anymal-anybotics-2022': '/rl-sim2real/legged-locomotion/',
+      'franka-emika-panda-cebit-2017': '/data-hardware/hardware-taxonomy/',
+    };
     for (const image of shareAlike) {
-      const routes: Record<string, string> = {
-        'anymal-anybotics-2022': '/rl-sim2real/legged-locomotion/',
-        'franka-emika-panda-cebit-2017': '/data-hardware/hardware-taxonomy/',
-      };
-      for (const route of [routes[image.id], '/credits/']) {
+      const routes = [articleRoutes[image.id], '/credits/'].filter(Boolean);
+      for (const route of routes) {
         await page.goto(`${BASE}${route}`);
         const credit = page
           .locator('main [data-image-credit]')

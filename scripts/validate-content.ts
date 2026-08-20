@@ -23,6 +23,7 @@ const issues = validateContent({
   citations: CITATIONS,
   terms: GLOSSARY,
   images: IMAGES,
+  companies: COMPANIES,
   // The home page renders a registry image from tsx rather than MDX; it is
   // scanned for ImageRef usages so the same unregistered-id gate applies.
   imageSources: [

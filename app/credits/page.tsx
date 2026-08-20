@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { COMPANIES } from '@/data/companies';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
@@ -78,6 +79,12 @@ function imageUsage(): Map<string, UsageLink[]> {
   );
   for (const id of referencedImageIds(homeBody)) {
     record(id, { route: '/', title: 'Home' });
+  }
+
+  for (const company of COMPANIES) {
+    if (company.logo) {
+      record(company.logo, { route: '/market-map', title: 'Market Map' });
+    }
   }
 
   return usage;

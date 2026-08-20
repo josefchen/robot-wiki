@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import {
   confidenceSchema,
+  httpsUrlSchema,
   isoDateSchema,
   slugSchema,
   sourceSchema,
@@ -41,6 +42,18 @@ export const companySchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
   aka: z.array(z.string().min(1)),
+  /**
+   * Official homepage when a first-party URL is known. Null when the
+   * homepage is not in the research snapshot; official pages may still
+   * appear inside sources[]. Never invent a URL.
+   */
+  website: httpsUrlSchema.nullable(),
+  /**
+   * Image-registry id of a licensed logo, or null when no licence we can
+   * name was found. The validator treats a non-null value as a published
+   * usage of that registry entry (the market-map page renders it).
+   */
+  logo: slugSchema.nullable(),
   hq: z.object({
     city: z.string().min(1).nullable(),
     country: z.string().min(1),
