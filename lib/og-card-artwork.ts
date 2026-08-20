@@ -267,10 +267,10 @@ function timelineDiagram(rng: Rng): CardNode {
     x += rng.range(22, 42);
   }
   return div(
-    { position: 'relative', width: `${DIAGRAM_W}px`, height: `${DIAGRAM_H}px` },
+    { position: 'relative', display: 'flex', width: `${DIAGRAM_W}px`, height: `${DIAGRAM_H}px` },
     [
       div({ position: 'absolute', left: '0', top: `${DIAGRAM_H / 2}px`, display: 'flex' }, [hairline(DIAGRAM_W)]),
-      ...events.slice(0, events.length - 1),
+      ...events,
     ],
   );
 }

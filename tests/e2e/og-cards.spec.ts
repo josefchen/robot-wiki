@@ -78,7 +78,8 @@ test.describe('OG card images', () => {
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
       ...NON_ARTICLE_ROUTES,
     ];
-    expect(routes.length).toBe(42 + 15);
+    // 7 non-article standalone routes + 7 domain landings = 14.
+    expect(routes.length).toBe(42 + 14);
 
     const server = await startStaticExportServer('out');
     try {
