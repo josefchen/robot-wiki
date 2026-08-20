@@ -4,6 +4,7 @@ import { Geist, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
+import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
 import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
@@ -33,6 +34,13 @@ export const metadata: Metadata = {
   title: { default: 'robot-wiki', template: '%s - robot-wiki' },
   description:
     'An encyclopedic interactive guide to modern robotics for ML engineers.',
+  // Author identity (VAL-DIST-009): declared once in the root layout so
+  // every route inherits meta[name=author] (a route-level metadata object
+  // replaces only the keys it declares; authors is never overridden).
+  // The value must stay byte-identical with the footer occurrence and the
+  // /credits occurrence, so it imports from lib/identity.ts.
+  authors: [{ name: AUTHOR_NAME, url: AUTHOR_PROFILE_URL }],
+  creator: AUTHOR_NAME,
   // './' resolves against each route's own pathname, so every page gets a
   // route-correct canonical and og:url on the apex origin.
   alternates: { canonical: './' },

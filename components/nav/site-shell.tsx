@@ -6,6 +6,7 @@ import { List, X } from '@phosphor-icons/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { NavTree } from './nav-tree';
 import { SearchBox } from './search-box';
+import { SiteFooter } from './site-footer';
 
 /**
  * The application shell: persistent desktop sidebar, mobile top bar with a
@@ -104,14 +105,22 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      <main
-        id="main-content"
-        tabIndex={-1}
-        inert={drawerOpen}
-        className="min-w-0 flex-1"
-      >
-        {children}
-      </main>
+      {/* Content column: main plus the site footer. The column wrapper
+          keeps the footer a sibling of <main> (never a descendant, so it
+          resolves as a contentinfo landmark, VAL-DIST-006) while it still
+          spans the content area next to the sidebar on desktop and stacks
+          below main on mobile. */}
+      <div className="flex min-w-0 flex-1 flex-col">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          inert={drawerOpen}
+          className="min-w-0 flex-1"
+        >
+          {children}
+        </main>
+        <SiteFooter inert={drawerOpen} />
+      </div>
 
       {/* Mobile drawer. */}
       {drawerOpen ? (

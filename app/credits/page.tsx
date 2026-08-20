@@ -6,6 +6,12 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
+import {
+  AUTHOR_BIO,
+  AUTHOR_HANDLE,
+  AUTHOR_NAME,
+  AUTHOR_PROFILE_URL,
+} from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 const title = 'Credits';
@@ -93,6 +99,21 @@ export default function CreditsPage() {
           CC BY-SA, public domain, or a documented reuse permission appear
           on this site, and no image is AI-generated. The site&apos;s own
           text and original diagrams are available under CC BY 4.0.
+        </p>
+        {/* Author identity (VAL-DIST-009): the /credits occurrence of the
+            owner-supplied name, byte-identical with meta[name=author] and
+            the footer occurrence, linked to the external profile. */}
+        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+          Written and maintained by{' '}
+          <a
+            href={AUTHOR_PROFILE_URL}
+            target="_blank"
+            rel="noopener"
+            className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            {AUTHOR_NAME}
+          </a>{' '}
+          ({AUTHOR_HANDLE}). {AUTHOR_BIO}.
         </p>
       </header>
 
