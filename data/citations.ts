@@ -5811,7 +5811,16 @@ const SURNAME_OVERRIDES = new Map<string, string>([
   // not a surname, so the chip would read "Grumman 2025" / "Japan 2024".
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Astroscale Japan', 'Astroscale'],
+  // π0.5's byline begins with the collective "Physical Intelligence"
+  // credit (verified 2026-08-20), followed by the named authors. Only that
+  // entry takes the override; the blog/model-card entries whose sole
+  // author IS the org keep the "Physical Intelligence" chip.
+  [
+    'Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury Zhilinsky',
+    'Black',
+  ],
 ]);
+const BYLINE_OVERRIDES = new Set(SURNAME_OVERRIDES.keys());
 const ORG_TOKENS = new Set([
   'Team',
   'Labs',
@@ -5828,21 +5837,21 @@ const ORG_TOKENS = new Set([
   'Toyota',
   'Figure',
   'Partners',
-  // Company-name suffix: "Intuitive Surgical", "CMR Surgical", and
-  // "Moon Surgical" are organizations whose surname token is "Surgical";
-  // without this the three chips collide as "Surgical <year>".
-  'Surgical',
-  // Institution-name suffixes: "NASA Jet Propulsion Laboratory" and
-  // "Canadian Space Agency" would otherwise chip as "Laboratory <year>"
-  // and "Agency <year>".
-  'Laboratory',
-  'Agency',
 ]);
 
 export function citationLabel(citation: Citation): string {
   const firstAuthor = citation.authors[0];
+  // A byline-keyed override wins only when it names THIS entry's full
+  // byline, so "Physical Intelligence" as a sole org author keeps its
+  // whole-name chip while π0.5's org-plus-named-authors byline chips as
+  // its first named human author.
+  const fullByline = citation.authors.join(', ');
   const tokens = firstAuthor.split(' ');
-  const surname = SURNAME_OVERRIDES.get(firstAuthor) ?? tokens.at(-1) ?? firstAuthor;
+  const surname =
+    (BYLINE_OVERRIDES.has(fullByline) ? SURNAME_OVERRIDES.get(fullByline) : undefined) ??
+    SURNAME_OVERRIDES.get(firstAuthor) ??
+    tokens.at(-1) ??
+    firstAuthor;
   const looksLikeOrg = tokens.length > 1 && ORG_TOKENS.has(surname);
   return `${looksLikeOrg ? firstAuthor : surname} ${citation.year}`;
 }
