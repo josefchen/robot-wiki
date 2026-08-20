@@ -5837,6 +5837,15 @@ const ORG_TOKENS = new Set([
   'Toyota',
   'Figure',
   'Partners',
+  // Company-name suffix: "Intuitive Surgical", "CMR Surgical", and
+  // "Moon Surgical" are organizations whose surname token is "Surgical";
+  // without this the three chips collide as "Surgical <year>".
+  'Surgical',
+  // Institution-name suffixes: "NASA Jet Propulsion Laboratory" and
+  // "Canadian Space Agency" would otherwise chip as "Laboratory <year>"
+  // and "Agency <year>".
+  'Laboratory',
+  'Agency',
 ]);
 
 export function citationLabel(citation: Citation): string {
