@@ -305,15 +305,53 @@
 /*
  * Dense comparison surfaces (the comparison matrix, dataset and hardware
  * tables) outgrow the 65ch prose measure. At lg+ this utility expands a
- * direct child of the centered article symmetrically toward the main
- * region's width: viewport minus the 18rem sidebar and 3rem of gutters,
- * capped at 80rem. The element never exceeds the main region, so it cannot
- * cause page-level horizontal scroll. Below lg the surface stays in-measure
- * and scrolls horizontally inside its own container.
+ * direct child of the article symmetrically toward the width of the main
+ * region, keeping 1.5rem of gutter on each side and capping at 80rem.
+ *
+ * Both terms are container-relative on purpose, because every viewport-based
+ * derivation of this geometry is wrong in a way that is invisible on the
+ * page. `100vw` includes the classic-scrollbar gutter that the layout cannot
+ * use, and a rail width written as a literal drifts from the rail the moment
+ * its border changes; either error moves the element LEFT, where it is
+ * painted under the rail and permanently unreachable, since an LTR document
+ * cannot scroll to a negative offset and no scrollbar signals the loss.
+ * `--wide-measure-available` is resolved on the article against the main
+ * region, so it is the inline size actually available beside the rail under
+ * both scrollbar models; the registered @property is what forces that
+ * resolution there rather than re-resolving `cqw` at the call site.
+ *
+ * `50cqw` anchors to the article's own content box. A percentage would
+ * resolve against `.prose`, which re-applies `max-width: 65ch` in a serif
+ * face and computes narrower than the article, and that mismatch is what
+ * drove the surface 28.25px left of where it was meant to sit.
+ *
+ * Measured on the export at 1024, 1152, 1280, 1440, 1600, 1616 and 1920,
+ * under both overlay and 15px space-consuming scrollbars: the surface's left
+ * edge clears the rail's right edge by 24px at every one, and no route
+ * scrolls horizontally at any of those widths (tests/e2e/rail-clearance.spec.ts).
+ * Below lg the surface stays in-measure and scrolls horizontally inside its
+ * own container.
  */
+@property --wide-measure-available {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
 @media (min-width: 1024px) {
+  main:has(> [data-prose-column]) {
+    container-type: inline-size;
+  }
+
+  [data-prose-column] {
+    container-type: inline-size;
+    --wide-measure-available: 100cqw;
+  }
+
   .wide-measure {
-    width: min(80rem, calc(100vw - 18rem - 3rem));
-    margin-left: calc(50% - min(40rem, (100vw - 18rem - 3rem) / 2));
+    width: min(80rem, calc(var(--wide-measure-available) - 3rem));
+    margin-left: calc(
+      50cqw - min(40rem, (var(--wide-measure-available) - 3rem) / 2)
+    );
   }
 }
