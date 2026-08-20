@@ -666,10 +666,18 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Author list re-verified against the DBLP record 2026-08-20 (arXiv
+    // author sweep): DBLP (journals/corr/abs-2504-16054) transcribes the
+    // arXiv byline as 36 entries, "Physical Intelligence, Kevin Black,
+    // Noah Brown, ... Ury Zhilinsky" — the org credit is the first
+    // element of the published byline itself, so the registry holds the
+    // full transcribed sequence rather than the previous "first three
+    // named" sample. Registry order = DBLP order.
     id: 'pi05-2025',
     title:
       'π0.5: a Vision-Language-Action Model with Open-World Generalization',
     authors: [
+      'Physical Intelligence',
       'Kevin Black',
       'Noah Brown',
       'James Darpinian',
@@ -1346,6 +1354,10 @@ export const CITATIONS: Citation[] = [
       'Yu Wang',
       'Chao Yu',
     ],
+    // Kept as 2026 (arXiv author sweep, 2026-08-20): arXiv prints the v1
+    // submission year 2025, but the entry cites v3 (2026-01-29) and the
+    // registry year deliberately names the cited version; see
+    // data/crossref-author-exceptions.ts.
     year: 2026,
     arxiv: '2510.25889',
     url: 'https://arxiv.org/abs/2510.25889',
@@ -1604,6 +1616,12 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Byline re-verified against the arXiv abs page and the DBLP record
+    // 2026-08-20 (author sweep): the feed's stray ":" after NVIDIA and the
+    // abs page's "NVIDIA, :, Mittal, Mayank" are arXiv metadata artifacts;
+    // DBLP (journals/corr/abs-2511-04831) transcribes the org credit and
+    // Mayank Mittal as the two credited authors, exactly as the registry
+    // holds it.
     id: 'isaac-lab-2025',
     title:
       'Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning',
@@ -2439,6 +2457,9 @@ export const CITATIONS: Citation[] = [
     // Verified against the arXiv abs page (2026-08-08): 5 authors; shapes
     // the JEPA representation space so embedding distance approximates the
     // negative goal-conditioned value, improving planning.
+    // Year corrected 2026-08-20 (arXiv author sweep): the abs page prints
+    // "[Submitted on 28 Dec 2025]", so the registry carries the year the
+    // source itself publishes.
     id: 'jepa-value-planning-2026',
     title: 'Value-guided action planning with JEPA world models',
     authors: [
@@ -2448,7 +2469,7 @@ export const CITATIONS: Citation[] = [
       'Jean Ponce',
       'Yann LeCun',
     ],
-    year: 2026,
+    year: 2025,
     arxiv: '2601.00844',
     url: 'https://arxiv.org/abs/2601.00844',
     type: 'paper',
@@ -5113,7 +5134,10 @@ export const CITATIONS: Citation[] = [
       'Ziwei Liu',
       'Junwei Liang',
     ],
-    year: 2026,
+    // Year corrected 2026-08-20 (arXiv author sweep): v1 submitted
+    // 2025-12-18; the "2026 survey" phrasing in the citing article now
+    // reads "a late-2025 survey".
+    year: 2025,
     arxiv: '2512.16760',
     url: 'https://arxiv.org/abs/2512.16760',
     type: 'paper',

@@ -344,4 +344,161 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     reason: 'Same republication situation: 1960 original, 2009 Wiley container.',
     verified: 'Crossref record 10.1109/9780470544334.ch8 read 2026-08-20.',
   },
+  // ---- arXiv-source entries (sweep extension, 2026-08-20) ----
+  // Evidence rule for these is the same as above: a record that transcribes
+  // the byline. arXiv's OWN Atom feed and abs page are treated as
+  // transcriptions where they print a coherent byline; where the feed is
+  // visibly defective (an author literally named ":", or one human split
+  // into two author elements), a DBLP record supplies the transcription.
+  {
+    id: 'gr00t-n1-2025',
+    skip: 'author-count',
+    reason:
+      'The arXiv feed and abs citation_author metadata print 43 elements because of a stray ":" author element after "NVIDIA"; DBLP (journals/corr/abs-2503-14734) transcribes 42 entries (the org plus 41 named authors), exactly the registry count.',
+    verified:
+      'DBLP publication record journals/corr/abs-2503-14734 (41 named authors plus the org) and the arXiv abs citation_author list for 2503.14734 (43 entries including ":") compared 2026-08-20.',
+  },
+  {
+    id: 'gr00t-n1-2025',
+    skip: 'author',
+    authorIndex: 2,
+    reason:
+      'The arXiv Atom feed and abs citation_author metadata print a stray ":" author element after "NVIDIA" (an arXiv metadata artifact), shifting every later position. DBLP (journals/corr/abs-2503-14734) transcribes the byline as 41 authors, "Johan Bjorck, Fernando Castañeda, ..." with no ":" element, matching the registry exactly.',
+    verified:
+      'DBLP publication record journals/corr/abs-2503-14734 (41 authors, no ":" element) and the arXiv abs citation_author list for 2503.14734 (43 entries including "NVIDIA" and ":") compared 2026-08-20.',
+  },
+  {
+    id: 'vjepa2-2025',
+    skip: 'author-count',
+    reason:
+      'The arXiv feed and abs metadata split one human into two author elements ("Mojtaba" and "Komeili" as adjacent authors 6 and 7), reporting 30 authors. DBLP transcribes "Mojtaba Komeili" as one person and 29 authors total, exactly the registry list.',
+    verified:
+      'DBLP publication record for V-JEPA 2 (29 authors, "Mojtaba Komeili" single entry; first eight read: Mido Assran, Adrien Bardes, David Fan 0001, Quentin Garrido, Russell Howes, Mojtaba Komeili, Matthew J. Muckley, Ammar Rizvi) read 2026-08-20; arXiv feed for 2506.09985 prints 30 elements with the split.',
+  },
+  {
+    id: 'vjepa2-2025',
+    skip: 'author',
+    authorIndex: 6,
+    reason:
+      'Registry "Mojtaba Komeili" vs the feed\'s split elements at positions 6/7: same person, confirmed by the DBLP byline transcription.',
+    verified:
+      'DBLP publication record for V-JEPA 2 read 2026-08-20.',
+  },
+  {
+    id: 'pi05-2025',
+    skip: 'author',
+    authorIndex: 1,
+    reason:
+      'Registry "Physical Intelligence" vs feed family "Intelligence": the collective first author the arXiv byline prints as a single string; the naive last-token split breaks the org name. DBLP transcribes the same element verbatim.',
+    verified:
+      'DBLP journals/corr/abs-2504-16054 author list ("Physical Intelligence" as entry 1) read 2026-08-20.',
+  },
+  {
+    id: 'open-x-embodiment-2023',
+    skip: 'author-count',
+    reason:
+      'Registry lists the collective author "Open X-Embodiment Collaboration" (the byline the paper itself prints) rather than its 294 underlying contributor names; a per-contributor expansion is not warranted for a collaboration credit.',
+    verified:
+      'arXiv feed for 2310.08864 (294 authors, first element "Open X-Embodiment Collaboration") read 2026-08-20; the registry cites the collective byline the paper prints.',
+  },
+  {
+    id: 'openai-rubiks-cube-2019',
+    skip: 'author-count',
+    reason:
+      'Registry lists the org plus the first two named authors ("OpenAI, Ilge Akkaya, Marcin Andrychowicz"), the leading transcription of a 19-author list; the full arXiv list matches those three in the same positions.',
+    verified:
+      'arXiv feed for 1910.07113 (19 authors: OpenAI, Ilge Akkaya, Marcin Andrychowicz, ...) read 2026-08-20; leading-three convention documented in the entry.',
+  },
+  {
+    id: 'droid-2024',
+    skip: 'author-count',
+    reason:
+      'Registry lists the first three of 101 authors, with the count and convention documented in the entry comment; the first three match the arXiv byline in order.',
+    verified:
+      'arXiv feed for 2403.12945 (101 authors: Alexander Khazatsky, Karl Pertsch, Suraj Nair, ...) read 2026-08-20.',
+  },
+  {
+    id: 'bridgedata-v2-2023',
+    skip: 'author-count',
+    reason:
+      'Registry lists the first three of 14 authors, count and convention documented in the entry comment; the first three match the arXiv byline in order.',
+    verified:
+      'arXiv feed for 2308.12952 (14 authors: Homer Walke, Kevin Black, Abraham Lee, ...) read 2026-08-20.',
+  },
+  {
+    id: 'isaac-lab-2025',
+    skip: 'author-count',
+    reason:
+      'The arXiv feed prints 107 author elements because it splits the org credit into "NVIDIA" and a stray ":"; DBLP transcribes the byline as two credited authors, NVIDIA and Mayank Mittal, exactly the registry.',
+    verified:
+      'DBLP publication record for Isaac Lab (journals/corr/abs-2511-04831; 1 named record plus the org: "NVIDIA") and the arXiv abs citation_author list (107 entries including ":") compared 2026-08-20.',
+  },
+  {
+    id: 'isaac-lab-2025',
+    skip: 'author',
+    authorIndex: 2,
+    reason:
+      'Registry "NVIDIA" vs the feed\'s stray ":" at position 2: the feed splits the org credit into "NVIDIA" and ":"; the byline credit is the org alone.',
+    verified:
+      'DBLP publication record for Isaac Lab read 2026-08-20; arXiv abs citation_author list for 2511.04831 read 2026-08-20.',
+  },
+  {
+    id: 'agibot-world-2025',
+    skip: 'author-count',
+    reason:
+      'Registry "AgiBot Research" cites the collective byline credit; the arXiv feed prints 52 elements beginning "AgiBot-World-Contributors" followed by named contributors. The collective form is the credit the paper prints as its author line.',
+    verified:
+      'arXiv feed for 2503.06669 (52 elements, first "AgiBot-World-Contributors") read 2026-08-20.',
+  },
+  {
+    id: 'agibot-world-2025',
+    skip: 'author',
+    authorIndex: 1,
+    reason:
+      'Registry "AgiBot Research" vs feed "AgiBot-World-Contributors": the same collective credit under the name the venue page prints; not a named-person divergence.',
+    verified:
+      'arXiv feed for 2503.06669 read 2026-08-20.',
+  },
+  {
+    id: 'gemini-robotics-2025',
+    skip: 'author-count',
+    reason:
+      'Registry cites the collective byline "Gemini Robotics Team, Google DeepMind"; the arXiv feed expands it to 118 named contributors. The collective credit is what the paper prints as its author line.',
+    verified:
+      'arXiv feed for 2503.20020 (118 elements, first "Gemini Robotics Team") read 2026-08-20.',
+  },
+  {
+    id: 'gemini-robotics-2025',
+    skip: 'author',
+    authorIndex: 2,
+    reason:
+      'Registry "Google DeepMind" vs the feed\'s first named contributor at position 2: the registry holds the two collective credits the byline prints, not the expanded contributor list.',
+    verified:
+      'arXiv feed for 2503.20020 read 2026-08-20.',
+  },
+  {
+    id: 'gemini-robotics-15-2025',
+    skip: 'author-count',
+    reason:
+      'Same collective-byline convention as gemini-robotics-2025: registry "Gemini Robotics Team, Google DeepMind", feed expands to 172 named contributors.',
+    verified:
+      'arXiv feed for 2510.03342 (172 elements, first "Gemini Robotics Team") read 2026-08-20.',
+  },
+  {
+    id: 'gemini-robotics-15-2025',
+    skip: 'author',
+    authorIndex: 2,
+    reason:
+      'Registry "Google DeepMind" vs the feed\'s first named contributor at position 2; collective byline, see above.',
+    verified:
+      'arXiv feed for 2510.03342 read 2026-08-20.',
+  },
+  {
+    id: 'pi-rl-2026',
+    skip: 'year',
+    reason:
+      'arXiv prints the v1 submission year 2025; the registry deliberately names 2026 because the entry cites v3 (2026-01-29), the version with the full Flow-Noise/Flow-SDE treatment (the citing article names the version). The registry year policy for versioned arXiv entries follows the cited version.',
+    verified:
+      'arXiv feed for 2510.25889 (v1 published 2025-10-29; entry comment names v3 2026-01-29) read 2026-08-20.',
+  },
 ];

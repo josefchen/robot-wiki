@@ -34,3 +34,5 @@ public/search-index.json
 # Crossref author-sweep response cache (scripts/check-crossref-authors.ts);
 # regenerated on demand, never committed.
 .crossref-cache/
+# arXiv Atom response cache (scripts/check-crossref-authors.ts); same policy as the Crossref cache above.
+.arxiv-cache/

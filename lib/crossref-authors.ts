@@ -31,6 +31,7 @@
  * identity, not corroboration, and never qualifies.
  */
 import { normalizeTitle } from './citation-links.ts';
+import { isPublishedVenue } from './arxiv-authors.ts';
 
 /** The slice of a Crossref author record the sweep compares against. */
 export interface CrossrefAuthor {
@@ -188,13 +189,14 @@ function primaryGivenToken(given: string): string {
 export function compareAuthorName(
   registered: string,
   crossref: CrossrefAuthor,
+  sourceName: string = 'Crossref',
 ): string | null {
   const { given: registeredGiven, family: registeredFamily } = splitRegisteredName(
     registered,
     crossref.family,
   );
   if (familyKey(registeredFamily) !== familyKey(crossref.family)) {
-    return `family "${registeredFamily}" vs Crossref "${crossref.family}"`;
+    return `family "${registeredFamily}" vs ${sourceName} "${crossref.family}"`;
   }
   const registeredInitials = givenInitials(registeredGiven);
   const crossrefInitials = givenInitials(crossref.given);
@@ -202,7 +204,7 @@ export function compareAuthorName(
   const initialMismatch = (): string | null => {
     for (let i = 0; i < Math.min(registeredInitials.length, crossrefInitials.length); i++) {
       if (registeredInitials[i] !== crossrefInitials[i]) {
-        return `given "${registeredGiven}" vs Crossref "${crossref.given ?? ''}" (initial ${registeredInitials[i]!.toUpperCase()} vs ${crossrefInitials[i]!.toUpperCase()})`;
+        return `given "${registeredGiven}" vs ${sourceName} "${crossref.given ?? ''}" (initial ${registeredInitials[i]!.toUpperCase()} vs ${crossrefInitials[i]!.toUpperCase()})`;
       }
     }
     return null;
@@ -216,7 +218,7 @@ export function compareAuthorName(
       const registryPrimary = nameKey(primaryGivenToken(registeredGiven)).replace(/\s/g, '');
       const crossrefPrimary = nameKey(primaryGivenToken(crossref.given)).replace(/\s/g, '');
       if (registryPrimary !== crossrefPrimary) {
-        return `given "${registeredGiven}" vs Crossref "${crossref.given}"`;
+        return `given "${registeredGiven}" vs ${sourceName} "${crossref.given}"`;
       }
     }
     return initialMismatch();
@@ -269,52 +271,99 @@ export interface CrossrefAuthorException {
  * record, so the logic is unit-testable and offline.
  */
 export function compareCitationAuthors(
-  citation: { id: string; authors: string[]; year: number; title: string },
+  citation: { id: string; authors: string[]; year: number; title: string; venue?: string },
   work: CrossrefWorkRecord,
+  /**
+   * Source label for report text, and the selector for the preprint rule:
+   * the default 'Crossref' compares year, title and author-list shape
+   * exactly; 'arXiv' invokes the preprint handling (an entry whose venue
+   * names a published version is flagged only on family names and
+   * contradicted given names, because a preprint byline and the published
+   * version's byline can legitimately differ — see lib/arxiv-authors.ts).
+   */
+  sourceName: 'Crossref' | 'arXiv' = 'Crossref',
 ): AuthorDivergence[] {
   const divergences: AuthorDivergence[] = [];
   const add = (kind: DivergenceKind, problem: string, authorIndex?: number): void => {
     divergences.push({ citationId: citation.id, kind, ...(authorIndex !== undefined ? { authorIndex } : {}), problem });
   };
+  // Only a citation of the preprint itself makes arXiv's author list and
+  // year authoritative evidence about the byline; a citation of the
+  // published venue suppresses everything except the hard name checks.
+  const publishedVenue = sourceName === 'arXiv' && isPublishedVenue(citation);
 
   if (work.authors.length > 0) {
-    if (citation.authors.length !== work.authors.length) {
-      add('author-count', `author count ${citation.authors.length} vs Crossref ${work.authors.length}`);
+    if (!publishedVenue && citation.authors.length !== work.authors.length) {
+      add('author-count', `author count ${citation.authors.length} vs ${sourceName} ${work.authors.length}`);
     }
+    // Alignment-based pairing (added 2026-08-20 with the arXiv extension):
+    // pair each registry author with the source author whose family key
+    // matches, falling back to positional pairing when the lists line up or
+    // a name matches nothing. Pure positional pairing produces cascading
+    // false mismatches whenever the source list carries one stray or split
+    // element (the arXiv feed prints a literal ":" author for GR00T N1 and
+    // splits "Mojtaba Komeili" into two elements for V-JEPA 2), and the
+    // first real defect after such a shift is still caught, because a
+    // family that does not exist anywhere in the source list cannot be
+    // paired and is reported at its registry position.
+    const usedSource = new Set<number>();
+    const pairOf = (i: number): number => {
+      const { family: registryFamily } = splitRegisteredName(citation.authors[i]!, '');
+      for (let j = 0; j < work.authors.length; j++) {
+        if (usedSource.has(j)) continue;
+        if (familyKey(registryFamily) === familyKey(work.authors[j]!.family)) return j;
+      }
+      // Fall back to positional pairing when the family matches nothing
+      // (including the plain i-th slot), so a wrong family name is compared
+      // and reported against its positional counterpart.
+      return usedSource.has(i) || i >= work.authors.length ? -1 : i;
+    };
     const paired = Math.min(citation.authors.length, work.authors.length);
+    const pairing = new Map<number, number>();
     for (let i = 0; i < paired; i++) {
-      const problem = compareAuthorName(citation.authors[i]!, work.authors[i]!);
+      const j = pairOf(i);
+      if (j === -1) continue;
+      usedSource.add(j);
+      pairing.set(i, j);
+      const problem = compareAuthorName(citation.authors[i]!, work.authors[j]!, sourceName);
       if (problem !== null) add('author-mismatch', `author ${i + 1}: ${problem}`, i + 1);
     }
-    // The unverifiable-expansion pattern: Crossref publishes only an
+    // The unverifiable-expansion pattern: the source publishes only an
     // initial and the registry stores a fuller name. The initial may agree,
     // but nothing in the record of source vouches for the expansion.
     // Byline-backed expansions belong in data/crossref-author-exceptions.ts.
-    for (let i = 0; i < paired; i++) {
-      const registered = citation.authors[i]!;
-      const crossref = work.authors[i]!;
-      if (!isInitialOnlyName(crossref.given)) continue;
-      const { given: registeredGiven } = splitRegisteredName(registered, crossref.family);
-      // An expansion is any registered given name that is NOT itself
-      // initials ("J.-C." is initials; "Jean-Claude" and "Micha" are not).
-      const expansion = registeredGiven.length > 0 && !isInitialOnlyName(registeredGiven);
-      if (expansion) {
-        add(
-          'author-expansion',
-          `author ${i + 1}: given name "${registeredGiven}" expands an initial; Crossref publishes only "${crossref.given}"`,
-          i + 1,
-        );
+    // arXiv publishes full given names, so this class mostly does not
+    // arise there; a registry initial against a full arXiv name is the
+    // acceptable direction and is never an expansion.
+    if (!publishedVenue) {
+      for (let i = 0; i < paired; i++) {
+        const registered = citation.authors[i]!;
+        const j = pairing.get(i);
+        if (j === undefined) continue;
+        const crossref = work.authors[j]!;
+        if (!isInitialOnlyName(crossref.given)) continue;
+        const { given: registeredGiven } = splitRegisteredName(registered, crossref.family);
+        // An expansion is any registered given name that is NOT itself
+        // initials ("J.-C." is initials; "Jean-Claude" and "Micha" are not).
+        const expansion = registeredGiven.length > 0 && !isInitialOnlyName(registeredGiven);
+        if (expansion) {
+          add(
+            'author-expansion',
+            `author ${i + 1}: given name "${registeredGiven}" expands an initial; ${sourceName} publishes only "${crossref.given}"`,
+            i + 1,
+          );
+        }
       }
     }
   } else if (citation.authors.length > 0) {
-    add('no-authors', `Crossref publishes no personal authors for this DOI (registry lists ${citation.authors.length})`);
+    add('no-authors', `${sourceName} publishes no personal authors for this work (registry lists ${citation.authors.length})`);
   }
 
-  if (work.years.length > 0 && !work.years.includes(citation.year)) {
-    add('year', `year ${citation.year} vs Crossref ${work.years.join('/')}`);
+  if (!publishedVenue && work.years.length > 0 && !work.years.includes(citation.year)) {
+    add('year', `year ${citation.year} vs ${sourceName} ${work.years.join('/')}`);
   }
 
-  if (work.title !== undefined) {
+  if (!publishedVenue && work.title !== undefined) {
     const registryTitle = normalizeTitle(citation.title);
     const crossrefTitle = normalizeTitle(work.title);
     if (
@@ -323,7 +372,7 @@ export function compareCitationAuthors(
       !registryTitle.includes(crossrefTitle) &&
       !crossrefTitle.includes(registryTitle)
     ) {
-      add('title', `title "${citation.title}" vs Crossref "${work.title}"`);
+      add('title', `title "${citation.title}" vs ${sourceName} "${work.title}"`);
     }
   }
 
