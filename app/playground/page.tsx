@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+
+const title = '3D Kinematics Playground';
 
 export const metadata: Metadata = {
-  title: '3D Kinematics Playground',
+  title,
   description:
     'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.',
+  // Full card blocks restated: a route-level object replaces the
+  // layout's for the same key (no deep merge). og:title is the plain
+  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // instead of the templated ' - robot-wiki' document title.
+  openGraph: routeOpenGraph(title),
+  twitter: routeTwitter(title),
 };
 
 export default function PlaygroundPage() {

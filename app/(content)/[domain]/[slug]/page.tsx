@@ -12,7 +12,7 @@ import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/module
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
-import { articleOgImages, articleTwitter } from '@/lib/og-cards';
+import { articleOpenGraph, articleTwitter } from '@/lib/og-cards';
 import { inlineCitationIds, moduleBody, resolveReferences } from '@/lib/references';
 
 // Fully static: only published modules get routes. Drafts (and everything
@@ -92,16 +92,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     description: entry.summary,
     // Articles are og:type article. A page-level
     // openGraph object replaces the layout's (no deep merge), so the
-    // route-relative url and site name are restated here; og:title and
-    // og:description inherit from title/description. The article's own
-    // social card (one distinct PNG per article, VAL-DIST-002/003/005)
-    // travels with this object for the same reason.
-    openGraph: {
-      type: 'article',
-      url: './',
-      siteName: 'robot-wiki',
-      images: articleOgImages(entry.domain, entry.slug, entry.title),
-    },
+    // route-relative url and site name are restated here. og:title is
+    // declared as the PLAIN article title: the framework would otherwise
+    // fill it from the templated document title, leaving the
+    // ' - robot-wiki' suffix on the card, and the card title must equal
+    // the page's rendered h1 (VAL-DIST-004). The article's own social
+    // card (one distinct PNG per article, VAL-DIST-002/003/005) travels
+    // with this object for the same reason. og:description falls back to
+    // this route's description (the module summary), so the og and
+    // twitter pair share one value.
+    openGraph: articleOpenGraph(entry.domain, entry.slug, entry.title),
     twitter: articleTwitter(entry.domain, entry.slug, entry.title),
   };
 }

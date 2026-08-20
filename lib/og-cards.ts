@@ -39,6 +39,9 @@ export const OG_CARD_HEIGHT = 630;
  */
 export const SITE_URL_ORIGIN = 'https://robot-wiki.com';
 
+/** The site name every card block restates (og:site_name). */
+export const SITE_NAME = 'robot-wiki';
+
 /** Where card PNGs live under public/ and out/. */
 export const OG_CARD_DIR = '/og';
 
@@ -146,13 +149,87 @@ export function articleOgImages(
   ];
 }
 
+/** The image set every card block carries, absolute on the apex origin. */
+export type OgImageSet = Array<{ url: string; width: number; height: number; alt: string }>;
+
+/**
+ * Route-level openGraph block for an article: the full object, because it
+ * replaces the layout's (no deep merge). The PLAIN article title is
+ * declared explicitly (VAL-DIST-004): left unset, the framework fills
+ * og:title from the templated document title, which leaves the
+ * ' - robot-wiki' suffix on the card, and the card title must equal the
+ * page's rendered h1. og:description is left to fall back to the route's
+ * metadata description (the module summary), the same value on both
+ * sides, so the og and twitter pair can never drift.
+ */
+export function articleOpenGraph(
+  domain: string,
+  slug: string,
+  title: string,
+): {
+  type: 'article';
+  title: string;
+  url: './';
+  siteName: string;
+  images: OgImageSet;
+} {
+  return {
+    type: 'article',
+    title,
+    url: './',
+    siteName: SITE_NAME,
+    images: articleOgImages(domain, slug, title),
+  };
+}
+
+/**
+ * Route-level openGraph block for a non-article destination (the domain
+ * landings and the standalone routes), which share the site-level card.
+ * Same replacement trap and same plain-title rule as
+ * articleOpenGraph above.
+ */
+export function routeOpenGraph(title: string): {
+  type: 'website';
+  title: string;
+  url: './';
+  siteName: string;
+  images: OgImageSet;
+} {
+  return {
+    type: 'website',
+    title,
+    url: './',
+    siteName: SITE_NAME,
+    images: siteOgImage(),
+  };
+}
+
+/**
+ * The twitter block a route re-declares alongside its openGraph. The
+ * plain title is pinned to the same string the route declares as
+ * og:title (VAL-DIST-004: a declared twitter:title must equal its og
+ * counterpart exactly), so the pair cannot drift whatever the
+ * framework's own fallbacks would fill in.
+ */
+export function routeTwitter(
+  title: string,
+  images: OgImageSet = siteOgImage(),
+): {
+  card: 'summary_large_image';
+  title: string;
+  images: OgImageSet;
+} {
+  return { card: 'summary_large_image', title, images };
+}
+
 export function articleTwitter(
   domain: string,
   slug: string,
   title: string,
 ): {
   card: 'summary_large_image';
-  images: Array<{ url: string; width: number; height: number; alt: string }>;
+  title: string;
+  images: OgImageSet;
 } {
-  return { card: 'summary_large_image', images: articleOgImages(domain, slug, title) };
+  return routeTwitter(title, articleOgImages(domain, slug, title));
 }

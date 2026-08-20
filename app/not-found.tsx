@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
+import { routeTwitter, siteOgImage } from '@/lib/og-cards';
+
+const title = 'Page not found';
 
 export const metadata: Metadata = {
-  title: 'Page not found',
+  title,
   // The root layout resolves './' against the internal /_not-found pathname;
   // point this route's canonical and og:url at the conventional /404/ path
   // instead, which serves this page in the export. The full openGraph set is
   // restated here: a route-level openGraph object replaces the layout's, so
-  // omitting siteName/type would silently drop those tags.
+  // omitting siteName/type would silently drop those tags. og:title is the
+  // plain page title so the card matches the rendered h1 (VAL-DIST-004).
   alternates: { canonical: '/404/' },
   // Explicit route-level pin: the 404 page stays noindex regardless of
   // ALLOW_INDEXING in lib/site.ts, so flipping the site-wide switch can
@@ -18,11 +21,12 @@ export const metadata: Metadata = {
   robots: { index: false },
   openGraph: {
     type: 'website',
+    title,
     url: '/404/',
     siteName: 'robot-wiki',
     images: siteOgImage(),
   },
-  twitter: largeCardTwitter(),
+  twitter: routeTwitter(title),
 };
 
 /** Themed 404: dark tokens, site chrome from the root layout, link home. */

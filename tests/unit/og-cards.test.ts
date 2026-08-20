@@ -4,10 +4,17 @@ import {
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
   SITE_CARD_PATH,
+  SITE_NAME,
   articleCardPath,
+  articleOgImages,
+  articleOpenGraph,
+  articleTwitter,
   clampTitle,
   ogImageAltForTitle,
+  routeOpenGraph,
+  routeTwitter,
   sanitizeCardText,
+  siteOgImage,
   siteOgImageAlt,
 } from '@/lib/og-cards';
 
@@ -72,5 +79,51 @@ describe('og card vocabulary', () => {
     expect(OG_CARD_WIDTH).toBeGreaterThanOrEqual(1200);
     expect(OG_CARD_HEIGHT).toBeGreaterThanOrEqual(630);
     expect(Math.abs(ratio - 1.91)).toBeLessThanOrEqual(0.05);
+  });
+
+  // VAL-DIST-004: the route blocks pin the PLAIN title. The framework's
+  // own fallback fills og:title from the templated document title, which
+  // leaves the ' - robot-wiki' suffix on the card and breaks the h1
+  // match; the helpers must declare the title explicitly so that can
+  // never happen.
+  it('routeOpenGraph declares the plain title, a website card block, and the site card', () => {
+    const og = routeOpenGraph('Market Map');
+    expect(og.title).toBe('Market Map');
+    expect(og.title).not.toContain(SITE_NAME);
+    expect(og.type).toBe('website');
+    expect(og.url).toBe('./');
+    expect(og.siteName).toBe(SITE_NAME);
+    expect(og.images).toEqual(siteOgImage());
+    expect(og.images[0].url.endsWith(SITE_CARD_PATH)).toBe(true);
+  });
+
+  it('routeTwitter pins the plain title, summary_large_image, and the same images as og', () => {
+    const tw = routeTwitter('Market Map');
+    expect(tw.card).toBe('summary_large_image');
+    expect(tw.title).toBe('Market Map');
+    expect(tw.title).toBe(routeOpenGraph('Market Map').title);
+    expect(tw.images).toEqual(siteOgImage());
+  });
+
+  it('articleOpenGraph declares the plain article title and the article card', () => {
+    const og = articleOpenGraph('manipulation', 'action-chunking', 'Action Chunking (ACT and ALOHA)');
+    expect(og.type).toBe('article');
+    expect(og.title).toBe('Action Chunking (ACT and ALOHA)');
+    expect(og.title).not.toContain(`- ${SITE_NAME}`);
+    expect(og.url).toBe('./');
+    expect(og.siteName).toBe(SITE_NAME);
+    expect(og.images).toEqual(
+      articleOgImages('manipulation', 'action-chunking', 'Action Chunking (ACT and ALOHA)'),
+    );
+  });
+
+  it('articleTwitter equals its og counterpart on title and images for every published module', () => {
+    for (const m of publishedModules()) {
+      const og = articleOpenGraph(m.domain, m.slug, m.title);
+      const tw = articleTwitter(m.domain, m.slug, m.title);
+      expect(tw.card).toBe('summary_large_image');
+      expect(tw.title, `${m.slug} twitter:title equals og:title`).toBe(og.title);
+      expect(tw.images, `${m.slug} twitter images equal og images`).toEqual(og.images);
+    }
   });
 });

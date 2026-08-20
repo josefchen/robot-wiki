@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+
+const title = 'Search';
 
 export const metadata: Metadata = {
-  title: 'Search',
+  title,
   description:
     'Search robot-wiki: full-text over article prose, plus methods, companies, and datasets.',
+  // Full card blocks restated: a route-level object replaces the
+  // layout's for the same key (no deep merge). og:title is the plain
+  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // instead of the templated ' - robot-wiki' document title.
+  openGraph: routeOpenGraph(title),
+  twitter: routeTwitter(title),
 };
 
 /**

@@ -6,11 +6,20 @@ import { ImageRef } from '@/components/mdx/image-ref';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
+import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+
+const title = 'Credits';
 
 export const metadata: Metadata = {
-  title: 'Credits',
+  title,
   description:
     'Every photograph and diagram on robot-wiki, with its creator, source, and licence.',
+  // Full card blocks restated: a route-level object replaces the
+  // layout's for the same key (no deep merge). og:title is the plain
+  // page title so the card matches the rendered h1 (VAL-DIST-004)
+  // instead of the templated ' - robot-wiki' document title.
+  openGraph: routeOpenGraph(title),
+  twitter: routeTwitter(title),
 };
 
 /**
