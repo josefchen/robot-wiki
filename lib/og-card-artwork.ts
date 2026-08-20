@@ -7,11 +7,28 @@
  * near-black canvas, hairline borders, one locked amber accent, Geist
  * sans for titles, a mono face for readouts). Every article card carries
  * a derived instrument diagram, not a repeated canvas: the diagram
- * family and its geometry are seeded from a hash of the article's
- * domain/slug and its real metadata (reference count, review year), so
- * two articles never render the same picture and nothing on a card is
+ * family is picked from a hash of the article's domain/slug, so two
+ * articles never render the same picture and nothing on a card is
  * build state (AGENTS.md design rules 1 and 6: no progress counters, no
  * drafts).
+ *
+ * HONESTY CONTRACT FOR THE DIAGRAM GEOMETRY (route (a), "make it
+ * real", chosen over decorative abstraction on 2026-08-20): every
+ * diagram family either is bound to real per-article quantities or
+ * reads as unambiguous ornament. The bar-spectrum ("signal") family
+ * encodes real data and ONLY real data: the bar count is the article's
+ * reference count (clamped to the panel, floor 6) and the bar heights
+ * follow a fixed monotonic ramp whose envelope and tilt are a
+ * deterministic function of the review year alone, with one amber
+ * bar. No hash jitter feeds this geometry, so no invented value can
+ * survive in the drawing. The reference count and review year are also
+ * printed on the card (the mono footer and the REVIEWED header), so a
+ * reader can check the encoding against the label. The remaining
+ * families (node graph, timeline, dot field, intervals, mosaic) draw
+ * abstract geometry with no axis rules, no regular bar grid and no
+ * readable values: ornament, not fake measurement. All geometry is
+ * deterministic given the card input, so the same article always
+ * renders the same picture.
  */
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
@@ -158,22 +175,29 @@ function vline(height: number): CardNode {
   return div({ width: '1px', height: `${height}px`, backgroundColor: BORDER });
 }
 
-/** Bar spectrum: a seeded envelope plus jitter, one amber bar. */
-function signalDiagram(rng: Rng): CardNode {
-  const count = rng.int(13, 18);
+/**
+ * Reference spectrum (real encoding, no invented values): one bar per
+ * cited source, heights stepped by a monotonic ramp whose envelope and
+ * tilt are derived from the review year alone, one amber bar. The bar
+ * count equals the printed reference count (clamped to the panel,
+ * floor 6), so the drawing and the "N REFERENCES" label agree. With six
+ * or more bars at varied heights the family reads as ornament with a
+ * count, not as a measured distribution; the printed labels on the
+ * card carry the exact numbers.
+ */
+export function signalDiagram(referenceCount: number, reviewYear: number): CardNode {
+  const rng = new Rng(reviewYear);
+  const count = Math.max(6, Math.min(referenceCount, 24));
   const gap = 3;
   const barW = Math.floor((DIAGRAM_W - (count - 1) * gap) / count);
   const envelope = rng.range(0.45, 0.8);
   const tilt = rng.range(-0.25, 0.25);
-  const amberIndex = rng.int(Math.floor(count * 0.2), Math.floor(count * 0.8));
+  const amberIndex = Math.max(0, Math.min(count - 1, Math.round(count / 2) - 1));
   const bars: CardNode[] = [];
   const values: number[] = [];
   for (let i = 0; i < count; i++) {
     const phase = i / (count - 1);
-    const value = Math.min(
-      1,
-      Math.max(0.16, envelope + tilt * (phase - 0.5) + (rng.next() - 0.5) * 0.4),
-    );
+    const value = Math.min(1, Math.max(0.16, envelope + tilt * (phase - 0.5)));
     const height = Math.round(value * (DIAGRAM_H - 90));
     values.push(height);
     bars.push(
@@ -397,10 +421,15 @@ function mosaicDiagram(rng: Rng): CardNode {
   ]);
 }
 
-function diagramElement(family: DiagramFamily, rng: Rng): CardNode {
+function diagramElement(
+  family: DiagramFamily,
+  rng: Rng,
+  referenceCount: number,
+  reviewYear: number,
+): CardNode {
   switch (family) {
     case 'signal':
-      return signalDiagram(rng);
+      return signalDiagram(referenceCount, reviewYear);
     case 'scatter':
       return scatterDiagram(rng);
     case 'timeline':
@@ -521,7 +550,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
           justifyContent: 'center',
           padding: '48px 48px',
         },
-        [diagramElement(family, rng)],
+        [diagramElement(family, rng, input.referenceCount, input.reviewYear)],
       ),
     ],
   );
