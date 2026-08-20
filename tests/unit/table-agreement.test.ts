@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
+  cellNumericToken,
+  cellTokenInReadout,
   checkClauseA,
   checkClauseB,
   extractXTicks,
@@ -178,5 +180,48 @@ describe('clause (c) slider inference', () => {
   });
   it('returns null for a slider that does not set the table x', () => {
     expect(inferSliderTransform([0, 10, 15, 20, 30, 40, 50], { label: 'one-step error', min: 0.5, max: 6, step: 0.5, value: 2 })).toBeNull();
+  });
+});
+
+describe('clause (c) per-column binding', () => {
+  // The 1M EgoScale row as rendered at the unfixed cap: the completion-fit
+  // cell prints 1.00 while the readout carries 1.17. This is the red-phase
+  // fixture for the cap repair.
+  const readout1M =
+    'horizon: 1M h loss: 0.0033 holds / 0.0150 plateau completion fit: 1.17 holds / 0.71 plateau, past 100%, which is impossible';
+
+  it('grades each numeric column, so one matching cell cannot pass a contradicted row', () => {
+    const lossCell = '0.0033 holds / 0.0150 plateau';
+    const cappedCell = '1.00 holds / 0.71 plateau';
+    expect(cellTokenInReadout(lossCell, readout1M)).toBe(true);
+    // The loss cell matching must not carry the row: the completion-fit
+    // cell is graded on its own and fails (readout says 1.17, not 1.00).
+    expect(cellTokenInReadout(cappedCell, readout1M)).toBe(false);
+    expect(cellTokenInReadout('1.17 holds / 0.71 plateau', readout1M)).toBe(true);
+  });
+
+  it('rejects integer-vs-fractional shape mismatches, so axis and horizon labels cannot satisfy a score', () => {
+    // "1M h" and the "1k10k100k1M" tick cluster scrape as bare 1s; a
+    // 2-decimal score must not match them inside the tolerance.
+    const withIntLabelsOnly = 'horizon: 1M h ticks 1k 10k 100k 1M';
+    expect(cellTokenInReadout('1.00 holds / 0.71 plateau', withIntLabelsOnly)).toBe(false);
+  });
+
+  it('requires equal decimal counts, so the legend R-squared cannot satisfy a capped score', () => {
+    // The panel legend prints "R² = 0.9983", which rounds to 1.00 inside
+    // the 2-decimal tolerance; it is a different quantity at a different
+    // precision and must not carry the completion-fit cell.
+    const withLegend = 'completion fit: 1.17 holds / 0.71 plateau completion fit (robot-wiki, R² = 0.9983)';
+    expect(cellTokenInReadout('1.00 holds / 0.71 plateau', withLegend)).toBe(false);
+    expect(cellTokenInReadout('1.17 holds / 0.71 plateau', withLegend)).toBe(true);
+  });
+
+  it('skips non-numeric cells and grades every "/" part', () => {
+    expect(cellNumericToken('n/a')).toBeNull();
+    expect(cellNumericToken('extrapolated, dashed')).toBeNull();
+    expect(cellNumericToken('0.89 holds / 0.71 plateau')).toBe('0.89');
+    // Both scenario parts must appear: 0.89 alone is not the whole cell.
+    const readoutMissingPlateau = 'completion fit: 0.89 holds';
+    expect(cellTokenInReadout('0.89 holds / 0.71 plateau', readoutMissingPlateau)).toBe(false);
   });
 });

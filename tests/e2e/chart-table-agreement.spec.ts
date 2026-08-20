@@ -3,13 +3,13 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { publishedModules } from '../../data/modules';
 import {
+  cellNumericToken,
+  cellTokenInReadout,
   checkClauseA,
   checkClauseB,
   inferSliderTransform,
-  numbersIn,
   parseNumericToken,
   sliderMatchesRowAxis,
-  tokenDecimals,
   type ChartSnapshot,
   type SliderInfo,
 } from './helpers/table-agreement';
@@ -80,6 +80,16 @@ interface CapturedChart extends ChartSnapshot {
   aDetail: string;
   bViolations: string[];
   bRecords: Array<{ token: string; row: string; outcome: string }>;
+}
+
+/** A clause (c) probe record, with per-column failure detail. */
+interface ProbeRecord {
+  route: string;
+  desc: string;
+  slider: string;
+  row: string;
+  pass: boolean;
+  failingCols?: string[];
 }
 
 function slash(path: string): string {
@@ -254,7 +264,7 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ page }) => {
   test.setTimeout(240_000);
-  const probes: Array<{ route: string; desc: string; slider: string; row: string; pass: boolean | string }> = [];
+  const probes: ProbeRecord[] = [];
   for (const route of ROUTES) {
     await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(150);
@@ -278,7 +288,10 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
       if (!chosen || !chosen.inf) continue;
       const { s, inf } = chosen;
 
-      const rows = inf.rows.slice(0, 2);
+      // Probe EVERY row that lands on the slider grid, not just the first
+      // two: a slice(0, 2) never visited the EgoScale 1M row, which is
+      // where the capped completion-fit cell contradicted the readout.
+      const rows = inf.rows;
       for (const x of rows) {
         const rowIdx = rowXs.findIndex((r) => r != null && r === x);
         const sv = inf.toSlider(x);
@@ -314,34 +327,41 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
           { ci, sliderIndex: s.index, sv },
         );
         if (typeof result !== 'string') continue;
-        if (result === 'ok' || true) {
-          const cells = c.rows[rowIdx].cells;
-          const panelNums = numbersIn(result).map(Number);
-          const numericCells = cells.some((cell) =>
-            cell.split('/').some((part) => parseNumericToken(part) != null),
-          );
-          const pass = numericCells
-            ? cells.some((cell) => {
-                for (const part of cell.split('/')) {
-                  const n = parseNumericToken(part);
-                  if (n == null) continue;
-                  const tol = 0.5 * 10 ** -tokenDecimals(part) + 1e-9;
-                  if (panelNums.some((pn) => Math.abs(pn - n) <= tol)) return true;
-                }
-                return false;
-              })
-            : // A row whose printed values are non-numeric (gait footfall
-              // names) is graded by the readout showing the row's own x
-              // label: the control demonstrably reached that row.
-              result.includes(c.rows[rowIdx].label);
-          probes.push({
-            route,
-            desc: c.desc.slice(0, 50),
-            slider: s.label.slice(0, 50),
-            row: c.rows[rowIdx].label,
-            pass,
+        // Per-quantity grading, the way clause (b) binds a value to its
+        // column: every numeric column of the probed row must appear in
+        // the readout to the cell's printed precision. Grading a row via
+        // cells.some() would let one matching cell (the loss "0.0033")
+        // pass the row while the completion-fit cell ("1.00") is
+        // contradicted by the readout ("1.17") — exactly the disagreement
+        // this clause exists to catch. Non-numeric columns ("n/a") are
+        // skipped: there is no printed value to bind.
+        const cells = c.rows[rowIdx].cells;
+        const anyNumeric = cells.some((cell) => cellNumericToken(cell) != null);
+        const failingCols: string[] = [];
+        if (anyNumeric) {
+          cells.forEach((cell, i) => {
+            if (cellNumericToken(cell) == null) return;
+            if (!cellTokenInReadout(cell, result)) {
+              failingCols.push(
+                `"${c.headers[i + 1] ?? `col ${i + 1}`} prints [${cell}] but the readout does not carry it: [${result.trim().slice(0, 120)}]`,
+              );
+            }
           });
         }
+        const pass = anyNumeric
+          ? failingCols.length === 0
+          : // A row whose printed values are non-numeric (gait footfall
+            // names) is graded by the readout showing the row's own x
+            // label: the control demonstrably reached that row.
+            result.includes(c.rows[rowIdx].label);
+        probes.push({
+          route,
+          desc: c.desc.slice(0, 50),
+          slider: s.label.slice(0, 50),
+          row: c.rows[rowIdx].label,
+          pass,
+          failingCols,
+        });
       }
       // restore the default
       await page.evaluate(
@@ -373,7 +393,9 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
   expect(probes.length, 'charts probed by the control clause').toBeGreaterThanOrEqual(6);
   const failed = probes.filter((p) => !p.pass);
   expect(
-    failed.map((p) => `${p.route} [${p.slider}] row "${p.row}" (${p.desc}...)`),
+    failed.map((p) =>
+      `${p.route} [${p.slider}] row "${p.row}" (${p.desc}...): ${(p.failingCols ?? []).join('; ')}`,
+    ),
     'clause (c): the readout must show the sampled row value to the printed precision',
   ).toEqual([]);
 });

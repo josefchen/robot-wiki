@@ -623,8 +623,11 @@ export function EgoScaleScaling({
             values: [
               `${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`,
               'n/a',
-              `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`,
-              'extrapolated, dashed',
+              // Uncapped, matching the readout: at 1M the fit reads 1.17,
+              // past 100 percent and impossible, which the region cell
+              // states in words so the row is honest read cold.
+              `${formatScore(completionFit(1_000_000))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`,
+              'extrapolated, dashed, fit past 100 percent, impossible',
             ],
           },
         ])}

@@ -89,6 +89,59 @@ export function numbersIn(text: string): number[] {
 }
 
 /**
+ * First numeric token (raw text) of a "/"-separated cell part. Clause (c)
+ * grades a table column against the readout per part, because a cell of
+ * the form "0.89 holds / 0.71 plateau" carries one number per scenario
+ * and the readout must show both.
+ */
+function firstNumberToken(part: string): string | null {
+  return part.match(/-?\d+(?:\.\d+)?/)?.[0] ?? null;
+}
+
+/**
+ * The first numeric token of a cell, or null when the cell prints no
+ * number ("n/a", "extrapolated, dashed"). Such columns are ungraded by
+ * clause (c): there is no printed value to bind to the readout.
+ */
+export function cellNumericToken(cell: string): string | null {
+  for (const part of cell.split('/')) {
+    const t = firstNumberToken(part);
+    if (t != null) return t;
+  }
+  return null;
+}
+
+/**
+ * Clause (c) per-quantity match: every numeric token of the cell must
+ * appear in the readout printed at the SAME precision as the cell. Two
+ * shape guards, both learned from the capped EgoScale 1M cell, which
+ * shipped green twice. First, integer-to-fractional pairs are rejected:
+ * a dimensionless score ("1.00") can never match a bare integer ("1")
+ * scraped from "1M h" or the "1k10k100k1M" tick cluster, which a pure
+ * tolerance would accept inside 0.005. Second, the decimal COUNT must
+ * match: "1.00" must not match "0.9983" (the legend's R-squared), which
+ * rounds to 1.00 inside the 2-decimal tolerance but is a different
+ * quantity printed at a different precision. A readout shows the row's
+ * value to the precision printed in the table when it prints that value
+ * at that precision.
+ */
+export function cellTokenInReadout(cell: string, readout: string): boolean {
+  const decimalsOf = (t: string) => (t.split('.')[1] ?? '').length;
+  const readoutTokens = readout.match(/-?\d+(?:\.\d+)?/g) ?? [];
+  return cell.split('/').every((part) => {
+    const raw = firstNumberToken(part);
+    if (raw == null) return true; // non-numeric part: nothing to grade
+    const value = Number(raw);
+    const tol = 0.5 * 10 ** -decimalsOf(raw) + 1e-9;
+    const places = decimalsOf(raw);
+    return readoutTokens.some(
+      (rt) =>
+        decimalsOf(rt) === places && Math.abs(Number(rt) - value) <= tol,
+    );
+  });
+}
+
+/**
  * X-axis tick labels: digit-bearing SVG texts in the bottom label cluster
  * whose x coordinate matches a vertical gridline/tick line. The line match
  * is what excludes y-axis labels (they sit left of the plot, on no
