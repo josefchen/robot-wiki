@@ -117,6 +117,41 @@ export default function CreditsPage() {
         </p>
       </header>
 
+      {/* About section (VAL-DIST-008): why this site exists, kept in its
+          own <section> so the licence list below stays the registry-
+          generated surface VAL-IMG-004 grades. Biographical facts come
+          only from the owner-supplied constants in lib/identity.ts. */}
+      <section aria-labelledby="about-heading" className="mt-12">
+        <h2
+          id="about-heading"
+          className="font-sans text-lg font-semibold tracking-tight text-text"
+        >
+          Who is behind this wiki
+        </h2>
+        <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
+          I am {AUTHOR_NAME}, and I spent 3 years building and deploying
+          robots at KAIKAKU (acquired by REEF). That work kept me reading
+          the same scattered sources: papers that leave out the deployment
+          context, and demos that never mention the failure rates behind
+          them. This wiki is the reference I wanted within reach during
+          those years, written for engineers arriving from ML who need the
+          field mapped without the promotion. Every claim links to its
+          source, so you can check me.
+        </p>
+        <p className="mt-4 font-sans text-sm text-text-dim">
+          Corrections and source disputes are welcome:{' '}
+          <a
+            href={AUTHOR_PROFILE_URL}
+            target="_blank"
+            rel="noopener"
+            className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+          >
+            contact {AUTHOR_HANDLE} on GitHub
+          </a>
+          .
+        </p>
+      </section>
+
       <ol className="mt-10 list-none border-t border-border">
         {IMAGES.map((image) => {
           const appearsOn = usage.get(image.id) ?? [];
