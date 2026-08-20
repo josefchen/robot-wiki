@@ -13,15 +13,24 @@
  * name the source never printed is invention about a named person, the
  * defect this rule was written after (five fabricated given names landed in
  * one session with every DOI verified). Expanding is acceptable ONLY when
- * a fuller transcription of the record corroborates it (the paper's own
- * byline, or a metadata aggregator that prints the full name), and then the
- * entry comment must say where the full name came from. This is the same
+ * a record that genuinely transcribes or states the byline corroborates
+ * it: the publisher's landing page or PDF byline, a DBLP publication
+ * record, or the ORCID profile of the correct person with this work
+ * actually listed (verify the affiliation and subject area match the
+ * paper before trusting an ORCID). An aggregator's DISPLAY NAME is a
+ * cluster-level guess about identity, NOT corroboration — OpenAlex
+ * display_name mis-clustered doi:10.1007/BF01840373 onto a different
+ * Mishra on 2026-08-20. OpenAlex's raw_author_name does transcribe the
+ * byline, so it counts only where it actually prints the full name.
+ * Where no transcription exists, keep the initial, and say where the full
+ * name came from in the entry comment when one does. This is the same
  * principle the DOI/arXiv rules above already bind, applied to the author
  * field. `npm run check:crossref-authors` (run it whenever a citation is
  * added or an author field is edited) compares every DOI-bearing entry
  * against api.crossref.org and flags family-name, year and title mismatches
  * plus exactly this expansion pattern; byline-backed expansions are
- * documented in data/crossref-author-exceptions.ts.
+ * documented in data/crossref-author-exceptions.ts, one authorIndex per
+ * entry — a blanket entry there is rejected by the sweep.
  *
  * Urls are https. The one sanctioned exception pattern, for a canonical
  * source genuinely served over http only, is a DATED web.archive.org
@@ -3620,10 +3629,11 @@ export const CITATIONS: Citation[] = [
     title:
       'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces',
     authors: [
-      // Crossref and OpenAlex both print initials for authors 2-4
-      // (P. Švestka, J.-C. Latombe, M. H. Overmars), so the initials are
-      // kept per the author-field policy; only Lydia E. Kavraki's full
-      // name is corroborated by a fuller record (OpenAlex, 2026-08-20).
+      // Crossref and OpenAlex's raw_author_name both print initials for
+      // authors 2-4 (P. Švestka, J.-C. Latombe, M. H. Overmars), so the
+      // initials are kept per the author-field policy; only Lydia E.
+      // Kavraki's full name is corroborated by a byline transcription
+      // (DBLP journals/trob/KavrakiSLO96, read 2026-08-20).
       'Lydia E. Kavraki',
       'P. Švestka',
       'J.-C. Latombe',
@@ -3829,9 +3839,10 @@ export const CITATIONS: Citation[] = [
     title:
       'Constrained Model Predictive Control: Stability and Optimality',
     authors: [
-      // Crossref prints initials for all four; OpenAlex corroborates full
-      // names only for Rawlings and Rao (read 2026-08-20), so Mayne and
-      // Scokaert keep the printed initials.
+      // Crossref prints initials for all four; the DBLP record
+      // (journals/automatica/MayneRRS00, read 2026-08-20) transcribes
+      // full names for all four, but the registry expands only Rawlings
+      // and Rao; Mayne and Scokaert keep the printed initials.
       'D. Q. Mayne',
       'James B. Rawlings',
       'Christopher V. Rao',
@@ -4157,10 +4168,17 @@ export const CITATIONS: Citation[] = [
     // 1990's own abstract.
     id: 'mishra-1987',
     title: 'On the Existence and Synthesis of Multifinger Positive Grips',
-    // Given name corrected 2026-08-20: the author is Brajendra Mishra
-    // (Crossref prints only "B."; the fuller record is OpenAlex's
-    // transcription of the Springer byline, read 2026-08-20).
-    authors: ['Brajendra Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
+    // Author 1 restored 2026-08-20: the author is Bhubaneswar Mishra
+    // ("Bud" Mishra, NYU Courant). DBLP's publication record for this DOI
+    // lists "Bhubaneswar Mishra, Jacob T. Schwartz, Micha Sharir" (author
+    // pid m/BhubaneswarMishra, New York University), and the Courant
+    // co-authors corroborate the identity. OpenAlex's display_name
+    // "Brajendra Mishra" is MIS-CLUSTERED here: that name is attached to
+    // ORCID 0000-0001-7897-1817, a materials scientist at Worcester
+    // Polytechnic whose topics are extraction, corrosion and hydrogen
+    // embrittlement, and OpenAlex's own raw_author_name for this record
+    // prints only "B. Mishra". Do not "correct" this back from OpenAlex.
+    authors: ['Bhubaneswar Mishra', 'Jacob T. Schwartz', 'Micha Sharir'],
     year: 1987,
     venue: 'Algorithmica',
     url: 'https://doi.org/10.1007/BF01840373',
@@ -4210,8 +4228,9 @@ export const CITATIONS: Citation[] = [
     // ends 844081; neighboring 844777 is a different ICRA 2000 paper.
     id: 'bicchi-kumar-2000',
     title: 'Robotic Grasping and Contact: A Review',
-    // Crossref prints "A." and "V."; OpenAlex corroborates only "Antonio
-    // Bicchi" in full (read 2026-08-20), so Kumar keeps the initial.
+    // Crossref prints "A." and "V."; the DBLP record (conf/icra/BicchiK00,
+    // read 2026-08-20) transcribes "Antonio Bicchi" in full, so Kumar
+    // keeps the initial.
     authors: ['Antonio Bicchi', 'V. Kumar'],
     year: 2000,
     venue: 'ICRA 2000',
@@ -5617,7 +5636,12 @@ export const CITATIONS: Citation[] = [
     // DOI verified via Crossref 2026-08-20: JDSMC 103(2), 126-133.
     id: 'raibert-craig-1981',
     title: 'Hybrid Position/Force Control of Manipulators',
-    authors: ['Marc Raibert', 'John Craig'],
+    // Authors keep the printed initials (2026-08-20): the ASME landing
+    // page itself prints "M. H. Raibert" and "J. J. Craig", DBLP does not
+    // index JDSMC, and no record transcribes a fuller byline, so the
+    // earlier "Marc Raibert" / "John Craig" expansion (sourced from
+    // OpenAlex display_name) was dropped per the author-field policy.
+    authors: ['M. H. Raibert', 'J. J. Craig'],
     year: 1981,
     venue: 'ASME J. Dynamic Systems, Measurement, and Control',
     url: 'https://doi.org/10.1115/1.3139652',
@@ -5662,8 +5686,9 @@ export const CITATIONS: Citation[] = [
     // Albu-Schaeffer, Kugi, Hirzinger.
     id: 'albu-schaffer-2003',
     title: 'Decoupling Based Cartesian Impedance Control of Flexible Joint Robots',
-    // Crossref prints initials for all four (C., A., A., G.); OpenAlex
-    // corroborates the first three in full (read 2026-08-20); Hirzinger
+    // Crossref prints initials for all four (C., A., A., G.); the DBLP
+    // record for the DOI (read 2026-08-20) transcribes the first three in
+    // full (Christian Ott, Alin Albu-Schäffer, Andreas Kugi); Hirzinger
     // keeps the printed initial.
     authors: ['Christian Ott', 'Alin Albu-Schäffer', 'Andreas Kugi', 'G. Hirzinger'],
     year: 2003,

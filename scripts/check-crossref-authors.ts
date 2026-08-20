@@ -32,6 +32,7 @@ import { CITATIONS } from '../data/citations.ts';
 import { extractDoi } from '../lib/citation-links.ts';
 import {
   compareCitationAuthors,
+  crossrefAuthorExceptionProblems,
   isDocumentedDivergence,
   parseCrossrefRecord,
   type AuthorDivergence,
@@ -88,6 +89,18 @@ async function cachedFetchWork(doi: string): Promise<{ record: CrossrefWorkRecor
 
 async function main(): Promise<number> {
   const args = parseArgs(process.argv.slice(2));
+
+  // Hard error, not a warning: an author-scoped exception without an
+  // authorIndex used to mute its class for EVERY author position on its
+  // id, so a malformed exceptions file is itself a finding (2026-08-20).
+  const exceptionProblems = crossrefAuthorExceptionProblems(CROSSREF_AUTHOR_EXCEPTIONS);
+  if (exceptionProblems.length > 0) {
+    console.error('MALFORMED EXCEPTIONS in data/crossref-author-exceptions.ts:');
+    for (const problem of exceptionProblems) console.error(`  ${problem}`);
+    console.error('\nFix the file: author-scoped entries must name one authorIndex each.');
+    return 1;
+  }
+
   const targets = CITATIONS.filter((c) => {
     const doi = c.url ? extractDoi(c.url) : null;
     if (doi === null) return false;

@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest';
 import {
   compareAuthorName,
   compareCitationAuthors,
+  crossrefAuthorExceptionProblems,
   givenInitials,
   isDocumentedDivergence,
   isInitialOnlyName,
   parseCrossrefRecord,
   type CrossrefAuthorException,
+  type AuthorDivergence,
 } from '@/lib/crossref-authors';
+import { CROSSREF_AUTHOR_EXCEPTIONS } from '@/data/crossref-author-exceptions';
 
 describe('givenInitials / isInitialOnlyName', () => {
   it('extracts initials from full names, dotted initials, and compounds', () => {
@@ -269,29 +272,132 @@ describe('compareCitationAuthors against the confirmed defects', () => {
   });
 });
 
-describe('isDocumentedDivergence', () => {
-  const exceptions: CrossrefAuthorException[] = [
-    { id: 'a', skip: 'author-expansion', reason: 'r', verified: 'v' },
-    { id: 'a', skip: 'author-expansion', authorIndex: 2, reason: 'r', verified: 'v' },
-    { id: 'b', skip: 'year', reason: 'r', verified: 'v' },
-  ];
+describe('isDocumentedDivergence (author-scoped entries mask exactly one position)', () => {
+  const expansion = (authorIndex: number): AuthorDivergence => ({
+    citationId: 'a',
+    kind: 'author-expansion',
+    authorIndex,
+    problem: 'p',
+  });
 
-  it('scopes expansion exceptions by author position', () => {
-    const d = (kind: 'author-expansion', authorIndex?: number) => ({ citationId: 'a', kind, authorIndex, problem: 'p' });
-    // The un-scoped entry covers every expansion divergence for its id.
-    expect(isDocumentedDivergence(d('author-expansion'), exceptions)).toBe(true);
-    expect(isDocumentedDivergence(d('author-expansion', 3), exceptions)).toBe(true);
-    // A scoped entry covers only its own position: drop the catch-all and
-    // position 2 alone is masked.
-    const scoped = exceptions.filter((e) => e.authorIndex !== undefined);
-    expect(isDocumentedDivergence(d('author-expansion', 2), scoped)).toBe(true);
-    expect(isDocumentedDivergence(d('author-expansion', 3), scoped)).toBe(false);
+  it('masks an expansion only at the author position the entry names', () => {
+    const scoped: CrossrefAuthorException[] = [
+      { id: 'a', skip: 'author-expansion', authorIndex: 2, reason: 'r', verified: 'v' },
+    ];
+    expect(isDocumentedDivergence(expansion(2), scoped)).toBe(true);
+    expect(isDocumentedDivergence(expansion(3), scoped)).toBe(false);
+  });
+
+  // The 2026-08-20 over-masking defect: an exception without authorIndex
+  // muted its class for EVERY author position on the id, so a planted
+  // "Gustav Hirzinger" at an unprotected position survived a green sweep.
+  // A blanket-style entry must mask NO position: the exceptions file
+  // rejects it outright (crossrefAuthorExceptionProblems), and even if one
+  // is present the matcher must not treat it as a wildcard.
+  it('a blanket-style entry (no authorIndex) masks no author position at all', () => {
+    const blanketExpansion: CrossrefAuthorException[] = [
+      { id: 'a', skip: 'author-expansion', reason: 'r', verified: 'v' },
+    ];
+    for (const position of [1, 2, 3, 4]) {
+      expect(isDocumentedDivergence(expansion(position), blanketExpansion)).toBe(false);
+    }
+    const blanketAuthor: CrossrefAuthorException[] = [
+      { id: 'a', skip: 'author', reason: 'r', verified: 'v' },
+    ];
+    expect(
+      isDocumentedDivergence(
+        { citationId: 'a', kind: 'author-mismatch', authorIndex: 2, problem: 'p' },
+        blanketAuthor,
+      ),
+    ).toBe(false);
+  });
+
+  it('an author exception masks mismatches and expansions only at its own position', () => {
+    const scoped: CrossrefAuthorException[] = [
+      { id: 'a', skip: 'author', authorIndex: 1, reason: 'r', verified: 'v' },
+    ];
+    expect(
+      isDocumentedDivergence(
+        { citationId: 'a', kind: 'author-mismatch', authorIndex: 1, problem: 'p' },
+        scoped,
+      ),
+    ).toBe(true);
+    expect(isDocumentedDivergence(expansion(1), scoped)).toBe(true);
+    expect(
+      isDocumentedDivergence(
+        { citationId: 'a', kind: 'author-mismatch', authorIndex: 2, problem: 'p' },
+        scoped,
+      ),
+    ).toBe(false);
+  });
+
+  it('position-less author kinds are masked only by their own dedicated skip', () => {
+    const count: CrossrefAuthorException[] = [{ id: 'a', skip: 'author-count', reason: 'r', verified: 'v' }];
+    const none: CrossrefAuthorException[] = [{ id: 'a', skip: 'no-authors', reason: 'r', verified: 'v' }];
+    const positional: CrossrefAuthorException[] = [
+      { id: 'a', skip: 'author', authorIndex: 1, reason: 'r', verified: 'v' },
+    ];
+    expect(isDocumentedDivergence({ citationId: 'a', kind: 'author-count', problem: 'p' }, count)).toBe(true);
+    expect(isDocumentedDivergence({ citationId: 'a', kind: 'no-authors', problem: 'p' }, count)).toBe(false);
+    expect(isDocumentedDivergence({ citationId: 'a', kind: 'no-authors', problem: 'p' }, none)).toBe(true);
+    // A position-scoped author entry must not swallow a position-less kind.
+    expect(isDocumentedDivergence({ citationId: 'a', kind: 'author-count', problem: 'p' }, positional)).toBe(false);
+    expect(isDocumentedDivergence({ citationId: 'a', kind: 'no-authors', problem: 'p' }, positional)).toBe(false);
   });
 
   it('does not let a year exception mask an author problem', () => {
+    const year: CrossrefAuthorException[] = [{ id: 'b', skip: 'year', reason: 'r', verified: 'v' }];
     expect(
-      isDocumentedDivergence({ citationId: 'b', kind: 'author-mismatch', problem: 'p' }, exceptions),
+      isDocumentedDivergence(
+        { citationId: 'b', kind: 'author-mismatch', authorIndex: 1, problem: 'p' },
+        year,
+      ),
     ).toBe(false);
-    expect(isDocumentedDivergence({ citationId: 'b', kind: 'year', problem: 'p' }, exceptions)).toBe(true);
+    expect(isDocumentedDivergence({ citationId: 'b', kind: 'year', problem: 'p' }, year)).toBe(true);
+  });
+});
+
+describe('crossrefAuthorExceptionProblems (the exceptions file is validated, not trusted)', () => {
+  it('rejects author-scoped entries that do not name a position', () => {
+    const problems = crossrefAuthorExceptionProblems([
+      { id: 'x', skip: 'author-expansion', reason: 'r', verified: 'v' },
+      { id: 'y', skip: 'author', reason: 'r', verified: 'v' },
+    ]);
+    expect(problems).toHaveLength(2);
+    expect(problems[0]).toContain('x');
+    expect(problems[0]).toContain('authorIndex');
+    expect(problems[1]).toContain('y');
+  });
+
+  it('accepts well-formed entries and rejects an authorIndex where it does not apply', () => {
+    expect(
+      crossrefAuthorExceptionProblems([
+        { id: 'x', skip: 'author-expansion', authorIndex: 2, reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'author', authorIndex: 1, reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'year', reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'title', reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'no-authors', reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'author-count', reason: 'r', verified: 'v' },
+      ]),
+    ).toEqual([]);
+    expect(
+      crossrefAuthorExceptionProblems([
+        { id: 'x', skip: 'year', authorIndex: 1, reason: 'r', verified: 'v' },
+        { id: 'x', skip: 'no-authors', authorIndex: 1, reason: 'r', verified: 'v' },
+      ]),
+    ).toHaveLength(2);
+  });
+
+  it('rejects out-of-range indexes and empty evidence fields', () => {
+    const problems = crossrefAuthorExceptionProblems([
+      { id: 'x', skip: 'author-expansion', authorIndex: 0, reason: 'r', verified: 'v' },
+      { id: 'x', skip: 'author', authorIndex: 2, reason: '', verified: 'v' },
+      { id: 'x', skip: 'author', authorIndex: 2, reason: 'r', verified: '' },
+    ]);
+    expect(problems).toHaveLength(3);
+  });
+
+  it('the checked-in exceptions file passes validation', () => {
+    expect(crossrefAuthorExceptionProblems(CROSSREF_AUTHOR_EXCEPTIONS)).toEqual([]);
   });
 });

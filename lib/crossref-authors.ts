@@ -23,9 +23,12 @@
  * only initials, the registry's initials must agree positionally, and a
  * registry name LONGER than an initial is reported separately as an
  * unverifiable expansion — the precise fabrication pattern this module
- * exists to catch. Expansions that ARE backed by the paper's own byline can
- * be documented in data/crossref-author-exceptions.ts rather than
- * downgraded.
+ * exists to catch. Expansions that ARE backed by a record that transcribes
+ * or states the byline (DBLP, the publisher landing page or PDF, the
+ * correct person's ORCID with the work listed) can be documented in
+ * data/crossref-author-exceptions.ts rather than downgraded; an
+ * aggregator's display name (OpenAlex display_name) is a guess about
+ * identity, not corroboration, and never qualifies.
  */
 import { normalizeTitle } from './citation-links.ts';
 
@@ -243,7 +246,17 @@ export interface AuthorDivergence {
 /** A documented, verified exception (data/crossref-author-exceptions.ts). */
 export interface CrossrefAuthorException {
   id: string;
-  skip: 'author' | 'author-expansion' | 'year' | 'title';
+  /**
+   * Which check to skip: a divergence at exactly ONE named author
+   * position ('author' or 'author-expansion', both of which REQUIRE
+   * authorIndex), a position-less author-shape divergence ('author-count'
+   * or 'no-authors', which take no authorIndex), or the year/title checks.
+   * A blanket author-scoped entry without authorIndex is rejected outright
+   * by crossrefAuthorExceptionProblems: before 2026-08-20 such an entry
+   * was silently treated as a wildcard that muted its class for EVERY
+   * author position on the id.
+   */
+  skip: 'author' | 'author-expansion' | 'author-count' | 'no-authors' | 'year' | 'title';
   authorIndex?: number;
   reason: string;
   /** How and when a human verified the claim the exception rests on. */
@@ -325,19 +338,77 @@ export function isDocumentedDivergence(
   return exceptions.some((exception) => {
     if (exception.id !== divergence.citationId) return false;
     switch (exception.skip) {
+      // Author-scoped entries are position-exact: the entry must name the
+      // same 1-based authorIndex as the divergence. An entry without an
+      // authorIndex matches no position at all (and is rejected as
+      // malformed by crossrefAuthorExceptionProblems), so it can never act
+      // as a wildcard. Before 2026-08-20 a missing authorIndex muted the
+      // entry's class for every author position on the id, which is how a
+      // planted wrong name at an unprotected position survived a green
+      // sweep.
       case 'author':
         return (
-          (divergence.kind === 'author-mismatch' || divergence.kind === 'author-expansion' ||
-            divergence.kind === 'author-count' || divergence.kind === 'no-authors') &&
-          (exception.authorIndex === undefined || exception.authorIndex === divergence.authorIndex)
+          (divergence.kind === 'author-mismatch' || divergence.kind === 'author-expansion') &&
+          exception.authorIndex === divergence.authorIndex
         );
       case 'author-expansion':
-        return divergence.kind === 'author-expansion' &&
-          (exception.authorIndex === undefined || exception.authorIndex === divergence.authorIndex);
+        return (
+          divergence.kind === 'author-expansion' &&
+          exception.authorIndex === divergence.authorIndex
+        );
+      // Position-less author divergences have no author position to name,
+      // so they are masked by their own dedicated skip values.
+      case 'author-count':
+        return divergence.kind === 'author-count';
+      case 'no-authors':
+        return divergence.kind === 'no-authors';
       case 'year':
         return divergence.kind === 'year';
       case 'title':
         return divergence.kind === 'title';
     }
   });
+}
+
+/** Skip values whose exceptions are scoped to one author position. */
+const POSITION_SCOPED_SKIPS = new Set(['author', 'author-expansion']);
+
+/**
+ * Validate exception entries before they are allowed to mask anything.
+ * An author-scoped entry (skip 'author' or 'author-expansion') MUST name
+ * its 1-based authorIndex: a blanket entry without one used to mute its
+ * class for every author position on the id, so the sweep treats the
+ * whole file as malformed and exits 1 rather than running with a hole
+ * open. Position-less skips must not carry an authorIndex, and every
+ * entry must carry evidence (reason + verified).
+ */
+export function crossrefAuthorExceptionProblems(
+  exceptions: CrossrefAuthorException[],
+): string[] {
+  const problems: string[] = [];
+  for (const [index, exception] of exceptions.entries()) {
+    const label = `[${exception.id}] entry ${index + 1} (skip: ${exception.skip})`;
+    if (POSITION_SCOPED_SKIPS.has(exception.skip)) {
+      if (exception.authorIndex === undefined) {
+        problems.push(
+          `${label}: author-scoped exceptions must name a 1-based authorIndex; a blanket entry would mask every author position on this id`,
+        );
+      } else if (!Number.isInteger(exception.authorIndex) || exception.authorIndex < 1) {
+        problems.push(
+          `${label}: authorIndex must be a 1-based position, got ${String(exception.authorIndex)}`,
+        );
+      }
+    } else if (exception.authorIndex !== undefined) {
+      problems.push(
+        `${label}: skip '${exception.skip}' is not author-scoped, so authorIndex does not apply`,
+      );
+    }
+    if (typeof exception.reason !== 'string' || exception.reason.trim().length === 0) {
+      problems.push(`${label}: reason must say why the registry is right anyway`);
+    }
+    if (typeof exception.verified !== 'string' || exception.verified.trim().length === 0) {
+      problems.push(`${label}: verified must name the source and date that was checked`);
+    }
+  }
+  return problems;
 }
