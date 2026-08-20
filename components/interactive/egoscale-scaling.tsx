@@ -588,17 +588,46 @@ export function EgoScaleScaling({
         rowHeader="pretraining hours"
         columns={[
           { header: 'loss (MSE)', numeric: true },
-          { header: 'task completion', numeric: true },
+          { header: 'reported completion', numeric: true },
+          { header: 'completion fit', numeric: true },
           { header: 'region', numeric: false },
         ]}
         rows={[
-          { label: '1k h', values: [formatLoss(validationLoss(1000)), formatScore(completionFit(1000)), 'measured'] },
-          { label: '4k h', values: [formatLoss(validationLoss(4000)), formatScore(completionFit(4000)), 'measured'] },
-          { label: '10k h', values: [formatLoss(validationLoss(10_000)), formatScore(completionFit(10_000)), 'measured'] },
-          { label: '20k h', values: [formatLoss(validationLoss(20_000)), formatScore(completionFit(20_000)), 'measured range ends'] },
-          { label: '100k h', values: [`${formatLoss(validationLoss(100_000))} holds / ${formatLoss(plateauLoss(100_000))} plateau`, `${formatScore(completionFit(100_000))} holds / ${formatScore(plateauCompletion(100_000))} plateau`, 'extrapolated, dashed'] },
-          { label: '1M h', values: [`${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`, `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`, 'extrapolated, dashed'] },
-        ]}
+          { hours: 1000, region: 'measured' },
+          { hours: 4000, region: 'measured' },
+          { hours: 10_000, region: 'measured' },
+          { hours: 20_000, region: 'measured range ends' },
+        ].map(({ hours, region }) => {
+          const reported = COMPLETION_POINTS.find((p) => p.hours === hours);
+          return {
+            label: formatHours(hours),
+            values: [
+              formatLoss(validationLoss(hours)),
+              reported ? formatScore(reported.score) : 'n/a',
+              formatScore(completionFit(hours)),
+              region,
+            ],
+          };
+        }).concat([
+          {
+            label: formatHours(100_000),
+            values: [
+              `${formatLoss(validationLoss(100_000))} holds / ${formatLoss(plateauLoss(100_000))} plateau`,
+              'n/a',
+              `${formatScore(completionFit(100_000))} holds / ${formatScore(plateauCompletion(100_000))} plateau`,
+              'extrapolated, dashed',
+            ],
+          },
+          {
+            label: formatHours(1_000_000),
+            values: [
+              `${formatLoss(validationLoss(1_000_000))} holds / ${formatLoss(plateauLoss(1_000_000))} plateau`,
+              'n/a',
+              `${formatScore(Math.min(completionFit(1_000_000), 1))} holds / ${formatScore(plateauCompletion(1_000_000))} plateau`,
+              'extrapolated, dashed',
+            ],
+          },
+        ])}
         description={
           defaultHorizonHours !== DEFAULT_HORIZON_HOURS
             ? `The generalization prediction-step law panel is seeded past the 100 percent crossing: validation loss still falls from ${formatLoss(validationLoss(MEASURED_MIN_HOURS))} at 1k hours to ${formatLoss(validationLoss(MEASURED_MAX_HOURS))} at 20k hours, but the completion fit is already flagged as impossible at the ${formatHours(horizon)} horizon rather than drawn through 100 percent.`
