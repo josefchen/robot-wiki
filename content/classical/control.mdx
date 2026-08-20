@@ -150,14 +150,14 @@ The stack you have now seen end to end, [kinematics](/classical/kinematics) to l
   prompt="A payload bolted off-center puts a constant torque bias on one joint of a walking robot. Which layer of the stack removes that bias without retraining anything?"
   options={[
     {
-      value: 'retrain',
-      label: 'Retrain the walking policy with the payload present',
-      why: 'This encodes the belief that a constant disturbance is a data problem. The module’s own estimate says more than 95% of industrial control problems are solved by PID feedback, most without any learning: the loop exists precisely so that constant offsets are removed at runtime rather than trained away.'
-    },
-    {
       value: 'integral',
       label: 'The integral term of the joint-level controller',
       why: 'Proportional action alone always leaves a steady-state error, because a nonzero error is what generates the corrective torque. The integral term accumulates that residual error and erases a constant offset, which is why the current loop inside every actuator of a learned-policy demo is usually PI.'
+    },
+    {
+      value: 'retrain',
+      label: 'Retrain the walking policy with the payload present',
+      why: 'This encodes the belief that a constant disturbance is a data problem. The module’s own estimate says more than 95% of industrial control problems are solved by PID feedback, most without any learning: the loop exists precisely so that constant offsets are removed at runtime rather than trained away.'
     },
     {
       value: 'faster-mpc',

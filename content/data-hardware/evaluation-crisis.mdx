@@ -46,11 +46,9 @@ The calculator above computes that product. The per-step slider spans the full r
   prompt="A policy gets each decision right 95% of the time. Roughly how many decisions in a row can it make before the whole task succeeds only half the time?"
   options={[
     {
-      value: 'fourteen',
-      label: 'About 14 decisions, because the loss compounds at every step',
-      why: 'The product crosses one half between the 13th and 14th decision: 0.95 to the 14th is 48.8%, and the module’s own horizon arithmetic already lands 30 steps at 21.5%. Episode success halves roughly every 14 decisions, so the coin flip arrives early, not late.',
-      anchorHref: '#what-the-success-rate-hides-the-horizon',
-      anchorLabel: 'horizon arithmetic',
+      value: 'two-hundred',
+      label: 'About 200 decisions, because errors average out over an episode',
+      why: 'This encodes the belief that independent mistakes cancel like noise around a mean. A successful episode needs every decision right, so errors compound toward zero, and a longer episode is strictly worse, not safer.'
     },
     {
       value: 'fifty',
@@ -58,9 +56,11 @@ The calculator above computes that product. The per-step slider spans the full r
       why: 'This reads the per-step number as if it carried over linearly to the task. The loss is multiplicative: by 50 decisions the product is 7.7%, far past a coin flip and heading for the floor.'
     },
     {
-      value: 'two-hundred',
-      label: 'About 200 decisions, because errors average out over an episode',
-      why: 'This encodes the belief that independent mistakes cancel like noise around a mean. A successful episode needs every decision right, so errors compound toward zero, and a longer episode is strictly worse, not safer.'
+      value: 'fourteen',
+      label: 'About 14 decisions, because the loss compounds at every step',
+      why: 'The product crosses one half between the 13th and 14th decision: 0.95 to the 14th is 48.8%, and the module’s own horizon arithmetic already lands 30 steps at 21.5%. Episode success halves roughly every 14 decisions, so the coin flip arrives early, not late.',
+      anchorHref: '#what-the-success-rate-hides-the-horizon',
+      anchorLabel: 'horizon arithmetic',
     }
   ]}
   answer="fourteen"
@@ -100,14 +100,14 @@ Five questions recover what the single number hides. How many rollouts produced 
   prompt="Two policies both report 80% success on the same nominal task. One was scored on 10 trials, the other on 50 with a Bayesian posterior attached. What can you actually conclude?"
   options={[
     {
-      value: 'equal',
-      label: 'Nothing separates them yet: at these trial counts a 10 to 15 unit gap could sit behind either report, so treat the pair as one result pending more trials',
-      why: 'This is closer to the truth than the bare "80% is 80%" reading, and it still grants the 10-trial number more than it deserves. Snyder et al. frame the feasible sample size for a comparison as 10 to 50 trials, and at those counts differences of 10 to 15 percentage units sit inside the noise floor; the interpretable path is the posterior, not another decade of waiting on the uninformative protocol.'
-    },
-    {
       value: 'b-signals',
       label: 'Only the 50-trial number with its posterior is interpretable; the 10-trial number could hide a 15-unit difference either way',
       why: 'This is what the small-N statistics actually support. TRI’s authors are blunt that many papers are measuring noise from insufficient statistical power rather than showing methods are equivalent, and TRI itself would not compare two policies below 50 real attempts per condition. The posterior is what makes the width of the claim visible.'
+    },
+    {
+      value: 'equal',
+      label: 'Nothing separates them yet: at these trial counts a 10 to 15 unit gap could sit behind either report, so treat the pair as one result pending more trials',
+      why: 'This is closer to the truth than the bare "80% is 80%" reading, and it still grants the 10-trial number more than it deserves. Snyder et al. frame the feasible sample size for a comparison as 10 to 50 trials, and at those counts differences of 10 to 15 percentage units sit inside the noise floor; the interpretable path is the posterior, not another decade of waiting on the uninformative protocol.'
     },
     {
       value: 'b-more-efficient',
