@@ -4,6 +4,7 @@ import { Geist, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
+import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
 const geistSans = Geist({
@@ -39,7 +40,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: './',
     siteName: 'robot-wiki',
+    // Site-level social card (VAL-DIST-002/005): a build-time PNG under
+    // /og/, served as a plain static file. Non-article routes inherit
+    // this block; routes that declare their own openGraph object (which
+    // replaces this one, no deep merge) re-declare images themselves.
+    images: siteOgImage(),
   },
+  // summary_large_image: the card is the 1.91:1 asset above, not a small
+  // square thumbnail (VAL-DIST-001).
+  twitter: largeCardTwitter(),
   // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
   // single switch). True since the go-public decision of 2026-08-16, so
   // this resolves to undefined and no meta tag ships; /404/ pins its own

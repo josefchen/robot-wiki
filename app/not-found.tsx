@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 
 export const metadata: Metadata = {
   title: 'Page not found',
@@ -19,7 +20,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: '/404/',
     siteName: 'robot-wiki',
+    images: siteOgImage(),
   },
+  twitter: largeCardTwitter(),
 };
 
 /** Themed 404: dark tokens, site chrome from the root layout, link home. */
