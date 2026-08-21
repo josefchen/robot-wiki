@@ -32,6 +32,9 @@ const ROWS: Dataset[] = [
   {
     id: 'open-x-embodiment',
     name: 'Open X-Embodiment (OXE)',
+    // No alias: RT-X names the MODELS trained on the pool, not the pool, and
+    // as a query it loses to method:rt-2 on fuzzy distance anyway.
+    aka: [],
     year: 2023,
     episodes: 1000000,
     episodesNote: 'reported as 1M+; pooled from 60 datasets',
@@ -50,6 +53,8 @@ const ROWS: Dataset[] = [
   {
     id: 'droid',
     name: 'DROID',
+    // Expanded on the project site and in the paper's abstract.
+    aka: ['Distributed Robot Interaction Dataset'],
     year: 2024,
     episodes: 76000,
     hours: 350,
@@ -64,6 +69,7 @@ const ROWS: Dataset[] = [
   {
     id: 'bridgedata-v2',
     name: 'BridgeData V2',
+    aka: [],
     year: 2023,
     episodes: 60096,
     episodesNote: 'incl. 9,731 scripted pick-and-place rollouts',
@@ -81,6 +87,8 @@ const ROWS: Dataset[] = [
   {
     id: 'agibot-world',
     name: 'AgiBot World',
+    // The platform paper's own name: "AgiBot World Colosseo" (arXiv:2503.06669).
+    aka: ['Colosseo'],
     year: 2025,
     episodes: 1001552,
     episodesNote: 'Beta release; 1,003,672 after post-release additions',
@@ -97,6 +105,7 @@ const ROWS: Dataset[] = [
   {
     id: 'agibot-world-2026',
     name: 'AgiBot World 2026',
+    aka: [],
     year: 2026,
     // The release publishes a 13.7 TB total file size (HF storage API,
     // 13.66 TB as of 2026-08-17) but no
@@ -115,6 +124,8 @@ const ROWS: Dataset[] = [
   {
     id: 'robomind',
     name: 'RoboMIND',
+    // The MIND expansion carried in the paper's title (arXiv:2412.13877).
+    aka: ['Multi-embodiment Intelligence Normative Data'],
     year: 2024,
     episodes: 107000,
     episodesNote: 'incl. 5k failure demonstrations',

@@ -309,6 +309,7 @@ describe('methodSchema', () => {
   const valid = {
     id: 'act',
     name: 'ACT',
+    aka: ['Action Chunking with Transformers'],
     year: 2023,
     actionRepresentation: 'continuous',
     actionHorizon: { planned: 100, executed: 1 },
@@ -353,6 +354,7 @@ describe('datasetSchema', () => {
   const valid = {
     id: 'open-x-embodiment',
     name: 'Open X-Embodiment',
+    aka: [],
     year: 2023,
     episodes: 1000000,
     hours: null,

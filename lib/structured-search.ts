@@ -101,6 +101,7 @@ function methodDocument(
     title: method.name,
     text: compactText([
       method.name,
+      ...method.aka,
       method.year,
       method.actionRepresentation,
       method.backbone,
@@ -144,6 +145,7 @@ function datasetDocument(
     title: dataset.name,
     text: compactText([
       dataset.name,
+      ...dataset.aka,
       dataset.year,
       ...dataset.embodiments,
       dataset.license,
