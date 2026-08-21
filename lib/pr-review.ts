@@ -390,7 +390,9 @@ function addedBlocks(file: ChangedFile): AddedLine[][] {
 }
 
 const isContentArticle = (path: string) => /^content\/.+\.mdx?$/.test(path);
-const isDataRegistry = (path: string) => /^data\/[a-z0-9-]+\.ts$/.test(path);
+/** Structured datasets with sourced rows. Exception lists are not registries. */
+const isDataRegistry = (path: string) =>
+  /^data\/[a-z0-9-]+\.ts$/.test(path) && path !== 'data/link-check-exceptions.ts';
 const isComponent = (path: string) => /^components\/.+\.tsx?$/.test(path);
 const isTest = (path: string) => path.startsWith('tests/');
 
@@ -418,7 +420,7 @@ const QUANTITATIVE_PATTERNS: RegExp[] = [
  * 1M hours". Skipping these is what keeps the rule readable in a review.
  */
 const HYPOTHETICAL =
-  /\b(if|would|were|suppose|imagine|hypothetical|assume|scenarios?|extrapolat\w*|projected)\b/i;
+  /\b(if|suppose|imagine|hypothetical|assume|scenarios?|extrapolat\w*)\b/i;
 const DEFINITIONAL_THRESHOLD = /\b(better than|at least|no worse than|above|beyond)\s+[~\\$\d]/i;
 
 /** Split a line into sentences, so one hedged clause does not mask another. */
@@ -607,9 +609,13 @@ function reviewControlLabels(file: ChangedFile, body: string): ReviewFinding[] {
     }
     if (touched.length === 0) continue;
     if (/aria-label|aria-labelledby|title=/.test(tag.text)) continue;
-    // An input with an id is named by the <label htmlFor> that points at it;
-    // only genuinely anonymous controls are reported.
-    if (/\bid=/.test(tag.text) && /htmlFor=/.test(body)) continue;
+    // An input with an id is named only by the <label htmlFor> that points at
+    // that id. An unrelated htmlFor elsewhere in the file does not name it.
+    const id = /\bid=["']([^"']+)["']/.exec(tag.text)?.[1];
+    if (id) {
+      const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (new RegExp(`htmlFor=["']${escaped}["']`).test(body)) continue;
+    }
     findings.push({
       rule: 'control-without-accessible-name',
       severity: 'warning',
@@ -908,4 +914,45 @@ export function inlineFindings(
       finding.line !== undefined &&
       (addedLinesByPath[finding.path] ?? []).includes(finding.line),
   );
+}
+
+const inlineKey = (path: string, line: number, rule: string) => `${path}:${line}:${rule}`;
+
+/** Keys of inline findings already commented on this PR by an earlier run. */
+export function existingInlineKeys(
+  comments: readonly { body?: string; path?: string; line?: number }[],
+): Set<string> {
+  const keys = new Set<string>();
+  for (const comment of comments) {
+    const rule = /<!-- pr-review-rule:([a-z-]+) -->/.exec(comment.body ?? '')?.[1];
+    if (rule && comment.path && comment.line) {
+      keys.add(inlineKey(comment.path, comment.line, rule));
+    }
+  }
+  return keys;
+}
+
+/**
+ * Inline comments still to post. `null` means the existing-comment list could
+ * not be read, so the caller must skip posting rather than treat every prior
+ * comment as new.
+ */
+export function pendingInlineFindings(
+  findings: readonly ReviewFinding[],
+  addedLinesByPath: Readonly<Record<string, readonly number[]>>,
+  existingComments: readonly { body?: string; path?: string; line?: number }[] | null,
+  listFailed: boolean,
+): ReviewFinding[] | null {
+  if (listFailed) return null;
+  const alreadySaid = existingInlineKeys(existingComments ?? []);
+  return inlineFindings(findings, addedLinesByPath).filter(
+    (finding) => !alreadySaid.has(inlineKey(finding.path, finding.line ?? 0, finding.rule)),
+  );
+}
+
+/** Next page URL from a GitHub `Link` header, or null when there is no next. */
+export function githubNextLink(linkHeader: string | null | undefined): string | null {
+  if (!linkHeader) return null;
+  const match = /<([^>]+)>\s*;\s*rel="next"/i.exec(linkHeader);
+  return match?.[1] ?? null;
 }

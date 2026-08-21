@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import {
   countBySeverity,
+  existingInlineKeys,
   formatReviewMarkdown,
+  githubNextLink,
   inlineFindings,
   maskJsxTags,
   parseUnifiedDiff,
+  pendingInlineFindings,
   reviewChanges,
   scanJsxTags,
   sortFindings,
@@ -266,6 +269,34 @@ describe('uncited-quantitative-claim', () => {
     expect(findings.filter((f) => f.rule === 'uncited-quantitative-claim')).toEqual([]);
   });
 
+  it('still flags past-tense and projected quantitative claims', () => {
+    const lines = [
+      'The lab were 99.9% reliable across the last 400 homes.',
+      '',
+      'The company would ship 12 million units on the current line.',
+      '',
+      'The deck projected $40 million in 2027 revenue.',
+    ];
+    const body = mdx(...lines);
+    const findings = reviewChanges({
+      files: [
+        newArticle(
+          'content/manipulation/action-chunking.mdx',
+          lines.map((text, i) => [BODY_START + i, text]),
+        ),
+      ],
+      bodies: { 'content/manipulation/action-chunking.mdx': body },
+    });
+    const claims = findings.filter((f) => f.rule === 'uncited-quantitative-claim');
+    expect(claims.map((f) => f.message)).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('99.9%'),
+        expect.stringContaining('12 million'),
+        expect.stringContaining('$40'),
+      ]),
+    );
+  });
+
   it('does not fire on bare integers or years', () => {
     const line = 'Figure 3 compares k=100 against the 2023 baseline.';
     const findings = reviewChanges({
@@ -433,6 +464,22 @@ describe('data registry rules', () => {
     expect(findings[0].message).toContain('2031');
   });
 
+  it('does not treat link-check exceptions as a sourced-row registry', () => {
+    const added: Array<[number, string]> = [
+      '  {',
+      "    id: 'llama-3-2024',",
+      "    reason: 'bot-wall, no DOI',",
+      "    verifiedBy: 'headless Chromium',",
+      "    verifiedOn: '2026-08-11',",
+      '  },',
+    ].map((text, i) => [24 + i, text]);
+    const findings = reviewChanges({
+      files: [changed('data/link-check-exceptions.ts', added)],
+      bodies: { 'data/link-check-exceptions.ts': '' },
+    });
+    expect(findings.filter((f) => f.rule === 'unsourced-registry-row')).toEqual([]);
+  });
+
   it('accepts a well-formed citation', () => {
     const added: Array<[number, string]> = [
       '  {',
@@ -505,6 +552,18 @@ describe('component rules', () => {
       bodies: { 'components/interactive/dial.tsx': lines.join('\n') },
     });
     expect(findings.filter((f) => f.rule === 'control-without-accessible-name')).toEqual([]);
+  });
+
+  it('flags an input when an unrelated htmlFor is the only label in the file', () => {
+    const lines = [
+      '<label htmlFor="other">Unrelated</label>',
+      '<input id="dial" type="range" min={1} max={400} />',
+    ];
+    const findings = reviewChanges({
+      files: [changed('components/interactive/dial.tsx', [[2, lines[1]]])],
+      bodies: { 'components/interactive/dial.tsx': lines.join('\n') },
+    });
+    expect(findings.map((f) => f.rule)).toContain('control-without-accessible-name');
   });
 
   it('flags an animation loop with no reduced-motion branch', () => {
@@ -848,5 +907,54 @@ describe('inlineFindings', () => {
       { rule: 'multi-scope-pull-request', severity: 'note', path: '', message: 'm' },
     ];
     expect(inlineFindings(findings, { 'lib/a.ts': [5, 6] })).toEqual([findings[0]]);
+  });
+});
+
+describe('pendingInlineFindings', () => {
+  const findings: ReviewFinding[] = [
+    {
+      rule: 'debugger-statement',
+      severity: 'blocker',
+      path: 'lib/a.ts',
+      line: 5,
+      message: 'debugger left in',
+    },
+  ];
+
+  it('returns null when the review-comment list cannot be read, so the poster skips', () => {
+    expect(pendingInlineFindings(findings, { 'lib/a.ts': [5] }, null, true)).toBeNull();
+  });
+
+  it('skips a finding an earlier run already marked on the same line', () => {
+    const existing = [
+      {
+        path: 'lib/a.ts',
+        line: 5,
+        body: 'debugger left in\n\n`[debugger-statement]` <!-- pr-review-rule:debugger-statement -->',
+      },
+    ];
+    expect(existingInlineKeys(existing).has('lib/a.ts:5:debugger-statement')).toBe(true);
+    expect(pendingInlineFindings(findings, { 'lib/a.ts': [5] }, existing, false)).toEqual([]);
+  });
+
+  it('posts a finding that is not already on the thread', () => {
+    expect(pendingInlineFindings(findings, { 'lib/a.ts': [5] }, [], false)).toEqual(findings);
+  });
+});
+
+describe('githubNextLink', () => {
+  it('reads rel=next from a GitHub Link header', () => {
+    expect(
+      githubNextLink(
+        '<https://api.github.com/repos/o/r/pulls/1/comments?page=2>; rel="next", <https://api.github.com/repos/o/r/pulls/1/comments?page=3>; rel="last"',
+      ),
+    ).toBe('https://api.github.com/repos/o/r/pulls/1/comments?page=2');
+  });
+
+  it('is null when there is no next page', () => {
+    expect(githubNextLink('<https://api.github.com/repos/o/r/pulls/1/comments?page=1>; rel="prev"')).toBe(
+      null,
+    );
+    expect(githubNextLink(null)).toBe(null);
   });
 });

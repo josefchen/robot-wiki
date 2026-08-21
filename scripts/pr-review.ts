@@ -28,8 +28,9 @@ import { existsSync, readFileSync, appendFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   formatReviewMarkdown,
-  inlineFindings,
+  githubNextLink,
   parseUnifiedDiff,
+  pendingInlineFindings,
   reviewChanges,
   countBySeverity,
   MAX_FINDINGS,
@@ -143,12 +144,20 @@ interface ApiResult<T> {
   status: number;
   data: T | null;
   error?: string;
+  link?: string | null;
+}
+
+const API_ORIGIN = 'https://api.github.com';
+
+/** Turn a GitHub next-page URL into the path `request` expects. */
+function apiPathFromUrl(url: string): string {
+  return url.startsWith(API_ORIGIN) ? url.slice(API_ORIGIN.length) : url;
 }
 
 /** Minimal REST client over fetch: five calls, no dependency. */
 function githubApi(repo: string, token: string) {
   async function request<T>(method: string, path: string, body?: unknown): Promise<ApiResult<T>> {
-    const response = await fetch(`https://api.github.com${path}`, {
+    const response = await fetch(`${API_ORIGIN}${path}`, {
       method,
       headers: {
         accept: 'application/vnd.github+json',
@@ -162,14 +171,36 @@ function githubApi(repo: string, token: string) {
     if (!response.ok) {
       return { status: response.status, data: null, error: text.slice(0, 400) };
     }
-    return { status: response.status, data: text ? (JSON.parse(text) as T) : null };
+    return {
+      status: response.status,
+      data: text ? (JSON.parse(text) as T) : null,
+      link: response.headers.get('link'),
+    };
+  }
+
+  /** Follow `Link: rel="next"` so old inline keys are not dropped at page 100. */
+  async function listAll<T>(firstPath: string): Promise<ApiResult<T[]>> {
+    const items: T[] = [];
+    let path: string | null = firstPath;
+    let lastStatus = 0;
+    while (path) {
+      const page = await request<T[]>('GET', path);
+      lastStatus = page.status;
+      if (page.error) {
+        return { status: page.status, data: null, error: page.error };
+      }
+      items.push(...(page.data ?? []));
+      const next = githubNextLink(page.link);
+      path = next ? apiPathFromUrl(next) : null;
+    }
+    return { status: lastStatus, data: items };
   }
 
   return {
     listReviewComments: (pr: number) =>
-      request<GitHubComment[]>('GET', `/repos/${repo}/pulls/${pr}/comments?per_page=100`),
+      listAll<GitHubComment>(`/repos/${repo}/pulls/${pr}/comments?per_page=100`),
     listIssueComments: (pr: number) =>
-      request<GitHubComment[]>('GET', `/repos/${repo}/issues/${pr}/comments?per_page=100`),
+      listAll<GitHubComment>(`/repos/${repo}/issues/${pr}/comments?per_page=100`),
     createIssueComment: (pr: number, body: string) =>
       request('POST', `/repos/${repo}/issues/${pr}/comments`, { body }),
     updateIssueComment: (id: number, body: string) =>
@@ -181,20 +212,6 @@ function githubApi(repo: string, token: string) {
 
 /** Hidden marker on an inline comment, so a re-run recognises its own work. */
 const inlineMarker = (rule: string) => `<!-- pr-review-rule:${rule} -->`;
-
-const inlineKey = (path: string, line: number, rule: string) => `${path}:${line}:${rule}`;
-
-/** Keys of inline findings already commented on this PR by an earlier run. */
-function existingInlineKeys(comments: readonly GitHubComment[]): Set<string> {
-  const keys = new Set<string>();
-  for (const comment of comments) {
-    const rule = /<!-- pr-review-rule:([a-z-]+) -->/.exec(comment.body ?? '')?.[1];
-    if (rule && comment.path && comment.line) {
-      keys.add(inlineKey(comment.path, comment.line, rule));
-    }
-  }
-  return keys;
-}
 
 async function postReview(
   options: Options,
@@ -236,10 +253,18 @@ async function postReview(
     files.map((file) => [file.path, file.addedLines.map((added) => added.line)]),
   );
   const reviewComments = await api.listReviewComments(options.pr);
-  const alreadySaid = existingInlineKeys(reviewComments.data ?? []);
-  const pending = inlineFindings(findings, addedLinesByPath).filter(
-    (finding) => !alreadySaid.has(inlineKey(finding.path, finding.line ?? 0, finding.rule)),
+  const pending = pendingInlineFindings(
+    findings,
+    addedLinesByPath,
+    reviewComments.data,
+    Boolean(reviewComments.error),
   );
+  if (pending === null) {
+    console.error(
+      `pr-review: cannot read review comments (${reviewComments.status}); skipping inline comments.`,
+    );
+    return;
+  }
   if (pending.length === 0) {
     console.log('pr-review: no new inline findings to post');
     return;
