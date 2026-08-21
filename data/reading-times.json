@@ -4,11 +4,11 @@
     "minutes": 7
   },
   "manipulation/action-chunking": {
-    "words": 1636,
+    "words": 1637,
     "minutes": 8
   },
   "manipulation/diffusion-policy": {
-    "words": 1486,
+    "words": 1489,
     "minutes": 7
   },
   "manipulation/vla-models": {
@@ -72,7 +72,7 @@
     "minutes": 13
   },
   "world-models/taxonomy": {
-    "words": 1816,
+    "words": 1821,
     "minutes": 9
   },
   "world-models/latent-dynamics": {
@@ -92,11 +92,11 @@
     "minutes": 8
   },
   "data-hardware/data-bottleneck": {
-    "words": 1717,
+    "words": 1709,
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1557,
+    "words": 1581,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
@@ -104,11 +104,11 @@
     "minutes": 16
   },
   "data-hardware/teleop-rigs": {
-    "words": 1586,
+    "words": 1615,
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1728,
+    "words": 1747,
     "minutes": 9
   },
   "classical/kinematics": {
@@ -116,7 +116,7 @@
     "minutes": 12
   },
   "classical/motion-planning": {
-    "words": 2032,
+    "words": 2038,
     "minutes": 10
   },
   "classical/control": {
@@ -132,7 +132,7 @@
     "minutes": 11
   },
   "frontier/reliability-gap": {
-    "words": 1632,
+    "words": 1651,
     "minutes": 8
   },
   "frontier/dexterity": {
@@ -144,11 +144,11 @@
     "minutes": 11
   },
   "frontier/competing-theses": {
-    "words": 2628,
+    "words": 2635,
     "minutes": 13
   },
   "frontier/bear-case": {
-    "words": 1849,
+    "words": 1861,
     "minutes": 9
   },
   "adjacent/autonomous-vehicles": {

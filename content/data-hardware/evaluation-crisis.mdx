@@ -36,7 +36,7 @@ A robot learning paper announces its headline result as a single number: the <Te
 
 ## What the success rate hides: the horizon
 
-A success rate is an episode-level outcome, and an episode is a chain of decisions. A policy that must make 30 correct decisions in a row, each succeeding 95% of the time, completes the whole task 0.95 to the power 30 of the time, which is 21.5%. The per-step number sounded strong; the task-level number is a coin flip weighted toward failure. The product is the deployment metric, because users experience whole tasks, and it is not what most tables report.
+A success rate is an episode-level outcome, and an episode is a chain of decisions. A policy that must make 30 correct decisions in a row, each succeeding 95% of the time, completes the whole task 0.95 to the power 30 of the time, which is 21.5%. The per-step number sounded strong; the task-level number is a coin flip weighted toward failure. The product is the deployment metric, because users experience whole tasks, and it is not what most tables report. Drag the episode length slider below out to 100 steps and watch the same 95% policy fall to 0.6%.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="evaluation" className="my-6" />
 

@@ -31,7 +31,7 @@ $$
 
 where the second bound is what <Term id="dagger">DAgger</Term> buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
-Drag the chunk size slider to k=1 and then back to 100. That curve is ACT's own ablation, and the two ends of it are the whole argument of this module: 1% success one action at a time, 44% at a hundred.
+Drag the chunk size slider to k=1 and then back to 100. That curve is ACT's own ablation: 1% success one action at a time, 44% at a hundred. Everything else in this module explains why those two numbers are so far apart.
 
 <ChunkSizeCurve className="my-6" />
 

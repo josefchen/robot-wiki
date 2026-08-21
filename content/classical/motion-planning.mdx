@@ -30,7 +30,7 @@ Motion planning answers a deceptively simple question: given where the robot is 
 
 Two algorithm families dominate the classical answer, and they start from opposite ends. Sampling-based planners build a graph of collision-free configurations by random exploration and search it for a route. <Term id="trajectory-optimization">Trajectory optimization</Term> starts with a whole candidate motion, often a bad one, and bends it downhill on a cost functional until it is smooth and collision-free. The first family is global and probabilistic; the second is local and deterministic. Practical systems use both.
 
-The sampling family is below, running for real: a 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Press Run and watch the tree flood open space, leak through the gap above the wall, and only then stumble into the goal region. Nothing in it knows where the goal is.
+The sampling family is below, running for real: a 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Press Run, or drag the exploration iteration slider, and watch the tree flood open space, leak through the gap above the wall, and only then stumble into the goal region. Nothing in it knows where the goal is.
 
 <RrtExplorer className="my-6" />
 
