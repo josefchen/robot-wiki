@@ -97,7 +97,7 @@ function div(style: Record<string, unknown>, children?: string | CardNode[]): Ca
 /* card's WIKI eyebrow.                                                 */
 /* ------------------------------------------------------------------ */
 
-type Ornament = 'lattice' | 'mesh' | 'stitch' | 'weave' | 'ring' | 'pitch';
+type Ornament = 'lattice' | 'mesh' | 'stitch' | 'weave' | 'notch' | 'pitch';
 
 /**
  * The ornament each domain wears. A literal table read by the article's
@@ -109,7 +109,7 @@ const DOMAIN_ORNAMENT: Record<string, Ornament> = {
   'rl-sim2real': 'weave',
   'world-models': 'mesh',
   'data-hardware': 'stitch',
-  classical: 'ring',
+  classical: 'notch',
   frontier: 'pitch',
   adjacent: 'mesh',
 };
@@ -121,9 +121,8 @@ export function ornamentFor(domain: string): Ornament {
   return DOMAIN_ORNAMENT[domain] ?? FALLBACK_ORNAMENT;
 }
 
-/** The bordered right panel, minus its padding. */
+/** The bordered right panel width, minus its padding. */
 const PANEL_W = 304;
-const PANEL_H = 534;
 
 /** The single fill every ornament mark uses. */
 const MARK = '#3c454c';
@@ -222,31 +221,29 @@ function weaveOrnament(): CardNode {
   );
 }
 
-/** Identical dots placed at even angles on one circle. */
-function ringOrnament(): CardNode {
-  const count = 18;
-  const size = 9;
-  const radius = 118;
-  const cx = PANEL_W / 2;
-  const cy = PANEL_H / 2;
-  const dots: CardNode[] = [];
-  for (let i = 0; i < count; i++) {
-    const angle = (i / count) * Math.PI * 2;
-    dots.push(
+/**
+ * Even field of identical corner ticks. Deliberately not a circle of
+ * dots: that silhouette is a dot-matrix loading spinner, which on a
+ * static export implies a pending operation that does not exist.
+ */
+function notchOrnament(): CardNode {
+  // 2px strokes, not the 1px hairline the rest of the design system
+  // uses: a feed renders this card at roughly half size, and a 1px
+  // stroke aliases into a visibly uneven field at that scale.
+  return markGrid(
+    6,
+    11,
+    38,
+    36,
+    () =>
       div({
-        position: 'absolute',
-        left: `${Math.round(cx + radius * Math.cos(angle) - size / 2)}px`,
-        top: `${Math.round(cy + radius * Math.sin(angle) - size / 2)}px`,
-        width: `${size}px`,
-        height: `${size}px`,
-        borderRadius: '9999px',
-        backgroundColor: MARK,
+        width: '16px',
+        height: '16px',
+        borderLeft: `2px solid ${MARK}`,
+        borderBottom: `2px solid ${MARK}`,
       }),
-    );
-  }
-  return div(
-    { position: 'relative', display: 'flex', width: `${PANEL_W}px`, height: `${PANEL_H}px` },
-    dots,
+    16,
+    16,
   );
 }
 
@@ -279,8 +276,8 @@ function ornamentElement(ornament: Ornament): CardNode {
       return stitchOrnament();
     case 'weave':
       return weaveOrnament();
-    case 'ring':
-      return ringOrnament();
+    case 'notch':
+      return notchOrnament();
     case 'pitch':
       return pitchOrnament();
   }
@@ -399,7 +396,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
 
 /**
  * The site-level card shared by the non-article destinations: the
- * wordmark as the dominant element, the site description, and the ring
+ * wordmark as the dominant element, the site description, and the notch
  * ornament in the right panel. Its wordmark, eyebrow and description
  * appear on no article card, so the asset is byte-distinct from all of
  * them (VAL-DIST-003) through its text rather than its ornament.
@@ -466,7 +463,7 @@ export function siteCardElement(): CardNode {
           justifyContent: 'center',
           padding: '48px 48px',
         },
-        [ringOrnament()],
+        [notchOrnament()],
       ),
     ],
   );
