@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: { unoptimized: true },
   trailingSlash: true,
+  // Cache-Control for /images, /og, /_next/static, and fonts lives in
+  // vercel.json. nextConfig.headers is unsupported with output: 'export'.
 };
 
 // Turbopack cannot serialize JS functions to Rust, so every remark/rehype
