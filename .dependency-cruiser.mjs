@@ -14,16 +14,34 @@
  *   lib/                Content pipeline, search, IK solver, rehype plugins.
  *   components/ui/      Presentational primitives, content-agnostic.
  *   components/mdx/     Content-bound components used inside MDX prose.
- *   components/<feature> article, interactive, market-map, nav, search, three.
+ *   components/<feature> siblings under components/ except ui/ and mdx/.
  *   app/                App Router routes: the only composition root.
  *
  * `scripts/` is build tooling that sits beside the stack: it may read from any
  * layer, and nothing shipped to the browser may read from it. `tests/` sits on
  * top of everything and is depended on by nothing.
+ *
+ * Root `mdx-components.tsx` is first-party shipped code: Next loads it for
+ * every MDX page. Feature folders are read from disk so a new sibling is
+ * gated without editing this allowlist.
  */
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+/** Shared layers that feature folders may import; everything else is a slice. */
+const SHARED_COMPONENT_LAYERS = new Set(['ui', 'mdx']);
 
 /** Feature component folders: siblings that must not import each other. */
-const FEATURE_COMPONENTS = 'article|interactive|market-map|nav|search|three';
+export const FEATURE_COMPONENTS = readdirSync(join(import.meta.dirname, 'components'), {
+  withFileTypes: true,
+})
+  .filter((entry) => entry.isDirectory() && !SHARED_COMPONENT_LAYERS.has(entry.name))
+  .map((entry) => entry.name)
+  .sort()
+  .join('|');
+
+/** First-party code that ships to the browser or the production server. */
+const FROM_SHIPPED = '^(app|components|lib|data)/|^mdx-components\\.tsx$';
 
 const architectureRules = {
   forbidden: [
@@ -155,7 +173,7 @@ const architectureRules = {
         'Importing one runs it. Shared logic goes in lib/ - the pattern ' +
         'lib/citation-links.ts + scripts/check-citation-links.ts already uses.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data)/' },
+      from: { path: FROM_SHIPPED },
       to: { path: '^scripts/' },
     },
     {
@@ -165,7 +183,7 @@ const architectureRules = {
         'in the Vitest and Playwright runtimes, which are devDependencies and ' +
         'absent from a production install.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data|scripts)/' },
+      from: { path: '^(app|components|lib|data|scripts)/|^mdx-components\\.tsx$' },
       to: { path: '^tests/' },
     },
     {
@@ -175,7 +193,7 @@ const architectureRules = {
         'install even though the local build is green. Type-only imports ' +
         '(@types/*) are fine: they disappear at compile time.',
       severity: 'error',
-      from: { path: '^(app|components|lib|data)/' },
+      from: { path: FROM_SHIPPED },
       to: {
         dependencyTypes: ['npm-dev'],
         dependencyTypesNot: ['type-only'],

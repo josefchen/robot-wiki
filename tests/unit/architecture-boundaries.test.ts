@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import pkg from '@/package.json';
-import depcruiseConfig from '@/.dependency-cruiser.mjs';
+import depcruiseConfig, { FEATURE_COMPONENTS } from '@/.dependency-cruiser.mjs';
 
 // The layering rules in .dependency-cruiser.mjs are a build gate, so they need
 // the same treatment as the content validator: tests that fail when the gate
@@ -79,6 +79,31 @@ describe('architecture rule set (.dependency-cruiser.mjs)', () => {
       'build-scripts-are-not-imported',
     ]) {
       expect(names.has(name), `missing boundary rule: ${name}`).toBe(true);
+    }
+  });
+
+  it('derives FEATURE_COMPONENTS from disk, excluding the shared ui and mdx layers', () => {
+    const onDisk = readdirSync(join(repoRoot, 'components'), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && !['ui', 'mdx'].includes(entry.name))
+      .map((entry) => entry.name)
+      .sort()
+      .join('|');
+    expect(FEATURE_COMPONENTS).toBe(onDisk);
+    expect(FEATURE_COMPONENTS.split('|')).not.toContain('ui');
+    expect(FEATURE_COMPONENTS.split('|')).not.toContain('mdx');
+  });
+
+  it('treats mdx-components.tsx as shipped code', () => {
+    for (const name of [
+      'build-scripts-are-not-imported',
+      'no-test-code-in-shipped-code',
+      'no-dev-dependencies-in-shipped-code',
+    ]) {
+      const rule = rules.find((entry) => entry.name === name);
+      expect(rule, `missing rule ${name}`).toBeDefined();
+      expect(rule?.from.path, `${name} from.path must match mdx-components.tsx`).toMatch(
+        /mdx-components/,
+      );
     }
   });
 
