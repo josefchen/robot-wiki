@@ -74,7 +74,12 @@ interface WidthRecord {
   scrollWidth: number;
   rootOverflowX: string;
   bodyOverflowX: string;
-  wideSurfaces: { width: number; left: number }[];
+  wideSurfaces: {
+    width: number;
+    left: number;
+    inProseColumn: boolean;
+    describe: string;
+  }[];
   proseReferenceWidth: number | null;
 }
 
@@ -140,7 +145,15 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
       const wideSurfaces = [...document.querySelectorAll('.wide-measure')].map(
         (el) => {
           const r = el.getBoundingClientRect();
-          return { width: r.width, left: r.left };
+          return {
+            width: r.width,
+            left: r.left,
+            // A wide surface outside an article gets no
+            // --wide-measure-available and would silently render at width 0
+            // if the geometry rule were not scoped to the prose column.
+            inProseColumn: el.closest('[data-prose-column]') !== null,
+            describe: `<${el.tagName.toLowerCase()} class="${(el.getAttribute('class') ?? '').slice(0, 80)}">`,
+          };
         },
       );
 
@@ -355,6 +368,41 @@ test.describe('rail clearance and wide-surface geometry', () => {
     expect(
       failures,
       `Wide surfaces narrowed into the prose column:\n${failures.join('\n')}`,
+    ).toEqual([]);
+  });
+
+  test('every wide surface is authored inside the article prose column', () => {
+    // The geometry rule is scoped to [data-prose-column] because only that
+    // element supplies --wide-measure-available. Outside it the utility
+    // degrades to an ordinary block rather than collapsing to width 0, but
+    // degrading is not what an author asking for a wide surface wants, so
+    // the misplaced call site has to fail somewhere rather than look fine.
+    const misplaced: string[] = [];
+    const collapsed: string[] = [];
+    for (const { route, byWidth } of overlay) {
+      for (const rec of byWidth) {
+        if (!RAIL_WIDTHS.includes(rec.width)) continue;
+        for (const surface of rec.wideSurfaces) {
+          if (!surface.inProseColumn)
+            misplaced.push(
+              `${route} @${rec.width}px: ${surface.describe} is not inside [data-prose-column]`,
+            );
+          // A collapsed surface has no left edge to occlude anything, so it
+          // would pass every clearance bound above by disappearing.
+          if (surface.width <= 0)
+            collapsed.push(
+              `${route} @${rec.width}px: ${surface.describe} rendered ${surface.width}px wide`,
+            );
+        }
+      }
+    }
+    expect(
+      misplaced,
+      `wide-measure used outside an article prose column:\n${misplaced.join('\n')}`,
+    ).toEqual([]);
+    expect(
+      collapsed,
+      `wide-measure surfaces collapsed to zero width:\n${collapsed.join('\n')}`,
     ).toEqual([]);
   });
 

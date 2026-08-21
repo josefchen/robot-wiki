@@ -331,6 +331,20 @@
  * scrolls horizontally at any of those widths (tests/e2e/rail-clearance.spec.ts).
  * Below lg the surface stays in-measure and scrolls horizontally inside its
  * own container.
+ *
+ * The descendant selector is load-bearing, not stylistic. Only
+ * `[data-prose-column]` sets `--wide-measure-available`, and an unset
+ * registered `<length>` falls back to its `initial-value`, so a bare
+ * `.wide-measure` selector resolves `width` to `min(80rem, -48px)` outside
+ * an article and computes to 0px: measured on the export at 1440, such a div
+ * on /glossary reported `width: 0px`, `--wide-measure-available: 0px`. It
+ * neither overflows nor warns, so the surface vanishes rather than looking
+ * wrong. Scoping the rule to the element that supplies the variable makes
+ * that state unreachable; the same div then measures 641.52px, the width of
+ * the block it sits in. Degrading is still not what an author asking for a
+ * wide surface wants, so the misplaced call site also has to fail somewhere:
+ * the "every wide surface is authored inside the article prose column" test
+ * in tests/e2e/rail-clearance.spec.ts names the route and the element.
  */
 @property --wide-measure-available {
   syntax: '<length>';
@@ -348,7 +362,7 @@
     --wide-measure-available: 100cqw;
   }
 
-  .wide-measure {
+  [data-prose-column] .wide-measure {
     width: min(80rem, calc(var(--wide-measure-available) - 3rem));
     margin-left: calc(
       50cqw - min(40rem, (var(--wide-measure-available) - 3rem) / 2)
