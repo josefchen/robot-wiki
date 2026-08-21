@@ -57,7 +57,7 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
           // width, so the placeholder has to fit that, not the viewport.
           placeholder="ALOHA, chunk size"
           autoComplete="off"
-          className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim/80"
+          className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim"
         />
         <button
           type="submit"

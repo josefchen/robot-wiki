@@ -97,6 +97,47 @@
   }
 }
 
+/*
+ * The one textured surface, carried over from the accepted paper candidate.
+ *
+ * The rule between an article's prose and its generated apparatus is painted
+ * as a monochrome dot lattice: a base dot at every cell, a mid dot every
+ * second cell, a peak dot once per 5-cell block. It is static in every state,
+ * carries no information the headings below it do not already carry, and its
+ * dot colours sit within 0.06 relative luminance of the page ground.
+ *
+ * The three layers tile at the SAME row height and differ only in horizontal
+ * period, so every row carries all three tiers. Giving the peak layer a
+ * 5-cell VERTICAL period as well is the obvious reading of a 5x5 matrix and
+ * is wrong here: the band is three rows tall, so the peak dots would land
+ * outside it and that tier would never paint.
+ *
+ * Deliberately the only placement. On a page whose job is reading, one
+ * boundary mark is the whole of what a texture has to say.
+ */
+:root {
+  --dot-base: #f2f0eb;
+  --dot-mid: #f1efe9;
+  --dot-peak: #f0eee8;
+  --dot-pitch: 4px;
+}
+
+article > hr {
+  border: 0;
+  height: calc(var(--dot-pitch) * 3);
+  background-color: transparent;
+  background-repeat: repeat;
+  background-position: center;
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--dot-peak) 0.9px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--dot-mid) 0.9px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--dot-base) 0.9px, transparent 1px);
+  background-size:
+    calc(var(--dot-pitch) * 5) var(--dot-pitch),
+    calc(var(--dot-pitch) * 2) var(--dot-pitch),
+    var(--dot-pitch) var(--dot-pitch);
+}
+
 /* Skip-to-content link: first Tab stop on every page.
    Off-screen until focused. */
 .skip-link {
