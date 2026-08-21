@@ -346,7 +346,7 @@ export function ControlLoopBudget({
         }
       />
 
-      <ul className="mt-4 divide-y divide-border border-t border-border">
+      <ul className="mt-4 divide-y divide-border">
         {LATENCY_REFERENCES.map((ref) => {
           const refCloses = loopCloses(ref.ms);
           return (

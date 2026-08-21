@@ -301,7 +301,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
               </g>
             ))}
 
-            {/* Value trace: full trace dim, elapsed portion amber. */}
+            {/* Value trace: full trace dim, elapsed portion green. */}
             <line
               x1={LEFT}
               x2={WIDTH - RIGHT_PAD}
@@ -387,7 +387,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             </span>
           </p>
 
-          <ul className="mt-2 divide-y divide-border border-t border-border">
+          <ul className="mt-2 divide-y divide-border">
             {tagged.map((segment) => (
               <li
                 key={segment.id}
@@ -450,7 +450,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             advantage, so the model learns which is which instead of never
             seeing its own mistakes.
           </p>
-          <ul className="mt-3 divide-y divide-border border-t border-border">
+          <ul className="mt-3 divide-y divide-border">
             {tagged.map((segment) => (
               <li
                 key={segment.id}
@@ -491,7 +491,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             version of the behavior. The bad grasp was never deleted from
             training; it is simply not what the model is asked to reproduce.
           </p>
-          <ul className="mt-3 divide-y divide-border border-t border-border">
+          <ul className="mt-3 divide-y divide-border">
             {tagged.map((segment) => {
               const active = segment.tag === 'high';
               return (

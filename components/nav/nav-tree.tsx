@@ -16,7 +16,7 @@ import { cx } from '@/lib/utils';
  * drafts are excluded from the sidebar taxonomy entirely, so
  * no reader surface can hint at work that does not exist yet.
  * The group containing the current route is expanded
- * on load and the active link carries aria-current="page" with the amber
+ * on load and the active link carries aria-current="page" with the pine
  * accent.
  */
 type NavTreeProps = {

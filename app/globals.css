@@ -73,7 +73,7 @@
     color: var(--color-text);
   }
 
-  /* One visible focus style everywhere: amber outline. */
+  /* One visible focus style everywhere: pine outline. */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
@@ -213,7 +213,7 @@ article > hr {
 
 /*
  * rehype-autolink-headings wraps headings in anchors; keep heading color, so
- * a heading does not read as a run of amber prose link. The copy-link control
+ * a heading does not read as a run of pine prose link. The copy-link control
  * (components/article/heading-permalink.tsx) is what advertises that the
  * heading addresses a section, and the hover underline below confirms the
  * heading text itself is the same target.
@@ -235,9 +235,9 @@ article > hr {
 
 /*
  * Inline glossary terms (components/ui/term.tsx): a dotted-underline
- * affordance in the text color, visually distinct from amber prose links.
+ * affordance in the text color, visually distinct from pine prose links.
  * The scoped rules below override .prose a, which is unlayered and would
- * otherwise beat the utility layer. The global :focus-visible amber
+ * otherwise beat the utility layer. The global :focus-visible pine
  * outline still applies, and hover/focus reveal of the definition tooltip
  * is handled by the component's group classes.
  */

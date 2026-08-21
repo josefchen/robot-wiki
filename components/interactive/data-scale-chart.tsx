@@ -33,7 +33,7 @@ import { cx } from '@/lib/utils';
  * emptiness is the argument. No exchange rate between an hour and a token is
  * drawn, because no honest one exists.
  *
- * The teleop-farm slider projects a fleet's yearly throughput (amber marker
+ * The teleop-farm slider projects a fleet's yearly throughput (pine marker
  * and dashed vertical): a dedicated-farm assumption (1,000 productive hours
  * per rig-year, labeled as an assumption) or the measured DROID rate (350 h
  * from 50 collectors in 12 months, 7 h per collector-year). Readouts report

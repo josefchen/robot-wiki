@@ -14,7 +14,7 @@ import { cx } from '@/lib/utils';
 /**
  * PiGenerationTimeline: the pi0 to pi0.7 release line with the open/closed
  * split drawn on it. Each generation is a node on a time axis; open-weights
- * generations are amber, closed ones are dim, and a dashed divider after
+ * generations are pine, closed ones are dim, and a dashed divider after
  * pi0.5 marks where openpi stops. Selecting a generation (click or arrow
  * keys) shows its backbone, contribution, and primary source below.
  *

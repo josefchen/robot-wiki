@@ -49,7 +49,18 @@ const withMDX = createMDX({
       // orphaned "." or ",". No interaction with katex/pretty-code (chips
       // never occur in math or code); grouped with the other local plugins.
       path.join(process.cwd(), 'lib/rehype-cite-punctuation.mjs'),
-      ['rehype-pretty-code', { theme: 'github-dark-dimmed', keepBackground: true }],
+      // A light Shiki theme, to match the paper ground. Shiki paints token
+      // colours as inline styles that no site token can reach, so the theme
+      // name is the only lever and it has to be chosen by measurement: the
+      // previous dark-dimmed theme fell to 2.73:1 on the light surface, and
+      // plain github-light still leaves keywords at 4.38:1 and constants at
+      // 3.34:1. The high-contrast variant is the one that clears AA on every
+      // token it paints. keepBackground stays false so the block takes the
+      // site's own surface rather than the theme's.
+      [
+        'rehype-pretty-code',
+        { theme: 'github-light-high-contrast', keepBackground: false },
+      ],
     ],
   },
 });

@@ -4,7 +4,7 @@
  * here so the geometry is unit-testable under Vitest.
  *
  * Design system: the site's "technical instrument" tokens (dark
- * near-black canvas, hairline borders, one locked amber accent, Geist
+ * near-black canvas, hairline borders, one locked pine accent, Geist
  * sans for titles, a mono face for readouts). Nothing on a card is
  * build state (AGENTS.md design rules 1 and 6: no progress counters, no
  * drafts).
@@ -102,7 +102,7 @@ function div(style: Record<string, unknown>, children?: string | CardNode[]): Ca
 /* Panel ornaments. Each is a fixed lattice of identical marks: flat    */
 /* geometry, no gradients, no glow, no accent colour and no rules. The  */
 /* accent stays out of the panel deliberately (see the honesty contract */
-/* at the top of this file), so the card's only amber is the site       */
+/* at the top of this file), so the card's only pine is the site       */
 /* card's WIKI eyebrow.                                                 */
 /* ------------------------------------------------------------------ */
 

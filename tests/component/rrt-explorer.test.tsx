@@ -152,7 +152,7 @@ describe('RrtExplorer', () => {
     );
     const path = screen.getByTestId('rrt-path');
     expect(path).toBeInTheDocument();
-    // The path is a visible amber polyline through start and goal.
+    // The path is a visible pine polyline through start and goal.
     expect(path.tagName.toLowerCase()).toBe('polyline');
     expect(screen.getByTestId('rrt-path-readout')).toHaveTextContent(
       /^\d+\.\d units$/,

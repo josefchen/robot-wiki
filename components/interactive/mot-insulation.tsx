@@ -22,7 +22,7 @@ import { cx } from '@/lib/utils';
  *
  * Forward pass: image, text, and state tokens flow up the backbone;
  * action tokens flow up the expert while attending sideways into backbone
- * activations at every layer (amber arrows).
+ * activations at every layer (green arrows).
  *
  * Backward pass: the stop-gradient toggle decides what reaches the
  * backbone. On (the Knowledge Insulation recipe): a green barrier at the
@@ -512,10 +512,10 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
 
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-accent">amber</span>: token and activation flow
+          <span className="text-accent">green</span>: token and activation flow
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          dashed amber: sideways attention (forward)
+          dashed green: sideways attention (forward)
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           <span className="text-err">red</span>: corrupting gradient (backward)

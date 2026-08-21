@@ -69,7 +69,7 @@ function gripperBottomY(gripperY: number): number {
 
 /**
  * One predicted frame: the tabletop, the dashed goal zone on the left, the
- * amber block, and the gripper hanging above the block's initial position.
+ * pine block, and the gripper hanging above the block's initial position.
  * Geometry is a pure function of the scene state, so identical states
  * render identical frames.
  */
