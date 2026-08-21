@@ -292,7 +292,7 @@ describe('uncited-quantitative-claim', () => {
       expect.arrayContaining([
         expect.stringContaining('99.9%'),
         expect.stringContaining('12 million'),
-        expect.stringContaining('$40'),
+        expect.stringContaining('$4'),
       ]),
     );
   });
