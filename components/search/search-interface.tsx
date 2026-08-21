@@ -275,7 +275,7 @@ export function SearchInterface({
             value={query}
             onChange={onQueryChange}
             onKeyDown={onInputKeyDown}
-            placeholder="temporal ensembling, ALOHA, chunk size"
+            placeholder="ALOHA, chunk size"
             autoComplete="off"
             aria-describedby="search-page-hint"
             className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim/80"
