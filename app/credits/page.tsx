@@ -113,14 +113,15 @@ export default function CreditsPage() {
           >
             {AUTHOR_NAME}
           </a>{' '}
-          ({AUTHOR_HANDLE}). {AUTHOR_BIO}.
+          ({AUTHOR_HANDLE}).
         </p>
       </header>
 
       {/* About section (VAL-DIST-008): why this site exists, kept in its
           own <section> so the licence list below stays the registry-
-          generated surface VAL-IMG-004 grades. Biographical facts come
-          only from the owner-supplied constants in lib/identity.ts. */}
+          generated surface VAL-IMG-004 grades. The biography is rendered
+          from AUTHOR_BIO rather than restated in JSX, so the owner's
+          wording cannot drift here while lib/identity.ts changes. */}
       <section aria-labelledby="about-heading" className="mt-12">
         <h2
           id="about-heading"
@@ -129,14 +130,13 @@ export default function CreditsPage() {
           Who is behind this wiki
         </h2>
         <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
-          I am {AUTHOR_NAME}, and I spent 3 years building and deploying
-          robots at KAIKAKU (acquired by REEF). That work kept me reading
-          the same scattered sources: papers that leave out the deployment
-          context, and demos that never mention the failure rates behind
-          them. This wiki is the reference I wanted within reach during
-          those years, written for engineers arriving from ML who need the
-          field mapped without the promotion. Every claim links to its
-          source, so you can check me.
+          I am {AUTHOR_NAME}. {AUTHOR_BIO}. What I needed over those years
+          was scattered across papers that skip the deployment context and
+          demos that never quote a failure rate, so I kept rebuilding the
+          same mental map of the field from scratch. This wiki is that map,
+          written down for engineers arriving from machine learning. Every
+          claim links to the source it came from, so you can check it
+          yourself.
         </p>
         <p className="mt-4 font-sans text-sm text-text-dim">
           Corrections and source disputes are welcome:{' '}
