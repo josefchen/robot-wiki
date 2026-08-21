@@ -306,10 +306,13 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
       .getByRole('button', { name: DOMAIN_META.classical.name })
       .click();
     await expect(nav.getByText('Domain overview').first()).toBeVisible();
-    const navText = await nav.innerText();
+    // innerText reflects text-transform, and the "Domain overview" entry is
+    // styled uppercase, so it arrives here as "DOMAIN OVERVIEW". The reader
+    // types what they read either way, so the comparison is case-folded.
+    const navText = (await nav.innerText()).toLowerCase();
     for (const { query } of LABEL_CASES) {
       expect(
-        navText.includes(query),
+        navText.includes(query.toLowerCase()),
         `"${query}" is not rendered in the sidebar, so it is not a navigation label`,
       ).toBe(true);
     }
