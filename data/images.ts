@@ -11,7 +11,8 @@
  * Licensing policy lives in library/imagery.md and is a hard gate. Every
  * entry below records the verbatim licence sentence read on the asset's own
  * page (the anti-fabrication rule) in a comment next to the entry. Never
- * register an image whose creator and licence you cannot name.
+ * invent a Commons licence. Official market-map marks with no reuse grant
+ * use licence `unlicensed` or `unknown` and still name creator plus source.
  *
  * Market-map logos live in data/logo-images.ts (files under
  * public/images/logos/) and are concatenated here. Article photographs
@@ -178,6 +179,8 @@ const LICENCE_LABELS: Record<SiteImage['licence'], string> = {
   'public-domain': 'Public domain',
   'press-kit': 'Press kit',
   permission: 'Used with permission',
+  unlicensed: 'Unlicensed',
+  unknown: 'Unknown',
 };
 
 /** The display label a credit line and /credits show for a licence. */

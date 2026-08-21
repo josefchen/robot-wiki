@@ -11,9 +11,13 @@ import { httpsUrlSchema, isoDateSchema, slugSchema } from './shared.ts';
 /**
  * The permitted licences (contract/imagery.md): the CC-BY family members
  * the site can honour, CC0, public domain, named press kits whose stated
- * terms permit editorial reuse, and documented permission grants. NC and
- * ND variants are deliberately absent: they are incompatible with the
- * site's CC BY 4.0 content licence.
+ * terms permit editorial reuse, documented permission grants, and
+ * official company marks whose reuse grant is unnamed. NC and ND
+ * variants are deliberately absent from the reusable set: they are
+ * incompatible with the site's CC BY 4.0 content licence. Market-map
+ * logos may still be registered as `unlicensed` or `unknown` so every
+ * company can plot a real mark; do not invent a Commons licence to
+ * avoid those values.
  */
 export const IMAGE_LICENCES = [
   'cc0',
@@ -22,6 +26,8 @@ export const IMAGE_LICENCES = [
   'public-domain',
   'press-kit',
   'permission',
+  'unlicensed',
+  'unknown',
 ] as const;
 
 export const imageLicenceSchema = z.enum(IMAGE_LICENCES);
@@ -105,6 +111,15 @@ export const imageSchema = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: `licence "${image.licence}" requires permissionNote recording where the grant is stated`,
+      });
+    }
+    if (
+      (image.licence === 'unlicensed' || image.licence === 'unknown') &&
+      !image.sourceUrl
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `licence "${image.licence}" requires sourceUrl recording where the mark was fetched`,
       });
     }
   });

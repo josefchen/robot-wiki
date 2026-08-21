@@ -1,10 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
 
 /**
- * Thin browser proof that market-map logos render and fall back to
- * initials. CONTRIBUTING requires e2e when a browser can see the change;
- * the component suite covers onError reuse, this spec covers the three
- * surfaces a reader actually hits.
+ * Thin browser proof that market-map logos render. CONTRIBUTING requires
+ * e2e when a browser can see the change; the component suite covers
+ * onError reuse, this spec covers the three surfaces a reader actually
+ * hits. Initials are only the broken-file fallback.
  */
 
 const ROUTE = '/market-map/';
@@ -24,7 +24,9 @@ function timelineLogo(page: Page, companyId: string) {
 }
 
 test.describe('market-map company logos', () => {
-  test('grid cards render a licensed mark or initials', async ({ page }) => {
+  test('grid cards render a real mark for licensed and official rows', async ({
+    page,
+  }) => {
     await page.goto(ROUTE);
     const nvidia = gridLogo(page, 'nvidia-robotics');
     await expect(nvidia).toHaveAttribute('data-logo-state', 'image');
@@ -34,11 +36,14 @@ test.describe('market-map company logos', () => {
     );
 
     const boston = gridLogo(page, 'boston-dynamics');
-    await expect(boston).toHaveAttribute('data-logo-state', 'initials');
-    await expect(boston).toHaveText('BD');
+    await expect(boston).toHaveAttribute('data-logo-state', 'image');
+    await expect(boston.locator('img')).toHaveAttribute(
+      'src',
+      '/images/logos/boston-dynamics.svg',
+    );
   });
 
-  test('bubble detail switches between a mark and initials', async ({
+  test('bubble detail switches between two official marks', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -56,16 +61,14 @@ test.describe('market-map company logos', () => {
 
     await page.locator('circle[data-company-id="skild-ai"]').click();
     await expect(page.locator('[data-bubble-detail]')).toContainText('Skild AI');
-    await expect(bubbleLogo(page)).toHaveAttribute(
-      'data-logo-state',
-      'initials',
+    await expect(bubbleLogo(page)).toHaveAttribute('data-logo-state', 'image');
+    await expect(bubbleLogo(page).locator('img')).toHaveAttribute(
+      'src',
+      '/images/logos/skild-ai.svg',
     );
-    await expect(bubbleLogo(page)).toHaveText('SA');
   });
 
-  test('timeline rows render a licensed mark or initials', async ({
-    page,
-  }) => {
+  test('timeline rows render official marks', async ({ page }) => {
     await page.goto(ROUTE);
     await page.getByRole('button', { name: 'Timeline' }).click();
 
@@ -77,7 +80,10 @@ test.describe('market-map company logos', () => {
     );
 
     const skild = timelineLogo(page, 'skild-ai');
-    await expect(skild.first()).toHaveAttribute('data-logo-state', 'initials');
-    await expect(skild.first()).toHaveText('SA');
+    await expect(skild.first()).toHaveAttribute('data-logo-state', 'image');
+    await expect(skild.first().locator('img')).toHaveAttribute(
+      'src',
+      '/images/logos/skild-ai.svg',
+    );
   });
 });

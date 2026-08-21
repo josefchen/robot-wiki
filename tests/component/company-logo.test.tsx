@@ -39,7 +39,7 @@ function markFor(id: string) {
 }
 
 describe('CompanyLogo', () => {
-  it('renders initials when no licensed logo is registered', () => {
+  it('renders initials when no logo is registered', () => {
     render(<CompanyLogo company={stub()} />);
     const mark = screen.getByText('NU');
     expect(mark).toHaveAttribute('data-logo-state', 'initials');

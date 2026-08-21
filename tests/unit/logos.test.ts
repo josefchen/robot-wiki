@@ -8,8 +8,8 @@ import { companyLogoIds, getCompanyLogo } from '@/data/logos';
 
 /**
  * The market-map client reads data/logos.ts, not data/images.ts. These
- * checks keep the slim lookup honest against the full registry and stop
- * a recreation from being registered again.
+ * checks keep the slim lookup honest against the full registry and keep
+ * every company.logo pointed at a real mark.
  */
 
 const repoRoot = join(import.meta.dirname, '../..');
@@ -46,18 +46,21 @@ describe('market-map logo lookup', () => {
     expect(companyLogoIds().sort()).toEqual(used);
   });
 
-  it('does not register user-recreation Commons files', () => {
+  it('registers an official mark for every company, including previously skipped rows', () => {
     const ids = new Set(companyLogoIds());
-    expect(ids.has('boston-dynamics-logo')).toBe(false);
-    expect(ids.has('applied-intuition-logo')).toBe(false);
+    expect(ids.has('boston-dynamics-logo')).toBe(true);
+    expect(ids.has('applied-intuition-logo')).toBe(true);
+    expect(ids.has('symbotic-logo')).toBe(true);
     const boston = COMPANIES.find((company) => company.id === 'boston-dynamics');
     const applied = COMPANIES.find(
       (company) => company.id === 'applied-intuition',
     );
     const symbotic = COMPANIES.find((company) => company.id === 'symbotic');
-    expect(boston?.logo).toBeNull();
-    expect(applied?.logo).toBeNull();
-    expect(symbotic?.logo).toBeNull();
+    expect(boston?.logo).toBe('boston-dynamics-logo');
+    expect(applied?.logo).toBe('applied-intuition-logo');
+    expect(symbotic?.logo).toBe('symbotic-logo');
+    expect(COMPANIES.every((company) => company.logo !== null)).toBe(true);
+    expect(companyLogoIds()).toHaveLength(111);
   });
 
   it('keeps CompanyLogo off the full image registry', () => {

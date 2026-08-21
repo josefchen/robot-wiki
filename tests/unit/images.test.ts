@@ -72,6 +72,28 @@ describe('imageSchema', () => {
     expect(withNote.success).toBe(true);
   });
 
+  it('accepts unlicensed and unknown official marks when sourceUrl is present', () => {
+    for (const licence of ['unlicensed', 'unknown'] as const) {
+      const parsed = imageSchema.safeParse({
+        ...validEntry,
+        licence,
+        sourceUrl: 'https://www.skild.ai/',
+        licenceUrl: 'https://www.skild.ai/',
+      });
+      expect(parsed.success, licence).toBe(true);
+    }
+  });
+
+  it('rejects unlicensed and unknown marks without a sourceUrl', () => {
+    const { sourceUrl: _dropped, ...rest } = validEntry;
+    void _dropped;
+    for (const licence of ['unlicensed', 'unknown'] as const) {
+      const parsed = imageSchema.safeParse({ ...rest, licence });
+      expect(parsed.success, licence).toBe(false);
+      expect(parsed.error?.message).toMatch(/sourceUrl/);
+    }
+  });
+
   it('rejects alt text that is generic, a filename, too short, or dashed (VAL-IMG-001)', () => {
     const badAlts = [
       'image',

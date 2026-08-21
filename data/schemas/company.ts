@@ -49,9 +49,11 @@ export const companySchema = z.object({
    */
   website: httpsUrlSchema.nullable(),
   /**
-   * Image-registry id of a licensed logo, or null when no licence we can
-   * name was found. The validator treats a non-null value as a published
-   * usage of that registry entry (the market-map page renders it).
+   * Image-registry id of a plotted logo, or null only when no public
+   * mark could be fetched. Official marks without a reuse grant are
+   * allowed (licence unlicensed/unknown on the registry entry). The
+   * validator treats a non-null value as a published usage of that
+   * registry entry (the market-map page renders it).
    */
   logo: slugSchema.nullable(),
   hq: z.object({

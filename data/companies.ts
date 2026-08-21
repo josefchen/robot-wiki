@@ -79,7 +79,7 @@ const ROWS: Company[] = [
     name: 'Skild AI',
     aka: [],
     website: 'https://www.skild.ai',
-    logo: null,
+    logo: 'skild-ai-logo',
     hq: {
       city: 'Pittsburgh',
       country: 'US',
@@ -133,7 +133,7 @@ const ROWS: Company[] = [
     name: 'Generalist AI',
     aka: [],
     website: 'https://generalistai.com',
-    logo: null,
+    logo: 'generalist-ai-logo',
     hq: {
       city: 'San Mateo',
       country: 'US',
@@ -179,7 +179,7 @@ const ROWS: Company[] = [
       'DYNA',
     ],
     website: 'https://www.dyna.co',
-    logo: null,
+    logo: 'dyna-robotics-logo',
     hq: {
       city: 'Redwood City',
       country: 'US',
@@ -222,7 +222,7 @@ const ROWS: Company[] = [
       'Sunday',
     ],
     website: 'https://www.sunday.ai',
-    logo: null,
+    logo: 'sunday-robotics-logo',
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -278,7 +278,7 @@ const ROWS: Company[] = [
       'FieldAI',
     ],
     website: 'https://www.fieldai.com',
-    logo: null,
+    logo: 'field-ai-logo',
     hq: {
       city: 'Irvine',
       country: 'US',
@@ -369,7 +369,7 @@ const ROWS: Company[] = [
     name: 'Genesis AI',
     aka: [],
     website: 'https://www.genesis.ai',
-    logo: null,
+    logo: 'genesis-ai-logo',
     hq: {
       city: 'Paris',
       country: 'FR',
@@ -416,7 +416,7 @@ const ROWS: Company[] = [
     name: 'Rhoda AI',
     aka: [],
     website: 'https://www.rhoda.ai',
-    logo: null,
+    logo: 'rhoda-ai-logo',
     hq: {
       city: 'Palo Alto',
       country: 'US',
@@ -459,7 +459,7 @@ const ROWS: Company[] = [
     name: 'Mind Robotics',
     aka: [],
     website: 'https://www.mindrobotics.com',
-    logo: null,
+    logo: 'mind-robotics-logo',
     hq: {
       city: 'Palo Alto',
       country: 'US',
@@ -566,7 +566,7 @@ const ROWS: Company[] = [
     name: 'Google DeepMind (Robotics)',
     aka: [],
     website: 'https://deepmind.google',
-    logo: null,
+    logo: 'google-deepmind-robotics-logo',
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -664,7 +664,7 @@ const ROWS: Company[] = [
     name: 'Applied Intuition',
     aka: [],
     website: 'https://www.appliedintuition.com',
-    logo: null,
+    logo: 'applied-intuition-logo',
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -714,7 +714,7 @@ const ROWS: Company[] = [
     name: 'XDOF',
     aka: [],
     website: 'https://www.xdof.ai',
-    logo: null,
+    logo: 'xdof-logo',
     hq: {
       city: null,
       country: 'US',
@@ -758,7 +758,7 @@ const ROWS: Company[] = [
     name: 'Encord',
     aka: [],
     website: 'https://encord.com',
-    logo: null,
+    logo: 'encord-logo',
     hq: {
       city: 'London',
       country: 'UK',
@@ -812,7 +812,7 @@ const ROWS: Company[] = [
     name: 'Micro1',
     aka: [],
     website: 'https://www.micro1.ai',
-    logo: null,
+    logo: 'micro1-logo',
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -910,7 +910,7 @@ const ROWS: Company[] = [
       'Halodi',
     ],
     website: 'https://www.1x.tech',
-    logo: null,
+    logo: '1x-technologies-logo',
     hq: {
       city: 'Oslo',
       country: 'NO',
@@ -1018,7 +1018,7 @@ const ROWS: Company[] = [
     name: 'Apptronik',
     aka: [],
     website: 'https://apptronik.com',
-    logo: null,
+    logo: 'apptronik-logo',
     hq: {
       city: 'Austin',
       country: 'US',
@@ -1119,7 +1119,7 @@ const ROWS: Company[] = [
     name: 'Boston Dynamics',
     aka: [],
     website: 'https://bostondynamics.com',
-    logo: null,
+    logo: 'boston-dynamics-logo',
     hq: {
       city: 'Waltham',
       country: 'US',
@@ -1288,7 +1288,7 @@ const ROWS: Company[] = [
       'Fourier Intelligence',
     ],
     website: 'https://www.fftai.com',
-    logo: null,
+    logo: 'fourier-intelligence-logo',
     hq: {
       city: 'Shanghai',
       country: 'CN',
@@ -1348,7 +1348,7 @@ const ROWS: Company[] = [
       'Galaxy General Robot',
     ],
     website: 'https://www.galbot.com',
-    logo: null,
+    logo: 'galbot-logo',
     hq: {
       city: 'Beijing',
       country: 'CN',
@@ -1401,7 +1401,7 @@ const ROWS: Company[] = [
       'Zhiyuan Robot',
     ],
     website: 'https://www.agibot.com',
-    logo: null,
+    logo: 'agibot-logo',
     hq: {
       city: 'Shanghai',
       country: 'CN',
@@ -1478,7 +1478,7 @@ const ROWS: Company[] = [
     name: 'Sanctuary AI',
     aka: [],
     website: 'https://www.sanctuary.ai',
-    logo: null,
+    logo: 'sanctuary-ai-logo',
     hq: {
       city: 'Vancouver',
       country: 'CA',
@@ -1575,7 +1575,7 @@ const ROWS: Company[] = [
     name: 'Humanoid',
     aka: [],
     website: 'https://thehumanoid.ai',
-    logo: null,
+    logo: 'humanoid-uk-logo',
     hq: {
       city: 'London',
       country: 'UK',
@@ -1619,7 +1619,7 @@ const ROWS: Company[] = [
     name: 'Spirit AI',
     aka: [],
     website: 'https://www.spirit-ai.com',
-    logo: null,
+    logo: 'spirit-ai-logo',
     hq: {
       city: 'Beijing',
       country: 'CN',
@@ -1674,7 +1674,7 @@ const ROWS: Company[] = [
       'Xinghaitu',
     ],
     website: 'https://www.galaxea-ai.com',
-    logo: null,
+    logo: 'galaxea-ai-logo',
     hq: {
       city: 'Beijing',
       country: 'CN',
@@ -1726,7 +1726,7 @@ const ROWS: Company[] = [
     name: 'EngineAI',
     aka: [],
     website: 'https://www.engineai.com.cn',
-    logo: null,
+    logo: 'engineai-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -1781,7 +1781,7 @@ const ROWS: Company[] = [
       'Robot Era',
     ],
     website: 'https://www.robotera.com',
-    logo: null,
+    logo: 'robot-era-logo',
     hq: {
       city: 'Beijing',
       country: 'CN',
@@ -1836,8 +1836,8 @@ const ROWS: Company[] = [
     aka: [
       'TARS',
     ],
-    website: null,
-    logo: null,
+    website: 'https://www.tars.bot',
+    logo: 'tars-robotics-logo',
     hq: {
       city: 'Shanghai',
       country: 'CN',
@@ -1884,8 +1884,8 @@ const ROWS: Company[] = [
     aka: [
       'X Square',
     ],
-    website: null,
-    logo: null,
+    website: 'https://x2robot.com',
+    logo: 'x-square-robot-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -1943,7 +1943,7 @@ const ROWS: Company[] = [
     name: 'Deep Robotics',
     aka: [],
     website: 'https://www.deeprobotics.cn',
-    logo: null,
+    logo: 'deep-robotics-logo',
     hq: {
       city: 'Hangzhou',
       country: 'CN',
@@ -1991,8 +1991,8 @@ const ROWS: Company[] = [
     id: 'kepler-robot',
     name: 'Kepler Robot',
     aka: [],
-    website: null,
-    logo: null,
+    website: 'https://gotokepler.com',
+    logo: 'kepler-robot-logo',
     hq: {
       city: null,
       country: 'CN',
@@ -2043,7 +2043,7 @@ const ROWS: Company[] = [
     name: 'LimX Dynamics',
     aka: [],
     website: 'https://www.limxdynamics.com',
-    logo: null,
+    logo: 'limx-dynamics-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -2142,7 +2142,7 @@ const ROWS: Company[] = [
     name: 'Clone Robotics',
     aka: [],
     website: 'https://www.clonerobotics.com',
-    logo: null,
+    logo: 'clone-robotics-logo',
     hq: {
       city: null,
       country: 'PL',
@@ -2185,8 +2185,8 @@ const ROWS: Company[] = [
     id: 'mentee-robotics',
     name: 'Mentee Robotics',
     aka: [],
-    website: null,
-    logo: null,
+    website: 'https://www.menteebot.com',
+    logo: 'mentee-robotics-logo',
     hq: {
       city: null,
       country: 'IL',
@@ -2241,8 +2241,8 @@ const ROWS: Company[] = [
     id: 'persona-ai',
     name: 'Persona AI',
     aka: [],
-    website: null,
-    logo: null,
+    website: 'https://persona.ai',
+    logo: 'persona-ai-logo',
     hq: {
       city: 'Houston',
       country: 'US',
@@ -2345,7 +2345,7 @@ const ROWS: Company[] = [
     name: 'Symbotic',
     aka: [],
     website: 'https://www.symbotic.com',
-    logo: null,
+    logo: 'symbotic-logo',
     hq: {
       city: 'Wilmington',
       country: 'US',
@@ -2393,7 +2393,7 @@ const ROWS: Company[] = [
     name: 'Dexterity',
     aka: [],
     website: 'https://www.dexterity.ai',
-    logo: null,
+    logo: 'dexterity-logo',
     hq: {
       city: 'Dover',
       country: 'US',
@@ -2536,7 +2536,7 @@ const ROWS: Company[] = [
       'Nimble Robotics',
     ],
     website: 'https://www.nimble.ai',
-    logo: null,
+    logo: 'nimble-robotics-logo',
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -2588,7 +2588,7 @@ const ROWS: Company[] = [
     name: 'Locus Robotics',
     aka: [],
     website: 'https://www.locusrobotics.com',
-    logo: null,
+    logo: 'locus-robotics-logo',
     hq: {
       city: 'Wilmington',
       country: 'US',
@@ -2633,7 +2633,7 @@ const ROWS: Company[] = [
     name: 'Mujin',
     aka: [],
     website: 'https://www.mujin-corp.com',
-    logo: null,
+    logo: 'mujin-logo',
     hq: {
       city: 'Tokyo',
       country: 'JP',
@@ -2683,7 +2683,7 @@ const ROWS: Company[] = [
     name: 'RightHand Robotics',
     aka: [],
     website: 'https://www.righthandrobotics.com',
-    logo: null,
+    logo: 'righthand-robotics-logo',
     hq: {
       city: 'Somerville',
       country: 'US',
@@ -2725,7 +2725,7 @@ const ROWS: Company[] = [
     name: 'Ambi Robotics',
     aka: [],
     website: 'https://www.ambirobotics.com',
-    logo: null,
+    logo: 'ambirobotics-logo',
     hq: {
       city: 'Berkeley',
       country: 'US',
@@ -2768,7 +2768,7 @@ const ROWS: Company[] = [
     name: 'Plus One Robotics',
     aka: [],
     website: 'https://www.plusonerobotics.com',
-    logo: null,
+    logo: 'plus-one-robotics-logo',
     hq: {
       city: 'San Antonio',
       country: 'US',
@@ -2813,7 +2813,7 @@ const ROWS: Company[] = [
     name: 'Carbon Robotics',
     aka: [],
     website: 'https://carbonrobotics.com',
-    logo: null,
+    logo: 'carbon-robotics-logo',
     hq: {
       city: 'Seattle',
       country: 'US',
@@ -2923,7 +2923,7 @@ const ROWS: Company[] = [
     name: 'Farm-ng',
     aka: [],
     website: 'https://farm-ng.com',
-    logo: null,
+    logo: 'farm-ng-logo',
     hq: {
       city: null,
       country: 'US',
@@ -3008,7 +3008,7 @@ const ROWS: Company[] = [
     name: 'Chef Robotics',
     aka: [],
     website: 'https://www.chefrobotics.ai',
-    logo: null,
+    logo: 'chef-robotics-logo',
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -3054,7 +3054,7 @@ const ROWS: Company[] = [
     name: 'Simbe Robotics',
     aka: [],
     website: 'https://www.simberobotics.com',
-    logo: null,
+    logo: 'simbe-robotics-logo',
     hq: {
       city: 'Chicago',
       country: 'US',
@@ -3192,7 +3192,7 @@ const ROWS: Company[] = [
     name: 'Moon Surgical',
     aka: [],
     website: 'https://www.moonsurgical.com',
-    logo: null,
+    logo: 'moon-surgical-logo',
     hq: {
       city: 'Paris',
       country: 'FR',
@@ -3289,7 +3289,7 @@ const ROWS: Company[] = [
     name: 'Serve Robotics',
     aka: [],
     website: 'https://www.serverobotics.com',
-    logo: null,
+    logo: 'serve-robotics-logo',
     hq: {
       city: 'Los Angeles',
       country: 'US',
@@ -3337,7 +3337,7 @@ const ROWS: Company[] = [
     name: 'Gecko Robotics',
     aka: [],
     website: 'https://www.geckorobotics.com',
-    logo: null,
+    logo: 'gecko-robotics-logo',
     hq: {
       city: 'Pittsburgh',
       country: 'US',
@@ -3388,7 +3388,7 @@ const ROWS: Company[] = [
     name: 'Standard Bots',
     aka: [],
     website: 'https://standardbots.com',
-    logo: null,
+    logo: 'standard-bots-logo',
     hq: {
       city: null,
       country: 'US',
@@ -3441,7 +3441,7 @@ const ROWS: Company[] = [
     name: 'Collaborative Robotics',
     aka: [],
     website: 'https://www.co.bot',
-    logo: null,
+    logo: 'collaborative-robotics-logo',
     hq: {
       city: 'Santa Clara',
       country: 'US',
@@ -3490,8 +3490,8 @@ const ROWS: Company[] = [
     id: 'the-bot-company',
     name: 'The Bot Company',
     aka: [],
-    website: null,
-    logo: null,
+    website: 'https://www.bot.co',
+    logo: 'the-bot-company-logo',
     hq: {
       city: 'San Francisco',
       country: 'US',
@@ -3534,7 +3534,7 @@ const ROWS: Company[] = [
     name: 'Weave Robotics',
     aka: [],
     website: 'https://www.weaverobotics.com',
-    logo: null,
+    logo: 'weave-robotics-logo',
     hq: {
       city: null,
       country: 'US',
@@ -3621,7 +3621,7 @@ const ROWS: Company[] = [
     name: 'K-Scale Labs',
     aka: [],
     website: null,
-    logo: null,
+    logo: 'k-scale-labs-logo',
     hq: {
       city: 'Palo Alto',
       country: 'US',
@@ -3668,7 +3668,7 @@ const ROWS: Company[] = [
     name: 'Automata',
     aka: [],
     website: 'https://www.automata.tech',
-    logo: null,
+    logo: 'automata-logo',
     hq: {
       city: 'London',
       country: 'UK',
@@ -3715,7 +3715,7 @@ const ROWS: Company[] = [
     name: 'Lila Sciences',
     aka: [],
     website: 'https://www.lila.ai',
-    logo: null,
+    logo: 'lila-sciences-logo',
     hq: {
       city: 'Boston',
       country: 'US',
@@ -3758,7 +3758,7 @@ const ROWS: Company[] = [
     name: 'Avidbots',
     aka: [],
     website: 'https://avidbots.com',
-    logo: null,
+    logo: 'avidbots-logo',
     hq: {
       city: 'Kitchener',
       country: 'CA',
@@ -3895,7 +3895,7 @@ const ROWS: Company[] = [
       'Lide Drive',
     ],
     website: 'https://www.leaderdrive.com',
-    logo: null,
+    logo: 'leaderdrive-logo',
     hq: {
       city: 'Suzhou',
       country: 'CN',
@@ -3937,7 +3937,7 @@ const ROWS: Company[] = [
       'Sanhua Intelligent Controls',
     ],
     website: 'https://www.sanhuagroup.com',
-    logo: null,
+    logo: 'sanhua-logo',
     hq: {
       city: 'Hangzhou',
       country: 'CN',
@@ -3979,7 +3979,7 @@ const ROWS: Company[] = [
       'Shadow Robot Company',
     ],
     website: 'https://www.shadowrobot.com',
-    logo: null,
+    logo: 'shadow-robot-logo',
     hq: {
       city: 'London',
       country: 'UK',
@@ -4020,7 +4020,7 @@ const ROWS: Company[] = [
     name: 'Sharpa',
     aka: [],
     website: 'https://www.sharpa.com',
-    logo: null,
+    logo: 'sharpa-logo',
     hq: {
       city: 'Singapore',
       country: 'SG',
@@ -4129,7 +4129,7 @@ const ROWS: Company[] = [
     name: 'XELA Robotics',
     aka: [],
     website: 'https://www.xelarobotics.com',
-    logo: null,
+    logo: 'xela-robotics-logo',
     hq: {
       city: 'Tokyo',
       country: 'JP',
@@ -4254,8 +4254,8 @@ const ROWS: Company[] = [
     aka: [
       'ARI',
     ],
-    website: null,
-    logo: null,
+    website: 'https://ari.bot',
+    logo: 'assured-robot-intelligence-logo',
     hq: {
       city: 'San Diego',
       country: 'US',
@@ -4294,7 +4294,7 @@ const ROWS: Company[] = [
     name: 'Saronic',
     aka: [],
     website: 'https://www.saronic.com',
-    logo: null,
+    logo: 'saronic-logo',
     hq: {
       city: 'Austin',
       country: 'US',
@@ -4341,7 +4341,7 @@ const ROWS: Company[] = [
     name: 'Eka Robotics',
     aka: [],
     website: 'https://www.ekarobotics.com',
-    logo: null,
+    logo: 'eka-robotics-logo',
     hq: {
       city: null,
       country: 'US',
@@ -4381,7 +4381,7 @@ const ROWS: Company[] = [
     name: 'Foundry Robotics',
     aka: [],
     website: 'https://www.foundryrobotics.com',
-    logo: null,
+    logo: 'foundry-robotics-logo',
     hq: {
       city: null,
       country: 'US',
@@ -4420,7 +4420,7 @@ const ROWS: Company[] = [
     name: 'Mytra',
     aka: [],
     website: 'https://mytra.ai',
-    logo: null,
+    logo: 'mytra-logo',
     hq: {
       city: null,
       country: 'US',
@@ -4465,7 +4465,7 @@ const ROWS: Company[] = [
     name: 'Formic',
     aka: [],
     website: 'https://formic.co',
-    logo: null,
+    logo: 'formic-logo',
     hq: {
       city: null,
       country: 'US',
@@ -4512,7 +4512,7 @@ const ROWS: Company[] = [
     name: 'Astribot',
     aka: [],
     website: 'https://www.astribot.com',
-    logo: null,
+    logo: 'astribot-logo',
     hq: {
       city: 'Munich',
       country: 'DE',
@@ -4550,7 +4550,7 @@ const ROWS: Company[] = [
     name: 'Booster Robotics',
     aka: [],
     website: 'https://www.booster.tech',
-    logo: null,
+    logo: 'booster-robotics-logo',
     hq: {
       city: null,
       country: 'CN',
@@ -4594,7 +4594,7 @@ const ROWS: Company[] = [
     name: 'Leju Robotics',
     aka: [],
     website: 'https://www.lejurobot.com',
-    logo: null,
+    logo: 'leju-robotics-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -4726,7 +4726,7 @@ const ROWS: Company[] = [
     name: 'PaXini',
     aka: [],
     website: 'https://www.paxini.com',
-    logo: null,
+    logo: 'paxini-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
@@ -4785,7 +4785,7 @@ const ROWS: Company[] = [
     name: 'Miso Robotics',
     aka: [],
     website: 'https://misorobotics.com',
-    logo: null,
+    logo: 'miso-robotics-logo',
     hq: {
       city: 'Atlanta',
       country: 'US',
@@ -4873,7 +4873,7 @@ const ROWS: Company[] = [
       'Coco Robotics',
     ],
     website: 'https://www.cocodelivery.com',
-    logo: null,
+    logo: 'coco-robotics-logo',
     hq: {
       city: 'Los Angeles',
       country: 'US',
@@ -4918,7 +4918,7 @@ const ROWS: Company[] = [
     name: 'Knightscope',
     aka: [],
     website: 'https://www.knightscope.com',
-    logo: null,
+    logo: 'knightscope-logo',
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -4958,7 +4958,7 @@ const ROWS: Company[] = [
     name: 'Brain Corp',
     aka: [],
     website: 'https://www.braincorp.com',
-    logo: null,
+    logo: 'brain-corp-logo',
     hq: {
       city: 'San Diego',
       country: 'US',
@@ -5049,7 +5049,7 @@ const ROWS: Company[] = [
     name: 'Diligent Robotics',
     aka: [],
     website: 'https://www.diligentrobots.com',
-    logo: null,
+    logo: 'diligent-robotics-logo',
     hq: {
       city: 'Austin',
       country: 'US',
@@ -5102,7 +5102,7 @@ const ROWS: Company[] = [
     name: 'Fox Robotics',
     aka: [],
     website: 'https://www.foxrobotics.com',
-    logo: null,
+    logo: 'fox-robotics-logo',
     hq: {
       city: 'Austin',
       country: 'US',
@@ -5144,7 +5144,7 @@ const ROWS: Company[] = [
     name: 'Zebra Technologies (Robotics Automation)',
     aka: [],
     website: 'https://www.zebra.com',
-    logo: null,
+    logo: 'zebra-robotics-automation-logo',
     hq: {
       city: 'Lincolnshire',
       country: 'US',
@@ -5229,7 +5229,7 @@ const ROWS: Company[] = [
     name: 'Robotphoenix',
     aka: [],
     website: 'https://www.robotphoenix.com',
-    logo: null,
+    logo: 'robotphoenix-logo',
     hq: {
       city: 'Shanghai',
       country: 'CN',
