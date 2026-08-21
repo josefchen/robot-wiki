@@ -61,7 +61,11 @@ const GENERATED_SUBJECT = /^(Merge\b|Revert\b|fixup!|squash!|amend!)/;
 export function commitSubject(message: string): string {
   for (const line of message.split('\n')) {
     const trimmed = line.trim();
-    if (trimmed === '' || trimmed.startsWith('#')) continue;
+    if (trimmed === '') continue;
+    // git commit -v inserts this scissors line, then an uncommented diff.
+    // Stop there so the subject is never the first `diff --git` line.
+    if (/^# -+ >8 -+$/.test(trimmed)) break;
+    if (trimmed.startsWith('#')) continue;
     return trimmed;
   }
   return '';

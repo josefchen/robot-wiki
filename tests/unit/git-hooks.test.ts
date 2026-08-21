@@ -36,10 +36,22 @@ function commandsFor(glob: string): string[] {
 
 describe('husky installation', () => {
   it('installs the hooks from prepare, so a fresh clone is gated after npm install', () => {
-    expect(scripts.prepare).toBe('husky');
+    expect(scripts.prepare).toBe('node scripts/prepare-hooks.mjs');
+    expect(existsSync(join(process.cwd(), 'scripts/prepare-hooks.mjs'))).toBe(true);
     expect(
       { ...pkg.dependencies, ...pkg.devDependencies },
     ).toHaveProperty('husky');
+  });
+
+  it('defers to #3 install-hooks.mjs when that file is present, and otherwise runs husky', () => {
+    const prepare = read('scripts/prepare-hooks.mjs');
+    expect(prepare).toMatch(/install-hooks\.mjs/);
+    expect(prepare).toMatch(/husky/);
+    expect(prepare).toMatch(/existsSync\(installHooks\)/);
+  });
+
+  it('pins the Node floor to lint-staged 17, not a vague 22+', () => {
+    expect(pkg.engines?.node).toBe('>=22.22.1');
   });
 
   it('keeps the postinstall TS 6 bridge alongside prepare', () => {

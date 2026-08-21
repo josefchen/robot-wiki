@@ -20,7 +20,10 @@
     "generate:companies": "node scripts/generate-companies.ts",
     "check:links": "node scripts/check-citation-links.ts",
     "postinstall": "node scripts/postinstall.mjs",
-    "prepare": "husky"
+    "prepare": "node scripts/prepare-hooks.mjs"
+  },
+  "engines": {
+    "node": ">=22.22.1"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.1",

@@ -50,7 +50,7 @@ research/     Deep-research reports behind the content (read-only transparency t
 
 ## Setup
 
-Prerequisites: Node.js 22+ and npm (the repo uses npm exclusively; there is no pnpm or bun config).
+Prerequisites: Node.js 22.22.1 or newer and npm (the repo uses npm exclusively; there is no pnpm or bun config). The floor is the `lint-staged@17` engine, not just "22+".
 
 ```sh
 git clone https://github.com/josefchen/robot-wiki.git
@@ -88,7 +88,7 @@ Scope a Vitest run with a filename substring, for example `npm run test -- repo-
 
 ### Git hooks
 
-`npm install` runs `npm run prepare`, which installs the Husky hooks in `.husky/`. They run parts of the same gate so a broken change is caught before it travels:
+`npm install` runs `npm run prepare` (`scripts/prepare-hooks.mjs`). On this branch that installs the Husky hooks in `.husky/`. If `scripts/install-hooks.mjs` is also present (PR #3 sets `core.hooksPath=.githooks`), prepare runs only that installer and leaves `.husky/` inactive so the two hook systems do not overwrite each other. The Husky hooks run parts of the same gate so a broken change is caught before it travels:
 
 | Hook | What runs | Typical cost |
 | --- | --- | --- |

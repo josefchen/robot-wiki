@@ -4,7 +4,7 @@ Thanks for helping improve the wiki. Contributions that fit this repo: correctio
 
 ## Getting set up
 
-You need Node.js 22+ and npm (the repo uses npm exclusively).
+You need Node.js 22.22.1 or newer and npm (the repo uses npm exclusively). `lint-staged@17` refuses to start on an older 22.x, so the pre-commit hook would fail on a floor of "22+".
 
 ```sh
 git clone https://github.com/josefchen/robot-wiki.git
@@ -40,7 +40,9 @@ npm run build
 
 Also run `npm run test:e2e` if you touched anything a browser can see (pages, interactives, metadata, the search index). The suite runs serially against a dev server it starts itself and takes several minutes.
 
-`npm install` installs Husky hooks that run the cheap parts of that gate for you, so you find out at commit time rather than in review:
+`npm install` runs `scripts/prepare-hooks.mjs`. On this branch that installs the Husky hooks in `.husky/` (lint-staged, commit-msg, pre-push). If `scripts/install-hooks.mjs` is also present (PR #3, `chore/file-size-budgets`, which points `core.hooksPath` at `.githooks`), prepare runs only that installer and leaves `.husky/` tracked but inactive, so merging this PR does not clobber #3. Git has one hooksPath; a follow-up can compose the two directories.
+
+The Husky hooks run the cheap parts of the gate so you find out at commit time rather than in review:
 
 - **`pre-commit`** runs `lint-staged`: ESLint with `--fix` over the files you staged, `npm run typecheck` for the whole project, and `npm run validate:content` when the commit touches MDX prose or a `data/` registry. A few seconds. ESLint's fixes are restaged automatically, so a formatting-only failure repairs itself.
 - **`commit-msg`** checks the subject against the conventional-commit rules below.
