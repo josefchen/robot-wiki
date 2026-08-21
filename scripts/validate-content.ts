@@ -6,10 +6,11 @@
  * fails before emitting a broken export.
  */
 import { join } from 'node:path';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { validateContent } from '../lib/validate-content.ts';
 import { modules } from '../data/modules.ts';
 import { CITATIONS } from '../data/citations.ts';
+import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.ts';
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
@@ -29,6 +30,43 @@ const issues = validateContent({
     { label: 'app/page.tsx', body: readFileSync(join(root, 'app', 'page.tsx'), 'utf8') },
   ],
 });
+
+// An author-year mention in prose must agree with the registry year of the
+// chip it introduces, or a reader sees two years for one paper in a single
+// sentence.
+//
+// Deliberately NOT wired to the `skip: 'year'` entries in
+// data/crossref-author-exceptions.ts, though they look like the obvious
+// source of truth. Those answer a different question: whether the registry
+// year may differ from what arXiv or Crossref publishes, which is settled
+// for pi-rl-2026 (the entry cites v3). Whether the PROSE may contradict the
+// chip beside it is not settled by that, and it never is: the reader cannot
+// see the exception file. Wiring the two together silenced this check on the
+// one article it was written for, and a planted "(Chen et al., 2021)"
+// survived a green run. There is no legitimate divergence, so there is no
+// list.
+const citationYears = CITATIONS.map((c) => ({
+  id: c.id,
+  year: c.year,
+  authors: c.authors ?? [],
+}));
+for (const domain of readdirSync(join(root, 'content'), { withFileTypes: true })) {
+  if (!domain.isDirectory()) continue;
+  for (const name of readdirSync(join(root, 'content', domain.name))) {
+    if (!name.endsWith('.mdx')) continue;
+    const rel = `content/${domain.name}/${name}`;
+    for (const hit of findProseCitationYearDisagreements({
+      file: rel,
+      body: readFileSync(join(root, rel), 'utf8'),
+      citations: citationYears,
+    })) {
+      issues.push({
+        file: rel,
+        message: `prose cites ${hit.surname} ${hit.proseYear} but ${hit.citationId} is year ${hit.registryYear}: "${hit.excerpt.slice(0, 90)}"`,
+      });
+    }
+  }
+}
 
 const EXPECTED_SEGMENT_COUNTS: Record<string, number> = {
   'foundation-models': 12,
