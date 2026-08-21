@@ -138,14 +138,15 @@ describe('sim2real teacher-student model', () => {
     expect(differs).toBe(true);
   });
 
-  it('terrain color maps low heights dark and high heights light', () => {
+  it('terrain color maps low heights light and high heights dark', () => {
     const low = terrainColor(Math.min(...TERRAIN));
     const high = terrainColor(Math.max(...TERRAIN));
     const luminance = (rgb: string) => {
       const [r, g, b] = rgb.match(/\d+/g)!.map(Number);
       return 0.2126 * r + 0.7152 * g + 0.0722 * b;
     };
-    expect(luminance(high)).toBeGreaterThan(luminance(low));
+    // Ink on paper: the taller the cell, the darker the mark.
+    expect(luminance(low)).toBeGreaterThan(luminance(high));
   });
 
   it('formats meters and divergence for the readouts', () => {

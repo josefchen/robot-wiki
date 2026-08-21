@@ -3,33 +3,51 @@
 
 /*
  * robot-wiki design tokens (Tailwind v4 CSS-first).
- * Direction: "technical instrument". Dark-first, flat surfaces, 1px borders,
- * small radii, one locked amber accent. No gradients, no glassmorphism.
- * See library/design-system.md.
+ * Direction: "technical instrument" on paper. Light-first, flat surfaces,
+ * 1px borders, small radii, one locked pine accent. No gradients, no
+ * glassmorphism. See library/design-system.md.
+ *
+ * This is the site's only theme. There is deliberately no dark variant and
+ * no prefers-color-scheme fork: a reference work that changes ground under
+ * the reader is two designs maintained badly, and the owner chose one.
+ * Values are the measured paper candidate from the accepted design spike.
  */
 @theme {
-  /* Palette (dark-first; off-black, never pure #000) */
-  --color-bg: #0b0d0e;
-  --color-surface: #121517;
-  --color-surface-2: #181c1f;
-  --color-border: #23282c;
-  --color-border-strong: #333a40;
-  --color-text: #e8eaec;
-  --color-text-dim: #9aa4ab;
+  /* Palette (light-first; warm off-white, never pure #fff) */
+  --color-bg: #f4f3ef;
+  --color-surface: #fbfaf7;
+  --color-surface-2: #eceae4;
+  --color-border: #d9d6cd;
+  --color-border-strong: #b3afa4;
+  --color-text: #1a1c1e;
+  --color-text-dim: #55595d;
 
   /* The single locked accent. Used sparingly: focus, key data, active nav. */
-  --color-accent: #f5a623;
+  --color-accent: #145c4f;
+
+  /*
+   * The plate a third-party company mark sits on (components/market-map/
+   * company-logo.tsx). Not a surface step: a deliberate mid neutral, because
+   * the mark set spans both extremes and no single light ground holds it.
+   * 35 of the 111 shipped marks are near-white (mean relative luminance
+   * above 0.60) and 41 are near-black, so a paper-coloured tile loses the
+   * first group and a near-black tile loses the second. This value sits at
+   * relative luminance 0.20, the point where pure white and the text colour
+   * are equidistant, giving both about 4.1:1. Every mark gets the same
+   * plate; nothing is special-cased per company.
+   */
+  --color-logo-plate: #7d7a73;
 
   /* Semantic state colors (not accents) */
-  --color-ok: #4ade80;
-  --color-warn: #f5a623;
-  --color-err: #f87171;
+  --color-ok: #1a6f45;
+  --color-warn: #8a5a00;
+  --color-err: #a52a1e;
 
-  /* Typography: Geist Sans UI, Source Serif 4 prose, JetBrains Mono code/data.
+  /* Typography: IBM Plex Sans UI, Newsreader prose, IBM Plex Mono code/data.
      Variables are set by next/font in app/layout.tsx. */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SF Mono', monospace;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;
 
   /* One radius scale, locked: small radii only */
   --radius-xs: 2px;
@@ -39,7 +57,7 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
@@ -55,7 +73,7 @@
     color: var(--color-text);
   }
 
-  /* One visible focus style everywhere: amber outline. */
+  /* One visible focus style everywhere: pine outline. */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
@@ -77,6 +95,47 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/*
+ * The one textured surface, carried over from the accepted paper candidate.
+ *
+ * The rule between an article's prose and its generated apparatus is painted
+ * as a monochrome dot lattice: a base dot at every cell, a mid dot every
+ * second cell, a peak dot once per 5-cell block. It is static in every state,
+ * carries no information the headings below it do not already carry, and its
+ * dot colours sit within 0.06 relative luminance of the page ground.
+ *
+ * The three layers tile at the SAME row height and differ only in horizontal
+ * period, so every row carries all three tiers. Giving the peak layer a
+ * 5-cell VERTICAL period as well is the obvious reading of a 5x5 matrix and
+ * is wrong here: the band is three rows tall, so the peak dots would land
+ * outside it and that tier would never paint.
+ *
+ * Deliberately the only placement. On a page whose job is reading, one
+ * boundary mark is the whole of what a texture has to say.
+ */
+:root {
+  --dot-base: #f2f0eb;
+  --dot-mid: #f1efe9;
+  --dot-peak: #f0eee8;
+  --dot-pitch: 4px;
+}
+
+article > hr {
+  border: 0;
+  height: calc(var(--dot-pitch) * 3);
+  background-color: transparent;
+  background-repeat: repeat;
+  background-position: center;
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--dot-peak) 0.9px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--dot-mid) 0.9px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--dot-base) 0.9px, transparent 1px);
+  background-size:
+    calc(var(--dot-pitch) * 5) var(--dot-pitch),
+    calc(var(--dot-pitch) * 2) var(--dot-pitch),
+    var(--dot-pitch) var(--dot-pitch);
 }
 
 /* Skip-to-content link: first Tab stop on every page.
@@ -152,10 +211,22 @@
   text-underline-offset: 2px;
 }
 
-/* rehype-autolink-headings wraps headings in anchors; keep heading color. */
+/*
+ * rehype-autolink-headings wraps headings in anchors; keep heading color, so
+ * a heading does not read as a run of pine prose link. The copy-link control
+ * (components/article/heading-permalink.tsx) is what advertises that the
+ * heading addresses a section, and the hover underline below confirms the
+ * heading text itself is the same target.
+ */
 .prose :where(h1, h2, h3, h4, h5, h6) a {
   color: inherit;
   text-decoration: none;
+}
+
+.prose :where(h2, h3) a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 4px;
 }
 
 .prose a:hover {
@@ -164,9 +235,9 @@
 
 /*
  * Inline glossary terms (components/ui/term.tsx): a dotted-underline
- * affordance in the text color, visually distinct from amber prose links.
+ * affordance in the text color, visually distinct from pine prose links.
  * The scoped rules below override .prose a, which is unlayered and would
- * otherwise beat the utility layer. The global :focus-visible amber
+ * otherwise beat the utility layer. The global :focus-visible pine
  * outline still applies, and hover/focus reveal of the definition tooltip
  * is handled by the component's group classes.
  */
@@ -305,15 +376,67 @@
 /*
  * Dense comparison surfaces (the comparison matrix, dataset and hardware
  * tables) outgrow the 65ch prose measure. At lg+ this utility expands a
- * direct child of the centered article symmetrically toward the main
- * region's width: viewport minus the 18rem sidebar and 3rem of gutters,
- * capped at 80rem. The element never exceeds the main region, so it cannot
- * cause page-level horizontal scroll. Below lg the surface stays in-measure
- * and scrolls horizontally inside its own container.
+ * direct child of the article symmetrically toward the width of the main
+ * region, keeping 1.5rem of gutter on each side and capping at 80rem.
+ *
+ * Both terms are container-relative on purpose, because every viewport-based
+ * derivation of this geometry is wrong in a way that is invisible on the
+ * page. `100vw` includes the classic-scrollbar gutter that the layout cannot
+ * use, and a rail width written as a literal drifts from the rail the moment
+ * its border changes; either error moves the element LEFT, where it is
+ * painted under the rail and permanently unreachable, since an LTR document
+ * cannot scroll to a negative offset and no scrollbar signals the loss.
+ * `--wide-measure-available` is resolved on the article against the main
+ * region, so it is the inline size actually available beside the rail under
+ * both scrollbar models; the registered @property is what forces that
+ * resolution there rather than re-resolving `cqw` at the call site.
+ *
+ * `50cqw` anchors to the article's own content box. A percentage would
+ * resolve against `.prose`, which re-applies `max-width: 65ch` in a serif
+ * face and computes narrower than the article, and that mismatch is what
+ * drove the surface 28.25px left of where it was meant to sit.
+ *
+ * Measured on the export at 1024, 1152, 1280, 1440, 1600, 1616 and 1920,
+ * under both overlay and 15px space-consuming scrollbars: the surface's left
+ * edge clears the rail's right edge by 24px at every one, and no route
+ * scrolls horizontally at any of those widths (tests/e2e/rail-clearance.spec.ts).
+ * Below lg the surface stays in-measure and scrolls horizontally inside its
+ * own container.
+ *
+ * The descendant selector is load-bearing, not stylistic. Only
+ * `[data-prose-column]` sets `--wide-measure-available`, and an unset
+ * registered `<length>` falls back to its `initial-value`, so a bare
+ * `.wide-measure` selector resolves `width` to `min(80rem, -48px)` outside
+ * an article and computes to 0px: measured on the export at 1440, such a div
+ * on /glossary reported `width: 0px`, `--wide-measure-available: 0px`. It
+ * neither overflows nor warns, so the surface vanishes rather than looking
+ * wrong. Scoping the rule to the element that supplies the variable makes
+ * that state unreachable; the same div then measures 641.52px, the width of
+ * the block it sits in. Degrading is still not what an author asking for a
+ * wide surface wants, so the misplaced call site also has to fail somewhere:
+ * the "every wide surface is authored inside the article prose column" test
+ * in tests/e2e/rail-clearance.spec.ts names the route and the element.
  */
+@property --wide-measure-available {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
 @media (min-width: 1024px) {
-  .wide-measure {
-    width: min(80rem, calc(100vw - 18rem - 3rem));
-    margin-left: calc(50% - min(40rem, (100vw - 18rem - 3rem) / 2));
+  main:has(> [data-prose-column]) {
+    container-type: inline-size;
+  }
+
+  [data-prose-column] {
+    container-type: inline-size;
+    --wide-measure-available: 100cqw;
+  }
+
+  [data-prose-column] .wide-measure {
+    width: min(80rem, calc(var(--wide-measure-available) - 3rem));
+    margin-left: calc(
+      50cqw - min(40rem, (var(--wide-measure-available) - 3rem) / 2)
+    );
   }
 }

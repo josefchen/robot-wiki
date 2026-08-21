@@ -28,6 +28,10 @@ import { ActionConditioning } from '@/components/interactive/action-conditioning
 
 The third paradigm in the [taxonomy](/world-models/taxonomy) is the one with the money and the attention: predict future pixels given the current frame and an action or a text prompt, then use the generator as a stand-in for the environment. A model that does this well is a learned simulator you can query with candidate actions, which is why the same systems show up under four different agendas: generating training data, evaluating policies, running RL post-training, and powering interactive worlds.
 
+Whether any of them is a simulator rather than a movie generator comes down to one property, and it is measurable. Toggle the conditioning strength below from strong to weak: two rollouts from one shared frame under different actions collapse onto the same future, the action-sensitivity score falls to near zero, and the visual-realism score does not move at all.
+
+<ActionConditioning className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Cosmos 3 Nano" value="16B" note="built on a dense 8B transformer" accent />
   <Stat label="Genie 3" value="24 fps" note="720p, a few minutes" />
@@ -69,9 +73,7 @@ Odyssey is the clearest consumer expression of the paradigm. Odyssey-2 (October 
 
 A world model is useful for control only if its predictions change under the candidate action in a way that tracks physical consequence. The 2026 survey names weak action conditioning the top open challenge: many models are trained mostly from observation history and task intent, so their futures are "semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action" <Cite id="world-model-survey-2026" />.
 
-The failure is invisible in a demo reel, because a weakly conditioned model still renders sharp, realistic video. It just renders the same plausible future no matter which action you issue. The interactive below makes the distinction measurable. Two rollouts start from one shared initial frame under two different actions. Under strong conditioning the futures diverge and the action-sensitivity score clears the stated threshold. Under weak conditioning both futures collapse to the same intention-consistent outcome and the score drops to near zero, while the visual-realism score stays exactly where it was. Realism and action sensitivity are decoupled quantities, and only one of them tells you whether the model heard the action.
-
-<ActionConditioning className="my-6" />
+The failure is invisible in a demo reel, because a weakly conditioned model still renders sharp, realistic video. It just renders the same plausible future no matter which action you issue. That is what the figure at the top of this module measures: realism and action sensitivity are decoupled quantities, and only one of them tells you whether the model heard the action.
 
 This is also why Genie 3's limited agent action space matters so much for robotics specifically: a world model whose controllable vocabulary is navigation and weather cannot score candidate grasps.
 

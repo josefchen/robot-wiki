@@ -12,6 +12,13 @@ import MiniSearch from 'minisearch';
 import { COMPANIES } from '../data/companies.ts';
 import { DATASETS } from '../data/datasets.ts';
 import { METHODS } from '../data/methods.ts';
+import {
+  datasetRowCells,
+  methodRowCells,
+  SNIPPET_MIN_CHARS,
+  trailingCellRun,
+} from './entity-cells.ts';
+import { foldGreekToAscii } from './greek-transliteration.ts';
 
 export const STRUCTURED_INDEX_PATH = '/search-index.json';
 
@@ -28,6 +35,11 @@ export type StructuredSearchDocument = {
   title: string;
   /** Searchable body: aliases, description, tags. */
   text: string;
+  /**
+   * One line of the entity's own record, rendered for a reader choosing
+   * between results. Verbatim on the destination route (see snippet()).
+   */
+  snippet: string;
   /** Destination path including hash or query that presents this entity. */
   url: string;
   /** Extra facet values the UI can filter on (segment, year, etc.). */
@@ -41,6 +53,7 @@ export type StructuredHit = {
   title: string;
   url: string;
   facet: string;
+  snippet: string;
 };
 
 export type StructuredFacet = {
@@ -51,13 +64,26 @@ export const DEFAULT_STRUCTURED_FACET: StructuredFacet = { type: 'all' };
 
 export const STRUCTURED_SEARCH_OPTIONS = {
   fields: ['title', 'text', 'type', 'facet'],
-  storeFields: ['entityId', 'type', 'title', 'url', 'facet'],
+  storeFields: ['entityId', 'type', 'title', 'url', 'facet', 'snippet'],
   searchOptions: {
     boost: { title: 3, text: 1 },
     prefix: true,
     fuzzy: 0.2,
   },
 } as const;
+
+/**
+ * Term processor applied to both the indexed terms and the query terms, so
+ * a Greek-lettered title and its ASCII spelling collapse to one term.
+ *
+ * It must be passed identically to the builder AND to MiniSearch.loadJSON:
+ * a function cannot be serialized into the index, so a client that loads
+ * the index without it processes queries differently from how the terms
+ * were stored, and every Greek-named entity silently stops matching.
+ */
+export function processStructuredTerm(term: string): string {
+  return foldGreekToAscii(term);
+}
 
 export type StructuredSearchClient = {
   search(query: string): Promise<StructuredHit[]>;
@@ -87,6 +113,7 @@ function methodDocument(
     title: method.name,
     text: compactText([
       method.name,
+      ...method.aka,
       method.year,
       method.actionRepresentation,
       method.backbone,
@@ -94,6 +121,7 @@ function methodDocument(
     ]),
     url: `/manipulation/comparison-matrix/#method-${method.id}`,
     facet: method.actionRepresentation ?? '',
+    snippet: trailingCellRun(methodRowCells(method)),
   };
 }
 
@@ -117,6 +145,9 @@ function companyDocument(
     ]),
     url: `/market-map/#company-${company.id}`,
     facet: company.segment,
+    // The card renders the description as its own paragraph, so it is
+    // verbatim on the destination route with no assembly needed.
+    snippet: company.description,
   };
 }
 
@@ -130,12 +161,14 @@ function datasetDocument(
     title: dataset.name,
     text: compactText([
       dataset.name,
+      ...dataset.aka,
       dataset.year,
       ...dataset.embodiments,
       dataset.license,
     ]),
     url: `/data-hardware/datasets/#dataset-${dataset.id}`,
     facet: dataset.year === null ? '' : String(dataset.year),
+    snippet: trailingCellRun(datasetRowCells(dataset)),
   };
 }
 
@@ -171,6 +204,7 @@ function createStructuredMiniSearch(): MiniSearch<StructuredSearchDocument> {
     fields: [...STRUCTURED_SEARCH_OPTIONS.fields],
     storeFields: [...STRUCTURED_SEARCH_OPTIONS.storeFields],
     searchOptions: { ...STRUCTURED_SEARCH_OPTIONS.searchOptions },
+    processTerm: processStructuredTerm,
   });
 }
 
@@ -180,6 +214,7 @@ export function structuredIndexLoadOptions() {
     fields: [...STRUCTURED_SEARCH_OPTIONS.fields],
     storeFields: [...STRUCTURED_SEARCH_OPTIONS.storeFields],
     searchOptions: { ...STRUCTURED_SEARCH_OPTIONS.searchOptions },
+    processTerm: processStructuredTerm,
   };
 }
 
@@ -282,6 +317,61 @@ export function assertStructuredIndexMatchesData(indexJson: unknown): number {
   return expectedCount;
 }
 
+/** Dashes banned from rendered snippet text. */
+const BANNED_SNIPPET_DASH = /[\u2013\u2014]/;
+
+/**
+ * Fail if any entity's snippet is too short to be worth rendering, carries
+ * a banned dash, or collides byte-for-byte with another entity's.
+ *
+ * Uniqueness is checked across the whole corpus rather than per result set:
+ * two entities that share a snippet can always be returned together, so
+ * corpus-wide distinctness is the only version of the rule a build can
+ * enforce. Returns the number of snippets verified.
+ */
+export function assertStructuredSnippets(
+  documents: readonly StructuredSearchDocument[] = collectStructuredDocuments(),
+): number {
+  const short = documents.filter(
+    (doc) => doc.snippet.trim().length < SNIPPET_MIN_CHARS,
+  );
+  if (short.length > 0) {
+    const named = short
+      .slice(0, 8)
+      .map((doc) => `${doc.id} (${doc.snippet.trim().length} chars)`)
+      .join(', ');
+    throw new Error(
+      `structured snippet too short: ${short.length} entit${short.length === 1 ? 'y' : 'ies'} under ${SNIPPET_MIN_CHARS} characters (${named})`,
+    );
+  }
+
+  const dashed = documents.filter((doc) => BANNED_SNIPPET_DASH.test(doc.snippet));
+  if (dashed.length > 0) {
+    throw new Error(
+      `structured snippet contains a banned em-dash or en-dash: ${dashed
+        .slice(0, 8)
+        .map((doc) => doc.id)
+        .join(', ')}`,
+    );
+  }
+
+  const byText = new Map<string, string[]>();
+  for (const doc of documents) {
+    byText.set(doc.snippet, [...(byText.get(doc.snippet) ?? []), doc.id]);
+  }
+  const collisions = [...byText.values()].filter((ids) => ids.length > 1);
+  if (collisions.length > 0) {
+    throw new Error(
+      `structured snippets are not distinct: ${collisions
+        .slice(0, 4)
+        .map((ids) => ids.join(' = '))
+        .join('; ')}`,
+    );
+  }
+
+  return documents.length;
+}
+
 /** Filter structured hits by the active facet. */
 export function applyStructuredFacet(
   hits: readonly StructuredHit[],
@@ -306,6 +396,7 @@ export function toStructuredHits(
     title: asString(result.title),
     url: asString(result.url),
     facet: asString(result.facet),
+    snippet: asString(result.snippet),
   }));
 }
 

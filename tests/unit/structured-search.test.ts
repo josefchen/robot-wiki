@@ -2,14 +2,18 @@ import { describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import { DATASETS } from '@/data/datasets';
 import { METHODS } from '@/data/methods';
+import { SNIPPET_MIN_CHARS } from '@/lib/entity-cells';
 import {
   applyStructuredFacet,
   assertStructuredIndexMatchesData,
+  assertStructuredSnippets,
   buildStructuredIndex,
   collectStructuredDocuments,
   expectedStructuredIds,
+  structuredIndexLoadOptions,
   toStructuredHits,
   type StructuredHit,
+  type StructuredSearchDocument,
 } from '@/lib/structured-search';
 
 const EXPECTED_COUNT = METHODS.length + COMPANIES.length + DATASETS.length;
@@ -22,6 +26,7 @@ function hit(overrides: Partial<StructuredHit> = {}): StructuredHit {
     title: 'Figure AI',
     url: '/market-map/#company-figure-ai',
     facet: 'humanoids',
+    snippet: 'Builds general-purpose humanoid robots for commercial work.',
     ...overrides,
   };
 }
@@ -76,6 +81,63 @@ describe('collectStructuredDocuments', () => {
       title: 'DROID',
       url: '/data-hardware/datasets/#dataset-droid',
     });
+  });
+});
+
+describe('greek-lettered titles are reachable by their ASCII spelling', () => {
+  const GREEK_FAMILY: Array<{ ascii: string; greek: string; entityId: string }> =
+    [
+      { ascii: 'pi0', greek: '\u03c00', entityId: 'pi0' },
+      { ascii: 'pi0-FAST', greek: '\u03c00-FAST', entityId: 'pi0-fast' },
+      { ascii: 'pi0.5', greek: '\u03c00.5', entityId: 'pi05' },
+      { ascii: 'pi0.6', greek: '\u03c00.6', entityId: 'pi06' },
+      { ascii: 'pi0.7', greek: '\u03c00.7', entityId: 'pi07' },
+    ];
+
+  async function searchLoaded(query: string) {
+    const MiniSearch = (await import('minisearch')).default;
+    const json = JSON.stringify(buildStructuredIndex());
+    const index = MiniSearch.loadJSON(json, structuredIndexLoadOptions());
+    return index.search(query);
+  }
+
+  it('folds Greek letters so an ASCII query reaches the method row first', async () => {
+    for (const entry of GREEK_FAMILY) {
+      const results = await searchLoaded(entry.ascii);
+      expect(
+        results[0]?.id,
+        `ASCII query "${entry.ascii}" must rank method:${entry.entityId} first`,
+      ).toBe(`method:${entry.entityId}`);
+    }
+  });
+
+  it('keeps every Greek-form query working (the fix is additive)', async () => {
+    for (const entry of GREEK_FAMILY) {
+      const results = await searchLoaded(entry.greek);
+      expect(
+        results[0]?.id,
+        `Greek query "${entry.greek}" must still rank method:${entry.entityId} first`,
+      ).toBe(`method:${entry.entityId}`);
+    }
+  });
+
+  it('does not hand the reader the lab when they asked for the model', async () => {
+    // Physical Intelligence's alias list contains "Pi" and the Greek letter,
+    // which sat within the configured fuzzy distance while the model's Greek
+    // title sat outside it, so "pi0" returned the company and nothing else.
+    const results = await searchLoaded('pi0');
+    expect(results[0]?.id).toBe('method:pi0');
+  });
+
+  it('leaves ASCII-titled entities searching exactly as before', async () => {
+    for (const [query, id] of [
+      ['ACT', 'method:act'],
+      ['Figure AI', 'company:figure-ai'],
+      ['DROID', 'dataset:droid'],
+    ] as const) {
+      const results = await searchLoaded(query);
+      expect(results.some((result) => result.id === id)).toBe(true);
+    }
   });
 });
 
@@ -152,7 +214,7 @@ describe('assertStructuredIndexMatchesData', () => {
 });
 
 describe('toStructuredHits', () => {
-  it('maps MiniSearch results onto renderable hits with type and destination', () => {
+  it('maps MiniSearch results onto renderable hits with type, destination, and snippet', () => {
     expect(
       toStructuredHits([
         {
@@ -162,6 +224,7 @@ describe('toStructuredHits', () => {
           title: 'Figure AI',
           url: '/market-map/#company-figure-ai',
           facet: 'humanoids',
+          snippet: 'Builds general-purpose humanoid robots.',
         },
       ]),
     ).toEqual([
@@ -172,8 +235,85 @@ describe('toStructuredHits', () => {
         title: 'Figure AI',
         url: '/market-map/#company-figure-ai',
         facet: 'humanoids',
+        snippet: 'Builds general-purpose humanoid robots.',
       },
     ]);
+  });
+
+  it('reads the snippet back out of a round-tripped index', async () => {
+    const MiniSearch = (await import('minisearch')).default;
+    const index = MiniSearch.loadJSON<StructuredSearchDocument>(
+      JSON.stringify(buildStructuredIndex()),
+      structuredIndexLoadOptions(),
+    );
+    const [figure] = toStructuredHits(
+      index.search('Figure AI').filter((r) => r.id === 'company:figure-ai'),
+    );
+    expect(figure.snippet.length).toBeGreaterThanOrEqual(SNIPPET_MIN_CHARS);
+    expect(figure.snippet).toBe(
+      COMPANIES.find((company) => company.id === 'figure-ai')?.description,
+    );
+  });
+});
+
+describe('assertStructuredSnippets', () => {
+  it('passes over the shipped corpus and verifies every entity', () => {
+    expect(assertStructuredSnippets()).toBe(EXPECTED_COUNT);
+  });
+
+  it('gives every entity a snippet of at least the minimum length', () => {
+    for (const doc of collectStructuredDocuments()) {
+      expect(
+        doc.snippet.trim().length,
+        `${doc.id} snippet is "${doc.snippet}"`,
+      ).toBeGreaterThanOrEqual(SNIPPET_MIN_CHARS);
+    }
+  });
+
+  it('covers all three entity types, so no type renders a bare title', () => {
+    const byType = new Map<string, number>();
+    for (const doc of collectStructuredDocuments()) {
+      if (doc.snippet.trim()) {
+        byType.set(doc.type, (byType.get(doc.type) ?? 0) + 1);
+      }
+    }
+    expect(byType.get('method')).toBe(METHODS.length);
+    expect(byType.get('company')).toBe(COMPANIES.length);
+    expect(byType.get('dataset')).toBe(DATASETS.length);
+  });
+
+  it('rejects a snippet under the minimum length', () => {
+    const docs = collectStructuredDocuments();
+    expect(() =>
+      assertStructuredSnippets([{ ...docs[0], snippet: 'too short' }, ...docs.slice(1)]),
+    ).toThrow(/too short/i);
+  });
+
+  it('rejects an em-dash or an en-dash in a snippet', () => {
+    const docs = collectStructuredDocuments();
+    const long = 'A snippet long enough to clear the minimum length bound';
+    expect(() =>
+      assertStructuredSnippets([
+        { ...docs[0], snippet: `${long} \u2014 with an em-dash` },
+        ...docs.slice(1),
+      ]),
+    ).toThrow(/dash/i);
+    expect(() =>
+      assertStructuredSnippets([
+        { ...docs[0], snippet: `${long} \u2013 with an en-dash` },
+        ...docs.slice(1),
+      ]),
+    ).toThrow(/dash/i);
+  });
+
+  it('rejects two entities sharing byte-identical snippet text', () => {
+    const docs = collectStructuredDocuments();
+    expect(() =>
+      assertStructuredSnippets([
+        { ...docs[0], snippet: docs[1].snippet },
+        ...docs.slice(1),
+      ]),
+    ).toThrow(/distinct/i);
   });
 });
 

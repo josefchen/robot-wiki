@@ -4,9 +4,140 @@ import {
   bcBound,
   DAGGER_INTERVAL,
   daggerBound,
+  DEVIATION_AXIS_CEILING,
+  DEVIATION_AXIS_TICKS,
+  deviationAxisFraction,
   expertY,
   simulateDeviation,
 } from '@/lib/compounding-error';
+
+/** Accumulated deviation at horizon T, exactly as the chart plots it. */
+function plottedCost(
+  epsilon: number,
+  steps: number,
+  mode: 'per-step' | 'chunk',
+  dagger = false,
+): number {
+  const deviation = simulateDeviation({
+    epsilon,
+    steps: 240,
+    mode,
+    chunkSize: 25,
+    dagger,
+  });
+  let sum = 0;
+  for (let t = 0; t <= steps; t += 1) sum += Math.abs(deviation[t]);
+  return sum;
+}
+
+/** Marker height as a percentage of plot height, per VAL-MAN-067. */
+function markerPercent(
+  epsilon: number,
+  steps: number,
+  mode: 'per-step' | 'chunk' = 'per-step',
+  dagger = false,
+): number {
+  return 100 * deviationAxisFraction(plottedCost(epsilon, steps, mode, dagger));
+}
+
+describe('deviationAxisFraction', () => {
+  it('anchors zero at the baseline and the ceiling at the top gridline', () => {
+    expect(deviationAxisFraction(0)).toBe(0);
+    expect(deviationAxisFraction(DEVIATION_AXIS_CEILING)).toBeCloseTo(1, 12);
+  });
+
+  it('clamps outside the domain instead of drawing off-plot', () => {
+    expect(deviationAxisFraction(-50)).toBe(0);
+    expect(deviationAxisFraction(DEVIATION_AXIS_CEILING * 3)).toBeCloseTo(1, 12);
+  });
+
+  it('is strictly increasing across the plotted range', () => {
+    let previous = -1;
+    for (let v = 0; v <= DEVIATION_AXIS_CEILING; v += 25) {
+      const f = deviationAxisFraction(v);
+      expect(f).toBeGreaterThan(previous);
+      previous = f;
+    }
+  });
+
+  it('spends real height on the low decades, unlike the linear domain it replaces', () => {
+    // The linear domain put 370.3 units at 8.1% of plot height. A
+    // compressive axis has to lift that above the contract's 20% floor.
+    expect(deviationAxisFraction(370.3)).toBeGreaterThan(0.2);
+    // ... without collapsing the top of the range into the ceiling.
+    expect(deviationAxisFraction(370.3)).toBeLessThan(
+      deviationAxisFraction(1505.3),
+    );
+  });
+
+  it('places every tick inside the plotted domain, ascending', () => {
+    expect(DEVIATION_AXIS_TICKS[0]).toBe(0);
+    expect(DEVIATION_AXIS_TICKS[DEVIATION_AXIS_TICKS.length - 1]).toBe(
+      DEVIATION_AXIS_CEILING,
+    );
+    for (let i = 1; i < DEVIATION_AXIS_TICKS.length; i += 1) {
+      expect(DEVIATION_AXIS_TICKS[i]).toBeGreaterThan(
+        DEVIATION_AXIS_TICKS[i - 1],
+      );
+    }
+  });
+
+  it('holds the whole reachable range: nothing the sliders can plot clips', () => {
+    for (const mode of ['per-step', 'chunk'] as const) {
+      for (const dagger of [false, true]) {
+        const worst = plottedCost(0.15, 240, mode, dagger);
+        expect(worst).toBeLessThanOrEqual(DEVIATION_AXIS_CEILING);
+      }
+    }
+    expect(bcBound(0.15, 240)).toBeLessThanOrEqual(DEVIATION_AXIS_CEILING);
+  });
+});
+
+describe('VAL-MAN-067 marker-height bounds on the deviation axis', () => {
+  it('(a) reads at least 20% of plot height at the article defaults', () => {
+    expect(markerPercent(0.05, 120)).toBeGreaterThanOrEqual(20);
+  });
+
+  it('(b) drops at least 25% of plot height on the chunk-of-25 toggle', () => {
+    const perStep = markerPercent(0.05, 120, 'per-step');
+    const chunked = markerPercent(0.05, 120, 'chunk');
+    expect(perStep - chunked).toBeGreaterThanOrEqual(25);
+  });
+
+  it('(c) rises strictly with per-step error, by at least 20% overall', () => {
+    const samples = [0.025, 0.05, 0.1, 0.15].map((e) => markerPercent(e, 240));
+    for (let i = 1; i < samples.length; i += 1) {
+      expect(samples[i]).toBeGreaterThan(samples[i - 1]);
+    }
+    expect(samples[samples.length - 1] - samples[0]).toBeGreaterThanOrEqual(20);
+    // Every step the slider can take, not only the four contract samples.
+    let previous = -1;
+    for (let percent = 0.5; percent <= 15.0001; percent += 0.5) {
+      const value = markerPercent(percent / 100, 240);
+      expect(value).toBeGreaterThan(previous);
+      previous = value;
+    }
+  });
+
+  it('(d) rises strictly with the horizon, by at least 20% overall', () => {
+    const samples = [60, 120, 180, 240].map((t) => markerPercent(0.05, t));
+    for (let i = 1; i < samples.length; i += 1) {
+      expect(samples[i]).toBeGreaterThan(samples[i - 1]);
+    }
+    expect(samples[samples.length - 1] - samples[0]).toBeGreaterThanOrEqual(20);
+    let previous = -1;
+    for (let steps = 20; steps <= 240; steps += 5) {
+      const value = markerPercent(0.05, steps);
+      expect(value).toBeGreaterThan(previous);
+      previous = value;
+    }
+  });
+
+  it('(e) the seeded prediction-step mount clears both of its bounds', () => {
+    expect(markerPercent(0.05, 240)).toBeGreaterThanOrEqual(20);
+    expect(markerPercent(0.05, 240) - markerPercent(0.05, 120)).toBeGreaterThanOrEqual(20);
+  });
+});
 
 describe('regret bounds', () => {
   it('bcBound is the quadratic bound epsilon * t * (t + 1) / 2', () => {

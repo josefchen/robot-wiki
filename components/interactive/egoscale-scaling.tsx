@@ -33,7 +33,7 @@ import { cx } from '@/lib/utils';
  *
  * The chart plots the paper's published law, validation loss
  * L = 0.024 - 0.003 * ln(D) (D in thousands of hours, R^2 = 0.9983), as a
- * solid amber line over its measured range (1k to 20k hours of egocentric
+ * solid pine line over its measured range (1k to 20k hours of egocentric
  * human video), with the five reported downstream task-completion scores
  * (0.30 at 1k rising to 0.71 at 20k) on a second axis. The slider extends
  * an extrapolation horizon out to 1M hours: past 20k the lines go dashed

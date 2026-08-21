@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, licenceLabel } from '../../data/images';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { settleTransitions } from './settle';
 
 /**
  * Licensed imagery and attribution (VAL-IMG-001 through VAL-IMG-014, the
@@ -51,6 +52,8 @@ test.afterAll(async () => {
 
 /** Content images: img elements inside main, at least 64px in both dims. */
 const CONTENT_IMAGES = 'main img';
+
+
 
 test.describe('licensed imagery', () => {
   test('every content image has meaningful alt text (VAL-IMG-001)', async ({
@@ -319,6 +322,7 @@ test.describe('licensed imagery', () => {
   }) => {
     for (const route of IMAGE_ROUTES) {
       await page.goto(`${BASE}${route}`);
+      await settleTransitions(page);
       const results = await new AxeBuilder({ page }).analyze();
       expect(results.violations, `axe violations on ${route}`).toEqual([]);
     }
@@ -332,12 +336,13 @@ test.describe('licensed imagery', () => {
     // for them (share-alike stays attached to the image, not the site).
     const shareAlike = IMAGES.filter((i) => i.licence === 'cc-by-sa-4.0');
     expect(shareAlike.length).toBeGreaterThanOrEqual(2);
+    const articleRoutes: Record<string, string> = {
+      'anymal-anybotics-2022': '/rl-sim2real/legged-locomotion/',
+      'franka-emika-panda-cebit-2017': '/data-hardware/hardware-taxonomy/',
+    };
     for (const image of shareAlike) {
-      const routes: Record<string, string> = {
-        'anymal-anybotics-2022': '/rl-sim2real/legged-locomotion/',
-        'franka-emika-panda-cebit-2017': '/data-hardware/hardware-taxonomy/',
-      };
-      for (const route of [routes[image.id], '/credits/']) {
+      const routes = [articleRoutes[image.id], '/credits/'].filter(Boolean);
+      for (const route of routes) {
         await page.goto(`${BASE}${route}`);
         const credit = page
           .locator('main [data-image-credit]')

@@ -15,7 +15,7 @@ import { cx } from '@/lib/utils';
  * DeploymentDashboard: the deployment-reality table for the reliability-gap
  * module. Verified deployment figures (documented against company statements
  * and filings) sit next to circulating or vendor-run claims, with the status
- * badge carrying the distinction: green for verified, amber for claimed.
+ * badge carrying the distinction: green for verified, ochre for claimed.
  *
  * Interactive contract: typed data from lib/deployment-reality.ts, a filter
  * group (all / verified / claimed) with aria-pressed buttons, a visible row

@@ -60,7 +60,15 @@ export default function AzIndexPage() {
       <Breadcrumbs
         items={[{ label: 'Home', href: '/' }, { label: 'A-Z Index' }]}
       />
-      <header>
+      {/* data-pagefind-body: Pagefind excludes every page that declares no
+          body region as soon as one page declares one, so this route was
+          unreachable by the sidebar's own "A-Z Index" label
+          (VAL-SEARCH-021, VAL-SEARCH-022). Scoped to the header rather
+          than the whole page: the alphabetical run is 42 article titles
+          and 73 term names that all live on their own routes, and
+          indexing them here would put this page in front of the article a
+          reader was looking for. */}
+      <header data-pagefind-body>
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           A-Z Index
         </h1>

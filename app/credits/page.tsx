@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { COMPANIES } from '@/data/companies';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
@@ -80,6 +81,12 @@ function imageUsage(): Map<string, UsageLink[]> {
     record(id, { route: '/', title: 'Home' });
   }
 
+  for (const company of COMPANIES) {
+    if (company.logo) {
+      record(company.logo, { route: '/market-map', title: 'Market Map' });
+    }
+  }
+
   return usage;
 }
 
@@ -88,17 +95,24 @@ export default function CreditsPage() {
 
   return (
     <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
-      <header>
+      {/* data-pagefind-body: Pagefind excludes every page that declares no
+          body region once one page declares one (VAL-SEARCH-021). Scoped
+          to the header, so the licence list below stays out of the prose
+          index: it is 40-odd repeated licence identifiers and creator
+          names, which would crowd out real prose matches. */}
+      <header data-pagefind-body>
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           robot-wiki uses real photographs and diagrams, and every one of
           them is listed here with its creator, the page it came from, and
-          the licence that permits its reuse. Only images under CC0, CC BY,
-          CC BY-SA, public domain, or a documented reuse permission appear
-          on this site, and no image is AI-generated. The site&apos;s own
-          text and original diagrams are available under CC BY 4.0.
+          the licence that permits its reuse. Article images stay under
+          CC0, CC BY, CC BY-SA, public domain, or a documented reuse
+          permission. Market-map logos also include official company marks
+          recorded as unlicensed or unknown when no reuse grant is named.
+          No image is AI-generated. The site&apos;s own text and original
+          diagrams are available under CC BY 4.0.
         </p>
         {/* Author identity (VAL-DIST-009): the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and
@@ -113,14 +127,15 @@ export default function CreditsPage() {
           >
             {AUTHOR_NAME}
           </a>{' '}
-          ({AUTHOR_HANDLE}). {AUTHOR_BIO}.
+          ({AUTHOR_HANDLE}).
         </p>
       </header>
 
       {/* About section (VAL-DIST-008): why this site exists, kept in its
           own <section> so the licence list below stays the registry-
-          generated surface VAL-IMG-004 grades. Biographical facts come
-          only from the owner-supplied constants in lib/identity.ts. */}
+          generated surface VAL-IMG-004 grades. The biography is rendered
+          from AUTHOR_BIO rather than restated in JSX, so the owner's
+          wording cannot drift here while lib/identity.ts changes. */}
       <section aria-labelledby="about-heading" className="mt-12">
         <h2
           id="about-heading"
@@ -129,14 +144,13 @@ export default function CreditsPage() {
           Who is behind this wiki
         </h2>
         <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
-          I am {AUTHOR_NAME}, and I spent 3 years building and deploying
-          robots at KAIKAKU (acquired by REEF). That work kept me reading
-          the same scattered sources: papers that leave out the deployment
-          context, and demos that never mention the failure rates behind
-          them. This wiki is the reference I wanted within reach during
-          those years, written for engineers arriving from ML who need the
-          field mapped without the promotion. Every claim links to its
-          source, so you can check me.
+          I am {AUTHOR_NAME}. {AUTHOR_BIO}. What I needed over those years
+          was scattered across papers that skip the deployment context and
+          demos that never quote a failure rate, so I kept rebuilding the
+          same mental map of the field from scratch. This wiki is that map,
+          written down for engineers arriving from machine learning. Every
+          claim links to the source it came from, so you can check it
+          yourself.
         </p>
         <p className="mt-4 font-sans text-sm text-text-dim">
           Corrections and source disputes are welcome:{' '}

@@ -30,6 +30,10 @@ import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
 <Term id="imitation-learning">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure rather than only from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
 
+One failed espresso episode is walked below. Drag the episode time slider through it and watch the value trace: rising segments get tagged high advantage, falling segments low, and the dashed arc is the credit assignment, a failed insertion blamed on the grasp twenty seconds earlier. Learning from that failure without backpropagating through a flow-matching action head is the problem this module solves.
+
+<AdvantageScrubber className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="espresso throughput" value=">2x" note="Recap, vendor-reported" accent />
   <Stat label="real-world training" value="1-2.5 h" note="HIL-SERL, near-perfect success" />
@@ -45,7 +49,7 @@ Modern policies emit actions through diffusion or <Term id="flow-matching">flow-
 
 **ConRFT** (Chen et al., 2025) attacks the chain's length instead of its likelihood. A consistency policy collapses multi-step denoising into few-step generation, which makes RL tractable and the policy real-time. Training runs in two stages: an offline stage that combines <Term id="behavior-cloning">behavior cloning</Term> with Q-learning over a small demonstration set, then an online stage with human interventions for safe exploration. On eight real-world tasks it reports 96.3% average success after 45 to 90 minutes of online fine-tuning, a 144% improvement in <Term id="success-rate">success rate</Term> over the supervised baselines it compares against <Cite id="conrft-2025" />.
 
-**pi_RL** (Chen et al., 2025) is the most complete treatment for flow-based VLAs of the pi0 class, and it solves the likelihood problem twice. **Flow-Noise** models denoising as a discrete-time MDP with a learnable noise network, which yields an exact action log-likelihood. **Flow-SDE** converts the sampling ODE into an SDE, so denoising and environment interaction merge into a two-layer MDP with genuine stochastic exploration. The paper reports significant gains over supervised fine-tuning both in-distribution and out-of-distribution <Cite id="pi-rl-2026" />. If you want to run PPO on a pi0.5-class model today, this is the recipe to read first.
+**pi_RL** (Chen et al., 2026) is the most complete treatment for flow-based VLAs of the pi0 class, and it solves the likelihood problem twice. **Flow-Noise** models denoising as a discrete-time MDP with a learnable noise network, which yields an exact action log-likelihood. **Flow-SDE** converts the sampling ODE into an SDE, so denoising and environment interaction merge into a two-layer MDP with genuine stochastic exploration. The paper reports significant gains over supervised fine-tuning both in-distribution and out-of-distribution <Cite id="pi-rl-2026" />. If you want to run PPO on a pi0.5-class model today, this is the recipe to read first.
 
 ## Recap: conditioning instead of gradients
 
@@ -59,9 +63,7 @@ $$\hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A(o, a) 
 
 This is what makes RL scale to a 5B-parameter flow-matching VLA: no gradients pass through the action head at RL time, so the whole apparatus rides on supervised-style training with an extra token <Cite id="pistar06-2025" /> <Cite id="pi06-model-card-2025" />.
 
-The interactive below walks one failed espresso episode. Scrub through it and watch the value trace: segments where the value rises are tagged high advantage, segments where it falls are tagged low, and the dashed arc shows the credit assignment, the failed insertion blamed on the grasp 20 seconds earlier. The other two views show what Recap does with those tags: at training time every transition is kept with its binary label, and at execution time the policy is conditioned on "high."
-
-<AdvantageScrubber className="my-6" />
+The other two views of the figure at the top of this module show what Recap does with those tags: at training time every transition is kept with its binary label, and at execution time the policy is conditioned on "high."
 
 The reported results are strong: espresso throughput and success rate both more than doubled, failure rates were cut by 2x or more on the hardest tasks, and all three demonstrated applications (espresso, laundry, box assembly) exceeded 90% success, including continuous espresso operation from 5:30am to 11:30pm <Cite id="pistar06-2025" />. Two caveats apply. The numbers are vendor-reported in a lab report, not peer-reviewed, and the weights are closed. And the method targets long-horizon throughput at fleet scale; it requires reward labeling, human interveners, and many robots.
 

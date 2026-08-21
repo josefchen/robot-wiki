@@ -497,8 +497,8 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     id: 'pi-rl-2026',
     skip: 'year',
     reason:
-      'arXiv prints the v1 submission year 2025; the registry deliberately names 2026 because the entry cites v3 (2026-01-29), the version with the full Flow-Noise/Flow-SDE treatment (the citing article names the version). The registry year policy for versioned arXiv entries follows the cited version.',
+      'arXiv prints the v1 submission year 2025; the registry deliberately names 2026 because the entry cites v3 (2026-01-29), the version with the full Flow-Noise/Flow-SDE treatment that rl-finetuning.mdx describes. The registry year policy for versioned arXiv entries follows the cited version, and the prose author-year mention follows the registry so the reader sees one year.',
     verified:
-      'arXiv feed for 2510.25889 (v1 published 2025-10-29; entry comment names v3 2026-01-29) read 2026-08-20.',
+      'arXiv API for 2510.25889 re-read 2026-08-21: published 2025-10-29T18:37:39Z, latest updated 2026-01-29T16:00:57Z, feed id .../abs/2510.25889v3.',
   },
 ];

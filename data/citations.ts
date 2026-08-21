@@ -852,14 +852,14 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // ~80-author lab PDF; no arXiv id as of 2026-08.
+    // 87-author lab PDF; no arXiv id as of 2026-08.
     id: 'pi07-2026',
     // Title as printed on the PDF's first page; the blog twin (pi07-blog-2026)
     // uses the shorter headline.
     title:
       'π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities',
-    // 80 named authors from the PDF's own title page (the blog twin
-    // pi07-blog-2026 lists the same team).
+    // 87 named authors from the PDF's own title page (the blog twin
+    // pi07-blog-2026 lists the same team, name for name).
     authors: [
       'Bo Ai',
       'Ali Amin',
@@ -958,8 +958,8 @@ export const CITATIONS: Citation[] = [
     // task, not finished fully" passage appears in the blog text, not the PDF.
     id: 'pi07-blog-2026',
     title: 'π0.7: a Steerable Model with Emergent Capabilities',
-    // 83 named authors as printed on the blog page itself (same team as the
-    // pi07-2026 PDF, which lists 80; the blog adds three).
+    // 87 named authors as printed on the blog page itself, the same list the
+    // pi07-2026 PDF title page carries.
     authors: [
       'Bo Ai',
       'Ali Amin',

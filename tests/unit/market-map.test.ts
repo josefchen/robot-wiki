@@ -11,6 +11,7 @@ import {
   formatShortDate,
   formatUsd,
   hasActiveFilters,
+  companyInitials,
   parseMarketMapSearch,
   relaxFiltersForCompany,
   serializeMarketMapSearch,
@@ -426,5 +427,23 @@ describe('segment oracle', () => {
       0,
     );
     expect(sum).toBe(111);
+  });
+});
+
+describe('companyInitials', () => {
+  it('takes the first letters of the first two words', () => {
+    expect(companyInitials('Figure AI')).toBe('FA');
+    expect(companyInitials('Physical Intelligence')).toBe('PI');
+  });
+
+  it('uses the first two letters of a single word', () => {
+    expect(companyInitials('NVIDIA')).toBe('NV');
+    expect(companyInitials('Nuro')).toBe('NU');
+  });
+
+  it('drops parenthetical product lines so the mark names the company', () => {
+    expect(companyInitials('Tesla (Optimus)')).toBe('TE');
+    expect(companyInitials('Hugging Face (LeRobot)')).toBe('HF');
+    expect(companyInitials('Google DeepMind (Robotics)')).toBe('GD');
   });
 });

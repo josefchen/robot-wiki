@@ -21,19 +21,24 @@ import {
  * additionally pins that the About section does not trim or absorb it.
  */
 
-// Derived from data/images.ts's licence enum (the permitted-licence set in
-// contract/imagery.md), not hand-typed: any identifier the About prose must
-// not contain is an identifier the registry can emit.
 import { IMAGES } from '../../data/images';
+import { IMAGE_LICENCES } from '../../data/schemas/image';
 
-const PERMITTED_LICENCES: string[] = Array.from(
+/**
+ * The whole permitted-licence set, derived from the schema enum rather
+ * than from the licences today's registry happens to use: a licence that
+ * no current image carries is still a licence the prose must not restate,
+ * and deriving from IMAGES would silently shrink the scan as the registry
+ * changes. Each identifier is expanded into the forms prose could carry:
+ * the enum literal, and the spaced form the page's own credit lines and
+ * header use ("cc by 4.0", "public domain").
+ */
+const PERMITTED_LICENCE_IDENTIFIERS: string[] = Array.from(
   new Set(
-    IMAGES.flatMap((image) => {
-      const licence = image.licence as string;
-      // Normalise the registry's kebab enum to the identifier forms the
-      // prose could carry: the enum literal and the spaced form.
-      return [licence, licence.replace(/-/g, ' ')];
-    }),
+    IMAGE_LICENCES.flatMap((licence) => [
+      licence,
+      licence.replace(/-/g, ' '),
+    ]),
   ),
 );
 
@@ -72,13 +77,24 @@ test('the credits page carries an About section (VAL-DIST-008)', async ({
   // the heading's parent flow root if no <section> wraps it). Measured in
   // one browser call because a DOM node returned from evaluate does not
   // serialize back into the test.
-  const prose = await heading.first().evaluate((el) => {
+  const measured = await heading.first().evaluate((el) => {
     const section = (el.closest('section') ??
       el.parentElement ??
       el) as HTMLElement;
-    return (section.innerText ?? '').replace(/\s+/g, ' ').trim();
+    const all = (section.innerText ?? '').replace(/\s+/g, ' ').trim();
+    const headingText = (el as HTMLElement).innerText ?? '';
+    // The 40-word floor is about PROSE, so the heading's own words do not
+    // count toward it.
+    const body = all
+      .replace(headingText.replace(/\s+/g, ' ').trim(), '')
+      .trim();
+    return {
+      all,
+      body,
+      licenceRows: section.querySelectorAll('[data-credits-entry]').length,
+    };
   });
-  const wordCount = prose.split(' ').filter(Boolean).length;
+  const wordCount = measured.body.split(' ').filter(Boolean).length;
   expect(wordCount, 'About prose is at least 40 words').toBeGreaterThanOrEqual(
     40,
   );
@@ -87,66 +103,94 @@ test('the credits page carries an About section (VAL-DIST-008)', async ({
   // not a licence restatement). At least one complete sentence: a period
   // terminating a run of >=10 words.
   expect(
-    /[A-Za-z][^.]{40,}\./.test(prose),
+    /[A-Za-z][^.]{40,}\./.test(measured.body),
     'About prose contains at least one complete sentence',
   ).toBe(true);
 
   // Zero licence rows in the section subtree.
-  const licenceRowCount = await heading.first().evaluate((el) => {
-    const section = el.closest('section') ?? el.parentElement ?? el;
-    return section.querySelectorAll('[data-credits-entry]').length;
-  });
-  expect(licenceRowCount, 'About subtree contains zero licence rows').toBe(0);
+  expect(
+    measured.licenceRows,
+    'About subtree contains zero licence rows',
+  ).toBe(0);
 
   // No licence identifier from the permitted set in the prose.
-  const proseLower = prose.toLowerCase();
-  const hits = PERMITTED_LICENCES.filter((id) => proseLower.includes(id));
-  expect(
-    hits,
-    'About prose contains no permitted-licence identifier',
-  ).toEqual([]);
-
-  // Keyboard-reachable contact affordance: mailto: or external profile
-  // link with a non-empty accessible name. Also traced by real Tab
-  // presses below.
-  const contact = page.locator(
-    'main a[href^="mailto:"], main a[href^="http"]',
+  const proseLower = measured.all.toLowerCase();
+  const hits = PERMITTED_LICENCE_IDENTIFIERS.filter((id) =>
+    proseLower.includes(id),
   );
-  const contactCount = await contact.count();
-  expect(contactCount, 'a contact affordance exists').toBeGreaterThan(0);
-  let reachable: { href: string; name: string } | null = null;
-  for (const link of await contact.all()) {
-    const href = (await link.getAttribute('href')) ?? '';
-    const name = ((await link.getAttribute('aria-label')) ??
-      (await link.innerText())).trim();
-    if (!name) continue;
-    if (/^mailto:|^https?:\/\//.test(href)) {
-      reachable = { href, name };
-      break;
-    }
-  }
-  expect(reachable, 'contact affordance with a non-empty accessible name').not
-    .toBeNull();
+  expect(hits, 'About prose contains no permitted-licence identifier').toEqual(
+    [],
+  );
 
-  // Keyboard trace: tab from the page start until the contact link (or a
-  // descendant of it) holds focus, within a bounded number of presses.
-  if (reachable) {
-    await page.goto(`${BASE}/credits/`);
-    let focused = false;
-    for (let i = 0; i < 60 && !focused; i++) {
-      await page.keyboard.press('Tab');
-      focused = await page.evaluate((href) => {
-        const el = document.activeElement;
-        return !!el && (el.closest?.(`a`)?.getAttribute('href') === href);
-      }, reachable.href);
-    }
-    expect(focused, 'contact affordance is keyboard reachable').toBe(true);
-  }
+  await page.mouse.move(2, 2);
+  await page.screenshot({ path: '/tmp/credits-about.png' });
+});
 
-  await page.screenshot({
-    path: '/tmp/credits-about.png',
-    fullPage: false,
+test('the credits page carries a keyboard-reachable contact affordance (VAL-DIST-008)', async ({
+  page,
+}) => {
+  await page.goto(`${BASE}/credits/`);
+
+  /**
+   * A licence row's source link is NOT a contact affordance. The licence
+   * list is generated from data/images.ts and every entry links out to
+   * Wikimedia and a licence deed, so a bare `main a[href^="http"]` is
+   * satisfied on a page carrying no way to reach the author at all: with
+   * every author link deleted from the page, that locator still matched
+   * 12 anchors and the assertion passed. Exclude the generated rows so the
+   * clause measures the affordance it names.
+   */
+  const contacts = await page.evaluate(() => {
+    const main = document.querySelector('main');
+    if (!main) return [];
+    return Array.from(main.querySelectorAll('a'))
+      .filter((a) => !a.closest('[data-credits-entry]'))
+      .map((a) => ({
+        href: a.getAttribute('href') ?? '',
+        name: (
+          a.getAttribute('aria-label') ??
+          (a as HTMLElement).innerText ??
+          ''
+        )
+          .replace(/\s+/g, ' ')
+          .trim(),
+      }))
+      .filter(
+        (a) =>
+          /^mailto:/.test(a.href) ||
+          (/^https?:\/\//.test(a.href) &&
+            new URL(a.href).origin !== window.location.origin),
+      )
+      .filter((a) => a.name.length > 0);
   });
+
+  expect(
+    contacts.length,
+    'a contact affordance (mailto: or external profile) with a non-empty accessible name exists outside the licence rows',
+  ).toBeGreaterThan(0);
+
+  // Keyboard trace: tab from the page start until one of those affordances
+  // holds focus, within a bounded number of presses. Bound to the element,
+  // not merely to a matching href, so a focusable duplicate elsewhere on
+  // the page cannot satisfy the clause on the affordance's behalf.
+  const hrefs = contacts.map((c) => c.href);
+  let focused: string | null = null;
+  for (let i = 0; i < 80 && focused === null; i++) {
+    await page.keyboard.press('Tab');
+    focused = await page.evaluate((candidates: string[]) => {
+      const el = document.activeElement as HTMLElement | null;
+      const anchor = el?.closest('a');
+      if (!anchor) return null;
+      if (anchor.closest('[data-credits-entry]')) return null;
+      if (!anchor.closest('main')) return null;
+      const href = anchor.getAttribute('href') ?? '';
+      return candidates.includes(href) ? href : null;
+    }, hrefs);
+  }
+  expect(
+    focused,
+    'the contact affordance is reachable by Tab from the top of the page',
+  ).not.toBeNull();
 });
 
 test('the About section does not trim the licence list (VAL-IMG-004 guard)', async ({
@@ -175,9 +219,14 @@ test('the About prose carries no em-dash or en-dash', async ({ page }) => {
     /[\u2013\u2014]/,
   );
 
-  // Crawler view (no JS): the About prose ships in the exported HTML.
-  const html = readFileSync(join(process.cwd(), 'out/credits/index.html'), 'utf8');
+  // Crawler view (no JS): the About prose ships in the exported HTML, and
+  // it ships inside the About section rather than only in the page header.
+  const html = readFileSync(
+    join(process.cwd(), 'out/credits/index.html'),
+    'utf8',
+  );
+  const sentence = 'This wiki is that map';
   expect(html, 'About prose is present without JavaScript').toContain(
-    'Josef Chen',
+    sentence,
   );
 });

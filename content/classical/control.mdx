@@ -44,6 +44,10 @@ import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-
 
 The field's own estimate of its workhorse is blunt: more than 95% of all industrial control problems are solved by PID control, many of them without the D <Cite id="astrom-murray-2008" />. Everything in this module descends from that observation or reacts against it.
 
+The loop is below, on the smallest problem that still shows everything: an inverted pendulum with a payload bolted off-center. Press Run, then drag the proportional gain down. Somewhere just under 9.81 in the slider's units the pole stops coming back up, and no setting of the other two gains rescues it.
+
+<PendulumController className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="PID share" value=">95%" note="of industrial control problems" />
   <Stat label="LQR" value="1960" note="Kalman's optimal-control paper" />
@@ -69,9 +73,7 @@ $$
 \ddot{\theta} = \frac{g}{\ell} \sin\theta + \frac{u + \tau_{bias}}{m \ell^2}
 $$
 
-with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance from a payload bolted off-center. Linearized about the upright, the loop is stable only when $K_p > m g \ell$, here 9.81 in the slider's units. Run it, then drag the gains and watch the regimes change.
-
-<PendulumController className="my-6" />
+with $\theta$ measured from upright and $\tau_{bias}$ a constant disturbance from a payload bolted off-center. Linearized about the upright, the loop is stable only when $K_p > m g \ell$, which is the 9.81 threshold the lab at the top of this module is built around.
 
 <PredictThenReveal
   prompt="The lab above is released 12 degrees off vertical with the payload bias in place. Below what proportional gain does the loop lose the pole entirely, however the other two gains are set?"

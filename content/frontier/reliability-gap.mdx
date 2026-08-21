@@ -36,7 +36,7 @@ A robot that finishes a task 80% of the time is a demo. A robot that finishes it
 
 ## The arithmetic of compounding
 
-A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either.
+A manipulation task is a chain of decisions, and the chain succeeds only when every link does. If each step succeeds independently with probability $p$, an $N$-step task completes with probability $p^N$. The exponent is the whole story. A policy with 95% per-step success completes a 30-step task 21% of the time. At 99% per-step the same task completes 74% of the time. Even at 99.9% per-step, a figure almost no system publishes, a 30-step task completes 97% of the time and still fails once in thirty runs. The per-step number and the task number are different metrics, and a result reported without its horizon cannot be compared against either. Drag the per-step success slider below from 95% up toward 100 and watch how late the episode number recovers.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant="reliability" className="my-6" />
 

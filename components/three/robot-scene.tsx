@@ -39,10 +39,17 @@ function ApplyPose({
   return null;
 }
 
+/**
+ * WebGL materials cannot read CSS custom properties, so the scene restates
+ * the design tokens it needs as literals. These are the semantic state
+ * colours from app/globals.css (--color-warn, --color-ok, --color-err),
+ * not free choices, and the HUD names each state in text as well, so colour
+ * is never the only channel carrying the solver's verdict.
+ */
 const TARGET_COLORS: Record<TargetState, string> = {
-  solving: '#f5a623',
-  reached: '#4ade80',
-  unreachable: '#f87171',
+  solving: '#8a5a00',
+  reached: '#1a6f45',
+  unreachable: '#a52a1e',
 };
 
 /** Marker for the IK target: a sphere at the target plus a ground ring. */
@@ -61,7 +68,7 @@ function TargetGizmo({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={0.55}
+          emissiveIntensity={0.2}
           roughness={0.4}
         />
       </mesh>
@@ -130,8 +137,10 @@ export default function RobotScene({
         });
       }}
     >
-      <color attach="background" args={['#0b0d0e']} />
-      <ambientLight intensity={0.45} />
+      {/* --color-bg. The grid colours below step DOWN from it rather than up,
+          because the ground is now lighter than the lines drawn on it. */}
+      <color attach="background" args={['#f4f3ef']} />
+      <ambientLight intensity={0.62} />
       <directionalLight position={[0.6, 0.9, 0.45]} intensity={1.4} />
       <directionalLight position={[-0.8, 0.5, -0.6]} intensity={0.45} />
       <Grid
@@ -139,8 +148,8 @@ export default function RobotScene({
         infiniteGrid
         cellSize={0.05}
         sectionSize={0.25}
-        cellColor="#272e33"
-        sectionColor="#39424a"
+        cellColor="#d9d6cd"
+        sectionColor="#b3afa4"
         fadeDistance={2.4}
         fadeStrength={1.5}
       />

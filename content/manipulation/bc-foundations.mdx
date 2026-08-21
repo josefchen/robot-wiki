@@ -25,21 +25,9 @@ import { CompoundingError } from '@/components/interactive/compounding-error';
 
 The appeal is obvious: no reward function to design, no exploration to manage, just regression onto demonstrations. The failure mode is equally specific, and nearly every architectural innovation in learned manipulation since 2023 is a partial answer to it. Supervised learning assumes that test inputs come from the same distribution as training inputs. A robot running in closed loop violates that assumption with its own actions.
 
-## Covariate shift, stated precisely
-
-Training data is drawn from the expert's state distribution $d_{\pi^*}$. At deployment the robot visits its own distribution $d_\pi$, and the two diverge the moment the policy makes its first mistake. A small error moves the robot into a state slightly outside the demonstrations; from that unfamiliar state the policy is more likely to err again; each error pushes it further out. Ross, Gordon, and Bagnell made this precise: a policy with per-step error $\varepsilon$ on the expert distribution can incur total cost growing quadratically in the episode length $T$, and they gave a matching lower bound showing the quadratic term is unavoidable under i.i.d. training <Cite id="dagger-2011" />.
-
-$$
-\underbrace{O(\varepsilon T^2)}_{\text{i.i.d. behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{on-policy supervision}}
-$$
-
-The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the <Term id="dagger">DAgger</Term> result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
-
-<Image id="covariate-shift" />
-
 ## Watch the error compound
 
-The interactive below simulates the mechanism. A policy with per-step error $\varepsilon$ rolls out along a demonstrated path; each error persists and slightly amplifies the next one, so the accumulated deviation tracks the quadratic bound. Two comparisons matter. First, switching from per-timestep prediction to committing to a chunk of 25 actions cuts the number of closed-loop decisions by 25x, and the accumulated deviation drops with it; this is the trick the next module's ACT exploits <Cite id="act-aloha-2023" />. Second, enabling DAgger-style relabeling, where an expert periodically corrects the states the policy actually visits, keeps the deviation bounded and the cost near-linear in $T$.
+Here is the mechanism before the algebra. A policy with per-step error $\varepsilon$ rolls out along a demonstrated path, each error persists and slightly amplifies the next one, and the accumulated deviation is what the readout tracks. Drag the episode horizon slider and watch that number grow faster than the horizon does. Then use the three mode buttons: committing to a chunk of 25 actions cuts the number of closed-loop decisions by 25x and the deviation drops with it, which is the trick the next module's ACT exploits <Cite id="act-aloha-2023" />, while DAgger relabeling, where an expert corrects the states the policy actually visits, keeps the deviation bounded.
 
 <CompoundingError className="my-6" />
 
@@ -73,6 +61,19 @@ The interactive below simulates the mechanism. A policy with per-step error $\va
 >
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
 </PredictThenReveal>
+
+## Covariate shift, stated precisely
+
+Training data is drawn from the expert's state distribution $d_{\pi^*}$. At deployment the robot visits its own distribution $d_\pi$, and the two diverge the moment the policy makes its first mistake. A small error moves the robot into a state slightly outside the demonstrations; from that unfamiliar state the policy is more likely to err again; each error pushes it further out. Ross, Gordon, and Bagnell made this precise: a policy with per-step error $\varepsilon$ on the expert distribution can incur total cost growing quadratically in the episode length $T$, and they gave a matching lower bound showing the quadratic term is unavoidable under i.i.d. training <Cite id="dagger-2011" />.
+
+$$
+\underbrace{O(\varepsilon T^2)}_{\text{i.i.d. behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{on-policy supervision}}
+$$
+
+The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the <Term id="dagger">DAgger</Term> result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
+
+<Image id="covariate-shift" />
+
 ## Fitting demonstrations is hard before deployment even starts
 
 <Term id="compounding-error">Compounding error</Term> is the deployment problem. Three training-side problems compound it:

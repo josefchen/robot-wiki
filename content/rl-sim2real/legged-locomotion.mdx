@@ -29,6 +29,10 @@ import { GaitDiagram } from '@/components/interactive/gait-diagram';
 
 The previous modules built the machinery: massively parallel simulation that trains a walking policy in minutes, and the transfer techniques that get it onto hardware. This module is where that machinery was proven. <Term id="legged-locomotion">Legged locomotion</Term> is the one domain where sim-to-real reinforcement learning is not a promise or a demo but the shipping default, and the chain of results that made it so is unusually well documented. Between 2019 and 2022, the ETH Zurich line around ANYmal took a quadruped from fragile lab behavior to blind alpine hiking, and every humanoid program since has tried to rerun the same recipe on two legs.
 
+Underneath all of it sits an older idea that learning did not replace: the gait. Switch the diagram below from walk to trot to bound and watch the support readout, three feet always down, then two, then a flight phase with none. That progression is the stability story of legged locomotion in miniature.
+
+<GaitDiagram className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain training" value="< 4 min" note="Rudin 2021, one workstation GPU" accent />
   <Stat label="Uneven terrain" value="20 min" note="game-inspired terrain curriculum" />
@@ -52,13 +56,11 @@ Choi and colleagues extended the recipe to ground that moves. Deformable terrain
 
 ## A gait is a timing pattern
 
-Underneath all of this is an older idea that learning did not replace: the gait. A quadruped's gait is a footfall-timing pattern, described by two numbers per leg: the phase offset (when in the stride cycle the foot strikes) and the duty factor $\beta$, the fraction of the cycle the foot spends on the ground. The diagram below shows the four canonical patterns.
+A quadruped's gait is a footfall-timing pattern, described by two numbers per leg: the phase offset (when in the stride cycle the foot strikes) and the duty factor $\beta$, the fraction of the cycle the foot spends on the ground. The diagram at the top of this module shows the four canonical patterns.
 
 The walk spreads footfalls evenly and keeps three feet down at all times, so a static support polygon always exists. The trot, the working gait of most quadruped robots including ANYmal, strikes diagonal pairs together and balances dynamically on two feet. The bound alternates the front pair against the hind pair with a suspension interval in between; the MIT Cheetah line made high-speed bounding practical by scaling the duty cycle with speed <Cite id="park-2017-bounding" />. The pronk throws all four feet down and up together and spends most of the cycle airborne.
 
-<GaitDiagram className="my-6" />
-
-Switch from walk to trot to bound and watch the support readout: three feet always down, then two, then a flight phase with none. That progression is the stability story of legged locomotion in miniature. Learned policies are not handed these patterns. Foot-air-time and footfall-style reward terms induce them, and the policy discovers whichever pattern the reward makes cheapest. The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />.
+Learned policies are not handed these patterns. Foot-air-time and footfall-style reward terms induce them, and the policy discovers whichever pattern the reward makes cheapest. The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed <Cite id="park-2017-bounding" />.
 
 ## From quadrupeds to humanoids
 

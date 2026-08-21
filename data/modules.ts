@@ -17,41 +17,66 @@ export { ADJACENT_DOMAIN, CORE_DOMAINS, DOMAINS } from './domains.ts';
 export type { CoreDomain, Domain } from './domains.ts';
 export type { ModuleRegistryEntry } from './schemas/module.ts';
 
-export const DOMAIN_META: Record<Domain, { name: string; description: string }> = {
+/**
+ * `readingOrder` states what the domain landing page's ordering actually
+ * means, which the one-line `description` cannot: a reader arriving on a
+ * landing route sees a numbered list and has no way to know whether the
+ * order is editorial or arbitrary. It is also the landing page's only
+ * route-unique prose, so it is what makes the route reachable by search
+ * rather than only by the sidebar link that points at it.
+ */
+export const DOMAIN_META: Record<
+  Domain,
+  { name: string; description: string; readingOrder: string }
+> = {
   manipulation: {
     name: 'Manipulation & Learned Policies',
     description:
       'From behavior cloning to vision-language-action models: how modern robots learn to act.',
+    readingOrder:
+      'behavior cloning first, then the architectures that scaled it, with the cross-embodiment and real-time constraints those architectures ran into at the end.',
   },
   'rl-sim2real': {
     name: 'RL, Sim-to-Real & Locomotion',
     description:
       'Reinforcement learning at scale, from massively parallel simulation to the transfer problem.',
+    readingOrder:
+      'why reinforcement learning took locomotion before manipulation, then the parallel-simulation machinery behind that result, then the transfer gap it left over.',
   },
   'world-models': {
     name: 'World Models',
     description:
       'Learned simulators and action-conditioned video prediction, with the JEPA counterargument.',
+    readingOrder:
+      'what the term denotes, then the latent-dynamics and generative-video families that each claim it, then the argument that generation is the wrong objective entirely.',
   },
   'data-hardware': {
     name: 'Data, Hardware & Evaluation',
     description:
       'The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.',
+    readingOrder:
+      'where embodied training data comes from, then the rigs that produce it, then why two reported benchmark numbers are usually not comparable at all.',
   },
   classical: {
     name: 'Classical Foundations',
     description:
-      'Kinematics, planning, control, estimation, and grasping: the stack under every learned policy.',
+      'The kinematics, planning, control and estimation stack that sits under every learned policy.',
+    readingOrder:
+      'a dependency chain rather than a survey. Kinematics is assumed by planning and planning by control. Each entry leans on whatever came before it, so the last two rest on the whole chain.',
   },
   frontier: {
     name: 'Frontier & Open Problems',
     description:
-      'Reliability, dexterity, generalization, and the competing theses about what wins.',
+      'The reliability gap that keeps demos out of production, and the competing theses about closing it.',
+    readingOrder:
+      'the reliability gap first, because the entries after it are competing arguments about how to close that gap.',
   },
   adjacent: {
     name: 'Adjacent Domains',
     description:
-      'Autonomous vehicles, drones, surgical robotics, and space robotics in brief.',
+      'Autonomous vehicles, drones and surgical and space robotics, each in brief.',
+    readingOrder:
+      'a survey rather than a sequence, so any entry stands on its own: each field met the same underlying problems under a different safety and certification regime.',
   },
 };
 

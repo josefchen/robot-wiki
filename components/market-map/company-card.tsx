@@ -10,6 +10,7 @@ import {
   unknownFigure,
 } from '@/lib/market-map';
 import { cx } from '@/lib/utils';
+import { CompanyLogo } from './company-logo';
 
 const CONFIDENCE_VARIANT = {
   high: 'ok',
@@ -53,12 +54,15 @@ export function CompanyCard({
       )}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3
-          id={`${headingId}-name`}
-          className="font-sans text-base font-medium text-text"
-        >
-          {company.name}
-        </h3>
+        <div className="flex min-w-0 items-start gap-3">
+          <CompanyLogo company={company} />
+          <h3
+            id={`${headingId}-name`}
+            className="font-sans text-base font-medium text-text"
+          >
+            {company.name}
+          </h3>
+        </div>
         <Badge variant={CONFIDENCE_VARIANT[company.confidence]}>
           {company.confidence}
         </Badge>
@@ -147,6 +151,21 @@ export function CompanyCard({
             <dd data-field="aka">
               {company.aka.length > 0 ? (
                 company.aka.join(', ')
+              ) : (
+                <span className="text-text-dim">n/a</span>
+              )}
+            </dd>
+            <dt className="text-text-dim">Website</dt>
+            <dd data-field="website">
+              {company.website ? (
+                <a
+                  href={company.website}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-text underline decoration-border underline-offset-2 hover:decoration-accent"
+                >
+                  {company.website.replace(/^https:\/\//, '')}
+                </a>
               ) : (
                 <span className="text-text-dim">n/a</span>
               )}

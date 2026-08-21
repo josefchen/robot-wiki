@@ -104,7 +104,7 @@ Runs the complete production build: content validation first (`prebuild`), then 
 
 ## Deployment
 
-The `main` branch is connected to a Vercel project, so every push to `main` produces a production deployment at <https://robot-wiki.com>:
+The `main` branch is connected to a Vercel project, so every push to `main` produces a production deployment at <https://robot-wiki.com>. Browser cache for `/images/*`, `/og/*`, hashed `/_next/static/*` assets, and fonts is set in `vercel.json` (`public, max-age=31536000, immutable`). HTML stays must-revalidate so a deploy is visible immediately.
 
 ```sh
 git push origin main

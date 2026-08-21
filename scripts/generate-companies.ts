@@ -22,6 +22,8 @@ const COMPANY_KEYS = [
   'id',
   'name',
   'aka',
+  'website',
+  'logo',
   'hq',
   'founded',
   'segment',
@@ -158,9 +160,11 @@ const file = `/**
  * Do not edit by hand. Regenerate with \`npm run generate:companies\`.
  *
  * \`aka\` is carried through from the research source (expanded cards
- * need it). Unknown funding stays null; never invent a number. Conflicting
- * tracker figures stay as the snapshot value plus their sources, rather
- * than being averaged or silently replaced.
+ * need it). \`website\` is the official homepage when known, else null.
+ * \`logo\` is an image-registry id or null. Unknown funding stays null;
+ * never invent a number. Conflicting tracker figures stay as the snapshot
+ * value plus their sources, rather than being averaged or silently
+ * replaced.
  *
  * Parsed at module scope so an invalid row fails \`next build\`.
  */

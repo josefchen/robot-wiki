@@ -7,6 +7,8 @@ import {
   bcBound,
   DAGGER_INTERVAL,
   daggerBound,
+  DEVIATION_AXIS_TICKS,
+  deviationAxisFraction,
   expertY,
   type PredictionMode,
   simulateDeviation,
@@ -44,8 +46,11 @@ const MIN_STEPS = 20;
 const ROLLOUT_W = 640;
 const ROLLOUT_H = 220;
 const BOUNDS_W = 640;
-const BOUNDS_H = 170;
-const BOUNDS_PAD = { top: 12, right: 16, bottom: 26, left: 56 };
+// The legend sits in its own band above the plot rather than floating
+// inside it: on the log deviation axis the marker reaches the topmost
+// gridline at the extreme settings, where it collided with the legend.
+const BOUNDS_H = 200;
+const BOUNDS_PAD = { top: 44, right: 16, bottom: 26, left: 56 };
 
 function formatUnits(value: number): string {
   if (value >= 100) return String(Math.round(value));
@@ -127,9 +132,9 @@ export function CompoundingError({
   const bounds = useMemo(() => {
     const plotW = BOUNDS_W - BOUNDS_PAD.left - BOUNDS_PAD.right;
     const plotH = BOUNDS_H - BOUNDS_PAD.top - BOUNDS_PAD.bottom;
-    const yMax = bcBound(MAX_EPSILON_PERCENT / 100, maxSteps) * 1.05;
     const x = (t: number) => BOUNDS_PAD.left + (t / maxSteps) * plotW;
-    const y = (v: number) => BOUNDS_PAD.top + plotH - (v / yMax) * plotH;
+    const y = (v: number) =>
+      BOUNDS_PAD.top + plotH - deviationAxisFraction(v) * plotH;
     const curve = (fn: (t: number) => number) => {
       const parts: string[] = [];
       for (let t = 0; t <= maxSteps; t += 2) {
@@ -151,7 +156,7 @@ export function CompoundingError({
     for (let t = 0; t <= maxSteps; t += 1) {
       running += Math.abs(deviation[t]);
       simPoints.push(
-        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(Math.min(running, yMax)).toFixed(1)}`,
+        `${t === 0 ? 'M' : 'L'}${x(t).toFixed(1)},${y(running).toFixed(1)}`,
       );
     }
     let simAtT = 0;
@@ -161,11 +166,10 @@ export function CompoundingError({
       plotH,
       x,
       y,
-      yMax,
       bcPath: curve((t) => bcBound(epsilon, t)),
       daggerPath: curve((t) => daggerBound(epsilon, t)),
       simPath: simPoints.join(' '),
-      marker: { cx: x(steps), cy: y(Math.min(simAtT, yMax)) },
+      marker: { cx: x(steps), cy: y(simAtT) },
       bcAtT: bcBound(epsilon, steps),
       daggerAtT: daggerBound(epsilon, steps),
       // Sampled from the same cumulative sum and the same two bound
@@ -367,7 +371,7 @@ export function CompoundingError({
       <svg
         viewBox={`0 0 ${BOUNDS_W} ${BOUNDS_H}`}
         role="img"
-        aria-label={`Accumulated deviation and regret bounds over the episode horizon; the simulated cost tracks the quadratic epsilon T squared bound and outgrows the linear epsilon T bound.`}
+        aria-label={`Accumulated deviation and regret bounds over the episode horizon, on a logarithmic deviation axis; the simulated cost tracks the quadratic epsilon T squared bound and outgrows the linear epsilon T bound.`}
         aria-describedby={`${uid}-bounds-description`}
         className="mt-2 block w-full"
       >
@@ -378,12 +382,12 @@ export function CompoundingError({
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          accumulated deviation vs step
+          accumulated deviation, log scale, vs step
         </text>
-        {[0.25, 0.5, 0.75, 1].map((f) => {
-          const y = BOUNDS_PAD.top + (1 - f) * bounds.plotH;
+        {DEVIATION_AXIS_TICKS.map((value) => {
+          const y = bounds.y(value);
           return (
-            <g key={f}>
+            <g key={value}>
               <line
                 x1={BOUNDS_PAD.left}
                 x2={BOUNDS_PAD.left + bounds.plotW}
@@ -400,7 +404,7 @@ export function CompoundingError({
                 fontSize={10}
                 fontFamily="var(--font-mono)"
               >
-                {formatUnits(bounds.yMax * f)}
+                {String(value)}
               </text>
             </g>
           );

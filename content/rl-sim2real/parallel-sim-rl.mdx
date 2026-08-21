@@ -24,6 +24,10 @@ import { TrainingTimeChart } from '@/components/interactive/training-time-chart'
 
 The four-minute training run from the [previous module](/rl-sim2real/why-rl-locomotion) was not an algorithmic result. <Term id="ppo">PPO</Term> was already four years old when Rudin and colleagues used it to train ANYmal to walk in minutes <Cite id="rudin-2021" />. What changed between 2021 and 2026 was the infrastructure underneath the algorithm: physics moved onto the GPU, environment counts went from dozens to tens of thousands, and the wall-clock cost of a walking policy collapsed by orders of magnitude. This module is about that infrastructure: what the throughput numbers actually are, and where the remaining bottleneck sits.
 
+The economics are worth seeing before the history. Drag the parallel environments slider below from 64 upward and watch the breakdown bar recompose: the CPU-and-transfer share shrinks as parallelism rises, and the same training run drops from hours to minutes without a single algorithmic change.
+
+<TrainingTimeChart className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin 2021, one workstation GPU" accent />
   <Stat label="DextrAH teacher" value="> 900k FPS" note="Isaac Lab, 8 GPUs / 16,384 envs" />
@@ -45,11 +49,9 @@ NVIDIA's stack was not the only path. Brax, from Google in 2021, wrote the physi
 
 ## What the environment count actually buys
 
-The economics are worth seeing once. Holding the total experience required to reach a target reward fixed, wall-clock time is iterations times per-iteration cost. Per-iteration cost has a fixed part (the learning update, host-device transfer, the Python loop) and a part that scales with the environment count. At 64 environments the fixed part dominates and the GPU idles; at 16,384 the simulation itself is most of each iteration, and the same training run drops from hours to minutes.
+Here is the arithmetic behind the chart at the top of this module. Holding the total experience required to reach a target reward fixed, wall-clock time is iterations times per-iteration cost. Per-iteration cost has a fixed part (the learning update, host-device transfer, the Python loop) and a part that scales with the environment count. At 64 environments the fixed part dominates and the GPU idles; at 16,384 the simulation itself is most of each iteration.
 
-<TrainingTimeChart className="my-6" />
-
-Two things to try. First, drag the environment slider across its range and watch the breakdown bar recompose: the red CPU-and-transfer share shrinks as parallelism rises. Second, turn on the CPU single-core bottleneck. Isaac Lab's benchmarks carry a systems caveat: on the Franka task, a single-GPU RTX 5090 workstation approaches a 2x RTX PRO 6000 server, because parts of the PhysX pipeline and the main training loop are bound by single-core CPU performance <Cite id="isaac-lab-2025" />. The toggle reproduces that regime: once per-environment CPU work exceeds what the GPU can absorb, adding environments stops buying time and the curve flattens.
+One more thing to try there: turn on the CPU single-core bottleneck. Isaac Lab's benchmarks carry a systems caveat: on the Franka task, a single-GPU RTX 5090 workstation approaches a 2x RTX PRO 6000 server, because parts of the PhysX pipeline and the main training loop are bound by single-core CPU performance <Cite id="isaac-lab-2025" />. The toggle reproduces that regime: once per-environment CPU work exceeds what the GPU can absorb, adding environments stops buying time and the curve flattens.
 
 <Callout variant="warn" title="How to read this chart">
   The curve is an illustrative fixed-transitions model, not a benchmark; its per-iteration cost split is schematic. The measured numbers are the two diamonds (Rudin et al. 2021: under four minutes on flat terrain, twenty on uneven, at 4,096 environments on one workstation GPU) and the Isaac Lab throughput figures cited below. The direction and shape of the curve, hours at low parallelism to minutes at high, is what every GPU-physics stack reports.

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { DOMAIN_META, DOMAINS, modulesByDomain, publishedModules } from '../../data/modules';
+import { settleTransitions } from './settle';
 
 /**
  * The seven domain landing pages (VAL-WIKI-022, VAL-WIKI-023, VAL-WIKI-024,
@@ -152,6 +153,7 @@ test.describe('domain landing pages', () => {
   }) => {
     for (const domain of DOMAINS) {
       await page.goto(`/${domain}/`);
+      await settleTransitions(page);
       const results = await new AxeBuilder({ page }).analyze();
       expect(results.violations, `axe on /${domain}/`).toEqual([]);
     }

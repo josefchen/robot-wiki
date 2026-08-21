@@ -230,7 +230,7 @@ export function CrossEmbodimentStrategies({
 
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-accent">amber</span>: dims this source drives
+          <span className="text-accent">green</span>: dims this source drives
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           dashed outline: zero-padding

@@ -13,6 +13,8 @@
  * interface and the results area in components/search/ remain the UI seams.
  */
 
+import { foldGreekToAscii } from './greek-transliteration';
+
 /** One rendered prose result. */
 export type SearchHit = {
   /** Path of the matching page, e.g. "/manipulation/action-chunking/". */
@@ -55,30 +57,23 @@ export interface PagefindSearchResponse {
   results: PagefindResult[];
 }
 
-function normalizeWord(word: string): string {
-  return word.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
-}
-
 /**
- * Hyphens are token boundaries on both sides of the genuineness check:
- * contentWords splits on every non-alphanumeric (so "sim-to-real" indexes
- * as ["sim", "to", "real"]), and the query must split the same way or a
- * hyphenated query collapses to a token ("simtoreal") that can never
- * prefix-match those words. Whitespace and Unicode dash punctuation both
- * separate query tokens; any other punctuation inside a token is stripped,
- * exactly as before.
+ * The one tokenizer both sides of the genuineness check must use.
+ *
+ * Every non-alphanumeric character is a boundary, so "sim-to-real" and
+ * "pi0.5" split the same way whether they arrive as a query or as page
+ * content. Splitting the query on a narrower set than the content is what
+ * silently discarded whole query classes twice: a hyphenated query
+ * collapsed to "simtoreal" until the dash was added to the split set, and
+ * the period then did the same thing to every version-numbered query
+ * ("pi0.5" became "pi05", which can never prefix-match ["pi0", "5"]).
+ *
+ * Greek letters fold to their ASCII names so the wiki's Greek-lettered
+ * model names match the spelling a reader types, matching the folding the
+ * structured index applies (lib/greek-transliteration.ts).
  */
-function queryTokens(query: string): string[] {
-  return query
-    .toLowerCase()
-    .split(/[\s\p{Pd}]+/u)
-    .map(normalizeWord)
-    .filter(Boolean);
-}
-
-function contentWords(content: string): string[] {
-  return content
-    .toLowerCase()
+function tokenize(value: string): string[] {
+  return foldGreekToAscii(value)
     .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean);
 }
@@ -95,37 +90,85 @@ function contentWords(content: string): string[] {
  * we cannot disprove them.
  */
 export function isGenuineHit(query: string, content: string): boolean {
-  const tokens = queryTokens(query);
+  const tokens = tokenize(query);
   if (tokens.length === 0) return false;
   if (!content.trim()) return true;
-  const words = contentWords(content);
+  const words = tokenize(content);
   return tokens.every((token) =>
     words.some((word) => word.startsWith(token)),
   );
 }
 
-/** Maps a raw Pagefind response to ranked, renderable hits. */
+function stripSiteSuffix(rawTitle: string | undefined, url: string): string {
+  const trimmed = rawTitle?.trim();
+  if (!trimmed) return url;
+  return trimmed.endsWith(SITE_TITLE_SUFFIX)
+    ? trimmed.slice(0, -SITE_TITLE_SUFFIX.length)
+    : trimmed;
+}
+
+/**
+ * How strongly a result's own title answers the query. Two tiers, because
+ * they mean different things to a reader: 2 is the page that is ABOUT the
+ * query (its title carries the whole query phrase), 1 is a page whose title
+ * touches every query term without being named for the phrase, 0 is a page
+ * that merely mentions it in the body.
+ *
+ * Pagefind ships no title field and no ranking configuration, so without
+ * this an article ties with every index page that lists it. Since the
+ * non-article destinations were added to the index, the home page and a
+ * domain landing legitimately mention every article they link, which made
+ * "the mention outranks the page itself" the common case rather than an
+ * edge one.
+ */
+export function titleWeight(query: string, title: string): number {
+  const queryTokens = tokenize(query);
+  if (queryTokens.length === 0) return 0;
+  const titleTokens = tokenize(title);
+  if (titleTokens.length === 0) return 0;
+
+  const phrase = queryTokens.join(' ');
+  if (titleTokens.join(' ').includes(phrase)) return 2;
+
+  return queryTokens.every((token) =>
+    titleTokens.some((word) => word.startsWith(token)),
+  )
+    ? 1
+    : 0;
+}
+
+/**
+ * Maps a raw Pagefind response to ranked, renderable hits.
+ *
+ * Order of operations is load-bearing. Every raw result is resolved and
+ * tested for genuineness FIRST, and only the survivors are capped: capping
+ * the raw list first threw away a genuine hit the index happened to rank
+ * just past the cap while a truncation-fallback hit inside the cap took its
+ * place, so the rendered count fell below the cap with nothing to show that
+ * anything had been dropped.
+ *
+ * Ranking is a stable sort on the title weight alone, so Pagefind's own
+ * relevance order survives intact within each tier.
+ */
 export async function toSearchHits(
   response: PagefindSearchResponse,
   query: string,
   limit: number = RESULT_LIMIT,
 ): Promise<SearchHit[]> {
-  const top = response.results.slice(0, limit);
-  const data = await Promise.all(top.map((result) => result.data()));
+  const data = await Promise.all(
+    response.results.map((result) => result.data()),
+  );
   return data
     .filter((entry) => isGenuineHit(query, entry.content ?? ''))
-    .map((entry) => {
-      const rawTitle = entry.meta?.title?.trim();
-      return {
-        url: entry.url,
-        title: rawTitle
-          ? rawTitle.endsWith(SITE_TITLE_SUFFIX)
-            ? rawTitle.slice(0, -SITE_TITLE_SUFFIX.length)
-            : rawTitle
-          : entry.url,
-        excerpt: entry.excerpt ?? '',
-      };
-    });
+    .map((entry) => ({
+      url: entry.url,
+      title: stripSiteSuffix(entry.meta?.title, entry.url),
+      excerpt: entry.excerpt ?? '',
+    }))
+    .map((hit, index) => ({ hit, index, weight: titleWeight(query, hit.title) }))
+    .sort((a, b) => b.weight - a.weight || a.index - b.index)
+    .slice(0, limit)
+    .map((entry) => entry.hit);
 }
 
 /**

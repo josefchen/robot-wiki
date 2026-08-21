@@ -252,7 +252,7 @@ export function HierarchyTimescales({
       </svg>
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
-        amber ticks: updates fired at or before the playhead. dim ticks:
+        green ticks: updates fired at or before the playhead. dim ticks:
         pending. Rates tagged (schematic) are not stated in the primary
         source.
       </p>
@@ -271,7 +271,7 @@ export function HierarchyTimescales({
         ]}
       />
 
-      <ul className="mt-3 divide-y divide-border border-t border-border">
+      <ul className="mt-3 divide-y divide-border">
         {system.lanes.map((lane) => {
           const last = lastUpdateAt(lane, playhead);
           const count = updateCountAt(lane, playhead);

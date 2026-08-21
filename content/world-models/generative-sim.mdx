@@ -25,6 +25,10 @@ import { AppearancePhysicsPush } from '@/components/interactive/appearance-physi
 
 The previous three modules covered learned models that predict the future: in a latent space, in pixels, or in an embedding. This module is about a different division of labor. Instead of asking a generative model to *be* the simulator, ask it to *author* the simulator: the tasks, the scenes, the assets, the reward functions. The dynamics are left where they have always been, in a physics engine. Recall the two boundary verdicts from the [taxonomy](/world-models/taxonomy): a physics engine is a <Term id="world-model">world model</Term>, just not a learned one, and a 3D Gaussian Splatting twin is not a world model, because it is a learned renderer bolted onto an engine's dynamics. Generative simulation takes that observation seriously. It keeps the engine and generates everything around it.
 
+The reason that division of labor holds is below, in one scene with three layers. Turn off the physics proxy and push the mug: nothing happens, and nothing can, because a renderer has no dynamics to integrate. Turn it back on and the same push slides the mug by a distance the solver computes.
+
+<AppearancePhysicsPush className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="kitchen scenes" value="120" note="RoboCasa, RSS 2024" accent />
   <Stat label="tasks" value="100" note="systematic evaluation suite" />
@@ -58,9 +62,7 @@ RoboCasa365 extends the same platform to 365 everyday tasks across 2,500 kitchen
 
 ## The push test: appearance is not physics
 
-The interactive below reduces the whole argument to one scene with three layers. The appearance layer renders the mug and the table; it stands in for anything that only knows what the scene looks like, a neural reconstruction, a generated texture, a photorealistic video frame. The physics-proxy layer adds what a solver needs: collision geometry, a mass, a friction coefficient. The simulation layer shows the integrated result. Push the mug with only the appearance layer on. Nothing happens, and nothing can happen, because there is no dynamics to integrate. Turn the physics proxy on and the same push slides the mug by $d = v^2/(2\mu g)$, every time, deterministically.
-
-<AppearancePhysicsPush className="my-6" />
+The figure at the top of this module is the whole argument in three layers. The appearance layer renders the mug and the table; it stands in for anything that only knows what the scene looks like, a neural reconstruction, a generated texture, a photorealistic video frame. The physics-proxy layer adds what a solver needs: collision geometry, a mass, a friction coefficient. The simulation layer shows the integrated result, sliding the mug by $d = v^2/(2\mu g)$, every time, deterministically.
 
 This is the mechanical version of the taxonomy's verdict on 3DGS twins. A learned renderer gives you layer one. Generative video tries to learn layer three directly, and its errors land in the physics. Generative simulation generates layer one and borrows layers two and three from an engine that already has them.
 

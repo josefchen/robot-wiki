@@ -27,6 +27,10 @@ import { ExecutionModes } from '@/components/interactive/execution-modes';
 
 A policy that needs 60 ms to think cannot run a 50 Hz robot. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem, not an engineering afterthought: the way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
 
+The wall is below. Drag the model size slider up and watch the inference bar cross the 20 ms budget line: past roughly pi0's own size, the loop no longer closes on a Jetson Thor at any control law.
+
+<ControlLoopBudget className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="pi0.6 per chunk" value="63 ms" note="5 denoising steps, 3 cameras, one H100" accent />
   <Stat label="pi0 on Jetson Thor" value="19 Hz" note="52.57 ms end-to-end, VLA-Perf" />
@@ -42,9 +46,7 @@ NVIDIA's VLA-Perf study, the first systematic latency analysis of VLAs across ed
 
 ## The hardware wall
 
-How big a model can close the loop at all? On an H100 server, pi0 runs end-to-end at 162.5 Hz, comfortably inside any budget. On a Jetson Thor, the same model manages 19.0 Hz (52.57 ms), and the 9.1B-parameter pi0-L drops to 3.9 Hz <Cite id="vla-perf-2026" />. The interactive below puts a model-size slider on that curve: drag it and watch the inference bar cross the 20 ms budget line. The reference list underneath pins the other sourced numbers from this module against the same budget.
-
-<ControlLoopBudget className="my-6" />
+How big a model can close the loop at all? On an H100 server, pi0 runs end-to-end at 162.5 Hz, comfortably inside any budget. On a Jetson Thor, the same model manages 19.0 Hz (52.57 ms), and the 9.1B-parameter pi0-L drops to 3.9 Hz <Cite id="vla-perf-2026" />. That is the curve the figure at the top of this module puts a model-size slider on, and its reference list pins the other sourced numbers from this module against the same budget.
 
 VLA-Perf's takeaways are sobering for on-robot deployment <Cite id="vla-perf-2026" />. Roughly 10 Hz control is achievable on Jetson Thor for pi0-scale models, but 100 Hz control requires model-level architectural changes, not just faster hardware. Everything on the Thor is memory-bound, so latency tracks parameter count, which is why the paper points to lower-precision quantization as the lever on that platform. And server-side inference beats on-device inference in almost all scenarios except very poor networks, which is why the latency budget includes a network line at all.
 

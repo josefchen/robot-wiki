@@ -225,6 +225,8 @@ describe('companySchema', () => {
     id: 'physical-intelligence',
     name: 'Physical Intelligence',
     aka: ['Pi'],
+    website: 'https://www.pi.website',
+    logo: null,
     hq: { city: 'San Francisco', country: 'US' },
     founded: 2024,
     segment: 'foundation-models',
@@ -303,12 +305,27 @@ describe('companySchema', () => {
       companySchema.safeParse({ ...valid, confidence: 'guessed' }).success,
     ).toBe(false);
   });
+
+  it('accepts a null website and a licensed logo registry id', () => {
+    expect(
+      companySchema.safeParse({ ...valid, website: null, logo: 'nvidia-logo' })
+        .success,
+    ).toBe(true);
+  });
+
+  it('rejects a non-https website', () => {
+    expect(
+      companySchema.safeParse({ ...valid, website: 'http://www.pi.website' })
+        .success,
+    ).toBe(false);
+  });
 });
 
 describe('methodSchema', () => {
   const valid = {
     id: 'act',
     name: 'ACT',
+    aka: ['Action Chunking with Transformers'],
     year: 2023,
     actionRepresentation: 'continuous',
     actionHorizon: { planned: 100, executed: 1 },
@@ -353,6 +370,7 @@ describe('datasetSchema', () => {
   const valid = {
     id: 'open-x-embodiment',
     name: 'Open X-Embodiment',
+    aka: [],
     year: 2023,
     episodes: 1000000,
     hours: null,

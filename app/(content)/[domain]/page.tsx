@@ -77,36 +77,47 @@ export default async function DomainLandingPage({
         }}
       />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: meta.name }]} />
-      <header className="mb-8 border-b border-border pb-6">
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
-          {meta.name}
-        </h1>
-        <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>
-      </header>
-      <ol>
-        {published.map((m, index) => (
-          <li
-            key={m.slug}
-            data-domain-article={`${m.domain}/${m.slug}`}
-            className="border-t border-border py-4 first:border-t-0"
-          >
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-mono text-xs text-text-dim">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <Link
-                href={`/${m.domain}/${m.slug}`}
-                className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
-              >
-                {m.title}
-              </Link>
-            </div>
-            <p className="mt-1 pl-7 text-sm leading-relaxed text-text-dim">
-              {m.summary}
-            </p>
-          </li>
-        ))}
-      </ol>
+      {/* data-pagefind-body: once any page in the export declares a body
+          region, Pagefind drops every page that does not, so each
+          non-article destination has to name its own or stay invisible to
+          search (VAL-SEARCH-021). The region is the header and the module
+          list, excluding the breadcrumb chrome above it. */}
+      <div data-pagefind-body>
+        <header className="mb-8 border-b border-border pb-6">
+          <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+            {meta.name}
+          </h1>
+          <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>
+          <p className="mt-3 max-w-[65ch] leading-relaxed text-text-dim">
+            This domain overview lists {published.length} articles, ordered as{' '}
+            {meta.readingOrder}
+          </p>
+        </header>
+        <ol>
+          {published.map((m, index) => (
+            <li
+              key={m.slug}
+              data-domain-article={`${m.domain}/${m.slug}`}
+              className="border-t border-border py-4 first:border-t-0"
+            >
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className="font-mono text-xs text-text-dim">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <Link
+                  href={`/${m.domain}/${m.slug}`}
+                  className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
+                >
+                  {m.title}
+                </Link>
+              </div>
+              <p className="mt-1 pl-7 text-sm leading-relaxed text-text-dim">
+                {m.summary}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }

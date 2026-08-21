@@ -12,6 +12,7 @@ import {
   type TimelineEvent,
 } from '@/lib/market-map';
 import { cx } from '@/lib/utils';
+import { CompanyLogo } from './company-logo';
 
 type FundingTimelineProps = {
   companies: readonly Company[];
@@ -73,6 +74,7 @@ export function FundingTimeline({
         {events.map((event) => {
           const active = selectedId === event.id;
           const highlighted = highlightedId === event.companyId;
+          const company = companies.find((row) => row.id === event.companyId);
           return (
             <li
               key={event.id}
@@ -116,7 +118,8 @@ export function FundingTimeline({
                 <span className="font-mono text-xs text-text-dim">
                   {formatShortDate(event.date)}
                 </span>
-                <span className="min-w-0 flex-1 font-sans text-sm text-text">
+                <span className="flex min-w-0 flex-1 items-center gap-2 font-sans text-sm text-text">
+                  {company ? <CompanyLogo company={company} size="sm" /> : null}
                   {event.companyName}
                   {event.type ? (
                     <span className="ml-2 text-text-dim">{event.type}</span>

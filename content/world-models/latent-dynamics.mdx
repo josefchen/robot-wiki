@@ -26,6 +26,10 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id="latent-dynamics">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
 
+Imagination has a catch, and it bounds everything below. Drag the horizon slider out and the deviation readout climbs faster than the horizon does, because each imagined step conditions on the model's own previous prediction. That is why DreamerV3 dreams fifteen steps and TD-MPC2 plans three.
+
+<LatentImagination className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
   <Stat label="TD-MPC2 agent" value="317M" note="one agent, 80 tasks" />
@@ -57,11 +61,9 @@ The persistent criticism of this lineage is that it dreams in simulators. DayDre
 
 ## The horizon problem
 
-Imagination has a catch, and it is the same one that limits every paradigm in this domain: error compounds. Each imagined step conditions on the model's own previous prediction, so a one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout. In practice this keeps usable imagination short: DreamerV3 trains its actor and critic on 15-step imagined rollouts, and TD-MPC2 plans only 3 steps ahead <Cite id="dreamerv3-2023" /><Cite id="tdmpc2-2023" />.
+The catch is the same one that limits every paradigm in this domain: error compounds. A one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout, which is why DreamerV3 trains its actor and critic on 15-step imagined rollouts and TD-MPC2 plans only 3 steps ahead <Cite id="dreamerv3-2023" /><Cite id="tdmpc2-2023" />.
 
-The interactive below makes the compounding concrete. Extend the horizon and the deviation readout grows monotonically; raise the one-step model error and the whole curve steepens. The Dreamer mode shows what the drift does to decoded frames. The TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
-
-<LatentImagination className="my-6" />
+The figure at the top of this module has both cases. Its Dreamer mode shows what the drift does to decoded frames. Its TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
 
 ## Successors and open limits
 

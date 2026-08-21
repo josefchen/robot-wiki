@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { settleTransitions } from './settle';
 
 /**
  * Prediction-step contract (VAL-EDU-011..020) over the eight placement
@@ -450,6 +451,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
       '/frontier/generalization/',
     ]) {
       await page.goto(route);
+      await settleTransitions(page);
       const axe = await new AxeBuilder({ page })
         .exclude('.katex-display')
         .analyze();

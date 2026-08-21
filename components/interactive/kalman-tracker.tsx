@@ -20,8 +20,8 @@ import { cx } from '@/lib/utils';
 /**
  * KalmanTracker: a live constant-velocity Kalman filter tracking a
  * wandering 1D target. The white trace is the true path, the gray dots are
- * the position sensor's readings (about one in five drops out), the amber
- * trace is the filter's estimate, and the amber band is the filter's own
+ * the position sensor's readings (about one in five drops out), the pine
+ * trace is the filter's estimate, and the pine band is the filter's own
  * +/-2 sigma position uncertainty. The two sliders set what the filter
  * BELIEVES about the world: sigma_q, the per-step acceleration noise it
  * assumes, and sigma_r, the sensor scatter it assumes. The world itself is

@@ -114,11 +114,29 @@ export function SearchInterface({
 
   const hits =
     status === 'searching' || status === 'done' ? (result?.hits ?? []) : [];
-  const structuredHits =
+  // The unfiltered structured list is kept alongside the filtered one so the
+  // empty state can tell the two apart: a facet hiding real matches is a
+  // different situation from a query nothing in the wiki answers, and the
+  // old single message conflated them (VAL-SEARCH-023).
+  const structuredAll =
     status === 'searching' || status === 'done'
-      ? applyStructuredFacet(result?.structured ?? [], { type: facetType })
+      ? (result?.structured ?? [])
       : [];
+  const structuredHits = applyStructuredFacet(structuredAll, {
+    type: facetType,
+  });
   const resultCount = hits.length + structuredHits.length;
+
+  const settled = status === 'done';
+  const facetNarrowing =
+    settled &&
+    facetType !== 'all' &&
+    structuredHits.length === 0 &&
+    structuredAll.length > 0;
+  // The site-wide message may only claim the wiki has nothing on a query
+  // when neither surface has anything, unfiltered. Anything narrower is a
+  // group-level or facet-level fact and is reported where it belongs.
+  const siteEmpty = settled && hits.length === 0 && structuredAll.length === 0;
 
   // Debounced search. Every state write happens inside the timer callback;
   // the sequencer token guarantees only the latest query can apply results.
@@ -221,7 +239,12 @@ export function SearchInterface({
       statusText =
         proseCount > 0
           ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
-          : `No modules match "${trimmed}"`;
+          : facetNarrowing
+            ? `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter`
+            : // Names both surfaces searched, so what a screen reader hears
+              // agrees with the visible message instead of blaming the
+              // module prose for what may be an entity miss too.
+              `No article prose and no method, company or dataset entity matches "${trimmed}"`;
     } else if (proseCount === 0) {
       statusText = `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"`;
     } else {
@@ -252,10 +275,10 @@ export function SearchInterface({
             value={query}
             onChange={onQueryChange}
             onKeyDown={onInputKeyDown}
-            placeholder="temporal ensembling, ALOHA, chunk size"
+            placeholder="ALOHA, chunk size"
             autoComplete="off"
             aria-describedby="search-page-hint"
-            className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim/80"
+            className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-3 py-2 text-base text-text placeholder:text-text-dim"
           />
           <span
             aria-hidden
@@ -307,6 +330,31 @@ export function SearchInterface({
         </div>
       ) : null}
 
+      {/* The site-wide empty state, raised only when neither surface has
+          anything to show for the query with no facet applied. It names
+          both surfaces the query was run against and points at a browse
+          destination, so a reader who mistyped is not left at a dead end
+          (VAL-SEARCH-023 b). */}
+      {siteEmpty ? (
+        <div
+          data-search-empty
+          className="mt-8 border-t border-border pt-6"
+        >
+          <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
+            Nothing matches &ldquo;{trimmed}&rdquo;, in the article prose or
+            in the methods, companies, and datasets of the wiki data layer.
+            Check the spelling, try a broader term, or browse{' '}
+            <Link
+              href="/a-z"
+              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            >
+              the A-Z index
+            </Link>
+            .
+          </p>
+        </div>
+      ) : null}
+
       {status === 'searching' || status === 'done' ? (
         <div ref={resultsRef} className="mt-8 space-y-10">
           <ResultsGroup
@@ -350,9 +398,20 @@ export function SearchInterface({
             heading="Structured"
             count={status === 'done' ? structuredHits.length : undefined}
             note={
-              status === 'done' && structuredHits.length === 0
-                ? `No structured entities match "${trimmed}". Try another term, or clear the type filter.`
-                : undefined
+              !settled || structuredHits.length > 0 ? undefined : facetNarrowing ? (
+                <>
+                  {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'entity that matches' : 'entities that match'} "${trimmed}".`}{' '}
+                  <button
+                    type="button"
+                    onClick={() => setFacetType('all')}
+                    className="cursor-pointer text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
+                  >
+                    Clear the type filter
+                  </button>
+                </>
+              ) : (
+                `No structured entities match "${trimmed}". Try another term.`
+              )
             }
           >
             {status === 'done' || structuredHits.length > 0 ? (
@@ -375,18 +434,38 @@ export function SearchInterface({
                       onKeyDown={(event) =>
                         onResultKeyDown(event, hits.length + index)
                       }
-                      className="group flex items-baseline justify-between gap-3 px-1 py-3"
+                      className="group block px-1 py-3"
                     >
-                      <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
-                        {entry.title}
+                      <span className="flex items-baseline justify-between gap-3">
+                        {/* Named rather than positional: the title used to
+                            be the anchor's first child, and specs selected
+                            it that way, which the snippet row silently
+                            re-pointed at the title/label wrapper. */}
+                        <span
+                          data-entity-title
+                          className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent"
+                        >
+                          {entry.title}
+                        </span>
+                        <span
+                          data-entity-type={entry.type}
+                          aria-hidden="true"
+                          className="shrink-0 font-mono text-[11px] text-text-dim"
+                        >
+                          {ENTITY_TYPE_LABEL[entry.type]}
+                        </span>
                       </span>
-                      <span
-                        data-entity-type={entry.type}
-                        aria-hidden="true"
-                        className="shrink-0 font-mono text-[11px] text-text-dim"
-                      >
-                        {ENTITY_TYPE_LABEL[entry.type]}
-                      </span>
+                      {/* The entity's own record, verbatim on its
+                          destination route, so eight company rows are
+                          something a reader can choose between. */}
+                      {entry.snippet ? (
+                        <span
+                          data-entity-snippet
+                          className="mt-1 block text-sm leading-relaxed text-text-dim"
+                        >
+                          {entry.snippet}
+                        </span>
+                      ) : null}
                     </a>
                   </li>
                 ))}

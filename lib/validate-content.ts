@@ -41,12 +41,15 @@
  *      page's tsx) must resolve to a registry entry; an unregistered id
  *      fails the build naming the file and the id, and a registered image
  *      no PUBLISHED page references fails the build, so the registry, the
- *      rendered set, and /credits cannot drift apart. The id
- *      gate scans drafts too (an unknown id should fail before publish),
- *      but only published modules and the static sources count as usage:
- *      an image referenced only by a draft is invisible to readers and
- *      must not satisfy the stale-registry guard (library/imagery.md).
- *      Provenance fields are scanned for synthesis markers.
+ *      rendered set, and /credits cannot drift apart. A company.logo id
+ *      counts as published usage (the market-map page renders it) and an
+ *      unknown logo id fails the same way an unregistered <Image> does.
+ *      The id gate scans drafts too (an unknown id should fail before
+ *      publish), but only published modules, the static sources, and
+ *      company logo fields count as usage: an image referenced only by a
+ *      draft is invisible to readers and must not satisfy the
+ *      stale-registry guard (library/imagery.md). Provenance fields are
+ *      scanned for synthesis markers.
  *
  * Runtime imports carry explicit .ts extensions because this file is executed
  * by plain node (type stripping, no extension resolution) as well as Vitest.
@@ -93,6 +96,12 @@ export interface ValidateContentOptions {
    * failure messages.
    */
   imageSources?: ReadonlyArray<{ label: string; body: string }>;
+  /**
+   * Market-map rows. A non-null `logo` is a published usage of that
+   * image-registry id (the market-map page renders it), and an unknown
+   * id fails the same way an unregistered <Image> does.
+   */
+  companies?: ReadonlyArray<{ id: string; logo: string | null }>;
   /** Non-module routes that internal links may target. */
   staticRoutes?: readonly string[];
 }
@@ -442,6 +451,18 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
         } else {
           usedImageIds.add(id);
         }
+      }
+    }
+
+    for (const company of opts.companies ?? []) {
+      if (company.logo === null) continue;
+      if (!imageIds.has(company.logo)) {
+        push(
+          'data/companies.ts',
+          `company ${company.id} logo "${company.logo}" is not in the image registry`,
+        );
+      } else {
+        usedImageIds.add(company.logo);
       }
     }
 

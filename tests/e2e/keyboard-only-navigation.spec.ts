@@ -8,7 +8,7 @@ import { expect, test } from '@playwright/test';
  * module specs and the shared setSlider helper; this spec pins the
  * global path: skip link reachability, section toggles as buttons,
  * module links reachable by Tab, Enter activation, and the visible focus
- * outline (>= 1px, the amber global outline) on the focused stops.
+ * outline (>= 1px, the pine global outline) on the focused stops.
  */
 
 test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {

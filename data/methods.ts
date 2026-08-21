@@ -25,6 +25,8 @@ const ROWS: Method[] = [
   {
     id: 'rt-1',
     name: 'RT-1',
+    // robotics-transformer1.github.io, the paper's own project site.
+    aka: ['Robotics Transformer 1'],
     year: 2022,
     actionRepresentation: 'discrete',
     actionHorizon: { planned: 1, executed: 1 },
@@ -39,6 +41,8 @@ const ROWS: Method[] = [
   {
     id: 'act',
     name: 'ACT',
+    // Expanded in the paper's abstract (arXiv:2304.13705).
+    aka: ['Action Chunking with Transformers'],
     year: 2023,
     actionRepresentation: 'continuous',
     actionHorizon: {
@@ -57,6 +61,7 @@ const ROWS: Method[] = [
   {
     id: 'diffusion-policy',
     name: 'Diffusion Policy',
+    aka: [],
     year: 2023,
     actionRepresentation: 'diffusion',
     actionHorizon: { planned: 16, executed: 8 },
@@ -72,6 +77,8 @@ const ROWS: Method[] = [
   {
     id: 'rt-2',
     name: 'RT-2',
+    // "Robotics Transformer 2, or RT-2" (Google's own announcement).
+    aka: ['Robotics Transformer 2'],
     year: 2023,
     actionRepresentation: 'discrete',
     actionHorizon: { planned: 1, executed: 1 },
@@ -87,6 +94,7 @@ const ROWS: Method[] = [
   {
     id: 'octo',
     name: 'Octo',
+    aka: [],
     year: 2024,
     actionRepresentation: 'diffusion',
     actionHorizon: { planned: null, executed: null },
@@ -102,6 +110,7 @@ const ROWS: Method[] = [
   {
     id: 'openvla',
     name: 'OpenVLA',
+    aka: [],
     year: 2024,
     actionRepresentation: 'discrete',
     actionHorizon: { planned: 1, executed: 1 },
@@ -117,6 +126,8 @@ const ROWS: Method[] = [
   {
     id: 'openvla-oft',
     name: 'OpenVLA-OFT',
+    // OFT is expanded as "Optimized Fine-Tuning" in arXiv:2502.19645.
+    aka: ['Optimized Fine-Tuning'],
     year: 2025,
     actionRepresentation: 'continuous',
     actionHorizon: { planned: null, executed: null },
@@ -132,6 +143,9 @@ const ROWS: Method[] = [
   {
     id: 'pi0',
     name: 'π0',
+    // The lab's spoken name for the model, used by coverage and by
+    // third-party reimplementations (lucidrains/pi-zero-pytorch).
+    aka: ['pi-zero'],
     year: 2024,
     actionRepresentation: 'flow',
     actionHorizon: { planned: 50, executed: 50 },
@@ -146,6 +160,8 @@ const ROWS: Method[] = [
   {
     id: 'pi0-fast',
     name: 'π0-FAST',
+    // FAST is expanded in the paper's abstract (arXiv:2501.09747).
+    aka: ['Frequency-space Action Sequence Tokenization'],
     year: 2025,
     actionRepresentation: 'discrete',
     actionHorizon: { planned: 50, executed: 50 },
@@ -161,6 +177,9 @@ const ROWS: Method[] = [
   {
     id: 'pi05',
     name: 'π0.5',
+    // The openpi checkpoint identifier; folding cannot reach it, because
+    // the stored title token is "pi0.5" and the checkpoint drops the period.
+    aka: ['pi05_base'],
     year: 2025,
     actionRepresentation: 'flow',
     actionHorizon: { planned: 50, executed: 50 },
@@ -175,6 +194,8 @@ const ROWS: Method[] = [
   {
     id: 'pi06',
     name: 'π0.6',
+    // The vendor's own ASCII form, as in PI06_model_card.pdf.
+    aka: ['pi06'],
     year: 2025,
     actionRepresentation: 'flow',
     actionHorizon: { planned: 50, executed: 50 },
@@ -189,6 +210,8 @@ const ROWS: Method[] = [
   {
     id: 'pi07',
     name: 'π0.7',
+    // The vendor's own ASCII form, as in pi.website/blog/pi07.
+    aka: ['pi07'],
     year: 2026,
     actionRepresentation: 'flow',
     actionHorizon: {
@@ -214,6 +237,7 @@ const ROWS: Method[] = [
   {
     id: 'gemini-robotics-15',
     name: 'Gemini Robotics 1.5',
+    aka: [],
     year: 2025,
     actionRepresentation: null,
     actionHorizon: { planned: null, executed: null },
@@ -228,6 +252,7 @@ const ROWS: Method[] = [
   {
     id: 'gemini-robotics-2',
     name: 'Gemini Robotics 2',
+    aka: [],
     year: 2026,
     actionRepresentation: null,
     actionHorizon: { planned: null, executed: null },
@@ -242,6 +267,8 @@ const ROWS: Method[] = [
   {
     id: 'gr00t-n1-7',
     name: 'GR00T N1.7',
+    // NVIDIA's own expansion of the GR00T name (developer.nvidia.com/isaac/gr00t).
+    aka: ['Generalist Robot 00 Technology'],
     year: 2026,
     actionRepresentation: 'flow',
     actionHorizon: { planned: 40, executed: null },
@@ -257,6 +284,7 @@ const ROWS: Method[] = [
   {
     id: 'helix-02',
     name: 'Helix 02',
+    aka: [],
     year: 2026,
     actionRepresentation: 'continuous',
     actionHorizon: { planned: null, executed: null },
@@ -276,6 +304,8 @@ const ROWS: Method[] = [
   {
     id: 'agibot-go2',
     name: 'AgiBot GO-2',
+    // AgiBot's own product name for GO-2.
+    aka: ['Genie Operator-2'],
     year: 2026,
     actionRepresentation: null,
     actionHorizon: { planned: null, executed: null },
@@ -291,6 +321,7 @@ const ROWS: Method[] = [
   {
     id: 'skild',
     name: 'Skild',
+    aka: [],
     year: 2026,
     actionRepresentation: null,
     actionHorizon: { planned: null, executed: null },

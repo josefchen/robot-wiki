@@ -29,7 +29,11 @@ export default function GlossaryPage() {
 
   return (
     <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
-      <header>
+      {/* data-pagefind-body: Pagefind excludes every page that declares no
+          body region as soon as one page declares one, which left this
+          route unreachable by the query "Glossary" that the sidebar itself
+          invites (VAL-SEARCH-021, VAL-SEARCH-022). */}
+      <header data-pagefind-body>
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           Glossary
         </h1>

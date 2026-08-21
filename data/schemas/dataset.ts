@@ -10,6 +10,8 @@ import { httpsUrlSchema, slugSchema } from './shared.ts';
 export const datasetSchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
+  /** Search-only alternate names; see the `aka` note on methodSchema. */
+  aka: z.array(z.string().min(1)),
   year: z.number().int().min(1980).max(2100).nullable(),
   /** Reported trajectory/episode count; null when unpublished. */
   episodes: z.number().int().positive().nullable(),

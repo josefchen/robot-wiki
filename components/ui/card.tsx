@@ -25,7 +25,10 @@ export function Card({ title, href, className, children }: CardProps) {
         )}
       >
         {title ? (
-          <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">
+          <h3
+            data-card-title
+            className="font-sans text-sm font-medium text-text group-hover:text-accent"
+          >
             {title}
           </h3>
         ) : null}
@@ -39,7 +42,9 @@ export function Card({ title, href, className, children }: CardProps) {
   return (
     <div className={cx(baseClasses, className)}>
       {title ? (
-        <h3 className="font-sans text-sm font-medium text-text">{title}</h3>
+        <h3 data-card-title className="font-sans text-sm font-medium text-text">
+          {title}
+        </h3>
       ) : null}
       <div className={cx('text-sm text-text-dim', title && 'mt-1')}>
         {children}

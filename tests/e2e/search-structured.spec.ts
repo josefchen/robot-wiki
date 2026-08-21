@@ -71,8 +71,13 @@ test.describe('structured search on the static export', () => {
     const structured = page.getByRole('region', { name: 'Structured' });
     await expect(prose).toBeVisible();
     await expect(structured).toBeVisible();
+    // Selected by destination, not by title text. The query "ACT" also
+    // matches the manipulation landing route and the home page, both of
+    // which list this article by name, so a name-only locator resolves to
+    // three elements. The assertion is about the article route being in
+    // the prose group, so the href is the identity to select on.
     await expect(
-      prose.getByRole('link', { name: /Action Chunking/ }),
+      prose.locator('a[data-search-result][href^="/manipulation/action-chunking"]'),
     ).toBeVisible();
     await expect(structured.getByRole('link', { name: /^ACT/ })).toBeVisible();
     await expect(structured.getByText(/^method$/i).first()).toBeVisible();

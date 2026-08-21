@@ -163,6 +163,22 @@ export function matchesStatus(company: Company, status: StatusFilter): boolean {
   }
 }
 
+/**
+ * Two-letter initials for the logo fallback. Parenthetical product names
+ * (Optimus, LeRobot) are dropped so the mark names the company, not the
+ * product line.
+ */
+export function companyInitials(name: string): string {
+  const cleaned = name.replace(/\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim();
+  const words = cleaned.split(' ').filter(Boolean);
+  if (words.length === 0) return '?';
+  if (words.length === 1) {
+    const word = words[0];
+    return word.slice(0, Math.min(2, word.length)).toUpperCase();
+  }
+  return `${words[0][0]}${words[1][0]}`.toUpperCase();
+}
+
 export function companyStatusLabel(company: Company): string {
   if (company.latestRound?.type === 'IPO') return 'IPO';
   if (company.status === 'dead') return 'Shut down';
