@@ -103,6 +103,45 @@ describe('methods and datasets carry aliases (VAL-SEARCH-020a)', () => {
   });
 });
 
+describe('aliases are search-only (VAL-SEARCH-020c)', () => {
+  it('is read by the search index and by no rendering surface', async () => {
+    const { readFile, readdir } = await import('node:fs/promises');
+    const { join } = await import('node:path');
+
+    async function walk(dir: string): Promise<string[]> {
+      const entries = await readdir(dir, { withFileTypes: true });
+      const files = await Promise.all(
+        entries.map(async (entry) => {
+          const path = join(dir, entry.name);
+          if (entry.isDirectory()) return walk(path);
+          return /\.(ts|tsx|mdx)$/.test(entry.name) ? [path] : [];
+        }),
+      );
+      return files.flat();
+    }
+
+    const readers: string[] = [];
+    for (const root of ['app', 'components', 'lib', 'content']) {
+      for (const file of await walk(root)) {
+        const source = await readFile(file, 'utf8');
+        // Both shapes count as reading it: a property access, and a bare
+        // 'aka' key, which is how a table column or a field list would pull
+        // the array onto the page without ever naming the entity.
+        if (/\.aka\b/.test(source) || /['"`]aka['"`]/.test(source)) {
+          readers.push(file);
+        }
+      }
+    }
+    // company-card.tsx is the one rendering surface that legitimately shows
+    // aliases: the market map presented Company.aka before this change, and
+    // VAL-SEARCH-020(c) exempts what a route already presented.
+    expect(readers.sort()).toEqual([
+      'components/market-map/company-card.tsx',
+      'lib/structured-search.ts',
+    ]);
+  });
+});
+
 describe('aliases are unambiguous across the whole corpus (VAL-SEARCH-020b)', () => {
   it('maps no alias to two different entities', () => {
     const owners = new Map<string, string[]>();
