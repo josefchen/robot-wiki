@@ -46,8 +46,11 @@ const MIN_STEPS = 20;
 const ROLLOUT_W = 640;
 const ROLLOUT_H = 220;
 const BOUNDS_W = 640;
-const BOUNDS_H = 170;
-const BOUNDS_PAD = { top: 12, right: 16, bottom: 26, left: 56 };
+// The legend sits in its own band above the plot rather than floating
+// inside it: on the log deviation axis the marker reaches the topmost
+// gridline at the extreme settings, where it collided with the legend.
+const BOUNDS_H = 200;
+const BOUNDS_PAD = { top: 44, right: 16, bottom: 26, left: 56 };
 
 function formatUnits(value: number): string {
   if (value >= 100) return String(Math.round(value));

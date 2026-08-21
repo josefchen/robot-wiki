@@ -202,7 +202,7 @@ export function CommitToReveal({
                 // judgement, not a colour on the row you chose.
                 className={cx(
                   'group/reason grid gap-0.5 text-text-dim',
-                  'data-[correct=true]:text-text data-[correct=true]:font-bold',
+                  'data-[correct=true]:text-text',
                 )}
               >
                 <span className="font-medium group-data-[correct=true]/reason:font-bold group-data-[correct=true]/reason:text-ok">
