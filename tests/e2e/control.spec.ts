@@ -361,9 +361,7 @@ test.describe('classical control module', () => {
     // closer, each resolving to a References entry on the page.
     const chipIds = await article
       .locator('[data-cite-id]')
-      .evaluateAll((els, boundary) => {
-        const stop =
-          boundary === '' ? Infinity : Number.parseFloat(boundary);
+      .evaluateAll((els) => {
         const ids = new Set<string>();
         for (const el of els) {
           const box = el.getBoundingClientRect();
@@ -387,7 +385,7 @@ test.describe('classical control module', () => {
           }
         }
         return Array.from(ids);
-      }, '');
+      });
     expect(chipIds.length).toBeGreaterThanOrEqual(3);
     for (const id of chipIds) {
       await expect(page.locator(`#ref-${id}`)).toHaveCount(1);
