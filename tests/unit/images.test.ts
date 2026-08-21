@@ -15,6 +15,7 @@ import { validateContent } from '@/lib/validate-content';
 import { modules } from '@/data/modules';
 import { CITATIONS } from '@/data/citations';
 import { GLOSSARY } from '@/data/glossary';
+import { COMPANIES } from '@/data/companies';
 
 /**
  * Imagery pipeline (VAL-IMG-001, VAL-IMG-006, VAL-IMG-007, VAL-IMG-008,
@@ -71,6 +72,28 @@ describe('imageSchema', () => {
     expect(withNote.success).toBe(true);
   });
 
+  it('accepts unlicensed and unknown official marks when sourceUrl is present', () => {
+    for (const licence of ['unlicensed', 'unknown'] as const) {
+      const parsed = imageSchema.safeParse({
+        ...validEntry,
+        licence,
+        sourceUrl: 'https://www.skild.ai/',
+        licenceUrl: 'https://www.skild.ai/',
+      });
+      expect(parsed.success, licence).toBe(true);
+    }
+  });
+
+  it('rejects unlicensed and unknown marks without a sourceUrl', () => {
+    const { sourceUrl: _dropped, ...rest } = validEntry;
+    void _dropped;
+    for (const licence of ['unlicensed', 'unknown'] as const) {
+      const parsed = imageSchema.safeParse({ ...rest, licence });
+      expect(parsed.success, licence).toBe(false);
+      expect(parsed.error?.message).toMatch(/sourceUrl/);
+    }
+  });
+
   it('rejects alt text that is generic, a filename, too short, or dashed (VAL-IMG-001)', () => {
     const badAlts = [
       'image',
@@ -92,6 +115,17 @@ describe('imageSchema', () => {
     expect(
       imageSchema.safeParse({ ...validEntry, file: '/elsewhere/x.jpg' }).success,
     ).toBe(false);
+  });
+
+  it('accepts a logo file under public/images/logos/', () => {
+    expect(
+      imageSchema.safeParse({
+        ...validEntry,
+        id: 'nvidia-logo',
+        file: '/images/logos/nvidia.svg',
+        alt: 'NVIDIA wordmark in the company green on a transparent field',
+      }).success,
+    ).toBe(true);
   });
 });
 
@@ -261,6 +295,26 @@ describe('validateContent imagery check', () => {
     expect(issues).toEqual([]);
   });
 
+  it('counts a company.logo as published usage and rejects an unknown logo id', () => {
+    writeArticle('no imagery here');
+    const viaCompany = validateContent({
+      ...baseOpts(),
+      companies: [{ id: 'nvidia-robotics', logo: validEntry.id }],
+    }).filter((issue) => issue.message.toLowerCase().includes('image'));
+    expect(viaCompany).toEqual([]);
+
+    const unknown = validateContent({
+      ...baseOpts(),
+      companies: [{ id: 'nvidia-robotics', logo: 'ghost-logo' }],
+    });
+    expect(
+      unknown.some((issue) =>
+        issue.message.includes('ghost-logo') &&
+        issue.message.includes('not in the image registry'),
+      ),
+    ).toBe(true);
+  });
+
   it('fails on a schema-invalid registry entry, naming the id and the problem', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
     const broken = { ...validEntry, licence: 'made-up-licence' } as unknown as SiteImage;
@@ -318,6 +372,7 @@ describe('the shipped registry (VAL-IMG-006, VAL-IMG-013)', () => {
       citations: CITATIONS,
       terms: GLOSSARY,
       images: IMAGES,
+      companies: COMPANIES,
       imageSources: [
         {
           label: 'app/page.tsx',

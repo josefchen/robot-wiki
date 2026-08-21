@@ -1,0 +1,137 @@
+/**
+ * Slim market-map logo lookup.
+ *
+ * CompanyLogo is a client component on /market-map. Importing data/images.ts
+ * would ship the whole image registry (article photographs included) into
+ * that chunk. This module carries only the fields the mark needs: file path
+ * and intrinsic size. Provenance stays in data/logo-images.ts and is
+ * concatenated into IMAGES for /credits and the validator.
+ */
+export type CompanyLogoAsset = {
+  file: string;
+  width: number;
+  height: number;
+};
+
+const COMPANY_LOGOS: Record<string, CompanyLogoAsset> = {
+  'physical-intelligence-logo': { file: '/images/logos/physical-intelligence.png', width: 200, height: 200 },
+  'covariant-logo': { file: '/images/logos/covariant.png', width: 2000, height: 832 },
+  'nvidia-logo': { file: '/images/logos/nvidia.svg', width: 630, height: 118 },
+  'hugging-face-logo': { file: '/images/logos/hugging-face.svg', width: 963, height: 256 },
+  'figure-ai-logo': { file: '/images/logos/figure-ai.svg', width: 512, height: 512 },
+  'agility-robotics-logo': { file: '/images/logos/agility-robotics.svg', width: 724, height: 164 },
+  'tesla-logo': { file: '/images/logos/tesla.svg', width: 279, height: 360 },
+  'unitree-logo': { file: '/images/logos/unitree.svg', width: 512, height: 115 },
+  'ubtech-logo': { file: '/images/logos/ubtech.svg', width: 512, height: 127 },
+  'neura-robotics-logo': { file: '/images/logos/neura-robotics.svg', width: 184, height: 22 },
+  'wandercraft-logo': { file: '/images/logos/wandercraft.svg', width: 512, height: 93 },
+  'rainbow-robotics-logo': { file: '/images/logos/rainbow-robotics.png', width: 1772, height: 540 },
+  'berkshire-grey-logo': { file: '/images/logos/berkshire-grey.svg', width: 135, height: 32 },
+  'amazon-robotics-logo': { file: '/images/logos/amazon-robotics.svg', width: 585, height: 182 },
+  'bedrock-robotics-logo': { file: '/images/logos/bedrock-robotics.svg', width: 3274, height: 437 },
+  'intuitive-surgical-logo': { file: '/images/logos/intuitive-surgical.svg', width: 173, height: 69 },
+  'cmr-surgical-logo': { file: '/images/logos/cmr-surgical.png', width: 225, height: 225 },
+  'nuro-logo': { file: '/images/logos/nuro.svg', width: 751, height: 214 },
+  'irobot-logo': { file: '/images/logos/irobot.svg', width: 1024, height: 203 },
+  'harmonic-drive-logo': { file: '/images/logos/harmonic-drive.svg', width: 1024, height: 323 },
+  'nabtesco-logo': { file: '/images/logos/nabtesco.svg', width: 310, height: 58 },
+  'wonik-logo': { file: '/images/logos/wonik.png', width: 2330, height: 1800 },
+  'openai-logo': { file: '/images/logos/openai.svg', width: 512, height: 138 },
+  'meta-logo': { file: '/images/logos/meta.svg', width: 948, height: 191 },
+  'switchbot-logo': { file: '/images/logos/switchbot.png', width: 120, height: 26 },
+  'hanson-robotics-logo': { file: '/images/logos/hanson-robotics.png', width: 1800, height: 431 },
+  'starship-logo': { file: '/images/logos/starship.svg', width: 112, height: 17 },
+  'pollen-robotics-logo': { file: '/images/logos/pollen-robotics.svg', width: 512, height: 91 },
+  'anduril-logo': { file: '/images/logos/anduril.svg', width: 546, height: 100 },
+  'abb-logo': { file: '/images/logos/abb.svg', width: 512, height: 203 },
+  'mitsubishi-logo': { file: '/images/logos/mitsubishi.svg', width: 850, height: 733 },
+  'monarch-tractor-logo': { file: '/images/logos/monarch-tractor.png', width: 450, height: 336 },
+  'skild-ai-logo': { file: '/images/logos/skild-ai.svg', width: 173, height: 40 },
+  'generalist-ai-logo': { file: '/images/logos/generalist-ai.svg', width: 262, height: 262 },
+  'dyna-robotics-logo': { file: '/images/logos/dyna-robotics.svg', width: 339, height: 72 },
+  'sunday-robotics-logo': { file: '/images/logos/sunday-robotics.svg', width: 260, height: 260 },
+  'field-ai-logo': { file: '/images/logos/field-ai.svg', width: 284, height: 70 },
+  'genesis-ai-logo': { file: '/images/logos/genesis-ai.svg', width: 16, height: 16 },
+  'rhoda-ai-logo': { file: '/images/logos/rhoda-ai.svg', width: 815, height: 186 },
+  'mind-robotics-logo': { file: '/images/logos/mind-robotics.png', width: 180, height: 180 },
+  'google-deepmind-robotics-logo': { file: '/images/logos/google-deepmind-robotics.svg', width: 512, height: 119 },
+  'applied-intuition-logo': { file: '/images/logos/applied-intuition.svg', width: 220, height: 220 },
+  'xdof-logo': { file: '/images/logos/xdof.svg', width: 360, height: 72 },
+  'encord-logo': { file: '/images/logos/encord.svg', width: 44, height: 50 },
+  'micro1-logo': { file: '/images/logos/micro1.png', width: 32, height: 32 },
+  '1x-technologies-logo': { file: '/images/logos/1x-technologies.svg', width: 26, height: 16 },
+  'apptronik-logo': { file: '/images/logos/apptronik.svg', width: 342, height: 28 },
+  'boston-dynamics-logo': { file: '/images/logos/boston-dynamics.svg', width: 216, height: 216 },
+  'fourier-intelligence-logo': { file: '/images/logos/fourier-intelligence.svg', width: 400, height: 400 },
+  'galbot-logo': { file: '/images/logos/galbot.gif', width: 128, height: 128 },
+  'agibot-logo': { file: '/images/logos/agibot.png', width: 1038, height: 491 },
+  'sanctuary-ai-logo': { file: '/images/logos/sanctuary-ai.png', width: 270, height: 270 },
+  'humanoid-uk-logo': { file: '/images/logos/humanoid-uk.png', width: 270, height: 270 },
+  'spirit-ai-logo': { file: '/images/logos/spirit-ai.svg', width: 103, height: 42 },
+  'galaxea-ai-logo': { file: '/images/logos/galaxea-ai.png', width: 1238, height: 376 },
+  'engineai-logo': { file: '/images/logos/engineai.png', width: 945, height: 473 },
+  'robot-era-logo': { file: '/images/logos/robot-era.png', width: 108, height: 108 },
+  'tars-robotics-logo': { file: '/images/logos/tars-robotics.svg', width: 145, height: 126 },
+  'x-square-robot-logo': { file: '/images/logos/x-square-robot.svg', width: 95, height: 66 },
+  'deep-robotics-logo': { file: '/images/logos/deep-robotics.png', width: 519, height: 160 },
+  'kepler-robot-logo': { file: '/images/logos/kepler-robot.png', width: 3065, height: 3066 },
+  'limx-dynamics-logo': { file: '/images/logos/limx-dynamics.png', width: 1200, height: 630 },
+  'clone-robotics-logo': { file: '/images/logos/clone-robotics.png', width: 750, height: 138 },
+  'mentee-robotics-logo': { file: '/images/logos/mentee-robotics.svg', width: 226, height: 19 },
+  'persona-ai-logo': { file: '/images/logos/persona-ai.webp', width: 300, height: 68 },
+  'symbotic-logo': { file: '/images/logos/symbotic.svg', width: 205, height: 44 },
+  'dexterity-logo': { file: '/images/logos/dexterity.svg', width: 1166, height: 101 },
+  'nimble-robotics-logo': { file: '/images/logos/nimble-robotics.svg', width: 583, height: 125 },
+  'locus-robotics-logo': { file: '/images/logos/locus-robotics.svg', width: 204, height: 48 },
+  'mujin-logo': { file: '/images/logos/mujin.svg', width: 73, height: 34 },
+  'righthand-robotics-logo': { file: '/images/logos/righthand-robotics.svg', width: 312, height: 69 },
+  'ambirobotics-logo': { file: '/images/logos/ambirobotics.svg', width: 106, height: 39 },
+  'plus-one-robotics-logo': { file: '/images/logos/plus-one-robotics.png', width: 752, height: 216 },
+  'carbon-robotics-logo': { file: '/images/logos/carbon-robotics.png', width: 400, height: 114 },
+  'farm-ng-logo': { file: '/images/logos/farm-ng.svg', width: 168, height: 39 },
+  'chef-robotics-logo': { file: '/images/logos/chef-robotics.svg', width: 72, height: 33 },
+  'simbe-robotics-logo': { file: '/images/logos/simbe-robotics.svg', width: 139, height: 34 },
+  'moon-surgical-logo': { file: '/images/logos/moon-surgical.svg', width: 150, height: 135 },
+  'serve-robotics-logo': { file: '/images/logos/serve-robotics.svg', width: 540, height: 540 },
+  'gecko-robotics-logo': { file: '/images/logos/gecko-robotics.svg', width: 80, height: 27 },
+  'standard-bots-logo': { file: '/images/logos/standard-bots.svg', width: 165, height: 18 },
+  'collaborative-robotics-logo': { file: '/images/logos/collaborative-robotics.png', width: 180, height: 180 },
+  'the-bot-company-logo': { file: '/images/logos/the-bot-company.png', width: 880, height: 260 },
+  'weave-robotics-logo': { file: '/images/logos/weave-robotics.png', width: 180, height: 180 },
+  'k-scale-labs-logo': { file: '/images/logos/k-scale-labs.png', width: 150, height: 150 },
+  'automata-logo': { file: '/images/logos/automata.svg', width: 2000, height: 289 },
+  'lila-sciences-logo': { file: '/images/logos/lila-sciences.svg', width: 290, height: 25 },
+  'avidbots-logo': { file: '/images/logos/avidbots.svg', width: 260, height: 260 },
+  'leaderdrive-logo': { file: '/images/logos/leaderdrive.png', width: 797, height: 240 },
+  'sanhua-logo': { file: '/images/logos/sanhua.png', width: 96, height: 96 },
+  'shadow-robot-logo': { file: '/images/logos/shadow-robot.svg', width: 102, height: 79 },
+  'sharpa-logo': { file: '/images/logos/sharpa.svg', width: 1292, height: 256 },
+  'xela-robotics-logo': { file: '/images/logos/xela-robotics.png', width: 280, height: 66 },
+  'assured-robot-intelligence-logo': { file: '/images/logos/assured-robot-intelligence.png', width: 512, height: 512 },
+  'saronic-logo': { file: '/images/logos/saronic.png', width: 64, height: 64 },
+  'eka-robotics-logo': { file: '/images/logos/eka-robotics.svg', width: 714, height: 713 },
+  'foundry-robotics-logo': { file: '/images/logos/foundry-robotics.svg', width: 50, height: 50 },
+  'mytra-logo': { file: '/images/logos/mytra.png', width: 291, height: 291 },
+  'formic-logo': { file: '/images/logos/formic.svg', width: 132, height: 132 },
+  'astribot-logo': { file: '/images/logos/astribot.png', width: 447, height: 196 },
+  'booster-robotics-logo': { file: '/images/logos/booster-robotics.svg', width: 48, height: 48 },
+  'leju-robotics-logo': { file: '/images/logos/leju-robotics.png', width: 774, height: 111 },
+  'paxini-logo': { file: '/images/logos/paxini.png', width: 1731, height: 477 },
+  'miso-robotics-logo': { file: '/images/logos/miso-robotics.png', width: 250, height: 84 },
+  'coco-robotics-logo': { file: '/images/logos/coco-robotics.png', width: 614, height: 440 },
+  'knightscope-logo': { file: '/images/logos/knightscope.svg', width: 4712, height: 4712 },
+  'brain-corp-logo': { file: '/images/logos/brain-corp.svg', width: 431, height: 170 },
+  'diligent-robotics-logo': { file: '/images/logos/diligent-robotics.png', width: 358, height: 121 },
+  'fox-robotics-logo': { file: '/images/logos/fox-robotics.svg', width: 760, height: 322 },
+  'zebra-robotics-automation-logo': { file: '/images/logos/zebra-robotics-automation.svg', width: 127, height: 42 },
+  'robotphoenix-logo': { file: '/images/logos/robotphoenix.webp', width: 250, height: 100 },
+};
+
+/** Look up the plotted mark; undefined for an unregistered logo id. */
+export function getCompanyLogo(id: string): CompanyLogoAsset | undefined {
+  return COMPANY_LOGOS[id];
+}
+
+export function companyLogoIds(): string[] {
+  return Object.keys(COMPANY_LOGOS);
+}

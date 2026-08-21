@@ -11,16 +11,23 @@
  * Licensing policy lives in library/imagery.md and is a hard gate. Every
  * entry below records the verbatim licence sentence read on the asset's own
  * page (the anti-fabrication rule) in a comment next to the entry. Never
- * register an image whose creator and licence you cannot name.
+ * invent a Commons licence. Official market-map marks with no reuse grant
+ * use licence `unlicensed` or `unknown` and still name creator plus source.
+ *
+ * Market-map logos live in data/logo-images.ts (files under
+ * public/images/logos/) and are concatenated here. Article photographs
+ * stay in this file under public/images/. The market-map client reads
+ * logos through data/logos.ts so it does not pull this registry.
  *
  * Type-only relative import so this file loads under plain node, Vitest,
  * and Next.js alike.
  */
+import { LOGO_IMAGES } from './logo-images.ts';
 import type { SiteImage } from './schemas/image.ts';
 
 export type { SiteImage } from './schemas/image.ts';
 
-export const IMAGES: SiteImage[] = [
+const ARTICLE_IMAGES: SiteImage[] = [
   {
     id: 'spot-raf-agile-liberty-2021',
     file: '/images/spot-raf-agile-liberty-2021.jpg',
@@ -156,6 +163,8 @@ export const IMAGES: SiteImage[] = [
   },
 ];
 
+export const IMAGES: SiteImage[] = [...ARTICLE_IMAGES, ...LOGO_IMAGES];
+
 const byId = new Map(IMAGES.map((image) => [image.id, image]));
 
 /** Look up a registry entry; undefined for an unregistered id. */
@@ -170,6 +179,8 @@ const LICENCE_LABELS: Record<SiteImage['licence'], string> = {
   'public-domain': 'Public domain',
   'press-kit': 'Press kit',
   permission: 'Used with permission',
+  unlicensed: 'Unlicensed',
+  unknown: 'Unknown',
 };
 
 /** The display label a credit line and /credits show for a licence. */

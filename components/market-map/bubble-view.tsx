@@ -10,6 +10,7 @@ import {
   unknownFigure,
   type BubblePoint,
 } from '@/lib/market-map';
+import { CompanyLogo } from './company-logo';
 
 const WIDTH = 720;
 const HEIGHT = 420;
@@ -367,7 +368,12 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
         </p>
       )}
 
-      {selected ? <BubbleDetail point={selected} /> : null}
+      {selected ? (
+        <BubbleDetail
+          point={selected}
+          company={companies.find((company) => company.id === selected.id)}
+        />
+      ) : null}
     </div>
   );
 }
@@ -411,13 +417,27 @@ function MarkLabel({ point }: { point: BubblePoint & { cx: number; cy: number } 
   );
 }
 
-function BubbleDetail({ point }: { point: BubblePoint }) {
+function BubbleDetail({
+  point,
+  company,
+}: {
+  point: BubblePoint;
+  company: Company | undefined;
+}) {
   return (
     <div
       data-bubble-detail
       className="mt-4 border-t border-border pt-3 text-sm"
     >
-      <p className="font-sans font-medium text-text">{point.name}</p>
+      <div className="flex items-center gap-3">
+        {company ? (
+          <CompanyLogo
+            key={`${company.id}:${company.logo ?? ''}`}
+            company={company}
+          />
+        ) : null}
+        <p className="font-sans font-medium text-text">{point.name}</p>
+      </div>
       <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
         <dt className="text-text-dim">Founded</dt>
         <dd>{point.founded}</dd>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { COMPANIES } from '@/data/companies';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
@@ -80,6 +81,12 @@ function imageUsage(): Map<string, UsageLink[]> {
     record(id, { route: '/', title: 'Home' });
   }
 
+  for (const company of COMPANIES) {
+    if (company.logo) {
+      record(company.logo, { route: '/market-map', title: 'Market Map' });
+    }
+  }
+
   return usage;
 }
 
@@ -100,10 +107,12 @@ export default function CreditsPage() {
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           robot-wiki uses real photographs and diagrams, and every one of
           them is listed here with its creator, the page it came from, and
-          the licence that permits its reuse. Only images under CC0, CC BY,
-          CC BY-SA, public domain, or a documented reuse permission appear
-          on this site, and no image is AI-generated. The site&apos;s own
-          text and original diagrams are available under CC BY 4.0.
+          the licence that permits its reuse. Article images stay under
+          CC0, CC BY, CC BY-SA, public domain, or a documented reuse
+          permission. Market-map logos also include official company marks
+          recorded as unlicensed or unknown when no reuse grant is named.
+          No image is AI-generated. The site&apos;s own text and original
+          diagrams are available under CC BY 4.0.
         </p>
         {/* Author identity (VAL-DIST-009): the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and

@@ -172,6 +172,28 @@ describe('COMPANIES data', () => {
     expect(unitree?.latestRound?.valuationUsd).toBe(9_040_000_000);
   });
 
+  it('carries website and logo through from the research source', () => {
+    const withLogo = COMPANIES.filter((company) => company.logo !== null);
+    const withSite = COMPANIES.filter((company) => company.website !== null);
+    expect(withLogo.length).toBe(111);
+    expect(withSite.length).toBe(110);
+    const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
+    expect(nvidia?.website).toBe('https://www.nvidia.com');
+    expect(nvidia?.logo).toBe('nvidia-logo');
+    const skild = COMPANIES.find((company) => company.id === 'skild-ai');
+    expect(skild?.website).toBe('https://www.skild.ai');
+    expect(skild?.logo).toBe('skild-ai-logo');
+    const boston = COMPANIES.find((company) => company.id === 'boston-dynamics');
+    const applied = COMPANIES.find(
+      (company) => company.id === 'applied-intuition',
+    );
+    expect(boston?.logo).toBe('boston-dynamics-logo');
+    expect(applied?.logo).toBe('applied-intuition-logo');
+    const kscale = COMPANIES.find((company) => company.id === 'k-scale-labs');
+    expect(kscale?.website).toBeNull();
+    expect(kscale?.logo).toBe('k-scale-labs-logo');
+  });
+
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {
     const covariant = COMPANIES.find((c) => c.id === 'covariant');
     expect(covariant?.status).toBe('acquired');
