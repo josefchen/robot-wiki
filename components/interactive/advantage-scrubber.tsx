@@ -51,8 +51,8 @@ const V_MIN = 5;
 const V_MAX = 45;
 
 const TAG_FILL: Record<TaggedSegment['tag'], string> = {
-  high: 'rgba(74, 222, 128, 0.10)',
-  low: 'rgba(248, 113, 113, 0.10)',
+  high: 'color-mix(in srgb, var(--color-ok) 12%, transparent)',
+  low: 'color-mix(in srgb, var(--color-err) 12%, transparent)',
 };
 const TAG_STROKE: Record<TaggedSegment['tag'], string> = {
   high: 'var(--color-ok)',

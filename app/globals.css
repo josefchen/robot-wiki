@@ -3,33 +3,51 @@
 
 /*
  * robot-wiki design tokens (Tailwind v4 CSS-first).
- * Direction: "technical instrument". Dark-first, flat surfaces, 1px borders,
- * small radii, one locked amber accent. No gradients, no glassmorphism.
- * See library/design-system.md.
+ * Direction: "technical instrument" on paper. Light-first, flat surfaces,
+ * 1px borders, small radii, one locked pine accent. No gradients, no
+ * glassmorphism. See library/design-system.md.
+ *
+ * This is the site's only theme. There is deliberately no dark variant and
+ * no prefers-color-scheme fork: a reference work that changes ground under
+ * the reader is two designs maintained badly, and the owner chose one.
+ * Values are the measured paper candidate from the accepted design spike.
  */
 @theme {
-  /* Palette (dark-first; off-black, never pure #000) */
-  --color-bg: #0b0d0e;
-  --color-surface: #121517;
-  --color-surface-2: #181c1f;
-  --color-border: #23282c;
-  --color-border-strong: #333a40;
-  --color-text: #e8eaec;
-  --color-text-dim: #9aa4ab;
+  /* Palette (light-first; warm off-white, never pure #fff) */
+  --color-bg: #f4f3ef;
+  --color-surface: #fbfaf7;
+  --color-surface-2: #eceae4;
+  --color-border: #d9d6cd;
+  --color-border-strong: #b3afa4;
+  --color-text: #1a1c1e;
+  --color-text-dim: #55595d;
 
   /* The single locked accent. Used sparingly: focus, key data, active nav. */
-  --color-accent: #f5a623;
+  --color-accent: #145c4f;
+
+  /*
+   * The plate a third-party company mark sits on (components/market-map/
+   * company-logo.tsx). Not a surface step: a deliberate mid neutral, because
+   * the mark set spans both extremes and no single light ground holds it.
+   * 35 of the 111 shipped marks are near-white (mean relative luminance
+   * above 0.60) and 41 are near-black, so a paper-coloured tile loses the
+   * first group and a near-black tile loses the second. This value sits at
+   * relative luminance 0.20, the point where pure white and the text colour
+   * are equidistant, giving both about 4.1:1. Every mark gets the same
+   * plate; nothing is special-cased per company.
+   */
+  --color-logo-plate: #7d7a73;
 
   /* Semantic state colors (not accents) */
-  --color-ok: #4ade80;
-  --color-warn: #f5a623;
-  --color-err: #f87171;
+  --color-ok: #1a6f45;
+  --color-warn: #8a5a00;
+  --color-err: #a52a1e;
 
-  /* Typography: Geist Sans UI, Source Serif 4 prose, JetBrains Mono code/data.
+  /* Typography: IBM Plex Sans UI, Newsreader prose, IBM Plex Mono code/data.
      Variables are set by next/font in app/layout.tsx. */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SF Mono', monospace;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;
 
   /* One radius scale, locked: small radii only */
   --radius-xs: 2px;
@@ -39,7 +57,7 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {

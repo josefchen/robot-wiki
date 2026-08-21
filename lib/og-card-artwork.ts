@@ -43,14 +43,23 @@ export interface CardArtworkInput {
   reviewYear: number;
 }
 
-// Design tokens (app/globals.css).
-const BG = '#0b0d0e';
-const PANEL = '#0f1214';
-const BORDER = '#23282c';
-const TEXT = '#e8eaec';
-const DIM = '#9aa4ab';
-const ACCENT = '#f5a623';
+// Design tokens (app/globals.css). Satori resolves no custom properties, so
+// the card restates the shipped values; they must move when the tokens move.
+// PANEL is the one value with no token of its own: it is the right panel's
+// ground, a half-step off --color-bg toward --color-surface-2, so the panel
+// reads as a separate field without becoming a second surface colour.
+const BG = '#f4f3ef';
+const PANEL = '#efeee9';
+const BORDER = '#d9d6cd';
+const TEXT = '#1a1c1e';
+const DIM = '#55595d';
+const ACCENT = '#145c4f';
 
+// The card's display face is the Geist TTF bundled with @vercel/og, not the
+// site's IBM Plex Sans. Satori needs a TTF/OTF on disk and next/font emits
+// only hashed woff2 into .next, so Plex is unavailable to a network-free
+// build script. Both are neutral grotesques at card scale; the ground, ink
+// and accent are the shipped tokens, which is what a reader actually reads.
 const SANS = 'Geist, sans-serif';
 const MONO = 'KaTeX_Typewriter, monospace';
 
@@ -124,8 +133,17 @@ export function ornamentFor(domain: string): Ornament {
 /** The bordered right panel width, minus its padding. */
 const PANEL_W = 304;
 
-/** The single fill every ornament mark uses. */
-const MARK = '#3c454c';
+/**
+ * The single fill every ornament mark uses: --color-border-strong.
+ *
+ * The mark has to invert with the ground, not merely survive it. Against the
+ * old near-black panel the previous value was a faint step UP in luminance
+ * (a 2.05:1 ratio), which is what made the lattice read as a watermark; kept
+ * on paper it becomes near-black-on-white and the ornament starts shouting
+ * louder than the title. Stepping DOWN from the panel instead restores the
+ * same 1.8:1 whisper in the same direction of feeling.
+ */
+const MARK = '#b3afa4';
 
 function hairline(width: number): CardNode {
   return div({ width: `${width}px`, height: '1px', backgroundColor: BORDER });

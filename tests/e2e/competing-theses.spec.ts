@@ -156,13 +156,13 @@ test.describe('frontier competing-theses module', () => {
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
     await expect(rlButton).toBeFocused();
 
-    // Focus state is visible (the global amber focus ring). The row's
-    // transition-colors animates the outline to amber over ~150ms, so poll.
+    // Focus state is visible (the global accent focus ring). The row's
+    // transition-colors animates the outline over ~150ms, so poll.
     await expect
       .poll(() =>
         rlButton.evaluate((el) => getComputedStyle(el).outlineColor),
       )
-      .toBe('rgb(245, 166, 35)');
+      .toBe('rgb(20, 92, 79)');
 
     // Reset restores the default selection.
     await explorer.getByRole('button', { name: 'Reset' }).click();

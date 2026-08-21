@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { Geist, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
@@ -8,20 +8,26 @@ import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
 import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+// The site's three faces, and the only three it loads. IBM Plex Sans and
+// IBM Plex Mono are static-instance families here rather than variable, so
+// the weights the design system actually uses are enumerated: 400/500/600
+// for interface text, 400/500 for figures and code.
+const plexSans = IBM_Plex_Sans({
+  variable: '--font-plex-sans',
+  weight: ['400', '500', '600'],
   subsets: ['latin'],
   display: 'swap',
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: '--font-source-serif',
+const newsreader = Newsreader({
+  variable: '--font-newsreader',
   subsets: ['latin'],
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
+const plexMono = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  weight: ['400', '500'],
   subsets: ['latin'],
   display: 'swap',
 });
@@ -68,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}
+      className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body>
         <SkipLink />

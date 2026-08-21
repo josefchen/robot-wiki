@@ -180,7 +180,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
           y={LANE_Y}
           width={Math.max(0, avoidX1 - latencyX1)}
           height={LANE_H}
-          fill="rgb(245 166 35 / 0.18)"
+          fill="color-mix(in srgb, var(--color-accent) 18%, transparent)"
           stroke="var(--color-accent)"
           strokeOpacity={0.55}
         />

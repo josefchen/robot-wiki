@@ -247,14 +247,19 @@ export function proprioReadings(degradation: number): number[] {
 }
 
 /**
- * Grayscale for a terrain height: low cells dark, high cells light, mapped
+ * Grayscale for a terrain height: low cells light, high cells dark, mapped
  * between the surface-2 and text tokens so teacher and reconstruction panels
  * read as the same kind of map.
+ *
+ * The direction follows the page ground. Ink on paper means a low cell has to
+ * recede toward the surface and a high cell has to approach the text colour;
+ * the reverse, which the dark theme used, would have painted the tallest
+ * terrain in near-white and lost it into the page.
  */
 export function terrainColor(height: number): string {
   const t = (height - TERRAIN_MIN) / (TERRAIN_MAX - TERRAIN_MIN);
   const ch = (a: number, b: number) => Math.round(a + t * (b - a));
-  return `rgb(${ch(24, 232)}, ${ch(28, 234)}, ${ch(31, 236)})`;
+  return `rgb(${ch(236, 26)}, ${ch(234, 28)}, ${ch(228, 30)})`;
 }
 
 /** "0.07 m": two-decimal meters for the MAE readout. */

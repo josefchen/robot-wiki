@@ -15,7 +15,7 @@ import { articleCardElement, siteCardElement, type CardNode } from '@/lib/og-car
  * is a constant of its family, so it cannot be read as per-article data.
  */
 
-const ACCENT = '#f5a623';
+const ACCENT = '#145c4f';
 const PANEL_WIDTH = 304;
 
 const SOURCE_PATH = join(process.cwd(), 'lib/og-card-artwork.ts');

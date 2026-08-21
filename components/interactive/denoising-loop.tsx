@@ -41,15 +41,18 @@ const PAD = { top: 16, right: 16, bottom: 30, left: 40 };
 const X_RANGE = { min: -3, max: 3 };
 const Y_RANGE = { min: -2, max: 2 };
 
-const GRAY = { r: 0x9a, g: 0xa4, b: 0xab };
-const AMBER = { r: 0xf5, g: 0xa6, b: 0x23 };
+// --color-text-dim and --color-accent. Interpolating between two colours
+// needs their channels, which a var() reference cannot supply, so the two
+// endpoints are restated here and must track the tokens in globals.css.
+const GRAY = { r: 0x55, g: 0x59, b: 0x5d };
+const ACCENT = { r: 0x14, g: 0x5c, b: 0x4f };
 
-/** Mode-0 dots resolve from gray to amber as the schedule converges. */
+/** Mode-0 dots resolve from gray to the accent as the schedule converges. */
 function sampleFill(mode: number, alpha: number): string {
   if (mode !== 0) return 'var(--color-text-dim)';
-  const r = Math.round(GRAY.r + (AMBER.r - GRAY.r) * alpha);
-  const g = Math.round(GRAY.g + (AMBER.g - GRAY.g) * alpha);
-  const b = Math.round(GRAY.b + (AMBER.b - GRAY.b) * alpha);
+  const r = Math.round(GRAY.r + (ACCENT.r - GRAY.r) * alpha);
+  const g = Math.round(GRAY.g + (ACCENT.g - GRAY.g) * alpha);
+  const b = Math.round(GRAY.b + (ACCENT.b - GRAY.b) * alpha);
   return `rgb(${r}, ${g}, ${b})`;
 }
 

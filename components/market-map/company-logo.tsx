@@ -19,6 +19,15 @@ type CompanyLogoProps = {
  * (or the file fails to load). The image is decorative: the company
  * name sits next to it on every surface that uses this mark.
  *
+ * Every mark sits on the same mid-neutral plate (--color-logo-plate). The
+ * marks are third-party assets this site does not own and cannot edit, and
+ * they span from near-white to near-black, so the plate is what makes the
+ * set legible as a set on a light page. Applied to all of them rather than
+ * to the ones that happen to be pale, so it reads as the frame the marks
+ * live in. The initials fallback keeps the page's own surface instead: it
+ * renders our text rather than someone's artwork, and that text is legible
+ * at full contrast without a plate.
+ *
  * Failure is keyed to the image path so a reused instance (BubbleDetail)
  * retries when the selected company or logo changes.
  */
@@ -34,6 +43,8 @@ export function CompanyLogo({
     size === 'sm'
       ? 'h-6 w-6 text-[10px]'
       : 'h-9 w-9 text-[11px]';
+  // Inset so a mark that bleeds to its own edge does not touch the plate's.
+  const inset = size === 'sm' ? 'p-[2px]' : 'p-[3px]';
 
   if (showImage && image) {
     return (
@@ -41,8 +52,9 @@ export function CompanyLogo({
         data-company-logo={company.id}
         data-logo-state="image"
         className={cx(
-          'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xs bg-surface-2',
+          'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xs bg-logo-plate',
           box,
+          inset,
           className,
         )}
       >
