@@ -55,16 +55,6 @@ const CONTRACT_EXCLUSIONS = [
   '/adjacent/surgical/',
 ] as const;
 
-/**
- * `/data-hardware/hardware-taxonomy` has no clause (d) cue: the buyer's
- * guide is frozen for this mission by owner instruction (mission AGENTS.md
- * § LOCKED PATHS), so its prose could not be edited to add one. Clauses
- * (a), (b) and (c) are graded on it like every other in-scope route; only
- * the cue is pending. Delete this entry, do not extend it: a second route
- * appearing here is a regression, not a new exemption.
- */
-const CUE_PENDING = ['/data-hardware/hardware-taxonomy/'] as const;
-
 interface Measurement {
   hasInteractive: boolean;
   precedingWords: number;
@@ -315,9 +305,8 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   test('clause (d): an operating cue naming a rendered control sits in the adjacent prose', () => {
     const missing = [...measurements.entries()]
       .filter(
-        ([route, m]) =>
+        ([, m]) =>
           m.hasInteractive &&
-          !CUE_PENDING.includes(route as (typeof CUE_PENDING)[number]) &&
           findCue(m.adjacentParagraphs, m.controlLabels) === null,
       )
       .map(([route]) => route);
@@ -334,7 +323,7 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
         m.hasInteractive && findCue(m.adjacentParagraphs, m.controlLabels) !== null,
     );
     const inScope = [...measurements.values()].filter((m) => m.hasInteractive);
-    expect(cued.length).toBe(inScope.length - CUE_PENDING.length);
+    expect(cued.length).toBe(inScope.length);
     for (const [route, m] of cued) {
       const cue = findCue(m.adjacentParagraphs, m.controlLabels);
       expect(cue, route).not.toBeNull();

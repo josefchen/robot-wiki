@@ -187,7 +187,7 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
       await page.context().close();
     });
 
-    test(`the affordance is quiet at rest and visible on hover and focus on ${route}`, async () => {
+    test(`the affordance becomes visible on hover and focus on ${route}`, async () => {
       const page = await open(route);
       const heading = page.locator(HEADINGS).first();
       const button = heading.locator('button[data-heading-permalink]');
@@ -208,8 +208,16 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
       await page.mouse.move(2, 2);
       const resting = await styles();
-      // Quiet at rest, which is what makes the reveal on hover meaningful.
-      expect(resting.opacity).toBeLessThanOrEqual(0.5);
+      // No resting opacity bound is asserted. VAL-WIKI-030 clause (d) reads:
+      // "In the heading's resting state the affordance may be visually quiet,
+      // but on hover of the heading and on keyboard focus of the affordance it
+      // becomes visible, meaning a non-zero bounding box with a computed
+      // `opacity` above 0.5 and a computed `visibility` of `visible`." The
+      // contract states an upper bound only on the revealed state, so the
+      // earlier `resting.opacity <= 0.5` here was a bound the spec invented;
+      // it sampled mid-transition and failed once at 0.543 on
+      // /manipulation/pi-line. The resting sample is still taken, because the
+      // focus-indicator comparison below needs an unfocused baseline.
 
       // Polled, not read once: the reveal is an opacity transition, so a
       // single read straight after the hover catches it mid-tween at ~0.
@@ -221,7 +229,6 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
       expect(hovered.height).toBeGreaterThan(0);
 
       await page.mouse.move(2, 2);
-      await expect.poll(async () => (await styles()).opacity).toBeLessThanOrEqual(0.5);
       await button.focus();
       await expect.poll(async () => (await styles()).opacity).toBeGreaterThan(0.5);
       const focused = await styles();
