@@ -24,6 +24,16 @@ const OUT = join(process.cwd(), 'out');
 const NAME_PATTERN = /copy.*link|link.*(to|this).*(section|heading)|permalink/i;
 const BANNED_DASHES = /[\u2013\u2014]/;
 
+/**
+ * The swept set is section headings. A Card renders an h3 for its own title
+ * (components/ui/card.tsx, marked data-card-title) which labels a box inside
+ * a section rather than addressing a section, so it is excluded: three of
+ * them sit in prose across the corpus, which is why the raw selector counts
+ * 259 headings where the assertion counts 255.
+ */
+const HEADINGS =
+  '.prose h2:not([data-card-title]), .prose h3:not([data-card-title])';
+
 /** Three routes for the detailed per-heading checks. */
 const SAMPLE = [
   '/manipulation/pi-line/',
@@ -74,7 +84,7 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
       await page.goto(`http://127.0.0.1:${server.port}${route}`);
       const seen = new Set<string>();
       const headings = await page
-        .locator('.prose h2, .prose h3')
+        .locator(HEADINGS)
         .evaluateAll((els) =>
           els.map((el) => {
             const button = el.querySelector('button[data-heading-permalink]');
@@ -129,7 +139,7 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
     test(`the fragment scrolls its heading into view on ${route}`, async () => {
       const first = await open(route);
       const ids = await first
-        .locator('.prose h2, .prose h3')
+        .locator(HEADINGS)
         .evaluateAll((els) => els.map((el) => el.id));
       await first.context().close();
       expect(ids.length).toBeGreaterThan(2);
@@ -138,20 +148,14 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
       // document that a fragment that does not resolve leaves it off-screen.
       const target = ids[ids.length - 1];
       const page = await open(`${route}#${encodeURIComponent(target)}`);
-      const box = await page
-        .locator(`#${CSS.escape(target)}`)
-        .evaluate((el) => {
-          const r = el.getBoundingClientRect();
-          return { top: r.top, bottom: r.bottom, height: window.innerHeight };
-        })
-        .catch(async () =>
-          page.evaluate((id) => {
-            const el = document.getElementById(id);
-            if (!el) throw new Error(`no #${id}`);
-            const r = el.getBoundingClientRect();
-            return { top: r.top, bottom: r.bottom, height: window.innerHeight };
-          }, target),
-        );
+      // getElementById rather than a CSS selector: several ids carry Greek
+      // letters, so a raw selector needs escaping the test context cannot do.
+      const box = await page.evaluate((id) => {
+        const el = document.getElementById(id);
+        if (!el) throw new Error(`no #${id}`);
+        const r = el.getBoundingClientRect();
+        return { top: r.top, bottom: r.bottom, height: window.innerHeight };
+      }, target);
       expect(box.bottom).toBeGreaterThan(0);
       expect(box.top).toBeLessThan(box.height);
       await page.context().close();
@@ -159,7 +163,7 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
     test(`activating the affordance copies the absolute URL on ${route}`, async () => {
       const page = await open(route);
-      const heading = page.locator('.prose h2').first();
+      const heading = page.locator(HEADINGS).first();
       const id = await heading.evaluate((el) => el.id);
       const button = heading.locator('button[data-heading-permalink]');
 
@@ -185,10 +189,10 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
     test(`the affordance is quiet at rest and visible on hover and focus on ${route}`, async () => {
       const page = await open(route);
-      const heading = page.locator('.prose h2').first();
+      const heading = page.locator(HEADINGS).first();
       const button = heading.locator('button[data-heading-permalink]');
 
-      const styles = (state: string) =>
+      const styles = () =>
         button.evaluate((el) => {
           const s = getComputedStyle(el);
           const r = el.getBoundingClientRect();
@@ -199,24 +203,28 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
             height: r.height,
             outline: `${s.outlineStyle} ${s.outlineWidth} ${s.outlineColor}`,
             boxShadow: s.boxShadow,
-            state,
           };
         });
 
       await page.mouse.move(2, 2);
-      const resting = await styles('resting');
+      const resting = await styles();
+      // Quiet at rest, which is what makes the reveal on hover meaningful.
+      expect(resting.opacity).toBeLessThanOrEqual(0.5);
 
+      // Polled, not read once: the reveal is an opacity transition, so a
+      // single read straight after the hover catches it mid-tween at ~0.
       await heading.hover();
-      const hovered = await styles('hovered');
-      expect(hovered.opacity).toBeGreaterThan(0.5);
+      await expect.poll(async () => (await styles()).opacity).toBeGreaterThan(0.5);
+      const hovered = await styles();
       expect(hovered.visibility).toBe('visible');
       expect(hovered.width).toBeGreaterThan(0);
       expect(hovered.height).toBeGreaterThan(0);
 
       await page.mouse.move(2, 2);
+      await expect.poll(async () => (await styles()).opacity).toBeLessThanOrEqual(0.5);
       await button.focus();
-      const focused = await styles('focused');
-      expect(focused.opacity).toBeGreaterThan(0.5);
+      await expect.poll(async () => (await styles()).opacity).toBeGreaterThan(0.5);
+      const focused = await styles();
       expect(focused.visibility).toBe('visible');
       // A visible focus indicator that differs from the unfocused state.
       expect(`${focused.outline}|${focused.boxShadow}`).not.toBe(
@@ -227,7 +235,7 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
     test(`the affordance is reachable by Tab in document order on ${route}`, async () => {
       const page = await open(route);
-      const heading = page.locator('.prose h2').first();
+      const heading = page.locator(HEADINGS).first();
       const id = await heading.evaluate((el) => el.id);
       // Focus the heading's own wrapping anchor, then Tab once: the
       // affordance is the heading's next focusable in document order.
@@ -242,20 +250,26 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
     test(`clicking the heading still updates location.hash on ${route}`, async () => {
       const page = await open(route);
-      const heading = page.locator('.prose h2').first();
+      const heading = page.locator(HEADINGS).first();
       const id = await heading.evaluate((el) => el.id);
       const before = await page.evaluate(() => window.location.hash);
       expect(before).toBe('');
       await heading.locator('a').first().click();
+      // location.hash percent-encodes non-ASCII, and several ids carry Greek
+      // letters, so the comparison decodes rather than expecting the raw id.
       await expect
-        .poll(() => page.evaluate(() => window.location.hash))
+        .poll(async () =>
+          decodeURIComponent(
+            await page.evaluate(() => window.location.hash),
+          ),
+        )
         .toBe(`#${id}`);
       await page.context().close();
     });
 
     test(`no new axe violation and no doubly-boxed control on ${route} (VAL-WIKI-018, VAL-DESIGN-019)`, async () => {
       const page = await open(route);
-      await page.locator('.prose h2').first().hover();
+      await page.locator(HEADINGS).first().hover();
       const results = await new AxeBuilder({ page }).analyze();
       expect(results.violations).toEqual([]);
 

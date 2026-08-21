@@ -16,11 +16,23 @@ export const AUTHORS_SHOWN = 8;
  * the full registry list without leaving the page. Order and spelling are the
  * registry's; nothing is reordered and nothing is summarised away.
  */
-export function AuthorList({ authors }: { authors: readonly string[] }) {
+export function AuthorList({
+  authors,
+  /** The rest of the meta line (venue and year), which reads before the control. */
+  trailing,
+}: {
+  authors: readonly string[];
+  trailing: string;
+}) {
   const [expanded, setExpanded] = useState(false);
 
   if (authors.length <= AUTHORS_SHOWN) {
-    return <span data-author-names>{authors.join(', ')}</span>;
+    return (
+      <>
+        <span data-author-names>{authors.join(', ')}</span>
+        {trailing}
+      </>
+    );
   }
 
   const hidden = authors.length - AUTHORS_SHOWN;
@@ -30,8 +42,9 @@ export function AuthorList({ authors }: { authors: readonly string[] }) {
       <span data-author-names>
         {expanded
           ? authors.join(', ')
-          : `${authors.slice(0, AUTHORS_SHOWN).join(', ')}, and ${hidden} more authors`}
-      </span>{' '}
+          : `${authors.slice(0, AUTHORS_SHOWN).join(', ')}, and ${hidden} more`}
+      </span>
+      {trailing}{' '}
       <button
         type="button"
         aria-expanded={expanded}

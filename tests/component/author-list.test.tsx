@@ -20,14 +20,14 @@ function renderedNames(): string {
 
 describe('AuthorList', () => {
   it('renders every name and no marker at the bound', () => {
-    render(<AuthorList authors={names(AUTHORS_SHOWN)} />);
+    render(<AuthorList authors={names(AUTHORS_SHOWN)} trailing=", 2026." />);
     expect(renderedNames()).toBe(names(AUTHORS_SHOWN).join(', '));
     expect(renderedNames()).not.toMatch(ELISION);
     expect(screen.queryByRole('button')).toBeNull();
   });
 
   it('elides past the bound and states how many are not shown', () => {
-    render(<AuthorList authors={worstCase.authors} />);
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
     const text = renderedNames();
     const match = ELISION.exec(text);
     expect(match).not.toBeNull();
@@ -37,7 +37,7 @@ describe('AuthorList', () => {
   });
 
   it('never renders more than the bound in the truncated state', () => {
-    render(<AuthorList authors={worstCase.authors} />);
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
     const shown = worstCase.authors.filter((a) => renderedNames().includes(a));
     expect(shown).toHaveLength(AUTHORS_SHOWN);
     expect(shown).toEqual(worstCase.authors.slice(0, AUTHORS_SHOWN));
@@ -45,7 +45,7 @@ describe('AuthorList', () => {
 
   it('reveals the full registry list in registry order on demand', async () => {
     const user = userEvent.setup();
-    render(<AuthorList authors={worstCase.authors} />);
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
     const expand = screen.getByRole('button', {
       name: `Show all ${worstCase.authors.length} authors`,
     });
@@ -59,24 +59,21 @@ describe('AuthorList', () => {
 
   it('collapses back to the truncated line', async () => {
     const user = userEvent.setup();
-    render(<AuthorList authors={worstCase.authors} />);
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
     await user.click(screen.getByRole('button'));
     await user.click(screen.getByRole('button'));
     expect(renderedNames()).toMatch(ELISION);
   });
 
   it('always keeps the first author, so the entry stays citable', () => {
-    render(<AuthorList authors={worstCase.authors} />);
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
     expect(renderedNames().startsWith(worstCase.authors[0])).toBe(true);
   });
 
   it('invents no name in either state', async () => {
     const user = userEvent.setup();
-    render(<AuthorList authors={worstCase.authors} />);
-    const truncated = renderedNames().replace(
-      /,\s*and\s*\d+\s+more authors$/i,
-      '',
-    );
+    render(<AuthorList authors={worstCase.authors} trailing=", 2026." />);
+    const truncated = renderedNames().replace(/,\s*and\s*\d+\s+more$/i, '');
     for (const part of truncated.split(', ').filter(Boolean)) {
       expect(worstCase.authors).toContain(part.trim());
     }

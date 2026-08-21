@@ -55,9 +55,12 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                 {furtherReading ? <Badge>Further reading</Badge> : null}
               </div>
               <p className="mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim">
-                <AuthorList authors={citation.authors} />
-                {citation.venue ? `, ${citation.venue}` : ''}
-                {venueStatesYear(citation) ? '' : `, ${citation.year}`}.
+                <AuthorList
+                  authors={citation.authors}
+                  trailing={`${citation.venue ? `, ${citation.venue}` : ''}${
+                    venueStatesYear(citation) ? '' : `, ${citation.year}`
+                  }.`}
+                />
               </p>
               <p className="mt-0.5 break-all font-mono text-xs leading-relaxed text-text-dim">
                 {citation.url}
