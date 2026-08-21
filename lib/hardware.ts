@@ -16,7 +16,13 @@ export type CategoryFilter =
   | 'humanoid'
   | 'hand'
   | 'sensor'
-  | 'compute';
+  | 'compute'
+  | 'wheelbase'
+  | 'lidar'
+  | 'camera'
+  | 'imu'
+  | 'mobile-manipulator'
+  | 'quadruped';
 
 export type PriceFilter =
   | 'all'
@@ -67,6 +73,10 @@ function matchesPrice(entry: HardwareEntry, price: PriceFilter): boolean {
       return entry.priceUsd >= 10_000 && entry.priceUsd < 25_000;
     case '25k-plus':
       return entry.priceUsd >= 25_000;
+    default: {
+      const _exhaustive: never = price;
+      return _exhaustive;
+    }
   }
 }
 
@@ -81,6 +91,10 @@ function matchesDof(entry: HardwareEntry, dof: DofFilter): boolean {
       return entry.dof >= 10 && entry.dof <= 30;
     case '30-plus':
       return entry.dof > 30;
+    default: {
+      const _exhaustive: never = dof;
+      return _exhaustive;
+    }
   }
 }
 

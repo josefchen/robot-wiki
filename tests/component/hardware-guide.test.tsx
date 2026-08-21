@@ -14,6 +14,13 @@ function rowNamed(name: string | RegExp): HTMLElement | undefined {
 }
 
 describe('HardwareGuide', () => {
+  it('puts a product photo or an explicit no-photo mark on every row', () => {
+    render(<HardwareGuide />);
+    const photos = document.querySelectorAll('img[src^="/images/hardware/"]');
+    expect(photos.length).toBeGreaterThan(50);
+    expect(screen.getAllByText('no public photo').length).toBeGreaterThanOrEqual(1);
+  });
+
   it('renders every entry with the buyer columns (VAL-DATA-011)', () => {
     render(<HardwareGuide />);
     expect(
@@ -34,12 +41,24 @@ describe('HardwareGuide', () => {
     }
   });
 
-  it('shows all five hardware families in the rendered rows (VAL-DATA-011)', () => {
+  it('shows every hardware family in the rendered rows (VAL-DATA-011)', () => {
     render(<HardwareGuide />);
     const categoryCells = bodyRows().map(
       (row) => within(row).getAllByRole('cell')[1].textContent,
     );
-    for (const label of ['Arm', 'Humanoid', 'Hand', 'Sensor', 'Compute']) {
+    for (const label of [
+      'Arm',
+      'Humanoid',
+      'Hand',
+      'Sensor',
+      'Compute',
+      'Wheelbase',
+      'Lidar',
+      'Camera',
+      'IMU',
+      'Mobile manipulator',
+      'Quadruped',
+    ]) {
       expect(
         categoryCells.some((text) => text === label),
         `category ${label} missing from rendered rows`,
@@ -127,11 +146,12 @@ describe('HardwareGuide', () => {
     await user.click(screen.getByRole('button', { name: /under \$1k/i }));
     // Four entry arms plus the two tactile sensors with published retail
     // prices (DIGIT $350, GelSight Mini $500).
-    expect(bodyRows()).toHaveLength(6);
+    expect(bodyRows()).toHaveLength(10);
     expect(rowNamed(/SO-101 \(self-build\)/)).toBeDefined();
     expect(rowNamed('Koch v1.1')).toBeDefined();
     expect(rowNamed('DIGIT')).toBeDefined();
     expect(rowNamed(/GelSight Mini/)).toBeDefined();
+    expect(rowNamed('OAK-D')).toBeDefined();
   });
 
   it('composes price and availability filters conjunctively (VAL-DATA-016)', async () => {
