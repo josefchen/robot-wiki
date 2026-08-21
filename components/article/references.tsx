@@ -1,3 +1,4 @@
+import { AuthorList } from '@/components/article/author-list';
 import { Badge } from '@/components/ui/badge';
 import { venueStatesYear } from '@/data/citations';
 import type { ResolvedReference } from '@/lib/references';
@@ -54,7 +55,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                 {furtherReading ? <Badge>Further reading</Badge> : null}
               </div>
               <p className="mt-1 break-words font-sans text-[13px] leading-relaxed text-text-dim">
-                {citation.authors.join(', ')}
+                <AuthorList authors={citation.authors} />
                 {citation.venue ? `, ${citation.venue}` : ''}
                 {venueStatesYear(citation) ? '' : `, ${citation.year}`}.
               </p>
