@@ -1,9 +1,10 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, licenceLabel } from '../../data/images';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { settleTransitions } from './settle';
 
 /**
  * Licensed imagery and attribution (VAL-IMG-001 through VAL-IMG-014, the
@@ -52,27 +53,7 @@ test.afterAll(async () => {
 /** Content images: img elements inside main, at least 64px in both dims. */
 const CONTENT_IMAGES = 'main img';
 
-/**
- * Wait for in-flight CSS transitions before grading colour contrast.
- *
- * Citation chips and nav links carry `transition-colors` at 0.15s, and a
- * `goto` can hand control back while those are still interpolating. axe then
- * samples a blended colour that no stylesheet declares and reports contrast
- * failures on it: measured here as `#a77164` on a chip whose settled computed
- * colour is `rgb(154,164,171)`, and as 17 and 69 nodes on two runs where an
- * immediate re-analyze of the same untouched page returned 0. Waiting on the
- * animation promises is deterministic, unlike a fixed sleep, and grades the
- * colours a reader actually sees.
- */
-async function settleTransitions(page: Page): Promise<void> {
-  await page.evaluate(() =>
-    Promise.all(
-      document
-        .getAnimations()
-        .map((a) => a.finished.catch(() => undefined)),
-    ).then(() => undefined),
-  );
-}
+
 
 test.describe('licensed imagery', () => {
   test('every content image has meaningful alt text (VAL-IMG-001)', async ({
