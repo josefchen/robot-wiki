@@ -90,6 +90,11 @@ function articleRoutes(): string[] {
  * fallback rather than a miss.
  */
 const MEASURE = (): Measurement | null => {
+  // Every heading carries a copy-link button (VAL-WIKI-030), which is prose
+  // chrome rather than an interactive's control, so a bare `button` selector
+  // would find one in the first heading and read the whole article as the
+  // interactive region.
+  const CONTROLS = 'input, select, button:not([data-heading-permalink])';
   const prose = document.querySelector<HTMLElement>(
     'div[data-pagefind-body].prose',
   );
@@ -105,7 +110,7 @@ const MEASURE = (): Measurement | null => {
   for (const candidate of svgs) {
     let node = candidate.parentElement;
     while (node !== null && node !== prose) {
-      if (node.querySelector('input, select, button') !== null) {
+      if (node.querySelector(CONTROLS) !== null) {
         region = node;
         svg = candidate;
         break;
@@ -115,7 +120,7 @@ const MEASURE = (): Measurement | null => {
     if (region !== null) break;
   }
   if (region === null) {
-    const control = prose.querySelector('input, select, button');
+    const control = prose.querySelector(CONTROLS);
     let node = control === null ? null : control.parentElement;
     while (node !== null && node !== prose && node.parentElement !== prose) {
       node = node.parentElement;
@@ -179,7 +184,7 @@ const MEASURE = (): Measurement | null => {
 
   const labels: string[] = [];
   for (const control of Array.from(
-    region.querySelectorAll<HTMLElement>('input, select, button'),
+    region.querySelectorAll<HTMLElement>(CONTROLS),
   )) {
     const aria = control.getAttribute('aria-label');
     if (aria !== null) labels.push(aria);

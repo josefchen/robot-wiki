@@ -40,10 +40,15 @@ function heading(level: 2 | 3) {
         </Tag>
       );
     }
+    const text = textOf(children).trim();
     return (
-      <Tag id={id} className="group/heading" {...rest}>
+      // The affordance sits inside the heading so it can ride the heading's
+      // hover, which would fold its label into the heading's accessible name.
+      // aria-label pins the heading to its own text instead, so the heading
+      // still announces as the section it names.
+      <Tag id={id} aria-label={text} className="group/heading" {...rest}>
         {children}
-        <HeadingPermalink headingId={id} headingText={textOf(children).trim()} />
+        <HeadingPermalink headingId={id} headingText={text} />
       </Tag>
     );
   };

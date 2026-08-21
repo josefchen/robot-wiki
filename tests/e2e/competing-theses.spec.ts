@@ -113,9 +113,14 @@ test.describe('frontier competing-theses module', () => {
     await page.goto(ROUTE);
     const detail = page.getByTestId('thesis-detail');
     const readout = page.getByTestId('thesis-readout');
+    // Scoped to the interactive: several thesis names are also article
+    // headings, and every heading carries a copy-link button whose
+    // accessible name contains the heading text (VAL-WIKI-030), so an
+    // unscoped by-name lookup matches two elements.
+    const explorer = page.getByTestId('thesis-explorer');
 
     // Mouse: select the world-models thesis.
-    await page
+    await explorer
       .getByRole('button', { name: 'World-model-based training' })
       .click();
     await expect(readout).toHaveText(
@@ -129,7 +134,7 @@ test.describe('frontier competing-theses module', () => {
     ).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
 
     // Mouse: select the teleop bridge thesis.
-    await page
+    await explorer
       .getByRole('button', { name: 'Teleoperation as a bridge' })
       .click();
     await expect(detail).toContainText('65,000+');
@@ -137,7 +142,7 @@ test.describe('frontier competing-theses module', () => {
     await expect(detail).not.toContainText('Cosmos 3');
 
     // Keyboard: focus a row button and move with the arrow keys.
-    await page
+    await explorer
       .getByRole('button', { name: 'Teleoperation as a bridge' })
       .focus();
     await page.keyboard.press('ArrowUp');
@@ -145,7 +150,7 @@ test.describe('frontier competing-theses module', () => {
       '6 theses, showing: RL fine-tuning on imitation',
     );
     await expect(detail).toContainText('RL-100');
-    const rlButton = page.getByRole('button', {
+    const rlButton = explorer.getByRole('button', {
       name: 'RL fine-tuning on imitation',
     });
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
@@ -160,7 +165,7 @@ test.describe('frontier competing-theses module', () => {
       .toBe('rgb(245, 166, 35)');
 
     // Reset restores the default selection.
-    await page.getByRole('button', { name: 'Reset' }).click();
+    await explorer.getByRole('button', { name: 'Reset' }).click();
     await expect(readout).toHaveText(
       '6 theses, showing: End-to-end VLA scaling',
     );
