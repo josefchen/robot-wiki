@@ -5,30 +5,32 @@
  *
  * Design system: the site's "technical instrument" tokens (dark
  * near-black canvas, hairline borders, one locked amber accent, Geist
- * sans for titles, a mono face for readouts). Every article card carries
- * a derived instrument diagram, not a repeated canvas: the diagram
- * family is picked from a hash of the article's domain/slug, so two
- * articles never render the same picture and nothing on a card is
+ * sans for titles, a mono face for readouts). Nothing on a card is
  * build state (AGENTS.md design rules 1 and 6: no progress counters, no
  * drafts).
  *
- * HONESTY CONTRACT FOR THE DIAGRAM GEOMETRY (route (a), "make it
- * real", chosen over decorative abstraction on 2026-08-20): every
- * diagram family either is bound to real per-article quantities or
- * reads as unambiguous ornament. The bar-spectrum ("signal") family
- * encodes real data and ONLY real data: the bar count is the article's
- * reference count (clamped to the panel, floor 6) and the bar heights
- * follow a fixed monotonic ramp whose envelope and tilt are a
- * deterministic function of the review year alone, with one amber
- * bar. No hash jitter feeds this geometry, so no invented value can
- * survive in the drawing. The reference count and review year are also
- * printed on the card (the mono footer and the REVIEWED header), so a
- * reader can check the encoding against the label. The remaining
- * families (node graph, timeline, dot field, intervals, mosaic) draw
- * abstract geometry with no axis rules, no regular bar grid and no
- * readable values: ornament, not fake measurement. All geometry is
- * deterministic given the card input, so the same article always
- * renders the same picture.
+ * HONESTY CONTRACT FOR THE PANEL ORNAMENT (VAL-IMG-015). The right-hand
+ * panel carries an ornament, not a diagram, and the two earlier
+ * chart-shaped attempts are why that is stated so bluntly. The article
+ * facts this module receives are the reference count and the review
+ * year; both are printed as text on the card, and there is no third
+ * quantity a series of marks could honestly encode. So the panel does
+ * not draw a series at all. Each ornament is a fixed lattice of
+ * IDENTICAL marks, so no mark has an extent another mark can be
+ * compared against, and a magnitude cannot be read out of it. None of
+ * them draws a baseline or axis rule, and none paints a mark in the
+ * accent colour, because a single distinguished mark reads as "this
+ * datum is the significant one".
+ *
+ * The ornament is selected by the article's `domain` field through the
+ * literal table below, so every article in a domain renders the same
+ * ornament and the drawing varies with nothing else. That is the point:
+ * a constant claims nothing. Varying it per article, by a hash or a
+ * random stream or arithmetic on a year, is what made the earlier
+ * versions read as measurements of data that was never there.
+ *
+ * Cards stay byte-distinct (VAL-DIST-003) through their text, which
+ * carries the title, domain, reference count and review year.
  */
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
@@ -73,7 +75,7 @@ function el(
   // Satori requires an explicit display on every element whose children
   // is an array (even a single-element array). Default such wrappers to
   // flex; absolutely-positioned children leave the flow, so this is
-  // inert for the relative diagram containers that rely on it.
+  // inert for the relative ornament containers that rely on it.
   const resolved =
     Array.isArray(children) && style.display === undefined
       ? { display: 'flex', ...style }
@@ -88,358 +90,199 @@ function div(style: Record<string, unknown>, children?: string | CardNode[]): Ca
 }
 
 /* ------------------------------------------------------------------ */
-/* Deterministic seeding: FNV-1a over domain/slug, mulberry32 stream.  */
-/* Published slugs are unique, so every card's geometry seed differs.  */
+/* Panel ornaments. Each is a fixed lattice of identical marks: flat    */
+/* geometry, no gradients, no glow, no accent colour and no rules. The  */
+/* accent stays out of the panel deliberately (see the honesty contract */
+/* at the top of this file), so the card's only amber is the site       */
+/* card's WIKI eyebrow.                                                 */
 /* ------------------------------------------------------------------ */
 
-function hashString(s: string): number {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 0x01000193);
-  }
-  return h >>> 0;
-}
+type Ornament = 'lattice' | 'mesh' | 'stitch' | 'weave' | 'ring' | 'pitch';
 
-class Rng {
-  private state: number;
-  constructor(seed: number) {
-    this.state = seed >>> 0;
-  }
-  next(): number {
-    this.state = (this.state + 0x6d2b79f5) >>> 0;
-    let t = this.state;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  }
-  range(min: number, max: number): number {
-    return min + this.next() * (max - min);
-  }
-  int(min: number, maxInclusive: number): number {
-    return Math.floor(this.range(min, maxInclusive + 1));
-  }
-  pick<T>(items: readonly T[]): T {
-    return items[this.int(0, items.length - 1)];
-  }
-}
-
-/* ------------------------------------------------------------------ */
-/* Diagram families. Each is a small instrument drawn with flat        */
-/* geometry (hairlines, dots, bars): no gradients, no glow, one amber  */
-/* highlight per card (color-consistency lock).                        */
-/* ------------------------------------------------------------------ */
-
-type DiagramFamily =
-  | 'signal'
-  | 'scatter'
-  | 'timeline'
-  | 'intervals'
-  | 'graph'
-  | 'mosaic';
-
-/** Which families suit which domain; the seed picks within the set. */
-const DOMAIN_FAMILIES: Record<string, readonly DiagramFamily[]> = {
-  manipulation: ['graph', 'signal', 'intervals'],
-  'rl-sim2real': ['intervals', 'signal', 'mosaic'],
-  'world-models': ['mosaic', 'scatter', 'graph'],
-  'data-hardware': ['signal', 'scatter', 'mosaic'],
-  classical: ['graph', 'signal', 'timeline'],
-  frontier: ['timeline', 'scatter', 'intervals'],
-  adjacent: ['scatter', 'timeline', 'mosaic'],
+/**
+ * The ornament each domain wears. A literal table read by the article's
+ * `domain` frontmatter field and nothing else, so every article in a
+ * domain renders the identical drawing.
+ */
+const DOMAIN_ORNAMENT: Record<string, Ornament> = {
+  manipulation: 'lattice',
+  'rl-sim2real': 'weave',
+  'world-models': 'mesh',
+  'data-hardware': 'stitch',
+  classical: 'ring',
+  frontier: 'pitch',
+  adjacent: 'mesh',
 };
 
-const ALL_FAMILIES: readonly DiagramFamily[] = [
-  'signal',
-  'scatter',
-  'timeline',
-  'intervals',
-  'graph',
-  'mosaic',
-];
+const FALLBACK_ORNAMENT: Ornament = 'lattice';
 
-/** The diagram family a card uses (exported for tests). */
-export function diagramFamilyFor(domain: string, slug: string): DiagramFamily {
-  const families = DOMAIN_FAMILIES[domain] ?? ALL_FAMILIES;
-  return families[hashString(`${domain}/${slug}`) % families.length];
+/** The ornament a card wears (exported for tests). */
+export function ornamentFor(domain: string): Ornament {
+  return DOMAIN_ORNAMENT[domain] ?? FALLBACK_ORNAMENT;
 }
 
-const DIAGRAM_W = 304;
-const DIAGRAM_H = 534;
+/** The bordered right panel, minus its padding. */
+const PANEL_W = 304;
+const PANEL_H = 534;
+
+/** The single fill every ornament mark uses. */
+const MARK = '#3c454c';
 
 function hairline(width: number): CardNode {
   return div({ width: `${width}px`, height: '1px', backgroundColor: BORDER });
 }
 
-function vline(height: number): CardNode {
-  return div({ width: '1px', height: `${height}px`, backgroundColor: BORDER });
-}
-
-/**
- * Reference spectrum (real encoding, no invented values): one bar per
- * cited source, heights stepped by a monotonic ramp whose envelope and
- * tilt are derived from the review year alone, one amber bar. The bar
- * count equals the printed reference count (clamped to the panel,
- * floor 6), so the drawing and the "N REFERENCES" label agree. With six
- * or more bars at varied heights the family reads as ornament with a
- * count, not as a measured distribution; the printed labels on the
- * card carry the exact numbers.
- */
-export function signalDiagram(referenceCount: number, reviewYear: number): CardNode {
-  const rng = new Rng(reviewYear);
-  const count = Math.max(6, Math.min(referenceCount, 24));
-  const gap = 3;
-  const barW = Math.floor((DIAGRAM_W - (count - 1) * gap) / count);
-  const envelope = rng.range(0.45, 0.8);
-  const tilt = rng.range(-0.25, 0.25);
-  const amberIndex = Math.max(0, Math.min(count - 1, Math.round(count / 2) - 1));
-  const bars: CardNode[] = [];
-  const values: number[] = [];
-  for (let i = 0; i < count; i++) {
-    const phase = i / (count - 1);
-    const value = Math.min(1, Math.max(0.16, envelope + tilt * (phase - 0.5)));
-    const height = Math.round(value * (DIAGRAM_H - 90));
-    values.push(height);
-    bars.push(
-      div({
-        width: `${barW}px`,
-        height: `${height}px`,
-        backgroundColor: i === amberIndex ? ACCENT : '#525c64',
-      }),
-    );
-  }
-  const maxBar = DIAGRAM_H - 90;
-  const margined = bars.map((bar, i) => {
-    const marginTop = Math.max(0, maxBar - values[i]);
-    return marginTop > 0
-      ? { type: bar.type, props: { style: { ...bar.props.style, marginTop: `${marginTop}px` }, children: undefined } }
-      : bar;
-  });
-  return div({ display: 'flex', flexDirection: 'column' }, [
-    div({ display: 'flex', gap: `${gap}px`, alignItems: 'flex-start' }, margined),
-    div({ marginTop: '14px', display: 'flex' }, [hairline(DIAGRAM_W)]),
-  ]);
-}
-
-/** Dot field over crosshair rules: one dot ringed in amber. */
-function scatterDiagram(rng: Rng): CardNode {
-  const count = rng.int(22, 34);
-  const amber = rng.int(0, count - 1);
-  const dots: CardNode[] = [];
-  for (let i = 0; i < count; i++) {
-    const size = rng.pick([5, 6, 8]);
-    const x = rng.range(6, DIAGRAM_W - size - 6);
-    const y = rng.range(6, DIAGRAM_H - size - 6);
-    const isAmber = i === amber;
-    dots.push(
-      div(
-        {
-          position: 'absolute',
-          left: `${x}px`,
-          top: `${y}px`,
-          width: `${size}px`,
-          height: `${size}px`,
-          borderRadius: '9999px',
-          backgroundColor: isAmber ? ACCENT : '#5f6a72',
-        },
-      ),
-    );
-    if (isAmber) {
-      dots.push(
-        div({
-          position: 'absolute',
-          left: `${x - 9}px`,
-          top: `${y - 9}px`,
-          width: `${size + 18}px`,
-          height: `${size + 18}px`,
-          borderRadius: '9999px',
-          border: `1px solid ${ACCENT}`,
-        }),
+/** Rows of identical marks: the shape every flow-laid ornament shares. */
+function markGrid(
+  cols: number,
+  rows: number,
+  colGap: number,
+  rowGap: number,
+  mark: () => CardNode | undefined,
+  cellW: number,
+  cellH: number,
+): CardNode {
+  const rowNodes: CardNode[] = [];
+  for (let r = 0; r < rows; r++) {
+    const cells: CardNode[] = [];
+    for (let c = 0; c < cols; c++) {
+      cells.push(
+        mark() ?? div({ width: `${cellW}px`, height: `${cellH}px` }),
       );
     }
-  }
-  return div({ position: 'relative', display: 'flex', width: `${DIAGRAM_W}px`, height: `${DIAGRAM_H}px` }, [
-    div({ position: 'absolute', left: '0', top: `${Math.round(DIAGRAM_H * 0.62)}px`, display: 'flex' }, [
-      hairline(DIAGRAM_W),
-    ]),
-    div({ position: 'absolute', left: `${Math.round(DIAGRAM_W * 0.34)}px`, top: '0', display: 'flex' }, [
-      vline(DIAGRAM_H),
-    ]),
-    ...dots,
-  ]);
-}
-
-/** Timeline: hairline axis, seeded event dots, one amber, a drift tail. */
-function timelineDiagram(rng: Rng): CardNode {
-  const count = rng.int(7, 11);
-  const amber = rng.int(1, count - 2);
-  const events: CardNode[] = [];
-  let x = rng.range(10, 60);
-  for (let i = 0; i < count; i++) {
-    const size = i === amber ? 14 : rng.pick([6, 8, 10]);
-    events.push(
-      div({
-        position: 'absolute',
-        left: `${x - size / 2}px`,
-        top: `${DIAGRAM_H / 2 - size / 2}px`,
-        width: `${size}px`,
-        height: `${size}px`,
-        borderRadius: '9999px',
-        backgroundColor: i === amber ? ACCENT : '#5f6a72',
-      }),
-    );
-    x += rng.range(22, 42);
+    rowNodes.push(div({ display: 'flex', gap: `${colGap}px` }, cells));
   }
   return div(
-    { position: 'relative', display: 'flex', width: `${DIAGRAM_W}px`, height: `${DIAGRAM_H}px` },
-    [
-      div({ position: 'absolute', left: '0', top: `${DIAGRAM_H / 2}px`, display: 'flex' }, [hairline(DIAGRAM_W)]),
-      ...events,
-    ],
+    { display: 'flex', flexDirection: 'column', gap: `${rowGap}px`, width: `${PANEL_W}px` },
+    rowNodes,
   );
 }
 
-/** Uncertainty intervals: stacked bars drifting around a center line. */
-function intervalsDiagram(rng: Rng): CardNode {
-  const count = rng.int(6, 9);
-  const amber = rng.int(0, count - 1);
-  const rows: CardNode[] = [];
-  const rowH = Math.floor((DIAGRAM_H - 40) / count);
-  const drift = rng.range(-0.2, 0.2);
-  for (let i = 0; i < count; i++) {
-    const phase = i / (count - 1);
-    const center = DIAGRAM_W * (0.5 + drift * (phase - 0.5));
-    const halfWidth = rng.range(40, 120) * (1 - 0.4 * phase);
-    const left = Math.max(2, center - halfWidth);
-    const width = Math.min(DIAGRAM_W - left - 2, halfWidth * 2);
-    const isAmber = i === amber;
-    rows.push(
-      div(
-        {
-          display: 'flex',
-          alignItems: 'center',
-          height: `${rowH}px`,
-        },
-        [
-          div({
-            width: `${Math.round(width)}px`,
-            height: isAmber ? '4px' : `${rng.pick([2, 3])}px`,
-            marginLeft: `${Math.round(left)}px`,
-            backgroundColor: isAmber ? ACCENT : '#5f6a72',
-          }),
-        ],
-      ),
-    );
-  }
-  return div({ display: 'flex', flexDirection: 'column', paddingTop: '20px' }, [
-    ...rows,
-    hairline(DIAGRAM_W),
-  ]);
+function dot(size: number): CardNode {
+  return div({
+    width: `${size}px`,
+    height: `${size}px`,
+    borderRadius: '9999px',
+    backgroundColor: MARK,
+  });
 }
 
-/** Node graph: seeded dots joined by hairline edges, one amber node. */
-function graphDiagram(rng: Rng): CardNode {
-  const nodes: Array<{ x: number; y: number }> = [];
-  const count = rng.int(9, 13);
+/** Even lattice of identical dots. */
+function latticeOrnament(): CardNode {
+  return markGrid(7, 13, 43, 38, () => dot(6), 6, 6);
+}
+
+/** Open mesh of identical hairline-outlined cells. */
+function meshOrnament(): CardNode {
+  return markGrid(
+    5,
+    9,
+    43,
+    37,
+    () => div({ width: '26px', height: '26px', border: `1px solid ${MARK}` }),
+    26,
+    26,
+  );
+}
+
+/** Even field of identical short strokes. */
+function stitchOrnament(): CardNode {
+  return markGrid(
+    4,
+    17,
+    42,
+    31,
+    () => div({ width: '44px', height: '2px', backgroundColor: MARK }),
+    44,
+    2,
+  );
+}
+
+/**
+ * Checkerboard of identical squares. Skipped cells render as unpainted
+ * spacers so the painted ones stay on the lattice.
+ */
+function weaveOrnament(): CardNode {
+  let index = 0;
+  return markGrid(
+    8,
+    14,
+    18,
+    17,
+    () => {
+      const row = Math.floor(index / 8);
+      const col = index % 8;
+      index += 1;
+      return (row + col) % 2 === 0
+        ? div({ width: '22px', height: '22px', backgroundColor: MARK })
+        : undefined;
+    },
+    22,
+    22,
+  );
+}
+
+/** Identical dots placed at even angles on one circle. */
+function ringOrnament(): CardNode {
+  const count = 18;
+  const size = 9;
+  const radius = 118;
+  const cx = PANEL_W / 2;
+  const cy = PANEL_H / 2;
+  const dots: CardNode[] = [];
   for (let i = 0; i < count; i++) {
-    nodes.push({
-      x: rng.range(14, DIAGRAM_W - 14),
-      y: rng.range(14, DIAGRAM_H - 14),
-    });
-  }
-  const amber = rng.int(0, count - 1);
-  const parts: CardNode[] = [];
-  // Edges: each node (except a couple of leaves) links to its nearest
-  // unvisited neighbour. Rendered as absolutely positioned 1px segments;
-  // rotation is around the segment's own center (satori default), so the
-  // geometry is computed from center + length + angle.
-  for (let i = 0; i < count - 2; i++) {
-    const a = nodes[i];
-    const b = nodes[i + 1 + (i % 2)];
-    const dx = b.x - a.x;
-    const dy = b.y - a.y;
-    const len = Math.hypot(dx, dy);
-    const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-    parts.push(
+    const angle = (i / count) * Math.PI * 2;
+    dots.push(
       div({
         position: 'absolute',
-        left: `${Math.round(a.x + dx / 2 - len / 2)}px`,
-        top: `${Math.round(a.y + dy / 2)}px`,
-        width: `${Math.round(len)}px`,
-        height: '1px',
-        backgroundColor: '#414a51',
-        transform: `rotate(${angle.toFixed(2)}deg)`,
-      }),
-    );
-  }
-  nodes.forEach((n, i) => {
-    const size = i === amber ? 13 : rng.pick([5, 7, 9]);
-    parts.push(
-      div({
-        position: 'absolute',
-        left: `${n.x - size / 2}px`,
-        top: `${n.y - size / 2}px`,
+        left: `${Math.round(cx + radius * Math.cos(angle) - size / 2)}px`,
+        top: `${Math.round(cy + radius * Math.sin(angle) - size / 2)}px`,
         width: `${size}px`,
         height: `${size}px`,
         borderRadius: '9999px',
-        backgroundColor: i === amber ? ACCENT : '#77828a',
+        backgroundColor: MARK,
       }),
     );
-  });
-  return div({ position: 'relative', display: 'flex', width: `${DIAGRAM_W}px`, height: `${DIAGRAM_H}px` }, parts);
-}
-
-/** Latent mosaic: cell grid with varied fills, one amber cell. */
-function mosaicDiagram(rng: Rng): CardNode {
-  const cols = rng.int(6, 8);
-  const rows = rng.int(10, 13);
-  const cell = Math.floor(Math.min((DIAGRAM_W - (cols - 1) * 3) / cols, 38));
-  const amber = { c: rng.int(0, cols - 1), r: rng.int(0, rows - 1) };
-  const cells: CardNode[] = [];
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const roll = rng.next();
-      const isAmber = c === amber.c && r === amber.r;
-      const cellStyle: Record<string, unknown> = {
-        width: `${cell}px`,
-        height: `${cell}px`,
-        borderRadius: '2px',
-        backgroundColor: isAmber
-          ? ACCENT
-          : roll > 0.72
-            ? '#2b3339'
-            : roll > 0.4
-              ? '#20262b'
-              : '#171b1e',
-      };
-      if (roll > 0.85 && !isAmber) cellStyle.border = `1px solid ${BORDER}`;
-      cells.push(div(cellStyle));
-    }
   }
-  return div({ display: 'flex', flexDirection: 'column', gap: '3px' }, [
-    div({ display: 'flex', flexWrap: 'wrap', gap: '3px', width: `${DIAGRAM_W}px` }, cells),
-  ]);
+  return div(
+    { position: 'relative', display: 'flex', width: `${PANEL_W}px`, height: `${PANEL_H}px` },
+    dots,
+  );
 }
 
-function diagramElement(
-  family: DiagramFamily,
-  rng: Rng,
-  referenceCount: number,
-  reviewYear: number,
-): CardNode {
-  switch (family) {
-    case 'signal':
-      return signalDiagram(referenceCount, reviewYear);
-    case 'scatter':
-      return scatterDiagram(rng);
-    case 'timeline':
-      return timelineDiagram(rng);
-    case 'intervals':
-      return intervalsDiagram(rng);
-    case 'graph':
-      return graphDiagram(rng);
-    case 'mosaic':
-      return mosaicDiagram(rng);
+/** Even field of identical diamonds. */
+function pitchOrnament(): CardNode {
+  return markGrid(
+    5,
+    15,
+    66,
+    29,
+    () =>
+      div({
+        width: '8px',
+        height: '8px',
+        backgroundColor: MARK,
+        transform: 'rotate(45deg)',
+      }),
+    8,
+    8,
+  );
+}
+
+function ornamentElement(ornament: Ornament): CardNode {
+  switch (ornament) {
+    case 'lattice':
+      return latticeOrnament();
+    case 'mesh':
+      return meshOrnament();
+    case 'stitch':
+      return stitchOrnament();
+    case 'weave':
+      return weaveOrnament();
+    case 'ring':
+      return ringOrnament();
+    case 'pitch':
+      return pitchOrnament();
   }
 }
 
@@ -456,13 +299,11 @@ function titleFontSize(title: string): number {
 /**
  * The article card: domain micro-label and review year across the top,
  * the title as the dominant element, a hairline footer with the wordmark
- * and the article's real reference count, and the derived instrument
- * diagram in a bordered right panel. All text passes sanitizeCardText.
+ * and the article's real reference count, and the domain's ornament in
+ * a bordered right panel. All text passes sanitizeCardText.
  */
 export function articleCardElement(input: CardArtworkInput): CardNode {
-  const seed = hashString(`${input.entry.domain}/${input.entry.slug}`);
-  const rng = new Rng(seed);
-  const family = diagramFamilyFor(input.entry.domain, input.entry.slug);
+  const ornament = ornamentFor(input.entry.domain);
   const title = sanitizeCardText(input.entry.title);
   return div(
     {
@@ -550,7 +391,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
           justifyContent: 'center',
           padding: '48px 48px',
         },
-        [diagramElement(family, rng, input.referenceCount, input.reviewYear)],
+        [ornamentElement(ornament)],
       ),
     ],
   );
@@ -558,12 +399,12 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
 
 /**
  * The site-level card shared by the non-article destinations: the
- * wordmark as the dominant element, the site description, and a fixed
- * graph constellation in the right panel. A different canvas from every
- * article card, so the asset is byte-distinct by construction.
+ * wordmark as the dominant element, the site description, and the ring
+ * ornament in the right panel. Its wordmark, eyebrow and description
+ * appear on no article card, so the asset is byte-distinct from all of
+ * them (VAL-DIST-003) through its text rather than its ornament.
  */
 export function siteCardElement(): CardNode {
-  const rng = new Rng(0x52454e54); // fixed: one shared card, one geometry
   return div(
     {
       width: '100%',
@@ -625,7 +466,7 @@ export function siteCardElement(): CardNode {
           justifyContent: 'center',
           padding: '48px 48px',
         },
-        [graphDiagram(rng)],
+        [ringOrnament()],
       ),
     ],
   );
