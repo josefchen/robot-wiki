@@ -13,6 +13,8 @@
  * interface and the results area in components/search/ remain the UI seams.
  */
 
+import { foldGreekToAscii } from './greek-transliteration';
+
 /** One rendered prose result. */
 export type SearchHit = {
   /** Path of the matching page, e.g. "/manipulation/action-chunking/". */
@@ -55,30 +57,23 @@ export interface PagefindSearchResponse {
   results: PagefindResult[];
 }
 
-function normalizeWord(word: string): string {
-  return word.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
-}
-
 /**
- * Hyphens are token boundaries on both sides of the genuineness check:
- * contentWords splits on every non-alphanumeric (so "sim-to-real" indexes
- * as ["sim", "to", "real"]), and the query must split the same way or a
- * hyphenated query collapses to a token ("simtoreal") that can never
- * prefix-match those words. Whitespace and Unicode dash punctuation both
- * separate query tokens; any other punctuation inside a token is stripped,
- * exactly as before.
+ * The one tokenizer both sides of the genuineness check must use.
+ *
+ * Every non-alphanumeric character is a boundary, so "sim-to-real" and
+ * "pi0.5" split the same way whether they arrive as a query or as page
+ * content. Splitting the query on a narrower set than the content is what
+ * silently discarded whole query classes twice: a hyphenated query
+ * collapsed to "simtoreal" until the dash was added to the split set, and
+ * the period then did the same thing to every version-numbered query
+ * ("pi0.5" became "pi05", which can never prefix-match ["pi0", "5"]).
+ *
+ * Greek letters fold to their ASCII names so the wiki's Greek-lettered
+ * model names match the spelling a reader types, matching the folding the
+ * structured index applies (lib/greek-transliteration.ts).
  */
-function queryTokens(query: string): string[] {
-  return query
-    .toLowerCase()
-    .split(/[\s\p{Pd}]+/u)
-    .map(normalizeWord)
-    .filter(Boolean);
-}
-
-function contentWords(content: string): string[] {
-  return content
-    .toLowerCase()
+function tokenize(value: string): string[] {
+  return foldGreekToAscii(value)
     .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean);
 }
@@ -95,10 +90,10 @@ function contentWords(content: string): string[] {
  * we cannot disprove them.
  */
 export function isGenuineHit(query: string, content: string): boolean {
-  const tokens = queryTokens(query);
+  const tokens = tokenize(query);
   if (tokens.length === 0) return false;
   if (!content.trim()) return true;
-  const words = contentWords(content);
+  const words = tokenize(content);
   return tokens.every((token) =>
     words.some((word) => word.startsWith(token)),
   );

@@ -167,6 +167,43 @@ describe('isGenuineHit', () => {
     );
   });
 
+  it('admits a genuine hit for a version-numbered query', () => {
+    // The period was the last character left in the strip set after the
+    // hyphen fix, so a query token kept it ("pi0.5" -> "pi05") while the
+    // content side split on it ("pi0", "5"). Nothing starts with "pi05",
+    // so every version-numbered query was discarded even though Pagefind
+    // had matched the page.
+    expect(isGenuineHit('pi0.5', 'the pi0.5 open-world results')).toBe(true);
+    expect(isGenuineHit('pi0.7', 'what pi0.7 adds')).toBe(true);
+    expect(isGenuineHit('N1.7', 'GR00T N1.7 ships an engineered space')).toBe(
+      true,
+    );
+    expect(
+      isGenuineHit('GR00T N1.7', 'GR00T N1.7 ships an engineered space'),
+    ).toBe(true);
+    expect(
+      isGenuineHit('Gemini Robotics 1.5', 'Gemini Robotics 1.5 plans first'),
+    ).toBe(true);
+    expect(isGenuineHit('v1.1', 'the SO-101 v1.1 revision')).toBe(true);
+  });
+
+  it('admits a genuine hit when the content punctuates and the query does not', () => {
+    // The mirror direction, matching the hyphen pair above.
+    expect(isGenuineHit('pi0 5', 'the pi0.5 open-world results')).toBe(true);
+    expect(isGenuineHit('so 101', 'the SO-101 arm')).toBe(true);
+  });
+
+  it('still rejects garbage spelled with periods', () => {
+    // The period cannot become a bypass around the zzqqxx guard either:
+    // splitting produces real tokens, and no content word starts with them.
+    expect(isGenuineHit('zz.qq.xx', 'Tony Z. Zhao')).toBe(false);
+    expect(isGenuineHit('pi0.zzz', 'the pi0.5 open-world results')).toBe(false);
+    // The direction of the prefix test, not the tokenizer, is what rejects a
+    // short garbage query: a content word must extend the query token, never
+    // the other way round, so "zq" can never match the initial "Z.".
+    expect(isGenuineHit('zq', 'Tony Z. Zhao')).toBe(false);
+  });
+
   it('still rejects truncation fallbacks spelled with hyphens', () => {
     // Both hyphen spellings must stay filtered: the hyphen cannot become a
     // bypass around the zzqqxx guard.

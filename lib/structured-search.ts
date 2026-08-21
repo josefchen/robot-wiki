@@ -12,6 +12,7 @@ import MiniSearch from 'minisearch';
 import { COMPANIES } from '../data/companies.ts';
 import { DATASETS } from '../data/datasets.ts';
 import { METHODS } from '../data/methods.ts';
+import { foldGreekToAscii } from './greek-transliteration.ts';
 
 export const STRUCTURED_INDEX_PATH = '/search-index.json';
 
@@ -58,6 +59,19 @@ export const STRUCTURED_SEARCH_OPTIONS = {
     fuzzy: 0.2,
   },
 } as const;
+
+/**
+ * Term processor applied to both the indexed terms and the query terms, so
+ * a Greek-lettered title and its ASCII spelling collapse to one term.
+ *
+ * It must be passed identically to the builder AND to MiniSearch.loadJSON:
+ * a function cannot be serialized into the index, so a client that loads
+ * the index without it processes queries differently from how the terms
+ * were stored, and every Greek-named entity silently stops matching.
+ */
+export function processStructuredTerm(term: string): string {
+  return foldGreekToAscii(term);
+}
 
 export type StructuredSearchClient = {
   search(query: string): Promise<StructuredHit[]>;
@@ -171,6 +185,7 @@ function createStructuredMiniSearch(): MiniSearch<StructuredSearchDocument> {
     fields: [...STRUCTURED_SEARCH_OPTIONS.fields],
     storeFields: [...STRUCTURED_SEARCH_OPTIONS.storeFields],
     searchOptions: { ...STRUCTURED_SEARCH_OPTIONS.searchOptions },
+    processTerm: processStructuredTerm,
   });
 }
 
@@ -180,6 +195,7 @@ export function structuredIndexLoadOptions() {
     fields: [...STRUCTURED_SEARCH_OPTIONS.fields],
     storeFields: [...STRUCTURED_SEARCH_OPTIONS.storeFields],
     searchOptions: { ...STRUCTURED_SEARCH_OPTIONS.searchOptions },
+    processTerm: processStructuredTerm,
   };
 }
 
