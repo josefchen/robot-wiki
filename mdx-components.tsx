@@ -12,6 +12,7 @@ import {
 } from '@/components/ui';
 import { CiteRef } from '@/components/mdx/cite-ref';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { ProseH2, ProseH3 } from '@/components/mdx/prose-heading';
 import { TermRef } from '@/components/mdx/term-ref';
 
 // Global MDX component registry. Design-system primitives are available in
@@ -37,6 +38,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     SelfCheck,
     Stat,
     Term: TermRef,
+    h2: ProseH2,
+    h3: ProseH3,
     ...components,
   };
 }
