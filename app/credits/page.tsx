@@ -88,7 +88,12 @@ export default function CreditsPage() {
 
   return (
     <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
-      <header>
+      {/* data-pagefind-body: Pagefind excludes every page that declares no
+          body region once one page declares one (VAL-SEARCH-021). Scoped
+          to the header, so the licence list below stays out of the prose
+          index: it is 40-odd repeated licence identifiers and creator
+          names, which would crowd out real prose matches. */}
+      <header data-pagefind-body>
         <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
           Credits
         </h1>

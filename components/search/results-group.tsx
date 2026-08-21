@@ -13,8 +13,12 @@ type ResultsGroupProps = {
   heading: string;
   /** Shown only once the search has settled. */
   count?: number;
-  /** Empty-group message (e.g. the no-results state). */
-  note?: string;
+  /**
+   * Empty-group message (e.g. the no-results state). A node rather than a
+   * string so a group can carry its own recovery control inline, which the
+   * facet-narrowed structured group does.
+   */
+  note?: ReactNode;
   children?: ReactNode;
 };
 

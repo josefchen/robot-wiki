@@ -114,11 +114,29 @@ export function SearchInterface({
 
   const hits =
     status === 'searching' || status === 'done' ? (result?.hits ?? []) : [];
-  const structuredHits =
+  // The unfiltered structured list is kept alongside the filtered one so the
+  // empty state can tell the two apart: a facet hiding real matches is a
+  // different situation from a query nothing in the wiki answers, and the
+  // old single message conflated them (VAL-SEARCH-023).
+  const structuredAll =
     status === 'searching' || status === 'done'
-      ? applyStructuredFacet(result?.structured ?? [], { type: facetType })
+      ? (result?.structured ?? [])
       : [];
+  const structuredHits = applyStructuredFacet(structuredAll, {
+    type: facetType,
+  });
   const resultCount = hits.length + structuredHits.length;
+
+  const settled = status === 'done';
+  const facetNarrowing =
+    settled &&
+    facetType !== 'all' &&
+    structuredHits.length === 0 &&
+    structuredAll.length > 0;
+  // The site-wide message may only claim the wiki has nothing on a query
+  // when neither surface has anything, unfiltered. Anything narrower is a
+  // group-level or facet-level fact and is reported where it belongs.
+  const siteEmpty = settled && hits.length === 0 && structuredAll.length === 0;
 
   // Debounced search. Every state write happens inside the timer callback;
   // the sequencer token guarantees only the latest query can apply results.
@@ -221,7 +239,12 @@ export function SearchInterface({
       statusText =
         proseCount > 0
           ? `${proseCount} ${proseCount === 1 ? 'module matches' : 'modules match'} "${trimmed}"`
-          : `No modules match "${trimmed}"`;
+          : facetNarrowing
+            ? `No ${ENTITY_TYPE_LABEL[facetType as EntityType]} results for "${trimmed}" under the active type filter`
+            : // Names both surfaces searched, so what a screen reader hears
+              // agrees with the visible message instead of blaming the
+              // module prose for what may be an entity miss too.
+              `No article prose and no method, company or dataset entity matches "${trimmed}"`;
     } else if (proseCount === 0) {
       statusText = `${entityCount} ${entityCount === 1 ? 'entity matches' : 'entities match'} "${trimmed}"`;
     } else {
@@ -307,6 +330,31 @@ export function SearchInterface({
         </div>
       ) : null}
 
+      {/* The site-wide empty state, raised only when neither surface has
+          anything to show for the query with no facet applied. It names
+          both surfaces the query was run against and points at a browse
+          destination, so a reader who mistyped is not left at a dead end
+          (VAL-SEARCH-023 b). */}
+      {siteEmpty ? (
+        <div
+          data-search-empty
+          className="mt-8 border-t border-border pt-6"
+        >
+          <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
+            Nothing matches &ldquo;{trimmed}&rdquo;, in the article prose or
+            in the methods, companies, and datasets of the wiki data layer.
+            Check the spelling, try a broader term, or browse{' '}
+            <Link
+              href="/a-z"
+              className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            >
+              the A-Z index
+            </Link>
+            .
+          </p>
+        </div>
+      ) : null}
+
       {status === 'searching' || status === 'done' ? (
         <div ref={resultsRef} className="mt-8 space-y-10">
           <ResultsGroup
@@ -350,9 +398,20 @@ export function SearchInterface({
             heading="Structured"
             count={status === 'done' ? structuredHits.length : undefined}
             note={
-              status === 'done' && structuredHits.length === 0
-                ? `No structured entities match "${trimmed}". Try another term, or clear the type filter.`
-                : undefined
+              !settled || structuredHits.length > 0 ? undefined : facetNarrowing ? (
+                <>
+                  {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'entity that matches' : 'entities that match'} "${trimmed}".`}{' '}
+                  <button
+                    type="button"
+                    onClick={() => setFacetType('all')}
+                    className="cursor-pointer text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
+                  >
+                    Clear the type filter
+                  </button>
+                </>
+              ) : (
+                `No structured entities match "${trimmed}". Try another term.`
+              )
             }
           >
             {status === 'done' || structuredHits.length > 0 ? (

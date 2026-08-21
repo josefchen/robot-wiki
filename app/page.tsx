@@ -34,8 +34,19 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero: the premise, kept above the fold. */}
-      <section aria-label="Introduction" className={`${container} pt-12 lg:pt-16`}>
+      {/* data-pagefind-body sits on each section rather than a wrapper:
+          Pagefind excludes every page that declares no body region once
+          one page declares one, so the home route needs its own to be
+          searchable at all (VAL-SEARCH-021), and a wrapper div would stop
+          these sections being direct children of <main>, which the
+          structural-signature rules in contract/design-integrity.md
+          measure. Interactive readouts inside these sections carry their
+          own data-pagefind-ignore, so only the prose is indexed. */}
+      <section
+        aria-label="Introduction"
+        data-pagefind-body
+        className={`${container} pt-12 lg:pt-16`}
+      >
         <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
           robot-wiki
         </h1>
@@ -58,7 +69,11 @@ export default function Home() {
       </section>
 
       {/* The seven taxonomy entries as one dense typographic index. */}
-      <section aria-labelledby="domain-index-heading" className={`${container} mt-10`}>
+      <section
+        aria-labelledby="domain-index-heading"
+        data-pagefind-body
+        className={`${container} mt-10`}
+      >
         <h2
           id="domain-index-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -117,7 +132,11 @@ export default function Home() {
       </section>
 
       {/* Featured interactive: the page's visual anchor. */}
-      <section aria-labelledby="featured-heading" className={`${container} mt-12`}>
+      <section
+        aria-labelledby="featured-heading"
+        data-pagefind-body
+        className={`${container} mt-12`}
+      >
         <h2
           id="featured-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -140,7 +159,11 @@ export default function Home() {
       </section>
 
       {/* Real hardware: the encyclopedia's subject, photographed and credited. */}
-      <section aria-labelledby="hardware-heading" className={`${container} mt-14`}>
+      <section
+        aria-labelledby="hardware-heading"
+        data-pagefind-body
+        className={`${container} mt-14`}
+      >
         <h2
           id="hardware-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -163,7 +186,11 @@ export default function Home() {
       </section>
 
       {/* Standalone tools, shown visually rather than described. */}
-      <section aria-labelledby="tools-heading" className={`${container} mt-14`}>
+      <section
+        aria-labelledby="tools-heading"
+        data-pagefind-body
+        className={`${container} mt-14`}
+      >
         <h2
           id="tools-heading"
           className="font-sans text-xl font-semibold tracking-tight text-text"
@@ -323,6 +350,7 @@ export default function Home() {
       <section
         id="how-to-read"
         aria-labelledby="how-to-read-heading"
+        data-pagefind-body
         className={`${container} mt-14 border-t border-border pt-10 pb-20`}
       >
         <h2
