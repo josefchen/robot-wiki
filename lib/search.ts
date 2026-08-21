@@ -99,28 +99,76 @@ export function isGenuineHit(query: string, content: string): boolean {
   );
 }
 
-/** Maps a raw Pagefind response to ranked, renderable hits. */
+function stripSiteSuffix(rawTitle: string | undefined, url: string): string {
+  const trimmed = rawTitle?.trim();
+  if (!trimmed) return url;
+  return trimmed.endsWith(SITE_TITLE_SUFFIX)
+    ? trimmed.slice(0, -SITE_TITLE_SUFFIX.length)
+    : trimmed;
+}
+
+/**
+ * How strongly a result's own title answers the query. Two tiers, because
+ * they mean different things to a reader: 2 is the page that is ABOUT the
+ * query (its title carries the whole query phrase), 1 is a page whose title
+ * touches every query term without being named for the phrase, 0 is a page
+ * that merely mentions it in the body.
+ *
+ * Pagefind ships no title field and no ranking configuration, so without
+ * this an article ties with every index page that lists it. Since the
+ * non-article destinations were added to the index, the home page and a
+ * domain landing legitimately mention every article they link, which made
+ * "the mention outranks the page itself" the common case rather than an
+ * edge one.
+ */
+export function titleWeight(query: string, title: string): number {
+  const queryTokens = tokenize(query);
+  if (queryTokens.length === 0) return 0;
+  const titleTokens = tokenize(title);
+  if (titleTokens.length === 0) return 0;
+
+  const phrase = queryTokens.join(' ');
+  if (titleTokens.join(' ').includes(phrase)) return 2;
+
+  return queryTokens.every((token) =>
+    titleTokens.some((word) => word.startsWith(token)),
+  )
+    ? 1
+    : 0;
+}
+
+/**
+ * Maps a raw Pagefind response to ranked, renderable hits.
+ *
+ * Order of operations is load-bearing. Every raw result is resolved and
+ * tested for genuineness FIRST, and only the survivors are capped: capping
+ * the raw list first threw away a genuine hit the index happened to rank
+ * just past the cap while a truncation-fallback hit inside the cap took its
+ * place, so the rendered count fell below the cap with nothing to show that
+ * anything had been dropped.
+ *
+ * Ranking is a stable sort on the title weight alone, so Pagefind's own
+ * relevance order survives intact within each tier.
+ */
 export async function toSearchHits(
   response: PagefindSearchResponse,
   query: string,
   limit: number = RESULT_LIMIT,
 ): Promise<SearchHit[]> {
-  const top = response.results.slice(0, limit);
-  const data = await Promise.all(top.map((result) => result.data()));
+  const data = await Promise.all(
+    response.results.map((result) => result.data()),
+  );
   return data
     .filter((entry) => isGenuineHit(query, entry.content ?? ''))
-    .map((entry) => {
-      const rawTitle = entry.meta?.title?.trim();
-      return {
-        url: entry.url,
-        title: rawTitle
-          ? rawTitle.endsWith(SITE_TITLE_SUFFIX)
-            ? rawTitle.slice(0, -SITE_TITLE_SUFFIX.length)
-            : rawTitle
-          : entry.url,
-        excerpt: entry.excerpt ?? '',
-      };
-    });
+    .map((entry) => ({
+      url: entry.url,
+      title: stripSiteSuffix(entry.meta?.title, entry.url),
+      excerpt: entry.excerpt ?? '',
+    }))
+    .map((hit, index) => ({ hit, index, weight: titleWeight(query, hit.title) }))
+    .sort((a, b) => b.weight - a.weight || a.index - b.index)
+    .slice(0, limit)
+    .map((entry) => entry.hit);
 }
 
 /**

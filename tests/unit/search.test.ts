@@ -3,6 +3,7 @@ import {
   createRequestSequencer,
   isGenuineHit,
   RESULT_LIMIT,
+  titleWeight,
   toSearchHits,
   type PagefindResult,
 } from '@/lib/search';
@@ -64,14 +65,126 @@ describe('toSearchHits', () => {
     expect(hits[0].title).toBe('robot-wiki');
   });
 
-  it('caps the hits at the result limit, preserving rank order', async () => {
+  it('caps the hits at the result limit, preserving rank order within a tier', async () => {
+    // Every title carries the query word, so all these hits share one title
+    // weight and the sort is a no-op: what this pins is that Pagefind's own
+    // relative order survives the ranking pass untouched.
     const results = Array.from({ length: RESULT_LIMIT + 5 }, (_, i) =>
       fakeResult({ url: `/p${i}/`, meta: { title: `Page ${i}` } }),
     );
     const hits = await toSearchHits({ results }, 'page');
     expect(hits).toHaveLength(RESULT_LIMIT);
-    expect(hits[0].url).toBe('/p0/');
-    expect(hits[RESULT_LIMIT - 1].url).toBe(`/p${RESULT_LIMIT - 1}/`);
+    expect(hits.map((hit) => hit.url)).toEqual(
+      Array.from({ length: RESULT_LIMIT }, (_, i) => `/p${i}/`),
+    );
+  });
+
+  it('ranks the title-matching page above a page that only mentions the query', async () => {
+    // The reader-facing point of the title weight: a landing page
+    // legitimately lists every article it links, so an article's own route
+    // competes with its domain landing and the home page on every title
+    // query. The article must win.
+    const hits = await toSearchHits(
+      {
+        results: [
+          fakeResult({
+            url: '/',
+            meta: { title: 'robot-wiki' },
+            content: 'Action Chunking is one of the modules listed here.',
+          }),
+          fakeResult({
+            url: '/manipulation/',
+            meta: { title: 'Manipulation - robot-wiki' },
+            content: 'Action Chunking sits in this domain.',
+          }),
+          fakeResult({
+            url: '/manipulation/action-chunking/',
+            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
+            content: 'Action Chunking predicts a chunk of actions.',
+          }),
+        ],
+      },
+      'action chunking',
+    );
+    expect(hits.map((hit) => hit.url)).toEqual([
+      '/manipulation/action-chunking/',
+      '/',
+      '/manipulation/',
+    ]);
+  });
+
+  it('ranks a whole-phrase title above a title that only covers the terms', async () => {
+    const hits = await toSearchHits(
+      {
+        results: [
+          fakeResult({
+            url: '/a/',
+            meta: { title: 'Chunking, and Action Representations' },
+            content: 'action chunking',
+          }),
+          fakeResult({
+            url: '/b/',
+            meta: { title: 'Action Chunking' },
+            content: 'action chunking',
+          }),
+        ],
+      },
+      'action chunking',
+    );
+    expect(hits.map((hit) => hit.url)).toEqual(['/b/', '/a/']);
+  });
+
+  it('filters for genuineness before capping, so a post-cap genuine hit is rendered', async () => {
+    // The cap used to run first, so a truncation-fallback hit inside the
+    // cap displaced a genuine hit the index ranked just past it, and the
+    // rendered count silently fell below the cap.
+    const rejected = Array.from({ length: 5 }, (_, i) =>
+      fakeResult({
+        url: `/junk${i}/`,
+        meta: { title: `Junk ${i}` },
+        content: 'Tony Z. Zhao et al.',
+      }),
+    );
+    const genuine = Array.from({ length: RESULT_LIMIT }, (_, i) =>
+      fakeResult({
+        url: `/real${i}/`,
+        meta: { title: `Real ${i}` },
+        content: 'covariate shift breaks naive imitation',
+      }),
+    );
+    const hits = await toSearchHits(
+      { results: [...rejected, ...genuine] },
+      'covariate',
+    );
+    expect(hits).toHaveLength(RESULT_LIMIT);
+    expect(hits.some((hit) => hit.url.startsWith('/junk'))).toBe(false);
+    // /real19 sat at raw position 24, five places past the old cap.
+    expect(hits.map((hit) => hit.url)).toContain(
+      `/real${RESULT_LIMIT - 1}/`,
+    );
+  });
+
+  it('never pads the rendered list with rejected hits', async () => {
+    const hits = await toSearchHits(
+      {
+        results: [
+          fakeResult({
+            url: '/real/',
+            meta: { title: 'Real' },
+            content: 'covariate shift',
+          }),
+          ...Array.from({ length: RESULT_LIMIT }, (_, i) =>
+            fakeResult({
+              url: `/junk${i}/`,
+              meta: { title: `Junk ${i}` },
+              content: 'Tony Z. Zhao et al.',
+            }),
+          ),
+        ],
+      },
+      'covariate',
+    );
+    expect(hits.map((hit) => hit.url)).toEqual(['/real/']);
   });
 
   it('drops pagefind truncation-fallback hits (garbage query)', async () => {
@@ -106,6 +219,34 @@ describe('toSearchHits', () => {
       'covariate',
     );
     expect(hits).toHaveLength(1);
+  });
+});
+
+describe('titleWeight', () => {
+  it('scores a title carrying the whole query phrase highest', () => {
+    expect(titleWeight('action chunking', 'Action Chunking (ACT and ALOHA)')).toBe(
+      2,
+    );
+    expect(titleWeight('Glossary', 'Glossary')).toBe(2);
+  });
+
+  it('scores a title covering every term but not the phrase in the middle tier', () => {
+    expect(titleWeight('action chunking', 'Chunking, and Action Horizons')).toBe(1);
+  });
+
+  it('scores a title that answers none of the query at zero', () => {
+    expect(titleWeight('action chunking', 'Market Map')).toBe(0);
+    expect(titleWeight('action chunking', 'Action Tokenization')).toBe(0);
+  });
+
+  it('folds punctuation and Greek the same way the genuineness filter does', () => {
+    expect(titleWeight('pi0.5', 'π0.5')).toBe(2);
+    expect(titleWeight('sim-to-real', 'Sim to Real Transfer')).toBe(2);
+  });
+
+  it('scores an empty query or an empty title at zero', () => {
+    expect(titleWeight('', 'Action Chunking')).toBe(0);
+    expect(titleWeight('action', '')).toBe(0);
   });
 });
 

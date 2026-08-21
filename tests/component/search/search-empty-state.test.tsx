@@ -48,6 +48,7 @@ function company(overrides: Partial<StructuredHit> = {}): StructuredHit {
     title: 'Figure AI',
     url: '/market-map/#company-figure-ai',
     facet: 'humanoids',
+    snippet: 'Builds general-purpose humanoid robots for commercial work.',
     ...overrides,
   };
 }
@@ -251,8 +252,13 @@ describe('VAL-SEARCH-023 (c): a type facet is narrowing the results', () => {
     expect(
       within(structured).getByRole('link', { name: /^Figure AI/ }),
     ).toBeInTheDocument();
+    // Bound by destination: the result's accessible name now carries the
+    // snippet as well as the title, so an exact-anchored name match on the
+    // title alone matches nothing.
     expect(
-      within(structured).getByRole('link', { name: /^ACT$/ }),
+      structured.querySelector(
+        'a[href="/manipulation/comparison-matrix/#method-act"]',
+      ),
     ).toBeInTheDocument();
     expect(
       within(structured).queryByRole('button', {

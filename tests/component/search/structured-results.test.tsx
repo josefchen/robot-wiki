@@ -34,6 +34,7 @@ function structuredHit(
     title: 'Figure AI',
     url: '/market-map/#company-figure-ai',
     facet: 'humanoids',
+    snippet: 'Builds general-purpose humanoid robots for commercial work.',
     ...overrides,
   };
 }
@@ -47,8 +48,19 @@ function clientWith(
 const INPUT_NAME = 'Search the wiki';
 const ACT_RESULT = /^Action Chunking \(ACT and ALOHA\)/;
 const FIGURE_RESULT = /^Figure AI/;
-const ACT_METHOD = /^ACT$/;
 const DROID_RESULT = /^DROID/;
+// The ACT method row is bound by its destination, not by its accessible
+// name: a structured result's name is title + type label + snippet, so an
+// exact-anchored /^ACT$/ matches nothing, and a loosened /ACT/ would also
+// match the Action Chunking prose result. The href is the identity these
+// assertions actually mean.
+const ACT_METHOD_HREF = '/manipulation/comparison-matrix/#method-act';
+
+function actMethodLink(scope: HTMLElement): HTMLAnchorElement | null {
+  return scope.querySelector<HTMLAnchorElement>(
+    `a[href="${ACT_METHOD_HREF}"]`,
+  );
+}
 
 beforeEach(() => {
   mockReplace.mockClear();
@@ -125,9 +137,7 @@ describe('SearchInterface structured results', () => {
     expect(prose).toContainElement(
       await screen.findByRole('link', { name: ACT_RESULT }),
     );
-    expect(structured).toContainElement(
-      await screen.findByRole('link', { name: ACT_METHOD }),
-    );
+    expect(structured).toContainElement(actMethodLink(document.body));
   });
 
   it('shows an explicit no-results note in both groups', async () => {
@@ -194,7 +204,7 @@ describe('SearchInterface structured results', () => {
       within(structured).getByRole('link', { name: FIGURE_RESULT }),
     ).toBeInTheDocument();
     expect(
-      within(structured).getByRole('link', { name: ACT_METHOD }),
+      actMethodLink(structured),
     ).toBeInTheDocument();
     expect(
       within(structured).getByRole('link', { name: DROID_RESULT }),
@@ -205,7 +215,7 @@ describe('SearchInterface structured results', () => {
       within(structured).getByRole('link', { name: FIGURE_RESULT }),
     ).toBeInTheDocument();
     expect(
-      within(structured).queryByRole('link', { name: ACT_METHOD }),
+      actMethodLink(structured),
     ).not.toBeInTheDocument();
     expect(
       within(structured).queryByRole('link', { name: DROID_RESULT }),
@@ -221,7 +231,7 @@ describe('SearchInterface structured results', () => {
       within(structured).getByRole('link', { name: FIGURE_RESULT }),
     ).toBeInTheDocument();
     expect(
-      within(structured).getByRole('link', { name: ACT_METHOD }),
+      actMethodLink(structured),
     ).toBeInTheDocument();
     expect(
       within(structured).getByRole('link', { name: DROID_RESULT }),

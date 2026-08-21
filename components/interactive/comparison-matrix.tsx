@@ -3,6 +3,14 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
+import {
+  methodConditioningText,
+  methodFrequencyFigure,
+  methodHorizonFigure,
+  methodRepresentationText,
+  NOT_DISCLOSED_TEXT,
+  REPRESENTATION_LABELS,
+} from '@/lib/entity-cells';
 import { entityAnchorId } from '@/lib/entity-anchor';
 import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
@@ -30,25 +38,19 @@ import { cx } from '@/lib/utils';
  */
 
 const NOT_DISCLOSED: ReactNode = (
-  <span className="text-text-dim">not disclosed</span>
+  <span className="text-text-dim">{NOT_DISCLOSED_TEXT}</span>
 );
-
-const REPRESENTATION_LABELS: Record<string, string> = {
-  continuous: 'continuous',
-  discrete: 'discrete tokens',
-  diffusion: 'diffusion',
-  flow: 'flow matching',
-};
 
 const CROSS_EMBODIMENT_RANK = { no: 0, limited: 1, yes: 2 } as const;
 const HIERARCHY_RANK = { none: 0, external: 1, internal: 2 } as const;
 
 function horizonCell(method: Method): ReactNode {
-  const { planned, executed, note } = method.actionHorizon;
-  if (planned === null && executed === null) return NOT_DISCLOSED;
+  const figure = methodHorizonFigure(method);
+  const note = method.actionHorizon.note;
+  if (figure === null) return NOT_DISCLOSED;
   return (
     <span className="font-mono tabular-nums">
-      {planned ?? 'n.d.'} / {executed ?? 'n.d.'}
+      {figure}
       {note ? (
         <span className="block font-sans text-xs text-text-dim">{note}</span>
       ) : null}
@@ -57,25 +59,23 @@ function horizonCell(method: Method): ReactNode {
 }
 
 function frequencyCell(method: Method): ReactNode {
-  if (method.controlFrequencyHz === null) {
+  const figure = methodFrequencyFigure(method);
+  const note = method.controlFrequencyNote;
+  if (figure === null) {
     return (
       <>
         {NOT_DISCLOSED}
-        {method.controlFrequencyNote ? (
-          <span className="block text-xs text-text-dim">
-            {method.controlFrequencyNote}
-          </span>
+        {note ? (
+          <span className="block text-xs text-text-dim">{note}</span>
         ) : null}
       </>
     );
   }
   return (
     <span className="font-mono tabular-nums">
-      {method.controlFrequencyHz} Hz
-      {method.controlFrequencyNote ? (
-        <span className="block font-sans text-xs text-text-dim">
-          {method.controlFrequencyNote}
-        </span>
+      {figure}
+      {note ? (
+        <span className="block font-sans text-xs text-text-dim">{note}</span>
       ) : null}
     </span>
   );
@@ -95,7 +95,7 @@ const COLUMNS: Column<Method>[] = [
     render: (row) =>
       row.actionRepresentation === null
         ? NOT_DISCLOSED
-        : REPRESENTATION_LABELS[row.actionRepresentation],
+        : methodRepresentationText(row),
   },
   {
     key: 'actionHorizon',
@@ -120,7 +120,7 @@ const COLUMNS: Column<Method>[] = [
     key: 'conditioning',
     header: 'Conditioning',
     render: (row) =>
-      row.conditioning.length > 0 ? row.conditioning.join(', ') : NOT_DISCLOSED,
+      row.conditioning.length > 0 ? methodConditioningText(row) : NOT_DISCLOSED,
   },
   {
     key: 'crossEmbodiment',

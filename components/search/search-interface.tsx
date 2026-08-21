@@ -434,18 +434,31 @@ export function SearchInterface({
                       onKeyDown={(event) =>
                         onResultKeyDown(event, hits.length + index)
                       }
-                      className="group flex items-baseline justify-between gap-3 px-1 py-3"
+                      className="group block px-1 py-3"
                     >
-                      <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
-                        {entry.title}
+                      <span className="flex items-baseline justify-between gap-3">
+                        <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
+                          {entry.title}
+                        </span>
+                        <span
+                          data-entity-type={entry.type}
+                          aria-hidden="true"
+                          className="shrink-0 font-mono text-[11px] text-text-dim"
+                        >
+                          {ENTITY_TYPE_LABEL[entry.type]}
+                        </span>
                       </span>
-                      <span
-                        data-entity-type={entry.type}
-                        aria-hidden="true"
-                        className="shrink-0 font-mono text-[11px] text-text-dim"
-                      >
-                        {ENTITY_TYPE_LABEL[entry.type]}
-                      </span>
+                      {/* The entity's own record, verbatim on its
+                          destination route, so eight company rows are
+                          something a reader can choose between. */}
+                      {entry.snippet ? (
+                        <span
+                          data-entity-snippet
+                          className="mt-1 block text-sm leading-relaxed text-text-dim"
+                        >
+                          {entry.snippet}
+                        </span>
+                      ) : null}
                     </a>
                   </li>
                 ))}

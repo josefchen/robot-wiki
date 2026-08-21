@@ -3,6 +3,12 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Table, type Column } from '@/components/ui';
 import { DATASETS, type Dataset } from '@/data/datasets';
+import {
+  datasetEmbodimentsLabel,
+  datasetSourceHost,
+  formatCount,
+  NOT_DISCLOSED_TEXT,
+} from '@/lib/entity-cells';
 import { entityAnchorId } from '@/lib/entity-anchor';
 import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import {
@@ -32,13 +38,8 @@ import { cx } from '@/lib/utils';
  */
 
 const NOT_DISCLOSED: ReactNode = (
-  <span className="text-text-dim">not disclosed</span>
+  <span className="text-text-dim">{NOT_DISCLOSED_TEXT}</span>
 );
-
-/** Thousands-grouped count; the Table default deliberately skips grouping. */
-function formatCount(value: number): string {
-  return value.toLocaleString('en-US');
-}
 
 function countCell(value: number | null, note?: string): ReactNode {
   if (value === null) return NOT_DISCLOSED;
@@ -53,10 +54,7 @@ function countCell(value: number | null, note?: string): ReactNode {
 }
 
 function embodimentsCell(dataset: Dataset): ReactNode {
-  const label =
-    dataset.embodimentCount === 1
-      ? '1 platform'
-      : `${dataset.embodimentCount} platforms`;
+  const label = datasetEmbodimentsLabel(dataset);
   return (
     <span>
       <span className="font-mono tabular-nums">{label}</span>
@@ -75,7 +73,7 @@ function sourceCell(dataset: Dataset): ReactNode {
       rel="noopener"
       className="font-mono text-xs text-accent underline-offset-2 hover:underline"
     >
-      {new URL(dataset.url).host}
+      {datasetSourceHost(dataset)}
     </a>
   );
 }

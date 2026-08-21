@@ -17,6 +17,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   assertStructuredIndexMatchesData,
+  assertStructuredSnippets,
   buildStructuredIndex,
 } from '../lib/structured-search.ts';
 
@@ -26,6 +27,7 @@ const publicIndex = join(root, 'public', 'search-index.json');
 const exportedIndex = join(outDir, 'search-index.json');
 
 function emitStructuredIndex(): number {
+  assertStructuredSnippets();
   const serialized = buildStructuredIndex();
   const count = assertStructuredIndexMatchesData(serialized);
   const json = `${JSON.stringify(serialized)}\n`;
