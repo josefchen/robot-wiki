@@ -190,14 +190,32 @@ export function CommitToReveal({
                 data-selected={
                   chosen === option.value ? 'true' : undefined
                 }
+                // Both markings are CSS driven off the data attributes,
+                // never applied by an effect: the correct row must be
+                // marked for the reader who opens the summary without
+                // answering, including with no script at all
+                // (VAL-EDU-044). The correct row carries the ok token
+                // AND a weight step, so the mark survives forced
+                // colours (WCAG 1.4.1); the reader's own pick carries a
+                // neutral text marker instead, because in this
+                // component the reasoning is what delivers the
+                // judgement, not a colour on the row you chose.
                 className={cx(
-                  'grid gap-0.5',
-                  chosen !== null && option.value === answer
-                    ? 'text-text'
-                    : 'text-text-dim',
+                  'group/reason grid gap-0.5 text-text-dim',
+                  'data-[correct=true]:text-text data-[correct=true]:font-bold',
                 )}
               >
-                <span className="font-medium">{option.label}</span>
+                <span className="font-medium group-data-[correct=true]/reason:font-bold group-data-[correct=true]/reason:text-ok">
+                  {option.label}
+                  {chosen === option.value ? (
+                    <span
+                      data-pick-marker=""
+                      className="ml-2 align-baseline font-mono text-[0.72em] font-normal text-text-dim"
+                    >
+                      your pick
+                    </span>
+                  ) : null}
+                </span>
                 <span>
                   {option.why}
                   {option.cite ? (

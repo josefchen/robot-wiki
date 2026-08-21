@@ -111,3 +111,58 @@ export function bcBound(epsilon: number, t: number): number {
 export function daggerBound(epsilon: number, t: number): number {
   return epsilon * t;
 }
+
+/**
+ * Top of the accumulated-deviation axis, in model units. It covers the
+ * whole reachable range at once: the worst plottable simulated cost is
+ * 4906.2 (15% error, 240 steps, per-timestep, no relabeling) and the
+ * worst quadratic bound is 4338.0, so nothing a reader can reach clips.
+ */
+export const DEVIATION_AXIS_CEILING = 5000;
+
+/**
+ * Knee of the compressive axis below, in model units. It sets how much
+ * height the low end of the range gets: the interesting readings span
+ * three decades (17.5 units chunked, 370.3 at the article defaults,
+ * 4906.2 at the extreme) and a linear axis gave the first two 0.4% and
+ * 8.1% of plot height, which is the whole 21x lesson rendered as a few
+ * pixels.
+ */
+const DEVIATION_AXIS_KNEE = 100;
+
+const DEVIATION_AXIS_SPAN = Math.log10(
+  1 + DEVIATION_AXIS_CEILING / DEVIATION_AXIS_KNEE,
+);
+
+/** Gridline values, in model units. Ascending, spanning the full domain. */
+export const DEVIATION_AXIS_TICKS: readonly number[] = [
+  0,
+  100,
+  500,
+  2000,
+  DEVIATION_AXIS_CEILING,
+];
+
+/**
+ * Where a deviation value sits on the accumulated-deviation axis, as a
+ * fraction of plot height from the zero baseline.
+ *
+ * The domain is FIXED rather than fitted to whatever is currently
+ * plotted, and that is the load-bearing property: an axis rescaled to the
+ * current series holds the marker at a near-constant height and turns the
+ * error and horizon sliders into apparent no-ops. What the fixed linear
+ * domain could not do is show the mode toggle, because a 21x drop near
+ * the bottom of a 5000-unit range is a few pixels.
+ *
+ * log10(1 + v/knee) resolves both: it is compressive enough to give the
+ * low decades real height, monotone so raising either slider still moves
+ * the marker up, and defined at v = 0 so the baseline is a true zero
+ * rather than an arbitrary floor a pure log axis would need.
+ */
+export function deviationAxisFraction(value: number): number {
+  const clamped = Math.min(
+    DEVIATION_AXIS_CEILING,
+    Math.max(0, Number.isFinite(value) ? value : 0),
+  );
+  return Math.log10(1 + clamped / DEVIATION_AXIS_KNEE) / DEVIATION_AXIS_SPAN;
+}

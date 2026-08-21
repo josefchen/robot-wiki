@@ -104,6 +104,63 @@ describe('SelfCheck (CommitToReveal primitive)', () => {
     expect(radios.every((r) => !r.disabled && !r.readOnly)).toBe(true);
   });
 
+  it('marks the correct row unconditionally and the reader pick only after a commit', async () => {
+    const user = userEvent.setup();
+    setup();
+    const rows = () =>
+      [...document.querySelectorAll('[data-reason]')] as HTMLElement[];
+    const correct = () => rows().find((r) => r.dataset.reason === fixture.answer)!;
+
+    // The correct-row marking is attribute driven, so it is present
+    // before any commit (the closed disclosure is what hides it) and
+    // needs no effect to appear for the reader who declines to guess.
+    expect(correct().dataset.correct).toBe('true');
+    expect(correct().className).toMatch(/data-\[correct=true\]:/);
+    // Nothing is marked as the reader's pick yet.
+    expect(document.querySelectorAll('[data-selected="true"]')).toHaveLength(0);
+    expect(document.querySelectorAll('[data-pick-marker]')).toHaveLength(0);
+
+    // A wrong commit marks the reader's own row, distinctly from the
+    // correct row, and puts a neutral marker on it.
+    const wrong = fixture.options.find((o) => o.value !== fixture.answer)!;
+    await user.click(screen.getByLabelText(wrong.label));
+    const selected = rows().filter((r) => r.dataset.selected === 'true');
+    expect(selected).toHaveLength(1);
+    expect(selected[0].dataset.reason).toBe(wrong.value);
+    expect(selected[0].querySelectorAll('[data-pick-marker]')).toHaveLength(1);
+    expect(correct().dataset.selected).toBeUndefined();
+    expect(correct().querySelectorAll('[data-pick-marker]')).toHaveLength(0);
+
+    // Committing to the correct option puts both marks on one row,
+    // still individually detectable.
+    await user.click(screen.getByLabelText(fixture.options[1].label));
+    expect(correct().dataset.correct).toBe('true');
+    expect(correct().dataset.selected).toBe('true');
+    expect(correct().querySelectorAll('[data-pick-marker]')).toHaveLength(1);
+    expect(document.querySelectorAll('[data-pick-marker]')).toHaveLength(1);
+  });
+
+  it('never renders a verdict word inside the region', async () => {
+    const user = userEvent.setup();
+    setup();
+    const region = document.querySelector('[data-self-check]')!;
+    const VERDICT =
+      /^\s*(correct|incorrect|wrong|right|nice|well done|good job|try again|yes|no|✓|✗|✔|✘)\s*[.!]?\s*$/i;
+    const scan = (label: string) => {
+      for (const el of region.querySelectorAll('*')) {
+        const text = (el.textContent ?? '').trim();
+        expect(VERDICT.test(text), `${label}: verdict element "${text}"`).toBe(
+          false,
+        );
+      }
+    };
+    scan('unanswered');
+    await user.click(screen.getByLabelText(fixture.options[0].label));
+    scan('wrong commit');
+    await user.click(screen.getByLabelText(fixture.options[1].label));
+    scan('correct commit');
+  });
+
   it('toggles open through the summary without answering', async () => {
     const user = userEvent.setup();
     setup();
