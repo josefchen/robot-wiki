@@ -26,6 +26,10 @@ import { MdpComparison } from '@/components/mdx/mdp-comparison';
 
 In 2021, Rudin and colleagues trained an ANYmal quadruped to walk on flat ground in under four minutes, and on uneven terrain in twenty minutes, on a single workstation GPU <Cite id="rudin-2021" />. Policies trained this way are now the default production approach for quadruped locomotion and, increasingly, for bipedal humanoids. General manipulation went the other direction: the field's strongest systems are trained by imitation on real, teleoperated demonstrations. In 2026 there is still no manipulation equivalent of the four-minute walking run.
 
+The reason sits in the contact, and it is measurable. Drag the contact-model error slider below from its default 2 mm: the peg insertion is already jammed at that value while the quadruped notices nothing, and locomotion only fails past 20 mm, forty times the error that kills the insertion.
+
+<ContactGeometry className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="sim RL training, one workstation GPU" accent />
   <Stat label="Uneven terrain" value="20 min" note="ANYmal, game-inspired curriculum" />
@@ -49,9 +53,7 @@ The Isaac Lab team frames the dexterous case in the same terms: it "remains chal
 
 ## Contact geometry is where the gap lives
 
-Row two of the table deserves its own look, because contact is the property that breaks simulators first. The interactive below injects a contact-model error, the simulator's idea of where a surface is being off by epsilon, into two scenes: a quadruped stance and a peg insertion. At the default error of 2 mm, the quadruped does not notice and the peg is already jammed. Push epsilon past 20 mm and locomotion finally fails, at forty times the error that kills the insertion.
-
-<ContactGeometry className="my-6" />
+Row two of the table deserves its own look, because contact is the property that breaks simulators first. The figure at the top of this module injects a contact-model error, the simulator's idea of where a surface is being off by epsilon, into two scenes: a quadruped stance and a peg insertion.
 
 Three things to take from it. First, contact count: four near-point foot contacts versus fourteen simultaneous distributed contacts, each one a place where a solver approximation becomes a wrong force. Second, patch character: a foot presses a near-point patch into a rigid substrate, while a peg slides through continuous wall contact that simple point-contact models do not represent. Third, irreversibility: the quadruped's gait is an attractor that high-bandwidth feedback pulls it back into, so a wrong contact force is corrected on the next step. A jammed peg has no next step.
 

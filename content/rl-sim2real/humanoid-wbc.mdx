@@ -34,6 +34,10 @@ import { Gr2ResultsTable } from '@/components/mdx/gr2-results-table';
 
 The previous module covered how learned policies took over legged locomotion. This one covers the harder problem those same groups attacked next: making a full humanoid, legs through torso through arms through hands, do useful work without falling. The organizing idea across nearly all of it is motion tracking. Treat <Term id="whole-body-control">whole-body control</Term> as following a reference human motion, <Term id="retargeting">retargeted</Term> onto the robot's kinematics, and let reinforcement learning supply the physical feasibility that raw kinematic retargeting destroys. The human demonstration carries the intent; the policy solves balance, contact timing, and actuator limits.
 
+Where task-level intelligence plugs into that is unsettled, and the three answers shipping in 2026 are below. Switch between motion-tracking RL, the latent-action hierarchy, and end-to-end VLA, and watch the learning boundary move: each program drew it somewhere different.
+
+<WbcDecomposition className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Helix 02 S0" value="1 kHz" note="10M parameters, whole body" accent />
   <Stat label="S0 training fleet" value="200,000+" note="parallel sim environments" />
@@ -55,9 +59,7 @@ The 2025 to 2026 work consolidated. KungfuBot pushed tracking to highly dynamic 
 
 ## Three decompositions ship in 2026
 
-The lineage above answers how to make a humanoid move like a reference. It does not answer where task-level intelligence plugs in. In 2026 all three frontier humanoid programs shipped whole-body control, and each drew the learning boundary in a different place.
-
-<WbcDecomposition className="my-6" />
+The lineage above answers how to make a humanoid move like a reference. It does not answer where task-level intelligence plugs in, which is the split drawn in the figure at the top of this module. All three frontier humanoid programs shipped whole-body control in 2026, and each drew the learning boundary in a different place.
 
 ### A unified motion-tracking policy: Figure Helix 02 S0
 

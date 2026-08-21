@@ -31,6 +31,10 @@ import { ScalingLawsTable } from '@/components/mdx/scaling-laws-table';
 
 Language model pretraining runs on text scraped at internet scale. GPT-3 consumed 300 billion tokens in 2020 <Cite id="gpt3-2020" />; Llama 3 consumed over 15 trillion in 2024 <Cite id="llama-3-2024" />, a scale the open FineWeb corpus replicates from 96 Common Crawl snapshots <Cite id="fineweb-2024" />. Robot learning has no equivalent. The largest aggregated robot corpus, <Term id="open-x-embodiment">Open X-Embodiment</Term>, holds over a million trajectories across 22 robot embodiments <Cite id="open-x-embodiment-2023" />, which works out to roughly ten thousand hours of interaction, an estimate rather than a published count. The largest single-organization release, AgiBot World, holds 1,001,552 trajectories, and it does publish an hour count: 2,976 hours, which works out to about 11 seconds per trajectory <Cite id="agibot-world-2025" />. A million trajectories, in other words, is under three thousand hours. The largest open dataset collected on a single robot platform, DROID, holds 76,000 trajectories totaling 350 hours, and collecting those took 50 operators at 13 institutions a full year <Cite id="droid-2024" />. Toyota Research Institute's Large Behavior Model program trained on about 1,700 hours in total, spread across its own bimanual data, simulation, UMI, and Open X-Embodiment <Cite id="tri-lbm-2025" />. That gap, and everything the field is doing about it, is the subject of this module.
 
+The gap is below, on one log-log plane. Drag the teleoperation rigs slider up and watch the projected collection time fall: even at a large fleet, the number stays in years, which is the whole shape of the bottleneck.
+
+<DataScaleChart className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="language" value="15T" note="tokens, Llama 3 pretraining" accent />
   <Stat label="robots" value="350" note="hours, DROID's 12-month effort" />
@@ -42,9 +46,7 @@ Language model pretraining runs on text scraped at internet scale. GPT-3 consume
 
 Text is scraped. The internet accumulates language as a byproduct of everything people publish, so assembling a 15-trillion-token corpus is a filtering problem, not a collection problem. Robot data is different. Every hour of it is produced by a physical machine interacting with the world in real time, usually driven by a paid human teleoperator. There is no crawl for contact.
 
-The chart below plots both universes on one log-log plane. Robot and human demonstration data sits on the bottom lane, read off the hours axis: DROID at 350 hours, TRI's LBM corpus near 1,700, AgiBot World at 2,976, Open X-Embodiment at an estimated 10,000, EgoScale's human video at 20,854. Language corpora sit on the left lane, read off the tokens axis: GPT-3 at 300 billion, Llama 3 at 15 trillion. The dashed diagonal spans the empty plane between the two largest entries. No exchange rate between an hour of robot data and a token of text is drawn, because no honest one exists.
-
-<DataScaleChart className="my-6" />
+The chart at the top of this module plots both universes. Robot and human demonstration data sits on the bottom lane, read off the hours axis: DROID at 350 hours, TRI's LBM corpus near 1,700, AgiBot World at 2,976, Open X-Embodiment at an estimated 10,000, EgoScale's human video at 20,854. Language corpora sit on the left lane, read off the tokens axis: GPT-3 at 300 billion, Llama 3 at 15 trillion. The dashed diagonal spans the empty plane between the two largest entries. No exchange rate between an hour of robot data and a token of text is drawn, because no honest one exists.
 
 <PredictThenReveal
   prompt="A distributed collection effort runs at the measured DROID rate, about 7 productive hours per collector-year. At a fleet of 10 rigs, roughly how long until it reaches OXE scale, on the order of ten thousand hours?"

@@ -30,6 +30,10 @@ import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
 A policy that cleans the kitchen it was trained in has demonstrated control. A policy that cleans a kitchen it has never seen has demonstrated something much rarer, and the distance between the two is the subject of this module. The training distribution of robot data is narrow: demonstrations come from a small number of labs, with specific robots, cameras, and lighting. Real homes bring different geometries, object instances, backgrounds, and clutter, and physical interaction punishes small perceptual errors in a way text generation never does: a one-centimeter grasp error drops the object. Closing that <Term id="distribution-shift">distribution shift</Term>, without collecting new data at every site, is the generalization problem. It is the gap between a demo and a product, and it is where the strongest systems of 2026 are now being measured.
 
+The strongest quantitative argument that the gap closes with data is a scaling law, and it is the thing to look at first. Drag the extrapolation horizon slider past the measured range and the two series continue as dashed lines inside a band that brackets the law holding against a plateau. Where you land depends entirely on which of those two you believe, which is the argument the rest of this module sets up.
+
+<EgoScaleScaling className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="human video" value="20,854" note="hours, EgoScale pretraining" accent />
   <Stat label="scaling law" value="R²=0.9983" note="log-linear, validation loss" />
@@ -69,9 +73,7 @@ Fourth, transfer has a shape. It works best when source and target share task st
 
 The strongest argument that the open-world gap will close with data is a scaling law. NVIDIA's EgoScale trained a vision-language-action model on 20,854 hours of action-labeled egocentric human video, more than twenty times prior efforts, and found that held-out human-video validation loss follows a clean log-linear law in data scale, $L = 0.024 - 0.003 \ln D$ with $D$ in thousands of hours, fit over five scales from 1k to 20k hours at $R^2 = 0.9983$ <Cite id="egoscale-2026" />. The law is not only an offline metric: downstream robot performance after post-training rises monotonically with pretraining scale, from 0.30 average task completion at 1k hours to 0.71 at 20k, and the full recipe improves average success rate by 54% over a no-pretraining baseline on a 22-DoF dexterous hand <Cite id="egoscale-2026" />. The same corpus is already load-bearing elsewhere: 20K hours of EgoScale video enter GR00T N1.7 pretraining directly through the shared relative end-effector space described in [Cross-Embodiment Transfer](/manipulation/cross-embodiment) <Cite id="isaac-gr00t-repo-2026" />.
 
-The interactive below plots the law over its measured range and lets you do the thing the paper declines to do: extrapolate. Dragging the horizon toward 100k or 1M hours extends both series as dashed lines inside a shaded band that brackets two scenarios, the law holding or a plateau at the last measured value.
-
-<EgoScaleScaling className="my-6" />
+The chart at the top of this module plots that law over its measured range and lets you do the thing the paper declines to do: extrapolate. Everything right of 20k hours is inference, which is why the dashed band is drawn as wide as the disagreement it represents.
 
 <PredictThenReveal
   prompt="The completion fit is a straight line in log data, and a line can be extended as far as you like. At roughly what horizon does the fit cross 100 percent, where the chart stops drawing it and flags the crossing as impossible?"

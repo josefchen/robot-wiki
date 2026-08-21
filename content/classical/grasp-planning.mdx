@@ -30,14 +30,20 @@ Every act of manipulation ends the same way: some part of the robot touches some
 
 The answer turns out to be a convex polytope. Map everything the contacts can do into a space of forces and moments, take a convex hull, and ask whether the origin sits inside it. That one geometric fact, force closure, organizes most of classical grasp theory, and the distance from the origin to the hull's boundary became the field's standard quality metric.
 
+## The wrench space, live
+
+The lab below is that polytope. A square object, contacts sliding along its perimeter, and the hull of everything they can do plotted beside it with the origin marked. Drag the friction coefficient slider from 0.7 down toward zero and watch the hull shrink until the origin falls outside it: that is the grasp failing. The rest of this module derives what you are looking at.
+
+<GraspWrenchLab className="my-6" />
+
+## Contact models
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Planar contacts, frictional" value="3" note="minimum for a generic object (Murray, Li, Sastry)" accent />
   <Stat label="Spatial contacts, frictional" value="4" note="same bound in three dimensions" />
   <Stat label="Frictionless spatial" value="7-12" note="Somoff's lower bound, Markenscoff's upper" />
   <Stat label="Dex-Net 2.0 labels" value="6.7M" note="synthetic grasps scored by an analytic metric" />
 </div>
-
-## Contact models
 
 A contact model says which forces a fingertip can transmit. The simplest is the frictionless point contact: it pushes along the surface normal and nothing else. Real fingers have friction, and the standard point contact with friction obeys Coulomb's law: the tangential component of the contact force can grow to at most a fixed fraction $\mu$ of the normal component before the contact starts to slide <Cite id="murray-li-sastry-1994" />.
 
@@ -87,11 +93,9 @@ $$
 
 Because the hull is a polytope, the largest inscribed ball touches a facet, so $\varepsilon$ is just the distance from the origin to the nearest hull facet. The unit-normal-force convention makes it concrete: $\varepsilon$ is the worst-case disturbance wrench, per unit of normal force at the contacts, that the grasp guarantees it can absorb. The metric is not the only one on offer. Roa and Suárez's review catalogs the proposed quality measures and benchmarks the main candidates against each other, and it records the epsilon metric's honest caveat: the number depends on where you place the torque reference frame and how you scale moments against forces, so comparisons across papers need care <Cite id="roa-suarez-2015" />.
 
-## The wrench space, live
+## Reading the hull
 
-The lab below makes the hull concrete. The object is a square; contacts slide along its perimeter, and the friction slider sets $\mu$. On the left, the object with each contact's friction cone. On the right, the grasp wrench space projected from $(f_x, f_y, \tau)$: the hull of the primitive cone-edge wrenches, with the origin marked. The origin ring is green exactly when the grasp is force closure, and the readout reports $\varepsilon$.
-
-<GraspWrenchLab className="my-6" />
+Now the lab above reads as mechanics rather than shapes. On the left, the object with each contact's friction cone. On the right, the grasp wrench space projected from $(f_x, f_y, \tau)$: the hull of the primitive cone-edge wrenches. The origin ring is green exactly when the grasp is force closure, and the readout reports $\varepsilon$.
 
 The default tripod of top, right, and bottom contacts is force closure at $\mu = 0.7$. Remove the third contact and the remaining pair, one on the top edge and one on the right, fails Nguyen's test: the line between them sits at 45 degrees to each normal while the cones open only $\arctan 0.7 \approx 35$ degrees, and the hull collapses onto the origin. Now slide contact 2 down onto the bottom edge, opposite contact 1. The pair becomes antipodal, the connecting line is the shared normal, and the hull re-inflates around the origin for any positive friction at all. Finally, drag $\mu$ down and watch $\varepsilon$ fall: the metric is pricing the friction you just removed.
 

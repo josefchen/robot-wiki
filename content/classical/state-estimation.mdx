@@ -31,6 +31,10 @@ import { KalmanTracker } from '@/components/interactive/kalman-tracker';
 
 The honest number is what separates the field from curve fitting. A controller that knows the estimate's uncertainty can act cautiously when the number is large and aggressively when it is small; a controller handed a bare guess cannot. Every estimator in this module is built to carry both.
 
+The lab below is that idea running. A target wanders in one dimension, a position sensor drops about one reading in five, and the amber band is the filter's own claim about how wrong it might be. Move the measurement-noise slider up and the estimate smooths and lags while the band widens; move the process-noise slider up instead and the estimate hugs every reading. Nothing about the world changed either time. Only what the filter believes about it.
+
+<KalmanTracker className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Kalman filter" value="1960" note="Kalman's recursive linear estimator" />
   <Stat label="EKF" value="1960s" note="born from Apollo navigation work at NASA Ames" />
@@ -84,9 +88,7 @@ The gain is the whole idea in one ratio: prior uncertainty over prior-plus-senso
 
 The filter outgrew its paper within years. Stanley Schmidt's group at NASA Ames picked the recursion up in the early 1960s and developed it into the navigation method for Apollo; NASA's own history of that adoption is McGee and Schmidt's 1985 technical memorandum <Cite id="mcgee-schmidt-1985" />. The mission's dynamics were nonlinear, which forced the extension the next section covers.
 
-The lab below runs the filter on the simplest tracking problem that still shows everything: a target wandering in one dimension, observed by a position sensor that drops about one reading in five. The white trace is the truth, the gray dots are the readings, the amber trace is the estimate, and the band is the filter's own $\pm 2\sigma$ position uncertainty. The world's noise is fixed by the seed in the readout; the sliders set what the filter *believes* about the noise, and the defaults are matched to the truth. Raise $\sigma_r$ and the gain falls: the estimate smooths and lags while the band widens. Raise $\sigma_q$ and the gain climbs: the estimate hugs every reading and the band swells across each measurement gap, the predict-update sawtooth made visible.
-
-<KalmanTracker className="my-6" />
+That is what the lab at the top of this module is showing. The white trace is the truth, the gray dots are the readings, the amber trace is the estimate, and the band is the filter's own $\pm 2\sigma$ position uncertainty. The world's noise is fixed by the seed in the readout; the sliders set what the filter *believes* about the noise, and the defaults are matched to the truth. Raising $\sigma_r$ drops the gain, and raising $\sigma_q$ climbs it: the band then swells across each measurement gap, the predict-update sawtooth made visible.
 
 One more thing to notice: the band is a claim the filter makes about itself. Set the sliders too low for the world it actually lives in and the estimate draws a narrow band that the truth keeps escaping. An overconfident filter is worse than no filter, because nothing downstream knows to distrust it.
 

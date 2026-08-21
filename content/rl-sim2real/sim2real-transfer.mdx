@@ -32,6 +32,10 @@ The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that wal
 
 Four method families do the work. <Term id="domain-randomization">Domain randomization</Term> trains over a distribution of simulators so the real world reads as one more sample. <Term id="teacher-student-distillation">Teacher-student distillation</Term> trains on privileged simulator state, then compresses that knowledge into a policy that sees only what the robot sees. <Term id="system-identification">System identification</Term> measures the dynamics gap and corrects the model directly. Real-to-sim reconstruction rebuilds the deployment scene inside the simulator so the visual gap shrinks to rendering error. The 2026 reality-gap survey organizes the field into nearly these same buckets, adding sim-real co-training and state/action abstraction as cross-cutting levers <Cite id="reality-gap-survey-2026" />.
 
+The first family's central trade is below. Drag the real robot friction line off the training point and the ranking inverts, the specialist collapsing where the generalist holds. Then widen the randomization half-width and watch the plateau sink: coverage and peak performance pull against each other, and the slider only moves along that frontier.
+
+<FrictionTransfer className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DR parameter writes" value="CPU-bound" note="Isaac Lab: mass, friction via PhysX CPU API" accent />
   <Stat label="RMA adaptation" value="< 1 s" note="latent extrinsics, online at control rate" />
@@ -47,9 +51,7 @@ OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum
 
 Two details rarely make it into the textbook version. First, the plumbing: in Isaac Lab, simulation state is GPU-resident but simulation parameters (masses, frictions, contact offsets, joint armature) must still be written through PhysX CPU APIs, and mesh scale or collider type can only change before the simulator starts <Cite id="isaac-lab-2025" />. This is why randomization happens on episode reset rather than continuously, and it is a systems constraint, not a theoretical one. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
 
-<FrictionTransfer className="my-6" />
-
-The interactive makes the trade concrete. The gray spike is a policy trained at one friction; the amber plateau is a policy trained over the shaded distribution. Drag the real-robot line off the training point and the ranking inverts: the specialist collapses, the generalist holds. Then widen the randomization range and watch the plateau sink. Coverage and peak pull against each other, and the knob only moves along that frontier.
+That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the amber plateau is a policy trained over the shaded distribution.
 
 <Callout variant="warn" title="How to read this chart">
   Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.

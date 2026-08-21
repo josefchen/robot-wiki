@@ -26,6 +26,10 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 A 7-DoF Franka emits 8 numbers per step. A bimanual ALOHA emits 14. A humanoid emits dozens, and a human hand in a video emits none, just keypoints. A generalist policy trained across all of these has to decide what an "action" even is before it can learn anything. Every frontier lab has answered this question, and they have answered it three different, incompatible ways. The choice is not a detail: it determines what data the policy can consume, and in particular whether the largest untapped data source in robotics, egocentric human video, can enter pretraining at all.
 
+All three answers are rendered below on the same four data sources at identical geometry. Switch between the padded shared vector, motion transfer, and shared relative end-effector space, and watch the bottom row: human video is unusable in two of the three and fully active in the third.
+
+<CrossEmbodimentStrategies className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="pi0 pretraining" value="10K hours" note="7 robot configurations, 68 tasks" accent />
   <Stat label="OXE pool" value="22 embodiments" note="the data most generalists train on" />
@@ -47,11 +51,8 @@ That is all the public record contains. The 1.5 report does not disclose the rep
 
 ## Strategy three: one relative end-effector space for robots and humans
 
-GR00T N1.7 takes the engineered route <Cite id="isaac-gr00t-repo-2026" />. Instead of absolute joint targets, every embodiment acts in deltas from its current <Term id="end-effector">end-effector</Term> pose. A per-embodiment frame transform, the EmbodimentTag system carried over from N1 <Cite id="gr00t-n1-2025" />, maps each robot's body into that shared relative space. The payoff is the fourth row of the interactive: a human hand already lives in end-effector space. Track 3D hand keypoints from egocentric video, express them as deltas, and the video becomes training data in the same representation the robots use. That is the mechanism behind N1.7 pretraining on 20,000 hours of EgoScale human video alongside robot demonstrations, with no domain-adaptation step <Cite id="isaac-gr00t-repo-2026" />. NVIDIA's README calls the shared relative-EEF space a key factor in the model's cross-embodiment performance.
+GR00T N1.7 takes the engineered route <Cite id="isaac-gr00t-repo-2026" />. Instead of absolute joint targets, every embodiment acts in deltas from its current <Term id="end-effector">end-effector</Term> pose. A per-embodiment frame transform, the EmbodimentTag system carried over from N1 <Cite id="gr00t-n1-2025" />, maps each robot's body into that shared relative space. The payoff is the fourth row of the figure at the top of this module: a human hand already lives in end-effector space. Track 3D hand keypoints from egocentric video, express them as deltas, and the video becomes training data in the same representation the robots use. That is the mechanism behind N1.7 pretraining on 20,000 hours of EgoScale human video alongside robot demonstrations, with no domain-adaptation step <Cite id="isaac-gr00t-repo-2026" />. NVIDIA's README calls the shared relative-EEF space a key factor in the model's cross-embodiment performance.
 
-The comparison below renders all three strategies on the same four data sources at identical geometry. Watch the bottom row: it is unusable in two modes and fully active in the third.
-
-<CrossEmbodimentStrategies className="my-6" />
 
 ## The live disagreement
 

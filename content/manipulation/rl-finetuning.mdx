@@ -30,6 +30,10 @@ import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
 
 <Term id="imitation-learning">Imitation learning</Term> gets a policy that is good on the demonstration distribution and brittle off it, because small per-step errors compound into states the demonstrator never visited <Cite id="dagger-2011" />. Physical Intelligence states the operational version of the same problem: it is relatively easy to get a VLA to succeed at a task some of the time, and quite hard to make it succeed reliably <Cite id="pistar06-blog-2025" />. Reinforcement learning is the only mechanism in the toolbox that learns from failure rather than only from success. The obstacle is cost: naive online RL on a multi-billion-parameter VLA, on real hardware, at control rates, is infeasible. Everything in this module is a way around that constraint, and by 2026 the field has converged on a small set of recipes that demonstrably work.
 
+One failed espresso episode is walked below. Drag the episode time slider through it and watch the value trace: rising segments get tagged high advantage, falling segments low, and the dashed arc is the credit assignment, a failed insertion blamed on the grasp twenty seconds earlier. Learning from that failure without backpropagating through a flow-matching action head is the problem this module solves.
+
+<AdvantageScrubber className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="espresso throughput" value=">2x" note="Recap, vendor-reported" accent />
   <Stat label="real-world training" value="1-2.5 h" note="HIL-SERL, near-perfect success" />
@@ -59,9 +63,7 @@ $$\hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A(o, a) 
 
 This is what makes RL scale to a 5B-parameter flow-matching VLA: no gradients pass through the action head at RL time, so the whole apparatus rides on supervised-style training with an extra token <Cite id="pistar06-2025" /> <Cite id="pi06-model-card-2025" />.
 
-The interactive below walks one failed espresso episode. Scrub through it and watch the value trace: segments where the value rises are tagged high advantage, segments where it falls are tagged low, and the dashed arc shows the credit assignment, the failed insertion blamed on the grasp 20 seconds earlier. The other two views show what Recap does with those tags: at training time every transition is kept with its binary label, and at execution time the policy is conditioned on "high."
-
-<AdvantageScrubber className="my-6" />
+The other two views of the figure at the top of this module show what Recap does with those tags: at training time every transition is kept with its binary label, and at execution time the policy is conditioned on "high."
 
 The reported results are strong: espresso throughput and success rate both more than doubled, failure rates were cut by 2x or more on the hardest tasks, and all three demonstrated applications (espresso, laundry, box assembly) exceeded 90% success, including continuous espresso operation from 5:30am to 11:30pm <Cite id="pistar06-2025" />. Two caveats apply. The numbers are vendor-reported in a lab report, not peer-reviewed, and the weights are closed. And the method targets long-horizon throughput at fleet scale; it requires reward labeling, human interveners, and many robots.
 

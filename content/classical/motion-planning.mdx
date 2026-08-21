@@ -30,6 +30,10 @@ Motion planning answers a deceptively simple question: given where the robot is 
 
 Two algorithm families dominate the classical answer, and they start from opposite ends. Sampling-based planners build a graph of collision-free configurations by random exploration and search it for a route. <Term id="trajectory-optimization">Trajectory optimization</Term> starts with a whole candidate motion, often a bad one, and bends it downhill on a cost functional until it is smooth and collision-free. The first family is global and probabilistic; the second is local and deterministic. Practical systems use both.
 
+The sampling family is below, running for real: a 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Press Run and watch the tree flood open space, leak through the gap above the wall, and only then stumble into the goal region. Nothing in it knows where the goal is.
+
+<RrtExplorer className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="RRT introduced" value="1998" note="LaValle's Iowa State tech report" />
   <Stat label="CHOMP" value="2009" note="covariant gradient refinement" />
@@ -61,9 +65,7 @@ $$
 
 The extension rule is the whole trick. A point in unexplored space has a larger Voronoi region around the tree's frontier, so random samples pull the tree preferentially into territory it has not covered, and the canopy spreads through free space fast, without any grid, in any dimension. The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed <Cite id="lavalle-kuffner-2001" />. Both RRT and PRM are probabilistically complete: if a path exists and you sample long enough, the probability of finding one goes to one. That guarantee says nothing about how good the path is.
 
-The scene below runs the real algorithm. A 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Run it and watch the Voronoi bias at work: the tree floods open space, leaks through the gap above the wall, and only then stumbles into the goal region, whereupon the start-to-goal path lights up.
-
-<RrtExplorer className="my-6" />
+The Voronoi bias is what the scene at the top of this module is showing: the tree spreads because unexplored space claims more of the frontier, and the start-to-goal path lights up only once the goal region is reached.
 
 ## Optimality: RRT\*
 

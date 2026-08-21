@@ -32,6 +32,10 @@ import { PiGenerationTimeline } from '@/components/interactive/pi-generation-tim
 
 The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="action-tokenization">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id="flow-matching">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including the point where the open weights stop.
 
+The whole design rests on one empirical curve. Drag the integration steps slider below from 1 upward: at one or two steps the transported cloud misses the action modes badly, by five to ten it has concentrated on them, and pushing to 50 buys nothing measurable. That is why a flow-matching head can close a 50 Hz loop where an autoregressive token head cannot.
+
+<FlowMatchingTrajectory className="my-6" />
+
 ## π0: the action expert
 
 π0 grafts a second transformer onto a pretrained <Term id="vision-language-model">vision-language model</Term> <Cite id="pi0-2024" />. The first set of weights handles image and text tokens and is initialized from PaliGemma (3B). The second, the action expert, is initialized from scratch and adds 300M parameters, for 3.3B total. The structural point matters for anyone implementing one: the action expert is not an MLP head but a second set of transformer weights inside a single model, in the paper's words "a single transformer with two sets of weights (also known as experts)." It is a full transformer whose 50 action tokens attend into the backbone's activations at every layer through shared self-attention, with a bidirectional mask among themselves. Observations are 2 or 3 RGB images, tokenized language, and proprioceptive state; the output is a chunk of H = 50 actions, one second at the full 50 Hz control rate <Cite id="pi0-2024" />.
@@ -49,11 +53,9 @@ Where [Diffusion Policy](/manipulation/diffusion-policy) denoises with a DDPM, �
 
 ## Why ten steps is enough
 
-Flow matching's selling point over diffusion is path geometry. A DDPM trajectory curves through noise space; the rectified flow path from noise to action is nearly a straight line, so a coarse Euler integration tracks it well. The interactive below makes the trade concrete. Samples start as Gaussian noise in a 2D action space and are transported toward two action modes; the slider sets the integration budget from 1 to 50 steps.
+Flow matching's selling point over diffusion is path geometry. A DDPM trajectory curves through noise space; the rectified flow path from noise to action is nearly a straight line, so a coarse Euler integration tracks it well. That is what the figure at the top of this module measures: samples start as Gaussian noise in a 2D action space and are transported toward two action modes under a fixed integration budget.
 
-<FlowMatchingTrajectory className="my-6" />
-
-At 1 or 2 steps the transported cloud visibly misses the modes: each Euler step samples the field once and cuts the corner on everything the field does between samples. By 5 to 10 steps the cloud concentrates on the targets, and pushing to 50 buys nothing measurable. That shape of curve is the whole deployment argument. Every step costs a forward pass through the expert, and at 50 Hz the budget is fixed by physics, not by GPU spend: π0 shipped 10 steps, π0.6 and π0.7 run 5, with π0.6 completing a full chunk inference in 63 ms on one H100 with three cameras <Cite id="pi06-model-card-2025" />. The consistency and one-step distillation line covered in [Diffusion Policy](/manipulation/diffusion-policy) exists for the same reason.
+Each Euler step samples the field once and cuts the corner on everything the field does between samples, which is why one or two steps miss. The shape of that curve is the whole deployment argument. Every step costs a forward pass through the expert, and at 50 Hz the budget is fixed by physics, not by GPU spend: π0 shipped 10 steps, π0.6 and π0.7 run 5, with π0.6 completing a full chunk inference in 63 ms on one H100 with three cameras <Cite id="pi06-model-card-2025" />. The consistency and one-step distillation line covered in [Diffusion Policy](/manipulation/diffusion-policy) exists for the same reason.
 
 ## π0-FAST: tokens done right
 

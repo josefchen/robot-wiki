@@ -42,6 +42,10 @@ import { HandComparison } from '@/components/interactive/hand-comparison';
 
 Robot manipulation is as old as artificial intelligence itself. By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks, and Rodney Brooks opens his essay on dexterity with that thesis to make the point that manipulation has been hard for every researcher since <Cite id="brooks-dexterity-2025" />. The reason is contact. A walking or driving robot moves through free space and senses the world at a distance. A hand has to close the loop through the object: grip force, slip, and contact geometry decide success, and most of that state becomes invisible to cameras the moment the fingers close around it. This module covers <Term id="contact-rich-manipulation">contact-rich manipulation</Term> and the tactile gap it creates, the industry's split over whether touch is needed at all, and the two capability frontiers where that argument gets settled: <Term id="in-hand-manipulation">in-hand manipulation</Term> and deformable objects.
 
+Five 2026 hands are compared below on the specs their makers disclose. Sort by tactile threshold and then by cost, and the disagreement is immediate: the two columns do not order the same way, and several cells are blank because the maker never published the number.
+
+<HandComparison className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="hand receptors" value="17,000" note="low-threshold mechanoreceptors, ~1,000 per fingertip" accent />
   <Stat label="match lighting" value="7 s" note="with touch; four times as long anesthetized" />
@@ -71,9 +75,7 @@ The honest 2026 position is intermediate, and both camps occupy it. Tactile sens
 
 ## Five hands, five bets
 
-The hands on offer in 2026 span two orders of magnitude in price and no agreement on how dexterity will be learned. The table compares five of them on the specs their makers disclose, with the blanks left blank: a spec the maker has not published renders as "not disclosed" rather than as a guessed number.
-
-<HandComparison className="my-6" />
+The hands on offer in 2026 span two orders of magnitude in price and no agreement on how dexterity will be learned. The table at the top of this module compares five of them on the specs their makers disclose, with the blanks left blank: a spec the maker has not published renders as "not disclosed" rather than as a guessed number.
 
 The spread is the story. Tesla's 22-<Term id="degrees-of-freedom">degree-of-freedom</Term> tendon design has the most articulation here and an admitted redesign behind it: days after the V3 hand patents surfaced, Musk said of the design, "this one didn't actually work" <Cite id="teslarati-optimus-hand-2026" /> <Cite id="droids-optimus-v3-hand-2026" />. Sanctuary's hydraulic hand pairs the most sensitive disclosed touch with a working in-hand demo, and its maker has since pivoted to selling software <Cite id="robozaps-phoenix-2026" />. Shadow's hand remains the research benchmark at a lab price of €110,000 including support <Cite id="shadow-hand-cost-2022" />. Unitree lists the entire H2 robot at \$29,900, but the base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \$100,000 <Cite id="robozaps-unitree-h2-2026" />. Figure holds the middle: 16 degrees of freedom on the Figure 02 hand <Cite id="figure-02-2024" />, and on Figure 03 a 3-gram fingertip threshold, the only maker in this table that puts the number on its own product page.
 

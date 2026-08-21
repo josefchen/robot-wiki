@@ -31,6 +31,10 @@ import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-r
 
 The last two modules each followed one lineage: the VLA family from RT-1 to OpenVLA, then [Physical Intelligence's pi line](/manipulation/pi-line). The rest of the frontier belongs to neither. This module surveys the other generalist policies an ML engineer will actually meet in 2026: Google DeepMind's Gemini Robotics, NVIDIA's GR00T, Figure's Helix, AgiBot's GO series, and Skild. The organizing axis here is access rather than architecture: which ones you can download, and how each one's claims are documented. Keep two questions in mind throughout. Are the weights open? And is the evidence a paper, a repo, a lab blog, or a press release?
 
+Start with the shape of the field. Every release sits on one axis below: amber nodes are downloadable, dim nodes are closed, and the marker shape says whether the evidence is a paper, repo release notes, a lab blog, or a press release. Switch the filter to Open, then to Closed, and the module's thesis is visible before you read a word of it.
+
+<GeneralistReleaseTimeline className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="releases tracked" value="13" note="Feb 2025 to Jul 2026" accent />
   <Stat label="open weights" value="4" note="GR00T N1 and N1.7, GO-1, π0.5" />
@@ -78,9 +82,7 @@ Skild AI claims an "omni-bodied" general-purpose brain, one foundation model uni
 
 ## The field at a glance
 
-The timeline below lays every release on one axis. Color encodes access: amber nodes are downloadable, dim nodes are closed. Shape encodes provenance: circles have papers, squares have repo release notes, triangles are lab blogs, diamonds are press releases. Filter to open or closed with the buttons; select any node for its capability annotation and primary source. The π entries are cross-references to [The Pi Line](/manipulation/pi-line), included so the open and closed sides can be compared on one axis.
-
-<GeneralistReleaseTimeline className="my-6" />
+Return to the timeline with all thirteen entries described. Selecting any node gives its capability annotation and primary source, and the π entries are cross-references to [The Pi Line](/manipulation/pi-line), included so the open and closed sides can be compared on one axis.
 
 <Callout variant="warn" title="Vendor-reported is not verified">
   Seven of the thirteen releases above rest on lab blogs or press releases with no external replication: both Helix generations, both closed π generations, Gemini Robotics 2, GO-2, and Skild. Some of those claims will hold up. The point is that a triangle or diamond on the timeline is a company describing itself, and the honest way to cite those numbers is with the vendor's name attached, never as independent results.

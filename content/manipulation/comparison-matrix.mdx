@@ -39,6 +39,10 @@ import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
 The preceding modules in this domain each followed one lineage at a time. This one lays them side by side. The table below covers 18 policies, from RT-1 in 2022 to the current frontier, across the eight axes that determine how a learned policy behaves in a control loop. Every value comes from a primary source: a paper, a model card, or the vendor's own documentation, and the row carries that source. Two honesty rules apply throughout. Cells the vendor has not published read "not disclosed" instead of a guessed value, and figures that circulate without verification, such as the RT-2 and OpenVLA control rates, are omitted rather than repeated <Cite id="rt2-2023" /> <Cite id="openvla-2024" />.
 
+The matrix is below. Set the weights filter to Open and the eighteen rows collapse to the handful you can actually download today, then sort by control Hz to see what that costs you.
+
+<ComparisonMatrix className="my-6 wide-measure" />
+
 ## The eight axes
 
 **Action representation** is how the policy emits motor commands: continuous regression, discrete tokens decoded like text, or a generative head (diffusion or <Term id="flow-matching">flow matching</Term>) that samples continuous chunks. This choice drives everything downstream, including inference cost and control rate.
@@ -50,8 +54,6 @@ The preceding modules in this domain each followed one lineage at a time. This o
 **Backbone**, **conditioning**, and **cross-embodiment** describe what the model is built on, what signals it consumes, and whether one checkpoint serves multiple robot bodies. <Term id="cross-embodiment">Cross-embodiment</Term> "yes" hides three different mechanisms, padded joint vectors in the π line, a shared relative <Term id="end-effector">end-effector</Term> frame in GR00T N1.7, and DeepMind's unnamed Motion Transfer recipe <Cite id="pi0-2024" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gemini-robotics-15-2025" />.
 
 **Hierarchy** marks whether a slow reasoning layer sits above the fast policy, and whether that layer lives inside one model (internal, as in π0.5's subtask prediction) or in a separate system (external, as when GR00T pairs with a whole-body controller) <Cite id="pi05-2025" />. **Weights** records whether you can download the model today.
-
-<ComparisonMatrix className="my-6 wide-measure" />
 
 ## What the matrix shows
 

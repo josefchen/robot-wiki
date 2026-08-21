@@ -30,6 +30,10 @@ Kinematics describes robot motion without asking what causes it. No forces and n
 
 Two directions dominate. <Term id="forward-kinematics">Forward kinematics</Term> takes joint angles and computes the <Term id="end-effector">end-effector</Term> pose. <Term id="inverse-kinematics">Inverse kinematics</Term> asks the reverse question: which joint angles place the end effector here? The first direction is a plain composition of transforms, cheap and unique. The second is a nonlinear inverse problem that can have no solution, one solution, or many. Most of the classical machinery, and most of this module, concerns that asymmetry.
 
+The asymmetry is easiest to feel with an arm in front of you. Move the base joint slider below and every downstream link moves with it, because one joint angle enters every downstream position. Then try to put the fingertip at a chosen point using the sliders alone: that difficulty is the inverse problem, and most of this module is about it.
+
+<PlanarFkArm className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DH parameters per joint" value="4" note="theta, d, a, alpha" />
   <Stat label="SO-101 revolute joints" value="6" note="the arm in the 3D playground" />
@@ -61,9 +65,7 @@ $$
 x = \sum_{i=1}^{n} l_i \cos\left(q_1 + \cdots + q_i\right) \qquad y = \sum_{i=1}^{n} l_i \sin\left(q_1 + \cdots + q_i\right)
 $$
 
-The arm below evaluates exactly that expression. Three revolute joints, each angle measured relative to its parent link. Move any slider and every downstream link moves with it, because one joint angle enters every downstream position. Keep that dependence in mind; it is the seed of the <Term id="jacobian">Jacobian</Term>.
-
-<PlanarFkArm className="my-6" />
+The arm at the top of this module evaluates exactly that expression: three revolute joints, each angle measured relative to its parent link. Keep the downstream dependence in mind; it is the seed of the <Term id="jacobian">Jacobian</Term>.
 
 ## Denavit-Hartenberg parameters
 

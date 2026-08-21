@@ -30,6 +30,10 @@ import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescal
 
 Every long-horizon robot system has to answer the same organizational question: what decides *what* to do next, and what decides *how* to move? The modules so far covered the how (chunks, diffusion, flow matching, action tokens). This module is about the what, and about a structural shift that is easy to miss if you only read 2026 model cards. In 2022 the what lived outside the policy, in a separate planner that dispatched to a library of skills. In 2026 the what lives inside the network, as a low-frequency inference pass in the same weights that emit actions. The separate-planner architecture is the lineage that lost.
 
+The shift is visible as a timing pattern. Four 2026 systems are drawn below as lanes on one two-second timeline. Drag the playhead across it: the motor lanes tick constantly while the subtask lanes barely move, and switching systems with the four buttons shows the same split instantiated four different ways.
+
+<HierarchyTimescales className="my-6" />
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="separate planners" value="2022" note="SayCan, Code as Policies" accent />
   <Stat label="keypoint interfaces" value="2024" note="MOKA, ReKep, RoboPoint" />
@@ -68,9 +72,7 @@ Read the current frontier systems side by side and the same pattern appears in e
 - **Helix 02** goes furthest down the stack: three learned layers, S2 sequencing behaviors, S1 mapping all sensors to all joints at a vendor-reported 200 Hz, and S0, a 10M-parameter whole-body controller at a vendor-reported 1 kHz <Cite id="helix-02-2026" />.
 - **π0.7** adds a world model generating visual subgoal images as the intermediate representation between language and action, which is arguably the successor to the keypoint line, with generated images replacing hand-annotated geometry <Cite id="pi07-2026" />. **MEM** extends the same low-frequency step to also emit a memory update, so the high level manages state as well as intent <Cite id="mem-2026" />.
 
-The interactive below draws four of these systems as lanes on one two-second timeline. Scrub the playhead and watch which lanes fire: the motor lanes tick constantly, the subtask lanes barely move. Switching systems shows the same pattern instantiated four ways, including Helix 02's 200 Hz and 1 kHz lanes and GO-2's asynchronous planner/follower split. Rates tagged "schematic" are not stated in the primary source; the lane exists because the architectural split is disclosed, but the exact frequency is not.
-
-<HierarchyTimescales className="my-6" />
+The timeline at the top of this module draws four of these systems, including Helix 02's 200 Hz and 1 kHz lanes and GO-2's asynchronous planner/follower split. Rates tagged "schematic" are not stated in the primary source; the lane exists because the architectural split is disclosed, but the exact frequency is not.
 
 ## The verdict
 

@@ -31,6 +31,10 @@ $$
 
 where the second bound is what <Term id="dagger">DAgger</Term> buys by repeatedly relabeling the states the policy actually visits <Cite id="dagger-2011" />. <Term id="action-chunking">Action chunking</Term> attacks the same bound from a different side: it shrinks the effective horizon. Instead of predicting one action per inference, the policy predicts a sequence of k actions at once, so the number of sequential decisions in an episode drops by a factor of k.
 
+Drag the chunk size slider to k=1 and then back to 100. That curve is ACT's own ablation, and the two ends of it are the whole argument of this module: 1% success one action at a time, 44% at a hundred.
+
+<ChunkSizeCurve className="my-6" />
+
 ## ACT: chunking with a CVAE
 
 Action Chunking with Transformers (ACT), introduced together with the ALOHA bimanual teleoperation hardware, wraps chunking in a <Term id="cvae">conditional variational autoencoder</Term> <Cite id="act-aloha-2023" />. During training, an encoder reads the demonstration's action sequence and produces a latent style variable. At test time the policy decodes a chunk conditioned on camera images, joint positions, and the latent clamped to zero.
@@ -56,9 +60,7 @@ Action Chunking with Transformers (ACT), introduced together with the ALOHA bima
 
 ### The chunk-size dial
 
-Chunk size is a real bias/variance dial, not a hyperparameter footnote. On the paper's two simulated MuJoCo tasks (Cube Transfer and Bimanual Insertion), averaged over four settings (each task trained on scripted and on human demonstrations, temporal ensembling disabled), ACT measures 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
-
-<ChunkSizeCurve className="my-6" />
+Chunk size is a real bias/variance dial, not a hyperparameter footnote. The curve above comes from the paper's two simulated MuJoCo tasks (Cube Transfer and Bimanual Insertion), averaged over four settings (each task trained on scripted and on human demonstrations, temporal ensembling disabled): ACT measures 1% success at k=1, 44% at k=100, and a decline at k=200 and k=400 as the policy becomes effectively open-loop <Cite id="act-aloha-2023" />. Too small and <Term id="compounding-error">compounding error</Term> returns; too large and the policy stops reacting to the world mid-chunk.
 
 <Callout variant="info">
   Chunking does not reduce the per-decision error ε. It reduces the number of decisions, T divided by k, over which that error compounds. The bias you pay is commitment: the world can change inside a chunk, and the policy will not notice until the next inference.

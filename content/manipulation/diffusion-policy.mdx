@@ -24,6 +24,10 @@ import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
 Human demonstrations are multimodal: faced with an obstacle, one operator goes left, another goes right, and both are correct. A policy trained with mean-squared error on that data learns the average of the modes, and the average of "left" and "right" is "straight into the obstacle." <Term id="diffusion-policy">Diffusion Policy</Term>, introduced by Chi et al. in 2023, sidesteps the averaging problem by changing what the policy outputs: not an action, but a conditional denoising process over a whole action sequence <Cite id="diffusion-policy-2023" />. The result was a reported average improvement of 46.9% over the prior state of the art across 15 tasks and 4 benchmarks, and the design became the default action-head recipe for the generalist policies that followed <Cite id="diffusion-policy-2023" />.
 
+Step the denoiser below forward from k=0. The cloud starts as pure Gaussian noise and collapses onto two separate action modes rather than the average of them, which is the property MSE regression destroys and this whole architecture exists to keep.
+
+<DenoisingLoop className="my-6" />
+
 ## Denoising in action space
 
 The policy is a denoising diffusion probabilistic model (DDPM) conditioned on recent observations. Where a regression head computes $a_t = f_\theta(o_t)$, Diffusion Policy models the distribution $p(A_t \mid O_t)$ over the next $T_p$ actions. Inference starts from pure Gaussian noise and iteratively refines it: each step applies the learned denoiser $\epsilon_\theta$, which predicts the noise component of the current sample, and subtracts a fraction of it,
@@ -41,9 +45,7 @@ repeated until the sample lands on a valid action chunk <Cite id="diffusion-poli
   <Stat label="DDIM steps" value="10" note="~0.1 s on an RTX 3080" />
 </div>
 
-Because sampling is stochastic, the policy can commit to a mode instead of averaging modes. Run the denoiser on a bimodal demonstration set and each sample lands on one strategy or the other; the distribution of samples reproduces the distribution of demonstrations.
-
-<DenoisingLoop className="my-6" />
+Because sampling is stochastic, the policy can commit to a mode instead of averaging modes. That is what the figure at the top of this module shows on a bimodal demonstration set: each sample lands on one strategy or the other, and the distribution of samples reproduces the distribution of demonstrations.
 
 <Callout variant="info">
   The step count is a speed knob, not a quality requirement. Training runs 100 DDPM steps; inference runs 10 DDIM steps with nearly identical results, and the successors below push the count far lower <Cite id="diffusion-policy-2023" />.
