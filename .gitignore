@@ -31,6 +31,15 @@ visual-*.mts
 # Vercel alike; regenerated, never committed.
 public/search-index.json
 
+# Written at the repo root by `next dev`/`next build`
+# (node_modules/next/dist/server/lib/generate-agent-files.js): a Next.js
+# agent-rules block plus a one-line CLAUDE.md pointing at it. Root-anchored so
+# an AGENTS.md anywhere else stays tracked. Committing the root pair would put
+# framework prose into every agent's instruction context, where it competes
+# with this project's own guidance.
+/AGENTS.md
+/CLAUDE.md
+
 # Crossref author-sweep response cache (scripts/check-crossref-authors.ts);
 # regenerated on demand, never committed.
 .crossref-cache/
