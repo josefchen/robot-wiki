@@ -175,7 +175,7 @@ describe('COMPANIES data', () => {
   it('carries website and logo through from the research source', () => {
     const withLogo = COMPANIES.filter((company) => company.logo !== null);
     const withSite = COMPANIES.filter((company) => company.website !== null);
-    expect(withLogo.length).toBe(34);
+    expect(withLogo.length).toBe(32);
     expect(withSite.length).toBe(103);
     const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
     expect(nvidia?.website).toBe('https://www.nvidia.com');
@@ -183,6 +183,12 @@ describe('COMPANIES data', () => {
     const skild = COMPANIES.find((company) => company.id === 'skild-ai');
     expect(skild?.website).toBe('https://www.skild.ai');
     expect(skild?.logo).toBeNull();
+    const boston = COMPANIES.find((company) => company.id === 'boston-dynamics');
+    const applied = COMPANIES.find(
+      (company) => company.id === 'applied-intuition',
+    );
+    expect(boston?.logo).toBeNull();
+    expect(applied?.logo).toBeNull();
   });
 
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {

@@ -3,12 +3,19 @@
 Inventory of the 111 market-map companies whose logos were **not** registered
 in this pass. Searched Wikimedia Commons (file search for the company name plus
 "logo") and, where a first-party homepage resolved, the official site for a
-press kit or brand page that states a reuse grant. Skipped anything whose
-creator and licence could not be named. Retrieved 2026-08-20.
+press kit or brand page that states a reuse grant. Retrieved 2026-08-20.
 
 A miss is not a claim that no licensable asset exists. It means this run did
-not find one that satisfies `library/imagery.md` (named creator, named
-permitted licence, verbatim licence sentence from the asset page).
+not find one that satisfies the registration rule: named creator, named
+permitted licence (`cc-by-4.0` / `cc-by-sa-4.0` / PD-textlogo / PD-logo),
+verbatim licence sentence from the asset page, and a real mark (company-
+authored or an official PD wordmark). A Commons file that is a user
+recreation is not a licensable official mark even when a named CC licence
+exists. That is the same rule for Boston Dynamics
+(`File:BostonDynamics_Logo.svg`, Cleanoxygenforeveryone, CC BY-SA 4.0),
+Applied Intuition (`File:Applied_Intuition_Logo.png`, Redpod22, CC BY 4.0),
+and Symbotic (`File:SymboticLogo.jpg`, Sierracarlos17, CC BY-SA 4.0). Do
+not invent licences.
 
 | id | searched | why skipped |
 | --- | --- | --- |
@@ -25,6 +32,7 @@ permitted licence, verbatim licence sentence from the asset page).
 | encord | Commons "Encord logo"; https://encord.com | no Commons file; no press-kit grant |
 | micro1 | Commons "Micro1 logo"; https://www.micro1.ai | no Commons file; no press-kit grant |
 | 1x-technologies | Commons "1X Technologies logo"; https://www.1x.tech | Commons hits were 1xBet / other "1x" marks, not 1X Technologies; no press-kit grant |
+| applied-intuition | Commons "Applied Intuition logo"; https://www.appliedintuition.com | `File:Applied_Intuition_Logo.png` is a user recreation (Redpod22, CC BY 4.0), not a company-authored mark; skipped under the same recreation rule as Boston Dynamics and Symbotic |
 | apptronik | Commons "Apptronik logo"; https://apptronik.com | no Commons file; no press-kit grant |
 | fourier-intelligence | Commons "Fourier Intelligence logo"; https://www.fftai.com | `File:Fourier Logo.png` (PD) is an unidentified "Fourier" wordmark, not confirmed as Fourier Intelligence; no press-kit grant |
 | galbot | Commons "Galbot logo"; https://www.galbot.com | no permitted Commons file (one CC BY 3.0 unrelated Galaxy hit); no press-kit grant |
@@ -43,7 +51,7 @@ permitted licence, verbatim licence sentence from the asset page).
 | clone-robotics | Commons "Clone Robotics logo"; https://www.clonerobotics.com | no Commons file; no press-kit grant |
 | mentee-robotics | Commons "Mentee Robotics logo" | no Commons file; menteerobotics.com did not resolve in this run |
 | persona-ai | Commons "Persona AI logo"; https://www.persona-ai.com | no Commons file; homepage returned HTTP 530; no press-kit grant |
-| symbotic | Commons "Symbotic logo"; https://www.symbotic.com | `File:SymboticLogo.jpg` is a user recreation (Sierracarlos17, CC BY-SA 4.0) of uncertain fidelity; skipped rather than treat a third-party JPEG as the official mark |
+| symbotic | Commons "Symbotic logo"; https://www.symbotic.com | `File:SymboticLogo.jpg` is a user recreation (Sierracarlos17, CC BY-SA 4.0) of uncertain fidelity; skipped under the same recreation rule as Boston Dynamics and Applied Intuition |
 | dexterity | Commons "Dexterity logo"; https://www.dexterity.ai | Commons hit was an 1894 PDF, not the company; no press-kit grant |
 | nimble-robotics | Commons "Nimble logo"; https://www.nimble.ai | Commons hits were Nimble Giant Entertainment / Nimble Storage / NimbleTV; no Nimble (robotics) file |
 | locus-robotics | Commons "Locus Robotics logo"; https://www.locusrobotics.com | no Commons file; no press-kit grant |
@@ -79,6 +87,7 @@ permitted licence, verbatim licence sentence from the asset page).
 | formic | Commons "Formic logo"; https://formic.co | Commons hits were Google Forms / Fillout; no Formic (robotics) file |
 | astribot | Commons "Astribot logo"; https://www.astribot.com | no Commons file; no press-kit grant |
 | booster-robotics | Commons "Booster Robotics logo"; https://www.booster.tech | no Commons file; no press-kit grant |
+| boston-dynamics | Commons "Boston Dynamics logo"; https://bostondynamics.com | `File:BostonDynamics_Logo.svg` is a user recreation (Cleanoxygenforeveryone, CC BY-SA 4.0), not a company-authored mark; skipped under the same recreation rule as Applied Intuition and Symbotic |
 | leju-robotics | Commons "Leju Robotics logo"; https://www.lejurobot.com | no Commons file; no press-kit grant |
 | paxini | Commons "PaXini logo"; https://www.paxini.com | no Commons file; no press-kit grant |
 | miso-robotics | Commons "Miso Robotics logo"; https://misorobotics.com | no Commons file; no press-kit grant |
@@ -90,22 +99,23 @@ permitted licence, verbatim licence sentence from the asset page).
 | zebra-robotics-automation | Commons "Zebra Technologies logo"; https://www.zebra.com | no Commons file under a permitted licence; official site returned HTTP 406 to this run; no press-kit grant named |
 | robotphoenix | Commons "Robotphoenix logo"; https://www.robotphoenix.com | no Commons file; no press-kit grant |
 
-## Registered in this pass (34)
+## Registered in this pass (32)
 
 physical-intelligence, covariant, nvidia-robotics, hugging-face-lerobot,
-applied-intuition, figure-ai, agility-robotics, tesla-optimus, boston-dynamics,
-unitree-robotics, ubtech-robotics, neura-robotics, wandercraft, rainbow-robotics,
-berkshire-grey, amazon-robotics, bedrock-robotics, intuitive-surgical,
-cmr-surgical, nuro, irobot, harmonic-drive-systems, nabtesco, wonik-robotics,
-openai-robotics, meta-robotics, switchbot, hanson-robotics, starship-technologies,
-pollen-robotics, anduril, abb-robotics, mitsubishi-robotics, monarch-tractor.
+figure-ai, agility-robotics, tesla-optimus, unitree-robotics, ubtech-robotics,
+neura-robotics, wandercraft, rainbow-robotics, berkshire-grey, amazon-robotics,
+bedrock-robotics, intuitive-surgical, cmr-surgical, nuro, irobot,
+harmonic-drive-systems, nabtesco, wonik-robotics, openai-robotics, meta-robotics,
+switchbot, hanson-robotics, starship-technologies, pollen-robotics, anduril,
+abb-robotics, mitsubishi-robotics, monarch-tractor.
 
-All 34 come from Wikimedia Commons under CC BY 4.0, CC BY-SA 4.0, PD-textlogo,
+All 32 come from Wikimedia Commons under CC BY 4.0, CC BY-SA 4.0, PD-textlogo,
 or PD-logo. NVIDIA's current official SVG on Commons is Apache 2.0 (outside the
 permitted set); the registered file is the PD-textlogo wordmark
 `File:Nvidia_logo.svg`. Hugging Face's brand page publishes marks but the TOS
 reserves reproduction; the registered file is the Commons PD-textlogo
-`File:Hf-logo-with-title.svg` credited to Hugging Face staff.
+`File:Hf-logo-with-title.svg` credited to Hugging Face staff. User recreations
+(Boston Dynamics, Applied Intuition, Symbotic) were not registered.
 
 ## Website misses (8)
 

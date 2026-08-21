@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element -- static export serves plain images */
 
 import { useState } from 'react';
-import { getImage } from '@/data/images';
+import { getCompanyLogo } from '@/data/logos';
 import type { Company } from '@/data/schemas/company.ts';
 import { companyInitials } from '@/lib/market-map';
 import { cx } from '@/lib/utils';
@@ -18,15 +18,18 @@ type CompanyLogoProps = {
  * Licensed company mark, or two-letter initials when the registry has
  * no logo (or the file fails to load). The image is decorative: the
  * company name sits next to it on every surface that uses this mark.
+ *
+ * Failure is keyed to the image path so a reused instance (BubbleDetail)
+ * retries when the selected company or logo changes.
  */
 export function CompanyLogo({
   company,
   size = 'md',
   className,
 }: CompanyLogoProps) {
-  const [failed, setFailed] = useState(false);
-  const image = company.logo ? getImage(company.logo) : undefined;
-  const showImage = Boolean(image) && !failed;
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const image = company.logo ? getCompanyLogo(company.logo) : undefined;
+  const showImage = Boolean(image) && failedSrc !== image?.file;
   const box =
     size === 'sm'
       ? 'h-6 w-6 text-[10px]'
@@ -48,7 +51,7 @@ export function CompanyLogo({
           alt=""
           width={image.width}
           height={image.height}
-          onError={() => setFailed(true)}
+          onError={() => setFailedSrc(image.file)}
           className="max-h-full max-w-full object-contain"
         />
       </span>

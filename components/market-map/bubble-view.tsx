@@ -430,7 +430,12 @@ function BubbleDetail({
       className="mt-4 border-t border-border pt-3 text-sm"
     >
       <div className="flex items-center gap-3">
-        {company ? <CompanyLogo company={company} /> : null}
+        {company ? (
+          <CompanyLogo
+            key={`${company.id}:${company.logo ?? ''}`}
+            company={company}
+          />
+        ) : null}
         <p className="font-sans font-medium text-text">{point.name}</p>
       </div>
       <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">

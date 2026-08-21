@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { CompanyLogo } from '@/components/market-map/company-logo';
 import { COMPANIES } from '@/data/companies';
@@ -34,6 +34,10 @@ function stub(patch: Partial<Company> = {}): Company {
   };
 }
 
+function markFor(id: string) {
+  return document.querySelector(`[data-company-logo="${id}"]`);
+}
+
 describe('CompanyLogo', () => {
   it('renders initials when no licensed logo is registered', () => {
     render(<CompanyLogo company={stub()} />);
@@ -55,10 +59,36 @@ describe('CompanyLogo', () => {
     const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
     expect(nvidia?.logo).toBe('nvidia-logo');
     render(<CompanyLogo company={nvidia!} />);
-    const mark = document.querySelector('[data-company-logo="nvidia-robotics"]');
+    const mark = markFor('nvidia-robotics');
     expect(mark).toHaveAttribute('data-logo-state', 'image');
     const img = mark?.querySelector('img');
     expect(img).toHaveAttribute('src', '/images/logos/nvidia.svg');
     expect(img).toHaveAttribute('alt', '');
+  });
+
+  it('retries a later company after onError on a reused instance', () => {
+    const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
+    const figure = COMPANIES.find((company) => company.id === 'figure-ai');
+    expect(nvidia?.logo).toBe('nvidia-logo');
+    expect(figure?.logo).toBe('figure-ai-logo');
+
+    const { rerender } = render(<CompanyLogo company={nvidia!} />);
+    const first = markFor('nvidia-robotics');
+    expect(first).toHaveAttribute('data-logo-state', 'image');
+    const img = first?.querySelector('img');
+    expect(img).toBeTruthy();
+    fireEvent.error(img!);
+    expect(markFor('nvidia-robotics')).toHaveAttribute(
+      'data-logo-state',
+      'initials',
+    );
+
+    rerender(<CompanyLogo company={figure!} />);
+    const second = markFor('figure-ai');
+    expect(second).toHaveAttribute('data-logo-state', 'image');
+    expect(second?.querySelector('img')).toHaveAttribute(
+      'src',
+      '/images/logos/figure-ai.svg',
+    );
   });
 });

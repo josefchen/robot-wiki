@@ -664,7 +664,7 @@ const ROWS: Company[] = [
     name: 'Applied Intuition',
     aka: [],
     website: 'https://www.appliedintuition.com',
-    logo: 'applied-intuition-logo',
+    logo: null,
     hq: {
       city: 'Mountain View',
       country: 'US',
@@ -1119,7 +1119,7 @@ const ROWS: Company[] = [
     name: 'Boston Dynamics',
     aka: [],
     website: 'https://bostondynamics.com',
-    logo: 'boston-dynamics-logo',
+    logo: null,
     hq: {
       city: 'Waltham',
       country: 'US',
