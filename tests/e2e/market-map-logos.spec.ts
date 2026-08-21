@@ -35,7 +35,7 @@ test.describe('market-map company logos', () => {
 
     const boston = gridLogo(page, 'boston-dynamics');
     await expect(boston).toHaveAttribute('data-logo-state', 'initials');
-    await expect(boston).toHaveText('BO');
+    await expect(boston).toHaveText('BD');
   });
 
   test('bubble detail switches between a mark and initials', async ({
@@ -60,7 +60,7 @@ test.describe('market-map company logos', () => {
       'data-logo-state',
       'initials',
     );
-    await expect(bubbleLogo(page)).toHaveText('SK');
+    await expect(bubbleLogo(page)).toHaveText('SA');
   });
 
   test('timeline rows render a licensed mark or initials', async ({
@@ -78,6 +78,6 @@ test.describe('market-map company logos', () => {
 
     const skild = timelineLogo(page, 'skild-ai');
     await expect(skild.first()).toHaveAttribute('data-logo-state', 'initials');
-    await expect(skild.first()).toHaveText('SK');
+    await expect(skild.first()).toHaveText('SA');
   });
 });
