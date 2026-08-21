@@ -49,7 +49,10 @@ export function AuthorList({
         type="button"
         aria-expanded={expanded}
         onClick={() => setExpanded((value) => !value)}
-        className="cursor-pointer font-sans text-[13px] text-text-dim underline decoration-dotted decoration-border-strong underline-offset-[3px] transition-colors hover:text-text hover:decoration-text-dim"
+        // No colour transition: the control re-renders on toggle, and a
+        // tweened colour is sampled mid-flight by contrast checkers (and by a
+        // reader) as a near-black button against the dark surface.
+        className="cursor-pointer font-sans text-[13px] text-text-dim underline decoration-dotted decoration-border-strong underline-offset-[3px] hover:text-text hover:decoration-text-dim"
       >
         {expanded
           ? `Show ${AUTHORS_SHOWN} authors`
