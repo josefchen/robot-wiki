@@ -20,6 +20,13 @@ seeAlso:
 ---
 
 import { CompoundingError } from '@/components/interactive/compounding-error';
+import { DesignSpike } from '@/components/design-spike/design-spike';
+
+{/* Review surface for the visual-elevation design spike. Renders nothing
+    unless the URL carries ?theme=paper|blueprint|oxide, which nothing links
+    to. Remove this import once the owner has picked a candidate. */}
+
+<DesignSpike />
 
 <Term id="behavior-cloning">Behavior cloning</Term> is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. In 1988, ALVINN trained a three-layer network to steer a van from camera images <Cite id="alvinn-1988" />, and the same recipe, scaled up, still sits underneath most modern manipulation policies.
 

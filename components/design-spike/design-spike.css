@@ -1,0 +1,141 @@
+/*
+ * Visual-elevation design spike: three candidate treatments.
+ *
+ * Every rule here is scoped to html[data-design-spike="..."], an attribute
+ * that only components/design-spike/design-spike.tsx sets, and only when it
+ * is mounted (one article) and the URL carries ?theme=. Nothing in this file
+ * touches a :root default, so every other route keeps the shipped dark
+ * instrument palette.
+ *
+ * Each candidate redeclares the full token set the site actually reads:
+ * background, surface, surface-2, border, border-strong, text, dim text,
+ * accent, the three semantic state colours, and a sans, serif and mono
+ * family. Tailwind v4 utilities compile to var(--color-*) references, so
+ * redeclaring the variables on the document element re-themes every surface
+ * without a single utility class changing.
+ */
+
+html[data-design-spike='paper'] {
+  color-scheme: light;
+
+  --color-bg: #f4f3ef;
+  --color-surface: #fbfaf7;
+  --color-surface-2: #eceae4;
+  --color-border: #d9d6cd;
+  --color-border-strong: #b3afa4;
+  --color-text: #1a1c1e;
+  --color-text-dim: #55595d;
+  --color-accent: #145c4f;
+  --color-ok: #1a6f45;
+  --color-warn: #8a5a00;
+  --color-err: #a52a1e;
+
+  --font-sans: var(--spike-paper-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--spike-paper-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--spike-paper-mono), ui-monospace, 'SF Mono', monospace;
+
+  /* Dot lattice, three opacity steps. Held close to the page ground on
+     purpose: the treatment is meant to be felt at reading distance, not
+     seen. */
+  --spike-dot-base: #f2f0eb;
+  --spike-dot-mid: #f1efe9;
+  --spike-dot-peak: #f0eee8;
+  --spike-dot-pitch: 4px;
+}
+
+html[data-design-spike='blueprint'] {
+  color-scheme: dark;
+
+  --color-bg: #0d1117;
+  --color-surface: #141a21;
+  --color-surface-2: #1a212a;
+  --color-border: #252d38;
+  --color-border-strong: #3b4855;
+  --color-text: #e2e8ee;
+  --color-text-dim: #97a3b0;
+  --color-accent: #62cfc0;
+  --color-ok: #6cd39a;
+  --color-warn: #e3b341;
+  --color-err: #f28b82;
+
+  --font-sans: var(--spike-blueprint-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--spike-blueprint-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--spike-blueprint-mono), ui-monospace, 'SF Mono', monospace;
+
+  --spike-dot-base: #1f2731;
+  --spike-dot-mid: #2b3540;
+  --spike-dot-peak: #3b4855;
+  --spike-dot-pitch: 5px;
+}
+
+html[data-design-spike='oxide'] {
+  color-scheme: dark;
+
+  --color-bg: #121110;
+  --color-surface: #1a1917;
+  --color-surface-2: #21201d;
+  --color-border: #2e2c29;
+  --color-border-strong: #474340;
+  --color-text: #ebe7e1;
+  --color-text-dim: #a29c93;
+  --color-accent: #e07a5f;
+  --color-ok: #7fb069;
+  --color-warn: #d9a441;
+  --color-err: #e5695b;
+
+  --font-sans: var(--spike-oxide-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--spike-oxide-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--spike-oxide-mono), ui-monospace, 'SF Mono', monospace;
+
+  --spike-dot-base: #211f1d;
+  --spike-dot-mid: #333029;
+  --spike-dot-peak: #474340;
+  --spike-dot-pitch: 6px;
+}
+
+/*
+ * The one textured surface. The rule between an article's prose and its
+ * generated apparatus is repainted as a monochrome dot lattice: a base dot
+ * at every cell, a mid dot every second cell, a peak dot once per 5-cell
+ * block, which is the opacity remapping the sv-matrix squares use. It is
+ * static in every state, carries no information the headings below it do
+ * not already carry, and its dot colours sit within 0.06 relative luminance
+ * of the page ground.
+ *
+ * The three layers tile at the SAME row height and differ only in their
+ * horizontal period, so every row carries all three tiers. Giving the peak
+ * layer a 5-cell vertical period as well is the obvious reading of a 5x5
+ * matrix and is wrong here: the band is only three rows tall, so the peak
+ * dots landed outside it and the tier that carries the accent never painted.
+ *
+ * Deliberately the only placement. A second textured surface was drafted
+ * (the sidebar rail edge) and cut: on a page whose job is reading, one
+ * boundary mark is the whole of what the texture has to say.
+ */
+html[data-design-spike] article > hr {
+  border: 0;
+  height: calc(var(--spike-dot-pitch) * 3);
+  background-color: transparent;
+  background-repeat: repeat;
+  background-position: center;
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      var(--spike-dot-peak) 0.9px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      var(--spike-dot-mid) 0.9px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      var(--spike-dot-base) 0.9px,
+      transparent 1px
+    );
+  background-size:
+    calc(var(--spike-dot-pitch) * 5) var(--spike-dot-pitch),
+    calc(var(--spike-dot-pitch) * 2) var(--spike-dot-pitch),
+    var(--spike-dot-pitch) var(--spike-dot-pitch);
+}
