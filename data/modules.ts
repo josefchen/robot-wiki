@@ -281,6 +281,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Contact mechanics, grasp quality metrics, and force closure.',
   ],
   [
+    'classical',
+    'perception',
+    'Perception for Manipulation',
+    'Calibration, depth, segmentation, 6-DoF pose, and the error budget they compose.',
+  ],
+  [
     'frontier',
     'reliability-gap',
     'The Reliability Gap',
@@ -375,6 +381,7 @@ const PUBLISHED = new Set([
   'classical/control',
   'classical/state-estimation',
   'classical/grasp-planning',
+  'classical/perception',
   'frontier/reliability-gap',
   'frontier/dexterity',
   'frontier/generalization',

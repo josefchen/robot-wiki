@@ -28,10 +28,10 @@ import {
 describe('og card vocabulary', () => {
   it('emits a card path per published article, each carrying its slug', () => {
     const published = publishedModules();
-    expect(published.length).toBe(42);
+    expect(published.length).toBe(43);
     const paths = published.map((m) => articleCardPath(m.domain, m.slug));
-    // 42 distinct URL paths (VAL-DIST-003).
-    expect(new Set(paths).size).toBe(42);
+    // 43 distinct URL paths (VAL-DIST-003).
+    expect(new Set(paths).size).toBe(43);
     for (const m of published) {
       const path = articleCardPath(m.domain, m.slug);
       // The route identifier rides in the URL path.

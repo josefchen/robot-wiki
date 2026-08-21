@@ -1,0 +1,153 @@
+---
+title: "Perception for Manipulation"
+description: "Camera and hand-eye calibration, depth sensing and where it fails, open-vocabulary detection, promptable segmentation, 6-DoF pose estimation and visual servoing: the explicit pipeline that turns pixels into an object pose a grasp planner can use, with a live error budget composed end to end."
+domain: classical
+slug: perception
+order: 6
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - zhang-2000-calibration
+  - tsai-lenz-1989
+  - keselman-2017-realsense
+  - realsense-d400-datasheet-2026
+  - realsense-tuning-2026
+  - azure-kinect-depth-docs-2026
+  - photoneo-phoxi-l-2026
+  - cleargrasp-2020
+  - grounding-dino-2024
+  - dinov2-2023
+  - segment-anything-2023
+  - sam2-2024
+  - pointnet-2017
+  - pointnet-plus-plus-2017
+  - dense-object-nets-2018
+  - posecnn-2018
+  - foundationpose-2024
+  - megapose-2022
+  - bop-challenge-2023
+  - hinterstoisser-2012
+  - espiau-1992
+  - chaumette-hutchinson-2006
+  - chaumette-hutchinson-2007
+  - dexnet-2-2017
+  - moka-2024
+  - rekep-2024
+  - robopoint-2024
+  - play2perfect-2026
+seeAlso:
+  - "classical/grasp-planning"
+  - "manipulation/hierarchical"
+  - "classical/state-estimation"
+---
+
+import { PerceptionErrorBudget } from '@/components/interactive/perception-error-budget';
+
+[Grasp planning](/classical/grasp-planning) computes force closure against a known object pose. Notice what that assumes: somebody upstream has already said where the object is, in the robot's own frame, to a tolerance the gripper can act on. That upstream somebody is the perception pipeline, and this is the module about it.
+
+Six stages, in a fixed order, each consuming what the last one produced. Calibrate the camera so a pixel means a direction. Calibrate it against the robot so that direction means something in the robot's frame. Measure depth so the direction becomes a point. Detect and segment so points become an object. Estimate pose so the object becomes a graspable rigid body. Every stage adds error, and the errors are independent, so they compose in quadrature rather than adding.
+
+## The budget the pipeline has to fit inside
+
+Start at the end, with the number the whole chain is judged on. Three of the stages contribute a positioning error at the gripper: the hand-eye transform, the depth measurement, and the pose estimate. Two of those are fixed offsets. The hand-eye residual is an *angle*, so it costs lateral millimetres in proportion to how far away the object is. Set the hand-eye slider to half a degree and drag the working distance out, and a term that was invisible at 15 cm becomes the one that jams the grasp.
+
+<PerceptionErrorBudget className="my-6" />
+
+Compare the composed number against the tolerance real tasks hold. The clearance band above is a parallel-jaw gripper's lateral slack, and even a well-calibrated pipeline sits close to it. Precision insertion is a different world: assembly results in this literature are reported at 0.5 mm clearance <Cite id="play2perfect-2026" />, an order of magnitude below what a vision chain delivers alone. That is not a sensor defect. It is why precise assembly closes on force and contact rather than on vision, and why grasp planning treats the pose it is handed as an input rather than a certainty.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Zhang calibration" value="2000" note="intrinsics from a planar target at unknown orientations" />
+  <Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz pose the camera-to-robot transform" />
+  <Stat label="visual servoing" value="1992" note="Espiau, Chaumette and Rives, closing on image features" />
+  <Stat label="promptable masks" value="2023" note="Segment Anything, trained on over a billion masks" />
+</div>
+
+The rest of the module is the six stages, in order, and what each one contributes to that budget.
+
+## Calibration: what a pixel means
+
+A camera is a device that discards a dimension. It maps a 3D point onto a 2D sensor, and the mapping it uses is described by the <Term id="camera-intrinsics">intrinsics</Term>: focal length in pixels on each axis, the principal point, and the lens distortion terms. Before those are known, a pixel coordinate is a number with no geometric meaning.
+
+Zhang's 2000 method is why calibration on a real robot is a printed checkerboard rather than a metrology fixture. Show the camera a planar target at several arbitrary orientations, none of them measured; each view constrains the intrinsics, and a closed-form solution followed by nonlinear refinement recovers them along with each view's pose and the radial distortion <Cite id="zhang-2000-calibration" />. The technique needs no knowledge of where you held the board, which is the whole reason it displaced the fixtures that came before it.
+
+Extrinsics are the other half: where the camera sits relative to something else. Two cameras on a stereo rig need their relative pose. A camera and a robot need the harder version.
+
+### Hand-eye calibration: what a pixel means to the robot
+
+A perfectly calibrated camera reporting perfectly accurate 3D points in the *camera's* frame is useless to an arm that plans in its *own* frame. <Term id="hand-eye-calibration">Hand-eye calibration</Term> is the step that connects them: for a wrist-mounted camera, the rigid transform from the gripper flange to the camera; for a camera bolted to a post, the transform from the robot base to the camera.
+
+Tsai and Lenz posed it in 1989 in the form still used: move the robot through a set of known motions while the camera watches a static target, and each motion pair gives you an equation of the form $AX = XB$, where $A$ is the robot's motion, $B$ is the camera's observed motion, and $X$ is the unknown transform. Solve rotation first, then translation, from the accumulated constraints <Cite id="tsai-lenz-1989" />.
+
+The residual of that solve is where a great deal of practical grief lives. Write the transform's error as a small translation plus a small rotation. The translation error is a constant: it shifts every reported point by the same few millimetres regardless of where the object is. The rotation error is an *angle*, and an angle costs
+
+$$
+e_\theta(d) = d \, \tan \theta
+$$
+
+millimetres of lateral offset at a working distance $d$. So a residual of one degree costs about 1.7 mm at a 10 cm standoff, which is nothing, and about 17 mm at 1 m, which is a missed grasp. That asymmetry is what the instrument above is built around.
+
+## Depth sensing: what fails, and on what
+
+Three families of depth sensor reach a manipulation cell, and choosing between them is choosing which failures you are prepared to engineer around.
+
+**Stereo** matches features between two images and triangulates. It needs texture: the matching is a correspondence search, so a featureless surface gives it nothing to correspond. The reference stereo camera in this class publishes a Z-accuracy of plus or minus 2 percent of range within 80 percent of its field of view at HD resolution <Cite id="realsense-d400-datasheet-2026" />. The error is not flat in range either. The vendor's own tuning guidance states that stereo depth error scales as the square of distance, and the practical advice that follows is to get as close to the object as the minimum operating distance allows <Cite id="realsense-tuning-2026" />. A pattern projector is the standard mitigation, painting texture onto surfaces that have none <Cite id="keselman-2017-realsense" />.
+
+**Structured light** projects a known pattern and reads the deformation. It is the accurate option and the slow one. An industrial scanner in this family publishes 0.200 mm calibration accuracy and 0.190 mm temporal noise, both at one sigma, over an 870 to 2150 mm range, at a scanning time of 250 to 2750 ms <Cite id="photoneo-phoxi-l-2026" />. Sub-millimetre geometry, at a frame rate that rules out closing a control loop on it.
+
+**Time of flight** measures the round-trip of modulated light per pixel. It does not need texture at all, which is its advantage, and it has a characteristic failure the other two do not: multi-path interference, where one pixel integrates light that arrived by more than one route. Microsoft's documentation for its time-of-flight camera enumerates five reasons a depth pixel is invalidated and returned as zero: outside the active illumination mask, saturated IR signal, low IR signal, filter outlier, and multi-path interference. Corners are named as the common multi-path case, because light bounces off one wall onto the other, and object edges are named as the common mixed-signal case <Cite id="azure-kinect-depth-docs-2026" />.
+
+### The failure taxonomy that decides how a cell is built
+
+Across all three families the same surface classes break depth, and this list is the reason a bin-picking rig is designed around its sensor's blind spots rather than around its datasheet.
+
+- **Transparent** surfaces refract rather than reflect, so the sensor ranges whatever is behind them. Transparent objects "often appear as noisy or distorted approximations of the surfaces that lie behind them", which is the premise the ClearGrasp work was built on: it infers surface normals, transparent-surface masks and occlusion boundaries and then *replaces* the depth the sensor returned <Cite id="cleargrasp-2020" />.
+- **Specular** surfaces send the illumination somewhere other than back to the aperture, or send all of it back at once. The stereo datasheet states plainly that specular reflections may cause image saturation on the standard product line <Cite id="realsense-d400-datasheet-2026" />, and the time-of-flight documentation lists saturated IR signal as an invalidation cause in its own right <Cite id="azure-kinect-depth-docs-2026" />.
+- **Dark** surfaces absorb the illumination, so the return never clears the noise floor. That is the low-IR-signal invalidation on a time-of-flight sensor <Cite id="azure-kinect-depth-docs-2026" />, and on a stereo camera it appears as the grainy-image problem: image quality drives depth quality, and low light produces poor images <Cite id="realsense-tuning-2026" />.
+- **Thin** structures and object edges fall between samples or mix foreground with background in one pixel. Wire grids and fences are also the canonical repetitive-structure case, where left-right matching becomes ambiguous and the sensor is left choosing between two equally good matches <Cite id="realsense-tuning-2026" />.
+- **Self-occluded** geometry is missing rather than wrong. The same surface invalidated from one viewpoint may be perfectly visible from another, which is why multi-view capture is a standard answer <Cite id="azure-kinect-depth-docs-2026" />.
+
+Two things about the numbers above should be said out loud. The 2 percent and the 0.200 mm are measured against cooperative matte targets, which is the condition every depth spec is measured under. And no datasheet in this list publishes an accuracy figure for a transparent or a specular surface: that figure is not disclosed, which says something different from saying the sensor has no error there. It is why a research literature on transparent-object depth exists at all.
+
+Once you have depth you have a <Term id="point-cloud">point cloud</Term>, and a network that consumes one has to be invariant to the ordering of its own input, since the set carries no canonical order. PointNet solved that with a shared per-point encoder and a symmetric pooling function <Cite id="pointnet-2017" />, and PointNet++ added a hierarchy of local neighbourhoods so local geometry survives the pooling <Cite id="pointnet-plus-plus-2017" />.
+
+## Detection: from pixels to candidate objects
+
+Classical detection returns boxes over a class list fixed at training time, which is a poor fit for a robot that will be asked about objects nobody enumerated. Open-vocabulary detection removes the fixed list. Grounding DINO fuses language into a closed-set detector at three points, so a category name or a referring expression is a valid query, and it reports 52.5 AP on COCO with no COCO training data at all <Cite id="grounding-dino-2024" />.
+
+Underneath the detectors sits a quieter change: features good enough to use without task supervision. DINOv2 trains general visual features self-supervised at scale, and their appeal for robotics is that they transfer without fine-tuning, which matters when the objects at deployment were not in any label set <Cite id="dinov2-2023" />.
+
+## Segmentation: the grounding layer
+
+A box is the wrong output for manipulation. A box around a mug also contains the table behind it, and a grasp is planned on a surface region, not on a rectangle, so <Term id="semantic-segmentation">per-pixel labelling</Term> is what a downstream planner can actually use.
+
+The move that mattered was making segmentation *promptable*. Segment Anything is trained on over a billion masks specifically so that a point, a box or a rough mask produces the corresponding object mask, transferring zero-shot to image distributions it never trained on <Cite id="segment-anything-2023" />, and SAM 2 carries the same interface across video with a streaming memory, reaching better video accuracy with three times fewer interactions and running six times faster than SAM on images <Cite id="sam2-2024" />.
+
+<Term id="promptable-segmentation">Promptable segmentation</Term> is worth naming precisely, because it is the layer the keypoint-affordance policies in [hierarchical policies](/manipulation/hierarchical) are standing on and never quite name. When MOKA annotates an image with candidate marks and asks a vision-language model to pick grasp, function and target keypoints <Cite id="moka-2024" />, when ReKep has a model write constraint functions over semantic keypoints <Cite id="rekep-2024" />, and when RoboPoint is fine-tuned to predict spatial affordance points directly <Cite id="robopoint-2024" />, all three are emitting geometry into a frame that a segmentation-and-depth stack established. Take that layer away and a predicted keypoint is a pixel coordinate with nowhere to go.
+
+The other route from image to graspable geometry skips object identity altogether. Dense Object Nets learns a per-pixel descriptor, self-supervised, so the same physical point on an object maps to the same descriptor across viewpoints and deformations, trained in about twenty minutes per object class <Cite id="dense-object-nets-2018" />. And a grasp can be planned with no object model at all: Dex-Net 2.0 trains a grasp-quality network on 6.7 million synthetic depth images and point-grasp pairs and plans directly on the depth image <Cite id="dexnet-2-2017" />.
+
+## 6-DoF pose estimation, and how to read a claim about it
+
+<Term id="pose-estimation">Pose estimation</Term> is the stage that turns a mask into a rigid body with an orientation. The methods divide by what they assume they already know about the object, which is also the division that decides whether you can use one.
+
+**Instance-level** methods are trained for specific objects. PoseCNN localises each object's centre, predicts its distance, and regresses a quaternion for rotation, with a loss designed to handle symmetric objects; it shipped with the YCB-Video dataset, 21 objects across 92 videos and 133,827 frames <Cite id="posecnn-2018" />. Accurate on the objects it knows, useless on the object that arrived this morning.
+
+**Model-free and novel-object** methods removed that constraint. MegaPose estimates the pose of novel objects by render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose unifies model-based and model-free operation in one network: give it a CAD model, or give it a handful of reference images, and it runs on an object it never trained on, reaching results comparable to instance-level methods despite assuming far less <Cite id="foundationpose-2024" />.
+
+To read any of these claims you need the metric. The <Term id="add-s-metric">symmetry-aware pose error</Term> is the standard, and its ancestor ADD comes from the LINEMOD work: transform the object's model points by the estimated pose and by the true pose, average the distance between corresponding points, and count the pose correct when that average is below a fraction of the object's diameter <Cite id="hinterstoisser-2012" />. The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl rotated about its axis is not scored as wrong for a rotation no camera could distinguish.
+
+The benchmark where the comparison actually happens is BOP, and its 2023 report gives a sense of how fast this moved. Accuracy on 6-DoF localisation of *seen* objects improved by more than 50 percent since 2017, from 56.9 to 85.6 AR_C. More striking is the unseen-object result: the best 2023 method for objects unseen during training, GenFlow, reached the accuracy of the best 2020 method for *seen* objects, CosyPose, though noticeably slower <Cite id="bop-challenge-2023" />. Three years erased the seen-versus-unseen gap, at a runtime cost.
+
+## Visual servoing: the alternative that skips the pose
+
+There is a way out of the middle of this budget, and it is older than most of it. Instead of estimating a pose and then commanding the arm to it, define the error in the *image*: where the features are versus where they should be when the task is done. Espiau, Chaumette and Rives formulated this as a task function with an interaction matrix relating feature velocity to camera velocity, and drove the error to zero directly <Cite id="espiau-1992" />.
+
+<Term id="visual-servoing">Visual servoing</Term> deletes the pose-estimation term from the budget and changes what a calibration error does. An error that would bias a pose estimate, and therefore the final position, instead bends the *path* the camera takes while the final image error still converges to zero. Chaumette and Hutchinson's two-part tutorial separates the basic image-based and position-based schemes <Cite id="chaumette-hutchinson-2006" /> from the advanced treatments of their stability and their known failure modes <Cite id="chaumette-hutchinson-2007" />. The cost is that the target features must stay in view for the whole motion, which is a real constraint and the reason the technique is a tool rather than a default.
+
+## What the end-to-end models replaced
+
+This is the argument the module exists to make. Every stage above is a place where a real system carries an interface, a calibration file, a failure mode and an engineer who owns it. Calibration residuals, depth invalidation on the wrong surface, a detector's class list, a pose estimate's symmetry handling: six subsystems you can debug one at a time, composing into one error budget you can write down.
+
+The explicit pipeline is exactly what end-to-end vision-language-action policies replaced. A policy trained on images and actions does not compute a pose, because nothing in its objective asks it to, and the geometric reasoning that calibration and pose estimation made explicit gets absorbed into weights where it is no longer a stage you can inspect or calibrate. That trade runs in both directions. What you buy is a stack that no longer breaks when an object arrives that no detector was trained on and no CAD model exists for. What you sell is the error budget: when an end-to-end policy misses a grasp by 8 mm, there is no hand-eye residual to re-solve, because there is no hand-eye transform.
+
+The [keypoint interfaces](/manipulation/hierarchical) sat in the honest middle of that trade, and what happened to them is worth noting. They kept geometry as an explicit intermediate representation while letting a learned model produce it, and by the time frontier systems arrived the geometry had moved out of the runtime pipeline and into the training mixture as an auxiliary objective. Naming this pipeline is what makes that history legible instead of mystical. "End to end" is a claim about which of these six stages stopped being a stage, and you cannot evaluate the claim without knowing what the six were.

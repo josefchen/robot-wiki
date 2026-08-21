@@ -5791,6 +5791,434 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/',
     type: 'docs',
   },
+  // ---- Perception for manipulation (mod-classical-perception, 2026-08-22) ----
+  // Every id, DOI, author list and year below was read from Crossref, the
+  // arXiv Atom API, DBLP or the vendor page itself on 2026-08-22. None was
+  // written from memory.
+  {
+    // Crossref 10.1109/34.888718 read 2026-08-22: IEEE TPAMI 22(11),
+    // 1330-1334. Crossref prints "Z. Zhang"; the initial is kept per the
+    // author-field policy.
+    id: 'zhang-2000-calibration',
+    title: 'A flexible new technique for camera calibration',
+    authors: ['Z. Zhang'],
+    year: 2000,
+    venue: 'IEEE Trans. Pattern Analysis and Machine Intelligence',
+    url: 'https://doi.org/10.1109/34.888718',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/70.34770 read 2026-08-22: IEEE T-RA 5(3), 345-358.
+    // Crossref prints "R.Y. Tsai" and "R.K. Lenz"; initials kept.
+    id: 'tsai-lenz-1989',
+    title:
+      'A new technique for fully autonomous and efficient 3D robotics hand/eye calibration',
+    authors: ['R. Y. Tsai', 'R. K. Lenz'],
+    year: 1989,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.34770',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/70.143350 read 2026-08-22: IEEE T-RA 8(3),
+    // 313-326, June 1992. Initials as Crossref prints them.
+    id: 'espiau-1992',
+    title: 'A new approach to visual servoing in robotics',
+    authors: ['B. Espiau', 'F. Chaumette', 'P. Rives'],
+    year: 1992,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.143350',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/MRA.2006.250573 read 2026-08-22: IEEE RAM 13(4),
+    // 82-90, December 2006. Part number and year verified against the
+    // record rather than assumed.
+    id: 'chaumette-hutchinson-2006',
+    title: 'Visual servo control. I. Basic approaches',
+    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    year: 2006,
+    venue: 'IEEE Robotics and Automation Magazine',
+    url: 'https://doi.org/10.1109/MRA.2006.250573',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/MRA.2007.339609 read 2026-08-22: IEEE RAM 14(1),
+    // 109-118, March 2007. Part II is a 2007 issue, not 2006.
+    id: 'chaumette-hutchinson-2007',
+    title: 'Visual servo control. II. Advanced approaches',
+    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    year: 2007,
+    venue: 'IEEE Robotics and Automation Magazine',
+    url: 'https://doi.org/10.1109/MRA.2007.339609',
+    type: 'paper',
+  },
+  {
+    // arXiv 1612.00593 read 2026-08-22 (feed comment "CVPR 2017", 4
+    // authors, submitted 2016-12-02); DBLP indexes it at CVPR 2017. The
+    // registry cites the published version, so the year is 2017.
+    id: 'pointnet-2017',
+    title:
+      'PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation',
+    authors: ['Charles R. Qi', 'Hao Su', 'Kaichun Mo', 'Leonidas J. Guibas'],
+    year: 2017,
+    venue: 'CVPR 2017',
+    arxiv: '1612.00593',
+    url: 'https://arxiv.org/abs/1612.00593',
+    type: 'paper',
+  },
+  {
+    // arXiv 1706.02413 read 2026-08-22 (4 authors, submitted 2017-06-07);
+    // NeurIPS 2017 proceedings page lists the same title.
+    id: 'pointnet-plus-plus-2017',
+    title:
+      'PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space',
+    authors: ['Charles R. Qi', 'Li Yi', 'Hao Su', 'Leonidas J. Guibas'],
+    year: 2017,
+    venue: 'NeurIPS 2017',
+    arxiv: '1706.02413',
+    url: 'https://arxiv.org/abs/1706.02413',
+    type: 'paper',
+  },
+  {
+    // arXiv 2304.02643 read 2026-08-22: 12 authors, submitted 2023-04-05.
+    // DBLP indexes the published version at ICCV 2023.
+    id: 'segment-anything-2023',
+    title: 'Segment Anything',
+    authors: [
+      'Alexander Kirillov',
+      'Eric Mintun',
+      'Nikhila Ravi',
+      'Hanzi Mao',
+      'Chloe Rolland',
+      'Laura Gustafson',
+      'Tete Xiao',
+      'Spencer Whitehead',
+      'Alexander C. Berg',
+      'Wan-Yen Lo',
+      'Piotr Dollár',
+      'Ross Girshick',
+    ],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2304.02643',
+    url: 'https://arxiv.org/abs/2304.02643',
+    type: 'paper',
+  },
+  {
+    // arXiv 2408.00714 read 2026-08-22: 18 authors, submitted 2024-08-01.
+    // DBLP indexes the published version at ICLR 2025; the registry cites
+    // the 2024 preprint the article's claims come from, so the year is
+    // 2024 and the venue names arXiv.
+    id: 'sam2-2024',
+    title: 'SAM 2: Segment Anything in Images and Videos',
+    authors: [
+      'Nikhila Ravi',
+      'Valentin Gabeur',
+      'Yuan-Ting Hu',
+      'Ronghang Hu',
+      'Chaitanya Ryali',
+      'Tengyu Ma',
+      'Haitham Khedr',
+      'Roman Rädle',
+      'Chloe Rolland',
+      'Laura Gustafson',
+      'Eric Mintun',
+      'Junting Pan',
+      'Kalyan Vasudev Alwala',
+      'Nicolas Carion',
+      'Chao-Yuan Wu',
+      'Ross Girshick',
+      'Piotr Dollár',
+      'Christoph Feichtenhofer',
+    ],
+    year: 2024,
+    venue: 'arXiv 2024',
+    arxiv: '2408.00714',
+    url: 'https://arxiv.org/abs/2408.00714',
+    type: 'paper',
+  },
+  {
+    // arXiv 2303.05499 read 2026-08-22: 12 authors, submitted 2023-03-09.
+    // DBLP indexes the published version at ECCV 2024, so the registry
+    // year is 2024 and the preprint year is deliberately not used.
+    id: 'grounding-dino-2024',
+    title:
+      'Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection',
+    authors: [
+      'Shilong Liu',
+      'Zhaoyang Zeng',
+      'Tianhe Ren',
+      'Feng Li',
+      'Hao Zhang',
+      'Jie Yang',
+      'Qing Jiang',
+      'Chunyuan Li',
+      'Jianwei Yang',
+      'Hang Su',
+      'Jun Zhu',
+      'Lei Zhang',
+    ],
+    year: 2024,
+    venue: 'ECCV 2024',
+    arxiv: '2303.05499',
+    url: 'https://arxiv.org/abs/2303.05499',
+    type: 'paper',
+  },
+  {
+    // arXiv 2304.07193 read 2026-08-22: 26 authors, submitted 2023-04-14.
+    // DBLP indexes the journal version in TMLR 2024; the registry cites
+    // the 2023 preprint the article draws on.
+    id: 'dinov2-2023',
+    title: 'DINOv2: Learning Robust Visual Features without Supervision',
+    authors: [
+      'Maxime Oquab',
+      'Timothée Darcet',
+      'Théo Moutakanni',
+      'Huy Vo',
+      'Marc Szafraniec',
+      'Vasil Khalidov',
+      'Pierre Fernandez',
+      'Daniel Haziza',
+      'Francisco Massa',
+      'Alaaeldin El-Nouby',
+      'Mahmoud Assran',
+      'Nicolas Ballas',
+      'Wojciech Galuba',
+      'Russell Howes',
+      'Po-Yao Huang',
+      'Shang-Wen Li',
+      'Ishan Misra',
+      'Michael Rabbat',
+      'Vasu Sharma',
+      'Gabriel Synnaeve',
+      'Hu Xu',
+      'Hervé Jegou',
+      'Julien Mairal',
+      'Patrick Labatut',
+      'Armand Joulin',
+      'Piotr Bojanowski',
+    ],
+    year: 2023,
+    venue: 'arXiv 2023',
+    arxiv: '2304.07193',
+    url: 'https://arxiv.org/abs/2304.07193',
+    type: 'paper',
+  },
+  {
+    // arXiv 1711.00199 read 2026-08-22: 4 authors, feed comment "Accepted
+    // to RSS 2018"; DBLP indexes it at RSS 2018.
+    id: 'posecnn-2018',
+    title:
+      'PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation in Cluttered Scenes',
+    authors: [
+      'Yu Xiang',
+      'Tanner Schmidt',
+      'Venkatraman Narayanan',
+      'Dieter Fox',
+    ],
+    year: 2018,
+    venue: 'RSS 2018',
+    arxiv: '1711.00199',
+    url: 'https://arxiv.org/abs/1711.00199',
+    type: 'paper',
+  },
+  {
+    // arXiv 2312.08344 read 2026-08-22 (4 authors, submitted 2023-12-13);
+    // Crossref 10.1109/cvpr52733.2024.01692 confirms CVPR 2024.
+    id: 'foundationpose-2024',
+    title: 'FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects',
+    authors: ['Bowen Wen', 'Wei Yang', 'Jan Kautz', 'Stan Birchfield'],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2312.08344',
+    url: 'https://arxiv.org/abs/2312.08344',
+    type: 'paper',
+  },
+  {
+    // arXiv 2212.06870 read 2026-08-22: 10 authors, feed comment "CoRL
+    // 2022", and DBLP indexes it at CoRL 2022. Venue and year both
+    // verified rather than assumed.
+    id: 'megapose-2022',
+    title: 'MegaPose: 6D Pose Estimation of Novel Objects via Render and Compare',
+    authors: [
+      'Yann Labbé',
+      'Lucas Manuelli',
+      'Arsalan Mousavian',
+      'Stephen Tyree',
+      'Stan Birchfield',
+      'Jonathan Tremblay',
+      'Justin Carpentier',
+      'Mathieu Aubry',
+      'Dieter Fox',
+      'Josef Sivic',
+    ],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2212.06870',
+    url: 'https://arxiv.org/abs/2212.06870',
+    type: 'paper',
+  },
+  {
+    // arXiv 2403.09799 read 2026-08-22: the BOP Challenge 2023 report, 10
+    // authors, submitted 2024-03-14; DBLP indexes it at CVPR Workshops
+    // 2024. This is the report the article's "56.9 to 85.6 AR_C since
+    // 2017" and GenFlow/GPose figures come from; the 2018 ECCV BOP paper
+    // (1808.08319) is a different document and is not what is cited here.
+    id: 'bop-challenge-2023',
+    title:
+      'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',
+    authors: [
+      'Tomas Hodan',
+      'Martin Sundermeyer',
+      'Yann Labbe',
+      'Van Nguyen Nguyen',
+      'Gu Wang',
+      'Eric Brachmann',
+      'Bertram Drost',
+      'Vincent Lepetit',
+      'Carsten Rother',
+      'Jiri Matas',
+    ],
+    year: 2024,
+    venue: 'CVPR Workshops 2024',
+    arxiv: '2403.09799',
+    url: 'https://arxiv.org/abs/2403.09799',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: ACCV 2012,
+    // LNCS, pages 548-562, container dated 2013. The registry names 2012,
+    // the conference year the paper itself is known by and the year the
+    // ACCV volume title states; the ASME-style republication precedent for
+    // this split is documented in the year exceptions. The ADD metric this
+    // article cites originates here.
+    id: 'hinterstoisser-2012',
+    title:
+      'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',
+    authors: [
+      'Stefan Hinterstoisser',
+      'Vincent Lepetit',
+      'Slobodan Ilic',
+      'Stefan Holzer',
+      'Gary Bradski',
+      'Kurt Konolige',
+      'Nassir Navab',
+    ],
+    year: 2012,
+    venue: 'ACCV 2012',
+    url: 'https://doi.org/10.1007/978-3-642-37331-2_42',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/ICRA40945.2020.9197518 read 2026-08-22: ICRA 2020,
+    // pages 3634-3642. Crossref prints the first author as "Shreeyak
+    // Sajjan" while the arXiv byline prints "Shreeyak S. Sajjan"; the
+    // registry follows the published-venue record it cites.
+    id: 'cleargrasp-2020',
+    title: 'ClearGrasp: 3D Shape Estimation of Transparent Objects for Manipulation',
+    authors: [
+      'Shreeyak Sajjan',
+      'Matthew Moore',
+      'Mike Pan',
+      'Ganesh Nagaraja',
+      'Johnny Lee',
+      'Andy Zeng',
+      'Shuran Song',
+    ],
+    year: 2020,
+    venue: 'ICRA 2020',
+    url: 'https://doi.org/10.1109/ICRA40945.2020.9197518',
+    type: 'paper',
+  },
+  {
+    // arXiv 1806.08756 read 2026-08-22: 3 authors, submitted 2018-06-22.
+    // The PMLR volume 87 index (CoRL 2018) lists the same title.
+    id: 'dense-object-nets-2018',
+    title:
+      'Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation',
+    authors: ['Peter R. Florence', 'Lucas Manuelli', 'Russ Tedrake'],
+    year: 2018,
+    venue: 'CoRL 2018',
+    arxiv: '1806.08756',
+    url: 'https://arxiv.org/abs/1806.08756',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/CVPRW.2017.167 read 2026-08-22: CVPR Workshops
+    // 2017, pages 1267-1276. The arXiv feed for 1705.05548 gives the same
+    // four authors and names CCD 2017, a CVPR 2017 workshop; venue and
+    // year verified rather than assumed.
+    id: 'keselman-2017-realsense',
+    title: 'Intel RealSense Stereoscopic Depth Cameras',
+    authors: [
+      'Leonid Keselman',
+      'John Iselin Woodfill',
+      'Anders Grunnet-Jepsen',
+      'Achintya Bhowmik',
+    ],
+    year: 2017,
+    venue: 'CVPR Workshops 2017',
+    url: 'https://doi.org/10.1109/CVPRW.2017.167',
+    type: 'paper',
+  },
+  {
+    // Read as text 2026-08-22 (document number 337029-017): table 4-15
+    // publishes Z-accuracy +/- 2% at <= 2 m within 80% of the field of
+    // view at HD resolution, and table 3-50 states that on the D400 line
+    // repetitive patterns "may cause false depth" and specular reflections
+    // "may cause image saturation". No per-material accuracy figure is
+    // published for transparent or specular surfaces.
+    id: 'realsense-d400-datasheet-2026',
+    title: 'Intel RealSense D400 Series Product Family Datasheet',
+    authors: ['RealSense'],
+    year: 2026,
+    venue: 'RealSense, as of 2026-08-22',
+    url: 'https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: the tuning guide states that stereo depth error
+    // "scales as the square of the distance away", that repetitive
+    // structures make left-right matching ambiguous, that a matte textured
+    // background is preferable to a white glossy one, and that low light
+    // yields grainy images and therefore poor depth.
+    id: 'realsense-tuning-2026',
+    title: 'Tuning depth cameras for best performance',
+    authors: ['RealSense'],
+    year: 2026,
+    venue: 'RealSense documentation, as of 2026-08-22',
+    url: 'https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: Microsoft's time-of-flight depth documentation
+    // enumerates the five invalidation causes (outside the illumination
+    // mask, saturated IR signal, low IR signal, filter outlier, multi-path
+    // interference), and names object edges and corners as the common
+    // multi-path cases.
+    id: 'azure-kinect-depth-docs-2026',
+    title: 'Azure Kinect DK depth camera',
+    authors: ['Microsoft'],
+    year: 2019,
+    venue: 'Microsoft Learn, as of 2026-08-22',
+    url: 'https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: the PhoXi 3D Scanner L datasheet table publishes
+    // calibration accuracy 0.200 mm and temporal noise 0.190 mm (both 1
+    // sigma) over an 870 to 2150 mm scanning range, with a 250 to 2750 ms
+    // scanning time. The figures the industrial structured-light claim in
+    // this article rests on.
+    id: 'photoneo-phoxi-l-2026',
+    title: 'PhoXi 3D Scanner L',
+    authors: ['Photoneo'],
+    year: 2026,
+    venue: 'Photoneo, as of 2026-08-22',
+    url: 'https://www.photoneo.com/products/phoxi-scan-l/',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

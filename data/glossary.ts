@@ -528,6 +528,62 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'The ease with which an external force can move a joint with the actuators passive: a direct-drive or quasi-direct-drive arm is backdrivable, because pushing on the link turns the motor with little resistance, while a high-ratio geared arm is not, because the gears and the controller\'s position loop hold the joint rigid against the push. It decides which compliance scheme fits the hardware: impedance control assumes the arm can be commanded as a force source, which suits a low-inertia backdrivable design, while a non-backdrivable geared arm needs admittance control built on a force sensor, or a series elastic element to restore a mechanical force channel.',
     citations: ['hogan-1985', 'pratt-williamson-1995'],
   },
+  {
+    id: 'camera-intrinsics',
+    term: 'camera intrinsics',
+    definition:
+      'The parameters that describe the camera itself rather than where it sits: focal length in pixels along each axis, the principal point where the optical axis meets the sensor, and the lens distortion coefficients. Zhang\'s method recovers them from a handful of views of a planar target held at arbitrary unknown orientations, which is why calibration on a robot is a printed checkerboard rather than a metrology rig. Without them a pixel is only a direction in an unknown parameterisation, so no image measurement converts into a metric ray.',
+    citations: ['zhang-2000-calibration'],
+  },
+  {
+    id: 'hand-eye-calibration',
+    term: 'hand-eye calibration',
+    definition:
+      'Estimating the rigid transform between a camera and the robot frame it must report into: for a wrist-mounted camera, the transform from the gripper to the camera, and for a fixed camera, the transform from the robot base to the camera. Tsai and Lenz posed it as solving AX = XB from a set of robot motions paired with the camera\'s observed motion of a static target, and their formulation is still what most implementations run. The residual matters asymmetrically: a translation error is a constant offset, while a rotation error is an angle, so its cost in millimetres grows with how far away the target is.',
+    citations: ['tsai-lenz-1989'],
+  },
+  {
+    id: 'point-cloud',
+    term: 'point cloud',
+    definition:
+      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function, and PointNet++ added a hierarchy of local neighbourhoods so the representation captures fine geometry as well as global shape.',
+    citations: ['pointnet-2017', 'pointnet-plus-plus-2017'],
+  },
+  {
+    id: 'semantic-segmentation',
+    term: 'semantic segmentation',
+    definition:
+      'Labelling every pixel of an image with a class, as opposed to drawing a box around each object. For manipulation the per-pixel form is what matters, because a grasp is planned on a region of a surface rather than on a rectangle: a box around a mug also contains the table behind it, and a mask does not.',
+    citations: ['segment-anything-2023'],
+  },
+  {
+    id: 'promptable-segmentation',
+    term: 'promptable segmentation',
+    definition:
+      'Segmentation posed so the mask is produced in response to a prompt, a point, a box or a rough mask, rather than to a fixed label set decided at training time. The Segment Anything model was designed and trained for the task explicitly, on a dataset of over a billion masks, so it transfers to new image distributions without retraining, and SAM 2 extends the same interface across video frames with a streaming memory. That is what makes it usable as a grounding layer under a policy: the prompt can come from a detector, a language model, or a keypoint the robot already cares about.',
+    citations: ['segment-anything-2023', 'sam2-2024'],
+  },
+  {
+    id: 'pose-estimation',
+    term: 'pose estimation',
+    definition:
+      'Recovering an object\'s full rigid position and orientation, six degrees of freedom, from sensor data, rather than only where it is in the image. Methods divide by what they assume: instance-level ones such as PoseCNN are trained per object and need that exact object\'s model, while model-free methods such as FoundationPose take a CAD model or a few reference images at test time and handle objects they never saw in training. It is the step that turns a detection into something a grasp planner can use, because force closure is computed against a known object pose.',
+    citations: ['posecnn-2018', 'foundationpose-2024'],
+  },
+  {
+    id: 'add-s-metric',
+    term: 'symmetry-aware pose error (ADD-S)',
+    definition:
+      'The standard accuracy measure for 6-DoF pose, in the variant that tolerates object symmetry. The base metric, ADD, averages the distance between corresponding model points under the estimated pose and the true pose, and a pose is counted correct when that average falls below a fraction of the object\'s diameter. The symmetry-aware variant matches each transformed point to its nearest neighbour rather than to its counterpart, so a rotationally symmetric object such as a bowl is not penalised for a rotation that is physically indistinguishable. The metric originates in the LINEMOD work of Hinterstoisser and colleagues; the BOP challenge is where methods are now compared on it and its successors.',
+    citations: ['hinterstoisser-2012', 'bop-challenge-2023'],
+  },
+  {
+    id: 'visual-servoing',
+    term: 'visual servoing',
+    definition:
+      'Closing the control loop directly on image features rather than on an estimated object pose: define an error in the image, between where features are and where they should be, and drive the robot down that error using the interaction matrix relating feature velocity to camera velocity. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. The appeal for manipulation is that it skips pose estimation entirely, so a calibration error that would bias a pose estimate instead only bends the path the robot takes to a still-correct final configuration.',
+    citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

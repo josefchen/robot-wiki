@@ -170,6 +170,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, contact force peaks at 43.2 N and settles at 1.6 N against the 255 N research-basis transient limit, and the outcome is task succeeded.',
   },
   {
+    component: 'PerceptionErrorBudget',
+    file: 'components/interactive/perception-error-budget.tsx',
+    quantityNames: ['positioning error', 'clearance'],
+    text: 'At 0.5 degrees of hand-eye rotation and 0.50 m of working distance, the composed positioning error is 11.32 mm against a 15 mm clearance band, and depth sensing dominates at 78% of the variance: within clearance.',
+  },
+  {
     component: 'GraspWrenchLabObject',
     file: 'components/interactive/grasp-wrench-lab.tsx',
     quantityNames: ['contacts', 'cones'],

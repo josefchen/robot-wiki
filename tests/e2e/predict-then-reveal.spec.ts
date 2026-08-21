@@ -463,10 +463,10 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * exactly 8 render a prediction step and none renders two. The route
    * list is derived from the module registry, not hardcoded.
    */
-  test('corpus sweep: exactly 8 of the 42 published routes render a prediction step (VAL-EDU-016)', async ({ page }) => {
+  test('corpus sweep: exactly 8 of the 43 published routes render a prediction step (VAL-EDU-016)', async ({ page }) => {
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
-    expect(routes.length).toBe(42);
+    expect(routes.length).toBe(43);
     const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
     for (const route of routes) {
       await page.goto(route);

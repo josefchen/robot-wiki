@@ -100,7 +100,7 @@ test.afterAll(async () => {
 
 test.describe('derived populations', () => {
   test('VAL-EDU-035/040 populations come from the registry', () => {
-    expect(ARTICLE_ROUTES.length, 'published article count').toBe(42);
+    expect(ARTICLE_ROUTES.length, 'published article count').toBe(43);
     expect(DOMAIN_ROUTES.length, 'seven domain landings').toBe(7);
     expect(new Set(COVERAGE_ROUTES).size).toBe(COVERAGE_ROUTES.length);
     expect(new Set(CLEAN_ROUTES_040).size).toBe(CLEAN_ROUTES_040.length);

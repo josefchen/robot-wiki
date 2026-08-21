@@ -10,7 +10,7 @@ import { startStaticExportServer } from './static-export-server';
 /**
  * OG card images (VAL-DIST-002, VAL-DIST-003, VAL-DIST-005): every card
  * is a real PNG inside the static export, served with no framework
- * process; article cards are per-article (42 distinct URLs and 42
+ * process; article cards are per-article (43 distinct URLs and 43
  * byte-distinct assets, none equal to the site card); every card is
  * 1200x630 or larger with the 1.91:1 aspect and a body of at least 5KB.
  *
@@ -79,7 +79,7 @@ test.describe('OG card images', () => {
       ...NON_ARTICLE_ROUTES,
     ];
     // 7 non-article standalone routes + 7 domain landings = 14.
-    expect(routes.length).toBe(42 + 14);
+    expect(routes.length).toBe(43 + 14);
 
     const server = await startStaticExportServer('out');
     try {
@@ -127,9 +127,9 @@ test.describe('OG card images', () => {
     }
   });
 
-  test('article cards are per-article: 42 distinct URLs, 42 byte-distinct assets, none equal to the site card (VAL-DIST-003)', async () => {
+  test('article cards are per-article: 43 distinct URLs, 43 byte-distinct assets, none equal to the site card (VAL-DIST-003)', async () => {
     const articles = publishedModules();
-    expect(articles.length).toBe(42);
+    expect(articles.length).toBe(43);
 
     const urlToSlug = new Map<string, string>();
     const hashes = new Map<string, string>(); // sha -> owning path
@@ -152,11 +152,11 @@ test.describe('OG card images', () => {
       hashes.set(sha, rel);
       articleHashes.add(sha);
     }
-    expect(urlToSlug.size).toBe(42);
-    expect(articleHashes.size).toBe(42);
+    expect(urlToSlug.size).toBe(43);
+    expect(articleHashes.size).toBe(43);
 
     // Every non-article destination uses the site card, whose asset is
-    // byte-distinct from all 42.
+    // byte-distinct from all 43.
     const siteHtml = (await readFile(routeToHtmlPath('/'))).toString('utf8');
     const siteMeta = extractCardMeta(siteHtml)!;
     const siteBuf = await readFile(join('out', new URL(siteMeta.url).pathname));
