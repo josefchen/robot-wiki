@@ -948,17 +948,17 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'galaxea-ai-logo',
-    file: '/images/logos/galaxea-ai.svg',
-    alt: 'Galaxea AI company mark from the official website',
-    caption: 'Galaxea AI logo from the official website, used on the market map.',
-    sourceName: 'Galaxea AI official website',
-    sourceUrl: 'https://www.galaxea-ai.com/cn',
-    creator: 'Galaxea AI',
+    file: '/images/logos/galaxea-ai.png',
+    alt: 'Official Galaxea Xinghaitu wordmark in orange on a black field',
+    caption: 'Galaxea logo from the official website header, used on the market map.',
+    sourceName: 'Galaxea official website',
+    sourceUrl: 'https://www.galaxea-ai.com/',
+    creator: 'Galaxea',
     licence: 'unlicensed',
-    licenceUrl: 'https://www.galaxea-ai.com/cn',
+    licenceUrl: 'https://www.galaxea-ai.com/',
     retrieved: '2026-08-21',
-    width: 120,
-    height: 32,
+    width: 1238,
+    height: 376,
     // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
@@ -1602,8 +1602,8 @@ export const LOGO_IMAGES: SiteImage[] = [
     licence: 'unlicensed',
     licenceUrl: 'https://mytra.ai/',
     retrieved: '2026-08-21',
-    width: 32,
-    height: 32,
+    width: 291,
+    height: 291,
     // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
