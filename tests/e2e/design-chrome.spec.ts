@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DESIGN_DEFS } from './helpers/design-defs';
+import { settleTransitions } from './settle';
 
 /**
  * Design chrome discipline (VAL-DESIGN-016 through VAL-DESIGN-022): the
@@ -416,8 +417,9 @@ test.describe('design chrome discipline', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     for (const route of ['/manipulation/', MODULE_ROUTE]) {
       await page.goto(route);
+      await settleTransitions(page);
       const results = await new AxeBuilder({ page }).analyze();
-      expect(results.violations).toEqual([]);
+      expect(results.violations, `axe violations on ${route}`).toEqual([]);
     }
   });
 
