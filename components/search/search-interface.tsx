@@ -437,7 +437,14 @@ export function SearchInterface({
                       className="group block px-1 py-3"
                     >
                       <span className="flex items-baseline justify-between gap-3">
-                        <span className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent">
+                        {/* Named rather than positional: the title used to
+                            be the anchor's first child, and specs selected
+                            it that way, which the snippet row silently
+                            re-pointed at the title/label wrapper. */}
+                        <span
+                          data-entity-title
+                          className="font-sans text-sm font-medium text-text transition-colors group-hover:text-accent"
+                        >
                           {entry.title}
                         </span>
                         <span

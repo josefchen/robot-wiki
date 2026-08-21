@@ -77,7 +77,9 @@ async function search(page: Page, query: string): Promise<Rendered> {
       })),
       structured: read('structured').map((el) => ({
         href: el.getAttribute('href') ?? '',
-        title: (el.querySelector('span span')?.textContent ?? '').trim(),
+        title: (
+          el.querySelector('[data-entity-title]')?.textContent ?? ''
+        ).trim(),
         snippet: (
           el.querySelector('[data-entity-snippet]')?.textContent ?? ''
         ).trim(),

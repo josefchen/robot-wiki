@@ -69,14 +69,16 @@ async function waitForSettled(page: Page) {
 }
 
 /**
- * The type label inside each row is aria-hidden, so the anchor's own first
- * span is the title a reader sees. Selecting it structurally keeps the spec
- * from depending on markup this feature did not introduce.
+ * The title a reader sees, selected by its own hook rather than by position.
+ * A positional `> span:first-child` was correct only while the title was the
+ * anchor's first child: adding the snippet row wrapped the title and the type
+ * label together, and the selector silently resolved to that wrapper,
+ * returning "ACTmethod" for a row rendering perfectly.
  */
 async function structuredTitles(page: Page): Promise<string[]> {
   return page
     .getByRole('region', { name: 'Structured' })
-    .locator('[data-search-result] > span:first-child')
+    .locator('[data-search-result] [data-entity-title]')
     .allTextContents();
 }
 
