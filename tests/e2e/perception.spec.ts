@@ -70,11 +70,19 @@ async function sections(
   });
 }
 
+/**
+ * The section that OWNS a subject. A heading match wins over a body match,
+ * because the budget section names every stage as a chart label and would
+ * otherwise capture subjects that belong to the stage sections themselves.
+ */
 function sectionMatching(
   all: Array<{ heading: string; text: string; citeIds: string[] }>,
   pattern: RegExp,
 ): { heading: string; text: string; citeIds: string[] } | undefined {
-  return all.find((s) => pattern.test(s.heading) || pattern.test(s.text));
+  return (
+    all.find((s) => pattern.test(s.heading)) ??
+    all.find((s) => pattern.test(s.text))
+  );
 }
 
 async function readout(page: Page, id: string): Promise<string> {
@@ -284,8 +292,11 @@ test.describe('classical perception module', () => {
     expect(href).toBeTruthy();
     const response = await page.request.get(href as string);
     expect(response.status()).toBe(200);
+    // trailingSlash: true, so the navigated URL is the slashed form of the
+    // authored href.
+    const expected = (href as string).endsWith('/') ? href : `${href}/`;
     await link.click();
-    await expect(page).toHaveURL(href as string);
+    await expect(page).toHaveURL(expected as string);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 

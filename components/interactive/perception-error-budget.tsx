@@ -39,7 +39,7 @@ import { cx } from '@/lib/utils';
 
 const WIDTH = 640;
 const HEIGHT = 232;
-const PAD_L = 118;
+const PAD_L = 132;
 const PAD_R = 58;
 const PAD_T = 18;
 const PAD_B = 30;

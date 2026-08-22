@@ -284,7 +284,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'classical',
     'perception',
     'Perception for Manipulation',
-    'Calibration, depth, segmentation, 6-DoF pose, and the error budget they compose.',
+    'Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.',
   ],
   [
     'frontier',

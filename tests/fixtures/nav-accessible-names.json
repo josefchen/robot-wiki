@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 55,
+  "linkCount": 56,
   "links": [
     {
       "href": "/",
@@ -162,6 +162,10 @@
     {
       "href": "/classical/grasp-planning/",
       "name": "Grasp Planning"
+    },
+    {
+      "href": "/classical/perception/",
+      "name": "Perception for Manipulation"
     },
     {
       "href": "/frontier/",
