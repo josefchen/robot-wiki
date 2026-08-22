@@ -501,4 +501,28 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'arXiv API for 2510.25889 re-read 2026-08-21: published 2025-10-29T18:37:39Z, latest updated 2026-01-29T16:00:57Z, feed id .../abs/2510.25889v3.',
   },
+  {
+    id: 'hinterstoisser-2012',
+    skip: 'year',
+    reason:
+      'Springer dates the LNCS volume 2013, the year the proceedings were printed; the registry cites 2012, the year of the conference the paper was presented at and the year the ADD metric is universally credited to. The Crossref record itself names the venue as ACCV 2012 in its container title, so the two figures are the same event described by different conventions.',
+    verified:
+      'Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: container-title ["Lecture Notes in Computer Science", "Computer Vision - ACCV 2012"], issued 2013, published-print 2013.',
+  },
+  {
+    id: 'cleargrasp-2020',
+    skip: 'title',
+    reason:
+      'Crossref renders the paper name as two words, "Clear Grasp", which splits the coined single-word system name. The authors write it as one word, "ClearGrasp", throughout, and that is the name the prose and the glossary use, so matching Crossref here would introduce a system name that appears nowhere in the literature.',
+    verified:
+      'arXiv abs/1910.02550 citation_title meta tag read 2026-08-22: "ClearGrasp: 3D Shape Estimation of Transparent Objects for Manipulation", one word.',
+  },
+  {
+    id: 'keselman-2017-realsense',
+    skip: 'title',
+    reason:
+      'The Crossref title embeds the ASCII trademark markers Intel files with IEEE, "Intel(R) RealSense(TM)". The registry drops them, which is how the authors themselves print the title and how the rest of this registry handles trademarked product names. Reproducing the markers would put (R) and (TM) into the rendered reference list.',
+    verified:
+      'arXiv abs/1705.05548 citation_title meta tag read 2026-08-22: "Intel RealSense Stereoscopic Depth Cameras", no trademark markers.',
+  },
 ];
