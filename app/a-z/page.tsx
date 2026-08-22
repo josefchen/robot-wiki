@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { Breadcrumbs, breadcrumbJsonLd } from '@/components/article/breadcrumbs';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
 import { DOMAIN_META, publishedModules } from '@/data/modules';
-import { buildAzIndex, type AzIndexSourceEntry } from '@/lib/az-index';
+import {
+  buildAzIndex,
+  letterAnchorId,
+  type AzIndexSourceEntry,
+} from '@/lib/az-index';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 const title = 'A-Z Index';
@@ -87,7 +91,7 @@ export default function AzIndexPage() {
           {groups.map((group) => (
             <li key={group.letter}>
               <Link
-                href={`/a-z/#letter-${group.letter.toLowerCase()}`}
+                href={`/a-z/#${letterAnchorId(group.letter)}`}
                 className="text-text-dim transition-colors hover:text-accent"
               >
                 {group.letter}
@@ -101,11 +105,11 @@ export default function AzIndexPage() {
         {groups.map((group) => (
           <section
             key={group.letter}
-            aria-labelledby={`letter-${group.letter.toLowerCase()}`}
+            aria-labelledby={letterAnchorId(group.letter)}
             className="border-b border-border py-6"
           >
             <h2
-              id={`letter-${group.letter.toLowerCase()}`}
+              id={letterAnchorId(group.letter)}
               className="scroll-mt-16 font-sans text-lg font-semibold tracking-tight text-text lg:scroll-mt-4"
             >
               {group.letter}

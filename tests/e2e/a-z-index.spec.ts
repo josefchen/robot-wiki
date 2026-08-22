@@ -34,6 +34,15 @@ const expectedEntries: ExpectedEntry[] = [
     group: 'Glossary',
   })),
 ].sort((a, b) => {
+  // The page groups by first letter and files everything that does not start
+  // with a letter under a trailing '#' group, so a label like
+  // "3D Gaussian splatting" sorts after Z rather than before A. Deriving a
+  // flat sort here would disagree with the rendered order for that entry
+  // alone, which is exactly the case a flat sort cannot see.
+  const bucket = (label: string) =>
+    /^[a-z]/i.test(label.trim()) ? label.trim()[0]!.toUpperCase() : '~';
+  const byBucket = bucket(a.label).localeCompare(bucket(b.label), 'en');
+  if (byBucket !== 0) return byBucket;
   const byLabel = a.label.localeCompare(b.label, 'en', { sensitivity: 'base' });
   return byLabel !== 0 ? byLabel : a.label.localeCompare(b.label);
 });
