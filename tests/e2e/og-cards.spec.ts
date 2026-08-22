@@ -129,7 +129,7 @@ test.describe('OG card images', () => {
 
   test('article cards are per-article: one distinct URL and one byte-distinct asset each, none equal to the site card (VAL-DIST-003)', async () => {
     const articles = publishedModules();
-    expect(articles.length).toBe(46);
+    expect(articles.length).toBe(47);
 
     const urlToSlug = new Map<string, string>();
     const hashes = new Map<string, string>(); // sha -> owning path

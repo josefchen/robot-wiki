@@ -766,6 +766,76 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850:2015 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1:2016 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
     citations: ['iso-13850-2015', 'iec-60204-1-2016'],
   },
+  {
+    id: 'takt-time',
+    term: 'takt time',
+    definition:
+      'The rate of production a line must hold to match customer demand: available production time divided by the quantity demanded in that time. Taiichi Ohno made it the pacing heartbeat of the Toyota Production System, borrowing the German word Takt for the beat a conductor holds. A cell whose cycle time is slower than takt starves the line; a cell faster than takt needs a buffer, because the point is the match, not the speed.',
+    citations: ['ohno-tps-1988'],
+  },
+  {
+    id: 'cycle-time',
+    term: 'cycle time',
+    definition:
+      'The elapsed time for one complete repetition of a automated task: from the start of one pick, weld, or load to the start of the next, including every move in between. It is the denominator of a cell\'s throughput and one of the two numbers an operations buyer asks for first; the other is takt time, which decides whether that cycle is fast enough. Vendor cycle times are quoted at the cell\'s designed pace with known parts, so an unmodelled failure mode lengthens the real one.',
+    citations: ['evst-cell-cost-2026'],
+  },
+  {
+    id: 'mean-time-between-failures',
+    term: 'mean time between failures',
+    definition:
+      'The average elapsed operating time between one failure of a repairable system and the next, total operating time divided by the number of failures in that window. Together with mean time to repair it composes availability: MTBF over the sum of MTBF and MTTR. It is a maintenance-economics figure rather than a policy figure, but a cell whose robot fails weekly will bury any per-pick success rate the policy reports.',
+    citations: ['ohno-tps-1988'],
+  },
+  {
+    id: 'systems-integrator',
+    term: 'systems integrator',
+    definition:
+      'The company that turns a purchased robot into a working production cell: end-of-arm tooling, fixtures and guarding, vision, PLC integration with the surrounding line, commissioning, and sign-off against the agreed cycle time. Under ISO 10218-2 the cell-level risk assessment is the integrator\'s responsibility, not the robot manufacturer\'s. Integration is why a quoted cell commonly lands at two to three times the arm\'s price.',
+    citations: ['evst-cell-cost-2026', 'osha-otm-robots'],
+  },
+  {
+    id: 'brownfield-deployment',
+    term: 'brownfield deployment',
+    definition:
+      'Installing automation into a facility that already exists and already runs: existing floor plans, ceiling heights, power drops, traffic lanes, and a production schedule that cannot simply stop. A greenfield site is designed around the automation; a brownfield site makes the automation fit, and retrofit guarding, lockout procedures, and phased go-lives are what make the same technology cost more and take longer there.',
+    citations: ['osha-otm-robots'],
+  },
+  {
+    id: 'automated-storage-and-retrieval',
+    term: 'automated storage and retrieval system',
+    definition:
+      'A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic\'s systems and Ocado\'s customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS buys density and precision at the price of being the building\'s skeletal structure, which is why it appears mostly in new builds.',
+    citations: ['symbotic-10k-2025'],
+  },
+  {
+    id: 'autonomous-mobile-robot',
+    term: 'autonomous mobile robot',
+    definition:
+      'A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon\'s Proteus and the case-handling robots inside Symbotic\'s systems are AMRs at fleet scale, and the fleet manager\'s traffic control, not any single robot\'s navigation, is the hard engineering.',
+    citations: ['amazon-robot-fleet-2026'],
+  },
+  {
+    id: 'goods-to-person',
+    term: 'goods-to-person',
+    definition:
+      'The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. It inverts the economics of order picking: the picker stops being paid to travel and spends nearly the whole shift handling items, which raises throughput per person and simultaneously defines the ceiling an automated picker must beat. Sequoia and Ocado\'s pick walls are both goods-to-person systems.',
+    citations: ['amazon-sequoia-digit-2023'],
+  },
+  {
+    id: 'payback-period',
+    term: 'payback period',
+    definition:
+      'The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift. A robot whose payback misses the horizon is not a bad robot; it is a bad fit for that facility\'s wage and throughput.',
+    citations: ['evst-cell-cost-2026'],
+  },
+  {
+    id: 'intervention-rate',
+    term: 'intervention rate',
+    definition:
+      'How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.',
+    citations: ['goldberg-data-gap-2025'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

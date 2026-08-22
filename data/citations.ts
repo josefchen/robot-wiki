@@ -7192,6 +7192,164 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.osha.gov/otm/section-4-safety-hazards/chapter-4',
     type: 'docs',
   },
+  {
+    // IFR World Robotics 2025 press summary (public PDF); figures
+    // verified against the executive summary: 542,076 installations in
+    // 2024 and an operational stock of 4,663,698 units (+9%).
+    id: 'ifr-world-robotics-2025',
+    title: 'World Robotics 2025: Industrial Robots (press summary)',
+    authors: ['International Federation of Robotics'],
+    year: 2025,
+    venue: 'IFR, Frankfurt, published 2025-09-25',
+    url: 'https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf',
+    type: 'docs',
+  },
+  {
+    // IFR press release, May 5 2026: China operational stock ~2 million
+    // units, 4.5x the global no. 2 (Japan), 54% of annual installations.
+    id: 'ifr-china-five-year-plan-2026',
+    title: 'China Makes AI-powered Robots Core of National Strategy',
+    authors: ['International Federation of Robotics'],
+    year: 2026,
+    venue: 'IFR press release, 2026-05-05',
+    url: 'https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy',
+    type: 'press',
+  },
+  {
+    // A3 press release: 2025 North American robot orders up 6.6%,
+    // cobots 19.6% of orders by value, sixth straight quarter of growth.
+    id: 'a3-orders-2025',
+    title:
+      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption',
+    authors: ['Association for Advancing Automation'],
+    year: 2026,
+    venue: 'A3, 2026-02-04',
+    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption',
+    type: 'press',
+  },
+  {
+    // Symbotic FY2025 Form 10-K (fiscal year ended 2025-09-27), read via
+    // EDGAR: $22.5B backlog, Walmart MAA covering all 42 regional
+    // distribution centers, 48 Operational Systems under software
+    // maintenance contracts, total revenue $2.247B (+26%).
+    id: 'symbotic-10k-2025',
+    title: 'Symbotic Inc. Form 10-K, fiscal year ended September 27, 2025',
+    authors: ['Symbotic Inc.'],
+    year: 2025,
+    venue: 'U.S. Securities and Exchange Commission',
+    url: 'https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm',
+    type: 'docs',
+  },
+  {
+    // Amazon company press, October 2023: Sequoia (75% faster inventory
+    // storage, 25% faster order processing), Digit pilot, 750,000+
+    // robots working collaboratively.
+    id: 'amazon-sequoia-digit-2023',
+    title:
+      "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
+    authors: ['Scott Dress (About Amazon)'],
+    year: 2023,
+    venue: 'Amazon company press, 2023-10-18',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
+    type: 'press',
+  },
+  {
+    // Amazon company press, June 2026: more than 1 million robots
+    // deployed across its operations network since 2012; fleet guide
+    // naming Proteus, Sparrow, Vulcan, Sequoia and Blue Jay.
+    id: 'amazon-robot-fleet-2026',
+    title: 'Amazon robotics fleet passes one million robots',
+    authors: ['Tyler Greenawalt (About Amazon)'],
+    year: 2026,
+    venue: 'Amazon company press, as of 2026-06-04',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
+    type: 'press',
+  },
+  {
+    // Vulcan company press: touch-sensing arm that picks and stows
+    // approximately 75% of stored item types at speeds comparable to
+    // front-line employees.
+    id: 'amazon-vulcan-2026',
+    title: "Introducing Vulcan: Amazon's first robot with a sense of touch",
+    authors: ['About Amazon'],
+    year: 2026,
+    venue: 'Amazon company press, as of 2026-06-04',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch',
+    type: 'press',
+  },
+  {
+    id: 'acemoglu-restrepo-2020',
+    title: 'Robots and Jobs: Evidence from US Labor Markets',
+    authors: ['Daron Acemoglu', 'Pascual Restrepo'],
+    year: 2020,
+    venue: 'Journal of Political Economy 128(6), 2188-2244',
+    url: 'https://doi.org/10.1086/705716',
+    type: 'paper',
+  },
+  {
+    // Final report of the MIT Task Force on the Work of the Future
+    // (co-chairs Autor, Mindell, Reynolds; published 2020-11-17). The
+    // landing page carries the report and its downloads.
+    id: 'mit-work-future-2020',
+    title:
+      'The Work of the Future: Building Better Jobs in an Age of Intelligent Machines',
+    authors: [
+      'David Autor',
+      'David Mindell',
+      'Elisabeth Reynolds',
+      'MIT Task Force on the Work of the Future',
+    ],
+    year: 2020,
+    venue: 'MIT, final report of the Task Force',
+    url: 'https://ipc.mit.edu/research/work-of-the-future/',
+    type: 'docs',
+  },
+  {
+    id: 'ohno-tps-1988',
+    title: 'Toyota Production System: Beyond Large-Scale Production',
+    authors: ['Taiichi Ohno'],
+    year: 1988,
+    venue: 'Productivity Press (reissued by Routledge)',
+    url: 'https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno',
+    type: 'docs',
+  },
+  {
+    // EVST integrator guide: complete palletizing cells quoted at 2-3x
+    // the arm price; the robot body a third to half of total cell cost;
+    // guarding is the integrator's responsibility under ISO 10218-2.
+    id: 'evst-cell-cost-2026',
+    title: 'Palletizing Robot Cost & ROI 2026: Price & Payback Guide',
+    authors: ['EVST Engineering Team'],
+    year: 2026,
+    venue: 'EVST (EVS TECH CO., LTD), 2026-07-15',
+    url: 'https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/',
+    type: 'docs',
+  },
+  {
+    // Ocado Intelligent Automation, the division selling Ocado's
+    // grid-based automated warehouse technology beyond grocery.
+    id: 'ocado-oia-2026',
+    title: 'Ocado Intelligent Automation',
+    authors: ['Ocado Group'],
+    year: 2026,
+    venue: 'Ocado Group, as of 2026-08-22',
+    url: 'https://ocadointelligentautomation.com/',
+    type: 'docs',
+  },
+  {
+    // This is Money coverage of the Kroger closures (Reuters-sourced
+    // facts): three of the eight built Ocado sheds close in January
+    // 2026, a 20-site agreement, ~$38M annual fee revenue lost,
+    // ~£190M compensation, Kroger $2.6B impairment.
+    id: 'kroger-ocado-closures-2025',
+    title:
+      "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
+    authors: ['Emily Hawkins'],
+    year: 2025,
+    venue: 'This is Money, 2025-11-18',
+    url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

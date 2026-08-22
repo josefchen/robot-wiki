@@ -257,6 +257,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.',
   ],
   [
+    'data-hardware',
+    'industrial-deployment',
+    'Industrial Deployment',
+    'The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.',
+  ],
+  [
     'classical',
     'kinematics',
     'Kinematics',
@@ -395,6 +401,7 @@ const PUBLISHED = new Set([
   'data-hardware/hardware-taxonomy',
   'data-hardware/teleop-rigs',
   'data-hardware/evaluation-crisis',
+  'data-hardware/industrial-deployment',
   'classical/kinematics',
   'classical/motion-planning',
   'classical/control',

@@ -12,7 +12,7 @@ import { startStaticExportServer } from './static-export-server';
  *
  * Population derivation: the article route set walks the module registry
  * (publishedModules, never a hardcoded list), the domain landings walk
- * DOMAINS, and the standalone routes are named once. 46 + 7 + 7 = 60.
+ * DOMAINS, and the standalone routes are named once. 47 + 7 + 7 = 61.
  *
  * Crawler view: the exported .html read directly (the contract allows
  * this form), plus one no-JavaScript browser pass pinning that nothing
@@ -93,7 +93,7 @@ function strippedTitle(html: string): string {
 
 test.describe('social card metadata (VAL-DIST-001, VAL-DIST-004)', () => {
   test('the published route set is derived, complete, and sized', () => {
-    expect(ARTICLE_ROUTES.length).toBe(46);
+    expect(ARTICLE_ROUTES.length).toBe(47);
     expect(DOMAINS.length).toBe(7);
     expect(ALL_ROUTES.length).toBe(ARTICLE_ROUTES.length + 7 + 7);
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);

@@ -1,0 +1,83 @@
+---
+title: "Industrial Deployment"
+description: "The installed base the robot-learning field is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ever ships at all."
+domain: data-hardware
+slug: industrial-deployment
+order: 6
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - ifr-world-robotics-2025
+  - ifr-china-five-year-plan-2026
+  - a3-orders-2025
+  - symbotic-10k-2025
+  - amazon-sequoia-digit-2023
+  - amazon-robot-fleet-2026
+  - amazon-vulcan-2026
+  - acemoglu-restrepo-2020
+  - mit-work-future-2020
+  - ohno-tps-1988
+  - evst-cell-cost-2026
+  - kroger-ocado-closures-2025
+  - osha-otm-robots
+  - ocado-oia-2026
+  - technology-org-deployed-2026
+  - unitree-profit-2026
+  - morgan-stanley-pr-problem-2026
+  - figure-8hr-shift-2026
+  - goldberg-data-gap-2025
+  - bessemer-robotics-2026
+seeAlso:
+  - "data-hardware/hardware-taxonomy"
+  - "data-hardware/teleop-rigs"
+  - "data-hardware/data-bottleneck"
+---
+
+import { DeploymentEconomics } from '@/components/interactive/deployment-economics';
+
+The global operational stock of industrial robots passed 4.66 million units in 2024, and installations have held above half a million a year for four consecutive years, with 542,076 robots installed in 2024 alone <Cite id="ifr-world-robotics-2025" />. Those machines are the field robot learning is trying to enter, and almost nothing about how they got there resembles the pipeline a paper describes. The stock is heavily concentrated: China alone holds roughly 2 million units, about 4.5 times the number two country, Japan, and took 54 percent of the world's annual installations <Cite id="ifr-china-five-year-plan-2026" />, while electronics (24 percent of installations), automotive (23), and metal and machinery (16) dominate the demand <Cite id="ifr-world-robotics-2025" />. Against that installed base, the humanoid programmes this site follows elsewhere count their deployments in pilots and hundreds of hours: Unitree, the volume leader, shipped roughly 5,500 humanoid units across 2025 against an industrial market installing a hundred times that every year <Cite id="technology-org-deployed-2026" />. This page is the operating field those pilots want to play on.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="operational stock" value="4.66M" note="industrial robots worldwide, 2024" accent />
+  <Stat label="2024 installations" value="542,076" note="4th year above 500k" />
+  <Stat label="China share" value="54%" note="of annual installations" />
+  <Stat label="humanoid units 2025" value="~5,500" note="Unitree, the volume leader" />
+</div>
+
+## The economics you can drag
+
+Before the survey of what runs where, hold the economics in your hands, because every section below is an argument about one ratio or another. Drag the **per-pick success** slider from 99.9 down to 99 percent and watch the payback readout barely move. Now drag **jam-clearing time** toward five minutes and do it again: the same 0.9 point drop in success collapses the cell. That asymmetry, not the success rate itself, is what decides deployment, and no prose paragraph teaches it as fast as the dial does.
+
+<DeploymentEconomics className="my-6" />
+
+Every default in the calculator is labelled under its own slider: two trace to an integrator's public cost guide <Cite id="evst-cell-cost-2026" /> and the rest are stated assumptions, not measured results. The verdict horizon of 24 months follows vendor guidance for multi-shift cells <Cite id="evst-cell-cost-2026" />. Treat the absolute numbers as a worked example and the ratios as the lesson.
+
+## What is actually automated at scale
+
+Strip the installed base down by task and one honest sentence covers most of it: repetitive motion in a fixed cell, with little or no perception worth the name. Welding, painting and coating, palletising, machine tending, and assembly dominate, joined by material handling as the single largest application family <Cite id="ifr-world-robotics-2025" />. A spot-welding cell in a body shop repeats one trajectory against one fixture thousands of times a shift; the "perception" is the fixture guaranteeing the part is exactly where the program expects it. Collaborative arms have grown into a real segment, 19.6 percent of North American order value in 2025 <Cite id="a3-orders-2025" />, but they extend the same model to lower-volume shops rather than replacing it with learned policies.
+
+The genuinely learned frontier inside this base is logistics, and it is worth naming its subsystems because they are the machines a manipulation policy actually competes with. <Term id="automated-storage-and-retrieval">Automated storage and retrieval</Term> puts high-bay racking and shuttles where aisles and forklifts used to be. <Term id="autonomous-mobile-robot">Autonomous mobile robot</Term> fleets move cases and totes under a traffic manager. <Term id="goods-to-person">Goods-to-person</Term> stations bring the shelf to a stationary human, which is the arrangement that sets the productivity bar any automated picker must beat, and piece picking from mixed bins is the task at that bar's edge. Amazon is the clearest public window: over 750,000 robots at the Sequoia and Digit announcement in October 2023 <Cite id="amazon-sequoia-digit-2023" />, more than one million robots deployed by mid-2026, a fleet spanning Proteus, Sparrow, Vulcan and Blue Jay <Cite id="amazon-robot-fleet-2026" />, and a stated Sequoia effect of 75 percent faster inventory storage and 25 percent faster order processing <Cite id="amazon-sequoia-digit-2023" />. Vulcan, its touch-sensing arm, is described as picking and stowing about 75 percent of stored item types at employee-comparable speed <Cite id="amazon-vulcan-2026" />. Those are company figures about company systems, but the scale is real, and the latest robot count is the honest baseline for "deployed" in this industry.
+
+Two programme-level reads sharpen what deployment costs. Symbotic's fiscal 2025 filing shows a \$22.5 billion backlog against \$2.247 billion of annual revenue, a Walmart agreement covering all 42 of that retailer's regional distribution centres, and dozens of operational systems each taking quarters to years from order to running <Cite id="symbotic-10k-2025" />. The other direction of the same coin: Kroger closed three of the eight automated sheds it built with Ocado, wrote off about \$2.6 billion, and pays Ocado compensation for the privilege <Cite id="kroger-ocado-closures-2025" />. Scale can go both ways, and neither the build-out nor the unwind is fast. Ocado's own automation business, rebranded Ocado Intelligent Automation, sells the same grid-robot warehouses outward from grocery <Cite id="ocado-oia-2026" />.
+
+## The integrator's multiple
+
+A robot arm is a minority of what a robot cell costs. Integrator guidance for palletising cells quotes complete systems at two to three times the arm's price, with the robot body itself a third to half of total cell cost <Cite id="evst-cell-cost-2026" />. The rest goes to components an ML reader's mental model usually omits: end-of-arm tooling, part fixtures and conveyance, perimeter guarding and safety scanners, vision where the task needs it, PLC and HMI integration with the surrounding line, and the commissioning labour that makes it all run at the quoted cycle. Under the robot safety standard's cell-level requirements, that risk assessment belongs to the <Term id="systems-integrator">systems integrator</Term>, not the robot manufacturer <Cite id="evst-cell-cost-2026" />. The practical consequence for a policy: buy a robot and deploy a policy is wrong by an order of magnitude as a model of what shipping costs, and the buyer who signs the cheque is buying a line that must hit a rate, not a demo that must impress once. Bessemer's 2026 robotics outlook makes the same point from the capital side, arguing deployment cost, not model quality, is the binding constraint on the category <Cite id="bessemer-robotics-2026" />.
+
+## The metrics that decide a deployment
+
+Five quantities decide whether a cell ships, and none of them is a benchmark score. <Term id="cycle-time">Cycle time</Term> is the elapsed time of one complete repetition of the task, start of one pick to start of the next, and it is the denominator of throughput. <Term id="takt-time">Takt time</Term>, from Ohno's Toyota Production System, is the demand rate the line must match, available time divided by required units; a cell slower than takt starves the line no matter how elegant its policy <Cite id="ohno-tps-1988" />. Uptime, or availability, is the share of scheduled time the cell actually runs; it composes from <Term id="mean-time-between-failures">mean time between failures</Term> and its repair counterpart, MTBF over MTBF plus MTTR, and a cell that fails weekly buries any per-pick success rate the policy reports. Cost per pick is the cell's amortized capital plus running cost over its lifetime of good picks, the number the calculator above prints. And the <Term id="payback-period">payback period</Term>, total cell cost divided by monthly value produced, is the figure an operations buyer screens against a horizon, typically one to two years for multi-shift cells, with paybacks past that horizon rejected as bad fits rather than bad robots <Cite id="evst-cell-cost-2026" />.
+
+## The jam rate is the lesson
+
+Here is the argument the calculator exists for, stated plainly. A picker that succeeds on 99 percent of picks fails on one pick in a hundred, and every failure needs a human to clear it. If clearing takes ten seconds, the failures cost a tenth of a second per pick of extra labour, and the cell is comfortably economic at a success rate a paper would call unusable. If clearing takes ten minutes, because the jam wedges a tote, drops a item into the track, or faults the fleet manager, the same 99 percent is ruinous. Ken Goldberg's data-gap analysis makes the underlying point that deployed robotics is engineering around failure, not eliminating it <Cite id="goldberg-data-gap-2025" />. This reframes the demo-to-production gap this site tracks at [The Reliability Gap](/frontier/reliability-gap): what looks like an arithmetic problem in per-step success is very often an operations-design problem in intervention cost, and it is why deployed systems look nothing like the systems papers describe. Morgan Stanley's 2026 note on the humanoid industry's "PR problem" is the same observation about the hype cycle from the capital side <Cite id="morgan-stanley-pr-problem-2026" />, and Figure's eight-hour autonomous sorting shift, impressive as it is, was one task at one site with no published intervention count <Cite id="figure-8hr-shift-2026" />. The seven-row deployment dashboard at [The Reliability Gap](/frontier/reliability-gap) tracks exactly those pilots; this page deliberately does not repeat it.
+
+## Brownfield versus greenfield
+
+The same technology succeeds or fails on where it is installed. A greenfield site is designed around the automation: floor loading, ceiling height, power, network, and traffic lanes exist because the system needed them. A <Term id="brownfield-deployment">brownfield deployment</Term> must fit the automation into a building that already runs, and the cost lives in exactly the places a retrofit touches: guarding and interlocks around aisles people still use, lockout procedures for work on equipment the schedule cannot stop, and phased go-lives that run manual and automated flows in parallel <Cite id="osha-otm-robots" />. OSHA's technical manual on industrial robots describes the hazards and controls, perimeter fencing, interlocked gates, reduced-speed teach modes, that a retrofit must retrofit around <Cite id="osha-otm-robots" />. The economics follow: Symbotic's systems install in phases inside operating warehouses precisely because a distribution centre cannot close to be rebuilt <Cite id="symbotic-10k-2025" />, and the safety-and-assurance obligations of that work have their own page at [Safety and Assurance](/frontier/safety-and-assurance).
+
+## The labour evidence, disagreement intact
+
+What robots do to jobs is a live empirical fight, and this page takes no side. Daron Acemoglu and Pascual Restrepo, in the Journal of Political Economy, find that one additional robot per thousand workers reduces the US employment-to-population ratio by about 0.2 percentage points and wages by 0.42 percent, with the losses concentrated in commuting zones exposed to industrial automation <Cite id="acemoglu-restrepo-2020" />. The MIT Task Force on the Work of the Future, co-chaired by David Autor, David Mindell and Elisabeth Reynolds, surveyed the same evidence and concluded that a robot-driven jobs apocalypse is not imminent: technology displaces tasks rather than whole occupations, and the outcome depends on policy and the institutions shaping deployment <Cite id="mit-work-future-2020" />. Both positions are named, both are serious, and the reader should know the field has not converged. What neither side disputes is the scale mismatch in the current cycle: the industrial installed base grew over decades, and the humanoid fleet being pitched as the next one is, so far, a rounding error against it <Cite id="unitree-profit-2026" />.
+
+The boundary with the rest of this site is deliberate. This page is the operating field: the installed base, the integrator's invoice, and the arithmetic of keeping a cell running. [The Reliability Gap](/frontier/reliability-gap) is where the demo-to-production argument lives, and the [market map](/market-map) is the capital cycle that finances all of it.
