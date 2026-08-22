@@ -44,16 +44,37 @@ import { cx } from '@/lib/utils';
  */
 
 const WIDTH = 660;
-const HEIGHT = 268;
+const HEIGHT = 286;
 const PAD_L = 14;
 const PAD_R = 14;
-const AXIS_Y = 236;
-const LANE_TOP = 116;
-const LANE_H = 30;
-const LANE_GAP = 8;
+const AXIS_Y = 254;
+const ANCHOR_TOP = 26;
+const ANCHOR_ROW_H = 13;
+const LANE_TOP = 138;
+const LANE_STEP = 34;
 
 /** Round every rendered geometry value so SSR HTML and hydration agree. */
 const f = (v: number) => Number(v.toFixed(2));
+
+/** Approximate advance width of the 9.5px mono label face, per character. */
+const LABEL_CHAR_PX = 5.4;
+
+/**
+ * Place a label beside its mark on whichever side it fits. A label that
+ * would run past the right edge is drawn to the LEFT of the mark instead
+ * of being clipped there, which is what a fixed clamp produced: the two
+ * late anchors sit about three quarters along a log timeline, so there is
+ * never room to their right for a forty-character label.
+ */
+function labelPlacement(
+  markX: number,
+  text: string,
+): { x: number; anchor: 'start' | 'end' } {
+  const fitsRight = markX + 5 + text.length * LABEL_CHAR_PX <= WIDTH - PAD_R;
+  return fitsRight
+    ? { x: markX + 5, anchor: 'start' }
+    : { x: markX - 5, anchor: 'end' };
+}
 
 /** Decade ticks on the log timeline, in seconds, with reader-facing labels. */
 const TICKS: ReadonlyArray<{ seconds: number; label: string }> = [
@@ -90,8 +111,11 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
   const buttonBase =
     'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]';
 
-  // Anchor labels alternate rows so adjacent marks do not collide.
-  const anchorRow = (i: number) => 30 + (i % 3) * 15;
+  // One row per anchor, ordered along the timeline, so no two labels can
+  // overlap regardless of how close their marks sit. Cheaper and more
+  // legible than packing them and hoping the widths cooperate.
+  const anchorsByTime = [...ANCHORS].sort((a, b) => a.seconds - b.seconds);
+  const anchorRow = (i: number) => ANCHOR_TOP + i * ANCHOR_ROW_H;
 
   return (
     <div
@@ -220,37 +244,40 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         />
 
         {/* Measured anchors: a tick down from the top plus a visible label. */}
-        {ANCHORS.map((anchor, i) => (
-          <g key={anchor.id}>
-            <line
-              x1={f(x(anchor.seconds))}
-              y1={f(anchorRow(i) + 3)}
-              x2={f(x(anchor.seconds))}
-              y2={AXIS_Y}
-              stroke="var(--color-border-strong)"
-              strokeWidth={1}
-              strokeDasharray="2 3"
-            />
-            <circle
-              cx={f(x(anchor.seconds))}
-              cy={f(anchorRow(i))}
-              r={2.5}
-              fill="var(--color-text-dim)"
-            />
-            <text
-              data-testid={`sample-anchor-${anchor.id}`}
-              x={f(
-                Math.min(x(anchor.seconds) + 5, WIDTH - PAD_R - 190),
-              )}
-              y={f(anchorRow(i) + 3.5)}
-              fill="var(--color-text-dim)"
-              fontSize={9.5}
-              fontFamily="var(--font-mono)"
-            >
-              {anchor.label}
-            </text>
-          </g>
-        ))}
+        {anchorsByTime.map((anchor, i) => {
+          const markX = x(anchor.seconds);
+          const placement = labelPlacement(markX, anchor.label);
+          return (
+            <g key={anchor.id}>
+              <line
+                x1={f(markX)}
+                y1={f(anchorRow(i) + 3)}
+                x2={f(markX)}
+                y2={AXIS_Y}
+                stroke="var(--color-border-strong)"
+                strokeWidth={1}
+                strokeDasharray="2 3"
+              />
+              <circle
+                cx={f(markX)}
+                cy={f(anchorRow(i))}
+                r={2.5}
+                fill="var(--color-text-dim)"
+              />
+              <text
+                data-testid={`sample-anchor-${anchor.id}`}
+                x={f(placement.x)}
+                y={f(anchorRow(i) + 3.5)}
+                textAnchor={placement.anchor}
+                fill="var(--color-text-dim)"
+                fontSize={9.5}
+                fontFamily="var(--font-mono)"
+              >
+                {anchor.label}
+              </text>
+            </g>
+          );
+        })}
 
         <text
           data-testid="sample-measured-label"
@@ -265,17 +292,32 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
 
         {/* One lane per source: a bar from 1 s to the converted wall-clock. */}
         {ledger.rows.map((row, i) => {
-          const y = LANE_TOP + i * (LANE_H + LANE_GAP);
+          const y = LANE_TOP + i * LANE_STEP;
           const isSelected = row.id === params.source;
           const end = x(row.seconds);
+          const label = `${formatDuration(row.seconds)} ${row.label}`;
           return (
             <g key={row.id}>
+              {/* Label above its own bar, left-aligned. Chasing the bar's
+                  tip puts it wherever the log axis happens to end, which
+                  either overlaps the next lane or falls off the right
+                  edge; sitting on the bar makes both illegible. */}
+              <text
+                x={PAD_L}
+                y={f(y + 8)}
+                textAnchor="start"
+                fill={isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'}
+                fontSize={10}
+                fontFamily="var(--font-mono)"
+              >
+                {label}
+              </text>
               <rect
                 data-testid={`sample-lane-${row.id}`}
                 x={PAD_L}
-                y={f(y)}
+                y={f(y + 13)}
                 width={f(Math.max(end - PAD_L, 2))}
-                height={12}
+                height={10}
                 fill={
                   isSelected
                     ? 'var(--color-accent)'
@@ -283,15 +325,6 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
                 }
                 opacity={isSelected ? 1 : 0.55}
               />
-              <text
-                x={f(Math.min(end + 6, WIDTH - PAD_R - 210))}
-                y={f(y + 10)}
-                fill={isSelected ? 'var(--color-text)' : 'var(--color-text-dim)'}
-                fontSize={10}
-                fontFamily="var(--font-mono)"
-              >
-                {formatDuration(row.seconds)} {row.label}
-              </text>
             </g>
           );
         })}
