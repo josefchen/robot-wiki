@@ -112,7 +112,24 @@ export function RewardShaping({ className }: { className?: string }) {
   const [weights, setWeights] = useState<Weights>(() => defaultWeights());
   const [phase, setPhase] = useState(0);
   const [playing, setPlaying] = useState(false);
+  // Reduced motion tracked reactively, not read once at play time. A
+  // one-shot read can be stale when playback starts (the media setting
+  // lands after hydration), and a cadence captured from it would keep
+  // animating smoothly under prefers-reduced-motion for the rest of the
+  // playback with nothing to correct it.
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
+
+  // Sync reduced-motion state to the live media query so the playback
+  // cadence re-derives when the setting changes, including mid-playback.
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   const behaviorId: BehaviorId = classifyBehavior(weights);
   const behavior = BEHAVIORS[behaviorId];
@@ -126,11 +143,17 @@ export function RewardShaping({ className }: { className?: string }) {
     }
   };
 
-  // Interval playback, matching the gait-diagram convention. Cleanup on
-  // pause or unmount.
+  // Interval playback, matching the gait-diagram convention. The cadence
+  // combines the tracked state with a fresh read at timer start (the
+  // most current value available), and the tracked state sits in the
+  // deps so a mid-playback media change rebuilds the timer at the
+  // correct cadence; stale-smooth is unreachable by construction.
+  // Cleanup on pause, cadence change, or unmount.
   useEffect(() => {
     if (!playing) return;
-    const { tickMs, phasePerTick } = playbackCadence(prefersReducedMotion());
+    const { tickMs, phasePerTick } = playbackCadence(
+      reducedMotion || prefersReducedMotion(),
+    );
     timerRef.current = window.setInterval(() => {
       setPhase((p) => (p + phasePerTick >= 1 ? 0 : f(p + phasePerTick)));
     }, tickMs);
@@ -140,7 +163,7 @@ export function RewardShaping({ className }: { className?: string }) {
         timerRef.current = null;
       }
     };
-  }, [playing]);
+  }, [playing, reducedMotion]);
 
   const setWeight = (id: keyof Weights, sliderValue: number) => {
     setWeights((w) => ({ ...w, [id]: fromSlider(sliderValue) }));

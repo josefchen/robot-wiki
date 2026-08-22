@@ -176,6 +176,16 @@ test.describe('data-hardware industrial-deployment module', () => {
       deltaExpensive,
       baseline,
     });
+    // Ordering alone cannot fail in the way that matters: it passes on
+    // 0.001 vs 0.002 months, so a refactor that flattened the jam-rate
+    // effect to almost nothing would keep it green while the teaching
+    // moment died. The contract wording is "barely moves" with cheap
+    // clearing and "collapses" with expensive clearing, so the magnitudes
+    // are pinned with headroom rather than fitted to today's values:
+    // measured deltas are ~0.09 and ~5.2 months (a 60x ratio).
+    expect(deltaCheap).toBeLessThan(1);
+    expect(deltaExpensive).toBeGreaterThan(3);
+    expect(deltaExpensive / deltaCheap).toBeGreaterThan(10);
     expect(deltaExpensive).toBeGreaterThan(deltaCheap);
   });
 
@@ -184,25 +194,29 @@ test.describe('data-hardware industrial-deployment module', () => {
   }) => {
     await page.goto(ROUTE);
     const mount = calculator(page);
-    const inputs = [
-      /robot cost/i,
-      /integration multiple/i,
-      /cycle time/i,
-      /uptime/i,
-      /per-pick success/i,
-      /jam-clearing time/i,
-      /displaced wage/i,
-    ];
-    for (const name of inputs) {
-      const slider = mount.getByRole('slider', { name });
-      await expect(slider).toBeVisible();
+    // Derived population: every slider the mount actually renders. A
+    // hardcoded name list proves those seven are labelled but stays green
+    // when an eighth slider ships with no provenance note, which is the
+    // exact failure the sourced-or-assumption rule exists to prevent.
+    const sliders = mount.getByRole('slider');
+    const sliderCount = await sliders.count();
+    // Non-zero cardinality first: an empty match satisfies any loop.
+    expect(sliderCount).toBeGreaterThanOrEqual(1);
+    let labelled = 0;
+    for (const slider of await sliders.all()) {
+      const name = (await slider.getAttribute('aria-label')) ?? 'unnamed slider';
       // The note under each slider names its default a source or an
-      // assumption.
-      const note = slider.locator('xpath=following-sibling::p').first();
-      const text = (await note.textContent()) ?? '';
+      // assumption. Count before reading so a missing note fails fast
+      // with this slider named, not as a 30s element wait.
+      const notes = slider.locator('xpath=following-sibling::p');
+      expect(await notes.count(), `note for ${name}`).toBeGreaterThanOrEqual(1);
+      const text = (await notes.first().textContent()) ?? '';
       expect(text, `note for ${name}`).toMatch(/assumption|sourced/i);
       expect(text.length, `note for ${name} is not empty`).toBeGreaterThan(10);
+      labelled += 1;
     }
+    // Every rendered slider carried a labelled note: none unlabelled.
+    expect(labelled).toBe(sliderCount);
   });
 
   test('reset restores all inputs', async ({ page }) => {
@@ -248,8 +262,8 @@ test.describe('data-hardware industrial-deployment module', () => {
   }) => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
-    // See also: 2-4 entries.
-    const seeAlso = main.getByRole('listitem').filter({ hasText: /see also/i });
+    // See also: the heading is present (entry count is graded by the
+    // shared wiki-structure specs).
     const apparatus = main.getByText(/see also/i).first();
     await expect(apparatus).toBeVisible();
     // Linked from names the inbound sibling.
