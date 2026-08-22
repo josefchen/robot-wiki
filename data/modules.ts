@@ -156,6 +156,12 @@ const entries: Array<[Domain, string, string, string]> = [
   ],
   [
     'rl-sim2real',
+    'rl-for-robotics',
+    'RL for Robotics',
+    'Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.',
+  ],
+  [
+    'rl-sim2real',
     'why-rl-locomotion',
     'Why RL Won Locomotion but Not Manipulation',
     'The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.',
@@ -251,6 +257,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.',
   ],
   [
+    'data-hardware',
+    'industrial-deployment',
+    'Industrial Deployment',
+    'The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.',
+  ],
+  [
     'classical',
     'kinematics',
     'Kinematics',
@@ -281,6 +293,18 @@ const entries: Array<[Domain, string, string, string]> = [
     'Contact mechanics, grasp quality metrics, and force closure.',
   ],
   [
+    'classical',
+    'perception',
+    'Perception for Manipulation',
+    'Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.',
+  ],
+  [
+    'classical',
+    'scene-representation',
+    'Scene Representation and Mapping',
+    'What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.',
+  ],
+  [
     'frontier',
     'reliability-gap',
     'The Reliability Gap',
@@ -309,6 +333,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'bear-case',
     'The Bear Case',
     'Why this could be another robotics winter, and the milestones that would prove it wrong.',
+  ],
+  [
+    'frontier',
+    'safety-and-assurance',
+    'Safety and Assurance',
+    'Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.',
   ],
   [
     'adjacent',
@@ -358,6 +388,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/legged-locomotion',
   'rl-sim2real/parallel-sim-rl',
   'rl-sim2real/reward-design-mpc',
+  'rl-sim2real/rl-for-robotics',
   'rl-sim2real/sim2real-transfer',
   'rl-sim2real/why-rl-locomotion',
   'world-models/taxonomy',
@@ -370,16 +401,20 @@ const PUBLISHED = new Set([
   'data-hardware/hardware-taxonomy',
   'data-hardware/teleop-rigs',
   'data-hardware/evaluation-crisis',
+  'data-hardware/industrial-deployment',
   'classical/kinematics',
   'classical/motion-planning',
   'classical/control',
   'classical/state-estimation',
   'classical/grasp-planning',
+  'classical/perception',
+  'classical/scene-representation',
   'frontier/reliability-gap',
   'frontier/dexterity',
   'frontier/generalization',
   'frontier/competing-theses',
   'frontier/bear-case',
+  'frontier/safety-and-assurance',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

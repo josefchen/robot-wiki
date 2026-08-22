@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 55,
+  "linkCount": 60,
   "links": [
     {
       "href": "/",
@@ -66,6 +66,10 @@
     {
       "href": "/rl-sim2real/",
       "name": "Domain overview"
+    },
+    {
+      "href": "/rl-sim2real/rl-for-robotics/",
+      "name": "RL for Robotics"
     },
     {
       "href": "/rl-sim2real/why-rl-locomotion/",
@@ -140,6 +144,10 @@
       "name": "The Evaluation Crisis"
     },
     {
+      "href": "/data-hardware/industrial-deployment/",
+      "name": "Industrial Deployment"
+    },
+    {
       "href": "/classical/",
       "name": "Domain overview"
     },
@@ -164,6 +172,14 @@
       "name": "Grasp Planning"
     },
     {
+      "href": "/classical/perception/",
+      "name": "Perception for Manipulation"
+    },
+    {
+      "href": "/classical/scene-representation/",
+      "name": "Scene Representation and Mapping"
+    },
+    {
       "href": "/frontier/",
       "name": "Domain overview"
     },
@@ -186,6 +202,10 @@
     {
       "href": "/frontier/bear-case/",
       "name": "The Bear Case"
+    },
+    {
+      "href": "/frontier/safety-and-assurance/",
+      "name": "Safety and Assurance"
     },
     {
       "href": "/adjacent/",

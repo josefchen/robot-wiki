@@ -1488,6 +1488,312 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Second edition, free full text at the authors' site. The canonical
+    // landing page (incompleteideas.net/book/the-book-2nd.html) is http-only
+    // with a self-signed cert, so this is the dated web.archive.org capture
+    // per the schema's archive policy (precedent: sutton-bitter-lesson-2019).
+    id: 'sutton-barto-2018',
+    title: 'Reinforcement Learning: An Introduction',
+    authors: ['Richard S. Sutton', 'Andrew G. Barto'],
+    year: 2018,
+    venue: 'MIT Press, second edition',
+    url: 'https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html',
+    type: 'docs',
+  },
+  {
+    id: 'sac-2018',
+    title:
+      'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor',
+    authors: [
+      'Tuomas Haarnoja',
+      'Aurick Zhou',
+      'Pieter Abbeel',
+      'Sergey Levine',
+    ],
+    year: 2018,
+    venue: 'ICML 2018',
+    arxiv: '1801.01290',
+    url: 'https://arxiv.org/abs/1801.01290',
+    type: 'paper',
+  },
+  {
+    // RSS 2019 per the arXiv comment field; the preprint is dated 2018-12-26,
+    // which is why the entry year is the venue year rather than the arXiv
+    // <published> year.
+    id: 'haarnoja-walk-2019',
+    title: 'Learning to Walk via Deep Reinforcement Learning',
+    authors: [
+      'Tuomas Haarnoja',
+      'Sehoon Ha',
+      'Aurick Zhou',
+      'Jie Tan',
+      'George Tucker',
+      'Sergey Levine',
+    ],
+    year: 2019,
+    venue: 'RSS 2019',
+    arxiv: '1812.11103',
+    url: 'https://arxiv.org/abs/1812.11103',
+    type: 'paper',
+  },
+  {
+    id: 'ddpg-2016',
+    title: 'Continuous Control with Deep Reinforcement Learning',
+    authors: [
+      'Timothy P. Lillicrap',
+      'Jonathan J. Hunt',
+      'Alexander Pritzel',
+      'Nicolas Heess',
+      'Tom Erez',
+      'Yuval Tassa',
+      'David Silver',
+      'Daan Wierstra',
+    ],
+    year: 2016,
+    venue: 'ICLR 2016',
+    arxiv: '1509.02971',
+    url: 'https://arxiv.org/abs/1509.02971',
+    type: 'paper',
+  },
+  {
+    id: 'td3-2018',
+    title: 'Addressing Function Approximation Error in Actor-Critic Methods',
+    authors: ['Scott Fujimoto', 'Herke van Hoof', 'David Meger'],
+    year: 2018,
+    venue: 'ICML 2018',
+    arxiv: '1802.09477',
+    url: 'https://arxiv.org/abs/1802.09477',
+    type: 'paper',
+  },
+  {
+    id: 'offline-rl-tutorial-2020',
+    title:
+      'Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems',
+    authors: [
+      'Sergey Levine',
+      'Aviral Kumar',
+      'George Tucker',
+      'Justin Fu',
+    ],
+    year: 2020,
+    arxiv: '2005.01643',
+    url: 'https://arxiv.org/abs/2005.01643',
+    type: 'paper',
+  },
+  {
+    id: 'cql-2020',
+    title: 'Conservative Q-Learning for Offline Reinforcement Learning',
+    authors: [
+      'Aviral Kumar',
+      'Aurick Zhou',
+      'George Tucker',
+      'Sergey Levine',
+    ],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2006.04779',
+    url: 'https://arxiv.org/abs/2006.04779',
+    type: 'paper',
+  },
+  {
+    // ICLR 2022 per DBLP; the preprint is 2021-10-12, so the entry cites the
+    // conference year and the arXiv sweep suppresses its year check for
+    // entries whose venue names a conference.
+    id: 'iql-2022',
+    title: 'Offline Reinforcement Learning with Implicit Q-Learning',
+    authors: ['Ilya Kostrikov', 'Ashvin Nair', 'Sergey Levine'],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2110.06169',
+    url: 'https://arxiv.org/abs/2110.06169',
+    type: 'paper',
+  },
+  {
+    id: 'td3-bc-2021',
+    title: 'A Minimalist Approach to Offline Reinforcement Learning',
+    authors: ['Scott Fujimoto', 'Shixiang Shane Gu'],
+    year: 2021,
+    venue: 'NeurIPS 2021',
+    arxiv: '2106.06860',
+    url: 'https://arxiv.org/abs/2106.06860',
+    type: 'paper',
+  },
+  {
+    // RLPD. manipulation/rl-finetuning refers to "RLPD-style" off-policy RL
+    // with demonstrations in the buffer and had no citation of its own.
+    id: 'rlpd-2023',
+    title: 'Efficient Online Reinforcement Learning with Offline Data',
+    authors: [
+      'Philip J. Ball',
+      'Laura Smith',
+      'Ilya Kostrikov',
+      'Sergey Levine',
+    ],
+    year: 2023,
+    venue: 'ICML 2023',
+    arxiv: '2302.02948',
+    url: 'https://arxiv.org/abs/2302.02948',
+    type: 'paper',
+  },
+  {
+    // 25 authors on the arXiv abs page; first four listed, house convention
+    // for large collaborations. CoRL 2023 per the paper's own listing.
+    id: 'q-transformer-2023',
+    title:
+      'Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions',
+    authors: [
+      'Yevgen Chebotar',
+      'Quan Vuong',
+      'Alex Irpan',
+      'Karol Hausman',
+    ],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2309.10150',
+    url: 'https://arxiv.org/abs/2309.10150',
+    type: 'paper',
+  },
+  {
+    // 11 authors on the arXiv abs page; first four listed. CoRL 2018 per the
+    // arXiv comment field ("CoRL 2018 camera ready").
+    id: 'qt-opt-2018',
+    title:
+      'QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation',
+    authors: [
+      'Dmitry Kalashnikov',
+      'Alex Irpan',
+      'Peter Pastor',
+      'Julian Ibarz',
+    ],
+    year: 2018,
+    venue: 'CoRL 2018',
+    arxiv: '1806.10293',
+    url: 'https://arxiv.org/abs/1806.10293',
+    type: 'paper',
+  },
+  {
+    // The journal version (IJRR 37(4-5), doi:10.1177/0278364917710318) whose
+    // five-author byline adds Julian Ibarz to the four-author 2016 preprint;
+    // cited by DOI because the journal record is the version being quoted.
+    // Crossref issues it 2017-06-12 online and 2018-04 in print, and the
+    // volume is dated 2018, which is the year here.
+    id: 'levine-hand-eye-2018',
+    title:
+      'Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection',
+    authors: [
+      'Sergey Levine',
+      'Peter Pastor',
+      'Alex Krizhevsky',
+      'Julian Ibarz',
+      'Deirdre Quillen',
+    ],
+    year: 2018,
+    venue: 'IJRR 37(4-5)',
+    url: 'https://doi.org/10.1177/0278364917710318',
+    type: 'paper',
+  },
+  {
+    // 10 authors on the arXiv abs page; first four listed. NIPS 2017 per DBLP.
+    id: 'her-2017',
+    title: 'Hindsight Experience Replay',
+    authors: [
+      'Marcin Andrychowicz',
+      'Filip Wolski',
+      'Alex Ray',
+      'Jonas Schneider',
+    ],
+    year: 2017,
+    venue: 'NeurIPS 2017',
+    arxiv: '1707.01495',
+    url: 'https://arxiv.org/abs/1707.01495',
+    type: 'paper',
+  },
+  {
+    // ICLR 2022 per DBLP and the OpenReview record; the preprint is 2021.
+    id: 'autonomous-rl-2022',
+    title: 'Autonomous Reinforcement Learning: Formalism and Benchmarking',
+    authors: [
+      'Archit Sharma',
+      'Kelvin Xu',
+      'Nikhil Sardana',
+      'Abhishek Gupta',
+    ],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2112.09605',
+    url: 'https://arxiv.org/abs/2112.09605',
+    type: 'paper',
+  },
+  {
+    // ICRA 2021 per DBLP and the arXiv comment field. 8 authors; first four
+    // listed.
+    id: 'reset-free-rl-2021',
+    title:
+      'Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention',
+    authors: [
+      'Abhishek Gupta',
+      'Justin Yu',
+      'Tony Z. Zhao',
+      'Vikash Kumar',
+    ],
+    year: 2021,
+    venue: 'ICRA 2021',
+    arxiv: '2104.11203',
+    url: 'https://arxiv.org/abs/2104.11203',
+    type: 'paper',
+  },
+  {
+    // ICLR 2020 per DBLP; the arXiv comment names it a spotlight. 8 authors;
+    // first four listed.
+    id: 'real-world-rl-ingredients-2020',
+    title: 'The Ingredients of Real-World Robotic Reinforcement Learning',
+    authors: [
+      'Henry Zhu',
+      'Justin Yu',
+      'Abhishek Gupta',
+      'Dhruv Shah',
+    ],
+    year: 2020,
+    venue: 'ICLR 2020',
+    arxiv: '2004.12570',
+    url: 'https://arxiv.org/abs/2004.12570',
+    type: 'paper',
+  },
+  {
+    id: 'offline-rl-vs-bc-2022',
+    title:
+      'When Should We Prefer Offline Reinforcement Learning Over Behavioral Cloning?',
+    authors: [
+      'Aviral Kumar',
+      'Joey Hong',
+      'Anikait Singh',
+      'Sergey Levine',
+    ],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2204.05618',
+    url: 'https://arxiv.org/abs/2204.05618',
+    type: 'paper',
+  },
+  {
+    // robomimic. 10 authors on the arXiv abs page; first four listed. CoRL
+    // 2021 (oral) per the arXiv comment field.
+    id: 'robomimic-2021',
+    title:
+      'What Matters in Learning from Offline Human Demonstrations for Robot Manipulation',
+    authors: [
+      'Ajay Mandlekar',
+      'Danfei Xu',
+      'Josiah Wong',
+      'Soroush Nasiriany',
+    ],
+    year: 2021,
+    venue: 'CoRL 2021',
+    arxiv: '2108.03298',
+    url: 'https://arxiv.org/abs/2108.03298',
+    type: 'paper',
+  },
+  {
     id: 'ng-reward-shaping-1999',
     title:
       'Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping',
@@ -4113,6 +4419,288 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // SIGGRAPH '96 pp. 303-312, doi read 2026-08-22. The origin of the
+    // volumetric signed-distance representation: range images fused into a
+    // cumulative weighted signed distance function, from which an
+    // isosurface is extracted.
+    id: 'curless-levoy-1996',
+    title: 'A Volumetric Method for Building Complex Models from Range Images',
+    authors: ['Brian Curless', 'Marc Levoy'],
+    year: 1996,
+    venue: 'SIGGRAPH 1996',
+    url: 'https://doi.org/10.1145/237170.237269',
+    type: 'paper',
+  },
+  {
+    // ISMAR 2011 pp. 127-136, Crossref read 2026-08-22. Real-time dense
+    // TSDF fusion from a commodity depth camera, which is what moved the
+    // Curless-Levoy volumetric method onto a live robot.
+    //
+    // Author list follows the paper's own byline (the ISMAR PDF, read
+    // 2026-08-22), which orders Fitzgibbon last; Crossref lists him second
+    // and prints "Pushmeet Kohi" for Kohli. Both divergences are
+    // documented in data/crossref-author-exceptions.ts.
+    id: 'kinectfusion-2011',
+    title: 'KinectFusion: Real-Time Dense Surface Mapping and Tracking',
+    authors: [
+      'Richard A. Newcombe',
+      'Shahram Izadi',
+      'Otmar Hilliges',
+      'David Molyneaux',
+      'David Kim',
+      'Andrew J. Davison',
+      'Pushmeet Kohli',
+      'Jamie Shotton',
+      'Steve Hodges',
+      'Andrew Fitzgibbon',
+    ],
+    year: 2011,
+    venue: 'ISMAR 2011',
+    url: 'https://doi.org/10.1109/ISMAR.2011.6092378',
+    type: 'paper',
+  },
+  {
+    // ICRA 1985 pp. 116-121, Crossref read 2026-08-22. The origin of the
+    // occupancy grid: sonar returns accumulated into a map of empty and
+    // occupied volumes, with unknown held as a third state. Crossref
+    // prints the byline as initials ("H. Moravec", "A. Elfes"); the CMU
+    // Robotics Institute PDF prints the full given names, and that
+    // expansion is documented in data/crossref-author-exceptions.ts.
+    id: 'moravec-elfes-1985',
+    title: 'High Resolution Maps from Wide Angle Sonar',
+    authors: ['Hans P. Moravec', 'Alberto Elfes'],
+    year: 1985,
+    venue: 'ICRA 1985',
+    url: 'https://doi.org/10.1109/ROBOT.1985.1087316',
+    type: 'paper',
+  },
+  {
+    // ECCV 2020 (oral); arXiv abs page read 2026-08-22. A scene as a
+    // continuous 5D function from position and viewing direction to
+    // density and view-dependent radiance, rendered by classical volume
+    // rendering, optimised per scene from posed images alone.
+    id: 'nerf-2020',
+    title:
+      'NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis',
+    authors: [
+      'Ben Mildenhall',
+      'Pratul P. Srinivasan',
+      'Matthew Tancik',
+      'Jonathan T. Barron',
+      'Ravi Ramamoorthi',
+      'Ren Ng',
+    ],
+    year: 2020,
+    venue: 'ECCV 2020',
+    arxiv: '2003.08934',
+    url: 'https://arxiv.org/abs/2003.08934',
+    type: 'paper',
+  },
+  {
+    // ACM Trans. Graph. 41(4) Article 102 (SIGGRAPH 2022); arXiv abs page
+    // read 2026-08-22. The multiresolution hash encoding that collapsed
+    // neural-field training from hours to seconds, which is what made the
+    // per-scene optimisation cost arguable rather than prohibitive.
+    id: 'instant-ngp-2022',
+    title:
+      'Instant Neural Graphics Primitives with a Multiresolution Hash Encoding',
+    authors: [
+      'Thomas Müller',
+      'Alex Evans',
+      'Christoph Schied',
+      'Alexander Keller',
+    ],
+    year: 2022,
+    venue: 'ACM Trans. Graph. (SIGGRAPH 2022)',
+    arxiv: '2201.05989',
+    url: 'https://arxiv.org/abs/2201.05989',
+    type: 'paper',
+  },
+  {
+    // CVPR 2024; arXiv abs page read 2026-08-22. Feed-forward pairwise
+    // pointmap regression with no camera intrinsics and no poses, which
+    // removes the per-scene optimisation a radiance field requires.
+    id: 'dust3r-2024',
+    title: 'DUSt3R: Geometric 3D Vision Made Easy',
+    authors: [
+      'Shuzhe Wang',
+      'Vincent Leroy',
+      'Yohann Cabon',
+      'Boris Chidlovskii',
+      'Jerome Revaud',
+    ],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2312.14132',
+    url: 'https://arxiv.org/abs/2312.14132',
+    type: 'paper',
+  },
+  {
+    // ECCV 2024 (LNCS 15832); arXiv abs page read 2026-08-22. The DUSt3R
+    // successor, adding a dense local-feature head so the same
+    // feed-forward pointmap network also does grounded image matching.
+    id: 'mast3r-2024',
+    title: 'Grounding Image Matching in 3D with MASt3R',
+    authors: ['Vincent Leroy', 'Yohann Cabon', 'Jérôme Revaud'],
+    year: 2024,
+    venue: 'ECCV 2024',
+    arxiv: '2406.09756',
+    url: 'https://arxiv.org/abs/2406.09756',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 31(5):1147-1163, Crossref read 2026-08-22. The
+    // reference feature-based visual SLAM system: ORB features reused
+    // across tracking, mapping, relocalisation and loop closing.
+    id: 'orb-slam-2015',
+    title: 'ORB-SLAM: A Versatile and Accurate Monocular SLAM System',
+    authors: ['Raul Mur-Artal', 'J. M. M. Montiel', 'Juan D. Tardos'],
+    year: 2015,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2015.2463671',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 37(6):1874-1890, Crossref read 2026-08-22. The
+    // multi-map, visual-inertial successor, where a lost session becomes a
+    // new map that is merged back when the place is recognised again.
+    id: 'orb-slam3-2021',
+    title:
+      'ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial, and Multimap SLAM',
+    authors: [
+      'Carlos Campos',
+      'Richard Elvira',
+      'Juan J. Gomez Rodriguez',
+      'Jose M. M. Montiel',
+      'Juan D. Tardos',
+    ],
+    year: 2021,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2021.3075644',
+    type: 'paper',
+  },
+  {
+    // IEEE TPAMI 40(3):611-625, Crossref read 2026-08-22. The direct
+    // counterpart to ORB-SLAM: photometric error on sampled pixels,
+    // jointly optimised with geometry, with no feature detector at all.
+    id: 'dso-2018',
+    title: 'Direct Sparse Odometry',
+    authors: ['Jakob Engel', 'Vladlen Koltun', 'Daniel Cremers'],
+    year: 2018,
+    venue: 'IEEE TPAMI',
+    url: 'https://doi.org/10.1109/TPAMI.2017.2658577',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 32(1):1-19, Crossref read 2026-08-22. The
+    // survey of visual place recognition, which is the machinery a SLAM
+    // back end needs before it can propose a loop closure at all.
+    id: 'lowry-2016-place-recognition',
+    title: 'Visual Place Recognition: A Survey',
+    authors: [
+      'Stephanie Lowry',
+      'Niko Sünderhauf',
+      'Paul Newman',
+      'John J. Leonard',
+      'David Cox',
+      'Peter Corke',
+      'Michael J. Milford',
+    ],
+    year: 2016,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2015.2496823',
+    type: 'paper',
+  },
+  {
+    // ICCV 2021; arXiv abs page read 2026-08-22. The first real-time SLAM
+    // system whose only scene representation is a single multilayer
+    // perceptron trained online from a live RGB-D stream.
+    id: 'imap-2021',
+    title: 'iMAP: Implicit Mapping and Positioning in Real-Time',
+    authors: [
+      'Edgar Sucar',
+      'Shikun Liu',
+      'Joseph Ortiz',
+      'Andrew J. Davison',
+    ],
+    year: 2021,
+    venue: 'ICCV 2021',
+    arxiv: '2103.12352',
+    url: 'https://arxiv.org/abs/2103.12352',
+    type: 'paper',
+  },
+  {
+    // CVPR 2022; arXiv abs page read 2026-08-22. Hierarchical feature
+    // grids with a pretrained decoder, which is what let neural implicit
+    // SLAM scale past a single room.
+    id: 'nice-slam-2022',
+    title: 'NICE-SLAM: Neural Implicit Scalable Encoding for SLAM',
+    authors: [
+      'Zihan Zhu',
+      'Songyou Peng',
+      'Viktor Larsson',
+      'Weiwei Xu',
+      'Hujun Bao',
+      'Zhaopeng Cui',
+      'Martin R. Oswald',
+      'Marc Pollefeys',
+    ],
+    year: 2022,
+    venue: 'CVPR 2022',
+    arxiv: '2112.12130',
+    url: 'https://arxiv.org/abs/2112.12130',
+    type: 'paper',
+  },
+  {
+    // CoRL 2021; arXiv abs page read 2026-08-22. A radiance field used for
+    // geometry rather than for rendering: transparency-aware depth
+    // rendered out of the learned density and fed to a grasp planner,
+    // reporting 90% and 100% grasp success in physical experiments.
+    id: 'dex-nerf-2021',
+    title:
+      'Dex-NeRF: Using a Neural Radiance Field to Grasp Transparent Objects',
+    authors: [
+      'Jeffrey Ichnowski',
+      'Yahav Avigal',
+      'Justin Kerr',
+      'Ken Goldberg',
+    ],
+    year: 2021,
+    venue: 'CoRL 2021',
+    arxiv: '2110.14217',
+    url: 'https://arxiv.org/abs/2110.14217',
+    type: 'paper',
+  },
+  {
+    // IROS 2014, Crossref read 2026-08-22. The layered costmap: separate
+    // semantic layers composed into the single grid a navigation planner
+    // reads, which is the deployed form of the occupancy grid.
+    id: 'layered-costmaps-2014',
+    title: 'Layered Costmaps for Context-Sensitive Navigation',
+    authors: ['David V. Lu', 'Dave Hershberger', 'William D. Smart'],
+    year: 2014,
+    venue: 'IROS 2014',
+    url: 'https://doi.org/10.1109/IROS.2014.6942636',
+    type: 'paper',
+  },
+  {
+    // IROS 2020, Crossref read 2026-08-22. The ROS 2 navigation stack
+    // paper: the global-planner and local-controller split, the costmap
+    // layers underneath, and a long-duration deployment result.
+    id: 'nav2-2020',
+    title: 'The Marathon 2: A Navigation System',
+    authors: [
+      'Steve Macenski',
+      'Francisco Martin',
+      'Ruffin White',
+      'Jonatan Gines Clavero',
+    ],
+    year: 2020,
+    venue: 'IROS 2020',
+    url: 'https://doi.org/10.1109/IROS45743.2020.9341207',
+    type: 'paper',
+  },
+  {
     // Project site verified live (2026-08-11). GTSAM is the reference
     // implementation of factor-graph smoothing and the Bayes tree, used
     // across visual-inertial odometry and offline mapping. gtsam.org serves
@@ -5790,6 +6378,977 @@ export const CITATIONS: Citation[] = [
     venue: 'Universal Robots, as of 2026-08-20',
     url: 'https://www.universal-robots.com/articles/ur/programming/urscript-dynamic-force-control/',
     type: 'docs',
+  },
+  // ---- Perception for manipulation (mod-classical-perception, 2026-08-22) ----
+  // Every id, DOI, author list and year below was read from Crossref, the
+  // arXiv Atom API, DBLP or the vendor page itself on 2026-08-22. None was
+  // written from memory.
+  {
+    // Crossref 10.1109/34.888718 read 2026-08-22: IEEE TPAMI 22(11),
+    // 1330-1334. Crossref prints "Z. Zhang"; the initial is kept per the
+    // author-field policy.
+    id: 'zhang-2000-calibration',
+    title: 'A flexible new technique for camera calibration',
+    authors: ['Z. Zhang'],
+    year: 2000,
+    venue: 'IEEE Trans. Pattern Analysis and Machine Intelligence',
+    url: 'https://doi.org/10.1109/34.888718',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/70.34770 read 2026-08-22: IEEE T-RA 5(3), 345-358.
+    // Crossref prints "R.Y. Tsai" and "R.K. Lenz"; initials kept.
+    id: 'tsai-lenz-1989',
+    title:
+      'A new technique for fully autonomous and efficient 3D robotics hand/eye calibration',
+    authors: ['R. Y. Tsai', 'R. K. Lenz'],
+    year: 1989,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.34770',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/70.143350 read 2026-08-22: IEEE T-RA 8(3),
+    // 313-326, June 1992. Initials as Crossref prints them.
+    id: 'espiau-1992',
+    title: 'A new approach to visual servoing in robotics',
+    authors: ['B. Espiau', 'F. Chaumette', 'P. Rives'],
+    year: 1992,
+    venue: 'IEEE Trans. Robotics and Automation',
+    url: 'https://doi.org/10.1109/70.143350',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/MRA.2006.250573 read 2026-08-22: IEEE RAM 13(4),
+    // 82-90, December 2006. Part number and year verified against the
+    // record rather than assumed.
+    id: 'chaumette-hutchinson-2006',
+    title: 'Visual servo control. I. Basic approaches',
+    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    year: 2006,
+    venue: 'IEEE Robotics and Automation Magazine',
+    url: 'https://doi.org/10.1109/MRA.2006.250573',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/MRA.2007.339609 read 2026-08-22: IEEE RAM 14(1),
+    // 109-118, March 2007. Part II is a 2007 issue, not 2006.
+    id: 'chaumette-hutchinson-2007',
+    title: 'Visual servo control. II. Advanced approaches',
+    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    year: 2007,
+    venue: 'IEEE Robotics and Automation Magazine',
+    url: 'https://doi.org/10.1109/MRA.2007.339609',
+    type: 'paper',
+  },
+  {
+    // arXiv 1612.00593 read 2026-08-22 (feed comment "CVPR 2017", 4
+    // authors, submitted 2016-12-02); DBLP indexes it at CVPR 2017. The
+    // registry cites the published version, so the year is 2017.
+    id: 'pointnet-2017',
+    title:
+      'PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation',
+    authors: ['Charles R. Qi', 'Hao Su', 'Kaichun Mo', 'Leonidas J. Guibas'],
+    year: 2017,
+    venue: 'CVPR 2017',
+    arxiv: '1612.00593',
+    url: 'https://arxiv.org/abs/1612.00593',
+    type: 'paper',
+  },
+  {
+    // arXiv 1706.02413 read 2026-08-22 (4 authors, submitted 2017-06-07);
+    // NeurIPS 2017 proceedings page lists the same title.
+    id: 'pointnet-plus-plus-2017',
+    title:
+      'PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space',
+    authors: ['Charles R. Qi', 'Li Yi', 'Hao Su', 'Leonidas J. Guibas'],
+    year: 2017,
+    venue: 'NeurIPS 2017',
+    arxiv: '1706.02413',
+    url: 'https://arxiv.org/abs/1706.02413',
+    type: 'paper',
+  },
+  {
+    // arXiv 2304.02643 read 2026-08-22: 12 authors, submitted 2023-04-05.
+    // DBLP indexes the published version at ICCV 2023.
+    id: 'segment-anything-2023',
+    title: 'Segment Anything',
+    authors: [
+      'Alexander Kirillov',
+      'Eric Mintun',
+      'Nikhila Ravi',
+      'Hanzi Mao',
+      'Chloe Rolland',
+      'Laura Gustafson',
+      'Tete Xiao',
+      'Spencer Whitehead',
+      'Alexander C. Berg',
+      'Wan-Yen Lo',
+      'Piotr Dollár',
+      'Ross Girshick',
+    ],
+    year: 2023,
+    venue: 'ICCV 2023',
+    arxiv: '2304.02643',
+    url: 'https://arxiv.org/abs/2304.02643',
+    type: 'paper',
+  },
+  {
+    // arXiv 2408.00714 read 2026-08-22: 18 authors, submitted 2024-08-01.
+    // DBLP indexes the published version at ICLR 2025; the registry cites
+    // the 2024 preprint the article's claims come from, so the year is
+    // 2024 and the venue names arXiv.
+    id: 'sam2-2024',
+    title: 'SAM 2: Segment Anything in Images and Videos',
+    authors: [
+      'Nikhila Ravi',
+      'Valentin Gabeur',
+      'Yuan-Ting Hu',
+      'Ronghang Hu',
+      'Chaitanya Ryali',
+      'Tengyu Ma',
+      'Haitham Khedr',
+      'Roman Rädle',
+      'Chloe Rolland',
+      'Laura Gustafson',
+      'Eric Mintun',
+      'Junting Pan',
+      'Kalyan Vasudev Alwala',
+      'Nicolas Carion',
+      'Chao-Yuan Wu',
+      'Ross Girshick',
+      'Piotr Dollár',
+      'Christoph Feichtenhofer',
+    ],
+    year: 2024,
+    venue: 'arXiv 2024',
+    arxiv: '2408.00714',
+    url: 'https://arxiv.org/abs/2408.00714',
+    type: 'paper',
+  },
+  {
+    // arXiv 2303.05499 read 2026-08-22: 12 authors, submitted 2023-03-09.
+    // DBLP indexes the published version at ECCV 2024, so the registry
+    // year is 2024 and the preprint year is deliberately not used.
+    id: 'grounding-dino-2024',
+    title:
+      'Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection',
+    authors: [
+      'Shilong Liu',
+      'Zhaoyang Zeng',
+      'Tianhe Ren',
+      'Feng Li',
+      'Hao Zhang',
+      'Jie Yang',
+      'Qing Jiang',
+      'Chunyuan Li',
+      'Jianwei Yang',
+      'Hang Su',
+      'Jun Zhu',
+      'Lei Zhang',
+    ],
+    year: 2024,
+    venue: 'ECCV 2024',
+    arxiv: '2303.05499',
+    url: 'https://arxiv.org/abs/2303.05499',
+    type: 'paper',
+  },
+  {
+    // arXiv 2304.07193 read 2026-08-22: 26 authors, submitted 2023-04-14.
+    // DBLP indexes the journal version in TMLR 2024; the registry cites
+    // the 2023 preprint the article draws on.
+    id: 'dinov2-2023',
+    title: 'DINOv2: Learning Robust Visual Features without Supervision',
+    authors: [
+      'Maxime Oquab',
+      'Timothée Darcet',
+      'Théo Moutakanni',
+      'Huy Vo',
+      'Marc Szafraniec',
+      'Vasil Khalidov',
+      'Pierre Fernandez',
+      'Daniel Haziza',
+      'Francisco Massa',
+      'Alaaeldin El-Nouby',
+      'Mahmoud Assran',
+      'Nicolas Ballas',
+      'Wojciech Galuba',
+      'Russell Howes',
+      'Po-Yao Huang',
+      'Shang-Wen Li',
+      'Ishan Misra',
+      'Michael Rabbat',
+      'Vasu Sharma',
+      'Gabriel Synnaeve',
+      'Hu Xu',
+      'Hervé Jegou',
+      'Julien Mairal',
+      'Patrick Labatut',
+      'Armand Joulin',
+      'Piotr Bojanowski',
+    ],
+    year: 2023,
+    venue: 'arXiv 2023',
+    arxiv: '2304.07193',
+    url: 'https://arxiv.org/abs/2304.07193',
+    type: 'paper',
+  },
+  {
+    // arXiv 1711.00199 read 2026-08-22: 4 authors, feed comment "Accepted
+    // to RSS 2018"; DBLP indexes it at RSS 2018.
+    id: 'posecnn-2018',
+    title:
+      'PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation in Cluttered Scenes',
+    authors: [
+      'Yu Xiang',
+      'Tanner Schmidt',
+      'Venkatraman Narayanan',
+      'Dieter Fox',
+    ],
+    year: 2018,
+    venue: 'RSS 2018',
+    arxiv: '1711.00199',
+    url: 'https://arxiv.org/abs/1711.00199',
+    type: 'paper',
+  },
+  {
+    // arXiv 2312.08344 read 2026-08-22 (4 authors, submitted 2023-12-13);
+    // Crossref 10.1109/cvpr52733.2024.01692 confirms CVPR 2024.
+    id: 'foundationpose-2024',
+    title: 'FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects',
+    authors: ['Bowen Wen', 'Wei Yang', 'Jan Kautz', 'Stan Birchfield'],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2312.08344',
+    url: 'https://arxiv.org/abs/2312.08344',
+    type: 'paper',
+  },
+  {
+    // arXiv 2212.06870 read 2026-08-22: 10 authors, feed comment "CoRL
+    // 2022", and DBLP indexes it at CoRL 2022. Venue and year both
+    // verified rather than assumed.
+    id: 'megapose-2022',
+    title: 'MegaPose: 6D Pose Estimation of Novel Objects via Render and Compare',
+    authors: [
+      'Yann Labbé',
+      'Lucas Manuelli',
+      'Arsalan Mousavian',
+      'Stephen Tyree',
+      'Stan Birchfield',
+      'Jonathan Tremblay',
+      'Justin Carpentier',
+      'Mathieu Aubry',
+      'Dieter Fox',
+      'Josef Sivic',
+    ],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2212.06870',
+    url: 'https://arxiv.org/abs/2212.06870',
+    type: 'paper',
+  },
+  {
+    // arXiv 2403.09799 read 2026-08-22: the BOP Challenge 2023 report, 10
+    // authors, submitted 2024-03-14; DBLP indexes it at CVPR Workshops
+    // 2024. This is the report the article's "56.9 to 85.6 AR_C since
+    // 2017" and GenFlow/GPose figures come from; the 2018 ECCV BOP paper
+    // (1808.08319) is a different document and is not what is cited here.
+    id: 'bop-challenge-2023',
+    title:
+      'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',
+    authors: [
+      'Tomas Hodan',
+      'Martin Sundermeyer',
+      'Yann Labbe',
+      'Van Nguyen Nguyen',
+      'Gu Wang',
+      'Eric Brachmann',
+      'Bertram Drost',
+      'Vincent Lepetit',
+      'Carsten Rother',
+      'Jiri Matas',
+    ],
+    year: 2024,
+    venue: 'CVPR Workshops 2024',
+    arxiv: '2403.09799',
+    url: 'https://arxiv.org/abs/2403.09799',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: ACCV 2012,
+    // LNCS, pages 548-562, container dated 2013. The registry names 2012,
+    // the conference year the paper itself is known by and the year the
+    // ACCV volume title states; the ASME-style republication precedent for
+    // this split is documented in the year exceptions. The ADD metric this
+    // article cites originates here.
+    id: 'hinterstoisser-2012',
+    title:
+      'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',
+    authors: [
+      'Stefan Hinterstoisser',
+      'Vincent Lepetit',
+      'Slobodan Ilic',
+      'Stefan Holzer',
+      'Gary Bradski',
+      'Kurt Konolige',
+      'Nassir Navab',
+    ],
+    year: 2012,
+    venue: 'ACCV 2012',
+    url: 'https://doi.org/10.1007/978-3-642-37331-2_42',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/ICRA40945.2020.9197518 read 2026-08-22: ICRA 2020,
+    // pages 3634-3642. Crossref prints the first author as "Shreeyak
+    // Sajjan" while the arXiv byline prints "Shreeyak S. Sajjan"; the
+    // registry follows the published-venue record it cites.
+    id: 'cleargrasp-2020',
+    title: 'ClearGrasp: 3D Shape Estimation of Transparent Objects for Manipulation',
+    authors: [
+      'Shreeyak Sajjan',
+      'Matthew Moore',
+      'Mike Pan',
+      'Ganesh Nagaraja',
+      'Johnny Lee',
+      'Andy Zeng',
+      'Shuran Song',
+    ],
+    year: 2020,
+    venue: 'ICRA 2020',
+    url: 'https://doi.org/10.1109/ICRA40945.2020.9197518',
+    type: 'paper',
+  },
+  {
+    // arXiv 1806.08756 read 2026-08-22: 3 authors, submitted 2018-06-22.
+    // The PMLR volume 87 index (CoRL 2018) lists the same title.
+    id: 'dense-object-nets-2018',
+    title:
+      'Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation',
+    authors: ['Peter R. Florence', 'Lucas Manuelli', 'Russ Tedrake'],
+    year: 2018,
+    venue: 'CoRL 2018',
+    arxiv: '1806.08756',
+    url: 'https://arxiv.org/abs/1806.08756',
+    type: 'paper',
+  },
+  {
+    // Crossref 10.1109/CVPRW.2017.167 read 2026-08-22: CVPR Workshops
+    // 2017, pages 1267-1276. The arXiv feed for 1705.05548 gives the same
+    // four authors and names CCD 2017, a CVPR 2017 workshop; venue and
+    // year verified rather than assumed.
+    id: 'keselman-2017-realsense',
+    title: 'Intel RealSense Stereoscopic Depth Cameras',
+    authors: [
+      'Leonid Keselman',
+      'John Iselin Woodfill',
+      'Anders Grunnet-Jepsen',
+      'Achintya Bhowmik',
+    ],
+    year: 2017,
+    venue: 'CVPR Workshops 2017',
+    url: 'https://doi.org/10.1109/CVPRW.2017.167',
+    type: 'paper',
+  },
+  {
+    // Read as text 2026-08-22 (document number 337029-017): table 4-15
+    // publishes Z-accuracy +/- 2% at <= 2 m within 80% of the field of
+    // view at HD resolution, and table 3-50 states that on the D400 line
+    // repetitive patterns "may cause false depth" and specular reflections
+    // "may cause image saturation". No per-material accuracy figure is
+    // published for transparent or specular surfaces.
+    id: 'realsense-d400-datasheet-2026',
+    title: 'Intel RealSense D400 Series Product Family Datasheet',
+    authors: ['RealSense'],
+    year: 2026,
+    venue: 'RealSense, as of 2026-08-22',
+    url: 'https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: the tuning guide states that stereo depth error
+    // "scales as the square of the distance away", that repetitive
+    // structures make left-right matching ambiguous, that a matte textured
+    // background is preferable to a white glossy one, and that low light
+    // yields grainy images and therefore poor depth.
+    id: 'realsense-tuning-2026',
+    title: 'Tuning depth cameras for best performance',
+    authors: ['RealSense'],
+    year: 2026,
+    venue: 'RealSense documentation, as of 2026-08-22',
+    url: 'https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: Microsoft's time-of-flight depth documentation
+    // enumerates the five invalidation causes (outside the illumination
+    // mask, saturated IR signal, low IR signal, filter outlier, multi-path
+    // interference), and names object edges and corners as the common
+    // multi-path cases.
+    id: 'azure-kinect-depth-docs-2026',
+    title: 'Azure Kinect DK depth camera',
+    authors: ['Microsoft'],
+    year: 2019,
+    venue: 'Microsoft Learn, as of 2026-08-22',
+    url: 'https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera',
+    type: 'docs',
+  },
+  {
+    // Read 2026-08-22: the PhoXi 3D Scanner L datasheet table publishes
+    // calibration accuracy 0.200 mm and temporal noise 0.190 mm (both 1
+    // sigma) over an 870 to 2150 mm scanning range, with a 250 to 2750 ms
+    // scanning time. The figures the industrial structured-light claim in
+    // this article rests on.
+    id: 'photoneo-phoxi-l-2026',
+    title: 'PhoXi 3D Scanner L',
+    authors: ['Photoneo'],
+    year: 2026,
+    venue: 'Photoneo, as of 2026-08-22',
+    url: 'https://www.photoneo.com/products/phoxi-scan-l/',
+    type: 'docs',
+  },
+
+  /* ------------------------------------------------------------------ *
+   * Safety and assurance (frontier/safety-and-assurance, 2026-08-22)
+   *
+   * STANDARDS ENTRIES ARE CATALOGUE ENTRIES, NOT THE STANDARDS. Every ISO
+   * and IEC document below is paywalled and this project does not buy
+   * standards, so each entry cites the PUBLIC catalogue page, which gives
+   * the title, edition, publication date and scope abstract and nothing
+   * more. No clause, table or numeric limit from any of these documents
+   * is quoted or paraphrased anywhere on the site. iso.org answers HTTP
+   * 403 to every non-browser client, so the ISO entries need link-check
+   * exceptions in data/link-check-exceptions.ts (the precedent is the
+   * existing iso-ts-15066 entry); webstore.iec.ch answers 200.
+   * ------------------------------------------------------------------ */
+  {
+    // Catalogue page read 2026-08-22: "ISO 12100:2010, Safety of
+    // machinery - General principles for design - Risk assessment and
+    // risk reduction", edition 1, published 2010-11, stage 90.92 (to be
+    // revised; ISO/DIS 12100.3 is in development). The abstract states
+    // the document specifies principles of risk assessment and risk
+    // reduction and describes procedures for identifying hazards and
+    // estimating and evaluating risks.
+    id: 'iso-12100',
+    title:
+      'ISO 12100:2010, Safety of machinery \u2014 General principles for design \u2014 Risk assessment and risk reduction',
+    authors: ['ISO'],
+    year: 2010,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/51528.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 3, published 2025-02, stage
+    // 60.60, 95 pages, ISO/TC 299. The abstract states it covers the
+    // robot as partly completed machinery and that integration is
+    // covered by ISO 10218-2:2025. Supersedes the withdrawn 2011 edition.
+    id: 'iso-10218-1-2025',
+    title:
+      'ISO 10218-1:2025, Robotics \u2014 Safety requirements \u2014 Part 1: Industrial robots',
+    authors: ['ISO'],
+    year: 2025,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73933.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 2, published 2025-02, stage
+    // 60.60, 223 pages. The abstract states it specifies requirements for
+    // the integration of industrial robot applications and robot cells,
+    // covering design, integration, commissioning, operation, maintenance
+    // and decommissioning, and names the integrator as the party who
+    // assesses foreseeable misuse.
+    id: 'iso-10218-2-2025',
+    title:
+      'ISO 10218-2:2025, Robotics \u2014 Safety requirements \u2014 Part 2: Industrial robot applications and robot cells',
+    authors: ['ISO'],
+    year: 2025,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73934.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 4, published 2023-04, stage
+    // 60.60. The abstract states it specifies a methodology for the
+    // design of safety-related parts of control systems performing safety
+    // functions, including software, for high-demand and continuous modes,
+    // and explicitly defers low-demand mode to the IEC 61508 series.
+    id: 'iso-13849-1-2023',
+    title:
+      'ISO 13849-1:2023, Safety of machinery \u2014 Safety-related parts of control systems \u2014 Part 1: General principles for design',
+    authors: ['ISO'],
+    year: 2023,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73481.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 3, published 2015-11, last
+    // confirmed 2020. The abstract states it specifies functional
+    // requirements and design principles for the emergency stop function
+    // independent of the energy used, and notes that the electrical
+    // realisation is described in IEC 60204-1.
+    id: 'iso-13850-2015',
+    title:
+      'ISO 13850:2015, Safety of machinery \u2014 Emergency stop function \u2014 Principles for design',
+    authors: ['ISO'],
+    year: 2015,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/59970.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 2, published 2023-06, stage
+    // 90.92. The abstract states it specifies safety requirements and
+    // verification means for driverless industrial trucks and their
+    // systems, naming automated guided vehicles and autonomous mobile
+    // robots among its examples.
+    id: 'iso-3691-4-2023',
+    title:
+      'ISO 3691-4:2023, Industrial trucks \u2014 Safety requirements and verification \u2014 Part 4: Driverless industrial trucks and their systems',
+    authors: ['ISO'],
+    year: 2023,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/83545.html',
+    type: 'docs',
+  },
+  {
+    // VERIFY-OR-DROP RESOLVED, 2026-08-22. The catalogue page reads
+    // "ISO/CD 25785-1", Committee Draft, "Under development", stage 30.60
+    // (close of comment period, dated 2026-07-08), edition 1, ISO/TC 299.
+    // Its abstract states safety requirements for industrial mobile
+    // robots with ACTIVELY CONTROLLED STABILITY, defined there as a robot
+    // requiring active control to remain balanced, and names quadrupedal,
+    // bipedal and wheeled balancing robots. So the standard is real and
+    // its subject matches, but it is NOT published: the article states it
+    // as a committee draft at that stage and claims nothing about its
+    // contents beyond this public abstract.
+    id: 'iso-cd-25785-1',
+    title:
+      'ISO/CD 25785-1, Robotics \u2014 Safety requirements for dynamically stable industrial mobile robots (legged, wheeled, or other forms of locomotion) \u2014 Part 1: Robots',
+    authors: ['ISO'],
+    year: 2026,
+    venue: 'ISO Committee Draft, stage 30.60 (public catalogue entry)',
+    url: 'https://www.iso.org/standard/91469.html',
+    type: 'docs',
+  },
+  {
+    // IEC webstore page read 2026-08-22 (HTTP 200): "IEC 61508-1:2010,
+    // Functional safety of electrical/electronic/programmable electronic
+    // safety-related systems - Part 1: General requirements". Part 1 is
+    // the entry point of the seven-part series; the safety-integrity-level
+    // concept the article names belongs to the series as a whole.
+    id: 'iec-61508-1-2010',
+    title:
+      'IEC 61508-1:2010, Functional safety of electrical/electronic/programmable electronic safety-related systems \u2014 Part 1: General requirements',
+    authors: ['IEC'],
+    year: 2010,
+    venue: 'IEC International Standard (public catalogue entry)',
+    url: 'https://webstore.iec.ch/en/publication/5515',
+    type: 'docs',
+  },
+  {
+    // IEC webstore page read 2026-08-22 (HTTP 200): "IEC 60204-1:2016,
+    // Safety of machinery - Electrical equipment of machines - Part 1:
+    // General requirements", edition 6. This is the document ISO 13850's
+    // own catalogue abstract names for the electrical realisation of the
+    // emergency stop function, which is why it sits beside it here.
+    id: 'iec-60204-1-2016',
+    title:
+      'IEC 60204-1:2016, Safety of machinery \u2014 Electrical equipment of machines \u2014 Part 1: General requirements',
+    authors: ['IEC'],
+    year: 2016,
+    venue: 'IEC International Standard (public catalogue entry)',
+    url: 'https://webstore.iec.ch/en/publication/26037',
+    type: 'docs',
+  },
+  {
+    // A3's own standards catalogue page, read 2026-08-22, which is the
+    // authority for which parts of the R15.08 series are published: Part 1
+    // as ANSI/RIA R15.08-1-2020 (the mobile robot itself), Part 2 as
+    // ANSI/A3 R15.08-2-2023 (IMR systems and applications), and Part 3
+    // listed as forthcoming for the user. The article states exactly that
+    // and no more.
+    id: 'a3-robot-safety-standards',
+    title: 'Robot Safety Standard Documents',
+    authors: ['Association for Advancing Automation'],
+    year: 2026,
+    venue: 'A3 (automate.org), as of 2026-08-22',
+    url: 'https://www.automate.org/robotics/safety/robot-safety-standard-documents',
+    type: 'docs',
+  },
+  {
+    // Open-access NIST paper (PMC5117641), read in full 2026-08-22. This
+    // is the article's evidence layer for the separation model: it
+    // restates the protective-separation equation and its terms in
+    // public, gives the ISO 13855 intrusion-margin decision table
+    // (850 mm for a normal approach on multiple separate beams), the
+    // 1600 mm/s worst-case operator speed and its 2000 mm/s alternative,
+    // and a 10.0 m/s^2 robot deceleration worked example. The
+    // interactive's model is built from this paper, not from the
+    // paywalled specification.
+    id: 'marvel-norcross-2017',
+    title:
+      'Implementing speed and separation monitoring in collaborative robot workcells',
+    authors: ['Jeremy A. Marvel', 'Rick Norcross'],
+    year: 2017,
+    venue: 'Robotics and Computer-Integrated Manufacturing',
+    url: 'https://doi.org/10.1016/j.rcim.2016.08.001',
+    type: 'paper',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1177/0278364909343970, The
+    // International Journal of Robotics Research, issued 2009. The
+    // impact-experiment paper underneath every force-limit number in
+    // collaborative robotics.
+    id: 'haddadin-2009',
+    title:
+      'Requirements for Safe Robots: Measurements, Analysis and New Insights',
+    authors: ['Sami Haddadin', 'Alin Albu-Sch\u00e4ffer', 'Gerd Hirzinger'],
+    year: 2009,
+    venue: 'The International Journal of Robotics Research',
+    url: 'https://doi.org/10.1177/0278364909343970',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 1903.11199, submitted
+    // 2019-03-27, six authors as listed). The tutorial-and-survey paper
+    // the safety-filter literature builds on.
+    id: 'ames-cbf-2019',
+    title: 'Control Barrier Functions: Theory and Applications',
+    authors: [
+      'Aaron D. Ames',
+      'Samuel Coogan',
+      'Magnus Egerstedt',
+      'Gennaro Notomista',
+      'Koushil Sreenath',
+      'Paulo Tabuada',
+    ],
+    year: 2019,
+    venue: 'ECC 2019',
+    arxiv: '1903.11199',
+    url: 'https://arxiv.org/abs/1903.11199',
+    type: 'paper',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1109/mcs.2023.3291885, IEEE
+    // Control Systems, issued 2023-10, seven authors in this order. The
+    // survey that names the safety-filter architecture as such.
+    id: 'wabersich-safety-filters-2023',
+    title:
+      'Data-Driven Safety Filters: Hamilton-Jacobi Reachability, Control Barrier Functions, and Predictive Methods for Uncertain Systems',
+    authors: [
+      'Kim P. Wabersich',
+      'Andrew J. Taylor',
+      'Jason J. Choi',
+      'Koushil Sreenath',
+      'Claire J. Tomlin',
+      'Aaron D. Ames',
+      'Melanie N. Zeilinger',
+    ],
+    year: 2023,
+    venue: 'IEEE Control Systems Magazine',
+    url: 'https://doi.org/10.1109/MCS.2023.3291885',
+    type: 'paper',
+  },
+  {
+    // UL Standards & Engagement product page read 2026-08-22 (HTTP 200):
+    // UL 4600, "Standard for Evaluation of Autonomous Products", Edition
+    // 3, published and ANSI-approved 2023-03-17. Edition verified from
+    // that page rather than from memory.
+    id: 'ul-4600-2023',
+    title:
+      'UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3',
+    authors: ['UL Standards & Engagement'],
+    year: 2023,
+    venue: 'UL Standard (public catalogue entry)',
+    url: 'https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600',
+    type: 'docs',
+  },
+  {
+    // SCSC Assurance Case Working Group, Goal Structuring Notation
+    // Community Standard Version 3, May 2021, ISBN 979-8451294949. The
+    // version and date were checked against the SCSC's own GSN area
+    // (scsc.uk/gsn, read 2026-08-22, which hosts the standard and states
+    // the ACWG maintains it) and the document is published open under
+    // CC BY 4.0. Version 3 is current; there is no Version 4.
+    id: 'gsn-standard-v3',
+    title: 'Goal Structuring Notation Community Standard Version 3',
+    authors: ['SCSC Assurance Case Working Group'],
+    year: 2021,
+    venue: 'Safety-Critical Systems Club',
+    url: 'https://scsc.uk/scsc-141c',
+    type: 'docs',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1007/978-3-031-06649-8, Springer,
+    // second edition issued 2022. The book that introduced conformal
+    // prediction; the first edition is 2005 and the registry year is the
+    // edition this DOI resolves to, which is the one a reader can open.
+    id: 'vovk-conformal-2022',
+    title: 'Algorithmic Learning in a Random World',
+    authors: ['Vladimir Vovk', 'Alexander Gammerman', 'Glenn Shafer'],
+    year: 2022,
+    venue: 'Springer, 2nd edition',
+    url: 'https://doi.org/10.1007/978-3-031-06649-8',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2107.07511, submitted
+    // 2021-07-15, two authors). The tutorial that made conformal
+    // prediction usable outside its own literature.
+    id: 'angelopoulos-conformal-2021',
+    title:
+      'A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification',
+    authors: ['Anastasios N. Angelopoulos', 'Stephen Bates'],
+    year: 2021,
+    arxiv: '2107.07511',
+    url: 'https://arxiv.org/abs/2107.07511',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2307.01928, submitted
+    // 2023-07-04). KnowNo: the strongest robotics instance of calibrated
+    // abstention, and the reason this article can name a system rather
+    // than only a technique.
+    id: 'knowno-2023',
+    title:
+      'Robots That Ask For Help: Uncertainty Alignment for Large Language Model Planners',
+    authors: [
+      'Allen Z. Ren',
+      'Anushri Dixit',
+      'Alexandra Bodrova',
+      'Sumeet Singh',
+      'Stephen Tu',
+      'Noah Brown',
+      'Peng Xu',
+      'Leila Takayama',
+      'Fei Xia',
+      'Jake Varley',
+      'Zhenjia Xu',
+      'Dorsa Sadigh',
+      'Andy Zeng',
+      'Anirudha Majumdar',
+    ],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2307.01928',
+    url: 'https://arxiv.org/abs/2307.01928',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2407.08735, submitted
+    // 2024-07-11, six authors in this order).
+    id: 'sinha-anomaly-2024',
+    title:
+      'Real-Time Anomaly Detection and Reactive Planning with Large Language Models',
+    authors: [
+      'Rohan Sinha',
+      'Amine Elhafsi',
+      'Christopher Agia',
+      'Matthew Foutter',
+      'Edward Schmerling',
+      'Marco Pavone',
+    ],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2407.08735',
+    url: 'https://arxiv.org/abs/2407.08735',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2207.12380, submitted
+    // 2022-07-25, five authors). Venue confirmed as CoRL 2022 from the
+    // PMLR proceedings listing (proceedings.mlr.press/v205/farid23a).
+    id: 'farid-failure-2022',
+    title:
+      'Task-Relevant Failure Detection for Trajectory Predictors in Autonomous Vehicles',
+    authors: [
+      'Alec Farid',
+      'Sushant Veer',
+      'Boris Ivanovic',
+      'Karen Leung',
+      'Marco Pavone',
+    ],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2207.12380',
+    url: 'https://arxiv.org/abs/2207.12380',
+    type: 'paper',
+  },
+  {
+    // OSHA Technical Manual Section IV Chapter 4, "Industrial Robots and
+    // Robot System Safety", read 2026-08-22 (HTTP 200, free and public).
+    // The article's source for guarding practice, lockout/tagout under
+    // 29 CFR 1910.147, the teach-pendant hazard and the incident
+    // descriptions. Public regulator guidance, not a paywalled standard.
+    id: 'osha-otm-robots',
+    title:
+      'OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety',
+    authors: ['Occupational Safety and Health Administration'],
+    year: 2026,
+    venue: 'U.S. Department of Labor, as of 2026-08-22',
+    url: 'https://www.osha.gov/otm/section-4-safety-hazards/chapter-4',
+    type: 'docs',
+  },
+  {
+    // IFR World Robotics 2025 press summary (public PDF); figures
+    // verified against the executive summary: 542,076 installations in
+    // 2024 and an operational stock of 4,663,698 units (+9%).
+    id: 'ifr-world-robotics-2025',
+    title: 'World Robotics 2025: Industrial Robots (press summary)',
+    authors: ['International Federation of Robotics'],
+    year: 2025,
+    venue: 'IFR, Frankfurt, published 2025-09-25',
+    url: 'https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf',
+    type: 'docs',
+  },
+  {
+    // IFR press release, May 5 2026: China operational stock ~2 million
+    // units, 4.5x the global no. 2 (Japan), 54% of annual installations.
+    id: 'ifr-china-five-year-plan-2026',
+    title: 'China Makes AI-powered Robots Core of National Strategy',
+    authors: ['International Federation of Robotics'],
+    year: 2026,
+    venue: 'IFR press release, 2026-05-05',
+    url: 'https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy',
+    type: 'press',
+  },
+  {
+    // A3 press release: 2025 North American robot orders up 6.6%,
+    // cobots 19.6% of orders by value, sixth straight quarter of growth.
+    id: 'a3-orders-2025',
+    title:
+      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption',
+    authors: ['Association for Advancing Automation'],
+    year: 2026,
+    venue: 'A3, 2026-02-04',
+    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption',
+    type: 'press',
+  },
+  {
+    // Symbotic FY2025 Form 10-K (fiscal year ended 2025-09-27), read via
+    // EDGAR: $22.5B backlog, Walmart MAA covering all 42 regional
+    // distribution centers, 48 Operational Systems under software
+    // maintenance contracts, total revenue $2.247B (+26%).
+    id: 'symbotic-10k-2025',
+    title: 'Symbotic Inc. Form 10-K, fiscal year ended September 27, 2025',
+    authors: ['Symbotic Inc.'],
+    year: 2025,
+    venue: 'U.S. Securities and Exchange Commission',
+    url: 'https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm',
+    type: 'docs',
+  },
+  {
+    // Amazon company press, October 2023: Sequoia (75% faster inventory
+    // storage, 25% faster order processing), Digit pilot, 750,000+
+    // robots working collaboratively.
+    id: 'amazon-sequoia-digit-2023',
+    title:
+      "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
+    authors: ['Scott Dress (About Amazon)'],
+    year: 2023,
+    venue: 'Amazon company press, 2023-10-18',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
+    type: 'press',
+  },
+  {
+    // Amazon company press, June 2026: more than 1 million robots
+    // deployed across its operations network since 2012; fleet guide
+    // naming Proteus, Sparrow, Vulcan, Sequoia and Blue Jay.
+    id: 'amazon-robot-fleet-2026',
+    title: 'Amazon robotics fleet passes one million robots',
+    authors: ['Tyler Greenawalt (About Amazon)'],
+    year: 2026,
+    venue: 'Amazon company press, as of 2026-06-04',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
+    type: 'press',
+  },
+  {
+    // Vulcan company press: touch-sensing arm that picks and stows
+    // approximately 75% of stored item types at speeds comparable to
+    // front-line employees.
+    id: 'amazon-vulcan-2026',
+    title: "Introducing Vulcan: Amazon's first robot with a sense of touch",
+    authors: ['About Amazon'],
+    year: 2026,
+    venue: 'Amazon company press, as of 2026-06-04',
+    url: 'https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch',
+    type: 'press',
+  },
+  {
+    id: 'acemoglu-restrepo-2020',
+    title: 'Robots and Jobs: Evidence from US Labor Markets',
+    authors: ['Daron Acemoglu', 'Pascual Restrepo'],
+    year: 2020,
+    venue: 'Journal of Political Economy 128(6), 2188-2244',
+    url: 'https://doi.org/10.1086/705716',
+    type: 'paper',
+  },
+  {
+    // Final report of the MIT Task Force on the Work of the Future
+    // (co-chairs Autor, Mindell, Reynolds; published 2020-11-17). The
+    // landing page carries the report and its downloads.
+    id: 'mit-work-future-2020',
+    title:
+      'The Work of the Future: Building Better Jobs in an Age of Intelligent Machines',
+    authors: [
+      'David Autor',
+      'David Mindell',
+      'Elisabeth Reynolds',
+      'MIT Task Force on the Work of the Future',
+    ],
+    year: 2020,
+    venue: 'MIT, final report of the Task Force',
+    url: 'https://ipc.mit.edu/research/work-of-the-future/',
+    type: 'docs',
+  },
+  {
+    id: 'ohno-tps-1988',
+    title: 'Toyota Production System: Beyond Large-Scale Production',
+    authors: ['Taiichi Ohno'],
+    year: 1988,
+    venue: 'Productivity Press (reissued by Routledge)',
+    url: 'https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno',
+    type: 'docs',
+  },
+  {
+    // EVST integrator guide: complete palletizing cells quoted at 2-3x
+    // the arm price; the robot body a third to half of total cell cost;
+    // guarding is the integrator's responsibility under ISO 10218-2.
+    id: 'evst-cell-cost-2026',
+    title: 'Palletizing Robot Cost & ROI 2026: Price & Payback Guide',
+    authors: ['EVST Engineering Team'],
+    year: 2026,
+    venue: 'EVST (EVS TECH CO., LTD), 2026-07-15',
+    url: 'https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/',
+    type: 'docs',
+  },
+  {
+    // Ocado Intelligent Automation, the division selling Ocado's
+    // grid-based automated warehouse technology beyond grocery.
+    id: 'ocado-oia-2026',
+    title: 'Ocado Intelligent Automation',
+    authors: ['Ocado Group'],
+    year: 2026,
+    venue: 'Ocado Group, as of 2026-08-22',
+    url: 'https://ocadointelligentautomation.com/',
+    type: 'docs',
+  },
+  {
+    // This is Money coverage of the Kroger closures (Reuters-sourced
+    // facts): three of the eight built Ocado sheds close in January
+    // 2026, a 20-site agreement, ~$38M annual fee revenue lost,
+    // ~£190M compensation, Kroger $2.6B impairment.
+    id: 'kroger-ocado-closures-2025',
+    title:
+      "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
+    authors: ['Emily Hawkins'],
+    year: 2025,
+    venue: 'This is Money, 2025-11-18',
+    url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
+    type: 'press',
   },
 ];
 

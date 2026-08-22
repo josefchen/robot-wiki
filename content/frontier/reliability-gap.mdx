@@ -70,6 +70,8 @@ The dashboard keeps the two classes apart. A verified row is documented against 
 
 A closed reliability gap has a measurable shape: a deployed system with a documented mean time between failures above 1,000 hours on real tasks, formal safety guarantees for human-robot interaction, and a published protocol for the failure modes that remain. No current system publishes any of the three. Until one does, the honest unit of progress is not the demo but the verified operating hour, and on that metric the field measures tens of thousands of hours against the millions that general-purpose deployment implies.
 
+The second of those three is the one with an established answer everywhere except robot learning. [Safety and assurance](/frontier/safety-and-assurance) covers the standards stack industrial robotics already has, why a learned policy cannot be assigned a rating under any of it, and the wrapper architecture teams ship in place of the guarantee.
+
 <SelfCheck
   prompt="Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?"
   options={[

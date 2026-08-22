@@ -78,4 +78,105 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       'Fetched the live press release (HTTP 200, redirects to ...-industrial-robots/): the page title is "XELA Robotics Unlocks Enhanced Automation for Humanoid and Industrial Robots", which begins with the stored string.',
     verifiedOn: '2026-08-18',
   },
+
+  /* ------------------------------------------------------------------ *
+   * Standards titles for the safety module (2026-08-22).
+   *
+   * Each of these is the document's OWN title as its issuing body prints
+   * it, rendered verbatim in a References entry and, for several, in a
+   * glossary definition's sourcing. The dashes are ISO's and IEC's title
+   * punctuation, not our prose, and a title is never reworded. This is
+   * the same case the existing iso-ts-15066 entry above already covers,
+   * extended to the rest of the stack the safety article names.
+   * ------------------------------------------------------------------ */
+  {
+    id: 'iso-12100',
+    quote:
+      'ISO 12100:2010, Safety of machinery — General principles for design — Risk assessment and risk reduction',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 51528 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 1, published 2010-11.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-10218-1-2025',
+    quote:
+      'ISO 10218-1:2025, Robotics — Safety requirements — Part 1: Industrial robots',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 73933 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 3, published 2025-02.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-10218-2-2025',
+    quote:
+      'ISO 10218-2:2025, Robotics — Safety requirements — Part 2: Industrial robot applications and robot cells',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 73934 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 2, published 2025-02.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-13849-1-2023',
+    quote:
+      'ISO 13849-1:2023, Safety of machinery — Safety-related parts of control systems — Part 1: General principles for design',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 73481 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 4, published 2023-04.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-13850-2015',
+    quote:
+      'ISO 13850:2015, Safety of machinery — Emergency stop function — Principles for design',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 59970 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 3, published 2015-11.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-3691-4-2023',
+    quote:
+      'ISO 3691-4:2023, Industrial trucks — Safety requirements and verification — Part 4: Driverless industrial trucks and their systems',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 83545 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, edition 2, published 2023-06.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-cd-25785-1',
+    quote:
+      'ISO/CD 25785-1, Robotics — Safety requirements for dynamically stable industrial mobile robots (legged, wheeled, or other forms of locomotion) — Part 1: Robots',
+    reason:
+      "The official title as printed in ISO's public catalogue, rendered verbatim in the safety module's References entry. The dashes are ISO's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      "ISO public catalogue page for standard 91469 (loaded in a browser on 2026-08-22; iso.org bot-walls non-browser clients, see the link-check exception) prints this title with the dashes where the registry entry has them, committee draft at stage 30.60.",
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iec-61508-1-2010',
+    quote:
+      'IEC 61508-1:2010, Functional safety of electrical/electronic/programmable electronic safety-related systems — Part 1: General requirements',
+    reason:
+      "The official title as printed in the IEC webstore catalogue, rendered verbatim in the safety module's References entry. The dashes are IEC's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'IEC webstore publication 5515 answered HTTP 200 on 2026-08-22 with this document title, dashes included, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iec-60204-1-2016',
+    quote:
+      'IEC 60204-1:2016, Safety of machinery — Electrical equipment of machines — Part 1: General requirements',
+    reason:
+      "The official title as printed in the IEC webstore catalogue, rendered verbatim in the safety module's References entry. The dashes are IEC's own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'IEC webstore publication 26037 answered HTTP 200 on 2026-08-22 with this document title, dashes included, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
 ];

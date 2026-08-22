@@ -35,6 +35,17 @@ export function groupLetter(label: string): string {
   return /^[a-z]$/i.test(first) ? first.toUpperCase() : '#';
 }
 
+/**
+ * Fragment id for a letter group's heading.
+ *
+ * The '#' group cannot use its own label: `id="letter-#"` makes the jump
+ * link `/a-z/#letter-#`, whose fragment truncates at the second '#' to
+ * `letter-`, matching nothing. It files under a spelled-out token instead.
+ */
+export function letterAnchorId(letter: string): string {
+  return `letter-${letter === '#' ? 'other' : letter.toLowerCase()}`;
+}
+
 function compareLabels(a: string, b: string): number {
   // Case-insensitive primary ordering (a lowercase title sorts with its
   // capitalised neighbours), exact-case tie-break for determinism.

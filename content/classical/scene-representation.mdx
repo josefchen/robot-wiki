@@ -1,0 +1,110 @@
+---
+title: "Scene Representation and Mapping"
+description: "What a robot keeps in memory about the space around it, from point clouds through occupancy grids and signed-distance fields to radiance fields and Gaussian splats, with SLAM as the system that builds the map and the honest verdict on what a splat cannot do."
+domain: classical
+slug: scene-representation
+order: 7
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - moravec-elfes-1985
+  - curless-levoy-1996
+  - kinectfusion-2011
+  - nerf-2020
+  - instant-ngp-2022
+  - 3dgs-2023
+  - dust3r-2024
+  - mast3r-2024
+  - cadena-2016
+  - orb-slam-2015
+  - orb-slam3-2021
+  - dso-2018
+  - lowry-2016-place-recognition
+  - imap-2021
+  - nice-slam-2022
+  - dex-nerf-2021
+  - splatsim-2024
+  - robogsim-2024
+  - occworld-2023
+  - dellaert-kaess-2006
+  - kaess-2012
+  - layered-costmaps-2014
+  - nav2-2020
+  - pointnet-2017
+seeAlso:
+  - "classical/perception"
+  - "classical/state-estimation"
+  - "world-models/taxonomy"
+---
+
+import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
+
+[Perception](/classical/perception) answers where an object is right now. This module answers the other question a robot needs settled before it can move: what does it remember about the space it is standing in, and what can it ask of that memory.
+
+The answers form a ladder. Each rung stores something different, and the choice is not a matter of fidelity, because a rung that draws the scene beautifully may be unable to answer the one question a planner needs.
+
+## The ladder, and what each rung can answer
+
+Three questions separate the rungs. Can the map say whether a given cell is free, so a planner can route through it. Can it supply a surface normal, so a contact solver knows which way the surface faces. Can it render the scene from a viewpoint the sensor never occupied. No representation on this ladder answers all three well, and the disagreements are structural rather than a matter of implementation quality.
+
+Switch the representation selector below from the occupancy grid to the Gaussian splat and watch what happens to the region behind the occluder, which no sensor ray ever reached. Then move the resolution slider and notice what does not change.
+
+<SceneRepresentationLadder className="my-6" />
+
+The occupancy grid holds that region as an explicit unknown. The splat fills it with plausible geometry, rendered at the same confidence as the surfaces that were actually measured. Nothing in the splat's store distinguishes the two, and that single difference is the reason the rest of this module is worth reading.
+
+### Point clouds and occupancy grids
+
+A <Term id="point-cloud">point cloud</Term> is the rawest rung: one 3D sample per returned ray, unordered, with no connectivity, which is why a network reading one must be invariant to the ordering of its own input <Cite id="pointnet-2017" />. Its weakness is silence. A region with no points might be empty or might be unobserved, and the store cannot tell you which.
+
+The <Term id="occupancy-grid">occupancy grid</Term> was invented to fix exactly that. Moravec and Elfes accumulated wide-angle sonar returns into a map of empty and occupied volumes, where each reading constrains both the volume the beam passed through and the volume that reflected it <Cite id="moravec-elfes-1985" />. The third state is the point: a cell nobody has looked at is unknown, not free. Every later navigation stack inherits that discipline.
+
+### Signed-distance fields
+
+Curless and Levoy replaced the occupancy value with a distance. Their volumetric method fuses range images into a cumulative weighted <Term id="signed-distance-field">signed distance function</Term>, negative behind the surface and positive in front of it, from which the surface is recovered as the zero crossing <Cite id="curless-levoy-1996" />. KinectFusion made that real-time on a commodity depth camera, which is what moved the representation from offline reconstruction onto live robots <Cite id="kinectfusion-2011" />.
+
+For robotics the truncated variant is the one that matters, and not for its geometry alone. The stored distance *is* the collision margin, and the gradient of the field *is* the surface normal, so a collision query is a lookup rather than a search. That is why the trajectory optimisers in [motion planning](/classical/motion-planning) consume a distance field rather than a mesh: the quantity their cost function needs is already sitting in the voxel.
+
+### Meshes, and then neural fields
+
+A mesh adds connectivity, which buys a normal per face and a renderable surface, and costs you a hole wherever nothing was observed. Filling that hole invents geometry, which is fine for a rendering and a problem for a gripper.
+
+Then the representation stopped being a data structure and became a function. NeRF stores a scene as a small network mapping a position and a viewing direction to a density and a view-dependent colour, rendered by classical volume rendering along camera rays; because that rendering is differentiable, posed photographs alone suffice to optimise it <Cite id="nerf-2020" />. The <Term id="neural-radiance-field">neural radiance field</Term> line then bought three separate things in three steps.
+
+First, view-synthesis quality, which is what the original result demonstrated. Second, tractable cost: the multiresolution hash encoding in Instant NGP collapsed training from hours to seconds and rendering to tens of milliseconds at 1920 by 1080 <Cite id="instant-ngp-2022" />. Third, real-time rasterisation without a network in the render loop at all. <Term id="gaussian-splatting">3D Gaussian splatting</Term> stores the scene as anisotropic Gaussians and projects them to the image plane, reaching radiance-field quality at real-time frame rates <Cite id="3dgs-2023" />.
+
+The fourth step removed the per-scene optimisation that all of the above assume. DUSt3R regresses pointmaps directly from image pairs with no camera intrinsics and no poses supplied, treating dense reconstruction as a feed-forward prediction rather than an optimisation <Cite id="dust3r-2024" />, and MASt3R extends the same network with a dense local-feature head so matching is grounded in the same 3D prediction <Cite id="mast3r-2024" />. A reconstruction you do not have to optimise per scene is a different engineering proposition from one you do.
+
+## A radiance field is geometry for rendering
+
+This wiki has already staked out the verdict, in the [world-models taxonomy](/world-models/taxonomy): a splat reconstruction is a learned renderer, so appearance is learned and physics is not, and a renderer alone has no answer to what happens under an action. The same conclusion follows from the other direction here. A Gaussian carries an opacity, and an opacity is a rendering weight rather than an occupancy probability. There is no surface anywhere in the store, so obtaining a contact normal means extracting one, which is a separate step with its own failure modes.
+
+That makes the appropriate uses specific rather than general. Digital twins for sim-to-real transfer, where SplatSim substitutes a splat reconstruction for the simulator's mesh renderer and reports zero-shot transfer of RGB manipulation policies <Cite id="splatsim-2024" />, and RoboGSim packages the same reconstruct-compose-evaluate loop <Cite id="robogsim-2024" />. Novel-view augmentation, and scene memory. Not contact simulation, because there is nothing to make contact with.
+
+Dex-NeRF is the honest bridge and worth reading as the exception that proves the shape of the rule. It uses a radiance field for geometry rather than for pictures, exploiting the view-independent learned density to render transparency-aware depth for objects a depth camera cannot see at all, then feeds that depth to a grasp planner <Cite id="dex-nerf-2021" />. The field earned its place by producing a depth map, which is to say by being converted into the kind of representation a planner already knew how to use.
+
+The symbolic end of the ladder deserves a mention for the same reason. OccWorld predicts how a 3D occupancy grid evolves rather than how pixels do, and gets competitive planning results without instance or map supervision <Cite id="occworld-2023" />. Occupancy, again, because occupancy is the thing a planner can act on.
+
+## SLAM: the system that builds the map
+
+Every representation above assumes somebody produced it, from sensor data, while the robot was moving and did not know precisely where it was. That is simultaneous localisation and mapping, and [state estimation](/classical/state-estimation) supplies its machinery without ever assembling the system.
+
+Cadena and colleagues give the decomposition the field settled on: a front end that turns raw sensor data into constraints, and a back end that optimises over them <Cite id="cadena-2016" />. Nearly every design argument in SLAM is an argument about one of those two halves.
+
+Front ends divide into feature-based and direct. A feature-based front end detects repeatable keypoints, describes them, and matches descriptors between frames; ORB-SLAM is the reference, reusing one set of ORB features across tracking, mapping, relocalisation and loop closing <Cite id="orb-slam-2015" />, with ORB-SLAM3 adding visual-inertial operation and multiple maps, so a session that loses tracking starts a new map and merges it back when the place is recognised again <Cite id="orb-slam3-2021" />. A direct front end skips the detector entirely and optimises photometric error over sampled pixels jointly with the geometry, which is Direct Sparse Odometry's formulation <Cite id="dso-2018" />. The trade is legible: features are robust to brightness change and throw away most of the image, while direct methods use weakly textured regions a detector would ignore and need a photometric calibration to do it.
+
+What separates SLAM from odometry is not the front end at all. Odometry integrates motion and its error grows without bound. SLAM adds <Term id="loop-closure">loop closure</Term>: recognising a previously mapped place and adding the resulting constraint, which redistributes accumulated drift across the whole trajectory instead of letting it accumulate at the end. That depends on <Term id="place-recognition">place recognition</Term>, deciding from sensor data alone whether this is somewhere the robot has been, which Lowry and colleagues survey as a problem in its own right: the same place changes with viewpoint, illumination and season, and different places can look alike <Cite id="lowry-2016-place-recognition" />. A false match is worse than a missed one, because a wrong constraint corrupts the map it was supposed to correct.
+
+The back end is where the smoothing formulations from [state estimation](/classical/state-estimation) do their work. Square-root SAM posed the whole trajectory and map as one sparse least-squares problem <Cite id="dellaert-kaess-2006" />, and iSAM2's Bayes tree made the solution incremental, so a new measurement updates only the affected part of the factorisation <Cite id="kaess-2012" />. Loop closure is precisely why smoothing displaced filtering here: relinearising the past is only possible if the past is still in the graph.
+
+Two further axes matter in practice. Dense versus sparse is a question of what the map is for: a sparse landmark map localises well and cannot be used for collision checking, while a dense volumetric map does the reverse at much greater cost. Lidar versus visual is a question of what fails: lidar gives metric range in the dark and is weak in geometrically featureless corridors, while cameras are cheap and information-dense and fail on texture and illumination.
+
+Learned components entered at the map, not at the optimiser. iMAP made a single multilayer perceptron the entire scene representation of a real-time SLAM system, trained online from a live RGB-D stream <Cite id="imap-2021" />, and NICE-SLAM replaced that monolithic network with hierarchical feature grids and a pretrained decoder so the approach could scale past one room <Cite id="nice-slam-2022" />. The back end stayed recognisably the same shape.
+
+## The deployed answer: costmaps and two planners
+
+For mobile robots the pipeline above has a settled production form, and a reader who has followed the ladder should know where it lands. The map a navigation stack plans over is a <Term id="costmap">costmap</Term>: occupancy from the map and the live sensors, inflated by the robot's footprint, marked up with whatever else should influence the route. Lu, Hershberger and Smart introduced the layered form now standard, where each concern is a separate semantic layer writing into the composed grid rather than several subsystems overwriting one grid in place <Cite id="layered-costmaps-2014" />.
+
+Above the costmap sit two planners at different rates. A global planner searches the whole known map for a route, and a local controller tracks that route while reacting to what the sensors see now, replanning locally at control rate. The ROS 2 navigation stack is the reference implementation of the split <Cite id="nav2-2020" />. The algorithms inside both are the ones in [motion planning](/classical/motion-planning), applied to a 2D grid rather than a robot arm's configuration space.
+
+Notice what the deployed stack chose. Not the representation that renders best, and not the one with the most parameters, but the one that answers the question the planner asks, which is whether a cell is free.

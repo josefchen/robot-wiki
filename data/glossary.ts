@@ -528,6 +528,314 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'The ease with which an external force can move a joint with the actuators passive: a direct-drive or quasi-direct-drive arm is backdrivable, because pushing on the link turns the motor with little resistance, while a high-ratio geared arm is not, because the gears and the controller\'s position loop hold the joint rigid against the push. It decides which compliance scheme fits the hardware: impedance control assumes the arm can be commanded as a force source, which suits a low-inertia backdrivable design, while a non-backdrivable geared arm needs admittance control built on a force sensor, or a series elastic element to restore a mechanical force channel.',
     citations: ['hogan-1985', 'pratt-williamson-1995'],
   },
+  {
+    id: 'camera-intrinsics',
+    term: 'camera intrinsics',
+    definition:
+      'The parameters that describe the camera itself rather than where it sits: focal length in pixels along each axis, the principal point where the optical axis meets the sensor, and the lens distortion coefficients. Zhang\'s method recovers them from a handful of views of a planar target held at arbitrary unknown orientations, which is why calibration on a robot is a printed checkerboard rather than a metrology rig. Without them a pixel is only a direction in an unknown parameterisation, so no image measurement converts into a metric ray.',
+    citations: ['zhang-2000-calibration'],
+  },
+  {
+    id: 'hand-eye-calibration',
+    term: 'hand-eye calibration',
+    definition:
+      'Estimating the rigid transform between a camera and the robot frame it must report into: for a wrist-mounted camera, the transform from the gripper to the camera, and for a fixed camera, the transform from the robot base to the camera. Tsai and Lenz posed it as solving AX = XB from a set of robot motions paired with the camera\'s observed motion of a static target, and their formulation is still what most implementations run. The residual matters asymmetrically: a translation error is a constant offset, while a rotation error is an angle, so its cost in millimetres grows with how far away the target is.',
+    citations: ['tsai-lenz-1989'],
+  },
+  {
+    id: 'point-cloud',
+    term: 'point cloud',
+    definition:
+      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function, and PointNet++ added a hierarchy of local neighbourhoods so the representation captures fine geometry as well as global shape.',
+    citations: ['pointnet-2017', 'pointnet-plus-plus-2017'],
+  },
+  {
+    id: 'semantic-segmentation',
+    term: 'semantic segmentation',
+    definition:
+      'Labelling every pixel of an image with a class, as opposed to drawing a box around each object. For manipulation the per-pixel form is what matters, because a grasp is planned on a region of a surface rather than on a rectangle: a box around a mug also contains the table behind it, and a mask does not.',
+    citations: ['segment-anything-2023'],
+  },
+  {
+    id: 'promptable-segmentation',
+    term: 'promptable segmentation',
+    definition:
+      'Segmentation posed so the mask is produced in response to a prompt, a point, a box or a rough mask, rather than to a fixed label set decided at training time. The Segment Anything model was designed and trained for the task explicitly, on a dataset of over a billion masks, so it transfers to new image distributions without retraining, and SAM 2 extends the same interface across video frames with a streaming memory. That is what makes it usable as a grounding layer under a policy: the prompt can come from a detector, a language model, or a keypoint the robot already cares about.',
+    citations: ['segment-anything-2023', 'sam2-2024'],
+  },
+  {
+    id: 'pose-estimation',
+    term: 'pose estimation',
+    definition:
+      'Recovering an object\'s full rigid position and orientation, six degrees of freedom, from sensor data, rather than only where it is in the image. Methods divide by what they assume: instance-level ones such as PoseCNN are trained per object and need that exact object\'s model, while model-free methods such as FoundationPose take a CAD model or a few reference images at test time and handle objects they never saw in training. It is the step that turns a detection into something a grasp planner can use, because force closure is computed against a known object pose.',
+    citations: ['posecnn-2018', 'foundationpose-2024'],
+  },
+  {
+    id: 'add-s-metric',
+    term: 'symmetry-aware pose error (ADD-S)',
+    definition:
+      'The standard accuracy measure for 6-DoF pose, in the variant that tolerates object symmetry. The base metric, ADD, averages the distance between corresponding model points under the estimated pose and the true pose, and a pose is counted correct when that average falls below a fraction of the object\'s diameter. The symmetry-aware variant matches each transformed point to its nearest neighbour rather than to its counterpart, so a rotationally symmetric object such as a bowl is not penalised for a rotation that is physically indistinguishable. The metric originates in the LINEMOD work of Hinterstoisser and colleagues; the BOP challenge is where methods are now compared on it and its successors.',
+    citations: ['hinterstoisser-2012', 'bop-challenge-2023'],
+  },
+  {
+    id: 'visual-servoing',
+    term: 'visual servoing',
+    definition:
+      'Closing the control loop directly on image features rather than on an estimated object pose: define an error in the image, between where features are and where they should be, and drive the robot down that error using the interaction matrix relating feature velocity to camera velocity. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. The appeal for manipulation is that it skips pose estimation entirely, so a calibration error that would bias a pose estimate instead only bends the path the robot takes to a still-correct final configuration.',
+    citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
+  },
+  {
+    id: 'occupancy-grid',
+    term: 'occupancy grid',
+    definition:
+      'A map that divides space into cells and stores, per cell, the probability that it is occupied. Moravec and Elfes introduced it for wide-angle sonar: each range reading constrains both the volume the beam passed through and the volume where something reflected it, and many readings accumulate into a map of empty and occupied regions. Its defining property for a planner is the third state. A cell that no sensor has yet observed is held as unknown rather than assumed free, which is exactly the distinction a representation optimised for rendering cannot make.',
+    citations: ['moravec-elfes-1985', 'nav2-2020'],
+  },
+  {
+    id: 'signed-distance-field',
+    term: 'signed-distance field',
+    definition:
+      'A volumetric map that stores, per voxel, the distance to the nearest surface, signed so the value is negative behind the surface and positive in front of it. Curless and Levoy introduced the cumulative weighted form for fusing range images, where the surface is recovered as the zero crossing. Two properties earn it its place in a robot stack: the gradient of the field is the surface normal, and the distance value is itself the collision margin, which is why a truncated variant is what collision checkers and GPU trajectory optimisers consume. KinectFusion is where the representation became a real-time product of a commodity depth camera.',
+    citations: ['curless-levoy-1996', 'kinectfusion-2011'],
+  },
+  {
+    id: 'neural-radiance-field',
+    term: 'neural radiance field',
+    definition:
+      'A scene stored as a continuous function, realised as a small neural network, from a 3D position and a viewing direction to a volume density and a view-dependent colour. Mildenhall and colleagues introduced it: images are synthesised by classical volume rendering along camera rays, and because that rendering is differentiable the whole representation can be optimised from posed photographs alone. The objective is view synthesis, so the geometry it recovers is whatever explains the images rather than whatever a contact solver would want.',
+    citations: ['nerf-2020', 'instant-ngp-2022'],
+  },
+  {
+    id: 'gaussian-splatting',
+    term: '3D Gaussian splatting',
+    definition:
+      'A scene stored as a cloud of anisotropic 3D Gaussians, each carrying a position, a covariance, an opacity and a view-dependent colour, rendered by projecting them to the image plane and rasterising rather than by marching rays. Kerbl and colleagues showed the representation reaches radiance-field quality at real-time frame rates, which is what took the family out of offline rendering. The representation has no surface: opacity is a rendering weight, so contact geometry exists only after a separate surface extraction step.',
+    citations: ['3dgs-2023'],
+  },
+  {
+    id: 'loop-closure',
+    term: 'loop closure',
+    definition:
+      'Recognising that the robot has returned to a place it has mapped before, and adding the resulting constraint to the map so accumulated drift is corrected globally rather than allowed to grow. It is the property that separates SLAM from odometry: odometry integrates motion and its error grows without bound, while a closed loop redistributes that error across the whole trajectory. Cadena and colleagues place it in the back end of the standard SLAM decomposition, and it is the reason smoothing formulations displaced filtering, since relinearising the past is only possible if the past is still in the graph.',
+    citations: ['cadena-2016', 'orb-slam-2015'],
+  },
+  {
+    id: 'place-recognition',
+    term: 'place recognition',
+    definition:
+      'Deciding, from the current sensor data alone, whether the robot is somewhere it has been before, without relying on its estimated position. Lowry and colleagues survey the problem and its difficulty: the same place changes appearance with viewpoint, illumination, weather and season, while different places can look alike. It is the front-end machinery a loop closure depends on, and a false match is more damaging than a missed one, because a wrong constraint corrupts the map that the constraint was meant to correct.',
+    citations: ['lowry-2016-place-recognition', 'cadena-2016'],
+  },
+  {
+    id: 'costmap',
+    term: 'costmap',
+    definition:
+      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart introduced the layered form now standard, where each concern is a separate semantic layer that writes into the composed grid, rather than one grid that several subsystems overwrite in place.',
+    citations: ['layered-costmaps-2014', 'nav2-2020'],
+  },
+  {
+    id: 'q-learning',
+    term: 'Q-learning',
+    definition:
+      'Learning the value of taking an action in a state, rather than learning a policy directly: the agent fits a function that predicts the return available from a state-action pair, and acts by picking the action its own estimate rates highest. Sutton and Barto set it out as the archetypal off-policy temporal-difference control method, where the update uses the best available next action instead of the action the behaviour policy actually took, which is exactly what lets the method learn from experience it did not generate. Every off-policy and offline algorithm the robotics literature uses is a descendant of that update, with machinery added to keep the value estimate from running away on data it cannot verify.',
+    citations: ['sutton-barto-2018', 'cql-2020'],
+  },
+  {
+    id: 'on-policy',
+    term: 'on-policy',
+    definition:
+      'A learning method whose updates are only valid for data collected by the policy currently being improved, so each batch of experience is used once and then discarded. PPO is the robotics default of this kind: it alternates between sampling interaction data and optimizing a surrogate objective, and the surrogate is what allows several minibatch epochs per batch rather than the single gradient step plain policy gradient takes. The property is a cost when samples are expensive and nearly free when a GPU simulator produces them by the hundred million.',
+    citations: ['ppo-2017', 'sutton-barto-2018'],
+  },
+  {
+    id: 'off-policy',
+    term: 'off-policy',
+    definition:
+      'A learning method that can improve one policy from data generated by another, which means old experience stays usable after the policy has moved on. Soft actor-critic is the robotics reference point: Haarnoja and colleagues combined off-policy updates with a maximum-entropy objective specifically to attack the sample complexity that keeps model-free deep RL off real hardware, and reported substantially better sample efficiency than on-policy methods on the same tasks. The distinction is about data reuse rather than taxonomy, and on a real robot it is the difference between a feasible experiment and an impossible one.',
+    citations: ['sac-2018', 'sutton-barto-2018'],
+  },
+  {
+    id: 'replay-buffer',
+    term: 'replay buffer',
+    definition:
+      'The store of past transitions an off-policy learner samples its gradient batches from, which is the mechanism that makes data reuse concrete. Its contents need not come from the current policy or even from the learner at all: RLPD trains from a buffer holding prior offline data alongside fresh online experience, and HIL-SERL seeds one with human demonstrations before any autonomous collection starts. The buffer is also where the distinction between online and offline learning collapses to a question of whether anything new is still being added.',
+    citations: ['rlpd-2023', 'sac-2018'],
+  },
+  {
+    id: 'sample-efficiency',
+    term: 'sample efficiency',
+    definition:
+      'How much environment interaction a method needs to reach a given level of performance, counted in environment steps rather than in wall-clock time or gradient updates. It decides which algorithms are available on a given platform: Haarnoja and colleagues named poor sample complexity as the reason model-free deep RL is rarely applied to real robots, and then learned Minitaur walking from 160,000 control steps, about two hours of real-world time, by attacking exactly that. In simulation the same quantity barely matters, because the sampler is a GPU running thousands of environments at once.',
+    citations: ['sac-2018', 'haarnoja-walk-2019'],
+  },
+  {
+    id: 'offline-reinforcement-learning',
+    term: 'offline reinforcement learning',
+    definition:
+      'Learning a policy entirely from a fixed dataset of previously collected transitions, with no further interaction with the environment. Levine and colleagues frame it as the data-driven counterpart to the supervised paradigms that scaled elsewhere, and identify distributional shift as the central obstacle: the learned policy would like to take actions the dataset never contains, and a value function asked about those actions has nothing to correct an overestimate with. The algorithm families that work are the ones that constrain that extrapolation, whether by penalizing out-of-distribution value estimates, by avoiding querying them at all, or by regularizing the policy toward the behaviour that produced the data.',
+    citations: ['offline-rl-tutorial-2020', 'cql-2020'],
+  },
+  {
+    id: 'hindsight-experience-replay',
+    term: 'hindsight experience replay',
+    definition:
+      'Relabelling a failed episode with the goal it actually achieved, so that experience which earned no reward under the intended goal becomes a successful demonstration of reaching a different one. Andrychowicz and colleagues introduced it for goal-conditioned policies with binary sparse rewards, where the technique learns from failure without any reward shaping, and showed it solving manipulation tasks that were otherwise unsolvable by the same algorithm. It is the standard answer to sparse reward when a task can be phrased as reaching a goal state.',
+    citations: ['her-2017'],
+  },
+  {
+    id: 'reset-free-learning',
+    term: 'reset-free learning',
+    definition:
+      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually and is evaluated on how much human intervention it needs rather than only on final performance. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.',
+    citations: ['autonomous-rl-2022', 'reset-free-rl-2021'],
+  },
+  {
+    id: 'risk-assessment',
+    term: 'risk assessment',
+    definition:
+      'The machinery-safety procedure that turns an informal worry about a machine into a documented engineering obligation. ISO 12100:2010 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.',
+    citations: ['iso-12100'],
+  },
+  {
+    id: 'speed-and-separation-monitoring',
+    term: 'speed and separation monitoring',
+    definition:
+      'The collaborative operating mode in which a robot and a person may both move at the same time, with a safety system continuously maintaining a protective separation distance between them and issuing a safety-rated stop if that distance is closed. Marvel and Norcross restate the distance in public as a sum of four terms: the operator travel during the reaction and stopping intervals, the robot travel before braking begins, the braking distance itself, and an intrusion margin plus the position uncertainty of both parties. Because the braking term is quadratic in the robot speed, the distance grows faster than the speed does.',
+    citations: ['marvel-norcross-2017'],
+  },
+  {
+    id: 'power-and-force-limiting',
+    term: 'power and force limiting',
+    definition:
+      'The collaborative operating mode that permits contact between a robot and a person and makes it safe by bounding what the contact can do, rather than by preventing it. The threshold is biomechanical and stated per body region, which is what turns a marketing word into a claim with numbers behind it: Haddadin, Albu-Schaeffer and Hirzinger established the measurement tradition with impact experiments on the human-robot collision itself, and later force-threshold studies report limits by body region and contact geometry. A cobot certified under this mode has been measured, not merely described.',
+    citations: ['haddadin-2009', 'han-force-pain-2024'],
+  },
+  {
+    id: 'functional-safety',
+    term: 'functional safety',
+    definition:
+      'The part of a system\u2019s safety that depends on its control system doing the right thing, as opposed to safety that comes from inherent design or physical guarding. Two standards frame it for machinery: IEC 61508:2010 is the generic standard for electrical, electronic and programmable electronic safety-related systems, and ISO 13849-1:2023 gives a design methodology for the safety-related parts of machine control systems, including software, deferring low-demand operation to the IEC 61508 series. Both frame a safety function as something specified in advance and then argued to have been correctly implemented.',
+    citations: ['iec-61508-1-2010', 'iso-13849-1-2023'],
+  },
+  {
+    id: 'safety-integrity-level',
+    term: 'safety integrity level',
+    definition:
+      'The IEC 61508:2010 rating of how much confidence a safety function warrants, assigned to the function rather than to the component that implements it. Reaching a level requires more than a measured failure rate: the series also demands the avoidance of systematic faults, which are the design and specification errors that no amount of redundant hardware removes. That requirement is why a learned policy cannot be assigned one. The evidence a level needs is a verifiable specification of what the function must do, and a policy trained from demonstrations has behaviour instead of a specification.',
+    citations: ['iec-61508-1-2010'],
+  },
+  {
+    id: 'performance-level',
+    term: 'performance level',
+    definition:
+      'The ISO 13849-1:2023 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which is exactly what a learned policy does not provide.',
+    citations: ['iso-13849-1-2023'],
+  },
+  {
+    id: 'safety-case',
+    term: 'safety case',
+    definition:
+      'A structured, documented argument that a system is acceptably safe for a given application in a given environment, with the evidence for each step of the argument attached to it. The tradition exists because testing alone cannot reach the confidence an autonomous system needs, so the artifact is an argument rather than a test report. UL 4600 applies the approach to autonomous products, and the Goal Structuring Notation community standard gives the graphical notation the argument is usually written in, with goals decomposed into subgoals until each rests on cited evidence.',
+    citations: ['ul-4600-2023', 'gsn-standard-v3'],
+  },
+  {
+    id: 'conformal-prediction',
+    term: 'conformal prediction',
+    definition:
+      'A distribution-free procedure that converts any model\u2019s raw score into a prediction set with a guaranteed coverage rate: choose a target such as 95 percent, calibrate a threshold on held-out data, and the resulting sets contain the true answer at that rate under exchangeability, whatever the model is. Vovk, Gammerman and Shafer developed the framework; Angelopoulos and Bates wrote the tutorial that carried it into machine-learning practice. Its value for robotics is that the size of the set is a calibrated statement of uncertainty, so a policy can be made to ask for help exactly when its set is ambiguous.',
+    citations: ['vovk-conformal-2022', 'angelopoulos-conformal-2021'],
+  },
+  {
+    id: 'out-of-distribution-detection',
+    term: 'out-of-distribution detection',
+    definition:
+      'Deciding, at run time, whether the input a model is being asked about resembles the data it was trained on, so that a policy can decline rather than extrapolate. In robotics the detector runs on the live observation stream and its output gates the policy: Sinha and colleagues use a fast anomaly detector on the observation to trigger a reactive fallback plan while the slower reasoning runs, which is the practical shape of the technique. It answers a different question from uncertainty in the output, and a policy can be confidently wrong on an input it has never seen.',
+    citations: ['sinha-anomaly-2024'],
+  },
+  {
+    id: 'control-barrier-function',
+    term: 'control barrier function',
+    definition:
+      'A scalar function of the state, positive on a set you want the system to stay inside, whose derivative condition can be enforced as a constraint on the commanded input, so forward invariance of the safe set becomes a linear constraint in an optimisation the controller solves each step. Ames and colleagues survey the theory and its applications. Its practical importance is architectural: because the constraint filters whatever input arrives, an arbitrary and unverified controller can be wrapped by a verified one, and the guarantee belongs to the wrapper.',
+    citations: ['ames-cbf-2019'],
+  },
+  {
+    id: 'emergency-stop',
+    term: 'emergency stop',
+    definition:
+      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850:2015 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1:2016 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
+    citations: ['iso-13850-2015', 'iec-60204-1-2016'],
+  },
+  {
+    id: 'takt-time',
+    term: 'takt time',
+    definition:
+      'The rate of production a line must hold to match customer demand: available production time divided by the quantity demanded in that time. Taiichi Ohno made it the pacing heartbeat of the Toyota Production System, borrowing the German word Takt for the beat a conductor holds. A cell whose cycle time is slower than takt starves the line; a cell faster than takt needs a buffer, because the point is the match, not the speed.',
+    citations: ['ohno-tps-1988'],
+  },
+  {
+    id: 'cycle-time',
+    term: 'cycle time',
+    definition:
+      'The elapsed time for one complete repetition of a automated task: from the start of one pick, weld, or load to the start of the next, including every move in between. It is the denominator of a cell\'s throughput and one of the two numbers an operations buyer asks for first; the other is takt time, which decides whether that cycle is fast enough. Vendor cycle times are quoted at the cell\'s designed pace with known parts, so an unmodelled failure mode lengthens the real one.',
+    citations: ['evst-cell-cost-2026'],
+  },
+  {
+    id: 'mean-time-between-failures',
+    term: 'mean time between failures',
+    definition:
+      'The average elapsed operating time between one failure of a repairable system and the next, total operating time divided by the number of failures in that window. Together with mean time to repair it composes availability: MTBF over the sum of MTBF and MTTR. It is a maintenance-economics figure rather than a policy figure, but a cell whose robot fails weekly will bury any per-pick success rate the policy reports.',
+    citations: ['ohno-tps-1988'],
+  },
+  {
+    id: 'systems-integrator',
+    term: 'systems integrator',
+    definition:
+      'The company that turns a purchased robot into a working production cell: end-of-arm tooling, fixtures and guarding, vision, PLC integration with the surrounding line, commissioning, and sign-off against the agreed cycle time. Under ISO 10218-2 the cell-level risk assessment is the integrator\'s responsibility, not the robot manufacturer\'s. Integration is why a quoted cell commonly lands at two to three times the arm\'s price.',
+    citations: ['evst-cell-cost-2026', 'osha-otm-robots'],
+  },
+  {
+    id: 'brownfield-deployment',
+    term: 'brownfield deployment',
+    definition:
+      'Installing automation into a facility that already exists and already runs: existing floor plans, ceiling heights, power drops, traffic lanes, and a production schedule that cannot simply stop. A greenfield site is designed around the automation; a brownfield site makes the automation fit, and retrofit guarding, lockout procedures, and phased go-lives are what make the same technology cost more and take longer there.',
+    citations: ['osha-otm-robots'],
+  },
+  {
+    id: 'automated-storage-and-retrieval',
+    term: 'automated storage and retrieval system',
+    definition:
+      'A warehouse subsystem of fixed racking, cranes or shuttles, and control software that stores and retrieves unit loads without a human walking an aisle. Symbotic\'s systems and Ocado\'s customer fulfilment centres are large-scale descendants: high-bay storage, bots that fetch, and pick stations arranged around the software. An AS/RS buys density and precision at the price of being the building\'s skeletal structure, which is why it appears mostly in new builds.',
+    citations: ['symbotic-10k-2025'],
+  },
+  {
+    id: 'autonomous-mobile-robot',
+    term: 'autonomous mobile robot',
+    definition:
+      'A self-navigating transport vehicle that plans its own paths through a facility using onboard sensors, as distinct from an automated guided vehicle that follows fixed infrastructure like tape or wire. Amazon\'s Proteus and the case-handling robots inside Symbotic\'s systems are AMRs at fleet scale, and the fleet manager\'s traffic control, not any single robot\'s navigation, is the hard engineering.',
+    citations: ['amazon-robot-fleet-2026'],
+  },
+  {
+    id: 'goods-to-person',
+    term: 'goods-to-person',
+    definition:
+      'The warehouse principle of moving stored items to a stationary human at a pick station, instead of sending the human to walk the shelves. It inverts the economics of order picking: the picker stops being paid to travel and spends nearly the whole shift handling items, which raises throughput per person and simultaneously defines the ceiling an automated picker must beat. Sequoia and Ocado\'s pick walls are both goods-to-person systems.',
+    citations: ['amazon-sequoia-digit-2023'],
+  },
+  {
+    id: 'payback-period',
+    term: 'payback period',
+    definition:
+      'The time an automation investment takes to return its cost: total cell capital divided by the monthly value it produces, most often displaced labour. Operations buyers screen against a horizon rather than optimizing the number, and vendor guidance for robot cells quotes 12 to 24 month paybacks in multi-shift operation, stretching toward 36 in single shift. A robot whose payback misses the horizon is not a bad robot; it is a bad fit for that facility\'s wage and throughput.',
+    citations: ['evst-cell-cost-2026'],
+  },
+  {
+    id: 'intervention-rate',
+    term: 'intervention rate',
+    definition:
+      'How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.',
+    citations: ['goldberg-data-gap-2025'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

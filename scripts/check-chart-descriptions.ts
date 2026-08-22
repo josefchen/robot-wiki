@@ -170,6 +170,30 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'On the torque-controlled arm at depth 2.0 mm, stiffness 800 N/m and damping 40 N·s/m, contact force peaks at 43.2 N and settles at 1.6 N against the 255 N research-basis transient limit, and the outcome is task succeeded.',
   },
   {
+    component: 'PerceptionErrorBudget',
+    file: 'components/interactive/perception-error-budget.tsx',
+    quantityNames: ['positioning error', 'clearance'],
+    text: 'At 0.5 degrees of hand-eye rotation and 0.50 m of working distance, the composed positioning error is 11.32 mm against a 15 mm clearance band, and depth sensing dominates at 78% of the variance: within clearance.',
+  },
+  {
+    component: 'SampleEfficiencyLedger',
+    file: 'components/interactive/sample-efficiency-ledger.tsx',
+    quantityNames: ['wall clock', 'environment steps'],
+    text: 'A budget of 158M environment steps costs 21.5 min of wall clock in massively parallel simulation and 82.5 d on a single real robot, a factor of 5,530 apart at every budget, so the experiment the simulator runs in the on-policy regime leaves the hardware in the offline regime instead; a fleet of 7 robots lands at 11.8 d, still off-policy.',
+  },
+  {
+    component: 'CollaborativeOperationModes',
+    file: 'components/interactive/collaborative-operation-modes.tsx',
+    quantityNames: ['protective separation distance', 'robot speed'],
+    text: 'At 1.00 m/s robot speed and 1.60 m/s operator approach, the protective separation distance is 1.42 m against a 1.60 m workcell: 0.32 m of operator travel, 0.10 m of robot travel before braking, 0.05 m of braking, and 0.95 m of intrusion margin and position uncertainty.',
+  },
+  {
+    component: 'SceneRepresentationLadder',
+    file: 'components/interactive/scene-representation-ladder.tsx',
+    quantityNames: ['occupancy', 'voxels'],
+    text: 'Stored as an occupancy grid at 20 cm, the same scene costs 2.2 KB across 2,250 voxels, and answers 1 of the 3 queries: free space yes, a contact normal no, a novel view no.',
+  },
+  {
     component: 'GraspWrenchLabObject',
     file: 'components/interactive/grasp-wrench-lab.tsx',
     quantityNames: ['contacts', 'cones'],

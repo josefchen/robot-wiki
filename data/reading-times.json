@@ -47,6 +47,10 @@
     "words": 1247,
     "minutes": 6
   },
+  "rl-sim2real/rl-for-robotics": {
+    "words": 2731,
+    "minutes": 14
+  },
   "rl-sim2real/why-rl-locomotion": {
     "words": 1239,
     "minutes": 6
@@ -100,7 +104,7 @@
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 3162,
+    "words": 3193,
     "minutes": 16
   },
   "data-hardware/teleop-rigs": {
@@ -110,6 +114,10 @@
   "data-hardware/evaluation-crisis": {
     "words": 1747,
     "minutes": 9
+  },
+  "data-hardware/industrial-deployment": {
+    "words": 2054,
+    "minutes": 10
   },
   "classical/kinematics": {
     "words": 2366,
@@ -131,9 +139,17 @@
     "words": 2111,
     "minutes": 11
   },
+  "classical/perception": {
+    "words": 3356,
+    "minutes": 17
+  },
+  "classical/scene-representation": {
+    "words": 2254,
+    "minutes": 11
+  },
   "frontier/reliability-gap": {
-    "words": 1651,
-    "minutes": 8
+    "words": 1702,
+    "minutes": 9
   },
   "frontier/dexterity": {
     "words": 2162,
@@ -150,6 +166,10 @@
   "frontier/bear-case": {
     "words": 1861,
     "minutes": 9
+  },
+  "frontier/safety-and-assurance": {
+    "words": 2755,
+    "minutes": 14
   },
   "adjacent/autonomous-vehicles": {
     "words": 3578,

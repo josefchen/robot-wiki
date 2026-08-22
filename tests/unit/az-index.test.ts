@@ -4,6 +4,7 @@ import { DOMAIN_META, modules, publishedModules } from '@/data/modules';
 import {
   buildAzIndex,
   groupLetter,
+  letterAnchorId,
   type AzIndexSourceEntry,
 } from '@/lib/az-index';
 
@@ -35,6 +36,22 @@ describe('groupLetter', () => {
 
   it('groups non-letter starters under #', () => {
     expect(groupLetter('3D printing')).toBe('#');
+  });
+});
+
+describe('letterAnchorId', () => {
+  it('lowercases a letter group', () => {
+    expect(letterAnchorId('A')).toBe('letter-a');
+    expect(letterAnchorId('Z')).toBe('letter-z');
+  });
+
+  it('spells out the # group so the fragment survives the URL', () => {
+    // '#' in the id truncates /a-z/#letter-# to the fragment 'letter-',
+    // which matches no element, so the jump link silently does nothing.
+    const id = letterAnchorId('#');
+    expect(id).toBe('letter-other');
+    expect(id).not.toContain('#');
+    expect(new URL(`https://x/a-z/#${id}`).hash).toBe(`#${id}`);
   });
 });
 

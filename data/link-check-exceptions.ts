@@ -134,4 +134,93 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
       'Independent fetch on 2026-08-18 (FetchUrl, 200): full essay text served at the exact capture URL, title "The Bitter Lesson", author Rich Sutton, dated March 13, 2019, matching the registry entry.',
     verifiedOn: '2026-08-18',
   },
+
+  /* ------------------------------------------------------------------ *
+   * The safety module's standards catalogue entries (2026-08-22).
+   *
+   * iso.org answers HTTP 403 to curl and node fetch regardless of headers
+   * (measured on all seven URLs the same day), exactly as the existing
+   * iso-ts-15066 entry above records. None of these documents has a DOI,
+   * so Crossref cannot stand in. Each was read through a real browser
+   * client on 2026-08-22 and the catalogue metadata quoted below is what
+   * that page rendered. Only catalogue metadata is cited anywhere on the
+   * site; no clause or table from any of these paywalled documents is
+   * quoted or paraphrased.
+   *
+   * The A3 entry is a different wall: automate.org answers 403 to
+   * non-browser clients and its <title> is a site masthead, so it covers
+   * the title-mismatch mode as well.
+   * ------------------------------------------------------------------ */
+  {
+    id: 'iso-12100',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client (curl and node fetch, regardless of headers): a bot-wall, not link rot. The standard has no DOI, so Crossref cannot stand in for the fetch.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 12100:2010, Safety of machinery - General principles for design - Risk assessment and risk reduction", edition 1, published 2010-11, stage 90.92, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-10218-1-2025',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. No DOI exists for the standard.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 10218-1:2025, Robotics - Safety requirements - Part 1: Industrial robots", edition 3, published 2025-02, stage 60.60, 95 pages, ISO/TC 299, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-10218-2-2025',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. No DOI exists for the standard.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 10218-2:2025, Robotics - Safety requirements - Part 2: Industrial robot applications and robot cells", edition 2, published 2025-02, stage 60.60, 223 pages, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-13849-1-2023',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. No DOI exists for the standard.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 13849-1:2023, Safety of machinery - Safety-related parts of control systems - Part 1: General principles for design", edition 4, published 2023-04, stage 60.60, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-13850-2015',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. No DOI exists for the standard.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 13850:2015, Safety of machinery - Emergency stop function - Principles for design", edition 3, published 2015-11, last confirmed 2020, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-3691-4-2023',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. No DOI exists for the standard.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO 3691-4:2023, Industrial trucks - Safety requirements and verification - Part 4: Driverless industrial trucks and their systems", edition 2, published 2023-06, stage 90.92, matching the registry entry.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'iso-cd-25785-1',
+    covers: ['error', 'blocked'],
+    reason:
+      'iso.org returns HTTP 403 to every non-browser client: the same bot-wall as the other ISO catalogue entries. A committee draft has no DOI.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the catalogue page states "ISO/CD 25785-1", Committee Draft, "Under development", stage 30.60 (close of comment period 2026-07-08), edition 1, ISO/TC 299, with an abstract covering industrial mobile robots with actively controlled stability. The registry entry states that draft status, which is the whole point of citing it.',
+    verifiedOn: '2026-08-22',
+  },
+  {
+    id: 'a3-robot-safety-standards',
+    covers: ['error', 'blocked', 'title-mismatch'],
+    reason:
+      'automate.org returns HTTP 403 to curl and node fetch, and its <title> is the site masthead ("Robot Safety Standard Documents | Automate") rather than a document title a machine can compare against a registry entry. The page is a catalogue listing and has no DOI.',
+    verifiedBy:
+      'Browser read on 2026-08-22: the page lists ANSI/RIA R15.08-1-2020 (Part 1, the industrial mobile robot) and ANSI/A3 R15.08-2-2023 (Part 2, IMR systems and applications) as available, and marks R15.06 Part 3 as forthcoming. That published-parts split is exactly what the article cites it for.',
+    verifiedOn: '2026-08-22',
+  },
 ];
