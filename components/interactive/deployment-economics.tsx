@@ -125,9 +125,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       )}
     >
       <div className="flex items-baseline justify-between gap-3">
-        <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-          Cell economics calculator
-        </h3>
+        <p className="text-[13px] font-medium text-text">Cell economics calculator</p>
         <button
           data-pagefind-ignore
           type="button"
@@ -173,9 +171,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
 
       <div className="mt-5 grid gap-3 border-t border-border pt-4 sm:grid-cols-3">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-            Cost per pick
-          </p>
+          <p className="text-[13px] font-medium text-text-dim">Cost per pick</p>
           <p className="mt-1 font-mono text-sm text-text">
             <span data-testid="cost-per-pick">
               {out.costPerPickUsd.toFixed(3)}
@@ -186,9 +182,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           </p>
         </div>
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-            Payback
-          </p>
+          <p className="text-[13px] font-medium text-text-dim">Payback</p>
           <p className="mt-1 font-mono text-sm text-text">
             <span data-testid="payback-months" className="text-accent">
               {paybackText}
@@ -196,9 +190,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           </p>
         </div>
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
-            Verdict
-          </p>
+          <p className="text-[13px] font-medium text-text-dim">Verdict</p>
           <p
             data-testid="payback-verdict"
             className="mt-1 font-mono text-sm"
@@ -229,7 +221,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       </div>
 
       <div className="mt-4">
-        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-dim">
+        <p className="text-[13px] font-medium text-text-dim">
           Where each elapsed hour goes
         </p>
         {/* Fixed-height stacked bar: the three shares always fill the same
