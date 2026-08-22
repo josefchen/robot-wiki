@@ -525,4 +525,49 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'arXiv abs/1705.05548 citation_title meta tag read 2026-08-22: "Intel RealSense Stereoscopic Depth Cameras", no trademark markers.',
   },
+  {
+    id: 'moravec-elfes-1985',
+    skip: 'author-expansion',
+    authorIndex: 1,
+    reason:
+      'Crossref prints the 1985 ICRA byline as the initial "H. Moravec". The paper itself prints "Hans P. Moravec", and the registry follows the printed byline per the author-field policy.',
+    verified:
+      'CMU Robotics Institute PDF (ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf) read as text 2026-08-22: the title-page byline reads "Hans P. Moravec" over "The Robotics Institute, Carnegie-Mellon University".',
+  },
+  {
+    id: 'moravec-elfes-1985',
+    skip: 'author-expansion',
+    authorIndex: 2,
+    reason:
+      'Crossref prints "A. Elfes"; the paper prints the full given name. Same printed-byline evidence as author 1.',
+    verified:
+      'Same CMU Robotics Institute PDF read 2026-08-22: the second byline name is "Alberto Elfes" (the scan renders it "Albert0 Elfes", an OCR substitution of 0 for o in a fixed-width scan). DBLP indexes the same paper as "Alberto Elfes".',
+  },
+  {
+    id: 'kinectfusion-2011',
+    skip: 'author',
+    authorIndex: 7,
+    reason:
+      'Crossref prints "Pushmeet Kohi", dropping the l from Kohli. The paper byline and every other record spell it Kohli, and the registry keeps the correct spelling rather than propagating a Crossref typo into the reference list.',
+    verified:
+      'ISMAR 2011 PDF (microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf) read as text 2026-08-22: the byline reads "Pushmeet Kohli". DBLP publ record for the same paper agrees.',
+  },
+  {
+    id: 'kinectfusion-2011',
+    skip: 'author',
+    authorIndex: 2,
+    reason:
+      'Crossref reorders the byline, promoting Andrew Fitzgibbon from last to second. The registry follows the order the paper itself prints, which is what a reader comparing the reference against the PDF will see; the two lists hold the same ten people.',
+    verified:
+      'Same ISMAR 2011 PDF read 2026-08-22: byline order is Newcombe, Izadi, Hilliges, Molyneaux, Kim, Davison, Kohli, Shotton, Hodges, Fitzgibbon. DBLP prints the same order.',
+  },
+  {
+    id: 'kinectfusion-2011',
+    skip: 'author',
+    authorIndex: 10,
+    reason:
+      'The mirror of the entry above: the reordering shifts every position between 2 and 10, and position 10 is the other end of the swap.',
+    verified:
+      'Same ISMAR 2011 PDF read 2026-08-22; Fitzgibbon is the tenth and final byline name.',
+  },
 ];

@@ -287,6 +287,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.',
   ],
   [
+    'classical',
+    'scene-representation',
+    'Scene Representation and Mapping',
+    'What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.',
+  ],
+  [
     'frontier',
     'reliability-gap',
     'The Reliability Gap',
@@ -382,6 +388,7 @@ const PUBLISHED = new Set([
   'classical/state-estimation',
   'classical/grasp-planning',
   'classical/perception',
+  'classical/scene-representation',
   'frontier/reliability-gap',
   'frontier/dexterity',
   'frontier/generalization',

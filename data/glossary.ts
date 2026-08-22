@@ -584,6 +584,55 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Closing the control loop directly on image features rather than on an estimated object pose: define an error in the image, between where features are and where they should be, and drive the robot down that error using the interaction matrix relating feature velocity to camera velocity. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. The appeal for manipulation is that it skips pose estimation entirely, so a calibration error that would bias a pose estimate instead only bends the path the robot takes to a still-correct final configuration.',
     citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
   },
+  {
+    id: 'occupancy-grid',
+    term: 'occupancy grid',
+    definition:
+      'A map that divides space into cells and stores, per cell, the probability that it is occupied. Moravec and Elfes introduced it for wide-angle sonar: each range reading constrains both the volume the beam passed through and the volume where something reflected it, and many readings accumulate into a map of empty and occupied regions. Its defining property for a planner is the third state. A cell that no sensor has yet observed is held as unknown rather than assumed free, which is exactly the distinction a representation optimised for rendering cannot make.',
+    citations: ['moravec-elfes-1985', 'nav2-2020'],
+  },
+  {
+    id: 'signed-distance-field',
+    term: 'signed-distance field',
+    definition:
+      'A volumetric map that stores, per voxel, the distance to the nearest surface, signed so the value is negative behind the surface and positive in front of it. Curless and Levoy introduced the cumulative weighted form for fusing range images, where the surface is recovered as the zero crossing. Two properties earn it its place in a robot stack: the gradient of the field is the surface normal, and the distance value is itself the collision margin, which is why a truncated variant is what collision checkers and GPU trajectory optimisers consume. KinectFusion is where the representation became a real-time product of a commodity depth camera.',
+    citations: ['curless-levoy-1996', 'kinectfusion-2011'],
+  },
+  {
+    id: 'neural-radiance-field',
+    term: 'neural radiance field',
+    definition:
+      'A scene stored as a continuous function, realised as a small neural network, from a 3D position and a viewing direction to a volume density and a view-dependent colour. Mildenhall and colleagues introduced it: images are synthesised by classical volume rendering along camera rays, and because that rendering is differentiable the whole representation can be optimised from posed photographs alone. The objective is view synthesis, so the geometry it recovers is whatever explains the images rather than whatever a contact solver would want.',
+    citations: ['nerf-2020', 'instant-ngp-2022'],
+  },
+  {
+    id: 'gaussian-splatting',
+    term: '3D Gaussian splatting',
+    definition:
+      'A scene stored as a cloud of anisotropic 3D Gaussians, each carrying a position, a covariance, an opacity and a view-dependent colour, rendered by projecting them to the image plane and rasterising rather than by marching rays. Kerbl and colleagues showed the representation reaches radiance-field quality at real-time frame rates, which is what took the family out of offline rendering. The representation has no surface: opacity is a rendering weight, so contact geometry exists only after a separate surface extraction step.',
+    citations: ['3dgs-2023'],
+  },
+  {
+    id: 'loop-closure',
+    term: 'loop closure',
+    definition:
+      'Recognising that the robot has returned to a place it has mapped before, and adding the resulting constraint to the map so accumulated drift is corrected globally rather than allowed to grow. It is the property that separates SLAM from odometry: odometry integrates motion and its error grows without bound, while a closed loop redistributes that error across the whole trajectory. Cadena and colleagues place it in the back end of the standard SLAM decomposition, and it is the reason smoothing formulations displaced filtering, since relinearising the past is only possible if the past is still in the graph.',
+    citations: ['cadena-2016', 'orb-slam-2015'],
+  },
+  {
+    id: 'place-recognition',
+    term: 'place recognition',
+    definition:
+      'Deciding, from the current sensor data alone, whether the robot is somewhere it has been before, without relying on its estimated position. Lowry and colleagues survey the problem and its difficulty: the same place changes appearance with viewpoint, illumination, weather and season, while different places can look alike. It is the front-end machinery a loop closure depends on, and a false match is more damaging than a missed one, because a wrong constraint corrupts the map that the constraint was meant to correct.',
+    citations: ['lowry-2016-place-recognition', 'cadena-2016'],
+  },
+  {
+    id: 'costmap',
+    term: 'costmap',
+    definition:
+      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart introduced the layered form now standard, where each concern is a separate semantic layer that writes into the composed grid, rather than one grid that several subsystems overwrite in place.',
+    citations: ['layered-costmaps-2014', 'nav2-2020'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

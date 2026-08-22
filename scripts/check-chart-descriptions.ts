@@ -176,6 +176,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'At 0.5 degrees of hand-eye rotation and 0.50 m of working distance, the composed positioning error is 11.32 mm against a 15 mm clearance band, and depth sensing dominates at 78% of the variance: within clearance.',
   },
   {
+    component: 'SceneRepresentationLadder',
+    file: 'components/interactive/scene-representation-ladder.tsx',
+    quantityNames: ['occupancy', 'voxels'],
+    text: 'Stored as an occupancy grid at 20 cm, the same scene costs 2.2 KB across 2,250 voxels, and answers 1 of the 3 queries: free space yes, a contact normal no, a novel view no.',
+  },
+  {
     component: 'GraspWrenchLabObject',
     file: 'components/interactive/grasp-wrench-lab.tsx',
     quantityNames: ['contacts', 'cones'],

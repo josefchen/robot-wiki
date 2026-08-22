@@ -4113,6 +4113,288 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // SIGGRAPH '96 pp. 303-312, doi read 2026-08-22. The origin of the
+    // volumetric signed-distance representation: range images fused into a
+    // cumulative weighted signed distance function, from which an
+    // isosurface is extracted.
+    id: 'curless-levoy-1996',
+    title: 'A Volumetric Method for Building Complex Models from Range Images',
+    authors: ['Brian Curless', 'Marc Levoy'],
+    year: 1996,
+    venue: 'SIGGRAPH 1996',
+    url: 'https://doi.org/10.1145/237170.237269',
+    type: 'paper',
+  },
+  {
+    // ISMAR 2011 pp. 127-136, Crossref read 2026-08-22. Real-time dense
+    // TSDF fusion from a commodity depth camera, which is what moved the
+    // Curless-Levoy volumetric method onto a live robot.
+    //
+    // Author list follows the paper's own byline (the ISMAR PDF, read
+    // 2026-08-22), which orders Fitzgibbon last; Crossref lists him second
+    // and prints "Pushmeet Kohi" for Kohli. Both divergences are
+    // documented in data/crossref-author-exceptions.ts.
+    id: 'kinectfusion-2011',
+    title: 'KinectFusion: Real-Time Dense Surface Mapping and Tracking',
+    authors: [
+      'Richard A. Newcombe',
+      'Shahram Izadi',
+      'Otmar Hilliges',
+      'David Molyneaux',
+      'David Kim',
+      'Andrew J. Davison',
+      'Pushmeet Kohli',
+      'Jamie Shotton',
+      'Steve Hodges',
+      'Andrew Fitzgibbon',
+    ],
+    year: 2011,
+    venue: 'ISMAR 2011',
+    url: 'https://doi.org/10.1109/ISMAR.2011.6092378',
+    type: 'paper',
+  },
+  {
+    // ICRA 1985 pp. 116-121, Crossref read 2026-08-22. The origin of the
+    // occupancy grid: sonar returns accumulated into a map of empty and
+    // occupied volumes, with unknown held as a third state. Crossref
+    // prints the byline as initials ("H. Moravec", "A. Elfes"); the CMU
+    // Robotics Institute PDF prints the full given names, and that
+    // expansion is documented in data/crossref-author-exceptions.ts.
+    id: 'moravec-elfes-1985',
+    title: 'High Resolution Maps from Wide Angle Sonar',
+    authors: ['Hans P. Moravec', 'Alberto Elfes'],
+    year: 1985,
+    venue: 'ICRA 1985',
+    url: 'https://doi.org/10.1109/ROBOT.1985.1087316',
+    type: 'paper',
+  },
+  {
+    // ECCV 2020 (oral); arXiv abs page read 2026-08-22. A scene as a
+    // continuous 5D function from position and viewing direction to
+    // density and view-dependent radiance, rendered by classical volume
+    // rendering, optimised per scene from posed images alone.
+    id: 'nerf-2020',
+    title:
+      'NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis',
+    authors: [
+      'Ben Mildenhall',
+      'Pratul P. Srinivasan',
+      'Matthew Tancik',
+      'Jonathan T. Barron',
+      'Ravi Ramamoorthi',
+      'Ren Ng',
+    ],
+    year: 2020,
+    venue: 'ECCV 2020',
+    arxiv: '2003.08934',
+    url: 'https://arxiv.org/abs/2003.08934',
+    type: 'paper',
+  },
+  {
+    // ACM Trans. Graph. 41(4) Article 102 (SIGGRAPH 2022); arXiv abs page
+    // read 2026-08-22. The multiresolution hash encoding that collapsed
+    // neural-field training from hours to seconds, which is what made the
+    // per-scene optimisation cost arguable rather than prohibitive.
+    id: 'instant-ngp-2022',
+    title:
+      'Instant Neural Graphics Primitives with a Multiresolution Hash Encoding',
+    authors: [
+      'Thomas Müller',
+      'Alex Evans',
+      'Christoph Schied',
+      'Alexander Keller',
+    ],
+    year: 2022,
+    venue: 'ACM Trans. Graph. (SIGGRAPH 2022)',
+    arxiv: '2201.05989',
+    url: 'https://arxiv.org/abs/2201.05989',
+    type: 'paper',
+  },
+  {
+    // CVPR 2024; arXiv abs page read 2026-08-22. Feed-forward pairwise
+    // pointmap regression with no camera intrinsics and no poses, which
+    // removes the per-scene optimisation a radiance field requires.
+    id: 'dust3r-2024',
+    title: 'DUSt3R: Geometric 3D Vision Made Easy',
+    authors: [
+      'Shuzhe Wang',
+      'Vincent Leroy',
+      'Yohann Cabon',
+      'Boris Chidlovskii',
+      'Jerome Revaud',
+    ],
+    year: 2024,
+    venue: 'CVPR 2024',
+    arxiv: '2312.14132',
+    url: 'https://arxiv.org/abs/2312.14132',
+    type: 'paper',
+  },
+  {
+    // ECCV 2024 (LNCS 15832); arXiv abs page read 2026-08-22. The DUSt3R
+    // successor, adding a dense local-feature head so the same
+    // feed-forward pointmap network also does grounded image matching.
+    id: 'mast3r-2024',
+    title: 'Grounding Image Matching in 3D with MASt3R',
+    authors: ['Vincent Leroy', 'Yohann Cabon', 'Jérôme Revaud'],
+    year: 2024,
+    venue: 'ECCV 2024',
+    arxiv: '2406.09756',
+    url: 'https://arxiv.org/abs/2406.09756',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 31(5):1147-1163, Crossref read 2026-08-22. The
+    // reference feature-based visual SLAM system: ORB features reused
+    // across tracking, mapping, relocalisation and loop closing.
+    id: 'orb-slam-2015',
+    title: 'ORB-SLAM: A Versatile and Accurate Monocular SLAM System',
+    authors: ['Raul Mur-Artal', 'J. M. M. Montiel', 'Juan D. Tardos'],
+    year: 2015,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2015.2463671',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 37(6):1874-1890, Crossref read 2026-08-22. The
+    // multi-map, visual-inertial successor, where a lost session becomes a
+    // new map that is merged back when the place is recognised again.
+    id: 'orb-slam3-2021',
+    title:
+      'ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial, and Multimap SLAM',
+    authors: [
+      'Carlos Campos',
+      'Richard Elvira',
+      'Juan J. Gomez Rodriguez',
+      'Jose M. M. Montiel',
+      'Juan D. Tardos',
+    ],
+    year: 2021,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2021.3075644',
+    type: 'paper',
+  },
+  {
+    // IEEE TPAMI 40(3):611-625, Crossref read 2026-08-22. The direct
+    // counterpart to ORB-SLAM: photometric error on sampled pixels,
+    // jointly optimised with geometry, with no feature detector at all.
+    id: 'dso-2018',
+    title: 'Direct Sparse Odometry',
+    authors: ['Jakob Engel', 'Vladlen Koltun', 'Daniel Cremers'],
+    year: 2018,
+    venue: 'IEEE TPAMI',
+    url: 'https://doi.org/10.1109/TPAMI.2017.2658577',
+    type: 'paper',
+  },
+  {
+    // IEEE Trans. Robotics 32(1):1-19, Crossref read 2026-08-22. The
+    // survey of visual place recognition, which is the machinery a SLAM
+    // back end needs before it can propose a loop closure at all.
+    id: 'lowry-2016-place-recognition',
+    title: 'Visual Place Recognition: A Survey',
+    authors: [
+      'Stephanie Lowry',
+      'Niko Sünderhauf',
+      'Paul Newman',
+      'John J. Leonard',
+      'David Cox',
+      'Peter Corke',
+      'Michael J. Milford',
+    ],
+    year: 2016,
+    venue: 'IEEE Trans. Robotics',
+    url: 'https://doi.org/10.1109/TRO.2015.2496823',
+    type: 'paper',
+  },
+  {
+    // ICCV 2021; arXiv abs page read 2026-08-22. The first real-time SLAM
+    // system whose only scene representation is a single multilayer
+    // perceptron trained online from a live RGB-D stream.
+    id: 'imap-2021',
+    title: 'iMAP: Implicit Mapping and Positioning in Real-Time',
+    authors: [
+      'Edgar Sucar',
+      'Shikun Liu',
+      'Joseph Ortiz',
+      'Andrew J. Davison',
+    ],
+    year: 2021,
+    venue: 'ICCV 2021',
+    arxiv: '2103.12352',
+    url: 'https://arxiv.org/abs/2103.12352',
+    type: 'paper',
+  },
+  {
+    // CVPR 2022; arXiv abs page read 2026-08-22. Hierarchical feature
+    // grids with a pretrained decoder, which is what let neural implicit
+    // SLAM scale past a single room.
+    id: 'nice-slam-2022',
+    title: 'NICE-SLAM: Neural Implicit Scalable Encoding for SLAM',
+    authors: [
+      'Zihan Zhu',
+      'Songyou Peng',
+      'Viktor Larsson',
+      'Weiwei Xu',
+      'Hujun Bao',
+      'Zhaopeng Cui',
+      'Martin R. Oswald',
+      'Marc Pollefeys',
+    ],
+    year: 2022,
+    venue: 'CVPR 2022',
+    arxiv: '2112.12130',
+    url: 'https://arxiv.org/abs/2112.12130',
+    type: 'paper',
+  },
+  {
+    // CoRL 2021; arXiv abs page read 2026-08-22. A radiance field used for
+    // geometry rather than for rendering: transparency-aware depth
+    // rendered out of the learned density and fed to a grasp planner,
+    // reporting 90% and 100% grasp success in physical experiments.
+    id: 'dex-nerf-2021',
+    title:
+      'Dex-NeRF: Using a Neural Radiance Field to Grasp Transparent Objects',
+    authors: [
+      'Jeffrey Ichnowski',
+      'Yahav Avigal',
+      'Justin Kerr',
+      'Ken Goldberg',
+    ],
+    year: 2021,
+    venue: 'CoRL 2021',
+    arxiv: '2110.14217',
+    url: 'https://arxiv.org/abs/2110.14217',
+    type: 'paper',
+  },
+  {
+    // IROS 2014, Crossref read 2026-08-22. The layered costmap: separate
+    // semantic layers composed into the single grid a navigation planner
+    // reads, which is the deployed form of the occupancy grid.
+    id: 'layered-costmaps-2014',
+    title: 'Layered Costmaps for Context-Sensitive Navigation',
+    authors: ['David V. Lu', 'Dave Hershberger', 'William D. Smart'],
+    year: 2014,
+    venue: 'IROS 2014',
+    url: 'https://doi.org/10.1109/IROS.2014.6942636',
+    type: 'paper',
+  },
+  {
+    // IROS 2020, Crossref read 2026-08-22. The ROS 2 navigation stack
+    // paper: the global-planner and local-controller split, the costmap
+    // layers underneath, and a long-duration deployment result.
+    id: 'nav2-2020',
+    title: 'The Marathon 2: A Navigation System',
+    authors: [
+      'Steve Macenski',
+      'Francisco Martin',
+      'Ruffin White',
+      'Jonatan Gines Clavero',
+    ],
+    year: 2020,
+    venue: 'IROS 2020',
+    url: 'https://doi.org/10.1109/IROS45743.2020.9341207',
+    type: 'paper',
+  },
+  {
     // Project site verified live (2026-08-11). GTSAM is the reference
     // implementation of factor-graph smoothing and the Bayes tree, used
     // across visual-inertial odometry and offline mapping. gtsam.org serves
