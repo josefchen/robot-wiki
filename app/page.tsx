@@ -80,6 +80,13 @@ export default function Home() {
         >
           Domain index
         </h2>
+        <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-text-dim">
+          The scope is modern robotics with a robot-learning centre of
+          gravity: Manipulation &amp; Learned Policies, Classical
+          Foundations, and the five domains around them, every claim cited
+          to a primary source. It is not a product catalogue, and it makes
+          no attempt to cover the whole industry.
+        </p>
         <ul className="mt-3 divide-y divide-border border-t border-border">
           {DOMAINS.map((domain) => {
             const meta = DOMAIN_META[domain];
