@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 59,
+  "linkCount": 60,
   "links": [
     {
       "href": "/",
@@ -142,6 +142,10 @@
     {
       "href": "/data-hardware/evaluation-crisis/",
       "name": "The Evaluation Crisis"
+    },
+    {
+      "href": "/data-hardware/industrial-deployment/",
+      "name": "Industrial Deployment"
     },
     {
       "href": "/classical/",
