@@ -9,6 +9,7 @@ import {
   RESOLUTION_CM,
   SENSOR,
   THIN_POST,
+  TRANSPARENT_BOTTLE,
   capabilityLabel,
   footprint,
   formatBytes,
@@ -215,8 +216,12 @@ describe('the synthetic scene', () => {
       (c) => c.state === 'occupied' && c.x >= 220 && c.x <= 260,
     );
     expect(occupiedNearBottle.length).toBeGreaterThan(0);
-    // Every occupied cell in that column sits BEHIND the true front face.
-    const trueFront = 62;
+    // The sensor sits at y=196 and the back wall at y=14, so "further from
+    // the sensor" means SMALLER y. The bottle spans y 62 to 86, which makes
+    // 86 the face the sensor sees first; a depth return that lands behind it
+    // has y < 86. (An earlier version of this test used 62, the bottle's far
+    // face, and so demanded the returns fall behind the whole object.)
+    const trueFront = TRANSPARENT_BOTTLE.y + TRANSPARENT_BOTTLE.height;
     for (const cell of occupiedNearBottle) {
       expect(cell.y + cell.size).toBeLessThanOrEqual(trueFront);
     }
@@ -246,8 +251,11 @@ describe('the synthetic scene', () => {
   it('puts the transparent samples behind the real surface', () => {
     const samples = surfaceSamples(10).filter((s) => s.kind === 'transparent');
     expect(samples.length).toBeGreaterThan(3);
+    // Behind the face the sensor actually sees (y = 86), not behind the far
+    // face at y = 62. Smaller y is further away; see the occupancy test above.
+    const trueFront = TRANSPARENT_BOTTLE.y + TRANSPARENT_BOTTLE.height;
     for (const sample of samples) {
-      expect(sample.y).toBeLessThan(62);
+      expect(sample.y).toBeLessThan(trueFront);
     }
   });
 

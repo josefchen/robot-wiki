@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
@@ -90,18 +90,15 @@ describe('SceneRepresentationLadder', () => {
   });
 
   it('the footprint rises strictly with resolution while capabilities hold (VAL-CLASS-051)', async () => {
-    const user = userEvent.setup();
     render(<SceneRepresentationLadder />);
     const slider = screen.getByTestId('scene-resolution-slider');
     const before = capabilityStates();
     const readings: number[] = [];
     for (let i = 0; i < RESOLUTION_CM.length; i += 1) {
-      await user.clear(slider);
-      // A range input ignores clear(); set it through fireEvent-equivalent.
-      (slider as HTMLInputElement).value = String(i);
-      await user.click(slider);
-      slider.dispatchEvent(new Event('input', { bubbles: true }));
-      slider.dispatchEvent(new Event('change', { bubbles: true }));
+      // A range input is not editable text, so user.clear() throws on it and
+      // a bare dispatchEvent bypasses React's synthetic value tracker. Only
+      // fireEvent.change moves a controlled range in jsdom.
+      fireEvent.change(slider, { target: { value: String(i) } });
       const bytes = screen.getByTestId('scene-footprint-readout').textContent ?? '';
       const value = Number.parseFloat(bytes);
       const unit = /GB/.test(bytes)
@@ -128,9 +125,7 @@ describe('SceneRepresentationLadder', () => {
 
     await user.click(selector('mesh'));
     const slider = screen.getByTestId('scene-resolution-slider') as HTMLInputElement;
-    slider.value = String(RESOLUTION_CM.length - 1);
-    slider.dispatchEvent(new Event('input', { bubbles: true }));
-    slider.dispatchEvent(new Event('change', { bubbles: true }));
+    fireEvent.change(slider, { target: { value: String(RESOLUTION_CM.length - 1) } });
     expect(screen.getByTestId('scene-resolution-value').textContent).not.toBe(
       opening,
     );
