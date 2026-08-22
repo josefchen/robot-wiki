@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 56,
+  "linkCount": 57,
   "links": [
     {
       "href": "/",
@@ -166,6 +166,10 @@
     {
       "href": "/classical/perception/",
       "name": "Perception for Manipulation"
+    },
+    {
+      "href": "/classical/scene-representation/",
+      "name": "Scene Representation and Mapping"
     },
     {
       "href": "/frontier/",

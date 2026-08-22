@@ -71,6 +71,18 @@ const SURFACE_2 = 'var(--color-surface-2)';
 /** Round rendered geometry so the server HTML and the hydrated DOM agree. */
 const f = (v: number) => Number(v.toFixed(2));
 
+/**
+ * Glyph sizes in viewBox units, not pixels. The 300-unit-wide viewBox renders
+ * about 228px wide in the article column, a scale near 0.76, so a size of 7
+ * would land at roughly 5px on screen and be illegible. These are chosen so
+ * the smallest label still renders at about 10px at the narrowest layout.
+ */
+const TITLE_SIZE = 14;
+const LABEL_SIZE = 11;
+
+/** Height of the title band above the scene, in viewBox units. */
+const TITLE_BAND_CM = 20;
+
 const SURFACE_TONE: Record<SurfaceKind, string> = {
   wall: BORDER_STRONG,
   occluder: BORDER_STRONG,
@@ -84,7 +96,40 @@ const STATE_TONE: Record<CapabilityState, string> = {
   no: 'border-border text-text-dim',
 };
 
-/** Scene chrome every panel shares: the sensor, the occluder, the shadow. */
+/**
+ * Occluder outline and sensor marker, with no background fill.
+ *
+ * Split out from SceneFrame so a panel that draws opaque cells can put the
+ * chrome back on top without repainting the background over its own data.
+ */
+function SceneChrome() {
+  return (
+    <g>
+      <rect
+        x={OCCLUDER.x}
+        y={OCCLUDER.y}
+        width={OCCLUDER.width}
+        height={OCCLUDER.height}
+        fill="none"
+        stroke={DIM}
+        strokeWidth={1}
+        strokeDasharray="3 3"
+      />
+      <circle cx={SENSOR.x} cy={SENSOR.y} r={3} fill={ACCENT} />
+      <text
+        x={SENSOR.x + 7}
+        y={SENSOR.y + 4}
+        fill={DIM}
+        fontSize={LABEL_SIZE}
+        fontFamily={MONO}
+      >
+        sensor
+      </text>
+    </g>
+  );
+}
+
+/** Background, optional occlusion shadow, then the shared chrome. */
 function SceneFrame({ showShadow }: { showShadow: boolean }) {
   const shadow = occlusionShadow();
   return (
@@ -105,26 +150,7 @@ function SceneFrame({ showShadow }: { showShadow: boolean }) {
           opacity={0.16}
         />
       )}
-      <rect
-        x={OCCLUDER.x}
-        y={OCCLUDER.y}
-        width={OCCLUDER.width}
-        height={OCCLUDER.height}
-        fill="none"
-        stroke={DIM}
-        strokeWidth={1}
-        strokeDasharray="3 3"
-      />
-      <circle cx={SENSOR.x} cy={SENSOR.y} r={3} fill={ACCENT} />
-      <text
-        x={SENSOR.x + 7}
-        y={SENSOR.y + 3}
-        fill={DIM}
-        fontSize={7}
-        fontFamily={MONO}
-      >
-        sensor
-      </text>
+      <SceneChrome />
     </g>
   );
 }
@@ -153,7 +179,9 @@ function OccupancyPanel({ cellCm }: { cellCm: number }) {
           strokeWidth={0.4}
         />
       ))}
-      <SceneFrame showShadow={false} />
+      {/* Sensor and occluder outline only: re-running SceneFrame here would
+          repaint its opaque background over every cell just drawn. */}
+      <SceneChrome />
     </g>
   );
 }
@@ -238,11 +266,14 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
           opacity={0.5}
         />
       ))}
+      {/* Names the invented region from below the occluder, where the shadow
+          is empty, rather than across the blobs it is pointing at. */}
       <text
-        x={OCCLUDER.x + 4}
-        y={OCCLUDER.y - 6}
+        x={OCCLUDER.x + OCCLUDER.width / 2}
+        y={OCCLUDER.y + OCCLUDER.height + LABEL_SIZE + 12}
+        textAnchor="middle"
         fill={WARN}
-        fontSize={8}
+        fontSize={LABEL_SIZE}
         fontFamily={MONO}
       >
         rendered, never measured
@@ -273,47 +304,59 @@ function Panel({
 }) {
   return (
     <svg
-      viewBox={`0 0 ${SCENE_WIDTH_CM} ${SCENE_DEPTH_CM}`}
+      // A band above the scene carries the panel title, so the title cannot
+      // sit on top of the back wall or its label.
+      viewBox={`0 ${-TITLE_BAND_CM} ${SCENE_WIDTH_CM} ${SCENE_DEPTH_CM + TITLE_BAND_CM}`}
       role="img"
       aria-label={PANEL_LABEL[id]}
       aria-describedby={describedBy}
       data-testid={`scene-panel-${id}`}
       className="block w-full"
     >
+      <text
+        x={0}
+        y={-TITLE_BAND_CM + TITLE_SIZE}
+        fill={TEXT}
+        fontSize={TITLE_SIZE}
+        fontFamily={MONO}
+      >
+        {representationById(id).short}
+      </text>
       {id === 'occupancy-grid' && <OccupancyPanel cellCm={spacingCm} />}
       {id === 'point-cloud' && <SamplePanel spacingCm={spacingCm} mode="points" />}
       {id === 'tsdf' && <SamplePanel spacingCm={spacingCm} mode="band" />}
       {id === 'mesh' && <SamplePanel spacingCm={spacingCm} mode="mesh" />}
       {id === 'gaussian-splat' && <SplatPanel spacingCm={spacingCm} />}
-      <text x={4} y={10} fill={TEXT} fontSize={8} fontFamily={MONO}>
-        {representationById(id).short}
-      </text>
+      {/* Labels sit clear of the geometry they name: the wall label below the
+          wall, the object labels ending just short of their object. */}
       <text
-        x={THIN_POST.x - 30}
-        y={THIN_POST.y - 6}
+        x={BACK_WALL.x}
+        y={BACK_WALL.y + BACK_WALL.height + LABEL_SIZE + 2}
         fill={DIM}
-        fontSize={7}
+        fontSize={LABEL_SIZE}
         fontFamily={MONO}
       >
-        thin post
+        back wall
       </text>
       <text
-        x={TRANSPARENT_BOTTLE.x - 4}
-        y={TRANSPARENT_BOTTLE.y - 8}
+        x={TRANSPARENT_BOTTLE.x + TRANSPARENT_BOTTLE.width}
+        y={BACK_WALL.y + BACK_WALL.height + LABEL_SIZE + 2}
+        textAnchor="end"
         fill={DIM}
-        fontSize={7}
+        fontSize={LABEL_SIZE}
         fontFamily={MONO}
       >
         transparent
       </text>
       <text
-        x={BACK_WALL.x}
-        y={BACK_WALL.y - 4}
+        x={THIN_POST.x + THIN_POST.width}
+        y={THIN_POST.y - LABEL_SIZE / 2}
+        textAnchor="end"
         fill={DIM}
-        fontSize={7}
+        fontSize={LABEL_SIZE}
         fontFamily={MONO}
       >
-        back wall
+        thin post
       </text>
     </svg>
   );

@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setSlider } from './slider';
+import { publishedModules } from '../../data/modules';
 
 /**
  * Scene Representation and Mapping (VAL-CLASS-046 through VAL-CLASS-051).
@@ -218,9 +219,16 @@ test.describe('classical scene-representation module', () => {
     await link.click();
     await expect(page).toHaveURL(href.endsWith('/') ? href : `${href}/`);
     const h1 = ((await page.getByRole('heading', { level: 1 }).textContent()) ?? '')
-      .toLowerCase();
-    // The destination's own h1 names what the link claimed it would.
-    expect(h1).toContain('taxonomy');
+      .trim();
+    // The destination's own h1 is the registry title for the route the link
+    // pointed at, derived rather than named, so retitling a module cannot
+    // leave this asserting a string no page carries.
+    const slug = href.replace(/^\/world-models\//, '').replace(/\/$/, '');
+    const destination = publishedModules().find(
+      (m) => m.domain === 'world-models' && m.slug === slug,
+    );
+    expect(destination, `${href} is a published world-models module`).toBeDefined();
+    expect(h1).toBe(destination!.title);
   });
 
   test('two representations yield different capability sets, one negative on contact (VAL-CLASS-050)', async ({
@@ -341,8 +349,15 @@ test.describe('classical scene-representation module', () => {
     const linkedFrom = page.locator('section[data-section="linked-from"]');
     await expect(linkedFrom).toBeVisible();
     expect(await linkedFrom.getByRole('link').count()).toBeGreaterThanOrEqual(1);
+    // Named by its registry title rather than its slug: the backlink renders
+    // the article's title, and world-models/taxonomy is titled for the
+    // question it answers.
+    const inbound = publishedModules().find(
+      (m) => m.domain === 'world-models' && m.slug === 'taxonomy',
+    );
+    expect(inbound, 'world-models/taxonomy is published').toBeDefined();
     await expect(
-      linkedFrom.getByRole('link', { name: /taxonomy/i }),
+      linkedFrom.getByRole('link', { name: inbound!.title }),
     ).toBeVisible();
 
     // References: one entry per declared citation, in declaration order.
