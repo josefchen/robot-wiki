@@ -144,8 +144,8 @@
     "minutes": 11
   },
   "frontier/reliability-gap": {
-    "words": 1651,
-    "minutes": 8
+    "words": 1702,
+    "minutes": 9
   },
   "frontier/dexterity": {
     "words": 2162,
@@ -162,6 +162,10 @@
   "frontier/bear-case": {
     "words": 1861,
     "minutes": 9
+  },
+  "frontier/safety-and-assurance": {
+    "words": 2755,
+    "minutes": 14
   },
   "adjacent/autonomous-vehicles": {
     "words": 3578,

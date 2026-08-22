@@ -693,7 +693,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'risk-assessment',
     term: 'risk assessment',
     definition:
-      'The machinery-safety procedure that turns an informal worry about a machine into a documented engineering obligation. ISO 12100 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.',
+      'The machinery-safety procedure that turns an informal worry about a machine into a documented engineering obligation. ISO 12100:2010 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.',
     citations: ['iso-12100'],
   },
   {
@@ -714,21 +714,21 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'functional-safety',
     term: 'functional safety',
     definition:
-      'The part of a system\u2019s safety that depends on its control system doing the right thing, as opposed to safety that comes from inherent design or physical guarding. Two standards frame it for machinery: IEC 61508 is the generic standard for electrical, electronic and programmable electronic safety-related systems, and ISO 13849-1 gives a design methodology for the safety-related parts of machine control systems, including software, deferring low-demand operation to the IEC 61508 series. Both frame a safety function as something specified in advance and then argued to have been correctly implemented.',
+      'The part of a system\u2019s safety that depends on its control system doing the right thing, as opposed to safety that comes from inherent design or physical guarding. Two standards frame it for machinery: IEC 61508:2010 is the generic standard for electrical, electronic and programmable electronic safety-related systems, and ISO 13849-1:2023 gives a design methodology for the safety-related parts of machine control systems, including software, deferring low-demand operation to the IEC 61508 series. Both frame a safety function as something specified in advance and then argued to have been correctly implemented.',
     citations: ['iec-61508-1-2010', 'iso-13849-1-2023'],
   },
   {
     id: 'safety-integrity-level',
     term: 'safety integrity level',
     definition:
-      'The IEC 61508 rating of how much confidence a safety function warrants, assigned to the function rather than to the component that implements it. Reaching a level requires more than a measured failure rate: the series also demands the avoidance of systematic faults, which are the design and specification errors that no amount of redundant hardware removes. That requirement is why a learned policy cannot be assigned one. The evidence a level needs is a verifiable specification of what the function must do, and a policy trained from demonstrations has behaviour instead of a specification.',
+      'The IEC 61508:2010 rating of how much confidence a safety function warrants, assigned to the function rather than to the component that implements it. Reaching a level requires more than a measured failure rate: the series also demands the avoidance of systematic faults, which are the design and specification errors that no amount of redundant hardware removes. That requirement is why a learned policy cannot be assigned one. The evidence a level needs is a verifiable specification of what the function must do, and a policy trained from demonstrations has behaviour instead of a specification.',
     citations: ['iec-61508-1-2010'],
   },
   {
     id: 'performance-level',
     term: 'performance level',
     definition:
-      'The ISO 13849-1 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which is exactly what a learned policy does not provide.',
+      'The ISO 13849-1:2023 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which is exactly what a learned policy does not provide.',
     citations: ['iso-13849-1-2023'],
   },
   {
@@ -763,7 +763,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'emergency-stop',
     term: 'emergency stop',
     definition:
-      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
+      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850:2015 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1:2016 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
     citations: ['iso-13850-2015', 'iec-60204-1-2016'],
   },
 ];

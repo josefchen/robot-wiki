@@ -5,7 +5,7 @@
     1440,
     900
   ],
-  "linkCount": 58,
+  "linkCount": 59,
   "links": [
     {
       "href": "/",
@@ -198,6 +198,10 @@
     {
       "href": "/frontier/bear-case/",
       "name": "The Bear Case"
+    },
+    {
+      "href": "/frontier/safety-and-assurance/",
+      "name": "Safety and Assurance"
     },
     {
       "href": "/adjacent/",

@@ -76,6 +76,19 @@ const CELL_SPAN_M = 2.6;
 /** Round rendered geometry so server HTML and hydrated DOM agree. */
 const f = (v: number) => Number(v.toFixed(2));
 
+/**
+ * The shared limit label wrapped onto two drawn lines. The split point is
+ * derived from the label itself and the two pieces concatenate back to it
+ * exactly, so the element's text content stays character-identical to the
+ * string the impedance lab renders no matter how the label is reworded
+ * upstream.
+ */
+const LIMIT_LABEL_LINES: [string, string] = (() => {
+  const at = CONTACT_LIMIT_LABEL.indexOf('(');
+  if (at <= 0) return [CONTACT_LIMIT_LABEL, ''];
+  return [CONTACT_LIMIT_LABEL.slice(0, at), CONTACT_LIMIT_LABEL.slice(at)];
+})();
+
 const pxPerM = (CELL_RIGHT - CELL_LEFT) / CELL_SPAN_M;
 /** Robot base at the left wall; the operator stands at the drawn distance. */
 const ROBOT_BASE_X = CELL_LEFT + 30;
@@ -363,12 +376,18 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           <text
             data-testid="force-limit-label"
             x={CELL_LEFT + 4}
-            y={FLOOR_Y - 88}
+            y={FLOOR_Y - 96}
             fill={outcome.forceSatisfied ? ACCENT : ERR}
-            fontSize={10}
+            fontSize={9}
             fontFamily={MONO}
           >
-            {CONTACT_LIMIT_LABEL}
+            {/* Two lines, split at the shared label's own parenthesis so the
+                concatenated text stays the exact string the impedance lab
+                renders (VAL-FRONT-029) while fitting the plotted width. */}
+            <tspan x={CELL_LEFT + 4}>{LIMIT_LABEL_LINES[0]}</tspan>
+            <tspan x={CELL_LEFT + 4} dy={12}>
+              {LIMIT_LABEL_LINES[1]}
+            </tspan>
           </text>
         )}
 
