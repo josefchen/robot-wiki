@@ -176,6 +176,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'At 0.5 degrees of hand-eye rotation and 0.50 m of working distance, the composed positioning error is 11.32 mm against a 15 mm clearance band, and depth sensing dominates at 78% of the variance: within clearance.',
   },
   {
+    component: 'SampleEfficiencyLedger',
+    file: 'components/interactive/sample-efficiency-ledger.tsx',
+    quantityNames: ['wall clock', 'environment steps'],
+    text: 'A budget of 158M environment steps costs 21.5 min of wall clock in massively parallel simulation and 82.5 d on a single real robot, a factor of 5,530 apart at every budget, so the experiment the simulator runs in the on-policy regime leaves the hardware in the offline regime instead; a fleet of 7 robots lands at 11.8 d, still off-policy.',
+  },
+  {
     component: 'SceneRepresentationLadder',
     file: 'components/interactive/scene-representation-ladder.tsx',
     quantityNames: ['occupancy', 'voxels'],

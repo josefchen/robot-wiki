@@ -1,0 +1,132 @@
+---
+title: "RL for Robotics"
+description: "Whether a robot can be trained by reinforcement learning is decided by how many environment steps the sampler can afford to produce. That single constraint is why simulation-trained policies use PPO, why hardware-trained policies do not, and why learning from a fixed dataset became its own field."
+domain: rl-sim2real
+slug: rl-for-robotics
+order: 1
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - sutton-barto-2018
+  - rudin-2021
+  - haarnoja-walk-2019
+  - qt-opt-2018
+  - levine-hand-eye-2018
+  - daydreamer-2022
+  - ppo-2017
+  - sac-2018
+  - ddpg-2016
+  - td3-2018
+  - offline-rl-tutorial-2020
+  - cql-2020
+  - iql-2022
+  - td3-bc-2021
+  - q-transformer-2023
+  - offline-rl-vs-bc-2022
+  - robomimic-2021
+  - rlpd-2023
+  - her-2017
+  - autonomous-rl-2022
+  - reset-free-rl-2021
+  - real-world-rl-ingredients-2020
+  - hil-serl-2024
+  - pi-rl-2026
+  - pld-2026
+  - droid-2024
+  - open-x-embodiment-2023
+seeAlso:
+  - "rl-sim2real/parallel-sim-rl"
+  - "manipulation/rl-finetuning"
+  - "manipulation/bc-foundations"
+---
+
+import { SampleEfficiencyLedger } from '@/components/interactive/sample-efficiency-ledger';
+
+Reinforcement learning is one idea with two entirely different economies. The idea is a policy improved from its own experience of acting in an environment, formalized as a Markov decision process: states, actions, a transition rule, a reward <Cite id="sutton-barto-2018" />. The economies are what a step of that experience costs. In a GPU simulator, a step is a fraction of a microsecond and there are four thousand of them happening at once <Cite id="rudin-2021" />. On a real robot, a step is a real moment of a real machine's life, and the machine has to be reset afterwards.
+
+Most of what reads as an algorithmic preference in robot learning is that cost difference showing up somewhere else.
+
+## What a budget buys, and what it forbids
+
+Set the environment-step budget below, then switch the data source from massively parallel simulation to a single real robot without touching the budget. The number of steps has not changed. What has changed is which algorithms you are allowed to consider.
+
+<SampleEfficiencyLedger className="my-6" />
+
+Sample efficiency is not a virtue an algorithm has. It is a constraint your sampler imposes on you, and it settles which methods are available before any question of which one performs better comes up.
+
+## Two ways to spend a transition
+
+The MDP formulation admits two families of method, and the useful way to name the difference is not the taxonomy label but the property the label stands for: whether a transition can be used more than once.
+
+An <Term id="on-policy">on-policy</Term> method's update is only valid for data the current policy generated, so a batch is collected, consumed, and thrown away. PPO is the canonical instance, alternating between sampling interaction data and optimizing a surrogate objective, where the surrogate is precisely what buys several minibatch epochs from one batch instead of the single gradient step plain policy gradient allows <Cite id="ppo-2017" />. An <Term id="off-policy">off-policy</Term> method can improve one policy from data another produced, which means experience survives the policy that made it and accumulates in a <Term id="replay-buffer">replay buffer</Term>. The mechanism underneath is <Term id="q-learning">Q-learning</Term>: fit the value of a state-action pair, and bootstrap from the best available next action rather than the one that was taken <Cite id="sutton-barto-2018" />.
+
+The continuous-control lineage of that idea is short and worth knowing by name. DDPG adapted deterministic policy gradients to deep function approximators and learned pixel-to-torque policies off-policy <Cite id="ddpg-2016" />. TD3 diagnosed the overestimation bias that made DDPG unstable and fixed it with clipped double critics, delayed policy updates and target smoothing <Cite id="td3-2018" />. Soft actor-critic added a maximum-entropy objective, and its authors were explicit that the target was sample complexity, the thing standing between model-free deep RL and real robots <Cite id="sac-2018" />.
+
+### Why robotics defaulted to PPO anyway
+
+On-policy learning wastes data by construction, so its dominance in simulation-trained robotics looks like a mistake until you price it. When the sampler is a GPU running thousands of environments, environment steps are close to free and the scarce resource is the researcher's patience with a training run that diverges. On-policy updates are the more stable and less hyperparameter-sensitive of the two, and paying for that stability in samples costs almost nothing: Rudin and colleagues trained ANYmal with 4,096 parallel robots at 98,304 steps per policy update, 1,500 updates in under twenty minutes on one workstation GPU <Cite id="rudin-2021" />. Discarding every one of those 147 million transitions after a single update is not extravagance, it is a rounding error.
+
+Run the identical reasoning on hardware and it inverts. The same choice that is nearly free at 123,000 steps per second is indefensible at twenty, which is why no serious real-robot training result uses an on-policy method to learn from scratch. The [parallel-simulation module](/rl-sim2real/parallel-sim-rl) is about the machinery that makes the first regime possible; the rest of this article is about what you do when you are in the second.
+
+## What sample efficiency looks like in step counts
+
+The papers that trained on hardware published their budgets, and the numbers are small enough to be surprising.
+
+<div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <Stat label="Minitaur walking" value="160k steps" note="about two hours of real-world time, SAC" accent />
+  <Stat label="A1 walking" value="1 h" note="DayDreamer, no simulator and no resets" />
+  <Stat label="QT-Opt grasping" value="580k grasps" note="about 800 robot hours across 7 robots" />
+  <Stat label="hand-eye grasping" value="800k grasps" note="two months on between 6 and 14 arms" />
+</div>
+
+<Term id="sample-efficiency">Sample efficiency</Term> is the axis these results turn on. Haarnoja and colleagues learned Minitaur locomotion from 160,000 control steps, roughly 400 rollouts, in about two hours of real-world time, and that figure is end to end: it contains the resets and the operator, which is why it sits far below the control rate the rollouts ran at <Cite id="haarnoja-walk-2019" />. DayDreamer went further and trained a quadruped to roll over, stand and walk in one hour without a simulator, then found the policy adapting to being pushed within ten minutes <Cite id="daydreamer-2022" />.
+
+Scale changes the shape of the cost rather than removing it. QT-Opt collected over 580,000 grasp attempts across seven robots in about 800 robot hours <Cite id="qt-opt-2018" />, and the earlier hand-eye coordination work collected around 800,000 grasps over two months using between 6 and 14 arms at a time <Cite id="levine-hand-eye-2018" />. Both are impressive and neither is a recipe anyone can follow: a two-month campaign on a robot farm is a capital expenditure, not an experiment. That is the constraint offline methods exist to escape.
+
+## Offline reinforcement learning
+
+If the expensive part is collecting data, the obvious move is to stop collecting it. <Term id="offline-reinforcement-learning">Offline reinforcement learning</Term> learns a policy from a fixed dataset of transitions with no further environment interaction, which makes it the ML-native way to use the datasets the field has already built, the ones the [datasets module](/data-hardware/datasets) catalogues.
+
+The obstacle is not optimization, it is that the objective asks a question the data cannot answer. Levine, Kumar, Tucker and Fu's tutorial names distributional shift as the central problem: the policy being learned would like to take actions the dataset does not contain, and a value function queried about those actions has no evidence with which to correct an overestimate <Cite id="offline-rl-tutorial-2020" />. Worse, the error is self-reinforcing, because the inflated value becomes the bootstrap target for the next update. Every method that works is a different answer to the same question of what to do about actions you cannot verify.
+
+**Conservative value estimation** pushes the estimate down where the data is thin. CQL learns a lower bound on the policy's value by penalizing Q-values on out-of-distribution actions while leaving the in-distribution ones alone <Cite id="cql-2020" />.
+
+**Implicit and expectile approaches** avoid the query entirely. IQL never evaluates an unseen action: it fits an expectile of the value distribution over the actions the dataset does contain, treating the state value function as an implicit maximum, and extracts the policy by advantage-weighted regression <Cite id="iql-2022" />.
+
+**Behavior-regularized approaches** constrain the policy rather than the critic. TD3+BC adds a behavior-cloning term to a standard off-policy actor-critic and normalizes the states, and its authors' point is deliberately deflationary: that minimal change matches the performance of far more elaborate offline methods <Cite id="td3-bc-2021" />.
+
+A fourth line scales the value function rather than regularizing it. Q-Transformer treats each action dimension as a token and learns Q-values autoregressively with a transformer, so offline RL can absorb large mixed-quality robot datasets the way a sequence model absorbs text <Cite id="q-transformer-2023" />.
+
+### Does any of this beat behavior cloning on robot data?
+
+This is where the field genuinely disagrees, and the disagreement is worth stating rather than resolving.
+
+Mandlekar and colleagues ran the head-to-head study on human demonstration data and reported that batch RL methods perform poorly there. BCQ and CQL both worked well on agent-generated data of mixed quality and neither performed particularly well on the human-generated datasets, while a recurrent behavior-cloning baseline was consistently strong <Cite id="robomimic-2021" />. Their proposed explanation is that human data is multimodal and non-Markovian in ways these algorithms were not built for.
+
+Kumar, Hong, Singh and Levine argue the comparison is being run on the wrong datasets. Their analysis characterizes when offline RL should be preferred and finds that it wins under specific but common conditions, notably sparse rewards and noisy or suboptimal data, and that on long-horizon problems a policy trained on sufficiently noisy suboptimal data can beat behavior cloning trained on expert data <Cite id="offline-rl-vs-bc-2022" />. On short-horizon tasks with clean expert demonstrations, which is exactly what a teleoperation dataset is, they agree cloning is the reasonable choice.
+
+Read together the two results are less contradictory than they look, and the honest summary is a conditional rather than a winner. Offline RL earns its complexity when the data contains failure worth learning from or a horizon long enough that stitching partial trajectories matters. When the data is short-horizon expert demonstration, supervised cloning is the better-behaved tool, which is why the [behavior cloning module](/manipulation/bc-foundations) describes the mainstream of learned manipulation rather than a historical footnote.
+
+The pragmatic settlement is to stop choosing. RLPD initializes online off-policy training from a buffer already holding offline data, with no pretraining phase and no explicit conservatism, and gets sample-efficient online improvement out of it <Cite id="rlpd-2023" />. That recipe is the direct ancestor of the human-in-the-loop systems that now hold the strongest real-robot RL results <Cite id="hil-serl-2024" />.
+
+## Sparse reward, and learning from failure
+
+Offline data does not solve exploration. A robot that has never once completed a task has no successful trajectory in its buffer, and a reward that fires only on completion gives a value function nothing to fit. Reward shaping is one answer and it belongs to the [reward design module](/rl-sim2real/reward-design-mpc). The other answer changes the question asked of the data.
+
+<Term id="hindsight-experience-replay">Hindsight experience replay</Term> relabels a failed episode with the goal it actually reached. A goal-conditioned policy that was asked to place a block at one position and put it somewhere else has produced a perfectly good demonstration of reaching the second position, and storing the episode under both goals turns failure into signal. Andrychowicz and colleagues showed this learning from binary sparse rewards without any shaping, solving manipulation tasks the same algorithm could not otherwise touch <Cite id="her-2017" />. The technique needs goal-conditioning to work, which is a real constraint: it applies cleanly to reaching a state and awkwardly to a task whose success is not a state.
+
+## The reset problem
+
+The difference between simulation RL and real-world RL that no algorithm addresses is janitorial. A simulated episode ends and the next one begins from a fresh initial state, for free. A physical episode ends with the robot somewhere arbitrary, possibly having knocked the workspace apart, and something has to put it back. That something is usually a person, and a person who has to intervene between episodes is the real limit on how long an experiment can run.
+
+Zhu and colleagues surveyed what an actual uninstrumented real-world RL system needs and found the missing pieces are mostly not the learning algorithm: reward specification without instrumentation, and resets, are what stand between a working method and an unattended one <Cite id="real-world-rl-ingredients-2020" />. Sharma and colleagues formalized the setting as autonomous reinforcement learning, where the agent interacts continually and is measured on how much human intervention it required, not only on final performance <Cite id="autonomous-rl-2022" />.
+
+<Term id="reset-free-learning">Reset-free learning</Term> is the constructive answer. Gupta and colleagues learn a collection of related dexterous manipulation tasks whose members reset each other, so the behavior that undoes the last attempt is itself something the agent is trying to learn, and the system trains without human intervention <Cite id="reset-free-rl-2021" />. It is a good trick and it is not general, because it needs a task family with that reciprocal structure. Absent one, the reset is a person, which is the cost the human-in-the-loop line chose to pay deliberately rather than engineer away <Cite id="hil-serl-2024" />.
+
+## Where this goes from here
+
+Everything above is the machinery. The rest of this domain is what the field built with it, and each module picks up one thread from this one.
+
+The [parallel simulation](/rl-sim2real/parallel-sim-rl) module is the sampler that makes on-policy learning affordable, in detail: which simulators, what throughput, and where the remaining bottleneck sits. [Why RL won locomotion](/rl-sim2real/why-rl-locomotion) is the argument about which problems that sampler can faithfully represent, which is the reason the same recipe produced walking robots and not manipulating ones. [Sim-to-real transfer](/rl-sim2real/sim2real-transfer) covers what happens between a trained simulation policy and a working machine. [Reward design](/rl-sim2real/reward-design-mpc) takes up the specification problem this article deferred.
+
+On the manipulation side, [RL fine-tuning](/manipulation/rl-finetuning) is the version of all of this that runs on top of a pretrained vision-language-action policy rather than from scratch, which is where the off-policy and offline machinery here is actually being deployed in 2026: online flow-matching fine-tuning <Cite id="pi-rl-2026" />, residual policies generating their own training data <Cite id="pld-2026" />, and human-in-the-loop off-policy RL reaching near-perfect success in one to two and a half hours of real-world training <Cite id="hil-serl-2024" />. And the offline-RL question is only interesting because the datasets exist: DROID <Cite id="droid-2024" /> and Open X-Embodiment <Cite id="open-x-embodiment-2023" /> are the corpora on which the argument about offline RL versus cloning is currently being settled.

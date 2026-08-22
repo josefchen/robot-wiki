@@ -1488,6 +1488,312 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Second edition, free full text at the authors' site. The canonical
+    // landing page (incompleteideas.net/book/the-book-2nd.html) is http-only
+    // with a self-signed cert, so this is the dated web.archive.org capture
+    // per the schema's archive policy (precedent: sutton-bitter-lesson-2019).
+    id: 'sutton-barto-2018',
+    title: 'Reinforcement Learning: An Introduction',
+    authors: ['Richard S. Sutton', 'Andrew G. Barto'],
+    year: 2018,
+    venue: 'MIT Press, second edition',
+    url: 'https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html',
+    type: 'docs',
+  },
+  {
+    id: 'sac-2018',
+    title:
+      'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor',
+    authors: [
+      'Tuomas Haarnoja',
+      'Aurick Zhou',
+      'Pieter Abbeel',
+      'Sergey Levine',
+    ],
+    year: 2018,
+    venue: 'ICML 2018',
+    arxiv: '1801.01290',
+    url: 'https://arxiv.org/abs/1801.01290',
+    type: 'paper',
+  },
+  {
+    // RSS 2019 per the arXiv comment field; the preprint is dated 2018-12-26,
+    // which is why the entry year is the venue year rather than the arXiv
+    // <published> year.
+    id: 'haarnoja-walk-2019',
+    title: 'Learning to Walk via Deep Reinforcement Learning',
+    authors: [
+      'Tuomas Haarnoja',
+      'Sehoon Ha',
+      'Aurick Zhou',
+      'Jie Tan',
+      'George Tucker',
+      'Sergey Levine',
+    ],
+    year: 2019,
+    venue: 'RSS 2019',
+    arxiv: '1812.11103',
+    url: 'https://arxiv.org/abs/1812.11103',
+    type: 'paper',
+  },
+  {
+    id: 'ddpg-2016',
+    title: 'Continuous Control with Deep Reinforcement Learning',
+    authors: [
+      'Timothy P. Lillicrap',
+      'Jonathan J. Hunt',
+      'Alexander Pritzel',
+      'Nicolas Heess',
+      'Tom Erez',
+      'Yuval Tassa',
+      'David Silver',
+      'Daan Wierstra',
+    ],
+    year: 2016,
+    venue: 'ICLR 2016',
+    arxiv: '1509.02971',
+    url: 'https://arxiv.org/abs/1509.02971',
+    type: 'paper',
+  },
+  {
+    id: 'td3-2018',
+    title: 'Addressing Function Approximation Error in Actor-Critic Methods',
+    authors: ['Scott Fujimoto', 'Herke van Hoof', 'David Meger'],
+    year: 2018,
+    venue: 'ICML 2018',
+    arxiv: '1802.09477',
+    url: 'https://arxiv.org/abs/1802.09477',
+    type: 'paper',
+  },
+  {
+    id: 'offline-rl-tutorial-2020',
+    title:
+      'Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems',
+    authors: [
+      'Sergey Levine',
+      'Aviral Kumar',
+      'George Tucker',
+      'Justin Fu',
+    ],
+    year: 2020,
+    arxiv: '2005.01643',
+    url: 'https://arxiv.org/abs/2005.01643',
+    type: 'paper',
+  },
+  {
+    id: 'cql-2020',
+    title: 'Conservative Q-Learning for Offline Reinforcement Learning',
+    authors: [
+      'Aviral Kumar',
+      'Aurick Zhou',
+      'George Tucker',
+      'Sergey Levine',
+    ],
+    year: 2020,
+    venue: 'NeurIPS 2020',
+    arxiv: '2006.04779',
+    url: 'https://arxiv.org/abs/2006.04779',
+    type: 'paper',
+  },
+  {
+    // ICLR 2022 per DBLP; the preprint is 2021-10-12, so the entry cites the
+    // conference year and the arXiv sweep suppresses its year check for
+    // entries whose venue names a conference.
+    id: 'iql-2022',
+    title: 'Offline Reinforcement Learning with Implicit Q-Learning',
+    authors: ['Ilya Kostrikov', 'Ashvin Nair', 'Sergey Levine'],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2110.06169',
+    url: 'https://arxiv.org/abs/2110.06169',
+    type: 'paper',
+  },
+  {
+    id: 'td3-bc-2021',
+    title: 'A Minimalist Approach to Offline Reinforcement Learning',
+    authors: ['Scott Fujimoto', 'Shixiang Shane Gu'],
+    year: 2021,
+    venue: 'NeurIPS 2021',
+    arxiv: '2106.06860',
+    url: 'https://arxiv.org/abs/2106.06860',
+    type: 'paper',
+  },
+  {
+    // RLPD. manipulation/rl-finetuning refers to "RLPD-style" off-policy RL
+    // with demonstrations in the buffer and had no citation of its own.
+    id: 'rlpd-2023',
+    title: 'Efficient Online Reinforcement Learning with Offline Data',
+    authors: [
+      'Philip J. Ball',
+      'Laura Smith',
+      'Ilya Kostrikov',
+      'Sergey Levine',
+    ],
+    year: 2023,
+    venue: 'ICML 2023',
+    arxiv: '2302.02948',
+    url: 'https://arxiv.org/abs/2302.02948',
+    type: 'paper',
+  },
+  {
+    // 25 authors on the arXiv abs page; first four listed, house convention
+    // for large collaborations. CoRL 2023 per the paper's own listing.
+    id: 'q-transformer-2023',
+    title:
+      'Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions',
+    authors: [
+      'Yevgen Chebotar',
+      'Quan Vuong',
+      'Alex Irpan',
+      'Karol Hausman',
+    ],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2309.10150',
+    url: 'https://arxiv.org/abs/2309.10150',
+    type: 'paper',
+  },
+  {
+    // 11 authors on the arXiv abs page; first four listed. CoRL 2018 per the
+    // arXiv comment field ("CoRL 2018 camera ready").
+    id: 'qt-opt-2018',
+    title:
+      'QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation',
+    authors: [
+      'Dmitry Kalashnikov',
+      'Alex Irpan',
+      'Peter Pastor',
+      'Julian Ibarz',
+    ],
+    year: 2018,
+    venue: 'CoRL 2018',
+    arxiv: '1806.10293',
+    url: 'https://arxiv.org/abs/1806.10293',
+    type: 'paper',
+  },
+  {
+    // The journal version (IJRR 37(4-5), doi:10.1177/0278364917710318) whose
+    // five-author byline adds Julian Ibarz to the four-author 2016 preprint;
+    // cited by DOI because the journal record is the version being quoted.
+    // Crossref issues it 2017-06-12 online and 2018-04 in print, and the
+    // volume is dated 2018, which is the year here.
+    id: 'levine-hand-eye-2018',
+    title:
+      'Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection',
+    authors: [
+      'Sergey Levine',
+      'Peter Pastor',
+      'Alex Krizhevsky',
+      'Julian Ibarz',
+      'Deirdre Quillen',
+    ],
+    year: 2018,
+    venue: 'IJRR 37(4-5)',
+    url: 'https://doi.org/10.1177/0278364917710318',
+    type: 'paper',
+  },
+  {
+    // 10 authors on the arXiv abs page; first four listed. NIPS 2017 per DBLP.
+    id: 'her-2017',
+    title: 'Hindsight Experience Replay',
+    authors: [
+      'Marcin Andrychowicz',
+      'Filip Wolski',
+      'Alex Ray',
+      'Jonas Schneider',
+    ],
+    year: 2017,
+    venue: 'NeurIPS 2017',
+    arxiv: '1707.01495',
+    url: 'https://arxiv.org/abs/1707.01495',
+    type: 'paper',
+  },
+  {
+    // ICLR 2022 per DBLP and the OpenReview record; the preprint is 2021.
+    id: 'autonomous-rl-2022',
+    title: 'Autonomous Reinforcement Learning: Formalism and Benchmarking',
+    authors: [
+      'Archit Sharma',
+      'Kelvin Xu',
+      'Nikhil Sardana',
+      'Abhishek Gupta',
+    ],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2112.09605',
+    url: 'https://arxiv.org/abs/2112.09605',
+    type: 'paper',
+  },
+  {
+    // ICRA 2021 per DBLP and the arXiv comment field. 8 authors; first four
+    // listed.
+    id: 'reset-free-rl-2021',
+    title:
+      'Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention',
+    authors: [
+      'Abhishek Gupta',
+      'Justin Yu',
+      'Tony Z. Zhao',
+      'Vikash Kumar',
+    ],
+    year: 2021,
+    venue: 'ICRA 2021',
+    arxiv: '2104.11203',
+    url: 'https://arxiv.org/abs/2104.11203',
+    type: 'paper',
+  },
+  {
+    // ICLR 2020 per DBLP; the arXiv comment names it a spotlight. 8 authors;
+    // first four listed.
+    id: 'real-world-rl-ingredients-2020',
+    title: 'The Ingredients of Real-World Robotic Reinforcement Learning',
+    authors: [
+      'Henry Zhu',
+      'Justin Yu',
+      'Abhishek Gupta',
+      'Dhruv Shah',
+    ],
+    year: 2020,
+    venue: 'ICLR 2020',
+    arxiv: '2004.12570',
+    url: 'https://arxiv.org/abs/2004.12570',
+    type: 'paper',
+  },
+  {
+    id: 'offline-rl-vs-bc-2022',
+    title:
+      'When Should We Prefer Offline Reinforcement Learning Over Behavioral Cloning?',
+    authors: [
+      'Aviral Kumar',
+      'Joey Hong',
+      'Anikait Singh',
+      'Sergey Levine',
+    ],
+    year: 2022,
+    venue: 'ICLR 2022',
+    arxiv: '2204.05618',
+    url: 'https://arxiv.org/abs/2204.05618',
+    type: 'paper',
+  },
+  {
+    // robomimic. 10 authors on the arXiv abs page; first four listed. CoRL
+    // 2021 (oral) per the arXiv comment field.
+    id: 'robomimic-2021',
+    title:
+      'What Matters in Learning from Offline Human Demonstrations for Robot Manipulation',
+    authors: [
+      'Ajay Mandlekar',
+      'Danfei Xu',
+      'Josiah Wong',
+      'Soroush Nasiriany',
+    ],
+    year: 2021,
+    venue: 'CoRL 2021',
+    arxiv: '2108.03298',
+    url: 'https://arxiv.org/abs/2108.03298',
+    type: 'paper',
+  },
+  {
     id: 'ng-reward-shaping-1999',
     title:
       'Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping',

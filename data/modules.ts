@@ -156,6 +156,12 @@ const entries: Array<[Domain, string, string, string]> = [
   ],
   [
     'rl-sim2real',
+    'rl-for-robotics',
+    'RL for Robotics',
+    'Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.',
+  ],
+  [
+    'rl-sim2real',
     'why-rl-locomotion',
     'Why RL Won Locomotion but Not Manipulation',
     'The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.',
@@ -370,6 +376,7 @@ const PUBLISHED = new Set([
   'rl-sim2real/legged-locomotion',
   'rl-sim2real/parallel-sim-rl',
   'rl-sim2real/reward-design-mpc',
+  'rl-sim2real/rl-for-robotics',
   'rl-sim2real/sim2real-transfer',
   'rl-sim2real/why-rl-locomotion',
   'world-models/taxonomy',
