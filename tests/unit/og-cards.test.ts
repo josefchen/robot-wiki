@@ -28,7 +28,7 @@ import {
 describe('og card vocabulary', () => {
   it('emits a card path per published article, each carrying its slug', () => {
     const published = publishedModules();
-    expect(published.length).toBe(45);
+    expect(published.length).toBe(46);
     const paths = published.map((m) => articleCardPath(m.domain, m.slug));
     // One distinct URL path per published article (VAL-DIST-003).
     expect(new Set(paths).size).toBe(published.length);

@@ -329,6 +329,12 @@ const entries: Array<[Domain, string, string, string]> = [
     'Why this could be another robotics winter, and the milestones that would prove it wrong.',
   ],
   [
+    'frontier',
+    'safety-and-assurance',
+    'Safety and Assurance',
+    'Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.',
+  ],
+  [
     'adjacent',
     'autonomous-vehicles',
     'Autonomous Vehicles',
@@ -401,6 +407,7 @@ const PUBLISHED = new Set([
   'frontier/generalization',
   'frontier/competing-theses',
   'frontier/bear-case',
+  'frontier/safety-and-assurance',
 ]);
 
 export const modules: ModuleRegistryEntry[] = entries.map(

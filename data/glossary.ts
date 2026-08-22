@@ -689,6 +689,83 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually and is evaluated on how much human intervention it needs rather than only on final performance. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.',
     citations: ['autonomous-rl-2022', 'reset-free-rl-2021'],
   },
+  {
+    id: 'risk-assessment',
+    term: 'risk assessment',
+    definition:
+      'The machinery-safety procedure that turns an informal worry about a machine into a documented engineering obligation. ISO 12100 is the general-principles standard behind it: its public abstract describes procedures for identifying hazards and for estimating and evaluating the risks associated with them across the phases of a machine life cycle, together with guidance on documenting and verifying what the assessment concluded. Its output is a record of which hazards were found, what was done about each, and why the residual risk was judged acceptable, which is what makes safety auditable rather than asserted.',
+    citations: ['iso-12100'],
+  },
+  {
+    id: 'speed-and-separation-monitoring',
+    term: 'speed and separation monitoring',
+    definition:
+      'The collaborative operating mode in which a robot and a person may both move at the same time, with a safety system continuously maintaining a protective separation distance between them and issuing a safety-rated stop if that distance is closed. Marvel and Norcross restate the distance in public as a sum of four terms: the operator travel during the reaction and stopping intervals, the robot travel before braking begins, the braking distance itself, and an intrusion margin plus the position uncertainty of both parties. Because the braking term is quadratic in the robot speed, the distance grows faster than the speed does.',
+    citations: ['marvel-norcross-2017'],
+  },
+  {
+    id: 'power-and-force-limiting',
+    term: 'power and force limiting',
+    definition:
+      'The collaborative operating mode that permits contact between a robot and a person and makes it safe by bounding what the contact can do, rather than by preventing it. The threshold is biomechanical and stated per body region, which is what turns a marketing word into a claim with numbers behind it: Haddadin, Albu-Schaeffer and Hirzinger established the measurement tradition with impact experiments on the human-robot collision itself, and later force-threshold studies report limits by body region and contact geometry. A cobot certified under this mode has been measured, not merely described.',
+    citations: ['haddadin-2009', 'han-force-pain-2024'],
+  },
+  {
+    id: 'functional-safety',
+    term: 'functional safety',
+    definition:
+      'The part of a system\u2019s safety that depends on its control system doing the right thing, as opposed to safety that comes from inherent design or physical guarding. Two standards frame it for machinery: IEC 61508 is the generic standard for electrical, electronic and programmable electronic safety-related systems, and ISO 13849-1 gives a design methodology for the safety-related parts of machine control systems, including software, deferring low-demand operation to the IEC 61508 series. Both frame a safety function as something specified in advance and then argued to have been correctly implemented.',
+    citations: ['iec-61508-1-2010', 'iso-13849-1-2023'],
+  },
+  {
+    id: 'safety-integrity-level',
+    term: 'safety integrity level',
+    definition:
+      'The IEC 61508 rating of how much confidence a safety function warrants, assigned to the function rather than to the component that implements it. Reaching a level requires more than a measured failure rate: the series also demands the avoidance of systematic faults, which are the design and specification errors that no amount of redundant hardware removes. That requirement is why a learned policy cannot be assigned one. The evidence a level needs is a verifiable specification of what the function must do, and a policy trained from demonstrations has behaviour instead of a specification.',
+    citations: ['iec-61508-1-2010'],
+  },
+  {
+    id: 'performance-level',
+    term: 'performance level',
+    definition:
+      'The ISO 13849-1 counterpart of a safety integrity level, and the rating a machinery integrator in Europe most often has to satisfy. It grades a safety-related control function on a discrete scale, and the standard supplies the design methodology by which a claimed level is justified rather than asserted. Like the IEC 61508 levels, it presumes a specification of the function that can be checked against an implementation, which is exactly what a learned policy does not provide.',
+    citations: ['iso-13849-1-2023'],
+  },
+  {
+    id: 'safety-case',
+    term: 'safety case',
+    definition:
+      'A structured, documented argument that a system is acceptably safe for a given application in a given environment, with the evidence for each step of the argument attached to it. The tradition exists because testing alone cannot reach the confidence an autonomous system needs, so the artifact is an argument rather than a test report. UL 4600 applies the approach to autonomous products, and the Goal Structuring Notation community standard gives the graphical notation the argument is usually written in, with goals decomposed into subgoals until each rests on cited evidence.',
+    citations: ['ul-4600-2023', 'gsn-standard-v3'],
+  },
+  {
+    id: 'conformal-prediction',
+    term: 'conformal prediction',
+    definition:
+      'A distribution-free procedure that converts any model\u2019s raw score into a prediction set with a guaranteed coverage rate: choose a target such as 95 percent, calibrate a threshold on held-out data, and the resulting sets contain the true answer at that rate under exchangeability, whatever the model is. Vovk, Gammerman and Shafer developed the framework; Angelopoulos and Bates wrote the tutorial that carried it into machine-learning practice. Its value for robotics is that the size of the set is a calibrated statement of uncertainty, so a policy can be made to ask for help exactly when its set is ambiguous.',
+    citations: ['vovk-conformal-2022', 'angelopoulos-conformal-2021'],
+  },
+  {
+    id: 'out-of-distribution-detection',
+    term: 'out-of-distribution detection',
+    definition:
+      'Deciding, at run time, whether the input a model is being asked about resembles the data it was trained on, so that a policy can decline rather than extrapolate. In robotics the detector runs on the live observation stream and its output gates the policy: Sinha and colleagues use a fast anomaly detector on the observation to trigger a reactive fallback plan while the slower reasoning runs, which is the practical shape of the technique. It answers a different question from uncertainty in the output, and a policy can be confidently wrong on an input it has never seen.',
+    citations: ['sinha-anomaly-2024'],
+  },
+  {
+    id: 'control-barrier-function',
+    term: 'control barrier function',
+    definition:
+      'A scalar function of the state, positive on a set you want the system to stay inside, whose derivative condition can be enforced as a constraint on the commanded input, so forward invariance of the safe set becomes a linear constraint in an optimisation the controller solves each step. Ames and colleagues survey the theory and its applications. Its practical importance is architectural: because the constraint filters whatever input arrives, an arbitrary and unverified controller can be wrapped by a verified one, and the guarantee belongs to the wrapper.',
+    citations: ['ames-cbf-2019'],
+  },
+  {
+    id: 'emergency-stop',
+    term: 'emergency stop',
+    definition:
+      'A machine function, initiated by a single human action, that brings a hazardous motion to a halt. ISO 13850 specifies the functional requirements and design principles for it independently of the energy the machine uses, and names IEC 60204-1 for the electrical realisation. Two properties are commonly misunderstood: it is a complement to guarding rather than a substitute for it, since it depends on a person noticing the hazard in time, and stopping is not the same as removing power, which is why the electrical standard distinguishes stop categories.',
+    citations: ['iso-13850-2015', 'iec-60204-1-2016'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

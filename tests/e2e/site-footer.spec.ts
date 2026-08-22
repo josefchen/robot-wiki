@@ -144,7 +144,7 @@ test.describe('crawler view (the exported HTML)', () => {
   test('every published route: one footer, exact author meta, repo and profile links inside it', () => {
     const routes = publishedRouteSet();
     // Sanity floor: the sitemap-derived set is the full published route
-    // set (45 articles + 14 non-article destinations), not a stub.
+    // set (46 articles + 14 non-article destinations), not a stub.
     expect(routes.length).toBeGreaterThan(50);
     for (const route of routes) {
       const html = readFileSync(htmlPath(route), 'utf8');

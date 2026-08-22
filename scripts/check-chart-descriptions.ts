@@ -182,6 +182,12 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: 'A budget of 158M environment steps costs 21.5 min of wall clock in massively parallel simulation and 82.5 d on a single real robot, a factor of 5,530 apart at every budget, so the experiment the simulator runs in the on-policy regime leaves the hardware in the offline regime instead; a fleet of 7 robots lands at 11.8 d, still off-policy.',
   },
   {
+    component: 'CollaborativeOperationModes',
+    file: 'components/interactive/collaborative-operation-modes.tsx',
+    quantityNames: ['protective separation distance', 'robot speed'],
+    text: 'At 1.00 m/s robot speed and 1.60 m/s operator approach, the protective separation distance is 1.42 m against a 1.60 m workcell: 0.32 m of operator travel, 0.10 m of robot travel before braking, 0.05 m of braking, and 0.95 m of intrusion margin and position uncertainty.',
+  },
+  {
     component: 'SceneRepresentationLadder',
     file: 'components/interactive/scene-representation-ladder.tsx',
     quantityNames: ['occupancy', 'voxels'],

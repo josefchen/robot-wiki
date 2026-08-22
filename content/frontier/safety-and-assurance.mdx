@@ -1,0 +1,121 @@
+---
+title: "Safety and Assurance"
+description: "Industrial robotics has a settled standards stack that robot learning has not reckoned with, and no way to certify a learned policy. What ships instead is a verifiable safety layer wrapped around an unverifiable one."
+domain: frontier
+slug: safety-and-assurance
+order: 6
+status: published
+lastReviewed: "2026-08-22"
+citations:
+  - iso-12100
+  - iso-10218-1-2025
+  - iso-10218-2-2025
+  - iso-ts-15066
+  - marvel-norcross-2017
+  - haddadin-2009
+  - han-force-pain-2024
+  - iso-13849-1-2023
+  - iec-61508-1-2010
+  - iso-13850-2015
+  - iec-60204-1-2016
+  - iso-3691-4-2023
+  - a3-robot-safety-standards
+  - iso-cd-25785-1
+  - osha-otm-robots
+  - ames-cbf-2019
+  - wabersich-safety-filters-2023
+  - ul-4600-2023
+  - gsn-standard-v3
+  - vovk-conformal-2022
+  - angelopoulos-conformal-2021
+  - knowno-2023
+  - sinha-anomaly-2024
+  - farid-failure-2022
+  - asimov-agentic-2026
+  - gemini-robotics-er2-2026
+  - koopman-safe-enough-2026
+  - rss-2017
+  - kalra-paddock-2016
+seeAlso:
+  - "data-hardware/teleop-rigs"
+  - "rl-sim2real/humanoid-wbc"
+  - "data-hardware/hardware-taxonomy"
+---
+
+import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';
+
+An industrial robot cell is one of the few places in engineering where the question "is this safe" has a procedural answer. There is a method for finding the hazards, a standard for the robot, a second standard for the cell it sits in, a rating scheme for the control system that enforces the safety functions, and a regulator whose inspectors will ask to see the paperwork. Robot learning arrived into that world with a component none of it can accommodate, and has mostly declined to notice.
+
+This module is the two halves of that problem joined at one seam. The settled half is the standards stack, which is more specific and more numerical than most people outside factory automation expect. The open half is what a team ships when the settled half has no category for the thing they built.
+
+## Four ways to share a workspace
+
+The oldest answer was a fence. What replaced it, for robots designed to work beside people, is a set of four collaborative operating modes, and they differ in what each one actually constrains.
+
+Select each mode below, then drag the robot-speed slider under speed and separation monitoring and watch the protective separation distance recompose from its four terms.
+
+<CollaborativeOperationModes className="my-6" />
+
+Two of the four are procedural: a safety-rated monitored stop permits no motion while a person is present, and hand guiding gives the operator the control channel. The other two are quantitative, and they are quantitative in opposite directions. Speed and separation monitoring keeps a computed distance between the robot and the person. Power and force limiting abandons distance entirely and bounds the contact instead.
+
+ISO/TS 15066 is the technical specification for collaborative operation <Cite id="iso-ts-15066" />. Its own catalogue entry places it as a supplement to ISO 10218 rather than a replacement, and it is paywalled, so the separation model in the instrument above is not read from it. It is read from Marvel and Norcross, who published an open-access analysis at NIST that restates the protective-separation equation and its terms <Cite id="marvel-norcross-2017" />. Their paper is also where the instrument's sourced constants come from: an 850 mm intrusion margin for a normal approach protected by multiple separate beams, and a 1.6 m/s worst-case operator speed used when the operator's approach is not measured directly.
+
+The force half rests on a different literature. Haddadin, Albu-Schäffer and Hirzinger ran the impact experiments that made the question empirical rather than rhetorical <Cite id="haddadin-2009" />, and later threshold studies report force limits by body region and contact geometry <Cite id="han-force-pain-2024" />. This is what makes "cobot" a claim rather than a category: a power-and-force-limited application has a measured number attached to a named body part, and the same figure appears on the [contact-force lab in the control module](/classical/control), read from the same shared source so the two pages cannot drift apart.
+
+## The stack the standards actually form
+
+<Term id="risk-assessment">Risk assessment</Term> is the entry point and it is a method, not a document. ISO 12100 is the general-principles standard for machinery safety, and its public abstract describes exactly the procedure: identify the hazards, estimate and evaluate the risks, then reduce them, with the documentation and verification of that process treated as part of the work <Cite id="iso-12100" />. The ordering of the reduction measures is the part worth internalising, because it is a hierarchy rather than a menu: design the hazard out first, guard against what remains, and only then fall back on telling the operator about it.
+
+The robot-specific layer splits in two, and the split decides liability. ISO 10218-1 covers the robot as a piece of partly completed machinery, which is the manufacturer's obligation; ISO 10218-2 covers the application and the cell it is integrated into, which is the integrator's <Cite id="iso-10218-1-2025" /> <Cite id="iso-10218-2-2025" />. Both were revised and republished in February 2025, the first major revision since 2011, at editions 3 and 2 respectively. The practical consequence is that buying a compliant robot buys you nothing at the cell level: a certified arm on an uncertified end effector in an unassessed workspace is an unsafe application built from a safe component, and the paperwork says whose problem that is.
+
+<Term id="functional-safety">Functional safety</Term> is the layer that grades the control system enforcing all of this. Two standards frame it. IEC 61508 is the generic standard for electrical, electronic and programmable electronic safety-related systems, and assigns each safety function a <Term id="safety-integrity-level">safety integrity level</Term> <Cite id="iec-61508-1-2010" />. ISO 13849-1 is the machinery-sector counterpart, giving a design methodology for the safety-related parts of control systems including software, with a <Term id="performance-level">performance level</Term> as its rating; its own abstract defers low-demand operation back to the IEC 61508 series <Cite id="iso-13849-1-2023" />.
+
+The <Term id="emergency-stop">emergency stop</Term> is worth stating precisely, because it is the safety function most often misunderstood by people who have only seen the button. ISO 13850 specifies it independently of the machine's energy source and names IEC 60204-1 for the electrical realisation <Cite id="iso-13850-2015" /> <Cite id="iec-60204-1-2016" />. It is a complement to guarding rather than a substitute for it, since it needs a person to notice the hazard and act, and stopping a machine is not the same operation as removing its power, which is why the electrical standard distinguishes stop categories at all.
+
+Mobile robots are covered by their own documents, because a machine that drives away from its cell has no cell. ISO 3691-4 covers driverless industrial trucks and their systems, naming automated guided vehicles and autonomous mobile robots among its examples <Cite id="iso-3691-4-2023" />, and in the United States the R15.08 series covers industrial mobile robots, with Part 1 published in 2020 for the robot and Part 2 in 2023 for systems and applications <Cite id="a3-robot-safety-standards" />.
+
+None of these documents is free, and this article does not pretend to have read them. Every claim above is traceable to a public catalogue entry, a public abstract, or the published research literature. That is a real ceiling on the depth available here, and it is the honest one, because the alternative is paraphrasing a paywalled clause from a secondary source and hoping.
+
+### The humanoid gap, and the standard that is not finished
+
+A humanoid falls. That is the hazard class the industrial documents above were not written for, and until recently there was nothing addressing it directly. There is now a project: ISO/CD 25785-1 covers safety requirements for industrial mobile robots with actively controlled stability, defined in its own abstract as robots that require active control to remain balanced and could become unstable without power, explicitly including bipedal machines <Cite id="iso-cd-25785-1" />.
+
+It is a committee draft. The catalogue shows it at stage 30.60, close of the comment period, with edition 1 not yet published. That is genuinely useful to know and it is not the same as coverage. Anyone deploying a humanoid beside a person in 2026 is doing so under a risk assessment that has to invent its own treatment of fall risk, because the standard that will eventually supply one has not been agreed yet. In the meantime the free and public regulator guidance is worth more than it looks: OSHA's technical manual chapter on industrial robots covers safeguarding devices, the teach-pendant hazard, and lockout and tagout under the hazardous-energy rule, and its incident descriptions are a better education in how people actually get hurt than any standard <Cite id="osha-otm-robots" />.
+
+## Why a learned policy cannot be certified
+
+Here is the seam. A safety integrity level and a performance level are both assigned to a safety function, and both presume two things about it. The first is a verifiable specification: a statement of what the function must do, against which an implementation can be checked. The second is the avoidance of systematic faults, which are the design and specification errors that no amount of redundant hardware removes, and which the standards attack with process requirements on how the thing was developed.
+
+A policy trained from demonstrations has neither. It has behaviour, which is not a specification, and its weights encode no separable statement of intent that anyone could check an implementation against. There is no development process that avoids systematic faults in a function nobody wrote down. This is not a gap that better testing closes: the [reliability gap](/frontier/reliability-gap) module lays out what deployment numbers actually look like, and Kalra and Paddock's calculation for autonomous vehicles is the general form of the argument, since demonstrating a low failure rate by driving requires more miles than a fleet can accumulate in a working lifetime <Cite id="kalra-paddock-2016" />.
+
+So a learned policy is not certified. What ships is an architecture that routes around the question.
+
+### The pattern: a verifiable layer wrapping an unverifiable one
+
+The load-bearing idea of this module is that safety and capability are assigned to different components. The policy is allowed to be a black box, and something simple enough to be verified sits between it and the actuators, with the authority to override.
+
+The formal instance is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, which the controller enforces each step <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including the reachability and predictive variants, and name the architecture directly: a filter that accepts a proposed input from any source and modifies it as little as necessary to keep the system safe <Cite id="wabersich-safety-filters-2023" />. The guarantee belongs to the filter, and it holds whatever produced the proposal, which is precisely why the policy is permitted to be unverifiable.
+
+The industrial instance of the same pattern is cruder and much more widely deployed: force limiting in the actuator, velocity limiting in the drive, and workspace limiting in the safety controller. Those are the mechanisms the standards above already know how to rate, and they do not care what generated the trajectory. A learned policy running inside a power-and-force-limited envelope inherits a safety property it did not earn, which is a good deal, and it is also the reason so many humanoid demonstrations happen at speeds that look oddly slow.
+
+### The assurance case, for what testing cannot reach
+
+The wrapper does not answer everything, and the honest response to what it leaves over is an argument rather than a number. That tradition is the <Term id="safety-case">safety case</Term>: a structured, documented argument that a system is acceptably safe in a stated environment, with evidence attached to each step. UL 4600 applies the approach to autonomous products and is at edition 3, published in March 2023 <Cite id="ul-4600-2023" />, and the Goal Structuring Notation community standard, at version 3, supplies the notation such arguments are usually written in, decomposing a top-level goal into subgoals until each rests on cited evidence <Cite id="gsn-standard-v3" />.
+
+The criticism is as old as the practice and it is worth carrying: an argument built to conclude that a system is safe will usually reach that conclusion, and Koopman has spent years on what "safe enough" can be made to mean when the number itself is contested <Cite id="koopman-safe-enough-2026" />. The alternative on offer is a rule set formal enough to check, which is what Shalev-Shwartz, Shammah and Shashua proposed with responsibility-sensitive safety <Cite id="rss-2017" />. The [autonomous vehicles](/adjacent/autonomous-vehicles) module carries that disagreement in full, because the AV industry has been having this argument for a decade. Robotics is inheriting it late, with the advantage of knowing how it went.
+
+## The machine-learning half of the wrapper
+
+The wrapper does not have to be classical. Several techniques belong in it that are ML-native, and they are the reason this module sits in a robot-learning wiki rather than a machinery-safety one.
+
+<Term id="conformal-prediction">Conformal prediction</Term> is the strongest of them, because it produces a calibrated statement rather than a score. The procedure turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability, whatever the underlying model is: Vovk, Gammerman and Shafer built the framework <Cite id="vovk-conformal-2022" />, and Angelopoulos and Bates wrote the tutorial that carried it into general machine-learning practice <Cite id="angelopoulos-conformal-2021" />. Its robotics payoff is abstention with a number on it. KnowNo is the clearest instance: Ren and colleagues calibrate a language-model planner's uncertainty conformally so that the robot asks a human for help exactly when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id="knowno-2023" />. A robot that knows when to stop is worth more than one that is slightly more often right.
+
+<Term id="out-of-distribution-detection">Out-of-distribution detection</Term> answers the adjacent question, which is whether the observation resembles anything the policy was trained on at all. Sinha and colleagues run a fast anomaly detector on the live observation stream to trigger a reactive fallback while slower reasoning catches up, which is the practical shape of the technique in a control loop <Cite id="sinha-anomaly-2024" />. Runtime monitoring generalises both: Farid and colleagues detect failures of a trajectory predictor in a way that is task-relevant rather than accuracy-relevant, with statistical guarantees, on the argument that a prediction error only matters when it changes what the planner would do <Cite id="farid-failure-2022" />.
+
+The commercial systems have converged on the same shape. ASIMOV is a benchmark and framework for evaluating whether a robot policy's proposed actions are safe before they execute <Cite id="asimov-agentic-2026" />, and Gemini Robotics ER 2 ships semantic safety evaluation as a named capability rather than a research result <Cite id="gemini-robotics-er2-2026" />. In each case the safety property belongs to a component that is not the policy, which is the pattern of this whole module stated once more.
+
+## What would actually close this
+
+Three things, none of them close. A specification language in which a manipulation task's safety requirement can be written down precisely enough to check, which is the missing input every certification scheme above assumes exists. A humanoid standard past committee draft, so that fall risk has an agreed treatment rather than a per-integrator invention. And a published assurance case for a deployed learned system, complete enough that someone outside the company could disagree with a specific step in it.
+
+Until then the honest description of the state of the art is narrower than the marketing and more useful. Nobody certifies the policy. They certify the box around it, they bound what the box permits, and they argue about the remainder in public if they are being careful and in private if they are not.

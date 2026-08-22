@@ -6807,6 +6807,391 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.photoneo.com/products/phoxi-scan-l/',
     type: 'docs',
   },
+
+  /* ------------------------------------------------------------------ *
+   * Safety and assurance (frontier/safety-and-assurance, 2026-08-22)
+   *
+   * STANDARDS ENTRIES ARE CATALOGUE ENTRIES, NOT THE STANDARDS. Every ISO
+   * and IEC document below is paywalled and this project does not buy
+   * standards, so each entry cites the PUBLIC catalogue page, which gives
+   * the title, edition, publication date and scope abstract and nothing
+   * more. No clause, table or numeric limit from any of these documents
+   * is quoted or paraphrased anywhere on the site. iso.org answers HTTP
+   * 403 to every non-browser client, so the ISO entries need link-check
+   * exceptions in data/link-check-exceptions.ts (the precedent is the
+   * existing iso-ts-15066 entry); webstore.iec.ch answers 200.
+   * ------------------------------------------------------------------ */
+  {
+    // Catalogue page read 2026-08-22: "ISO 12100:2010, Safety of
+    // machinery - General principles for design - Risk assessment and
+    // risk reduction", edition 1, published 2010-11, stage 90.92 (to be
+    // revised; ISO/DIS 12100.3 is in development). The abstract states
+    // the document specifies principles of risk assessment and risk
+    // reduction and describes procedures for identifying hazards and
+    // estimating and evaluating risks.
+    id: 'iso-12100',
+    title:
+      'ISO 12100:2010, Safety of machinery \u2014 General principles for design \u2014 Risk assessment and risk reduction',
+    authors: ['ISO'],
+    year: 2010,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/51528.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 3, published 2025-02, stage
+    // 60.60, 95 pages, ISO/TC 299. The abstract states it covers the
+    // robot as partly completed machinery and that integration is
+    // covered by ISO 10218-2:2025. Supersedes the withdrawn 2011 edition.
+    id: 'iso-10218-1-2025',
+    title:
+      'ISO 10218-1:2025, Robotics \u2014 Safety requirements \u2014 Part 1: Industrial robots',
+    authors: ['ISO'],
+    year: 2025,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73933.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 2, published 2025-02, stage
+    // 60.60, 223 pages. The abstract states it specifies requirements for
+    // the integration of industrial robot applications and robot cells,
+    // covering design, integration, commissioning, operation, maintenance
+    // and decommissioning, and names the integrator as the party who
+    // assesses foreseeable misuse.
+    id: 'iso-10218-2-2025',
+    title:
+      'ISO 10218-2:2025, Robotics \u2014 Safety requirements \u2014 Part 2: Industrial robot applications and robot cells',
+    authors: ['ISO'],
+    year: 2025,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73934.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 4, published 2023-04, stage
+    // 60.60. The abstract states it specifies a methodology for the
+    // design of safety-related parts of control systems performing safety
+    // functions, including software, for high-demand and continuous modes,
+    // and explicitly defers low-demand mode to the IEC 61508 series.
+    id: 'iso-13849-1-2023',
+    title:
+      'ISO 13849-1:2023, Safety of machinery \u2014 Safety-related parts of control systems \u2014 Part 1: General principles for design',
+    authors: ['ISO'],
+    year: 2023,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/73481.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 3, published 2015-11, last
+    // confirmed 2020. The abstract states it specifies functional
+    // requirements and design principles for the emergency stop function
+    // independent of the energy used, and notes that the electrical
+    // realisation is described in IEC 60204-1.
+    id: 'iso-13850-2015',
+    title:
+      'ISO 13850:2015, Safety of machinery \u2014 Emergency stop function \u2014 Principles for design',
+    authors: ['ISO'],
+    year: 2015,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/59970.html',
+    type: 'docs',
+  },
+  {
+    // Catalogue page read 2026-08-22: edition 2, published 2023-06, stage
+    // 90.92. The abstract states it specifies safety requirements and
+    // verification means for driverless industrial trucks and their
+    // systems, naming automated guided vehicles and autonomous mobile
+    // robots among its examples.
+    id: 'iso-3691-4-2023',
+    title:
+      'ISO 3691-4:2023, Industrial trucks \u2014 Safety requirements and verification \u2014 Part 4: Driverless industrial trucks and their systems',
+    authors: ['ISO'],
+    year: 2023,
+    venue: 'ISO International Standard (public catalogue entry)',
+    url: 'https://www.iso.org/standard/83545.html',
+    type: 'docs',
+  },
+  {
+    // VERIFY-OR-DROP RESOLVED, 2026-08-22. The catalogue page reads
+    // "ISO/CD 25785-1", Committee Draft, "Under development", stage 30.60
+    // (close of comment period, dated 2026-07-08), edition 1, ISO/TC 299.
+    // Its abstract states safety requirements for industrial mobile
+    // robots with ACTIVELY CONTROLLED STABILITY, defined there as a robot
+    // requiring active control to remain balanced, and names quadrupedal,
+    // bipedal and wheeled balancing robots. So the standard is real and
+    // its subject matches, but it is NOT published: the article states it
+    // as a committee draft at that stage and claims nothing about its
+    // contents beyond this public abstract.
+    id: 'iso-cd-25785-1',
+    title:
+      'ISO/CD 25785-1, Robotics \u2014 Safety requirements for dynamically stable industrial mobile robots (legged, wheeled, or other forms of locomotion) \u2014 Part 1: Robots',
+    authors: ['ISO'],
+    year: 2026,
+    venue: 'ISO Committee Draft, stage 30.60 (public catalogue entry)',
+    url: 'https://www.iso.org/standard/91469.html',
+    type: 'docs',
+  },
+  {
+    // IEC webstore page read 2026-08-22 (HTTP 200): "IEC 61508-1:2010,
+    // Functional safety of electrical/electronic/programmable electronic
+    // safety-related systems - Part 1: General requirements". Part 1 is
+    // the entry point of the seven-part series; the safety-integrity-level
+    // concept the article names belongs to the series as a whole.
+    id: 'iec-61508-1-2010',
+    title:
+      'IEC 61508-1:2010, Functional safety of electrical/electronic/programmable electronic safety-related systems \u2014 Part 1: General requirements',
+    authors: ['IEC'],
+    year: 2010,
+    venue: 'IEC International Standard (public catalogue entry)',
+    url: 'https://webstore.iec.ch/en/publication/5515',
+    type: 'docs',
+  },
+  {
+    // IEC webstore page read 2026-08-22 (HTTP 200): "IEC 60204-1:2016,
+    // Safety of machinery - Electrical equipment of machines - Part 1:
+    // General requirements", edition 6. This is the document ISO 13850's
+    // own catalogue abstract names for the electrical realisation of the
+    // emergency stop function, which is why it sits beside it here.
+    id: 'iec-60204-1-2016',
+    title:
+      'IEC 60204-1:2016, Safety of machinery \u2014 Electrical equipment of machines \u2014 Part 1: General requirements',
+    authors: ['IEC'],
+    year: 2016,
+    venue: 'IEC International Standard (public catalogue entry)',
+    url: 'https://webstore.iec.ch/en/publication/26037',
+    type: 'docs',
+  },
+  {
+    // A3's own standards catalogue page, read 2026-08-22, which is the
+    // authority for which parts of the R15.08 series are published: Part 1
+    // as ANSI/RIA R15.08-1-2020 (the mobile robot itself), Part 2 as
+    // ANSI/A3 R15.08-2-2023 (IMR systems and applications), and Part 3
+    // listed as forthcoming for the user. The article states exactly that
+    // and no more.
+    id: 'a3-robot-safety-standards',
+    title: 'Robot Safety Standard Documents',
+    authors: ['Association for Advancing Automation'],
+    year: 2026,
+    venue: 'A3 (automate.org), as of 2026-08-22',
+    url: 'https://www.automate.org/robotics/safety/robot-safety-standard-documents',
+    type: 'docs',
+  },
+  {
+    // Open-access NIST paper (PMC5117641), read in full 2026-08-22. This
+    // is the article's evidence layer for the separation model: it
+    // restates the protective-separation equation and its terms in
+    // public, gives the ISO 13855 intrusion-margin decision table
+    // (850 mm for a normal approach on multiple separate beams), the
+    // 1600 mm/s worst-case operator speed and its 2000 mm/s alternative,
+    // and a 10.0 m/s^2 robot deceleration worked example. The
+    // interactive's model is built from this paper, not from the
+    // paywalled specification.
+    id: 'marvel-norcross-2017',
+    title:
+      'Implementing speed and separation monitoring in collaborative robot workcells',
+    authors: ['Jeremy A. Marvel', 'Rick Norcross'],
+    year: 2017,
+    venue: 'Robotics and Computer-Integrated Manufacturing',
+    url: 'https://doi.org/10.1016/j.rcim.2016.08.001',
+    type: 'paper',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1177/0278364909343970, The
+    // International Journal of Robotics Research, issued 2009. The
+    // impact-experiment paper underneath every force-limit number in
+    // collaborative robotics.
+    id: 'haddadin-2009',
+    title:
+      'Requirements for Safe Robots: Measurements, Analysis and New Insights',
+    authors: ['Sami Haddadin', 'Alin Albu-Sch\u00e4ffer', 'Gerd Hirzinger'],
+    year: 2009,
+    venue: 'The International Journal of Robotics Research',
+    url: 'https://doi.org/10.1177/0278364909343970',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 1903.11199, submitted
+    // 2019-03-27, six authors as listed). The tutorial-and-survey paper
+    // the safety-filter literature builds on.
+    id: 'ames-cbf-2019',
+    title: 'Control Barrier Functions: Theory and Applications',
+    authors: [
+      'Aaron D. Ames',
+      'Samuel Coogan',
+      'Magnus Egerstedt',
+      'Gennaro Notomista',
+      'Koushil Sreenath',
+      'Paulo Tabuada',
+    ],
+    year: 2019,
+    venue: 'ECC 2019',
+    arxiv: '1903.11199',
+    url: 'https://arxiv.org/abs/1903.11199',
+    type: 'paper',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1109/mcs.2023.3291885, IEEE
+    // Control Systems, issued 2023-10, seven authors in this order. The
+    // survey that names the safety-filter architecture as such.
+    id: 'wabersich-safety-filters-2023',
+    title:
+      'Data-Driven Safety Filters: Hamilton-Jacobi Reachability, Control Barrier Functions, and Predictive Methods for Uncertain Systems',
+    authors: [
+      'Kim P. Wabersich',
+      'Andrew J. Taylor',
+      'Jason J. Choi',
+      'Koushil Sreenath',
+      'Claire J. Tomlin',
+      'Aaron D. Ames',
+      'Melanie N. Zeilinger',
+    ],
+    year: 2023,
+    venue: 'IEEE Control Systems Magazine',
+    url: 'https://doi.org/10.1109/MCS.2023.3291885',
+    type: 'paper',
+  },
+  {
+    // UL Standards & Engagement product page read 2026-08-22 (HTTP 200):
+    // UL 4600, "Standard for Evaluation of Autonomous Products", Edition
+    // 3, published and ANSI-approved 2023-03-17. Edition verified from
+    // that page rather than from memory.
+    id: 'ul-4600-2023',
+    title:
+      'UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3',
+    authors: ['UL Standards & Engagement'],
+    year: 2023,
+    venue: 'UL Standard (public catalogue entry)',
+    url: 'https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600',
+    type: 'docs',
+  },
+  {
+    // SCSC Assurance Case Working Group, Goal Structuring Notation
+    // Community Standard Version 3, May 2021, ISBN 979-8451294949. The
+    // version and date were checked against the SCSC's own GSN area
+    // (scsc.uk/gsn, read 2026-08-22, which hosts the standard and states
+    // the ACWG maintains it) and the document is published open under
+    // CC BY 4.0. Version 3 is current; there is no Version 4.
+    id: 'gsn-standard-v3',
+    title: 'Goal Structuring Notation Community Standard Version 3',
+    authors: ['SCSC Assurance Case Working Group'],
+    year: 2021,
+    venue: 'Safety-Critical Systems Club',
+    url: 'https://scsc.uk/scsc-141c',
+    type: 'docs',
+  },
+  {
+    // Crossref-verified 2026-08-22: 10.1007/978-3-031-06649-8, Springer,
+    // second edition issued 2022. The book that introduced conformal
+    // prediction; the first edition is 2005 and the registry year is the
+    // edition this DOI resolves to, which is the one a reader can open.
+    id: 'vovk-conformal-2022',
+    title: 'Algorithmic Learning in a Random World',
+    authors: ['Vladimir Vovk', 'Alexander Gammerman', 'Glenn Shafer'],
+    year: 2022,
+    venue: 'Springer, 2nd edition',
+    url: 'https://doi.org/10.1007/978-3-031-06649-8',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2107.07511, submitted
+    // 2021-07-15, two authors). The tutorial that made conformal
+    // prediction usable outside its own literature.
+    id: 'angelopoulos-conformal-2021',
+    title:
+      'A Gentle Introduction to Conformal Prediction and Distribution-Free Uncertainty Quantification',
+    authors: ['Anastasios N. Angelopoulos', 'Stephen Bates'],
+    year: 2021,
+    arxiv: '2107.07511',
+    url: 'https://arxiv.org/abs/2107.07511',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2307.01928, submitted
+    // 2023-07-04). KnowNo: the strongest robotics instance of calibrated
+    // abstention, and the reason this article can name a system rather
+    // than only a technique.
+    id: 'knowno-2023',
+    title:
+      'Robots That Ask For Help: Uncertainty Alignment for Large Language Model Planners',
+    authors: [
+      'Allen Z. Ren',
+      'Anushri Dixit',
+      'Alexandra Bodrova',
+      'Sumeet Singh',
+      'Stephen Tu',
+      'Noah Brown',
+      'Peng Xu',
+      'Leila Takayama',
+      'Fei Xia',
+      'Jake Varley',
+      'Zhenjia Xu',
+      'Dorsa Sadigh',
+      'Andy Zeng',
+      'Anirudha Majumdar',
+    ],
+    year: 2023,
+    venue: 'CoRL 2023',
+    arxiv: '2307.01928',
+    url: 'https://arxiv.org/abs/2307.01928',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2407.08735, submitted
+    // 2024-07-11, six authors in this order).
+    id: 'sinha-anomaly-2024',
+    title:
+      'Real-Time Anomaly Detection and Reactive Planning with Large Language Models',
+    authors: [
+      'Rohan Sinha',
+      'Amine Elhafsi',
+      'Christopher Agia',
+      'Matthew Foutter',
+      'Edward Schmerling',
+      'Marco Pavone',
+    ],
+    year: 2024,
+    venue: 'RSS 2024',
+    arxiv: '2407.08735',
+    url: 'https://arxiv.org/abs/2407.08735',
+    type: 'paper',
+  },
+  {
+    // arXiv abs page verified 2026-08-22 (id 2207.12380, submitted
+    // 2022-07-25, five authors). Venue confirmed as CoRL 2022 from the
+    // PMLR proceedings listing (proceedings.mlr.press/v205/farid23a).
+    id: 'farid-failure-2022',
+    title:
+      'Task-Relevant Failure Detection for Trajectory Predictors in Autonomous Vehicles',
+    authors: [
+      'Alec Farid',
+      'Sushant Veer',
+      'Boris Ivanovic',
+      'Karen Leung',
+      'Marco Pavone',
+    ],
+    year: 2022,
+    venue: 'CoRL 2022',
+    arxiv: '2207.12380',
+    url: 'https://arxiv.org/abs/2207.12380',
+    type: 'paper',
+  },
+  {
+    // OSHA Technical Manual Section IV Chapter 4, "Industrial Robots and
+    // Robot System Safety", read 2026-08-22 (HTTP 200, free and public).
+    // The article's source for guarding practice, lockout/tagout under
+    // 29 CFR 1910.147, the teach-pendant hazard and the incident
+    // descriptions. Public regulator guidance, not a paywalled standard.
+    id: 'osha-otm-robots',
+    title:
+      'OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety',
+    authors: ['Occupational Safety and Health Administration'],
+    year: 2026,
+    venue: 'U.S. Department of Labor, as of 2026-08-22',
+    url: 'https://www.osha.gov/otm/section-4-safety-hazards/chapter-4',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
