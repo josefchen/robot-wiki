@@ -39,9 +39,15 @@ const expectedEntries: ExpectedEntry[] = [
   // "3D Gaussian splatting" sorts after Z rather than before A. Deriving a
   // flat sort here would disagree with the rendered order for that entry
   // alone, which is exactly the case a flat sort cannot see.
-  const bucket = (label: string) =>
-    /^[a-z]/i.test(label.trim()) ? label.trim()[0]!.toUpperCase() : '~';
-  const byBucket = bucket(a.label).localeCompare(bucket(b.label), 'en');
+  // Rank rather than a sentinel character: localeCompare does not order
+  // punctuation after letters (`'~'.localeCompare('A', 'en')` is -1), so a
+  // sentinel would sort the '#' group to the front instead of the back.
+  const rank = (label: string) => {
+    const first = label.trim().charAt(0);
+    return /^[a-z]$/i.test(first) ? first.toUpperCase() : '\uFFFF';
+  };
+  const byBucket =
+    rank(a.label) < rank(b.label) ? -1 : rank(a.label) > rank(b.label) ? 1 : 0;
   if (byBucket !== 0) return byBucket;
   const byLabel = a.label.localeCompare(b.label, 'en', { sensitivity: 'base' });
   return byLabel !== 0 ? byLabel : a.label.localeCompare(b.label);
