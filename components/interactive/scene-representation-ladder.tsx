@@ -72,10 +72,11 @@ const SURFACE_2 = 'var(--color-surface-2)';
 const f = (v: number) => Number(v.toFixed(2));
 
 /**
- * Glyph sizes in viewBox units, not pixels. The 300-unit-wide viewBox renders
- * about 228px wide in the article column, a scale near 0.76, so a size of 7
- * would land at roughly 5px on screen and be illegible. These are chosen so
- * the smallest label still renders at about 10px at the narrowest layout.
+ * Glyph sizes in viewBox units, not pixels. The 300-unit-wide viewBox
+ * renders about 275px wide at the 375px viewport (the narrowest layout,
+ * a scale near 0.92) and wider everywhere else, so a size of 7 would land
+ * under 7px on screen and be illegible. These are chosen so the smallest
+ * label still renders at about 10px at the narrowest layout.
  */
 const TITLE_SIZE = 14;
 const LABEL_SIZE = 11;
@@ -425,7 +426,13 @@ export function SceneRepresentationLadder({
         })}
       </div>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,17rem)]">
+      {/* The diagram is the teaching centrepiece, so its column takes the
+          surplus and is never narrower than the controls: both columns share
+          the same 12rem floor and the panel gets every remaining pixel.
+          items-start stops the panel box inheriting the taller control
+          column's height, which left the drawing floating in the top half
+          of its own frame. */}
+      <div className="mt-4 grid items-start gap-4 md:grid-cols-[minmax(12rem,1fr)_minmax(0,12rem)]">
         <div className="rounded-sm border border-border bg-surface-2 p-2">
           <Panel
             id={selectedId}
