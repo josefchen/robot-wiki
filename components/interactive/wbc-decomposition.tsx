@@ -44,12 +44,12 @@ const ROBOT_H = 30;
 
 function wbcTakeaway(approach: WbcApproach, fastest: string): string {
   if (approach.id === 'tracking-rl') {
-    return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 actuator loop; green marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.`;
+    return `Motion-tracking RL, represented by ${approach.representative}, stacks ${approach.layers.length} control layers ending at a ${fastest} S0 actuator loop; blue marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.`;
   }
   if (approach.id === 'latent-action') {
-    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over an undisclosed-rate controller); green still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
+    return `Latent-action hierarchy, represented by ${approach.representative}, splits the stack into ${approach.layers.length} layers (3B-parameter VLA over an undisclosed-rate controller); blue still marks the actuator-facing box, and latent tokens are the interface so the VLA never names a joint.`;
   }
-  return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; green marks the VLA itself as the layer that talks to the actuators across 3 embodiments, because there is no internal interface between policy and robot.`;
+  return `End-to-end VLA, represented by ${approach.representative}, keeps ${approach.layers.length} layers and no separate whole-body controller; blue marks the VLA itself as the layer that talks to the actuators across 3 embodiments, because there is no internal interface between policy and robot.`;
 }
 
 export function WbcDecomposition({
@@ -313,7 +313,7 @@ export function WbcDecomposition({
         ]}
       />
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        {approach.idea} In this stack, {approach.interfaceNote}. Green marks
+        {approach.idea} In this stack, {approach.interfaceNote}. Blue marks
         the layer that talks to the actuators. Openness: {approach.openness}.
         {approach.lineage.length > 0
           ? ` Same decomposition: ${approach.lineage.join(', ')}.`

@@ -442,7 +442,193 @@ test.describe('design chrome discipline', () => {
 
     const link = page.locator('header').getByRole('link', { name: 'robot-wiki' });
     await link.focus();
-    const outline = await link.evaluate((el) => getComputedStyle(el).outlineWidth);
-    expect(parseFloat(outline)).toBeGreaterThanOrEqual(1);
+    const outline = await link.evaluate((el) => {
+      const cs = getComputedStyle(el);
+      return { width: cs.outlineWidth, offset: cs.outlineOffset, color: cs.outlineColor };
+    });
+    // The global focus ring is exactly the locked 2px signal-blue outline
+    // with a 2px offset (VAL-A11Y-002/VAL-DSA11Y-002). A >= 1px bound
+    // would pass a 1px ring the contract forbids.
+    expect(outline.width).toBe('2px');
+    expect(outline.offset).toBe('2px');
+    expect(outline.color).toBe('rgb(36, 94, 219)');
+  });
+
+  test('the wordmark and descriptor render in exactly the canonical lockups (VAL-DSBRAND-001/002)', async ({
+    page,
+  }) => {
+    // Home hero: wordmark is the h1 text, descriptor exactly once.
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    const heroWordmark = await page
+      .getByRole('heading', { level: 1 })
+      .textContent();
+    expect(heroWordmark?.trim()).toBe('robot-wiki');
+    const heroDescriptor = page
+      .getByRole('region', { name: 'Introduction' })
+      .getByText('Robotics encyclopaedia', { exact: true });
+    await expect(heroDescriptor).toHaveCount(1);
+
+    // Desktop sidebar lockup at 1440px: wordmark link plus descriptor,
+    // exactly once each, and no other lockup on the page carries it.
+    const sidebarDescriptor = page
+      .locator('aside')
+      .getByText('Robotics encyclopaedia', { exact: true });
+    await expect(sidebarDescriptor).toHaveCount(1);
+    const sidebarWordmark = await page
+      .locator('aside')
+      .getByRole('link', { name: 'robot-wiki' })
+      .textContent();
+    expect(sidebarWordmark?.trim()).toBe('robot-wiki');
+
+    // Mobile header at 375px: wordmark present, descriptor omitted.
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const headerWordmark = await page
+      .locator('header')
+      .getByRole('link', { name: 'robot-wiki' })
+      .textContent();
+    expect(headerWordmark?.trim()).toBe('robot-wiki');
+    await expect(
+      page
+        .locator('header')
+        .getByText('Robotics encyclopaedia', { exact: true }),
+    ).toHaveCount(0);
+  });
+
+  test('the locked type-scale and lockup metrics render at both breakpoints (VAL-DSTYPE-007)', async ({
+    page,
+  }) => {
+    const metricsOf = (selector: string) =>
+      page.locator(selector).first().evaluate((el) => {
+        const cs = getComputedStyle(el);
+        return {
+          family: cs.fontFamily,
+          size: parseFloat(cs.fontSize),
+          lineHeight: parseFloat(cs.lineHeight),
+          weight: cs.fontWeight,
+          tracking: cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing,
+          transform: cs.textTransform,
+          text: (el.textContent ?? '').trim().slice(0, 30),
+        };
+      });
+    const em = (m: { size: number; tracking: string }) =>
+      parseFloat(m.tracking) / m.size;
+
+    // Home wordmark: 48px/48px below sm, 60px/60px from sm, Sans 600,
+    // tracking -0.035em; descriptor 10px mono uppercase 0.14em.
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const homeH1Mobile = await metricsOf('main h1');
+    expect(homeH1Mobile.size).toBeCloseTo(48, 5);
+    expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
+    expect(homeH1Mobile.weight).toBe('600');
+    expect(homeH1Mobile.family).toContain('IBM Plex Sans');
+    expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
+    const heroDescriptor = await metricsOf(
+      'main [aria-label="Introduction"] p.font-mono',
+    );
+    expect(heroDescriptor.size).toBeCloseTo(10, 5);
+    expect(heroDescriptor.transform).toBe('uppercase');
+    expect(heroDescriptor.family).toContain('IBM Plex Mono');
+    expect(em(heroDescriptor)).toBeCloseTo(0.14, 2);
+    // Mobile header lockup: 15px Sans 600 wordmark, no descriptor.
+    const mobileHeaderWordmark = await metricsOf('header a');
+    expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
+    expect(mobileHeaderWordmark.weight).toBe('600');
+    expect(mobileHeaderWordmark.family).toContain('IBM Plex Sans');
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    const homeH1Desktop = await metricsOf('main h1');
+    expect(homeH1Desktop.size).toBeCloseTo(60, 5);
+    expect(homeH1Desktop.lineHeight).toBeCloseTo(60, 5);
+    // Desktop sidebar lockup: 17px Sans 600 wordmark, 9px mono
+    // uppercase descriptor at 0.14em.
+    const sidebarWordmark = await metricsOf('aside a[href="/"]');
+    expect(sidebarWordmark.size).toBeCloseTo(17, 5);
+    expect(sidebarWordmark.weight).toBe('600');
+    expect(sidebarWordmark.family).toContain('IBM Plex Sans');
+    const sidebarDescriptor = await page
+      .locator('aside')
+      .getByText('Robotics encyclopaedia', { exact: true })
+      .evaluate((el) => {
+        const cs = getComputedStyle(el);
+        return {
+          family: cs.fontFamily,
+          size: parseFloat(cs.fontSize),
+          tracking: cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing,
+          transform: cs.textTransform,
+        };
+      });
+    expect(sidebarDescriptor.size).toBeCloseTo(9, 5);
+    expect(sidebarDescriptor.transform).toBe('uppercase');
+    expect(sidebarDescriptor.family).toContain('IBM Plex Mono');
+    expect(parseFloat(sidebarDescriptor.tracking) / sidebarDescriptor.size).toBeCloseTo(
+      0.14,
+      2,
+    );
+
+    // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
+    // tracking -0.025em; prose h2 22px and h3 18px, Sans 600.
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto(MODULE_ROUTE);
+    const articleH1Mobile = await metricsOf('article h1');
+    expect(articleH1Mobile.size).toBeCloseTo(32, 5);
+    expect(articleH1Mobile.lineHeight).toBeCloseTo(35.84, 1);
+    expect(em(articleH1Mobile)).toBeCloseTo(-0.025, 2);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(MODULE_ROUTE);
+    const articleH1Desktop = await metricsOf('article h1');
+    expect(articleH1Desktop.size).toBeCloseTo(40, 5);
+    expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
+    expect(articleH1Desktop.family).toContain('IBM Plex Sans');
+    expect(articleH1Desktop.weight).toBe('600');
+    const proseH2 = await metricsOf('article .prose h2');
+    expect(proseH2.size).toBeCloseTo(22, 5);
+    expect(proseH2.family).toContain('IBM Plex Sans');
+    const proseH3 = await metricsOf('article .prose h3');
+    expect(proseH3.size).toBeCloseTo(18, 5);
+  });
+
+  test('components use only the locked 2/3/4px radius scale (VAL-DESIGN-021)', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    for (const route of AUDITED_ROUTES) {
+      await page.goto(route);
+      const offenders = await page.evaluate(() => {
+        // Data marks (legend swatches, dots) whose geometry carries
+        // meaning are the contract's only exception. They are small
+        // painted marks rather than surfaces, so the exception is
+        // encoded as: any corner radius outside {0,2,3,4}px is allowed
+        // only on an element small enough to be a mark.
+        const offenders: string[] = [];
+        for (const el of Array.from(document.querySelectorAll('*'))) {
+          const cs = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 || rect.height === 0) continue;
+          const radii = [
+            cs.borderTopLeftRadius,
+            cs.borderTopRightRadius,
+            cs.borderBottomRightRadius,
+            cs.borderBottomLeftRadius,
+          ];
+          for (const value of radii) {
+            const px = parseFloat(value);
+            if (Number.isNaN(px)) continue;
+            const inScale = value === '0px' || px === 2 || px === 3 || px === 4;
+            if (inScale) continue;
+            const isSmallMark = rect.width <= 12 && rect.height <= 12;
+            if (!isSmallMark) {
+              offenders.push(
+                `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)} radius ${value} (${rect.width}x${rect.height})`,
+              );
+              break;
+            }
+          }
+        }
+        return offenders;
+      });
+      expect(offenders, `non-scale radii on ${route}`).toEqual([]);
+    }
   });
 });

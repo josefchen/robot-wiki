@@ -23,7 +23,7 @@ import { cx } from '@/lib/utils';
  * on every load; the controls only reveal it: Run plays the growth on an
  * interval, Step adds one iteration, the slider scrubs, Reset clears back
  * to the bare scene. Once the tree connects to the goal, the start-to-goal
- * path is highlighted in pine with its length in the readout.
+ * path is highlighted in signal blue with its length in the readout.
  *
  * Interactive contract: deterministic render, native buttons and range
  * input (keyboard-accessible), visible monospace readouts, reset control,

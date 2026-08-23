@@ -12,7 +12,7 @@ const variantClasses: Record<BadgeVariant, string> = {
   default: 'border-border bg-surface-2 text-text-dim',
   accent: 'border-accent text-accent',
   ok: 'border-ok text-ok',
-  warn: 'border-accent text-accent',
+  warn: 'border-warn text-warn',
   err: 'border-err text-err',
 };
 

@@ -55,16 +55,24 @@ const STRIP = {
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
+/*
+ * Slot fills. Driven dims are the one primary series (signal blue). The
+ * shared-latent slots are a schematic for an undisclosed representation, so
+ * they get neutral hatching rather than a colour: green and amber are
+ * semantic state colours, and "schematic" is not a success state. The
+ * hatch is also the non-colour channel that keeps latent slots distinct
+ * from active ones without relying on hue (VAL-CHART-002).
+ */
 const SLOT_FILL: Record<SlotState, string> = {
   active: 'var(--color-accent)',
-  latent: 'var(--color-ok)',
+  latent: 'latent-hatch',
   zeroed: 'transparent',
   blocked: 'transparent',
 };
 
 const SLOT_OPACITY: Record<SlotState, number> = {
   active: 0.85,
-  latent: 0.7,
+  latent: 1,
   zeroed: 1,
   blocked: 1,
 };
@@ -94,9 +102,15 @@ function EmbodimentRow({
   const body = embodimentById(embodimentId);
   const summary = rowSummary(strategy, embodimentId);
   const slots = slotRow(strategy, embodimentId);
+  // Per-row pattern id: the component can mount more than once on a page,
+  // and two SVGs sharing one id would make every latent slot resolve
+  // against the first mount's pattern.
+  const hatchId = `${useId().replace(/[^a-zA-Z0-9-]/g, '')}-latent-hatch`;
 
   const slotW = f((STRIP.width - STRIP.padX * 2 - STRIP.gap * (SHARED_WIDTH - 1)) / SHARED_WIDTH);
   const x = (i: number) => f(STRIP.padX + i * (slotW + STRIP.gap));
+  const fill = (state: SlotState) =>
+    state === 'latent' ? `url(#${hatchId})` : SLOT_FILL[state];
 
   return (
     <div data-testid={`row-${embodimentId}`} className="py-2">
@@ -120,6 +134,24 @@ function EmbodimentRow({
         aria-describedby={describedBy}
         className="mt-1 block w-full"
       >
+        <defs>
+          <pattern
+            id={hatchId}
+            width={4}
+            height={4}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(45)"
+          >
+            <line
+              x1={0}
+              y1={0}
+              x2={0}
+              y2={4}
+              stroke="var(--color-text-dim)"
+              strokeWidth={1}
+            />
+          </pattern>
+        </defs>
         {slots.map((slot) => (
           <rect
             key={slot.index}
@@ -128,7 +160,7 @@ function EmbodimentRow({
             width={slotW}
             height={STRIP.height - 6}
             rx={1}
-            fill={SLOT_FILL[slot.state]}
+            fill={fill(slot.state)}
             fillOpacity={SLOT_OPACITY[slot.state]}
             stroke={
               slot.state === 'blocked'
@@ -230,13 +262,13 @@ export function CrossEmbodimentStrategies({
 
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-accent">green</span>: dims this source drives
+          <span className="text-accent">blue</span>: dims this source drives
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           dashed outline: zero-padding
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-ok">green</span>: shared latent (schematic)
+          hatched: shared latent (schematic)
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           faint outline: unused
@@ -252,7 +284,7 @@ export function CrossEmbodimentStrategies({
           strategyId === 'padded'
             ? `Padded shared vector leaves human video unable to enter this space directly: the ${SHARED_WIDTH}-slot strips zero-pad unused dims on each of the ${EMBODIMENT_ORDER.length} bodies and leave the human hand with no slot at all.`
             : strategyId === 'motion-transfer'
-              ? `Motion transfer routes every body through a ${LATENT_DIMS}-dim shared latent that is publicly under-specified; human-video path not disclosed, so the green slots on the ${SHARED_WIDTH}-slot strips are schematic rather than a published mapping.`
+              ? `Motion transfer routes every body through a ${LATENT_DIMS}-dim shared latent that is publicly under-specified; human-video path not disclosed, so the hatched slots on the ${SHARED_WIDTH}-slot strips are schematic rather than a published mapping.`
               : `Shared relative end-effector space lets human video enter directly: 20,000 hours of EgoScale, because every embodiment including the human hand acts in the same ${EEF_SPACE_DIMS}-dim delta space.`
         }
         states={[

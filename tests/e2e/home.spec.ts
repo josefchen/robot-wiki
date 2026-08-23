@@ -100,11 +100,23 @@ test.describe('home page', () => {
       name: 'robot-wiki',
     });
     const overview = page.getByText(/encyclopedia of modern robotics/);
-    for (const locator of [wordmark, overview]) {
+    // The full box must sit inside the first viewport (VAL-HOME-001/
+    // VAL-DSHOME-001): a top edge above y=900 with the body hanging below
+    // it is a clipped premise, and checking y alone would pass it.
+    const insideFirstViewport = async (
+      locator: ReturnType<Page['locator']>,
+      label: string,
+    ) => {
       const box = await locator.boundingBox();
-      expect(box, 'hero element visible in first viewport').not.toBeNull();
-      expect(box!.y).toBeLessThan(900);
-    }
+      expect(box, `${label} visible in first viewport`).not.toBeNull();
+      expect(box!.y, `${label} top above fold`).toBeGreaterThanOrEqual(0);
+      expect(
+        box!.y + box!.height,
+        `${label} bottom edge must be at or before y=900`,
+      ).toBeLessThanOrEqual(900);
+    };
+    await insideFirstViewport(wordmark, 'hero wordmark');
+    await insideFirstViewport(overview, 'hero overview');
     const main = page.locator('#main-content');
     for (const [name, href] of DOMAIN_ENTRIES) {
       const link = main.getByRole('link', { name, exact: true }).first();
@@ -112,9 +124,7 @@ test.describe('home page', () => {
       // domain segment is what matters.
       const hrefValue = await link.getAttribute('href');
       expect(hrefValue).toMatch(new RegExp(`^${href}/?$`));
-      const box = await link.boundingBox();
-      expect(box, `${name} link inside first viewport`).not.toBeNull();
-      expect(box!.y).toBeLessThan(900);
+      await insideFirstViewport(link, `${name} link`);
     }
   });
 
@@ -182,10 +192,12 @@ test.describe('home page', () => {
     const featured = page.getByRole('region', {
       name: /featured interactive/i,
     });
+    // Strictly below 1200px (VAL-HOME-003/VAL-DSHOME-003): the bound is
+    // "begins before y=1200", so exactly 1200 does not satisfy it.
     const top = await featured.locator('svg').first().evaluate((el) => {
       return el.getBoundingClientRect().top + window.scrollY;
     });
-    expect(top).toBeLessThanOrEqual(1200);
+    expect(top).toBeLessThan(1200);
   });
 
   test('playground entry point renders a visual, not text alone', async ({
@@ -320,5 +332,137 @@ test.describe('home page', () => {
     expect(widths.scroll).toBeLessThanOrEqual(widths.inner);
     const index = page.getByRole('region', { name: /domain index/i });
     await expect(index.getByRole('listitem')).toHaveCount(7);
+  });
+
+  test('at 375px the hero grid is an exact 80px band below the lockup (VAL-DSHOME-009)', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const boxes = await page.evaluate(() => {
+      // The hero title sheet is the bordered grid container on the home
+      // introduction section; the lockup is the wordmark/descriptor block
+      // and the grid is the literal .engineering-grid field.
+      const hero = document
+        .querySelector('.engineering-grid')
+        ?.closest('section > div');
+      const grid = document.querySelector('.engineering-grid');
+      const h1 = document.querySelector('main h1');
+      if (!hero || !grid || !h1) return null;
+      // The lockup column is the grid field's sibling (the text column of
+      // the title sheet); the lockup bottom is its bottom edge.
+      const lockup = grid.previousElementSibling;
+      if (!lockup) return null;
+      const r = (el: Element) => {
+        const b = el.getBoundingClientRect();
+        return { top: b.top, bottom: b.bottom, height: b.height };
+      };
+      return { hero: r(hero), grid: r(grid), lockup: r(lockup) };
+    });
+    expect(boxes, 'hero sheet, lockup column, and grid field present').not.toBeNull();
+    const { hero, grid, lockup } = boxes!;
+    // The grid becomes a band immediately below the complete lockup and
+    // closes the hero: no gap, no overlap, exactly 80px tall.
+    expect(grid.top).toBeCloseTo(lockup.bottom, 1);
+    expect(grid.bottom).toBeCloseTo(hero.bottom, 1);
+    expect(grid.height).toBeCloseTo(80, 1);
+    expect(grid.top).toBeGreaterThanOrEqual(lockup.top);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+
+  test('the hero engineering grid is the literal locked device (VAL-DSBRAND-004)', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    const grid = page.locator('.engineering-grid');
+    // Exactly one grid field on the home title sheet...
+    await expect(grid).toHaveCount(1);
+    const metrics = await grid.evaluate((el) => {
+      const cs = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      // The two axis spans and the registration point are the grid's
+      // three decorated children, in document order.
+      const children = Array.from(el.children).map((child) => {
+        const ccs = getComputedStyle(child);
+        const b = child.getBoundingClientRect();
+        return {
+          borderTop: ccs.borderTopWidth,
+          borderLeft: ccs.borderLeftWidth,
+          color: ccs.borderLeftColor,
+          background: ccs.backgroundColor,
+          box: { x: b.x, y: b.y, w: b.width, h: b.height },
+        };
+      });
+      return {
+        bg: cs.backgroundColor,
+        image: cs.backgroundImage,
+        size: cs.backgroundSize,
+        box: { x: rect.x, y: rect.y, w: rect.width, h: rect.height },
+        children,
+      };
+    });
+    // 32px tile on the surface ground with the 1px #d9d6cd line.
+    expect(metrics.size).toBe('32px 32px');
+    expect(metrics.bg).toBe('rgb(251, 250, 247)');
+    expect(metrics.image).toContain('stroke%3D%27%23d9d6cd%27');
+    // From md the field is exactly 13rem (208px) wide.
+    expect(metrics.box.w).toBeCloseTo(208, 0);
+    // Two 1px strong axes plus one 8px accent registration point.
+    expect(metrics.children).toHaveLength(3);
+    const [vAxis, hAxis, point] = metrics.children;
+    expect(vAxis.borderLeft).toBe('1px');
+    expect(hAxis.borderTop).toBe('1px');
+    expect(point.box.w).toBeCloseTo(8, 1);
+    expect(point.box.h).toBeCloseTo(8, 1);
+    expect(point.background).toBe('rgb(36, 94, 219)');
+    // The axes cross at the field centre, and the point sits on that
+    // intersection.
+    const cx = metrics.box.x + metrics.box.w / 2;
+    const cy = metrics.box.y + metrics.box.h / 2;
+    expect(vAxis.box.x).toBeCloseTo(cx, 1);
+    expect(hAxis.box.y).toBeCloseTo(cy, 1);
+    expect(point.box.x + point.box.w / 2).toBeCloseTo(cx, 1);
+    expect(point.box.y + point.box.h / 2).toBeCloseTo(cy, 1);
+  });
+
+  test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ page }) => {
+    const routes = [
+      '/',
+      '/manipulation/action-chunking/',
+      '/market-map/',
+      '/playground/',
+      '/search/',
+      '/glossary/',
+    ];
+    for (const route of routes) {
+      await page.goto(route);
+      const grids = await page.evaluate(() => {
+        const hit = (el: Element): boolean => {
+          const cs = getComputedStyle(el);
+          return cs.backgroundImage.includes('svg');
+        };
+        const all = Array.from(document.querySelectorAll('*')).filter(hit);
+        return all.map((el) => el.tagName + '.' + (el.id || el.className || ''));
+      });
+      if (route === '/') {
+        // Home: exactly the title-sheet field, and never on body, main,
+        // article, or a prose container.
+        expect(grids, 'home grid inventory').toHaveLength(1);
+        const on = await page.evaluate(() => {
+          const grid = document.querySelector('.engineering-grid');
+          if (!grid) return 'missing';
+          if (grid.matches('body, main, article')) return 'on-structure';
+          if (grid.closest('.prose')) return 'behind-prose';
+          return 'title-sheet';
+        });
+        expect(on).toBe('title-sheet');
+      } else {
+        expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+      }
+    }
   });
 });

@@ -45,26 +45,39 @@ export default function Home() {
       <section
         aria-label="Introduction"
         data-pagefind-body
-        className={`${container} pt-12 lg:pt-16`}
+        className={`${container} pt-8 lg:pt-10`}
       >
-        <h1 className="font-sans text-4xl font-semibold tracking-tight text-text md:text-5xl">
-          robot-wiki
-        </h1>
-        <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-text-dim">
-          robot-wiki is an encyclopedia of modern robotics for engineers who
-          already know machine learning. It covers learned manipulation
-          policies, sim-to-real reinforcement learning, world models,
-          teleoperation data pipelines, and the classical control stack
-          underneath them, with every technical claim cited to a primary
-          source.
-        </p>
-        <div className="mt-6">
-          <Link
-            href="/manipulation/action-chunking"
-            className="inline-block rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]"
+        <div className="grid overflow-hidden border border-border bg-bg md:grid-cols-[minmax(0,1fr)_13rem]">
+          <div className="px-6 py-7 sm:px-8 sm:py-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+              Robotics encyclopaedia
+            </p>
+            <h1 className="mt-3 font-sans text-5xl font-semibold leading-none tracking-[-0.035em] text-text sm:text-6xl">
+              robot-wiki
+            </h1>
+            <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
+              robot-wiki is an encyclopedia of modern robotics for engineers who
+              already know machine learning. It covers learned manipulation
+              policies, sim-to-real reinforcement learning, world models,
+              teleoperation data pipelines, and the classical control stack
+              underneath them, with every technical claim cited to a primary
+              source.
+            </p>
+            <Link
+              href="/manipulation/action-chunking"
+              className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
+            >
+              Start reading
+            </Link>
+          </div>
+          <div
+            aria-hidden="true"
+            className="engineering-grid relative min-h-20 border-t border-border md:min-h-full md:border-l md:border-t-0"
           >
-            Start reading
-          </Link>
+            <span className="absolute left-1/2 top-0 h-full border-l border-border-strong" />
+            <span className="absolute left-0 top-1/2 w-full border-t border-border-strong" />
+            <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent" />
+          </div>
         </div>
       </section>
 
@@ -307,39 +320,61 @@ export default function Home() {
                 aria-hidden="true"
                 className="block h-28 w-full"
               >
-              {/* A bubble field in the spirit of the market map scatter view. */}
-              <line
-                x1={24}
-                y1={96}
-                x2={304}
-                y2={96}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <line
-                x1={24}
-                y1={96}
-                x2={24}
-                y2={12}
-                stroke="var(--color-border)"
-                strokeWidth={1}
-              />
-              <circle cx={52} cy={78} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={84} cy={60} r={8} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={112} cy={80} r={4} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={138} cy={48} r={10} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={166} cy={66} r={6} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={192} cy={36} r={9} fill="var(--color-accent)" opacity={0.85} />
-              <circle cx={218} cy={58} r={5} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={244} cy={28} r={7} fill="var(--color-surface-2)" stroke="var(--color-border-strong)" strokeWidth={1} />
-              <circle cx={270} cy={48} r={4} fill="var(--color-accent)" opacity={0.85} />
-              <path
-                d="M40 84 L280 26"
+              {/* Structural schematic of the market map: one identical
+                  chip per real segment (six) above identical company
+                  rows. Deliberately not a bubble scatter: no circle
+                  carries a size, no line carries a trend, because no
+                  quantity on this teaser is sourced. The one outlined
+                  chip depicts the tool's real filter interaction. */}
+              <rect
+                x={24}
+                y={16}
+                width={38}
+                height={14}
+                rx={2}
                 fill="none"
-                stroke="var(--color-border-strong)"
+                stroke="var(--color-accent)"
                 strokeWidth={1}
-                strokeDasharray="4 4"
               />
+              {[1, 2, 3, 4, 5].map((i) => (
+                <rect
+                  key={i}
+                  x={24 + i * 45}
+                  y={16}
+                  width={38}
+                  height={14}
+                  rx={2}
+                  fill="var(--color-surface-2)"
+                  stroke="var(--color-border-strong)"
+                  strokeWidth={1}
+                />
+              ))}
+              <line
+                x1={24}
+                y1={44}
+                x2={296}
+                y2={44}
+                stroke="var(--color-border)"
+                strokeWidth={1}
+              />
+              {[56, 70, 84, 98].map((y) => (
+                <g key={y}>
+                  <rect
+                    x={24}
+                    y={y}
+                    width={8}
+                    height={8}
+                    fill="var(--color-logo-plate)"
+                  />
+                  <rect
+                    x={40}
+                    y={y + 2}
+                    width={110}
+                    height={4}
+                    fill="var(--color-border-strong)"
+                  />
+                </g>
+              ))}
             </svg>
             </div>
             <h3 className="font-sans text-sm font-medium text-text group-hover:text-accent">

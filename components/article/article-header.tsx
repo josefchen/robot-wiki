@@ -10,10 +10,10 @@ import { formatLongDate } from '@/lib/dates';
  * References list); none of them is hand-written per article.
  *
  * The breadcrumb trail above the header already names the domain, so the
- * header does not repeat it. Presentation follows the design system:
- * small, monospace-accented, quiet. No badges, no pills, no emoji, nothing
- * that competes with the article title. The line wraps at narrow viewports
- * instead of overflowing.
+ * header does not repeat it. Presentation follows the design system as a
+ * compact technical title block: small mono labels, vertical rules, no
+ * badges, pills or emoji. The grid reflows at narrow viewports instead of
+ * overflowing.
  */
 
 type ArticleHeaderProps = {
@@ -38,7 +38,7 @@ export function ArticleHeader({
 }: ArticleHeaderProps) {
   return (
     <header data-pagefind-body className="mb-10 border-b border-border pb-6">
-      <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+      <h1 className="font-sans text-[2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-text sm:text-[2.5rem]">
         {entry.title}
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">{entry.summary}</p>
@@ -51,28 +51,28 @@ export function ArticleHeader({
           index-only: the row stays visible and unchanged above. */}
       <dl
         data-pagefind-ignore
-        className="mt-4 flex flex-wrap gap-x-6 gap-y-1.5 font-mono text-xs leading-relaxed text-text-dim"
+        className="mt-6 grid grid-cols-2 font-mono text-xs leading-relaxed text-text-dim sm:grid-cols-3"
       >
         {lastReviewed ? (
           <div
             data-header-last-reviewed={lastReviewed}
-            className="flex flex-wrap items-baseline gap-x-1.5"
+            className="col-span-2 border-l border-border-strong pl-3 sm:col-span-1 sm:pl-4"
           >
-            <dt>Last reviewed</dt>
-            <dd className="text-text">
+            <dt className="text-[10px] uppercase tracking-[0.14em]">Last reviewed</dt>
+            <dd className="mt-0.5 text-text">
               <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
             </dd>
           </div>
         ) : null}
-        <div className="flex flex-wrap items-baseline gap-x-1.5">
-          <dt>Reading time</dt>
-          <dd data-header-reading-minutes={readingTimeMinutes} className="text-text">
+        <div className="mt-3 border-l border-border-strong pl-3 sm:mt-0 sm:pl-4">
+          <dt className="text-[10px] uppercase tracking-[0.14em]">Reading time</dt>
+          <dd data-header-reading-minutes={readingTimeMinutes} className="mt-0.5 text-text">
             {`${readingTimeMinutes} min`}
           </dd>
         </div>
-        <div className="flex flex-wrap items-baseline gap-x-1.5">
-          <dt>Citations</dt>
-          <dd data-header-citation-count={citationCount} className="text-text">
+        <div className="mt-3 border-l border-border-strong pl-3 sm:mt-0 sm:pl-4">
+          <dt className="text-[10px] uppercase tracking-[0.14em]">Citations</dt>
+          <dd data-header-citation-count={citationCount} className="mt-0.5 text-text">
             {citationCount}
           </dd>
         </div>

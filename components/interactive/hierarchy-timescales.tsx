@@ -252,7 +252,7 @@ export function HierarchyTimescales({
       </svg>
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
-        green ticks: updates fired at or before the playhead. dim ticks:
+        blue ticks: updates fired at or before the playhead. dim ticks:
         pending. Rates tagged (schematic) are not stated in the primary
         source.
       </p>

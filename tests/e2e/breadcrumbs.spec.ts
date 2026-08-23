@@ -188,12 +188,13 @@ test.describe('article breadcrumbs', () => {
       'Tab reaches a breadcrumb link',
     ).toBe(true);
 
-    // The focused link shows the global pine focus outline.
+    // The focused link shows the global signal-blue focus outline at
+    // the locked 2px width.
     const outline = await page.evaluate(() => {
       const active = document.activeElement as HTMLElement;
       return getComputedStyle(active).outlineWidth;
     });
-    expect(parseFloat(outline)).toBeGreaterThanOrEqual(1);
+    expect(parseFloat(outline)).toBe(2);
     await expect(breadcrumbNav).toBeVisible();
   });
 

@@ -69,7 +69,7 @@ const STATUS_TEXT: Record<Stability, string> = {
   fallen: 'fallen',
 };
 
-/** Rod and mass color: pine near balance, red past the fall line. */
+/** Rod and mass color: signal blue near balance, red past the fall line. */
 function poleColor(theta: number): string {
   const abs = Math.abs(theta);
   if (abs > Math.PI / 3) return 'var(--color-err)';

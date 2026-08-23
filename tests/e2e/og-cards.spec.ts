@@ -111,9 +111,12 @@ test.describe('OG card images', () => {
         const buf = await readFile(file);
         expect(buf.length, `${route} card at least 5KB`).toBeGreaterThanOrEqual(5 * 1024);
         const dims = pngDimensions(buf);
-        expect(dims.width).toBeGreaterThanOrEqual(1200);
-        expect(dims.height).toBeGreaterThanOrEqual(630);
-        expect(Math.abs(dims.width / dims.height - 1.91)).toBeLessThanOrEqual(0.05);
+        // Exactly the sealed canvas (VAL-OG-001/VAL-DSOG-001), not "at
+        // least": a 1200x700 export would pass a >= bound while breaking
+        // the 1.91:1 X timeline crop the card is designed for.
+        expect(dims.width, `${route} card width`).toBe(1200);
+        expect(dims.height, `${route} card height`).toBe(630);
+        expect(dims.width / dims.height).toBeCloseTo(1200 / 630, 5);
 
         // Served from out/ alone, with an image content type.
         const res = await fetch(`http://localhost:${server.port}${rel}`);

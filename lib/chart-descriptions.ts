@@ -261,7 +261,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'WbcDecomposition',
     file: 'components/interactive/wbc-decomposition.tsx',
     quantityNames: ['layers', 'actuators'],
-    text: 'Motion-tracking RL, represented by Figure Helix 02 S0, stacks 3 control layers ending at a 1000 Hz S0 actuator loop; green marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.',
+    text: 'Motion-tracking RL, represented by Figure Helix 02 S0, stacks 3 control layers ending at a 1000 Hz S0 actuator loop; blue marks the layer that talks to the actuators, and the retargeted human motion is the interface so layers above never name a torque.',
   },
   {
     component: 'PerceptionLatency',
@@ -285,7 +285,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GeneralistReleaseTimeline',
     file: 'components/interactive/generalist-release-timeline.tsx',
     quantityNames: ['policies', 'weights'],
-    text: '13 of 13 generalist policies sit on a Feb 2025 to Jul 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and green nodes mark open weights while dim nodes mark closed ones.',
+    text: '13 of 13 generalist policies sit on a Feb 2025 to Jul 2026 axis; selected is Helix from Figure (closed, lab blog, vendor-reported) and blue nodes mark open weights while dim nodes mark closed ones.',
   },
   {
     component: 'JepaPlanning',
