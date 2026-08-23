@@ -10,6 +10,7 @@ import {
   ruleOfThreeDensity,
   ruleOfThreeResult,
   RULE_OF_THREE_LIMIT,
+  RULE_OF_THREE_MIN_WORDS,
   validateQuotationExceptions,
   type SlopQuotationException,
 } from '@/lib/no-slop';
@@ -170,6 +171,51 @@ describe('rule-of-three density (VAL-BUILD-007)', () => {
     expect(ruleOfThreeDensity(triads)).toBeGreaterThan(ruleOfThreeDensity(plain));
     expect(ruleOfThreeDensity(triads)).toBeGreaterThan(RULE_OF_THREE_LIMIT);
     expect(ruleOfThreeDensity(plain)).toBeLessThan(RULE_OF_THREE_LIMIT);
+  });
+});
+
+describe('rule-of-three floor boundary: exact 99 and 100 words', () => {
+  // The floor is a hard cutoff at RULE_OF_THREE_MIN_WORDS. 99 words is
+  // reported informationally and its density is never used for pass or
+  // fail; 100 words is measured and the limit applies. An off-by-one at
+  // the threshold silently covers or uncovers a page, so both exact word
+  // counts are pinned, including a 99-word body whose TRUE density sits
+  // above the limit: that page must still pass.
+  const triadSentence = 'It covers arms, legs, and hands for planners.'; // 8 words, 1 triad
+  const fillers = (n: number) =>
+    Array.from({ length: n }, (_, i) => `filler${String(i).padStart(3, '0')}`).join(' ');
+  const bodyOf = (fillerCount: number) =>
+    `${Array.from({ length: 3 }, () => triadSentence).join(' ')} ${fillers(fillerCount)}`;
+
+  it('99 words with 3 triads is sub-floor: reported informationally, never failed', () => {
+    const result = ruleOfThreeResult(bodyOf(75)); // 3 x 8 + 75 = 99 words
+    expect(result.words).toBe(99);
+    expect(result.subFloor).toBe(true);
+    expect(result.measured).toBe(false);
+    expect(result.density).toBeCloseTo((3 / 99) * 1000, 1); // true ratio, ~30.3
+    expect(result.density).toBeGreaterThan(RULE_OF_THREE_LIMIT);
+    expect(ruleOfThreeDensity(bodyOf(75))).toBe(0); // the gate must not fail it
+  });
+
+  it('100 words with 3 triads is measured: density counts and the limit fails', () => {
+    const result = ruleOfThreeResult(bodyOf(76)); // 3 x 8 + 76 = 100 words
+    expect(result.words).toBe(100);
+    expect(result.subFloor).toBe(false);
+    expect(result.measured).toBe(true);
+    expect(result.density).toBeCloseTo(30, 1); // exactly (3 / 100) x 1000
+    expect(ruleOfThreeDensity(bodyOf(76))).toBeGreaterThan(RULE_OF_THREE_LIMIT);
+  });
+
+  it('100 clean words are measured and pass, not merely measured-dirty', () => {
+    const result = ruleOfThreeResult(fillers(100));
+    expect(result.words).toBe(100);
+    expect(result.measured).toBe(true);
+    expect(ruleOfThreeDensity(fillers(100))).toBe(0);
+  });
+
+  it('pins the floor and limit the boundary is defined against', () => {
+    expect(RULE_OF_THREE_MIN_WORDS).toBe(100);
+    expect(RULE_OF_THREE_LIMIT).toBe(22);
   });
 });
 

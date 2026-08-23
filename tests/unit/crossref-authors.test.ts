@@ -289,12 +289,18 @@ describe('isDocumentedDivergence (author-scoped entries mask exactly one positio
   });
 
   // The 2026-08-20 over-masking defect: an exception without authorIndex
-  // muted its class for EVERY author position on the id, so a planted
-  // "Petra Svestka" at the unprotected position 2 of kavraki-1996 (the
-  // registry keeps the printed initial "P.") survived a green sweep.
-  // (Historically the plant target was author 4 of albu-schaffer-2003;
-  // that position gained a scoped expansion exception on 2026-08-23 and
-  // a plant there no longer bites.)
+  // muted its class for EVERY author position on the id, and under the
+  // then-blanket albu-schaffer-2003 entry a planted wrong expansion,
+  // "Gustav Hirzinger" at author 4, survived a green sweep (that position
+  // gained a legitimate "Gerd Hirzinger" expansion on 2026-08-23, so a
+  // plant there no longer bites). The CURRENT red-phase plant target is
+  // kavraki-1996 author 2 ("Petra Svestka" planted where the registry
+  // keeps the printed initial form "P. Švestka"; the id's only exception
+  // is scoped to authorIndex 1). That target is itself DBLP-expandable
+  // to "Petr Svestka" (already transcribed in the kavraki-1996 entry's
+  // verified field), so a legitimate expansion landing there must move
+  // the target and update all three comment sites (exceptions header,
+  // lib/crossref-authors.ts, this file).
   // A blanket-style entry must mask NO position: the exceptions file
   // rejects it outright (crossrefAuthorExceptionProblems), and even if one
   // is present the matcher must not treat it as a wildcard.

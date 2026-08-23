@@ -8,14 +8,25 @@
  * SCOPING RULE (binding since 2026-08-20): an author-scoped entry (skip
  * 'author' or 'author-expansion') must name the 1-based authorIndex of the
  * ONE position it covers, and the sweep rejects the whole file otherwise.
- * The earlier version treated a missing authorIndex as a wildcard that
- * muted its class for every author position on the id, which is how a
- * planted "Petra Svestka" at the unprotected position 2 of kavraki-1996
- * (the registry keeps Crossref's printed initial "P." there) survived a
- * green run. That position, not albu-schaffer-2003 author 4, is the
- * current red-phase plant target: author 4 of albu-schaffer-2003 gained
- * its own scoped expansion exception on 2026-08-23 ("Gerd Hirzinger"),
- * so a plant there no longer bites. Position-less author
+ * The rule comes from a real incident, recorded here as history: on
+ * 2026-08-20 the earlier version treated a missing authorIndex as a
+ * wildcard that muted its class for every author position on the id, and
+ * under the then-blanket albu-schaffer-2003 entry a planted wrong
+ * expansion, "Gustav Hirzinger" at author 4, survived a green run (fixed
+ * the same day; that position later gained a legitimate "Gerd Hirzinger"
+ * expansion on 2026-08-23, so a plant there no longer bites). The current
+ * red-phase plant target is a separate, deliberately unprotected
+ * position, and naming it is forward-looking instruction, not history:
+ * author 2 of kavraki-1996, where the registry keeps Crossref's printed
+ * initial form "P. Švestka" and the id's only exception is scoped to
+ * authorIndex 1. Plant a wrong expansion there (e.g. "Petra Svestka")
+ * and the sweep must exit 1. The current target is itself
+ * DBLP-expandable: the kavraki-1996 entry's verified field already
+ * transcribes the full byline "Petr Svestka", so a future
+ * byline-expansion feature legitimately landing there must move the
+ * plant target to another unprotected position and update all three
+ * comment sites (this header, lib/crossref-authors.ts,
+ * tests/unit/crossref-authors.test.ts). Position-less author
  * divergences (an author-count mismatch, or a DOI whose Crossref record
  * carries no personal authors) use their own skip values, 'author-count'
  * and 'no-authors', which take no authorIndex.

@@ -393,10 +393,16 @@ export function isDocumentedDivergence(
       // malformed by crossrefAuthorExceptionProblems), so it can never act
       // as a wildcard. Before 2026-08-20 a missing authorIndex muted the
       // entry's class for every author position on the id, which is how a
-      // planted wrong name at an unprotected position survived a green
-      // sweep. Red-phase plant target for this gate: author 2 of
-      // kavraki-1996 ("Petra Svestka" planted where the registry keeps
-      // the printed initial "P."); see the exceptions file header.
+      // planted wrong expansion, "Gustav Hirzinger" at author 4 of
+      // albu-schaffer-2003, survived a green sweep (the incident record
+      // lives in the exceptions file header). Red-phase plant target for
+      // this gate: author 2 of kavraki-1996 ("Petra Svestka" planted
+      // where the registry keeps the printed initial form "P. Švestka";
+      // the id's only exception is scoped to authorIndex 1). The current
+      // target is itself DBLP-expandable to "Petr Svestka", so a
+      // legitimate expansion landing there must move the target and
+      // update all three comment sites (exceptions header, this file,
+      // the unit tests).
       case 'author':
         return (
           (divergence.kind === 'author-mismatch' || divergence.kind === 'author-expansion') &&
