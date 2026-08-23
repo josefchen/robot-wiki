@@ -308,18 +308,34 @@ test.describe('design chrome discipline', () => {
       const scs = getComputedStyle(scrim);
       const sr = scrim.getBoundingClientRect();
       // The scrim's separation is its background alpha, which must parse
-      // to exactly 0.8 (80%). An opacity property would also dim, so
-      // both channels are captured; the contract names the background
-      // alpha (bg-bg/80), so the parsed rgba alpha is authoritative.
-      const m = scs.backgroundColor.match(/rgba?\(([^)]+)\)/);
-      const parts = m ? m[1].split(',').map((s) => parseFloat(s)) : [];
+      // to exactly 0.8 (80%). Tailwind 4 compiles bg-bg/80 to
+      // color-mix(in oklab, ... 80%), and the computed value resolves
+      // through several notations (rgba, color(srgb r g b / a),
+      // color-mix with a resolved ratio), so every channel is captured
+      // and the alpha is extracted from whichever notation appears.
+      const bg = scs.backgroundColor;
+      let scrimAlpha = 1;
+      const rgba = bg.match(/rgba?\(([^)]+)\)/);
+      if (rgba) {
+        const parts = rgba[1].split(',').map((s) => parseFloat(s));
+        if (parts.length === 4) scrimAlpha = parts[3];
+      } else {
+        const fnAlpha = bg.match(/\/\s*([\d.]+)%?\s*\)/);
+        if (fnAlpha) {
+          scrimAlpha = parseFloat(fnAlpha[1]);
+          if (bg.match(/\/\s*[\d.]+%\s*\)/)) scrimAlpha /= 100;
+        } else {
+          const mix = bg.match(/color-mix\([^)]*?\s([\d.]+)%\s*\)/);
+          if (mix) scrimAlpha = parseFloat(mix[1]) / 100;
+        }
+      }
       return {
         left: pcs.borderLeftWidth,
         right: pcs.borderRightWidth,
         boxShadow: pcs.boxShadow,
         bg: pcs.backgroundColor,
-        scrimBg: scs.backgroundColor,
-        scrimAlpha: parts.length === 4 ? parts[3] : 1,
+        scrimBg: bg,
+        scrimAlpha,
         scrimOpacity: parseFloat(scs.opacity),
         coverage: (sr.width * sr.height) / (innerWidth * innerHeight),
       };
