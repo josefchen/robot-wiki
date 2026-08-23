@@ -19,6 +19,7 @@
  */
 import { join } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { publishedModules } from '../data/modules.ts';
 import { countVisibleWords, readingTimeMinutes } from '../lib/reading-time.ts';
@@ -31,36 +32,56 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-const articles = publishedModules();
-if (articles.length === 0) fail('no published modules found');
+/**
+ * Measure the reading time of every published article from the static
+ * export in out/. Pure with respect to the export: the same out/ tree
+ * always measures to the same record, which is what makes the build-time
+ * determinism gate (scripts/check-reading-times.ts) meaningful.
+ */
+export function measureExport(): Record<string, { words: number; minutes: number }> {
+  const articles = publishedModules();
+  if (articles.length === 0) fail('no published modules found');
 
-const record: Record<string, { words: number; minutes: number }> = {};
+  const record: Record<string, { words: number; minutes: number }> = {};
 
-for (const m of articles) {
-  const htmlPath = join(outDir, m.domain, m.slug, 'index.html');
-  let html: string;
-  try {
-    html = readFileSync(htmlPath, 'utf8');
-  } catch {
-    fail(`missing prerendered page for ${m.domain}/${m.slug} at ${htmlPath}`);
+  for (const m of articles) {
+    const htmlPath = join(outDir, m.domain, m.slug, 'index.html');
+    let html: string;
+    try {
+      html = readFileSync(htmlPath, 'utf8');
+    } catch {
+      fail(`missing prerendered page for ${m.domain}/${m.slug} at ${htmlPath}`);
+    }
+
+    const doc = new JSDOM(html).window.document;
+    const prose = doc.querySelector('article .prose');
+    if (!prose) fail(`no <article .prose> region found in ${htmlPath}`);
+
+    const words = countVisibleWords(prose.innerHTML);
+    if (words === 0) fail(`rendered .prose is empty in ${htmlPath}`);
+    const minutes = readingTimeMinutes(words);
+
+    record[`${m.domain}/${m.slug}`] = { words, minutes };
+    console.log(
+      `measure:reading-times: ${m.domain}/${m.slug} → ${minutes} min (${words} words)`,
+    );
   }
-
-  const doc = new JSDOM(html).window.document;
-  const prose = doc.querySelector('article .prose');
-  if (!prose) fail(`no <article .prose> region found in ${htmlPath}`);
-
-  const words = countVisibleWords(prose.innerHTML);
-  if (words === 0) fail(`rendered .prose is empty in ${htmlPath}`);
-  const minutes = readingTimeMinutes(words);
-
-  record[`${m.domain}/${m.slug}`] = { words, minutes };
-  console.log(
-    `measure:reading-times: ${m.domain}/${m.slug} → ${minutes} min (${words} words)`,
-  );
+  return record;
 }
 
-const outPath = join(root, 'data', 'reading-times.json');
-writeFileSync(outPath, `${JSON.stringify(record, null, 2)}\n`, 'utf8');
-console.log(
-  `measure:reading-times: OK (${articles.length} articles → ${outPath})`,
-);
+// Only write the file when run as the CLI, not when imported (the
+// determinism gate imports measureExport and must not rewrite the file
+// it is verifying).
+const invokedAsCli =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedAsCli) {
+  const record = measureExport();
+
+  const outPath = join(root, 'data', 'reading-times.json');
+  writeFileSync(outPath, `${JSON.stringify(record, null, 2)}\n`, 'utf8');
+  console.log(
+    `measure:reading-times: OK (${Object.keys(record).length} articles → ${outPath})`,
+  );
+}

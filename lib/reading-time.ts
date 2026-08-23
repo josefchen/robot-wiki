@@ -415,6 +415,45 @@ export function readingTimeMinutes(wordCount: number): number {
   return Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
 }
 
+/** One article's measured entry in data/reading-times.json. */
+export interface ReadingTimeEntry {
+  words: number;
+  minutes: number;
+}
+
+/**
+ * Compare a recorded reading-time file against a fresh measurement and
+ * return one human-readable finding per disagreement (drifted word or
+ * minute counts, entries missing on either side). Empty means the two
+ * records agree. This is the pure logic behind the build-time
+ * reading-times gate (scripts/check-reading-times.ts): when the export
+ * re-measures to different values than the file the build renders from,
+ * the disagreement must be loud and named per article, never a silent
+ * rewrite of a tracked file. Findings are sorted by article id so the
+ * output is stable across runs.
+ */
+export function diffReadingTimeRecords(
+  recorded: Record<string, ReadingTimeEntry>,
+  measured: Record<string, ReadingTimeEntry>,
+): string[] {
+  const findings: string[] = [];
+  const ids = new Set([...Object.keys(recorded), ...Object.keys(measured)]);
+  for (const id of ids) {
+    const r = recorded[id];
+    const m = measured[id];
+    if (r === undefined) {
+      findings.push(`${id}: measured but not recorded (${m?.words} words)`);
+    } else if (m === undefined) {
+      findings.push(`${id}: recorded but not measured (${r.words} words)`);
+    } else if (r.words !== m.words || r.minutes !== m.minutes) {
+      findings.push(
+        `${id}: recorded ${r.words} words / ${r.minutes} minutes, measured ${m.words} words / ${m.minutes} minutes`,
+      );
+    }
+  }
+  return findings.sort();
+}
+
 /**
  * Word count of the authored prose in an MDX body (frontmatter already
  * stripped). This is only the FALLBACK used when data/reading-times.json

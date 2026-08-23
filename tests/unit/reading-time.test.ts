@@ -3,6 +3,7 @@ import katex from 'katex';
 import {
   WORDS_PER_MINUTE,
   countVisibleWords,
+  diffReadingTimeRecords,
   countWordsInMdxSource,
   readingTimeMinutes,
 } from '@/lib/reading-time';
@@ -288,3 +289,52 @@ describe('countWordsInMdxSource', () => {
 });
 
 
+
+describe('diffReadingTimeRecords', () => {
+  it('reports nothing for identical records', () => {
+    const record = {
+      'manipulation/pi-line': { words: 2761, minutes: 14 },
+    };
+    expect(diffReadingTimeRecords(record, record)).toEqual([]);
+  });
+
+  it('names the article and both values when the word count drifted', () => {
+    const findings = diffReadingTimeRecords(
+      { 'manipulation/rl-finetuning': { words: 2110, minutes: 11 } },
+      { 'manipulation/rl-finetuning': { words: 2107, minutes: 11 } },
+    );
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toContain('manipulation/rl-finetuning');
+    expect(findings[0]).toContain('2110');
+    expect(findings[0]).toContain('2107');
+  });
+
+  it('reports a minute-only drift', () => {
+    const findings = diffReadingTimeRecords(
+      { 'classical/control': { words: 3273, minutes: 16 } },
+      { 'classical/control': { words: 3273, minutes: 17 } },
+    );
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toContain('minutes');
+  });
+
+  it('reports an entry present only in the measured record', () => {
+    const findings = diffReadingTimeRecords(
+      {},
+      { 'frontier/new-article': { words: 900, minutes: 5 } },
+    );
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toContain('frontier/new-article');
+    expect(findings[0]).toContain('measured but not recorded');
+  });
+
+  it('reports an entry present only in the recorded file', () => {
+    const findings = diffReadingTimeRecords(
+      { 'adjacent/retired-article': { words: 900, minutes: 5 } },
+      {},
+    );
+    expect(findings).toHaveLength(1);
+    expect(findings[0]).toContain('adjacent/retired-article');
+    expect(findings[0]).toContain('recorded but not measured');
+  });
+});

@@ -9,7 +9,7 @@
     "dev": "next dev -p 3200",
     "prebuild": "npm run validate:content",
     "build": "next build && node scripts/measure-reading-times.ts && next build",
-    "postbuild": "node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts && node scripts/lint-no-slop.ts && node scripts/generate-og-cards.ts",
+    "postbuild": "node scripts/check-reading-times.ts && node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts && node scripts/lint-no-slop.ts && node scripts/generate-og-cards.ts",
     "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
     "typecheck": "next typegen && tsc --noEmit",
     "prelint": "node scripts/postinstall.mjs",
@@ -24,6 +24,7 @@
     "regen:nav": "node scripts/regen-nav-fixture.ts",
     "check:links": "node scripts/check-citation-links.ts",
     "check:citations": "node scripts/check-citations.ts",
+    "check:reading-times": "node scripts/check-reading-times.ts",
     "check:crossref-authors": "node scripts/check-crossref-authors.ts",
     "check:dataset-sources": "node scripts/check-dataset-sources.ts",
     "postinstall": "node scripts/postinstall.mjs"
