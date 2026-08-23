@@ -62,7 +62,12 @@ test.describe('frontier bear-case module', () => {
         )
         .first(),
     ).toBeVisible();
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip
+    // deleted its 20 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(10);
     expect(await main.getByText(/missing citation:/).count()).toBe(0);
     expect(await main.getByText(/unknown term:/).count()).toBe(0);

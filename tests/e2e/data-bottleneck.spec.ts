@@ -81,7 +81,12 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(
       main.getByRole('link', { name: /Zheng 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.16710');
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip
+    // deleted its 13 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(13);
   });
 

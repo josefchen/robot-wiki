@@ -58,7 +58,12 @@ test.describe('frontier competing-theses module', () => {
     await expect(
       main.getByRole('link', { name: 'Xiao 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2606.19980');
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip
+    // deleted its 21 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     expect(await main.getByText(/missing citation:/).count()).toBe(0);
     expect(await main.getByText(/unknown term:/).count()).toBe(0);
