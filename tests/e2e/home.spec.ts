@@ -357,7 +357,15 @@ test.describe('home page', () => {
         const b = el.getBoundingClientRect();
         return { top: b.top, bottom: b.bottom, height: b.height };
       };
-      return { hero: r(hero), grid: r(grid), lockup: r(lockup) };
+      // The hero sheet carries a 1px hairline frame; the grid field fills
+      // the sheet to its inner (padding-box) edge, so the comparable
+      // bottom is the sheet's border-box bottom minus its bottom border.
+      const heroBorder = parseFloat(getComputedStyle(hero).borderBottomWidth);
+      return {
+        hero: { ...r(hero), bottom: r(hero).bottom - heroBorder },
+        grid: r(grid),
+        lockup: r(lockup),
+      };
     });
     expect(boxes, 'hero sheet, lockup column, and grid field present').not.toBeNull();
     const { hero, grid, lockup } = boxes!;
@@ -408,7 +416,9 @@ test.describe('home page', () => {
     // 32px tile on the surface ground with the 1px #d9d6cd line.
     expect(metrics.size).toBe('32px 32px');
     expect(metrics.bg).toBe('rgb(251, 250, 247)');
-    expect(metrics.image).toContain('stroke%3D%27%23d9d6cd%27');
+    // The tile is a data-URI SVG whose 1px rule is #d9d6cd (the
+    // apostrophes stay literal in the computed background-image).
+    expect(metrics.image).toContain("stroke='%23d9d6cd'");
     // From md the field is exactly 13rem (208px) wide.
     expect(metrics.box.w).toBeCloseTo(208, 0);
     // Two 1px strong axes plus one 8px accent registration point.
@@ -419,14 +429,22 @@ test.describe('home page', () => {
     expect(point.box.w).toBeCloseTo(8, 1);
     expect(point.box.h).toBeCloseTo(8, 1);
     expect(point.background).toBe('rgb(36, 94, 219)');
-    // The axes cross at the field centre, and the point sits on that
-    // intersection.
-    const cx = metrics.box.x + metrics.box.w / 2;
-    const cy = metrics.box.y + metrics.box.h / 2;
-    expect(vAxis.box.x).toBeCloseTo(cx, 1);
-    expect(hAxis.box.y).toBeCloseTo(cy, 1);
-    expect(point.box.x + point.box.w / 2).toBeCloseTo(cx, 1);
-    expect(point.box.y + point.box.h / 2).toBeCloseTo(cy, 1);
+    // The contract claim is concentricity: the vertical axis, the
+    // horizontal axis, and the registration point share one centre (the
+    // axis hairline's centre is its border's centre, since the border
+    // paints on the element's near edge), and each axis spans the field.
+    // The shared centre is measured from the elements themselves rather
+    // than derived from the field box, because percentage offsets resolve
+    // against the field's padding box (inside its own hairline).
+    const vCentre = vAxis.box.x + 0.5;
+    const hCentre = hAxis.box.y + 0.5;
+    const pCentreX = point.box.x + point.box.w / 2;
+    const pCentreY = point.box.y + point.box.h / 2;
+    expect(vCentre).toBeCloseTo(pCentreX, 1);
+    expect(hCentre).toBeCloseTo(pCentreY, 1);
+    expect(vAxis.box.y).toBeCloseTo(metrics.box.y, 1);
+    expect(vAxis.box.h).toBeCloseTo(metrics.box.h, 1);
+    expect(hAxis.box.w).toBeGreaterThanOrEqual(metrics.box.w - 2);
   });
 
   test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ page }) => {

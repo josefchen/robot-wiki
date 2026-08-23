@@ -74,8 +74,8 @@ export default function Home() {
             aria-hidden="true"
             className="engineering-grid relative min-h-20 border-t border-border md:min-h-full md:border-l md:border-t-0"
           >
-            <span className="absolute left-1/2 top-0 h-full border-l border-border-strong" />
-            <span className="absolute left-0 top-1/2 w-full border-t border-border-strong" />
+            <span className="absolute left-1/2 top-0 h-full -translate-x-1/2 border-l border-border-strong" />
+            <span className="absolute left-0 top-1/2 w-full -translate-y-1/2 border-t border-border-strong" />
             <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent" />
           </div>
         </div>
