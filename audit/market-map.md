@@ -890,3 +890,77 @@ record was not touched (sibling feature owns its status). Timeline rows
 corrected off the fabricated figure; mind-robotics enters on its
 confirmed valuation), aka entries 26 → 27 (SwitchBot's listed entity).
 Every moved oracle carries a cause comment at its assertion.
+
+## Funding-round source pointers (2026-08-24)
+
+The timeline now cites the source attached to `latestRound.sourceUrl` when
+present. The `sources` arrays remain in append order, so the company card's
+freshness date and the audit trail do not move. Each replacement below was
+read in this session with the browser user agent from
+`lib/citation-links.ts`. No amount, valuation, date, status, or record count
+changed.
+
+| Record | Previously cited source | Round source now cited | Supporting sentence from the fetched body |
+|---|---|---|---|
+| spirit-ai | `Spirit AI raises $290M Series A + $145M extension` (Crunchbase) | `Spirit AI's Spirit v1.6 Tops RoboArena` (StackFutures) | “Spirit AI announced the RoboArena result alongside a 1.5 billion yuan ($222 million) Series A+ financing on June 3 — its fourth round in three months.” |
+| tars-robotics | `TARS Robotics raises $513M seed` (Crunchbase) | `China's TARS AI Raises $455M in Embodied Intelligence Round` (Ola China) | “On April 16, 2026, the company announced the completion of a $455 million Pre-A round — the largest single-round and the largest Pre-A round in China's embodied intelligence history.” |
+| carbon-robotics | `Carbon Robotics Raises $70 Million Series D` (Business Wire, 2024) | `Carbon Robotics raises $20M as LaserWeeder maker plans secretive new 'AI robot' for farms` (GeekWire) | “Seattle agriculture-tech startup Carbon Robotics raised $20 million in new funding to support the creation of another piece of AI-powered machinery for farms.” The same body calls it a “Series D-2 extension round” and is dated October 23, 2025. |
+| standard-bots | `Standard Bots raises $63M` (first-party Series B) | `Standard Bots raises $200 million Series C at $1 billion valuation` (Robotics 24/7) | “New York-based AI-native, industrial robotics manufacturer Standard Bots announced a $200 million Series C led by RoboStrategy and existing investors. The funding positions the company at a $1 billion valuation.” |
+| limx-dynamics | `LimX Dynamics raises $200 million in Series B` (TechNode, February 2026) | `LimX Dynamics $200M Pre-IPO Financing` (36Kr) | “36Kr has learned that LimX Dynamics, a general-purpose humanoid robotics company, has announced the completion of its Pre-IPO funding round, raising nearly $200 million.” The numeric fields remain null because “nearly” is a bound, not an exact value. |
+| unitree-robotics | `China robot maker Unitree files for $610 million Shanghai IPO` (Rest of World) | `Chinese humanoid robot maker Unitree prices IPO at $9 billion valuation` (CNBC/Reuters) | “China's Unitree has priced its Shanghai initial public offering at 150.8 yuan ($22.34) per share, valuing the company at around 61 billion yuan ($9.04 billion)”; the next sentence says it was “seeking to raise 6.1 billion yuan.” The recorded $904M is the 6.1B-yuan raise converted at the article's own stated exchange-rate basis. |
+
+### Re-derivation finding that blocks a seventh pointer
+
+`nimble-robotics` is another timeline row whose first source does not support
+the displayed round. The FedEx page states only that FedEx made a strategic
+investment and gives no amount. The two remaining sources both state a $106M
+Series C at a **$1B valuation**, while the record holds **$1.1B**:
+
+- The Robot Report: “Nimble announced the successful closure of a $106
+  million Series C funding round, bringing its valuation to $1 billion.”
+- Pulse 2.0: “Nimble ... announced the closing of a $106 million Series C
+  funding round, elevating the company to a $1 billion valuation.”
+
+No source on the record supports $1.1B. This pass does not change that figure
+or attach a misleading pointer. The valuation needs a separate evidence pass
+and may need correction or nulling before the timeline can cite a round source
+honestly.
+
+### Dataset invariance transcript
+
+The comparison removed every `sources` array and every
+`latestRound.sourceUrl` field from both the working dataset and the `HEAD`
+dataset before comparing them:
+
+```text
+stripped_payload_cmp_exit=0
+source_arrays_cmp_exit=0
+records=111
+sources=249
+roundPointers=6
+timelineEligible=71
+```
+
+Exit 0 on both comparisons means the remaining dataset payload is
+byte-identical after normalized JSON serialization, and every source array is
+byte-identical to `HEAD`. The timeline event count remains 71.
+
+### Gate mutation proof
+
+A temporary `unitree-robotics` pointer to
+`https://example.com/not-a-unitree-source` produced:
+
+```text
+validate:content: FAILED (1 issue(s))
+  data/companies.ts: unitree-robotics: latestRound.sourceUrl https://example.com/not-a-unitree-source is not present in sources[]
+```
+
+After restoring the exact pre-plant file:
+
+```text
+validate:content: OK (47 registry modules, 47 published, 412 citations, 119 terms, 118 images, 111 companies)
+```
+
+This check lives in `validate:content`, not `check:dataset-sources`, because
+same-record membership is deterministic offline data integrity and should
+fail every build. The network sweep remains responsible for URL liveness.

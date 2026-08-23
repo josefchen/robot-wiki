@@ -35,6 +35,12 @@ export const fundingRoundSchema = z.object({
   date: isoDateSchema.nullable(),
   valuationUsd: z.number().positive().nullable(),
   leadInvestors: z.array(z.string().min(1)),
+  /**
+   * URL of the company source that supports this round. sources[0] is only
+   * the earliest append-ordered provenance entry, so it is not a safe proxy
+   * after a later audit appends a corrected or more specific source.
+   */
+  sourceUrl: httpsUrlSchema.optional(),
 });
 
 /** Market-map company entry (data/companies.ts, 111 rows from research/04). */

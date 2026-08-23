@@ -1193,6 +1193,7 @@ const ROWS: Company[] = [
       date: '2026-08-06',
       valuationUsd: 9040000000,
       leadInvestors: [],
+      sourceUrl: 'https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html',
     },
     status: 'public',
     deployments: [
@@ -1639,6 +1640,7 @@ const ROWS: Company[] = [
       date: '2026-06-03',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
     },
     status: 'private',
     deployments: [],
@@ -1860,6 +1862,7 @@ const ROWS: Company[] = [
         'Hillhouse Capital',
         'HSG',
       ],
+      sourceUrl: 'https://olachina.org/tars-ai/',
     },
     status: 'private',
     deployments: [],
@@ -2063,6 +2066,7 @@ const ROWS: Company[] = [
       date: '2026-07-14',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://eu.36kr.com/en/p/3893976502287618',
     },
     status: 'private',
     deployments: [],
@@ -2836,6 +2840,7 @@ const ROWS: Company[] = [
       leadInvestors: [
         'NVIDIA NVentures',
       ],
+      sourceUrl: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
     },
     status: 'private',
     deployments: [
@@ -3408,6 +3413,7 @@ const ROWS: Company[] = [
       date: '2026-06-10',
       valuationUsd: 1000000000,
       leadInvestors: [],
+      sourceUrl: 'https://www.robotics247.com/article/standard-bots-raises-200-million-series-c-at-1-billion-valuation',
     },
     status: 'private',
     deployments: [],

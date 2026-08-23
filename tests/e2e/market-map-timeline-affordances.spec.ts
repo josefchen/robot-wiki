@@ -185,6 +185,57 @@ test.describe('timeline view roving keyboard affordances', () => {
     ).toContainText('$5.6B');
   });
 
+  test('corrected round figures cite their explicit supporting sources', async ({
+    page,
+  }) => {
+    await openTimeline(page);
+
+    // The audit appended corrected sources without reordering sources[].
+    // These rows therefore pin the explicit round pointer rather than the
+    // historical first source, which can describe a superseded round.
+    const expected = [
+      {
+        id: 'spirit-ai',
+        href: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
+        title: '1.5B yuan / $222M',
+      },
+      {
+        id: 'tars-robotics',
+        href: 'https://olachina.org/tars-ai/',
+        title: "China's TARS AI Raises $455M",
+      },
+      {
+        id: 'carbon-robotics',
+        href: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
+        title: 'Carbon Robotics raises $20M',
+      },
+      {
+        id: 'standard-bots',
+        href: 'https://www.robotics247.com/article/standard-bots-raises-200-million-series-c-at-1-billion-valuation',
+        title: 'Standard Bots raises $200 million Series C',
+      },
+      {
+        id: 'limx-dynamics',
+        href: 'https://eu.36kr.com/en/p/3893976502287618',
+        title: 'LimX Dynamics $200M Pre-IPO Financing',
+      },
+      {
+        id: 'unitree-robotics',
+        href: 'https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html',
+        title: 'prices IPO at $9 billion valuation',
+      },
+    ];
+
+    for (const source of expected) {
+      await page
+        .locator(`[data-company-id="${source.id}"] > button`)
+        .click();
+      const link = page.locator('[data-timeline-detail] a');
+      await expect(link).toHaveAttribute('href', source.href);
+      await expect(link).toContainText(source.title);
+    }
+  });
+
   test('deep link still scrolls to and highlights the hashed row', async ({
     page,
   }) => {

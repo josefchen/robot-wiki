@@ -452,7 +452,9 @@ export function timelineEvents(
     const round = company.latestRound;
     if (!round?.date) continue;
     if (round.date < '2023-01-01' || round.date > '2026-12-31') continue;
-    const source = company.sources[0];
+    const source = round.sourceUrl
+      ? company.sources.find((candidate) => candidate.url === round.sourceUrl)
+      : company.sources[0];
     if (!source) continue;
     events.push({
       id: `${company.id}-${round.date}`,

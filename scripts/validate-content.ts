@@ -14,6 +14,7 @@ import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
+import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
 
 const root = join(import.meta.dirname, '..');
 
@@ -110,6 +111,18 @@ for (const company of COMPANIES) {
     }
     seen.add(source.url);
   }
+}
+
+// A funding round may explicitly name the source that backs its displayed
+// figure, but the pointer must stay inside that company's own provenance
+// list. This belongs in validate:content rather than the network liveness
+// sweep because membership is deterministic, offline schema hygiene and
+// must fail every build, not only an on-demand URL check.
+for (const message of roundSourceMembershipIssues(COMPANIES)) {
+  issues.push({
+    file: 'data/companies.ts',
+    message,
+  });
 }
 
 if (issues.length > 0) {
