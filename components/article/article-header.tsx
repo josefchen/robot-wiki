@@ -58,20 +58,20 @@ export function ArticleHeader({
             data-header-last-reviewed={lastReviewed}
             className="col-span-2 border-l border-border-strong pl-3 sm:col-span-1 sm:pl-4"
           >
-            <dt className="text-[10px] uppercase tracking-[0.14em]">Last reviewed</dt>
+            <dt className="text-[10px]">Last reviewed</dt>
             <dd className="mt-0.5 text-text">
               <time dateTime={lastReviewed}>{formatLongDate(lastReviewed)}</time>
             </dd>
           </div>
         ) : null}
         <div className="mt-3 border-l border-border-strong pl-3 sm:mt-0 sm:pl-4">
-          <dt className="text-[10px] uppercase tracking-[0.14em]">Reading time</dt>
+          <dt className="text-[10px]">Reading time</dt>
           <dd data-header-reading-minutes={readingTimeMinutes} className="mt-0.5 text-text">
             {`${readingTimeMinutes} min`}
           </dd>
         </div>
         <div className="mt-3 border-l border-border-strong pl-3 sm:mt-0 sm:pl-4">
-          <dt className="text-[10px] uppercase tracking-[0.14em]">Citations</dt>
+          <dt className="text-[10px]">Citations</dt>
           <dd data-header-citation-count={citationCount} className="mt-0.5 text-text">
             {citationCount}
           </dd>
