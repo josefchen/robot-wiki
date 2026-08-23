@@ -1,6 +1,7 @@
 import { chromium, expect, test, type Browser } from '@playwright/test';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { closeBrowserAndStopServer } from './static-spec-teardown';
 
 /**
  * Search placeholder fit (VAL-DESIGN-023), measured on the shipped artifact
@@ -78,8 +79,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-  await browser?.close();
-  await server?.stop();
+  await closeBrowserAndStopServer(browser, server);
 });
 
 async function measure(

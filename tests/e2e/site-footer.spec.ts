@@ -144,8 +144,12 @@ test.describe('crawler view (the exported HTML)', () => {
   test('every published route: one footer, exact author meta, repo and profile links inside it', () => {
     const routes = publishedRouteSet();
     // Sanity floor: the sitemap-derived set is the full published route
-    // set (47 articles + 14 non-article destinations), not a stub.
-    expect(routes.length).toBeGreaterThan(50);
+    // set (every published article plus the fixed non-article
+    // destinations), not a stub. The floor is derived from the module
+    // registry, the single source of truth for the article count (it
+    // moves with every publish: 42 -> 43 -> 47 as of 2026-08-23), so a
+    // publish cannot leave this bound stale.
+    expect(routes.length).toBeGreaterThan(publishedModules().length);
     for (const route of routes) {
       const html = readFileSync(htmlPath(route), 'utf8');
       expect(

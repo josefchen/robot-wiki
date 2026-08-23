@@ -14,12 +14,13 @@
  * KaTeX_Typewriter (a dependency we already ship) for the mono labels;
  * text is sanitized to the fonts' coverage by sanitizeCardText.
  *
- * Byte-distinctness (VAL-DIST-003) holds structurally: every card's
- * diagram geometry is seeded from the hash of its domain/slug and the
- * card carries its own title, reference count and review year; the
- * generator additionally verifies the produced set by hash and fails
- * the build on any collision, so a future edit cannot silently
- * reintroduce a repeated canvas.
+ * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
+ * panel artwork is one constant ornament per domain chosen by a literal
+ * table (lib/og-card-artwork.ts has no Rng and no hashString), so
+ * distinctness rests on each card's TEXT (title, domain, reference count,
+ * review year), not on varied geometry. The generator additionally
+ * verifies the produced set by hash and fails the build on any collision,
+ * so a future edit cannot silently reintroduce a repeated canvas.
  *
  * Reference counts and review years come from the article MDX
  * frontmatter (citations list and lastReviewed) via the same helpers

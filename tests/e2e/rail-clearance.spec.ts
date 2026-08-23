@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { closeBrowserAndStopServer } from './static-spec-teardown';
 
 /**
  * Rail clearance and wide-surface geometry (VAL-DESIGN-024 through
@@ -304,8 +305,7 @@ test.beforeAll(async ({ browser }) => {
 });
 
 test.afterAll(async () => {
-  await classicBrowser?.close();
-  await server?.stop();
+  await closeBrowserAndStopServer(classicBrowser, server);
 });
 
 test.describe('rail clearance and wide-surface geometry', () => {
