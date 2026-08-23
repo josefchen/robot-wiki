@@ -16,27 +16,27 @@
     "minutes": 9
   },
   "manipulation/pi-line": {
-    "words": 2691,
-    "minutes": 13
+    "words": 2761,
+    "minutes": 14
   },
   "manipulation/generalist-policies": {
     "words": 1768,
     "minutes": 9
   },
   "manipulation/comparison-matrix": {
-    "words": 1421,
+    "words": 1431,
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1613,
+    "words": 1629,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
-    "words": 2129,
+    "words": 2144,
     "minutes": 11
   },
   "manipulation/realtime-execution": {
-    "words": 1923,
+    "words": 1954,
     "minutes": 10
   },
   "manipulation/cross-embodiment": {
@@ -52,7 +52,7 @@
     "minutes": 14
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1239,
+    "words": 1276,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -116,7 +116,7 @@
     "minutes": 9
   },
   "data-hardware/industrial-deployment": {
-    "words": 2054,
+    "words": 2065,
     "minutes": 10
   },
   "classical/kinematics": {
@@ -132,11 +132,11 @@
     "minutes": 16
   },
   "classical/state-estimation": {
-    "words": 2436,
+    "words": 2471,
     "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 2111,
+    "words": 2133,
     "minutes": 11
   },
   "classical/perception": {
@@ -152,7 +152,7 @@
     "minutes": 9
   },
   "frontier/dexterity": {
-    "words": 2162,
+    "words": 2207,
     "minutes": 11
   },
   "frontier/generalization": {
@@ -164,7 +164,7 @@
     "minutes": 13
   },
   "frontier/bear-case": {
-    "words": 1861,
+    "words": 1887,
     "minutes": 9
   },
   "frontier/safety-and-assurance": {
