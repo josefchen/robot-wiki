@@ -17,13 +17,13 @@ const variantLabel: Record<CalloutVariant, string> = {
 
 const borderColor: Record<CalloutVariant, string> = {
   info: 'border-l-border-strong',
-  warn: 'border-l-accent',
+  warn: 'border-l-warn',
   error: 'border-l-err',
 };
 
 const titleColor: Record<CalloutVariant, string> = {
   info: 'text-text',
-  warn: 'text-accent',
+  warn: 'text-warn',
   error: 'text-err',
 };
 

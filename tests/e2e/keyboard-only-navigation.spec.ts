@@ -8,7 +8,7 @@ import { expect, test } from '@playwright/test';
  * module specs and the shared setSlider helper; this spec pins the
  * global path: skip link reachability, section toggles as buttons,
  * module links reachable by Tab, Enter activation, and the visible focus
- * outline (>= 1px, the pine global outline) on the focused stops.
+ * outline (the locked 2px signal-blue global outline) on the focused stops.
  */
 
 test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
@@ -26,12 +26,13 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     });
     await expect(skipLink).toBeFocused();
 
-    // Focus outline is visibly painted on the focused stop.
+    // Focus outline is visibly painted on the focused stop: the locked
+    // 2px global ring, not merely any visible outline.
     const outlineWidth = await page.evaluate(() => {
       const active = document.activeElement as HTMLElement;
       return parseFloat(getComputedStyle(active).outlineWidth);
     });
-    expect(outlineWidth).toBeGreaterThanOrEqual(1);
+    expect(outlineWidth).toBe(2);
 
     // Move focus into the sidebar taxonomy. The section toggles are
     // buttons (Enter toggles them) and the module links are links.
@@ -98,11 +99,11 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     const after = await slider.evaluate((el) => (el as HTMLInputElement).value);
     expect(after).not.toBe(before);
 
-    // Focus is visibly painted on the slider too.
+    // Focus is visibly painted on the slider too, at the locked 2px.
     const sliderOutline = await page.evaluate(() => {
       const active = document.activeElement as HTMLElement;
       return parseFloat(getComputedStyle(active).outlineWidth);
     });
-    expect(sliderOutline).toBeGreaterThanOrEqual(1);
+    expect(sliderOutline).toBe(2);
   });
 });

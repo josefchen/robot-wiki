@@ -114,8 +114,13 @@ test.describe('frontier dexterity module', () => {
       main.getByRole('link', { name: 'Macefield 2022' }).first(),
     ).toHaveAttribute('href', 'https://doi.org/10.1113/JP282846');
 
-    // At least five inline citation chips, all external.
-    const chips = main.locator('a[href^="https://"]');
+    // At least five inline citation chips, all external. Scoped to the
+    // authored prose: the generated References bibliography also renders
+    // external links inside main, and with every inline chip deleted its
+    // 24 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     expect(await main.getByText(/missing citation:/).count()).toBe(0);
     expect(await main.getByText(/unknown term:/).count()).toBe(0);

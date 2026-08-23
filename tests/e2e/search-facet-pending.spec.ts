@@ -33,6 +33,25 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
+/**
+ * The fake clock is installed at a FIXED epoch, never at Date.now(), so
+ * every later clock operation is relative to a constant both sides agree
+ * on. This removes the full-suite race at its root (history: 41793aa
+ * replaced a Node-wall-clock pauseAt target with a target read from the
+ * page, which narrowed the window but left a race, because between the
+ * read and the pauseAt the loaded machine's clock controller can
+ * fast-forward fake time past the target, and pauseAt then throws
+ * "Cannot fast-forward to the past"; observed in full runs 795/1 and
+ * never standalone). The pause target below is the fixed epoch plus a
+ * margin far larger than any fake time the first phase can accumulate:
+ * fake time only advances while the clock runs, the phase's own timers
+ * are a 200ms debounce plus search settling, and PAUSE_MARGIN_MS is ten
+ * minutes. There is nothing left to read, so there is nothing left to
+ * race.
+ */
+const CLOCK_EPOCH = Date.parse('2024-12-10T08:00:00');
+const PAUSE_MARGIN_MS = 10 * 60 * 1000;
+
 async function waitForSettled(page: Page) {
   await expect(page.getByRole('status').first()).not.toHaveText(/searching/i, {
     timeout: 15_000,
@@ -43,10 +62,8 @@ test.describe('structured facet bar during search transitions', () => {
   test('facet bar is inert and dimmed while resolving, enabled once results land', async ({
     page,
   }) => {
-    await page.clock.install();
+    await page.clock.install({ time: CLOCK_EPOCH });
     await page.goto(`${BASE}/search`);
-    // Make sure the fake clock is running so the first query can settle.
-    await page.clock.resume();
 
     const box = page.getByRole('searchbox', { name: 'Search the wiki' });
     await box.pressSequentially('open', { delay: 15 });
@@ -59,17 +76,10 @@ test.describe('structured facet bar during search transitions', () => {
 
     // Freeze time and keep typing: the debounce keeps resetting and can
     // never fire, so the page is pinned in the searching state with the
-    // previous query's rows still on screen. The pause target is read
-    // from the fake clock itself, never from Node's wall clock: under
-    // full-suite load the clock controller fast-forwards through the
-    // debounce timers until fake time is AHEAD of real time, and
-    // pauseAt(new Date()) then tries to fast-forward to the past and
-    // throws (observed twice in full detached runs, deterministic pass
-    // in isolation; reproduced by installing the clock ahead of the
-    // wall clock).
-    await page.clock.pauseAt(
-      new Date(await page.evaluate(() => Date.now())),
-    );
+    // previous query's rows still on screen. The target is a constant
+    // offset from the fixed install epoch (see CLOCK_EPOCH above), so it
+    // is always strictly in the fake clock's future.
+    await page.clock.pauseAt(new Date(CLOCK_EPOCH + PAUSE_MARGIN_MS));
     await box.pressSequentially('source', { delay: 15 });
 
     await expect(page.getByRole('status').first()).toHaveText(/Searching for/);

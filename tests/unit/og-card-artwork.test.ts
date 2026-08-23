@@ -3,24 +3,23 @@ import { DOMAINS } from '@/data/domains';
 import { ornamentFor } from '@/lib/og-card-artwork';
 
 /**
- * The panel ornament is selected by the article's `domain` field alone,
- * so it is a constant across a domain and encodes nothing about the
- * article (VAL-IMG-015; the drawing-level checks live in
+ * The panel is the same engineering grid for every card, so it encodes
+ * nothing about the article or its domain (VAL-IMG-015; drawing-level checks live in
  * og-card-diagram-honesty.test.ts).
  */
-describe('ornament selection', () => {
-  it('assigns an ornament to every registered domain', () => {
+describe('grid selection', () => {
+  it('assigns the shared grid to every registered domain', () => {
     for (const domain of DOMAINS) {
-      expect(ornamentFor(domain)).toBeTypeOf('string');
+      expect(ornamentFor(domain)).toBe('grid');
     }
   });
 
-  it('depends on the domain and nothing else', () => {
+  it('is stable across domains because it is identity, not a glyph set', () => {
     expect(ornamentFor('classical')).toBe(ornamentFor('classical'));
-    expect(ornamentFor('manipulation')).not.toBe(ornamentFor('classical'));
+    expect(ornamentFor('manipulation')).toBe(ornamentFor('classical'));
   });
 
-  it('falls back to a real ornament for an unregistered domain', () => {
+  it('uses the same grid for an unregistered domain', () => {
     expect(ornamentFor('not-a-domain')).toBe(ornamentFor('manipulation'));
   });
 });

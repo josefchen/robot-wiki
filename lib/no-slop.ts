@@ -349,13 +349,63 @@ export function findBannedVocabulary(
  * Rule-of-three padding density (humanizer §10): count "X, Y, and Z"
  * enumerations per 1000 words of prose. Dense triads are an AI cadence
  * marker; the threshold allows ordinary technical enumeration.
+ *
+ * The measurement floor is 100 words, not the historical 200. The 200-word
+ * floor silently reported every shorter page as density 0, conflating
+ * "measured and clean" with "not measured" (the /data-hardware/ and
+ * /world-models/ landing pages carried true densities of 46 and 42 at 195
+ * words and passed invisibly until unrelated footer copy pushed them over
+ * the floor). 100 words keeps the same statistical reasoning at a scale a
+ * short page can actually reach: at 100 words the limit of 22 per 1000
+ * requires 3 triads to fail, so a 40-word page with two triads (density
+ * 50 by raw ratio) still cannot fail - the denominator-noise false
+ * positive the floor exists to prevent stays prevented. Below 100 words
+ * the density is still computed but the page is reported as sub-floor
+ * informationally (see ruleOfThreeResult), never silently zero.
  */
-export function ruleOfThreeDensity(body: string): number {
+export const RULE_OF_THREE_MIN_WORDS = 100;
+
+/** Outcome of the rule-of-three measurement for one body of prose. */
+export interface RuleOfThreeResult {
+  /** Masked prose word count the measurement ran over. */
+  words: number;
+  /** Triads per 1000 words, computed whenever words > 0 (never a silent 0). */
+  density: number;
+  /** True when words meet the measurement floor and the limit applies. */
+  measured: boolean;
+  /** True when words > 0 but below the floor: informational, not passing. */
+  subFloor: boolean;
+}
+
+/**
+ * Measure rule-of-three density and make the measured / not-measured
+ * distinction legible. `density` is the true ratio for any non-empty body;
+ * `measured` says whether the gate's failure threshold applies; `subFloor`
+ * marks a body too short for the threshold to be meaningful, which the
+ * runner reports informationally instead of scoring it as a clean zero.
+ */
+export function ruleOfThreeResult(body: string): RuleOfThreeResult {
   const masked = maskNonProse(body);
   const words = masked.split(/\s+/).filter((w) => w.length > 0).length;
-  if (words < 200) return 0;
   const triads = masked.match(/\b[^,.;:]+,\s+[^,.;:]+,\s+and\s+[^,.;:]+/gi);
-  return ((triads?.length ?? 0) / words) * 1000;
+  const density = words > 0 ? ((triads?.length ?? 0) / words) * 1000 : 0;
+  return {
+    words,
+    density,
+    measured: words >= RULE_OF_THREE_MIN_WORDS,
+    subFloor: words > 0 && words < RULE_OF_THREE_MIN_WORDS,
+  };
+}
+
+/**
+ * Rule-of-three density for threshold comparison. Returns the true ratio at
+ * or above the measurement floor, and 0 below it where the ratio is noise;
+ * callers that need to see short pages must use ruleOfThreeResult, which
+ * never conflates "not measured" with "measured and clean".
+ */
+export function ruleOfThreeDensity(body: string): number {
+  const { density, measured } = ruleOfThreeResult(body);
+  return measured ? density : 0;
 }
 
 /** Density threshold for the rule-of-three check (triads per 1000 words). */

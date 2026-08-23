@@ -56,7 +56,11 @@ test.describe('sim2real-transfer module', () => {
     await expect(
       main.getByRole('link', { name: /He 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2502.01143');
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(10);
   });
 

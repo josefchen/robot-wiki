@@ -44,7 +44,12 @@ test.describe('bc-foundations module', () => {
     const main = page.locator('#main-content');
     const dagger = main.getByRole('link', { name: /Ross 2011/ }).first();
     await expect(dagger).toHaveAttribute('href', 'https://arxiv.org/abs/1011.0686');
-    const chips = main.locator('a[href^="https://arxiv.org/abs/"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders arxiv links inside main, and with every inline chip
+    // deleted its 4 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://arxiv.org/abs/"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(3);
   });
 

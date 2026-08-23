@@ -55,7 +55,7 @@ Code as Policies (2022) replaced skill selection with code generation. The LLM w
 
 The 2024 line of work kept the separate-planner structure but changed the interface. Instead of picking a skill or writing control code, the model emits a geometric quantity that a classical controller consumes. Three papers define the space:
 
-- **MOKA** annotates the observed image with candidate marks and asks the VLM to select grasp keypoints, function keypoints, and target keypoints, then converts the selected points into a motion. The trick is that free-form manipulation becomes a visual question-answering problem, which the VLM is already good at <Cite id="moka-2024" />.
+- **MOKA** annotates the observed image with candidate marks and asks the VLM to select grasp keypoints, function keypoints, and target keypoints, then converts the selected points into a motion. The trick is that free-form manipulation becomes a visual question-answering problem, which the VLM is already good at, with the [perception pipeline](/classical/perception) supplying the calibrated cameras, detection, and 6-DoF pose the marks ride on <Cite id="moka-2024" />.
 - **ReKep** has the VLM write Python functions over sets of semantic keypoints that evaluate to a numerical cost; a solver then optimizes robot actions subject to those constraints, across space and time. This is the most classical-robotics design of the three: the VLM specifies the optimization problem, not the motion <Cite id="rekep-2024" />.
 - **RoboPoint** fine-tunes a VLM specifically to predict spatial affordance points, trained on synthetic point-annotation data rather than real robot rollouts, and reports a 21.8% gain in affordance-prediction accuracy over GPT-4o with visual prompting <Cite id="robopoint-2024" />.
 

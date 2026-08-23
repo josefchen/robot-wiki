@@ -45,7 +45,13 @@ test.describe('data-hardware datasets module', () => {
       'href',
       'https://huggingface.co/datasets/agibot-world/AgiBotWorld2026',
     );
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main (8 registry anchors here),
+    // so a main-scoped count partly grades the registry rather than the
+    // inline chips this clause names.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
   });
 

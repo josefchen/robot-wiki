@@ -6300,10 +6300,10 @@ export const CITATIONS: Citation[] = [
     id: 'albu-schaffer-2003',
     title: 'Decoupling Based Cartesian Impedance Control of Flexible Joint Robots',
     // Crossref prints initials for all four (C., A., A., G.); the DBLP
-    // record for the DOI (read 2026-08-20) transcribes the first three in
-    // full (Christian Ott, Alin Albu-Schäffer, Andreas Kugi); Hirzinger
-    // keeps the printed initial.
-    authors: ['Christian Ott', 'Alin Albu-Schäffer', 'Andreas Kugi', 'G. Hirzinger'],
+    // record for the DOI (conf/icra/OttAKH03, read 2026-08-23) transcribes
+    // all four in full (Christian Ott, Alin Albu-Schäffer, Andreas Kugi,
+    // Gerd Hirzinger), so the registry follows the fuller byline.
+    authors: ['Christian Ott', 'Alin Albu-Schäffer', 'Andreas Kugi', 'Gerd Hirzinger'],
     year: 2003,
     venue: 'IEEE Int. Conf. Robotics and Automation',
     url: 'https://doi.org/10.1109/ROBOT.2003.1242067',

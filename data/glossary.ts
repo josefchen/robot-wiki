@@ -836,6 +836,20 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
       'How often an automated system needs a human to touch it: the fraction of cycles that end in a jam, mispick, or fault requiring attention, or equivalently one minus the per-cycle success rate. The economics of the rate are set by the intervention time, not the rate alone: a 1 percent intervention rate cleared in seconds is cheaper per pick than a 0.1 percent rate that stops the line for an hour, which is why deployed systems are engineered around cheap recovery rather than perfect autonomy.',
     citations: ['goldberg-data-gap-2025'],
   },
+  {
+    id: 'predicted-horizon',
+    term: 'predicted horizon',
+    definition:
+      'The number of future actions a chunked policy emits in one inference, the chunk length H. The policy predicts that many actions in a single forward pass whether or not it will execute them all: π0 predicts 50 actions, one second at 50 Hz, and Diffusion Policy predicts 16. What a reader of a results table needs alongside that number is how many of the predicted actions the system actually runs, which is the committed horizon.',
+    citations: ['pi0-2024', 'diffusion-policy-2023'],
+  },
+  {
+    id: 'committed-horizon',
+    term: 'committed horizon',
+    definition:
+      'The number of predicted actions a system actually executes before a fresh inference replaces them. Diffusion Policy predicts 16 steps and commits 8; π0.7 predicts 50 and commits 15 to 25; original π0, executing synchronously, committed the whole chunk. Real-Time Chunking freezes the first d actions of each new chunk to the values already in flight, which is what lets the committed horizon stay shorter than the predicted one without a pause between chunks.',
+    citations: ['diffusion-policy-2023', 'pi07-2026', 'real-time-chunking-2025'],
+  },
 ];
 
 const BY_ID = new Map(GLOSSARY.map((term) => [term.id, term]));

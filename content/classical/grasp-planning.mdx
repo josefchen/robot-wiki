@@ -26,7 +26,7 @@ seeAlso:
 
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
 
-Every act of manipulation ends the same way: some part of the robot touches some part of the world, and the physics of that interface decides what happens next. [Kinematics](/classical/kinematics) can place the fingers and [motion planning](/classical/motion-planning) can route the arm, but once the fingers close, the question is mechanical. Will this hold, or will the object slip? Grasp planning is the discipline that answers that question from geometry: where to put the contacts, how hard to squeeze, and how to know before lifting that the grasp will survive the task.
+Every act of manipulation ends the same way: some part of the robot touches some part of the world, and the physics of that interface decides what happens next. [Kinematics](/classical/kinematics) can place the fingers and [motion planning](/classical/motion-planning) can route the arm, and [perception](/classical/perception) is what hands this module the known object pose in the robot's frame that every wrench computation below starts from. But once the fingers close, the question is mechanical. Will this hold, or will the object slip? Grasp planning is the discipline that answers that question from geometry: where to put the contacts, how hard to squeeze, and how to know before lifting that the grasp will survive the task.
 
 The answer turns out to be a convex polytope. Map everything the contacts can do into a space of forces and moments, take a convex hull, and ask whether the origin sits inside it. That one geometric fact, force closure, organizes most of classical grasp theory, and the distance from the origin to the hull's boundary became the field's standard quality metric.
 

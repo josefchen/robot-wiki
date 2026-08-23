@@ -252,7 +252,7 @@ export function HierarchyTimescales({
       </svg>
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
-        green ticks: updates fired at or before the playhead. dim ticks:
+        blue ticks: updates fired at or before the playhead. dim ticks:
         pending. Rates tagged (schematic) are not stated in the primary
         source.
       </p>
@@ -262,7 +262,7 @@ export function HierarchyTimescales({
         className="mt-3"
         form="state"
         summary="Current timescale playhead"
-        description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the ${fastest.rate} ${fastest.label} lane ticks ${ratioText} times per ${slowest.periodMs} ms ${slowest.label} update.`}
+        description={`${system.name} by ${system.org} at playhead ${playhead} ms of ${HORIZON_MS} ms has ${system.lanes.length} timescale lanes with ${updatesFired} ${updatesFired === 1 ? 'update' : 'updates'} fired; the ${fastest.rate}${fastest.disclosed ? '' : ' (schematic)'} ${fastest.label} lane ticks ${ratioText} times${fastest.disclosed && slowest.disclosed ? '' : ' (schematic)'} per ${slowest.rate}${slowest.disclosed ? '' : ' (schematic)'} ${slowest.label} update.`}
         states={[
           { label: 'system', value: system.name },
           { label: 'playhead', value: `${playhead} ms` },

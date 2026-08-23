@@ -301,7 +301,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
               </g>
             ))}
 
-            {/* Value trace: full trace dim, elapsed portion green. */}
+            {/* Value trace: full trace dim, elapsed portion in signal blue. */}
             <line
               x1={LEFT}
               x2={WIDTH - RIGHT_PAD}
@@ -375,8 +375,9 @@ export function AdvantageScrubber({ className }: { className?: string }) {
 
           <p className="mt-1 font-mono text-[10px] text-text-dim">
             green outline: value rises, high advantage. red outline: value
-            falls, low advantage. trace shape is illustrative, after the
-            Recap portafilter example.
+            falls, low advantage. the elapsed value trace is signal blue.
+            trace shape is illustrative, after the Recap portafilter
+            example.
           </p>
 
           <p className="mt-3 font-mono text-xs text-text">

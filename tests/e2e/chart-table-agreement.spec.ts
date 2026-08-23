@@ -276,21 +276,30 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // population=27 pass=5 skip=22 fail=0: 16 of the 22 carve-outs were
   // parse failures, not non-comparable axes. After the repair the same
   // walk measures population=27 pass=21 skip=6 fail=0; the 6 honest
-  // carve-outs are the two realtime-execution ms-vs-model-size axes, the
+  // carve-outs were the two realtime-execution ms-vs-model-size axes, the
   // ms-vs-tick-index panel, the two categorical data-bottleneck axes and
-  // the label-less kalman chart. The floor sits at 21 - 4 = 17 so one
-  // chart drifting into skip fails loudly, and the skip CAP keeps a
-  // future mass carve-out from passing silently (before the repair,
-  // nothing stopped aFails from being empty because the comparability
-  // predicate ate the failures). Re-measured after the cyclic-wrap
-  // exemption was deleted and the gait table moved to the quarter-cycle
-  // tick grid (gait passes by exact endpoint match): population=27
-  // pass=21 skip=6 fail=0, unchanged, because the gait chart moved from
-  // exemption-pass to exact-pass, not from pass to skip.
+  // the label-less kalman chart. The floor sits at measured-pass - 4 so
+  // chart drift into skip fails loudly, and the skip CAP keeps a future
+  // mass carve-out from passing silently (before the repair, nothing
+  // stopped aFails from being empty because the comparability predicate
+  // ate the failures). Re-measured after the cyclic-wrap exemption was
+  // deleted and the gait table moved to the quarter-cycle tick grid (gait
+  // passes by exact endpoint match): population=27 pass=21 skip=6 fail=0,
+  // unchanged, because the gait chart moved from exemption-pass to
+  // exact-pass, not from pass to skip. Re-measured after the kalman
+  // chart gained x tick labels spanning its plotted window
+  // (kalman-chart-x-axis-tick-labels): population=28 pass=22 skip=6
+  // fail=0. The kalman chart moved from label-less skip to exact-endpoint
+  // pass; the skip count held at 6 because SampleEfficiencyLedger (the
+  // chart that made the population 28) has an honest non-comparable axis
+  // of the categorical-rows family. The 6 carve-outs: the two
+  // realtime-execution ms-vs-model-size axes, the ms-vs-tick-index panel,
+  // the SampleEfficiencyLedger categorical-source-rows axis, and the two
+  // categorical data-bottleneck axes.
   expect(
     aGraded.length,
-    'clause (a) graded population (measured 21 of 27 after the tick-extractor repair; 17 leaves margin for one honest new carve-out)',
-  ).toBeGreaterThanOrEqual(17);
+    'clause (a) graded population (measured 22 of 28 after the kalman chart gained x tick labels; 18 leaves margin for honest new carve-outs)',
+  ).toBeGreaterThanOrEqual(18);
   expect(
     aSkips.length,
     'clause (a) skip count (measured 6 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently)',

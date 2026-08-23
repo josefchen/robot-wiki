@@ -57,7 +57,11 @@ test.describe('why-rl-locomotion module', () => {
     await expect(
       main.getByRole('link', { name: /Rudin 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2109.11978');
-    const chips = main.locator('a[href^="https://arxiv.org/abs/"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders arxiv links inside main, and with every inline chip deleted its 6 registry arxiv anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://arxiv.org/abs/"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
   });
 
