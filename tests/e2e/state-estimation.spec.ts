@@ -385,6 +385,58 @@ test.describe('classical state-estimation module', () => {
     await context.close();
   });
 
+  test('x-axis tick labels span the plotted window and agree with the sampled table (VAL-EDU-023 clause (a))', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const scene = page.getByTestId('kalman-scene');
+    // The bottom tick row: numeric texts below the plot frame (the
+    // y-axis labels all sit above y=340 in the 640x372 viewBox).
+    const ticks = () =>
+      scene.evaluate((svg: SVGElement) =>
+        Array.from(svg.querySelectorAll('text'))
+          .filter((t) => parseFloat(t.getAttribute('y') ?? '0') > 340)
+          .filter((t) => /^-?\d+$/.test((t.textContent ?? '').trim()))
+          .sort(
+            (a, b) =>
+              parseFloat(a.getAttribute('x') ?? '0') -
+              parseFloat(b.getAttribute('x') ?? '0'),
+          )
+          .map((t) => (t.textContent ?? '').trim()),
+      );
+    // First and last th of the chart's sampled table.
+    const tableEndLabels = () =>
+      page.evaluate(() => {
+        const rows = document.querySelectorAll(
+          'details[data-chart-data][data-chart-form="table"] tbody tr',
+        );
+        return [
+          rows[0]?.querySelector('th')?.textContent?.trim() ?? '',
+          rows[rows.length - 1]?.querySelector('th')?.textContent?.trim() ?? '',
+        ];
+      });
+
+    // Opening state: the plotted range is steps 0 through 60 and the
+    // table samples exactly that range, so endpoint ticks and endpoint
+    // rows agree.
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '60 / 600',
+    );
+    expect(await ticks()).toEqual(['0', '30', '60']);
+    expect(await tableEndLabels()).toEqual(['0', '60']);
+    // The axis carries a unit note naming the row-axis quantity.
+    await expect(scene.getByText('steps')).toBeVisible();
+
+    // Past the 120-step window the frame slides: the endpoint ticks
+    // still carry the plotted range the table samples.
+    await advanceSteps(page, 60);
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '120 / 600',
+    );
+    expect(await ticks()).toEqual(['1', '61', '120']);
+    expect(await tableEndLabels()).toEqual(['1', '120']);
+  });
+
   test('the noise labels render sigma glyphs, not uppercased lookalikes', async ({
     page,
   }) => {

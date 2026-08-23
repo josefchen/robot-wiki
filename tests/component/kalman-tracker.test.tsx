@@ -279,6 +279,36 @@ describe('KalmanTracker', () => {
     );
   });
 
+  it('renders x-axis tick labels spanning the plotted window (VAL-EDU-023 clause (a))', () => {
+    render(<KalmanTracker />);
+    const scene = screen.getByTestId('kalman-scene');
+    // The tick row sits at the x-tick baseline (PLOT.bottom + 16 = 352 in
+    // the 640x372 viewBox); the y-axis labels all sit at x = 36 above it.
+    const tickRow = () =>
+      Array.from(scene.querySelectorAll('text'))
+        .filter((t) => t.getAttribute('y') === '352')
+        .sort(
+          (a, b) =>
+            parseFloat(a.getAttribute('x') ?? '0') -
+            parseFloat(b.getAttribute('x') ?? '0'),
+        )
+        .map((t) => t.textContent);
+    // Opening state: the plotted range is steps 0 through 60, so the
+    // endpoint ticks carry the same x-values as the sampled table's
+    // first and last row.
+    expect(tickRow()).toEqual(['0', '30', '60']);
+    // The unit note names the row-axis quantity below the tick row.
+    expect(
+      Array.from(scene.querySelectorAll('text')).some(
+        (t) =>
+          t.textContent === 'steps' && t.getAttribute('y') === '366',
+      ),
+    ).toBe(true);
+    // Stepping advances the endpoint tick with the plotted range.
+    fireEvent.click(screen.getByRole('button', { name: /step the tracker/i }));
+    expect(tickRow()).toEqual(['0', '31', '61']);
+  });
+
   it('announces the tracker readout in a polite live region (VAL-EDU-038)', () => {
     render(<KalmanTracker />);
     const live = screen.getByTestId('kalman-step-readout').closest('[aria-live]');
