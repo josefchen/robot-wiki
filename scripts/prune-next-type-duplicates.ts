@@ -7,7 +7,11 @@
  * there breaks `npm run typecheck` with duplicate declarations (observed
  * 2026-08-07, and again at session start on 2026-08-11 and 2026-08-14),
  * and `next typegen` rewrites its own files without removing the ghosts,
- * so the sweep runs as the `pretypecheck` npm hook, before typegen. A
+ * so the sweep runs as the `pretypecheck` npm hook, before typegen. It
+ * runs as `prebuild` for the same reason: `next build` regenerates
+ * .next/types itself but never touches .next/dev/types, which its type
+ * check still reads, so a ghost in the dev dir fails `npm run build`
+ * with a duplicate-identifier error (measured 2026-08-23). A
  * no-op when .next does not exist yet (fresh clone).
  *
  * Pure decision logic lives in lib/sync-duplicates.ts for unit testing;
