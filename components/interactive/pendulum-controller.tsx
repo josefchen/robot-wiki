@@ -115,6 +115,20 @@ export function PendulumController({
     setGains((g) => ({ ...g, kp: defaultKp }));
   }
   const [playing, setPlaying] = useState(false);
+  // Reduced motion tracked reactively, not read once at play time. A
+  // one-shot read can go stale before or during playback (the setting
+  // can land after hydration, or change mid-run), and a cadence captured
+  // from it would keep animating smoothly under prefers-reduced-motion
+  // for the rest of the playback with nothing to correct it.
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
   const [run, setRun] = useState<{
     sim: PendulumState;
     history: PendulumState[];
@@ -128,12 +142,15 @@ export function PendulumController({
 
   // Interval playback: each tick advances the sim by the cadence's fixed
   // slice of simulated time. Deterministic because advancePendulum steps
-  // fixed PHYSICS_DT substeps regardless of tick size. Cleanup on pause
-  // or unmount.
+  // fixed PHYSICS_DT substeps regardless of tick size. The cadence
+  // combines the tracked state with a fresh read at timer start, and the
+  // tracked state sits in the deps so a mid-playback media change
+  // rebuilds the timer at the correct cadence. Cleanup on pause or
+  // unmount.
   useEffect(() => {
     if (!playing) return;
     const { tickMs, simSecondsPerTick } = playbackCadence(
-      prefersReducedMotion(),
+      reducedMotion || prefersReducedMotion(),
     );
     const timer = window.setInterval(() => {
       setRun((prev) => {
@@ -149,7 +166,7 @@ export function PendulumController({
       });
     }, tickMs);
     return () => window.clearInterval(timer);
-  }, [playing]);
+  }, [playing, reducedMotion]);
 
   const { sim, history } = run;
   const started = sim.t > 0;
@@ -422,7 +439,20 @@ export function PendulumController({
         description={
           defaultKp === DEFAULT_GAINS.kp
             ? `${gainsAtDefault ? 'Default gains' : 'Retuned gains'} Kp ${gains.kp.toFixed(1)}, Ki ${gains.ki.toFixed(1)} and Kd ${gains.kd.toFixed(1)} leave the lab pole ${status} at ${formatDeg(sim.theta)} degrees with torque ${torque.toFixed(1)} N·m; angle and status ${playing ? 'update on every playback tick' : 'stay frozen until Run or Push'}.`
-            : `The prediction-step pole starts at Kp ${gains.kp.toFixed(1)}, under the 9.81 mgl hold threshold, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
+            : // The threshold clause branches on the live Kp against
+              // PENDULUM_PARAMS.gravity (with massKg = lengthM = 1 the
+              // mgl hold threshold equals g): a Kp dragged past the
+              // threshold must not be described as under it. "starts at"
+              // holds only while the reader has not moved the mount's
+              // own initial gain. The load-state sentence (Kp 9.5 on the
+              // control page) is byte-identical to the pre-branch text.
+              `The prediction-step pole ${
+                gains.kp === defaultKp ? 'starts at' : 'now sits at'
+              } Kp ${gains.kp.toFixed(1)}, ${
+                gains.kp < PENDULUM_PARAMS.gravity
+                  ? `under the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold`
+                  : `above the ${PENDULUM_PARAMS.gravity.toFixed(2)} mgl hold threshold where the loop can hold it`
+              }, still ${formatDeg(sim.theta)} degrees off upright and ${status} so the prompt can be answered before playback.`
         }
         states={[
           { label: 'Kp', value: gains.kp.toFixed(1) },

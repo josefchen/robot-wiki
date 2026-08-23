@@ -2,7 +2,12 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { PendulumController } from '@/components/interactive/pendulum-controller';
-import { DEFAULT_GAINS } from '@/lib/pendulum';
+import { DEFAULT_GAINS, PENDULUM_PARAMS } from '@/lib/pendulum';
+
+/** Escape a literal string for embedding in a RegExp. */
+function esc(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 function mockReducedMotion(matches: boolean) {
   window.matchMedia = vi.fn().mockImplementation((query: string) => ({
@@ -15,6 +20,37 @@ function mockReducedMotion(matches: boolean) {
     onchange: null,
     dispatchEvent: () => false,
   })) as unknown as typeof window.matchMedia;
+}
+
+/**
+ * A matchMedia mock whose `matches` can flip mid-test, delivering the
+ * change event to every registered listener the way a real media query
+ * does. Proves the component TRACKS the setting instead of reading it
+ * once at timer start.
+ */
+function mockReducedMotionLive(initial: boolean) {
+  let matches = initial;
+  const listeners: Array<(event: { matches: boolean }) => void> = [];
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    get matches() {
+      return matches;
+    },
+    media: query,
+    addEventListener: (_type: string, handler: unknown) => {
+      listeners.push(handler as (event: { matches: boolean }) => void);
+    },
+    removeEventListener: () => {},
+    addListener: () => {},
+    removeListener: () => {},
+    onchange: null,
+    dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+  return {
+    setMatches(next: boolean) {
+      matches = next;
+      for (const listener of listeners) listener({ matches: next });
+    },
+  };
 }
 
 function angleText() {
@@ -230,6 +266,85 @@ describe('PendulumController', () => {
     expect(screen.getByTestId('pendulum-gain-kp-value')).toHaveTextContent(
       '25.0',
     );
+  });
+
+  it('derives the prediction-mount threshold clause from live Kp against PENDULUM_PARAMS.gravity', () => {
+    // The control page mounts the prediction step at 9.5, half a unit
+    // under the hold threshold. Every expectation below is computed from
+    // PENDULUM_PARAMS, never pinned: the threshold string, the step-
+    // aligned probe values on both sides, and the rendered clause all
+    // derive from the params module.
+    const { container } = render(<PendulumController defaultKp={9.5} />);
+    const read = () =>
+      container.querySelector('[data-chart-description]')?.textContent ?? '';
+    const threshold = PENDULUM_PARAMS.gravity.toFixed(2);
+    const kpSlider = () =>
+      screen.getByRole('slider', { name: /proportional gain kp/i });
+    // First slider step strictly above the threshold (steps are 0.5).
+    const above = Math.ceil((PENDULUM_PARAMS.gravity + 0.1) * 2) / 2;
+    // A step below the threshold that is NOT the mount's own default, so
+    // the return to the under-clause is attributed to the comparison and
+    // not to restoring the initial value.
+    const below = Math.floor(PENDULUM_PARAMS.gravity * 2) / 2 - 1;
+    expect(below).toBeLessThan(PENDULUM_PARAMS.gravity);
+    expect(above).toBeGreaterThan(PENDULUM_PARAMS.gravity);
+
+    // Load state: under the threshold, mount untouched.
+    expect(read()).toMatch(
+      new RegExp(`starts at Kp ${esc('9.5')}, under the ${esc(threshold)} mgl hold threshold`),
+    );
+
+    // Driven above the threshold: the direction must follow the live
+    // value, the threshold stays derived, and the pedagogical point
+    // (the threshold is the line where holding becomes possible) stays.
+    fireEvent.change(kpSlider(), { target: { value: String(above) } });
+    expect(read()).toMatch(
+      new RegExp(`Kp ${esc(above.toFixed(1))}, above the ${esc(threshold)} mgl hold threshold`),
+    );
+    expect(read()).toMatch(/where the loop can hold it/);
+    expect(read()).not.toMatch(/under the/);
+    // The mount no longer "starts" at the reader's own value.
+    expect(read()).not.toMatch(/starts at/);
+
+    // Back below the threshold: the clause follows the live value again.
+    fireEvent.change(kpSlider(), { target: { value: String(below) } });
+    expect(read()).toMatch(
+      new RegExp(`Kp ${esc(below.toFixed(1))}, under the ${esc(threshold)} mgl hold threshold`),
+    );
+    expect(read()).not.toMatch(/above the/);
+  });
+
+  it('tracks a mid-playback reduced-motion change instead of reading it once', () => {
+    vi.useFakeTimers();
+    const media = mockReducedMotionLive(false);
+    render(<PendulumController />);
+    fireEvent.click(
+      screen.getByRole('button', { name: /run the simulation/i }),
+    );
+    // Smooth cadence (33 ms ticks) has been advancing the pole.
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    const before = angleText();
+    expect(angleText()).not.toBe('+12.0°');
+    // The reader enables reduced motion mid-playback: the timer must
+    // rebuild at the coarse cadence (320 ms ticks), not keep the smooth
+    // cadence captured at Run time.
+    act(() => {
+      media.setMatches(true);
+    });
+    const frozen = angleText();
+    expect(frozen).toBe(before);
+    act(() => {
+      // Under the coarse cadence no tick falls inside 300 ms.
+      vi.advanceTimersByTime(300);
+    });
+    expect(angleText()).toBe(frozen);
+    act(() => {
+      // Crossing the 320 ms mark fires exactly one coarse tick.
+      vi.advanceTimersByTime(30);
+    });
+    expect(angleText()).not.toBe(frozen);
   });
 });
 
