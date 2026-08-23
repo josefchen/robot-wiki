@@ -10,8 +10,12 @@
  * ONE position it covers, and the sweep rejects the whole file otherwise.
  * The earlier version treated a missing authorIndex as a wildcard that
  * muted its class for every author position on the id, which is how a
- * planted "Gustav Hirzinger" at an unprotected position of
- * albu-schaffer-2003 survived a green run. Position-less author
+ * planted "Petra Svestka" at the unprotected position 2 of kavraki-1996
+ * (the registry keeps Crossref's printed initial "P." there) survived a
+ * green run. That position, not albu-schaffer-2003 author 4, is the
+ * current red-phase plant target: author 4 of albu-schaffer-2003 gained
+ * its own scoped expansion exception on 2026-08-23 ("Gerd Hirzinger"),
+ * so a plant there no longer bites. Position-less author
  * divergences (an author-count mismatch, or a DOI whose Crossref record
  * carries no personal authors) use their own skip values, 'author-count'
  * and 'no-authors', which take no authorIndex.
@@ -267,6 +271,15 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
       '"Andreas" matches the DBLP byline "Andreas Kugi" where Crossref prints "A.".',
     verified:
       'DBLP publication record for doi:10.1109/ROBOT.2003.1242067 (ICRA 2003) read 2026-08-20.',
+  },
+  {
+    id: 'albu-schaffer-2003',
+    skip: 'author-expansion',
+    authorIndex: 4,
+    reason:
+      '"Gerd" expands Crossref initial "G."; DBLP\u2019s publication record for the DOI transcribes the byline "Gerd Hirzinger" (author pid h/GerdHirzinger).',
+    verified:
+      'DBLP publication record for doi:10.1109/ROBOT.2003.1242067 (conf/icra/OttAKH03: Christian Ott 0001, Alin Albu-Sch\u00e4ffer, Andreas Kugi, Gerd Hirzinger) read 2026-08-23.',
   },
   {
     id: 'di-carlo-2018',

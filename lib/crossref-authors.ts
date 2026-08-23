@@ -394,7 +394,9 @@ export function isDocumentedDivergence(
       // as a wildcard. Before 2026-08-20 a missing authorIndex muted the
       // entry's class for every author position on the id, which is how a
       // planted wrong name at an unprotected position survived a green
-      // sweep.
+      // sweep. Red-phase plant target for this gate: author 2 of
+      // kavraki-1996 ("Petra Svestka" planted where the registry keeps
+      // the printed initial "P."); see the exceptions file header.
       case 'author':
         return (
           (divergence.kind === 'author-mismatch' || divergence.kind === 'author-expansion') &&

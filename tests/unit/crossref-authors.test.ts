@@ -290,7 +290,11 @@ describe('isDocumentedDivergence (author-scoped entries mask exactly one positio
 
   // The 2026-08-20 over-masking defect: an exception without authorIndex
   // muted its class for EVERY author position on the id, so a planted
-  // "Gustav Hirzinger" at an unprotected position survived a green sweep.
+  // "Petra Svestka" at the unprotected position 2 of kavraki-1996 (the
+  // registry keeps the printed initial "P.") survived a green sweep.
+  // (Historically the plant target was author 4 of albu-schaffer-2003;
+  // that position gained a scoped expansion exception on 2026-08-23 and
+  // a plant there no longer bites.)
   // A blanket-style entry must mask NO position: the exceptions file
   // rejects it outright (crossrefAuthorExceptionProblems), and even if one
   // is present the matcher must not treat it as a wildcard.
