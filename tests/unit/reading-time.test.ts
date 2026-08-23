@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import katex from 'katex';
 import {
   WORDS_PER_MINUTE,
+  classifyReadingTimeGate,
   countVisibleWords,
   diffReadingTimeRecords,
   countWordsInMdxSource,
@@ -336,5 +337,71 @@ describe('diffReadingTimeRecords', () => {
     expect(findings).toHaveLength(1);
     expect(findings[0]).toContain('adjacent/retired-article');
     expect(findings[0]).toContain('recorded but not measured');
+  });
+});
+
+describe('classifyReadingTimeGate', () => {
+  const truth = {
+    'manipulation/bc-foundations': { words: 1421, minutes: 7 },
+    'manipulation/pi-line': { words: 2761, minutes: 14 },
+  };
+
+  it('passes when the committed blob, working tree, and measurement agree', () => {
+    const report = classifyReadingTimeGate(truth, truth, truth);
+    expect(report.failed).toBe(false);
+    expect(report.determinismFindings).toEqual([]);
+    expect(report.staleCommitFindings).toEqual([]);
+    expect(report.articleCount).toBe(2);
+  });
+
+  it('classifies the 4d52d78 class as staleCommit only: committed stale, working tree correct', () => {
+    const committed = {
+      ...truth,
+      'manipulation/bc-foundations': { words: 1425, minutes: 7 },
+    };
+    const report = classifyReadingTimeGate(truth, committed, truth);
+    expect(report.failed).toBe(true);
+    expect(report.determinismFindings).toEqual([]);
+    expect(report.staleCommitFindings).toHaveLength(1);
+    expect(report.staleCommitFindings[0]).toContain('manipulation/bc-foundations');
+    expect(report.staleCommitFindings[0]).toContain('1425');
+    expect(report.staleCommitFindings[0]).toContain('1421');
+  });
+
+  it('classifies a pass1-vs-pass2 divergence as determinism only', () => {
+    // 06ebee2 shape: the committed file was already correct; the build's
+    // pass 1 wrote a value the pass-2 export does not re-measure to.
+    const written = {
+      ...truth,
+      'manipulation/pi-line': { words: 2107, minutes: 14 },
+    };
+    const report = classifyReadingTimeGate(written, truth, truth);
+    expect(report.failed).toBe(true);
+    expect(report.determinismFindings).toHaveLength(1);
+    expect(report.staleCommitFindings).toEqual([]);
+    expect(report.determinismFindings[0]).toContain('manipulation/pi-line');
+  });
+
+  it('reports both modes independently when both are wrong at once', () => {
+    const committed = {
+      ...truth,
+      'manipulation/bc-foundations': { words: 1425, minutes: 7 },
+    };
+    const written = {
+      ...truth,
+      'manipulation/pi-line': { words: 2107, minutes: 14 },
+    };
+    const report = classifyReadingTimeGate(written, committed, truth);
+    expect(report.failed).toBe(true);
+    expect(report.determinismFindings).toHaveLength(1);
+    expect(report.staleCommitFindings).toHaveLength(1);
+  });
+
+  it('skips the stale-commit mode when the file is not yet tracked in HEAD', () => {
+    // First ever commit of the file: the working tree is what will be
+    // committed, and it agrees with the export, so nothing may fail.
+    const report = classifyReadingTimeGate(truth, null, truth);
+    expect(report.failed).toBe(false);
+    expect(report.staleCommitFindings).toEqual([]);
   });
 });

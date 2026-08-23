@@ -455,6 +455,64 @@ export function diffReadingTimeRecords(
 }
 
 /**
+ * The two failure modes of the build-time reading-times gate, kept
+ * distinguishable because they call for opposite responses.
+ *
+ * - `determinism`: the working-tree file (what pass 1 wrote) disagrees
+ *   with a fresh measurement of the pass-2 export. Response: investigate
+ *   a non-deterministic export (stale Turbopack cache class, 06ebee2).
+ * - `staleCommit`: the git-COMMITTED file disagrees with a fresh
+ *   measurement, while the working-tree file agrees. The build itself
+ *   rewrote the file correctly, so nothing is corrupted; the committed
+ *   record is simply stale. Response: commit the regenerated
+ *   data/reading-times.json (the 4d52d78 class, where twelve articles
+ *   served stale counts because prose was committed without the file).
+ *
+ * Comparing against the committed blob rather than the working-tree file
+ * is what makes the second mode visible at all: `npm run build` runs
+ * `measure-reading-times` between its two `next build` passes, and that
+ * step rewrites the working-tree file, so a check that reads the
+ * working-tree file inside postbuild compares the build's own output
+ * against itself and cannot fail on this class.
+ */
+export type ReadingTimeFailureMode = 'determinism' | 'staleCommit';
+
+export interface ReadingTimeGateReport {
+  /** Pass-1 file vs fresh measurement: non-deterministic export. */
+  determinismFindings: string[];
+  /** Committed blob vs fresh measurement: stale committed file. */
+  staleCommitFindings: string[];
+  /** Articles in the fresh measurement (for the OK line). */
+  articleCount: number;
+  /** True when either failure mode fired. */
+  failed: boolean;
+}
+
+/**
+ * Classify a reading-times gate run into its two failure modes. Pure: all
+ * three inputs are plain records, so the git plumbing (reading the
+ * committed blob) and the file system stay at the edges in
+ * scripts/check-reading-times.ts. `committed` is null when the file is
+ * not yet tracked in HEAD (first ever commit of it), in which case the
+ * stale-commit mode is skipped: there is no committed record to be stale.
+ */
+export function classifyReadingTimeGate(
+  recorded: Record<string, ReadingTimeEntry>,
+  committed: Record<string, ReadingTimeEntry> | null,
+  measured: Record<string, ReadingTimeEntry>,
+): ReadingTimeGateReport {
+  const determinismFindings = diffReadingTimeRecords(recorded, measured);
+  const staleCommitFindings =
+    committed === null ? [] : diffReadingTimeRecords(committed, measured);
+  return {
+    determinismFindings,
+    staleCommitFindings,
+    articleCount: Object.keys(measured).length,
+    failed: determinismFindings.length > 0 || staleCommitFindings.length > 0,
+  };
+}
+
+/**
  * Word count of the authored prose in an MDX body (frontmatter already
  * stripped). This is only the FALLBACK used when data/reading-times.json
  * has no entry for the article yet (the first build pass, and `next dev`
