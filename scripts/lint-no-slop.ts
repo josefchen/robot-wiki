@@ -34,7 +34,8 @@ import {
   findBannedVocabulary,
   findPlaceholderMarkers,
   findStaleQuotationExceptions,
-  ruleOfThreeDensity,
+  ruleOfThreeResult,
+  RULE_OF_THREE_MIN_WORDS,
   RULE_OF_THREE_LIMIT,
   validateQuotationExceptions,
 } from '../lib/no-slop.ts';
@@ -97,10 +98,18 @@ if (sourceOnly) {
         `${rel}: em or en dash in rendered prose (near "${excerpt}")`,
       );
     }
-    const density = ruleOfThreeDensity(prose);
-    if (density > RULE_OF_THREE_LIMIT) {
+    const result = ruleOfThreeResult(prose);
+    if (result.measured && result.density > RULE_OF_THREE_LIMIT) {
       problems.push(
-        `${rel}: rule-of-three density ${density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
+        `${rel}: rule-of-three density ${result.density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
+      );
+    }
+    if (result.subFloor) {
+      // Informational, never a failure and never a silent zero: a body too
+      // short for the threshold to be meaningful is visible and countable,
+      // distinct from a measured-and-clean page.
+      console.log(
+        `  [SUB-FLOOR] ${rel}: ${result.words} words (below the ${RULE_OF_THREE_MIN_WORDS}-word measurement floor), rule-of-three density ${result.density.toFixed(1)} per 1000 words reported informationally`,
       );
     }
   }
@@ -131,10 +140,15 @@ for (const file of mdxFiles) {
   for (const line of dashLines(body, NO_SLOP_EXCEPTIONS)) {
     problems.push(`${rel}:${line}: em or en dash in prose (rewrite with a comma, colon, or period)`);
   }
-  const density = ruleOfThreeDensity(body);
-  if (density > RULE_OF_THREE_LIMIT) {
+  const result = ruleOfThreeResult(body);
+  if (result.measured && result.density > RULE_OF_THREE_LIMIT) {
     problems.push(
-      `${rel}: rule-of-three density ${density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
+      `${rel}: rule-of-three density ${result.density.toFixed(1)} per 1000 words exceeds ${RULE_OF_THREE_LIMIT}`,
+    );
+  }
+  if (result.subFloor) {
+    console.log(
+      `  [SUB-FLOOR] ${rel}: ${result.words} words (below the ${RULE_OF_THREE_MIN_WORDS}-word measurement floor), rule-of-three density ${result.density.toFixed(1)} per 1000 words reported informationally`,
     );
   }
 }

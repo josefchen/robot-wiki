@@ -466,7 +466,9 @@ test.describe('prediction step (PredictThenReveal)', () => {
   test('corpus sweep: exactly 8 published routes render a prediction step (VAL-EDU-016)', async ({ page }) => {
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
-    expect(routes.length).toBe(47);
+    // Registry-derived: no literal published count is pinned (it drifted
+    // 42 -> 43 -> 47 across publishes); non-zero cardinality only.
+    expect(routes.length).toBeGreaterThan(0);
     const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
     for (const route of routes) {
       await page.goto(route);

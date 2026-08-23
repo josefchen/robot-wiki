@@ -102,7 +102,7 @@ test.describe('the paper theme is the single site-wide theme', () => {
       '--color-text: #1a1c1e;',
       '--color-text-dim: #55595d;',
       '--color-border: #d9d6cd;',
-      '--color-accent: #145c4f;',
+      '--color-accent: #245edb;',
       '--font-sans: var(--font-plex-sans)',
       '--font-serif: var(--font-newsreader)',
       '--font-mono: var(--font-plex-mono)',
@@ -159,7 +159,7 @@ test.describe('the paper theme is the single site-wide theme', () => {
         expect(value, `${route} must define ${name}`).not.toBe('');
       }
       expect(tokens['--color-bg']).toBe('#f4f3ef');
-      expect(tokens['--color-accent']).toBe('#145c4f');
+      expect(tokens['--color-accent']).toBe('#245edb');
       // The three faces are the new ones, and only the new ones. Shipping
       // nine families would satisfy a positive check on its own.
       //

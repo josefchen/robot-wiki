@@ -80,7 +80,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </button>
         <Link
           href="/"
-          className="font-mono text-sm font-semibold tracking-tight text-text"
+          className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
         >
           robot-wiki
         </Link>
@@ -93,13 +93,21 @@ export function SiteShell({ children }: { children: ReactNode }) {
         className="hidden w-72 shrink-0 border-r border-border lg:block"
       >
         <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
-          <Link
-            href="/"
-            aria-current={pathname === '/' ? 'page' : undefined}
-            className="px-2 font-mono text-sm font-semibold tracking-tight text-text"
-          >
-            robot-wiki
-          </Link>
+          <div className="px-2">
+            <Link
+              href="/"
+              aria-current={pathname === '/' ? 'page' : undefined}
+              className="font-sans text-[17px] font-semibold tracking-[-0.025em] text-text"
+            >
+              robot-wiki
+            </Link>
+            <p
+              aria-hidden="true"
+              className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-text-dim"
+            >
+              Robotics encyclopaedia
+            </p>
+          </div>
           <SearchBox idPrefix="sidebar" />
           <NavTree idPrefix="sidebar" ariaLabel="robot-wiki taxonomy" />
         </div>
@@ -145,7 +153,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <Link
                 href="/"
                 onClick={() => setDrawerOpen(false)}
-                className="font-mono text-sm font-semibold tracking-tight text-text"
+                className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
               >
                 robot-wiki
               </Link>

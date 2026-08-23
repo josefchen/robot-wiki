@@ -169,8 +169,11 @@ export function Table<T extends Record<string, unknown>>({
               data-entity-id={anchor}
               className={cx(
                 'scroll-mt-24 border-t border-border bg-surface',
-                highlighted &&
-                  'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
+                // Flat functional 2px left rule (a real border, not an
+                // inset box-shadow): selected-row chrome must be shadow-
+                // free per VAL-DSSURFACE-022, and the quiet surface
+                // change keeps the state legible without colour alone.
+                highlighted && 'border-l-2 border-l-accent bg-surface-2',
               )}
             >
               {columns.map((column) => (

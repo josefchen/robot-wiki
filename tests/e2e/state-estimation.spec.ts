@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { extractXAxis } from './helpers/table-agreement';
 
 const ROUTE = '/classical/state-estimation/';
 
@@ -152,7 +153,11 @@ test.describe('classical state-estimation module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1512.02363');
 
     // Every chip is a real external link; no unresolved ids render.
-    const chips = main.locator('a[target="_blank"][href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders target=_blank external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[target="_blank"][href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
@@ -383,6 +388,70 @@ test.describe('classical state-estimation module', () => {
     expect(advanced - 60).toBeGreaterThanOrEqual(4);
     expect((advanced - 60) % 4).toBe(0);
     await context.close();
+  });
+
+  test('x-axis tick labels span the plotted window and agree with the sampled table (VAL-EDU-023 clause (a))', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const scene = page.getByTestId('kalman-scene');
+    // Tick row via the shared table-agreement extractor (which handles
+    // this chart's gridline-less case), not a hand-rolled y>340 geometry
+    // filter: the standing convention is that module specs import the
+    // helper for tick-row assertions so a fix to the extractor reaches
+    // every spec, not only the corpus gate. Collection mirrors
+    // chart-table-agreement.spec.ts; the pure helper runs in Node.
+    const ticks = async () => {
+      const captured = await scene.evaluate((svg: SVGElement) => ({
+        texts: Array.from(svg.querySelectorAll('text')).map((t) => ({
+          content: (t.textContent ?? '').trim(),
+          x: parseFloat(t.getAttribute('x') ?? '0'),
+          y: parseFloat(t.getAttribute('y') ?? '0'),
+        })),
+        vLineXs: Array.from(svg.querySelectorAll('line'))
+          .filter((l) => l.getAttribute('x1') === l.getAttribute('x2'))
+          .map((l) => parseFloat(l.getAttribute('x1') ?? '0')),
+      }));
+      return extractXAxis(captured.texts, captured.vLineXs).ticks;
+    };
+    // First and last th of the KALMAN chart's sampled table, reached
+    // through the scene's own aria-describedby chain instead of a
+    // document-wide details[data-chart-form="table"] query: the document-
+    // wide form was correct only while this route carried a single
+    // table-form disclosure, and a second one would silently cross-pair
+    // tables.
+    const tableEndLabels = () =>
+      scene.evaluate((svg: SVGElement) => {
+        const descId = svg.getAttribute('aria-describedby');
+        const desc = descId ? document.getElementById(descId) : null;
+        const rows = (desc?.parentElement ?? document).querySelectorAll(
+          'details[data-chart-data][data-chart-form="table"] tbody tr',
+        );
+        return [
+          rows[0]?.querySelector('th')?.textContent?.trim() ?? '',
+          rows[rows.length - 1]?.querySelector('th')?.textContent?.trim() ?? '',
+        ];
+      });
+
+    // Opening state: the plotted range is steps 0 through 60 and the
+    // table samples exactly that range, so endpoint ticks and endpoint
+    // rows agree.
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '60 / 600',
+    );
+    expect(await ticks()).toEqual(['0', '30', '60']);
+    expect(await tableEndLabels()).toEqual(['0', '60']);
+    // The axis carries a unit note naming the row-axis quantity.
+    await expect(scene.getByText('steps')).toBeVisible();
+
+    // Past the 120-step window the frame slides: the endpoint ticks
+    // still carry the plotted range the table samples.
+    await advanceSteps(page, 60);
+    await expect(page.getByTestId('kalman-step-readout')).toHaveText(
+      '120 / 600',
+    );
+    expect(await ticks()).toEqual(['1', '61', '120']);
+    expect(await tableEndLabels()).toEqual(['1', '120']);
   });
 
   test('the noise labels render sigma glyphs, not uppercased lookalikes', async ({

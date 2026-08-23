@@ -87,7 +87,7 @@ test.describe('bubble view hover/focus affordances', () => {
     const ring = page.locator('circle[data-focus-ring]');
     await expect(ring).toHaveCount(1);
     await expect(ring).toBeVisible();
-    await expect(ring).toHaveCSS('stroke', 'rgb(20, 92, 79)');
+    await expect(ring).toHaveCSS('stroke', 'rgb(36, 94, 219)');
     const r = parseFloat((await ring.getAttribute('r')) ?? '0');
     expect(r).toBeGreaterThan(6);
     // The ring renders outside the clip group, so it is never cut at the
@@ -273,7 +273,7 @@ test.describe('bubble view hover/focus affordances', () => {
     await page.goto(`${ROUTE}?view=bubble&country=CN#company-figure-ai`);
     const figure = mark(page, 'figure-ai');
     await expect(figure).toBeVisible();
-    await expect(figure).toHaveCSS('fill', 'rgb(20, 92, 79)');
+    await expect(figure).toHaveCSS('fill', 'rgb(36, 94, 219)');
     await expect(figure).toHaveAttribute('r', '6');
     // Selection state falls out naturally: the detail panel shows the
     // hashed company.
@@ -289,7 +289,8 @@ test.describe('bubble view hover/focus affordances', () => {
     await page.goto(`${ROUTE}?view=timeline&country=CN#company-figure-ai`);
     const row = page.locator('[data-company-id="figure-ai"][data-timeline-id]');
     await expect(row).toHaveCount(1);
-    await expect(row).toHaveCSS('box-shadow', /inset/);
+    await expect(row).toHaveCSS('border-left-width', '2px');
+    await expect(row).toHaveCSS('box-shadow', 'none');
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
   });
 

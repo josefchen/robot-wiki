@@ -25,7 +25,7 @@ import { cx } from '@/lib/utils';
  * and planning repeats from the new observation. This interactive runs that
  * loop in a 2-D projection of the embedding space. Each Plan step click is
  * one model-predictive-control iteration: the candidate fan shows the
- * searched sequences, the pine path is the winner, and the goal-embedding
+ * searched sequences, the signal-blue path is the winner, and the goal-embedding
  * distance readout contracts as steps execute.
  *
  * The predictor is imperfect on purpose (a small deterministic wobble

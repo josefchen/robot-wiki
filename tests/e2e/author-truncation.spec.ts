@@ -7,6 +7,7 @@ import { AUTHORS_SHOWN } from '../../components/article/author-list';
 import { getCitation } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { closeBrowserAndStopServer } from './static-spec-teardown';
 
 /**
  * Author-list truncation in the References bibliography (VAL-WIKI-029),
@@ -37,8 +38,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-  await browser?.close();
-  await server?.stop();
+  await closeBrowserAndStopServer(browser, server);
 });
 
 /** Declared citation ids for an article, deduped, in frontmatter order. */

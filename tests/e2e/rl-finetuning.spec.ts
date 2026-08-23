@@ -49,7 +49,11 @@ test.describe('rl-finetuning module', () => {
         .getByRole('link', { name: /Physical Intelligence 2025/ })
         .first(),
     ).toHaveAttribute('href', /pi\.website|pi-asset\.com/);
-    const chips = main.locator('a[href^="https://arxiv.org/abs/"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders arxiv links inside main, and with every inline chip deleted its 9 registry arxiv anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://arxiv.org/abs/"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
   });
 

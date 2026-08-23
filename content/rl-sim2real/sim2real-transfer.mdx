@@ -51,7 +51,7 @@ OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum
 
 Two details rarely make it into the textbook version. First, the plumbing: in Isaac Lab, simulation state is GPU-resident but simulation parameters (masses, frictions, contact offsets, joint armature) must still be written through PhysX CPU APIs, and mesh scale or collider type can only change before the simulator starts <Cite id="isaac-lab-2025" />. This is why randomization happens on episode reset rather than continuously, and it is a systems constraint, not a theoretical one. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
 
-That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the green plateau is a policy trained over the shaded distribution.
+That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the blue plateau is a policy trained over the shaded distribution.
 
 <Callout variant="warn" title="How to read this chart">
   Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.

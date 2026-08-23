@@ -20,8 +20,8 @@ import { cx } from '@/lib/utils';
 /**
  * KalmanTracker: a live constant-velocity Kalman filter tracking a
  * wandering 1D target. The white trace is the true path, the gray dots are
- * the position sensor's readings (about one in five drops out), the pine
- * trace is the filter's estimate, and the pine band is the filter's own
+ * the position sensor's readings (about one in five drops out), the signal-blue
+ * trace is the filter's estimate, and the signal-blue band is the filter's own
  * +/-2 sigma position uncertainty. The two sliders set what the filter
  * BELIEVES about the world: sigma_q, the per-step acceleration noise it
  * assumes, and sigma_r, the sensor scatter it assumes. The world itself is
@@ -43,8 +43,11 @@ import { cx } from '@/lib/utils';
  */
 
 const WIDTH = 640;
-const HEIGHT = 360;
+const HEIGHT = 372;
 const PLOT = { left: 44, right: 624, top: 16, bottom: 336 };
+/** Baselines for the x tick row and the unit note below it. */
+const X_TICK_Y = PLOT.bottom + 16;
+const X_NOTE_Y = PLOT.bottom + 30;
 const PLOT_W = PLOT.right - PLOT.left;
 const MID_Y = (PLOT.top + PLOT.bottom) / 2;
 const HALF_H = (PLOT.bottom - PLOT.top) / 2;
@@ -92,6 +95,12 @@ export function KalmanTracker({ className }: { className?: string }) {
   const [seed, setSeed] = useState(DEFAULT_SEED);
   const [step, setStep] = useState(INITIAL_STEP);
   const [playing, setPlaying] = useState(false);
+  // Reduced motion tracked reactively, not read once at play time. A
+  // one-shot read can be stale when playback starts (the media setting
+  // lands after hydration), and a cadence captured from it would keep
+  // animating smoothly under prefers-reduced-motion for the rest of the
+  // playback with nothing to correct it.
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   // The world depends only on the seed; the estimate depends on the world
   // plus the assumed noise levels. Both are memoized pure computations, so
@@ -112,17 +121,40 @@ export function KalmanTracker({ className }: { className?: string }) {
 
   // Interval playback: each tick advances the tracker by the cadence's
   // fixed number of steps. Deterministic because the episode and filter
-  // are pure. Cleanup on pause, at the end of the episode, or on unmount.
+  // are pure. The cadence combines the tracked state with a fresh read at
+  // timer start (the most current value available), and the tracked state
+  // sits in the deps so a mid-playback media change rebuilds the timer at
+  // the correct cadence; stale-smooth is unreachable by construction.
+  // Cleanup on pause, at the end of the episode, or on unmount.
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
   useEffect(() => {
     if (!running) return;
-    const { tickMs, stepsPerTick } = playbackCadence(prefersReducedMotion());
+    const { tickMs, stepsPerTick } = playbackCadence(
+      reducedMotion || prefersReducedMotion(),
+    );
     const timer = window.setInterval(() => {
       setStep((s) => Math.min(s + stepsPerTick, lastStep));
     }, tickMs);
     return () => window.clearInterval(timer);
-  }, [running, lastStep]);
+  }, [running, lastStep, reducedMotion]);
 
   const windowStart = Math.max(0, step - WINDOW + 1);
+  // X tick labels span the PLOTTED range (windowStart through the current
+  // step), which is exactly the range the sampled table describes, so the
+  // table's first and last row always match the first and last rendered
+  // tick. Labels over the fixed 120-step window would outrun the data
+  // early in a run, when the trace has not yet filled the frame.
+  const tickTs = [
+    ...new Set([windowStart, Math.round((windowStart + step) / 2), step]),
+  ];
   const visible = frames.slice(windowStart);
   const rms = rmsError(visible, episode.truth);
 
@@ -299,6 +331,33 @@ export function KalmanTracker({ className }: { className?: string }) {
             </text>
           </g>
         ))}
+
+        {/* X-axis tick labels: endpoints and midpoint of the plotted
+            range, with the row-axis unit named below (the table's row
+            header is "step", so the axis and the table share the unit). */}
+        {tickTs.map((t) => (
+          <text
+            key={t}
+            x={xPx(t)}
+            y={X_TICK_Y}
+            textAnchor="middle"
+            fill="var(--color-text-dim)"
+            fontSize={10}
+            fontFamily="var(--font-mono)"
+          >
+            {t}
+          </text>
+        ))}
+        <text
+          x={PLOT.right}
+          y={X_NOTE_Y}
+          textAnchor="end"
+          fill="var(--color-text-dim)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          steps
+        </text>
 
         {/* Uncertainty band: the filter's own +/-2 sigma position spread */}
         <polygon

@@ -111,9 +111,12 @@ test.describe('OG card images', () => {
         const buf = await readFile(file);
         expect(buf.length, `${route} card at least 5KB`).toBeGreaterThanOrEqual(5 * 1024);
         const dims = pngDimensions(buf);
-        expect(dims.width).toBeGreaterThanOrEqual(1200);
-        expect(dims.height).toBeGreaterThanOrEqual(630);
-        expect(Math.abs(dims.width / dims.height - 1.91)).toBeLessThanOrEqual(0.05);
+        // Exactly the sealed canvas (VAL-OG-001/VAL-DSOG-001), not "at
+        // least": a 1200x700 export would pass a >= bound while breaking
+        // the 1.91:1 X timeline crop the card is designed for.
+        expect(dims.width, `${route} card width`).toBe(1200);
+        expect(dims.height, `${route} card height`).toBe(630);
+        expect(dims.width / dims.height).toBeCloseTo(1200 / 630, 5);
 
         // Served from out/ alone, with an image content type.
         const res = await fetch(`http://localhost:${server.port}${rel}`);
@@ -129,7 +132,9 @@ test.describe('OG card images', () => {
 
   test('article cards are per-article: one distinct URL and one byte-distinct asset each, none equal to the site card (VAL-DIST-003)', async () => {
     const articles = publishedModules();
-    expect(articles.length).toBe(47);
+    // Registry-derived: no literal count is pinned (it drifted 42 -> 43
+    // -> 47 across publishes); distinctness below is the real guard.
+    expect(articles.length).toBeGreaterThan(0);
 
     const urlToSlug = new Map<string, string>();
     const hashes = new Map<string, string>(); // sha -> owning path
@@ -178,5 +183,41 @@ test.describe('OG card images', () => {
       }
     }
     void SITE_URL;
+  });
+
+  test('no OG card carries the Robotics encyclopaedia descriptor in any case (VAL-DSBRAND-002)', async () => {
+    // The OG lockup omits the descriptor by specification. Cards are
+    // generated from lib/og-card-artwork.ts, so the exhaustive check
+    // scans every card-text source the renderer can reach, normalized
+    // across case and both spellings (encyclopaedia/encyclopedia).
+    // The descriptor must also stay out of the exported HTML metadata.
+    const artwork = (
+      await readFile(join('lib', 'og-card-artwork.ts'))
+    ).toString('utf8');
+    const normalize = (s: string) =>
+      s.toLowerCase().replace(/[^a-z]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const folded = normalize(artwork);
+    expect(folded).not.toMatch(/robotics\s+encyclopa?edia/);
+
+    // Population: every route the site card or an article card serves,
+    // derived from the same registry as the tests above. Only the OG/Twitter
+    // metadata surface is scanned: the home hero legitimately renders the
+    // descriptor in-page, so scanning whole HTML would false-positive on a
+    // compliant page. The rendered PNG text itself comes from the artwork
+    // module scanned above, which is exhaustive over every card.
+    const routes = [
+      ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
+      ...NON_ARTICLE_ROUTES,
+    ];
+    for (const route of routes) {
+      const html = (
+        await readFile(routeToHtmlPath(route))
+      ).toString('utf8');
+      const ogMeta = (html.match(/<meta[^>]+(?:property|name)="(?:og:|twitter:)[^"]+"[^>]*>/g) ?? []).join(' ');
+      expect(
+        normalize(ogMeta),
+        `${route} OG/Twitter metadata carries the descriptor`,
+      ).not.toMatch(/robotics\s+encyclopa?edia/);
+    }
   });
 });

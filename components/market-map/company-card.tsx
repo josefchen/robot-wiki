@@ -49,8 +49,9 @@ export function CompanyCard({
       aria-labelledby={`${headingId}-name`}
       className={cx(
         'scroll-mt-24 border-t border-border py-4',
-        highlighted &&
-          'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]',
+        // Flat 2px left rule instead of an inset box-shadow
+        // (VAL-DSSURFACE-022); the surface change is the non-colour cue.
+        highlighted && 'border-l-2 border-l-accent bg-surface-2',
       )}
     >
       <div className="flex flex-wrap items-start justify-between gap-2">

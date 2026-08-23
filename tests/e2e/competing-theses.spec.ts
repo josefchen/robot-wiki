@@ -58,7 +58,12 @@ test.describe('frontier competing-theses module', () => {
     await expect(
       main.getByRole('link', { name: 'Xiao 2026' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2606.19980');
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip
+    // deleted its 21 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     expect(await main.getByText(/missing citation:/).count()).toBe(0);
     expect(await main.getByText(/unknown term:/).count()).toBe(0);
@@ -156,13 +161,14 @@ test.describe('frontier competing-theses module', () => {
     await expect(rlButton).toHaveAttribute('aria-pressed', 'true');
     await expect(rlButton).toBeFocused();
 
-    // Focus state is visible (the global accent focus ring). The row's
+    // Focus state is visible (the global accent focus ring,
+    // signal blue #245edb since design-system v1). The row's
     // transition-colors animates the outline over ~150ms, so poll.
     await expect
       .poll(() =>
         rlButton.evaluate((el) => getComputedStyle(el).outlineColor),
       )
-      .toBe('rgb(20, 92, 79)');
+      .toBe('rgb(36, 94, 219)');
 
     // Reset restores the default selection.
     await explorer.getByRole('button', { name: 'Reset' }).click();

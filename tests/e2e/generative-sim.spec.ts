@@ -52,7 +52,11 @@ test.describe('world-models generative-sim module', () => {
     await expect(
       main.getByRole('link', { name: /Nasiriany 2026/ }).first(),
     ).toHaveAttribute('href', 'https://robocasa.ai/assets/robocasa365_iclr26.pdf');
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 8 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(8);
   });
 

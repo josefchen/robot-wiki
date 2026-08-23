@@ -8,7 +8,7 @@ const title = 'Search';
 export const metadata: Metadata = {
   title,
   description:
-    'Search robot-wiki: full-text over article prose, plus methods, companies, and datasets.',
+    'Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).',
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
@@ -36,8 +36,8 @@ export default function SearchPage() {
         Search
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">
-        Search article prose together with the methods, companies, and
-        datasets in the wiki data layer. Queries run locally in your browser.
+        Search article prose together with the structured data layer of
+        methods, companies, and datasets. Queries run locally in your browser.
       </p>
       <Suspense fallback={null}>
         <SearchInterface />

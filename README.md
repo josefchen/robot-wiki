@@ -33,6 +33,8 @@ content/      MDX articles, one directory per domain
 data/         Structured data validated with Zod: citations, module registry,
               glossary, companies, methods, datasets, hardware, teleop rigs, images
 lib/          Content pipeline, search, IK solver, rehype plugins
+library/      Canonical Robot Wiki visual and interaction design system
+contract/     Measurable design-integrity acceptance criteria
 public/       Static assets, including the SO-101 robot model
 scripts/      Build-time node scripts: content validation, reading times,
               search index build, link liveness checker
@@ -42,6 +44,16 @@ audit/        Per-claim content-integrity audit ledgers: every published
               article checked against its cited primary sources, with the
               method, conventions, and totals in audit/README.md
 ```
+
+### Design system
+
+The canonical visual and interaction specification is
+[`library/design-system.md`](library/design-system.md), with countable release
+criteria in [`contract/design-integrity.md`](contract/design-integrity.md).
+Contributors and agents must read both before changing UI, visualization,
+navigation, typography, colour, imagery, or social cards. The approved identity
+is the plain `robot-wiki` wordmark plus a restrained engineering grid; there is
+no separate logo.
 
 ### Content pipeline
 

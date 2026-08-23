@@ -6,6 +6,7 @@ import { SITE_URL } from '../../lib/site';
 import { publishedModules } from '../../data/modules';
 import { WORDS_PER_MINUTE } from '../../lib/reading-time';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { closeBrowserAndStopServer } from './static-spec-teardown';
 
 /**
  * Heading copy-link affordance (VAL-WIKI-030), swept over every h2 and h3
@@ -29,7 +30,14 @@ const BANNED_DASHES = /[\u2013\u2014]/;
  * (components/ui/card.tsx, marked data-card-title) which labels a box inside
  * a section rather than addressing a section, so it is excluded: three of
  * them sit in prose across the corpus, which is why the raw selector counts
- * 259 headings where the assertion counts 255.
+ * 300 headings where the sweep counts 297.
+ *
+ * Both figures are re-derivable from the shipped export with the spec's own
+ * selectors (measured 2026-08-23 at 47 published articles):
+ *   node scripts/probe-heading-counts.mts
+ * (raw 300, swept 297, card titles 3). Nothing executable reads these
+ * numbers; they are the derivation note for the corpus assertion below,
+ * whose bound is rows.length > 200.
  */
 const HEADINGS =
   '.prose h2:not([data-card-title]), .prose h3:not([data-card-title])';
@@ -50,8 +58,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
-  await browser?.close();
-  await server?.stop();
+  await closeBrowserAndStopServer(browser, server);
 });
 
 async function open(route: string, width = 1440): Promise<Page> {

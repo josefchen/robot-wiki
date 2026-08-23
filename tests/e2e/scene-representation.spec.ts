@@ -436,6 +436,48 @@ test.describe('classical scene-representation module', () => {
     await context.close();
   });
 
+  // Proportion regression guard: at reader width the diagram is the
+  // instrument's teaching centrepiece, so it must not be the smaller
+  // element beside its own controls, and its panel box must not carry
+  // empty space equal to the drawing. Both defects shipped green through
+  // every behavioral assertion (SVG 228x167 against a 272px control
+  // column, fill 50-56%), which is why the geometry is pinned here.
+  test('the diagram is not the smaller element at 1440px', async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+    });
+    const page = await context.newPage();
+    await page.goto(ROUTE);
+    const geometry = await page.evaluate(() => {
+      const svg = document.querySelector(
+        '[data-testid="scene-ladder"] svg[data-testid^="scene-panel-"]',
+      );
+      const panel = svg?.parentElement ?? null;
+      const controls = document
+        .querySelector('[data-testid="scene-capabilities"]')
+        ?.closest('div.grid > div:last-child') ?? null;
+      const r = (el: Element | null) =>
+        el ? (el as HTMLElement).getBoundingClientRect() : null;
+      return {
+        svgWidth: r(svg)?.width ?? 0,
+        panelWidth: r(panel)?.width ?? 0,
+        panelHeight: r(panel)?.height ?? 0,
+        controlsWidth: r(controls)?.width ?? 0,
+      };
+    });
+    expect(geometry.svgWidth).toBeGreaterThan(0);
+    expect(geometry.controlsWidth).toBeGreaterThan(0);
+    // The diagram is wider than the control column beside it.
+    expect(geometry.svgWidth).toBeGreaterThan(geometry.controlsWidth);
+    // The drawing fills its own panel box (no half-empty frame).
+    const aspect = 220 / 300; // viewBox height/width incl. title band
+    const expectedHeight = geometry.svgWidth * aspect;
+    expect(geometry.panelHeight).toBeLessThan(expectedHeight * 1.25);
+    await context.close();
+  });
+
   test('zero axe violations and zero console errors', async ({ page }) => {
     const consoleErrors: string[] = [];
     page.on('console', (msg) => {
