@@ -22,6 +22,7 @@ const shell = read('components/nav/site-shell.tsx');
 const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
 const og = read('lib/og-card-artwork.ts');
+const nextEnv = read('next-env.d.ts');
 
 const palette = {
   bg: '#f4f3ef',
@@ -142,6 +143,44 @@ describe('identity geometry and typography stay aligned', () => {
     expect(home).toContain('>\n              robot-wiki\n            </h1>');
   });
 
+  it('omits the descriptor from every OG lockup in any case (VAL-DSBRAND-002)', () => {    // The canonical lockup table omits "Robotics encyclopaedia" from the
+    // Open Graph card. Normalized and explicit: neither the spelled
+    // form nor any case variant may survive in the OG artwork source.
+    const variants = [
+      'Robotics encyclopaedia',
+      'ROBOTICS ENCYCLOPAEDIA',
+      'robotics encyclopaedia',
+      'Robotics encyclopedia',
+      'ROBOTICS ENCYCLOPEDIA',
+      'robotics encyclopedia',
+    ];
+    for (const variant of variants) {
+      expect(og, `OG artwork must not contain "${variant}"`).not.toContain(
+        variant,
+      );
+    }
+    // Case-folded and whitespace-normalized belt-and-braces: no casing or
+    // spacing trick keeps the descriptor on a card.
+    const folded = og
+      .toLowerCase()
+      .replace(/[^a-z]+/g, ' ')
+      .trim();
+    expect(folded).not.toMatch(/robotics\s+encyclopa?edia/);
+  });
+
+  it('keeps next-env.d.ts on the production type path so clean builds are byte-stable', () => {
+    // next dev writes imports against .next/dev/types; next typegen and
+    // next build write against .next/types. The tracked file must hold
+    // the PRODUCTION variant, because a dev variant is rewritten by every
+    // clean npm run typecheck and npm run build, dirtying the tree
+    // between the two mode directories. The production import resolves
+    // in dev too: next dev regenerates .next/dev/types and tsconfig
+    // includes both directories.
+    expect(nextEnv).toContain('import "./.next/types/routes.d.ts";');
+    expect(nextEnv).toContain('import "./.next/types/root-params.d.ts";');
+    expect(nextEnv).not.toContain('.next/dev/types');
+  });
+
   it('loads exactly the three declared first-party families', () => {
     expect(layout).toContain(
       "import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google'",
@@ -159,7 +198,9 @@ describe('identity geometry and typography stay aligned', () => {
     expect(css).toContain('background-size: 32px 32px');
     expect(home).toContain('engineering-grid');
     expect(home).toContain('md:grid-cols-[minmax(0,1fr)_13rem]');
-    expect(home).toContain('min-h-20');
+    // Mobile: the grid is the exact 80px band (h-20) below the lockup
+    // (VAL-DSHOME-009), not a min-height.
+    expect(home).toMatch(/engineering-grid[^"]*h-20/);
     expect(og).toContain("const GRID = '#c8c5bc';");
     expect(og).toContain('for (let r = 0; r < 12; r++)');
     expect(og).toContain('for (let c = 0; c < 8; c++)');
@@ -193,6 +234,21 @@ describe('identity geometry and typography stay aligned', () => {
     // Fired timeline ticks are accent blue, not green.
     expect(hierarchy).toContain('blue ticks: updates fired');
     expect(hierarchy).not.toContain('green ticks');
+    // The same sweep over the three modules whose lead series is signal
+    // blue: the Kalman uncertainty band, the JEPA current-latent marker,
+    // and the sim-to-real DR plateau, plus the advantage-scrubber trace.
+    const stateEst = read('content/classical/state-estimation.mdx');
+    const jepa = read('content/world-models/jepa.mdx');
+    const sim2real = read('content/rl-sim2real/sim2real-transfer.mdx');
+    const advantage = read('components/interactive/advantage-scrubber.tsx');
+    expect(stateEst).not.toMatch(/green band/i);
+    expect(stateEst.toLowerCase()).toContain('blue band');
+    expect(jepa).not.toMatch(/green marker/i);
+    expect(jepa.toLowerCase()).toContain('blue marker');
+    expect(sim2real).not.toMatch(/green plateau/i);
+    expect(sim2real.toLowerCase()).toContain('blue plateau');
+    expect(advantage).not.toContain('elapsed portion green');
+    expect(advantage).not.toMatch(/green (?:line|trace)/i);
   });
 
   it('keeps semantic colours semantic in the cross-embodiment schematic', () => {

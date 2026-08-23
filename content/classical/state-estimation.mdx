@@ -32,7 +32,7 @@ import { KalmanTracker } from '@/components/interactive/kalman-tracker';
 
 The honest number is what separates the field from curve fitting. A controller that knows the estimate's uncertainty can act cautiously when the number is large and aggressively when it is small; a controller handed a bare guess cannot. Every estimator in this module is built to carry both.
 
-The lab below is that idea running. A target wanders in one dimension, a position sensor drops about one reading in five, and the green band is the filter's own claim about how wrong it might be. Move the measurement-noise slider up and the estimate smooths and lags while the band widens; move the process-noise slider up instead and the estimate hugs every reading. Nothing about the world changed either time. Only what the filter believes about it.
+The lab below is that idea running. A target wanders in one dimension, a position sensor drops about one reading in five, and the blue band is the filter's own claim about how wrong it might be. Move the measurement-noise slider up and the estimate smooths and lags while the band widens; move the process-noise slider up instead and the estimate hugs every reading. Nothing about the world changed either time. Only what the filter believes about it.
 
 <KalmanTracker className="my-6" />
 

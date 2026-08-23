@@ -184,4 +184,40 @@ test.describe('OG card images', () => {
     }
     void SITE_URL;
   });
+
+  test('no OG card carries the Robotics encyclopaedia descriptor in any case (VAL-DSBRAND-002)', async () => {
+    // The OG lockup omits the descriptor by specification. Cards are
+    // generated from lib/og-card-artwork.ts, so the exhaustive check
+    // scans every card-text source the renderer can reach, normalized
+    // across case and both spellings (encyclopaedia/encyclopedia).
+    // The descriptor must also stay out of the exported HTML metadata.
+    const artwork = (
+      await readFile(join('lib', 'og-card-artwork.ts'))
+    ).toString('utf8');
+    const normalize = (s: string) =>
+      s.toLowerCase().replace(/[^a-z]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const folded = normalize(artwork);
+    expect(folded).not.toMatch(/robotics\s+encyclopa?edia/);
+
+    // Population: every route the site card or an article card serves,
+    // derived from the same registry as the tests above. Only the OG/Twitter
+    // metadata surface is scanned: the home hero legitimately renders the
+    // descriptor in-page, so scanning whole HTML would false-positive on a
+    // compliant page. The rendered PNG text itself comes from the artwork
+    // module scanned above, which is exhaustive over every card.
+    const routes = [
+      ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
+      ...NON_ARTICLE_ROUTES,
+    ];
+    for (const route of routes) {
+      const html = (
+        await readFile(routeToHtmlPath(route))
+      ).toString('utf8');
+      const ogMeta = (html.match(/<meta[^>]+(?:property|name)="(?:og:|twitter:)[^"]+"[^>]*>/g) ?? []).join(' ');
+      expect(
+        normalize(ogMeta),
+        `${route} OG/Twitter metadata carries the descriptor`,
+      ).not.toMatch(/robotics\s+encyclopa?edia/);
+    }
+  });
 });

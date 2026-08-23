@@ -47,38 +47,46 @@ export default function Home() {
         data-pagefind-body
         className={`${container} pt-8 lg:pt-10`}
       >
-        <div className="grid overflow-hidden border border-border bg-bg md:grid-cols-[minmax(0,1fr)_13rem]">
-          <div className="px-6 py-7 sm:px-8 sm:py-8">
+        {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
+            sits immediately below the descriptor/wordmark lockup and
+            closes the hero sheet, with the overview and CTA outside the
+            sheet; from md the two-column layout restores (grid right,
+            13rem). */}
+        <div className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]">
+          <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
               Robotics encyclopaedia
             </p>
             <h1 className="mt-3 font-sans text-5xl font-semibold leading-none tracking-[-0.035em] text-text sm:text-6xl">
               robot-wiki
             </h1>
-            <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
-              robot-wiki is an encyclopedia of modern robotics for engineers who
-              already know machine learning. It covers learned manipulation
-              policies, sim-to-real reinforcement learning, world models,
-              teleoperation data pipelines, and the classical control stack
-              underneath them, with every technical claim cited to a primary
-              source.
-            </p>
-            <Link
-              href="/manipulation/action-chunking"
-              className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
-            >
-              Start reading
-            </Link>
           </div>
           <div
             aria-hidden="true"
-            className="engineering-grid relative min-h-20 border-t border-border md:min-h-full md:border-l md:border-t-0"
+            className="engineering-grid relative h-20 w-full border-b border-border md:h-auto md:min-h-full md:border-b-0 md:border-l"
           >
             <span className="absolute left-1/2 top-0 h-full -translate-x-1/2 border-l border-border-strong" />
             <span className="absolute left-0 top-1/2 w-full -translate-y-1/2 border-t border-border-strong" />
             <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent" />
           </div>
         </div>
+        {/* Overview and CTA sit outside the sheet so the 80px band can
+            close the hero exactly (the test measures the sheet bottom as
+            the grid's bottom). */}
+        <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
+          robot-wiki is an encyclopedia of modern robotics for engineers who
+          already know machine learning. It covers learned manipulation
+          policies, sim-to-real reinforcement learning, world models,
+          teleoperation data pipelines, and the classical control stack
+          underneath them, with every technical claim cited to a primary
+          source.
+        </p>
+        <Link
+          href="/manipulation/action-chunking"
+          className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
+        >
+          Start reading
+        </Link>
       </section>
 
       {/* The seven taxonomy entries as one dense typographic index. */}

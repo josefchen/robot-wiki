@@ -448,14 +448,19 @@ test.describe('home page', () => {
   });
 
   test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ page }) => {
+    // Population derived from the registry: every published module route
+    // plus the standalone surfaces, so a newly published module joins the
+    // sweep without a fixture edit.
+    const { publishedModules } = await import('../../data/modules');
     const routes = [
       '/',
-      '/manipulation/action-chunking/',
+      ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
       '/market-map/',
       '/playground/',
       '/search/',
       '/glossary/',
     ];
+    expect(routes.length).toBeGreaterThan(2);
     for (const route of routes) {
       await page.goto(route);
       const grids = await page.evaluate(() => {

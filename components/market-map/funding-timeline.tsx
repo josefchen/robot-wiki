@@ -83,8 +83,10 @@ export function FundingTimeline({
               id={`company-${event.companyId}`}
               className={cx(
                 'border-t border-border',
+                // Flat 2px left rule instead of an inset box-shadow
+                // (VAL-DSSURFACE-022).
                 highlighted && !active
-                  ? 'bg-surface-2 shadow-[inset_2px_0_0_0_var(--color-accent)]'
+                  ? 'border-l-2 border-l-accent bg-surface-2'
                   : '',
               )}
             >

@@ -268,10 +268,10 @@ export function siteCardElement(): CardNode {
           padding: '52px 48px 44px 60px',
         },
         [
-          div(
-            { fontFamily: MONO, fontSize: '17px', letterSpacing: '2px', color: ACCENT },
-            'ROBOTICS ENCYCLOPAEDIA',
-          ),
+          // No descriptor here: the canonical lockup table omits the
+          // site descriptor from every Open Graph lockup
+          // (VAL-DSBRAND-002). Factual metadata below carries the
+          // card's information instead.
           div(
             {
               display: 'flex',

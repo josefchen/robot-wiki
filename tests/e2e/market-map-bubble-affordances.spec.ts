@@ -289,7 +289,8 @@ test.describe('bubble view hover/focus affordances', () => {
     await page.goto(`${ROUTE}?view=timeline&country=CN#company-figure-ai`);
     const row = page.locator('[data-company-id="figure-ai"][data-timeline-id]');
     await expect(row).toHaveCount(1);
-    await expect(row).toHaveCSS('box-shadow', /inset/);
+    await expect(row).toHaveCSS('border-left-width', '2px');
+    await expect(row).toHaveCSS('box-shadow', 'none');
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
   });
 

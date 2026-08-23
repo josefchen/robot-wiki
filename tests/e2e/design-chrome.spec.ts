@@ -307,10 +307,19 @@ test.describe('design chrome discipline', () => {
       const pcs = getComputedStyle(panel);
       const scs = getComputedStyle(scrim);
       const sr = scrim.getBoundingClientRect();
+      // The scrim's separation is its background alpha, which must parse
+      // to exactly 0.8 (80%). An opacity property would also dim, so
+      // both channels are captured; the contract names the background
+      // alpha (bg-bg/80), so the parsed rgba alpha is authoritative.
+      const m = scs.backgroundColor.match(/rgba?\(([^)]+)\)/);
+      const parts = m ? m[1].split(',').map((s) => parseFloat(s)) : [];
       return {
         left: pcs.borderLeftWidth,
         right: pcs.borderRightWidth,
+        boxShadow: pcs.boxShadow,
         bg: pcs.backgroundColor,
+        scrimBg: scs.backgroundColor,
+        scrimAlpha: parts.length === 4 ? parts[3] : 1,
         scrimOpacity: parseFloat(scs.opacity),
         coverage: (sr.width * sr.height) / (innerWidth * innerHeight),
       };
@@ -318,7 +327,12 @@ test.describe('design chrome discipline', () => {
     expect(metrics).not.toBeNull();
     expect(metrics!.left).toBe('0px');
     expect(metrics!.right).toBe('0px');
-    expect(metrics!.scrimOpacity).toBeGreaterThan(0);
+    expect(metrics!.boxShadow).toBe('none');
+    // Exact 80% scrim background alpha (VAL-DSSURFACE-020): the parsed
+    // rgba alpha is 0.8, not merely positive, and not the opacity
+    // property (which stays 1; the alpha lives in the colour).
+    expect(metrics!.scrimAlpha).toBeCloseTo(0.8, 3);
+    expect(metrics!.scrimOpacity).toBeCloseTo(1, 3);
     expect(metrics!.coverage).toBeGreaterThanOrEqual(0.9);
     // Opaque panel background keeps the edge legible against the scrim.
     expect(
@@ -593,19 +607,25 @@ test.describe('design chrome discipline', () => {
 
   test('components use only the locked 2/3/4px radius scale (VAL-DESIGN-021)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
+    // Population is derived exhaustively per route: every element in the
+    // document is measured (not a hand-picked selector list), and the
+    // non-empty population itself is asserted, so a selector drift that
+    // matches nothing fails loudly rather than sweeping an empty set.
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const offenders = await page.evaluate(() => {
+      const { offenders, population } = await page.evaluate(() => {
         // Data marks (legend swatches, dots) whose geometry carries
         // meaning are the contract's only exception. They are small
         // painted marks rather than surfaces, so the exception is
         // encoded as: any corner radius outside {0,2,3,4}px is allowed
         // only on an element small enough to be a mark.
         const offenders: string[] = [];
+        let population = 0;
         for (const el of Array.from(document.querySelectorAll('*'))) {
-          const cs = getComputedStyle(el);
           const rect = el.getBoundingClientRect();
           if (rect.width === 0 || rect.height === 0) continue;
+          population += 1;
+          const cs = getComputedStyle(el);
           const radii = [
             cs.borderTopLeftRadius,
             cs.borderTopRightRadius,
@@ -626,9 +646,119 @@ test.describe('design chrome discipline', () => {
             }
           }
         }
-        return offenders;
+        return { offenders, population };
       });
+      expect(
+        population,
+        `radius sweep population on ${route} must be non-empty`,
+      ).toBeGreaterThan(0);
       expect(offenders, `non-scale radii on ${route}`).toEqual([]);
+    }
+  });
+
+  test('no product surface renders any box-shadow, inset or outset (VAL-DSSURFACE-022)', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    // Exhaustive per-route sweep of every element plus both
+    // pseudo-elements for box-shadow/text-shadow values other than
+    // none. Population count is asserted non-zero so the sweep cannot
+    // pass by matching nothing.
+    for (const route of AUDITED_ROUTES) {
+      await page.goto(route);
+      const { offenders, population } = await page.evaluate(() => {
+        const offenders: string[] = [];
+        let population = 0;
+        const check = (el: Element, pseudo: string) => {
+          const cs = getComputedStyle(el, pseudo);
+          population += 1;
+          for (const prop of ['boxShadow', 'textShadow', 'filter', 'backdropFilter'] as const) {
+            const value = cs[prop];
+            if (prop === 'boxShadow' && value !== 'none') {
+              offenders.push(
+                `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} box-shadow: ${value}`,
+              );
+            }
+            if (prop === 'textShadow' && value !== 'none') {
+              offenders.push(
+                `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} text-shadow: ${value}`,
+              );
+            }
+            if ((prop === 'filter' || prop === 'backdropFilter') && value !== 'none') {
+              offenders.push(
+                `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} ${prop}: ${value}`,
+              );
+            }
+          }
+        };
+        for (const el of Array.from(document.querySelectorAll('*'))) {
+          const rect = el.getBoundingClientRect();
+          if (rect.width === 0 && rect.height === 0) continue;
+          check(el, '');
+          check(el, '::before');
+          check(el, '::after');
+        }
+        return { offenders, population };
+      });
+      expect(
+        population,
+        `shadow sweep population on ${route} must be non-empty`,
+      ).toBeGreaterThan(0);
+      expect(offenders, `shadows/filters on ${route}`).toEqual([]);
+    }
+  });
+
+  test('the engineering grid placement population is derived, not sampled (VAL-DSBRAND-005)', async ({ page }) => {
+    // The audited route set is derived from the module registry (the
+    // same publishedModules() population every corpus gate uses) plus
+    // the standalone chrome routes, so a new module route joins the
+    // sweep automatically. On each route every element's background
+    // image is inspected; the only legal SVG-grid background is the
+    // home title sheet's single .engineering-grid.
+    const { publishedModules } = await import('../../data/modules');
+    const routes = [
+      '/',
+      ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
+      '/market-map/',
+      '/playground/',
+      '/search/',
+      '/glossary/',
+      '/credits/',
+      '/a-z/',
+    ];
+    expect(routes.length).toBeGreaterThan(1 + 1); // home + at least one module
+    for (const route of routes) {
+      await page.goto(route);
+      const { grids, population } = await page.evaluate(() => {
+        let population = 0;
+        const grids: string[] = [];
+        for (const el of Array.from(document.querySelectorAll('*'))) {
+          population += 1;
+          const cs = getComputedStyle(el);
+          if (cs.backgroundImage.includes('svg')) {
+            grids.push(
+              `${el.tagName}.${el.getAttribute('class') ?? ''}`.slice(0, 60),
+            );
+          }
+        }
+        return { grids, population };
+      });
+      expect(population, `element population on ${route}`).toBeGreaterThan(0);
+      if (route === '/') {
+        expect(
+          grids,
+          'home grid inventory is exactly the title sheet',
+        ).toHaveLength(1);
+        expect(grids[0]).toMatch(/^DIV\.engineering-grid/);
+        const on = await page.evaluate(() => {
+          const grid = document.querySelector('.engineering-grid');
+          if (!grid) return 'missing';
+          if (grid.matches('body, main, article')) return 'on-structure';
+          if (grid.closest('.prose')) return 'behind-prose';
+          return 'title-sheet';
+        });
+        expect(on).toBe('title-sheet');
+      } else {
+        expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+      }
     }
   });
 });
