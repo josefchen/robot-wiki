@@ -125,7 +125,13 @@ test.describe('classical grasp-planning module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1703.09312');
 
     // Every chip is a real external link; no unresolved ids render.
-    const chips = main.locator('a[target="_blank"][href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders target=_blank external links inside main, and its 10
+    // registry anchors carried 10 of the 21 chips this floor counted
+    // (the same partial masking the datasets fix addressed).
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[target="_blank"][href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(11);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 

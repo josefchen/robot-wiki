@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { extractXAxis } from './helpers/table-agreement';
 
 const ROUTE = '/classical/state-estimation/';
 
@@ -152,7 +153,11 @@ test.describe('classical state-estimation module', () => {
     ).toHaveAttribute('href', 'https://arxiv.org/abs/1512.02363');
 
     // Every chip is a real external link; no unresolved ids render.
-    const chips = main.locator('a[target="_blank"][href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders target=_blank external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[target="_blank"][href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
@@ -390,24 +395,36 @@ test.describe('classical state-estimation module', () => {
   }) => {
     await page.goto(ROUTE);
     const scene = page.getByTestId('kalman-scene');
-    // The bottom tick row: numeric texts below the plot frame (the
-    // y-axis labels all sit above y=340 in the 640x372 viewBox).
-    const ticks = () =>
-      scene.evaluate((svg: SVGElement) =>
-        Array.from(svg.querySelectorAll('text'))
-          .filter((t) => parseFloat(t.getAttribute('y') ?? '0') > 340)
-          .filter((t) => /^-?\d+$/.test((t.textContent ?? '').trim()))
-          .sort(
-            (a, b) =>
-              parseFloat(a.getAttribute('x') ?? '0') -
-              parseFloat(b.getAttribute('x') ?? '0'),
-          )
-          .map((t) => (t.textContent ?? '').trim()),
-      );
-    // First and last th of the chart's sampled table.
+    // Tick row via the shared table-agreement extractor (which handles
+    // this chart's gridline-less case), not a hand-rolled y>340 geometry
+    // filter: the standing convention is that module specs import the
+    // helper for tick-row assertions so a fix to the extractor reaches
+    // every spec, not only the corpus gate. Collection mirrors
+    // chart-table-agreement.spec.ts; the pure helper runs in Node.
+    const ticks = async () => {
+      const captured = await scene.evaluate((svg: SVGElement) => ({
+        texts: Array.from(svg.querySelectorAll('text')).map((t) => ({
+          content: (t.textContent ?? '').trim(),
+          x: parseFloat(t.getAttribute('x') ?? '0'),
+          y: parseFloat(t.getAttribute('y') ?? '0'),
+        })),
+        vLineXs: Array.from(svg.querySelectorAll('line'))
+          .filter((l) => l.getAttribute('x1') === l.getAttribute('x2'))
+          .map((l) => parseFloat(l.getAttribute('x1') ?? '0')),
+      }));
+      return extractXAxis(captured.texts, captured.vLineXs).ticks;
+    };
+    // First and last th of the KALMAN chart's sampled table, reached
+    // through the scene's own aria-describedby chain instead of a
+    // document-wide details[data-chart-form="table"] query: the document-
+    // wide form was correct only while this route carried a single
+    // table-form disclosure, and a second one would silently cross-pair
+    // tables.
     const tableEndLabels = () =>
-      page.evaluate(() => {
-        const rows = document.querySelectorAll(
+      scene.evaluate((svg: SVGElement) => {
+        const descId = svg.getAttribute('aria-describedby');
+        const desc = descId ? document.getElementById(descId) : null;
+        const rows = (desc?.parentElement ?? document).querySelectorAll(
           'details[data-chart-data][data-chart-form="table"] tbody tr',
         );
         return [

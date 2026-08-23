@@ -100,7 +100,11 @@ test.describe('data-hardware hardware-taxonomy module', () => {
       // author list (Jiang et al.), so the chip now reads "Jiang 2026".
       main.getByRole('link', { name: /Jiang 2026/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2602.18397');
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 22 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(20);
   });
 

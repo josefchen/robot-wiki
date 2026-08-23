@@ -114,7 +114,11 @@ test.describe('data-hardware evaluation-crisis module', () => {
       main.getByRole('link', { name: 'Fei 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2510.13626');
     // Every chip is a real external link, never a dead anchor.
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 9 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(9);
     for (const id of [
       'tri-lbm-2025',

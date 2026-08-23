@@ -63,7 +63,11 @@ test.describe('data-hardware teleop-rigs module', () => {
       main.getByRole('link', { name: 'Khazatsky 2024' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2403.12945');
     // Every chip is a real external link, never a dead anchor.
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 9 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(9);
     for (const id of [
       'act-aloha-2023',

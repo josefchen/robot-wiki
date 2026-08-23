@@ -57,7 +57,11 @@ test.describe('world-models latent-dynamics module', () => {
     await expect(
       main.getByRole('link', { name: /Wu 2022/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2206.14176');
-    const chips = main.locator('a[href^="http"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 9 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(9);
   });
 

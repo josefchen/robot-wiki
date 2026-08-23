@@ -81,7 +81,11 @@ test.describe('frontier reliability-gap module', () => {
       'https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/',
     );
     // At least five inline citation chips, all external.
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 8 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     for (const id of [
       'bessemer-robotics-2026',

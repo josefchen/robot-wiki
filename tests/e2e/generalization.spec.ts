@@ -96,7 +96,11 @@ test.describe('frontier generalization module', () => {
       'href',
       'https://doi.org/10.1126/scirobotics.aea7390',
     );
-    const chips = main.locator('a[href^="https://"]');
+    // Scoped to the authored prose: the generated References bibliography
+    // also renders external links inside main, and with every inline chip deleted its 12 registry anchors alone still passed this floor.
+    const chips = page
+      .locator('div.prose[data-pagefind-body]')
+      .locator('a[href^="https://"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(5);
     for (const id of [
       'pi05-2025',
