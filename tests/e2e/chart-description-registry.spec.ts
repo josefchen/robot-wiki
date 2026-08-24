@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHART_DESCRIPTIONS } from '../../lib/chart-descriptions';
+import { validateRenderedChartDescriptionRoutes } from '../../lib/chart-description-rules';
 import { publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -20,14 +21,12 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  *
  * POPULATION: derived from the registry itself (every CHART_DESCRIPTIONS
  * entry) crossed with the derived published-article route set plus the
- * home route. No hand-maintained route or chart list; a new registry entry
- * is automatically in scope. This assertion counts the REGISTRY-ENTRY
- * population (source mounts, 47 at last measure), NOT the rendered-DOM
- * described-root population (63 at last measure, because several
- * components render one described root per item in a loop): the two
- * populations are right about different things, and a browser-side
- * assertion must say which one it is counting. The rendered population is
- * separately graded by chart-coverage-sweep.spec.ts.
+ * home route. No hand-maintained chart list; a new registry entry is
+ * automatically in scope, and its declared owner must be a member of the
+ * published route corpus. Registry entries count source mounts, while the
+ * rendered described-root population can be larger because mapped
+ * subcomponents render multiple roots. Both populations are derived and
+ * reconciled below rather than pinned in volatile comments.
  *
  * COMPARISON SURFACE: rendered innerText, never raw HTML containment.
  * React inserts <!-- --> comment markers between interpolated JSX
@@ -84,8 +83,11 @@ function normalize(text: string): string {
  * cardinality is asserted per collection so a selector regression that
  * matches nothing fails loudly instead of passing vacuously.
  */
-async function collectRenderedDescriptions(page: Page): Promise<Map<string, string>> {
-  const byText = new Map<string, string>();
+async function collectRenderedDescriptions(
+  page: Page,
+): Promise<{ byRoute: Map<string, Set<string>>; rootCount: number }> {
+  const byRoute = new Map<string, Set<string>>();
+  let rootCount = 0;
   for (const route of ROUTES) {
     const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
     expect(response?.status(), `${route} serves 200`).toBe(200);
@@ -94,9 +96,11 @@ async function collectRenderedDescriptions(page: Page): Promise<Map<string, stri
         (el as HTMLElement).innerText,
       ),
     );
-    for (const text of texts) byText.set(normalize(text), route);
+    const normalized = new Set(texts.map(normalize));
+    byRoute.set(route, normalized);
+    rootCount += texts.length;
   }
-  return byText;
+  return { byRoute, rootCount };
 }
 
 test.describe('registry population is derived, not hand-maintained', () => {
@@ -104,29 +108,33 @@ test.describe('registry population is derived, not hand-maintained', () => {
     expect(CHART_DESCRIPTIONS.length, 'registry is non-empty').toBeGreaterThan(0);
     expect(ROUTES.length, 'derived route corpus (home + published articles)').toBeGreaterThan(40);
     expect(new Set(ROUTES).size).toBe(ROUTES.length);
+    const routeSet = new Set(ROUTES);
+    for (const entry of CHART_DESCRIPTIONS) {
+      expect(
+        routeSet.has(entry.route),
+        `${entry.component} owning route ${entry.route} is published`,
+      ).toBe(true);
+    }
   });
 });
 
 test.describe('registry text equals the rendered default-state description', () => {
-  test('every registry entry renders verbatim on some route', async ({ page }) => {
+  test('every registry entry renders verbatim on its owning route', async ({ page }) => {
     test.setTimeout(180_000);
     const rendered = await collectRenderedDescriptions(page);
     expect(
-      rendered.size,
+      rendered.rootCount,
       'the DOM sweep saw described charts (non-zero rendered population)',
     ).toBeGreaterThanOrEqual(CHART_DESCRIPTIONS.length);
-
-    const problems: string[] = [];
-    for (const entry of CHART_DESCRIPTIONS) {
-      const expected = normalize(entry.text);
-      if (!rendered.has(expected)) {
-        problems.push(
-          `${entry.component} (${entry.file}): registry default-state text is not rendered verbatim on any route. ` +
-            `This is registry-vs-DOM drift: the component's default render and the registry entry disagree. ` +
-            `Registry text: "${expected.slice(0, 120)}..."`,
-        );
-      }
-    }
-    expect(problems, problems.join('\n\n')).toEqual([]);
+    const problems = validateRenderedChartDescriptionRoutes(
+      CHART_DESCRIPTIONS.map((entry) => ({ ...entry, text: normalize(entry.text) })),
+      rendered.byRoute,
+    );
+    expect(
+      problems,
+      problems
+        .map((problem) => `${problem.component}: ${problem.message}`)
+        .join('\n\n'),
+    ).toEqual([]);
   });
 });
