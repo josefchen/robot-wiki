@@ -8,23 +8,56 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-## Robot Wiki design-system contract
+## Robot Wiki brand-v2 current authority
 
 Before modifying any page, component, visualization, navigation surface,
-social card, font, colour, or visual asset, read
-`library/design-system.md` and `contract/design-integrity.md` completely.
+social card, font, colour, texture, image, or visual asset, read these files
+completely:
 
-- Treat `MUST`, `MUST NOT`, and the sealed validation criteria as release
-  requirements.
-- The approved identity is the plain `robot-wiki` wordmark plus the literal
-  engineering grid. Do not invent a logo, monogram, mascot, favicon, or
-  alternate visual direction.
-- Preserve content, routes, citations, data truth, accessibility, and working
-  interactions while converging visual implementation.
-- If the specification and implementation disagree, fix the drift or ask the
-  owner when the change would alter a locked foundation. Do not silently
-  choose one.
-- A shared visual change must update the specification, executable tokens,
-  affected primitives, Open Graph artwork, and tests together.
-- Inspect the rendered desktop and mobile routes named in the contract before
-  reporting a design-system change complete.
+1. `library/design-system.md`
+2. `contract/design-integrity.md`
+3. `library/brand-reference-board.jpeg`
+4. `library/brand-reference-article.png`
+
+The two images are the owner-approved literal references. The design-system
+document is the locked v2 executable specification, and the contract contains
+the sealed, measurable `VAL-B2*` release criteria.
+
+- Apply brand-v2 literally to the entire website and every first-party visual.
+  Do not preserve or propose a parallel visual direction.
+- The public display identity is exactly `Robot Wiki`.
+- The descriptor is exactly
+  `Citation-first encyclopedia of modern robot learning.`
+- Tektur Variable is the display and wordmark family. IBM Plex Sans,
+  Newsreader, and IBM Plex Mono retain their supporting roles.
+- Highlight/selection lime is exactly `#C6FF19`; signal blue is exactly
+  `#245FFF`.
+- Primary actions are black. Selection and highlight are lime. Signal blue is
+  for links, focus, registration, and active information paths.
+- Preserve routes, content, citations, data truth, accessibility, and working
+  interactions while changing presentation.
+- Keep stable technical identifiers such as repository/domain `robot-wiki`
+  and `robot-atlas-trajectory` unchanged and distinct from public display
+  identity.
+- Do not invent a logo, monogram, mascot, favicon, or alternate symbol.
+- Treat `MUST`, `MUST NOT`, the exact validation matrix, the 48-card OG/X
+  matrix, and zero-residue sweeps as release requirements.
+- A shared visual change must update executable tokens, affected primitives,
+  all affected routes/states, Open Graph/X artwork, the complete generated
+  card corpus, and tests together.
+- Validation is fully autonomous. Run the required automated gates, capture
+  every required route/viewport/state, compare the result with both approved
+  references, and resolve drift before reporting completion.
+- If implementation and v2 authority disagree, implementation is drift. Fix
+  it. Ask the owner only when a proposed change would alter a locked
+  foundation not already approved in the v2 specification.
+
+## Superseded visual history
+
+The earlier paper-system direction, including the lowercase hyphenated public
+wordmark, `Robotics encyclopaedia` descriptor, home-only engineering-grid
+restriction, IBM-Plex-Sans display identity, old blue/paper tokens, flat-only
+surface rule, and 2/3/4px-only radius rule, is superseded historical evidence.
+It may explain existing code or tests but is not actionable design guidance.
+Workers must remove active v1 residue while preserving design-neutral truth,
+accessibility, route, citation, data, and interaction constraints.
