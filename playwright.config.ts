@@ -1,5 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
+export const PLAYWRIGHT_SWIFTSHADER_ARGS = [
+  '--use-gl=angle',
+  '--use-angle=swiftshader',
+  '--enable-unsafe-swiftshader',
+] as const;
+
 export default defineConfig({
   testDir: './tests/e2e',
   timeout: 30_000,
@@ -15,7 +21,7 @@ export default defineConfig({
     launchOptions: {
       // Headless Chromium needs these flags to get a WebGL context
       // (see research/06-stack-feasibility.md).
-      args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+      args: [...PLAYWRIGHT_SWIFTSHADER_ARGS],
     },
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],

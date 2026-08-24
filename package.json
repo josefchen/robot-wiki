@@ -23,6 +23,8 @@
     "check:brand-v2-registries": "node scripts/brand-v2-census.ts --check",
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
+    "pretest:brand-v2": "npm run build",
+    "test:brand-v2": "playwright test --config playwright.brand-v2.config.ts",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts --source-only && node scripts/check-chart-descriptions.ts",
     "lint-no-slop": "node scripts/lint-no-slop.ts",
     "generate:companies": "node scripts/generate-companies.ts",

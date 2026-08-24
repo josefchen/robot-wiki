@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "baseline": "pre-brand-v2 runtime at 9b07a41",
+  "policy": "Expected visual drift is archived here. Functional, accessibility, route, data, and interaction gates remain active and are not waived.",
+  "failures": [
+    {
+      "suite": "brand-v2 core visual authority",
+      "assertionId": "VAL-B2-ID-001",
+      "expected": "Robot Wiki",
+      "actual": "robot-wiki",
+      "rolloutMilestone": "brand-v2-shell-home"
+    },
+    {
+      "suite": "brand-v2 core visual authority",
+      "assertionId": "VAL-B2-ID-002",
+      "expected": "Citation-first encyclopedia of modern robot learning.",
+      "actual": "Robotics encyclopaedia",
+      "rolloutMilestone": "brand-v2-shell-home"
+    },
+    {
+      "suite": "brand-v2 core visual authority",
+      "assertionId": "VAL-B2-TYPE-003",
+      "expected": "Tektur Variable",
+      "actual": "IBM Plex Sans",
+      "rolloutMilestone": "brand-v2-foundations"
+    },
+    {
+      "suite": "brand-v2 core visual authority",
+      "assertionId": "VAL-B2-COL-002",
+      "expected": "#245FFF",
+      "actual": "#245edb",
+      "rolloutMilestone": "brand-v2-foundations"
+    },
+    {
+      "suite": "brand-v2 core visual authority",
+      "assertionId": "VAL-B2-COL-003",
+      "expected": "#F5F6F7",
+      "actual": "#f4f3ef",
+      "rolloutMilestone": "brand-v2-foundations"
+    },
+    {
+      "suite": "brand-v2 OG authority",
+      "assertionId": "VAL-B2-ID-009",
+      "expected": "Robot Wiki social identity",
+      "actual": "robot-wiki social identity",
+      "rolloutMilestone": "brand-v2-social-convergence"
+    },
+    {
+      "suite": "brand-v2-reflow-320-200",
+      "assertionId": "VAL-B2-EVID-011",
+      "expected": "all three sealed accessibility profiles pass every public route",
+      "actual": "v1 profile drift includes 320px document overflow",
+      "rolloutMilestone": "brand-v2-social-convergence"
+    },
+    {
+      "suite": "brand-v2 27-row deep executor",
+      "assertionId": "VAL-B2-EVID-010",
+      "expected": "all 27 sealed rows reach every required v2 state and capture",
+      "actual": "v1 routes lack some v2-only state anchors and visual treatments",
+      "rolloutMilestone": "brand-v2-social-convergence"
+    }
+  ]
+}
