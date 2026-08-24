@@ -95,9 +95,18 @@ describe('environment-trap script wiring', () => {
     );
   });
 
-  it('prunes only generated OG sync shadows before standalone card regeneration', () => {
+  it('prunes only generated OG sync shadows immediately before every card generation path', () => {
     expect(pkg.scripts['pregenerate:og-cards']).toBe(
       'node scripts/prune-generated-og-shadows.ts',
+    );
+    expect(pkg.scripts['generate:og-cards']).toBe(
+      'node scripts/generate-og-cards.ts',
+    );
+    expect(pkg.scripts.postbuild).toMatch(
+      /npm run generate:og-cards$/,
+    );
+    expect(pkg.scripts.postbuild).not.toContain(
+      'node scripts/generate-og-cards.ts',
     );
     expect(
       existsSync(
