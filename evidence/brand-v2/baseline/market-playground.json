@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "kind": "market-playground",
+  "memberCount": 117,
+  "members": [
+    {
+      "id": "company:1x-technologies",
+      "hash": "d6fb2d5f5cdfa2c0283d980cb7bb0befd07607242a0002253f5a8010770e59a0"
+    },
+    {
+      "id": "company:abb-robotics",
+      "hash": "19c220ddf9bca20dcc97a3ded80ac10d117b00d5d8d5eaf3e0921cc84114301c"
+    },
+    {
+      "id": "company:agibot",
+      "hash": "6fd2d7af7bddca667320a4677c2dfadbcbd4b6feda9a2e047dfcc794ca5c2f25"
+    },
+    {
+      "id": "company:agility-robotics",
+      "hash": "0a90bb035874e225e5742a6304e967dc8b179c4cf28364a7a48c5a4a7a1a76b3"
+    },
+    {
+      "id": "company:amazon-robotics",
+      "hash": "76a368b8f3e98ca6a34409cdb9a754474c100857971a428c2ac652c178e7da88"
+    },
+    {
+      "id": "company:ambirobotics",
+      "hash": "bc0d6df75455c0027f940f46c79611980010ac5d1af2e1f48be16574fe0d29c8"
+    },
+    {
+      "id": "company:anduril",
+      "hash": "003a608f1d9672fcb06de49feacd901f7b3e300842c4bddf1f27fa0c89a05067"
+    },
+    {
+      "id": "company:applied-intuition",
+      "hash": "24459fbe9e27e8427d5e15d1f26f1d4e7ed6d6238cd4e29874573bebccd18a5c"
+    },
+    {
+      "id": "company:apptronik",
+      "hash": "8307336dac2cc80e6ac0bb8d26c34a94f54c674a25d333dcbb5fd8082822df8e"
+    },
+    {
+      "id": "company:assured-robot-intelligence",
+      "hash": "78272d33bae8bba64783196de71661cf09eadd78b47d0839cfec8354b6ba6c17"
+    },
+    {
+      "id": "company:astribot",
+      "hash": "4f3d4528e337468674cf254a80d2e9506915bbfc87785df6be074348f36f69e7"
+    },
+    {
+      "id": "company:automata",
+      "hash": "4443a489e774340eed0dce42f462814d1b1e27cf619302e4548630682da95631"
+    },
+    {
+      "id": "company:avidbots",
+      "hash": "9cd16223f22505134aa8818d975e7079f4e4992304bb3281690ffd7bee8d43f6"
+    },
+    {
+      "id": "company:bedrock-robotics",
+      "hash": "209adfa259e6b5637815f47b475ad8497d6fb4584a18fca10847cadc851c3801"
+    },
+    {
+      "id": "company:berkshire-grey",
+      "hash": "0a320d995f74b6d8a22facfdad2d3641f29bc0deaa4fb2d277c7da1362ad903d"
+    },
+    {
+      "id": "company:booster-robotics",
+      "hash": "47f50d7bb0ece642475729fe48d8ff3b69174b560db3b6fd7e52e36884935d3b"
+    },
+    {
+      "id": "company:boston-dynamics",
+      "hash": "6d01ef805598d5ad0a367bbbd41956a8a0d41aa28575d663aeca4452773dfcc7"
+    },
+    {
+      "id": "company:brain-corp",
+      "hash": "10563e625eeb21747481291f7f6774b9a3b8350550981944f310e17eb5ac159b"
+    },
+    {
+      "id": "company:carbon-robotics",
+      "hash": "03c4b0d9e828dc08bd76b5d2d4269d47f966a6afec38fbf61f0519dafbb96bf7"
+    },
+    {
+      "id": "company:chef-robotics",
+      "hash": "4239e801b569b98139bdeb67d3e3272c6665158e532dc5d08cdc52aaf3c8807a"
+    },
+    {
+      "id": "company:clone-robotics",
+      "hash": "b3f93052afadedabc4116f69ae1c02728c95bf6d7bdf7c2680f0d403447b381c"
+    },
+    {
+      "id": "company:cmr-surgical",
+      "hash": "bfb1083916216ae0a79862f852dbbdfd6055768d89e34d7c9c92c8695ccd0412"
+    },
+    {
+      "id": "company:coco-robotics",
+      "hash": "c8f554e42ba3b69593fe9ceacdf6cba41a7b1b5cf59b4c3ae7a40929af13fe30"
+    },
+    {
+      "id": "company:collaborative-robotics",
+      "hash": "9449ca2590392a6e6c6afa96e3c629d9e8cc6a8d1bdf9321945772c01fc23567"
+    },
+    {
+      "id": "company:covariant",
+      "hash": "166ded081e07cd2b164cd35a99f0ccc7effd47aba1aa3686581a0fbdc01804d9"
+    },
+    {
+      "id": "company:deep-robotics",
+      "hash": "a2915cf66ea9cc28aa962a7cd965a78073a95c65a1e6ec0c14245751b7582263"
+    },
+    {
+      "id": "company:dexterity",
+      "hash": "3155338114e297845d9e949c4ab84aa07a9aa50088dfabaa43bf72a3e8f7ff60"
+    },
+    {
+      "id": "company:diligent-robotics",
+      "hash": "303b768ca876d46248c6c6ab0e7bd4199af1fdeb6ae4fd99a964198e764a0db5"
+    },
+    {
+      "id": "company:dyna-robotics",
+      "hash": "76bcb461ac71d4f9b991bda675254a385d30815d0671ea62cf62dfa650e2ea93"
+    },
+    {
+      "id": "company:eka-robotics",
+      "hash": "3c7046d6ba0ae8fcc018ce627b125694a9f5eb94c6009408fbab3177a29e9cf7"
+    },
+    {
+      "id": "company:encord",
+      "hash": "9f2dac0a2360843495c1940eac5eaacf40765a451896316e63db53e6ebf76e5e"
+    },
+    {
+      "id": "company:engineai",
+      "hash": "56deeca5fb2b368f2cf6375a5995dce07a2ef22f92d6563b334a4fe9c27159d4"
+    },
+    {
+      "id": "company:farm-ng",
+      "hash": "f63ee3822575f13b04faf9c56c28cd6c50391023fcf4774254f38e8f39d00ffd"
+    },
+    {
+      "id": "company:field-ai",
+      "hash": "7021ab9c76c9d962d04a803f0fb63830f11d84f05396a9a15de927d8205d5295"
+    },
+    {
+      "id": "company:figure-ai",
+      "hash": "072edbb289839ab9b42b52079a568ce76b4817955a0e6b08c5ddc31dc9e1188d"
+    },
+    {
+      "id": "company:formic",
+      "hash": "e13160611094be6b55ab0d9a2042d294c2db1ffb20d4ceff8d06bc472b5df8cd"
+    },
+    {
+      "id": "company:foundry-robotics",
+      "hash": "560bd97af60f8a2a7a859cf703b3edd5494f318310c2ca69b877ebd27524f19a"
+    },
+    {
+      "id": "company:fourier-intelligence",
+      "hash": "f0dd02b413f649bcac7f82bf42e398383fcb5bc29e64929fdef26d613953c4d0"
+    },
+    {
+      "id": "company:fox-robotics",
+      "hash": "d54fb3d85f44b8318e8e24ad0b59cc2a11193178c3221367dcde1ca0b4c32311"
+    },
+    {
+      "id": "company:galaxea-ai",
+      "hash": "7b2eee587b55e9395be9914342edc4b959ce49007853b202176cfb01bf215afb"
+    },
+    {
+      "id": "company:galbot",
+      "hash": "7d34f51b9668d70dcd37b0fd830a224b745eb9eaba14ef6415c22724ccad6ab2"
+    },
+    {
+      "id": "company:gecko-robotics",
+      "hash": "010718cce882a4a69a6f539fd1cf7c37e939980928a08519eabe8e62c7b73914"
+    },
+    {
+      "id": "company:generalist-ai",
+      "hash": "67ed0d1e4dbd21966665b75832347a1cc5d72e00cbfb40cc2101f16e3587eea5"
+    },
+    {
+      "id": "company:genesis-ai",
+      "hash": "00e94a1b82a703c59f37975d6cf97b7edd08c8ff0f4c283b82c623d344b7ecb3"
+    },
+    {
+      "id": "company:google-deepmind-robotics",
+      "hash": "a9c930526441d6b67435ec7254ad182fb4a0021372e9738d61079ac37d7f361b"
+    },
+    {
+      "id": "company:hanson-robotics",
+      "hash": "16f48fa5dc1ef1dc6b73e52a20eb827b9024ebe72cea5f66fb8181b700fbb6b2"
+    },
+    {
+      "id": "company:harmonic-drive-systems",
+      "hash": "3f324ed4edad2a7d36e0c3144c57c33905c2c9b04bd8af08ccd81dbdabfae68d"
+    },
+    {
+      "id": "company:hugging-face-lerobot",
+      "hash": "75bc26d0fade34f8f191e2502965ced182e53cb6ab76b22f4e1a275c43fc8505"
+    },
+    {
+      "id": "company:humanoid-uk",
+      "hash": "d3e029d12511725335f83379a3566ac526af13a50b50a0c92ee054168a8619ab"
+    },
+    {
+      "id": "company:intuitive-surgical",
+      "hash": "d009fe268610e29c2c200e664a94c8a040fb9e8203ffacaaf1ac5dc6c714ecdb"
+    },
+    {
+      "id": "company:irobot",
+      "hash": "85e6e486001d8b39b101e427e39ea1ac5c214df9b3664958367f6b96e8843d2d"
+    },
+    {
+      "id": "company:k-scale-labs",
+      "hash": "0d4d70e4bb3d7fadc1e84a2e03928fe2570ee6df526982a3f837914f7f8763ce"
+    },
+    {
+      "id": "company:kepler-robot",
+      "hash": "60fd451c26175f79ad9b803f1abb731321e713fae8d8d9d034c328fb5847e2af"
+    },
+    {
+      "id": "company:knightscope",
+      "hash": "ec6afc9afa2d386e9aafe2ddc97b9cad5f2a9fea3e4cb0651cb99276776c8797"
+    },
+    {
+      "id": "company:leaderdrive",
+      "hash": "e7f131d67d5da8d4eb139de11a8a03343bf0e820dff0704168f8f46d055f3f38"
+    },
+    {
+      "id": "company:leju-robotics",
+      "hash": "0460f6a40284211c555b85eb05fb65e91fae305cc3e855f820840cf3bfebca1e"
+    },
+    {
+      "id": "company:lila-sciences",
+      "hash": "8e2efd5ff7311f11016edfd0f16564ffa2878b74c0a21175b7102c613a1f9b7c"
+    },
+    {
+      "id": "company:limx-dynamics",
+      "hash": "90fee32e6c6d78c1cea70ecd811fbfa2f3bba70f4f3df2516fbe4286e9693880"
+    },
+    {
+      "id": "company:locus-robotics",
+      "hash": "7eab54b17d4e9f294a5fc77b6c582c2a399fd3f3f8b2deeae94fa8dc27cb0004"
+    },
+    {
+      "id": "company:mentee-robotics",
+      "hash": "6083da05e5f062d9ba2c585f5ee0921890320c395150190096745c098c2b8f06"
+    },
+    {
+      "id": "company:meta-robotics",
+      "hash": "bf0a01d4898d0331ff428291f30ff591c3b4a0b64d28b96b45409ba87e5aed43"
+    },
+    {
+      "id": "company:micro1",
+      "hash": "03c4598af7a6658a94c62c728bea80137f84601d608be73ebdbc47a1ba12e452"
+    },
+    {
+      "id": "company:mind-robotics",
+      "hash": "62313cc7bd2a2f967f677133a6e718c7b8092257451f853937601838f67928d3"
+    },
+    {
+      "id": "company:miso-robotics",
+      "hash": "63d3c96167ddff926508a3320974115ea77224405d64e53ffd05c736aedd856a"
+    },
+    {
+      "id": "company:mitsubishi-robotics",
+      "hash": "1a86536929ec8bfeda2e9f3bc79a781caa0416d875bd41d13abef5d057f3b2ff"
+    },
+    {
+      "id": "company:monarch-tractor",
+      "hash": "7458412836ce247c7672eaf02da1d4facfd417685056d64d5219ba6f6020f91e"
+    },
+    {
+      "id": "company:moon-surgical",
+      "hash": "51c38024e7e01db409f5b3ef03f297ae5174b15e54369533111f6140e2da86d9"
+    },
+    {
+      "id": "company:mujin",
+      "hash": "33357de7a4769585da2638e194ee4bbeee65cb0114a42db6e80ce6599744c092"
+    },
+    {
+      "id": "company:mytra",
+      "hash": "f9096007700dc0f9c0faae37bc6fb19e4791366c22c067b1a1232c75b0b42021"
+    },
+    {
+      "id": "company:nabtesco",
+      "hash": "e9dce60576b113a3cfa3b1087ced4bb993b2ff5b0d8cac0da80fd3db68ccb247"
+    },
+    {
+      "id": "company:neura-robotics",
+      "hash": "07543c37f80678023d336a124aeba3426dc3a490e118a5aea34b6bbb32e320d0"
+    },
+    {
+      "id": "company:nimble-robotics",
+      "hash": "75f51e2501c9caf535bfcb0c8dc1ba062d9f5e0d457c0f6cad9c2515dd45a182"
+    },
+    {
+      "id": "company:nuro",
+      "hash": "26d861525621980cfbf66e21aac1d5a2438d486d44d666acd1aa90dafd252c9d"
+    },
+    {
+      "id": "company:nvidia-robotics",
+      "hash": "ba6b793fd110c3459d72a69e85d880f9ee8d54d82baf6dfc81735b17865f211c"
+    },
+    {
+      "id": "company:openai-robotics",
+      "hash": "78dc137b0f1bf62f8e6b057cf9dc8b18e3a9ec906f080d24eb5e75b6729811c5"
+    },
+    {
+      "id": "company:paxini",
+      "hash": "1adff6ab3e3eb143cf96fa0a19bd03856204a287c213731eca934443539e2bcc"
+    },
+    {
+      "id": "company:persona-ai",
+      "hash": "4c84dd6944f23c9af32d5193f9a33ccdabd18d765052853fae3896cc54071660"
+    },
+    {
+      "id": "company:physical-intelligence",
+      "hash": "9d52ea6a84dcd87957dc28c04d1e5eea7ab2b0b6315317208ef6c492987bf845"
+    },
+    {
+      "id": "company:plus-one-robotics",
+      "hash": "30c226cfddb90a52722795dcf5a03dc4c389090c7650a0629ed852bcd81ed732"
+    },
+    {
+      "id": "company:pollen-robotics",
+      "hash": "81eca088c970fc555a2d188ee7f4353ad767511925fa74088a0fb37ef886348d"
+    },
+    {
+      "id": "company:rainbow-robotics",
+      "hash": "1159fb219802294a764c2f98ab678bb5e3f9f6f03e69868e7de70a8c84395d0a"
+    },
+    {
+      "id": "company:rhoda-ai",
+      "hash": "069b67c0515c26b8dd6992c28101ae2d86cbea72356362b60d386a325ec961c0"
+    },
+    {
+      "id": "company:righthand-robotics",
+      "hash": "ebe5c19778fb0617f3d14c0dafc08a98735374f8af5cf4bc0e4a3a5b5c645011"
+    },
+    {
+      "id": "company:robot-era",
+      "hash": "8cd0e7d28321b5c9507f053e00bd57c929d9f8a1e66e87d27597a99824fc48ba"
+    },
+    {
+      "id": "company:robotphoenix",
+      "hash": "294055b2bd95cf1277dfb854d862f51754588fb4a22219e94ac0422dbc3bdc96"
+    },
+    {
+      "id": "company:sanctuary-ai",
+      "hash": "c2278f35db16c702f49d0138d8413195ad09cddcac355f8a70edf28cf84ced9c"
+    },
+    {
+      "id": "company:sanhua",
+      "hash": "fb265cdcad16598271d8dc33284200bbaf53b8ecff751b22294660931f9de5db"
+    },
+    {
+      "id": "company:saronic",
+      "hash": "4ac5d2e6609169e1860c38143483f71f75f0a93207189c64034bd169d5e41452"
+    },
+    {
+      "id": "company:serve-robotics",
+      "hash": "3c086a1e8596e46ba118f7f17af6cc34c7ef2f74f6f74c9f3c3a5286f6d160fd"
+    },
+    {
+      "id": "company:shadow-robot",
+      "hash": "3f1edc041b0ca0d11ecbd74ea1c8761e0feac4a2d9ca855e87f3f558eaa5e371"
+    },
+    {
+      "id": "company:sharpa",
+      "hash": "de3b2cdd3b5712c67a8e791fd58bc9d1c9d4af8cb5c91a0dda75564d52181eb4"
+    },
+    {
+      "id": "company:simbe-robotics",
+      "hash": "9cf5b39853d3d0b89db043b10240a9456100ea47239534b3b893fd2ae69b36e4"
+    },
+    {
+      "id": "company:skild-ai",
+      "hash": "c590aaf8e3733c8bdeeacda9ec4f167670c69022de481a509169a80900f31b70"
+    },
+    {
+      "id": "company:spirit-ai",
+      "hash": "0cdbfdea60215a92a5723ae5670ef87bc15380f93ba7e4e34daf022893d88e5a"
+    },
+    {
+      "id": "company:standard-bots",
+      "hash": "367d33f3142ab5e071e9e2cf863b5691372c73f5ce19f3d0bf8600d3eef50d2d"
+    },
+    {
+      "id": "company:starship-technologies",
+      "hash": "a3607eacc2fc7ea16f15356e2baf365cc11d846bfc6025ddd3653aa9e993428c"
+    },
+    {
+      "id": "company:sunday-robotics",
+      "hash": "78c8bd4a28f32b76336455477b997be16a68ff889693f08f89275852b93e8a18"
+    },
+    {
+      "id": "company:switchbot",
+      "hash": "ab37610c356e0fe1344b64558953df33224335f3c4048b99d59aab43a6bcc23c"
+    },
+    {
+      "id": "company:symbotic",
+      "hash": "dd5243e949f9d71be5128e04878ccedeb3845f48bd240b38ce0e4c2a149cbb34"
+    },
+    {
+      "id": "company:tars-robotics",
+      "hash": "a37c3840b13fd6698b46006ff86662b7ae776067b50e603c8f432689884fa1e2"
+    },
+    {
+      "id": "company:tesla-optimus",
+      "hash": "e610d9ada0aeb0bfed57acf567f75505031d95b12655960fe6cbb2ce9f773a3d"
+    },
+    {
+      "id": "company:the-bot-company",
+      "hash": "347d3483b60a206a150c4d74e9fd29d7af012446c270477fcde7fd4bdd555db0"
+    },
+    {
+      "id": "company:ubtech-robotics",
+      "hash": "dda05368b5015f51b9f2a679df2bba998bc9b1d296edeb73ba2073931e83fdca"
+    },
+    {
+      "id": "company:unitree-robotics",
+      "hash": "2be11493ece9f2425a5f94641d8567409576bc94ba6d048c9eedd7d7ff84a10e"
+    },
+    {
+      "id": "company:wandercraft",
+      "hash": "0b1568e500c2f4b3dc83b9f0515009d47536100e3b82e422305d2c6c23239385"
+    },
+    {
+      "id": "company:weave-robotics",
+      "hash": "018dfd0f064f292fc9c30fcf39a41ba6f8aa513a42a92184a6b489a1cb923254"
+    },
+    {
+      "id": "company:wonik-robotics",
+      "hash": "80ad49e02dcfa23262a7fcec3d5d831d247c15c90ced95e92ef796b910fbfa43"
+    },
+    {
+      "id": "company:x-square-robot",
+      "hash": "733ab31c9d78eb811dbaacbfd625dd085038ac00f02e07bd24da99e5f8b2a3d8"
+    },
+    {
+      "id": "company:xdof",
+      "hash": "03fde5aa3efa4efa9e9726692be4984220ab05428a3067220e2c735ae4649afa"
+    },
+    {
+      "id": "company:xela-robotics",
+      "hash": "b02f377678b5d9604a7483db8aba30a8c5689ba8de1527cfc8c722409a93651b"
+    },
+    {
+      "id": "company:zebra-robotics-automation",
+      "hash": "9afc9664455ac58f06165ea43d55a4930707c9e81f32aa21c378831c3e66c1d3"
+    },
+    {
+      "id": "playground-source:components/three/load-robot.ts",
+      "hash": "5d231125bfaf9fe21aef1f07919810cacff270e9bfa0b3fa8fa7b97c02e04001"
+    },
+    {
+      "id": "playground-source:components/three/playground-canvas.tsx",
+      "hash": "593c69e7b15c482dba204f21830ba18970fa695bfcb831eaaea10ed7ad5836b4"
+    },
+    {
+      "id": "playground-source:components/three/playground-hud.tsx",
+      "hash": "ab3a721cb6c103dcbc8a4abff81f198d1f0e59fcdabd257dd618428f12b36fa3"
+    },
+    {
+      "id": "playground-source:components/three/trajectory-panel.tsx",
+      "hash": "1c3ecb9de38bd16c08e4d8f0626d183c64077454428b5ab0165637ddf534285b"
+    },
+    {
+      "id": "playground-source:lib/ik.ts",
+      "hash": "41143cb3c54051cbc25072e557868be25763d404f4837cc41a7f5d3fa605cf5f"
+    },
+    {
+      "id": "playground-source:lib/trajectory.ts",
+      "hash": "772d715662ee2d6b1eb0a1c547fa8ae342c26ab20666dd723b963816159411b8"
+    }
+  ],
+  "rootHash": "3ab7651e7bcb8bfc2ef26bb89353d12d983bd6db7a2b155d6819c7040dab8024"
+}

@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "kind": "accessible-names",
+  "memberCount": 167,
+  "members": [
+    {
+      "id": "literal:app/a-z/page.tsx:aria-label:1",
+      "hash": "ae3c8b7ac49be08eef69087d31e982cb3f6ca0a173c8d7687f16dd7aae37eb85"
+    },
+    {
+      "id": "literal:app/credits/page.tsx:aria-labelledby:1",
+      "hash": "fbc57f87680fbf1ca51c595bab96735d36b657064ce208cbcaf21f58326c3408"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-label:1",
+      "hash": "affe14df99472c010b8938419a355f91e4807c29ac2a336166b9630b64323161"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-labelledby:2",
+      "hash": "acdbc8006700cc532ba7007829d3cd3d7c5297e61eea0949382dba1da870e9f5"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-labelledby:3",
+      "hash": "7cda27de2b0f3e1d784762edc699462e8703398bacfd308a8e4437377fbae355"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-labelledby:4",
+      "hash": "d5ee88ffaeefd0b4422286a3fb2f9266367898228d88833e2ddcc0a9ba60ceea"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-labelledby:5",
+      "hash": "b500bfbcf5c9ce21838f59b8fcd611fa2a4bc17ac3012345f706292ec7457e4a"
+    },
+    {
+      "id": "literal:app/page.tsx:aria-labelledby:6",
+      "hash": "96e1a60786314f4a3a4c46d46491c14fea4c791cf8aac4eb90f1f94ffde2d12b"
+    },
+    {
+      "id": "literal:app/playground/page.tsx:aria-label:1",
+      "hash": "d92fd2c7d70fbfe961378131b3468efbe429c2a20b089d0de9defa0239ad7e71"
+    },
+    {
+      "id": "literal:components/article/breadcrumbs.tsx:aria-label:1",
+      "hash": "ef1b26ddfd553af0290cbb9167a7d5e40453edb881f3ef5a09ca3a281a22bf3b"
+    },
+    {
+      "id": "literal:components/article/references.tsx:aria-labelledby:1",
+      "hash": "dd97976d9db553e60e2a3db018aa61f742dadce99b40d6f07c7b540a9911e798"
+    },
+    {
+      "id": "literal:components/interactive/action-conditioning.tsx:aria-label:1",
+      "hash": "9608eeb481783e41ed5f06a54f2ad09a6572dea7627666791aff5a62feb46e46"
+    },
+    {
+      "id": "literal:components/interactive/action-conditioning.tsx:aria-label:2",
+      "hash": "1a29d2f65f02a77dc01a071ecbe584663400b5e00d2fa3a97421b6e524fd16a0"
+    },
+    {
+      "id": "literal:components/interactive/action-tokenization.tsx:aria-label:1",
+      "hash": "d01d668f18d7cbb4142a531ec921fc86c75f5a10b05e139aacdceff8a78b60e0"
+    },
+    {
+      "id": "literal:components/interactive/advantage-scrubber.tsx:aria-label:1",
+      "hash": "0f2881fc417e66b3add6358cf3d0fc39705d5e9d3cccb0d96fc4228b564b9bfc"
+    },
+    {
+      "id": "literal:components/interactive/appearance-physics-push.tsx:aria-label:1",
+      "hash": "f83b8e5d0097749c50b97086e019d6c751c6e80c2a1cfc1182f19d17389a8a3a"
+    },
+    {
+      "id": "literal:components/interactive/collaborative-operation-modes.tsx:aria-label:1",
+      "hash": "2c3f761069389e112733f38001b9ec7a0a4d68092c31c312e2bb601818060726"
+    },
+    {
+      "id": "literal:components/interactive/comparison-matrix.tsx:aria-label:1",
+      "hash": "8ca7477105054eb0462215a87ce38fc3df3734b4cc76e1c6a8cda6df3f220330"
+    },
+    {
+      "id": "literal:components/interactive/comparison-matrix.tsx:aria-label:2",
+      "hash": "54e39db523e57309d6df6ee7d2049e5b3e97a7b8bf63bdb340618de998cf459a"
+    },
+    {
+      "id": "literal:components/interactive/compounding-error.tsx:aria-label:1",
+      "hash": "b2ecd5a16b472a402b5c5ec048c477d2b037ff66ddd757821a44bb9d86969aa0"
+    },
+    {
+      "id": "literal:components/interactive/contact-geometry.tsx:aria-labelledby:1",
+      "hash": "b8f86484d6645ea66c5b5727ebb0144f07cc1e93f67fbd9a34c334ef1a3ee7b1"
+    },
+    {
+      "id": "literal:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
+      "hash": "416127d1fd18758c8f5411561a32cc05f92f460c5e2d5b7a9552d58f395079af"
+    },
+    {
+      "id": "literal:components/interactive/data-scale-chart.tsx:aria-label:1",
+      "hash": "544667c8a31515de4563fb3c936e5d0183fd11da4943e9a816d967be10ae6027"
+    },
+    {
+      "id": "literal:components/interactive/deployment-dashboard.tsx:aria-label:1",
+      "hash": "025f88cec178a93e39e12bc352b6c06fae83e71c1061bd453c461375b958f478"
+    },
+    {
+      "id": "literal:components/interactive/deployment-economics.tsx:title:1",
+      "hash": "8689434648b0b24a7433db350fcd1813f5fe5f3dbad100e0f9eb83c50fd7fe13"
+    },
+    {
+      "id": "literal:components/interactive/deployment-economics.tsx:title:2",
+      "hash": "a5027a7b7cb37667a8c522f9eb031b58588581aa7832c1505e26964ed98e0614"
+    },
+    {
+      "id": "literal:components/interactive/deployment-economics.tsx:title:3",
+      "hash": "a97d4eb60721e476589bd61f1099ccaa907b593ded5869a9248cf5ae71d40e8c"
+    },
+    {
+      "id": "literal:components/interactive/eureka-loop.tsx:aria-label:1",
+      "hash": "1b86df9ea3e8c940d55b0697493e1348741dfc2a7dfc9a9e7926adec28757319"
+    },
+    {
+      "id": "literal:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
+      "hash": "4283844591ad8d50af323a780db2b3e4cbd37172c20c5d98f8946aa550956aeb"
+    },
+    {
+      "id": "literal:components/interactive/gait-diagram.tsx:aria-label:1",
+      "hash": "8e3eb2f147d958b4bd98286ec692a6d7c28614ab64f50327b673615a0be6de63"
+    },
+    {
+      "id": "literal:components/interactive/gait-diagram.tsx:aria-label:2",
+      "hash": "1b991f9e9f5708708f349ba75b38b0c520fe6a804ccf91687b98e989b7216b8f"
+    },
+    {
+      "id": "literal:components/interactive/gait-diagram.tsx:aria-label:3",
+      "hash": "ec0783b875b340ca0198164643d3b15a740263946ab42e718861f0c6ed535fed"
+    },
+    {
+      "id": "literal:components/interactive/generalist-release-timeline.tsx:aria-label:1",
+      "hash": "e57b44edbf3b5254e87bfa37b7def078046cac11b28b5b6a37b5251fe7528300"
+    },
+    {
+      "id": "literal:components/interactive/generalist-release-timeline.tsx:aria-label:2",
+      "hash": "711081c49a7514f38d46544090884e656defb1821ab91902044a91c9e6fd17e4"
+    },
+    {
+      "id": "literal:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+      "hash": "9296e913d7addca7ccf0a691c71090d623db5f6e548aa71e805f63f29ccab453"
+    },
+    {
+      "id": "literal:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
+      "hash": "34b5f791e7c20f9ca278d58942325fbc40c23949c185d6f30fa3073cb05a5ab3"
+    },
+    {
+      "id": "literal:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
+      "hash": "c9dbcc94562514167943d6dfbd7a5e2d136b41ecc1dad6d8987184cd333c3dcd"
+    },
+    {
+      "id": "literal:components/interactive/hierarchy-timescales.tsx:aria-label:1",
+      "hash": "4b41be4f81d59ec8cb2e92f6652b308d244359baa5a2602284f3dc8a0c8122b3"
+    },
+    {
+      "id": "literal:components/interactive/impedance-contact-lab.tsx:aria-label:1",
+      "hash": "5e57e9912a98342af4384e2dc69ec2d85b0c23f44badf909c84e0f90c2bcf8af"
+    },
+    {
+      "id": "literal:components/interactive/jepa-planning.tsx:aria-label:1",
+      "hash": "1fc5d5b7bc67ad75a1de0e39fd2b88e21eb75da0ad66b3b4f1a4f93f82b3cd82"
+    },
+    {
+      "id": "literal:components/interactive/kalman-tracker.tsx:aria-label:1",
+      "hash": "14ac8b449b0d55d7faf28a5a340288a8db212a66fb110471e757950afc0a7289"
+    },
+    {
+      "id": "literal:components/interactive/kalman-tracker.tsx:aria-label:2",
+      "hash": "16a082f8729dceb25c3d93d4acd25a5745108f375e0fda356fe885f597ac88df"
+    },
+    {
+      "id": "literal:components/interactive/kalman-tracker.tsx:aria-label:3",
+      "hash": "59645f14d9c6044126cbaeec8cb393f1f375e626f0bc57835e18692b3ae72b98"
+    },
+    {
+      "id": "literal:components/interactive/latent-imagination.tsx:aria-label:1",
+      "hash": "78efe3a13c82017921f30bd67063381ada2ba39a869df5cbaacc3500e4738490"
+    },
+    {
+      "id": "literal:components/interactive/milestones-watchlist.tsx:aria-label:1",
+      "hash": "7e3b18fcfc3c4f0577e91ae972ac2e0ea8681717b306ae00654b75d0fa7b6bf2"
+    },
+    {
+      "id": "literal:components/interactive/mot-insulation.tsx:aria-label:1",
+      "hash": "011d6b0a060346ef2c56630e741d6198c06acc0ea793aca2a99a36cc6ba1bbd9"
+    },
+    {
+      "id": "literal:components/interactive/mpc-vs-rl.tsx:aria-label:1",
+      "hash": "493412ba39bf39861ffdfab777f40e3dab8b9ecdb13f581d4222bf9ff47ee15a"
+    },
+    {
+      "id": "literal:components/interactive/pendulum-controller.tsx:aria-label:1",
+      "hash": "50813a0ec3e799d60a221b33f71be1442af1132f6df7599a106fd687ace8b361"
+    },
+    {
+      "id": "literal:components/interactive/pendulum-controller.tsx:aria-label:2",
+      "hash": "032471338c489881afa10bff78a4b07f23ebdd4e7ff1c0573f7ff658bde644c6"
+    },
+    {
+      "id": "literal:components/interactive/perception-error-budget.tsx:aria-label:1",
+      "hash": "a4e21b75f5b6ba37da35229489b1761bc7c1f8dd6671a4600ab58dc747348b2e"
+    },
+    {
+      "id": "literal:components/interactive/perception-latency.tsx:aria-label:1",
+      "hash": "99cfee78b41929d6569de830fb0e0e53bd18d0cbea94bc6be06e6defef6228f7"
+    },
+    {
+      "id": "literal:components/interactive/pi-generation-timeline.tsx:aria-label:1",
+      "hash": "433cf30a79f8d03a5cfa8179ca8aa6a7cdc8ade8a6c11ad1d36af5062e6127cd"
+    },
+    {
+      "id": "literal:components/interactive/reward-shaping.tsx:aria-label:1",
+      "hash": "52137e870d1f3cdf8f62434958051f4001f9d40e03fb9c2e0c46e0d50a28da81"
+    },
+    {
+      "id": "literal:components/interactive/sample-efficiency-ledger.tsx:aria-label:1",
+      "hash": "f819efb75f4a47148c5cb0daee34d3bc94e96cf286acafef6970b718b2ecb9d7"
+    },
+    {
+      "id": "literal:components/interactive/scene-representation-ladder.tsx:aria-label:1",
+      "hash": "b3bcf7a2b13fd90b3e9c67a7ed665bcb66ec14dd6e6313fc9b427a5f450983f2"
+    },
+    {
+      "id": "literal:components/interactive/scene-representation-ladder.tsx:aria-label:2",
+      "hash": "fe1044415ea2e7ea68c01f4dd2ff6e03ae7e6c6ec24c853017dd500b0847a155"
+    },
+    {
+      "id": "literal:components/interactive/scene-representation-ladder.tsx:aria-label:3",
+      "hash": "18bf8dc9b7892bb5b297d670925a50b6c3dd7e0c52904371e11499e57a26c0f6"
+    },
+    {
+      "id": "literal:components/interactive/teleop-rig-matrix.tsx:aria-label:1",
+      "hash": "7e7c1e424468141ba9411a2c512476e2a78eea0f67678d7e707266d9541aa3bc"
+    },
+    {
+      "id": "literal:components/interactive/teleop-rig-matrix.tsx:aria-label:2",
+      "hash": "f7f1cd4b9f264935fcb3679c97a0b0827e21d9df234397e15732915c3318adea"
+    },
+    {
+      "id": "literal:components/interactive/wbc-decomposition.tsx:aria-label:1",
+      "hash": "7d55169a84e6effcfdd289d4a1824b03c2f157de66ca5f26a6af4059c536777f"
+    },
+    {
+      "id": "literal:components/interactive/wm-disambiguator.tsx:aria-label:1",
+      "hash": "944547e6a23d847b6c5888026e9034c42640eaba881c7a7e34382cc710b50598"
+    },
+    {
+      "id": "literal:components/interactive/wm-disambiguator.tsx:aria-label:2",
+      "hash": "1034f1b590e8218148562ac480e0317c1dc3bebbd4f95d0b2754a8128d5e0e9f"
+    },
+    {
+      "id": "literal:components/market-map/bubble-view.tsx:aria-label:1",
+      "hash": "54ec9de6487a9f3131f8a3181bae639e0cf79d6d6c6d222485138180983338e1"
+    },
+    {
+      "id": "literal:components/market-map/company-card.tsx:aria-label:1",
+      "hash": "4338d731a2eab80ade35fb3b6904c9799c58eef73a9f889f6e283d1e1f46baf3"
+    },
+    {
+      "id": "literal:components/market-map/company-card.tsx:aria-label:2",
+      "hash": "808408541bd8907cfef3c2f13503d43d96dd2679323975b05b8617a673ad1fe8"
+    },
+    {
+      "id": "literal:components/market-map/filter-bar.tsx:aria-label:1",
+      "hash": "7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1"
+    },
+    {
+      "id": "literal:components/nav/search-box.tsx:aria-label:1",
+      "hash": "2b0b5c7a35c2388ce4e798821454e716c924886fd28b776ce331836f2fb74c57"
+    },
+    {
+      "id": "literal:components/nav/search-box.tsx:aria-label:2",
+      "hash": "da7935abdbb535a75c52310f242642636378c7ffbb62d38d84e5d756c3f7c21b"
+    },
+    {
+      "id": "literal:components/nav/site-shell.tsx:aria-label:1",
+      "hash": "ff7e397f26a5fba7fa39097a3b487b82237411d15b61d9d0cec68f36f5df739b"
+    },
+    {
+      "id": "literal:components/nav/site-shell.tsx:aria-label:2",
+      "hash": "4e7a5b5db2f00c340474d1261a0112f06603e34a92df9d974fa4d321b3434ef0"
+    },
+    {
+      "id": "literal:components/nav/site-shell.tsx:aria-label:3",
+      "hash": "3fcd7f895a2b553423f1ebdc05fbe0f9190e01e9f21247fdbf1cf8d4e5740eca"
+    },
+    {
+      "id": "literal:components/search/search-interface.tsx:aria-label:1",
+      "hash": "da7935abdbb535a75c52310f242642636378c7ffbb62d38d84e5d756c3f7c21b"
+    },
+    {
+      "id": "literal:components/search/type-facet-bar.tsx:aria-label:1",
+      "hash": "f6783cead37f1ea2af24c08fcbb1ddb1edd23880a109c5a1e8db9fcf2786a617"
+    },
+    {
+      "id": "literal:components/three/playground-canvas.tsx:aria-label:1",
+      "hash": "273a7feab2e82bdd9938629a142f3cf70d9b09efd019d6b812145537f0fd9c5e"
+    },
+    {
+      "id": "literal:components/three/playground-canvas.tsx:aria-label:2",
+      "hash": "031f4d38d31e3be5d8961a024e83107412f6a82a552cac09a0bfc29e8303b422"
+    },
+    {
+      "id": "literal:components/three/playground-canvas.tsx:aria-label:3",
+      "hash": "d3585aa892024947b85c0eb319c46d25d375a263683fb6d55548f0a38537e506"
+    },
+    {
+      "id": "literal:components/three/playground-canvas.tsx:aria-label:4",
+      "hash": "8d1c1965f9ef0e8eee16a92ccc22bb9435cb4426ee46e16ca088765b13381e7e"
+    },
+    {
+      "id": "literal:components/three/playground-hud.tsx:aria-label:1",
+      "hash": "cac04d87f5aebc0fdb26073601c7956eba6d48d922471299c3b696238e4d2e8c"
+    },
+    {
+      "id": "literal:components/three/trajectory-panel.tsx:aria-label:1",
+      "hash": "e8c73ee69681dffc7394cd53c9868d6e0adc12b4af29ba54d332b0f4b8a4be1c"
+    },
+    {
+      "id": "literal:components/three/trajectory-panel.tsx:aria-label:2",
+      "hash": "2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee"
+    },
+    {
+      "id": "literal:components/three/trajectory-panel.tsx:aria-label:3",
+      "hash": "9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7"
+    },
+    {
+      "id": "literal:components/three/trajectory-panel.tsx:aria-label:4",
+      "hash": "eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83"
+    },
+    {
+      "id": "literal:components/ui/copy-button.tsx:aria-label:1",
+      "hash": "15fbc430e8fc41f6b6fec4e4726c8688bd86aeef62237f753684095754870235"
+    },
+    {
+      "id": "literal:content/classical/kinematics.mdx:title:1",
+      "hash": "bc7d38155dc3c4f771c7d9d0ed7264a752ec6ab1293e2f0abc6d4174dd70d720"
+    },
+    {
+      "id": "literal:content/manipulation/action-chunking.mdx:title:1",
+      "hash": "fb70e405eda631b887e7a5797adaecb10124c98e27612a838481125218d08c02"
+    },
+    {
+      "id": "literal:content/manipulation/action-chunking.mdx:title:2",
+      "hash": "698c623a2d13b89b6b9de2b6d6a5153f54002afb71635225c71b8580d05b5bfd"
+    },
+    {
+      "id": "literal:content/manipulation/action-chunking.mdx:title:3",
+      "hash": "62bc37854f3b23ba4e47948bb8bce39a50f9f5e26081f075cfefeda94a9213cf"
+    },
+    {
+      "id": "literal:content/manipulation/action-chunking.mdx:title:4",
+      "hash": "c8a6a115c973606cb7f279659248090bca689e062f1583d8ae5531d4ca9ac4f7"
+    },
+    {
+      "id": "literal:content/manipulation/bc-foundations.mdx:title:1",
+      "hash": "c570ec8684d3f70bf7f3772c1d193d490f05894566f19c11f14395e5deea089e"
+    },
+    {
+      "id": "literal:content/manipulation/bc-foundations.mdx:title:2",
+      "hash": "4604dd8f3e7ba4463113444bab9c8f7ade5d687807a27644deb3518ac52ff931"
+    },
+    {
+      "id": "literal:content/manipulation/comparison-matrix.mdx:title:1",
+      "hash": "b478fc715e724052018d4effee1e4591b45dc3059add0c44c84953e9518d8617"
+    },
+    {
+      "id": "literal:content/manipulation/cross-embodiment.mdx:title:1",
+      "hash": "8e53d987e6b5ac3a2bb09f88886955439d55a4096a6fe3fc863b12f362724e8b"
+    },
+    {
+      "id": "literal:content/manipulation/diffusion-policy.mdx:title:1",
+      "hash": "2f9b14853463293eed94b24710c3ef0753fabff5c0cd16365ac9947c57fab97a"
+    },
+    {
+      "id": "literal:content/manipulation/diffusion-policy.mdx:title:2",
+      "hash": "266ea4e81370a9c51ce7ea6f5abf0c5e4df18cc079bb640d79ce12317f997401"
+    },
+    {
+      "id": "literal:content/manipulation/diffusion-policy.mdx:title:3",
+      "hash": "d5ed013e7f1f161fc8876821ef7311688761352699e7ba3c8c28e94e672af285"
+    },
+    {
+      "id": "literal:content/manipulation/generalist-policies.mdx:title:1",
+      "hash": "286d68052a31663892384e430b01ddf9e687332907d1f2b5359e13f58c8b585c"
+    },
+    {
+      "id": "literal:content/manipulation/hierarchical.mdx:title:1",
+      "hash": "a280b5901045f47c2229be783dbfcc3a2c917ea9923e0961b2d0007309606263"
+    },
+    {
+      "id": "literal:content/manipulation/knowledge-insulation.mdx:title:1",
+      "hash": "8e53d987e6b5ac3a2bb09f88886955439d55a4096a6fe3fc863b12f362724e8b"
+    },
+    {
+      "id": "literal:content/manipulation/pi-line.mdx:title:1",
+      "hash": "b039a5e4fc94f5baae5a20e9500a10b6a627a2bcf1c551c638d38bb03c929b9f"
+    },
+    {
+      "id": "literal:content/manipulation/pi-line.mdx:title:2",
+      "hash": "747133c442757e653fcbf37e0098c89c3224ed18c5507dd28e77e8bfbebdf2e6"
+    },
+    {
+      "id": "literal:content/manipulation/realtime-execution.mdx:title:1",
+      "hash": "2a3cd5be4de47698afd8056e7b17cadf1e54b763127b3fe1a9835379f2baa844"
+    },
+    {
+      "id": "literal:content/manipulation/rl-finetuning.mdx:title:1",
+      "hash": "2a3cd5be4de47698afd8056e7b17cadf1e54b763127b3fe1a9835379f2baa844"
+    },
+    {
+      "id": "literal:content/manipulation/vla-models.mdx:title:1",
+      "hash": "768832573992687782943a60d6cbc8805d8e1d88e442f0028b1883a5e245cd7f"
+    },
+    {
+      "id": "literal:content/rl-sim2real/humanoid-wbc.mdx:title:1",
+      "hash": "672cf5e4bc046360e381824548d5fb45851812d316f4621f05bac4ddfcd12430"
+    },
+    {
+      "id": "literal:content/rl-sim2real/parallel-sim-rl.mdx:title:1",
+      "hash": "eed2d8cc715679a82784b8c8ff5b07735332f9ba5c25c7b92f379281ddbb259d"
+    },
+    {
+      "id": "literal:content/rl-sim2real/sim2real-transfer.mdx:title:1",
+      "hash": "eed2d8cc715679a82784b8c8ff5b07735332f9ba5c25c7b92f379281ddbb259d"
+    },
+    {
+      "id": "literal:content/rl-sim2real/why-rl-locomotion.mdx:title:1",
+      "hash": "8e53d987e6b5ac3a2bb09f88886955439d55a4096a6fe3fc863b12f362724e8b"
+    },
+    {
+      "id": "nav:/",
+      "hash": "4c9befe85275ec1de40d180b207ca9aeaaf48da67b0a855c4dff5e9832103125"
+    },
+    {
+      "id": "nav:/a-z/",
+      "hash": "55c5828935801577c2826e93b8975b840113e8d42f6c2327dd87e0a3855d4352"
+    },
+    {
+      "id": "nav:/adjacent/",
+      "hash": "e9eddc92b1a8b8f5b5f2e9c695aaf4279c3482100357185384e2f91ed4bcfde1"
+    },
+    {
+      "id": "nav:/adjacent/autonomous-vehicles/",
+      "hash": "7f84e870f41da056f12afdbe6cc0592511445683e74794f7d02887d1156ca08e"
+    },
+    {
+      "id": "nav:/adjacent/drones/",
+      "hash": "4ae8ce4ab9ae38a4a941c02bb58fb269515d4976555f8ba0d26a2f0b745c73c0"
+    },
+    {
+      "id": "nav:/adjacent/space/",
+      "hash": "e65f9207a6eeafdfe585a1fb2262fdb3daddf2061c72136f35dc374042a4486c"
+    },
+    {
+      "id": "nav:/adjacent/surgical/",
+      "hash": "40f29585f051f01f01df6cc857759aad577c7c8feede96a3b3ef9fb4d4a80555"
+    },
+    {
+      "id": "nav:/classical/",
+      "hash": "93beedeb91ac687d93c4f8b25e417145af83780725c7c7971ea1897573a9efad"
+    },
+    {
+      "id": "nav:/classical/control/",
+      "hash": "f9ef2e892ee14eb15a4a5327bbdd9e38ea0f93a035d9f968bd6374f2c1231371"
+    },
+    {
+      "id": "nav:/classical/grasp-planning/",
+      "hash": "139b92dbad051dd47f4d99b244f276df05ad21ad99c786281e7f3172c08be994"
+    },
+    {
+      "id": "nav:/classical/kinematics/",
+      "hash": "4bcfe252a50282bd60cae4e29caad3ed8b0adbad8b7483da5549acd392e4d616"
+    },
+    {
+      "id": "nav:/classical/motion-planning/",
+      "hash": "285f5970dc2e801b0790eef62020d7acc9d81658b9a1d9e56e21f95a67f7f9d4"
+    },
+    {
+      "id": "nav:/classical/perception/",
+      "hash": "b461ca3cb6d83b7cd45285c174f126b9e3f3740538237773d70a4b7c246d79b5"
+    },
+    {
+      "id": "nav:/classical/scene-representation/",
+      "hash": "3d3d9a5363edf212317402c15a398fe5cce7f8f3c5589dea398f699da41e50ef"
+    },
+    {
+      "id": "nav:/classical/state-estimation/",
+      "hash": "f65efd0f505a92b870624f10d0faf1821945724d569fe23efde88062168fe9dd"
+    },
+    {
+      "id": "nav:/credits/",
+      "hash": "8f6fb9d250929ff44ff6b8e3870931db19c2701f59321dcd160e311246002bdd"
+    },
+    {
+      "id": "nav:/data-hardware/",
+      "hash": "abbdfb78b261b47496eac9a608a9f6596756aceeb37af4e78b6ec17b32b4cec1"
+    },
+    {
+      "id": "nav:/data-hardware/data-bottleneck/",
+      "hash": "5d083f0801123722748dc63499e9c3ed60ea901b275e8bc8a519d36a815dda03"
+    },
+    {
+      "id": "nav:/data-hardware/datasets/",
+      "hash": "75355f873725bd6cc964ab098fba800f1235d329d350b3383a9ca0e09436b2fb"
+    },
+    {
+      "id": "nav:/data-hardware/evaluation-crisis/",
+      "hash": "f0523ac5183c2e0f86a912e1f3c838e5691eaf3c821e030a2fa0e72aed3c0630"
+    },
+    {
+      "id": "nav:/data-hardware/hardware-taxonomy/",
+      "hash": "205b8e06b160049222caaf4cddbe92d0fc759420227148d5985cd6eae0fcc259"
+    },
+    {
+      "id": "nav:/data-hardware/industrial-deployment/",
+      "hash": "538057609735085d540a07087a4237cf870d2b74f45c3b98ba92564c72465779"
+    },
+    {
+      "id": "nav:/data-hardware/teleop-rigs/",
+      "hash": "025b18932e5b73864a6d432bd2eeec5ee1ae97cfa31b696473e298cdafdca53a"
+    },
+    {
+      "id": "nav:/frontier/",
+      "hash": "5a1467d5a1f400f4c6b9a47b34483d5504856fec41d66af2300d55b931386099"
+    },
+    {
+      "id": "nav:/frontier/bear-case/",
+      "hash": "5afec210cdc74f3eb369e49f00db5c5a70c1041574bb911198fd4b274b63e50e"
+    },
+    {
+      "id": "nav:/frontier/competing-theses/",
+      "hash": "aba3a229c5ab0bb568b600ae15fae0b1c6922ff4ae6b0e665eec1a203ee81941"
+    },
+    {
+      "id": "nav:/frontier/dexterity/",
+      "hash": "e15caf2a993c08e8e2ba408982c5aa7a36aefedad26f5874212d9db01e9a673b"
+    },
+    {
+      "id": "nav:/frontier/generalization/",
+      "hash": "5008263bf7b1cecd8ae63d58a7cb161d035670db2959835772e2c3a1c5bd35ba"
+    },
+    {
+      "id": "nav:/frontier/reliability-gap/",
+      "hash": "09e2e0f0dc83898f7ba4fa8f52a6292ae453b7c79a2afe288cb89b5a19923853"
+    },
+    {
+      "id": "nav:/frontier/safety-and-assurance/",
+      "hash": "436c735d58b8ba1ab78a5f74f388b160ee92b5ce95bb451a91893ff4a0e80a46"
+    },
+    {
+      "id": "nav:/glossary/",
+      "hash": "a8d9ab6b9fdd41b62aca918b39803a6629036a2c83ff1025395777831cc78221"
+    },
+    {
+      "id": "nav:/manipulation/",
+      "hash": "d449edd4af759623eca509a05772251ec090e44bb0d82daad95775abe7511fac"
+    },
+    {
+      "id": "nav:/manipulation/action-chunking/",
+      "hash": "7b1f50791d5680e3178bdb0d0fa7503d42e74762935260aa6e5395e86277d58e"
+    },
+    {
+      "id": "nav:/manipulation/bc-foundations/",
+      "hash": "14fa8bb25035cef0ff4015b0e94cb32f42e68797d64074a9f4400de4dad88e91"
+    },
+    {
+      "id": "nav:/manipulation/comparison-matrix/",
+      "hash": "de9d632a03fdd901e55d1a88d33103a0e30587344e19e76a710deb914e1fa268"
+    },
+    {
+      "id": "nav:/manipulation/cross-embodiment/",
+      "hash": "c0aaa7f324fee7c8860e60a16a85ba4d8eb960dbc6d3949354647135b81fc87d"
+    },
+    {
+      "id": "nav:/manipulation/diffusion-policy/",
+      "hash": "f1935744c86f64ac4e622bfd82c10bfea0e7e3bd53546542c0270cbe9921c2c7"
+    },
+    {
+      "id": "nav:/manipulation/generalist-policies/",
+      "hash": "306b0073cd227bda7c7e6e61dd869b24be085e051d1de2a1f13518943cefa2cc"
+    },
+    {
+      "id": "nav:/manipulation/hierarchical/",
+      "hash": "109bc2f69f1df7c4979f34f1b742afac4beb2907ec2b216bf4eb68164a10061d"
+    },
+    {
+      "id": "nav:/manipulation/knowledge-insulation/",
+      "hash": "b12290ac06b38679956e78f118fd3a9b1ab21acdca2feccb101f02d773e6f35e"
+    },
+    {
+      "id": "nav:/manipulation/pi-line/",
+      "hash": "1a41e72071d774eb8564da7744d523b5d0ca65ec4a02042d83d3fbb1386ab1bf"
+    },
+    {
+      "id": "nav:/manipulation/realtime-execution/",
+      "hash": "30a292821282d951181d93eb399250704ce0dc82707fe6f391648f6064ac5de3"
+    },
+    {
+      "id": "nav:/manipulation/rl-finetuning/",
+      "hash": "f93b0c311fa0b538726763165a198f834f13a65482559e679f4ac97116eebe0a"
+    },
+    {
+      "id": "nav:/manipulation/vla-models/",
+      "hash": "90369e2129f6521deeacd8d83e194eacdee17ae126795574e682533ca0715dac"
+    },
+    {
+      "id": "nav:/market-map/",
+      "hash": "9e9f2f58044593e2ee817bed012433d951014760d8af1c9d2b92bba9dd27732a"
+    },
+    {
+      "id": "nav:/playground/",
+      "hash": "965c8743c935679876b90d8ba82ce84dea3ac4056d82938de5b9fd721c5ff3f8"
+    },
+    {
+      "id": "nav:/rl-sim2real/",
+      "hash": "0772d09c2a51051b17c00ff84c5ac05575660a0d6c06cbc4b2d5a43121aaee92"
+    },
+    {
+      "id": "nav:/rl-sim2real/humanoid-wbc/",
+      "hash": "8d6eae845923652d8b9158adfe42f5bb6d0fa53343d3ab23ccef72b01f363c13"
+    },
+    {
+      "id": "nav:/rl-sim2real/legged-locomotion/",
+      "hash": "28dbe7e85efbdb13e40b5b21fefe387cfed455804322f8cfd3eae923b79bac13"
+    },
+    {
+      "id": "nav:/rl-sim2real/parallel-sim-rl/",
+      "hash": "a839e18e5cf8af0c1d815734bf7546557f3cd70b21f4cb5e2e4c3e4cf09c0dc4"
+    },
+    {
+      "id": "nav:/rl-sim2real/reward-design-mpc/",
+      "hash": "f0c88f61d03fd527d42865a036acfd0dbadf39cb57a00014070d144610d7b117"
+    },
+    {
+      "id": "nav:/rl-sim2real/rl-for-robotics/",
+      "hash": "894ddbdc12cf4da03725aedc02d88e675146855593e44e4b6eef1608c4c8ed67"
+    },
+    {
+      "id": "nav:/rl-sim2real/sim2real-transfer/",
+      "hash": "de89fa6451dd9e46e2a80d8443ae3a049f1b8f063cb86e9081b5a924f1a1e835"
+    },
+    {
+      "id": "nav:/rl-sim2real/why-rl-locomotion/",
+      "hash": "04d94a759dde3292ed06b8590e88939423c8203592152b68aaf2e7ecf587c086"
+    },
+    {
+      "id": "nav:/world-models/",
+      "hash": "952afc0f9248e2ada50b47970aae6e818fe2de9bc8f925f31fb289cd04d23933"
+    },
+    {
+      "id": "nav:/world-models/generative-sim/",
+      "hash": "3216bbef2a2d3b1fad9044f00b7d2a545377729f314f476cbdf8014b2f169903"
+    },
+    {
+      "id": "nav:/world-models/generative-video/",
+      "hash": "558ca5dc34bcf5bba56c69bdaba9891947405b64f7cd4c8a8a330a684aba6984"
+    },
+    {
+      "id": "nav:/world-models/jepa/",
+      "hash": "9a54c0a81dd22812bc4858e438a5df0f49d289eebfe52005a28022950e6b053b"
+    },
+    {
+      "id": "nav:/world-models/latent-dynamics/",
+      "hash": "2e7f3c9b5d1b27329b407c674250cb7ca9463861924aa6692f10dcfde6b8e89b"
+    },
+    {
+      "id": "nav:/world-models/taxonomy/",
+      "hash": "d550ad329a599b816b66f380d86d2934984da43e02fcac828437c8e7e4a59feb"
+    }
+  ],
+  "rootHash": "514fd35de7ca5de51cb1fc0baf43c0308fa1b7712f4be48ce9e49bdef2614d2c"
+}
