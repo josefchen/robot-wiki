@@ -8,6 +8,7 @@ import {
   DEFAULT_CONTACTS,
   DEFAULT_MU,
 } from '@/lib/grasp';
+import { contactGridIndex } from '../helpers/grasp-contact-grid';
 
 function readout(id: string) {
   return screen.getByTestId(id).textContent ?? '';
@@ -41,13 +42,23 @@ describe('GraspWrenchLab', () => {
 
   it('authors every default on the declared contact step grid', () => {
     render(<GraspWrenchLab />);
+    const maxGridIndex = contactGridIndex(
+      CONTACT_POSITION_MAX,
+      CONTACT_POSITION_MIN,
+      CONTACT_POSITION_STEP,
+    );
+    expect(maxGridIndex).toBe(199);
     for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
-      const gridIndex =
-        (DEFAULT_CONTACTS[i] - CONTACT_POSITION_MIN) / CONTACT_POSITION_STEP;
+      const gridIndex = contactGridIndex(
+        DEFAULT_CONTACTS[i],
+        CONTACT_POSITION_MIN,
+        CONTACT_POSITION_STEP,
+      );
       const slider = screen.getByRole('slider', {
         name: new RegExp(`contact ${i + 1} position`, 'i'),
       });
-      expect(gridIndex).toBeCloseTo(Math.round(gridIndex), 12);
+      expect(gridIndex).toBeGreaterThanOrEqual(0);
+      expect(gridIndex).toBeLessThanOrEqual(maxGridIndex);
       expect(slider).toHaveAttribute('min', String(CONTACT_POSITION_MIN));
       expect(slider).toHaveAttribute('max', String(CONTACT_POSITION_MAX));
       expect(slider).toHaveAttribute('step', String(CONTACT_POSITION_STEP));

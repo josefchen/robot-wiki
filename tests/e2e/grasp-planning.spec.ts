@@ -6,6 +6,10 @@ import {
   CONTACT_POSITION_STEP,
   DEFAULT_CONTACTS,
 } from '@/lib/grasp';
+import {
+  contactGridIndex,
+  offsetContactGridValue,
+} from '../helpers/grasp-contact-grid';
 import { setSlider } from './slider';
 
 const ROUTE = '/classical/grasp-planning/';
@@ -324,26 +328,42 @@ test.describe('classical grasp-planning module', () => {
     await muSlider.press('ArrowRight');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.75');
 
-    // Every authored contact default is on the declared grid. A native
-    // keyboard step moves by exactly 0.005, then returns to the same value.
+    // Derive expected values through decimal grid indexes rather than binary
+    // floating-point addition. A native step moves one index, then returns.
     for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
       const contactNumber = i + 1;
       const contact = page.getByRole('slider', {
         name: new RegExp(`contact ${contactNumber} position`, 'i'),
       });
-      const stepped = DEFAULT_CONTACTS[i] + CONTACT_POSITION_STEP;
+      const defaultGridIndex = contactGridIndex(
+        DEFAULT_CONTACTS[i],
+        CONTACT_POSITION_MIN,
+        CONTACT_POSITION_STEP,
+      );
+      const stepped = offsetContactGridValue(
+        DEFAULT_CONTACTS[i],
+        CONTACT_POSITION_STEP,
+        1,
+      );
       await contact.focus();
       await expect(contact).toBeFocused();
       await contact.press('ArrowRight');
       await expect(
         page.getByTestId(`grasp-contact-${contactNumber}-value`),
-      ).toHaveText(stepped.toFixed(3));
-      await expect(contact).toHaveValue(String(stepped));
+      ).toHaveText(stepped.readout);
+      await expect(contact).toHaveValue(stepped.inputValue);
       await contact.press('ArrowLeft');
       await expect(
         page.getByTestId(`grasp-contact-${contactNumber}-value`),
       ).toHaveText(DEFAULT_CONTACTS[i].toFixed(3));
       await expect(contact).toHaveValue(String(DEFAULT_CONTACTS[i]));
+      expect(
+        contactGridIndex(
+          await contact.inputValue(),
+          CONTACT_POSITION_MIN,
+          CONTACT_POSITION_STEP,
+        ),
+      ).toBe(defaultGridIndex);
     }
 
     // The add/remove/reset controls activate from the keyboard.

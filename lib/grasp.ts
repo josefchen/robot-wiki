@@ -45,7 +45,12 @@ export const MAX_CONTACTS = 6;
 
 /** Top, right, and bottom edge midpoints: a force-closure tripod. */
 export const DEFAULT_CONTACTS = [0.125, 0.875, 0.625];
-/** Contact controls preserve exact eighth-perimeter landmarks. */
+/**
+ * Contact controls preserve exact eighth-perimeter landmarks. The maximum is
+ * one 0.005 step below the wrapped endpoint 1.000, so the range has one
+ * unambiguous representation for every perimeter point while all midpoint
+ * defaults remain exact grid points.
+ */
 export const CONTACT_POSITION_MIN = 0;
 export const CONTACT_POSITION_MAX = 0.995;
 export const CONTACT_POSITION_STEP = 0.005;
