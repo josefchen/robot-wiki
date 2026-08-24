@@ -1,0 +1,768 @@
+{
+  "schemaVersion": 1,
+  "kind": "assets-svg",
+  "memberCount": 190,
+  "members": [
+    {
+      "id": "public-svg:images/covariate-shift.svg",
+      "hash": "653266452e4d174abb63ff54a6f57843f8bb404611db927e10ab4cf5b5f15ebf"
+    },
+    {
+      "id": "public-svg:images/logos/1x-technologies.svg",
+      "hash": "4244fc692ec1efae45fa1cef4ef4b6bfbb475782a5d0c2c1700e31f0b5f69b2c"
+    },
+    {
+      "id": "public-svg:images/logos/abb.svg",
+      "hash": "04b285127ca27b60c2fb55afd4d964fb568dd13d8c9ba20ecfcfa4388436490a"
+    },
+    {
+      "id": "public-svg:images/logos/agility-robotics.svg",
+      "hash": "104385bc2e8457ff90ed0693035480effe3433b5fbe63a6dc6c1697df199b8e7"
+    },
+    {
+      "id": "public-svg:images/logos/amazon-robotics.svg",
+      "hash": "23e3b07abece7788c39efa320a4863a722817a502cb4189c92af208dc8146c27"
+    },
+    {
+      "id": "public-svg:images/logos/ambirobotics.svg",
+      "hash": "36195bd2f37ccb45e51f50e9a709db3d29b017269df8024642616bb0130f9acb"
+    },
+    {
+      "id": "public-svg:images/logos/anduril.svg",
+      "hash": "cbaec17497b7bddbf3f6895cbdeb586c4fc9d1faf0fc0846e39a308b7e94c7e3"
+    },
+    {
+      "id": "public-svg:images/logos/applied-intuition.svg",
+      "hash": "2a3ca6838f91079394e11fa1a4d3c541a310fe0641f654aebe1702c008e7ee07"
+    },
+    {
+      "id": "public-svg:images/logos/apptronik.svg",
+      "hash": "91dc6fae8fc3744bf6da509742b5372219416e1078d1dfbf5813747cca86315b"
+    },
+    {
+      "id": "public-svg:images/logos/automata.svg",
+      "hash": "cd8eb661bd1d56121d14477f5a99c6c07afc823f4bd516f8cf5065ff3c560ae3"
+    },
+    {
+      "id": "public-svg:images/logos/avidbots.svg",
+      "hash": "d548c282bdc171c2d1aa1c4e59d63cad971ae98aa917bd0ec296e48abc3f7911"
+    },
+    {
+      "id": "public-svg:images/logos/bedrock-robotics.svg",
+      "hash": "d8a35f56f718b93aec65edade969eb6c1e97686b418346811116fc07559c3b8a"
+    },
+    {
+      "id": "public-svg:images/logos/berkshire-grey.svg",
+      "hash": "1797f8152a34d07d80917d7fd188c32cbc82f05787204daf1c40500e43762e4f"
+    },
+    {
+      "id": "public-svg:images/logos/booster-robotics.svg",
+      "hash": "16b4392564c2cb28b338693893b94e94a84678a23547452d6802b18d23815bb4"
+    },
+    {
+      "id": "public-svg:images/logos/boston-dynamics.svg",
+      "hash": "bd482f882f7f03262c9cd36a4b49ca2190bf3dfe7ea1051f644f44a493890f06"
+    },
+    {
+      "id": "public-svg:images/logos/brain-corp.svg",
+      "hash": "903e47b735551320b978a99f69b586919b428e46f2cbc57d2e487bd45343dc24"
+    },
+    {
+      "id": "public-svg:images/logos/chef-robotics.svg",
+      "hash": "a2f620e216959e5b872a5deee7b6e67d16b74e8c4713754ac385bb95785ef5c4"
+    },
+    {
+      "id": "public-svg:images/logos/dexterity.svg",
+      "hash": "8c8132549ff4d611a1835763d714342a02a7af31772166f70f89a10fd8076e96"
+    },
+    {
+      "id": "public-svg:images/logos/dyna-robotics.svg",
+      "hash": "fa1c7f347d3e6027aba3aaf560a2bc1c058d26dab617a130c75ee34f7ee32b0c"
+    },
+    {
+      "id": "public-svg:images/logos/eka-robotics.svg",
+      "hash": "7294ab8420b569c73fb4e4152154431ba0f4bb1a05c5174d78b0442cc36a92b5"
+    },
+    {
+      "id": "public-svg:images/logos/encord.svg",
+      "hash": "cb3e82e5abdf3f4131a0711f662ba7541ad8076f7ea8eb1b9a04836358ed5851"
+    },
+    {
+      "id": "public-svg:images/logos/farm-ng.svg",
+      "hash": "831359e2e65342aea1744479ccdb898c882ff90f2033ff78a75ed23b7e252b17"
+    },
+    {
+      "id": "public-svg:images/logos/field-ai.svg",
+      "hash": "2afc6c081d94678d0e9b31ebfb4e0d87f2ecf0f3ebad0e1d07d3918ddce09091"
+    },
+    {
+      "id": "public-svg:images/logos/figure-ai.svg",
+      "hash": "c7ecacf80fa7cd92c2e1b6692d6b214c476c7736150137a898abd10c0dd1f9b3"
+    },
+    {
+      "id": "public-svg:images/logos/formic.svg",
+      "hash": "54e40d8949b66269ef24cdcb10712e98b6fc23e1556c6a6a7ef823c8c2f64fb3"
+    },
+    {
+      "id": "public-svg:images/logos/foundry-robotics.svg",
+      "hash": "304619b449ebc8c3f8d1f30ba94c451e50834c94476335b13fd491123acc29ee"
+    },
+    {
+      "id": "public-svg:images/logos/fourier-intelligence.svg",
+      "hash": "a9116eeb99c2c4b3ce113c41ab853b05db7e20224dfa6c4c93396fa95dee65b1"
+    },
+    {
+      "id": "public-svg:images/logos/fox-robotics.svg",
+      "hash": "69243205a20b5d51bb0b6b84e854f7deb071195358c06d6f0119ef2d599cd2df"
+    },
+    {
+      "id": "public-svg:images/logos/gecko-robotics.svg",
+      "hash": "aa795b155df30ad6384596be7a7d216af0857bc2ad18a1326082f57f7f76888d"
+    },
+    {
+      "id": "public-svg:images/logos/generalist-ai.svg",
+      "hash": "788038d0af036fa2fb6c788d5ee85bcc510622e154e38a8ad716286c3c139e98"
+    },
+    {
+      "id": "public-svg:images/logos/genesis-ai.svg",
+      "hash": "78a9d9d2854b177fd7ca6eba77dec86ffe7a0d9ee94fcf0cfa044854e491a8d1"
+    },
+    {
+      "id": "public-svg:images/logos/google-deepmind-robotics.svg",
+      "hash": "ce0c173e9fd9b8f6672caee4ac494bc94638368b58176a3141ecd3219d73c559"
+    },
+    {
+      "id": "public-svg:images/logos/harmonic-drive.svg",
+      "hash": "174fb75a302a6741b49aeddd518a2b704edd2891a4b4b0fc2b59997d13fca86f"
+    },
+    {
+      "id": "public-svg:images/logos/hugging-face.svg",
+      "hash": "584e5ec4d94bcc4b17b18754774637ba65a9f129ea1a1c4f379e931b93ce8b82"
+    },
+    {
+      "id": "public-svg:images/logos/intuitive-surgical.svg",
+      "hash": "c6279b5f62657f7f0e6fa420ea968d7b31a9a46adebc1781498a338c7f7f7266"
+    },
+    {
+      "id": "public-svg:images/logos/irobot.svg",
+      "hash": "f32154bf7c93fca42d2913e9f6a1aa87f4797d770bed5d5cdd0f4bdeaa1c895e"
+    },
+    {
+      "id": "public-svg:images/logos/knightscope.svg",
+      "hash": "f91d537f6194cb2a4756d00ed1b898e635e6fa42795c7b67d489d47d30aabee0"
+    },
+    {
+      "id": "public-svg:images/logos/lila-sciences.svg",
+      "hash": "ca615640c7d8f159b8a5965989b121a15a458463b91d59ba22b478a060a6ca6c"
+    },
+    {
+      "id": "public-svg:images/logos/locus-robotics.svg",
+      "hash": "8862b7bab48bdb02a65229c33b46fab092a7d74be52d6a8c410cb2fd3059b416"
+    },
+    {
+      "id": "public-svg:images/logos/mentee-robotics.svg",
+      "hash": "3b6b1ce904ff5c753f51b1c2d3b6d6b3f1e6e08307fb6fee3ff46cffe8dc6e01"
+    },
+    {
+      "id": "public-svg:images/logos/meta.svg",
+      "hash": "a1d6aa5aaee77a7724cbb9cc72b9a8a7edc844b05eb307e8593fb5f424d5b1bc"
+    },
+    {
+      "id": "public-svg:images/logos/mitsubishi.svg",
+      "hash": "16c258f916bd40ded0c7a8f09f4459b7de4370948058946acdedfb75b8fe6300"
+    },
+    {
+      "id": "public-svg:images/logos/moon-surgical.svg",
+      "hash": "7b340823c0e01aac65771229903df35eedcb8783379c575fec2b89b2dceb0a6e"
+    },
+    {
+      "id": "public-svg:images/logos/mujin.svg",
+      "hash": "6314aaae2c636339724a8facc5515555f5563b6a83c8c9f28a4125fe36a20739"
+    },
+    {
+      "id": "public-svg:images/logos/nabtesco.svg",
+      "hash": "677996e333719c0b983d2498665d7751aade5cdd353b00ebb3b97ed3ec7eb70a"
+    },
+    {
+      "id": "public-svg:images/logos/neura-robotics.svg",
+      "hash": "ca7750b93aa5ec3e6f1b5e3252a4f89b0c139d05df3a3813b70a757e50abcc3f"
+    },
+    {
+      "id": "public-svg:images/logos/nimble-robotics.svg",
+      "hash": "a612cd21544b08e00d86edc74d895de18ab4c3f3786937561a3f342e9749a700"
+    },
+    {
+      "id": "public-svg:images/logos/nuro.svg",
+      "hash": "6d2af27c05afd5446b7a3197ccc48be49aa32222a77f93472fddde0af431902b"
+    },
+    {
+      "id": "public-svg:images/logos/nvidia.svg",
+      "hash": "43d47d1668dbad19871064fce9b0710efc0d42f2a39c11a3665049c784c61ed7"
+    },
+    {
+      "id": "public-svg:images/logos/openai.svg",
+      "hash": "7f262ffffd52094417777e3dd0bed5b08d9272b97baac1806b0858d0091dcc11"
+    },
+    {
+      "id": "public-svg:images/logos/pollen-robotics.svg",
+      "hash": "a4f8d148f4f0c5d505356cdae95a0898f52ca7ad50618acaa3ced4e1621f02e0"
+    },
+    {
+      "id": "public-svg:images/logos/rhoda-ai.svg",
+      "hash": "ec10f676a428e70f09b2ec5145045f73f71d724b67db7a76150d4aaecec61f30"
+    },
+    {
+      "id": "public-svg:images/logos/righthand-robotics.svg",
+      "hash": "0c73c38b854f3c4dab3b357278ab808f53b57688f709765f3516b93bde1ac70e"
+    },
+    {
+      "id": "public-svg:images/logos/serve-robotics.svg",
+      "hash": "e8b34da2e42e01ba34fb713d4a74cae2abe2b34183dfaa6cf19ab1d7dbf9c704"
+    },
+    {
+      "id": "public-svg:images/logos/shadow-robot.svg",
+      "hash": "4cc9a69bade409ad4680a17826495ee2034cc85bd412fdeff9bd8948c89a8a41"
+    },
+    {
+      "id": "public-svg:images/logos/sharpa.svg",
+      "hash": "ebb008bb0aef63a1cb69cbbf4c0c41d0d6b4aa839dac177124592d3565db3e63"
+    },
+    {
+      "id": "public-svg:images/logos/simbe-robotics.svg",
+      "hash": "44742b2092e9dffc8200ad5def571d830788315c10a19062cf19360dc17e2ee1"
+    },
+    {
+      "id": "public-svg:images/logos/skild-ai.svg",
+      "hash": "22d82152bb2b15eae09c4879677b1db2432c12c8756793aa27ae21e1fe1e0d96"
+    },
+    {
+      "id": "public-svg:images/logos/spirit-ai.svg",
+      "hash": "a09c88ca655ca4d4163d5154c72a1d867eab45e6330e84da5cfcea94c8a6d2ad"
+    },
+    {
+      "id": "public-svg:images/logos/standard-bots.svg",
+      "hash": "7997ef2d7467393940c615a8573774b41567ef488a6a79d27cd2b1d213576bb1"
+    },
+    {
+      "id": "public-svg:images/logos/starship.svg",
+      "hash": "fe03c319eb75f8ee6dd00c3066db8a1520d8a032640e919ac270ec136ac269bf"
+    },
+    {
+      "id": "public-svg:images/logos/sunday-robotics.svg",
+      "hash": "42dbd6a8ecdf4564d7fccf359df9e59e387761d62fd9a20cbe3e870b50ac4f86"
+    },
+    {
+      "id": "public-svg:images/logos/symbotic.svg",
+      "hash": "78b5ba8ec745ccb2bed98f635e46eb6cff44f54b6882f03520691590fb8a99d5"
+    },
+    {
+      "id": "public-svg:images/logos/tars-robotics.svg",
+      "hash": "a5665cedb66124ccf61356cd63cf1217813a163ac991f4d22f02cadff2c1fc51"
+    },
+    {
+      "id": "public-svg:images/logos/tesla.svg",
+      "hash": "d7c5613bda402027732eafaa669d15fc32c60af8342637b5266962cd23173733"
+    },
+    {
+      "id": "public-svg:images/logos/ubtech.svg",
+      "hash": "d0694c56a979f88e1d9a2ebc7f3d8d11d90b1a54ae6eb2f2839b323eaf7d5f2f"
+    },
+    {
+      "id": "public-svg:images/logos/unitree.svg",
+      "hash": "775422068bead600a32c6c27a0952f2136fd0a5e6ea9d17f03b15b4931fc1d9b"
+    },
+    {
+      "id": "public-svg:images/logos/wandercraft.svg",
+      "hash": "f68cfd4174cbc60212d6b07144390310c4dae921c70cd85dcf6d8176b94d8e78"
+    },
+    {
+      "id": "public-svg:images/logos/x-square-robot.svg",
+      "hash": "02b4bbe9963997eb82a6d44e37071128783b5fdfbf53c6b627946a1416860e92"
+    },
+    {
+      "id": "public-svg:images/logos/xdof.svg",
+      "hash": "d758e1a9b2fbfe0bd312abe98b22dacdae4f514ce7943ea7ab6ca8cbf80055a8"
+    },
+    {
+      "id": "public-svg:images/logos/zebra-robotics-automation.svg",
+      "hash": "e0df3c729de70348a050217a5edae15d7de662473afecf3937e5596f7a7085f2"
+    },
+    {
+      "id": "public-svg:images/temporal-ensembling.svg",
+      "hash": "6bdb6bf448e69ee57d8906ce901ae0fbdcde8f26598746fd5743440ce0d9d429"
+    },
+    {
+      "id": "registered-image:1x-technologies-logo",
+      "hash": "72bde3a63f1269a74f9b0fd2156408235013c2db0f84267960d9cf19c11c6d25"
+    },
+    {
+      "id": "registered-image:abb-logo",
+      "hash": "cb830511863fd53e6f9db1a46a81374a8882930d848c78c7d15480450c6674f2"
+    },
+    {
+      "id": "registered-image:agibot-logo",
+      "hash": "fcef1db687a55711acea68239a8934e391688c15654f7efa35c112bd43320783"
+    },
+    {
+      "id": "registered-image:agility-robotics-logo",
+      "hash": "522d9d3be121cedeef7b9cecb1f9b75e544293c4ccb43ba85fafaedbcd5720bb"
+    },
+    {
+      "id": "registered-image:amazon-robotics-logo",
+      "hash": "8599a923ad919b53d4f8f446d8098f3dad97a1f524d4564655c09ca3e240befc"
+    },
+    {
+      "id": "registered-image:ambirobotics-logo",
+      "hash": "36998ea5c6175bc3be267a9dfaae8ec8d9452b4e862a9eae6338c7dba4876b55"
+    },
+    {
+      "id": "registered-image:anduril-logo",
+      "hash": "ca3b643865a60659d4d3661b102a3546da9c687a7bcf8f1eb1ea409841a5e514"
+    },
+    {
+      "id": "registered-image:anymal-anybotics-2022",
+      "hash": "cf34f07eb37564df4a5ae84c5edc1d8058c5bc823eee93be52638896ba5e52a5"
+    },
+    {
+      "id": "registered-image:applied-intuition-logo",
+      "hash": "4960dfb52bdafae038aa60a6cecdbef63cf04ef00b0cfef9e187dbd2a9e99779"
+    },
+    {
+      "id": "registered-image:apptronik-logo",
+      "hash": "e66d0631cec23bf27592a79c3f5b158b48a1ffd3db4711719bb280d945e5d2e5"
+    },
+    {
+      "id": "registered-image:assured-robot-intelligence-logo",
+      "hash": "5d31b993b1e47968850d847c535550b2770bb4c0caee68b12c6676d5eafc3e25"
+    },
+    {
+      "id": "registered-image:astribot-logo",
+      "hash": "04662126fef10726f7a57e5a60928b836f5ee69a4ddc06c1c52ef0514135bcfd"
+    },
+    {
+      "id": "registered-image:atlas-darpa-frontview-2013",
+      "hash": "ae819fbc7f4f852a0dbd7af34c86e0216951b346cc75a8e81da9d3e74ec4f7fa"
+    },
+    {
+      "id": "registered-image:automata-logo",
+      "hash": "f359454794616b74faa3156fe91c153bd39e98d4bb5f337356073f75b2f481c0"
+    },
+    {
+      "id": "registered-image:avidbots-logo",
+      "hash": "bfad6debfbd9cfb27c4a67de5b80a8a117ca9f975595fdba19b72e87f298ba12"
+    },
+    {
+      "id": "registered-image:bedrock-robotics-logo",
+      "hash": "10b5c82c88196ee0964e045782aadd3aa4f99d1fd80b5e7fbd62a81c494e6f23"
+    },
+    {
+      "id": "registered-image:berkshire-grey-logo",
+      "hash": "149634de915bd581dde8ebce96c0dfe9780454699b04e5e0ec832c7d58011b55"
+    },
+    {
+      "id": "registered-image:booster-robotics-logo",
+      "hash": "ada8ff2c33079644b7d9133f83dd3b299805816214b051c23d1bff7891fb7ada"
+    },
+    {
+      "id": "registered-image:boston-dynamics-logo",
+      "hash": "a508782c41e456a645b7bcc5d067bd3282b3276720200209d313c3bb263345ed"
+    },
+    {
+      "id": "registered-image:brain-corp-logo",
+      "hash": "875f58cf0bed7bb4d6659c9e45802d6700087d904dcec6cddb39d2b6cbf380ad"
+    },
+    {
+      "id": "registered-image:carbon-robotics-logo",
+      "hash": "8ff0fe08c9a1395a3f05fff07a0ecb8b296e14ecb8fd966d48af9a0c4c2b9924"
+    },
+    {
+      "id": "registered-image:chef-robotics-logo",
+      "hash": "67544f63dda580e31f2ba9d0ee4053fa89b7ac84c5fb0a75c4448a77475eddb9"
+    },
+    {
+      "id": "registered-image:clone-robotics-logo",
+      "hash": "78869d4c30b481b92200cee7287b309cb252ec133db28c93961c1e345e73eb7e"
+    },
+    {
+      "id": "registered-image:cmr-surgical-logo",
+      "hash": "29aef6e39ef7bc104a736832bbefbb53fa7d3affb3136391e7168623c24a1377"
+    },
+    {
+      "id": "registered-image:coco-robotics-logo",
+      "hash": "1d0dff47310949b2c01469ea9dffe3e971e9ae802d5703315ffcb6331ba5fa5d"
+    },
+    {
+      "id": "registered-image:collaborative-robotics-logo",
+      "hash": "47b5192a8046bb0b2d3113c49fb3578763216459faa4b182f1184e9ea6718c6c"
+    },
+    {
+      "id": "registered-image:covariant-logo",
+      "hash": "36b94e795902e99e8afa581acb0ec33cb1f5ff9f82675bfb1482aac91616e1af"
+    },
+    {
+      "id": "registered-image:covariate-shift",
+      "hash": "d9477b6b2816906b99c326775d2ce6abab6924e71a6b2b9ba709fb7469ad2c06"
+    },
+    {
+      "id": "registered-image:deep-robotics-logo",
+      "hash": "4f8b97ac74a6568abf1434c309993fe7dad5a2a4ac6efd9a2643c6889d9f5a0e"
+    },
+    {
+      "id": "registered-image:dexterity-logo",
+      "hash": "c532255134a45c3189d8f8ed3215ad62505a537b8d5fc5e8731373935e867ded"
+    },
+    {
+      "id": "registered-image:diligent-robotics-logo",
+      "hash": "afdf72b5984a3cd07636874ab724c04c1fd73175bf40079ffb44795c0d995a25"
+    },
+    {
+      "id": "registered-image:dyna-robotics-logo",
+      "hash": "7ec0146c6372874b0edbf4736cbce867c09fea9abb8323a2c78bf749ca685e28"
+    },
+    {
+      "id": "registered-image:eka-robotics-logo",
+      "hash": "6634029396a116aacb64e7e8801c09a8f96ae5e19074feb510586db6f0348a2f"
+    },
+    {
+      "id": "registered-image:encord-logo",
+      "hash": "86b9efe480f2786fc216b20e0dae6bc220ca54dc25922d1ef26aef4a4493e719"
+    },
+    {
+      "id": "registered-image:engineai-logo",
+      "hash": "f853b30450834f93a57318c270b16dfd0be3e5fb6216988199419b15373add14"
+    },
+    {
+      "id": "registered-image:farm-ng-logo",
+      "hash": "edee6269b6b519c86b3bb4a4591957aa0e59e480b7db13044d82a349abd8d245"
+    },
+    {
+      "id": "registered-image:field-ai-logo",
+      "hash": "c181355d7a3851f4ffa0ed65b93e85c81de59dbfc9ccd90ef86ae3f8a9c36e41"
+    },
+    {
+      "id": "registered-image:figure-ai-logo",
+      "hash": "b36f7861571b47595445c7c7c6950d18997433f78ef2760ba316587e2b45bbaf"
+    },
+    {
+      "id": "registered-image:formic-logo",
+      "hash": "ecca9910c9261f08dd11f3f9444ee384ec529437ce88e4644d303dfae5a8041e"
+    },
+    {
+      "id": "registered-image:foundry-robotics-logo",
+      "hash": "5cef6d2bbee2c65f2a852f3a8d5ab3d221ee177921201b23b4a8c4bda52b9762"
+    },
+    {
+      "id": "registered-image:fourier-intelligence-logo",
+      "hash": "1e3dc8120aa925f6ac98d326b01e836f590e9cc5c1bd75bac47e5059dc9d7494"
+    },
+    {
+      "id": "registered-image:fox-robotics-logo",
+      "hash": "25d5a2ea8831f41dce6bfac4dce101f053f692611db366c0d9b1ec5a247cf012"
+    },
+    {
+      "id": "registered-image:franka-emika-panda-cebit-2017",
+      "hash": "c3a8fc1ed7fb36545ca8b74bee329ede0340ceb6b85ece0f9006a29dda8894ae"
+    },
+    {
+      "id": "registered-image:galaxea-ai-logo",
+      "hash": "659f41e7573421f38fc119518dcc0d033915036b53e012cd1e9ca4ee6a2fe5ac"
+    },
+    {
+      "id": "registered-image:galbot-logo",
+      "hash": "d1842386bba9dd1b81ca13ea23e2729f30e7f8738ee0eca8d8bdb85396a97a6c"
+    },
+    {
+      "id": "registered-image:gecko-robotics-logo",
+      "hash": "2908a4c35aba5ef0e1e33550f7ef7924ea4a42764d2037a5af196a278e966712"
+    },
+    {
+      "id": "registered-image:generalist-ai-logo",
+      "hash": "9185e69e965a231753a48b70b78435bbb07cf945c9ed78a27a450f048828ed7a"
+    },
+    {
+      "id": "registered-image:genesis-ai-logo",
+      "hash": "f57dbd4b97baf474b92fd35879683d7151139e82deb5821c6747d81f2054b29d"
+    },
+    {
+      "id": "registered-image:google-deepmind-robotics-logo",
+      "hash": "da15b46bffa0c1a7d2fb4deef3e81f228b0e2a518780ca6b631fa60ed6be2d62"
+    },
+    {
+      "id": "registered-image:hanson-robotics-logo",
+      "hash": "cb1a14bd2cc5acde7234779eddc77a827ad5f97e0061668686ec87f4babaaf83"
+    },
+    {
+      "id": "registered-image:harmonic-drive-logo",
+      "hash": "547f2a9cbe0b4d01a95595af6eeec7de93e37f0e3e734a537b39dacf22b9b907"
+    },
+    {
+      "id": "registered-image:hugging-face-logo",
+      "hash": "82e72fda829f4ee9a0728b4ffe62905e5ef75d906245666081f657d24068f1c1"
+    },
+    {
+      "id": "registered-image:humanoid-uk-logo",
+      "hash": "ac1956aacd9fa030ead0a4b72882c48b8633ea6b1779bc3683dc72f856592324"
+    },
+    {
+      "id": "registered-image:intuitive-surgical-logo",
+      "hash": "0c33bd947dc704258e6b3d9775f6fe77cec4cf5ac5088539b4d4891477ce1162"
+    },
+    {
+      "id": "registered-image:irobot-logo",
+      "hash": "d171cdfe30fe9ddda37ae5df6fa51d6cb957c8a8704fae5b47d932a024fa8320"
+    },
+    {
+      "id": "registered-image:k-scale-labs-logo",
+      "hash": "f67322638ca8b50fc03be0469e6118a0c77ea6ac3d3be88bf2d866c2695c7dcd"
+    },
+    {
+      "id": "registered-image:kepler-robot-logo",
+      "hash": "86b10baab6079d351f53f930d1dda1f74c2c79e3f9ca8a02ed8bad566cb59db2"
+    },
+    {
+      "id": "registered-image:knightscope-logo",
+      "hash": "8e7d3d8c68414e850de474fb7f21230e1efc706b01a63cdaa98e2920b42b908e"
+    },
+    {
+      "id": "registered-image:leaderdrive-logo",
+      "hash": "14e0c8c5aaa9a49f38f265902e32474eee467b5b4009673f0718be600b76cec8"
+    },
+    {
+      "id": "registered-image:leju-robotics-logo",
+      "hash": "1e84cd385eeb7aa9286b65fe557e10642fce4be1f92a35005574088f5e78fcf9"
+    },
+    {
+      "id": "registered-image:lila-sciences-logo",
+      "hash": "fda547afe71f9fe71a7ec6ea1e7097e6876dcdf5cf180acb62f56411d1d6844a"
+    },
+    {
+      "id": "registered-image:limx-dynamics-logo",
+      "hash": "fd8fcc287cf269f27852af9f9a6d5080331ebe655d3cbbaf4c259d7e84cd5051"
+    },
+    {
+      "id": "registered-image:locus-robotics-logo",
+      "hash": "19c09b4298b1966521458c3d8735a7897069a35a2602218a915d74dcb7d1fbdc"
+    },
+    {
+      "id": "registered-image:mentee-robotics-logo",
+      "hash": "7611ed247dae4687540ec1b29845ba7e305a2011dac7d4f25a6b6614edffc484"
+    },
+    {
+      "id": "registered-image:meta-logo",
+      "hash": "4062b960846b0c632e04c3895d508b943241d4d50a2d24c67addf2668639d1a7"
+    },
+    {
+      "id": "registered-image:micro1-logo",
+      "hash": "83e95a77b8ad7563eecbfd5dfc6735a575e30e31f07301b47c7b883ec41709ec"
+    },
+    {
+      "id": "registered-image:mind-robotics-logo",
+      "hash": "5475aba50d3d41ac5f434d081ab07ae4cc54c341578d2a15fe5246a8d152c2e1"
+    },
+    {
+      "id": "registered-image:miso-robotics-logo",
+      "hash": "6948ccb7ac379ac0fd6aa269611452c2db673c6efc9802d344ce82eae8295a7a"
+    },
+    {
+      "id": "registered-image:mitsubishi-logo",
+      "hash": "0c63d91b31663811b9777e168af1e4b42bebb168413817456c652e7a8af00cd8"
+    },
+    {
+      "id": "registered-image:monarch-tractor-logo",
+      "hash": "978062ae7d6b6ad5b8af454c1adf2c72777f3244942971caabe8c20a66756e0f"
+    },
+    {
+      "id": "registered-image:moon-surgical-logo",
+      "hash": "48e0df4ad018019d75f236917c3c141cd0debcee3c07375dc3b4675343d7be50"
+    },
+    {
+      "id": "registered-image:mujin-logo",
+      "hash": "4373bacf2f556c49aa746c19f676a2ba882b16c36804ca4810c81ed9fd082930"
+    },
+    {
+      "id": "registered-image:mytra-logo",
+      "hash": "9bae82b1028e20209c8ea1073d0223e01d8bfc71b33b50afb8534ae1bece7287"
+    },
+    {
+      "id": "registered-image:nabtesco-logo",
+      "hash": "a83e3e5d6226c6b9f400fd348d82a17cff039a5442c63389f32002aa9931cad0"
+    },
+    {
+      "id": "registered-image:neura-robotics-logo",
+      "hash": "e212a026a687418c46228c1b09d54cccc06fbd7bd6b3879ef8b5798788899307"
+    },
+    {
+      "id": "registered-image:nimble-robotics-logo",
+      "hash": "40e54f9a3ca6dfb8a3e514c3d05ff9f6344eacc2da9b5585a7daf6a84c930cfa"
+    },
+    {
+      "id": "registered-image:nuro-logo",
+      "hash": "43887627700d053deae0cf78cd2e9784a73a4d034e95992a21e73043a5546da7"
+    },
+    {
+      "id": "registered-image:nvidia-logo",
+      "hash": "e707cabc5758b5ef997cf1f16a84a2d468d716e324703ce1e35c1244096d90c1"
+    },
+    {
+      "id": "registered-image:openai-logo",
+      "hash": "483f6dda47b1ed259309c4d2a2144e72315f36941afe216094b815bd0576c888"
+    },
+    {
+      "id": "registered-image:paxini-logo",
+      "hash": "34e2f18bb50508ca3fd4b51eab05783cebd7182b9626620734c636d5d2a222fa"
+    },
+    {
+      "id": "registered-image:persona-ai-logo",
+      "hash": "9e0bdfa9af0994ad41addcad3c530171153a7bae8d538395ffd7d07ece8ac9ca"
+    },
+    {
+      "id": "registered-image:physical-intelligence-logo",
+      "hash": "bcb7202b1558d091e8cff87e67635c0b8a2e7184cd9becc6a48881356b352d69"
+    },
+    {
+      "id": "registered-image:plus-one-robotics-logo",
+      "hash": "f94038c4e18004f3e09ad1bf25efb29e2bb31c704b3dd918e3a219bec5dc275a"
+    },
+    {
+      "id": "registered-image:pollen-robotics-logo",
+      "hash": "711dc21ac8ba59eee2cd7698d19de9fa2d6369d001312a8e5a308aa6918b83f3"
+    },
+    {
+      "id": "registered-image:puma-560-nasa-ames",
+      "hash": "8b04a521e3c49dc4d14b7c0eb9921444ce16c70e4b19b968f1b202877bb822d1"
+    },
+    {
+      "id": "registered-image:rainbow-robotics-logo",
+      "hash": "fd880e9c6463bf94766afa5f8dfb5ef8f025f9b1eab0ac2cab45ff70516b222e"
+    },
+    {
+      "id": "registered-image:rhoda-ai-logo",
+      "hash": "264607d9813f925be6f9aa9c1ed8a08aea1d5ff70ea32fb1a2389136b78e93da"
+    },
+    {
+      "id": "registered-image:righthand-robotics-logo",
+      "hash": "764e3bc8c8670669b6d808e44cba72b3a1bca4a27d5848901561d08d451d2ddd"
+    },
+    {
+      "id": "registered-image:robot-era-logo",
+      "hash": "108a5b653b0c1d2068025a3714b2b952215beffc2e48414a4f558ba2f1bdbf21"
+    },
+    {
+      "id": "registered-image:robotphoenix-logo",
+      "hash": "3c1cd6bd858e63072da2b5da42ac50213c32235bc208c0090b4671cfe73c0b33"
+    },
+    {
+      "id": "registered-image:sanctuary-ai-logo",
+      "hash": "fd50bf76803d427afe5a71facd858b1a47adb56457cb270084117bcca727de71"
+    },
+    {
+      "id": "registered-image:sanhua-logo",
+      "hash": "a1e3964699de523ced28bbf0df5c7601d9e814eea24ff1e27bb938d69c3f614c"
+    },
+    {
+      "id": "registered-image:saronic-logo",
+      "hash": "0608752cd1249334e2972f7e1bef560f91a063b9e2932c3f25697a395bde08a4"
+    },
+    {
+      "id": "registered-image:serve-robotics-logo",
+      "hash": "f462a06cfa45cd72c92f37cd7c0efe465c69e10882d6404ae19b45bebd4e9e22"
+    },
+    {
+      "id": "registered-image:shadow-robot-logo",
+      "hash": "e266b465fe84fb0b95d243c455baeb0f543d1e93e5b9f39e40016e4513d87f26"
+    },
+    {
+      "id": "registered-image:sharpa-logo",
+      "hash": "22e50584197348d54fa89bf375d58af090c248ab382e5651dc85a55d56f27ee6"
+    },
+    {
+      "id": "registered-image:simbe-robotics-logo",
+      "hash": "af0ee6a7906e47b4e213dd691d075116c6f89845687a3a9677d2f40ff5b86110"
+    },
+    {
+      "id": "registered-image:skild-ai-logo",
+      "hash": "2a44be3c05f391bde0f8cd60b7acefbab172bdb66def1efd8acc22d735c9e6e8"
+    },
+    {
+      "id": "registered-image:spirit-ai-logo",
+      "hash": "bbe1275a42aa00932a48e4a6425154d2ae94e7bd15f4fadc95e7420557812ba1"
+    },
+    {
+      "id": "registered-image:spot-raf-agile-liberty-2021",
+      "hash": "757149d9ab2f923e184527ba1699a6e94ed58f9472ac5d613390a07cec68e423"
+    },
+    {
+      "id": "registered-image:standard-bots-logo",
+      "hash": "386db57765de45d22fe0a4f26110c8065a90aef42b2d116ac2958d69aa9b9fde"
+    },
+    {
+      "id": "registered-image:starship-logo",
+      "hash": "4141fced67dc6eb958bb01b1ad7355676f25b1d11d254c22c8829d5b09e8b85d"
+    },
+    {
+      "id": "registered-image:sunday-robotics-logo",
+      "hash": "ee6eb62c681ccec0453e3b90e3aedb84a83090347e4678d75f642e3dcfab66ee"
+    },
+    {
+      "id": "registered-image:switchbot-logo",
+      "hash": "8be9f4e97103b3e3e155f620fac4eec653a0a2cda34150170595e8a294b71c8f"
+    },
+    {
+      "id": "registered-image:symbotic-logo",
+      "hash": "0e8bcd1fbe12f72b94b7810ff89df2037e52b81aa626f596ee71f84df6b452e0"
+    },
+    {
+      "id": "registered-image:tars-robotics-logo",
+      "hash": "87eb3c33940bdcefc83e7fe30835cda045ed3aa4c768538b98be489cd2278d6a"
+    },
+    {
+      "id": "registered-image:temporal-ensembling",
+      "hash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b"
+    },
+    {
+      "id": "registered-image:tesla-logo",
+      "hash": "6e3693afc422fa184200f7ee495ead4116405c3c8cf123e566efde2fcaacdd70"
+    },
+    {
+      "id": "registered-image:the-bot-company-logo",
+      "hash": "0ce637ef59344a34eb88f2b16be2c7fb6f455893ebd2d1b8d5d44a630fd6eb8f"
+    },
+    {
+      "id": "registered-image:ubtech-logo",
+      "hash": "336be2cf1de44100ec33e6c25ed6c762dc90e0caa59866bea01966901200f174"
+    },
+    {
+      "id": "registered-image:unitree-logo",
+      "hash": "732760ab1afb0ec5b82d5f3538bb6043d5930a8a6eabd62f672eedfae0347a02"
+    },
+    {
+      "id": "registered-image:wandercraft-logo",
+      "hash": "de194c662a2027eb9d5cc65cfa7015931064aaf0fa87b1bf2ab84acb6abe449f"
+    },
+    {
+      "id": "registered-image:weave-robotics-logo",
+      "hash": "5933eedfed086abf0e53ae7ddb4c195cd63b06e2b72d565c95f790dc2dc37f8d"
+    },
+    {
+      "id": "registered-image:wonik-logo",
+      "hash": "a55885fca6019e8f0c0a39d0968673e173ec14f18402803b4a47df9e1cefa7e9"
+    },
+    {
+      "id": "registered-image:x-square-robot-logo",
+      "hash": "d5d7bdbfbeb4ec71c5f665849fc73058493e73e2f03f6f7a723f7b44112e0b4a"
+    },
+    {
+      "id": "registered-image:xdof-logo",
+      "hash": "a65681363752d5b4ee324e02363d8026a0fb75eadd72ca1d33b57d53cafaea8d"
+    },
+    {
+      "id": "registered-image:xela-robotics-logo",
+      "hash": "d95ea0dbe1ac291a5a727611a2ba7801a00ec9fe7113fe95853d997d6c5b3cfa"
+    },
+    {
+      "id": "registered-image:zebra-robotics-automation-logo",
+      "hash": "ff1e61eb5a716406c10596bdddb561e8e56c951d142377bf384a34297360a213"
+    }
+  ],
+  "rootHash": "54ad47eebf56aac8d9c748544704ffe2d8f140601879470f4b512eadadcdcb35"
+}

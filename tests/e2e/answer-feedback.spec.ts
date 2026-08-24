@@ -190,6 +190,29 @@ interface Region {
   index: number;
 }
 
+function expectCompleteRegions(
+  regions: readonly Region[] | undefined,
+): readonly Region[] {
+  expect(
+    regions,
+    'shared answer-feedback corpus was not populated before this test',
+  ).toBeDefined();
+  const complete = regions ?? [];
+  expect(complete.length, 'answer-feedback corpus is empty').toBeGreaterThan(0);
+  const predict = complete.filter((r) => r.kind === 'predict');
+  const check = complete.filter((r) => r.kind === 'self-check');
+  expect(
+    predict,
+    `prediction steps: ${predict.map((r) => r.route).join(', ')}`,
+  ).toHaveLength(EXPECTED_PREDICT);
+  expect(
+    check,
+    `self-checks: ${check.map((r) => r.route).join(', ')}`,
+  ).toHaveLength(EXPECTED_SELF_CHECK);
+  expect(new Set(complete.map((r) => r.route)).size).toBe(10);
+  return complete;
+}
+
 /** Every region in the corpus, derived from the module registry. */
 async function derivedRegions(page: Page): Promise<Region[]> {
   const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
@@ -212,22 +235,13 @@ async function derivedRegions(page: Page): Promise<Region[]> {
 
 test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
   test('the derived corpus is 8 prediction steps and 6 self-checks', async ({ page }) => {
-    const regions = await derivedRegions(page);
-    const predict = regions.filter((r) => r.kind === 'predict');
-    const check = regions.filter((r) => r.kind === 'self-check');
-    expect(predict, `prediction steps: ${predict.map((r) => r.route).join(', ')}`).toHaveLength(
-      EXPECTED_PREDICT,
-    );
-    expect(check, `self-checks: ${check.map((r) => r.route).join(', ')}`).toHaveLength(
-      EXPECTED_SELF_CHECK,
-    );
-    expect(new Set(regions.map((r) => r.route)).size).toBe(10);
+    expectCompleteRegions(await derivedRegions(page));
   });
 
   test('VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions', async ({
     page,
   }) => {
-    const regions = await derivedRegions(page);
+    const regions = expectCompleteRegions(await derivedRegions(page));
     const token = await okToken(page);
     let graded = 0;
     for (const { route, kind, index } of regions) {
@@ -319,131 +333,156 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     expect(graded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
   });
 
-  test('VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered', async ({
-    page,
-  }) => {
-    const regions = await derivedRegions(page);
-    let graded = 0;
-    for (const { route, kind, index } of regions) {
-      const where = `${route} ${kind}#${index}`;
-      // (b) verdict scan across all four states, before forcing colours.
-      await page.goto(route);
-      const region = page.locator('[data-predict], [data-self-check]').nth(index);
-      expect(await scanVerdicts(region), `${where}: verdict, unanswered`).toEqual([]);
-      const summary = region.locator('details[data-reveal] > summary');
-      await summary.click();
-      expect(await scanVerdicts(region), `${where}: verdict, declined`).toEqual([]);
-      const radios = region.locator('fieldset input[type="radio"]');
-      const values = await radios.evaluateAll((els) =>
-        els.map((e) => (e as HTMLInputElement).value),
-      );
-      const answer = await region
-        .locator('[data-reason][data-correct="true"]')
-        .getAttribute('data-reason');
-      await radios.nth(values.indexOf(values.find((v) => v !== answer)!)).check();
-      expect(await scanVerdicts(region), `${where}: verdict, wrong commit`).toEqual([]);
-      await radios.nth(values.indexOf(answer!)).check();
-      expect(await scanVerdicts(region), `${where}: verdict, correct commit`).toEqual([]);
+  test.describe('shared VAL-EDU-043/044 corpus', () => {
+    /**
+     * This one beforeAll corpus walk is intentionally shared by both tests.
+     * It relies on playwright.config.ts keeping workers: 1 and
+     * fullyParallel disabled. If that serial configuration changes, replace
+     * this shared state with a fixture that populates per test or per worker.
+     */
+    let regions: Region[] | undefined;
 
-      // (a) forced colours: the non-colour channel still measures. The
-      // custom colour is deliberately NOT asserted here, because forced
-      // colours is entitled to drop it; that is the whole point.
-      //
-      // Measured in the DECLINED state, opened through the summary with
-      // no option committed. A correct commit puts the reader's own pick
-      // marker on the same row, and that marker would then satisfy the
-      // clause on behalf of the correct-row marking: with the weight
-      // step deleted as a plant, this test passed until it was scoped
-      // this way. The correct row has to be identifiable on its own.
-      await page.emulateMedia({ forcedColors: 'active' });
-      await page.goto(route);
-      const forced = page.locator('[data-predict], [data-self-check]').nth(index);
-      await forced.locator('details[data-reveal] > summary').click();
-      const rows = await readRows(forced);
-      expect(
-        rows.flatMap((r) => r.markers),
-        `${where}: a pick marker in the declined state under forced colours`,
-      ).toEqual([]);
-      const correctRow = rows.find((r) => r.correct)!;
-      const unmarked = rows.filter((r) => !r.correct && !r.selected);
-      const channel = nonColourChannel(correctRow, unmarked);
-      expect(
-        channel,
-        `${where}: no non-colour channel survives forced colours`,
-      ).not.toBeNull();
-      await page.emulateMedia({ forcedColors: null });
-      graded += 1;
-    }
-    expect(graded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
-  });
+    test.beforeAll(async ({ browser }) => {
+      const page = await browser.newPage();
+      try {
+        regions = await derivedRegions(page);
+      } finally {
+        await page.close();
+      }
+    });
 
-  test('VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script', async ({
-    page,
-    browser,
-  }) => {
-    const regions = await derivedRegions(page);
-    for (const { route, kind, index } of regions) {
-      const where = `${route} ${kind}#${index}`;
-      await page.goto(route);
-      const region = page.locator('[data-predict], [data-self-check]').nth(index);
-      const reveal = region.locator('details[data-reveal]');
+    test('VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered', async ({
+      page,
+    }) => {
+      const complete = expectCompleteRegions(regions);
+      let graded = 0;
+      for (const { route, kind, index } of complete) {
+        const where = `${route} ${kind}#${index}`;
+        // (b) verdict scan across all four states, before forcing colours.
+        await page.goto(route);
+        const region = page.locator('[data-predict], [data-self-check]').nth(index);
+        expect(await scanVerdicts(region), `${where}: verdict, unanswered`).toEqual([]);
+        const summary = region.locator('details[data-reveal] > summary');
+        await summary.click();
+        expect(await scanVerdicts(region), `${where}: verdict, declined`).toEqual([]);
+        const radios = region.locator('fieldset input[type="radio"]');
+        const values = await radios.evaluateAll((els) =>
+          els.map((e) => (e as HTMLInputElement).value),
+        );
+        const answer = await region
+          .locator('[data-reason][data-correct="true"]')
+          .getAttribute('data-reason');
+        await radios.nth(values.indexOf(values.find((v) => v !== answer)!)).check();
+        expect(await scanVerdicts(region), `${where}: verdict, wrong commit`).toEqual([]);
+        await radios.nth(values.indexOf(answer!)).check();
+        expect(await scanVerdicts(region), `${where}: verdict, correct commit`).toEqual([]);
 
-      // (a) closed on load, so no marking is rendered even though the
-      // correct row's attribute is present in the served markup.
-      await expect(reveal).not.toHaveAttribute('open');
-      // Chromium hides a closed disclosure with content-visibility, not
-      // display:none, so the rows keep a layout box and an offsetParent
-      // while never being painted. checkVisibility and innerText are the
-      // properties that see this, and they are the ones the contract
-      // names ("out of the accessibility tree and out of innerText").
-      const visibleBefore = await region.evaluate((root) => {
-        const rows = Array.from(root.querySelectorAll('[data-reason]')) as HTMLElement[];
-        return rows.filter(
-          (r) => r.checkVisibility() || r.innerText.trim().length > 0,
-        ).length;
-      });
-      expect(visibleBefore, `${where}: reasoning rendered before a commit`).toBe(0);
-      const selectedBefore = await region.locator('[data-reason][data-selected]').count();
-      expect(selectedBefore, `${where}: a selection mark before any commit`).toBe(0);
+        // (a) forced colours: the non-colour channel still measures. The
+        // custom colour is deliberately NOT asserted here, because forced
+        // colours is entitled to drop it; that is the whole point.
+        //
+        // Measured in the DECLINED state, opened through the summary with
+        // no option committed. A correct commit puts the reader's own pick
+        // marker on the same row, and that marker would then satisfy the
+        // clause on behalf of the correct-row marking: with the weight
+        // step deleted as a plant, this test passed until it was scoped
+        // this way. The correct row has to be identifiable on its own.
+        await page.emulateMedia({ forcedColors: 'active' });
+        await page.goto(route);
+        const forced = page.locator('[data-predict], [data-self-check]').nth(index);
+        await forced.locator('details[data-reveal] > summary').click();
+        const rows = await readRows(forced);
+        expect(
+          rows.flatMap((r) => r.markers),
+          `${where}: a pick marker in the declined state under forced colours`,
+        ).toEqual([]);
+        const correctRow = rows.find((r) => r.correct)!;
+        const unmarked = rows.filter((r) => !r.correct && !r.selected);
+        const channel = nonColourChannel(correctRow, unmarked);
+        expect(
+          channel,
+          `${where}: no non-colour channel survives forced colours`,
+        ).not.toBeNull();
+        await page.emulateMedia({ forcedColors: null });
+        graded += 1;
+      }
+      expect(graded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
+    });
 
-      // (b) declined: the correct row is marked, nothing is selected.
-      await region.locator('details[data-reveal] > summary').click();
-      const rows = await readRows(region);
-      expect(rows.filter((r) => r.selected), `${where}: selection mark in the declined state`).toHaveLength(0);
-      expect(rows.filter((r) => r.correct), `${where}: correct row unmarked when declined`).toHaveLength(1);
-      expect(
-        rows.flatMap((r) => r.markers),
-        `${where}: a pick marker in the declined state`,
-      ).toEqual([]);
-    }
+    test('VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script', async ({
+      page,
+      browser,
+    }) => {
+      const complete = expectCompleteRegions(regions);
+      let scriptedGraded = 0;
+      for (const { route, kind, index } of complete) {
+        const where = `${route} ${kind}#${index}`;
+        await page.goto(route);
+        const region = page.locator('[data-predict], [data-self-check]').nth(index);
+        const reveal = region.locator('details[data-reveal]');
 
-    // (c) the same declined state with no script at all: the marking is
-    // CSS driven off data-correct, not applied by a hydration effect.
-    const context = await browser.newContext({ javaScriptEnabled: false });
-    const noJs = await context.newPage();
-    const token = await (async () => {
-      await noJs.goto(regions[0].route);
-      return okToken(noJs);
-    })();
-    for (const { route, kind, index } of regions) {
-      const where = `${route} ${kind}#${index} (no JS)`;
-      await noJs.goto(route);
-      const region = noJs.locator('[data-predict], [data-self-check]').nth(index);
-      await region.locator('details[data-reveal] > summary').click();
-      const rows = await readRows(region);
-      const correctRow = rows.find((r) => r.correct);
-      expect(correctRow, `${where}: no correct row`).toBeTruthy();
-      expect(
-        correctRow!.colours.some((c) => matchesToken(c, token)),
-        `${where}: the ok-token colour needs script`,
-      ).toBe(true);
-      const unmarked = rows.filter((r) => !r.correct);
-      expect(
-        nonColourChannel(correctRow!, unmarked),
-        `${where}: the non-colour channel needs script`,
-      ).not.toBeNull();
-      expect(rows.filter((r) => r.selected), `${where}: a selection mark`).toHaveLength(0);
-    }
-    await context.close();
+        // (a) closed on load, so no marking is rendered even though the
+        // correct row's attribute is present in the served markup.
+        await expect(reveal).not.toHaveAttribute('open');
+        // Chromium hides a closed disclosure with content-visibility, not
+        // display:none, so the rows keep a layout box and an offsetParent
+        // while never being painted. checkVisibility and innerText are the
+        // properties that see this, and they are the ones the contract
+        // names ("out of the accessibility tree and out of innerText").
+        const visibleBefore = await region.evaluate((root) => {
+          const rows = Array.from(root.querySelectorAll('[data-reason]')) as HTMLElement[];
+          return rows.filter(
+            (r) => r.checkVisibility() || r.innerText.trim().length > 0,
+          ).length;
+        });
+        expect(visibleBefore, `${where}: reasoning rendered before a commit`).toBe(0);
+        const selectedBefore = await region.locator('[data-reason][data-selected]').count();
+        expect(selectedBefore, `${where}: a selection mark before any commit`).toBe(0);
+
+        // (b) declined: the correct row is marked, nothing is selected.
+        await region.locator('details[data-reveal] > summary').click();
+        const rows = await readRows(region);
+        expect(rows.filter((r) => r.selected), `${where}: selection mark in the declined state`).toHaveLength(0);
+        expect(rows.filter((r) => r.correct), `${where}: correct row unmarked when declined`).toHaveLength(1);
+        expect(
+          rows.flatMap((r) => r.markers),
+          `${where}: a pick marker in the declined state`,
+        ).toEqual([]);
+        scriptedGraded += 1;
+      }
+      expect(scriptedGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
+
+      // (c) the same declined state with no script at all: the marking is
+      // CSS driven off data-correct, not applied by a hydration effect.
+      const context = await browser.newContext({ javaScriptEnabled: false });
+      const noJs = await context.newPage();
+      const token = await (async () => {
+        await noJs.goto(complete[0].route);
+        return okToken(noJs);
+      })();
+      let noJsGraded = 0;
+      for (const { route, kind, index } of complete) {
+        const where = `${route} ${kind}#${index} (no JS)`;
+        await noJs.goto(route);
+        const region = noJs.locator('[data-predict], [data-self-check]').nth(index);
+        await region.locator('details[data-reveal] > summary').click();
+        const rows = await readRows(region);
+        const correctRow = rows.find((r) => r.correct);
+        expect(correctRow, `${where}: no correct row`).toBeTruthy();
+        expect(
+          correctRow!.colours.some((c) => matchesToken(c, token)),
+          `${where}: the ok-token colour needs script`,
+        ).toBe(true);
+        const unmarked = rows.filter((r) => !r.correct);
+        expect(
+          nonColourChannel(correctRow!, unmarked),
+          `${where}: the non-colour channel needs script`,
+        ).not.toBeNull();
+        expect(rows.filter((r) => r.selected), `${where}: a selection mark`).toHaveLength(0);
+        noJsGraded += 1;
+      }
+      expect(noJsGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
+      await context.close();
+    });
   });
 });

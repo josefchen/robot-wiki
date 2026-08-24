@@ -46,6 +46,7 @@ const ROUND_KEYS = [
   'date',
   'valuationUsd',
   'leadInvestors',
+  'sourceUrl',
 ] as const;
 const SOURCE_KEYS = ['url', 'title', 'asOf'] as const;
 
@@ -80,12 +81,16 @@ function emitObject(
   record: Record<string, unknown>,
   keys: readonly string[],
   level: number,
+  optionalKeys: readonly string[] = [],
 ): string {
-  const lines = keys.map((key) => {
+  const lines = keys.flatMap((key) => {
     if (!(key in record)) {
+      if (optionalKeys.includes(key)) return [];
       fail(`missing key "${key}" on object at indent ${level}`);
     }
-    return `${indent(level + 1)}${key}: ${emitValue(record[key], level + 1)},`;
+    return [
+      `${indent(level + 1)}${key}: ${emitValue(record[key], level + 1)},`,
+    ];
   });
   return `{\n${lines.join('\n')}\n${indent(level)}}`;
 }
@@ -106,7 +111,7 @@ function emitValue(value: unknown, level: number): string {
       return emitObject(record, HQ_KEYS, level);
     }
     if ('amountUsd' in record && 'leadInvestors' in record) {
-      return emitObject(record, ROUND_KEYS, level);
+      return emitObject(record, ROUND_KEYS, level, ['sourceUrl']);
     }
     if ('url' in record && 'asOf' in record) {
       return emitObject(record, SOURCE_KEYS, level);

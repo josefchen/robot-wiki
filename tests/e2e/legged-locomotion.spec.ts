@@ -136,6 +136,50 @@ test.describe('legged-locomotion module', () => {
     await context.close();
   });
 
+  test('reduced motion changes before and during playback rebuild the gait cadence', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const phase = page.getByTestId('phase-readout');
+    const phaseNumber = async () =>
+      Number(((await phase.textContent()) ?? '0').replace('%', ''));
+
+    // Preference changed after mount but before playback.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.getByRole('button', { name: 'Play gait cycle' }).click();
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
+    await expect.poll(phaseNumber, { timeout: 5_000 }).toBeGreaterThan(0);
+    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
+    expect((await phaseNumber()) % 10).toBe(0);
+
+    // Preference changed again while smooth playback is active.
+    await page.getByRole('button', { name: 'Reset' }).click();
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.getByRole('button', { name: 'Play gait cycle' }).click();
+    await expect
+      .poll(async () => {
+        const value = await phaseNumber();
+        return value !== 0 && value % 10 !== 0;
+      }, { timeout: 5_000 })
+      .toBe(true);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
+    const transitionedAt = await phaseNumber();
+    await expect
+      .poll(phaseNumber, { timeout: 5_000, intervals: [100] })
+      .not.toBe(transitionedAt);
+    await page.getByRole('button', { name: 'Pause gait cycle' }).click();
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
+    const reachableCoarsePhases = new Set<number>();
+    let coarsePhase = transitionedAt;
+    for (let tick = 0; tick < 10; tick += 1) {
+      coarsePhase = coarsePhase + 10 >= 100 ? 0 : coarsePhase + 10;
+      reachableCoarsePhases.add(coarsePhase);
+    }
+    expect(reachableCoarsePhases.has(await phaseNumber())).toBe(true);
+  });
+
   test('zero axe violations', async ({ page }) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();

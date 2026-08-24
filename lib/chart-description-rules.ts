@@ -66,6 +66,8 @@ export interface ChartDescriptionEntry {
   component: string;
   /** Repo-relative source file, for the wiring check. */
   file: string;
+  /** Published route that owns this registry entry's default render. */
+  route: string;
   /** The authored takeaway at the chart's default configuration. */
   text: string;
   /** Both plotted quantity names that must appear in the text. */
@@ -75,6 +77,38 @@ export interface ChartDescriptionEntry {
 export interface ChartDescriptionProblem {
   component: string;
   message: string;
+}
+
+/**
+ * Compare registry defaults against descriptions grouped by rendered route.
+ *
+ * Keeping this pure makes the route binding mutation-testable without a
+ * browser. The browser spec supplies the route map from the static export.
+ */
+export function validateRenderedChartDescriptionRoutes(
+  entries: readonly ChartDescriptionEntry[],
+  renderedByRoute: ReadonlyMap<string, ReadonlySet<string>>,
+): ChartDescriptionProblem[] {
+  const problems: ChartDescriptionProblem[] = [];
+  for (const entry of entries) {
+    const rendered = renderedByRoute.get(entry.route);
+    if (!rendered) {
+      problems.push({
+        component: entry.component,
+        message: `owning route ${entry.route} was not collected`,
+      });
+      continue;
+    }
+    if (!rendered.has(entry.text)) {
+      problems.push({
+        component: entry.component,
+        message:
+          `registry default-state text is not rendered verbatim on owning route ${entry.route}. ` +
+          `Registry text: "${entry.text.slice(0, 120)}..."`,
+      });
+    }
+  }
+  return problems;
 }
 
 /** Validate one description against rules 1-3. */

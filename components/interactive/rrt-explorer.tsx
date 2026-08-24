@@ -60,7 +60,22 @@ export function RrtExplorer({ className }: { className?: string }) {
   const total = result.nodes.length - 1;
   const [iteration, setIteration] = useState(0);
   const [playing, setPlaying] = useState(false);
+  // Track the live preference so a change after mount, including during
+  // playback, rebuilds the timer instead of leaving a smooth cadence
+  // captured from a one-shot read.
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
+  const playbackGenerationRef = useRef(0);
+  const cadenceSignalRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
   // Mirror of `iteration` for the interval callback, so the timer does not
   // have to be recreated on every tick just to read the latest count.
   const iterationRef = useRef(iteration);
@@ -75,6 +90,7 @@ export function RrtExplorer({ className }: { className?: string }) {
 
   const stopTimer = () => {
     if (timerRef.current !== null) {
+      playbackGenerationRef.current += 1;
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
@@ -82,14 +98,33 @@ export function RrtExplorer({ className }: { className?: string }) {
 
   // Interval playback: advances the iteration count on the cadence for the
   // current motion preference, stopping on its own at the final iteration.
-  // The tick counter is closure-local (seeded from the ref mirror on
-  // resume) so batched timers never read a stale count. Cleanup on pause
-  // or unmount.
+  // The tracked preference rebuilds the timer on a mid-run change, while a
+  // fresh read makes the accessible coarse cadence win if the media state
+  // changes between render and effect. The tick counter is closure-local
+  // (seeded from the ref mirror on resume) so batched timers never read a
+  // stale count. Cleanup on pause, cadence change, or unmount.
   useEffect(() => {
-    if (!playing) return;
-    const { tickMs, nodesPerTick } = playbackCadence(prefersReducedMotion());
+    if (!playing) {
+      if (cadenceSignalRef.current) {
+        cadenceSignalRef.current.dataset.playbackCadence = 'idle';
+      }
+      return;
+    }
+    const useCoarseCadence = reducedMotion || prefersReducedMotion();
+    const { tickMs, nodesPerTick } = playbackCadence(useCoarseCadence);
+    const playbackGeneration = ++playbackGenerationRef.current;
     let current = iterationRef.current;
+    // This state is the deterministic transition signal used by browser
+    // tests. React runs the previous effect's cleanup before this setup, so
+    // publishing it means the old interval has been cleared. The generation
+    // guard also makes an already-queued callback from that interval inert.
+    if (cadenceSignalRef.current) {
+      cadenceSignalRef.current.dataset.playbackCadence = useCoarseCadence
+        ? 'coarse'
+        : 'smooth';
+    }
     timerRef.current = window.setInterval(() => {
+      if (playbackGenerationRef.current !== playbackGeneration) return;
       current = Math.min(total, current + nodesPerTick);
       setIteration(current);
       if (current >= total) {
@@ -101,12 +136,9 @@ export function RrtExplorer({ className }: { className?: string }) {
       }
     }, tickMs);
     return () => {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+      stopTimer();
     };
-  }, [playing, total]);
+  }, [playing, total, reducedMotion]);
 
   const scrub = (next: number) => {
     stopTimer();
@@ -316,7 +348,11 @@ export function RrtExplorer({ className }: { className?: string }) {
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
         <span className="text-text-dim">iteration</span>{' '}
-        <span data-testid="rrt-iteration-readout" className="text-accent">
+        <span
+          ref={cadenceSignalRef}
+          data-testid="rrt-iteration-readout"
+          className="text-accent"
+        >
           {iteration} / {total}
         </span>{' '}
         <span className="text-text-dim">nodes</span>{' '}

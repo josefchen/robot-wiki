@@ -1,5 +1,15 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {
+  CONTACT_POSITION_MAX,
+  CONTACT_POSITION_MIN,
+  CONTACT_POSITION_STEP,
+  DEFAULT_CONTACTS,
+} from '@/lib/grasp';
+import {
+  contactGridIndex,
+  offsetContactGridValue,
+} from '../helpers/grasp-contact-grid';
 import { setSlider } from './slider';
 
 const ROUTE = '/classical/grasp-planning/';
@@ -28,6 +38,31 @@ async function visibleArticleText(page: Page): Promise<string> {
 
 async function readout(page: Page, id: string): Promise<string> {
   return (await page.getByTestId(id).textContent()) ?? '';
+}
+
+async function expectDefaultContacts(page: Page): Promise<void> {
+  for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+    const contactNumber = i + 1;
+    const slider = page.getByRole('slider', {
+      name: new RegExp(`contact ${contactNumber} position`, 'i'),
+    });
+    await expect(
+      page.getByTestId(`grasp-contact-${contactNumber}-value`),
+    ).toHaveText(DEFAULT_CONTACTS[i].toFixed(3));
+    await expect(slider).toHaveAttribute(
+      'min',
+      String(CONTACT_POSITION_MIN),
+    );
+    await expect(slider).toHaveAttribute(
+      'max',
+      String(CONTACT_POSITION_MAX),
+    );
+    await expect(slider).toHaveAttribute(
+      'step',
+      String(CONTACT_POSITION_STEP),
+    );
+    await expect(slider).toHaveValue(String(DEFAULT_CONTACTS[i]));
+  }
 }
 
 test.describe('classical grasp-planning module', () => {
@@ -198,6 +233,7 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
       '0.444',
     );
+    await expectDefaultContacts(page);
 
     // The wrench hull drew facets and the origin marker is present.
     expect(await wrenchView.locator('polygon').count()).toBeGreaterThan(4);
@@ -267,6 +303,20 @@ test.describe('classical grasp-planning module', () => {
     await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
       '0.444',
     );
+    await expectDefaultContacts(page);
+    expect(await hullHtml()).toBe(baseHull);
+
+    await setSlider(
+      page.getByRole('slider', { name: /contact 1 position/i }),
+      0.13,
+    );
+    await expect(page.getByTestId('grasp-contact-1-value')).toHaveText('0.130');
+    expect(await hullHtml()).not.toBe(baseHull);
+    await page.reload();
+    await expectDefaultContacts(page);
+    await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
+      '0.444',
+    );
     expect(await hullHtml()).toBe(baseHull);
   });
 
@@ -278,14 +328,43 @@ test.describe('classical grasp-planning module', () => {
     await muSlider.press('ArrowRight');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.75');
 
-    // Contact sliders take keyboard focus and input too. The default 0.125
-    // sits between step grid points; one ArrowRight lands past 0.13 either
-    // way (browser step snapping or raw addition), displaying 0.14.
-    const contact1 = page.getByRole('slider', { name: /contact 1 position/i });
-    await contact1.focus();
-    await expect(contact1).toBeFocused();
-    await contact1.press('ArrowRight');
-    await expect(page.getByTestId('grasp-contact-1-value')).toHaveText('0.14');
+    // Derive expected values through decimal grid indexes rather than binary
+    // floating-point addition. A native step moves one index, then returns.
+    for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+      const contactNumber = i + 1;
+      const contact = page.getByRole('slider', {
+        name: new RegExp(`contact ${contactNumber} position`, 'i'),
+      });
+      const defaultGridIndex = contactGridIndex(
+        DEFAULT_CONTACTS[i],
+        CONTACT_POSITION_MIN,
+        CONTACT_POSITION_STEP,
+      );
+      const stepped = offsetContactGridValue(
+        DEFAULT_CONTACTS[i],
+        CONTACT_POSITION_STEP,
+        1,
+      );
+      await contact.focus();
+      await expect(contact).toBeFocused();
+      await contact.press('ArrowRight');
+      await expect(
+        page.getByTestId(`grasp-contact-${contactNumber}-value`),
+      ).toHaveText(stepped.readout);
+      await expect(contact).toHaveValue(stepped.inputValue);
+      await contact.press('ArrowLeft');
+      await expect(
+        page.getByTestId(`grasp-contact-${contactNumber}-value`),
+      ).toHaveText(DEFAULT_CONTACTS[i].toFixed(3));
+      await expect(contact).toHaveValue(String(DEFAULT_CONTACTS[i]));
+      expect(
+        contactGridIndex(
+          await contact.inputValue(),
+          CONTACT_POSITION_MIN,
+          CONTACT_POSITION_STEP,
+        ),
+      ).toBe(defaultGridIndex);
+    }
 
     // The add/remove/reset controls activate from the keyboard.
     const add = page.getByRole('button', { name: /add a contact/i });

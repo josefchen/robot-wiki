@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "kind": "value-states",
+  "memberCount": 7,
+  "members": [
+    {
+      "id": "state-source:components/interactive/data-scale-chart.tsx",
+      "hash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d"
+    },
+    {
+      "id": "state-source:components/market-map/company-card.tsx",
+      "hash": "c0aab5a34630f326f0d2360577a6ffacc12fad68f546fd755f10539689299213"
+    },
+    {
+      "id": "state-source:components/mdx/policy-chunking-table.tsx",
+      "hash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e"
+    },
+    {
+      "id": "state-source:lib/entity-cells.ts",
+      "hash": "250ee6a8200b21e6c6f88e284d798a71bb060b958fea76b3f3c406b6c8fc0390"
+    },
+    {
+      "id": "state:inapplicable-canonical",
+      "hash": "67b473248f9c481e18b72b589d0991dd6c0cc185ef7d9f43221a4877800c09cc"
+    },
+    {
+      "id": "state:published-witness",
+      "hash": "e5cfa939793b409b1c681b6a778428a5b98294c8eebb247b9beac146cea03277"
+    },
+    {
+      "id": "state:undisclosed-canonical",
+      "hash": "17250d24610c5d116b5bcd86cf498eb25891f9620df23c9798d4ced9de67517b"
+    }
+  ],
+  "rootHash": "d79e1d1b695ded05b1abe3a37060fb910755253fc92d5d45dcdcd3e5734bda1e"
+}

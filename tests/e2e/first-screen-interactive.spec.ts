@@ -69,6 +69,25 @@ function articleRoutes(): string[] {
   return publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
 }
 
+function completeMeasurements(
+  measurements: ReadonlyMap<string, Measurement>,
+): Array<[string, Measurement]> {
+  const routes = articleRoutes();
+  expect(
+    routes.length,
+    'no published article routes derived from the registry',
+  ).toBeGreaterThan(0);
+  expect(
+    measurements.size,
+    `shared measurement corpus is incomplete: expected ${routes.length} routes, received ${measurements.size}`,
+  ).toBe(routes.length);
+  expect(
+    [...measurements.keys()].sort(),
+    'shared measurement corpus routes do not match the published registry',
+  ).toEqual([...routes].sort());
+  return routes.map((route) => [route, measurements.get(route)!]);
+}
+
 /**
  * Locate the first interactive and measure the four clauses against it, in
  * one page evaluation so every number describes the same layout pass.
@@ -233,44 +252,57 @@ function findCue(
 }
 
 const outDir = join(process.cwd(), 'out');
+const CORPUS_FIXED_BUDGET_MS = 10_000;
+const PER_ROUTE_BUDGET_MS = 1_500;
 
 test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   let server: StaticExportServer;
   const measurements = new Map<string, Measurement>();
 
-  test.beforeAll(async ({ browser }) => {
+  test.beforeAll(async () => {
     expect(
       existsSync(outDir),
       'run `npm run build` first: this spec grades the shipped export',
     ).toBe(true);
     server = await startStaticExportServer(outDir);
-
-    const page = await browser.newPage({
-      viewport: { width: 1440, height: 900 },
-    });
-    for (const route of articleRoutes()) {
-      await page.goto(`http://127.0.0.1:${server.port}${route}`, {
-        waitUntil: 'networkidle',
-      });
-      const measured = await page.evaluate(MEASURE);
-      expect(measured, `${route} renders no article prose region`).not.toBeNull();
-      measurements.set(route, measured as Measurement);
-    }
-    await page.close();
   });
 
   test.afterAll(async () => {
     await server?.stop();
   });
 
-  test('the corpus is non-empty and every published article was measured', () => {
+  test('the corpus is non-empty and every published article was measured', async ({
+    browser,
+  }) => {
     const routes = articleRoutes();
+    test.setTimeout(
+      CORPUS_FIXED_BUDGET_MS + routes.length * PER_ROUTE_BUDGET_MS,
+    );
+
     expect(routes.length).toBeGreaterThan(30);
+
+    const page = await browser.newPage({
+      viewport: { width: 1440, height: 900 },
+    });
+    try {
+      for (const route of routes) {
+        await page.goto(`http://127.0.0.1:${server.port}${route}`, {
+          waitUntil: 'networkidle',
+        });
+        const measured = await page.evaluate(MEASURE);
+        expect(measured, `${route} renders no article prose region`).not.toBeNull();
+        measurements.set(route, measured as Measurement);
+      }
+    } finally {
+      await page.close();
+    }
+
     expect(measurements.size).toBe(routes.length);
+    completeMeasurements(measurements);
   });
 
   test('exactly the three table-only adjacent routes are excluded', () => {
-    const excluded = [...measurements.entries()]
+    const excluded = completeMeasurements(measurements)
       .filter(([, m]) => !m.hasInteractive)
       .map(([route]) => route)
       .sort();
@@ -279,14 +311,14 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   });
 
   test('clause (a): at most 300 rendered words precede the first interactive', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.precedingWords > MAX_PRECEDING_WORDS)
       .map(([route, m]) => `${route} ${m.precedingWords} words`);
     expect(over).toEqual([]);
   });
 
   test('clause (b): at most one h2 precedes the first interactive', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.precedingH2 > MAX_PRECEDING_H2)
       .map(
         ([route, m]) =>
@@ -296,14 +328,14 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   });
 
   test('clause (c): the first non-decorative svg sits within 1600px of the document top', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.topEdge > MAX_TOP_EDGE_PX)
       .map(([route, m]) => `${route} ${Math.round(m.topEdge)}px`);
     expect(over).toEqual([]);
   });
 
   test('clause (d): an operating cue naming a rendered control sits in the adjacent prose', () => {
-    const missing = [...measurements.entries()]
+    const missing = completeMeasurements(measurements)
       .filter(
         ([, m]) =>
           m.hasInteractive &&
@@ -318,11 +350,12 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
     // paragraphs this spec reads at all, so a passing clause (d) already
     // proves the cue is ungated. Pin the count so the clause cannot pass
     // vacuously on an empty paragraph set.
-    const cued = [...measurements.entries()].filter(
+    const entries = completeMeasurements(measurements);
+    const cued = entries.filter(
       ([, m]) =>
         m.hasInteractive && findCue(m.adjacentParagraphs, m.controlLabels) !== null,
     );
-    const inScope = [...measurements.values()].filter((m) => m.hasInteractive);
+    const inScope = entries.filter(([, m]) => m.hasInteractive);
     expect(cued.length).toBe(inScope.length);
     for (const [route, m] of cued) {
       const cue = findCue(m.adjacentParagraphs, m.controlLabels);

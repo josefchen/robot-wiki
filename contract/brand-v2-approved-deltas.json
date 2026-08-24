@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "description": "Exact post-baseline exceptions only. Wildcards, broad path allowances, and generic visual-redesign reasons are invalid.",
+  "requiredFields": [
+    "id",
+    "manifest",
+    "memberId",
+    "oldHash",
+    "newHash",
+    "reason",
+    "ownerApproval",
+    "responsibleMilestone",
+    "affectedAssertions",
+    "disposition"
+  ],
+  "entries": []
+}

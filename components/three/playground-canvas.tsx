@@ -1,7 +1,13 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import type { Vec3 } from '@/lib/ik';
 import { isWebGLAvailable } from '@/lib/webgl';
 import { IkTargetForm } from './ik-target-form';
@@ -13,6 +19,7 @@ import { TrajectoryPanel } from './trajectory-panel';
 import { usePlaygroundKinematics } from './use-playground-kinematics';
 import { useTrajectory } from './use-trajectory';
 import { WebGLUnavailable } from './webgl-unavailable';
+import type { RenderedFrameSnapshot } from './robot-scene';
 
 // Client-only: R3F must never render on the server (breaks static export).
 const RobotScene = dynamic(() => import('./robot-scene'), { ssr: false });
@@ -37,6 +44,19 @@ export function PlaygroundCanvas() {
     () => null,
   );
   const [loaded, setLoaded] = useState<LoadedRobot | null>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const publishRenderedFrame = useCallback(
+    (snapshot: RenderedFrameSnapshot) => {
+      const viewport = viewportRef.current;
+      if (viewport === null) return;
+      viewport.dataset.sceneFrame = String(snapshot.frame);
+      viewport.dataset.sceneReady = String(snapshot.ready);
+      viewport.dataset.cameraPosition = snapshot.camera
+        .map((value) => value.toFixed(6))
+        .join(',');
+    },
+    [],
+  );
 
   useEffect(() => {
     if (webgl !== true) return;
@@ -88,6 +108,7 @@ export function PlaygroundCanvas() {
   return (
     <div>
       <div
+        ref={viewportRef}
         data-testid="playground-viewport"
         className="relative h-[min(72dvh,760px)] min-h-[420px] w-full overflow-hidden rounded-sm border border-border bg-bg"
       >
@@ -106,6 +127,7 @@ export function PlaygroundCanvas() {
                 target={kinematics.targetScene}
                 targetState={targetState}
                 onPlaceTarget={kinematics.placeTarget}
+                onRenderedFrame={publishRenderedFrame}
               />
             </div>
           </SceneErrorBoundary>

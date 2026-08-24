@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "kind": "interactive-sources-mounts",
+  "memberCount": 129,
+  "members": [
+    {
+      "id": "mount:app/page.tsx:ReliabilityCompounding:1",
+      "hash": "be36fd2a0180825addfdd2192ef840b33d5a7f79846022b05d84436767cd3adf"
+    },
+    {
+      "id": "mount:app/playground/page.tsx:PlaygroundCanvas:1",
+      "hash": "1e19962ddfa756a9eac56f2c2a55512bd8a2ba5b5ed226e372acc3e3595eff9d"
+    },
+    {
+      "id": "mount:content/adjacent/drones.mdx:PerceptionLatency:1",
+      "hash": "93aef418b55a0b8099928dbab0c112dfc9fbc3a4c25ebe62f3d690f871da3401"
+    },
+    {
+      "id": "mount:content/classical/control.mdx:ImpedanceContactLab:1",
+      "hash": "96aa305aa0c229f90e62306bccb58b6572615ddd988819c2c811cc4493cc9de5"
+    },
+    {
+      "id": "mount:content/classical/control.mdx:PendulumController:1",
+      "hash": "7d12de5f291052f9cc5ef6ffb9e80152c72f2b0507f315b1da12c5ecfe867669"
+    },
+    {
+      "id": "mount:content/classical/control.mdx:PendulumController:2",
+      "hash": "2258a1ef4c92d421c2dbdf35b354dd2644b0111ed31b0be0eee3569c9643f43f"
+    },
+    {
+      "id": "mount:content/classical/grasp-planning.mdx:GraspWrenchLab:1",
+      "hash": "2abed40fda94fed3e514a3a22b150a65a59056f8e5f2520ea7473bdcf6c42acb"
+    },
+    {
+      "id": "mount:content/classical/kinematics.mdx:PlanarFkArm:1",
+      "hash": "ebc3978f9265fb9fe63e2d1c0deb174774cf50a3d0c9ccc920ba8a2f59e4343f"
+    },
+    {
+      "id": "mount:content/classical/motion-planning.mdx:RrtExplorer:1",
+      "hash": "7df1c7e923c31bafa5e5566b7dc55d85f8dffd09f6e9af20c9e776eaf7a5ff4c"
+    },
+    {
+      "id": "mount:content/classical/perception.mdx:PerceptionErrorBudget:1",
+      "hash": "08db446dbc2f10b9602ad29e6eeb9a88ab6a6a61f1c6de61f55bf30bb0d0840b"
+    },
+    {
+      "id": "mount:content/classical/scene-representation.mdx:SceneRepresentationLadder:1",
+      "hash": "aa9a9fb0d030fef4ca4df6aed46d72a78bc89c7a3b43649bebff62202fa31317"
+    },
+    {
+      "id": "mount:content/classical/state-estimation.mdx:KalmanTracker:1",
+      "hash": "abc1179bcc34b4f3e71befa333c92470e323aaf42bbf2caa431eeddb31837172"
+    },
+    {
+      "id": "mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:1",
+      "hash": "462c50a7395f33d2d3d68218b9cfa11a70b5211431818a63417df7af3c579720"
+    },
+    {
+      "id": "mount:content/data-hardware/data-bottleneck.mdx:DataScaleChart:2",
+      "hash": "e4a9a7c62b9e5d3b82e4be1966a79ee74a7271e5700d606299378381b56a307b"
+    },
+    {
+      "id": "mount:content/data-hardware/datasets.mdx:DatasetTable:1",
+      "hash": "079a97b23df4202830ec06c369e36c3cb536d99bfbc11e362eac3cdadc31453e"
+    },
+    {
+      "id": "mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:1",
+      "hash": "e3e0240306c18f4ad2c85008a359d364a5bfdbb0911b2b5b9a4ffe57bf7a1ee1"
+    },
+    {
+      "id": "mount:content/data-hardware/evaluation-crisis.mdx:ReliabilityCompounding:2",
+      "hash": "33e76cc931302a87529e3ac96f0132d7511933e0ea443ae04cecf87e97e0d710"
+    },
+    {
+      "id": "mount:content/data-hardware/hardware-taxonomy.mdx:HardwareGuide:1",
+      "hash": "ae464cf0fd763abbba95c261cb3cc9188a8cebfe8ed02311d0d78ed6819cc66a"
+    },
+    {
+      "id": "mount:content/data-hardware/industrial-deployment.mdx:DeploymentEconomics:1",
+      "hash": "6739fd00fd175d897109e10fcf166edf697f750424ac95afb5e95b1db27f3473"
+    },
+    {
+      "id": "mount:content/data-hardware/teleop-rigs.mdx:TeleopRigMatrix:1",
+      "hash": "2ce4db3fbd6a18431c97809dc852e119250a18c8aba877bf9f68363ff5797eaa"
+    },
+    {
+      "id": "mount:content/frontier/bear-case.mdx:MilestonesWatchlist:1",
+      "hash": "d688f563e733fe2980f69d45379b85b172183a4ae12930e1bfcd9f1936dbaead"
+    },
+    {
+      "id": "mount:content/frontier/competing-theses.mdx:ThesisExplorer:1",
+      "hash": "39379b3e826ce071b85a8121c9b4587484edf6fc0b46541a1fc7e9fab3ac20ca"
+    },
+    {
+      "id": "mount:content/frontier/dexterity.mdx:HandComparison:1",
+      "hash": "6177740612253664393048b033f2dcde26824f6979dea5079878f7c8d64535bd"
+    },
+    {
+      "id": "mount:content/frontier/generalization.mdx:EgoScaleScaling:1",
+      "hash": "4ed83fc83f4bb1692dcd7b187c8c492628a7fbf49bef7f6176e034f2e610cd6c"
+    },
+    {
+      "id": "mount:content/frontier/generalization.mdx:EgoScaleScaling:2",
+      "hash": "4344a63b3ccab815b75d75997e6688dd0767b4ba5e6006e8067e8b82e61eb72e"
+    },
+    {
+      "id": "mount:content/frontier/reliability-gap.mdx:DeploymentDashboard:1",
+      "hash": "252f20a998c71716e141a57a1e0e69ea47082930ffc53f7c7568d3b79c91cbdc"
+    },
+    {
+      "id": "mount:content/frontier/reliability-gap.mdx:ReliabilityCompounding:1",
+      "hash": "fec9de380fe0dc5409d3d642226d87dcd98b983c6711e04907ad664b5bfcca41"
+    },
+    {
+      "id": "mount:content/frontier/safety-and-assurance.mdx:CollaborativeOperationModes:1",
+      "hash": "d439ee4d776958854f40e992f37bb5126a37c01f2d0f5d7f9a4082c4a50ca68b"
+    },
+    {
+      "id": "mount:content/manipulation/action-chunking.mdx:ChunkSizeCurve:1",
+      "hash": "1bed890abbb81aa46d4f57b0ec52277deba3e441b21678110c472fa8127395e8"
+    },
+    {
+      "id": "mount:content/manipulation/action-chunking.mdx:LatencyComparison:1",
+      "hash": "30330e394e86ea217105dfa29b4348ef193492a485bcc6d1edff6430b49f4605"
+    },
+    {
+      "id": "mount:content/manipulation/action-chunking.mdx:LatencyComparison:2",
+      "hash": "067c218062a6f15031a7f5cb207f9a52c9bdd19c756d81c681957d4b4c814d0b"
+    },
+    {
+      "id": "mount:content/manipulation/bc-foundations.mdx:CompoundingError:1",
+      "hash": "86dc418850eda7bb2f68b90248cf02f8dd734772ec957efe9fb4065711f059cd"
+    },
+    {
+      "id": "mount:content/manipulation/bc-foundations.mdx:CompoundingError:2",
+      "hash": "ebfabe16f371c8d3155004c66c0a141ea9d1d0d7054f98d65e7f0ac349e6d322"
+    },
+    {
+      "id": "mount:content/manipulation/comparison-matrix.mdx:ComparisonMatrix:1",
+      "hash": "d43d6f2d025cfb54b246e84a8daca592e985c1c45114e22490439043832119c3"
+    },
+    {
+      "id": "mount:content/manipulation/cross-embodiment.mdx:CrossEmbodimentStrategies:1",
+      "hash": "73d5c2d4a980c804f2430bab09cd37cf4d126489b11292b44fd952b63a38af45"
+    },
+    {
+      "id": "mount:content/manipulation/diffusion-policy.mdx:DenoisingLoop:1",
+      "hash": "f18c9f4c433e2e1a4fc8125024cab69733dcec2ad04fa9cd904ce17e24bf89df"
+    },
+    {
+      "id": "mount:content/manipulation/diffusion-policy.mdx:RecedingHorizon:1",
+      "hash": "8a5889cfc4ce411953d743863e852401cf1963424a1042cad55556bd449759df"
+    },
+    {
+      "id": "mount:content/manipulation/generalist-policies.mdx:GeneralistReleaseTimeline:1",
+      "hash": "7b838c1bb18a6d12338c990ccae645421dc73d9f8d73012b6e5d276b5a2f9b30"
+    },
+    {
+      "id": "mount:content/manipulation/hierarchical.mdx:HierarchyTimescales:1",
+      "hash": "5645c5b8c9b774029c22193d7d4cda62bca5b174c03b6db0c0a7e9e99e8b8ab3"
+    },
+    {
+      "id": "mount:content/manipulation/knowledge-insulation.mdx:MotInsulation:1",
+      "hash": "892afce4ceb4e2fe92902f2c11fffc48ffca79a6bc226389335c7110fef6159e"
+    },
+    {
+      "id": "mount:content/manipulation/pi-line.mdx:FlowMatchingTrajectory:1",
+      "hash": "a757ed35c111b9e146cb9dd686d9b2c1cbfb062f286acba3d7ced772448280fa"
+    },
+    {
+      "id": "mount:content/manipulation/pi-line.mdx:PiGenerationTimeline:1",
+      "hash": "3e4cd013f9b2f64930fd13277264d8fa407d5ccb76d644411e81d1a660c86c04"
+    },
+    {
+      "id": "mount:content/manipulation/realtime-execution.mdx:ControlLoopBudget:1",
+      "hash": "8973d0eb5aca76c69867d44738b310bd4746b770d56df122c65d3d2b9c174ad4"
+    },
+    {
+      "id": "mount:content/manipulation/realtime-execution.mdx:ControlLoopBudget:2",
+      "hash": "1defcee721aae9f56ce0d16dd004efae738a68a81d70e96638953d80eed64a39"
+    },
+    {
+      "id": "mount:content/manipulation/realtime-execution.mdx:ExecutionModes:1",
+      "hash": "c43fa16aec90eeb912c4d59d159bc78104fe735a47249ff5244821894be112e1"
+    },
+    {
+      "id": "mount:content/manipulation/rl-finetuning.mdx:AdvantageScrubber:1",
+      "hash": "b478b2bda951761ef93ac1e26c5a24c1ad5ccedb31dc5bba0639deb12e91bd0e"
+    },
+    {
+      "id": "mount:content/manipulation/vla-models.mdx:ActionTokenization:1",
+      "hash": "69a8adfdba6fdc17d394f08e4e2ca9fd929e4bfdc441440862c076eb77f4208c"
+    },
+    {
+      "id": "mount:content/rl-sim2real/humanoid-wbc.mdx:WbcDecomposition:1",
+      "hash": "a2b7586c7f5de7aaf92d38eb1a9089f74a45aa446a5a294b0323d3981e5fdb8a"
+    },
+    {
+      "id": "mount:content/rl-sim2real/legged-locomotion.mdx:GaitDiagram:1",
+      "hash": "50d29b47a8de4ea7ee36238215301698ec7eb03f06464233def4cbf4dd57a26e"
+    },
+    {
+      "id": "mount:content/rl-sim2real/parallel-sim-rl.mdx:TrainingTimeChart:1",
+      "hash": "74ca645f0431b43a78b294abb29b451d56373b7e468052d6699cbbe99d256a1f"
+    },
+    {
+      "id": "mount:content/rl-sim2real/reward-design-mpc.mdx:EurekaLoop:1",
+      "hash": "6a55a1dbbbe8881c87de7f3d941c81aad2cd3c27542c2e066d353f1cdff92529"
+    },
+    {
+      "id": "mount:content/rl-sim2real/reward-design-mpc.mdx:MpcVsRl:1",
+      "hash": "19eba155aec08f798326fe387a2d0af82608f14016ac11439ce467d8ce91ac98"
+    },
+    {
+      "id": "mount:content/rl-sim2real/reward-design-mpc.mdx:RewardShaping:1",
+      "hash": "c0485924d01c6f8aaf54eb243ac10a50b0334d687f907456e9bfc61a6b630c21"
+    },
+    {
+      "id": "mount:content/rl-sim2real/rl-for-robotics.mdx:SampleEfficiencyLedger:1",
+      "hash": "5cc25ad2a175115b8a4afd319622a257674515b7281d562928cf8680be968363"
+    },
+    {
+      "id": "mount:content/rl-sim2real/sim2real-transfer.mdx:FrictionTransfer:1",
+      "hash": "1ac06726f0150da1fdd3aa1841436adfe2ecd3946598be6e3e5d84bb64fa4fcf"
+    },
+    {
+      "id": "mount:content/rl-sim2real/sim2real-transfer.mdx:FrictionTransfer:2",
+      "hash": "12297c9fe3c4da32aacc7f79046c19669e0cf3345b172beca17c64b632995067"
+    },
+    {
+      "id": "mount:content/rl-sim2real/sim2real-transfer.mdx:TeacherStudent:1",
+      "hash": "6f64e931286f98eab05ed5fa86d59221fd04eca923273d47cc80c7f1a93b940d"
+    },
+    {
+      "id": "mount:content/rl-sim2real/why-rl-locomotion.mdx:ContactGeometry:1",
+      "hash": "5e1766b09be730cd30c60b3fac6a5797ee6995ec0fcc86ba3487e4b8b5792cee"
+    },
+    {
+      "id": "mount:content/world-models/generative-sim.mdx:AppearancePhysicsPush:1",
+      "hash": "3dc924eb7f39563758584bed0f9f313ef13f7b89549dd0520b1bbc16901a3439"
+    },
+    {
+      "id": "mount:content/world-models/generative-video.mdx:ActionConditioning:1",
+      "hash": "9e892b200fac4223e7d50d2e70ae49477814de5fcb8e67b6792fcc217d562a6f"
+    },
+    {
+      "id": "mount:content/world-models/jepa.mdx:JepaPlanning:1",
+      "hash": "02550a8bdd3bd9ad44408b78e400bc4226f4775b37223dca1d49929c339e1bd9"
+    },
+    {
+      "id": "mount:content/world-models/latent-dynamics.mdx:LatentImagination:1",
+      "hash": "66c2e0d2d19414f71d61bdbf67b02bfc50d38cf7a0a7a65943fb9ae4fa7797e8"
+    },
+    {
+      "id": "mount:content/world-models/taxonomy.mdx:WmDisambiguator:1",
+      "hash": "83bc63bc5543d10e33ca6ff0a0bc230b7792470d2337cd52608832ba53976575"
+    },
+    {
+      "id": "source:components/interactive/action-conditioning.tsx",
+      "hash": "3839a416f3a1b72bd75c5766e618b2167d6d0d3a44be03d15c7b165b34999dc8"
+    },
+    {
+      "id": "source:components/interactive/action-tokenization.tsx",
+      "hash": "41a07d1d30b7bd5a12b38b0a235bd445dba41e7cda018cac4c1161e3c51c4db3"
+    },
+    {
+      "id": "source:components/interactive/advantage-scrubber.tsx",
+      "hash": "6938b2bceca6a17137e74fd35105e238ce81228cce1a02ea65ce5791e13998de"
+    },
+    {
+      "id": "source:components/interactive/appearance-physics-push.tsx",
+      "hash": "1eb092ed65c7398b1598447e9b345f8778550e81328a93d9f895f8062ff3c272"
+    },
+    {
+      "id": "source:components/interactive/chunk-size-curve.tsx",
+      "hash": "f821661c661a1108bc0e718c95064c68a1c7b5d0fbe1689f7c695bb6e06c2d3d"
+    },
+    {
+      "id": "source:components/interactive/collaborative-operation-modes.tsx",
+      "hash": "fd8535b9e246b72003b1d115a565471906a94e51324205f9842fd6903ce6a0d5"
+    },
+    {
+      "id": "source:components/interactive/comparison-matrix.tsx",
+      "hash": "658da6f23aafee71593cb972f717fdda7260a09d8f0724841fde6920c6fa4100"
+    },
+    {
+      "id": "source:components/interactive/compounding-error.tsx",
+      "hash": "116effe98da60333740c646535a97d9e53e0da1cab14006f5ebd50144d3e47d1"
+    },
+    {
+      "id": "source:components/interactive/contact-geometry.tsx",
+      "hash": "3cf4953fca2797208af6f0d7be4d6a0d36ba5531ad30009bbb81849f3820ac99"
+    },
+    {
+      "id": "source:components/interactive/control-loop-budget.tsx",
+      "hash": "b8f9be2c6ec2bba689f94829073d3be1fe3c8e73f31839dad2e1f1786ad95b77"
+    },
+    {
+      "id": "source:components/interactive/cross-embodiment-strategies.tsx",
+      "hash": "efdcc1035afd9c57e9d3ff1fae19a8914d9892c1d0934ba5ce6ccff83e62a62f"
+    },
+    {
+      "id": "source:components/interactive/data-scale-chart.tsx",
+      "hash": "77dde2a54a60246842824053e9d52ea141ed75e3e2ba0da0af26164670a8023d"
+    },
+    {
+      "id": "source:components/interactive/dataset-table.tsx",
+      "hash": "fedab02184d547673fa47d43b36f5c623e85b37bebd753d4ed13cb70eac5a31f"
+    },
+    {
+      "id": "source:components/interactive/denoising-loop.tsx",
+      "hash": "e939087e8cc06a556e527011854873961959a2165ac99571197eb9acbdb7e963"
+    },
+    {
+      "id": "source:components/interactive/deployment-dashboard.tsx",
+      "hash": "75f759f22730279a42b05dcea2155c5f98de7b9d0aaca5d25f1a5c1e0aa83b29"
+    },
+    {
+      "id": "source:components/interactive/deployment-economics.tsx",
+      "hash": "892138699f016dbbe33a5bf8a6bf8eb03753821d15d18034248d3b2c584669a6"
+    },
+    {
+      "id": "source:components/interactive/egoscale-scaling.tsx",
+      "hash": "a9403a1ccbe7a43f50f7d582c0075a2819a5044582b1718a3edfae32a785e3aa"
+    },
+    {
+      "id": "source:components/interactive/eureka-loop.tsx",
+      "hash": "462de05b9fb0ed8e8019fc4b63160e4d1d7946a3acabbeeb03fe02017cd6afc7"
+    },
+    {
+      "id": "source:components/interactive/execution-modes.tsx",
+      "hash": "80ee345fa09314f7009460cd524573315093f77d7c19568e428672eb110a2071"
+    },
+    {
+      "id": "source:components/interactive/flow-matching-trajectory.tsx",
+      "hash": "91d4d14af85a38a38d0abd54c930427ef7dae28f47ba2ade73cbd76219cb9244"
+    },
+    {
+      "id": "source:components/interactive/friction-transfer.tsx",
+      "hash": "e3b585903b881c63119a830ca15380265b14b850aefc0178a352fa657e140f98"
+    },
+    {
+      "id": "source:components/interactive/gait-diagram.tsx",
+      "hash": "298345c2b27681cb56c98ed01b2896e1db157ab0ebdcb981deb935f2deefc951"
+    },
+    {
+      "id": "source:components/interactive/generalist-release-timeline.tsx",
+      "hash": "5753471326707e4dda81897658ac199d9164b0971e77fa77be1889da0807f1b5"
+    },
+    {
+      "id": "source:components/interactive/grasp-wrench-lab.tsx",
+      "hash": "8071844c5304460337f4c4e638043d16216ef94c00c03c0ea1d09e2fd46bfe86"
+    },
+    {
+      "id": "source:components/interactive/hand-comparison.tsx",
+      "hash": "fe6caac14a04456d99eaa9facfd8bb172eabf0f2e6cc94b6c5f2d77f76210eb6"
+    },
+    {
+      "id": "source:components/interactive/hardware-guide.tsx",
+      "hash": "1803be55f63f0fd641d2825dfb6da09c8556da33a813ee37cf7f2a1c5e86ea9e"
+    },
+    {
+      "id": "source:components/interactive/hierarchy-timescales.tsx",
+      "hash": "1aabbc7e07aa690365b7bd3cfd0c2df1ff2d096638c4977910417bf16888d135"
+    },
+    {
+      "id": "source:components/interactive/impedance-contact-lab.tsx",
+      "hash": "0b3ce54f16fed8c35af86bb578806d3f9dcf8b54edb1e675e5d771dcbf2ccdc9"
+    },
+    {
+      "id": "source:components/interactive/jepa-planning.tsx",
+      "hash": "b086734898118853d5f8fb36539af72e1afcc03df7a183f82578824096b750a7"
+    },
+    {
+      "id": "source:components/interactive/kalman-tracker.tsx",
+      "hash": "9abe9a26471244702762f15e2b808f56255f7b034cb090a8105d7ec420e9c38e"
+    },
+    {
+      "id": "source:components/interactive/latency-comparison.tsx",
+      "hash": "e1e6d8e822f56d8a9c7b10d3daba5998307f4a61e9a7dc21c7d7a2cd565e7ac1"
+    },
+    {
+      "id": "source:components/interactive/latent-imagination.tsx",
+      "hash": "f4e0dbfda2c71a6085c9a153185cedd5cbd43426ed3aac859a7a1bac717c7315"
+    },
+    {
+      "id": "source:components/interactive/milestones-watchlist.tsx",
+      "hash": "65321c958cfe378ca5f11b155e89534ab5d96ebea6c05b9c99ac6bb86bc043bc"
+    },
+    {
+      "id": "source:components/interactive/mot-insulation.tsx",
+      "hash": "ffb4a018a29feae7eea473c37be0880bc424b80ea79d6ed4d80185eae801f8ad"
+    },
+    {
+      "id": "source:components/interactive/mpc-vs-rl.tsx",
+      "hash": "acabe82899ab9880b2f5a3af211d45995fa5b59c8427d29f232127aed00e79d6"
+    },
+    {
+      "id": "source:components/interactive/pendulum-controller.tsx",
+      "hash": "5a942f76c1dd4df55391665920c4bbba745589b70152fdef8f29a052b4656720"
+    },
+    {
+      "id": "source:components/interactive/perception-error-budget.tsx",
+      "hash": "c68e8f345412c4c56b538292cedfc12ba834df2ef85767a58d3d19a318c41b9b"
+    },
+    {
+      "id": "source:components/interactive/perception-latency.tsx",
+      "hash": "7f6af9c82a5c6071dc86d3eece56702eda20eb8d8a20a403b73de836f5ad7167"
+    },
+    {
+      "id": "source:components/interactive/pi-generation-timeline.tsx",
+      "hash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7"
+    },
+    {
+      "id": "source:components/interactive/planar-fk-arm.tsx",
+      "hash": "6193c963d41ddac119cdfd577daa4c041bc4ff24f777fb9c7d2ddcf553c74fcf"
+    },
+    {
+      "id": "source:components/interactive/receding-horizon.tsx",
+      "hash": "4274dca0e557beaeab77b5429339e3991c22452541273ccaac5aec3013b54c9f"
+    },
+    {
+      "id": "source:components/interactive/reliability-compounding.tsx",
+      "hash": "1b22f231c919d5d0d11bd1dc1d61df14281fcdab8033efb97a89e4323acc7bc0"
+    },
+    {
+      "id": "source:components/interactive/reward-shaping.tsx",
+      "hash": "bb18c8fbc6a735849a23956e71961804b54db5208ed51cb27b3334c3efd39144"
+    },
+    {
+      "id": "source:components/interactive/rrt-explorer.tsx",
+      "hash": "30cdd5d2ec85642ab1107586061c834f337cb561081cbf427eeda41c16e98caa"
+    },
+    {
+      "id": "source:components/interactive/sample-efficiency-ledger.tsx",
+      "hash": "eddd7049da0ec062f54dfe030fbf1daa1a937d3a1f49f8d24c91ac17334dcfd7"
+    },
+    {
+      "id": "source:components/interactive/scene-representation-ladder.tsx",
+      "hash": "9bbb5cbe5096b2223b6203c1f2a8f48ddee0ea959c87ebdea6ac88ad2b103891"
+    },
+    {
+      "id": "source:components/interactive/teacher-student.tsx",
+      "hash": "911140b2c80df670a6a32c38b2061f96caf9860bd9c3bf6632743d5bdcb68329"
+    },
+    {
+      "id": "source:components/interactive/teleop-rig-matrix.tsx",
+      "hash": "abed70dab4521ac2a7bb02ddd18126d5dc85c3087751126951a16ea6231da004"
+    },
+    {
+      "id": "source:components/interactive/thesis-explorer.tsx",
+      "hash": "ac766da8159315ecd1c0497c547f8b2b2cec41509ebf78a30bd416eed8f20213"
+    },
+    {
+      "id": "source:components/interactive/training-time-chart.tsx",
+      "hash": "12aa8c29e998ae6e716ac550b4f632716772b5cfb551169bfc25289d90eed77c"
+    },
+    {
+      "id": "source:components/interactive/wbc-decomposition.tsx",
+      "hash": "0ce8a21773cc9371a74dcf822b921bb3f044deb33f6fde5d7cbc8f63ec53e47c"
+    },
+    {
+      "id": "source:components/interactive/wm-disambiguator.tsx",
+      "hash": "98663c0b9f98fe884e6c1d7eb40c88082d03a9498f6164ca871968d784a32c06"
+    },
+    {
+      "id": "source:components/three/glb-mesh-loader.ts",
+      "hash": "171acea63c96e232b14bf8058d1584d9bc5548602d30884aceade0d62926327d"
+    },
+    {
+      "id": "source:components/three/ik-target-form.tsx",
+      "hash": "0ae6ff5037a9c0c89e765f9f3489dd366e4a21bec23312461a896112e6735d78"
+    },
+    {
+      "id": "source:components/three/joint-controls.tsx",
+      "hash": "9807782f756609cfb203d52d5582519503c699fa4af0a6998d1e4fa2152038b6"
+    },
+    {
+      "id": "source:components/three/load-robot.ts",
+      "hash": "5d231125bfaf9fe21aef1f07919810cacff270e9bfa0b3fa8fa7b97c02e04001"
+    },
+    {
+      "id": "source:components/three/playground-canvas.tsx",
+      "hash": "593c69e7b15c482dba204f21830ba18970fa695bfcb831eaaea10ed7ad5836b4"
+    },
+    {
+      "id": "source:components/three/playground-hud.tsx",
+      "hash": "ab3a721cb6c103dcbc8a4abff81f198d1f0e59fcdabd257dd618428f12b36fa3"
+    },
+    {
+      "id": "source:components/three/procedural-arm.ts",
+      "hash": "b9b02bafbb318447dd0dbd2a98ce73e1d42f234a2d6556e5b0913c528bd3c48f"
+    },
+    {
+      "id": "source:components/three/robot-arm.tsx",
+      "hash": "bb40f12bbb8c1c45d6f53e3b7f4caca14e2de35206704ae4d36836083c334632"
+    },
+    {
+      "id": "source:components/three/robot-scene.tsx",
+      "hash": "b69187527301406d0722f854e821fce7ab3cd18d3f33b8e65fc4babf3f625ce2"
+    },
+    {
+      "id": "source:components/three/scene-error-boundary.tsx",
+      "hash": "730ac6a4f2803da85117c7928a57ace6b791243a8da763f8581135bf0fabf254"
+    },
+    {
+      "id": "source:components/three/trajectory-panel.tsx",
+      "hash": "1c3ecb9de38bd16c08e4d8f0626d183c64077454428b5ab0165637ddf534285b"
+    },
+    {
+      "id": "source:components/three/use-playground-kinematics.ts",
+      "hash": "db8e3ea1bbcbed65df309e188b980ae1066c0fffc2a16e4bea8967cd5656222a"
+    },
+    {
+      "id": "source:components/three/use-trajectory.ts",
+      "hash": "99401e21723931e3830018966ac544d8351bc28fd6c48f87cd8c24ba9e1ba94a"
+    },
+    {
+      "id": "source:components/three/webgl-unavailable.tsx",
+      "hash": "3fb43de387c62a85804ed2e01985913b2db7c855876ef736393be72c00f10dcb"
+    }
+  ],
+  "rootHash": "fcca07da66d9b13efcc7e5d5c45ae77a70223bd7127a5ab0fec98a8686618f5c"
+}

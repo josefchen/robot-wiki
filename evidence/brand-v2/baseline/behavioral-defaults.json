@@ -1,0 +1,1272 @@
+{
+  "schemaVersion": 1,
+  "kind": "behavioral-defaults",
+  "memberCount": 316,
+  "members": [
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:1",
+      "hash": "31b02a9922eee2095f6659d13319e62374030f08cd496fdf4336bfe58e99a7f6"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:10",
+      "hash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:11",
+      "hash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:12",
+      "hash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:13",
+      "hash": "33e0963270fae11a19789ad9678eefeb7def2a3bf6d662e2b9a0079968e54d5a"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:14",
+      "hash": "641508bcad67ec03a04a23f3dc75a82ffe73c885df7b121faf23f8903d1e3535"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:2",
+      "hash": "a8de9bbf31bc222baf4623d7f2136e6ba27479ea32c9a873b8b2ea54581affe1"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:3",
+      "hash": "18203816eb56555749e68fdfb7e3fd53be791780b86c90b81b7bfac940d1ce0a"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:4",
+      "hash": "21661bb296044f4223239ea012110d326206ac475108b5265b71baad7faab361"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:5",
+      "hash": "39ad7542afd166e7c740a183bada68ab93b7dd53ee500b276864cb5fd82ac721"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:6",
+      "hash": "07373f895c154e0d4599cf7dd036f3fb2a7bc59cea2c35a64d10f63fa598d8c5"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:7",
+      "hash": "1ec1fed39d19125ef28a2e53ed2f8985fba34d8af1dd89306b78183fa4928fcd"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:8",
+      "hash": "fe6601d58dc91aeb05505a86996ee7b7b7b109f2835e86c801a60dd19e01fab3"
+    },
+    {
+      "id": "default:components/interactive/action-conditioning.tsx:9",
+      "hash": "3984680da5ea1f940021255bc468a1b9eed9e4f84f0c03f2cf3906b919bbffd2"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:1",
+      "hash": "a242fbce8910f0ded6211ff47ae5dda39759094aff66c5837281e1d0f55e07fb"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:2",
+      "hash": "f9ebbc6e20afaf9bf4eeda1312820c5e4355f310d933d76f0fd94f42ed398ddb"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:3",
+      "hash": "957d669d6d5d640dff3705b719bfc6938beff36be935fe9201fd478b7bf0347b"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:4",
+      "hash": "edada1c3e3e0f1090b8a122dbceeaeca8340acea929c8937392706bbcb2e626c"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:5",
+      "hash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:6",
+      "hash": "bde25e0fb763289e9080d815fdf466b84bc53c642dc76060d7660120fe7825db"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:7",
+      "hash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb"
+    },
+    {
+      "id": "default:components/interactive/action-tokenization.tsx:8",
+      "hash": "bde25e0fb763289e9080d815fdf466b84bc53c642dc76060d7660120fe7825db"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:1",
+      "hash": "fa6dfdd24f1f572406d9adf41f4bcca1b61bd08745a593f2104c40cc62fc37fc"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:10",
+      "hash": "ab2ec695744b6e29064043409abe0a768593b207add53cea4de18a6dc567d343"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:11",
+      "hash": "f505f7fb449374749df234f93f5015af99a284426c82b0ff88037bb7b3c01944"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:2",
+      "hash": "0c2e232170617c5f2aa598b8a376cd50f1120dfd8de93cd4c8ed6c87ad2b28b5"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:3",
+      "hash": "9b36626a506d02d4f46c4e6efb4e96d4a86316ef5a5085b7abbff8574fcf7219"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:4",
+      "hash": "da9ee564e6410f0d00dcd70b7d1c8d3faf14d8a765f9c29b3ce234ec12e3129e"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:5",
+      "hash": "5f697a2aa9976e0d7846e393b994b30e23b7999d1930ee00be146ed510704325"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:6",
+      "hash": "bc21dbbcbeb8485d7c1169adfbe4f4c684c3c227664e4b05281a7b2a6a5fe56b"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:7",
+      "hash": "ab2ec695744b6e29064043409abe0a768593b207add53cea4de18a6dc567d343"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:8",
+      "hash": "f505f7fb449374749df234f93f5015af99a284426c82b0ff88037bb7b3c01944"
+    },
+    {
+      "id": "default:components/interactive/appearance-physics-push.tsx:9",
+      "hash": "bc21dbbcbeb8485d7c1169adfbe4f4c684c3c227664e4b05281a7b2a6a5fe56b"
+    },
+    {
+      "id": "default:components/interactive/chunk-size-curve.tsx:1",
+      "hash": "54eb6eab4f794b0ccaf3b46c47167592e7a74fcbb50841bac6ad39852634f26e"
+    },
+    {
+      "id": "default:components/interactive/chunk-size-curve.tsx:2",
+      "hash": "66d87274afc0b48ef96bc65293807928fa2fb40cc3a45b89c7760eed24da0d3e"
+    },
+    {
+      "id": "default:components/interactive/chunk-size-curve.tsx:3",
+      "hash": "afa00473891e63a076eb8201aaddc33baa9f7482373d41b94ada8e6414653d06"
+    },
+    {
+      "id": "default:components/interactive/chunk-size-curve.tsx:4",
+      "hash": "afa00473891e63a076eb8201aaddc33baa9f7482373d41b94ada8e6414653d06"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:1",
+      "hash": "86e3e66de11e8be0bf1295d2d902ceae21c43609e71f4198d965b38600e70c55"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:10",
+      "hash": "3653ac03ba050e6c7c20a984dd420fa50865ce2ddd16753a58095adaa90dbe2f"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:2",
+      "hash": "5741f96494e608a4cb09d11b433795ab81f189198098b6626059651d2dac45b0"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:3",
+      "hash": "f528a92b999c65e2bb1d9f7718fb64e82ca8da83c46142be8a3e881a6aec311a"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:4",
+      "hash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:5",
+      "hash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:6",
+      "hash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:7",
+      "hash": "76639607fc6dc92d339337962aea18f429814636c7da864a4969e695b3119851"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:8",
+      "hash": "bd4805c549cffffd447d370cf33ed4a14f5d1b60476c4e390e8432314862aa09"
+    },
+    {
+      "id": "default:components/interactive/collaborative-operation-modes.tsx:9",
+      "hash": "50dba3e8d725157cdb902dc3981c83ae2124cbfe9a64a2005c4abad73720d2a4"
+    },
+    {
+      "id": "default:components/interactive/comparison-matrix.tsx:1",
+      "hash": "3ecd59c5a70bf36891f6a3493e38001d6e47e94620721074fbd5fadf1894b7ec"
+    },
+    {
+      "id": "default:components/interactive/comparison-matrix.tsx:2",
+      "hash": "12c79540e05b99786611e51fca90844569b9106e069bebe925cc8efc2e9cbc3e"
+    },
+    {
+      "id": "default:components/interactive/comparison-matrix.tsx:3",
+      "hash": "12c79540e05b99786611e51fca90844569b9106e069bebe925cc8efc2e9cbc3e"
+    },
+    {
+      "id": "default:components/interactive/comparison-matrix.tsx:4",
+      "hash": "12c79540e05b99786611e51fca90844569b9106e069bebe925cc8efc2e9cbc3e"
+    },
+    {
+      "id": "default:components/interactive/comparison-matrix.tsx:5",
+      "hash": "bf8002cc97a85719827eb27aaed3a47ce25fdd2384f1de20a6dcd86309447367"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:1",
+      "hash": "7186c9f1a55116bfdbc008596ad75ae04c128dae531540d11ecbbe4195bf956d"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:10",
+      "hash": "7cd93e15296351b9bbd9dd46d4835a79e0c12c12a38c77e846854e15a3ca9a99"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:2",
+      "hash": "69396e4a4f9d9ee0642dde45605d40c3f8b51c3c7238883fbd1723b93f400e07"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:3",
+      "hash": "745cd158457a83ca1064e7f49515af797ce4ad408f822f3980cfa2e805db5237"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:4",
+      "hash": "d28b739f63e373a56d4997a9eed86d18ffcb427168719a5078c3418ad7155e38"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:5",
+      "hash": "53ad00cf9f7c8f1e99d081836c5b3320ac694bc43b7d205909e19770b7cfd625"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:6",
+      "hash": "b6d21ba10585bb9040e055a09c79dfa760231a2fb0a9f44702c546cd3337ab70"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:7",
+      "hash": "7cd93e15296351b9bbd9dd46d4835a79e0c12c12a38c77e846854e15a3ca9a99"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:8",
+      "hash": "53ad00cf9f7c8f1e99d081836c5b3320ac694bc43b7d205909e19770b7cfd625"
+    },
+    {
+      "id": "default:components/interactive/compounding-error.tsx:9",
+      "hash": "b6d21ba10585bb9040e055a09c79dfa760231a2fb0a9f44702c546cd3337ab70"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:1",
+      "hash": "ecf75720f2228fe15d683ad6499955bf8164c02c0eecfb6cb749070739c74915"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:2",
+      "hash": "3cbdbd500e5018593de04bc16e5a9028d9d7a5868d62097e6ef3dc22882cf515"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:3",
+      "hash": "65b4bb33b5fec22d22e22fbf1b4bc78fdeb852c14425b06808228820a103e596"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:4",
+      "hash": "fe55fb4d993ef8d6f0635ef003a07511fde2a6c727c7af4709e52f99f45a0bd2"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:5",
+      "hash": "7f836b1c5f34eadf0df4794976fa631aeac4f87941edb3e409acea30cdfa5b89"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:6",
+      "hash": "ac507d1d6cb1bd05055d6e95d8775983362d03526d0c64ede80dd99b9584a7d1"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:7",
+      "hash": "da0ea86940beaee237b861405064ff461d940a65b76b12b32044475916074d74"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:8",
+      "hash": "ac507d1d6cb1bd05055d6e95d8775983362d03526d0c64ede80dd99b9584a7d1"
+    },
+    {
+      "id": "default:components/interactive/contact-geometry.tsx:9",
+      "hash": "da0ea86940beaee237b861405064ff461d940a65b76b12b32044475916074d74"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:1",
+      "hash": "b463e137d6c9441385a9a2d5dc18bc735f067f5e10f33cf8da53be675ee77d2a"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:2",
+      "hash": "40cbae176da9eda42f91340ddf4b656268ebd1afd540a2fc0e74bff03ffaa008"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:3",
+      "hash": "436239fb5acf12705a8749d5ef51d0bb69f289b4b580ede61cf92bbeb1d87088"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:4",
+      "hash": "3152dc32e985add0e481cf370aab94079df6545226b02230dd506692f7da3443"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:5",
+      "hash": "3152dc32e985add0e481cf370aab94079df6545226b02230dd506692f7da3443"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:6",
+      "hash": "893b4282e0c6430c0294aa90c5ea797342ecf1c68d1f454d86800590b4eea4ae"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:7",
+      "hash": "3152dc32e985add0e481cf370aab94079df6545226b02230dd506692f7da3443"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:8",
+      "hash": "3152dc32e985add0e481cf370aab94079df6545226b02230dd506692f7da3443"
+    },
+    {
+      "id": "default:components/interactive/control-loop-budget.tsx:9",
+      "hash": "3152dc32e985add0e481cf370aab94079df6545226b02230dd506692f7da3443"
+    },
+    {
+      "id": "default:components/interactive/cross-embodiment-strategies.tsx:1",
+      "hash": "a92a8525520cb2b3e5e5f02c276a8e0e323688ec4ac2a91e874b59e4a83c064b"
+    },
+    {
+      "id": "default:components/interactive/cross-embodiment-strategies.tsx:2",
+      "hash": "620afded64487bc56923ef946ce62a8d2fb96afbcf16df27270dbc0cf5c1eebd"
+    },
+    {
+      "id": "default:components/interactive/cross-embodiment-strategies.tsx:3",
+      "hash": "de6dd57406a6cd2cb9444238ef66ef3a4776ff1a9768f4d0e6d9d47234e72314"
+    },
+    {
+      "id": "default:components/interactive/cross-embodiment-strategies.tsx:4",
+      "hash": "de6dd57406a6cd2cb9444238ef66ef3a4776ff1a9768f4d0e6d9d47234e72314"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:1",
+      "hash": "91e909e64cb692edacea420921f2ea82fa08382e8e345eeda902cefba497ff01"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:10",
+      "hash": "3e070aebb0dbaa1dcd47a8cd3a3bd9e4403da3fa7755e5aae52ff62c1a6dab19"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:11",
+      "hash": "3e070aebb0dbaa1dcd47a8cd3a3bd9e4403da3fa7755e5aae52ff62c1a6dab19"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:12",
+      "hash": "c9f630ee675ede943ddb30f705380b0c40d90f72afa7f32a4d2cf27f3f8e88a7"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:13",
+      "hash": "3e070aebb0dbaa1dcd47a8cd3a3bd9e4403da3fa7755e5aae52ff62c1a6dab19"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:2",
+      "hash": "3ef685eda613bc9754d97d1ff2dcf9c139e96c1aeea5ec05a02f5c3dd9ef3e7f"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:3",
+      "hash": "28644ee85a0d5031300d2d8a8e36d1bcdbb79dc80bbf9adc2126e328d7a13725"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:4",
+      "hash": "1008513ad4f0e3abc259855503e09c2121a9269258bb1cacc1004864e457aa44"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:5",
+      "hash": "15618e57629bed192713abd230b9e5f6904596f77aec9f0d72ac47e26e46de8f"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:6",
+      "hash": "c9f630ee675ede943ddb30f705380b0c40d90f72afa7f32a4d2cf27f3f8e88a7"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:7",
+      "hash": "3e070aebb0dbaa1dcd47a8cd3a3bd9e4403da3fa7755e5aae52ff62c1a6dab19"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:8",
+      "hash": "3e070aebb0dbaa1dcd47a8cd3a3bd9e4403da3fa7755e5aae52ff62c1a6dab19"
+    },
+    {
+      "id": "default:components/interactive/data-scale-chart.tsx:9",
+      "hash": "f434c7d564f1cc86ce846694118e668ee8521433a4ee842e6a3bfa8f024eba23"
+    },
+    {
+      "id": "default:components/interactive/dataset-table.tsx:1",
+      "hash": "9b423e4e3df21324428b8e98436f3c5899f9df26defe39b83ccb6de5d0c47e47"
+    },
+    {
+      "id": "default:components/interactive/dataset-table.tsx:2",
+      "hash": "9b423e4e3df21324428b8e98436f3c5899f9df26defe39b83ccb6de5d0c47e47"
+    },
+    {
+      "id": "default:components/interactive/dataset-table.tsx:3",
+      "hash": "46cd1b843c8021898cc0d59355b3ae53d47996cc1efb7ecccbf92b5502f8fae1"
+    },
+    {
+      "id": "default:components/interactive/dataset-table.tsx:4",
+      "hash": "46cd1b843c8021898cc0d59355b3ae53d47996cc1efb7ecccbf92b5502f8fae1"
+    },
+    {
+      "id": "default:components/interactive/dataset-table.tsx:5",
+      "hash": "c27e598a64e2ad4d0147c75f19b0711499c227c1c175633841cf0575106aa329"
+    },
+    {
+      "id": "default:components/interactive/denoising-loop.tsx:1",
+      "hash": "a242fbce8910f0ded6211ff47ae5dda39759094aff66c5837281e1d0f55e07fb"
+    },
+    {
+      "id": "default:components/interactive/denoising-loop.tsx:2",
+      "hash": "26f78555d820208889fbe4abb46efb9b8a5558833b3502915d15a66ce9b3f609"
+    },
+    {
+      "id": "default:components/interactive/denoising-loop.tsx:3",
+      "hash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb"
+    },
+    {
+      "id": "default:components/interactive/denoising-loop.tsx:4",
+      "hash": "3cbe527c44c76bb27ac8caef96226874a66d06d6cc06fd82808b309e3767cdff"
+    },
+    {
+      "id": "default:components/interactive/deployment-economics.tsx:1",
+      "hash": "bc7f03f09a44a5cecb7e725793373ba4b2381ecc0824176e9088662f13141fb3"
+    },
+    {
+      "id": "default:components/interactive/deployment-economics.tsx:2",
+      "hash": "4426185b870f36de2118fd9188fe2f49dd47af3f41cbfa066579fff8852eb83c"
+    },
+    {
+      "id": "default:components/interactive/deployment-economics.tsx:3",
+      "hash": "4426185b870f36de2118fd9188fe2f49dd47af3f41cbfa066579fff8852eb83c"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:1",
+      "hash": "39dcb2fe29148cad27e162a994bd4f9448b4a6c0cb78dbac862190dfb4da8d9f"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:10",
+      "hash": "13b1e80295e5cd7deb880445dcf191a1aa2b30ee40ead5f24cd0249486ada8a6"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:2",
+      "hash": "a9e5005298aa32f4d282ca95f0adee4caf6ec69e2847db1ce54919a3bbb4d277"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:3",
+      "hash": "5f6d534bab457f492fa6de6fd86f291537292140a83427d330bb89e3e7dda26b"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:4",
+      "hash": "2171b5dfd1bb87162807ad112961d72283545faf536b50d2c8bfdb63817a993f"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:5",
+      "hash": "3f15eb5435ee8f3fac5910b4933cf629d8f6e1725b83ed1767e8b61e85f7d6a9"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:6",
+      "hash": "9c37fc834222be452264d9f83dd8db2b9a8600e0e30a36fcb96450f5c9b62ae9"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:7",
+      "hash": "3f15eb5435ee8f3fac5910b4933cf629d8f6e1725b83ed1767e8b61e85f7d6a9"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:8",
+      "hash": "4dc4cffd3c536d3a65a153d6c553103e7542ba7a50de438a4d6ebe69dd1c2c97"
+    },
+    {
+      "id": "default:components/interactive/egoscale-scaling.tsx:9",
+      "hash": "4dc4cffd3c536d3a65a153d6c553103e7542ba7a50de438a4d6ebe69dd1c2c97"
+    },
+    {
+      "id": "default:components/interactive/flow-matching-trajectory.tsx:1",
+      "hash": "69396e4a4f9d9ee0642dde45605d40c3f8b51c3c7238883fbd1723b93f400e07"
+    },
+    {
+      "id": "default:components/interactive/flow-matching-trajectory.tsx:2",
+      "hash": "b09c0090c42ab25c5e97f0506275c8254fbbb42b31a10f62d7f559b3b746ce95"
+    },
+    {
+      "id": "default:components/interactive/flow-matching-trajectory.tsx:3",
+      "hash": "b6d21ba10585bb9040e055a09c79dfa760231a2fb0a9f44702c546cd3337ab70"
+    },
+    {
+      "id": "default:components/interactive/flow-matching-trajectory.tsx:4",
+      "hash": "ee31db246b40463783f62a7202c38a7fe7b207cdccdbcb8130a3d6a36cc1414f"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:1",
+      "hash": "d697608def53ae30ebddce30d8ede2574cad854837e2218a46b5058028752114"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:10",
+      "hash": "73452727ed507c42beddf6b3c31222899cda160bfdd17fc35b394ab37fca8404"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:11",
+      "hash": "9cc10a02f78e2246bb66e4c012f22a7801266615b878fa638386826130eba7d1"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:2",
+      "hash": "afe77d746bea3d04a8e8e1bf227d4fbb74490408a28cd82ee9c4a5af1a756027"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:3",
+      "hash": "6a835b8aa33add0651e5a1d2bf585dd86c9894861e30e156e5a1f7cec8a4d022"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:4",
+      "hash": "565dddf6d40f4483087ebe2df232663b0b0dac791d6c95fefdc21a556ad01563"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:5",
+      "hash": "a400542f5df9b2a8f5b666933ec19fa82eed00f9a52363a5655579fb7299ba93"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:6",
+      "hash": "001ff525747905ab65b6a52bf2ee6627b32d29d5dd248d0b1cfd9a4e6cade681"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:7",
+      "hash": "037b4c1c70cb64fabde7e0c722c163a40f465176c3b456ec7183a85118268206"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:8",
+      "hash": "73452727ed507c42beddf6b3c31222899cda160bfdd17fc35b394ab37fca8404"
+    },
+    {
+      "id": "default:components/interactive/friction-transfer.tsx:9",
+      "hash": "037b4c1c70cb64fabde7e0c722c163a40f465176c3b456ec7183a85118268206"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:1",
+      "hash": "26b9e1fd20386e1c3e223feaea7b63cc6932dec6779c6950f4dd9cbfded0f6d9"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:2",
+      "hash": "85980a8436ab86203c9edae99db958be260eaea94c329fa8047e252db0c4981c"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:3",
+      "hash": "e6a752c10ad70961efd3cf68468e56645c4f7e341d4cb1799e2d9ed17d84680b"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:4",
+      "hash": "63ff15c3cc012d3382a1ffafabfc128c93ae72a5ffc085d6bae3eb994b38107b"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:5",
+      "hash": "20d7ab32ad1284a0af648813b3c4977382d2eb879e4f6194bc23bd53a387c652"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:6",
+      "hash": "b755428c01439a0c1eaaaa533e0bc1858be5e88e36b0c04c94cb4d0e59a5bf23"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:7",
+      "hash": "b755428c01439a0c1eaaaa533e0bc1858be5e88e36b0c04c94cb4d0e59a5bf23"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:8",
+      "hash": "952cea4e18b505d487af42432b71ea860601f07e091458d76c88d346b7caf601"
+    },
+    {
+      "id": "default:components/interactive/gait-diagram.tsx:9",
+      "hash": "b755428c01439a0c1eaaaa533e0bc1858be5e88e36b0c04c94cb4d0e59a5bf23"
+    },
+    {
+      "id": "default:components/interactive/generalist-release-timeline.tsx:1",
+      "hash": "c4fda85034f09eeb432ad79103f57e36890727da7c5ef16c4be111e0b955a736"
+    },
+    {
+      "id": "default:components/interactive/generalist-release-timeline.tsx:2",
+      "hash": "3bcaaf44aa46d79b3e93ef7c7be6e6eff1a1a9eb68ff88cdb42a087b1affde45"
+    },
+    {
+      "id": "default:components/interactive/generalist-release-timeline.tsx:3",
+      "hash": "e0f6cae0e72f4b024087959063f7929769d31a4f86af1c3402358ac186509e09"
+    },
+    {
+      "id": "default:components/interactive/generalist-release-timeline.tsx:4",
+      "hash": "e0f6cae0e72f4b024087959063f7929769d31a4f86af1c3402358ac186509e09"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:1",
+      "hash": "8f78a5b5c3ca568660bac93f4d85821009148ad013066d096a381522ee9cbf21"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:2",
+      "hash": "abaf3ec4fe99136206f90f71dc84747a38c1aab8d714464bef1bb3cca48f5c68"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:3",
+      "hash": "1e326d9e15013dd9493a45485d387dc3510ce38425c99d15e26faf33c819feec"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:4",
+      "hash": "01f7d331b1c5271f952121203cba7082b8cc6cf164a935809815221385c23d26"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:5",
+      "hash": "1e326d9e15013dd9493a45485d387dc3510ce38425c99d15e26faf33c819feec"
+    },
+    {
+      "id": "default:components/interactive/grasp-wrench-lab.tsx:6",
+      "hash": "01f7d331b1c5271f952121203cba7082b8cc6cf164a935809815221385c23d26"
+    },
+    {
+      "id": "default:components/interactive/hand-comparison.tsx:1",
+      "hash": "2fda01bcbf7a4b8bdd1bd709eee10f14b70f9a010bcb55087b561fa049fb5c7b"
+    },
+    {
+      "id": "default:components/interactive/hand-comparison.tsx:2",
+      "hash": "c44c76496170277b3044555444c968cb58d54b7021fc3fda2a014a4be164f43f"
+    },
+    {
+      "id": "default:components/interactive/hand-comparison.tsx:3",
+      "hash": "fdb3fc07509ffd85c8f1f00a0c065db3a6806d76da383324fec89e7ac656e19c"
+    },
+    {
+      "id": "default:components/interactive/hand-comparison.tsx:4",
+      "hash": "d838cc7c23fd6665f9052dc8655adf9f924cb53e01af745796d920f0a421d845"
+    },
+    {
+      "id": "default:components/interactive/hand-comparison.tsx:5",
+      "hash": "fdb3fc07509ffd85c8f1f00a0c065db3a6806d76da383324fec89e7ac656e19c"
+    },
+    {
+      "id": "default:components/interactive/hardware-guide.tsx:1",
+      "hash": "644f80001f3fba17a606f74a1a1839ac8ab7d5fe214238a02deaacd11c790ff0"
+    },
+    {
+      "id": "default:components/interactive/hardware-guide.tsx:2",
+      "hash": "644f80001f3fba17a606f74a1a1839ac8ab7d5fe214238a02deaacd11c790ff0"
+    },
+    {
+      "id": "default:components/interactive/hardware-guide.tsx:3",
+      "hash": "ab87d472eea8729ebbbec44cb51d9143d9601b3423524cda8e8a03d24c2e67d3"
+    },
+    {
+      "id": "default:components/interactive/hardware-guide.tsx:4",
+      "hash": "ab87d472eea8729ebbbec44cb51d9143d9601b3423524cda8e8a03d24c2e67d3"
+    },
+    {
+      "id": "default:components/interactive/hardware-guide.tsx:5",
+      "hash": "86b054304936fefaad80cec29bcd982d7d926af094fae9cc08185466a6d8cb90"
+    },
+    {
+      "id": "default:components/interactive/hierarchy-timescales.tsx:1",
+      "hash": "47c0fae1d80523e166709077ed08440c75e118cfd8134747115ad9fbc4c92c2e"
+    },
+    {
+      "id": "default:components/interactive/hierarchy-timescales.tsx:2",
+      "hash": "95d6e5eb53366e9a661779f16cabdfc03571f9a67ef4f593081636e4d95f86ba"
+    },
+    {
+      "id": "default:components/interactive/hierarchy-timescales.tsx:3",
+      "hash": "7a7f38bd0129f69503854b70bb2af98d909eef36ea8448b3f1c2003f209195d9"
+    },
+    {
+      "id": "default:components/interactive/hierarchy-timescales.tsx:4",
+      "hash": "7a7f38bd0129f69503854b70bb2af98d909eef36ea8448b3f1c2003f209195d9"
+    },
+    {
+      "id": "default:components/interactive/impedance-contact-lab.tsx:1",
+      "hash": "56d7be3b87afcf68f4a964b6b0d5b8ffeb5d225c65ecb92b5e0d06a17a3cab12"
+    },
+    {
+      "id": "default:components/interactive/impedance-contact-lab.tsx:2",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/impedance-contact-lab.tsx:3",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:1",
+      "hash": "dba6c286fcea2d40bfa571ebe497bc9e4b7a0ff62ee6a4967a16fd1e1cf94bbf"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:10",
+      "hash": "e4eeda25204417da6899d82348a08a54a9df48be5227ce8d7a79986c1636ff32"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:11",
+      "hash": "ebaded983c767ac58d99bb81f48dd7fd6dcc38edf1565bb0459ac31af9d6b6df"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:12",
+      "hash": "a12e611cbe123400f20bac0c249b7c9496c7b2e7cad546f801e5920830eb28c9"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:13",
+      "hash": "3e92fb629b9b658478aa976ef13f4935b5075ed63fb76c7bcf0e4ca7d7066ce3"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:2",
+      "hash": "31b02a9922eee2095f6659d13319e62374030f08cd496fdf4336bfe58e99a7f6"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:3",
+      "hash": "f4f88822023f490017bde48769f7aa58eefb1dc599fed0178926bc00823c1fa1"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:4",
+      "hash": "ab4104f5d0c7fe43084b5c01c1ccee0bd3cd212af1dc414e8841b66db066539d"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:5",
+      "hash": "fb17fa8c2705ef289db9fd964d90abe63986378568b8406f3c107481f7164c30"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:6",
+      "hash": "e4eeda25204417da6899d82348a08a54a9df48be5227ce8d7a79986c1636ff32"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:7",
+      "hash": "c9c7cfc18b086614ed2497d2fe94f8e56c934bc6c2f0c1ae7a9a3cdf9ba75168"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:8",
+      "hash": "e4eeda25204417da6899d82348a08a54a9df48be5227ce8d7a79986c1636ff32"
+    },
+    {
+      "id": "default:components/interactive/jepa-planning.tsx:9",
+      "hash": "fb17fa8c2705ef289db9fd964d90abe63986378568b8406f3c107481f7164c30"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:1",
+      "hash": "046f65e1850690db9be651e925d909dcb8fa21fd491f32432cddb1e32e0d4c55"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:10",
+      "hash": "b46fe4dee2576648c12f51c7b6ce95153455a23fc0180b75ef3407d85fb089fe"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:11",
+      "hash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:12",
+      "hash": "64b8d7c67938cc00cc4516fa5374a9828d741ff439c59ad4f3a6652400814598"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:13",
+      "hash": "ab9c957359b31d632f28dd398c1105fb42beedd82973fb35af47ff90abc8675c"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:14",
+      "hash": "df13c4db484931b0fe2a2e00d7ad04a296a2d2afc1b09bf4853fe07070ba3cec"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:2",
+      "hash": "9999d91540529a4c9f702dbffbfabbbfa49ff3fd1f87777218607939e31f6234"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:3",
+      "hash": "8704cfc570fb62991f90a49068cf52b0f5cd687e77c0a4148e20c32488954da2"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:4",
+      "hash": "4d946797b64e62329e50886200aa5bd000fe9e26836e8a44fd55a1896e2593c6"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:5",
+      "hash": "b46fe4dee2576648c12f51c7b6ce95153455a23fc0180b75ef3407d85fb089fe"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:6",
+      "hash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:7",
+      "hash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:8",
+      "hash": "4737bd0f72ee3668b2a0489db95691888ab5f444fda130a16861f1aa068c8c1b"
+    },
+    {
+      "id": "default:components/interactive/kalman-tracker.tsx:9",
+      "hash": "4d946797b64e62329e50886200aa5bd000fe9e26836e8a44fd55a1896e2593c6"
+    },
+    {
+      "id": "default:components/interactive/latency-comparison.tsx:1",
+      "hash": "55af491e0b31331c69be161d6287a9e35a13dbefa53eb0f5f0029886dad46d59"
+    },
+    {
+      "id": "default:components/interactive/latency-comparison.tsx:2",
+      "hash": "b92c86b9c08fc6edc8e4d52b8391f4faa8afd3df0cdede44a036372c7c2a9b08"
+    },
+    {
+      "id": "default:components/interactive/latency-comparison.tsx:3",
+      "hash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415"
+    },
+    {
+      "id": "default:components/interactive/latency-comparison.tsx:4",
+      "hash": "df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617"
+    },
+    {
+      "id": "default:components/interactive/latency-comparison.tsx:5",
+      "hash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:1",
+      "hash": "57118d11b41b5c9ea4b37c16f16b9923239db7926c478addf9aabb014a9e0511"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:2",
+      "hash": "7186c9f1a55116bfdbc008596ad75ae04c128dae531540d11ecbbe4195bf956d"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:3",
+      "hash": "13a7ea4f95d477f1cc73e79c659d162a2a9f6d02a2809b9ba055433f0b3cbc39"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:4",
+      "hash": "e48635c1a1d100dd5d47fc5e72499a7d0be15cfa8b2db3608ea15b9414ce5ec6"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:5",
+      "hash": "fa0151d909223ed3fad04c4cce615c3ae37aa90dbc130a2a406c822f8a61e2cc"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:6",
+      "hash": "53ad00cf9f7c8f1e99d081836c5b3320ac694bc43b7d205909e19770b7cfd625"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:7",
+      "hash": "fa0151d909223ed3fad04c4cce615c3ae37aa90dbc130a2a406c822f8a61e2cc"
+    },
+    {
+      "id": "default:components/interactive/latent-imagination.tsx:8",
+      "hash": "53ad00cf9f7c8f1e99d081836c5b3320ac694bc43b7d205909e19770b7cfd625"
+    },
+    {
+      "id": "default:components/interactive/mot-insulation.tsx:1",
+      "hash": "a242fbce8910f0ded6211ff47ae5dda39759094aff66c5837281e1d0f55e07fb"
+    },
+    {
+      "id": "default:components/interactive/mot-insulation.tsx:2",
+      "hash": "dcbfbdc94f2077ec2db794fa2836cca34f31b12d962b5db16d44e029f1558e73"
+    },
+    {
+      "id": "default:components/interactive/mot-insulation.tsx:3",
+      "hash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb"
+    },
+    {
+      "id": "default:components/interactive/mot-insulation.tsx:4",
+      "hash": "1f07fc60e3e4bed8bc0d32d752e8b6ed037335c0333a5fd68843352cea6717fb"
+    },
+    {
+      "id": "default:components/interactive/mpc-vs-rl.tsx:1",
+      "hash": "a0d1aa6aa8a5d39119106d0602e5ca1af7d7d667ed805f36c3efbac3f538d99e"
+    },
+    {
+      "id": "default:components/interactive/mpc-vs-rl.tsx:2",
+      "hash": "b2b5f9cc1b7f7f11e6e95d534b849bdc8ef700e89652ba5a65a7edf7e6e48a92"
+    },
+    {
+      "id": "default:components/interactive/mpc-vs-rl.tsx:3",
+      "hash": "3bdf040de5561e3efbdcc667f16225e303d418c6872c70c52b3074d12fe3e343"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:1",
+      "hash": "6d130dad1cbf613115c6c4bfe7184f546361bbc76f1cea6a13efbdb62ea56d39"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:10",
+      "hash": "c8c4823e2502ae03c4565278d8318c2205ecc498f02a2359e23c4f79cdc12a7d"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:11",
+      "hash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:12",
+      "hash": "e39d998c5f8a04a45390009fce9147ee38447c815b08b851c43e64c509ae0d4b"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:13",
+      "hash": "3c16ee7ee2ad865bae2efb027e61c7670fa2b65ef0b017f95210dfea30adcb1d"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:14",
+      "hash": "974a0b53594a934731af9f0183d1e14a22e2a6915ed656f1ba6f6542ca369cfd"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:15",
+      "hash": "a9869e6348d623c692686e542939ba19c8a7cb695f132f7cb1b16bfaa53e6515"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:16",
+      "hash": "85d8b000ce47fca84fff1fb84a6d3d7c60e2c8055dcdf002002f7e9f8028f171"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:17",
+      "hash": "d176791f976f5fd38bc9e0e58e1287ce2aff6a926dfdc1b79a6a2c5edfb81ec6"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:18",
+      "hash": "34d7d79dbc5fcaff2e27690900edee63c04b36df4ceea75d09365266625f780d"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:2",
+      "hash": "31b02a9922eee2095f6659d13319e62374030f08cd496fdf4336bfe58e99a7f6"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:3",
+      "hash": "5d5414858d873baee20c7fe57ecc55184af724e27b4f4f82831e698aba07023b"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:4",
+      "hash": "e3a833ede78b706f175ea9532c82c151ec9b539188c3094440caea2819291eb4"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:5",
+      "hash": "6d130dad1cbf613115c6c4bfe7184f546361bbc76f1cea6a13efbdb62ea56d39"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:6",
+      "hash": "91b1c1f3d2dbfb4ed51880beb84bbb315d948b59635486e55ff37d7343f61dd7"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:7",
+      "hash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:8",
+      "hash": "0318258e732a823c2293e00a46d9be57ad1ad950bf41b4cf325c5ce611e3a4ad"
+    },
+    {
+      "id": "default:components/interactive/pendulum-controller.tsx:9",
+      "hash": "889763324d46ce9017993b320efc6fbc3d43deb6cabd5caf49b68fd876bfa6b3"
+    },
+    {
+      "id": "default:components/interactive/perception-error-budget.tsx:1",
+      "hash": "56d7be3b87afcf68f4a964b6b0d5b8ffeb5d225c65ecb92b5e0d06a17a3cab12"
+    },
+    {
+      "id": "default:components/interactive/perception-error-budget.tsx:2",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/perception-error-budget.tsx:3",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:1",
+      "hash": "1749bd6363df9d6c17d85710716319807563b044404af643211c3d2526bbe76d"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:2",
+      "hash": "d09c810d642e7167c351255d250a00485c2122344213b6e6dd7deb020e4c8c68"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:3",
+      "hash": "9cad8ff96a8e7a009f26e8d46e15418d719f0efea037ca9867035e45730b866b"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:4",
+      "hash": "6dadb19071f7553f9bc571495fdd6b49f7a690d46df3d95364d96e6ab73d1d9b"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:5",
+      "hash": "9cad8ff96a8e7a009f26e8d46e15418d719f0efea037ca9867035e45730b866b"
+    },
+    {
+      "id": "default:components/interactive/perception-latency.tsx:6",
+      "hash": "6dadb19071f7553f9bc571495fdd6b49f7a690d46df3d95364d96e6ab73d1d9b"
+    },
+    {
+      "id": "default:components/interactive/pi-generation-timeline.tsx:1",
+      "hash": "c4fda85034f09eeb432ad79103f57e36890727da7c5ef16c4be111e0b955a736"
+    },
+    {
+      "id": "default:components/interactive/pi-generation-timeline.tsx:2",
+      "hash": "5eac19451532dc63b8f3c0912343a7ce5c01168cc62c45f613535f732d65d50f"
+    },
+    {
+      "id": "default:components/interactive/pi-generation-timeline.tsx:3",
+      "hash": "e0f6cae0e72f4b024087959063f7929769d31a4f86af1c3402358ac186509e09"
+    },
+    {
+      "id": "default:components/interactive/pi-generation-timeline.tsx:4",
+      "hash": "2048fbb3dee3dc90e2ac80acebe658e430cca073ba00ff2e466d23005aa2dcca"
+    },
+    {
+      "id": "default:components/interactive/planar-fk-arm.tsx:1",
+      "hash": "a2f1c9b0ecf81aeaaa2ad099f551f7700351ce775ecefe08d146758dd8626f69"
+    },
+    {
+      "id": "default:components/interactive/planar-fk-arm.tsx:2",
+      "hash": "2fd3b3f7fca46150e9d1bf9bb920ac4df34bec0f04171431a016b0602a72547a"
+    },
+    {
+      "id": "default:components/interactive/planar-fk-arm.tsx:3",
+      "hash": "2fd3b3f7fca46150e9d1bf9bb920ac4df34bec0f04171431a016b0602a72547a"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:1",
+      "hash": "db7cfdf9b3f73803a1e10e820a89c4dfd1232f0e1cc1e21201d977f32c5d21e4"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:10",
+      "hash": "b6d21ba10585bb9040e055a09c79dfa760231a2fb0a9f44702c546cd3337ab70"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:11",
+      "hash": "cc8176b029af1746f114220b452a5a8c523435807cf1771b52c7f09856bca0cc"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:12",
+      "hash": "b6d21ba10585bb9040e055a09c79dfa760231a2fb0a9f44702c546cd3337ab70"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:2",
+      "hash": "69396e4a4f9d9ee0642dde45605d40c3f8b51c3c7238883fbd1723b93f400e07"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:3",
+      "hash": "cccd5f6f91185bb75e6ad5572d010bcfa03bfa7cab55288121539abf9858d410"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:4",
+      "hash": "b7ea0aabfedd32c4a134f397f4e8fa0eeec76110cf6d9f20b2af097aedb319b3"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:5",
+      "hash": "8684fb47866012ad1873b425842660af5c13a9598cf9da9ca8a75a9411ac88a1"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:6",
+      "hash": "872ff94102c8f5cc6721cf7ffe939e2fdb8011bfbda4b997e2384176b343cfa2"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:7",
+      "hash": "e4a49deedc37da31bfa3d9940e5c42349d25507f7c044223bb8db420e65ccef4"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:8",
+      "hash": "8ced9a71f4de672aba95d262be786d19a0e9b9f53b2c8ab496df87f17498b0e8"
+    },
+    {
+      "id": "default:components/interactive/reliability-compounding.tsx:9",
+      "hash": "cc8176b029af1746f114220b452a5a8c523435807cf1771b52c7f09856bca0cc"
+    },
+    {
+      "id": "default:components/interactive/reward-shaping.tsx:1",
+      "hash": "33753fc50801c8d518246488a5d9a7257cc4c78d1953e2cb1cae8ab43b6f3bb1"
+    },
+    {
+      "id": "default:components/interactive/reward-shaping.tsx:2",
+      "hash": "f9418736589c12d5512f24acb98506236d65e9a3de81839dd2727b0955b9f59c"
+    },
+    {
+      "id": "default:components/interactive/reward-shaping.tsx:3",
+      "hash": "f9418736589c12d5512f24acb98506236d65e9a3de81839dd2727b0955b9f59c"
+    },
+    {
+      "id": "default:components/interactive/sample-efficiency-ledger.tsx:1",
+      "hash": "56d7be3b87afcf68f4a964b6b0d5b8ffeb5d225c65ecb92b5e0d06a17a3cab12"
+    },
+    {
+      "id": "default:components/interactive/sample-efficiency-ledger.tsx:2",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/sample-efficiency-ledger.tsx:3",
+      "hash": "09929fc155f7b1140c70691cafae3e8801f23e0dca5254404ef07dc50811dfc3"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:1",
+      "hash": "641be95c1503d0500c769786be21ceff87dd7b44c598121c793717269c3f11b5"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:2",
+      "hash": "410317cc3a940cdfb21da9483e26ab284909e47e07d1ca30823c5bb9d7c0716b"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:3",
+      "hash": "641be95c1503d0500c769786be21ceff87dd7b44c598121c793717269c3f11b5"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:4",
+      "hash": "410317cc3a940cdfb21da9483e26ab284909e47e07d1ca30823c5bb9d7c0716b"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:5",
+      "hash": "125e5a42a79244ac4f5430209fe99b38ef8d805b6a41d1bf64c626193dff3d6a"
+    },
+    {
+      "id": "default:components/interactive/scene-representation-ladder.tsx:6",
+      "hash": "63ae090d2f18186d70152f215c7b3eb55f9691d1deca6d83a75aee3805e4f5bf"
+    },
+    {
+      "id": "default:components/interactive/teacher-student.tsx:1",
+      "hash": "de017acde706c8dd113e245c43cfacf4a96331c61147b2fa7451d5cbf70a6716"
+    },
+    {
+      "id": "default:components/interactive/teacher-student.tsx:2",
+      "hash": "a9928c6f103f2cf60a78b55cc881f6b06e32a685b6ec24c78d0cafb411770059"
+    },
+    {
+      "id": "default:components/interactive/teacher-student.tsx:3",
+      "hash": "f547cd174e2fd5be213eab6e96a54a48f7fd65a81b23dad10d1097bffaaea6cd"
+    },
+    {
+      "id": "default:components/interactive/teacher-student.tsx:4",
+      "hash": "11b2540ce792eaeb805a7429509aa84b3aa30008b107e1245cbbf49883823f3f"
+    },
+    {
+      "id": "default:components/interactive/teacher-student.tsx:5",
+      "hash": "7b2ee20cac5bcb8c11547a9745b573d40f87d369df1c813cddf5074bf7942695"
+    },
+    {
+      "id": "default:components/interactive/teleop-rig-matrix.tsx:1",
+      "hash": "f7b744a1b2b856c2e625c566057176f9543a72650d8a545d2211be5bb0552f47"
+    },
+    {
+      "id": "default:components/interactive/thesis-explorer.tsx:1",
+      "hash": "73160c87f3890dddabca613ea1957607da6184e08039cb9f2d9cc41f282db89f"
+    },
+    {
+      "id": "default:components/interactive/thesis-explorer.tsx:2",
+      "hash": "be17ed1d67ad3d7a32a72b2f6a838cd57937c4388a2ecab98ae08ed5d6ca0401"
+    },
+    {
+      "id": "default:components/interactive/thesis-explorer.tsx:3",
+      "hash": "c280ffb7c8939a9f1e560a633dd969887331ac6e80e2b2ba0e27fc3f60d561f7"
+    },
+    {
+      "id": "default:components/interactive/training-time-chart.tsx:1",
+      "hash": "0d7b2e218ebce5a63b385f5bb972ca518866bb1ddd17101b7e237265fe0f1a98"
+    },
+    {
+      "id": "default:components/interactive/training-time-chart.tsx:2",
+      "hash": "cca9bb1b5625ae0ced66ac3f848b23aa4e9653f7d9d3145ad7530da24c0c5e79"
+    },
+    {
+      "id": "default:components/interactive/training-time-chart.tsx:3",
+      "hash": "d1fe4654ef238f8d3b7bf7c47163ab019a373f2127cb1968f1852c02da821d55"
+    },
+    {
+      "id": "default:components/interactive/training-time-chart.tsx:4",
+      "hash": "f62924592ac4fd9e324e3e44667689b6cf6dff0742a6a81735149059a22b6883"
+    },
+    {
+      "id": "default:components/interactive/training-time-chart.tsx:5",
+      "hash": "f62924592ac4fd9e324e3e44667689b6cf6dff0742a6a81735149059a22b6883"
+    },
+    {
+      "id": "default:components/interactive/wbc-decomposition.tsx:1",
+      "hash": "c57cfe4557b651286b3a8c0dd2cf864211424bd6c20c78520b5ea5cf6fa309b9"
+    },
+    {
+      "id": "default:components/interactive/wbc-decomposition.tsx:2",
+      "hash": "22f2e02b7f410192b5a1afe44ebd393485183f194c1e2e5096fde09f7e4d9515"
+    },
+    {
+      "id": "default:components/interactive/wbc-decomposition.tsx:3",
+      "hash": "04a0de9ebbd10f431874f68b72657fb1aee496adcdae85e286622319789a1b99"
+    },
+    {
+      "id": "default:components/interactive/wbc-decomposition.tsx:4",
+      "hash": "2c821e7d5f099bfadc79302c903a4d5905b8bedc90f7c463c126aa9deea39bdd"
+    },
+    {
+      "id": "default:components/interactive/wbc-decomposition.tsx:5",
+      "hash": "43eb18aaacd1951fdf9ad0e514fad9e5beed5cc362659b3785c58923386301d2"
+    },
+    {
+      "id": "default:components/interactive/wm-disambiguator.tsx:1",
+      "hash": "1057b8f9b96126a06f48e0d8fce93b8ed53ef445924ae89beb4aa495acd31272"
+    },
+    {
+      "id": "default:components/interactive/wm-disambiguator.tsx:2",
+      "hash": "bef81f2e6cf737c78079e4bbed3ac5cb0dd28bde38591896229378dd38caacb6"
+    },
+    {
+      "id": "default:components/interactive/wm-disambiguator.tsx:3",
+      "hash": "4f4f1889494e788ae17e6d7afae2d2d96409ecc3b0466c2c1f264118d2193fd6"
+    },
+    {
+      "id": "default:components/interactive/wm-disambiguator.tsx:4",
+      "hash": "0aa6ea98c7dcbfaabcbae04dd403043d9c5571bf2b95bc7b77cb5223e01178c4"
+    },
+    {
+      "id": "default:components/interactive/wm-disambiguator.tsx:5",
+      "hash": "8be594d5742982fa830f8ea1ae9b8c95dfcc4887decdfff35cf6e09eb8311718"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:1",
+      "hash": "c99a51d3dff445f62ae0c1042b5bca228900a31e9ed4537b4ba6f6638978eac5"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:2",
+      "hash": "1fa174510fe8d9ef5a6c31cd1dd38861952e7386f6206100228d8eac1dd153a5"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:3",
+      "hash": "9d0e8ea18eec1652d18c6f18d8168e2733b03572fd178cea72a2bbd26270e1ad"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:4",
+      "hash": "19a7f6012e00a18ca2e736143349bc110ede4a7dc36f29e8b4a71c58e2ad318d"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:5",
+      "hash": "9d0e8ea18eec1652d18c6f18d8168e2733b03572fd178cea72a2bbd26270e1ad"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:6",
+      "hash": "4d6844330bc6b87a0017dbca7fd4c895c4e40b2bf7412f8cea2e2096b58e5719"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:7",
+      "hash": "6bbe565a4f9fdf14b4ecf3e6721c0b14869e0e2b35a56be0a55366c8fc711211"
+    },
+    {
+      "id": "default:components/three/ik-target-form.tsx:8",
+      "hash": "5a01199e9265b74167922824e4263bcddd846987d9e1a234e0eab2205e890d20"
+    },
+    {
+      "id": "default:components/three/playground-canvas.tsx:1",
+      "hash": "f195eec27a38869cf238ebbbdd2b7875e7526bd784892705046f027600f63175"
+    },
+    {
+      "id": "default:lib/ik.ts:1",
+      "hash": "809b5f27a62df18e1ee9376ffd3284a6723b7c573f7f0a4c34d6feaaee1ae9d5"
+    },
+    {
+      "id": "default:lib/ik.ts:2",
+      "hash": "7d016968b312a477ec4290c5557de4cbdd23399523fc909972afc2b6abbaa5b3"
+    },
+    {
+      "id": "default:lib/ik.ts:3",
+      "hash": "7ec22c1c89a47c1e42ed65947f0fac8d316e68d977192773165f1c9270f91e9b"
+    },
+    {
+      "id": "default:lib/ik.ts:4",
+      "hash": "6458dfe914db024d5085dcb842f34237ed3372d933113227f7ac183f7085d504"
+    },
+    {
+      "id": "default:lib/ik.ts:5",
+      "hash": "244ae8949d89e2bb113870be0274f9e7c68781c5278b74497cc789ea2b82effa"
+    },
+    {
+      "id": "default:lib/ik.ts:6",
+      "hash": "98a1b80fe2486f256df69e321a655320a0051466db6572fcada982ce974d0a8a"
+    },
+    {
+      "id": "default:lib/ik.ts:7",
+      "hash": "5a38bface2d9b1b6126c7e466ccbd2c34a81e90be84f936da52c210959cdf9b4"
+    },
+    {
+      "id": "default:lib/ik.ts:8",
+      "hash": "e741f8ff07e9094cbbde750f46e2a3790e73893260b0356bba8e65daeaecd137"
+    }
+  ],
+  "rootHash": "519bb5f93dcab827ae22f1b5b026cac8e7e163125124ab3242881ad6fc7847a3"
+}

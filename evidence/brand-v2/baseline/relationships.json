@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "kind": "relationships",
+  "memberCount": 47,
+  "members": [
+    {
+      "id": "article:adjacent/autonomous-vehicles",
+      "hash": "e79b078a8da033ef4e0c512bd4657f1e776a7f8d1d0fc6fec53afa4df697b970"
+    },
+    {
+      "id": "article:adjacent/drones",
+      "hash": "25afcfa107e0eb94d612204d7279311fae1f43f0b8b29b82b814825dc7204a4f"
+    },
+    {
+      "id": "article:adjacent/space",
+      "hash": "f91c643196b37d188727849e757616d61bf957d4128807073ff47bb863c864f6"
+    },
+    {
+      "id": "article:adjacent/surgical",
+      "hash": "7365e063eee90f93f3eb02c253ebcd20080dafbe1f16586c4c01cde84df6614d"
+    },
+    {
+      "id": "article:classical/control",
+      "hash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae"
+    },
+    {
+      "id": "article:classical/grasp-planning",
+      "hash": "ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844"
+    },
+    {
+      "id": "article:classical/kinematics",
+      "hash": "00b3515f4344ce4d36e0f7f159cb7e1305b8529d1463417d84cc67d94bf50d7d"
+    },
+    {
+      "id": "article:classical/motion-planning",
+      "hash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229"
+    },
+    {
+      "id": "article:classical/perception",
+      "hash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041"
+    },
+    {
+      "id": "article:classical/scene-representation",
+      "hash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31"
+    },
+    {
+      "id": "article:classical/state-estimation",
+      "hash": "f8911307ca80b738167e1982e231693f080b59f6c72a4093f5c048f5d07c9f56"
+    },
+    {
+      "id": "article:data-hardware/data-bottleneck",
+      "hash": "aac9900441fad3288b177a47fc6672bdbf2413156da6345cca2586aa79d17e50"
+    },
+    {
+      "id": "article:data-hardware/datasets",
+      "hash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8"
+    },
+    {
+      "id": "article:data-hardware/evaluation-crisis",
+      "hash": "27991c22cedcb751dda6261f1099f836f1c6584f56821d1da8ec26ceeb224a37"
+    },
+    {
+      "id": "article:data-hardware/hardware-taxonomy",
+      "hash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9"
+    },
+    {
+      "id": "article:data-hardware/industrial-deployment",
+      "hash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d"
+    },
+    {
+      "id": "article:data-hardware/teleop-rigs",
+      "hash": "7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041"
+    },
+    {
+      "id": "article:frontier/bear-case",
+      "hash": "b5a04173e9eb0866075f9ea7dfba2feb6b5d48a2a1a382d76482f032cbd35869"
+    },
+    {
+      "id": "article:frontier/competing-theses",
+      "hash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360"
+    },
+    {
+      "id": "article:frontier/dexterity",
+      "hash": "775975450148df398e0e7dda1f2a353caff7231b642ee045832f759f23dacc4f"
+    },
+    {
+      "id": "article:frontier/generalization",
+      "hash": "96bde78d78e154ce0b464d02e51e9321c2cafd62ffde6ce1ed12f23136cc70ad"
+    },
+    {
+      "id": "article:frontier/reliability-gap",
+      "hash": "7ad896cac862c888582be20cb711d9c1e54a739e3f09167190b380ad29006d6c"
+    },
+    {
+      "id": "article:frontier/safety-and-assurance",
+      "hash": "b7c777fdfc019119397a8e60b9360dbfc9bab7d504e19a8357e2ac851d346e0b"
+    },
+    {
+      "id": "article:manipulation/action-chunking",
+      "hash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f"
+    },
+    {
+      "id": "article:manipulation/bc-foundations",
+      "hash": "01c76b354975892e4357948a8d92a7361de872bf42b8270fb9fc8c054acd4a07"
+    },
+    {
+      "id": "article:manipulation/comparison-matrix",
+      "hash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955"
+    },
+    {
+      "id": "article:manipulation/cross-embodiment",
+      "hash": "f1de9849496c22022b094c76389e1bad28ad87f9d1a8e6ee84110a25660ecbba"
+    },
+    {
+      "id": "article:manipulation/diffusion-policy",
+      "hash": "dc2922e2923241d221d611448969905f729b82a606de9fb020c085429a3c4fe1"
+    },
+    {
+      "id": "article:manipulation/generalist-policies",
+      "hash": "9c493d1e97ec4555db85d48c5c69eb6f97b062f1f79361a145cb431791fe481b"
+    },
+    {
+      "id": "article:manipulation/hierarchical",
+      "hash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b"
+    },
+    {
+      "id": "article:manipulation/knowledge-insulation",
+      "hash": "5f4c3eee9f885172df2d143ea0bb3837506325cee7f97fc7ac49a1c1758e8656"
+    },
+    {
+      "id": "article:manipulation/pi-line",
+      "hash": "ad2cdb0b5a2940a89e72f90b06bc49790651ca4567378951f996e747369ac27a"
+    },
+    {
+      "id": "article:manipulation/realtime-execution",
+      "hash": "946358639983795bd77687e77e762cba7de07d62ea894d2a63b058893c7de9f3"
+    },
+    {
+      "id": "article:manipulation/rl-finetuning",
+      "hash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0"
+    },
+    {
+      "id": "article:manipulation/vla-models",
+      "hash": "a80df3bc116c0057d112985b648e43ff24be575907d1609174f5e7814adfd37e"
+    },
+    {
+      "id": "article:rl-sim2real/humanoid-wbc",
+      "hash": "9dda1ceff07236a21f1b4073ab2b4c71633229e2151d9214f10a5bac429e283a"
+    },
+    {
+      "id": "article:rl-sim2real/legged-locomotion",
+      "hash": "cac736dab4e0dc0db9ab16e50663939319d6e39ab1d1dae6fb9abe83d1b3bff6"
+    },
+    {
+      "id": "article:rl-sim2real/parallel-sim-rl",
+      "hash": "46002eec79d4b41f26be6e08fa298ae41c2ead431bf8382066cddfdff2f41904"
+    },
+    {
+      "id": "article:rl-sim2real/reward-design-mpc",
+      "hash": "d76313aba3473a09012f12fef2c160ff8c6573549832150f316c0fa7cba5be88"
+    },
+    {
+      "id": "article:rl-sim2real/rl-for-robotics",
+      "hash": "4dc209aac54602011b461a31b52f2e99afe61c49ba4984ba5f437535c0eecb6f"
+    },
+    {
+      "id": "article:rl-sim2real/sim2real-transfer",
+      "hash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8"
+    },
+    {
+      "id": "article:rl-sim2real/why-rl-locomotion",
+      "hash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2"
+    },
+    {
+      "id": "article:world-models/generative-sim",
+      "hash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1"
+    },
+    {
+      "id": "article:world-models/generative-video",
+      "hash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd"
+    },
+    {
+      "id": "article:world-models/jepa",
+      "hash": "a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77"
+    },
+    {
+      "id": "article:world-models/latent-dynamics",
+      "hash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042"
+    },
+    {
+      "id": "article:world-models/taxonomy",
+      "hash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081"
+    }
+  ],
+  "rootHash": "c839c4432c472bc45f27c9cdccd0b458c38b07337af82b61db8ad9c003e76ef1"
+}

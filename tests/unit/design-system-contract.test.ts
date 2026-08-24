@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
@@ -15,68 +15,75 @@ const spec = read('library/design-system.md');
 const integrity = read('contract/design-integrity.md');
 const agents = read('AGENTS.md');
 const readme = read('README.md');
-const css = read('app/globals.css');
-const layout = read('app/layout.tsx');
-const home = read('app/page.tsx');
-const shell = read('components/nav/site-shell.tsx');
 const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
-const og = read('lib/og-card-artwork.ts');
 const nextEnv = read('next-env.d.ts');
 
 const palette = {
-  bg: '#f4f3ef',
-  surface: '#fbfaf7',
-  'surface-2': '#eceae4',
-  border: '#d9d6cd',
-  'border-strong': '#b3afa4',
-  text: '#1a1c1e',
-  'text-dim': '#55595d',
-  accent: '#245edb',
-  'logo-plate': '#7d7a73',
-  ok: '#1a6f45',
-  warn: '#8a5a00',
-  err: '#a52a1e',
+  ink: '#0B0B0C',
+  graphite: '#242D33',
+  concrete: '#D9DADB',
+  paper: '#F5F6F7',
+  white: '#FFFFFF',
+  highlight: '#C6FF19',
+  signal: '#245FFF',
 } as const;
 
 describe('canonical design-system documentation', () => {
   it('exists as an implementation contract rather than a short moodboard', () => {
     expect(spec.length).toBeGreaterThan(12_000);
     for (const heading of [
-      'Droid execution contract',
+      'Worker execution contract',
       'Brand foundation',
-      'Identity',
-      'Engineering grid',
-      'Colour',
+      'Identity and naming',
       'Typography',
-      'Components',
-      'Data visualization and interactives',
-      'Open Graph and X cards',
-      'Hard bans',
-      'Release checklist',
+      'Palette and semantic roles',
+      'Structural grid, rails, and registration devices',
+      'Shape, borders, and elevation',
+      'Component language',
+      'Visualizations and interactives',
+      'Open Graph and X',
+      'Anti-generic release bans',
+      'Autonomous release review',
     ]) {
       expect(spec, `missing design-system section: ${heading}`).toContain(
         heading,
       );
     }
-    expect(spec).toContain('locked v1.0');
-    expect(spec).toContain('Do not invent a logo');
+    expect(spec).toContain('locked v2.0');
+    expect(spec).toContain('No invented symbol');
+    expect(spec).toContain('Validation is autonomous');
+    for (const reference of [
+      'library/brand-reference-board.jpeg',
+      'library/brand-reference-article.png',
+    ]) {
+      expect(statSync(join(process.cwd(), reference)).size).toBeGreaterThan(
+        100_000,
+      );
+      expect(spec).toContain(reference.split('/').at(-1));
+      expect(integrity).toContain(reference);
+    }
   });
 
   it('has a measurable companion contract with sealed requirements', () => {
     expect(integrity.length).toBeGreaterThan(6_000);
     for (const id of [
-      'VAL-BRAND-001',
-      'VAL-TYPE-001',
-      'VAL-DESIGN-016',
-      'VAL-HOME-001',
-      'VAL-ARTICLE-001',
-      'VAL-CHART-001',
-      'VAL-OG-001',
-      'VAL-A11Y-001',
+      'VAL-B2-BASE-001',
+      'VAL-B2-ID-001',
+      'VAL-B2-COL-001',
+      'VAL-B2-TYPE-001',
+      'VAL-B2-GRID-001',
+      'VAL-B2-SURF-001',
+      'VAL-B2-COMP-001',
+      'VAL-B2-OG-001',
+      'VAL-B2-A11Y-001',
+      'VAL-B2-EVID-001',
+      'VAL-B2-GOV-001',
     ]) {
       expect(integrity).toContain(id);
     }
+    expect(integrity).toContain('all 27 visual-evidence rows pass');
+    expect(integrity).toContain('No human approval step is required');
   });
 
   it('is wired into both agent instructions and contributor documentation', () => {
@@ -99,28 +106,33 @@ describe('canonical design-system documentation', () => {
 });
 
 describe('design tokens stay aligned', () => {
-  it('pins the complete runtime palette in the specification and CSS', () => {
+  it('pins the complete v2 palette in both authority documents', () => {
     for (const [name, value] of Object.entries(palette)) {
-      expect(css, `CSS token --color-${name}`).toContain(
-        `--color-${name}: ${value};`,
-      );
       expect(spec, `documented token --color-${name}`).toContain(
         `\`--color-${name}\` | \`${value}\``,
       );
+      expect(integrity, `contract colour ${value}`).toContain(value);
     }
+    expect(spec).toContain('Primary actions are ink/black filled');
+    expect(spec).toContain(
+      'Selected, toggled, or highlighted states use highlight lime',
+    );
+    expect(spec).toContain(
+      'Signal blue is for links, focus, registration, and active information paths',
+    );
   });
 
-  it('keeps the OG renderer mirrors aligned with runtime tokens', () => {
-    const mirrors = {
-      BG: palette.bg,
-      BORDER: palette.border,
-      TEXT: palette.text,
-      DIM: palette['text-dim'],
-      ACCENT: palette.accent,
-    } as const;
-    for (const [name, value] of Object.entries(mirrors)) {
-      expect(og).toContain(`const ${name} = '${value}';`);
-    }
+  it('requires renderer mirrors to converge without claiming they already have', () => {
+    expect(spec).toContain(
+      'Offline OG and WebGL renderers may repeat resolved values',
+    );
+    expect(spec).toContain('Mirrors remain explicit and parity-tested');
+    expect(integrity).toContain(
+      'Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`',
+    );
+    expect(integrity).toContain(
+      'Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`',
+    );
   });
 
   it('uses semantic warning colour in warning primitives', () => {
@@ -133,39 +145,36 @@ describe('design tokens stay aligned', () => {
 });
 
 describe('identity geometry and typography stay aligned', () => {
-  it('uses the exact plain wordmark and descriptor', () => {
-    for (const text of [spec, home, shell, og]) {
+  it('seals the exact v2 identity while preserving technical identifiers', () => {
+    for (const text of [spec, integrity, agents]) {
+      expect(text).toContain('Robot Wiki');
+      expect(text).toContain(
+        'Citation-first encyclopedia of modern robot learning.',
+      );
       expect(text).toContain('robot-wiki');
+      expect(text).toContain('robot-atlas-trajectory');
     }
-    for (const text of [spec, home, shell]) {
-      expect(text).toContain('Robotics encyclopaedia');
-    }
-    expect(home).toContain('>\n              robot-wiki\n            </h1>');
+    expect(spec).toContain('Capital `R`');
+    expect(spec).toContain('Capital `W`');
+    expect(spec).toContain('One literal space');
+    expect(integrity).toContain('VAL-B2-ID-001');
+    expect(integrity).toContain('VAL-B2-ID-002');
+    expect(integrity).toContain('VAL-B2-ID-004');
   });
 
-  it('omits the descriptor from every OG lockup in any case (VAL-DSBRAND-002)', () => {    // The canonical lockup table omits "Robotics encyclopaedia" from the
-    // Open Graph card. Normalized and explicit: neither the spelled
-    // form nor any case variant may survive in the OG artwork source.
-    const variants = [
-      'Robotics encyclopaedia',
-      'ROBOTICS ENCYCLOPAEDIA',
-      'robotics encyclopaedia',
-      'Robotics encyclopedia',
-      'ROBOTICS ENCYCLOPEDIA',
-      'robotics encyclopedia',
-    ];
-    for (const variant of variants) {
-      expect(og, `OG artwork must not contain "${variant}"`).not.toContain(
-        variant,
-      );
-    }
-    // Case-folded and whitespace-normalized belt-and-braces: no casing or
-    // spacing trick keeps the descriptor on a card.
-    const folded = og
-      .toLowerCase()
-      .replace(/[^a-z]+/g, ' ')
-      .trim();
-    expect(folded).not.toMatch(/robotics\s+encyclopa?edia/);
+  it('seals the site-card and article-card descriptor split', () => {
+    expect(spec).toContain(
+      'Site card: `Robot Wiki` plus the exact descriptor.',
+    );
+    expect(spec).toContain(
+      'Article cards: real article title, domain, review year, reference count, and compact `Robot Wiki` identity.',
+    );
+    expect(integrity).toContain(
+      'Site card contains exact `Robot Wiki` and exact descriptor.',
+    );
+    expect(integrity).toContain(
+      'Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.',
+    );
   });
 
   it('keeps next-env.d.ts on the production type path so clean builds are byte-stable', () => {
@@ -181,31 +190,43 @@ describe('identity geometry and typography stay aligned', () => {
     expect(nextEnv).not.toContain('.next/dev/types');
   });
 
-  it('loads exactly the three declared first-party families', () => {
-    expect(layout).toContain(
-      "import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google'",
-    );
-    expect(css).toContain('--font-sans: var(--font-plex-sans)');
-    expect(css).toContain('--font-serif: var(--font-newsreader)');
-    expect(css).toContain('--font-mono: var(--font-plex-mono)');
-    for (const family of ['IBM Plex Sans', 'Newsreader', 'IBM Plex Mono']) {
+  it('seals Tektur delivery and all four first-party font roles', () => {
+    for (const family of [
+      'Tektur Variable',
+      'IBM Plex Sans',
+      'Newsreader',
+      'IBM Plex Mono',
+    ]) {
       expect(spec).toContain(family);
+      expect(integrity).toContain(family);
     }
+    expect(spec).toContain('loaded through `next/font/local`');
+    expect(spec).toContain('separate checked-in static TTF');
+    expect(integrity).toContain('VAL-B2-TYPE-011');
+    expect(integrity).toContain('VAL-B2-TYPE-012');
   });
 
-  it('pins the literal web and OG engineering grids', () => {
-    expect(css).toContain("width='32' height='32' viewBox='0 0 32 32'");
-    expect(css).toContain('background-size: 32px 32px');
-    expect(home).toContain('engineering-grid');
-    expect(home).toContain('md:grid-cols-[minmax(0,1fr)_13rem]');
-    // Mobile: the grid is the exact 80px band (h-20) below the lockup
-    // (VAL-DSHOME-009), not a min-height.
-    expect(home).toMatch(/engineering-grid[^"]*h-20/);
-    expect(og).toContain("const GRID = '#c8c5bc';");
-    expect(og).toContain('for (let r = 0; r < 12; r++)');
-    expect(og).toContain('for (let c = 0; c < 8; c++)');
-    expect(og).toContain("width: '34px'");
-    expect(og).toContain("height: '34px'");
+  it('seals the v2 grid, surface, and autonomous-validation rules', () => {
+    expect(spec).toContain('12-column desktop grid');
+    expect(spec).toContain('8-column tablet grid');
+    expect(spec).toContain('4-column mobile grid');
+    expect(spec).toContain('`0, 2, 4, 8, 16, 24px`');
+    for (const level of ['Flat', 'Raised', 'Floating']) {
+      expect(spec).toContain(`| ${level} |`);
+    }
+    expect(spec).toContain('bounded dark instrument');
+    expect(spec).toContain('without waiting for a human visual-review pass');
+    expect(integrity).toContain('No human approval step is required');
+    for (const id of [
+      'VAL-B2-GRID-001',
+      'VAL-B2-SURF-001',
+      'VAL-B2-SURF-004',
+      'VAL-B2-SURF-006',
+      'VAL-B2-EVID-004',
+      'VAL-B2-EVID-007',
+    ]) {
+      expect(integrity).toContain(id);
+    }
   });
 
   it('does not leave stale green labels on blue interactive marks', () => {

@@ -255,6 +255,14 @@ export function laneTickRatio(system: TimescaleSystem): number {
 }
 
 /**
+ * Place a source rate label after "update" without forcing frequency grammar
+ * onto adverbial labels. The label itself stays byte-for-byte unchanged.
+ */
+export function updateRatePhrase(lane: TimescaleLane): string {
+  return lane.rate === 'on demand' ? lane.rate : `at ${lane.rate}`;
+}
+
+/**
  * All update times for a lane within the horizon. A null period fires once
  * at t=0; a periodic lane fires at each multiple of its period, starting
  * with the first one (nothing fires at t=0 for periodic lanes).
