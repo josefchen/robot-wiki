@@ -1,7 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';
-import { DEFAULT_CONTACTS, DEFAULT_MU } from '@/lib/grasp';
+import {
+  CONTACT_POSITION_MAX,
+  CONTACT_POSITION_MIN,
+  CONTACT_POSITION_STEP,
+  DEFAULT_CONTACTS,
+  DEFAULT_MU,
+} from '@/lib/grasp';
 
 function readout(id: string) {
   return screen.getByTestId(id).textContent ?? '';
@@ -31,6 +37,22 @@ describe('GraspWrenchLab', () => {
     expect(readout('grasp-mu-value')).toBe(DEFAULT_MU.toFixed(2));
     expect(readout('grasp-closure-readout')).toBe('yes');
     expect(Number.parseFloat(readout('grasp-epsilon-readout'))).toBeGreaterThan(0);
+  });
+
+  it('authors every default on the declared contact step grid', () => {
+    render(<GraspWrenchLab />);
+    for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+      const slider = screen.getByRole('slider', {
+        name: new RegExp(`contact ${i + 1} position`, 'i'),
+      });
+      expect(slider).toHaveAttribute('min', String(CONTACT_POSITION_MIN));
+      expect(slider).toHaveAttribute('max', String(CONTACT_POSITION_MAX));
+      expect(slider).toHaveAttribute('step', String(CONTACT_POSITION_STEP));
+      expect(slider).toHaveValue(DEFAULT_CONTACTS[i].toString());
+      expect(readout(`grasp-contact-${i + 1}-value`)).toBe(
+        DEFAULT_CONTACTS[i].toFixed(3),
+      );
+    }
   });
 
   it('shrinks the wrench hull readout as friction drops', () => {
@@ -116,7 +138,11 @@ describe('GraspWrenchLab', () => {
     expect(readout('grasp-contacts-readout')).toBe('3');
     expect(readout('grasp-mu-value')).toBe(DEFAULT_MU.toFixed(2));
     expect(readout('grasp-closure-readout')).toBe('yes');
-    expect(readout('grasp-contact-1-value')).toBe(DEFAULT_CONTACTS[0].toFixed(2));
+    for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+      expect(readout(`grasp-contact-${i + 1}-value`)).toBe(
+        DEFAULT_CONTACTS[i].toFixed(3),
+      );
+    }
   });
 
   it('labels every control for assistive technology', () => {

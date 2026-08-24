@@ -45,6 +45,10 @@ export const MAX_CONTACTS = 6;
 
 /** Top, right, and bottom edge midpoints: a force-closure tripod. */
 export const DEFAULT_CONTACTS = [0.125, 0.875, 0.625];
+/** Contact controls preserve exact eighth-perimeter landmarks. */
+export const CONTACT_POSITION_MIN = 0;
+export const CONTACT_POSITION_MAX = 0.995;
+export const CONTACT_POSITION_STEP = 0.005;
 export const DEFAULT_MU = 0.7;
 
 /**
