@@ -16,6 +16,8 @@ describe('isSyncConflictDuplicate', () => {
       '_next 2',
       'cache-life.d 3.ts',
       'notes 10.txt',
+      'robot-wiki 2.png',
+      'manipulation 2',
     ]) {
       expect(isSyncConflictDuplicate(name), name).toBe(true);
     }
@@ -33,6 +35,8 @@ describe('isSyncConflictDuplicate', () => {
       'visual-check.mts',
       'es2024',
       'v2',
+      'robot-wiki-2.png',
+      'phase 2 notes.png',
     ]) {
       expect(isSyncConflictDuplicate(name), name).toBe(false);
     }
