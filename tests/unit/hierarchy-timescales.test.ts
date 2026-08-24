@@ -10,6 +10,7 @@ import {
   laneTickRatio,
   lastUpdateAt,
   slowestPeriodicLane,
+  updateRatePhrase,
   updateCountAt,
 } from '@/lib/hierarchy-timescales';
 
@@ -157,6 +158,21 @@ describe('fastestLane, slowestPeriodicLane and laneTickRatio', () => {
       expect(fastestLane(system).periodMs).not.toBeNull();
       expect(fastestLane(system).id).not.toBe('instruction');
       expect(slowestPeriodicLane(system).id).not.toBe('instruction');
+    }
+  });
+});
+
+describe('updateRatePhrase', () => {
+  it('uses adverbial grammar for on-demand source wording', () => {
+    const lane = slowestPeriodicLane(getSystem('gemini-15'));
+    expect(lane.rate).toBe('on demand');
+    expect(updateRatePhrase(lane)).toBe('on demand');
+  });
+
+  it('uses frequency grammar without changing numeric or qualitative labels', () => {
+    for (const systemId of ['pi05', 'helix-02', 'go2']) {
+      const lane = slowestPeriodicLane(getSystem(systemId));
+      expect(updateRatePhrase(lane)).toBe(`at ${lane.rate}`);
     }
   });
 });

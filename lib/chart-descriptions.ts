@@ -279,7 +279,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/hierarchy-timescales.tsx',
     route: '/manipulation/hierarchical/',
     quantityNames: ['playhead', 'lanes'],
-    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 50 Hz Motor commands lane ticks 50 times (schematic) per ~1 Hz (schematic) Subtask prediction update.',
+    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 50 Hz Motor commands lane ticks 50 times (schematic) during one Subtask prediction update at ~1 Hz (schematic).',
   },
   {
     component: 'ContactGeometry',
