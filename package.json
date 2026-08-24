@@ -15,6 +15,8 @@
     "prelint": "node scripts/postinstall.mjs",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:under-load": "bash scripts/with-cpu-load.sh",
+    "compare:test-inventories": "node scripts/compare-test-inventories.ts",
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts --source-only && node scripts/check-chart-descriptions.ts",
