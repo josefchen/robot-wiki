@@ -17,8 +17,9 @@
  *    same machinery should not have less.
  * 2. The two closes run independently (allSettled), so a slow or
  *    failing browser close cannot prevent the server from stopping and
- *    leaking its port. Rejections are re-thrown after both have run, so
- *    nothing is swallowed.
+ *    leaking its port. Rejections are inspected after both have run: one
+ *    failure is re-thrown unchanged, while simultaneous failures are kept
+ *    in cleanup order in an AggregateError.
  *
  * A hook that fails a green assertion is worse than a slow hook: the
  * budget is sized so the hook cannot be the thing that invalidates a
@@ -38,8 +39,14 @@ export async function closeBrowserAndStopServer(
     browser?.close(),
     server?.stop(),
   ]);
-  const rejection = results.find(
+  const rejections = results.filter(
     (r): r is PromiseRejectedResult => r.status === 'rejected',
   );
-  if (rejection) throw rejection.reason;
+  if (rejections.length === 1) throw rejections[0].reason;
+  if (rejections.length > 1) {
+    throw new AggregateError(
+      rejections.map((rejection) => rejection.reason),
+      'Browser and static-export server teardown both failed',
+    );
+  }
 }
