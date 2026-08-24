@@ -69,6 +69,25 @@ function articleRoutes(): string[] {
   return publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
 }
 
+function completeMeasurements(
+  measurements: ReadonlyMap<string, Measurement>,
+): Array<[string, Measurement]> {
+  const routes = articleRoutes();
+  expect(
+    routes.length,
+    'no published article routes derived from the registry',
+  ).toBeGreaterThan(0);
+  expect(
+    measurements.size,
+    `shared measurement corpus is incomplete: expected ${routes.length} routes, received ${measurements.size}`,
+  ).toBe(routes.length);
+  expect(
+    [...measurements.keys()].sort(),
+    'shared measurement corpus routes do not match the published registry',
+  ).toEqual([...routes].sort());
+  return routes.map((route) => [route, measurements.get(route)!]);
+}
+
 /**
  * Locate the first interactive and measure the four clauses against it, in
  * one page evaluation so every number describes the same layout pass.
@@ -279,10 +298,11 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
     }
 
     expect(measurements.size).toBe(routes.length);
+    completeMeasurements(measurements);
   });
 
   test('exactly the three table-only adjacent routes are excluded', () => {
-    const excluded = [...measurements.entries()]
+    const excluded = completeMeasurements(measurements)
       .filter(([, m]) => !m.hasInteractive)
       .map(([route]) => route)
       .sort();
@@ -291,14 +311,14 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   });
 
   test('clause (a): at most 300 rendered words precede the first interactive', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.precedingWords > MAX_PRECEDING_WORDS)
       .map(([route, m]) => `${route} ${m.precedingWords} words`);
     expect(over).toEqual([]);
   });
 
   test('clause (b): at most one h2 precedes the first interactive', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.precedingH2 > MAX_PRECEDING_H2)
       .map(
         ([route, m]) =>
@@ -308,14 +328,14 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   });
 
   test('clause (c): the first non-decorative svg sits within 1600px of the document top', () => {
-    const over = [...measurements.entries()]
+    const over = completeMeasurements(measurements)
       .filter(([, m]) => m.hasInteractive && m.topEdge > MAX_TOP_EDGE_PX)
       .map(([route, m]) => `${route} ${Math.round(m.topEdge)}px`);
     expect(over).toEqual([]);
   });
 
   test('clause (d): an operating cue naming a rendered control sits in the adjacent prose', () => {
-    const missing = [...measurements.entries()]
+    const missing = completeMeasurements(measurements)
       .filter(
         ([, m]) =>
           m.hasInteractive &&
@@ -330,11 +350,12 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
     // paragraphs this spec reads at all, so a passing clause (d) already
     // proves the cue is ungated. Pin the count so the clause cannot pass
     // vacuously on an empty paragraph set.
-    const cued = [...measurements.entries()].filter(
+    const entries = completeMeasurements(measurements);
+    const cued = entries.filter(
       ([, m]) =>
         m.hasInteractive && findCue(m.adjacentParagraphs, m.controlLabels) !== null,
     );
-    const inScope = [...measurements.values()].filter((m) => m.hasInteractive);
+    const inScope = entries.filter(([, m]) => m.hasInteractive);
     expect(cued.length).toBe(inScope.length);
     for (const [route, m] of cued) {
       const cue = findCue(m.adjacentParagraphs, m.controlLabels);

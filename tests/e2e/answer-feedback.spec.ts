@@ -190,6 +190,29 @@ interface Region {
   index: number;
 }
 
+function expectCompleteRegions(
+  regions: readonly Region[] | undefined,
+): readonly Region[] {
+  expect(
+    regions,
+    'shared answer-feedback corpus was not populated before this test',
+  ).toBeDefined();
+  const complete = regions ?? [];
+  expect(complete.length, 'answer-feedback corpus is empty').toBeGreaterThan(0);
+  const predict = complete.filter((r) => r.kind === 'predict');
+  const check = complete.filter((r) => r.kind === 'self-check');
+  expect(
+    predict,
+    `prediction steps: ${predict.map((r) => r.route).join(', ')}`,
+  ).toHaveLength(EXPECTED_PREDICT);
+  expect(
+    check,
+    `self-checks: ${check.map((r) => r.route).join(', ')}`,
+  ).toHaveLength(EXPECTED_SELF_CHECK);
+  expect(new Set(complete.map((r) => r.route)).size).toBe(10);
+  return complete;
+}
+
 /** Every region in the corpus, derived from the module registry. */
 async function derivedRegions(page: Page): Promise<Region[]> {
   const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
@@ -212,22 +235,13 @@ async function derivedRegions(page: Page): Promise<Region[]> {
 
 test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
   test('the derived corpus is 8 prediction steps and 6 self-checks', async ({ page }) => {
-    const regions = await derivedRegions(page);
-    const predict = regions.filter((r) => r.kind === 'predict');
-    const check = regions.filter((r) => r.kind === 'self-check');
-    expect(predict, `prediction steps: ${predict.map((r) => r.route).join(', ')}`).toHaveLength(
-      EXPECTED_PREDICT,
-    );
-    expect(check, `self-checks: ${check.map((r) => r.route).join(', ')}`).toHaveLength(
-      EXPECTED_SELF_CHECK,
-    );
-    expect(new Set(regions.map((r) => r.route)).size).toBe(10);
+    expectCompleteRegions(await derivedRegions(page));
   });
 
   test('VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions', async ({
     page,
   }) => {
-    const regions = await derivedRegions(page);
+    const regions = expectCompleteRegions(await derivedRegions(page));
     const token = await okToken(page);
     let graded = 0;
     for (const { route, kind, index } of regions) {
@@ -320,7 +334,13 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
   });
 
   test.describe('shared VAL-EDU-043/044 corpus', () => {
-    let regions: Region[];
+    /**
+     * This one beforeAll corpus walk is intentionally shared by both tests.
+     * It relies on playwright.config.ts keeping workers: 1 and
+     * fullyParallel disabled. If that serial configuration changes, replace
+     * this shared state with a fixture that populates per test or per worker.
+     */
+    let regions: Region[] | undefined;
 
     test.beforeAll(async ({ browser }) => {
       const page = await browser.newPage();
@@ -334,8 +354,9 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     test('VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered', async ({
       page,
     }) => {
+      const complete = expectCompleteRegions(regions);
       let graded = 0;
-      for (const { route, kind, index } of regions) {
+      for (const { route, kind, index } of complete) {
         const where = `${route} ${kind}#${index}`;
         // (b) verdict scan across all four states, before forcing colours.
         await page.goto(route);
@@ -392,7 +413,9 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
       page,
       browser,
     }) => {
-      for (const { route, kind, index } of regions) {
+      const complete = expectCompleteRegions(regions);
+      let scriptedGraded = 0;
+      for (const { route, kind, index } of complete) {
         const where = `${route} ${kind}#${index}`;
         await page.goto(route);
         const region = page.locator('[data-predict], [data-self-check]').nth(index);
@@ -425,17 +448,20 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
           rows.flatMap((r) => r.markers),
           `${where}: a pick marker in the declined state`,
         ).toEqual([]);
+        scriptedGraded += 1;
       }
+      expect(scriptedGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
 
       // (c) the same declined state with no script at all: the marking is
       // CSS driven off data-correct, not applied by a hydration effect.
       const context = await browser.newContext({ javaScriptEnabled: false });
       const noJs = await context.newPage();
       const token = await (async () => {
-        await noJs.goto(regions[0].route);
+        await noJs.goto(complete[0].route);
         return okToken(noJs);
       })();
-      for (const { route, kind, index } of regions) {
+      let noJsGraded = 0;
+      for (const { route, kind, index } of complete) {
         const where = `${route} ${kind}#${index} (no JS)`;
         await noJs.goto(route);
         const region = noJs.locator('[data-predict], [data-self-check]').nth(index);
@@ -453,7 +479,9 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
           `${where}: the non-colour channel needs script`,
         ).not.toBeNull();
         expect(rows.filter((r) => r.selected), `${where}: a selection mark`).toHaveLength(0);
+        noJsGraded += 1;
       }
+      expect(noJsGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
       await context.close();
     });
   });
