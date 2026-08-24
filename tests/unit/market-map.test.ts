@@ -377,6 +377,12 @@ describe('timelineEvents', () => {
       valuationUsd: 9_040_000_000,
       date: '2026-08-06',
     });
+    expect(byId['nimble-robotics']).toMatchObject({
+      type: 'Series C',
+      amountUsd: 106_000_000,
+      valuationUsd: 1_000_000_000,
+      date: '2024-10-23',
+    });
 
     const covariant = events.find((event) => event.companyId === 'covariant');
     expect(covariant?.amountUsd).toBeNull();
@@ -405,6 +411,9 @@ describe('timelineEvents', () => {
     );
     expect(byId['unitree-robotics'].sourceTitle).toContain(
       'prices IPO at $9 billion valuation',
+    );
+    expect(byId['nimble-robotics'].sourceTitle).toContain(
+      'Nimble Closes $106 Million Series C at $1B Valuation',
     );
   });
 });

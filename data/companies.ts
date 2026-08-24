@@ -2558,10 +2558,11 @@ const ROWS: Company[] = [
       type: 'Series C',
       amountUsd: 106000000,
       date: '2024-10-23',
-      valuationUsd: 1100000000,
+      valuationUsd: 1000000000,
       leadInvestors: [
         'FedEx',
       ],
+      sourceUrl: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
     },
     status: 'private',
     deployments: [
@@ -2583,6 +2584,11 @@ const ROWS: Company[] = [
         url: 'https://pulse2.com/nimble-ai-based-robotics-company-raises-106-million-series-c/',
         title: 'Nimble: AI-Based Robotics Company Raises $106 Million Series C (Pulse2, 2024-10-25)',
         asOf: '2026-08-18',
+      },
+      {
+        url: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
+        title: 'Nimble Closes $106 Million Series C at $1B Valuation, Scales Fully Autonomous Fulfillment with FedEx (first-party, 2024-10-23)',
+        asOf: '2026-08-24',
       },
     ],
     confidence: 'high',

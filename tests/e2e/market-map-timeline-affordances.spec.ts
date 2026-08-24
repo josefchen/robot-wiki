@@ -224,6 +224,11 @@ test.describe('timeline view roving keyboard affordances', () => {
         href: 'https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html',
         title: 'prices IPO at $9 billion valuation',
       },
+      {
+        id: 'nimble-robotics',
+        href: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
+        title: 'Nimble Closes $106 Million Series C at $1B Valuation',
+      },
     ];
 
     for (const source of expected) {

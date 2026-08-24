@@ -909,22 +909,39 @@ changed.
 | limx-dynamics | `LimX Dynamics raises $200 million in Series B` (TechNode, February 2026) | `LimX Dynamics $200M Pre-IPO Financing` (36Kr) | “36Kr has learned that LimX Dynamics, a general-purpose humanoid robotics company, has announced the completion of its Pre-IPO funding round, raising nearly $200 million.” The numeric fields remain null because “nearly” is a bound, not an exact value. |
 | unitree-robotics | `China robot maker Unitree files for $610 million Shanghai IPO` (Rest of World) | `Chinese humanoid robot maker Unitree prices IPO at $9 billion valuation` (CNBC/Reuters) | “China's Unitree has priced its Shanghai initial public offering at 150.8 yuan ($22.34) per share, valuing the company at around 61 billion yuan ($9.04 billion)”; the next sentence says it was “seeking to raise 6.1 billion yuan.” The recorded $904M is the 6.1B-yuan raise converted at the article's own stated exchange-rate basis. |
 
-### Re-derivation finding that blocks a seventh pointer
+### Nimble valuation correction and round pointer (2026-08-24)
 
-`nimble-robotics` is another timeline row whose first source does not support
-the displayed round. The FedEx page states only that FedEx made a strategic
-investment and gives no amount. The two remaining sources both state a $106M
-Series C at a **$1B valuation**, while the record holds **$1.1B**:
+The earlier pass left `nimble-robotics.latestRound.valuationUsd` at $1.1B
+because the record's three sources did not support that value. This follow-up
+fetched all three bodies again with the browser user agent from
+`lib/citation-links.ts` and found Nimble's own announcement. The evidence is
+consistent:
 
+- Nimble, first-party, dated 2024-10-23: “Nimble ... today announced the
+  successful closure of a $106 million Series C funding round elevating the
+  company to a $1 billion valuation.” The page also says, “The funding round
+  was led by FedEx and co-led by existing shareholder Cedar Pine LLC.”
 - The Robot Report: “Nimble announced the successful closure of a $106
   million Series C funding round, bringing its valuation to $1 billion.”
 - Pulse 2.0: “Nimble ... announced the closing of a $106 million Series C
   funding round, elevating the company to a $1 billion valuation.”
+- The FedEx announcement states that FedEx made a strategic investment on
+  2024-09-05, but it gives no round amount or valuation.
 
-No source on the record supports $1.1B. This pass does not change that figure
-or attach a misleading pointer. The valuation needs a separate evidence pass
-and may need correction or nulling before the timeline can cite a round source
-honestly.
+No fetched source supports $1.1B. A search result from the aggregator
+SalesTools states $1.1B, but it conflicts with the issuer's announcement and
+the two fetched round reports, so it was not added as provenance.
+
+| Field | Before | After |
+|---|---:|---:|
+| `latestRound.valuationUsd` | $1.1B | $1B |
+| `latestRound.sourceUrl` | absent | Nimble first-party Series C announcement |
+| `sources` | 3 entries | 4 entries, with the first-party announcement appended |
+
+`latestRound.type` remains Series C, `amountUsd` remains $106M, `date` remains
+2024-10-23, and `leadInvestors` remains `["FedEx"]`. Existing source order is
+unchanged. The new pointer belongs to Nimble's own `sources` array and supports
+the amount, type, date, valuation, and lead shown by the timeline.
 
 ### Dataset invariance transcript
 
