@@ -205,7 +205,9 @@ describe('RrtExplorer', () => {
     vi.useFakeTimers();
     const media = mockReducedMotionLive(false);
     render(<RrtExplorer />);
+    const readout = screen.getByTestId('rrt-iteration-readout');
     fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    expect(readout).toHaveAttribute('data-playback-cadence', 'smooth');
     act(() => {
       vi.advanceTimersByTime(200);
     });
@@ -213,6 +215,7 @@ describe('RrtExplorer', () => {
     act(() => {
       media.setMatches(true);
     });
+    expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     const frozen = iterationText();
     act(() => {
       vi.advanceTimersByTime(300);

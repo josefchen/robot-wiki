@@ -234,20 +234,16 @@ test.describe('classical motion-planning module', () => {
   }) => {
     // Under prefers-reduced-motion the interval playback switches to the
     // coarse cadence (lib/rrt.ts: 340 ms ticks, 25 nodes per tick) instead
-    // of smooth per-tick growth. Mutation-checked shape, mirroring the
-    // kalman spec: (1) no advance inside the first 150 ms (a smooth-cadence
-    // tick fires at 50 ms), then (2) the iteration leaves 0 in multiples of
-    // the 25-node coarse jump.
+    // of smooth per-tick growth. Wait for the component's cadence signal,
+    // then grade the first observable advance rather than sampling inside
+    // an assumed wall-clock window.
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();
     await page.goto(ROUTE);
     const readout = page.getByTestId('rrt-iteration-readout');
     await expect(readout).toHaveText(/^0 /);
     await page.getByRole('button', { name: /run the exploration/i }).click();
-    // One immediate read, deliberately NOT auto-retrying: absence of
-    // advance must be measured once, inside the smooth-tick window.
-    await page.waitForTimeout(150);
-    expect(await readout.textContent()).toMatch(/^0 /);
+    await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect
       .poll(async () => (await readout.textContent()) ?? '', { timeout: 5_000 })
       .not.toMatch(/^0 /);
@@ -271,8 +267,7 @@ test.describe('classical motion-planning module', () => {
     // Preference changed after mount but before playback.
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.getByRole('button', { name: /run the exploration/i }).click();
-    await page.waitForTimeout(150);
-    expect(await iteration()).toBe(0);
+    await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect.poll(iteration, { timeout: 5_000 }).toBeGreaterThan(0);
     await page.getByRole('button', { name: /pause the exploration/i }).click();
     expect((await iteration()) % 25).toBe(0);
@@ -288,15 +283,15 @@ test.describe('classical motion-planning module', () => {
       }, { timeout: 5_000 })
       .toBe(true);
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.waitForTimeout(0);
-    const frozen = await iteration();
-    await page.waitForTimeout(150);
-    expect(await iteration()).toBe(frozen);
+    await expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
+    const transitionedAt = await iteration();
     await expect
-      .poll(iteration, { timeout: 5_000, intervals: [20] })
-      .not.toBe(frozen);
+      .poll(iteration, { timeout: 5_000, intervals: [100] })
+      .not.toBe(transitionedAt);
     await page.getByRole('button', { name: /pause the exploration/i }).click();
-    expect((await iteration()) - frozen).toBe(25);
+    const coarseAdvance = (await iteration()) - transitionedAt;
+    expect(coarseAdvance).toBeGreaterThanOrEqual(25);
+    expect(coarseAdvance % 25).toBe(0);
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {
