@@ -85,10 +85,10 @@ export const companySchema = z.object({
   /**
    * Company-wide total stated by a fetched source. Never use an aggregator
    * figure, add individual rounds yourself, or promote a floor or ceiling to
-   * an exact value. When only a bound is available, or sources conflict and no
-   * primary resolves them, use null and record the range or disagreement in
-   * deployments prose and audit/market-map.md. Null is a publishable state,
-   * not missing work.
+   * an exact value. When only a bound is available, sources conflict without a
+   * primary resolution, or a single fetched page contradicts itself, use null
+   * and record the bound or disagreement in deployments prose and
+   * audit/market-map.md. Null is a publishable state, not missing work.
    */
   totalRaisedUsd: z.number().positive().nullable(),
   latestRound: fundingRoundSchema.nullable(),
