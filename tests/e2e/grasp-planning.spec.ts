@@ -324,18 +324,27 @@ test.describe('classical grasp-planning module', () => {
     await muSlider.press('ArrowRight');
     await expect(page.getByTestId('grasp-mu-value')).toHaveText('0.75');
 
-    // Contact sliders take keyboard focus and input too. The exact midpoint
-    // default is on the 0.005 grid, so one step moves to 0.130 and one step
-    // back returns to the authored value.
-    const contact1 = page.getByRole('slider', { name: /contact 1 position/i });
-    await contact1.focus();
-    await expect(contact1).toBeFocused();
-    await contact1.press('ArrowRight');
-    await expect(page.getByTestId('grasp-contact-1-value')).toHaveText('0.130');
-    await expect(contact1).toHaveValue('0.13');
-    await contact1.press('ArrowLeft');
-    await expect(page.getByTestId('grasp-contact-1-value')).toHaveText('0.125');
-    await expect(contact1).toHaveValue('0.125');
+    // Every authored contact default is on the declared grid. A native
+    // keyboard step moves by exactly 0.005, then returns to the same value.
+    for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+      const contactNumber = i + 1;
+      const contact = page.getByRole('slider', {
+        name: new RegExp(`contact ${contactNumber} position`, 'i'),
+      });
+      const stepped = DEFAULT_CONTACTS[i] + CONTACT_POSITION_STEP;
+      await contact.focus();
+      await expect(contact).toBeFocused();
+      await contact.press('ArrowRight');
+      await expect(
+        page.getByTestId(`grasp-contact-${contactNumber}-value`),
+      ).toHaveText(stepped.toFixed(3));
+      await expect(contact).toHaveValue(String(stepped));
+      await contact.press('ArrowLeft');
+      await expect(
+        page.getByTestId(`grasp-contact-${contactNumber}-value`),
+      ).toHaveText(DEFAULT_CONTACTS[i].toFixed(3));
+      await expect(contact).toHaveValue(String(DEFAULT_CONTACTS[i]));
+    }
 
     // The add/remove/reset controls activate from the keyboard.
     const add = page.getByRole('button', { name: /add a contact/i });

@@ -42,9 +42,12 @@ describe('GraspWrenchLab', () => {
   it('authors every default on the declared contact step grid', () => {
     render(<GraspWrenchLab />);
     for (let i = 0; i < DEFAULT_CONTACTS.length; i += 1) {
+      const gridIndex =
+        (DEFAULT_CONTACTS[i] - CONTACT_POSITION_MIN) / CONTACT_POSITION_STEP;
       const slider = screen.getByRole('slider', {
         name: new RegExp(`contact ${i + 1} position`, 'i'),
       });
+      expect(gridIndex).toBeCloseTo(Math.round(gridIndex), 12);
       expect(slider).toHaveAttribute('min', String(CONTACT_POSITION_MIN));
       expect(slider).toHaveAttribute('max', String(CONTACT_POSITION_MAX));
       expect(slider).toHaveAttribute('step', String(CONTACT_POSITION_STEP));
