@@ -260,6 +260,45 @@ test.describe('classical motion-planning module', () => {
     await context.close();
   });
 
+  test('reduced motion changes before and during playback rebuild the RRT cadence', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const readout = page.getByTestId('rrt-iteration-readout');
+    const iteration = async () =>
+      Number.parseInt((await readout.textContent()) ?? '0', 10);
+
+    // Preference changed after mount but before playback.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await page.waitForTimeout(150);
+    expect(await iteration()).toBe(0);
+    await expect.poll(iteration, { timeout: 5_000 }).toBeGreaterThan(0);
+    await page.getByRole('button', { name: /pause the exploration/i }).click();
+    expect((await iteration()) % 25).toBe(0);
+
+    // Preference changed again while smooth playback is active.
+    await page.getByRole('button', { name: 'Reset' }).click();
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.getByRole('button', { name: /run the exploration/i }).click();
+    await expect
+      .poll(async () => {
+        const value = await iteration();
+        return value !== 0 && value % 25 !== 0;
+      }, { timeout: 5_000 })
+      .toBe(true);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.waitForTimeout(0);
+    const frozen = await iteration();
+    await page.waitForTimeout(150);
+    expect(await iteration()).toBe(frozen);
+    await expect
+      .poll(iteration, { timeout: 5_000, intervals: [20] })
+      .not.toBe(frozen);
+    await page.getByRole('button', { name: /pause the exploration/i }).click();
+    expect((await iteration()) - frozen).toBe(25);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

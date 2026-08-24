@@ -21,6 +21,41 @@ function mockReducedMotion(matches: boolean) {
   })) as unknown as typeof window.matchMedia;
 }
 
+function mockReducedMotionLive(initial: boolean) {
+  let matches = initial;
+  const listeners = new Set<(event: { matches: boolean }) => void>();
+  const addEventListener = vi.fn(
+    (_type: string, handler: (event: { matches: boolean }) => void) => {
+      listeners.add(handler);
+    },
+  );
+  const removeEventListener = vi.fn(
+    (_type: string, handler: (event: { matches: boolean }) => void) => {
+      listeners.delete(handler);
+    },
+  );
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    get matches() {
+      return matches;
+    },
+    media: query,
+    addEventListener,
+    removeEventListener,
+    addListener: () => {},
+    removeListener: () => {},
+    onchange: null,
+    dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+  return {
+    addEventListener,
+    removeEventListener,
+    setMatches(next: boolean) {
+      matches = next;
+      for (const listener of listeners) listener({ matches: next });
+    },
+  };
+}
+
 function iterationText() {
   return screen.getByTestId('rrt-iteration-readout').textContent ?? '';
 }
@@ -139,6 +174,54 @@ describe('RrtExplorer', () => {
     const after = Number.parseInt(nodeText(), 10);
     // Two slow ticks of 25 nodes each, not smooth per-frame growth.
     expect(after).toBe(51);
+  });
+
+  it('tracks reduced motion before playback and removes its listener on unmount', () => {
+    vi.useFakeTimers();
+    const media = mockReducedMotionLive(false);
+    const { unmount } = render(<RrtExplorer />);
+    act(() => {
+      media.setMatches(true);
+    });
+    fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(iterationText()).toBe(`0 / ${TOTAL}`);
+    act(() => {
+      vi.advanceTimersByTime(40);
+    });
+    expect(iterationText()).toBe(`25 / ${TOTAL}`);
+    unmount();
+    expect(media.addEventListener).toHaveBeenCalledOnce();
+    expect(media.removeEventListener).toHaveBeenCalledWith(
+      'change',
+      media.addEventListener.mock.calls[0][1],
+    );
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('rebuilds playback at the coarse cadence when reduced motion changes mid-run', () => {
+    vi.useFakeTimers();
+    const media = mockReducedMotionLive(false);
+    render(<RrtExplorer />);
+    fireEvent.click(screen.getByRole('button', { name: /run the exploration/i }));
+    act(() => {
+      vi.advanceTimersByTime(200);
+    });
+    expect(iterationText()).toBe(`12 / ${TOTAL}`);
+    act(() => {
+      media.setMatches(true);
+    });
+    const frozen = iterationText();
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(iterationText()).toBe(frozen);
+    act(() => {
+      vi.advanceTimersByTime(40);
+    });
+    expect(iterationText()).toBe(`37 / ${TOTAL}`);
   });
 
   it('scrubbing past the goal iteration highlights the path and reports its length', () => {

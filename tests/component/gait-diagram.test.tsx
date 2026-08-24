@@ -16,6 +16,41 @@ function mockReducedMotion(matches: boolean) {
   })) as unknown as typeof window.matchMedia;
 }
 
+function mockReducedMotionLive(initial: boolean) {
+  let matches = initial;
+  const listeners = new Set<(event: { matches: boolean }) => void>();
+  const addEventListener = vi.fn(
+    (_type: string, handler: (event: { matches: boolean }) => void) => {
+      listeners.add(handler);
+    },
+  );
+  const removeEventListener = vi.fn(
+    (_type: string, handler: (event: { matches: boolean }) => void) => {
+      listeners.delete(handler);
+    },
+  );
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    get matches() {
+      return matches;
+    },
+    media: query,
+    addEventListener,
+    removeEventListener,
+    addListener: () => {},
+    removeListener: () => {},
+    onchange: null,
+    dispatchEvent: () => false,
+  })) as unknown as typeof window.matchMedia;
+  return {
+    addEventListener,
+    removeEventListener,
+    setMatches(next: boolean) {
+      matches = next;
+      for (const listener of listeners) listener({ matches: next });
+    },
+  };
+}
+
 function gaitButton(name: RegExp) {
   return screen.getByRole('button', { name });
 }
@@ -159,6 +194,54 @@ describe('GaitDiagram', () => {
     });
     // One discrete jump: straight to the next 10% mark, no smooth motion.
     expect(phaseText()).toBe('10%');
+  });
+
+  it('tracks reduced motion before playback and removes its listener on unmount', () => {
+    vi.useFakeTimers();
+    const media = mockReducedMotionLive(false);
+    const { unmount } = render(<GaitDiagram />);
+    act(() => {
+      media.setMatches(true);
+    });
+    fireEvent.click(gaitButton(/play gait cycle/i));
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(phaseText()).toBe('0%');
+    act(() => {
+      vi.advanceTimersByTime(20);
+    });
+    expect(phaseText()).toBe('10%');
+    unmount();
+    expect(media.addEventListener).toHaveBeenCalledOnce();
+    expect(media.removeEventListener).toHaveBeenCalledWith(
+      'change',
+      media.addEventListener.mock.calls[0][1],
+    );
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('rebuilds playback at the coarse cadence when reduced motion changes mid-run', () => {
+    vi.useFakeTimers();
+    const media = mockReducedMotionLive(false);
+    render(<GaitDiagram />);
+    fireEvent.click(gaitButton(/play gait cycle/i));
+    act(() => {
+      vi.advanceTimersByTime(200);
+    });
+    expect(phaseText()).toBe('4%');
+    act(() => {
+      media.setMatches(true);
+    });
+    const frozen = phaseText();
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(phaseText()).toBe(frozen);
+    act(() => {
+      vi.advanceTimersByTime(20);
+    });
+    expect(phaseText()).toBe('14%');
   });
 
   it('samples the disclosure table on the rendered tick grid, endpoints included', async () => {

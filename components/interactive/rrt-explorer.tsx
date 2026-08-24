@@ -60,7 +60,20 @@ export function RrtExplorer({ className }: { className?: string }) {
   const total = result.nodes.length - 1;
   const [iteration, setIteration] = useState(0);
   const [playing, setPlaying] = useState(false);
+  // Track the live preference so a change after mount, including during
+  // playback, rebuilds the timer instead of leaving a smooth cadence
+  // captured from a one-shot read.
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
   // Mirror of `iteration` for the interval callback, so the timer does not
   // have to be recreated on every tick just to read the latest count.
   const iterationRef = useRef(iteration);
@@ -82,12 +95,16 @@ export function RrtExplorer({ className }: { className?: string }) {
 
   // Interval playback: advances the iteration count on the cadence for the
   // current motion preference, stopping on its own at the final iteration.
-  // The tick counter is closure-local (seeded from the ref mirror on
-  // resume) so batched timers never read a stale count. Cleanup on pause
-  // or unmount.
+  // The tracked preference rebuilds the timer on a mid-run change, while a
+  // fresh read makes the accessible coarse cadence win if the media state
+  // changes between render and effect. The tick counter is closure-local
+  // (seeded from the ref mirror on resume) so batched timers never read a
+  // stale count. Cleanup on pause, cadence change, or unmount.
   useEffect(() => {
     if (!playing) return;
-    const { tickMs, nodesPerTick } = playbackCadence(prefersReducedMotion());
+    const { tickMs, nodesPerTick } = playbackCadence(
+      reducedMotion || prefersReducedMotion(),
+    );
     let current = iterationRef.current;
     timerRef.current = window.setInterval(() => {
       current = Math.min(total, current + nodesPerTick);
@@ -106,7 +123,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         timerRef.current = null;
       }
     };
-  }, [playing, total]);
+  }, [playing, total, reducedMotion]);
 
   const scrub = (next: number) => {
     stopTimer();

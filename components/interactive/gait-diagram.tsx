@@ -103,8 +103,21 @@ export function GaitDiagram({
   const [gaitId, setGaitId] = useState<GaitId>(defaultGait);
   const [phase, setPhase] = useState(DEFAULT_PHASE);
   const [playing, setPlaying] = useState(false);
+  // Track the live preference so a change after mount, including during
+  // playback, rebuilds the timer instead of leaving a smooth cadence
+  // captured from a one-shot read.
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
   const descriptionId = `${useId()}-description`;
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   const gait = GAITS[gaitId];
   const stance = stanceLegs(gait, phase);
@@ -121,11 +134,15 @@ export function GaitDiagram({
     }
   };
 
-  // Interval playback: advances the phase on the cadence for the current
-  // motion preference. Cleanup on pause, gait change, or unmount.
+  // Interval playback: the tracked preference rebuilds the timer on a
+  // mid-run change, while the fresh read makes the accessible coarse
+  // cadence win if the media state changes between render and effect.
+  // Cleanup on pause, cadence change, gait change, or unmount.
   useEffect(() => {
     if (!playing) return;
-    const { tickMs, phasePerTick } = playbackCadence(prefersReducedMotion());
+    const { tickMs, phasePerTick } = playbackCadence(
+      reducedMotion || prefersReducedMotion(),
+    );
     timerRef.current = window.setInterval(() => {
       setPhase((p) => (p + phasePerTick >= 1 ? 0 : f(p + phasePerTick)));
     }, tickMs);
@@ -135,7 +152,7 @@ export function GaitDiagram({
         timerRef.current = null;
       }
     };
-  }, [playing]);
+  }, [playing, reducedMotion]);
 
   const selectGait = (id: GaitId) => {
     stopTimer();
