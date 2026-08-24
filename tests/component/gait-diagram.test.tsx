@@ -86,6 +86,10 @@ describe('GaitDiagram', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(screen.getByTestId('duty-readout')).toBeInTheDocument();
     expect(screen.getByTestId('phase-readout')).toBeInTheDocument();
+    expect(screen.getByTestId('phase-readout')).toHaveAttribute(
+      'data-playback-cadence',
+      'idle',
+    );
     expect(screen.getByTestId('stance-readout')).toBeInTheDocument();
     expect(screen.getByTestId('support-readout')).toBeInTheDocument();
   });
@@ -172,12 +176,20 @@ describe('GaitDiagram', () => {
     vi.useFakeTimers();
     render(<GaitDiagram />);
     fireEvent.click(gaitButton(/play gait cycle/i));
+    expect(screen.getByTestId('phase-readout')).toHaveAttribute(
+      'data-playback-cadence',
+      'smooth',
+    );
     expect(gaitButton(/pause gait cycle/i)).toBeInTheDocument();
     act(() => {
       vi.advanceTimersByTime(210);
     });
     expect(phaseText()).toBe('4%');
     fireEvent.click(gaitButton(/pause gait cycle/i));
+    expect(screen.getByTestId('phase-readout')).toHaveAttribute(
+      'data-playback-cadence',
+      'idle',
+    );
     act(() => {
       vi.advanceTimersByTime(500);
     });
@@ -233,6 +245,10 @@ describe('GaitDiagram', () => {
     act(() => {
       media.setMatches(true);
     });
+    expect(screen.getByTestId('phase-readout')).toHaveAttribute(
+      'data-playback-cadence',
+      'coarse',
+    );
     const frozen = phaseText();
     act(() => {
       vi.advanceTimersByTime(300);

@@ -108,6 +108,8 @@ export function GaitDiagram({
   // captured from a one-shot read.
   const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
+  const playbackGenerationRef = useRef(0);
+  const cadenceSignalRef = useRef<HTMLSpanElement>(null);
   const descriptionId = `${useId()}-description`;
 
   useEffect(() => {
@@ -129,6 +131,7 @@ export function GaitDiagram({
 
   const stopTimer = () => {
     if (timerRef.current !== null) {
+      playbackGenerationRef.current += 1;
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
@@ -139,18 +142,30 @@ export function GaitDiagram({
   // cadence win if the media state changes between render and effect.
   // Cleanup on pause, cadence change, gait change, or unmount.
   useEffect(() => {
-    if (!playing) return;
-    const { tickMs, phasePerTick } = playbackCadence(
-      reducedMotion || prefersReducedMotion(),
-    );
+    if (!playing) {
+      if (cadenceSignalRef.current) {
+        cadenceSignalRef.current.dataset.playbackCadence = 'idle';
+      }
+      return;
+    }
+    const useCoarseCadence = reducedMotion || prefersReducedMotion();
+    const { tickMs, phasePerTick } = playbackCadence(useCoarseCadence);
+    const playbackGeneration = ++playbackGenerationRef.current;
+    // This is the deterministic readiness signal used by browser tests.
+    // React cleans up the previous effect before this setup, so publishing
+    // the cadence means the retired interval is cleared. The generation
+    // guard also makes an already-queued callback from that interval inert.
+    if (cadenceSignalRef.current) {
+      cadenceSignalRef.current.dataset.playbackCadence = useCoarseCadence
+        ? 'coarse'
+        : 'smooth';
+    }
     timerRef.current = window.setInterval(() => {
+      if (playbackGenerationRef.current !== playbackGeneration) return;
       setPhase((p) => (p + phasePerTick >= 1 ? 0 : f(p + phasePerTick)));
     }, tickMs);
     return () => {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+      stopTimer();
     };
   }, [playing, reducedMotion]);
 
@@ -290,7 +305,11 @@ export function GaitDiagram({
         </span>
         <span className="text-text-dim">
           phase:{' '}
-          <span data-testid="phase-readout" className="text-accent">
+          <span
+            ref={cadenceSignalRef}
+            data-testid="phase-readout"
+            className="text-accent"
+          >
             {formatPhase(phase)}
           </span>
         </span>

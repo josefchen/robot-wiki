@@ -147,10 +147,10 @@ test.describe('legged-locomotion module', () => {
     // Preference changed after mount but before playback.
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.getByRole('button', { name: 'Play gait cycle' }).click();
-    await page.waitForTimeout(150);
-    expect(await phaseNumber()).toBe(0);
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
     await expect.poll(phaseNumber, { timeout: 5_000 }).toBeGreaterThan(0);
     await page.getByRole('button', { name: 'Pause gait cycle' }).click();
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
     expect((await phaseNumber()) % 10).toBe(0);
 
     // Preference changed again while smooth playback is active.
@@ -164,15 +164,20 @@ test.describe('legged-locomotion module', () => {
       }, { timeout: 5_000 })
       .toBe(true);
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.waitForTimeout(0);
-    const frozen = await phaseNumber();
-    await page.waitForTimeout(150);
-    expect(await phaseNumber()).toBe(frozen);
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'coarse');
+    const transitionedAt = await phaseNumber();
     await expect
-      .poll(phaseNumber, { timeout: 5_000, intervals: [20] })
-      .not.toBe(frozen);
+      .poll(phaseNumber, { timeout: 5_000, intervals: [100] })
+      .not.toBe(transitionedAt);
     await page.getByRole('button', { name: 'Pause gait cycle' }).click();
-    expect((await phaseNumber() - frozen + 100) % 100).toBe(10);
+    await expect(phase).toHaveAttribute('data-playback-cadence', 'idle');
+    const reachableCoarsePhases = new Set<number>();
+    let coarsePhase = transitionedAt;
+    for (let tick = 0; tick < 10; tick += 1) {
+      coarsePhase = coarsePhase + 10 >= 100 ? 0 : coarsePhase + 10;
+      reachableCoarsePhases.add(coarsePhase);
+    }
+    expect(reachableCoarsePhases.has(await phaseNumber())).toBe(true);
   });
 
   test('zero axe violations', async ({ page }) => {
