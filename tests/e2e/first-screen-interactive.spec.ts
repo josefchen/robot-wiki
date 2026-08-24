@@ -233,103 +233,147 @@ function findCue(
 }
 
 const outDir = join(process.cwd(), 'out');
+const CORPUS_FIXED_BUDGET_MS = 10_000;
+const PER_ROUTE_BUDGET_MS = 1_500;
 
 test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   let server: StaticExportServer;
-  const measurements = new Map<string, Measurement>();
 
-  test.beforeAll(async ({ browser }) => {
+  test.beforeAll(async () => {
     expect(
       existsSync(outDir),
       'run `npm run build` first: this spec grades the shipped export',
     ).toBe(true);
     server = await startStaticExportServer(outDir);
-
-    const page = await browser.newPage({
-      viewport: { width: 1440, height: 900 },
-    });
-    for (const route of articleRoutes()) {
-      await page.goto(`http://127.0.0.1:${server.port}${route}`, {
-        waitUntil: 'networkidle',
-      });
-      const measured = await page.evaluate(MEASURE);
-      expect(measured, `${route} renders no article prose region`).not.toBeNull();
-      measurements.set(route, measured as Measurement);
-    }
-    await page.close();
   });
 
   test.afterAll(async () => {
     await server?.stop();
   });
 
-  test('the corpus is non-empty and every published article was measured', () => {
+  test('the registry-derived corpus satisfies every first-screen clause', async ({
+    browser,
+  }) => {
     const routes = articleRoutes();
-    expect(routes.length).toBeGreaterThan(30);
-    expect(measurements.size).toBe(routes.length);
-  });
-
-  test('exactly the three table-only adjacent routes are excluded', () => {
-    const excluded = [...measurements.entries()]
-      .filter(([, m]) => !m.hasInteractive)
-      .map(([route]) => route)
-      .sort();
-    // Reported, not failed: these routes mount no interactive by design.
-    expect(excluded).toEqual([...CONTRACT_EXCLUSIONS].sort());
-  });
-
-  test('clause (a): at most 300 rendered words precede the first interactive', () => {
-    const over = [...measurements.entries()]
-      .filter(([, m]) => m.hasInteractive && m.precedingWords > MAX_PRECEDING_WORDS)
-      .map(([route, m]) => `${route} ${m.precedingWords} words`);
-    expect(over).toEqual([]);
-  });
-
-  test('clause (b): at most one h2 precedes the first interactive', () => {
-    const over = [...measurements.entries()]
-      .filter(([, m]) => m.hasInteractive && m.precedingH2 > MAX_PRECEDING_H2)
-      .map(
-        ([route, m]) =>
-          `${route} ${m.precedingH2} h2 (${m.precedingH2Texts.join(' | ')})`,
-      );
-    expect(over).toEqual([]);
-  });
-
-  test('clause (c): the first non-decorative svg sits within 1600px of the document top', () => {
-    const over = [...measurements.entries()]
-      .filter(([, m]) => m.hasInteractive && m.topEdge > MAX_TOP_EDGE_PX)
-      .map(([route, m]) => `${route} ${Math.round(m.topEdge)}px`);
-    expect(over).toEqual([]);
-  });
-
-  test('clause (d): an operating cue naming a rendered control sits in the adjacent prose', () => {
-    const missing = [...measurements.entries()]
-      .filter(
-        ([, m]) =>
-          m.hasInteractive &&
-          findCue(m.adjacentParagraphs, m.controlLabels) === null,
-      )
-      .map(([route]) => route);
-    expect(missing).toEqual([]);
-  });
-
-  test('the cue is outside any gated reveal, since a closed details hides its body from innerText', () => {
-    // A cue living inside a closed <details> would not appear in the
-    // paragraphs this spec reads at all, so a passing clause (d) already
-    // proves the cue is ungated. Pin the count so the clause cannot pass
-    // vacuously on an empty paragraph set.
-    const cued = [...measurements.entries()].filter(
-      ([, m]) =>
-        m.hasInteractive && findCue(m.adjacentParagraphs, m.controlLabels) !== null,
+    test.setTimeout(
+      CORPUS_FIXED_BUDGET_MS + routes.length * PER_ROUTE_BUDGET_MS,
     );
-    const inScope = [...measurements.values()].filter((m) => m.hasInteractive);
-    expect(cued.length).toBe(inScope.length);
-    for (const [route, m] of cued) {
-      const cue = findCue(m.adjacentParagraphs, m.controlLabels);
-      expect(cue, route).not.toBeNull();
-      expect(m.adjacentParagraphs, route).toContain(
-        (cue as { paragraph: string }).paragraph,
-      );
+
+    expect(routes.length).toBeGreaterThan(30);
+
+    const measurements = new Map<string, Measurement>();
+    const page = await browser.newPage({
+      viewport: { width: 1440, height: 900 },
+    });
+    try {
+      for (const route of routes) {
+        await page.goto(`http://127.0.0.1:${server.port}${route}`, {
+          waitUntil: 'networkidle',
+        });
+        const measured = await page.evaluate(MEASURE);
+        expect(measured, `${route} renders no article prose region`).not.toBeNull();
+        measurements.set(route, measured as Measurement);
+      }
+    } finally {
+      await page.close();
     }
+
+    await test.step('every published article was measured', async () => {
+      expect.soft(measurements.size).toBe(routes.length);
+    });
+
+    await test.step(
+      'exactly the three table-only adjacent routes are excluded',
+      async () => {
+        const excluded = [...measurements.entries()]
+          .filter(([, m]) => !m.hasInteractive)
+          .map(([route]) => route)
+          .sort();
+        // Reported, not failed: these routes mount no interactive by design.
+        expect.soft(excluded).toEqual([...CONTRACT_EXCLUSIONS].sort());
+      },
+    );
+
+    await test.step(
+      'clause (a): at most 300 rendered words precede the first interactive',
+      async () => {
+        const over = [...measurements.entries()]
+          .filter(
+            ([, m]) =>
+              m.hasInteractive && m.precedingWords > MAX_PRECEDING_WORDS,
+          )
+          .map(([route, m]) => `${route} ${m.precedingWords} words`);
+        expect.soft(over).toEqual([]);
+      },
+    );
+
+    await test.step(
+      'clause (b): at most one h2 precedes the first interactive',
+      async () => {
+        const over = [...measurements.entries()]
+          .filter(
+            ([, m]) =>
+              m.hasInteractive && m.precedingH2 > MAX_PRECEDING_H2,
+          )
+          .map(
+            ([route, m]) =>
+              `${route} ${m.precedingH2} h2 (${m.precedingH2Texts.join(' | ')})`,
+          );
+        expect.soft(over).toEqual([]);
+      },
+    );
+
+    await test.step(
+      'clause (c): the first non-decorative svg sits within 1600px of the document top',
+      async () => {
+        const over = [...measurements.entries()]
+          .filter(
+            ([, m]) => m.hasInteractive && m.topEdge > MAX_TOP_EDGE_PX,
+          )
+          .map(([route, m]) => `${route} ${Math.round(m.topEdge)}px`);
+        expect.soft(over).toEqual([]);
+      },
+    );
+
+    await test.step(
+      'clause (d): an operating cue naming a rendered control sits in the adjacent prose',
+      async () => {
+        const missing = [...measurements.entries()]
+          .filter(
+            ([, m]) =>
+              m.hasInteractive &&
+              findCue(m.adjacentParagraphs, m.controlLabels) === null,
+          )
+          .map(([route]) => route);
+        expect.soft(missing).toEqual([]);
+      },
+    );
+
+    await test.step(
+      'the cue is outside any gated reveal, since a closed details hides its body from innerText',
+      async () => {
+        // A cue living inside a closed <details> would not appear in the
+        // paragraphs this spec reads at all, so a passing clause (d) already
+        // proves the cue is ungated. Pin the count so the clause cannot pass
+        // vacuously on an empty paragraph set.
+        const cued = [...measurements.entries()].filter(
+          ([, m]) =>
+            m.hasInteractive &&
+            findCue(m.adjacentParagraphs, m.controlLabels) !== null,
+        );
+        const inScope = [...measurements.values()].filter(
+          (m) => m.hasInteractive,
+        );
+        expect.soft(cued.length).toBe(inScope.length);
+        for (const [route, m] of cued) {
+          const cue = findCue(m.adjacentParagraphs, m.controlLabels);
+          expect.soft(cue, route).not.toBeNull();
+          if (cue === null) continue;
+          expect.soft(m.adjacentParagraphs, route).toContain(
+            cue.paragraph,
+          );
+        }
+      },
+    );
   });
 });
