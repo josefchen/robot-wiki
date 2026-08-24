@@ -103,8 +103,23 @@ export function GaitDiagram({
   const [gaitId, setGaitId] = useState<GaitId>(defaultGait);
   const [phase, setPhase] = useState(DEFAULT_PHASE);
   const [playing, setPlaying] = useState(false);
+  // Track the live preference so a change after mount, including during
+  // playback, rebuilds the timer instead of leaving a smooth cadence
+  // captured from a one-shot read.
+  const [reducedMotion, setReducedMotion] = useState(false);
   const timerRef = useRef<number | null>(null);
+  const playbackGenerationRef = useRef(0);
+  const cadenceSignalRef = useRef<HTMLSpanElement>(null);
   const descriptionId = `${useId()}-description`;
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   const gait = GAITS[gaitId];
   const stance = stanceLegs(gait, phase);
@@ -116,26 +131,43 @@ export function GaitDiagram({
 
   const stopTimer = () => {
     if (timerRef.current !== null) {
+      playbackGenerationRef.current += 1;
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
   };
 
-  // Interval playback: advances the phase on the cadence for the current
-  // motion preference. Cleanup on pause, gait change, or unmount.
+  // Interval playback: the tracked preference rebuilds the timer on a
+  // mid-run change, while the fresh read makes the accessible coarse
+  // cadence win if the media state changes between render and effect.
+  // Cleanup on pause, cadence change, gait change, or unmount.
   useEffect(() => {
-    if (!playing) return;
-    const { tickMs, phasePerTick } = playbackCadence(prefersReducedMotion());
+    if (!playing) {
+      if (cadenceSignalRef.current) {
+        cadenceSignalRef.current.dataset.playbackCadence = 'idle';
+      }
+      return;
+    }
+    const useCoarseCadence = reducedMotion || prefersReducedMotion();
+    const { tickMs, phasePerTick } = playbackCadence(useCoarseCadence);
+    const playbackGeneration = ++playbackGenerationRef.current;
+    // This is the deterministic readiness signal used by browser tests.
+    // React cleans up the previous effect before this setup, so publishing
+    // the cadence means the retired interval is cleared. The generation
+    // guard also makes an already-queued callback from that interval inert.
+    if (cadenceSignalRef.current) {
+      cadenceSignalRef.current.dataset.playbackCadence = useCoarseCadence
+        ? 'coarse'
+        : 'smooth';
+    }
     timerRef.current = window.setInterval(() => {
+      if (playbackGenerationRef.current !== playbackGeneration) return;
       setPhase((p) => (p + phasePerTick >= 1 ? 0 : f(p + phasePerTick)));
     }, tickMs);
     return () => {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+      stopTimer();
     };
-  }, [playing]);
+  }, [playing, reducedMotion]);
 
   const selectGait = (id: GaitId) => {
     stopTimer();
@@ -273,7 +305,11 @@ export function GaitDiagram({
         </span>
         <span className="text-text-dim">
           phase:{' '}
-          <span data-testid="phase-readout" className="text-accent">
+          <span
+            ref={cadenceSignalRef}
+            data-testid="phase-readout"
+            className="text-accent"
+          >
             {formatPhase(phase)}
           </span>
         </span>

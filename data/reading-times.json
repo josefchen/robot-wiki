@@ -28,7 +28,7 @@
     "minutes": 7
   },
   "manipulation/hierarchical": {
-    "words": 1631,
+    "words": 1633,
     "minutes": 8
   },
   "manipulation/rl-finetuning": {
@@ -136,7 +136,7 @@
     "minutes": 12
   },
   "classical/grasp-planning": {
-    "words": 2133,
+    "words": 2128,
     "minutes": 11
   },
   "classical/perception": {

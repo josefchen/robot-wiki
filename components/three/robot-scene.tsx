@@ -1,8 +1,8 @@
 'use client';
 
 import { Environment, Grid, Lightformer, OrbitControls } from '@react-three/drei';
-import { Canvas, useThree, type ThreeEvent } from '@react-three/fiber';
-import { useEffect } from 'react';
+import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
 import type { URDFRobot } from 'urdf-loader';
 import type { Vec3 } from '@/lib/ik';
 import type { LoadedRobot } from './load-robot';
@@ -18,6 +18,13 @@ interface RobotSceneProps {
   target: Vec3 | null;
   targetState: TargetState;
   onPlaceTarget: (targetScene: Vec3) => void;
+  onRenderedFrame: (snapshot: RenderedFrameSnapshot) => void;
+}
+
+export interface RenderedFrameSnapshot {
+  frame: number;
+  ready: boolean;
+  camera: [number, number, number];
 }
 
 /** Pushes the joint-angle state into the URDF graph and redraws on demand. */
@@ -36,6 +43,34 @@ function ApplyPose({
     }
     invalidate();
   }, [robot, angles, invalidate]);
+  return null;
+}
+
+/**
+ * Publishes the camera state after each rendered frame. The canvas attributes
+ * give browser tests a deterministic signal that an OrbitControls update was
+ * actually rendered, instead of racing an immediate screenshot against
+ * SwiftShader's demand frame loop.
+ */
+function SceneTelemetry({
+  ready,
+  onRenderedFrame,
+}: {
+  ready: boolean;
+  onRenderedFrame: (snapshot: RenderedFrameSnapshot) => void;
+}) {
+  const camera = useThree((state) => state.camera);
+  const frame = useRef(0);
+
+  useFrame(() => {
+    frame.current += 1;
+    onRenderedFrame({
+      frame: frame.current,
+      ready,
+      camera: camera.position.toArray(),
+    });
+  });
+
   return null;
 }
 
@@ -119,6 +154,7 @@ export default function RobotScene({
   target,
   targetState,
   onPlaceTarget,
+  onRenderedFrame,
 }: RobotSceneProps) {
   return (
     <Canvas
@@ -155,6 +191,10 @@ export default function RobotScene({
       />
       {robot ? <RobotArm robot={robot.robot} /> : null}
       <ApplyPose robot={robot?.robot ?? null} angles={angles} />
+      <SceneTelemetry
+        ready={robot !== null}
+        onRenderedFrame={onRenderedFrame}
+      />
       {target ? <TargetGizmo target={target} state={targetState} /> : null}
       <ClickPlane onPlaceTarget={onPlaceTarget} />
       {/* Lightformer-only environment: rendered locally, no network fetch. */}

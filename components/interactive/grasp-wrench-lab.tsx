@@ -3,6 +3,9 @@
 import { useId, useMemo, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
+  CONTACT_POSITION_MAX,
+  CONTACT_POSITION_MIN,
+  CONTACT_POSITION_STEP,
   DEFAULT_CONTACTS,
   DEFAULT_MU,
   MAX_CONTACTS,
@@ -189,22 +192,22 @@ export function GraspWrenchLab({ className }: { className?: string }) {
                   className="whitespace-nowrap font-mono text-xs text-text"
                   data-testid={`grasp-contact-${i + 1}-value`}
                 >
-                  {s.toFixed(2)}
+                  {s.toFixed(3)}
                 </span>
               </label>
               <input
                 id={`grasp-contact-${i}`}
                 type="range"
-                min={0}
-                max={0.99}
-                step={0.01}
+                min={CONTACT_POSITION_MIN}
+                max={CONTACT_POSITION_MAX}
+                step={CONTACT_POSITION_STEP}
                 value={s}
                 onChange={(e) =>
                   setContacts((c) =>
                     c.map((v, idx) => (idx === i ? Number(e.target.value) : v)),
                   )
                 }
-                aria-label={`Contact ${i + 1} position along the object perimeter, currently ${s.toFixed(2)}`}
+                aria-label={`Contact ${i + 1} position along the object perimeter, currently ${s.toFixed(3)}`}
                 className="mt-1 w-full accent-accent"
               />
             </div>
@@ -212,8 +215,8 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         </div>
         <p className="mt-1 font-sans text-[11px] leading-snug text-text-dim">
           Position along the perimeter: 0.00 at the top-right corner,
-          increasing counterclockwise, so 0.13 sits at the top edge midpoint
-          and 0.63 at the bottom edge midpoint.
+          increasing counterclockwise. The exact edge midpoints are 0.125,
+          0.375, 0.625, and 0.875.
         </p>
       </fieldset>
 
@@ -506,7 +509,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         holds exactly when the origin sits strictly inside the hull; ε is the
         radius of the largest origin-centered wrench ball that still fits.
         Things worth trying: remove contact 3 and watch the hull collapse
-        onto the origin, then slide contact 2 to 0.63 so the pair is
+        onto the origin, then slide contact 2 to 0.625 so the pair is
         antipodal; or drag μ down and watch ε shrink.
       </p>
     </div>

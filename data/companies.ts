@@ -1193,6 +1193,7 @@ const ROWS: Company[] = [
       date: '2026-08-06',
       valuationUsd: 9040000000,
       leadInvestors: [],
+      sourceUrl: 'https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html',
     },
     status: 'public',
     deployments: [
@@ -1639,6 +1640,7 @@ const ROWS: Company[] = [
       date: '2026-06-03',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
     },
     status: 'private',
     deployments: [],
@@ -1860,6 +1862,7 @@ const ROWS: Company[] = [
         'Hillhouse Capital',
         'HSG',
       ],
+      sourceUrl: 'https://olachina.org/tars-ai/',
     },
     status: 'private',
     deployments: [],
@@ -2063,6 +2066,7 @@ const ROWS: Company[] = [
       date: '2026-07-14',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://eu.36kr.com/en/p/3893976502287618',
     },
     status: 'private',
     deployments: [],
@@ -2554,10 +2558,11 @@ const ROWS: Company[] = [
       type: 'Series C',
       amountUsd: 106000000,
       date: '2024-10-23',
-      valuationUsd: 1100000000,
+      valuationUsd: 1000000000,
       leadInvestors: [
         'FedEx',
       ],
+      sourceUrl: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
     },
     status: 'private',
     deployments: [
@@ -2579,6 +2584,11 @@ const ROWS: Company[] = [
         url: 'https://pulse2.com/nimble-ai-based-robotics-company-raises-106-million-series-c/',
         title: 'Nimble: AI-Based Robotics Company Raises $106 Million Series C (Pulse2, 2024-10-25)',
         asOf: '2026-08-18',
+      },
+      {
+        url: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
+        title: 'Nimble Closes $106 Million Series C at $1B Valuation, Scales Fully Autonomous Fulfillment with FedEx (first-party, 2024-10-23)',
+        asOf: '2026-08-24',
       },
     ],
     confidence: 'high',
@@ -2836,6 +2846,7 @@ const ROWS: Company[] = [
       leadInvestors: [
         'NVIDIA NVentures',
       ],
+      sourceUrl: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
     },
     status: 'private',
     deployments: [
@@ -3408,6 +3419,7 @@ const ROWS: Company[] = [
       date: '2026-06-10',
       valuationUsd: 1000000000,
       leadInvestors: [],
+      sourceUrl: 'https://www.robotics247.com/article/standard-bots-raises-200-million-series-c-at-1-billion-valuation',
     },
     status: 'private',
     deployments: [],

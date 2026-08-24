@@ -3,6 +3,7 @@ import {
   bannedOpeners,
   digitTokens,
   normalizeDigits,
+  validateRenderedChartDescriptionRoutes,
   validateChartDescription,
   validateChartDescriptionCoverage,
   validateChartDescriptions,
@@ -11,9 +12,52 @@ import {
 const ENTRY = {
   component: 'ReliabilityCompounding',
   file: 'components/interactive/reliability-compounding.tsx',
+  route: '/',
   text: 'At 95.0 percent per-step success, episode success collapses from 100 percent at 1 step to 21.5 percent at 30 steps and 0.6 percent at 100 steps.',
   quantityNames: ['episode success', 'steps'],
 };
+
+describe('validateRenderedChartDescriptionRoutes', () => {
+  it('passes when the default text renders on the owning route', () => {
+    expect(
+      validateRenderedChartDescriptionRoutes(
+        [ENTRY],
+        new Map([['/', new Set([ENTRY.text])]]),
+      ),
+    ).toEqual([]);
+  });
+
+  it('fails a swapped description naming both component and owning route', () => {
+    const problems = validateRenderedChartDescriptionRoutes(
+      [
+        ENTRY,
+        {
+          ...ENTRY,
+          component: 'OtherChart',
+          route: '/classical/control/',
+          text: 'At 25.0 proportional gain, angle settles to 0.5 degrees after 3 seconds.',
+          quantityNames: ['angle', 'seconds'],
+        },
+      ],
+      new Map([
+        ['/', new Set(['At 25.0 proportional gain, angle settles to 0.5 degrees after 3 seconds.'])],
+        ['/classical/control/', new Set([ENTRY.text])],
+      ]),
+    );
+
+    expect(problems).toHaveLength(2);
+    expect(problems[0].component).toBe('ReliabilityCompounding');
+    expect(problems[0].message).toContain('owning route /');
+    expect(problems[1].component).toBe('OtherChart');
+    expect(problems[1].message).toContain('owning route /classical/control/');
+  });
+
+  it('fails when an owning route was not collected', () => {
+    const problems = validateRenderedChartDescriptionRoutes([ENTRY], new Map());
+    expect(problems).toHaveLength(1);
+    expect(problems[0].message).toContain('owning route / was not collected');
+  });
+});
 
 describe('digitTokens', () => {
   it('counts words carrying digits, not digit characters', () => {
@@ -104,7 +148,7 @@ describe('validateChartDescriptions (rule 4, set-level)', () => {
     expect(problems[0].message).toMatch(/digit-normalised duplicate/);
   });
   it('passes six distinct takeaways', () => {
-    const base = { file: 'x.tsx' };
+    const base = { file: 'x.tsx', route: '/example/' };
     const entries = [
       { ...ENTRY },
       { ...base, component: 'B', quantityNames: ['loss', 'hours'], text: 'Loss falls from 0.024 at 1k hours to 0.015 at 20k hours over the measured range.' },

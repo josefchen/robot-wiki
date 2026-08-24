@@ -331,7 +331,7 @@ describe('money and unknown figures', () => {
 describe('timelineEvents', () => {
   it('covers 2023-2026 notable rounds including the five anchors (VAL-MKT-015)', () => {
     const events = timelineEvents(COMPANIES);
-    expect(events.length).toBeGreaterThan(0);
+    expect(events).toHaveLength(71);
     expect(events.every((event) => event.date >= '2023-01-01')).toBe(true);
     expect(events.every((event) => event.date <= '2026-12-31')).toBe(true);
     expect(events.every((event) => event.sourceUrl.startsWith('http'))).toBe(
@@ -377,10 +377,44 @@ describe('timelineEvents', () => {
       valuationUsd: 9_040_000_000,
       date: '2026-08-06',
     });
+    expect(byId['nimble-robotics']).toMatchObject({
+      type: 'Series C',
+      amountUsd: 106_000_000,
+      valuationUsd: 1_000_000_000,
+      date: '2024-10-23',
+    });
 
     const covariant = events.find((event) => event.companyId === 'covariant');
     expect(covariant?.amountUsd).toBeNull();
     expect(covariant?.valuationUsd).toBeNull();
+  });
+
+  it('cites the source explicitly linked to a corrected round figure', () => {
+    const byId = Object.fromEntries(
+      timelineEvents(COMPANIES).map((event) => [event.companyId, event]),
+    );
+
+    // Round-source provenance added after the audit appended corrected
+    // sources without reordering the historical sources[] ledger.
+    expect(byId['spirit-ai'].sourceTitle).toContain('1.5B yuan / $222M');
+    expect(byId['tars-robotics'].sourceTitle).toContain(
+      "China's TARS AI Raises $455M",
+    );
+    expect(byId['carbon-robotics'].sourceTitle).toContain(
+      'Carbon Robotics raises $20M',
+    );
+    expect(byId['standard-bots'].sourceTitle).toContain(
+      'Standard Bots raises $200 million Series C',
+    );
+    expect(byId['limx-dynamics'].sourceTitle).toContain(
+      'LimX Dynamics $200M Pre-IPO Financing',
+    );
+    expect(byId['unitree-robotics'].sourceTitle).toContain(
+      'prices IPO at $9 billion valuation',
+    );
+    expect(byId['nimble-robotics'].sourceTitle).toContain(
+      'Nimble Closes $106 Million Series C at $1B Valuation',
+    );
   });
 });
 

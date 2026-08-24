@@ -2,7 +2,14 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
-import { HIERARCHY_SYSTEMS, fastestLane, getSystem, laneTickRatio, slowestPeriodicLane } from '@/lib/hierarchy-timescales';
+import {
+  HIERARCHY_SYSTEMS,
+  fastestLane,
+  getSystem,
+  laneTickRatio,
+  slowestPeriodicLane,
+  updateRatePhrase,
+} from '@/lib/hierarchy-timescales';
 
 /** Escape a literal string for embedding in a RegExp. */
 function escapeRegExp(s: string): string {
@@ -79,15 +86,17 @@ describe('HierarchyTimescales', () => {
         ? String(ratio)
         : ratio.toFixed(1);
       const bothDisclosed = fastest.disclosed && slowest.disclosed;
+      const slowestRatePhrase = updateRatePhrase(slowest);
       await user.click(
         screen.getByRole('button', { name: new RegExp(system.name, 'i') }),
       );
       // One readable sentence ending at the derived clause.
       expect(desc()).toMatch(
         new RegExp(
-          `the ${escapeRegExp(fastest.rate)}${fastest.disclosed ? '' : ' \\(schematic\\)'} ${escapeRegExp(fastest.label)} lane ticks ${escapeRegExp(ratioText)} times${bothDisclosed ? '' : ' \\(schematic\\)'} per ${escapeRegExp(slowest.rate)}${slowest.disclosed ? '' : ' \\(schematic\\)'} ${escapeRegExp(slowest.label)} update\\.$`,
+          `the ${escapeRegExp(fastest.rate)}${fastest.disclosed ? '' : ' \\(schematic\\)'} ${escapeRegExp(fastest.label)} lane ticks ${escapeRegExp(ratioText)} times${bothDisclosed ? '' : ' \\(schematic\\)'} during one ${escapeRegExp(slowest.label)} update ${escapeRegExp(slowestRatePhrase)}${slowest.disclosed ? '' : ' \\(schematic\\)'}\\.$`,
         ),
       );
+      expect(desc()).not.toContain('per on demand');
     }
     // Every current system has at least one schematic endpoint, so the
     // description never presents the ratio as measured.

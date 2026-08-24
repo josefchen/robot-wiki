@@ -1,6 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
 
 const MODEL_URL = /\/models\/so101\//;
+const CAMERA_EPSILON = 0.0001;
+const ORBIT_NAVIGATION_BUDGET_MS = 20_000;
+const SCENE_READY_BUDGET_MS = 15_000;
+const ORBIT_OPERATION_BUDGET_MS = 10_000;
+const ORBIT_OPERATION_COUNT = 3;
+const ORBIT_TEST_OVERHEAD_MS = 5_000;
 
 function collectErrors(page: Page) {
   const consoleErrors: string[] = [];
@@ -21,6 +27,62 @@ async function waitForArm(page: Page) {
   const status = page.getByTestId('robot-status');
   await expect(status).not.toHaveText(/loading/i, { timeout: 15_000 });
   return status;
+}
+
+interface SceneSnapshot {
+  frame: number;
+  camera: [number, number, number];
+}
+
+async function sceneSnapshot(page: Page): Promise<SceneSnapshot> {
+  return page.getByTestId('playground-viewport').evaluate((viewport) => {
+    const frame = Number(viewport.dataset.sceneFrame);
+    const camera = (viewport.dataset.cameraPosition ?? '')
+      .split(',')
+      .map(Number);
+    if (
+      !Number.isFinite(frame) ||
+      camera.length !== 3 ||
+      camera.some((value) => !Number.isFinite(value))
+    ) {
+      throw new Error('scene telemetry is not ready');
+    }
+    return {
+      frame,
+      camera: camera as [number, number, number],
+    };
+  });
+}
+
+function cameraDistance(a: SceneSnapshot, b: SceneSnapshot): number {
+  return Math.hypot(
+    a.camera[0] - b.camera[0],
+    a.camera[1] - b.camera[1],
+    a.camera[2] - b.camera[2],
+  );
+}
+
+async function waitForRenderedCameraChange(
+  page: Page,
+  before: SceneSnapshot,
+): Promise<SceneSnapshot> {
+  await expect
+    .poll(
+      async () => {
+        const current = await sceneSnapshot(page);
+        return (
+          current.frame > before.frame &&
+          cameraDistance(current, before) > CAMERA_EPSILON
+        );
+      },
+      {
+        message: 'camera state changed and a later scene frame rendered',
+        timeout: ORBIT_OPERATION_BUDGET_MS,
+        intervals: [50, 100, 200, 400],
+      },
+    )
+    .toBe(true);
+  return sceneSnapshot(page);
 }
 
 test.describe('3D playground scene and model', () => {
@@ -144,37 +206,52 @@ test.describe('3D playground scene and model', () => {
   });
 
   test('orbit controls rotate, zoom, and pan the camera', async ({ page }) => {
-    await page.goto('/playground');
+    test.setTimeout(
+      ORBIT_NAVIGATION_BUDGET_MS +
+        SCENE_READY_BUDGET_MS +
+        ORBIT_OPERATION_COUNT * ORBIT_OPERATION_BUDGET_MS +
+        ORBIT_TEST_OVERHEAD_MS,
+    );
+    await page.goto('/playground', { timeout: ORBIT_NAVIGATION_BUDGET_MS });
     const canvas = page.locator('canvas');
-    await expect(canvas).toBeVisible({ timeout: 15_000 });
-    await waitForArm(page);
+    await Promise.all([
+      expect(canvas).toBeVisible({ timeout: SCENE_READY_BUDGET_MS }),
+      waitForArm(page),
+      expect(page.getByTestId('playground-viewport')).toHaveAttribute(
+        'data-scene-ready',
+        'true',
+        { timeout: SCENE_READY_BUDGET_MS },
+      ),
+    ]);
 
     const box = (await canvas.boundingBox())!;
     const cx = box.x + box.width / 2;
     const cy = box.y + box.height / 2;
 
+    // Every operation waits for the measurable condition it causes: the
+    // camera changes and a later demand-loop frame publishes that state.
+    // This avoids arbitrary sleeps and immediate screenshot races under
+    // SwiftShader while retaining separate rotate, zoom, and pan assertions.
+    let before = await sceneSnapshot(page);
+
     // Rotate: primary-button drag across the canvas.
-    const before = await canvas.screenshot();
     await page.mouse.move(cx, cy);
     await page.mouse.down();
     await page.mouse.move(cx + 180, cy + 40, { steps: 12 });
     await page.mouse.up();
-    const afterRotate = await canvas.screenshot();
-    expect(Buffer.compare(before, afterRotate)).not.toBe(0);
+    before = await waitForRenderedCameraChange(page, before);
 
     // Zoom: wheel gesture over the canvas.
     await page.mouse.move(cx, cy);
     await page.mouse.wheel(0, -600);
-    const afterZoom = await canvas.screenshot();
-    expect(Buffer.compare(afterRotate, afterZoom)).not.toBe(0);
+    before = await waitForRenderedCameraChange(page, before);
 
     // Pan: secondary-button drag.
     await page.mouse.move(cx, cy);
     await page.mouse.down({ button: 'right' });
     await page.mouse.move(cx - 120, cy + 60, { steps: 12 });
     await page.mouse.up({ button: 'right' });
-    const afterPan = await canvas.screenshot();
-    expect(Buffer.compare(afterZoom, afterPan)).not.toBe(0);
+    await waitForRenderedCameraChange(page, before);
   });
 
   test('falls back to the procedural arm when model assets are missing', async ({
