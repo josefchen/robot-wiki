@@ -146,6 +146,12 @@ const ENFORCEMENT_TARGET = testTarget(
   'brand-v2 enforcement map and evidence schemas > accepts the checked-in map and tagged result corpus',
   'Validates assertion, population, target, result, payload, and pending-migration relationships in the checked-in enforcement corpus.',
 );
+const OMISSION_PROOF = {
+  testFile: 'tests/unit/brand-v2-enforcement.test.ts',
+  testTitle:
+    'brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map',
+  failureReason: 'missing-assertion-row' as const,
+};
 
 function testTargetsFor(id: string): TestTarget[] {
   const area = id.split('-')[2];
@@ -241,6 +247,7 @@ function resultFor(
     assertionId,
     populationMemberId: `population:${populationSource}`,
     coveredPopulationMemberIds: populationMemberIds,
+    coverageKind: 'population-wide' as const,
     status: 'pending' as const,
     expected: requirement,
     actual: 'awaiting responsible rollout milestone',
@@ -339,8 +346,8 @@ function generate() {
           statement: requirement,
           expected: requirement,
           actualSource: 'evidence/brand-v2/results.json',
-          nonEmptyPopulation: true as const,
-          omissionMustFail: true as const,
+          populationSize: population.length,
+          omissionProof: OMISSION_PROOF,
         },
         producedResult: {
           resultIds: [assertionResult.resultId],

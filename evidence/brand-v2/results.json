@@ -68,6 +68,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every exported public route derived from the canonical route/content registries has zero Axe violations after its required state settles.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -147,6 +148,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every interactive element has a visible 2px signal-blue focus outline with at least 2px offset or an equally visible component-specific treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -226,6 +228,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every interaction in the state matrix can be reached, operated, and exited with keyboard alone.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -305,6 +308,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Colour is never the only state distinction, including links, navigation, filters, charts, market map, and playground.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -384,6 +388,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Reduced-motion preference disables non-essential movement and preserves understandable final states.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -463,6 +468,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Forced-colours mode preserves content, focus, selected state, controls, and essential chart boundaries.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -542,6 +548,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Three independent §1.14 gates pass: literal `320×800` CSS-px reflow at DPR 1, sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent (or a proven pinned true-zoom profile), and injected author-layer 200% text-only resizing with doubled computed sizes. Content remains available without two-dimensional document scrolling except registered bounded tables/visualizations.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -621,6 +628,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every exported public route has no unintended horizontal document overflow at each applicable 375, 768, 1024, and 1440px sweep width.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -700,6 +708,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Decorative brand devices are absent from the accessibility tree and do not alter accessible names.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -779,6 +788,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Scrollable tables, map regions, diagrams, and playground canvases have names, keyboard access where interactive, and textual alternatives.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -858,6 +868,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Keyboard order is logical; focused elements are not obscured; overlays trap and restore focus; async updates retain appropriate focus; every page has exactly one main landmark, named regions, unique IDs, valid heading order, and label-in-name.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -937,6 +948,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Complete live-region coverage verifies roles, politeness, text, deterministic timing/order, deduplication, focus retention, and non-flooding behavior for search, filters, self-checks, chart/readout changes, market-map selection/details, playground state/errors, and loading/error/empty/unavailable transitions. Automation does not claim to verify actual spoken output across every screen reader/AT/browser combination.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -1016,6 +1028,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tables expose captions/names and complete header associations; every meaningful SVG/canvas has a bound textual alternative and every interactive graphic exposes keyboard-operable equivalent controls where applicable.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -1095,6 +1108,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Contrast is measured for every foreground/background pair in every declared state, including bounded dark surfaces. Because `#245FFF` is insufficient for small text on graphite, such contexts use an approved measured alternate or dual treatment while retaining signal semantics.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -1174,6 +1188,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Route × declared-state coverage for Axe, keyboard, forced colours, and the three §1.14 profiles is registry-derived and non-empty, using the exact bounded §1.15 case counts rather than a full Cartesian product; hand-picked samples, missing cases, or count disagreement cannot pass.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -1239,6 +1254,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "`/manipulation/action-chunking/` renders breadcrumb/domain context, one Tektur h1, one summary, and its existing factual review date, reading time, and citation count.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1304,6 +1320,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Article prose measure is 62–68ch with at least 20px mobile side padding and at least 32px desktop breathing room.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1369,6 +1386,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Article section links, inline citations, glossary definitions, and external sources have distinguishable treatments matching their semantics.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1434,6 +1452,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Dark article diagrams are bounded instruments with accessible inverse labels, a visible boundary, and an equivalent textual description.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1499,6 +1518,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1564,6 +1584,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Schematics identify themselves and do not imply a source-published mapping or measurement.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1629,6 +1650,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Equations expose accessible text or an equivalent explanation.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1694,6 +1716,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1759,6 +1782,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Article title blocks contain no fabricated badge, author portrait, decorative cover image, or repeated domain eyebrow.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1824,6 +1848,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
@@ -1853,6 +1878,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Existing public route paths and trailing-slash behavior remain intact.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -1883,6 +1909,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -1913,6 +1940,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Market-map records, funding values, company relationships, dates, source pointers, and deep links remain semantically identical.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -1943,6 +1971,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Playground model identity, geometry, joint constraints, kinematic calculations, and trajectory data remain semantically identical.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -1973,6 +2002,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Published values render their source value; an existing but undisclosed value renders exactly `not disclosed`; only a genuinely inapplicable field renders exactly `n/a`; none is coerced to zero, blank ambiguity, or an invented substitute.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2003,6 +2033,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Against the immutable migration baseline, existing keyboard paths, accessible names, landmarks, navigation names/hrefs, current-state semantics, table/search behavior, resets, defaults, and working interactions remain available except entries named by the approved-delta allowlist.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2033,6 +2064,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2063,6 +2095,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Stable technical identifiers, including `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory`, remain unchanged in technical contexts unless a separate migration is approved.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2093,6 +2126,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Milestone 1 starts from a clean tracked worktree or records the exact Git tree hash used, then records the immutable baseline commit/tree identity, manifest root hashes, pinned tool/runtime versions, and generated hashed manifests for routes, prose, accessible names, relationship graphs, navigation, market-map/playground truth, assets/SVG semantics, interactive sources/mounts, and behavioral defaults. Baseline creation is implementation work and is not claimed complete by this document.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2123,6 +2157,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every post-baseline difference is rejected unless a checked-in approved-delta allowlist entry names the baseline manifest/member, old/new value or hash, reason, owner approval, responsible milestone, affected assertions, and expiry/permanence; broad path, wildcard, or “visual redesign” allowances fail.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2153,6 +2188,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Baseline generators are deterministic and mutation-proven: deleting a route, prose block, relationship, navigation entry, market record, playground constant, asset usage, SVG semantic node, source export, mount, or behavioral default causes a tagged failure. Mutations use in-memory/temporary fixtures where feasible; any tracked-tree mutation proves pre/post hash equality and automatic restoration.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2183,6 +2219,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "The baseline preserves accessible names and article text except the exact approved public brand-string migration and fact-preserving caption/attribution additions; changing visible first-party creator labels from `robot-wiki` to `Robot Wiki` is permitted while factual authorship remains unchanged.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2213,6 +2250,7 @@
         "routes",
         "value-states"
       ],
+      "coverageKind": "population-wide",
       "expected": "Baseline comparison distinguishes published values, undisclosed values (`not disclosed`), and genuinely inapplicable values (`n/a`) and fails any migration that collapses those states.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests",
@@ -2293,6 +2331,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2381,6 +2420,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2469,6 +2509,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2557,6 +2598,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every primary action has ink/black fill and an accessible light label; signal-blue-filled primary actions are absent.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2645,6 +2687,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2733,6 +2776,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2821,6 +2865,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Lime is not used as a success semantic and is never the sole carrier of state.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2909,6 +2954,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Normal text contrast is at least 4.5:1; large text and essential graphical boundaries are at least 3:1.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -2997,6 +3043,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Decorative UI gradients are absent. A scientific scale is exempt only when labelled, source-appropriate, bounded to the visualization, and textually described.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3085,6 +3132,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Colour-name legends, labels, documentation, and accessible descriptions agree with the actual rendered tokens.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3119,6 +3167,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Primary actions are black filled with accessible light text. Secondary actions are outlined/transparent by default and may use lime only as a registered emphasized secondary that cannot be confused with selection; tertiary actions remain quiet. Disabled actions may use documented neutral treatments and are exempt from active-action colour requirements.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3144,6 +3193,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3169,6 +3219,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Segmented controls use one outer frame; active segments use ink/white or lime/ink and expose `aria-selected`, `aria-pressed`, or native state.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3194,6 +3245,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every input has a persistent visible label; placeholder text is not the label.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3219,6 +3271,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3244,6 +3297,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Cards group real content/interaction and do not create a homogeneous universal bento layout.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3269,6 +3323,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Selected chips use lime plus text/icon/semantic confirmation. Status chips use dedicated semantic colours.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3294,6 +3349,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Citation callouts use explicit source language and preserve claim-to-source relationships.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3319,6 +3375,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tables preserve semantic headers, use `aria-sort` where sortable, keep numeric alignment, and scroll within a labelled focusable region at narrow widths.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3344,6 +3401,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tables distinguish source states exactly: published value, `not disclosed` for an undisclosed value, and `n/a` only when genuinely inapplicable; `0`, blank ambiguity, and invented substitutes fail.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3369,6 +3427,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3394,6 +3453,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3419,6 +3479,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3444,6 +3505,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Interactive targets meet WCAG 2.2 target-size requirements or register an accepted inline/spacing exception with an equivalent pointer alternative; keyboard operation never substitutes for a required pointer alternative.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3469,6 +3531,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3494,6 +3557,7 @@
         "control:input",
         "control:disabled"
       ],
+      "coverageKind": "population-wide",
       "expected": "Anti-bento and nested-frame rubrics use the §1.12 thresholds: at most three adjacent siblings with one repeated surface/heading/action signature, zero redundant four-sided nested frames, frame depth at most two with the inner-frame exception limited to registered tables/plots/media/control groups, and only registered pill/capsule exceptions; every population is non-empty.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
@@ -3573,6 +3637,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Home, shell, domain landing, article, discovery, market map, playground, and OG/X evidence all share the same public identity, type roles, palette, structural-device grammar, shape ladder, and action hierarchy.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3652,6 +3717,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "No audited surface mixes a v1 wordmark, descriptor, old blue, old paper token, or IBM-Plex-Sans brand display with v2 identity.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3731,6 +3797,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Light surfaces dominate editorial reading; dark surfaces remain bounded instruments across articles, market map, playground, and social artwork.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3810,6 +3877,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Black primary actions, lime selection/highlight, and signal-blue link/focus behavior remain semantically consistent across all audited routes.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3889,6 +3957,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Grid/rail/registration devices vary by composition but retain shared line weight, alignment, colour semantics, and purposeful placement.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -3968,6 +4037,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Route, content, citation, data, accessibility, and interaction baselines pass alongside visual checks; visual parity cannot waive a truth regression.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4047,6 +4117,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Set equality holds among module registry, fixed-route registry, app route inventory, sitemap, export files, and metadata ledger: 47 article routes plus 14 non-article public destinations = 61 public destinations at baseline; 404 is separately registered and never counted as public content.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4126,6 +4197,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The metadata ledger covers canonicals, titles/descriptions, all OG/X fields, JSON-LD, manifest, favicon/touch icons, theme-colour, and 404 policy for every owning route; owner and rendered/exported values agree.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4205,6 +4277,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Residue sweeps normalize CSS/SVG/WebGL colours, inspect source literals, raw attributes, computed states, generated pixels with declared tolerance, resource/font requests, provenance, and an explicit v1→v2 migration map; active runtime documentation is in scope while exact-path historical archives are allowlisted.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4284,6 +4357,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4363,6 +4437,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4442,6 +4517,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Selected facets use lime plus semantic/shape confirmation and can be cleared and reset by keyboard.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4521,6 +4597,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Search status updates are announced without moving focus unexpectedly.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4600,6 +4677,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "`/a-z/` and `/glossary/` retain deep links, keyboard reachability, source wording, and the shared v2 index treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4679,6 +4757,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Result/index rows use rules and editorial rhythm; they are not converted into a universal bento-card grid.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4758,6 +4837,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "At 375px, result titles, excerpts, filter controls, and clear/reset actions fit without document overflow.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -4803,6 +4883,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every row in the route/viewport/state matrix produces deterministic evidence after fonts, data, and transitions settle, with ordered `steps[]` and `captures[]` when a row has multiple phases.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -4857,6 +4938,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Evidence includes the registered full-page capture plus bounded close-ups for identity, action states, article type/figure, map state, playground state, and OG card; each capture is a typed `captures[]` member tied to the step that produced it.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -4911,6 +4993,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Computed-style evidence records public text, font family, font size/line height, core token values, radii, shadow/filter values, focus treatment, overflow, and relevant ARIA state.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -4965,6 +5048,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The worker compares captures against both approved references using the checked-in milestone-1 reference-feature rubric in §1.12 and autonomously resolves every failed applicable anchor; contract literals override image text/hex variation and raw cross-composition pixel similarity is prohibited.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5019,6 +5103,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Evidence is rejected if fallback fonts are active, async state is incomplete, animation is in flight, the viewport differs, or the state sequence was not followed.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5073,6 +5158,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The final evidence index records every matrix ID, route, viewport, state, capture path, automated result, and any approved local exception.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5127,6 +5213,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "A green automated run without a complete §1.12 rubric result is insufficient; an unstructured visual judgment, averaged score that hides a failed anchor, raw cross-composition pixel score, or comparison without automated truth/accessibility gates is also insufficient.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5181,6 +5268,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The public-route suite derives a non-empty population by set equality among module registry, fixed-route registry, app route inventory, sitemap, and export files; it runs browser render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue checks for every route × declared state. The 404 is registered separately and cannot inflate the public-destination count.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5235,6 +5323,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The interactive-state suite derives non-empty source exports and rendered production mounts, proves three-way equality with the interactive registry using stable mount IDs/config fingerprints, reconciles DOM controls/actions, then runs the exact bounded cases from §1.15 for every source and materially distinct mount; expected and observed case counts must match and full Cartesian coverage is not required.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5289,6 +5378,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The 27-row route/viewport/state matrix remains the mandatory deep screenshot and reference-comparison matrix and supplements, rather than bounds or replaces, registry-derived exhaustive sweeps.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5343,6 +5433,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Named automated evidence suites cover deterministic search loading/error, reduced motion, forced colours, literal `320×800` CSS-px reflow, sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent profiles, and injected 200% text-only resizing even when those states are not separate deep-screenshot rows; Playwright is not described as controlling browser-chrome zoom.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5397,6 +5488,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The five-route home/article/search/market-map/playground set may be used only as an iterative smoke set and is never sufficient final release evidence.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5451,6 +5543,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "The named suites `brand-v2-route-flows`, `brand-v2-article-interactions`, `brand-v2-market-map-states`, and `brand-v2-playground-states` preserve latest-request-wins, partial errors, URL sync, focus retention, deep-link/history restoration, tooltip parity, table keyboard behavior, and FK/IK/import/error/fallback states through ordered `steps[]`/`captures[]` and exact bounded §1.15 case counts.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5505,6 +5598,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Evidence uses one common result/failure envelope plus schema-specific payloads for source/build, browser-state, generated-image, and autonomous-reference-comparison results. Non-applicable fields are omitted and accompanied by typed `notApplicableReason`; foreign payload fields cannot substitute for a schema's required fields. Multi-phase evidence uses ordered `steps[]` and `captures[]`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5551,6 +5645,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Autonomous comparison records every §1.12 anchor against both references, including identity/hierarchy ratios, grid alignment, purposeful-device counts, bounded light/dark area, repetition/nested-frame metrics, palette/type parity, and material treatment. All applicable anchors pass independently; “looks right”, averaging, or raw cross-composition pixel similarity fails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5605,6 +5700,7 @@
         "B2-EV-026",
         "B2-EV-027"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every failed result uses the common envelope: assertion ID, population member, expected, actual, selector/registry ID, exception verdict, and applicable route/interactive/state/viewport context; schema-specific screenshot, computed/ARIA, Axe, console/network, source/build, image, rubric, `steps[]`, and `captures[]` fields are required only by their payload schema. Non-applicable fields are omitted with typed `notApplicableReason`; mutation tests prove required fields.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS",
@@ -5862,6 +5958,7 @@
         "VAL-B2-VIZ-015",
         "VAL-B2-VIZ-016"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every `VAL-B2*` assertion has a non-vacuous checked-in enforcement-map row satisfying the sealed schema in `VAL-B2-GOV-002`; an unmapped assertion, nonexistent target, untagged result, omitted member, or empty applicable population blocks release.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-assertions",
@@ -6119,6 +6216,7 @@
         "VAL-B2-VIZ-015",
         "VAL-B2-VIZ-016"
       ],
+      "coverageKind": "population-wide",
       "expected": "The assertion-enforcement-map schema requires assertion ID, canonical population source, `enforcementTargets[]`, enforcement mode, machine predicate, and tagged produced result. Each target names an exact existing test file/title or mandatory evidence row; composite assertions list every target, and multi-phase targets may bind ordered `steps[]`/`captures[]`. Targets must exist; machine claims require automation and visual claims require visual evidence.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-assertions",
@@ -6376,6 +6474,7 @@
         "VAL-B2-VIZ-015",
         "VAL-B2-VIZ-016"
       ],
+      "coverageKind": "population-wide",
       "expected": "Mutation tests prove the enforcement map and exhaustive gates fail when an assertion row, target, tagged result, population member, registry entry, evidence record, or entire applicable population is omitted or empty.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-assertions",
@@ -6633,6 +6732,7 @@
         "VAL-B2-VIZ-015",
         "VAL-B2-VIZ-016"
       ],
+      "coverageKind": "population-wide",
       "expected": "Milestone 1 creates suites, registries, clean-source/tree-hash baseline manifests, enforcement map, temporary-fixture mutation tests, archived expected-red v1 drift, the §1.12 rubric, and a static-export Playwright fixture/config using a checked-in dependency-free server or direct pinned dependency. Required image/font/OCR tooling is direct/versioned or checked-in deterministic before claims rely on it. Visual suites may remain red until their milestone; all are green by milestone 8.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-assertions",
@@ -6658,6 +6758,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Desktop major composition aligns to 12 columns, tablet to 8, and mobile to 4, with 8px base rhythm and 4px fine alignment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6691,6 +6792,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Home, shell, articles, discovery, market map, playground, and OG/X cards each contain at least one intentional shared grid, rail, or registration treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6724,6 +6826,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Grid/device layers never reduce body-text contrast below WCAG AA and never appear between prose glyphs and their background.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6757,6 +6860,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Decorative grid/device layers are `aria-hidden`, pointer-inert, and absent from the accessibility tree.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6790,6 +6894,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Registration crosses, crop marks, axes, ticks, and sequence labels align within 2px of a real column, boundary, baseline, axis, or state anchor.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6823,6 +6928,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "No page contains random unanchored technical glyphs, fabricated coordinates, or decorative data labels.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6856,6 +6962,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6889,6 +6996,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Grid lines and neutral rails use concrete by default; focus/registration uses signal; active measured intervals may use lime.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6922,6 +7030,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -6955,6 +7064,7 @@
         "device:sequence-label",
         "device:dot-grid"
       ],
+      "coverageKind": "population-wide",
       "expected": "Computed rendered casing (`innerText` plus `text-transform`) is audited for every registered label, so CSS case conversion cannot hide identity, notation, or natural-language drift.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
@@ -7043,6 +7153,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7122,6 +7233,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every descriptor surface is exactly `Citation-first encyclopedia of modern robot learning.`",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7201,6 +7313,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7280,6 +7393,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7359,6 +7473,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7438,6 +7553,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7517,6 +7633,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7596,6 +7713,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Mobile header contains the compact `Robot Wiki` wordmark and omits the descriptor.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7675,6 +7793,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Article OG cards contain compact `Robot Wiki` identity but omit the descriptor; the site card contains both exact strings.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -7825,6 +7944,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -7984,6 +8104,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8143,6 +8264,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every technical diagram is truthful to its source or explicitly labelled as an original schematic/render.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8302,6 +8424,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Material texture never impersonates evidence, sensor output, or measured data.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8461,6 +8584,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8620,6 +8744,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8779,6 +8904,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -8938,6 +9064,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -9097,6 +9224,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -9256,6 +9384,7 @@
         "asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
         "asset:models/so101/so101.urdf"
       ],
+      "coverageKind": "population-wide",
       "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets",
@@ -9344,6 +9473,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Company count, record values, categories, source dates, funding values, and deep-link destinations match the canonical data registry.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9423,6 +9553,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every visible bubble size, position, colour, line, and timeline encoding has a labelled legend and textual equivalent.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9502,6 +9633,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Selected company/filter state uses lime plus text/shape/semantic confirmation.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9581,6 +9713,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9660,6 +9793,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Hover facts are also reachable through keyboard focus and persistent selection.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9739,6 +9873,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "A selected-company detail surface does not obscure required controls, remains dismissible, and does not trap focus unless implemented as a modal.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9818,6 +9953,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9897,6 +10033,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "At 375px the map provides a readable list/detail or simplified plot state with equivalent records and controls rather than an illegibly shrunken desktop canvas.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -9976,6 +10113,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Missing disclosures render `not disclosed`; contradictory source pointers remain visibly caveated rather than silently dropped.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -10055,6 +10193,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop. Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -10134,6 +10273,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -10214,6 +10354,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The generated corpus contains exactly 48 PNG files: one site card plus one card for each of the 47 published articles listed in the sealed matrix below.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10296,6 +10437,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10378,6 +10520,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Site card contains exact `Robot Wiki` and exact descriptor.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10460,6 +10603,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10542,6 +10686,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every article route points to a unique slug-bearing asset URL; every article asset is byte-distinct from every other article asset and the site card.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10624,6 +10769,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Non-article destinations point to the single site card.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10706,6 +10852,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every card renders the registered static Tektur instance mapped to the approved web Tektur Variable role, plus exact v2 palette/grid/rail/registration language with runtime/renderer parity.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10788,6 +10935,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Cards contain no v1 public identity, old descriptor, fake chart, random ornament, screenshot collage, tiny UI, progress state, AI robot, or unlicensed image.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10870,6 +11018,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every audited route declares one `twitter:card=summary_large_image`, absolute apex-domain image URL, 1200/630 metadata, and meaningful alt text of at least 15 characters.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -10952,6 +11101,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 48 files.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11034,6 +11184,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11116,6 +11267,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11198,6 +11350,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11280,6 +11433,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11362,6 +11516,7 @@
         "metadata:/world-models/taxonomy/",
         "metadata:/404/"
       ],
+      "coverageKind": "population-wide",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#metadata",
@@ -11443,6 +11598,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11522,6 +11678,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The rendered model, joint limits, kinematic relationships, and trajectory values match the existing implementation and canonical data.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11601,6 +11758,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11680,6 +11838,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11759,6 +11918,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Reset returns camera, model, controls, state description, and trajectory to one deterministic documented default.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11838,6 +11998,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Current joint/target/trajectory state is available as text and updates when manipulation occurs.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11917,6 +12078,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Reduced motion constrains non-essential camera/model transitions without removing direct manipulation, controls, or immediate state feedback.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -11996,6 +12158,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The visible product never presents `robot-atlas-trajectory` as brand identity; technical data/export contexts may retain it.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12075,6 +12238,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "No particles, bloom, fake telemetry, ambient scanning, or unlabelled HUD is rendered.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12154,6 +12318,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "WebGL-resolved colour mirrors exactly match runtime brand tokens and are parity-tested.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12233,6 +12398,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "A static playground fallback is used only when WebGL is unavailable; reduced-motion preference alone never selects the static fallback.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12312,6 +12478,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "With WebGL available, validation proves an active context, deterministic nonblank model pixels, canonical landmarks/kinematics/material colours, live reduced-motion manipulation, deterministic DPR/resize/reset, and separate unavailable-WebGL fallback; fallback pixels cannot satisfy available-WebGL assertions.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12391,6 +12558,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12470,6 +12638,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Public identity strings: `robot-wiki`, `Robot-Wiki`, `ROBOT WIKI` | Zero public-display matches. Technical identifiers, URLs, paths, historical docs, and this contract are allowlisted by exact path/context.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12549,6 +12718,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Previous descriptor: `Robotics encyclopaedia` and US-spelling variant | Zero runtime, metadata, generated-artwork, and public-image matches. Historical evidence and this contract are allowlisted.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12628,6 +12798,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Previous signal values: `#245edb`, `#245EDB`, `rgb(36, 94, 219)` | Zero runtime/generated matches except explicitly archived historical evidence.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12707,6 +12878,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Previous paper/surface values and token names that conflict with v2 semantics, including `#f4f3ef`, `#fbfaf7`, and `#eceae4` | Zero active visual-token or renderer matches; data/content literals require review rather than blind replacement.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12786,6 +12958,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "IBM Plex Sans computed on public wordmark, page h1, article h1, or major display heading | Zero rendered matches.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12865,6 +13038,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Blue-filled primary actions and lime-as-success semantics | Zero rendered matches across the matrix.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -12944,6 +13118,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "v1-only restrictions encoded as active tests, such as home-only grid, no bounded dark surfaces, no permitted elevation, or 2/3/4-only radius | Zero active acceptance assertions after replacement by `VAL-B2*` criteria. Historical comments must be labelled superseded.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13023,6 +13198,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Generic visual residue: glass, glow, coloured shadow, universal bento, random registration glyphs, decorative telemetry, AI robot imagery | Zero rendered matches or asset inventory hits.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13102,6 +13278,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Generated corpus drift: stale site card, missing article card, extra draft card, duplicate article hash, old font/palette/text | Zero findings across exactly 48 PNGs.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13181,6 +13358,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Mixed identity in accessible names, alt text, structured metadata, page titles, manifests, and social metadata | Zero public-facing mixed-system matches; technical URL values remain allowlisted.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13260,6 +13438,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Desktop shell, mobile header, drawer, and footer render the v2 identity and share palette, display type, grid/rail, shape, and focus language.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13339,6 +13518,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Active navigation uses ink and/or lime plus a non-colour marker. A route with a corresponding navigation item has exactly one `aria-current=\"page\"` on that matching link; a route without a corresponding navigation item has none. A heading or unrelated element never receives `aria-current` merely to satisfy a count.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13418,6 +13598,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "The skip link is the first keyboard destination and becomes visible on focus.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13497,6 +13678,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Mobile drawer traps focus, closes on Escape, restores focus to its trigger, and makes obscured content inert.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13576,6 +13758,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Existing navigation hierarchy, accessible names, and href destinations remain unchanged except the visible product lockup string.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13655,6 +13838,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13734,6 +13918,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13813,6 +13998,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "Home and domain surfaces use indexed editorial rows/modules rather than a universal grid of equal marketing cards.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13892,6 +14078,7 @@
         "route:/world-models/latent-dynamics/",
         "route:/world-models/taxonomy/"
       ],
+      "coverageKind": "population-wide",
       "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
@@ -13913,6 +14100,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -13934,6 +14122,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -13955,6 +14144,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -13976,6 +14166,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -13997,6 +14188,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -14018,6 +14210,7 @@
         "frame:tablet",
         "frame:desktop"
       ],
+      "coverageKind": "population-wide",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
@@ -14040,6 +14233,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "First-party surface corner radii are only 0, 2, 4, 8, 16, or 24px; a full capsule radius is permitted only for a registered compact toggle, status, or filter whose geometry communicates grouping; circles and meaningful data marks are exempt.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14071,6 +14265,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Standard borders are 1px; 2px borders occur only for focus, active, selected, or semantic emphasis.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14102,6 +14297,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Dashed borders identify provisional, comparison, drop, or inactive boundaries and never decorate ordinary cards.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14133,6 +14329,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Flat surfaces have no shadow. Raised shadows are neutral with blur ≤8px and floating shadows neutral with blur ≤20px; a checked-in surface registry names every variant, stacking purpose, and numeric neutral-colour/alpha tolerance.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14164,6 +14361,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "No first-party surface uses coloured shadow, glow, backdrop blur, glass, bevel, neumorphism, or chrome treatment.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14195,6 +14393,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every dark product surface other than an action or compact control qualifies as a bounded dark instrument; body, main, shell, ordinary prose, and ordinary content-card backgrounds remain paper/light.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14226,6 +14425,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Paper grain, concrete texture, halftone, or dither preserves text contrast, is deterministic, and has documented ownership/license when external.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14257,6 +14457,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Fully rounded capsules are limited to controls satisfying the registered compact toggle/status/filter exception; ordinary metadata, categories, actions, and navigation labels do not become pills.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14288,6 +14489,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "No shared component contains redundant nested borders unless the inner object is a real table, plot, media frame, or control group.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14319,6 +14521,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14350,6 +14553,7 @@
         "surface:floating",
         "surface:bounded-dark-instrument"
       ],
+      "coverageKind": "population-wide",
       "expected": "Named representative surfaces on home, article, discovery, market map, playground, and social artwork satisfy the §1.12 material predicates: declared deterministic treatment, passing text/graphic contrast, texture-free prose glyph grounds, and the §1.13 ownership/legal-basis/provenance record when external.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
@@ -14381,6 +14585,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14412,6 +14617,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14443,6 +14649,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14474,6 +14681,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Long-form prose computes to Newsreader at 18–21px, 1.60–1.80 line height, and 62–68ch maximum measure.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14505,6 +14713,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14536,6 +14745,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Home wordmark renders at 52–68px on 375px and 88–120px on 1440px, line-height 0.88–0.98, with the approved `wght=600` and `wdth=100` role instance unless a checked-in role registry records an owner-approved replacement.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14567,6 +14777,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Article h1 renders at 34–44px on 375px viewport and 48–64px on 1440px viewport with line-height between 1.00 and 1.10.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14598,6 +14809,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "No prose paragraph computes to Tektur or IBM Plex Mono.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14629,6 +14841,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14660,6 +14873,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Registration labels use a single site-wide tracking ratio within 0.01em for equivalent label classes.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14691,6 +14905,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14722,6 +14937,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14753,6 +14969,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14784,6 +15001,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14815,6 +15033,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14846,6 +15065,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14877,6 +15097,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14908,6 +15129,7 @@
         "type:reading",
         "type:data"
       ],
+      "coverageKind": "population-wide",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
@@ -14987,6 +15209,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15057,6 +15280,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15127,6 +15351,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15197,6 +15422,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15267,6 +15493,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Source values remain source-backed and unknowns remain explicitly unknown.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15337,6 +15564,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every schematic labels itself and every generated/non-source signal labels its generative status.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15407,6 +15635,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15477,6 +15706,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15547,6 +15777,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15617,6 +15848,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Milestone 1 baselines the current 52 interactive source files and 62 production mounts, but release checks derive both counts from source exports and rendered mounts; source exports, production mounts, and registry entries have three-way equality, stable mount IDs/config fingerprints, and omission/empty-population mutation tests.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15687,6 +15919,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every source and materially distinct mount declares the exact bounded §1.15 case set: each discrete option independently; slider min/default/max plus registered discontinuities/source anchors; reset/default/focus/meaningful hover/selected; one witness per implemented loading/error/empty/unavailable state; deterministic pairwise independent-control combinations; and only listed higher-order combinations. Expected case count is exact and non-zero; unsupported states use typed `notApplicableReason`.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15767,6 +16000,7 @@
         "mount:/world-models/latent-dynamics/:LatentImagination:1",
         "mount:/world-models/taxonomy/:WmDisambiguator:1"
       ],
+      "coverageKind": "population-wide",
       "expected": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
@@ -15837,6 +16071,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Source/render parity uses independent expected-value-to-coordinate/label/readout checks, legend-to-mark bijection, and source/assumption IDs; an expected value copied from rendered output is vacuous and fails.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15907,6 +16142,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Original SVGs compare against the immutable normalized semantic geometry/text baseline while excluding only allowlisted style attributes; missing/reordered semantic nodes, labels, geometry, legends, or textual alternatives fail.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -15977,6 +16213,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Canvas renderers expose deterministic coordinate/label/readout probes and bound textual alternatives; resize/DPR changes preserve semantic coordinates, reset/default state, and source-backed values.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
@@ -16047,6 +16284,7 @@
         "interactive:WbcDecomposition",
         "interactive:WmDisambiguator"
       ],
+      "coverageKind": "population-wide",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",

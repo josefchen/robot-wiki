@@ -19,6 +19,9 @@ import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
 import { deriveTestTargetInventory } from '@/lib/brand-v2-test-inventory';
 
 const ROOT = process.cwd();
+const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
+const FIXTURE_TEST_TITLE =
+  'brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map';
 
 function fixture() {
   const results: EvidenceResult[] = [
@@ -27,6 +30,7 @@ function fixture() {
       assertionId: 'VAL-B2-TEST-001',
       populationMemberId: 'population:registry:test',
       coveredPopulationMemberIds: ['population:test-a', 'population:test-b'],
+      coverageKind: 'population-wide',
       status: 'pending',
       expected: 'the predicate passes',
       actual: 'awaiting responsible milestone',
@@ -39,6 +43,24 @@ function fixture() {
         observed: 'pending',
       },
     },
+    {
+      resultId: 'result:VAL-B2-TEST-002',
+      assertionId: 'VAL-B2-TEST-002',
+      populationMemberId: 'population:registry:second',
+      coveredPopulationMemberIds: ['population:second-a'],
+      coverageKind: 'population-wide',
+      status: 'pending',
+      expected: 'the second predicate passes',
+      actual: 'awaiting responsible milestone',
+      selectorOrRegistryId: 'registry:second',
+      exceptionVerdict: 'none',
+      payload: {
+        kind: 'source-build',
+        sourcePath: 'contract/design-integrity.md',
+        predicate: 'second fixture predicate',
+        observed: 'pending',
+      },
+    },
   ];
   const map: EnforcementMap = {
     schemaVersion: 1,
@@ -46,33 +68,81 @@ function fixture() {
       {
         assertionId: 'VAL-B2-TEST-001',
         canonicalPopulationSource: 'registry:test',
-        enforcementTargets: [{
+        enforcementTargets: [
+          {
             kind: 'evidence-row',
             evidenceRowId: results[0].resultId,
             mechanism: 'fixture predicate',
-          }],
+          },
+          {
+            kind: 'test',
+            file: FIXTURE_TEST_FILE,
+            title: FIXTURE_TEST_TITLE,
+            mechanism: 'fixture omission mutation',
+          },
+        ],
         enforcementMode: 'automated-machine',
         machinePredicate: {
           statement: 'fixture predicate',
           expected: 'the predicate passes',
           actualSource: 'fixture results',
-          nonEmptyPopulation: true,
-          omissionMustFail: true,
+          populationSize: 2,
+          omissionProof: {
+            testFile: FIXTURE_TEST_FILE,
+            testTitle: FIXTURE_TEST_TITLE,
+            failureReason: 'missing-assertion-row',
+          },
         },
         producedResult: {
           resultIds: [results[0].resultId],
+        },
+      },
+      {
+        assertionId: 'VAL-B2-TEST-002',
+        canonicalPopulationSource: 'registry:second',
+        enforcementTargets: [
+          {
+            kind: 'evidence-row',
+            evidenceRowId: results[1].resultId,
+            mechanism: 'second fixture predicate',
+          },
+          {
+            kind: 'test',
+            file: FIXTURE_TEST_FILE,
+            title: FIXTURE_TEST_TITLE,
+            mechanism: 'fixture omission mutation',
+          },
+        ],
+        enforcementMode: 'automated-machine',
+        machinePredicate: {
+          statement: 'second fixture predicate',
+          expected: 'the second predicate passes',
+          actualSource: 'fixture results',
+          populationSize: 1,
+          omissionProof: {
+            testFile: FIXTURE_TEST_FILE,
+            testTitle: FIXTURE_TEST_TITLE,
+            failureReason: 'missing-assertion-row',
+          },
+        },
+        producedResult: {
+          resultIds: [results[1].resultId],
         },
       },
     ],
   };
   const populationSources: Record<string, string[]> = {
     'registry:test': ['population:test-a', 'population:test-b'],
+    'registry:second': ['population:second-a'],
   };
   return {
-    assertionIds: ['VAL-B2-TEST-001'],
+    assertionIds: ['VAL-B2-TEST-001', 'VAL-B2-TEST-002'],
     populationSources,
     map,
     results,
+    testTargetInventory: {
+      [FIXTURE_TEST_FILE]: [FIXTURE_TEST_TITLE],
+    } as Record<string, string[]>,
   };
 }
 
@@ -202,6 +272,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-TEST-001',
         populationMemberId: 'population:test',
         coveredPopulationMemberIds: ['population:test'],
+        coverageKind: 'per-member',
         status: 'failed',
         expected: 'pass',
         actual: 'fail',
@@ -223,6 +294,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-TEST-001',
         populationMemberId: 'population:test',
         coveredPopulationMemberIds: ['population:test'],
+        coverageKind: 'per-member',
         status: 'not-applicable',
         expected: 'not applicable',
         actual: 'not applicable',
@@ -315,6 +387,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-EVID-015',
         populationMemberId: 'B2-EV-001',
         coveredPopulationMemberIds: ['B2-EV-001'],
+        coverageKind: 'per-member',
         status: 'passed',
         expected: 'all anchors pass',
         actual: 'all anchors pass',
@@ -329,6 +402,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-EVID-015',
         populationMemberId: 'B2-EV-001',
         coveredPopulationMemberIds: ['B2-EV-001'],
+        coverageKind: 'per-member',
         status: 'passed',
         expected: 'all anchors pass',
         actual: 'averaged score',
@@ -346,6 +420,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-TEST-001',
         populationMemberId: 'population:test',
         coveredPopulationMemberIds: ['population:test'],
+        coverageKind: 'per-member',
         status: 'failed',
         expected: 'pass',
         actual: 'fail',
@@ -359,6 +434,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         assertionId: 'VAL-B2-TEST-001',
         populationMemberId: 'population:test',
         coveredPopulationMemberIds: ['population:test'],
+        coverageKind: 'per-member',
         status: 'failed',
         expected: 'pass',
         actual: 'fail',
@@ -404,13 +480,49 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
     ).toContainEqual(
       expect.objectContaining({ reason: 'pending-result-blocks-release' }),
     );
+    expect(
+      validateEnforcementCorpus(value),
+    ).toContainEqual(
+      expect.objectContaining({
+        reason: 'population-wide-coverage-blocks-release',
+      }),
+    );
+  });
+
+  it('reports missing-assertion-row when one row is omitted from a two-row map', () => {
+    const value = fixture();
+    value.map.rows.splice(0, 1);
+    expect(
+      validateEnforcementCorpus({
+        ...value,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({
+        assertionId: 'VAL-B2-TEST-001',
+        reason: 'missing-assertion-row',
+      }),
+    );
+  });
+
+  it('reports missing-evidence-target when one target is omitted from a multi-target row', () => {
+    const value = fixture();
+    value.map.rows[0].enforcementTargets.splice(0, 1);
+    expect(
+      validateEnforcementCorpus({
+        ...value,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({
+        assertionId: 'VAL-B2-TEST-001',
+        reason: 'missing-evidence-target',
+      }),
+    );
   });
 
   it.each([
-    ['assertion row', (value: ReturnType<typeof fixture>) => value.map.rows.splice(0, 1), 'invalid-map-schema'],
-    ['target', (value: ReturnType<typeof fixture>) => value.map.rows[0].enforcementTargets.splice(0, 1), 'invalid-map-schema'],
     ['tagged result', (value: ReturnType<typeof fixture>) => { value.results[0].resultId = 'result:untagged'; }, 'untagged-produced-result'],
-    ['population member', (value: ReturnType<typeof fixture>) => value.results[0].coveredPopulationMemberIds.splice(0, 1), 'missing-population-result'],
     ['registry entry', (value: ReturnType<typeof fixture>) => value.populationSources['registry:test'].splice(0, 1), 'unregistered-population-result'],
     ['registry', (value: ReturnType<typeof fixture>) => delete value.populationSources['registry:test'], 'missing-population-source'],
     ['evidence record', (value: ReturnType<typeof fixture>) => value.results.splice(0, 1), 'missing-produced-result'],
@@ -423,6 +535,121 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         allowPendingResults: true,
       }),
     ).toContainEqual(expect.objectContaining({ reason }));
+  });
+
+  it('reports population-size-mismatch when a derived population shrinks', () => {
+    const value = fixture();
+    value.populationSources['registry:test'].splice(0, 1);
+    expect(
+      validateEnforcementCorpus({
+        ...value,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({
+        assertionId: 'VAL-B2-TEST-001',
+        reason: 'population-size-mismatch',
+        expected: 2,
+        actual: 1,
+      }),
+    );
+  });
+
+  it('proves per-member coverage reports an omitted population member', () => {
+    const value = fixture();
+    value.results[0].coverageKind = 'per-member';
+    value.results[0].coveredPopulationMemberIds = ['population:test-a'];
+    expect(
+      validateEnforcementCorpus({
+        ...value,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({
+        assertionId: 'VAL-B2-TEST-001',
+        memberId: 'population:test-b',
+        reason: 'missing-population-result',
+      }),
+    );
+  });
+
+  it('rejects a nonexistent exact omission proof title and unknown failure reason', () => {
+    const missingTitle = fixture();
+    missingTitle.map.rows[0].machinePredicate.omissionProof.testTitle =
+      'reporter title that does not exist';
+    expect(
+      validateEnforcementCorpus({
+        ...missingTitle,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({ reason: 'nonexistent-test-target' }),
+    );
+
+    const invalidReason = fixture();
+    (
+      invalidReason.map.rows[0].machinePredicate.omissionProof as {
+        failureReason: string;
+      }
+    ).failureReason = 'invented-failure-reason';
+    expect(
+      validateEnforcementCorpus({
+        ...invalidReason,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({ reason: 'invalid-map-schema' }),
+    );
+  });
+
+  it('fires previously uncovered row, inventory, target, and result reasons', () => {
+    const unknown = fixture();
+    unknown.map.rows[0].assertionId = 'VAL-B2-TEST-999';
+    expect(
+      validateEnforcementCorpus({ ...unknown, allowPendingResults: true }),
+    ).toContainEqual(expect.objectContaining({ reason: 'unknown-assertion-row' }));
+
+    const duplicate = fixture();
+    duplicate.map.rows[1].assertionId = 'VAL-B2-TEST-001';
+    expect(
+      validateEnforcementCorpus({ ...duplicate, allowPendingResults: true }),
+    ).toContainEqual(expect.objectContaining({ reason: 'duplicate-assertion-row' }));
+
+    const missingInventory = fixture();
+    delete missingInventory.testTargetInventory[FIXTURE_TEST_FILE];
+    expect(
+      validateEnforcementCorpus({
+        ...missingInventory,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({ reason: 'missing-test-target-inventory' }),
+    );
+
+    const missingProducedTag = fixture();
+    missingProducedTag.map.rows[0].enforcementTargets.push({
+      kind: 'evidence-row',
+      evidenceRowId: 'result:not-produced',
+      mechanism: 'fixture target omitted from produced results',
+    });
+    expect(
+      validateEnforcementCorpus({
+        ...missingProducedTag,
+        allowPendingResults: true,
+      }),
+    ).toContainEqual(
+      expect.objectContaining({
+        reason: 'missing-enforcement-target-for-result',
+      }),
+    );
+
+    const misTagged = fixture();
+    misTagged.results[0].assertionId = 'VAL-B2-TEST-002';
+    expect(
+      validateEnforcementCorpus({ ...misTagged, allowPendingResults: true }),
+    ).toContainEqual(
+      expect.objectContaining({ reason: 'mis-tagged-produced-result' }),
+    );
   });
 
   it('rejects a nonexistent exact test target and an empty applicable population', () => {

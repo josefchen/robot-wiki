@@ -6,6 +6,31 @@ import {
 
 const assertionIdSchema = z.string().regex(/^VAL-B2-[A-Z0-9-]+$/);
 const nonEmptyString = z.string().trim().min(1);
+export const ENFORCEMENT_FAILURE_REASONS = [
+  'invalid-map-schema',
+  'duplicate-assertion-row',
+  'missing-assertion-row',
+  'unknown-assertion-row',
+  'missing-population-source',
+  'empty-applicable-population',
+  'population-size-mismatch',
+  'missing-test-target-inventory',
+  'nonexistent-test-target',
+  'missing-evidence-target',
+  'missing-enforcement-target-for-result',
+  'missing-population-result',
+  'untagged-produced-result',
+  'missing-produced-result',
+  'mis-tagged-produced-result',
+  'pending-result-blocks-release',
+  'population-wide-coverage-blocks-release',
+  'enforcement-mode-payload-mismatch',
+  'unregistered-population-result',
+  'duplicate-evidence-result',
+  'generated-map-drift',
+  'generated-results-drift',
+] as const;
+const enforcementFailureReasonSchema = z.enum(ENFORCEMENT_FAILURE_REASONS);
 const jsonValueSchema: z.ZodType<unknown> = z.lazy(() =>
   z.union([
     z.string(),
@@ -188,6 +213,7 @@ const commonResultFields = {
   assertionId: assertionIdSchema,
   populationMemberId: nonEmptyString,
   coveredPopulationMemberIds: z.array(nonEmptyString).min(1),
+  coverageKind: z.enum(['population-wide', 'per-member']),
   expected: jsonValueSchema,
   actual: jsonValueSchema,
   selectorOrRegistryId: nonEmptyString,
@@ -287,8 +313,14 @@ export const enforcementMapSchema = z
                 statement: nonEmptyString,
                 expected: z.unknown(),
                 actualSource: nonEmptyString,
-                nonEmptyPopulation: z.literal(true),
-                omissionMustFail: z.literal(true),
+                populationSize: z.number().int().positive(),
+                omissionProof: z
+                  .object({
+                    testFile: nonEmptyString,
+                    testTitle: nonEmptyString,
+                    failureReason: enforcementFailureReasonSchema,
+                  })
+                  .strict(),
               })
               .strict(),
             producedResult: z
@@ -309,7 +341,7 @@ export type EnforcementMap = z.infer<typeof enforcementMapSchema>;
 export type EnforcementFailure = {
   assertionId?: string;
   memberId?: string;
-  reason: string;
+  reason: (typeof ENFORCEMENT_FAILURE_REASONS)[number];
   expected: unknown;
   actual: unknown;
 };
@@ -467,6 +499,14 @@ export function validateEnforcementCorpus(input: {
         actual: 0,
       });
     }
+    if (row.machinePredicate.populationSize !== population.length) {
+      failures.push({
+        assertionId: row.assertionId,
+        reason: 'population-size-mismatch',
+        expected: row.machinePredicate.populationSize,
+        actual: population.length,
+      });
+    }
     const populationSet = new Set(population);
     const evidenceTargets = new Set(
       row.enforcementTargets
@@ -502,23 +542,56 @@ export function validateEnforcementCorpus(input: {
         });
       }
     }
+    const omissionInventory =
+      input.testTargetInventory?.[row.machinePredicate.omissionProof.testFile];
+    if (!omissionInventory) {
+      failures.push({
+        assertionId: row.assertionId,
+        reason: 'missing-test-target-inventory',
+        expected: `${row.machinePredicate.omissionProof.testFile} :: ${row.machinePredicate.omissionProof.testTitle}`,
+        actual: null,
+      });
+    } else if (
+      !omissionInventory.includes(row.machinePredicate.omissionProof.testTitle)
+    ) {
+      failures.push({
+        assertionId: row.assertionId,
+        reason: 'nonexistent-test-target',
+        expected: `${row.machinePredicate.omissionProof.testFile} :: ${row.machinePredicate.omissionProof.testTitle}`,
+        actual: 'reporter-visible title missing',
+      });
+    }
     const produced = new Set(row.producedResult.resultIds);
     const assertionResults = resultsByAssertion.get(row.assertionId) ?? [];
+    const hasPopulationWideResult = assertionResults.some(
+      (result) => result.coverageKind === 'population-wide',
+    );
     for (const resultId of produced) {
       if (!evidenceTargets.has(resultId)) {
         failures.push({
           assertionId: row.assertionId,
-          reason: 'missing-enforcement-target-for-result',
+          reason: 'missing-evidence-target',
           expected: resultId,
           actual: [...evidenceTargets],
         });
       }
     }
+    for (const evidenceTarget of evidenceTargets) {
+      if (!produced.has(evidenceTarget)) {
+        failures.push({
+          assertionId: row.assertionId,
+          reason: 'missing-enforcement-target-for-result',
+          expected: evidenceTarget,
+          actual: [...produced],
+        });
+      }
+    }
     for (const memberId of population) {
       const matching = assertionResults.filter((result) =>
+        result.coverageKind === 'per-member' &&
         result.coveredPopulationMemberIds.includes(memberId),
       );
-      if (matching.length === 0) {
+      if (matching.length === 0 && !hasPopulationWideResult) {
         failures.push({
           assertionId: row.assertionId,
           memberId,
@@ -527,16 +600,16 @@ export function validateEnforcementCorpus(input: {
           actual: 0,
         });
       }
-      for (const result of matching) {
-        if (!produced.has(result.resultId)) {
-          failures.push({
-            assertionId: row.assertionId,
-            memberId,
-            reason: 'untagged-produced-result',
-            expected: row.producedResult.resultIds,
-            actual: result.resultId,
-          });
-        }
+    }
+    for (const result of assertionResults) {
+      if (!produced.has(result.resultId)) {
+        failures.push({
+          assertionId: row.assertionId,
+          memberId: result.populationMemberId,
+          reason: 'untagged-produced-result',
+          expected: row.producedResult.resultIds,
+          actual: result.resultId,
+        });
       }
     }
     for (const resultId of produced) {
@@ -555,33 +628,48 @@ export function validateEnforcementCorpus(input: {
           expected: row.assertionId,
           actual: result.assertionId,
         });
-      } else if (
-        result.status === 'pending' &&
-        input.allowPendingResults !== true
-      ) {
-        failures.push({
-          assertionId: row.assertionId,
-          memberId: result.populationMemberId,
-          reason: 'pending-result-blocks-release',
-          expected: 'passed, failed, or typed not-applicable result',
-          actual: 'pending',
-        });
-      } else if (
-        result.status !== 'not-applicable' &&
-        {
-          'automated-machine': 'source-build',
-          'generated-image': 'generated-image',
-          'browser-state': 'browser-state',
-          'autonomous-visual': 'autonomous-reference-comparison',
-        }[row.enforcementMode] !== result.payload.kind
-      ) {
-        failures.push({
-          assertionId: row.assertionId,
-          memberId: result.populationMemberId,
-          reason: 'enforcement-mode-payload-mismatch',
-          expected: row.enforcementMode,
-          actual: result.payload.kind,
-        });
+      } else {
+        if (
+          result.status === 'pending' &&
+          input.allowPendingResults !== true
+        ) {
+          failures.push({
+            assertionId: row.assertionId,
+            memberId: result.populationMemberId,
+            reason: 'pending-result-blocks-release',
+            expected: 'passed, failed, or typed not-applicable result',
+            actual: 'pending',
+          });
+        }
+        if (
+          result.coverageKind === 'population-wide' &&
+          input.allowPendingResults !== true
+        ) {
+          failures.push({
+            assertionId: row.assertionId,
+            memberId: result.populationMemberId,
+            reason: 'population-wide-coverage-blocks-release',
+            expected: 'per-member coverage',
+            actual: 'population-wide',
+          });
+        }
+        if (
+          result.status !== 'not-applicable' &&
+          {
+            'automated-machine': 'source-build',
+            'generated-image': 'generated-image',
+            'browser-state': 'browser-state',
+            'autonomous-visual': 'autonomous-reference-comparison',
+          }[row.enforcementMode] !== result.payload.kind
+        ) {
+          failures.push({
+            assertionId: row.assertionId,
+            memberId: result.populationMemberId,
+            reason: 'enforcement-mode-payload-mismatch',
+            expected: row.enforcementMode,
+            actual: result.payload.kind,
+          });
+        }
       }
     }
     for (const result of assertionResults) {
