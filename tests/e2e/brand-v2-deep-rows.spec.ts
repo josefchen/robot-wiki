@@ -10,6 +10,8 @@ import {
 } from './brand-v2-static-fixture';
 import { setSlider } from './slider';
 
+test.use({ actionTimeout: 10_000, navigationTimeout: 30_000 });
+
 const TWO_KEYFRAME_TRAJECTORY = JSON.stringify({
   format: 'robot-atlas-trajectory',
   version: 1,
