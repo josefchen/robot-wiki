@@ -1,3 +1,5 @@
+import type { StateCase } from './brand-v2-census';
+
 export type BrandV2Registry = {
   routes: {
     public: Array<{
@@ -22,8 +24,9 @@ export type BrandV2Registry = {
 type InteractiveRegistryMember = {
   id: string;
   component: string;
+  sourcePath?: string;
   fingerprint: string;
-  cases: Array<{ id: string; kind: string; selector?: string }>;
+  cases: StateCase[];
   expectedCaseCount: number;
 };
 
