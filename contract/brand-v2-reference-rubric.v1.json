@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "rubricId": "robot-wiki-brand-v2-reference-features",
+  "version": 1,
+  "references": [
+    "library/brand-reference-board.jpeg",
+    "library/brand-reference-article.png"
+  ],
+  "contractLiterals": {
+    "publicIdentity": "Robot Wiki",
+    "descriptor": "Citation-first encyclopedia of modern robot learning.",
+    "webDisplayFamily": "Tektur Variable",
+    "ogStaticRole": "registered-static-tektur",
+    "ink": "#0B0B0C",
+    "graphite": "#242D33",
+    "concrete": "#D9DADB",
+    "paper": "#F5F6F7",
+    "white": "#FFFFFF",
+    "highlight": "#C6FF19",
+    "signal": "#245FFF"
+  },
+  "comparisonPolicy": {
+    "crossComposition": "feature-anchors-only",
+    "deterministicSameInput": "pixel-or-byte-equality-allowed",
+    "averaging": "prohibited"
+  },
+  "anchors": [
+    {
+      "id": "identity",
+      "threshold": "exact literals and registered Tektur roles; zero alternate symbols or v1 identity"
+    },
+    {
+      "id": "hierarchy",
+      "threshold": "home/site-card >=1.50x supporting heading; article h1 >=1.35x body; desktop primary heading <=3 lines"
+    },
+    {
+      "id": "grid-alignment",
+      "threshold": "100% registered devices within 2px; zero unregistered devices"
+    },
+    {
+      "id": "purposeful-devices",
+      "threshold": "registry purpose and owner for every device; <=1 dominant motif per section; mobile <= desktop; zero obscuring/intercepting devices"
+    },
+    {
+      "id": "light-dark-balance",
+      "threshold": "light body/shell/prose; dark non-action union <=40% home/article/discovery or <=75% market-map/playground; zero unregistered/intersecting dark surfaces"
+    },
+    {
+      "id": "repetition-frames",
+      "threshold": "<=3 adjacent repeated signatures; zero redundant nested four-sided frames; depth <=2 with registered depth-two interiors only"
+    },
+    {
+      "id": "palette-type",
+      "threshold": "100% audited sealed colours and registered type roles; zero unregistered roles or fallback glyphs"
+    },
+    {
+      "id": "material-treatment",
+      "threshold": "non-empty registered representatives; deterministic and contrast-safe; complete provenance for external materials; zero texture behind prose glyphs"
+    }
+  ]
+}

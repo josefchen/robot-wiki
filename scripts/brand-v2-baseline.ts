@@ -7,6 +7,7 @@ import { COMPANIES } from '../data/companies.ts';
 import { IMAGES } from '../data/images.ts';
 import {
   BASELINE_KINDS,
+  assertAdditiveBaseline,
   buildManifest,
   compareBaseline,
   sha256,
@@ -24,6 +25,8 @@ const ROOT = join(import.meta.dirname, '..');
 const BASELINE_DIR = join(ROOT, 'evidence', 'brand-v2', 'baseline');
 const BUNDLE_PATH = join(BASELINE_DIR, 'baseline.json');
 const DELTAS_PATH = join(ROOT, 'contract', 'brand-v2-approved-deltas.json');
+const PINNED_SOURCE_COMMIT = '4c113fe6e1c4a378341ad03d5a6927dcb9544b90';
+const PINNED_SOURCE_TREE = 'c3d33f5677660f6e3b414a002256f588d050da56';
 const FIXED_ROUTES = [
   '/',
   '/market-map/',
@@ -80,8 +83,10 @@ function publishedMdx(): Array<{
   path: string;
   body: string;
   data: Record<string, unknown>;
+  registryTitle: string;
+  registrySummary: string;
 }> {
-  return publishedModules().map(({ domain, slug }) => {
+  return publishedModules().map(({ domain, slug, title, summary }) => {
     const path = `content/${domain}/${slug}.mdx`;
     const parsed = matter(source(path));
     return {
@@ -89,12 +94,16 @@ function publishedMdx(): Array<{
       path,
       body: parsed.content.trim(),
       data: parsed.data as Record<string, unknown>,
+      registryTitle: title,
+      registrySummary: summary,
     };
   });
 }
 
-function prose(): ManifestInput[] {
-  return publishedMdx().map(({ id, path, body }) => ({
+type PublishedMdx = ReturnType<typeof publishedMdx>;
+
+function prose(mdx: PublishedMdx): ManifestInput[] {
+  return mdx.map(({ id, path, body }) => ({
     id: `article:${id}`,
     value: { path, body },
   }));
@@ -134,8 +143,8 @@ function accessibleNames(): ManifestInput[] {
   return names;
 }
 
-function relationships(): ManifestInput[] {
-  return publishedMdx().map(({ id, data, body }) => {
+function relationships(mdx: PublishedMdx): ManifestInput[] {
+  return mdx.map(({ id, data, body }) => {
     const internalLinks = [...body.matchAll(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g)]
       .map((match) => match[1])
       .sort();
@@ -298,8 +307,48 @@ function behavioralDefaults(): ManifestInput[] {
   return entries;
 }
 
+export function valueStateRenderSites(): ValueStateRecord[] {
+  const records: ValueStateRecord[] = [];
+  const paths = command(
+    'git',
+    'ls-files',
+    '--',
+    'lib',
+    'data',
+    'components',
+    'app',
+    'content',
+  )
+    .split('\n')
+    .filter(Boolean)
+    .sort();
+  const renderings = [
+    ['not-disclosed', 'not disclosed'],
+    ['not-applicable', 'n/a'],
+  ] as const;
+
+  for (const path of paths) {
+    const text = source(path);
+    for (const [state, rendered] of renderings) {
+      let offset = 0;
+      let ordinal = 0;
+      while ((offset = text.indexOf(rendered, offset)) !== -1) {
+        ordinal += 1;
+        records.push({
+          id: `state-site:${path}:${state}:${ordinal}`,
+          state,
+          rendered,
+        });
+        offset += rendered.length;
+      }
+    }
+  }
+
+  return records;
+}
+
 function valueStates(): ManifestInput[] {
-  const records: ValueStateRecord[] = [
+  const canonicalRecords: ValueStateRecord[] = [
     { id: 'published-witness', state: 'published', rendered: '42' },
     {
       id: 'undisclosed-canonical',
@@ -312,7 +361,8 @@ function valueStates(): ManifestInput[] {
       rendered: 'n/a',
     },
   ];
-  const separationFailures = validateValueStateSeparation(records);
+  const renderSites = valueStateRenderSites();
+  const separationFailures = validateValueStateSeparation(renderSites);
   if (separationFailures.length > 0) {
     throw new Error(JSON.stringify(separationFailures, null, 2));
   }
@@ -324,13 +374,49 @@ function valueStates(): ManifestInput[] {
     'components/market-map/company-card.tsx',
   ];
   return [
-    ...records.map((record) => ({
+    ...canonicalRecords.map((record) => ({
       id: `state:${record.id}`,
+      value: jsonValue(record),
+    })),
+    ...renderSites.map((record) => ({
+      id: record.id,
       value: jsonValue(record),
     })),
     ...renderFiles.map((path) => ({
       id: `state-source:${path}`,
       value: { path, source: source(path) },
+    })),
+  ];
+}
+
+function articleMetadata(mdx: PublishedMdx): ManifestInput[] {
+  const articles = mdx.map(
+    ({ id, path, data, registryTitle, registrySummary }) => ({
+      id: `article-metadata:${id}`,
+      value: {
+        path,
+        registryTitle,
+        registrySummary,
+        frontmatterTitle: String(data.title ?? ''),
+        frontmatterDescription: String(data.description ?? ''),
+      },
+    }),
+  );
+  const ownerPaths = [
+    'data/modules.ts',
+    'data/domains.ts',
+    'data/glossary.ts',
+    'lib/site.ts',
+    'lib/og-cards.ts',
+    'app/layout.tsx',
+    'components/article/article-header.tsx',
+  ];
+
+  return [
+    ...articles,
+    ...ownerPaths.map((path) => ({
+      id: `canonical-metadata-source:${path}`,
+      value: { path, sourceHash: sha256(source(path)) },
     })),
   ];
 }
@@ -356,17 +442,19 @@ export function collectBundle(options?: {
   sourceTree?: string;
   trackedWorktreeClean?: boolean;
 }): BaselineBundle {
+  const mdx = publishedMdx();
   const inputs: Record<BaselineKind, ManifestInput[]> = {
     routes: routes(),
-    prose: prose(),
+    prose: prose(mdx),
     'accessible-names': accessibleNames(),
-    relationships: relationships(),
+    relationships: relationships(mdx),
     navigation: navigation(),
     'market-playground': marketPlayground(),
     'assets-svg': assetsSvg(),
     'interactive-sources-mounts': interactiveSourcesMounts(),
     'behavioral-defaults': behavioralDefaults(),
     'value-states': valueStates(),
+    'article-metadata': articleMetadata(mdx),
   };
   const manifests = Object.fromEntries(
     BASELINE_KINDS.map((kind) => [kind, buildManifest(kind, inputs[kind])]),
@@ -456,7 +544,24 @@ function main(): void {
     return;
   }
 
-  throw new Error('Usage: --create or --check');
+  if (args.has('--recreate')) {
+    const previous = JSON.parse(
+      readFileSync(BUNDLE_PATH, 'utf8'),
+    ) as BaselineBundle;
+    const recreated = collectBundle({
+      sourceCommit: PINNED_SOURCE_COMMIT,
+      sourceTree: PINNED_SOURCE_TREE,
+      trackedWorktreeClean: true,
+    });
+    const additions = assertAdditiveBaseline(previous, recreated);
+    writeBundle(recreated);
+    console.log(
+      `brand-v2 baseline: recreated additively with ${additions.addedMembers} added members across ${additions.addedKinds.length} added kinds`,
+    );
+    return;
+  }
+
+  throw new Error('Usage: --create, --recreate, or --check');
 }
 
 function statSafe(path: string): boolean {

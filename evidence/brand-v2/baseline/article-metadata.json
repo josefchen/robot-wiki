@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "kind": "article-metadata",
+  "memberCount": 54,
+  "members": [
+    {
+      "id": "article-metadata:adjacent/autonomous-vehicles",
+      "hash": "a3b6fc4ff0b8788615f36bcf2ec33dd531d6e6a99709da26bab4fc237c5ac523"
+    },
+    {
+      "id": "article-metadata:adjacent/drones",
+      "hash": "93aeb6c391531e2a360399b565ac2bbb7f3919a53a0afebbf29e9cef5ec2cb18"
+    },
+    {
+      "id": "article-metadata:adjacent/space",
+      "hash": "c9708694c40ae2887ddb2973a376cc41c9103375ab36b7144d6a6dcf88c5e6b0"
+    },
+    {
+      "id": "article-metadata:adjacent/surgical",
+      "hash": "26fa917307f08d5b629b4bffe15c5ab346911d69c6e8a6fe3681e22bd2f74d08"
+    },
+    {
+      "id": "article-metadata:classical/control",
+      "hash": "3ff0e1c80a1217ec530c928331e337525b6dbf253f0d8801711d69a662ee64b0"
+    },
+    {
+      "id": "article-metadata:classical/grasp-planning",
+      "hash": "67a87308312b9ecffc7e0d6363191daf57a1ed6377843973324cf9f4bc603f7e"
+    },
+    {
+      "id": "article-metadata:classical/kinematics",
+      "hash": "87c44e10604fc4a1c19ffeb21eed3804ae8c1dbc7047597d100919517fc42b49"
+    },
+    {
+      "id": "article-metadata:classical/motion-planning",
+      "hash": "ec48f2c785278a7ba6a3e96709a4e377640d427bba7d464704e1f27d02c623aa"
+    },
+    {
+      "id": "article-metadata:classical/perception",
+      "hash": "3a2a394416da9049a75a755d53ce3c51902b43bcfbad69402e4b89d79606745f"
+    },
+    {
+      "id": "article-metadata:classical/scene-representation",
+      "hash": "63625ce87ef1305139b3a43c9f5390223e2342e8fcadfd43ea8b19a66de1fc63"
+    },
+    {
+      "id": "article-metadata:classical/state-estimation",
+      "hash": "97c78bd1edad18b047a17f25c141766e31deb93b908948743322984dbff4b952"
+    },
+    {
+      "id": "article-metadata:data-hardware/data-bottleneck",
+      "hash": "647c6aa765642d8b18080c25d542d4e98cc11c30ac43b62cec3026f9361fc62e"
+    },
+    {
+      "id": "article-metadata:data-hardware/datasets",
+      "hash": "3cef48000549871fd4aca8123a7079b46ae8f5e9e06b3b63364f6fcc69a9b9c3"
+    },
+    {
+      "id": "article-metadata:data-hardware/evaluation-crisis",
+      "hash": "4a7ceb7293e74a560494d1ef0f9f46a6dcf198483f995dac4b7c83ca3483ebf8"
+    },
+    {
+      "id": "article-metadata:data-hardware/hardware-taxonomy",
+      "hash": "cb0d232660b54e2df6f88a5000f9a82f5bc5893de3e7fd6f613fcaef57bbda74"
+    },
+    {
+      "id": "article-metadata:data-hardware/industrial-deployment",
+      "hash": "a8b9f8bf07ee57f98855d5ecb24622ef4a4b18beac5c13eb2d4296e81bd5beea"
+    },
+    {
+      "id": "article-metadata:data-hardware/teleop-rigs",
+      "hash": "50b649c11095b1b2a41dd15529a4a999302dd4d9cce70144fcbdd31f5c48253a"
+    },
+    {
+      "id": "article-metadata:frontier/bear-case",
+      "hash": "31f510e4a3b733781f264b67a728d5c3e2dbc6943c196f415061bf26284e6f99"
+    },
+    {
+      "id": "article-metadata:frontier/competing-theses",
+      "hash": "b3d449731963850b73102a912a23c1f0c972005f8c7c0494634222d3d353f0fc"
+    },
+    {
+      "id": "article-metadata:frontier/dexterity",
+      "hash": "3d5cff98bf95df70fb69a362acc04ef93064f10a6f8b58bdbafb2ef1cc427303"
+    },
+    {
+      "id": "article-metadata:frontier/generalization",
+      "hash": "68ae7c504c8d0236f4c35bf67f8bf4cdd3aebf6c8c3514cf03e875d68f99513f"
+    },
+    {
+      "id": "article-metadata:frontier/reliability-gap",
+      "hash": "2c5535a692180c26faa699eb90dc836db920cab8178713cbc454656efa7e16bd"
+    },
+    {
+      "id": "article-metadata:frontier/safety-and-assurance",
+      "hash": "9ed76bb181c59915a139229061dfef95bdd0a67843c085c27a7d5c6608c564f8"
+    },
+    {
+      "id": "article-metadata:manipulation/action-chunking",
+      "hash": "f16440d2182b028735e3bcff38372dce12867a90569141c858ad2a22a1c0835e"
+    },
+    {
+      "id": "article-metadata:manipulation/bc-foundations",
+      "hash": "7c8f09c227766c30b0e0562876f85262986d6ad79be9354829e43f9b53ae4c7e"
+    },
+    {
+      "id": "article-metadata:manipulation/comparison-matrix",
+      "hash": "10b025855b8a2b3b9a0c94bd132c94481f5b0033c9e5c96a15030cfc941b11f1"
+    },
+    {
+      "id": "article-metadata:manipulation/cross-embodiment",
+      "hash": "030f62990a559005b8a0abfa1a18492ebd33dbdc9854e9cbb5b31716c9ed7489"
+    },
+    {
+      "id": "article-metadata:manipulation/diffusion-policy",
+      "hash": "885a985b7814914b41dda35c13740c35b27913ef199657be34e5679b2ae62a18"
+    },
+    {
+      "id": "article-metadata:manipulation/generalist-policies",
+      "hash": "512c6f52c5205bc5f15bb3a35b44243f1d6fe82ba061e4ff8415a6429634a6cd"
+    },
+    {
+      "id": "article-metadata:manipulation/hierarchical",
+      "hash": "27b8927fa38dabc7b5ab52650f1a482ef2f8a4880b10b62844d895b779ff6a5f"
+    },
+    {
+      "id": "article-metadata:manipulation/knowledge-insulation",
+      "hash": "09a7d69efcc54fdb5d2287f51407e1f01fd41f1faaf28b11bf0aeef4f5a278f3"
+    },
+    {
+      "id": "article-metadata:manipulation/pi-line",
+      "hash": "9cdace87302666bb9c68af48855cffde227f78c86d877a4130c7047e40d83fc8"
+    },
+    {
+      "id": "article-metadata:manipulation/realtime-execution",
+      "hash": "028458e71631d16b67c22d04345ecabcef3fe25d18b698036892742df0f5845d"
+    },
+    {
+      "id": "article-metadata:manipulation/rl-finetuning",
+      "hash": "a270d87539a786fe8611a11efe122b67034d5a86e2997c3418d4c605e699201d"
+    },
+    {
+      "id": "article-metadata:manipulation/vla-models",
+      "hash": "2d393f8afc2de4293b4f2ad9e61dd37b8ff59ff137e1f644a633da1b4f07354c"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/humanoid-wbc",
+      "hash": "75a8ded70cf49ff3abc6dbf280e853092c24c5e7f448b0711d5d67da8de32fa8"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/legged-locomotion",
+      "hash": "fecefaa18be0a12b3f0a9c97d53eef941cd1601f646056ade9fa51e00f29c916"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/parallel-sim-rl",
+      "hash": "483798afc133f64742292e113c5ad4034a76c30088e1d09eb3557fef9177dfcc"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/reward-design-mpc",
+      "hash": "cc486f333719c25fd89de6fda277cd99df6bb5d6d8adb2fb820633e7183981c2"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/rl-for-robotics",
+      "hash": "5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/sim2real-transfer",
+      "hash": "e675730eed6a4f86ee5c26409be7e5ecf581a16c11a9e5be72813ed776759dbf"
+    },
+    {
+      "id": "article-metadata:rl-sim2real/why-rl-locomotion",
+      "hash": "465f510b253f9aaf8b90c01a0c2d83e6f11b03e794df859397a99d289953b1b3"
+    },
+    {
+      "id": "article-metadata:world-models/generative-sim",
+      "hash": "5970911ef74e6ee6ebd2fc1d659753c12cad477df4b3c19776926ba5d4b43e8a"
+    },
+    {
+      "id": "article-metadata:world-models/generative-video",
+      "hash": "56f9b8c0d0d9fd917b1231640a02a224c27fe4a03b96d356da99849a7c0fa5f3"
+    },
+    {
+      "id": "article-metadata:world-models/jepa",
+      "hash": "b16e5cf6520b988e7a54a4ae946837a449a6cf2b429e9b2d9f54edcf5521dbd5"
+    },
+    {
+      "id": "article-metadata:world-models/latent-dynamics",
+      "hash": "1e585ebc42ae01cda6a66e2ad5927c37df56525b44257589fcab44dd16fdcfab"
+    },
+    {
+      "id": "article-metadata:world-models/taxonomy",
+      "hash": "4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971"
+    },
+    {
+      "id": "canonical-metadata-source:app/layout.tsx",
+      "hash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4"
+    },
+    {
+      "id": "canonical-metadata-source:components/article/article-header.tsx",
+      "hash": "78d980dd4c1103b70cc16c087ccb6e621104fba7103ca763501a5b6c93f19c7e"
+    },
+    {
+      "id": "canonical-metadata-source:data/domains.ts",
+      "hash": "19483f1bf2dde573b1239a045fad460f1e661c48a259eb1d988bbcad5c6e08e6"
+    },
+    {
+      "id": "canonical-metadata-source:data/glossary.ts",
+      "hash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc"
+    },
+    {
+      "id": "canonical-metadata-source:data/modules.ts",
+      "hash": "ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098"
+    },
+    {
+      "id": "canonical-metadata-source:lib/og-cards.ts",
+      "hash": "ed8896d055cbcc66f2280e2b979ff2585577ccc747b748519c013d8332a3d7f8"
+    },
+    {
+      "id": "canonical-metadata-source:lib/site.ts",
+      "hash": "a5755f9cc1f313f8179dfaa00c41c93f083500d9e0bd0c8b0ef98af083787fac"
+    }
+  ],
+  "rootHash": "3fcfedcb578c7193c473711b85f39f30fd0307dea411e866ed31d438225eb84d"
+}

@@ -3550,71 +3550,7 @@
       "fingerprint": "39f70baff3ee5e2a679f86ebd07c49756f42e2f95c16c591b173de586f251b3d"
     }
   ],
-  "assetExceptions": [
-    {
-      "id": "asset-exception:images/anymal-anybotics-2022 2.jpg",
-      "canonicalPath": "images/anymal-anybotics-2022.jpg",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
-      "fingerprint": "64be2ffbde0308aca5d6760b24cc0930cfb616cae940d0368991f098547bef33"
-    },
-    {
-      "id": "asset-exception:images/atlas-darpa-frontview-2013 2.jpg",
-      "canonicalPath": "images/atlas-darpa-frontview-2013.jpg",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
-      "fingerprint": "5e57affea9af8e9023db4a9298f694b21ba94515a4efb09fc1a705771bc1306c"
-    },
-    {
-      "id": "asset-exception:images/franka-emika-panda-cebit-2017 2.jpg",
-      "canonicalPath": "images/franka-emika-panda-cebit-2017.jpg",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
-      "fingerprint": "49aec996fee00d709fa34853e0e046b9b9cd150fd27c6761327ee3e47dd9b461"
-    },
-    {
-      "id": "asset-exception:images/logos/agibot 2.png",
-      "canonicalPath": "images/logos/agibot.png",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "3f5a555727f784715899dbfb5fa739e9bee94fa46aec12d7763eaaa9e6f1ada3",
-      "fingerprint": "0b14029003c4a4d2ad6d9f18e66b8762a88af52ced1c10efecb77336d8691d30"
-    },
-    {
-      "id": "asset-exception:images/logos/kepler-robot 2.png",
-      "canonicalPath": "images/logos/kepler-robot.png",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "a7b25f1c66388042e2bad12eb2cb96e40e74292a0af6c51fa873b2358b38698d",
-      "fingerprint": "b7e7ada80e99674ffe61133f59e9c1934a748268b3fb54e5e3ea8791d1c52948"
-    },
-    {
-      "id": "asset-exception:images/logos/monarch-tractor 2.png",
-      "canonicalPath": "images/logos/monarch-tractor.png",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "10873f36357e20a21b024297d8727a237dcfbc7caf7b969e12e24a6f550cd42a",
-      "fingerprint": "25369e3f8b3f08d65bcbfc558ade3109fb2489d0f4eb814ab12d950993073de9"
-    },
-    {
-      "id": "asset-exception:images/logos/wonik 2.png",
-      "canonicalPath": "images/logos/wonik.png",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "13196cf95870b3164d69921c41c1266834ffcc9760b66b880aec7fd7ab3167a4",
-      "fingerprint": "e6073ebe3196590cacaa0367b58b2ab919bb09ec3e742a92b53a34f4069f7e81"
-    },
-    {
-      "id": "asset-exception:images/puma-560-nasa-ames 2.jpg",
-      "canonicalPath": "images/puma-560-nasa-ames.jpg",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
-      "fingerprint": "e75d6cf2bf7876b35c4fc3b7b5c8ef48758d9fa49ea46735400c196a654bdfc6"
-    },
-    {
-      "id": "asset-exception:images/spot-raf-agile-liberty-2021 2.jpg",
-      "canonicalPath": "images/spot-raf-agile-liberty-2021.jpg",
-      "reason": "Ignored Finder/iCloud sync shadow with bytes identical to the registered canonical asset.",
-      "byteHash": "571a6949389d5c57db435bb95ab425b3015cce144ebe65f7c628eece583c0327",
-      "fingerprint": "b9d89d9f04e0a86b677b24b41579a20b07fc2403eab0658648aaf506fedcc537"
-    }
-  ],
+  "assetExceptions": [],
   "assetUses": [
     "asset:images/anymal-anybotics-2022.jpg",
     "asset:images/atlas-darpa-frontview-2013.jpg",
@@ -10817,5 +10753,5 @@
       "fingerprint": "2fa6cc15c948b71f8b9c3dffcde13a64084eca5b3f9f62ef9a851c537fb6bba2"
     }
   ],
-  "rootFingerprint": "13ba053f32d373367c6c53cc313d565e9ffb4ba9ee641c47d35a9f45cb2bfc50"
+  "rootFingerprint": "50f8056a53db179a3444e3ac9e9ce758964a5898a12af66f5c8a4c9cf2752d9c"
 }

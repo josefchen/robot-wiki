@@ -5,6 +5,7 @@ import {
   statSync,
   writeFileSync,
 } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, DOMAIN_META, publishedModules } from '../data/modules.ts';
 import { IMAGES } from '../data/images.ts';
@@ -26,6 +27,7 @@ import {
   SITE_URL_ORIGIN,
 } from '../lib/og-cards.ts';
 import { SITE_URL } from '../lib/site.ts';
+import { isSyncConflictDuplicate } from '../lib/sync-duplicates.ts';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUTPUT = join(ROOT, 'contract', 'brand-v2-registries.json');
@@ -70,6 +72,36 @@ function filesUnder(directory: string): string[] {
   }
   return files;
 }
+
+function isSyncShadowPath(path: string, root: string): boolean {
+  return relative(root, path)
+    .split('/')
+    .some((name) => isSyncConflictDuplicate(name));
+}
+
+function gitTrackedPublicFiles(): string[] {
+  return execFileSync('git', ['ls-files', '-z', 'public'], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  })
+    .split('\0')
+    .filter(Boolean)
+    .map((path) => join(ROOT, path))
+    .sort();
+}
+
+function isGeneratedAsset(path: string): boolean {
+  const rel = relative(join(ROOT, 'public'), path);
+  return GENERATED_ASSET_PREFIXES.some((prefix) => rel.startsWith(prefix));
+}
+
+function trackedAssetFiles(): string[] {
+  return gitTrackedPublicFiles()
+    .filter((path) => ASSET_EXTENSIONS.has(extname(path).toLowerCase()))
+    .filter((path) => !isGeneratedAsset(path));
+}
+
+const TRACKED_ASSET_FILES = trackedAssetFiles();
 
 function stableRecord<T extends Record<string, unknown>>(record: T): T & {
   fingerprint: string;
@@ -122,9 +154,10 @@ function sitemapInventory(): string[] {
 
 function exportInventory(): string[] | null {
   try {
-    const html = filesUnder(join(ROOT, 'out')).filter((path) =>
-      path.endsWith('.html'),
-    );
+    const outputRoot = join(ROOT, 'out');
+    const html = filesUnder(outputRoot)
+      .filter((path) => !isSyncShadowPath(path, outputRoot))
+      .filter((path) => path.endsWith('.html'));
     return html
       .map((path) => {
         const rel = relative(join(ROOT, 'out'), path);
@@ -467,7 +500,9 @@ function syncShadowException(path: string): null | {
   reason: string;
   byteHash: string;
 } {
-  const rel = relative(join(ROOT, 'public'), path);
+  const publicRoot = join(ROOT, 'public');
+  if (!isSyncShadowPath(path, publicRoot)) return null;
+  const rel = relative(publicRoot, path);
   const match = rel.match(/^(.*) [0-9]+(\.[^.]+)$/);
   if (!match) return null;
   const canonicalPath = `${match[1]}${match[2]}`;
@@ -489,8 +524,7 @@ function syncShadowException(path: string): null | {
 }
 
 function assetExceptions() {
-  return filesUnder(join(ROOT, 'public'))
-    .filter((path) => ASSET_EXTENSIONS.has(extname(path).toLowerCase()))
+  return TRACKED_ASSET_FILES
     .map(syncShadowException)
     .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
     .map(stableRecord)
@@ -498,16 +532,17 @@ function assetExceptions() {
 }
 
 function physicalAssets(): string[] {
-  return filesUnder(join(ROOT, 'public'))
-    .filter((path) => ASSET_EXTENSIONS.has(extname(path).toLowerCase()))
-    .filter((path) => syncShadowException(path) === null)
-    .filter((path) => {
-      const rel = relative(join(ROOT, 'public'), path);
-      return !GENERATED_ASSET_PREFIXES.some((prefix) => rel.startsWith(prefix));
-    })
-    .map((path) => {
-      const rel = relative(join(ROOT, 'public'), path);
-      return `${lstatSync(path).isSymbolicLink() ? 'symlink:' : ''}asset:${rel}`;
+  const publicRoot = join(ROOT, 'public');
+  return TRACKED_ASSET_FILES.flatMap((path) => {
+    if (syncShadowException(path) !== null) return [];
+    try {
+      const rel = relative(publicRoot, path);
+      return [
+        `${lstatSync(path).isSymbolicLink() ? 'symlink:' : ''}asset:${rel}`,
+      ];
+    } catch {
+      return [];
+    }
     })
     .sort();
 }
@@ -682,6 +717,18 @@ function main(): void {
   }
   if (args.has('--check')) {
     const committed = readFileSync(OUTPUT, 'utf8');
+    const committedRegistry = JSON.parse(committed) as {
+      assets: Array<{ id: string }>;
+      assetUses: string[];
+    };
+    const parityFailures = validateExactRegistryParity(
+      physicalAssets(),
+      committedRegistry.assets.map(({ id }) => id),
+      committedRegistry.assetUses,
+    );
+    if (parityFailures.length > 0) {
+      throw new Error(JSON.stringify(parityFailures, null, 2));
+    }
     if (committed !== serialized) {
       throw new Error(
         'brand-v2 registry drift: run npm run generate:brand-v2-registries',

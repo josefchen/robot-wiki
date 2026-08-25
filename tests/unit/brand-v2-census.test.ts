@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, publishedModules } from '@/data/modules';
@@ -10,6 +11,7 @@ import {
   validateNoInventedSymbols,
   type StateCase,
 } from '@/lib/brand-v2-census';
+import { isSyncConflictDuplicate } from '@/lib/sync-duplicates';
 
 type Registry = {
   rootFingerprint: string;
@@ -76,6 +78,7 @@ type Registry = {
 };
 
 const ROOT = process.cwd();
+const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/'];
 const registry = JSON.parse(
   readFileSync(join(ROOT, 'contract', 'brand-v2-registries.json'), 'utf8'),
 ) as Registry;
@@ -285,24 +288,63 @@ describe('brand-v2 canonical census', () => {
   it(
     'accounts for every physical asset through a registry or narrow identical-byte exception',
     () => {
-      const physical = filesUnder(join(ROOT, 'public'))
+      const physicalIds = execFileSync(
+        'git',
+        ['ls-files', '-z', 'public'],
+        { cwd: ROOT, encoding: 'utf8' },
+      )
+        .split('\0')
+        .filter(Boolean)
+        .map((path) => relative('public', path))
         .filter((path) => ASSET_EXTENSIONS.has(extname(path).toLowerCase()))
-        .filter((path) => !relative(join(ROOT, 'public'), path).startsWith('og/'))
-        .map((path) => relative(join(ROOT, 'public'), path));
+        .filter(
+          (path) =>
+            !path.split('/').some((name) => isSyncConflictDuplicate(name)),
+        )
+        .filter(
+          (path) =>
+            !GENERATED_ASSET_PREFIXES.some((prefix) => path.startsWith(prefix)),
+        )
+        .map((path) => `asset:${path}`)
+        .sort();
       const accounted = new Set([
         ...registry.assets.map(({ path }) => path),
         ...registry.assetExceptions.map(({ id }) =>
           id.replace(/^asset-exception:/, ''),
         ),
       ]);
-      expect(accounted).toEqual(new Set(physical));
+      expect(accounted).toEqual(
+        new Set(physicalIds.map((id) => id.replace(/^asset:/, ''))),
+      );
       expect(
         validateExactRegistryParity(
-          registry.assets.map(({ id }) => id),
+          physicalIds,
           registry.assets.map(({ id }) => id),
           registry.assetUses,
         ),
       ).toEqual([]);
+      expect(
+        validateExactRegistryParity(
+          physicalIds.slice(1),
+          registry.assets.map(({ id }) => id),
+          registry.assetUses,
+        ),
+      ).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ reason: 'registered-file-missing' }),
+        ]),
+      );
+      expect(
+        validateExactRegistryParity(
+          [...physicalIds, 'asset:fake-mutation-proof.png'],
+          registry.assets.map(({ id }) => id),
+          registry.assetUses,
+        ),
+      ).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ reason: 'unregistered-physical-asset' }),
+        ]),
+      );
       for (const asset of registry.assets) {
         expect(asset.ownershipId).toBeTruthy();
         expect(asset.byteHash).toMatch(/^[a-f0-9]{64}$/);
