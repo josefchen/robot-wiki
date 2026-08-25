@@ -10,6 +10,11 @@ import {
   type EvidenceResult,
   type EnforcementMap,
 } from '@/lib/brand-v2-enforcement';
+import {
+  BRAND_V2_REFERENCE_RUBRIC,
+  evaluateReferenceFeatures,
+  type ReferenceFeatureMeasurements,
+} from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
 
 const ROOT = process.cwd();
@@ -172,6 +177,111 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         selectorOrRegistryId: 'registry:test',
         exceptionVerdict: 'accepted',
         notApplicableReason: 'free-form excuse',
+      }),
+    ).toThrow();
+  });
+
+  it('requires every independent reference anchor and prohibits comparison scores', () => {
+    const measurements = {
+      surfaceKind: 'home',
+      viewport: { width: 1440, height: 900 },
+      identity: {
+        publicName: 'Robot Wiki',
+        descriptor: 'Citation-first encyclopedia of modern robot learning.',
+        descriptorRequired: true,
+        webDisplayFamily: 'Tektur Variable',
+        ogStaticRoleMatched: true,
+        alternateSymbolCount: 0,
+        v1IdentityCount: 0,
+      },
+      hierarchy: {
+        primarySizePx: 96,
+        supportingSizePx: 60,
+        bodySizePx: 20,
+        primaryLineCount: 1,
+      },
+      gridAndDevices: {
+        registeredCount: 1,
+        unregisteredCount: 0,
+        maximumAlignmentErrorPx: 0,
+        missingPurposeCount: 0,
+        missingOwnerCount: 0,
+        maximumDominantMotifsPerSection: 1,
+        mobileDeviceCount: 0,
+        desktopDeviceCount: 1,
+        obscuringCount: 0,
+        inputInterceptingCount: 0,
+      },
+      lightDarkBalance: {
+        bodyIsLight: true,
+        shellIsLight: true,
+        proseIsLight: true,
+        darkNonActionAreaPx2: 0,
+        firstViewportAreaPx2: 1_296_000,
+        unregisteredDarkSurfaceCount: 0,
+        shellOrProseIntersectionCount: 0,
+      },
+      repetitionAndFrames: {
+        maximumAdjacentRepeatedSignatures: 0,
+        redundantNestedFourSidedFrameCount: 0,
+        maximumFrameDepth: 1,
+        unregisteredDepthTwoCount: 0,
+      },
+      paletteAndType: {
+        auditedColourCount: 7,
+        matchingColourCount: 7,
+        auditedTypeRoleCount: 4,
+        matchingTypeRoleCount: 4,
+        unregisteredRoleCount: 0,
+        fallbackGlyphCount: 0,
+      },
+      materialTreatment: {
+        registeredRepresentativeCount: 1,
+        deterministicCount: 1,
+        contrastPassingCount: 1,
+        provenanceCompleteCount: 0,
+        externalRepresentativeCount: 0,
+        proseTextureIntersectionCount: 0,
+      },
+    } satisfies ReferenceFeatureMeasurements;
+    const report = evaluateReferenceFeatures(measurements);
+    const payload = {
+      kind: 'autonomous-reference-comparison',
+      rubricVersion: 1,
+      comparisonMode: 'feature-anchors-only',
+      contractLiteralOverridesApplied: true,
+      referenceIds: BRAND_V2_REFERENCE_RUBRIC.references,
+      surfaceId: 'B2-EV-001',
+      anchors: report.anchors,
+      passed: report.passed,
+      screenshotPaths: ['/tmp/home.png'],
+    };
+    expect(() =>
+      evidenceResultSchema.parse({
+        resultId: 'result:comparison',
+        assertionId: 'VAL-B2-EVID-015',
+        populationMemberId: 'B2-EV-001',
+        coveredPopulationMemberIds: ['B2-EV-001'],
+        status: 'passed',
+        expected: 'all anchors pass',
+        actual: 'all anchors pass',
+        selectorOrRegistryId: 'B2-EV-001',
+        exceptionVerdict: 'none',
+        payload,
+      }),
+    ).not.toThrow();
+    expect(() =>
+      evidenceResultSchema.parse({
+        resultId: 'result:comparison',
+        assertionId: 'VAL-B2-EVID-015',
+        populationMemberId: 'B2-EV-001',
+        coveredPopulationMemberIds: ['B2-EV-001'],
+        status: 'passed',
+        expected: 'all anchors pass',
+        actual: 'averaged score',
+        selectorOrRegistryId: 'B2-EV-001',
+        exceptionVerdict: 'none',
+        payload: { ...payload, score: 0.99 },
       }),
     ).toThrow();
   });

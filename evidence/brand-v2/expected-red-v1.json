@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "baseline": "pre-brand-v2 runtime at 9b07a41",
+  "baseline": "pre-brand-v2 runtime at c53e451",
+  "baselineTree": "6011fb93a383db1a5b044c79de6dd8ac67eb4680",
   "policy": "Expected visual drift is archived here. Functional, accessibility, route, data, and interaction gates remain active and are not waived.",
   "failures": [
     {
@@ -57,6 +58,34 @@
       "assertionId": "VAL-B2-EVID-010",
       "expected": "all 27 sealed rows reach every required v2 state and capture",
       "actual": "v1 routes lack some v2-only state anchors and visual treatments",
+      "rolloutMilestone": "brand-v2-social-convergence"
+    },
+    {
+      "suite": "brand-v2 reference-feature rubric",
+      "assertionId": "VAL-B2-EVID-015",
+      "expected": "all eight home reference-feature anchors pass independently",
+      "actual": "v1 home fails exact identity, descriptor, Tektur, palette, registered-device, and registered-material predicates",
+      "failedAnchors": [
+        "identity",
+        "grid-alignment",
+        "purposeful-devices",
+        "palette-type",
+        "material-treatment"
+      ],
+      "rolloutMilestone": "brand-v2-social-convergence"
+    },
+    {
+      "suite": "brand-v2 reference-feature rubric",
+      "assertionId": "VAL-B2-EVID-004",
+      "expected": "all eight article reference-feature anchors pass independently without cross-composition pixel scoring",
+      "actual": "v1 article fails exact public identity, Tektur, palette/type-role, registered-device, and registered-material predicates",
+      "failedAnchors": [
+        "identity",
+        "grid-alignment",
+        "purposeful-devices",
+        "palette-type",
+        "material-treatment"
+      ],
       "rolloutMilestone": "brand-v2-social-convergence"
     }
   ]

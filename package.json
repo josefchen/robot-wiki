@@ -28,6 +28,7 @@
     "test:e2e": "playwright test",
     "pretest:brand-v2": "npm run build",
     "test:brand-v2": "playwright test --config playwright.brand-v2.config.ts",
+    "test:brand-v2-reference": "playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-reference-rubric.spec.ts",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts --source-only && node scripts/check-chart-descriptions.ts",
     "lint-no-slop": "node scripts/lint-no-slop.ts",
     "generate:companies": "node scripts/generate-companies.ts",

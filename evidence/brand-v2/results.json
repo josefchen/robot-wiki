@@ -2287,18 +2287,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-001",
-            "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-001"
         ]
@@ -2378,18 +2375,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-002",
-            "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-002"
         ]
@@ -2469,18 +2463,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-003",
-            "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-003"
         ]
@@ -2560,18 +2551,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-004",
-            "expected": "Every primary action has ink/black fill and an accessible light label; signal-blue-filled primary actions are absent.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-004"
         ]
@@ -2651,18 +2639,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-005",
-            "expected": "Persistent selection/highlight uses lime plus a non-colour indicator and exposes state semantically.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-005"
         ]
@@ -2742,18 +2727,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-006",
-            "expected": "Signal blue is used for links, focus, registration, or active information paths and is not substituted for warning state.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-006"
         ]
@@ -2833,18 +2815,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-007",
-            "expected": "Lime is not used as a success semantic and is never the sole carrier of state.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-007"
         ]
@@ -2924,18 +2903,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-008",
-            "expected": "Normal text contrast is at least 4.5:1; large text and essential graphical boundaries are at least 3:1.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-008"
         ]
@@ -3015,18 +2991,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-009",
-            "expected": "Decorative UI gradients are absent. A scientific scale is exempt only when labelled, source-appropriate, bounded to the visualization, and textually described.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-009"
         ]
@@ -3106,18 +3079,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-COL-010",
-            "expected": "Colour-name legends, labels, documentation, and accessible descriptions agree with the actual rendered tokens.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-COL-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-COL-010"
         ]
@@ -4827,18 +4797,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-001",
-            "expected": "Every row in the route/viewport/state matrix produces deterministic evidence after fonts, data, and transitions settle, with ordered `steps[]` and `captures[]` when a row has multiple phases.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-001"
         ]
@@ -4884,18 +4851,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-002",
-            "expected": "Evidence includes the registered full-page capture plus bounded close-ups for identity, action states, article type/figure, map state, playground state, and OG card; each capture is a typed `captures[]` member tied to the step that produced it.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-002"
         ]
@@ -4941,18 +4905,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-003",
-            "expected": "Computed-style evidence records public text, font family, font size/line height, core token values, radii, shadow/filter values, focus treatment, overflow, and relevant ARIA state.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-003"
         ]
@@ -4998,18 +4959,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-004",
-            "expected": "The worker compares captures against both approved references using the checked-in milestone-1 reference-feature rubric in §1.12 and autonomously resolves every failed applicable anchor; contract literals override image text/hex variation and raw cross-composition pixel similarity is prohibited.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-004"
         ]
@@ -5055,18 +5013,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-005",
-            "expected": "Evidence is rejected if fallback fonts are active, async state is incomplete, animation is in flight, the viewport differs, or the state sequence was not followed.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-005"
         ]
@@ -5112,18 +5067,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-006",
-            "expected": "The final evidence index records every matrix ID, route, viewport, state, capture path, automated result, and any approved local exception.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-006"
         ]
@@ -5169,18 +5121,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-007",
-            "expected": "A green automated run without a complete §1.12 rubric result is insufficient; an unstructured visual judgment, averaged score that hides a failed anchor, raw cross-composition pixel score, or comparison without automated truth/accessibility gates is also insufficient.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-007"
         ]
@@ -5226,18 +5175,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-008",
-            "expected": "The public-route suite derives a non-empty population by set equality among module registry, fixed-route registry, app route inventory, sitemap, and export files; it runs browser render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue checks for every route × declared state. The 404 is registered separately and cannot inflate the public-destination count.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-008"
         ]
@@ -5283,18 +5229,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-009",
-            "expected": "The interactive-state suite derives non-empty source exports and rendered production mounts, proves three-way equality with the interactive registry using stable mount IDs/config fingerprints, reconciles DOM controls/actions, then runs the exact bounded cases from §1.15 for every source and materially distinct mount; expected and observed case counts must match and full Cartesian coverage is not required.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-009"
         ]
@@ -5340,18 +5283,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-010",
-            "expected": "The 27-row route/viewport/state matrix remains the mandatory deep screenshot and reference-comparison matrix and supplements, rather than bounds or replaces, registry-derived exhaustive sweeps.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-010"
         ]
@@ -5397,18 +5337,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-011",
-            "expected": "Named automated evidence suites cover deterministic search loading/error, reduced motion, forced colours, literal `320×800` CSS-px reflow, sealed halved-CSS-viewport/DPR-2 200% zoom-equivalent profiles, and injected 200% text-only resizing even when those states are not separate deep-screenshot rows; Playwright is not described as controlling browser-chrome zoom.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-011",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-011"
         ]
@@ -5454,18 +5391,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-012",
-            "expected": "The five-route home/article/search/market-map/playground set may be used only as an iterative smoke set and is never sufficient final release evidence.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-012",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-012"
         ]
@@ -5511,18 +5445,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-013",
-            "expected": "The named suites `brand-v2-route-flows`, `brand-v2-article-interactions`, `brand-v2-market-map-states`, and `brand-v2-playground-states` preserve latest-request-wins, partial errors, URL sync, focus retention, deep-link/history restoration, tooltip parity, table keyboard behavior, and FK/IK/import/error/fallback states through ordered `steps[]`/`captures[]` and exact bounded §1.15 case counts.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-013",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-013"
         ]
@@ -5614,18 +5545,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-EVID-015",
-            "expected": "Autonomous comparison records every §1.12 anchor against both references, including identity/hierarchy ratios, grid alignment, purposeful-device counts, bounded light/dark area, repetition/nested-frame metrics, palette/type parity, and material treatment. All applicable anchors pass independently; “looks right”, averaging, or raw cross-composition pixel similarity fails.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-EVID-015",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-EVID-015"
         ]
@@ -6724,18 +6652,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-001",
-            "expected": "Desktop major composition aligns to 12 columns, tablet to 8, and mobile to 4, with 8px base rhythm and 4px fine alignment.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-001"
         ]
@@ -6760,18 +6685,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-002",
-            "expected": "Home, shell, articles, discovery, market map, playground, and OG/X cards each contain at least one intentional shared grid, rail, or registration treatment.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-002"
         ]
@@ -6796,18 +6718,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-003",
-            "expected": "Grid/device layers never reduce body-text contrast below WCAG AA and never appear between prose glyphs and their background.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-003"
         ]
@@ -6832,18 +6751,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-004",
-            "expected": "Decorative grid/device layers are `aria-hidden`, pointer-inert, and absent from the accessibility tree.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-004"
         ]
@@ -6868,18 +6784,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-005",
-            "expected": "Registration crosses, crop marks, axes, ticks, and sequence labels align within 2px of a real column, boundary, baseline, axis, or state anchor.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-005"
         ]
@@ -6904,18 +6817,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-006",
-            "expected": "No page contains random unanchored technical glyphs, fabricated coordinates, or decorative data labels.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-006"
         ]
@@ -6940,18 +6850,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-007",
-            "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-007"
         ]
@@ -6976,18 +6883,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-008",
-            "expected": "Grid lines and neutral rails use concrete by default; focus/registration uses signal; active measured intervals may use lime.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-008"
         ]
@@ -7012,18 +6916,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-009",
-            "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-009"
         ]
@@ -7048,18 +6949,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-GRID-010",
-            "expected": "Computed rendered casing (`innerText` plus `text-transform`) is audited for every registered label, so CSS case conversion cannot hide identity, notation, or natural-language drift.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-GRID-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-GRID-010"
         ]
@@ -7921,18 +7819,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-001",
-            "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-001"
         ]
@@ -8083,18 +7978,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-002",
-            "expected": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-002"
         ]
@@ -8245,18 +8137,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-003",
-            "expected": "Every technical diagram is truthful to its source or explicitly labelled as an original schematic/render.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-003"
         ]
@@ -8407,18 +8296,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-004",
-            "expected": "Material texture never impersonates evidence, sensor output, or measured data.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-004"
         ]
@@ -8569,18 +8455,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-005",
-            "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-005"
         ]
@@ -8731,18 +8614,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-006",
-            "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-006"
         ]
@@ -8893,18 +8773,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-007",
-            "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-007"
         ]
@@ -9055,18 +8932,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-008",
-            "expected": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-008"
         ]
@@ -9217,18 +9091,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-009",
-            "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-009"
         ]
@@ -9379,18 +9250,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-IMG-010",
-            "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-IMG-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-IMG-010"
         ]
@@ -14166,18 +14034,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-001",
-            "expected": "First-party surface corner radii are only 0, 2, 4, 8, 16, or 24px; a full capsule radius is permitted only for a registered compact toggle, status, or filter whose geometry communicates grouping; circles and meaningful data marks are exempt.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-001"
         ]
@@ -14200,18 +14065,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-002",
-            "expected": "Standard borders are 1px; 2px borders occur only for focus, active, selected, or semantic emphasis.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-002"
         ]
@@ -14234,18 +14096,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-003",
-            "expected": "Dashed borders identify provisional, comparison, drop, or inactive boundaries and never decorate ordinary cards.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-003"
         ]
@@ -14268,18 +14127,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-004",
-            "expected": "Flat surfaces have no shadow. Raised shadows are neutral with blur ≤8px and floating shadows neutral with blur ≤20px; a checked-in surface registry names every variant, stacking purpose, and numeric neutral-colour/alpha tolerance.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-004"
         ]
@@ -14302,18 +14158,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-005",
-            "expected": "No first-party surface uses coloured shadow, glow, backdrop blur, glass, bevel, neumorphism, or chrome treatment.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-005"
         ]
@@ -14336,18 +14189,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-006",
-            "expected": "Every dark product surface other than an action or compact control qualifies as a bounded dark instrument; body, main, shell, ordinary prose, and ordinary content-card backgrounds remain paper/light.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-006"
         ]
@@ -14370,18 +14220,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-007",
-            "expected": "Paper grain, concrete texture, halftone, or dither preserves text contrast, is deterministic, and has documented ownership/license when external.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-007"
         ]
@@ -14404,18 +14251,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-008",
-            "expected": "Fully rounded capsules are limited to controls satisfying the registered compact toggle/status/filter exception; ordinary metadata, categories, actions, and navigation labels do not become pills.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-008"
         ]
@@ -14438,18 +14282,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-009",
-            "expected": "No shared component contains redundant nested borders unless the inner object is a real table, plot, media frame, or control group.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-009"
         ]
@@ -14472,18 +14313,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-010",
-            "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-010"
         ]
@@ -14506,18 +14344,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-SURF-011",
-            "expected": "Named representative surfaces on home, article, discovery, market map, playground, and social artwork satisfy the §1.12 material predicates: declared deterministic treatment, passing text/graphic contrast, texture-free prose glyph grounds, and the §1.13 ownership/legal-basis/provenance record when external.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-SURF-011",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-SURF-011"
         ]
@@ -14540,18 +14375,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-001",
-            "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-001",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-001"
         ]
@@ -14574,18 +14406,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-002",
-            "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-002",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-002"
         ]
@@ -14608,18 +14437,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-003",
-            "expected": "Wordmark, page h1, article h1, and major display headings compute to Tektur Variable after `document.fonts.ready`.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-003",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-003"
         ]
@@ -14642,18 +14468,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-004",
-            "expected": "Long-form prose computes to Newsreader at 18–21px, 1.60–1.80 line height, and 62–68ch maximum measure.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-004",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-004"
         ]
@@ -14676,18 +14499,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-005",
-            "expected": "Interface copy and controls compute to IBM Plex Sans; code, source metadata, technical values, and registration labels compute to IBM Plex Mono where specified.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-005",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-005"
         ]
@@ -14710,18 +14530,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-006",
-            "expected": "Home wordmark renders at 52–68px on 375px and 88–120px on 1440px, line-height 0.88–0.98, with the approved `wght=600` and `wdth=100` role instance unless a checked-in role registry records an owner-approved replacement.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-006",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-006"
         ]
@@ -14744,18 +14561,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-007",
-            "expected": "Article h1 renders at 34–44px on 375px viewport and 48–64px on 1440px viewport with line-height between 1.00 and 1.10.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-007",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-007"
         ]
@@ -14778,18 +14592,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-008",
-            "expected": "No prose paragraph computes to Tektur or IBM Plex Mono.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-008",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-008"
         ]
@@ -14812,18 +14623,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-009",
-            "expected": "Linked article section headings expose a signal-blue underline plus a non-colour link affordance and remain keyboard focusable.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-009",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-009"
         ]
@@ -14846,18 +14654,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-010",
-            "expected": "Registration labels use a single site-wide tracking ratio within 0.01em for equivalent label classes.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-010",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-010"
         ]
@@ -14880,18 +14685,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-011",
-            "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-011",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-011"
         ]
@@ -14914,18 +14716,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-012",
-            "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-012",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-012"
         ]
@@ -14948,18 +14747,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-013",
-            "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-013",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-013"
         ]
@@ -14982,18 +14778,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-014",
-            "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-014",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-014"
         ]
@@ -15016,18 +14809,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-015",
-            "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-015",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-015"
         ]
@@ -15050,18 +14840,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-016",
-            "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-016",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-016"
         ]
@@ -15084,18 +14871,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-017",
-            "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-017",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-017"
         ]
@@ -15118,18 +14902,15 @@
       "status": "pending",
       "payload": {
         "kind": "autonomous-reference-comparison",
+        "rubricVersion": 1,
+        "comparisonMode": "feature-anchors-only",
+        "contractLiteralOverridesApplied": true,
         "referenceIds": [
           "library/brand-reference-board.jpeg",
           "library/brand-reference-article.png"
         ],
-        "anchors": [
-          {
-            "id": "VAL-B2-TYPE-018",
-            "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict.",
-            "actual": "pending",
-            "passed": false
-          }
-        ],
+        "surfaceId": "pending:VAL-B2-TYPE-018",
+        "migrationStatus": "pending",
         "screenshotPaths": [
           "pending://VAL-B2-TYPE-018"
         ]

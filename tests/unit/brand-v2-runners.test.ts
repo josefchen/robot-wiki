@@ -161,6 +161,15 @@ describe('brand-v2 exhaustive runners', () => {
       join(process.cwd(), 'tests', 'e2e', 'brand-v2-deep-rows.spec.ts'),
       'utf8',
     );
+    const referenceRubricSource = readFileSync(
+      join(
+        process.cwd(),
+        'tests',
+        'e2e',
+        'brand-v2-reference-rubric.spec.ts',
+      ),
+      'utf8',
+    );
     const keys = expectedRed.failures.map(
       ({ suite, assertionId }) => `${suite}:${assertionId}`,
     );
@@ -170,6 +179,8 @@ describe('brand-v2 exhaustive runners', () => {
       const source =
         failure.suite === 'brand-v2 OG authority'
           ? ogSource
+          : failure.suite === 'brand-v2 reference-feature rubric'
+            ? referenceRubricSource
           : failure.suite === 'brand-v2-reflow-320-200'
             ? reflowSource
             : failure.suite === 'brand-v2 27-row deep executor'

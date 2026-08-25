@@ -1,4 +1,8 @@
 import { z } from 'zod';
+import {
+  BRAND_V2_REFERENCE_RUBRIC,
+  referenceAnchorResultSchema,
+} from './brand-v2-reference-rubric.ts';
 
 const assertionIdSchema = z.string().regex(/^VAL-B2-[A-Z0-9-]+$/);
 const nonEmptyString = z.string().trim().min(1);
@@ -87,27 +91,66 @@ const generatedImagePayloadSchema = z
   })
   .strict();
 
-const comparisonPayloadSchema = z
+const completeComparisonPayloadSchema = z
   .object({
     kind: z.literal('autonomous-reference-comparison'),
-    referenceIds: z.array(nonEmptyString).min(2),
-    anchors: z
-      .array(
-        z
-          .object({
-            id: nonEmptyString,
-            expected: jsonValueSchema,
-            actual: jsonValueSchema,
-            passed: z.boolean(),
-          })
-          .strict(),
-      )
-      .min(1),
+    rubricVersion: z.literal(1),
+    comparisonMode: z.literal('feature-anchors-only'),
+    contractLiteralOverridesApplied: z.literal(true),
+    referenceIds: z.tuple([
+      z.literal('library/brand-reference-board.jpeg'),
+      z.literal('library/brand-reference-article.png'),
+    ]),
+    surfaceId: nonEmptyString,
+    anchors: z.array(referenceAnchorResultSchema).length(8),
+    passed: z.boolean(),
+    screenshotPaths: z.array(nonEmptyString).min(1),
+    steps: z.array(orderedStepSchema).min(1).optional(),
+    captures: z.array(orderedCaptureSchema).min(1).optional(),
+  })
+  .strict()
+  .superRefine((payload, context) => {
+    const expectedIds = BRAND_V2_REFERENCE_RUBRIC.anchors.map(({ id }) => id);
+    const actualIds = payload.anchors.map(({ id }) => id);
+    if (
+      new Set(actualIds).size !== expectedIds.length ||
+      expectedIds.some((id) => !actualIds.includes(id))
+    ) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Comparison payload must contain all rubric anchors once.',
+      });
+    }
+    if (payload.passed !== payload.anchors.every(({ passed }) => passed)) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Comparison pass cannot average or hide a failed anchor.',
+      });
+    }
+  });
+
+const pendingComparisonPayloadSchema = z
+  .object({
+    kind: z.literal('autonomous-reference-comparison'),
+    rubricVersion: z.literal(1),
+    comparisonMode: z.literal('feature-anchors-only'),
+    contractLiteralOverridesApplied: z.literal(true),
+    referenceIds: z.tuple([
+      z.literal('library/brand-reference-board.jpeg'),
+      z.literal('library/brand-reference-article.png'),
+    ]),
+    surfaceId: nonEmptyString,
+    migrationStatus: z.literal('pending'),
     screenshotPaths: z.array(nonEmptyString).min(1),
     steps: z.array(orderedStepSchema).min(1).optional(),
     captures: z.array(orderedCaptureSchema).min(1).optional(),
   })
   .strict();
+
+const comparisonPayloadSchema = z.union([
+  completeComparisonPayloadSchema,
+  pendingComparisonPayloadSchema,
+]);
 
 export const evidencePayloadSchema = z.union([
   sourceBuildPayloadSchema,
@@ -182,7 +225,20 @@ export const evidenceResultSchema = z.discriminatedUnion('status', [
       notApplicableReason: notApplicableReasonSchema,
     })
     .strict(),
-]);
+]).superRefine((result, context) => {
+  if (
+    result.status !== 'not-applicable' &&
+    result.payload.kind === 'autonomous-reference-comparison' &&
+    'migrationStatus' in result.payload &&
+    result.status !== 'pending'
+  ) {
+    context.addIssue({
+      code: 'custom',
+      message:
+        'A pending comparison payload is valid only for a pending migration result.',
+    });
+  }
+});
 
 const testTargetSchema = z
   .object({

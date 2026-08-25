@@ -118,18 +118,15 @@ function resultFor(
       ...common,
       payload: {
         kind: 'autonomous-reference-comparison',
+        rubricVersion: 1,
+        comparisonMode: 'feature-anchors-only',
+        contractLiteralOverridesApplied: true,
         referenceIds: [
           'library/brand-reference-board.jpeg',
           'library/brand-reference-article.png',
         ],
-        anchors: [
-          {
-            id: assertionId,
-            expected: requirement,
-            actual: 'pending',
-            passed: false,
-          },
-        ],
+        surfaceId: `pending:${assertionId}`,
+        migrationStatus: 'pending',
         screenshotPaths: [`pending://${assertionId}`],
       },
     };

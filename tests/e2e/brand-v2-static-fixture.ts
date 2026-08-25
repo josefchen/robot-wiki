@@ -19,6 +19,7 @@ type ExpectedRedArchive = {
     assertionId: string;
     expected: string;
     actual: string;
+    failedAnchors?: string[];
     rolloutMilestone: string;
   }>;
 };
@@ -44,6 +45,22 @@ export function archivedExpectedRed(
     );
   }
   return `Expected-red v1 drift until ${entry.rolloutMilestone}: ${entry.actual} → ${entry.expected}`;
+}
+
+export function archivedExpectedRedAnchors(
+  suite: string,
+  assertionId: string,
+): string[] {
+  const entry = expectedRedArchive.failures.find(
+    (failure) =>
+      failure.suite === suite && failure.assertionId === assertionId,
+  );
+  if (!entry?.failedAnchors?.length) {
+    throw new Error(
+      `Missing expected-red anchor list for ${suite} ${assertionId}.`,
+    );
+  }
+  return entry.failedAnchors;
 }
 
 type WorkerFixtures = {

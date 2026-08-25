@@ -1,0 +1,178 @@
+import { describe, expect, it } from 'vitest';
+import {
+  BRAND_V2_REFERENCE_RUBRIC,
+  evaluateReferenceFeatures,
+  parseReferenceComparisonPayload,
+  type ReferenceFeatureMeasurements,
+} from '@/lib/brand-v2-reference-rubric';
+
+function passingMeasurements(): ReferenceFeatureMeasurements {
+  return {
+    surfaceKind: 'home',
+    viewport: { width: 1440, height: 900 },
+    identity: {
+      publicName: 'Robot Wiki',
+      descriptor: 'Citation-first encyclopedia of modern robot learning.',
+      descriptorRequired: true,
+      webDisplayFamily: 'Tektur Variable',
+      ogStaticRoleMatched: true,
+      alternateSymbolCount: 0,
+      v1IdentityCount: 0,
+    },
+    hierarchy: {
+      primarySizePx: 96,
+      supportingSizePx: 60,
+      bodySizePx: 20,
+      primaryLineCount: 2,
+    },
+    gridAndDevices: {
+      registeredCount: 2,
+      unregisteredCount: 0,
+      maximumAlignmentErrorPx: 2,
+      missingPurposeCount: 0,
+      missingOwnerCount: 0,
+      maximumDominantMotifsPerSection: 1,
+      mobileDeviceCount: 0,
+      desktopDeviceCount: 2,
+      obscuringCount: 0,
+      inputInterceptingCount: 0,
+    },
+    lightDarkBalance: {
+      bodyIsLight: true,
+      shellIsLight: true,
+      proseIsLight: true,
+      darkNonActionAreaPx2: 300_000,
+      firstViewportAreaPx2: 1_296_000,
+      unregisteredDarkSurfaceCount: 0,
+      shellOrProseIntersectionCount: 0,
+    },
+    repetitionAndFrames: {
+      maximumAdjacentRepeatedSignatures: 3,
+      redundantNestedFourSidedFrameCount: 0,
+      maximumFrameDepth: 2,
+      unregisteredDepthTwoCount: 0,
+    },
+    paletteAndType: {
+      auditedColourCount: 7,
+      matchingColourCount: 7,
+      auditedTypeRoleCount: 4,
+      matchingTypeRoleCount: 4,
+      unregisteredRoleCount: 0,
+      fallbackGlyphCount: 0,
+    },
+    materialTreatment: {
+      registeredRepresentativeCount: 1,
+      deterministicCount: 1,
+      contrastPassingCount: 1,
+      provenanceCompleteCount: 1,
+      externalRepresentativeCount: 1,
+      proseTextureIntersectionCount: 0,
+    },
+  };
+}
+
+describe('brand-v2 reference-feature rubric', () => {
+  it('checks in the sealed literals and rejects cross-composition pixel scoring', () => {
+    expect(BRAND_V2_REFERENCE_RUBRIC.version).toBe(1);
+    expect(BRAND_V2_REFERENCE_RUBRIC.contractLiterals).toMatchObject({
+      publicIdentity: 'Robot Wiki',
+      descriptor: 'Citation-first encyclopedia of modern robot learning.',
+      highlight: '#C6FF19',
+      signal: '#245FFF',
+    });
+    expect(BRAND_V2_REFERENCE_RUBRIC.comparisonPolicy).toEqual({
+      crossComposition: 'feature-anchors-only',
+      deterministicSameInput: 'pixel-or-byte-equality-allowed',
+      averaging: 'prohibited',
+    });
+  });
+
+  it('passes only when every applicable anchor passes independently', () => {
+    const report = evaluateReferenceFeatures(passingMeasurements());
+    expect(report.passed).toBe(true);
+    expect(report.anchors).toHaveLength(8);
+    expect(report.anchors.every(({ passed }) => passed)).toBe(true);
+
+    const failing = passingMeasurements();
+    failing.hierarchy.primarySizePx = 89;
+    const failedReport = evaluateReferenceFeatures(failing);
+    expect(failedReport.passed).toBe(false);
+    expect(
+      failedReport.anchors.find(({ id }) => id === 'hierarchy'),
+    ).toMatchObject({ passed: false });
+    expect(
+      failedReport.anchors.filter(({ passed }) => !passed),
+    ).toHaveLength(1);
+  });
+
+  it('applies the surface-specific dark-area threshold without averaging it away', () => {
+    const home = passingMeasurements();
+    home.lightDarkBalance.darkNonActionAreaPx2 =
+      home.lightDarkBalance.firstViewportAreaPx2 * 0.41;
+    expect(
+      evaluateReferenceFeatures(home).anchors.find(
+        ({ id }) => id === 'light-dark-balance',
+      )?.passed,
+    ).toBe(false);
+
+    const playground = passingMeasurements();
+    playground.surfaceKind = 'playground';
+    playground.lightDarkBalance.darkNonActionAreaPx2 =
+      playground.lightDarkBalance.firstViewportAreaPx2 * 0.74;
+    expect(
+      evaluateReferenceFeatures(playground).anchors.find(
+        ({ id }) => id === 'light-dark-balance',
+      )?.passed,
+    ).toBe(true);
+  });
+
+  it('requires registry-backed qualitative predicates', () => {
+    const measurements = passingMeasurements();
+    measurements.gridAndDevices.missingPurposeCount = 1;
+    measurements.materialTreatment.provenanceCompleteCount = 0;
+    const report = evaluateReferenceFeatures(measurements);
+    expect(
+      report.anchors.find(({ id }) => id === 'purposeful-devices')?.passed,
+    ).toBe(false);
+    expect(
+      report.anchors.find(({ id }) => id === 'material-treatment')?.passed,
+    ).toBe(false);
+  });
+
+  it('rejects averaged, incomplete, or raw-pixel autonomous comparison payloads', () => {
+    const report = evaluateReferenceFeatures(passingMeasurements());
+    const payload = {
+      kind: 'autonomous-reference-comparison',
+      rubricVersion: 1,
+      comparisonMode: 'feature-anchors-only',
+      contractLiteralOverridesApplied: true,
+      referenceIds: [
+        'library/brand-reference-board.jpeg',
+        'library/brand-reference-article.png',
+      ],
+      surfaceId: 'B2-EV-001',
+      screenshotPaths: ['/tmp/home.png'],
+      anchors: report.anchors,
+      passed: true,
+    };
+    expect(parseReferenceComparisonPayload(payload)).toEqual(payload);
+    expect(() =>
+      parseReferenceComparisonPayload({
+        ...payload,
+        comparisonMode: 'raw-pixel-similarity',
+      }),
+    ).toThrow();
+    expect(() =>
+      parseReferenceComparisonPayload({
+        ...payload,
+        score: 0.97,
+      }),
+    ).toThrow();
+    expect(() =>
+      parseReferenceComparisonPayload({
+        ...payload,
+        anchors: payload.anchors.slice(1),
+      }),
+    ).toThrow();
+  });
+});
