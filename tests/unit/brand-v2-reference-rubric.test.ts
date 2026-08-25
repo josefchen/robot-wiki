@@ -3,6 +3,7 @@ import {
   BRAND_V2_REFERENCE_RUBRIC,
   evaluateReferenceFeatures,
   parseReferenceComparisonPayload,
+  reconcileResponsiveDeviceCounts,
   type ReferenceFeatureMeasurements,
 } from '@/lib/brand-v2-reference-rubric';
 
@@ -47,6 +48,7 @@ function passingMeasurements(): ReferenceFeatureMeasurements {
       shellOrProseIntersectionCount: 0,
     },
     repetitionAndFrames: {
+      registeredPopulationCount: 2,
       maximumAdjacentRepeatedSignatures: 3,
       redundantNestedFourSidedFrameCount: 0,
       maximumFrameDepth: 2,
@@ -138,6 +140,46 @@ describe('brand-v2 reference-feature rubric', () => {
     expect(
       report.anchors.find(({ id }) => id === 'material-treatment')?.passed,
     ).toBe(false);
+  });
+
+  it('fails repetition and frames when its annotated population is empty', () => {
+    const measurements = passingMeasurements();
+    measurements.repetitionAndFrames.registeredPopulationCount = 0;
+    const anchor = evaluateReferenceFeatures(measurements).anchors.find(
+      ({ id }) => id === 'repetition-frames',
+    );
+    expect(anchor?.passed).toBe(false);
+    expect(
+      anchor?.predicates.find(({ id }) => id === 'registered-population'),
+    ).toMatchObject({ expected: '>0', actual: 0, passed: false });
+  });
+
+  it('reconciles responsive device counts from two live viewport measurements', () => {
+    const desktop = passingMeasurements();
+    desktop.viewport.width = 1440;
+    desktop.gridAndDevices.registeredCount = 2;
+    desktop.gridAndDevices.mobileDeviceCount = 2;
+    desktop.gridAndDevices.desktopDeviceCount = 2;
+
+    const mobile = passingMeasurements();
+    mobile.viewport.width = 375;
+    mobile.gridAndDevices.registeredCount = 3;
+    mobile.gridAndDevices.mobileDeviceCount = 3;
+    mobile.gridAndDevices.desktopDeviceCount = 3;
+
+    const reconciled = reconcileResponsiveDeviceCounts(desktop, mobile);
+    expect(reconciled.gridAndDevices).toMatchObject({
+      mobileDeviceCount: 3,
+      desktopDeviceCount: 2,
+    });
+    expect(
+      evaluateReferenceFeatures(reconciled).anchors
+        .find(({ id }) => id === 'purposeful-devices')
+        ?.predicates.find(({ id }) => id === 'mobile-device-count'),
+    ).toMatchObject({
+      actual: { mobile: 3, desktop: 2 },
+      passed: false,
+    });
   });
 
   it('requires every audited type-role element to match its registered family', () => {

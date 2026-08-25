@@ -4,6 +4,7 @@ import {
   collectBrowserReferenceFeatures,
   evaluateReferenceFeatures,
   parseReferenceComparisonPayload,
+  reconcileResponsiveDeviceCounts,
   type BrowserReferenceFeatureConfig,
 } from '../../lib/brand-v2-reference-rubric';
 import {
@@ -47,7 +48,9 @@ async function compareSurface(
   route: string,
   config: BrowserReferenceFeatureConfig,
 ) {
-  await page.setViewportSize({ width: 1440, height: 900 });
+  const desktopViewport = { width: 1440, height: 900 };
+  const mobileViewport = { width: 375, height: 812 };
+  await page.setViewportSize(desktopViewport);
   await page.goto(`${staticBase}${route}`);
   await page.evaluate(() => document.fonts.ready);
   const screenshotPath = testInfo.outputPath(`${surfaceId}.png`);
@@ -56,9 +59,18 @@ async function compareSurface(
     fullPage: false,
     animations: 'disabled',
   });
-  const measurements = await page.evaluate(
+  const desktopMeasurements = await page.evaluate(
     collectBrowserReferenceFeatures,
     config,
+  );
+  await page.setViewportSize(mobileViewport);
+  const mobileMeasurements = await page.evaluate(
+    collectBrowserReferenceFeatures,
+    config,
+  );
+  const measurements = reconcileResponsiveDeviceCounts(
+    desktopMeasurements,
+    mobileMeasurements,
   );
   const report = evaluateReferenceFeatures(measurements);
   const payload = parseReferenceComparisonPayload({
@@ -234,5 +246,148 @@ test.describe('brand-v2 reference-feature rubric', () => {
         .find(({ id }) => id === 'material-treatment')
         ?.predicates.find(({ id }) => id === 'prose-element-resolved'),
     ).toMatchObject({ actual: false, passed: false });
+  });
+
+  test('fails repetition and frames on an unannotated surface', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/`);
+    const measurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(measurements.repetitionAndFrames.registeredPopulationCount).toBe(0);
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'repetition-frames')
+        ?.predicates.find(({ id }) => id === 'registered-population'),
+    ).toMatchObject({ actual: 0, passed: false });
+  });
+
+  test('detects an unannotated decorative dot grid structurally', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/`);
+    const before = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    await page.evaluate(() => {
+      const grid = document.createElement('div');
+      grid.setAttribute('aria-hidden', 'true');
+      Object.assign(grid.style, {
+        position: 'absolute',
+        inset: '0',
+        pointerEvents: 'none',
+        backgroundImage:
+          'radial-gradient(circle, rgb(0, 0, 0) 1px, transparent 1px)',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '8px 8px',
+      });
+      document.querySelector('main')?.append(grid);
+    });
+    const after = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(after.gridAndDevices.unregisteredCount).toBeGreaterThan(
+      before.gridAndDevices.unregisteredCount,
+    );
+    expect(
+      evaluateReferenceFeatures(after).anchors
+        .find(({ id }) => id === 'grid-alignment')
+        ?.predicates.find(({ id }) => id === 'unregistered-device-count'),
+    ).toMatchObject({ passed: false });
+  });
+
+  test('compares live mobile and desktop device populations', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`${staticBase}/`);
+    await page.evaluate(() => {
+      const style = document.createElement('style');
+      style.textContent =
+        '@media (min-width: 768px) { #planted-mobile-device { display: none } }';
+      document.head.append(style);
+      const device = document.createElement('div');
+      device.id = 'planted-mobile-device';
+      device.dataset.brandDeviceId = 'device:planted-mobile-only';
+      device.dataset.brandPurpose = 'responsive-mutation';
+      device.dataset.brandOwner = 'test';
+      device.dataset.brandAnchorSelector = 'main';
+      device.style.pointerEvents = 'none';
+      device.style.width = '1px';
+      device.style.height = '1px';
+      document.querySelector('main')?.append(device);
+    });
+    const desktop = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    await page.setViewportSize({ width: 375, height: 812 });
+    const mobile = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    const measurements = reconcileResponsiveDeviceCounts(desktop, mobile);
+    expect(measurements.gridAndDevices.mobileDeviceCount).toBeGreaterThan(
+      measurements.gridAndDevices.desktopDeviceCount,
+    );
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'purposeful-devices')
+        ?.predicates.find(({ id }) => id === 'mobile-device-count'),
+    ).toMatchObject({ passed: false });
+  });
+
+  test('scopes adjacent repeated signatures to sibling groups', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/`);
+    await page.evaluate(() => {
+      const main = document.querySelector('main');
+      for (let index = 0; index < 3; index += 1) {
+        const parent = document.createElement('div');
+        const repeatedSection = document.createElement('section');
+        repeatedSection.dataset.brandModuleSignature = 'same';
+        parent.append(repeatedSection);
+        main?.append(parent);
+      }
+    });
+    const separateParents = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(
+      separateParents.repetitionAndFrames.maximumAdjacentRepeatedSignatures,
+    ).toBe(1);
+
+    await page.goto(`${staticBase}/`);
+    await page.evaluate(() => {
+      const parent = document.createElement('div');
+      for (let index = 0; index < 4; index += 1) {
+        const repeatedSection = document.createElement('section');
+        repeatedSection.dataset.brandModuleSignature = 'same';
+        parent.append(repeatedSection);
+      }
+      document.querySelector('main')?.append(parent);
+    });
+    const siblings = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(
+      siblings.repetitionAndFrames.maximumAdjacentRepeatedSignatures,
+    ).toBe(4);
+    expect(
+      evaluateReferenceFeatures(siblings).anchors.find(
+        ({ id }) => id === 'repetition-frames',
+      )?.passed,
+    ).toBe(false);
   });
 });

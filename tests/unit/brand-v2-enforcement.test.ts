@@ -346,6 +346,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         shellOrProseIntersectionCount: 0,
       },
       repetitionAndFrames: {
+        registeredPopulationCount: 1,
         maximumAdjacentRepeatedSignatures: 0,
         redundantNestedFourSidedFrameCount: 0,
         maximumFrameDepth: 1,

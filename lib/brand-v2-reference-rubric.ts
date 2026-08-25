@@ -147,6 +147,7 @@ export type ReferenceFeatureMeasurements = {
     shellOrProseIntersectionCount: number;
   };
   repetitionAndFrames: {
+    registeredPopulationCount: number;
     maximumAdjacentRepeatedSignatures: number;
     redundantNestedFourSidedFrameCount: number;
     maximumFrameDepth: number;
@@ -308,7 +309,17 @@ export function collectBrowserReferenceFeatures(
       ? Math.max(1, Math.round(primaryRect.height / primaryLineHeight))
       : 0;
 
-  const devices = all('[data-brand-device-id]');
+  const isRendered = (element: Element) => {
+    const computed = style(element);
+    const rect = element.getBoundingClientRect();
+    return (
+      computed?.display !== 'none' &&
+      computed?.visibility !== 'hidden' &&
+      rect.width > 0 &&
+      rect.height > 0
+    );
+  };
+  const devices = all('[data-brand-device-id]').filter(isRendered);
   const alignmentErrors = devices.map((device) => {
     const anchorSelector = device.dataset.brandAnchorSelector;
     const anchor = anchorSelector
@@ -336,8 +347,37 @@ export function collectBrowserReferenceFeatures(
                 : rect.left;
     return Math.abs(edge(deviceRect, deviceEdge) - edge(anchorRect, anchorEdge));
   });
-  const unregisteredDevices = all(
-    '[data-registration-device]:not([data-brand-device-id])',
+  const deviceCandidates = all('body *').filter((element) => {
+    if (!isRendered(element)) return false;
+    if (element.hasAttribute('data-registration-device')) return true;
+    const computed = style(element);
+    const rect = element.getBoundingClientRect();
+    const backgroundImage = computed?.backgroundImage ?? 'none';
+    const repeatedGrid =
+      backgroundImage !== 'none' &&
+      /(radial-gradient|repeating-(?:linear|radial)-gradient|data:image\/svg\+xml)/i.test(
+        backgroundImage,
+      ) &&
+      computed?.backgroundRepeat !== 'no-repeat';
+    const borderWidths = [
+      numberPx(computed?.borderTopWidth),
+      numberPx(computed?.borderRightWidth),
+      numberPx(computed?.borderBottomWidth),
+      numberPx(computed?.borderLeftWidth),
+    ];
+    const singleRule = borderWidths.filter((width) => width > 0).length === 1;
+    const thinRail =
+      singleRule &&
+      (rect.width <= 4 || rect.height <= 4) &&
+      Math.max(rect.width, rect.height) >= 24;
+    return (
+      element.getAttribute('aria-hidden') === 'true' &&
+      computed?.pointerEvents === 'none' &&
+      (repeatedGrid || thinRail)
+    );
+  });
+  const unregisteredDevices = deviceCandidates.filter(
+    (element) => !element.dataset.brandDeviceId,
   );
   const sections = all('main section');
   const motifCounts = sections.map(
@@ -385,13 +425,30 @@ export function collectBrowserReferenceFeatures(
   const repeatedModules = config.repeatedModuleSelector
     ? all(config.repeatedModuleSelector)
     : [];
+  const repetitionPopulation = all(
+    [
+      '[data-brand-module-signature]',
+      '[data-brand-redundant-four-sided-frame]',
+      '[data-brand-frame-depth]',
+      '[data-brand-frame-interior-registered]',
+    ].join(', '),
+  );
   let maximumAdjacentRepeatedSignatures = 0;
   let run = 0;
   let previousSignature = '';
+  let previousParent: Element | null = null;
   for (const repeatedModule of repeatedModules) {
     const signature = repeatedModule.dataset.brandModuleSignature ?? '';
-    run = signature && signature === previousSignature ? run + 1 : 1;
+    run =
+      signature &&
+      signature === previousSignature &&
+      repeatedModule.parentElement === previousParent
+        ? run + 1
+        : signature
+          ? 1
+          : 0;
     previousSignature = signature;
+    previousParent = repeatedModule.parentElement;
     maximumAdjacentRepeatedSignatures = Math.max(
       maximumAdjacentRepeatedSignatures,
       run,
@@ -469,11 +526,8 @@ export function collectBrowserReferenceFeatures(
         .length,
       maximumDominantMotifsPerSection:
         motifCounts.length > 0 ? Math.max(...motifCounts) : 0,
-      mobileDeviceCount: viewport.width < 768 ? currentDeviceCount : 0,
-      desktopDeviceCount:
-        viewport.width >= 768
-          ? currentDeviceCount
-          : Number(root.dataset.brandDesktopDeviceCount ?? 0),
+      mobileDeviceCount: viewport.width < 768 ? currentDeviceCount : -1,
+      desktopDeviceCount: viewport.width >= 768 ? currentDeviceCount : -1,
       obscuringCount: devices.filter(
         (device) => device.dataset.brandObscuresContent === 'true',
       ).length,
@@ -497,6 +551,7 @@ export function collectBrowserReferenceFeatures(
       ).length,
     },
     repetitionAndFrames: {
+      registeredPopulationCount: repetitionPopulation.length,
       maximumAdjacentRepeatedSignatures,
       redundantNestedFourSidedFrameCount: all(
         '[data-brand-redundant-four-sided-frame="true"]',
@@ -542,6 +597,29 @@ export function collectBrowserReferenceFeatures(
               prose.contains(material) || material.contains(prose),
           ).length
         : 0,
+    },
+  };
+}
+
+export function reconcileResponsiveDeviceCounts(
+  desktop: ReferenceFeatureMeasurements,
+  mobile: ReferenceFeatureMeasurements,
+): ReferenceFeatureMeasurements {
+  if (
+    desktop.surfaceKind !== mobile.surfaceKind ||
+    desktop.viewport.width < 768 ||
+    mobile.viewport.width >= 768
+  ) {
+    throw new Error(
+      'Responsive device reconciliation requires the same surface measured once below and once at or above 768px.',
+    );
+  }
+  return {
+    ...desktop,
+    gridAndDevices: {
+      ...desktop.gridAndDevices,
+      mobileDeviceCount: mobile.gridAndDevices.registeredCount,
+      desktopDeviceCount: desktop.gridAndDevices.registeredCount,
     },
   };
 }
@@ -772,8 +850,10 @@ export function evaluateReferenceFeatures(
           mobile: measurements.gridAndDevices.mobileDeviceCount,
           desktop: measurements.gridAndDevices.desktopDeviceCount,
         },
-        measurements.gridAndDevices.mobileDeviceCount <=
-          measurements.gridAndDevices.desktopDeviceCount,
+        measurements.gridAndDevices.mobileDeviceCount >= 0 &&
+          measurements.gridAndDevices.desktopDeviceCount >= 0 &&
+          measurements.gridAndDevices.mobileDeviceCount <=
+            measurements.gridAndDevices.desktopDeviceCount,
       ),
       predicate(
         'obscuring-count',
@@ -821,6 +901,12 @@ export function evaluateReferenceFeatures(
       ),
     ]),
     anchor('repetition-frames', [
+      predicate(
+        'registered-population',
+        '>0',
+        measurements.repetitionAndFrames.registeredPopulationCount,
+        measurements.repetitionAndFrames.registeredPopulationCount > 0,
+      ),
       predicate(
         'adjacent-repeated-signatures',
         '<=3',
