@@ -11,6 +11,7 @@ export const BASELINE_KINDS = [
   'interactive-sources-mounts',
   'behavioral-defaults',
   'value-states',
+  'article-metadata',
 ] as const;
 
 export type BaselineKind = (typeof BASELINE_KINDS)[number];
@@ -90,7 +91,8 @@ export interface BaselineFailure {
     | 'changed-member'
     | 'invalid-approved-delta'
     | 'collapsed-value-states'
-    | 'invalid-value-state-rendering';
+    | 'invalid-value-state-rendering'
+    | 'empty-value-state-population';
 }
 
 export interface DeltaValidationFailure {
@@ -259,10 +261,10 @@ export function compareBaseline(
   const approvedDifferences: string[] = [];
   for (const kind of BASELINE_KINDS) {
     const before = new Map(
-      baseline.manifests[kind].members.map((member) => [member.id, member]),
+      baseline.manifests[kind]?.members.map((member) => [member.id, member]) ?? [],
     );
     const after = new Map(
-      current.manifests[kind].members.map((member) => [member.id, member]),
+      current.manifests[kind]?.members.map((member) => [member.id, member]) ?? [],
     );
     const ids = new Set([...before.keys(), ...after.keys()]);
     for (const id of [...ids].sort()) {
@@ -278,9 +280,13 @@ export function compareBaseline(
       }
       failures.push({
         assertionId:
-          oldMember &&
-          newMember &&
-          (kind === 'prose' || kind === 'accessible-names')
+          kind === 'value-states'
+            ? 'VAL-B2-BASE-013'
+            : oldMember &&
+                newMember &&
+                (kind === 'prose' ||
+                  kind === 'accessible-names' ||
+                  kind === 'article-metadata')
             ? 'VAL-B2-BASE-012'
             : 'VAL-B2-BASE-011',
         manifest: kind,
@@ -303,6 +309,56 @@ export function compareBaseline(
   };
 }
 
+export function assertAdditiveBaseline(
+  previous: BaselineBundle,
+  recreated: BaselineBundle,
+): {
+  addedKinds: BaselineKind[];
+  addedMembers: number;
+} {
+  const addedKinds: BaselineKind[] = [];
+  let addedMembers = 0;
+
+  for (const kind of Object.keys(previous.manifests) as BaselineKind[]) {
+    if (!BASELINE_KINDS.includes(kind)) {
+      throw new Error(`Additive recreation removed baseline kind ${kind}`);
+    }
+  }
+
+  for (const kind of BASELINE_KINDS) {
+    const before = previous.manifests[kind];
+    const after = recreated.manifests[kind];
+    if (!after) {
+      throw new Error(`Additive recreation removed baseline kind ${kind}`);
+    }
+    if (!before) {
+      addedKinds.push(kind);
+      addedMembers += after.members.length;
+      continue;
+    }
+
+    const afterById = new Map(
+      after.members.map((member) => [member.id, member]),
+    );
+    for (const member of before.members) {
+      const recreatedMember = afterById.get(member.id);
+      if (!recreatedMember) {
+        throw new Error(
+          `Additive recreation removed pre-existing member ${kind}:${member.id}`,
+        );
+      }
+      if (recreatedMember.hash !== member.hash) {
+        throw new Error(
+          `Additive recreation changed pre-existing member ${kind}:${member.id}`,
+        );
+      }
+    }
+    addedMembers += after.members.length - before.members.length;
+  }
+
+  return { addedKinds, addedMembers };
+}
+
 export function validateValueStateSeparation(
   records: readonly ValueStateRecord[],
 ): BaselineFailure[] {
@@ -322,6 +378,17 @@ export function validateValueStateSeparation(
         expected: expected[record.state],
         actual: record.rendered,
         reason: 'invalid-value-state-rendering',
+      });
+    }
+  }
+  for (const state of ['not-disclosed', 'not-applicable'] as const) {
+    const population = records.filter((record) => record.state === state);
+    if (population.length === 0) {
+      failures.push({
+        assertionId: 'VAL-B2-BASE-013',
+        expected: `non-empty ${state} population`,
+        actual: 0,
+        reason: 'empty-value-state-population',
       });
     }
   }
