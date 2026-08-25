@@ -10,6 +10,7 @@ import {
   type EnforcementMap,
 } from '../lib/brand-v2-enforcement.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
@@ -80,6 +81,152 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
     return 'autonomous-visual';
   }
   return 'browser-state';
+}
+
+type TestTarget = Extract<
+  EnforcementMap['rows'][number]['enforcementTargets'][number],
+  { kind: 'test' }
+>;
+
+function testTarget(
+  file: string,
+  title: string,
+  mechanism: string,
+): TestTarget {
+  return { kind: 'test', file, title, mechanism };
+}
+
+const CENSUS_ROUTE_TARGET = testTarget(
+  'tests/unit/brand-v2-census.test.ts',
+  'brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public',
+  'Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome.',
+);
+const ROUTE_FLOW_TARGET = testTarget(
+  'tests/e2e/brand-v2-route-flows.spec.ts',
+  'brand-v2-route-flows › derives and renders every public destination while keeping 404 separate',
+  'Visits every registry-derived public destination and checks rendering, overflow, and Axe; the row’s brand-v2 visual predicate remains pending.',
+);
+const CENSUS_INTERACTIVE_TARGET = testTarget(
+  'tests/unit/brand-v2-census.test.ts',
+  'brand-v2 canonical census > derives every interactive source and production mount from repository source',
+  'Derives the current interactive source and production-mount populations from repository source and reconciles their registered cases.',
+);
+const INTERACTIVE_STATE_TARGET = testTarget(
+  'tests/e2e/brand-v2-interactive-states.spec.ts',
+  'brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases',
+  'Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending.',
+);
+const BASELINE_TARGET = testTarget(
+  'tests/unit/brand-v2-baseline.test.ts',
+  'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
+  'Mutates each immutable baseline manifest class and proves an omitted member produces a tagged baseline failure.',
+);
+const ASSET_TARGET = testTarget(
+  'tests/unit/brand-v2-census.test.ts',
+  'brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception',
+  'Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail.',
+);
+const RUNNER_ROUTE_TARGET = testTarget(
+  'tests/unit/brand-v2-runners.test.ts',
+  'brand-v2 exhaustive runners > derives one non-empty public-route plan member per registry route and keeps 404 separate',
+  'Builds a non-empty execution-plan member for every registered public route while keeping the 404 population separate.',
+);
+const RUNNER_DEEP_TARGET = testTarget(
+  'tests/unit/brand-v2-runners.test.ts',
+  'brand-v2 exhaustive runners > defines all 27 sealed deep rows with ordered steps and captures',
+  'Proves the sealed deep-row inventory has all 27 members with valid ordered steps and captures.',
+);
+const DEEP_ROW_TARGET = testTarget(
+  'tests/e2e/brand-v2-deep-rows.spec.ts',
+  'brand-v2 27-row deep executor › enforces all sealed row interactions and capture populations',
+  'Executes every sealed deep-row interaction and capture population and enforces exact archived functional failures; full v2 visual parity remains pending.',
+);
+const ENFORCEMENT_TARGET = testTarget(
+  'tests/unit/brand-v2-enforcement.test.ts',
+  'brand-v2 enforcement map and evidence schemas > accepts the checked-in map and tagged result corpus',
+  'Validates assertion, population, target, result, payload, and pending-migration relationships in the checked-in enforcement corpus.',
+);
+
+function testTargetsFor(id: string): TestTarget[] {
+  const area = id.split('-')[2];
+  if (area === 'BASE') return [BASELINE_TARGET];
+  if (area === 'CONT') return [CENSUS_ROUTE_TARGET];
+  if (area === 'IMG') return [ASSET_TARGET];
+  if (area === 'VIZ') {
+    return [CENSUS_INTERACTIVE_TARGET, INTERACTIVE_STATE_TARGET];
+  }
+  if (area === 'GOV' || ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)) {
+    return [ENFORCEMENT_TARGET];
+  }
+  if (area === 'EVID') {
+    if (['VAL-B2-EVID-008', 'VAL-B2-EVID-012'].includes(id)) {
+      return [RUNNER_ROUTE_TARGET, ROUTE_FLOW_TARGET];
+    }
+    if (id === 'VAL-B2-EVID-009') return [INTERACTIVE_STATE_TARGET];
+    if (id === 'VAL-B2-EVID-010') {
+      return [RUNNER_DEEP_TARGET, DEEP_ROW_TARGET];
+    }
+    if (id === 'VAL-B2-EVID-011') {
+      return [
+        testTarget(
+          'tests/e2e/brand-v2-reflow-320-200.spec.ts',
+          'brand-v2-reflow-320-200 › enforces route loading, zoom-equivalent, and text-only profiles for every route',
+          'Exercises every registered route under the milestone-1 reflow, zoom-equivalent, and text-only profiles; archived 320px rollout drift remains separate.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-reduced-motion.spec.ts',
+          'brand-v2-reduced-motion › keeps every registered mount route interactive under reduce',
+          'Checks that every registered interactive mount route remains present and operable under reduced motion.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-forced-colours.spec.ts',
+          'brand-v2-forced-colours › preserves every derived route in forced-colours mode',
+          'Visits the derived route population in forced-colours mode and checks current route preservation.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-search-states.spec.ts',
+          'brand-v2-search-states › covers deterministic results, Methods facet, URL sync, focus retention, and recovery',
+          'Exercises the current search-state flow, including deterministic results, facet state, URL sync, focus retention, and recovery.',
+        ),
+      ];
+    }
+    if (id === 'VAL-B2-EVID-013') {
+      return [
+        ROUTE_FLOW_TARGET,
+        testTarget(
+          'tests/e2e/brand-v2-article-interactions.spec.ts',
+          'brand-v2-article-interactions › executes the ordered article interaction flow over the derived article population',
+          'Executes the ordered article interaction flow over the registry-derived article population.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-market-map-states.spec.ts',
+          'brand-v2-market-map-states › executes ordered view, filter, selection, and history phases',
+          'Executes the registered market-map view, filter, selection, and history phases in order.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-playground-states.spec.ts',
+          'brand-v2-playground-states › executes ordered FK/IK, import/error, trajectory, and fallback phases',
+          'Executes the registered playground FK/IK, import/error, trajectory, and fallback phases in order.',
+        ),
+      ];
+    }
+    if (id === 'VAL-B2-EVID-004') {
+      return [testTarget(
+        'tests/e2e/brand-v2-reference-rubric.spec.ts',
+        'brand-v2 reference-feature rubric › article comparison applies literals and article hierarchy without pixels',
+        'Applies every independent reference-feature anchor to the article surface and enforces exact archived anchor drift without cross-composition pixel scoring.',
+      )];
+    }
+    if (id === 'VAL-B2-EVID-015') {
+      return [testTarget(
+        'tests/e2e/brand-v2-reference-rubric.spec.ts',
+        'brand-v2 reference-feature rubric › home comparison applies all independent reference anchors',
+        'Applies every independent reference-feature anchor to the home surface and enforces exact archived anchor drift without cross-composition pixel scoring.',
+      )];
+    }
+    return [RUNNER_DEEP_TARGET];
+  }
+  return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
 }
 
 function resultFor(
@@ -179,11 +326,14 @@ function generate() {
       return {
         assertionId: id,
         canonicalPopulationSource,
-        enforcementTargets: [{
-          kind: 'evidence-row' as const,
-          evidenceRowId: assertionResult.resultId,
-          mechanism: `${id} exhaustive predicate over ${canonicalPopulationSource}`,
-        }],
+        enforcementTargets: [
+          {
+            kind: 'evidence-row' as const,
+            evidenceRowId: assertionResult.resultId,
+            mechanism: `${id} pending rollout evidence over ${canonicalPopulationSource}`,
+          },
+          ...testTargetsFor(id),
+        ],
         enforcementMode,
         machinePredicate: {
           statement: requirement,
@@ -233,6 +383,7 @@ if (mode === '--write') {
     populationSources: generated.sources,
     map,
     results,
+    testTargetInventory: deriveTestTargetInventory(),
     allowPendingResults: mode === '--check',
   });
   if (JSON.stringify(map) !== JSON.stringify(generated.map)) {

@@ -16,6 +16,7 @@ import {
   type ReferenceFeatureMeasurements,
 } from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
+import { deriveTestTargetInventory } from '@/lib/brand-v2-test-inventory';
 
 const ROOT = process.cwd();
 
@@ -138,9 +139,60 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         }),
         map,
         results,
+        testTargetInventory: deriveTestTargetInventory(),
         allowPendingResults: true,
       }),
     ).toEqual([]);
+  });
+
+  it('derives sorted reporter-visible test targets from tracked test files', () => {
+    const inventory = deriveTestTargetInventory();
+    expect(Object.keys(inventory)).toEqual(
+      [...Object.keys(inventory)].sort(),
+    );
+    expect(
+      inventory['tests/unit/brand-v2-census.test.ts'],
+    ).toContain(
+      'brand-v2 canonical census > derives every interactive source and production mount from repository source',
+    );
+    expect(
+      inventory['tests/e2e/brand-v2-route-flows.spec.ts'],
+    ).toContain(
+      'brand-v2-route-flows › derives and renders every public destination while keeping 404 separate',
+    );
+    expect(
+      inventory['tests/unit/brand-v2-baseline.test.ts'],
+    ).toContain(
+      'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
+    );
+    expect(
+      inventory['tests/e2e/brand-v2-route-flows.spec.ts'],
+    ).not.toContain('brand-v2-route-flows');
+    for (const titles of Object.values(inventory)) {
+      expect(titles).toEqual([...titles].sort());
+    }
+  });
+
+  it('binds every generated assertion row to tests with composite non-degenerate targets', () => {
+    const map = enforcementMapSchema.parse(
+      JSON.parse(
+        readFileSync(
+          join(ROOT, 'contract', 'brand-v2-enforcement-map.json'),
+          'utf8',
+        ),
+      ),
+    );
+    expect(
+      map.rows.every((row) =>
+        row.enforcementTargets.some((target) => target.kind === 'test'),
+      ),
+    ).toBe(true);
+    expect(
+      map.rows.some((row) => row.enforcementTargets.length > 1),
+    ).toBe(true);
+    expect(
+      new Set(map.rows.map((row) => row.enforcementTargets.length)).size,
+    ).toBeGreaterThan(1);
   });
 
   it('rejects foreign payload fields and enforces typed not-applicable reasons', () => {
