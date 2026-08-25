@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import {
   BRAND_V2_REFERENCE_RUBRIC,
   evaluateReferenceFeatures,
@@ -106,6 +109,37 @@ describe('brand-v2 reference-feature rubric', () => {
     expect(
       failedReport.anchors.filter(({ passed }) => !passed),
     ).toHaveLength(1);
+  });
+
+  it('fails article hierarchy when the body denominator is zero', () => {
+    const measurements = passingMeasurements();
+    measurements.surfaceKind = 'article';
+    measurements.hierarchy.primarySizePx = 48;
+    measurements.hierarchy.supportingSizePx = 32;
+    measurements.hierarchy.bodySizePx = 0;
+
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'hierarchy')
+        ?.predicates.find(({ id }) => id === 'primary-ratio'),
+    ).toMatchObject({ actual: 0, passed: false });
+  });
+
+  it('imports without depending on the process working directory', () => {
+    const moduleUrl = pathToFileURL(
+      join(process.cwd(), 'lib', 'brand-v2-reference-rubric.ts'),
+    ).href;
+    const result = spawnSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '--eval',
+        `process.chdir('/tmp'); await import(${JSON.stringify(moduleUrl)});`,
+      ],
+      { encoding: 'utf8' },
+    );
+
+    expect(result.status, result.stderr).toBe(0);
   });
 
   it('applies the surface-specific dark-area threshold without averaging it away', () => {

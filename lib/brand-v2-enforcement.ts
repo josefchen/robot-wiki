@@ -264,6 +264,17 @@ export const evidenceResultSchema = z.discriminatedUnion('status', [
         'A pending comparison payload is valid only for a pending migration result.',
     });
   }
+  if (
+    result.status !== 'not-applicable' &&
+    result.payload.kind === 'autonomous-reference-comparison' &&
+    'anchors' in result.payload &&
+    result.status !== (result.payload.passed ? 'passed' : 'failed')
+  ) {
+    context.addIssue({
+      code: 'custom',
+      message: 'comparison-result-status-payload-mismatch',
+    });
+  }
 });
 
 const testTargetSchema = z

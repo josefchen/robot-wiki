@@ -412,6 +412,54 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         payload: { ...payload, score: 0.99 },
       }),
     ).toThrow();
+
+    const failingMeasurements = structuredClone(measurements);
+    failingMeasurements.hierarchy.primarySizePx = 1;
+    const failingReport = evaluateReferenceFeatures(failingMeasurements);
+    const failingPayload = {
+      ...payload,
+      anchors: failingReport.anchors,
+      passed: failingReport.passed,
+    };
+    const inconsistent = evidenceResultSchema.safeParse({
+      resultId: 'result:comparison-failing-payload',
+      assertionId: 'VAL-B2-EVID-015',
+      populationMemberId: 'B2-EV-001',
+      coveredPopulationMemberIds: ['B2-EV-001'],
+      coverageKind: 'per-member',
+      status: 'passed',
+      expected: 'all anchors pass',
+      actual: 'one anchor failed',
+      selectorOrRegistryId: 'B2-EV-001',
+      exceptionVerdict: 'none',
+      payload: failingPayload,
+    });
+    expect(inconsistent.success).toBe(false);
+    if (!inconsistent.success) {
+      expect(inconsistent.error.issues).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            message: 'comparison-result-status-payload-mismatch',
+          }),
+        ]),
+      );
+    }
+
+    expect(() =>
+      evidenceResultSchema.parse({
+        resultId: 'result:comparison-passing-payload',
+        assertionId: 'VAL-B2-EVID-015',
+        populationMemberId: 'B2-EV-001',
+        coveredPopulationMemberIds: ['B2-EV-001'],
+        coverageKind: 'per-member',
+        status: 'failed',
+        expected: 'all anchors pass',
+        actual: 'all anchors pass',
+        selectorOrRegistryId: 'B2-EV-001',
+        exceptionVerdict: 'none',
+        payload,
+      }),
+    ).toThrow('comparison-result-status-payload-mismatch');
   });
 
   it('requires the complete failed-result envelope and schema payload', () => {

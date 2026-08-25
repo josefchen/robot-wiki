@@ -1,6 +1,7 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { z } from 'zod';
+import rubricContract from '../contract/brand-v2-reference-rubric.v1.json' with {
+  type: 'json',
+};
 
 const anchorIdSchema = z.enum([
   'identity',
@@ -86,16 +87,7 @@ const rubricSchema = z
   });
 
 export const BRAND_V2_REFERENCE_RUBRIC = rubricSchema.parse(
-  JSON.parse(
-    readFileSync(
-      join(
-        process.cwd(),
-        'contract',
-        'brand-v2-reference-rubric.v1.json',
-      ),
-      'utf8',
-    ),
-  ),
+  rubricContract,
 );
 
 export type ReferenceSurfaceKind =
@@ -297,7 +289,12 @@ export function collectBrowserReferenceFeatures(
   const identity = one(config.identitySelector);
   const descriptor = one(config.descriptorSelector);
   const primary = one(config.primarySelector);
-  const supporting = one(config.supportingSelector);
+  const supportingSizePx = Math.max(
+    0,
+    ...all(config.supportingSelector).map((element) =>
+      numberPx(style(element)?.fontSize),
+    ),
+  );
   const body = one(config.bodySelector);
   const shell = one(config.shellSelector);
   const prose = one(config.proseSelector ?? '[data-prose-column], .prose');
@@ -510,7 +507,7 @@ export function collectBrowserReferenceFeatures(
     },
     hierarchy: {
       primarySizePx: numberPx(primaryStyle?.fontSize),
-      supportingSizePx: numberPx(style(supporting)?.fontSize),
+      supportingSizePx,
       bodySizePx: numberPx(style(body)?.fontSize),
       primaryLineCount,
     },
@@ -715,13 +712,15 @@ export function evaluateReferenceFeatures(
 ) {
   const literals = BRAND_V2_REFERENCE_RUBRIC.contractLiterals;
   const expectedHierarchyRatio = hierarchyRatio(measurements.surfaceKind);
+  const hierarchyDenominator =
+    measurements.surfaceKind === 'article' ||
+    measurements.surfaceKind === 'article-card'
+      ? measurements.hierarchy.bodySizePx
+      : measurements.hierarchy.supportingSizePx;
   const actualHierarchyRatio =
-    measurements.hierarchy.supportingSizePx > 0
+    hierarchyDenominator > 0
       ? measurements.hierarchy.primarySizePx /
-        (measurements.surfaceKind === 'article' ||
-        measurements.surfaceKind === 'article-card'
-          ? measurements.hierarchy.bodySizePx
-          : measurements.hierarchy.supportingSizePx)
+        hierarchyDenominator
       : 0;
   const darkAreaRatio =
     measurements.lightDarkBalance.firstViewportAreaPx2 > 0

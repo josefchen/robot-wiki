@@ -248,6 +248,56 @@ test.describe('brand-v2 reference-feature rubric', () => {
     ).toMatchObject({ actual: false, passed: false });
   });
 
+  test('fails article hierarchy when the body selector resolves nothing', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    const measurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      {
+        ...ARTICLE_CONFIG,
+        bodySelector: 'article [data-planted-missing-body]',
+      },
+    );
+    expect(measurements.hierarchy.bodySizePx).toBe(0);
+    expect(measurements.hierarchy.supportingSizePx).toBeGreaterThan(0);
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'hierarchy')
+        ?.predicates.find(({ id }) => id === 'primary-ratio'),
+    ).toMatchObject({ actual: 0, passed: false });
+  });
+
+  test('measures the largest supporting heading rather than the first match', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/`);
+    await page.evaluate(() => {
+      const primary = document.querySelector<HTMLElement>('main h1');
+      if (primary) primary.style.fontSize = '96px';
+      const supporting = [
+        ...document.querySelectorAll<HTMLElement>('main h2'),
+      ];
+      for (const heading of supporting) heading.style.fontSize = '60px';
+      const largerLaterHeading = document.createElement('h2');
+      largerLaterHeading.textContent = 'Planted larger supporting heading';
+      largerLaterHeading.style.fontSize = '80px';
+      document.querySelector('main')?.append(largerLaterHeading);
+    });
+    const measurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(measurements.hierarchy.supportingSizePx).toBe(80);
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'hierarchy')
+        ?.predicates.find(({ id }) => id === 'primary-ratio'),
+    ).toMatchObject({ actual: 1.2, passed: false });
+  });
+
   test('fails repetition and frames on an unannotated surface', async ({
     page,
     staticBase,
