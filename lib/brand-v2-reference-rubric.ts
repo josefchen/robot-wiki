@@ -166,6 +166,7 @@ export type ReferenceFeatureMeasurements = {
     contrastPassingCount: number;
     provenanceCompleteCount: number;
     externalRepresentativeCount: number;
+    proseElementResolved: boolean;
     proseTextureIntersectionCount: number;
   };
 };
@@ -298,7 +299,7 @@ export function collectBrowserReferenceFeatures(
   const supporting = one(config.supportingSelector);
   const body = one(config.bodySelector);
   const shell = one(config.shellSelector);
-  const prose = one(config.proseSelector);
+  const prose = one(config.proseSelector ?? '[data-prose-column], .prose');
   const primaryStyle = style(primary);
   const primaryRect = primary?.getBoundingClientRect();
   const primaryLineHeight = numberPx(primaryStyle?.lineHeight);
@@ -511,7 +512,7 @@ export function collectBrowserReferenceFeatures(
     paletteAndType: {
       auditedColourCount: colourPairs.length,
       matchingColourCount,
-      auditedTypeRoleCount: 4,
+      auditedTypeRoleCount: roleElements.length,
       matchingTypeRoleCount,
       unregisteredRoleCount: roleElements.filter(
         (element) =>
@@ -534,9 +535,13 @@ export function collectBrowserReferenceFeatures(
           Boolean(element.dataset.brandMaterialHash),
       ).length,
       externalRepresentativeCount: externalMaterials.length,
-      proseTextureIntersectionCount: all(
-        '[data-brand-material-id] [data-prose], [data-prose] [data-brand-material-id]',
-      ).length,
+      proseElementResolved: config.proseSelector === undefined || prose !== null,
+      proseTextureIntersectionCount: prose
+        ? materials.filter(
+            (material) =>
+              prose.contains(material) || material.contains(prose),
+          ).length
+        : 0,
     },
   };
 }
@@ -907,6 +912,12 @@ export function evaluateReferenceFeatures(
         material.provenanceCompleteCount,
         material.provenanceCompleteCount ===
           material.externalRepresentativeCount,
+      ),
+      predicate(
+        'prose-element-resolved',
+        true,
+        material.proseElementResolved,
+        material.proseElementResolved,
       ),
       predicate(
         'prose-texture-intersections',

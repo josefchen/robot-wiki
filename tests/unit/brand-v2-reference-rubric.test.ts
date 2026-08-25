@@ -55,8 +55,8 @@ function passingMeasurements(): ReferenceFeatureMeasurements {
     paletteAndType: {
       auditedColourCount: 7,
       matchingColourCount: 7,
-      auditedTypeRoleCount: 4,
-      matchingTypeRoleCount: 4,
+      auditedTypeRoleCount: 30,
+      matchingTypeRoleCount: 30,
       unregisteredRoleCount: 0,
       fallbackGlyphCount: 0,
     },
@@ -66,6 +66,7 @@ function passingMeasurements(): ReferenceFeatureMeasurements {
       contrastPassingCount: 1,
       provenanceCompleteCount: 1,
       externalRepresentativeCount: 1,
+      proseElementResolved: true,
       proseTextureIntersectionCount: 0,
     },
   };
@@ -137,6 +138,43 @@ describe('brand-v2 reference-feature rubric', () => {
     expect(
       report.anchors.find(({ id }) => id === 'material-treatment')?.passed,
     ).toBe(false);
+  });
+
+  it('requires every audited type-role element to match its registered family', () => {
+    const oneMismatch = passingMeasurements();
+    oneMismatch.paletteAndType.matchingTypeRoleCount = 29;
+    expect(
+      evaluateReferenceFeatures(oneMismatch).anchors.find(
+        ({ id }) => id === 'palette-type',
+      )?.passed,
+    ).toBe(false);
+
+    const emptyPopulation = passingMeasurements();
+    emptyPopulation.paletteAndType.auditedTypeRoleCount = 0;
+    emptyPopulation.paletteAndType.matchingTypeRoleCount = 0;
+    expect(
+      evaluateReferenceFeatures(emptyPopulation).anchors.find(
+        ({ id }) => id === 'palette-type',
+      )?.passed,
+    ).toBe(false);
+  });
+
+  it('fails material treatment for prose intersections and unresolved declared prose', () => {
+    const intersection = passingMeasurements();
+    intersection.materialTreatment.proseTextureIntersectionCount = 1;
+    expect(
+      evaluateReferenceFeatures(intersection).anchors.find(
+        ({ id }) => id === 'material-treatment',
+      )?.passed,
+    ).toBe(false);
+
+    const missingProse = passingMeasurements();
+    missingProse.materialTreatment.proseElementResolved = false;
+    expect(
+      evaluateReferenceFeatures(missingProse).anchors.find(
+        ({ id }) => id === 'material-treatment',
+      )?.predicates.find(({ id }) => id === 'prose-element-resolved'),
+    ).toMatchObject({ actual: false, passed: false });
   });
 
   it('rejects averaged, incomplete, or raw-pixel autonomous comparison payloads', () => {

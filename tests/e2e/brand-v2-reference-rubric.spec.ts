@@ -13,6 +13,32 @@ import {
   test,
 } from './brand-v2-static-fixture';
 
+const HOME_CONFIG = {
+  surfaceKind: 'home',
+  identitySelector: 'main h1',
+  descriptorSelector: 'main p.font-mono',
+  descriptorRequired: true,
+  primarySelector: 'main h1',
+  supportingSelector: 'main h2',
+  bodySelector: 'main p:not(.font-mono)',
+  shellSelector: 'aside',
+  alternateSymbolSelector: '[data-brand-symbol]',
+  repeatedModuleSelector: 'main section',
+} satisfies BrowserReferenceFeatureConfig;
+
+const ARTICLE_CONFIG = {
+  surfaceKind: 'article',
+  identitySelector: 'aside a[href="/"]',
+  descriptorRequired: false,
+  primarySelector: 'article h1',
+  supportingSelector: 'article h2',
+  bodySelector: 'article .prose p',
+  shellSelector: 'aside',
+  proseSelector: 'article .prose',
+  alternateSymbolSelector: '[data-brand-symbol]',
+  repeatedModuleSelector: 'article section',
+} satisfies BrowserReferenceFeatureConfig;
+
 async function compareSurface(
   page: Page,
   testInfo: TestInfo,
@@ -65,6 +91,53 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }, testInfo) => {
+    const payload = await compareSurface(
+      page,
+      testInfo,
+      staticBase,
+      'B2-EV-001',
+      '/',
+      HOME_CONFIG,
+    );
+    expect(payload.anchors).toHaveLength(8);
+    expect(
+      payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
+    ).toEqual(
+      archivedExpectedRedAnchors(
+        'brand-v2 reference-feature rubric',
+        'VAL-B2-EVID-015',
+      ),
+    );
+  });
+
+  test('article comparison applies literals and article hierarchy without pixels', async ({
+    page,
+    staticBase,
+  }, testInfo) => {
+    const payload = await compareSurface(
+      page,
+      testInfo,
+      staticBase,
+      'B2-EV-007',
+      '/manipulation/action-chunking/',
+      ARTICLE_CONFIG,
+    );
+    expect(payload.comparisonMode).toBe('feature-anchors-only');
+    expect(payload.contractLiteralOverridesApplied).toBe(true);
+    expect(
+      payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
+    ).toEqual(
+      archivedExpectedRedAnchors(
+        'brand-v2 reference-feature rubric',
+        'VAL-B2-EVID-004',
+      ),
+    );
+  });
+
+  test('home comparison reaches full v2 parity', async ({
+    page,
+    staticBase,
+  }, testInfo) => {
     test.fail(
       true,
       archivedExpectedRed(
@@ -76,35 +149,14 @@ test.describe('brand-v2 reference-feature rubric', () => {
       page,
       testInfo,
       staticBase,
-      'B2-EV-001',
+      'B2-EV-001-parity',
       '/',
-      {
-        surfaceKind: 'home',
-        identitySelector: 'main h1',
-        descriptorSelector: 'main p.font-mono',
-        descriptorRequired: true,
-        primarySelector: 'main h1',
-        supportingSelector: 'main h2',
-        bodySelector: 'main p:not(.font-mono)',
-        shellSelector: 'aside',
-        alternateSymbolSelector: '[data-brand-symbol]',
-        repeatedModuleSelector: 'main section',
-      },
+      HOME_CONFIG,
     );
-    expect(payload.anchors).toHaveLength(8);
-    expect(
-      payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
-    ).toEqual(
-      archivedExpectedRedAnchors(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-015',
-      ),
-    );
-    expect(payload.anchors.every(({ passed }) => passed)).toBe(true);
     expect(payload.passed).toBe(true);
   });
 
-  test('article comparison applies literals and article hierarchy without pixels', async ({
+  test('article comparison reaches full v2 parity', async ({
     page,
     staticBase,
   }, testInfo) => {
@@ -119,32 +171,68 @@ test.describe('brand-v2 reference-feature rubric', () => {
       page,
       testInfo,
       staticBase,
-      'B2-EV-007',
+      'B2-EV-007-parity',
       '/manipulation/action-chunking/',
-      {
-        surfaceKind: 'article',
-        identitySelector: 'aside a[href="/"]',
-        descriptorRequired: false,
-        primarySelector: 'article h1',
-        supportingSelector: 'article h2',
-        bodySelector: 'article .prose p',
-        shellSelector: 'aside',
-        proseSelector: 'article .prose',
-        alternateSymbolSelector: '[data-brand-symbol]',
-        repeatedModuleSelector: 'article section',
-      },
+      ARTICLE_CONFIG,
     );
-    expect(payload.comparisonMode).toBe('feature-anchors-only');
-    expect(payload.contractLiteralOverridesApplied).toBe(true);
-    expect(
-      payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
-    ).toEqual(
-      archivedExpectedRedAnchors(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-004',
-      ),
-    );
-    expect(payload.anchors.every(({ passed }) => passed)).toBe(true);
     expect(payload.passed).toBe(true);
+  });
+
+  test('detects prose and material intersections in both nesting directions', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await page.evaluate(() => {
+      const material = document.createElement('span');
+      material.dataset.brandMaterialId = 'material:planted-prose-texture';
+      material.dataset.brandMaterialDeterministic = 'true';
+      material.dataset.brandMaterialContrast = 'pass';
+      document.querySelector('article .prose')?.append(material);
+    });
+    const measurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      ARTICLE_CONFIG,
+    );
+    expect(measurements.materialTreatment.proseTextureIntersectionCount).toBe(1);
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'material-treatment')
+        ?.predicates.find(({ id }) => id === 'prose-texture-intersections'),
+    ).toMatchObject({ actual: 1, passed: false });
+
+    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await page.locator('article .prose').evaluate((prose) => {
+      const material = document.createElement('div');
+      material.dataset.brandMaterialId = 'material:planted-prose-wrapper';
+      material.dataset.brandMaterialDeterministic = 'true';
+      material.dataset.brandMaterialContrast = 'pass';
+      prose.parentElement?.insertBefore(material, prose);
+      material.append(prose);
+    });
+    const wrappedMeasurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      ARTICLE_CONFIG,
+    );
+    expect(
+      wrappedMeasurements.materialTreatment.proseTextureIntersectionCount,
+    ).toBe(1);
+  });
+
+  test('fails closed when a declared prose selector resolves nothing', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await page.locator('article .prose').evaluate((element) => element.remove());
+    const measurements = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      ARTICLE_CONFIG,
+    );
+    expect(
+      evaluateReferenceFeatures(measurements).anchors
+        .find(({ id }) => id === 'material-treatment')
+        ?.predicates.find(({ id }) => id === 'prose-element-resolved'),
+    ).toMatchObject({ actual: false, passed: false });
   });
 });

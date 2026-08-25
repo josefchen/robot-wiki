@@ -230,8 +230,8 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
       paletteAndType: {
         auditedColourCount: 7,
         matchingColourCount: 7,
-        auditedTypeRoleCount: 4,
-        matchingTypeRoleCount: 4,
+        auditedTypeRoleCount: 30,
+        matchingTypeRoleCount: 30,
         unregisteredRoleCount: 0,
         fallbackGlyphCount: 0,
       },
@@ -241,6 +241,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
         contrastPassingCount: 1,
         provenanceCompleteCount: 0,
         externalRepresentativeCount: 0,
+        proseElementResolved: true,
         proseTextureIntersectionCount: 0,
       },
     } satisfies ReferenceFeatureMeasurements;
