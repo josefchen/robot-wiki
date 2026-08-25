@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  assertAdditiveBaseline,
   BASELINE_KINDS,
   buildManifest,
   compareBaseline,
@@ -77,7 +78,8 @@ describe('brand-v2 immutable baseline', () => {
       expect(result.ok).toBe(false);
       expect(result.failures).toContainEqual(
         expect.objectContaining({
-          assertionId: 'VAL-B2-BASE-011',
+          assertionId:
+            kind === 'value-states' ? 'VAL-B2-BASE-013' : 'VAL-B2-BASE-011',
           manifest: kind,
           memberId: `${kind}:beta`,
           reason: 'missing-member',
@@ -99,6 +101,7 @@ describe('brand-v2 immutable baseline', () => {
     ['interactive-sources-mounts', 'mount:content/domain/article.mdx:Example:1'],
     ['behavioral-defaults', 'default:Example:1'],
     ['value-states', 'state:undisclosed-canonical'],
+    ['article-metadata', 'article-metadata:domain/article'],
   ] satisfies Array<[BaselineKind, string]>)(
     'detects the required %s omission fixture %s',
     (kind, omittedId) => {
@@ -114,7 +117,8 @@ describe('brand-v2 immutable baseline', () => {
 
       expect(compareBaseline(baseline, current, []).failures).toContainEqual(
         expect.objectContaining({
-          assertionId: 'VAL-B2-BASE-011',
+          assertionId:
+            kind === 'value-states' ? 'VAL-B2-BASE-013' : 'VAL-B2-BASE-011',
           manifest: kind,
           memberId: omittedId,
           reason: 'missing-member',
@@ -214,6 +218,99 @@ describe('brand-v2 immutable baseline', () => {
         assertionId: 'VAL-B2-BASE-013',
         reason: 'collapsed-value-states',
       }),
+    );
+  });
+
+  it.each([
+    ['not-disclosed', 'n/a'],
+    ['not-applicable', 'not disclosed'],
+  ] as const)(
+    'fails when the derived %s population is empty',
+    (missingState, otherRendering) => {
+      const otherState =
+        missingState === 'not-disclosed' ? 'not-applicable' : 'not-disclosed';
+      expect(
+        validateValueStateSeparation([
+          {
+            id: 'remaining-site',
+            state: otherState,
+            rendered: otherRendering,
+          },
+        ]),
+      ).toContainEqual(
+        expect.objectContaining({
+          assertionId: 'VAL-B2-BASE-013',
+          expected: `non-empty ${missingState} population`,
+          actual: 0,
+          reason: 'empty-value-state-population',
+        }),
+      );
+    },
+  );
+
+  it.each([
+    ['value-states', 'VAL-B2-BASE-013'],
+    ['article-metadata', 'VAL-B2-BASE-012'],
+  ] as const)(
+    'tags changed %s members with %s',
+    (kind, assertionId) => {
+      const baseline = fixtureBundle();
+      const current = structuredClone(baseline);
+      current.manifests[kind] = buildManifest(kind, [
+        { id: `${kind}:alpha`, value: { label: 'changed' } },
+        { id: `${kind}:beta`, value: { label: 'beta' } },
+      ]);
+
+      expect(compareBaseline(baseline, current, []).failures).toContainEqual(
+        expect.objectContaining({
+          assertionId,
+          manifest: kind,
+          memberId: `${kind}:alpha`,
+          reason: 'changed-member',
+        }),
+      );
+    },
+  );
+
+  it('accepts recreation only when all existing member hashes are preserved', () => {
+    const previous = fixtureBundle();
+    const recreated = structuredClone(previous);
+    recreated.manifests['value-states'] = buildManifest('value-states', [
+      ...recreated.manifests['value-states'].members.map((member) => ({
+        id: member.id,
+        value: member.value!,
+      })),
+      { id: 'state-site:lib/example.ts:not-disclosed:1', value: { state: 'not-disclosed' } },
+    ]);
+
+    expect(assertAdditiveBaseline(previous, recreated)).toEqual({
+      addedKinds: [],
+      addedMembers: 1,
+    });
+
+    recreated.manifests.routes = buildManifest('routes', [
+      { id: 'routes:alpha', value: { label: 'changed' } },
+      { id: 'routes:beta', value: { label: 'beta' } },
+    ]);
+    expect(() => assertAdditiveBaseline(previous, recreated)).toThrow(
+      /changed pre-existing member routes:routes:alpha/,
+    );
+  });
+
+  it('rejects recreation when a previously persisted kind is no longer registered', () => {
+    const previous = fixtureBundle();
+    const recreated = structuredClone(previous);
+    (
+      previous.manifests as unknown as Record<
+        string,
+        BaselineBundle['manifests'][BaselineKind]
+      >
+    )['legacy-kind'] = buildManifest('routes', [
+      { id: 'legacy:member', value: { protected: true } },
+    ]);
+
+    expect(() => assertAdditiveBaseline(previous, recreated)).toThrow(
+      /removed baseline kind legacy-kind/,
     );
   });
 });

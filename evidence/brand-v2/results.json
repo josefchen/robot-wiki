@@ -1842,6 +1842,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -1871,6 +1872,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -1900,6 +1902,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -1929,6 +1932,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -1958,6 +1962,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -1987,6 +1992,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2016,6 +2022,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2045,6 +2052,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2074,6 +2082,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2103,6 +2112,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2132,6 +2142,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2161,6 +2172,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
@@ -2190,6 +2202,7 @@
       "populationMemberId": "population:evidence/brand-v2/baseline/baseline.json#manifests",
       "coveredPopulationMemberIds": [
         "accessible-names",
+        "article-metadata",
         "assets-svg",
         "behavioral-defaults",
         "interactive-sources-mounts",
