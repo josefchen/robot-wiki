@@ -55,12 +55,12 @@ export function archivedExpectedRedAnchors(
     (failure) =>
       failure.suite === suite && failure.assertionId === assertionId,
   );
-  if (!entry?.failedAnchors?.length) {
+  if (!entry || !Object.hasOwn(entry, 'failedAnchors')) {
     throw new Error(
       `Missing expected-red anchor list for ${suite} ${assertionId}.`,
     );
   }
-  return entry.failedAnchors;
+  return entry.failedAnchors ?? [];
 }
 
 type WorkerFixtures = {

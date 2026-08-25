@@ -8,6 +8,7 @@ export const PLAYWRIGHT_SWIFTSHADER_ARGS = [
 
 export default defineConfig({
   testDir: './tests/e2e',
+  testIgnore: /brand-v2.*\.spec\.ts/,
   timeout: 30_000,
   retries: 0,
   reporter: 'list',

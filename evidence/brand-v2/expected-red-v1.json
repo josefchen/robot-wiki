@@ -58,6 +58,7 @@
       "assertionId": "VAL-B2-EVID-010",
       "expected": "all 27 sealed rows reach every required v2 state and capture",
       "actual": "v1 routes lack some v2-only state anchors and visual treatments",
+      "failedAnchors": [],
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {

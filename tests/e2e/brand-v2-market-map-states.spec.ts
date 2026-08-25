@@ -1,4 +1,5 @@
 import { BRAND_V2_FLOW_SUITES, executeEvidencePlans } from '../../lib/brand-v2-runners';
+import { COMPANIES } from '../../data/companies';
 import { expect, test } from './brand-v2-static-fixture';
 
 test.describe('brand-v2-market-map-states', () => {
@@ -18,7 +19,9 @@ test.describe('brand-v2-market-map-states', () => {
             }
           } else if (step.action === 'exercise-filters') {
             await page.locator('#filter-segment').selectOption('humanoids');
-            await expect(page.getByText(/of 111 companies/)).toBeVisible();
+            await expect(
+              page.getByText(new RegExp(`of ${COMPANIES.length} companies`)),
+            ).toBeVisible();
             await page.getByRole('button', { name: 'Clear filters' }).click();
           } else if (step.action === 'select-dismiss-company') {
             await page.getByRole('button', { name: 'Bubble', exact: true }).click();
