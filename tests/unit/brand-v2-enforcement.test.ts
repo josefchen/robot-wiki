@@ -6,6 +6,7 @@ import {
   enforcementMapSchema,
   buildEnforcementPopulationSources,
   extractBrandV2Assertions,
+  summarizeEnforcementFailures,
   validateEnforcementCorpus,
   type EvidenceResult,
   type EnforcementMap,
@@ -147,6 +148,35 @@ function fixture() {
 }
 
 describe('brand-v2 enforcement map and evidence schemas', () => {
+  it('summarizes every enforcement failure by class without truncation', () => {
+    const failures = [
+      ...Array.from({ length: 238 }, () => ({
+        reason: 'pending-result-blocks-release' as const,
+        expected: 'settled',
+        actual: 'pending',
+      })),
+      ...Array.from({ length: 238 }, () => ({
+        reason: 'population-wide-coverage-blocks-release' as const,
+        expected: 'per-member',
+        actual: 'population-wide',
+      })),
+    ];
+
+    expect(summarizeEnforcementFailures(failures)).toEqual({
+      total: 476,
+      counts: [
+        {
+          reason: 'pending-result-blocks-release',
+          count: 238,
+        },
+        {
+          reason: 'population-wide-coverage-blocks-release',
+          count: 238,
+        },
+      ],
+    });
+  });
+
   it('extracts the complete unique VAL-B2 assertion inventory', () => {
     const contract = readFileSync(
       join(ROOT, 'contract', 'design-integrity.md'),

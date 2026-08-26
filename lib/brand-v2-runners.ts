@@ -71,7 +71,7 @@ export type ExecutionRecord = {
   captures: string[];
 };
 
-const ROUTE_CHECKS = [
+export const ROUTE_CHECKS = [
   'browser-render',
   'computed-style',
   'axe',
@@ -254,7 +254,7 @@ function flow(
       order: index + 1,
       id: `capture:${index + 1}:${step.action}`,
       afterStep: step.id,
-      kind: index === steps.length - 1 ? 'full-page' : 'semantic',
+      kind: 'semantic',
     })),
   };
 }

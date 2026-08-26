@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   BRAND_V2_DEEP_ROWS,
   BRAND_V2_FLOW_SUITES,
+  ROUTE_CHECKS,
   buildInteractiveExecutionPlan,
   buildPublicRouteExecutionPlan,
   executeEvidencePlans,
@@ -55,6 +56,17 @@ describe('brand-v2 exhaustive runners', () => {
       false,
     );
     expect(plan.members.every(({ checks }) => checks.length === 9)).toBe(true);
+    expect(ROUTE_CHECKS).toEqual([
+      'browser-render',
+      'computed-style',
+      'axe',
+      'keyboard',
+      'forced-colours',
+      'reflow',
+      'overflow',
+      'resource-font',
+      'residue',
+    ]);
   });
 
   it('derives every source and mount case with exact non-zero counts', () => {
@@ -88,6 +100,11 @@ describe('brand-v2 exhaustive runners', () => {
       'brand-v2-route-flows',
     ]);
     expect(validateFlowSuites(BRAND_V2_FLOW_SUITES)).toEqual([]);
+    expect(
+      BRAND_V2_FLOW_SUITES['brand-v2-route-flows'].steps.map(
+        ({ action }) => action,
+      ),
+    ).toEqual(['navigate', 'exercise-history', 'run-route-profiles']);
   });
 
   it('fails deep rows that omit a capture and flow suites with an empty population', () => {
