@@ -107,6 +107,42 @@ export interface ValueStateRecord {
   rendered: string;
 }
 
+export type BaselineValidationResult =
+  | { ok: true; failures: [] }
+  | { ok: false; failures: BaselineFailure[] };
+
+function isAsciiWordCharacter(value: string | undefined): boolean {
+  return value !== undefined && /[A-Za-z0-9_]/.test(value);
+}
+
+export function isRenderedValueStateTokenAt(
+  text: string,
+  rendered: string,
+  offset: number,
+): boolean {
+  if (offset < 0 || text.slice(offset, offset + rendered.length) !== rendered) {
+    return false;
+  }
+  const before = text[offset - 1];
+  const after = text[offset + rendered.length];
+  const isNotApplicableRendering =
+    rendered.length === 3 &&
+    rendered[0] === 'n' &&
+    rendered[1] === '/' &&
+    rendered[2] === 'a';
+  if (
+    isNotApplicableRendering &&
+    before === '/' &&
+    (after === '/' || text.slice(0, offset).includes('/'))
+  ) {
+    return false;
+  }
+  return (
+    !isAsciiWordCharacter(before) &&
+    !isAsciiWordCharacter(after)
+  );
+}
+
 function normalize(value: JsonValue): JsonValue {
   if (Array.isArray(value)) return value.map(normalize);
   if (value !== null && typeof value === 'object') {
@@ -312,12 +348,20 @@ export function compareBaseline(
 export function assertAdditiveBaseline(
   previous: BaselineBundle,
   recreated: BaselineBundle,
+  options?: {
+    correctedRemovedMembers?: ReadonlySet<string>;
+  },
 ): {
   addedKinds: BaselineKind[];
   addedMembers: number;
+  correctedRemovedMembers: number;
 } {
   const addedKinds: BaselineKind[] = [];
   let addedMembers = 0;
+  const correctedRemovedMembers = new Set(
+    options?.correctedRemovedMembers ?? [],
+  );
+  const matchedCorrectedRemovals = new Set<string>();
 
   for (const kind of Object.keys(previous.manifests) as BaselineKind[]) {
     if (!BASELINE_KINDS.includes(kind)) {
@@ -340,9 +384,18 @@ export function assertAdditiveBaseline(
     const afterById = new Map(
       after.members.map((member) => [member.id, member]),
     );
+    const beforeIds = new Set(before.members.map((member) => member.id));
+    addedMembers += after.members.filter(
+      (member) => !beforeIds.has(member.id),
+    ).length;
     for (const member of before.members) {
       const recreatedMember = afterById.get(member.id);
       if (!recreatedMember) {
+        const removalId = `${kind}:${member.id}`;
+        if (correctedRemovedMembers.has(removalId)) {
+          matchedCorrectedRemovals.add(removalId);
+          continue;
+        }
         throw new Error(
           `Additive recreation removed pre-existing member ${kind}:${member.id}`,
         );
@@ -353,15 +406,27 @@ export function assertAdditiveBaseline(
         );
       }
     }
-    addedMembers += after.members.length - before.members.length;
   }
 
-  return { addedKinds, addedMembers };
+  const unmatchedCorrectedRemovals = [...correctedRemovedMembers].filter(
+    (memberId) => !matchedCorrectedRemovals.has(memberId),
+  );
+  if (unmatchedCorrectedRemovals.length > 0) {
+    throw new Error(
+      `Additive recreation has unmatched corrected removal ${unmatchedCorrectedRemovals[0]}`,
+    );
+  }
+
+  return {
+    addedKinds,
+    addedMembers,
+    correctedRemovedMembers: matchedCorrectedRemovals.size,
+  };
 }
 
 export function validateValueStateSeparation(
   records: readonly ValueStateRecord[],
-): BaselineFailure[] {
+): BaselineValidationResult {
   const failures: BaselineFailure[] = [];
   const expected = {
     'not-disclosed': 'not disclosed',
@@ -405,5 +470,7 @@ export function validateValueStateSeparation(
       reason: 'collapsed-value-states',
     });
   }
-  return failures;
+  return failures.length === 0
+    ? { ok: true, failures: [] }
+    : { ok: false, failures };
 }

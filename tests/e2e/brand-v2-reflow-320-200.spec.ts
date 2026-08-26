@@ -1,4 +1,4 @@
-import type { BrowserContext, Page } from '@playwright/test';
+import type { BrowserContext } from '@playwright/test';
 import { buildPublicRouteExecutionPlan } from '../../lib/brand-v2-runners';
 import {
   archivedExpectedRed,
@@ -6,14 +6,7 @@ import {
   expect,
   test,
 } from './brand-v2-static-fixture';
-
-async function documentOverflow(page: Page): Promise<number> {
-  return page.evaluate(
-    () =>
-      document.documentElement.scrollWidth -
-      document.documentElement.clientWidth,
-  );
-}
+import { documentOverflow } from './helpers/document-overflow';
 
 async function sweepContext(
   context: BrowserContext,

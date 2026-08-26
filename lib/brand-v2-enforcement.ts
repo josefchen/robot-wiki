@@ -357,6 +357,27 @@ export type EnforcementFailure = {
   actual: unknown;
 };
 
+export function summarizeEnforcementFailures(
+  failures: readonly EnforcementFailure[],
+): {
+  total: number;
+  counts: Array<{
+    reason: EnforcementFailure['reason'];
+    count: number;
+  }>;
+} {
+  const totals = new Map<EnforcementFailure['reason'], number>();
+  for (const failure of failures) {
+    totals.set(failure.reason, (totals.get(failure.reason) ?? 0) + 1);
+  }
+  return {
+    total: failures.length,
+    counts: [...totals]
+      .map(([reason, count]) => ({ reason, count }))
+      .sort((left, right) => left.reason.localeCompare(right.reason)),
+  };
+}
+
 export function buildEnforcementPopulationSources(input: {
   registry: {
     routes: {

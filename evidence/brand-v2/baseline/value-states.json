@@ -1,16 +1,8 @@
 {
   "schemaVersion": 1,
   "kind": "value-states",
-  "memberCount": 131,
+  "memberCount": 107,
   "members": [
-    {
-      "id": "state-site:app/page.tsx:not-applicable:1",
-      "hash": "64190ef2d88b2f719df588bd4a211b614560755a7856523eeb4ccb6925c9ec4c"
-    },
-    {
-      "id": "state-site:app/page.tsx:not-applicable:2",
-      "hash": "b4304ad2f53e9300943ecf3985981a34dc35df08e20fea8a4c7b36e614d7af38"
-    },
     {
       "id": "state-site:components/interactive/comparison-matrix.tsx:not-disclosed:1",
       "hash": "0fc448e2788b53c0de1d6ac40cc590e20905f5bb872770586b2d703e712dcd71"
@@ -208,10 +200,6 @@
       "hash": "3f7726b7f1d340f17df8b9173413cea9074aa9e63b17e0e8621f681b6ea4a4c5"
     },
     {
-      "id": "state-site:content/classical/kinematics.mdx:not-applicable:1",
-      "hash": "557e4d0f35302d04b8fcf7e0481f4dffd2d9c47f45a7f743a8d20c2e9c837343"
-    },
-    {
       "id": "state-site:content/classical/perception.mdx:not-disclosed:1",
       "hash": "de6e77f2fca7093a635ca96824413b56ea221d3b938a06d4660404bbc2a1f427"
     },
@@ -232,10 +220,6 @@
       "hash": "4678266011f5840509081636e13e0395e07d84912732585c6beefc5d99ab7e15"
     },
     {
-      "id": "state-site:content/data-hardware/teleop-rigs.mdx:not-applicable:1",
-      "hash": "e1d3c5cd49544273f8f26fd3cdf0eee2dad5c03197179e87ee9adfdcd162b7d8"
-    },
-    {
       "id": "state-site:content/data-hardware/teleop-rigs.mdx:not-disclosed:1",
       "hash": "4b70ea0eeb83e1b76d523d1491686ee1e798da9b8efdc6e4e73661ed3f27f071"
     },
@@ -252,14 +236,6 @@
       "hash": "fec54a52916bd4424f2ea58068251ee9c37887c05f711cf663fece925471ceec"
     },
     {
-      "id": "state-site:content/manipulation/bc-foundations.mdx:not-applicable:1",
-      "hash": "ffe15891c2301835d185b77259ee2aff5ef68b866cc4262145611dff530bd231"
-    },
-    {
-      "id": "state-site:content/manipulation/bc-foundations.mdx:not-applicable:2",
-      "hash": "8b93e14304ade792ee3a1cc9e4939c028f1f1686cdd500372fb11636bb9dec8b"
-    },
-    {
       "id": "state-site:content/manipulation/comparison-matrix.mdx:not-disclosed:1",
       "hash": "3c969ef974493db7dcab04cede1655c643d895dc65cbd7c321b7e7345e867387"
     },
@@ -272,40 +248,8 @@
       "hash": "4c908c9b0cc442a142bbfb73051923c02d4bbafaa9f901ecb525cace8e14e70d"
     },
     {
-      "id": "state-site:content/manipulation/diffusion-policy.mdx:not-applicable:1",
-      "hash": "95265f357c5e324101d5f885ce402df474f94b4e4a4ba289c0408549ecd7ff27"
-    },
-    {
-      "id": "state-site:content/manipulation/realtime-execution.mdx:not-applicable:1",
-      "hash": "d7c93c304e8a1126cea330c09b4fdb968c39862f737307c391f5c32fea764be0"
-    },
-    {
-      "id": "state-site:content/manipulation/realtime-execution.mdx:not-applicable:2",
-      "hash": "b7ec7cfc9d609f5430be2a4bd6ea9c4b55b3c482228dca6cc1a1bf5d839a9f31"
-    },
-    {
       "id": "state-site:content/manipulation/rl-finetuning.mdx:not-disclosed:1",
       "hash": "ef3d064044ab7cb21f68fb2c5409a73c8a2ae41039fb0c9af5ea354acf7f0f08"
-    },
-    {
-      "id": "state-site:content/manipulation/vla-models.mdx:not-applicable:1",
-      "hash": "b6331bdb33aafa894b2dfddc73b604835cf205192e6f80412d83554e123f7281"
-    },
-    {
-      "id": "state-site:content/manipulation/vla-models.mdx:not-applicable:2",
-      "hash": "c4cddc5226425573cb4cfa56d95d81ebf8ce924f718be7b780f7117e925e447a"
-    },
-    {
-      "id": "state-site:content/manipulation/vla-models.mdx:not-applicable:3",
-      "hash": "c6d630e37f6aeabc8940d2ee9dc1e1215efd39021f6772a08b60ee6d57457578"
-    },
-    {
-      "id": "state-site:data/companies.ts:not-applicable:1",
-      "hash": "2984553a3b1a5340d0bb7844af4e7ba64e5bec57f5ebae536cc05bab13a9b7f2"
-    },
-    {
-      "id": "state-site:data/companies.ts:not-applicable:2",
-      "hash": "17d8414815e74e263b809a56c94b5d1c242a6d63a0b091791d1e70c789599c6f"
     },
     {
       "id": "state-site:data/datasets.ts:not-disclosed:1",
@@ -326,14 +270,6 @@
     {
       "id": "state-site:data/methods.ts:not-disclosed:2",
       "hash": "d96fd62b529b743e50f10657c633f43324d10072e0454ef0f8c518c7f993a734"
-    },
-    {
-      "id": "state-site:data/modules.ts:not-applicable:1",
-      "hash": "7fd29564562468bd8580a9e1c5e5a991c79cb3f05cb032df58f2f8a23ab9fd18"
-    },
-    {
-      "id": "state-site:data/reading-times.json:not-applicable:1",
-      "hash": "31b2c17567c6f2c1dbdde94ffa92590473c031435d3d1bbc6cebbb4011efa25f"
     },
     {
       "id": "state-site:data/schemas/company.ts:not-disclosed:1",
@@ -366,34 +302,6 @@
     {
       "id": "state-site:lib/brand-v2-baseline.ts:not-disclosed:1",
       "hash": "a61fe4fe219389204b5ce9d343a58b13891e460cf57300a8dd57cd75ef70b26a"
-    },
-    {
-      "id": "state-site:lib/brand-v2-runners.ts:not-applicable:1",
-      "hash": "3538b0747119488af917e2fb133e2769388341624b24d753893a36d6ac7f8de9"
-    },
-    {
-      "id": "state-site:lib/brand-v2-runners.ts:not-applicable:2",
-      "hash": "45aab3959a9e29951114da09d3320c20a3abca29652df0a8755e6b991d7b1cd0"
-    },
-    {
-      "id": "state-site:lib/brand-v2-runners.ts:not-applicable:3",
-      "hash": "b9eb2afb7f33e3be936c436e49a298f1562120dc950bc9ab9feaf4a853686b72"
-    },
-    {
-      "id": "state-site:lib/brand-v2-runners.ts:not-applicable:4",
-      "hash": "79c1986b7945e87df166e7d7be85eb4319d16f0877cfa2d92d5f40ef24f137f5"
-    },
-    {
-      "id": "state-site:lib/chart-descriptions.ts:not-applicable:1",
-      "hash": "d8c63d48a4a71c3e55d21413eb99dbc418d128153c3475bb0bbf2245305fbe34"
-    },
-    {
-      "id": "state-site:lib/chart-descriptions.ts:not-applicable:2",
-      "hash": "a4309d38562cdbfbca4c518811ff0150c62aef356fc0f3157486d1e1cb1998ca"
-    },
-    {
-      "id": "state-site:lib/chart-descriptions.ts:not-applicable:3",
-      "hash": "1934bd048e246353251bb741d796cab61a76cf637365b7c202ef2c862e46d038"
     },
     {
       "id": "state-site:lib/chart-descriptions.ts:not-applicable:4",
@@ -476,10 +384,6 @@
       "hash": "44957ef217a212af8c1376d44b4c4c88e1adc1e7e87a13f1cd85de18e8169387"
     },
     {
-      "id": "state-site:lib/search.ts:not-applicable:1",
-      "hash": "432963c5190608e54fbd34edaa3741f95e341d00d1598907f87765ca96c93cf5"
-    },
-    {
       "id": "state-site:lib/wbc-decomposition.ts:not-disclosed:1",
       "hash": "4d916b9dd80c9d1ca0d0bdef54d361dd80e69f3a001563f890b8fa6f3a1f51e2"
     },
@@ -528,5 +432,5 @@
       "hash": "17250d24610c5d116b5bcd86cf498eb25891f9620df23c9798d4ced9de67517b"
     }
   ],
-  "rootHash": "9d174e382a8f7909655ee90561ad12be30f9590a6c8e43c7c8ccff04a766d9e0"
+  "rootHash": "984cc55763e7894fc92f4b98a7b4bf31914d0cd4295b02564abaf24307436077"
 }
