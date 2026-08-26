@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import { DOMAINS, publishedModules } from '../data/modules.ts';
 import { COMPANIES } from '../data/companies.ts';
@@ -366,7 +367,7 @@ export function valueStateRenderSites(options?: {
     : collection.bounded;
 }
 
-function valueStates(): {
+function valueStates(validationRecords?: readonly ValueStateRecord[]): {
   validation: ReturnType<typeof validateValueStateSeparation>;
   inputs: ManifestInput[];
   legacyRawRenderSiteIds: Set<string>;
@@ -386,7 +387,9 @@ function valueStates(): {
   ];
   const renderSiteCollection = collectValueStateRenderSites();
   const renderSites = renderSiteCollection.bounded;
-  const validation = validateValueStateSeparation(renderSites);
+  const validation = validateValueStateSeparation(
+    validationRecords ?? renderSites,
+  );
 
   const renderFiles = [
     'lib/entity-cells.ts',
@@ -468,6 +471,7 @@ export function collectBundle(options?: {
   sourceCommit?: string;
   sourceTree?: string;
   trackedWorktreeClean?: boolean;
+  valueStateValidationRecords?: readonly ValueStateRecord[];
 }):
   | {
       ok: true;
@@ -475,11 +479,15 @@ export function collectBundle(options?: {
       bundle: BaselineBundle;
       legacyRawValueStateIds: Set<string>;
     }
-  | { ok: false; failures: BaselineFailure[] } {
-  const valueStateCollection = valueStates();
-  if (!valueStateCollection.validation.ok) {
-    return valueStateCollection.validation;
-  }
+  | {
+      ok: false;
+      failures: BaselineFailure[];
+      bundle: BaselineBundle;
+      legacyRawValueStateIds: Set<string>;
+    } {
+  const valueStateCollection = valueStates(
+    options?.valueStateValidationRecords,
+  );
   const mdx = publishedMdx();
   const inputs: Record<BaselineKind, ManifestInput[]> = {
     routes: routes(),
@@ -506,20 +514,44 @@ export function collectBundle(options?: {
     trackedWorktreeClean: options?.trackedWorktreeClean ?? false,
   };
   const tools = toolVersions();
-  return {
-    ok: true,
-    failures: [],
+  const bundle: BaselineBundle = {
+    schemaVersion: 1,
+    source: sourceIdentity,
+    tools,
+    manifests,
+    manifestRoots,
+    rootHash: sha256(
+      stableJson({ source: sourceIdentity, tools, manifestRoots }),
+    ),
+  };
+  const common = {
     legacyRawValueStateIds: valueStateCollection.legacyRawRenderSiteIds,
-    bundle: {
-      schemaVersion: 1,
-      source: sourceIdentity,
-      tools,
-      manifests,
-      manifestRoots,
-      rootHash: sha256(
-        stableJson({ source: sourceIdentity, tools, manifestRoots }),
-      ),
-    },
+    bundle,
+  };
+  return valueStateCollection.validation.ok
+    ? { ok: true, failures: [], ...common }
+    : {
+        ok: false,
+        failures: valueStateCollection.validation.failures,
+        ...common,
+      };
+}
+
+export function collectBaselineCheckResult(
+  baseline: BaselineBundle,
+  collection: ReturnType<typeof collectBundle>,
+  deltas: readonly ApprovedDelta[],
+): {
+  ok: boolean;
+  failures: BaselineFailure[];
+  approvedDifferences: string[];
+} {
+  const comparison = compareBaseline(baseline, collection.bundle, deltas);
+  const failures = [...collection.failures, ...comparison.failures];
+  return {
+    ok: failures.length === 0,
+    failures,
+    approvedDifferences: comparison.approvedDifferences,
   };
 }
 
@@ -587,12 +619,11 @@ function main(): void {
       readFileSync(BUNDLE_PATH, 'utf8'),
     ) as BaselineBundle;
     const collection = collectBundle();
-    if (!collection.ok) {
-      console.log(JSON.stringify(collection, null, 2));
-      process.exitCode = 1;
-      return;
-    }
-    const result = compareBaseline(baseline, collection.bundle, loadDeltas());
+    const result = collectBaselineCheckResult(
+      baseline,
+      collection,
+      loadDeltas(),
+    );
     console.log(JSON.stringify(result, null, 2));
     if (!result.ok) process.exitCode = 1;
     return;
@@ -648,4 +679,9 @@ function statSafe(path: string): boolean {
   }
 }
 
-main();
+if (
+  process.argv[1] &&
+  pathToFileURL(process.argv[1]).href === import.meta.url
+) {
+  main();
+}

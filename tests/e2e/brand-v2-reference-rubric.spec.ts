@@ -324,6 +324,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
       collectBrowserReferenceFeatures,
       HOME_CONFIG,
     );
+    expect(before.gridAndDevices.unregisteredCount).toBe(0);
     await page.evaluate(() => {
       const grid = document.createElement('div');
       grid.setAttribute('aria-hidden', 'true');

@@ -11,6 +11,10 @@ import {
   type BaselineBundle,
   type BaselineKind,
 } from '@/lib/brand-v2-baseline';
+import {
+  collectBaselineCheckResult,
+  collectBundle,
+} from '../../scripts/brand-v2-baseline';
 
 function fixtureBundle(): BaselineBundle {
   const manifests = Object.fromEntries(
@@ -220,6 +224,73 @@ describe('brand-v2 immutable baseline', () => {
         assertionId: 'VAL-B2-BASE-013',
         reason: 'collapsed-value-states',
       }),
+    );
+  });
+
+  it('collects other manifests after value-state validation fails', () => {
+    const collection = collectBundle({
+      sourceCommit: 'a'.repeat(40),
+      sourceTree: 'b'.repeat(40),
+      trackedWorktreeClean: true,
+      valueStateValidationRecords: [
+        {
+          id: 'only-not-applicable',
+          state: 'not-applicable',
+          rendered: 'n/a',
+        },
+      ],
+    });
+
+    expect(collection.ok).toBe(false);
+    expect(collection.failures).toContainEqual(
+      expect.objectContaining({
+        reason: 'empty-value-state-population',
+        expected: 'non-empty not-disclosed population',
+      }),
+    );
+    expect(collection.bundle.manifests.routes.memberCount).toBeGreaterThan(0);
+    expect(collection.bundle.manifests['article-metadata'].memberCount).toBeGreaterThan(
+      0,
+    );
+  });
+
+  it('reports value-state and separate manifest drift in one envelope', () => {
+    const baseline = fixtureBundle();
+    const current = structuredClone(baseline);
+    current.manifests.routes = buildManifest('routes', [
+      { id: 'routes:alpha', value: { label: 'changed' } },
+      { id: 'routes:beta', value: { label: 'beta' } },
+    ]);
+    const result = collectBaselineCheckResult(
+      baseline,
+      {
+        ok: false,
+        failures: [
+          {
+            assertionId: 'VAL-B2-BASE-013',
+            reason: 'empty-value-state-population',
+            expected: 'non-empty not-disclosed population',
+            actual: 0,
+          },
+        ],
+        bundle: current,
+        legacyRawValueStateIds: new Set(),
+      },
+      [],
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.failures).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          reason: 'empty-value-state-population',
+        }),
+        expect.objectContaining({
+          manifest: 'routes',
+          memberId: 'routes:alpha',
+          reason: 'changed-member',
+        }),
+      ]),
     );
   });
 
