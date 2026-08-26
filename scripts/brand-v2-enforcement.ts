@@ -5,6 +5,7 @@ import {
   enforcementMapSchema,
   buildEnforcementPopulationSources,
   extractBrandV2Assertions,
+  summarizeEnforcementFailures,
   validateEnforcementCorpus,
   type EvidenceResult,
   type EnforcementMap,
@@ -104,7 +105,7 @@ const CENSUS_ROUTE_TARGET = testTarget(
 const ROUTE_FLOW_TARGET = testTarget(
   'tests/e2e/brand-v2-route-flows.spec.ts',
   'brand-v2-route-flows › derives and renders every public destination while keeping 404 separate',
-  'Visits every registry-derived public destination and checks rendering, overflow, and Axe; the row’s brand-v2 visual predicate remains pending.',
+  'Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending.',
 );
 const CENSUS_INTERACTIVE_TARGET = testTarget(
   'tests/unit/brand-v2-census.test.ts',
@@ -193,6 +194,16 @@ function testTargetsFor(id: string): TestTarget[] {
           'tests/e2e/brand-v2-search-states.spec.ts',
           'brand-v2-search-states › covers deterministic results, Methods facet, URL sync, focus retention, and recovery',
           'Exercises the current search-state flow, including deterministic results, facet state, URL sync, focus retention, and recovery.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-search-states.spec.ts',
+          'brand-v2-search-states › shows the product unavailable state when both search indexes fail',
+          'Forces both search indexes unavailable and asserts the product’s unavailable status and visible recovery witness.',
+        ),
+        testTarget(
+          'tests/e2e/brand-v2-search-states.spec.ts',
+          'brand-v2-search-states › keeps the later query when an earlier request resolves after it',
+          'Issues a second query while the first request remains in flight, resolves the first last, and asserts the later result remains authoritative.',
         ),
       ];
     }
@@ -362,7 +373,11 @@ function generate() {
   };
 }
 
-const mode = process.argv[2];
+const args = new Set(process.argv.slice(2));
+const mode = process.argv.slice(2).find((argument) =>
+  ['--write', '--check', '--check-release'].includes(argument),
+);
+const countOnly = args.has('--count-only');
 const generated = generate();
 if (mode === '--write') {
   writeFileSync(MAP_PATH, `${JSON.stringify(generated.map, null, 2)}\n`);
@@ -408,11 +423,20 @@ if (mode === '--write') {
     });
   }
   if (failures.length > 0) {
-    for (const failure of failures.slice(0, 20)) {
-      console.error(JSON.stringify(failure));
+    const summary = summarizeEnforcementFailures(failures);
+    console.error(
+      `brand-v2-enforcement: ${summary.total} failures by class`,
+    );
+    for (const { reason, count } of summary.counts) {
+      console.error(`${reason}: ${count}`);
     }
-    if (failures.length > 20) {
-      console.error(`... ${failures.length - 20} more enforcement failures`);
+    if (!countOnly) {
+      for (const failure of failures.slice(0, 20)) {
+        console.error(JSON.stringify(failure));
+      }
+      if (failures.length > 20) {
+        console.error(`... ${failures.length - 20} more enforcement failures`);
+      }
     }
     process.exitCode = 1;
   } else {
@@ -422,7 +446,7 @@ if (mode === '--write') {
   }
 } else {
   console.error(
-    'Usage: node scripts/brand-v2-enforcement.ts --write|--check|--check-release',
+    'Usage: node scripts/brand-v2-enforcement.ts --write|--check|--check-release [--count-only]',
   );
   process.exitCode = 2;
 }

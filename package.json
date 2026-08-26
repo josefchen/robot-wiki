@@ -24,6 +24,7 @@
     "generate:brand-v2-enforcement": "node scripts/brand-v2-enforcement.ts --write",
     "check:brand-v2-enforcement": "node scripts/brand-v2-enforcement.ts --check",
     "check:brand-v2-enforcement:release": "node scripts/brand-v2-enforcement.ts --check-release",
+    "check:brand-v2-enforcement:release:counts": "node scripts/brand-v2-enforcement.ts --check-release --count-only",
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",
     "pretest:brand-v2": "npm run build",
