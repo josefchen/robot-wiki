@@ -4,6 +4,7 @@ import {
   BASELINE_KINDS,
   buildManifest,
   compareBaseline,
+  isRenderedValueStateTokenAt,
   validateApprovedDeltas,
   validateValueStateSeparation,
   type ApprovedDelta,
@@ -196,12 +197,11 @@ describe('brand-v2 immutable baseline', () => {
         },
         { id: 'inapplicable', state: 'not-applicable', rendered: 'n/a' },
       ]),
-    ).toEqual([]);
+    ).toEqual({ ok: true, failures: [] });
   });
 
   it('fails when not disclosed and n/a collapse to the same rendering', () => {
-    expect(
-      validateValueStateSeparation([
+    const result = validateValueStateSeparation([
         {
           id: 'undisclosed',
           state: 'not-disclosed',
@@ -212,8 +212,10 @@ describe('brand-v2 immutable baseline', () => {
           state: 'not-applicable',
           rendered: 'not disclosed',
         },
-      ]),
-    ).toContainEqual(
+      ]);
+
+    expect(result.ok).toBe(false);
+    expect(result.failures).toContainEqual(
       expect.objectContaining({
         assertionId: 'VAL-B2-BASE-013',
         reason: 'collapsed-value-states',
@@ -229,15 +231,16 @@ describe('brand-v2 immutable baseline', () => {
     (missingState, otherRendering) => {
       const otherState =
         missingState === 'not-disclosed' ? 'not-applicable' : 'not-disclosed';
-      expect(
-        validateValueStateSeparation([
+      const result = validateValueStateSeparation([
           {
             id: 'remaining-site',
             state: otherState,
             rendered: otherRendering,
           },
-        ]),
-      ).toContainEqual(
+        ]);
+
+      expect(result.ok).toBe(false);
+      expect(result.failures).toContainEqual(
         expect.objectContaining({
           assertionId: 'VAL-B2-BASE-013',
           expected: `non-empty ${missingState} population`,
@@ -247,6 +250,33 @@ describe('brand-v2 immutable baseline', () => {
       );
     },
   );
+
+  it('matches n/a only as a rendered token, not inside paths or URLs', () => {
+    const path = '/manipulation/action-chunking/';
+    const pathOffset = path.indexOf('n/a');
+    expect(pathOffset).toBeGreaterThanOrEqual(0);
+    expect(isRenderedValueStateTokenAt(path, 'n/a', pathOffset)).toBe(false);
+
+    const url = 'https://example.test/news/en/about';
+    const urlOffset = url.indexOf('n/a');
+    expect(urlOffset).toBeGreaterThanOrEqual(0);
+    expect(isRenderedValueStateTokenAt(url, 'n/a', urlOffset)).toBe(false);
+    for (const pathLike of ['/status/n/a/', 'https://example.test/status/n/a']) {
+      expect(
+        isRenderedValueStateTokenAt(
+          pathLike,
+          'n/a',
+          pathLike.lastIndexOf('n/a'),
+        ),
+      ).toBe(false);
+    }
+
+    for (const text of ['n/a', '(n/a)', 'value: n/a.', 'n/a — not applicable']) {
+      expect(isRenderedValueStateTokenAt(text, 'n/a', text.indexOf('n/a'))).toBe(
+        true,
+      );
+    }
+  });
 
   it.each([
     ['value-states', 'VAL-B2-BASE-013'],
@@ -286,6 +316,7 @@ describe('brand-v2 immutable baseline', () => {
     expect(assertAdditiveBaseline(previous, recreated)).toEqual({
       addedKinds: [],
       addedMembers: 1,
+      correctedRemovedMembers: 0,
     });
 
     recreated.manifests.routes = buildManifest('routes', [
@@ -295,6 +326,65 @@ describe('brand-v2 immutable baseline', () => {
     expect(() => assertAdditiveBaseline(previous, recreated)).toThrow(
       /changed pre-existing member routes:routes:alpha/,
     );
+  });
+
+  it('permits only explicitly derived corrected removals during recreation', () => {
+    const previous = fixtureBundle();
+    const recreated = structuredClone(previous);
+    recreated.manifests['value-states'] = buildManifest('value-states', [
+      {
+        id: 'value-states:alpha',
+        value: previous.manifests['value-states'].members[0].value!,
+      },
+    ]);
+
+    expect(() => assertAdditiveBaseline(previous, recreated)).toThrow(
+      /removed pre-existing member value-states:value-states:beta/,
+    );
+    expect(
+      assertAdditiveBaseline(previous, recreated, {
+        correctedRemovedMembers: new Set([
+          'value-states:value-states:beta',
+        ]),
+      }),
+    ).toEqual({
+      addedKinds: [],
+      addedMembers: 0,
+      correctedRemovedMembers: 1,
+    });
+    expect(() =>
+      assertAdditiveBaseline(previous, recreated, {
+        correctedRemovedMembers: new Set([
+          'value-states:value-states:alpha',
+          'value-states:value-states:beta',
+        ]),
+      }),
+    ).toThrow(/unmatched corrected removal/);
+  });
+
+  it('counts additive members independently from corrected removals', () => {
+    const previous = fixtureBundle();
+    const recreated = structuredClone(previous);
+    recreated.manifests['value-states'] = buildManifest('value-states', [
+      {
+        id: 'value-states:alpha',
+        value: previous.manifests['value-states'].members[0].value!,
+      },
+      { id: 'value-states:gamma', value: { label: 'gamma' } },
+      { id: 'value-states:delta', value: { label: 'delta' } },
+    ]);
+
+    expect(
+      assertAdditiveBaseline(previous, recreated, {
+        correctedRemovedMembers: new Set([
+          'value-states:value-states:beta',
+        ]),
+      }),
+    ).toEqual({
+      addedKinds: [],
+      addedMembers: 2,
+      correctedRemovedMembers: 1,
+    });
   });
 
   it('rejects recreation when a previously persisted kind is no longer registered', () => {

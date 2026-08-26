@@ -10,11 +10,13 @@ import {
   assertAdditiveBaseline,
   buildManifest,
   compareBaseline,
+  isRenderedValueStateTokenAt,
   sha256,
   stableJson,
   validateValueStateSeparation,
   type ApprovedDelta,
   type BaselineBundle,
+  type BaselineFailure,
   type BaselineKind,
   type JsonValue,
   type ManifestInput,
@@ -307,8 +309,12 @@ function behavioralDefaults(): ManifestInput[] {
   return entries;
 }
 
-export function valueStateRenderSites(): ValueStateRecord[] {
-  const records: ValueStateRecord[] = [];
+function collectValueStateRenderSites(): {
+  raw: ValueStateRecord[];
+  bounded: ValueStateRecord[];
+} {
+  const raw: ValueStateRecord[] = [];
+  const bounded: ValueStateRecord[] = [];
   const paths = command(
     'git',
     'ls-files',
@@ -334,20 +340,37 @@ export function valueStateRenderSites(): ValueStateRecord[] {
       let ordinal = 0;
       while ((offset = text.indexOf(rendered, offset)) !== -1) {
         ordinal += 1;
-        records.push({
+        const record = {
           id: `state-site:${path}:${state}:${ordinal}`,
           state,
           rendered,
-        });
+        };
+        raw.push(record);
+        if (isRenderedValueStateTokenAt(text, rendered, offset)) {
+          bounded.push(record);
+        }
         offset += rendered.length;
       }
     }
   }
 
-  return records;
+  return { raw, bounded };
 }
 
-function valueStates(): ManifestInput[] {
+export function valueStateRenderSites(options?: {
+  tokenBoundaryAware?: boolean;
+}): ValueStateRecord[] {
+  const collection = collectValueStateRenderSites();
+  return options?.tokenBoundaryAware === false
+    ? collection.raw
+    : collection.bounded;
+}
+
+function valueStates(): {
+  validation: ReturnType<typeof validateValueStateSeparation>;
+  inputs: ManifestInput[];
+  legacyRawRenderSiteIds: Set<string>;
+} {
   const canonicalRecords: ValueStateRecord[] = [
     { id: 'published-witness', state: 'published', rendered: '42' },
     {
@@ -361,11 +384,9 @@ function valueStates(): ManifestInput[] {
       rendered: 'n/a',
     },
   ];
-  const renderSites = valueStateRenderSites();
-  const separationFailures = validateValueStateSeparation(renderSites);
-  if (separationFailures.length > 0) {
-    throw new Error(JSON.stringify(separationFailures, null, 2));
-  }
+  const renderSiteCollection = collectValueStateRenderSites();
+  const renderSites = renderSiteCollection.bounded;
+  const validation = validateValueStateSeparation(renderSites);
 
   const renderFiles = [
     'lib/entity-cells.ts',
@@ -373,20 +394,26 @@ function valueStates(): ManifestInput[] {
     'components/interactive/data-scale-chart.tsx',
     'components/market-map/company-card.tsx',
   ];
-  return [
-    ...canonicalRecords.map((record) => ({
-      id: `state:${record.id}`,
-      value: jsonValue(record),
-    })),
-    ...renderSites.map((record) => ({
-      id: record.id,
-      value: jsonValue(record),
-    })),
-    ...renderFiles.map((path) => ({
-      id: `state-source:${path}`,
-      value: { path, source: source(path) },
-    })),
-  ];
+  return {
+    validation,
+    legacyRawRenderSiteIds: new Set(
+      renderSiteCollection.raw.map((record) => record.id),
+    ),
+    inputs: [
+      ...canonicalRecords.map((record) => ({
+        id: `state:${record.id}`,
+        value: jsonValue(record),
+      })),
+      ...renderSites.map((record) => ({
+        id: record.id,
+        value: jsonValue(record),
+      })),
+      ...renderFiles.map((path) => ({
+        id: `state-source:${path}`,
+        value: { path, source: source(path) },
+      })),
+    ],
+  };
 }
 
 function articleMetadata(mdx: PublishedMdx): ManifestInput[] {
@@ -441,7 +468,18 @@ export function collectBundle(options?: {
   sourceCommit?: string;
   sourceTree?: string;
   trackedWorktreeClean?: boolean;
-}): BaselineBundle {
+}):
+  | {
+      ok: true;
+      failures: [];
+      bundle: BaselineBundle;
+      legacyRawValueStateIds: Set<string>;
+    }
+  | { ok: false; failures: BaselineFailure[] } {
+  const valueStateCollection = valueStates();
+  if (!valueStateCollection.validation.ok) {
+    return valueStateCollection.validation;
+  }
   const mdx = publishedMdx();
   const inputs: Record<BaselineKind, ManifestInput[]> = {
     routes: routes(),
@@ -453,7 +491,7 @@ export function collectBundle(options?: {
     'assets-svg': assetsSvg(),
     'interactive-sources-mounts': interactiveSourcesMounts(),
     'behavioral-defaults': behavioralDefaults(),
-    'value-states': valueStates(),
+    'value-states': valueStateCollection.inputs,
     'article-metadata': articleMetadata(mdx),
   };
   const manifests = Object.fromEntries(
@@ -469,12 +507,19 @@ export function collectBundle(options?: {
   };
   const tools = toolVersions();
   return {
-    schemaVersion: 1,
-    source: sourceIdentity,
-    tools,
-    manifests,
-    manifestRoots,
-    rootHash: sha256(stableJson({ source: sourceIdentity, tools, manifestRoots })),
+    ok: true,
+    failures: [],
+    legacyRawValueStateIds: valueStateCollection.legacyRawRenderSiteIds,
+    bundle: {
+      schemaVersion: 1,
+      source: sourceIdentity,
+      tools,
+      manifests,
+      manifestRoots,
+      rootHash: sha256(
+        stableJson({ source: sourceIdentity, tools, manifestRoots }),
+      ),
+    },
   };
 }
 
@@ -522,13 +567,17 @@ function main(): void {
         'BRAND_V2_BASELINE_TREE must equal the exact recorded source tree',
       );
     }
-    writeBundle(
-      collectBundle({
-        sourceCommit: command('git', 'rev-parse', 'HEAD'),
-        sourceTree: actualTree,
-        trackedWorktreeClean: true,
-      }),
-    );
+    const collection = collectBundle({
+      sourceCommit: command('git', 'rev-parse', 'HEAD'),
+      sourceTree: actualTree,
+      trackedWorktreeClean: true,
+    });
+    if (!collection.ok) {
+      console.log(JSON.stringify(collection, null, 2));
+      process.exitCode = 1;
+      return;
+    }
+    writeBundle(collection.bundle);
     console.log(`brand-v2 baseline: created ${BUNDLE_PATH}`);
     return;
   }
@@ -537,8 +586,13 @@ function main(): void {
     const baseline = JSON.parse(
       readFileSync(BUNDLE_PATH, 'utf8'),
     ) as BaselineBundle;
-    const current = collectBundle();
-    const result = compareBaseline(baseline, current, loadDeltas());
+    const collection = collectBundle();
+    if (!collection.ok) {
+      console.log(JSON.stringify(collection, null, 2));
+      process.exitCode = 1;
+      return;
+    }
+    const result = compareBaseline(baseline, collection.bundle, loadDeltas());
     console.log(JSON.stringify(result, null, 2));
     if (!result.ok) process.exitCode = 1;
     return;
@@ -548,15 +602,37 @@ function main(): void {
     const previous = JSON.parse(
       readFileSync(BUNDLE_PATH, 'utf8'),
     ) as BaselineBundle;
-    const recreated = collectBundle({
+    const collection = collectBundle({
       sourceCommit: PINNED_SOURCE_COMMIT,
       sourceTree: PINNED_SOURCE_TREE,
       trackedWorktreeClean: true,
     });
-    const additions = assertAdditiveBaseline(previous, recreated);
+    if (!collection.ok) {
+      console.log(JSON.stringify(collection, null, 2));
+      process.exitCode = 1;
+      return;
+    }
+    const recreated = collection.bundle;
+    const recreatedValueStateIds = new Set(
+      recreated.manifests['value-states'].members.map((member) => member.id),
+    );
+    const legacyRawValueStateIds = collection.legacyRawValueStateIds;
+    const correctedRemovedMembers = new Set(
+      previous.manifests['value-states'].members
+        .map((member) => member.id)
+        .filter(
+          (memberId) =>
+            legacyRawValueStateIds.has(memberId) &&
+            !recreatedValueStateIds.has(memberId),
+        )
+        .map((memberId) => `value-states:${memberId}`),
+    );
+    const additions = assertAdditiveBaseline(previous, recreated, {
+      correctedRemovedMembers,
+    });
     writeBundle(recreated);
     console.log(
-      `brand-v2 baseline: recreated additively with ${additions.addedMembers} added members across ${additions.addedKinds.length} added kinds`,
+      `brand-v2 baseline: recreated with ${additions.addedMembers} additive members across ${additions.addedKinds.length} added kinds and ${additions.correctedRemovedMembers} derived false-positive removals`,
     );
     return;
   }
