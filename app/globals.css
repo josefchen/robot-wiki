@@ -194,21 +194,10 @@
  * boundary mark is the whole of what a texture has to say.
  */
 :root {
-  --dot-base: color-mix(
-    in srgb,
-    var(--color-concrete) 12%,
-    var(--color-paper)
-  );
-  --dot-mid: color-mix(
-    in srgb,
-    var(--color-concrete) 18%,
-    var(--color-paper)
-  );
-  --dot-peak: color-mix(
-    in srgb,
-    var(--color-concrete) 24%,
-    var(--color-paper)
-  );
+  /* Documented tonal derivatives of concrete over paper at 12/18/24%. */
+  --dot-base: #F2F3F4;
+  --dot-mid: #F0F1F2;
+  --dot-peak: #EEEFF0;
   --dot-pitch: 4px;
 }
 

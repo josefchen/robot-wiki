@@ -168,11 +168,11 @@ test.describe('the paper theme is the single site-wide theme', () => {
       for (const [name, value] of Object.entries(tokens)) {
         expect(value, `${route} must define ${name}`).not.toBe('');
       }
-      expect(tokens['--color-bg']).toBe('#F5F6F7');
-      expect(tokens['--color-accent']).toBe('#245FFF');
-      expect(tokens['--color-paper']).toBe('#F5F6F7');
-      expect(tokens['--color-signal']).toBe('#245FFF');
-      expect(tokens['--color-highlight']).toBe('#C6FF19');
+      expect(tokens['--color-bg'].toUpperCase()).toBe('#F5F6F7');
+      expect(tokens['--color-accent'].toUpperCase()).toBe('#245FFF');
+      expect(tokens['--color-paper'].toUpperCase()).toBe('#F5F6F7');
+      expect(tokens['--color-signal'].toUpperCase()).toBe('#245FFF');
+      expect(tokens['--color-highlight'].toUpperCase()).toBe('#C6FF19');
       // The three faces are the new ones, and only the new ones. Shipping
       // nine families would satisfy a positive check on its own.
       //
