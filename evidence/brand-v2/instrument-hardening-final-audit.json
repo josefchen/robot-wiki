@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "auditedCommit": "49b6fd71dc98e0c02ea529ae71a228fef00ac321",
+  "auditorCommit": "ca1729e5f6dcda01d2e23b50baa1e44587ae269d",
+  "sourceTree": "36e0825afb88018e94230ad7d3d9600c8f8f3cfb",
+  "verdict": "fail",
+  "reviewedFiles": [
+    "evidence/brand-v2/expected-red-v1.json",
+    "lib/brand-v2-route-profile.ts",
+    "lib/brand-v2-runners.ts",
+    "scripts/brand-v2-baseline.ts",
+    "tests/e2e/brand-v2-article-interactions.spec.ts",
+    "tests/e2e/brand-v2-reference-rubric.spec.ts",
+    "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+    "tests/e2e/brand-v2-route-flows.spec.ts",
+    "tests/e2e/brand-v2-static-fixture.ts",
+    "tests/e2e/helpers/document-overflow.ts",
+    "tests/unit/brand-v2-baseline.test.ts",
+    "tests/unit/brand-v2-runners.test.ts"
+  ],
+  "assertions": [
+    {
+      "id": "R1-derived-populations",
+      "description": "The route and filtered subject populations are derived from repository or rendered subjects and fail closed when their required population is empty.",
+      "result": "pass",
+      "evidence": [
+        "lib/brand-v2-runners.ts derives public routes from registry.routes.public and throws when the public-route population is empty.",
+        "tests/e2e/brand-v2-article-interactions.spec.ts floors the registry-derived article route filter with articleRoutes.length > 0.",
+        "tests/e2e/brand-v2-reflow-320-200.spec.ts floors the rendered visible-text filter with sizes.length > 0."
+      ]
+    },
+    {
+      "id": "R2-independent-inputs",
+      "description": "Predicate inputs come from the subject under test rather than literals authored beside the assertion.",
+      "result": "pass",
+      "evidence": [
+        "tests/e2e/brand-v2-route-flows.spec.ts derives font resources from PerformanceResourceTiming, body population and residue from the rendered DOM, and overflow from document scroll/client widths.",
+        "scripts/brand-v2-baseline.ts collects current manifests from repository subjects before compareBaseline evaluates them against the immutable baseline."
+      ]
+    },
+    {
+      "id": "R3-expected-red-separation",
+      "description": "Expected-red wrappers must not mask enforcing functional assertions.",
+      "result": "fail",
+      "evidence": [
+        "At audited commit 49b6fd71dc98e0c02ea529ae71a228fef00ac321, tests/e2e/brand-v2-route-flows.spec.ts filtered reflow failures out of its enforcing assertion and only attached them.",
+        "At the audited commit, tests/e2e/brand-v2-reflow-320-200.spec.ts wrapped the all-route zero-overflow claim in test.fail without a normal exact-set assertion, so an added overflow route remained masked.",
+        "Fix-forward commit ca1729e5f6dcda01d2e23b50baa1e44587ae269d records failedRoutes in expected-red-v1.json, enforces exact route-set equality normally, and leaves only the deliberately unreachable zero-overflow claim under test.fail."
+      ]
+    },
+    {
+      "id": "R4-machine-local-exclusion",
+      "description": "The audited change does not introduce machine-local state into a committed artifact.",
+      "result": "pass",
+      "evidence": [
+        "The full seven-file diff adds source, tests, and deterministic DOM measurements; it does not add a filesystem-derived committed artifact.",
+        "The baseline collector continues to derive source subjects through tracked repository inputs rather than the temporary audit worktree's untracked node_modules or out symlinks."
+      ]
+    },
+    {
+      "id": "R5-no-acceptance-literal",
+      "description": "The public-route executor uses the registry-derived route population instead of hardcoding the revision count.",
+      "result": "pass",
+      "evidence": [
+        "tests/e2e/brand-v2-route-flows.spec.ts maps brandV2Registry.routes.public and passes it to buildPublicRouteExecutionPlan.",
+        "contract/brand-v2-registries.json currently yields 61 routes, split into 47 article and 14 destination routes; the executor contains no hardcoded 61 acceptance literal."
+      ]
+    },
+    {
+      "id": "R6-independent-enforcement",
+      "description": "Determinism and collection are paired with an independent comparison against the immutable baseline.",
+      "result": "pass",
+      "evidence": [
+        "scripts/brand-v2-baseline.ts collectBaselineCheckResult calls compareBaseline on collection.bundle even when value-state validation failed.",
+        "The real combined mutation made the baseline gate report empty-value-state-population and an independent accessible-names changed-member failure together."
+      ]
+    },
+    {
+      "id": "R7-filtered-collection-floors",
+      "description": "Every required filtered collection in the route executors has a non-empty floor before its predicate can pass.",
+      "result": "pass",
+      "evidence": [
+        "lib/brand-v2-route-profile.ts checks fontResources.length === 0 before the same-origin every predicate.",
+        "lib/brand-v2-route-profile.ts checks bodyElementCount === 0 before accepting a zero backdrop-residue result.",
+        "tests/e2e/brand-v2-article-interactions.spec.ts asserts the filtered article population is non-empty.",
+        "tests/e2e/brand-v2-reflow-320-200.spec.ts asserts the filtered visible-text population is non-empty; filtered failure arrays are allowed to be empty because emptiness is their passing state."
+      ]
+    },
+    {
+      "id": "expected-red-six-anchor-equality",
+      "description": "The v1 reference archive remains exact-set enforced at six anchors on both measured reference surfaces.",
+      "result": "pass",
+      "evidence": [
+        "evidence/brand-v2/expected-red-v1.json contains six failedAnchors for VAL-B2-EVID-015 and the same six for VAL-B2-EVID-004.",
+        "tests/e2e/brand-v2-reference-rubric.spec.ts compares the actual failing anchor arrays with archivedExpectedRedAnchors using exact toEqual assertions."
+      ]
+    },
+    {
+      "id": "font-empty-population",
+      "description": "An empty observed font-resource population fails instead of satisfying same-origin checks vacuously.",
+      "result": "pass",
+      "evidence": [
+        "lib/brand-v2-route-profile.ts emits resource-font / empty-font-resource-population when fontResources is empty.",
+        "The browser mutation blocked font binaries, cleared resource timings, observed [], and the targeted test passed only after asserting the tagged empty-population failure."
+      ]
+    },
+    {
+      "id": "reflow-320-upper-bound",
+      "description": "Literal 320 CSS px overflow is measured with a positive-overflow failure predicate and archived drift cannot expand silently.",
+      "result": "fail",
+      "evidence": [
+        "lib/brand-v2-route-profile.ts correctly emits a reflow failure for every finite reflowOverflowPx > 0.",
+        "The forced 640px DOM plant at a 320x800 viewport produced positive measured overflow and the expected reflow failure.",
+        "The audited all-route executor nevertheless removed reflow failures from its normal assertion; fix-forward ca1729e5f6dcda01d2e23b50baa1e44587ae269d adds exact equality against seven archived v1 overflow routes."
+      ]
+    },
+    {
+      "id": "route-check-reconciliation",
+      "description": "All nine route check classes execute for every registry-derived public route and exactly reconcile with member.checks.",
+      "result": "pass",
+      "evidence": [
+        "lib/brand-v2-runners.ts declares exactly nine ROUTE_CHECKS: browser-render, computed-style, axe, keyboard, forced-colours, reflow, overflow, resource-font, and residue.",
+        "The real route-flow run passed across all 61 registry routes in 1.1 minutes.",
+        "Removing executedChecks.add('axe') in the isolated worktree failed on the first route with expected axe missing, then the file was restored byte-identically."
+      ]
+    },
+    {
+      "id": "collect-bundle-aggregation",
+      "description": "A value-state validation failure does not short-circuit collection or mask independent manifest drift.",
+      "result": "pass",
+      "evidence": [
+        "scripts/brand-v2-baseline.ts builds every manifest before returning value-state failures and merges collection.failures with compareBaseline failures.",
+        "The real isolated-tree mutation replaced all rendered not-disclosed subjects and separately drifted nav:/; npm run baseline:brand-v2 -- --check reported both empty-value-state-population and accessible-names changed-member in one ok:false failures envelope."
+      ]
+    },
+    {
+      "id": "dot-grid-zero-baseline",
+      "description": "The structural dot-grid mutation pins the pre-mutation unregistered-device count at zero.",
+      "result": "pass",
+      "evidence": [
+        "tests/e2e/brand-v2-reference-rubric.spec.ts asserts before.gridAndDevices.unregisteredCount === 0 before adding the radial-gradient grid.",
+        "The focused browser test passed and then verified the post-mutation count increased and the unregistered-device predicate failed."
+      ]
+    },
+    {
+      "id": "structural-detection-boundary",
+      "description": "The known structural-device blind spots are stated explicitly for later milestones.",
+      "result": "pass",
+      "evidence": [
+        "Mission library/brand-v2-instrument.md states that the heuristic detects repeated background grids and thin rails but does not inspect box-shadow, SVG contents, or canvas pixels.",
+        "The same guidance requires explicit data-brand-device-id registration for devices rendered through those mechanisms."
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "command": "git show --no-ext-diff --unified=120 --no-renames 49b6fd7",
+      "exitCode": 0,
+      "observation": "Reviewed the complete 49b6fd71dc98e0c02ea529ae71a228fef00ac321 diff across all seven changed files."
+    },
+    {
+      "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g \"rejects a route profile\" --workers=1",
+      "exitCode": 0,
+      "observation": "2 passed: empty font observations emitted empty-font-resource-population, and a 640px plant at 320 CSS px emitted a measured reflow failure."
+    },
+    {
+      "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g \"derives and renders every public destination\" --workers=1",
+      "exitCode": 0,
+      "observation": "The unmodified audited executor passed all 61 registry-derived public routes and reconciled all nine member.checks classes in 1.1 minutes."
+    },
+    {
+      "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-reference-rubric.spec.ts -g \"detects an unannotated decorative dot grid structurally\" --workers=1 && npm run test -- brand-v2-baseline brand-v2-runners && npm run baseline:brand-v2 -- --check",
+      "exitCode": 0,
+      "observation": "Dot-grid browser mutation passed; 48 focused unit tests passed; baseline check returned ok:true with no failures or approved differences."
+    },
+    {
+      "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts tests/e2e/brand-v2-reflow-320-200.spec.ts --workers=1",
+      "exitCode": 0,
+      "observation": "After fix-forward ca1729e, 5 tests passed, including normal exact equality for the seven archived 320px overflow routes and both real route-profile mutations."
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "observation": "ESLint completed with no errors or warnings after the fix-forward change."
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "observation": "next typegen and tsc --noEmit completed successfully after the fix-forward change."
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "observation": "214 test files passed; 2360 tests passed, 1 skipped, and 0 failed, including the new audit schema/integrity test."
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "observation": "The static build generated 65 pages; content, reading-time, Pagefind, registry, enforcement, and OG postbuild gates passed; 48 distinct OG assets were generated."
+    },
+    {
+      "command": "npm run test:brand-v2",
+      "exitCode": 0,
+      "observation": "The complete brand-v2 configuration reported 35 passed, including exact reflow archive equality, all 61 route checks, and the expected-red visual claims."
+    },
+    {
+      "command": "npm run check:brand-v2-enforcement:release:counts",
+      "exitCode": 1,
+      "observation": "The expected sealed milestone-red shape remained exactly 476 failures: 238 pending-result-blocks-release plus 238 population-wide-coverage-blocks-release."
+    },
+    {
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "observation": "The final standard Playwright suite reported 1215 passed, 2 skipped, and 0 failed on the final audit evidence commit."
+    }
+  ],
+  "mutations": [
+    {
+      "name": "font-empty-population",
+      "subject": "Rendered home route font ResourceTiming observations",
+      "expectedFailure": "resource-font / empty-font-resource-population",
+      "observed": "Font binary requests were aborted, resource timings were cleared, the observed fontResources array was empty, and validateRouteProfile returned the expected tagged failure.",
+      "restoredByteIdentical": true
+    },
+    {
+      "name": "forced-320-overflow",
+      "subject": "Rendered home route at a literal 320x800 CSS-pixel viewport",
+      "expectedFailure": "A measured reflow failure with positive pixel overflow",
+      "observed": "A 640px-wide, 1px-high DOM node produced positive document overflow and validateRouteProfile returned reflow / <measured>px-overflow.",
+      "restoredByteIdentical": true
+    },
+    {
+      "name": "omitted-route-check-class",
+      "subject": "executedChecks reconciliation in tests/e2e/brand-v2-route-flows.spec.ts",
+      "expectedFailure": "Exact member.checks equality fails with axe missing",
+      "observed": "Removing executedChecks.add('axe') failed on route / with expected array containing axe and the received array omitting it.",
+      "restoredByteIdentical": true
+    },
+    {
+      "name": "combined-value-state-and-manifest-drift",
+      "subject": "Real baseline --check over tracked rendered-value subjects plus nav accessible-name fixture",
+      "expectedFailure": "One standard ok:false envelope contains both empty-value-state-population and independent manifest drift",
+      "observed": "After replacing not disclosed in 32 tracked subject files and changing nav:/ to robot-wiki-drift, the gate reported VAL-B2-BASE-013 empty-value-state-population and VAL-B2-BASE-012 accessible-names changed-member together.",
+      "restoredByteIdentical": true
+    },
+    {
+      "name": "unarchived-320-overflow-route",
+      "subject": "Fix-forward exact-set assertion for archived 320px route failures",
+      "expectedFailure": "A newly overflowing route outside failedRoutes is named as an exact-set mismatch",
+      "observed": "Planting a 640px node on / added / to the measured set and failed the normal assertion with Received +1 before the test file was restored.",
+      "restoredByteIdentical": true
+    },
+    {
+      "name": "dot-grid-structural-detection",
+      "subject": "Home reference-rubric structural device measurement",
+      "expectedFailure": "Zero pre-mutation baseline increases and unregistered-device-count fails",
+      "observed": "The test pinned unregisteredCount at 0, added an unannotated radial-gradient dot grid, observed an increased count, and the grid-alignment predicate failed.",
+      "restoredByteIdentical": true
+    }
+  ],
+  "knownBoundaries": [
+    "The structural heuristic does not detect box-shadow, SVG, or canvas devices.",
+    "Box-shadow, SVG, and canvas devices must carry explicit data-brand-device-id metadata because a zero structural-unregistered count does not prove those rendering mechanisms contain no unregistered decoration.",
+    "The audited commit's seven-route 320px overflow set is archived v1 drift, not a product pass; fix-forward enforcement prevents that set from silently expanding or shrinking."
+  ]
+}
