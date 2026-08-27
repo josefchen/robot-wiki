@@ -20,6 +20,7 @@
  */
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
+import { BRAND_COLORS } from './brand-v2-tokens.ts';
 import { sanitizeCardText } from './og-cards.ts';
 
 export interface CardArtworkInput {
@@ -29,17 +30,24 @@ export interface CardArtworkInput {
   reviewYear: number;
 }
 
-// Design tokens (app/globals.css). Satori resolves no custom properties, so
-// the card restates the shipped values; they must move when the tokens move.
-// PANEL is the one value with no token of its own: it is the right panel's
-// ground, a half-step off --color-bg toward --color-surface-2, so the panel
-// reads as a separate field without becoming a second surface colour.
-const BG = '#f4f3ef';
-const PANEL = '#efeee9';
-const BORDER = '#d9d6cd';
-const TEXT = '#1a1c1e';
-const DIM = '#55595d';
-const ACCENT = '#245edb';
+// Satori resolves no CSS custom properties, so the renderer consumes the
+// checked-in mirror rather than restating literals in this module.
+export const OG_RENDERER_COLORS = {
+  paper: BRAND_COLORS.paper,
+  white: BRAND_COLORS.white,
+  ink: BRAND_COLORS.ink,
+  graphite: BRAND_COLORS.graphite,
+  concrete: BRAND_COLORS.concrete,
+  highlight: BRAND_COLORS.highlight,
+  signal: BRAND_COLORS.signal,
+} as const;
+
+const BG = OG_RENDERER_COLORS.paper;
+const PANEL = OG_RENDERER_COLORS.white;
+const BORDER = OG_RENDERER_COLORS.concrete;
+const TEXT = OG_RENDERER_COLORS.ink;
+const DIM = OG_RENDERER_COLORS.graphite;
+const ACCENT = OG_RENDERER_COLORS.signal;
 
 // Satori consumes the separately vendored static Tektur SemiBold TTF. The
 // browser uses the approved variable WOFF2 through next/font/local instead;
@@ -95,7 +103,7 @@ export function ornamentFor(domain: string): Ornament {
   return 'grid';
 }
 
-const GRID = '#c8c5bc';
+const GRID = OG_RENDERER_COLORS.concrete;
 
 function hairline(width: number): CardNode {
   return div({ width: `${width}px`, height: '1px', backgroundColor: BORDER });

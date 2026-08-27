@@ -2,28 +2,66 @@
 @import 'katex/dist/katex.min.css';
 
 /*
- * robot-wiki design tokens (Tailwind v4 CSS-first).
- * Direction: "technical instrument" on paper. Light-first, flat surfaces,
- * 1px borders, small radii, one locked signal-blue accent. No gradients, no
- * glassmorphism. See library/design-system.md.
- *
- * This is the site's only theme. There is deliberately no dark variant and
- * no prefers-color-scheme fork: a reference work that changes ground under
- * the reader is two designs maintained badly, and the owner chose one.
- * Values are the measured paper candidate from the accepted design spike.
+ * Robot Wiki brand-v2 runtime tokens (Tailwind v4 CSS-first).
+ * The product is light-led: paper is the page ground, white is the reading
+ * surface, and graphite is reserved for bounded technical instruments.
+ * Renderer mirrors live in lib/brand-v2-tokens.ts.
  */
 @theme {
-  /* Palette (light-first; warm off-white, never pure #fff) */
-  --color-bg: #f4f3ef;
-  --color-surface: #fbfaf7;
-  --color-surface-2: #eceae4;
-  --color-border: #d9d6cd;
-  --color-border-strong: #b3afa4;
-  --color-text: #1a1c1e;
-  --color-text-dim: #55595d;
+  /* Locked brand foundations. Keep uppercase hex for executable parity. */
+  --color-ink: #0B0B0C;
+  --color-graphite: #242D33;
+  --color-concrete: #D9DADB;
+  --color-paper: #F5F6F7;
+  --color-white: #FFFFFF;
+  --color-highlight: #C6FF19;
+  --color-signal: #245FFF;
 
-  /* The single locked accent. Used sparingly: focus, key data, active nav. */
-  --color-accent: #245edb;
+  /* Semantic roles are separate from brand accents. */
+  --color-ok: #1A6F45;
+  --color-warn: #8A5A00;
+  --color-error: #A52A1E;
+  --color-destructive: #6B1839;
+  --color-on-ok: #FFFFFF;
+  --color-on-warn: #FFFFFF;
+  --color-on-error: #FFFFFF;
+  --color-on-destructive: #FFFFFF;
+
+  /* Action, selection, focus, and information roles remain distinct. */
+  --color-action: var(--color-ink);
+  --color-on-action: var(--color-white);
+  --color-selection: var(--color-highlight);
+  --color-focus: var(--color-signal);
+  --color-link: var(--color-signal);
+  --color-registration: var(--color-signal);
+  --color-active-path: var(--color-signal);
+
+  /* Light-led surface roles plus the bounded-dark instrument exception. */
+  --color-bg: var(--color-paper);
+  --color-surface: var(--color-white);
+  --color-surface-2: color-mix(
+    in srgb,
+    var(--color-concrete) 18%,
+    var(--color-white)
+  );
+  --color-border: var(--color-concrete);
+  --color-border-strong: color-mix(
+    in srgb,
+    var(--color-graphite) 42%,
+    var(--color-concrete)
+  );
+  --color-text: var(--color-ink);
+  --color-text-dim: var(--color-graphite);
+  --color-instrument: var(--color-graphite);
+  --color-on-instrument: var(--color-white);
+  --color-instrument-muted: var(--color-concrete);
+
+  /*
+   * Compatibility aliases keep existing consumers stable while later
+   * component features migrate them to the narrower semantic roles.
+   */
+  --color-accent: var(--color-signal);
+  --color-err: var(--color-error);
 
   /*
    * The plate a third-party company mark sits on (components/market-map/
@@ -38,11 +76,6 @@
    */
   --color-logo-plate: #7d7a73;
 
-  /* Semantic state colors (not accents) */
-  --color-ok: #1a6f45;
-  --color-warn: #8a5a00;
-  --color-err: #a52a1e;
-
   /* Typography: Tektur display, IBM Plex Sans UI, Newsreader prose,
      IBM Plex Mono code/data. Variables are set by next/font in layout.tsx. */
   --font-display: var(--font-tektur), var(--font-plex-sans), ui-sans-serif,
@@ -51,7 +84,7 @@
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;
 
-  /* One radius scale, locked: small radii only */
+  /* Existing aliases remain until the surface-primitives feature expands it. */
   --radius-xs: 2px;
   --radius-sm: 3px;
   --radius-md: 4px;
@@ -80,6 +113,16 @@
 @layer base {
   :root {
     color-scheme: light;
+    --space-4: 4px;
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-48: 48px;
+    --space-64: 64px;
+    --space-96: 96px;
+    --space-128: 128px;
   }
 
   body {
@@ -91,13 +134,13 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-accent) 32%, transparent);
-    color: var(--color-text);
+    background: var(--color-selection);
+    color: var(--color-ink);
   }
 
-  /* One visible focus style everywhere: signal-blue outline. */
+  /* Focus is signal blue. Persistent selection is highlight lime. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
     border-radius: var(--radius-xs);
   }
@@ -126,7 +169,7 @@
  */
 .engineering-grid {
   background-color: var(--color-surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M.5 32V.5H32' fill='none' stroke='%23d9d6cd' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M.5 32V.5H32' fill='none' stroke='%23D9DADB' stroke-width='1'/%3E%3C/svg%3E");
   background-position: center;
   background-repeat: repeat;
   background-size: 32px 32px;
@@ -151,9 +194,21 @@
  * boundary mark is the whole of what a texture has to say.
  */
 :root {
-  --dot-base: #f2f0eb;
-  --dot-mid: #f1efe9;
-  --dot-peak: #f0eee8;
+  --dot-base: color-mix(
+    in srgb,
+    var(--color-concrete) 12%,
+    var(--color-paper)
+  );
+  --dot-mid: color-mix(
+    in srgb,
+    var(--color-concrete) 18%,
+    var(--color-paper)
+  );
+  --dot-peak: color-mix(
+    in srgb,
+    var(--color-concrete) 24%,
+    var(--color-paper)
+  );
   --dot-pitch: 4px;
 }
 
@@ -403,9 +458,9 @@ article > hr {
 /* Search result snippets: Pagefind wraps matched terms in <mark>. */
 .search-excerpt mark {
   border-radius: var(--radius-xs);
-  background: color-mix(in srgb, var(--color-accent) 26%, transparent);
+  background: var(--color-selection);
   padding: 0 0.125em;
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
 /*

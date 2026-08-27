@@ -4,6 +4,7 @@ import { Environment, Grid, Lightformer, OrbitControls } from '@react-three/drei
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import type { URDFRobot } from 'urdf-loader';
+import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
 import type { Vec3 } from '@/lib/ik';
 import type { LoadedRobot } from './load-robot';
 import { RobotArm } from './robot-arm';
@@ -81,10 +82,19 @@ function SceneTelemetry({
  * not free choices, and the HUD names each state in text as well, so colour
  * is never the only channel carrying the solver's verdict.
  */
+export const PLAYGROUND_RENDERER_COLORS = {
+  paper: BRAND_COLORS.paper,
+  concrete: BRAND_COLORS.concrete,
+  graphite: BRAND_COLORS.graphite,
+  ok: BRAND_COLORS.ok,
+  warn: BRAND_COLORS.warn,
+  error: BRAND_COLORS.error,
+} as const;
+
 const TARGET_COLORS: Record<TargetState, string> = {
-  solving: '#8a5a00',
-  reached: '#1a6f45',
-  unreachable: '#a52a1e',
+  solving: PLAYGROUND_RENDERER_COLORS.warn,
+  reached: PLAYGROUND_RENDERER_COLORS.ok,
+  unreachable: PLAYGROUND_RENDERER_COLORS.error,
 };
 
 /** Marker for the IK target: a sphere at the target plus a ground ring. */
@@ -173,9 +183,9 @@ export default function RobotScene({
         });
       }}
     >
-      {/* --color-bg. The grid colours below step DOWN from it rather than up,
-          because the ground is now lighter than the lines drawn on it. */}
-      <color attach="background" args={['#f4f3ef']} />
+      {/* Runtime CSS cannot cross the WebGL boundary. These values come from
+          the checked-in renderer mirror in lib/brand-v2-tokens.ts. */}
+      <color attach="background" args={[PLAYGROUND_RENDERER_COLORS.paper]} />
       <ambientLight intensity={0.62} />
       <directionalLight position={[0.6, 0.9, 0.45]} intensity={1.4} />
       <directionalLight position={[-0.8, 0.5, -0.6]} intensity={0.45} />
@@ -184,8 +194,8 @@ export default function RobotScene({
         infiniteGrid
         cellSize={0.05}
         sectionSize={0.25}
-        cellColor="#d9d6cd"
-        sectionColor="#b3afa4"
+        cellColor={PLAYGROUND_RENDERER_COLORS.concrete}
+        sectionColor={PLAYGROUND_RENDERER_COLORS.graphite}
         fadeDistance={2.4}
         fadeStrength={1.5}
       />

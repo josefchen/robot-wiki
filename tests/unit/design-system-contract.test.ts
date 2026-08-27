@@ -17,6 +17,9 @@ const agents = read('AGENTS.md');
 const readme = read('README.md');
 const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
+const globals = read('app/globals.css');
+const ogArtwork = read('lib/og-card-artwork.ts');
+const robotScene = read('components/three/robot-scene.tsx');
 const nextEnv = read('next-env.d.ts');
 
 const palette = {
@@ -28,6 +31,37 @@ const palette = {
   highlight: '#C6FF19',
   signal: '#245FFF',
 } as const;
+
+const semanticPalette = {
+  ok: '#1A6F45',
+  warn: '#8A5A00',
+  error: '#A52A1E',
+  destructive: '#6B1839',
+} as const;
+
+function relativeLuminance(hex: string): number {
+  const channels = [1, 3, 5].map((offset) =>
+    Number.parseInt(hex.slice(offset, offset + 2), 16) / 255,
+  );
+  const [red, green, blue] = channels.map((channel) =>
+    channel <= 0.04045
+      ? channel / 12.92
+      : ((channel + 0.055) / 1.055) ** 2.4,
+  );
+  return red * 0.2126 + green * 0.7152 + blue * 0.0722;
+}
+
+function contrastRatio(foreground: string, background: string): number {
+  const lighter = Math.max(
+    relativeLuminance(foreground),
+    relativeLuminance(background),
+  );
+  const darker = Math.min(
+    relativeLuminance(foreground),
+    relativeLuminance(background),
+  );
+  return (lighter + 0.05) / (darker + 0.05);
+}
 
 describe('canonical design-system documentation', () => {
   it('exists as an implementation contract rather than a short moodboard', () => {
@@ -112,7 +146,14 @@ describe('design tokens stay aligned', () => {
         `\`--color-${name}\` | \`${value}\``,
       );
       expect(integrity, `contract colour ${value}`).toContain(value);
+      expect(globals, `runtime token --color-${name}`).toContain(
+        `--color-${name}: ${value};`,
+      );
     }
+    expect(globals).toContain('--color-focus: var(--color-signal);');
+    expect(globals).toContain('--color-selection: var(--color-highlight);');
+    expect(globals).toContain('::selection {\n    background: var(--color-selection);');
+    expect(globals).toContain('outline: 2px solid var(--color-focus);');
     expect(spec).toContain('Primary actions are ink/black filled');
     expect(spec).toContain(
       'Selected, toggled, or highlighted states use highlight lime',
@@ -133,6 +174,27 @@ describe('design tokens stay aligned', () => {
     expect(integrity).toContain(
       'Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`',
     );
+    for (const token of [
+      'paper',
+      'white',
+      'ink',
+      'graphite',
+      'concrete',
+      'highlight',
+      'signal',
+    ]) {
+      expect(ogArtwork).toContain(`BRAND_COLORS.${token}`);
+    }
+    for (const token of [
+      'paper',
+      'concrete',
+      'graphite',
+      'ok',
+      'warn',
+      'error',
+    ]) {
+      expect(robotScene).toContain(`BRAND_COLORS.${token}`);
+    }
   });
 
   it('uses semantic warning colour in warning primitives', () => {
@@ -141,6 +203,39 @@ describe('design tokens stay aligned', () => {
     expect(callout).toContain("warn: 'text-warn'");
     expect(badge).not.toContain("warn: 'border-accent text-accent'");
     expect(callout).not.toContain("warn: 'border-l-accent'");
+    expect(new Set(Object.values(semanticPalette)).size).toBe(4);
+    for (const [name, value] of Object.entries(semanticPalette)) {
+      expect(globals, `semantic token --color-${name}`).toContain(
+        `--color-${name}: ${value};`,
+      );
+      expect(
+        contrastRatio(value, palette.paper),
+        `${name} on paper must meet WCAG AA`,
+      ).toBeGreaterThanOrEqual(4.5);
+      expect(
+        contrastRatio(value, palette.white),
+        `${name} on white must meet WCAG AA`,
+      ).toBeGreaterThanOrEqual(4.5);
+    }
+    expect(globals).toContain('--color-err: var(--color-error);');
+    expect(integrity).toContain(
+      'Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents',
+    );
+  });
+
+  it('exposes the fixed executable spacing ladder without extra steps', () => {
+    const declared = [...globals.matchAll(/--space-(\d+):\s*(\d+)px;/g)].map(
+      ([, name, value]) => [Number(name), Number(value)],
+    );
+    expect(declared).toEqual(
+      [4, 8, 12, 16, 24, 32, 48, 64, 96, 128].map((value) => [
+        value,
+        value,
+      ]),
+    );
+    expect(integrity).toContain(
+      'Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px',
+    );
   });
 });
 

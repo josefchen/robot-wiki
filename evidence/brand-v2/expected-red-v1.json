@@ -26,20 +26,6 @@
       "rolloutMilestone": "brand-v2-foundations"
     },
     {
-      "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-COL-002",
-      "expected": "#245FFF",
-      "actual": "#245edb",
-      "rolloutMilestone": "brand-v2-foundations"
-    },
-    {
-      "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-COL-003",
-      "expected": "#F5F6F7",
-      "actual": "#f4f3ef",
-      "rolloutMilestone": "brand-v2-foundations"
-    },
-    {
       "suite": "brand-v2 OG authority",
       "assertionId": "VAL-B2-ID-009",
       "expected": "Robot Wiki social identity",

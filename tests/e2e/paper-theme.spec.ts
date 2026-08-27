@@ -20,8 +20,8 @@ import { settleTransitions } from './settle';
  * lands inside the measured set instead of beside it.
  */
 
-/** The shipped ground, as the browser reports it. */
-const GROUND = 'rgb(244, 243, 239)';
+/** The shipped brand-v2 paper ground, as the browser reports it. */
+const GROUND = 'rgb(245, 246, 247)';
 
 /** One published article per domain: the article template under each domain. */
 function articlePerDomain(): string[] {
@@ -97,12 +97,19 @@ test.describe('the paper theme is the single site-wide theme', () => {
   test('globals.css declares the paper tokens at :root and no theme fork', () => {
     const css = readFileSync(join(process.cwd(), 'app', 'globals.css'), 'utf8');
     for (const declaration of [
-      '--color-bg: #f4f3ef;',
-      '--color-surface: #fbfaf7;',
-      '--color-text: #1a1c1e;',
-      '--color-text-dim: #55595d;',
-      '--color-border: #d9d6cd;',
-      '--color-accent: #245edb;',
+      '--color-ink: #0B0B0C;',
+      '--color-graphite: #242D33;',
+      '--color-concrete: #D9DADB;',
+      '--color-paper: #F5F6F7;',
+      '--color-white: #FFFFFF;',
+      '--color-highlight: #C6FF19;',
+      '--color-signal: #245FFF;',
+      '--color-bg: var(--color-paper);',
+      '--color-surface: var(--color-white);',
+      '--color-text: var(--color-ink);',
+      '--color-text-dim: var(--color-graphite);',
+      '--color-border: var(--color-concrete);',
+      '--color-accent: var(--color-signal);',
       '--font-sans: var(--font-plex-sans)',
       '--font-serif: var(--font-newsreader)',
       '--font-mono: var(--font-plex-mono)',
@@ -149,6 +156,9 @@ test.describe('the paper theme is the single site-wide theme', () => {
           '--color-text-dim',
           '--color-border',
           '--color-accent',
+          '--color-paper',
+          '--color-signal',
+          '--color-highlight',
           '--font-sans',
           '--font-serif',
           '--font-mono',
@@ -158,8 +168,11 @@ test.describe('the paper theme is the single site-wide theme', () => {
       for (const [name, value] of Object.entries(tokens)) {
         expect(value, `${route} must define ${name}`).not.toBe('');
       }
-      expect(tokens['--color-bg']).toBe('#f4f3ef');
-      expect(tokens['--color-accent']).toBe('#245edb');
+      expect(tokens['--color-bg']).toBe('#F5F6F7');
+      expect(tokens['--color-accent']).toBe('#245FFF');
+      expect(tokens['--color-paper']).toBe('#F5F6F7');
+      expect(tokens['--color-signal']).toBe('#245FFF');
+      expect(tokens['--color-highlight']).toBe('#C6FF19');
       // The three faces are the new ones, and only the new ones. Shipping
       // nine families would satisfy a positive check on its own.
       //
