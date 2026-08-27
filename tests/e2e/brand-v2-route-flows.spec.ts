@@ -8,6 +8,7 @@ import {
 import { validateRouteProfile } from '../../lib/brand-v2-route-profile';
 import {
   archivedExpectedRed,
+  archivedExpectedRedRoutes,
   brandV2Registry,
   expect,
   test,
@@ -31,7 +32,12 @@ test.describe('brand-v2-route-flows', () => {
       'brand-v2-reflow-320-200',
       'VAL-B2-EVID-011',
     );
+    const expectedArchivedReflowRoutes = archivedExpectedRedRoutes(
+      'brand-v2-reflow-320-200',
+      'VAL-B2-EVID-011',
+    );
     const archivedReflowFailures: string[] = [];
+    const archivedReflowRoutes: string[] = [];
     const { errors: resourceFailures } = collectConsole(page);
     page.on('response', (response) => {
       if (response.status() >= 400) {
@@ -188,6 +194,9 @@ test.describe('brand-v2-route-flows', () => {
                       ({ reason }) => `${member.path}:${reason}`,
                     ),
                   );
+                  if (reflowFailures.length > 0) {
+                    archivedReflowRoutes.push(member.path);
+                  }
                   expect(
                     profileFailures.filter(
                       ({ check }) => check !== 'reflow',
@@ -236,6 +245,9 @@ test.describe('brand-v2-route-flows', () => {
       });
     }
 
+    expect([...new Set(archivedReflowRoutes)].sort()).toEqual(
+      [...expectedArchivedReflowRoutes].sort(),
+    );
     const notFound = await page.goto(`${staticBase}/not-a-public-route/`);
     expect(notFound?.status()).toBe(404);
     await testInfo.attach('archived-reflow-320.json', {

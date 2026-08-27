@@ -20,6 +20,7 @@ type ExpectedRedArchive = {
     expected: string;
     actual: string;
     failedAnchors?: string[];
+    failedRoutes?: string[];
     rolloutMilestone: string;
   }>;
 };
@@ -61,6 +62,22 @@ export function archivedExpectedRedAnchors(
     );
   }
   return entry.failedAnchors ?? [];
+}
+
+export function archivedExpectedRedRoutes(
+  suite: string,
+  assertionId: string,
+): string[] {
+  const entry = expectedRedArchive.failures.find(
+    (failure) =>
+      failure.suite === suite && failure.assertionId === assertionId,
+  );
+  if (!entry || !Object.hasOwn(entry, 'failedRoutes')) {
+    throw new Error(
+      `Missing expected-red route list for ${suite} ${assertionId}.`,
+    );
+  }
+  return entry.failedRoutes ?? [];
 }
 
 type WorkerFixtures = {
