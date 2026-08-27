@@ -51,6 +51,15 @@
       "assertionId": "VAL-B2-EVID-011",
       "expected": "all three sealed accessibility profiles pass every public route",
       "actual": "v1 profile drift includes 320px document overflow",
+      "failedRoutes": [
+        "/adjacent/autonomous-vehicles/",
+        "/data-hardware/data-bottleneck/",
+        "/data-hardware/datasets/",
+        "/data-hardware/industrial-deployment/",
+        "/manipulation/cross-embodiment/",
+        "/manipulation/vla-models/",
+        "/rl-sim2real/reward-design-mpc/"
+      ],
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {

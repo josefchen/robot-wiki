@@ -2,6 +2,7 @@ import type { BrowserContext } from '@playwright/test';
 import { buildPublicRouteExecutionPlan } from '../../lib/brand-v2-runners';
 import {
   archivedExpectedRed,
+  archivedExpectedRedRoutes,
   brandV2Registry,
   expect,
   test,
@@ -15,6 +16,7 @@ async function sweepContext(
   profileId: string,
   failures: string[],
   checkOverflow = true,
+  failedRoutes?: string[],
 ): Promise<void> {
   const page = await context.newPage();
   try {
@@ -26,6 +28,7 @@ async function sweepContext(
         const overflow = await documentOverflow(page);
         if (overflow > 0) {
           failures.push(`${profileId}:${route}:${overflow}px`);
+          failedRoutes?.push(route);
         }
       }
     }
@@ -44,6 +47,8 @@ test.describe('brand-v2-reflow-320-200', () => {
     const plan = buildPublicRouteExecutionPlan(brandV2Registry, routes);
     expect(plan.members.length).toBeGreaterThan(5);
     const failures: string[] = [];
+    const archivedReflowFailures: string[] = [];
+    const archivedReflowRoutes: string[] = [];
 
     const reflow = await browser.newContext({
       viewport: { width: 320, height: 800 },
@@ -53,11 +58,21 @@ test.describe('brand-v2-reflow-320-200', () => {
       reflow,
       staticBase,
       routes,
-      'reflow-320-load',
-      failures,
-      false,
+      'reflow-320',
+      archivedReflowFailures,
+      true,
+      archivedReflowRoutes,
     );
     await reflow.close();
+    expect([...new Set(archivedReflowRoutes)].sort()).toEqual(
+      [
+        ...archivedExpectedRedRoutes(
+          'brand-v2-reflow-320-200',
+          'VAL-B2-EVID-011',
+        ),
+      ].sort(),
+    );
+    expect(archivedReflowFailures).toHaveLength(archivedReflowRoutes.length);
 
     const zoomEquivalent = await browser.newContext({
       viewport: { width: 720, height: 450 },
@@ -135,24 +150,16 @@ test.describe('brand-v2-reflow-320-200', () => {
     expect(failures, failures.join('\n')).toEqual([]);
   });
 
-  test('archives only literal 320px overflow drift', async ({
-    browser,
-    staticBase,
-  }) => {
-    test.setTimeout(600_000);
+  test('all public routes reach zero 320px overflow', () => {
     test.fail(
       true,
       archivedExpectedRed('brand-v2-reflow-320-200', 'VAL-B2-EVID-011'),
     );
-    const routes = brandV2Registry.routes.public.map(({ path }) => path);
-    buildPublicRouteExecutionPlan(brandV2Registry, routes);
-    const failures: string[] = [];
-    const reflow = await browser.newContext({
-      viewport: { width: 320, height: 800 },
-      deviceScaleFactor: 1,
-    });
-    await sweepContext(reflow, staticBase, routes, 'reflow-320', failures);
-    await reflow.close();
-    expect(failures, failures.join('\n')).toEqual([]);
+    expect(
+      archivedExpectedRedRoutes(
+        'brand-v2-reflow-320-200',
+        'VAL-B2-EVID-011',
+      ),
+    ).toEqual([]);
   });
 });
