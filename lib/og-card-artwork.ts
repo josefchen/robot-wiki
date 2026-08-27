@@ -3,7 +3,7 @@
  * generator renders (scripts/generate-og-cards.ts). No node-only imports
  * here so the geometry is unit-testable under Vitest.
  *
- * Design system: the site's paper ground, hairline borders, plain sans
+ * Design system: the site's paper ground, hairline borders, Tektur display
  * wordmark, one locked signal-blue accent and mono technical readouts.
  * Nothing on a card is build state (AGENTS.md design rules 1 and 6: no
  * progress counters, no drafts).
@@ -41,12 +41,10 @@ const TEXT = '#1a1c1e';
 const DIM = '#55595d';
 const ACCENT = '#245edb';
 
-// The card's display face is the Geist TTF bundled with @vercel/og, not the
-// site's IBM Plex Sans. Satori needs a TTF/OTF on disk and next/font emits
-// only hashed woff2 into .next, so Plex is unavailable to a network-free
-// build script. Both are neutral grotesques at card scale; the ground, ink
-// and accent are the shipped tokens, which is what a reader actually reads.
-const SANS = 'Geist, sans-serif';
+// Satori consumes the separately vendored static Tektur SemiBold TTF. The
+// browser uses the approved variable WOFF2 through next/font/local instead;
+// keeping those paths separate makes OG rendering deterministic and offline.
+const SANS = 'Tektur, sans-serif';
 const MONO = 'KaTeX_Typewriter, monospace';
 
 /* ------------------------------------------------------------------ */

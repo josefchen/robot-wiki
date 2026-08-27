@@ -445,7 +445,7 @@
       "routeId": "route:/",
       "owner": "route:/",
       "ownerPath": "app/layout.tsx",
-      "ownerSourceFingerprint": "7f6f2c43059edbb1e51ee9743441da65f38076af75a72197c3c0a2b9cd9b3cc5",
+      "ownerSourceFingerprint": "9764450a1523c0fa3efc218ffc63bf52fffe296a104a8b7e6cf1241408c14040",
       "canonical": "https://robot-wiki.com/",
       "title": "robot-wiki",
       "description": "An encyclopedic interactive guide to modern robotics for ML engineers.",
@@ -465,7 +465,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "80a8d6f7873552955f523bf4bbc2524959f1b5379dfed041c88f5c8a5b618e5d"
+      "fingerprint": "18ca0cab10ef6de4ab1af696b97249b705725be70a2571a90e82d8a91a6941c6"
     },
     {
       "id": "metadata:/a-z/",
@@ -2230,6 +2230,16 @@
   ],
   "assets": [
     {
+      "id": "asset:fonts/Tektur-latin-wdth-wght.woff2",
+      "path": "fonts/Tektur-latin-wdth-wght.woff2",
+      "category": "font",
+      "ownershipId": "owner:font",
+      "sourceRegistryId": null,
+      "byteHash": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+      "semanticHash": null,
+      "fingerprint": "2910ae2b7db17f934d7470fc72065304154701db90b29df2cc0a16ce38326827"
+    },
+    {
       "id": "asset:images/anymal-anybotics-2022.jpg",
       "path": "images/anymal-anybotics-2022.jpg",
       "category": "editorial-image",
@@ -3552,6 +3562,7 @@
   ],
   "assetExceptions": [],
   "assetUses": [
+    "asset:fonts/Tektur-latin-wdth-wght.woff2",
     "asset:images/anymal-anybotics-2022.jpg",
     "asset:images/atlas-darpa-frontview-2013.jpg",
     "asset:images/covariate-shift.svg",
@@ -10691,7 +10702,51 @@
     {
       "id": "type:display",
       "family": "Tektur Variable",
-      "fingerprint": "42ca61eff690912ac779e50ac10ae2952bca7c6de3867ed637e69c7f1b670606"
+      "variableAxes": [
+        "wdth",
+        "wght"
+      ],
+      "instances": [
+        {
+          "id": "home-wordmark",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-home"
+        },
+        {
+          "id": "shell-wordmark",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-shell"
+        },
+        {
+          "id": "page-h1",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-page"
+        },
+        {
+          "id": "article-h1",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-article"
+        },
+        {
+          "id": "section-display",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-section"
+        },
+        {
+          "id": "display-numerals",
+          "wght": 600,
+          "wdth": 100,
+          "cssClass": "font-display-numerals"
+        }
+      ],
+      "ogRoleId": "home-wordmark",
+      "assignedStringCount": 57,
+      "fingerprint": "2df6594ec4134cc8a13c59f7eaf4dd338e3db829bfcc8a69d1c73f7deae3a7e7"
     },
     {
       "id": "type:interface",
@@ -10753,5 +10808,5 @@
       "fingerprint": "2fa6cc15c948b71f8b9c3dffcde13a64084eca5b3f9f62ef9a851c537fb6bba2"
     }
   ],
-  "rootFingerprint": "50f8056a53db179a3444e3ac9e9ce758964a5898a12af66f5c8a4c9cf2752d9c"
+  "rootFingerprint": "65e70f8881f1eb47c6db08f5825a46e5a75e0d9d3decf6c7f3a997d76cd39a46"
 }

@@ -57,7 +57,10 @@ export default function Home() {
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
               Robotics encyclopaedia
             </p>
-            <h1 className="mt-3 font-sans text-5xl font-semibold leading-none tracking-[-0.035em] text-text sm:text-6xl">
+            <h1
+              data-tektur-role="home-wordmark"
+              className="font-display-home mt-3 text-5xl leading-none tracking-[-0.035em] text-text sm:text-6xl"
+            >
               robot-wiki
             </h1>
           </div>

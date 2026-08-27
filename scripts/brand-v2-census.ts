@@ -9,6 +9,12 @@ import { execFileSync } from 'node:child_process';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, DOMAIN_META, publishedModules } from '../data/modules.ts';
 import { IMAGES } from '../data/images.ts';
+import {
+  FIRST_PARTY_TYPE_ROLES,
+  TEKTUR_ASSIGNED_STRINGS,
+  TEKTUR_OG_ROLE_ID,
+  TEKTUR_ROLE_INSTANCES,
+} from '../data/type-roles.ts';
 import { referencedImageIds } from '../lib/images.ts';
 import {
   configurationFingerprint,
@@ -474,12 +480,20 @@ function staticRegistries() {
       fineAlignmentPx: 4,
     }),
   );
-  const typeRoles = [
-    ['type:display', 'Tektur Variable'],
-    ['type:interface', 'IBM Plex Sans'],
-    ['type:reading', 'Newsreader'],
-    ['type:data', 'IBM Plex Mono'],
-  ].map(([id, family]) => stableRecord({ id, family }));
+  const typeRoles = FIRST_PARTY_TYPE_ROLES.map((role) =>
+    stableRecord(
+      role.id === 'display'
+        ? {
+            id: `type:${role.id}`,
+            family: role.family,
+            variableAxes: ['wdth', 'wght'],
+            instances: TEKTUR_ROLE_INSTANCES,
+            ogRoleId: TEKTUR_OG_ROLE_ID,
+            assignedStringCount: TEKTUR_ASSIGNED_STRINGS.length,
+          }
+        : { id: `type:${role.id}`, family: role.family },
+    ),
+  );
   const controls = [
     ['control:primary-action', 'ink-filled', 'action'],
     ['control:secondary-action', 'outlined-or-transparent', 'action'],

@@ -4596,7 +4596,7 @@
         "statement": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "expected": "First-party surfaces contain no AI-generated robots, synthetic labs, stock chrome heads, glowing brains, circuit wallpaper, or fake blueprints.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4630,7 +4630,7 @@
         "statement": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "expected": "Every external photograph, figure, or texture uses one §1.13 closed legal-basis enum value and records creator/owner, official source URL, retrieval date, content hash, attribution text, licence/permission reference, and preservation policy in canonical metadata and visible credit where required; automation verifies the record and bytes, not a legal opinion.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4664,7 +4664,7 @@
         "statement": "Every technical diagram is truthful to its source or explicitly labelled as an original schematic/render.",
         "expected": "Every technical diagram is truthful to its source or explicitly labelled as an original schematic/render.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4698,7 +4698,7 @@
         "statement": "Material texture never impersonates evidence, sensor output, or measured data.",
         "expected": "Material texture never impersonates evidence, sensor output, or measured data.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4732,7 +4732,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4766,7 +4766,7 @@
         "statement": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "expected": "Third-party marks retain required attribution and are not modified beyond consistent sizing, placement, and neutral-plate treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4800,7 +4800,7 @@
         "statement": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "expected": "Visual-asset parity holds among physical files, JS/TS imports, CSS URLs, inline-SVG dependencies, asset registries, rendered uses, and credits; orphan files, missing files, unregistered uses, stale credits, extras, and symlinks fail except narrow documented generated/tooling exceptions.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4834,7 +4834,7 @@
         "statement": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "expected": "Reusable editorial photographs/figures/textures require one approved reusable-content value from the §1.13 closed enum; `unlicensed` is never approved. Official company marks use only the distinct `official-identification-use` path in `VAL-B2-MAP-010`. Validation checks enum membership, official URLs, hashes, attribution fields, and preservation; it does not independently decide legality.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4868,7 +4868,7 @@
         "statement": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "expected": "Photo and logo binaries are byte-hash preserved against baseline except approved-delta entries; SVGs use normalized semantic comparison; every asset and rendered use carries a stable registry/ownership ID.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -4902,7 +4902,7 @@
         "statement": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "expected": "Favicon, web manifest icons, touch icons, inline symbols, CSS masks, and unused first-party symbol assets are swept; any invented first-party mark, unregistered icon byte, orphan symbol, or stale v1 identity asset fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 132,
+        "populationSize": 133,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -7921,23 +7921,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-001",
-          "mechanism": "VAL-B2-TYPE-001 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-001:type:display",
+          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-001:type:interface",
+          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-001:type:reading",
+          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-001:type:data",
+          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)",
+          "mechanism": "Pins the four first-party families to their display, interface, reading, and data roles."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
         "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
@@ -7951,7 +7966,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-001"
+          "result:VAL-B2-TYPE-001:type:display",
+          "result:VAL-B2-TYPE-001:type:interface",
+          "result:VAL-B2-TYPE-001:type:reading",
+          "result:VAL-B2-TYPE-001:type:data"
         ]
       }
     },
@@ -7961,23 +7979,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-002",
-          "mechanism": "VAL-B2-TYPE-002 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-002:type:display",
+          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-002:type:interface",
+          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-002:type:reading",
+          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-002:type:data",
+          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)",
+          "mechanism": "Pins the four first-party families to their display, interface, reading, and data roles."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
         "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
@@ -7991,7 +8024,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-002"
+          "result:VAL-B2-TYPE-002:type:display",
+          "result:VAL-B2-TYPE-002:type:interface",
+          "result:VAL-B2-TYPE-002:type:reading",
+          "result:VAL-B2-TYPE-002:type:data"
         ]
       }
     },
@@ -8321,23 +8357,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-011",
-          "mechanism": "VAL-B2-TYPE-011 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-011:type:display",
+          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-011:type:interface",
+          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-011:type:reading",
+          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-011:type:data",
+          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
         "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
@@ -8351,7 +8402,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-011"
+          "result:VAL-B2-TYPE-011:type:display",
+          "result:VAL-B2-TYPE-011:type:interface",
+          "result:VAL-B2-TYPE-011:type:reading",
+          "result:VAL-B2-TYPE-011:type:data"
         ]
       }
     },
@@ -8361,23 +8415,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-012",
-          "mechanism": "VAL-B2-TYPE-012 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-012:type:display",
+          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-012:type:interface",
+          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-012:type:reading",
+          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-012:type:data",
+          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
         "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
@@ -8391,7 +8460,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-012"
+          "result:VAL-B2-TYPE-012:type:display",
+          "result:VAL-B2-TYPE-012:type:interface",
+          "result:VAL-B2-TYPE-012:type:reading",
+          "result:VAL-B2-TYPE-012:type:data"
         ]
       }
     },
@@ -8401,23 +8473,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-013",
-          "mechanism": "VAL-B2-TYPE-013 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-013:type:display",
+          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-013:type:interface",
+          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-013:type:reading",
+          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-013:type:data",
+          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
         "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
@@ -8431,7 +8518,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-013"
+          "result:VAL-B2-TYPE-013:type:display",
+          "result:VAL-B2-TYPE-013:type:interface",
+          "result:VAL-B2-TYPE-013:type:reading",
+          "result:VAL-B2-TYPE-013:type:data"
         ]
       }
     },
@@ -8441,23 +8531,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-014",
-          "mechanism": "VAL-B2-TYPE-014 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-014:type:display",
+          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-014:type:interface",
+          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-014:type:reading",
+          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-014:type:data",
+          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
         "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
@@ -8471,7 +8576,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-014"
+          "result:VAL-B2-TYPE-014:type:display",
+          "result:VAL-B2-TYPE-014:type:interface",
+          "result:VAL-B2-TYPE-014:type:reading",
+          "result:VAL-B2-TYPE-014:type:data"
         ]
       }
     },
@@ -8481,23 +8589,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-015",
-          "mechanism": "VAL-B2-TYPE-015 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type:display",
+          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type:interface",
+          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type:reading",
+          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type:data",
+          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)",
+          "mechanism": "Pins all six measurable wght/wdth role instances and the exact static OG role mapping."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
         "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
@@ -8511,7 +8634,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-015"
+          "result:VAL-B2-TYPE-015:type:display",
+          "result:VAL-B2-TYPE-015:type:interface",
+          "result:VAL-B2-TYPE-015:type:reading",
+          "result:VAL-B2-TYPE-015:type:data"
         ]
       }
     },
@@ -8521,23 +8647,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016",
-          "mechanism": "VAL-B2-TYPE-016 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-016:type:display",
+          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-016:type:interface",
+          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-016:type:reading",
+          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-016:type:data",
+          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)",
+          "mechanism": "Pins all six measurable wght/wdth role instances and the exact static OG role mapping."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
         "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
@@ -8551,7 +8692,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-016"
+          "result:VAL-B2-TYPE-016:type:display",
+          "result:VAL-B2-TYPE-016:type:interface",
+          "result:VAL-B2-TYPE-016:type:reading",
+          "result:VAL-B2-TYPE-016:type:data"
         ]
       }
     },
@@ -8561,23 +8705,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-017",
-          "mechanism": "VAL-B2-TYPE-017 pending rollout evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-017:type:display",
+          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:type:interface",
+          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:type:reading",
+          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:type:data",
+          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > keeps assigned web and OG strings non-empty and code-point addressable (VAL-B2-TYPE-017)",
+          "mechanism": "Derives the assigned identity, descriptor, numeral, domain, and article-title string population before cmap inspection."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
+          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
         "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
@@ -8591,7 +8750,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-017"
+          "result:VAL-B2-TYPE-017:type:display",
+          "result:VAL-B2-TYPE-017:type:interface",
+          "result:VAL-B2-TYPE-017:type:reading",
+          "result:VAL-B2-TYPE-017:type:data"
         ]
       }
     },

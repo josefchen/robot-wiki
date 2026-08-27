@@ -38,7 +38,10 @@ export function ArticleHeader({
 }: ArticleHeaderProps) {
   return (
     <header data-pagefind-body className="mb-10 border-b border-border pb-6">
-      <h1 className="font-sans text-[2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-text sm:text-[2.5rem]">
+      <h1
+        data-tektur-role="article-h1"
+        className="font-display-article text-[2rem] leading-[1.12] tracking-[-0.025em] text-text sm:text-[2.5rem]"
+      >
         {entry.title}
       </h1>
       <p className="mt-3 leading-relaxed text-text-dim">{entry.summary}</p>

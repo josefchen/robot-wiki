@@ -43,8 +43,10 @@
   --color-warn: #8a5a00;
   --color-err: #a52a1e;
 
-  /* Typography: IBM Plex Sans UI, Newsreader prose, IBM Plex Mono code/data.
-     Variables are set by next/font in app/layout.tsx. */
+  /* Typography: Tektur display, IBM Plex Sans UI, Newsreader prose,
+     IBM Plex Mono code/data. Variables are set by next/font in layout.tsx. */
+  --font-display: var(--font-tektur), var(--font-plex-sans), ui-sans-serif,
+    system-ui, sans-serif;
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;
@@ -53,6 +55,26 @@
   --radius-xs: 2px;
   --radius-sm: 3px;
   --radius-md: 4px;
+}
+
+/*
+ * Measurable Tektur role instances. Keep these in lockstep with
+ * data/type-roles.json. Every role names both registered axes rather than
+ * relying on a browser default or a font filename to imply an instance.
+ */
+.font-display-home,
+.font-display-shell,
+.font-display-page,
+.font-display-article,
+.font-display-section,
+.font-display-numerals {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-variation-settings:
+    'wght' 600,
+    'wdth' 100;
 }
 
 @layer base {
