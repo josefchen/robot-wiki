@@ -1,11 +1,11 @@
 ---
 title: "Hardware Taxonomy"
-description: "A buyer's guide to the 2026 robot stack: arms, humanoids, hands, tactile sensors, and edge compute, with dated prices, disclosed DoF counts, and honest gaps where vendors publish nothing."
+description: "A buyer's guide to the 2026 robot stack: arms, humanoids, hands, sensors, compute, wheelbases, lidars, cameras, IMUs, mobile manipulators, and quadrupeds, with dated prices and honest gaps."
 domain: data-hardware
 slug: hardware-taxonomy
 order: 3
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-21"
 citations:
   - so-arm100-repo-2026
   - seeed-so-arm101-pro-2026
@@ -29,6 +29,34 @@ citations:
   - anyskin-2024
   - jetson-thor-2026
   - vla-perf-2026
+  - ur-e-series-2026
+  - kinova-gen3-2026
+  - ufactory-xarm-2026
+  - clearpath-turtlebot4-2026
+  - clearpath-jackal-2026
+  - clearpath-husky-2026
+  - husarion-rosbot-xl-2026
+  - leo-rover-2026
+  - livox-mid-360-2026
+  - hesai-xt-2026
+  - ouster-os1-2026
+  - slamtec-rplidar-a2-2026
+  - unitree-lidar-l2-2026
+  - realsense-d435i-2026
+  - luxonis-oak-d-2026
+  - stereolabs-zed-2-2026
+  - vectornav-vn-100-2026
+  - lekiwi-bom-2026
+  - hello-robot-stretch-4-2026
+  - pal-tiago-2026
+  - unitree-go2-2026
+  - bd-spot-2026
+  - gelsight-digit-2026
+  - wonik-allegro-2026
+  - elephant-mycobot-280-2026
+  - robotis-openmanipulator-x-2026
+  - orbbec-gemini-335-2026
+  - xsens-mti-3-2026
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "data-hardware/data-bottleneck"
@@ -38,7 +66,7 @@ seeAlso:
 
 import { HardwareGuide } from '@/components/interactive/hardware-guide';
 
-The machines you can point a policy at in 2026 split into five families: arms, humanoids, hands, tactile sensors, and the compute that closes the control loop. The price spread is the story. A self-build SO-101 arm costs about \$122 in parts <Cite id="so-arm100-repo-2026" />. A Unitree H2 humanoid ships for \$29,900 <Cite id="unitree-h2-2026" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id="robozaps-humanoids-2026" />. Between those poles sits an actual market with dated prices, disclosed <Term id="degrees-of-freedom">degrees of freedom</Term>, and sourcing states you can plan around. This module collects the market into one filterable guide of 40 entries, and every number that nobody publishes stays visibly empty rather than estimated.
+The machines you can point a policy at in 2026 split into more than arms and humanoids. The stack a buyer actually assembles also includes wheelbases, lidars, RGB-D cameras, IMUs, mobile manipulators, and quadrupeds, plus the hands, tactile sensors, and edge compute already in this guide. The price spread is the story. A self-build SO-101 arm costs about \$122 in parts <Cite id="so-arm100-repo-2026" />. A Unitree Go2 quadruped starts at \$1,600 <Cite id="unitree-go2-2026" />. Hello Robot's Stretch 4 ships for \$29,950 <Cite id="hello-robot-stretch-4-2026" />. Boston Dynamics will not sell you an Atlas at any price, and Tesla has no Optimus 3 price to quote because there is no product to buy <Cite id="robozaps-humanoids-2026" />. Between those poles sits an actual market with dated prices, disclosed <Term id="degrees-of-freedom">degrees of freedom</Term>, and sourcing states you can plan around. This module collects that market into one filterable guide. Every number that nobody publishes stays visibly empty rather than estimated. Every row carries a vendor, press, or Wikimedia photo when a public still exists; licence is not a reason a photo is missing.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="entry arm" value="$122" note="US BOM, one SO-101 arm" accent />
@@ -59,6 +87,8 @@ The low end belongs to the LeRobot ecosystem. The SO-101 is a 3D-printed arm wit
 
 A tier up, Trossen Robotics rebranded its ALOHA line as Trossen AI in 2025-2026. The WidowX AI single-arm <Term id="teleoperation">teleop</Term> rig lists at \$4,545.95 with a 1.5 kg payload and 700 mm reach across six degrees of freedom, and the Mobile AI bimanual-on-wheels rig at \$33,695.95, with the Solo AI and Stationary AI at \$11,385.95 and \$23,995.95 between them <Cite id="trossen-ai-2026" />. All of them run 500 Hz CAN FD control with the iNerve board and integrate LeRobot and OpenPI <Cite id="trossen-ai-2026" />. The ALOHA 2 itself, the bimanual rig behind ACT <Cite id="act-aloha-2023" /> and Mobile ALOHA <Cite id="mobile-aloha-2024" />, runs \$17,000-\$32,000 depending on configuration <Cite id="lerobot-pricing-2026" />. At the top of the category, Pollen Robotics' Reachy 2 humanoid torso goes for about \$70,000 <Cite id="lerobot-pricing-2026" />.
 
+The industrial and research cobots that fill OXE sit in the same table with no public list prices. Universal Robots' e-Series (the UR5e family) and Kinova's Gen3 are quote-only through distributors <Cite id="ur-e-series-2026" /> <Cite id="kinova-gen3-2026" />. UFACTORY's xArm line is orderable on the company site; the catalog page does not publish a USD figure this guide can date <Cite id="ufactory-xarm-2026" />. Two more open teaching arms sit beside them: Elephant Robotics' myCobot 280 M5, a 6-DoF desktop cobot whose product page shows a \$599 new-customer promo rather than a list price this guide will date <Cite id="elephant-mycobot-280-2026" />, and ROBOTIS's OpenMANIPULATOR-X, the DYNAMIXEL-X plus printed-parts kit whose e-Manual likewise carries no USD figure <Cite id="robotis-openmanipulator-x-2026" />.
+
 One arm in the guide carries no price at all: the Franka Emika Panda, the seven-DoF platform behind DROID's 76,000 trajectories <Cite id="droid-2024" />. It remains the research workhorse, and sourcing it is a conversation rather than a checkout.
 
 <Image id="franka-emika-panda-cebit-2017" />
@@ -77,21 +107,35 @@ The shakeout around them is real. K-Scale Labs shut down in November 2025, Cartw
 
 ## Hands ship bundled, not shelved
 
-Dexterous hands almost never sell as standalone products; they ride along with the robot. The open exception is the LEAP Hand from CMU: 16 DoF, buildable in about four hours from catalog parts at a cost of \$2,000, roughly one eighth the price of the Allegro Hand it was benchmarked against <Cite id="leap-hand-2023" />.
+Dexterous hands almost never sell as standalone products; they ride along with the robot. The open exception is the LEAP Hand from CMU: 16 DoF, buildable in about four hours from catalog parts at a cost of \$2,000, roughly one eighth the price of the Allegro Hand it was benchmarked against <Cite id="leap-hand-2023" />. Wonik still sells that Allegro line (V4 through V5 Sense) as a quote-only research hand <Cite id="wonik-allegro-2026" />. Shadow's Dexterous Hand and Inspire-Robots' micro-servo hands are the other two catalog options, both quote-only.
 
-Everywhere else, hand specs surface inside robot listings. The NEO's hands carry 22 DoF each, with the 25-DoF revision on the way <Cite id="1x-neo-2026" />. Unitree's Dex3-1, an option on the G1 EDU, has seven active DoF per hand (three thumb, two index, two middle) with an optional tactile array <Cite id="unitree-g1-2026" />. The H2's dexterous hands are EDU-only options in several models <Cite id="unitree-h2-2026" />. Figure 03 integrates a palm camera into each hand but discloses no hand DoF <Cite id="figure-03-2025" />. If you want a hand to mount on your own arm in 2026, LEAP is essentially the whole catalog.
+Everywhere else, hand specs surface inside robot listings. The NEO's hands carry 22 DoF each, with the 25-DoF revision on the way <Cite id="1x-neo-2026" />. Unitree's Dex3-1, an option on the G1 EDU, has seven active DoF per hand (three thumb, two index, two middle) with an optional tactile array <Cite id="unitree-g1-2026" />. The H2's dexterous hands are EDU-only options in several models <Cite id="unitree-h2-2026" />. Figure 03 integrates a palm camera into each hand but discloses no hand DoF <Cite id="figure-03-2025" />. If you want a hand to mount on your own arm in 2026, LEAP is the only one with a public build cost; Allegro, Shadow, and Inspire are the quote-only catalog.
 
 ## Sensors: touch is the missing channel
 
 The datasets that generalist policies train on ship vision and <Term id="proprioception">proprioception</Term>; DROID's rig is a Franka with three cameras and no touch sensing at all <Cite id="droid-2024" />. AgiBot World is the counterexample worth naming: its humanoids carry visuo-tactile sensors alongside the camera rig, which makes it one of the few million-trajectory corpora with a touch channel <Cite id="agibot-world-2025" />. The hardware is not the reason the channel stayed rare. A 2025 outlook in IEEE Transactions on Robotics puts the blame on structure: divergent transduction methods with no standardized evaluation framework, durability failures in real conditions, and temperature sensitivity and hysteresis in the sensing materials themselves <Cite id="tactile-outlook-2025" />. Sensors also add cost and failure modes to collection rigs, and few policy architectures take tactile input natively <Cite id="tactile-outlook-2025" />.
 
-Four sensors anchor the accessible tier, and two of them are priced in three digits. GelSight Mini brings optical tactile sensing with high-resolution contact geometry to a commercial product and retails at \$500 <Cite id="tactile-outlook-2025" />. DIGIT, Meta FAIR's compact optical fingertip, is an open design with public files and a broad replication record, and retails at \$350 <Cite id="digit-sensor-2020" /> <Cite id="tactile-outlook-2025" />. Its successor Digit 360 wraps the fingertip in 360° of optical coverage, resolves forces down to 1 mN across more than eight million taxels, and ships through GelSight under a manufacturing partnership announced in October 2024 <Cite id="meta-fair-touch-2024" />. AnySkin takes the magnetic route: a soft, inexpensive skin whose learned policies transfer across replacement sensor instances without recalibration, the first uncalibrated tactile sensor to report that <Cite id="anyskin-2024" />.
+Four sensors anchor the accessible tier, and two of them are priced in three digits. GelSight Mini brings optical tactile sensing with high-resolution contact geometry to a commercial product and retails at \$500 <Cite id="tactile-outlook-2025" />. DIGIT, Meta FAIR's compact optical fingertip, is an open design with public files and a broad replication record, and lists at \$355 on the GelSight store <Cite id="digit-sensor-2020" /> <Cite id="gelsight-digit-2026" />. Its successor Digit 360 wraps the fingertip in 360° of optical coverage, resolves forces down to 1 mN across more than eight million taxels, and ships through GelSight under a manufacturing partnership announced in October 2024 <Cite id="meta-fair-touch-2024" />. AnySkin takes the magnetic route: a soft, inexpensive skin whose learned policies transfer across replacement sensor instances without recalibration, the first uncalibrated tactile sensor to report that <Cite id="anyskin-2024" />.
 
 ## Compute: closing the loop
 
 NVIDIA built Jetson Thor specifically for this market. The T5000 module delivers 2,070 sparse FP4 TFLOPS with 128 GB of LPDDR5X at 273 GB/s on a 14-core Neoverse-V3AE CPU, in a 40-130 W envelope, rated 7.5x the performance of the AGX Orin it replaces; the T4000 trims that to 1,200 TFLOPS and 64 GB <Cite id="jetson-thor-2026" />. Both are orderable through NVIDIA partners, and neither carries a published module price. The strongest signal that edge inference is the intended deployment path for humanoids is hardware: the 1X NEO's onboard computer is a Jetson Thor running at up to 2,070 FP4 TFLOPS <Cite id="1x-neo-2026" />.
 
 Whether that compute closes the control loop is now a measured question. NVIDIA's VLA-Perf study ran π0 end-to-end across hardware and reported 19.0 Hz on Jetson Thor, 32.2 Hz on an RTX 4090, 61.7 Hz on an A100, 162.5 Hz on an H100, and 314.4 Hz on a B100 <Cite id="vla-perf-2026" />. Sixteen times the throughput across the range, and the edge module sits at the bottom of it. The bottleneck is the diffusion action expert's denoising steps: cutting them scales throughput almost proportionally, while <Term id="action-chunking">action chunk</Term> size adds negligible overhead <Cite id="vla-perf-2026" />. The paper publishes no card prices, so this guide lists none for the GPU rows. The latency budgets these numbers feed are developed in [Real-Time Execution](/manipulation/realtime-execution).
+
+## Wheelbases, lidars, and cameras
+
+A policy that leaves the table needs a base and a sensor suite. TurtleBot 4 is the open ROS 2 teaching platform: an iRobot Create 3 chassis, a Raspberry Pi 4, an OAK-D, and an RPLIDAR A1, sold through Clearpath distributors. The product page does not publish a current list price, so the 2022 launch figures stay out of this table <Cite id="clearpath-turtlebot4-2026" />. Clearpath's Jackal and Husky A300 cover the weatherproof and mid-size research UGVs; both are quote-only <Cite id="clearpath-jackal-2026" /> <Cite id="clearpath-husky-2026" />. Husarion's ROSbot XL and Fictionlab's Leo Rover are the open indoor and outdoor alternatives, also without a dated USD list price on the pages we fetched <Cite id="husarion-rosbot-xl-2026" /> <Cite id="leo-rover-2026" />.
+
+Lidar splits by what a buyer can actually check out. Unitree's 4D LiDAR L2 lists at \$419 on the company shop <Cite id="unitree-lidar-l2-2026" />. Livox Mid-360 is the compact 360-degree unit on a large fraction of low-cost mobile robots; the Mid-360 page still carries a January 2023 sample price of \$749, which this guide does not treat as a current list price <Cite id="livox-mid-360-2026" />. Ouster OS1, Hesai XT16/XT32, and SLAMTEC RPLIDAR A2 are the research defaults around it, all without a USD figure on the product page <Cite id="ouster-os1-2026" /> <Cite id="hesai-xt-2026" /> <Cite id="slamtec-rplidar-a2-2026" />.
+
+RGB-D is still a RealSense and OAK conversation, with Orbbec now in the same drawer. The D435i (global shutter plus an IMU) and the longer-baseline D455 remain the default wrist and scene cameras after the 2025 spinout from Intel; neither product page publishes a price <Cite id="realsense-d435i-2026" />. Luxonis OAK-D lists at \$329 and is the camera on TurtleBot 4 Standard <Cite id="luxonis-oak-d-2026" />. Stereolabs ZED 2 is the scene camera DROID actually used: two ZED 2 units plus a ZED Mini on every Franka cell <Cite id="stereolabs-zed-2-2026" /> <Cite id="droid-2024" />. Orbbec's Gemini 335 is the active-stereo alternative; the product page has no USD list price <Cite id="orbbec-gemini-335-2026" />. IMUs sit one layer down. VectorNav's VN-100 and MicroStrain's 3DM-CV7 stay quote-only <Cite id="vectornav-vn-100-2026" />. Movella sells the Xsens MTi-3 as a development kit for \$550 <Cite id="xsens-mti-3-2026" />.
+
+## Mobile manipulators and quadrupeds
+
+The whole-body platforms that are not humanoids are their own buying decision. LeKiwi puts an SO-101 follower on a three-omni-wheel base; the US bill of materials is \$482 for the 12 V kit and \$499 for the 5 V kit, with a wired base-only build from \$184 <Cite id="lekiwi-bom-2026" />. Hello Robot's Stretch 4, the current open-source mobile manipulator, lists at \$29,950 with a 55 cm reach, a 2.5 kg extended payload, and an 8-hour runtime <Cite id="hello-robot-stretch-4-2026" />. PAL Robotics' TIAGo remains the European research staple and is quote-only <Cite id="pal-tiago-2026" />.
+
+Quadrupeds have a priced floor. Unitree Go2 lists at \$1,600 / \$2,800 / \$4,500 across Air, Pro, and Edu, tax and freight excluded <Cite id="unitree-go2-2026" />. Boston Dynamics Spot and ANYbotics ANYmal are the inspection machines above that floor, both quote-only, and Spot is one of the two embodiments Gemini Robotics names alongside Atlas <Cite id="bd-spot-2026" /> <Cite id="robozaps-humanoids-2026" />.
 
 ## How to read these prices
 

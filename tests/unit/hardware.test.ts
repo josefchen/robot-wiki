@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 import { HARDWARE } from '@/data/hardware';
@@ -11,13 +13,26 @@ import {
 
 /**
  * The hardware buyer's guide data contract (VAL-DATA-011 through
- * VAL-DATA-016): rows validate against the hardware schema, all five
- * hardware families appear with multiple entries, every price carries an
- * explicit as-of date, unknown figures stay null rather than invented, and
- * every row cites at least one registered source.
+ * VAL-DATA-016): rows validate against the hardware schema, every family
+ * appears with multiple entries, every price carries an explicit as-of
+ * date, unknown figures stay null rather than invented, and every row
+ * cites at least one registered source. Photos live under
+ * public/images/hardware/ when a public still was found.
  */
 
-const CATEGORIES = ['arm', 'humanoid', 'hand', 'sensor', 'compute'] as const;
+const CATEGORIES = [
+  'arm',
+  'humanoid',
+  'hand',
+  'sensor',
+  'compute',
+  'wheelbase',
+  'lidar',
+  'camera',
+  'imu',
+  'mobile-manipulator',
+  'quadruped',
+] as const;
 
 describe('HARDWARE data', () => {
   it('validates against the hardware entry schema', () => {
@@ -36,7 +51,7 @@ describe('HARDWARE data', () => {
     }
   });
 
-  it('covers all five hardware families with multiple entries (VAL-DATA-013)', () => {
+  it('covers every hardware family with multiple entries (VAL-DATA-013)', () => {
     for (const category of CATEGORIES) {
       const count = HARDWARE.filter((e) => e.category === category).length;
       expect(
@@ -132,6 +147,27 @@ describe('HARDWARE data', () => {
       HARDWARE.find((e) => e.id === 'atlas-electric')?.priceUsd,
     ).toBeNull();
   });
+
+  it('stores a real photo file for every row that claims one', () => {
+    const publicDir = join(process.cwd(), 'public');
+    let withPhoto = 0;
+    for (const entry of HARDWARE) {
+      if (entry.image === null) {
+        expect(
+          entry.imageNote,
+          `${entry.id} is imageless without saying so`,
+        ).toBeTruthy();
+        continue;
+      }
+      withPhoto += 1;
+      expect(entry.image.file.startsWith('/images/hardware/')).toBe(true);
+      expect(
+        existsSync(join(publicDir, entry.image.file.replace(/^\//, ''))),
+        `${entry.id} points at missing ${entry.image.file}`,
+      ).toBe(true);
+    }
+    expect(withPhoto).toBeGreaterThan(50);
+  });
 });
 
 describe('filterHardware', () => {
@@ -147,7 +183,7 @@ describe('filterHardware', () => {
       category: 'arm',
     });
     expect(arms.every((e) => e.category === 'arm')).toBe(true);
-    expect(arms.length).toBe(11);
+    expect(arms.length).toBe(16);
 
     const humanoids = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
@@ -159,7 +195,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       category: 'hand',
     });
-    expect(hands.length).toBe(5);
+    expect(hands.length).toBe(8);
 
     const sensors = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
@@ -172,6 +208,18 @@ describe('filterHardware', () => {
       category: 'compute',
     });
     expect(compute.length).toBe(6);
+
+    const wheelbases = filterHardware(HARDWARE, {
+      ...DEFAULT_HARDWARE_FILTERS,
+      category: 'wheelbase',
+    });
+    expect(wheelbases.length).toBe(6);
+
+    const lidars = filterHardware(HARDWARE, {
+      ...DEFAULT_HARDWARE_FILTERS,
+      category: 'lidar',
+    });
+    expect(lidars.length).toBe(5);
   });
 
   it('partitions listed prices into buckets and keeps unlisted out (VAL-DATA-012)', () => {
@@ -183,9 +231,13 @@ describe('filterHardware', () => {
       'digit-fingertip',
       'gelsight-mini',
       'koch-v1-1',
+      'lekiwi',
+      'luxonis-oak-d',
       'so-101-self-build',
       'so-arm101-pro-assembled',
       'so-arm101-pro-unassembled',
+      'unitree-l2',
+      'xsens-mti-3',
     ]);
 
     const mid = filterHardware(HARDWARE, {
@@ -195,6 +247,7 @@ describe('filterHardware', () => {
     expect(mid.map((e) => e.id).sort()).toEqual([
       'leap-hand',
       'noetix-bumi',
+      'unitree-go2',
       'unitree-r1',
       'widowx-ai',
     ]);
@@ -221,6 +274,7 @@ describe('filterHardware', () => {
       'fourier-gr3',
       'mobile-ai',
       'reachy-2',
+      'stretch-4',
       'unitree-h2',
     ]);
 
@@ -229,7 +283,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'unlisted',
     });
-    expect(unlisted).toHaveLength(19);
+    expect(unlisted).toHaveLength(46);
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
     for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {
       const bucket = filterHardware(HARDWARE, {
@@ -246,12 +300,19 @@ describe('filterHardware', () => {
       dof: 'under-10',
     });
     expect(low.map((e) => e.id).sort()).toEqual([
+      'create-3',
       'franka-panda',
+      'kinova-gen3',
       'koch-v1-1',
+      'lekiwi',
+      'mycobot-280',
       'so-101-self-build',
       'so-arm101-pro-assembled',
       'so-arm101-pro-unassembled',
+      'turtlebot-4',
+      'ufactory-xarm',
       'unitree-dex3-1',
+      'ur-e-series',
       'widowx-ai',
     ]);
 
@@ -282,7 +343,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: 'unknown',
     });
-    expect(unknown).toHaveLength(24);
+    expect(unknown).toHaveLength(50);
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
 
@@ -291,7 +352,7 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       availability: 'buy',
     });
-    expect(buyable).toHaveLength(26);
+    expect(buyable).toHaveLength(45);
     expect(buyable.every((e) => e.availability === 'buy')).toBe(true);
 
     const preorders = filterHardware(HARDWARE, {
@@ -325,9 +386,13 @@ describe('filterHardware', () => {
       'digit-fingertip',
       'gelsight-mini',
       'koch-v1-1',
+      'lekiwi',
+      'luxonis-oak-d',
       'so-101-self-build',
       'so-arm101-pro-assembled',
       'so-arm101-pro-unassembled',
+      'unitree-l2',
+      'xsens-mti-3',
     ]);
   });
 

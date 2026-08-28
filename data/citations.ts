@@ -3604,6 +3604,337 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
+    // Verified against the live UR5e product page (2026-08-21).
+    id: 'ur-e-series-2026',
+    title: 'UR5e collaborative robot arm',
+    authors: ['Universal Robots'],
+    year: 2026,
+    url: 'https://www.universal-robots.com/products/ur5e/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Gen3 product page (2026-08-21).
+    id: 'kinova-gen3-2026',
+    title: 'Kinova Gen3 robotic arm',
+    authors: ['Kinova'],
+    year: 2026,
+    url: 'https://www.kinovarobotics.com/product/gen3-robots',
+    type: 'docs',
+  },
+  {
+    // Verified against the live xArm catalog page (2026-08-21).
+    id: 'ufactory-xarm-2026',
+    title: 'UFACTORY xArm product line',
+    authors: ['UFACTORY'],
+    year: 2026,
+    url: 'https://www.ufactory.cc/product-cat/xarm/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live TurtleBot 4 page (2026-08-21): Create 3
+    // base, Raspberry Pi 4, OAK-D, RPLIDAR A1, Standard and Lite. No
+    // current USD list price on the page (2022 launch prices are stale).
+    id: 'clearpath-turtlebot4-2026',
+    title: 'TurtleBot 4',
+    authors: ['Clearpath Robotics'],
+    year: 2026,
+    url: 'https://clearpathrobotics.com/turtlebot-4/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Create 3 docs (2026-08-21).
+    id: 'create3-docs-2026',
+    title: 'iRobot Create 3 documentation',
+    authors: ['iRobot Education'],
+    year: 2026,
+    url: 'https://iroboteducation.github.io/create3_docs/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Jackal product page (2026-08-21).
+    id: 'clearpath-jackal-2026',
+    title: 'Jackal UGV',
+    authors: ['Clearpath Robotics'],
+    year: 2026,
+    url: 'https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Husky A300 product page (2026-08-21).
+    id: 'clearpath-husky-2026',
+    title: 'Husky A300 unmanned ground vehicle',
+    authors: ['Clearpath Robotics'],
+    year: 2026,
+    url: 'https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live ROSbot XL manual (2026-08-21).
+    id: 'husarion-rosbot-xl-2026',
+    title: 'ROSbot XL manual',
+    authors: ['Husarion'],
+    year: 2026,
+    url: 'https://husarion.com/manuals/rosbot-xl/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Fictionlab / Leo Rover homepage (2026-08-21).
+    id: 'leo-rover-2026',
+    title: 'Leo Rover',
+    authors: ['Fictionlab'],
+    year: 2026,
+    url: 'https://www.leorover.tech/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Mid-360 page (2026-08-21). The on-page
+    // $749 figure is a January 2023 trial-sample price, not a current
+    // checkout price, so the guide does not quote it as a list price.
+    id: 'livox-mid-360-2026',
+    title: 'Livox Mid-360',
+    authors: ['Livox'],
+    year: 2026,
+    url: 'https://www.livoxtech.com/mid-360',
+    type: 'docs',
+  },
+  {
+    // Verified against the live OS1 product page (2026-08-21).
+    id: 'ouster-os1-2026',
+    title: 'Ouster OS1 lidar sensor',
+    authors: ['Ouster'],
+    year: 2026,
+    url: 'https://ouster.com/products/hardware/os1-lidar-sensor',
+    type: 'docs',
+  },
+  {
+    // Verified against the live XT16/32 product page (2026-08-21).
+    id: 'hesai-xt-2026',
+    title: 'Hesai XT16/32/32M mid-range lidar',
+    authors: ['Hesai'],
+    year: 2026,
+    url: 'https://www.hesaitech.com/product/xt16/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live RPLIDAR A2 page (2026-08-21).
+    id: 'slamtec-rplidar-a2-2026',
+    title: 'RPLIDAR A2 lidar',
+    authors: ['SLAMTEC'],
+    year: 2026,
+    url: 'https://www.slamtec.com/en/Lidar/A2',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Unitree shop product (2026-08-21):
+    // og:price:amount 419.00 USD, title Unitree 4D LiDAR L2.
+    id: 'unitree-lidar-l2-2026',
+    title: 'Unitree 4D LiDAR L2',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://shop.unitree.com/products/unitree-4d-lidar-l2',
+    type: 'docs',
+  },
+  {
+    // Verified against the live RealSense D435i page (2026-08-21).
+    id: 'realsense-d435i-2026',
+    title: 'RealSense Depth Camera D435i',
+    authors: ['RealSense'],
+    year: 2026,
+    url: 'https://www.realsenseai.com/products/d435i/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live RealSense D455 page (2026-08-21): 95 mm
+    // baseline, depth error under 2% at 4 m.
+    id: 'realsense-d455-2026',
+    title: 'RealSense Depth Camera D455',
+    authors: ['RealSense'],
+    year: 2026,
+    url: 'https://www.realsenseai.com/products/d455/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Luxonis shop product (2026-08-21): $329.
+    id: 'luxonis-oak-d-2026',
+    title: 'OAK-D spatial AI camera',
+    authors: ['Luxonis'],
+    year: 2026,
+    url: 'https://shop.luxonis.com/products/oak-d',
+    type: 'docs',
+  },
+  {
+    // Verified against the live ZED 2 product page (2026-08-21).
+    id: 'stereolabs-zed-2-2026',
+    title: 'ZED 2 AI stereo camera',
+    authors: ['Stereolabs'],
+    year: 2026,
+    url: 'https://www.stereolabs.com/products/zed-2',
+    type: 'docs',
+  },
+  {
+    // Verified against the live VN-100 product page (2026-08-21).
+    id: 'vectornav-vn-100-2026',
+    title: 'VectorNav VN-100 IMU/AHRS',
+    authors: ['VectorNav'],
+    year: 2026,
+    url: 'https://www.vectornav.com/products/detail/vn-100',
+    type: 'docs',
+  },
+  {
+    // Verified against the live MTi-3 AHRS Development Kit shop page
+    // (2026-08-21): US$550.00, taxes excluded.
+    id: 'xsens-mti-3-2026',
+    title: 'Xsens MTi-3 AHRS Development Kit',
+    authors: ['Movella'],
+    year: 2026,
+    url: 'https://shop.movella.com/us/product-lines/sensor-modules/products/mti-3-ahrs-development-kit',
+    type: 'docs',
+  },
+  {
+    // Verified against the live 3DM-CV7 product page (2026-08-21).
+    id: 'microstrain-3dm-cv7-2026',
+    title: 'MicroStrain 3DM-CV7 inertial sensor',
+    authors: ['MicroStrain by HBK'],
+    year: 2026,
+    url: 'https://www.microstrain.com/inertial-sensors/3dm-cv7',
+    type: 'docs',
+  },
+  {
+    // Verified against the live LeKiwi BOM (2026-08-21): US full kit
+    // $482 (12V) / $499 (5V); base-only from $184. Does not include
+    // 3D-printing cost.
+    id: 'lekiwi-bom-2026',
+    title: 'LeKiwi bill of materials',
+    authors: ['SIGRobotics-UIUC'],
+    year: 2026,
+    url: 'https://github.com/SIGRobotics-UIUC/LeKiwi',
+    type: 'docs',
+  },
+  {
+    // Verified against the live homepage (2026-08-21): Stretch 4
+    // available now at $29,950; stretch-4 page lists 55 cm reach,
+    // 2.5 kg extended payload, 46 kg, 8 h runtime.
+    id: 'hello-robot-stretch-4-2026',
+    title: 'Hello Robot Stretch 4',
+    authors: ['Hello Robot'],
+    year: 2026,
+    url: 'https://hello-robot.com/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live TIAGo product page (2026-08-21).
+    id: 'pal-tiago-2026',
+    title: 'TIAGo mobile manipulator',
+    authors: ['PAL Robotics'],
+    year: 2026,
+    url: 'https://pal-robotics.com/robots/tiago/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Go2 product page (2026-08-21): $1600 /
+    // $2800 / $4500, tax and freight excluded.
+    id: 'unitree-go2-2026',
+    title: 'Unitree Go2 quadruped',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/go2',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Spot product page (2026-08-21).
+    id: 'bd-spot-2026',
+    title: 'Boston Dynamics Spot',
+    authors: ['Boston Dynamics'],
+    year: 2026,
+    url: 'https://bostondynamics.com/products/spot/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live ANYmal product page (2026-08-21).
+    id: 'anybotics-anymal-2026',
+    title: 'ANYbotics ANYmal',
+    authors: ['ANYbotics'],
+    year: 2026,
+    url: 'https://www.anybotics.com/robotics/anymal/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Shadow Dexterous Hand series page (2026-08-21).
+    id: 'shadow-hand-2026',
+    title: 'Shadow Dexterous Hand Series',
+    authors: ['Shadow Robot'],
+    year: 2026,
+    url: 'https://www.shadowrobot.com/dexterous-hand-series/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Inspire-Robots English homepage (2026-08-21).
+    id: 'inspire-robots-2026',
+    title: 'Inspire-Robots dexterous hands',
+    authors: ['Inspire-Robots'],
+    year: 2026,
+    url: 'https://en.inspire-robots.com/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live GelSight DIGIT store page (2026-08-21):
+    // $355.00, SKU DG-01, 4-6 week lead time.
+    id: 'gelsight-digit-2026',
+    title: 'DIGIT Tactile Sensor',
+    authors: ['GelSight'],
+    year: 2026,
+    url: 'https://www.gelsight.com/product/digit-tactile-sensor/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Dex3-1 product page (2026-08-21): 7 DoF,
+    // 33 tactile sensors. Page heroes are full robots, not a hand still.
+    id: 'unitree-dex3-1-2026',
+    title: 'Unitree Dex3-1 power-control dexterous hand',
+    authors: ['Unitree Robotics'],
+    year: 2026,
+    url: 'https://www.unitree.com/Dex3-1/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Wonik Allegro Hand product page (2026-08-21).
+    id: 'wonik-allegro-2026',
+    title: 'Allegro Hand',
+    authors: ['Wonik Robotics'],
+    year: 2026,
+    url: 'https://wonikrobotics.com/en/sub/product/hand.php',
+    type: 'docs',
+  },
+  {
+    // Verified against the live myCobot 280 M5 2023 page (2026-08-21):
+    // 6-DoF education arm. On-page "$599 only" is a new-customer promo,
+    // not treated as a list price.
+    id: 'elephant-mycobot-280-2026',
+    title: 'myCobot 280 M5 2023',
+    authors: ['Elephant Robotics'],
+    year: 2026,
+    url: 'https://www.elephantrobotics.com/en/mycobot-280-m5-2023-en/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live ROBOTIS e-Manual (2026-08-21).
+    id: 'robotis-openmanipulator-x-2026',
+    title: 'OpenMANIPULATOR-X',
+    authors: ['ROBOTIS'],
+    year: 2026,
+    url: 'https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/',
+    type: 'docs',
+  },
+  {
+    // Verified against the live Gemini 335 product page (2026-08-21).
+    id: 'orbbec-gemini-335-2026',
+    title: 'Orbbec Gemini 335 stereo vision camera',
+    authors: ['Orbbec'],
+    year: 2026,
+    url: 'https://www.orbbec.com/products/stereo-vision-camera/gemini-335/',
+    type: 'docs',
+  },
+  {
     // Verified against the arXiv abs page (2026-08-09): 5 authors. The
     // full title ends "...for Robot Manipulators" (research/03 truncates
     // it). The sub-$300 parts BOM comes from the paper's project site

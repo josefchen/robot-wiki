@@ -18,7 +18,8 @@ import { cx } from '@/lib/utils';
 
 /**
  * HardwareGuide: a filterable buyer's guide across arms, humanoids, hands,
- * tactile sensors, and edge compute.
+ * tactile sensors, edge compute, wheelbases, lidars, cameras, IMUs,
+ * mobile manipulators, and quadrupeds.
  *
  * Honesty rules: figures a source does not publish render as "not
  * disclosed" (dim) and never as invented numbers, and every listed price
@@ -41,6 +42,12 @@ const CATEGORY_LABELS: Record<HardwareEntry['category'], string> = {
   hand: 'Hand',
   sensor: 'Sensor',
   compute: 'Compute',
+  wheelbase: 'Wheelbase',
+  lidar: 'Lidar',
+  camera: 'Camera',
+  imu: 'IMU',
+  'mobile-manipulator': 'Mobile manipulator',
+  quadruped: 'Quadruped',
 };
 
 const AVAILABILITY_LABELS: Record<
@@ -53,11 +60,36 @@ const AVAILABILITY_LABELS: Record<
   closed: 'Not for sale',
 };
 
+function photoCell(entry: HardwareEntry): ReactNode {
+  if (entry.image) {
+    return (
+      <img
+        src={entry.image.file}
+        alt={entry.image.alt}
+        width={48}
+        height={48}
+        className="h-12 w-12 rounded-sm border border-border bg-surface-2 object-cover"
+      />
+    );
+  }
+  return (
+    <span
+      title={entry.imageNote ?? 'No public photo found'}
+      className="flex h-12 w-12 items-center justify-center rounded-sm border border-dashed border-border bg-surface-2 px-1 text-center font-mono text-[10px] leading-tight text-text-dim"
+    >
+      no public photo
+    </span>
+  );
+}
+
 function nameCell(entry: HardwareEntry): ReactNode {
   return (
-    <span>
-      <span className="text-text">{entry.name}</span>
-      <span className="block text-xs text-text-dim">{entry.maker}</span>
+    <span className="flex items-start gap-2.5">
+      {photoCell(entry)}
+      <span>
+        <span className="text-text">{entry.name}</span>
+        <span className="block text-xs text-text-dim">{entry.maker}</span>
+      </span>
     </span>
   );
 }
@@ -168,6 +200,12 @@ const CATEGORY_OPTIONS: Array<{ value: CategoryFilter; label: string }> = [
   { value: 'hand', label: 'Hands' },
   { value: 'sensor', label: 'Sensors' },
   { value: 'compute', label: 'Compute' },
+  { value: 'wheelbase', label: 'Wheelbases' },
+  { value: 'lidar', label: 'Lidars' },
+  { value: 'camera', label: 'Cameras' },
+  { value: 'imu', label: 'IMUs' },
+  { value: 'mobile-manipulator', label: 'Mobile manipulators' },
+  { value: 'quadruped', label: 'Quadrupeds' },
 ];
 
 const PRICE_OPTIONS: Array<{ value: PriceFilter; label: string }> = [
@@ -339,7 +377,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.`}
+          caption={`${HARDWARE.length} hardware entries across arms, humanoids, hands, sensors, compute, wheelbases, lidars, cameras, IMUs, mobile manipulators, and quadrupeds. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'category', direction: 'asc' }}
