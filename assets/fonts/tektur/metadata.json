@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "family": "Tektur",
+  "license": {
+    "id": "OFL-1.1",
+    "path": "assets/fonts/tektur/OFL.txt"
+  },
+  "upstream": {
+    "repositoryUrl": "https://github.com/hyvyys/Tektur",
+    "revision": "0313e9612ed814c7a480fa54c7b295452b966954",
+    "googleFontsMetadataUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/tektur/METADATA.pb",
+    "googleFontsStylesheetUrl": "https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap",
+    "retrieved": "2026-08-27"
+  },
+  "axisLabels": {
+    "wdth": "width axis",
+    "wght": "weight axis"
+  },
+  "web": {
+    "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+    "sourceUrl": "https://fonts.gstatic.com/s/tektur/v6/XoHn2YHtS7q969k9BhQI.woff2",
+    "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+    "format": "WOFF2",
+    "subset": "latin",
+    "style": "normal",
+    "axes": {
+      "wdth": {
+        "label": "width axis",
+        "min": 75,
+        "default": 100,
+        "max": 100
+      },
+      "wght": {
+        "label": "weight axis",
+        "min": 400,
+        "default": 400,
+        "max": 900
+      }
+    }
+  },
+  "og": {
+    "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+    "sourceUrl": "https://raw.githubusercontent.com/hyvyys/Tektur/0313e9612ed814c7a480fa54c7b295452b966954/fonts/ttf/Tektur-SBold.ttf",
+    "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+    "format": "TTF",
+    "subset": "upstream-full",
+    "style": "normal",
+    "weight": 600,
+    "width": 100,
+    "widthClass": 5,
+    "mappedRoleId": "home-wordmark"
+  }
+}

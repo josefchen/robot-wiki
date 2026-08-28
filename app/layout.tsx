@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
+import localFont from 'next/font/local';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
@@ -8,10 +9,22 @@ import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
 import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
-// The site's three faces, and the only three it loads. IBM Plex Sans and
-// IBM Plex Mono are static-instance families here rather than variable, so
-// the weights the design system actually uses are enumerated: 400/500/600
-// for interface text, 400/500 for figures and code.
+// The four first-party roles are Tektur display, IBM Plex Sans interface,
+// Newsreader reading, and IBM Plex Mono data/code. Tektur's approved Latin
+// variable binary is local and self-hosted; the separate static TTF used by
+// the offline OG renderer is deliberately not referenced from this layout.
+const tektur = localFont({
+  src: '../public/fonts/Tektur-latin-wdth-wght.woff2',
+  variable: '--font-tektur',
+  weight: '400 900',
+  style: 'normal',
+  display: 'swap',
+  fallback: [],
+  adjustFontFallback: false,
+});
+
+// IBM Plex Sans and IBM Plex Mono are static-instance families here rather
+// than variable, so the weights in use are enumerated.
 const plexSans = IBM_Plex_Sans({
   variable: '--font-plex-sans',
   weight: ['400', '500', '600'],
@@ -74,7 +87,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
+      className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body>
         <SkipLink />

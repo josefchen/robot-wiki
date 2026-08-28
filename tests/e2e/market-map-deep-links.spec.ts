@@ -44,7 +44,7 @@ test.describe('market-map deep links on the static export', () => {
     await expect(card).toBeVisible();
     // Highlighted: the flat accent left rule only renders on the hashed card.
     await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 94, 219)');
+    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 95, 255)');
     await expect(card).toHaveCSS('box-shadow', 'none');
     // The scroll actually landed (what jsdom cannot prove).
     await expect(card).toBeInViewport({ ratio: 0.5 });
@@ -64,7 +64,7 @@ test.describe('market-map deep links on the static export', () => {
     await expect(card).toBeVisible();
     // Highlighted: the flat accent left rule only renders on the hashed card.
     await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 94, 219)');
+    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 95, 255)');
     await expect(card).toHaveCSS('box-shadow', 'none');
     await expect(card).toBeInViewport({ ratio: 0.5 });
     await expect(page.getByText('34 of 111 companies')).toBeVisible();

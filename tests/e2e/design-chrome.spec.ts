@@ -481,7 +481,7 @@ test.describe('design chrome discipline', () => {
     // would pass a 1px ring the contract forbids.
     expect(outline.width).toBe('2px');
     expect(outline.offset).toBe('2px');
-    expect(outline.color).toBe('rgb(36, 94, 219)');
+    expect(outline.color).toBe('rgb(36, 95, 255)');
   });
 
   test('the wordmark and descriptor render in exactly the canonical lockups (VAL-DSBRAND-001/002)', async ({

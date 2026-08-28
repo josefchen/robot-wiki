@@ -80,7 +80,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </button>
         <Link
           href="/"
-          className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
+          data-tektur-role="shell-wordmark"
+          className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
         >
           robot-wiki
         </Link>
@@ -97,7 +98,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <Link
               href="/"
               aria-current={pathname === '/' ? 'page' : undefined}
-              className="font-sans text-[17px] font-semibold tracking-[-0.025em] text-text"
+              data-tektur-role="shell-wordmark"
+              className="font-display-shell text-[17px] tracking-[-0.025em] text-text"
             >
               robot-wiki
             </Link>
@@ -153,7 +155,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <Link
                 href="/"
                 onClick={() => setDrawerOpen(false)}
-                className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
+                data-tektur-role="shell-wordmark"
+                className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
               >
                 robot-wiki
               </Link>

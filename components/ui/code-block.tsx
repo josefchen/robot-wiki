@@ -16,7 +16,10 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
   return (
     <figure
       data-language={language}
-      className="my-6 overflow-hidden rounded-md border border-border bg-surface"
+      data-brand-surface-id="surface:flat"
+      data-brand-frame-depth="1"
+      data-brand-frame-interior-registered="code"
+      className="my-6 overflow-hidden rounded-sm border border-border bg-surface"
     >
       <figcaption className="flex items-center justify-between border-b border-border bg-surface-2 px-3 py-1.5">
         <span className="font-mono text-xs text-text-dim">

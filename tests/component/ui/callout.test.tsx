@@ -8,6 +8,10 @@ describe('Callout', () => {
     const note = screen.getByRole('note');
     expect(note).toHaveTextContent('Chunk size trades latency for smoothness.');
     expect(note).toHaveAttribute('data-variant', 'info');
+    expect(note).toHaveAttribute(
+      'data-brand-surface-id',
+      'surface:flat',
+    );
   });
 
   it('renders warn variant as a note with a warning label', () => {

@@ -413,12 +413,12 @@ test.describe('home page', () => {
         children,
       };
     });
-    // 32px tile on the surface ground with the 1px #d9d6cd line.
+    // 32px tile on the white surface with the 1px #D9DADB concrete line.
     expect(metrics.size).toBe('32px 32px');
-    expect(metrics.bg).toBe('rgb(251, 250, 247)');
-    // The tile is a data-URI SVG whose 1px rule is #d9d6cd (the
+    expect(metrics.bg).toBe('rgb(255, 255, 255)');
+    // The tile is a data-URI SVG whose 1px rule is #D9DADB (the
     // apostrophes stay literal in the computed background-image).
-    expect(metrics.image).toContain("stroke='%23d9d6cd'");
+    expect(metrics.image).toContain("stroke='%23D9DADB'");
     // From md the field is exactly 13rem (208px) wide.
     expect(metrics.box.w).toBeCloseTo(208, 0);
     // Two 1px strong axes plus one 8px accent registration point.
@@ -428,7 +428,7 @@ test.describe('home page', () => {
     expect(hAxis.borderTop).toBe('1px');
     expect(point.box.w).toBeCloseTo(8, 1);
     expect(point.box.h).toBeCloseTo(8, 1);
-    expect(point.background).toBe('rgb(36, 94, 219)');
+    expect(point.background).toBe('rgb(36, 95, 255)');
     // The contract claim is concentricity: the vertical axis, the
     // horizontal axis, and the registration point share one centre (the
     // axis hairline's centre is its border's centre, since the border
