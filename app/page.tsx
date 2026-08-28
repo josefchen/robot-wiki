@@ -73,7 +73,7 @@ export default function Home() {
             data-brand-device-edge="left"
             data-brand-anchor-edge="left"
             data-brand-motif="dot-grid"
-            className="engineering-grid relative h-20 w-full border-b border-border md:h-auto md:min-h-full md:border-b-0 md:border-l"
+            className="engineering-grid pointer-events-none relative h-20 w-full border-b border-border md:h-auto md:min-h-full md:border-b-0 md:border-l"
           >
             <span
               aria-hidden="true"
