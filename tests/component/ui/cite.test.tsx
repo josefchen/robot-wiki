@@ -16,6 +16,10 @@ describe('Cite', () => {
     expect(link).toHaveAttribute('href', props.href);
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
+    expect(link).toHaveAttribute(
+      'data-brand-control-id',
+      'control:link-focus',
+    );
   });
 
   it('exposes citation metadata through a described-by tooltip', () => {
@@ -26,6 +30,10 @@ describe('Cite', () => {
     expect(tooltip).toHaveTextContent('arXiv 2023');
     expect(link).toHaveAttribute('aria-describedby', tooltip.id);
     expect(tooltip.id).not.toBe('');
+    expect(tooltip).toHaveAttribute(
+      'data-brand-surface-id',
+      'surface:floating',
+    );
   });
 
   it('renders no in-page reference affordance without a referenceHref', () => {

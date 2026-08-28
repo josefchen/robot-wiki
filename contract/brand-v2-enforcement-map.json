@@ -2335,14 +2335,14 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "title": "brand-v2 canonical census > registers complete grid, surface, and control primitive contracts",
+          "mechanism": "Validates every primitive registry row has the sealed owner, geometry, state, target-size, and allowed-owner fields with stable fingerprints."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-primitives.spec.ts",
+          "title": "brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state",
+          "mechanism": "Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls."
         }
       ],
       "enforcementMode": "browser-state",
@@ -4147,14 +4147,14 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "title": "brand-v2 canonical census > registers complete grid, surface, and control primitive contracts",
+          "mechanism": "Validates every primitive registry row has the sealed owner, geometry, state, target-size, and allowed-owner fields with stable fingerprints."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-primitives.spec.ts",
+          "title": "brand-v2 shared primitive registry › VAL-B2-GRID-009 renders registered, aligned, pointer-inert devices",
+          "mechanism": "Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound."
         }
       ],
       "enforcementMode": "autonomous-visual",
@@ -7847,14 +7847,14 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "title": "brand-v2 canonical census > registers complete grid, surface, and control primitive contracts",
+          "mechanism": "Validates every primitive registry row has the sealed owner, geometry, state, target-size, and allowed-owner fields with stable fingerprints."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-primitives.spec.ts",
+          "title": "brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow",
+          "mechanism": "Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow."
         }
       ],
       "enforcementMode": "autonomous-visual",

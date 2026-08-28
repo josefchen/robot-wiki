@@ -129,6 +129,28 @@ const INTERACTIVE_STATE_TARGET = testTarget(
   'brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases',
   'Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending.',
 );
+const PRIMITIVE_REGISTRY_TARGET = testTarget(
+  'tests/unit/brand-v2-census.test.ts',
+  'brand-v2 canonical census > registers complete grid, surface, and control primitive contracts',
+  'Validates every primitive registry row has the sealed owner, geometry, state, target-size, and allowed-owner fields with stable fingerprints.',
+);
+const PRIMITIVE_BROWSER_TARGETS = {
+  'VAL-B2-GRID-009': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-GRID-009 renders registered, aligned, pointer-inert devices',
+    'Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound.',
+  ),
+  'VAL-B2-SURF-010': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow',
+    'Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow.',
+  ),
+  'VAL-B2-COMP-013': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state',
+    'Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls.',
+  ),
+} satisfies Record<string, TestTarget>;
 const BASELINE_TARGET = testTarget(
   'tests/unit/brand-v2-baseline.test.ts',
   'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
@@ -218,6 +240,12 @@ const OMISSION_PROOF = {
 
 function testTargetsFor(id: string): TestTarget[] {
   if (COMPLETED_TEKTUR_ASSERTIONS.has(id)) return tekturTargetsFor(id);
+  if (id in PRIMITIVE_BROWSER_TARGETS) {
+    return [
+      PRIMITIVE_REGISTRY_TARGET,
+      PRIMITIVE_BROWSER_TARGETS[id as keyof typeof PRIMITIVE_BROWSER_TARGETS],
+    ];
+  }
   const area = id.split('-')[2];
   if (area === 'BASE') return [BASELINE_TARGET];
   if (area === 'CONT') return [CENSUS_ROUTE_TARGET];

@@ -26,10 +26,16 @@ function rowOrder() {
 
 describe('Table', () => {
   it('exposes its caption as the accessible name', () => {
-    render(<Table caption="Policy comparison" columns={columns} rows={rows} />);
+    const { container } = render(
+      <Table caption="Policy comparison" columns={columns} rows={rows} />,
+    );
     expect(
       screen.getByRole('table', { name: 'Policy comparison' }),
     ).toBeInTheDocument();
+    expect(container.firstElementChild).toHaveAttribute(
+      'data-brand-surface-id',
+      'surface:flat',
+    );
   });
 
   it('renders all rows in the given order', () => {
@@ -42,6 +48,10 @@ describe('Table', () => {
     render(<Table caption="Policy comparison" columns={columns} rows={rows} />);
 
     const yearButton = screen.getByRole('button', { name: /Year/ });
+    expect(yearButton).toHaveAttribute(
+      'data-brand-control-id',
+      'control:secondary-action',
+    );
     await user.click(yearButton);
     expect(rowOrder()).toEqual(['RT-1', 'Diffusion Policy', 'ACT']);
     expect(

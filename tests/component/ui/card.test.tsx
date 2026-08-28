@@ -16,8 +16,12 @@ vi.mock('next/link', () => ({
 
 describe('Card', () => {
   it('renders children', () => {
-    render(<Card>Card body</Card>);
+    const { container } = render(<Card>Card body</Card>);
     expect(screen.getByText('Card body')).toBeInTheDocument();
+    expect(container.firstElementChild).toHaveAttribute(
+      'data-brand-surface-id',
+      'surface:flat',
+    );
   });
 
   it('renders the title as a heading', () => {
@@ -36,6 +40,10 @@ describe('Card', () => {
     );
     const link = screen.getByRole('link', { name: /Action chunking/ });
     expect(link).toHaveAttribute('href', '/manipulation/action-chunking');
+    expect(link).toHaveAttribute(
+      'data-brand-control-id',
+      'control:link-focus',
+    );
     // The internal href variant renders through next/link, not a native
     // anchor (client-side routing, prefetch).
     expect(linkCalls).toEqual([

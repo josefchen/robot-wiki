@@ -9,6 +9,7 @@ import {
   validateExactRegistryParity,
   validateInteractiveRegistry,
   validateNoInventedSymbols,
+  validatePrimitiveRegistries,
   type StateCase,
 } from '@/lib/brand-v2-census';
 import { isSyncConflictDuplicate } from '@/lib/sync-duplicates';
@@ -70,11 +71,40 @@ type Registry = {
       fingerprint: string;
     }>;
   };
-  gridDevices: Array<{ id: string; fingerprint: string }>;
-  surfaces: Array<{ id: string; fingerprint: string }>;
+  gridDevices: Array<{
+    id: string;
+    ownerSurface: string;
+    structuralPurpose: string;
+    anchorGeometry: unknown;
+    classification: string;
+    pointerBehavior: string;
+    ariaBehavior: string;
+    allowedViewports: string[];
+    fingerprint: string;
+  }>;
+  surfaces: Array<{
+    id: string;
+    level: string;
+    stackingPurpose: string;
+    allowedRadiusPx: number[];
+    border: unknown;
+    shadow: unknown;
+    allowedOwners: string[];
+    fingerprint: string;
+  }>;
   pageFrames: Array<{ id: string; fingerprint: string }>;
   typeRoles: Array<{ id: string; family: string; fingerprint: string }>;
-  controls: Array<{ id: string; fingerprint: string }>;
+  controls: Array<{
+    id: string;
+    ownerRouteOrMount: string;
+    action: string;
+    persistentAria: string[];
+    disabledException: string | null;
+    targetSize: unknown;
+    pointerAlternative: string;
+    supportedStates: string[];
+    fingerprint: string;
+  }>;
 };
 
 const ROOT = process.cwd();
@@ -253,6 +283,59 @@ describe('brand-v2 canonical census', () => {
       expect(entry.expectedCaseCount).toBe(entry.cases.length);
       expect(entry.expectedCaseCount).toBeGreaterThan(0);
     }
+  });
+
+  it('registers complete grid, surface, and control primitive contracts', () => {
+    for (const device of registry.gridDevices) {
+      expect(device.ownerSurface).toBeTruthy();
+      expect(device.structuralPurpose).toBeTruthy();
+      expect(device.anchorGeometry).toBeTruthy();
+      expect(['decorative', 'semantic', 'structural']).toContain(
+        device.classification,
+      );
+      expect(device.pointerBehavior).toBe('none');
+      expect(device.ariaBehavior).toBeTruthy();
+      expect(device.allowedViewports.length).toBeGreaterThan(0);
+    }
+
+    for (const surface of registry.surfaces) {
+      expect(['flat', 'raised', 'floating', 'bounded-dark']).toContain(
+        surface.level,
+      );
+      expect(surface.stackingPurpose).toBeTruthy();
+      expect(surface.allowedRadiusPx.length).toBeGreaterThan(0);
+      expect(surface.border).toBeTruthy();
+      expect(surface.shadow).toBeTruthy();
+      expect(surface.allowedOwners.length).toBeGreaterThan(0);
+    }
+
+    for (const control of registry.controls) {
+      expect(control.ownerRouteOrMount).toBeTruthy();
+      expect(control.action).toBeTruthy();
+      expect(control.persistentAria).toBeInstanceOf(Array);
+      expect(control.targetSize).toBeTruthy();
+      expect(control.pointerAlternative).toBeTruthy();
+      expect(control.supportedStates.length).toBeGreaterThan(0);
+    }
+    expect(validatePrimitiveRegistries(registry)).toEqual([]);
+  });
+
+  it('rejects missing fields and empty primitive registries', () => {
+    const valid = {
+      id: 'surface:flat',
+      fingerprint: configurationFingerprint({ id: 'surface:flat' }),
+    };
+    const failures = validatePrimitiveRegistries({
+      gridDevices: [],
+      surfaces: [valid],
+      controls: [],
+    });
+    expect(failures.map(({ reason }) => reason)).toEqual(
+      expect.arrayContaining([
+        'empty-primitive-registry',
+        'missing-primitive-registry-field',
+      ]),
+    );
   });
 
   it('covers every metadata owner and field with stable fingerprints', () => {

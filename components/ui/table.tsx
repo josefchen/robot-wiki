@@ -107,8 +107,11 @@ export function Table<T extends Record<string, unknown>>({
       // viewports and needs keyboard access (axe scrollable-region-focusable);
       // same convention as the bespoke MDX tables and .katex-display.
       tabIndex={0}
+      data-brand-surface-id="surface:flat"
+      data-brand-frame-depth="1"
+      data-brand-frame-interior-registered="table"
       className={cx(
-        'overflow-x-auto rounded-md border border-border',
+        'overflow-x-auto rounded-sm border border-border',
         className,
       )}
     >
@@ -141,6 +144,7 @@ export function Table<T extends Record<string, unknown>>({
                       type="button"
                       onClick={() => toggleSort(column.key)}
                       aria-label={`Sort by ${column.header}`}
+                      data-brand-control-id="control:secondary-action"
                       className="inline-flex cursor-pointer items-center gap-1 hover:text-text"
                     >
                       {column.header}

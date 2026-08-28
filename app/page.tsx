@@ -65,12 +65,46 @@ export default function Home() {
             </h1>
           </div>
           <div
+            id="home-engineering-grid"
             aria-hidden="true"
+            data-registration-device
+            data-brand-device-id="device:dot-grid"
+            data-brand-anchor-selector="#home-engineering-grid"
+            data-brand-device-edge="left"
+            data-brand-anchor-edge="left"
+            data-brand-motif="dot-grid"
             className="engineering-grid relative h-20 w-full border-b border-border md:h-auto md:min-h-full md:border-b-0 md:border-l"
           >
-            <span className="absolute left-1/2 top-0 h-full -translate-x-1/2 border-l border-border-strong" />
-            <span className="absolute left-0 top-1/2 w-full -translate-y-1/2 border-t border-border-strong" />
-            <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent" />
+            <span
+              aria-hidden="true"
+              data-registration-device
+              data-brand-device-id="device:section-rule"
+              data-brand-anchor-selector="#home-engineering-grid"
+              data-brand-device-edge="center-x"
+              data-brand-anchor-edge="center-x"
+              data-brand-motif="registration-cross"
+              className="pointer-events-none absolute left-1/2 top-0 h-full -translate-x-1/2 border-l border-border-strong"
+            />
+            <span
+              aria-hidden="true"
+              data-registration-device
+              data-brand-device-id="device:section-rule"
+              data-brand-anchor-selector="#home-engineering-grid"
+              data-brand-device-edge="center-y"
+              data-brand-anchor-edge="center-y"
+              data-brand-motif="registration-cross"
+              className="pointer-events-none absolute left-0 top-1/2 w-full -translate-y-1/2 border-t border-border-strong"
+            />
+            <span
+              aria-hidden="true"
+              data-registration-device
+              data-brand-device-id="device:registration-cross"
+              data-brand-anchor-selector="#home-engineering-grid"
+              data-brand-device-edge="center-x"
+              data-brand-anchor-edge="center-x"
+              data-brand-motif="registration-cross"
+              className="pointer-events-none absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 bg-accent"
+            />
           </div>
         </div>
         {/* Overview and CTA sit outside the sheet so the 80px band can

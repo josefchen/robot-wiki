@@ -22,6 +22,7 @@ import {
   validateExactRegistryParity,
   validateInteractiveRegistry,
   validateNoInventedSymbols,
+  validatePrimitiveRegistries,
   type JsonValue,
   type StateCase,
 } from '../lib/brand-v2-census.ts';
@@ -446,27 +447,100 @@ function interactiveRegistry() {
 
 function staticRegistries() {
   const gridDevices = [
-    ['device:outer-rail', 'shared-shell', 'content-frame-boundary'],
-    ['device:section-rule', 'shared-section', 'section-start'],
-    ['device:registration-cross', 'registered-surface', 'real-layout-anchor'],
-    ['device:axis-tick', 'visualization', 'source-backed-axis-or-state'],
-    ['device:sequence-label', 'indexed-content', 'real-order-or-state'],
-    ['device:dot-grid', 'instrument-or-index', 'registered-grid-boundary'],
-  ].map(([id, owner, purpose]) =>
-    stableRecord({ id, owner, purpose, alignmentTolerancePx: 2 }),
-  );
-  const surfaces = [
-    ['surface:flat', 'content-plane', 0, 0],
-    ['surface:raised', 'actionable-or-selected', 8, 0.12],
-    ['surface:floating', 'temporary-overlay', 20, 0.18],
-    ['surface:bounded-dark-instrument', 'technical-instrument', 0, 0],
-  ].map(([id, stackingPurpose, maxBlurPx, maxAlpha]) =>
+    {
+      id: 'device:outer-rail',
+      ownerSurface: 'shared-shell',
+      structuralPurpose: 'content-frame-boundary',
+      anchorGeometry: { kind: 'edge', allowedEdges: ['left', 'right'] },
+      classification: 'structural',
+      ariaBehavior: 'aria-hidden when decorative; owner landmark carries meaning',
+    },
+    {
+      id: 'device:section-rule',
+      ownerSurface: 'shared-section',
+      structuralPurpose: 'section-start-or-apparatus-boundary',
+      anchorGeometry: { kind: 'edge', allowedEdges: ['top', 'bottom'] },
+      classification: 'structural',
+      ariaBehavior: 'aria-hidden; adjacent heading carries meaning',
+    },
+    {
+      id: 'device:registration-cross',
+      ownerSurface: 'registered-surface',
+      structuralPurpose: 'real-layout-anchor',
+      anchorGeometry: { kind: 'intersection', axes: ['center-x', 'center-y'] },
+      classification: 'decorative',
+      ariaBehavior: 'aria-hidden',
+    },
+    {
+      id: 'device:axis-tick',
+      ownerSurface: 'visualization',
+      structuralPurpose: 'source-backed-axis-or-state',
+      anchorGeometry: { kind: 'axis', sourceRequired: true },
+      classification: 'semantic',
+      ariaBehavior: 'named by the bound chart description or table equivalent',
+    },
+    {
+      id: 'device:sequence-label',
+      ownerSurface: 'indexed-content',
+      structuralPurpose: 'real-order-or-state',
+      anchorGeometry: { kind: 'baseline', sequenceRequired: true },
+      classification: 'semantic',
+      ariaBehavior: 'visible text remains in the accessibility tree',
+    },
+    {
+      id: 'device:dot-grid',
+      ownerSurface: 'instrument-or-index',
+      structuralPurpose: 'registered-grid-boundary',
+      anchorGeometry: { kind: 'surface-bounds', pitchPx: 32 },
+      classification: 'decorative',
+      ariaBehavior: 'aria-hidden',
+    },
+  ].map((entry) =>
     stableRecord({
-      id,
-      stackingPurpose,
-      shadow: { neutralOnly: true, maxBlurPx, maxAlpha },
+      ...entry,
+      pointerBehavior: 'none',
+      allowedViewports: ['mobile', 'tablet', 'desktop'],
+      alignmentTolerancePx: 2,
     }),
   );
+  const surfaces = [
+    {
+      id: 'surface:flat',
+      level: 'flat',
+      stackingPurpose: 'content-plane',
+      allowedRadiusPx: [0, 2, 4, 8],
+      border: { allowedWidthsPx: [0, 1], styles: ['solid', 'dashed'] },
+      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
+      allowedOwners: ['article', 'card', 'callout', 'table', 'input', 'code'],
+    },
+    {
+      id: 'surface:raised',
+      level: 'raised',
+      stackingPurpose: 'actionable-or-selected',
+      allowedRadiusPx: [4, 8, 16],
+      border: { allowedWidthsPx: [0, 1, 2], styles: ['solid'] },
+      shadow: { neutralOnly: true, maxBlurPx: 8, maxAlpha: 0.12 },
+      allowedOwners: ['actionable-card', 'calculator', 'active-module'],
+    },
+    {
+      id: 'surface:floating',
+      level: 'floating',
+      stackingPurpose: 'temporary-overlay',
+      allowedRadiusPx: [4, 8, 16],
+      border: { allowedWidthsPx: [0, 1], styles: ['solid'] },
+      shadow: { neutralOnly: true, maxBlurPx: 20, maxAlpha: 0.18 },
+      allowedOwners: ['tooltip', 'menu', 'drawer', 'modal', 'dragged-object'],
+    },
+    {
+      id: 'surface:bounded-dark-instrument',
+      level: 'bounded-dark',
+      stackingPurpose: 'technical-instrument',
+      allowedRadiusPx: [0, 2, 4, 8],
+      border: { allowedWidthsPx: [1], styles: ['solid'] },
+      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
+      allowedOwners: ['chart', 'diagram', 'simulation', 'code', 'media', 'playground'],
+    },
+  ].map(stableRecord);
   const pageFrames = [
     ['frame:mobile', 4, 20],
     ['frame:tablet', 8, 32],
@@ -495,17 +569,100 @@ function staticRegistries() {
     ),
   );
   const controls = [
-    ['control:primary-action', 'ink-filled', 'action'],
-    ['control:secondary-action', 'outlined-or-transparent', 'action'],
-    ['control:selection', 'lime-plus-non-colour-marker', 'persistent-selection'],
-    ['control:link-focus', 'signal-plus-non-colour-affordance', 'information-path'],
-    ['control:segmented', 'one-outer-frame', 'discrete-selection'],
-    ['control:input', 'persistent-visible-label', 'input'],
-    ['control:disabled', 'documented-neutral', 'unavailable-action'],
-  ].map(([id, treatment, statePurpose]) =>
-    stableRecord({ id, treatment, statePurpose }),
+    {
+      id: 'control:primary-action',
+      treatment: 'ink-filled',
+      statePurpose: 'action',
+      action: 'activate the page or tool primary action',
+      persistentAria: [],
+      supportedStates: ['default', 'hover', 'active', 'focus-visible', 'disabled'],
+    },
+    {
+      id: 'control:secondary-action',
+      treatment: 'outlined-or-transparent',
+      statePurpose: 'action',
+      action: 'activate a supporting action',
+      persistentAria: [],
+      supportedStates: ['default', 'hover', 'active', 'focus-visible', 'disabled'],
+    },
+    {
+      id: 'control:selection',
+      treatment: 'lime-plus-non-colour-marker',
+      statePurpose: 'persistent-selection',
+      action: 'select or toggle one persistent state',
+      persistentAria: ['aria-pressed', 'aria-selected', 'aria-current'],
+      supportedStates: ['unselected', 'selected', 'hover', 'focus-visible', 'disabled'],
+    },
+    {
+      id: 'control:link-focus',
+      treatment: 'signal-plus-non-colour-affordance',
+      statePurpose: 'information-path',
+      action: 'navigate to a truthful destination',
+      persistentAria: ['aria-current when the destination is current'],
+      supportedStates: ['default', 'hover', 'focus-visible', 'visited'],
+    },
+    {
+      id: 'control:segmented',
+      treatment: 'one-outer-frame',
+      statePurpose: 'discrete-selection',
+      action: 'select one option from a compact group',
+      persistentAria: ['aria-selected or aria-pressed on the active option'],
+      supportedStates: ['unselected', 'selected', 'hover', 'focus-visible', 'disabled'],
+    },
+    {
+      id: 'control:input',
+      treatment: 'persistent-visible-label',
+      statePurpose: 'input',
+      action: 'enter or adjust a labelled value',
+      persistentAria: ['aria-invalid', 'aria-describedby'],
+      supportedStates: ['default', 'focus-visible', 'filled', 'invalid', 'disabled'],
+    },
+    {
+      id: 'control:disabled',
+      treatment: 'documented-neutral',
+      statePurpose: 'unavailable-action',
+      action: 'expose an unavailable action without activation',
+      persistentAria: ['disabled or aria-disabled'],
+      supportedStates: ['disabled'],
+      disabledException: 'neutral treatment; excluded from active-action colour requirements',
+    },
+  ].map((entry) =>
+    stableRecord({
+      ...entry,
+      ownerRouteOrMount: 'shared primitive; concrete owner supplied at render',
+      disabledException: entry.disabledException ?? null,
+      targetSize: { minimumPx: 24, preferredPx: 44, inlineException: false },
+      pointerAlternative: 'native pointer activation matching keyboard activation',
+    }),
   );
-  return { gridDevices, surfaces, pageFrames, typeRoles, controls };
+  const materials = [
+    {
+      id: 'material:paper',
+      treatment: 'texture-free reading ground',
+      deterministic: true,
+      ownership: 'owned',
+    },
+    {
+      id: 'material:concrete',
+      treatment: 'owned monochrome SVG micro-texture',
+      deterministic: true,
+      ownership: 'owned',
+    },
+    {
+      id: 'material:halftone',
+      treatment: 'owned monochrome SVG dot field',
+      deterministic: true,
+      ownership: 'owned',
+    },
+  ].map(stableRecord);
+  return {
+    gridDevices,
+    surfaces,
+    pageFrames,
+    typeRoles,
+    controls,
+    materials,
+  };
 }
 
 function syncShadowException(path: string): null | {
@@ -666,6 +823,7 @@ function collect() {
       ...(exportRoutes ? { exportFiles: exportRoutes } : {}),
     }),
     ...validateInteractiveRegistry(interactive.sources, interactive.mounts),
+    ...validatePrimitiveRegistries(staticEntries),
     ...validateExactRegistryParity(
       physicalAssets(),
       assets.map(({ id }) => id),
