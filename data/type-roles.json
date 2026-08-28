@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "firstPartyRoles": [
+    {
+      "id": "display",
+      "family": "Tektur Variable"
+    },
+    {
+      "id": "interface",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "id": "reading",
+      "family": "Newsreader"
+    },
+    {
+      "id": "data",
+      "family": "IBM Plex Mono"
+    }
+  ],
+  "tekturRoleInstances": [
+    {
+      "id": "home-wordmark",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-home"
+    },
+    {
+      "id": "shell-wordmark",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-shell"
+    },
+    {
+      "id": "page-h1",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-page"
+    },
+    {
+      "id": "article-h1",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-article"
+    },
+    {
+      "id": "section-display",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-section"
+    },
+    {
+      "id": "display-numerals",
+      "wght": 600,
+      "wdth": 100,
+      "cssClass": "font-display-numerals"
+    }
+  ],
+  "tekturOgRoleId": "home-wordmark",
+  "fixedAssignedStrings": [
+    {
+      "id": "identity",
+      "text": "Robot Wiki",
+      "targets": [
+        "web",
+        "og"
+      ]
+    },
+    {
+      "id": "descriptor",
+      "text": "Citation-first encyclopedia of modern robot learning.",
+      "targets": [
+        "web",
+        "og"
+      ]
+    },
+    {
+      "id": "display-numerals",
+      "text": "0123456789",
+      "targets": [
+        "web",
+        "og"
+      ]
+    }
+  ]
+}

@@ -45,6 +45,18 @@ export type InteractiveMountRecord = {
   cases: readonly StateCase[];
 };
 
+type PrimitiveRegistryRecord = {
+  id: string;
+  fingerprint: string;
+  [key: string]: unknown;
+};
+
+type PrimitiveRegistrySet = {
+  gridDevices: readonly PrimitiveRegistryRecord[];
+  surfaces: readonly PrimitiveRegistryRecord[];
+  controls: readonly PrimitiveRegistryRecord[];
+};
+
 function normalize(value: unknown): JsonValue {
   if (Array.isArray(value)) return value.map(normalize);
   if (value !== null && typeof value === 'object') {
@@ -210,6 +222,91 @@ export function validateExactRegistryParity(
 
 function validFingerprint(value: string): boolean {
   return /^[a-f0-9]{64}$/.test(value);
+}
+
+export function validatePrimitiveRegistries(
+  registries: PrimitiveRegistrySet,
+): CensusFailure[] {
+  const failures: CensusFailure[] = [];
+  const definitions = [
+    {
+      assertionId: 'VAL-B2-GRID-009',
+      name: 'gridDevices',
+      records: registries.gridDevices,
+      fields: [
+        'ownerSurface',
+        'structuralPurpose',
+        'anchorGeometry',
+        'classification',
+        'pointerBehavior',
+        'ariaBehavior',
+        'allowedViewports',
+      ],
+    },
+    {
+      assertionId: 'VAL-B2-SURF-010',
+      name: 'surfaces',
+      records: registries.surfaces,
+      fields: [
+        'level',
+        'stackingPurpose',
+        'allowedRadiusPx',
+        'border',
+        'shadow',
+        'allowedOwners',
+      ],
+    },
+    {
+      assertionId: 'VAL-B2-COMP-013',
+      name: 'controls',
+      records: registries.controls,
+      fields: [
+        'ownerRouteOrMount',
+        'action',
+        'persistentAria',
+        'disabledException',
+        'targetSize',
+        'pointerAlternative',
+        'supportedStates',
+      ],
+    },
+  ] as const;
+
+  for (const definition of definitions) {
+    if (definition.records.length === 0) {
+      failures.push({
+        assertionId: definition.assertionId,
+        memberId: definition.name,
+        expected: 'non-empty primitive registry',
+        actual: 0,
+        reason: 'empty-primitive-registry',
+      });
+      continue;
+    }
+    for (const record of definition.records) {
+      if (!validFingerprint(record.fingerprint)) {
+        failures.push({
+          assertionId: definition.assertionId,
+          memberId: record.id,
+          expected: 'lowercase SHA-256 configuration fingerprint',
+          actual: record.fingerprint,
+          reason: 'invalid-fingerprint',
+        });
+      }
+      for (const field of definition.fields) {
+        if (!Object.hasOwn(record, field)) {
+          failures.push({
+            assertionId: definition.assertionId,
+            memberId: record.id,
+            expected: `registry field ${field}`,
+            actual: 'missing',
+            reason: 'missing-primitive-registry-field',
+          });
+        }
+      }
+    }
+  }
+  return failures;
 }
 
 export function validateInteractiveRegistry(

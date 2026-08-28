@@ -44,6 +44,7 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
           target="_blank"
           rel="noopener noreferrer"
           aria-describedby={tooltipId}
+          data-brand-control-id="control:link-focus"
           className="inline-flex items-center px-1.5 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
         >
           {label}
@@ -57,6 +58,7 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
             href={referenceHref}
             aria-label={`Jump to the full reference for ${title}`}
             data-pagefind-ignore
+            data-brand-control-id="control:link-focus"
             className="inline-flex items-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
           >
             <span aria-hidden="true">↓</span>
@@ -66,6 +68,8 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
       <span
         role="tooltip"
         id={tooltipId}
+        data-brand-surface-id="surface:floating"
+        data-brand-frame-depth="1"
         // Hidden copy: excluded from the Pagefind index so search excerpts
         // never fuse the reference title/authors onto the prose. Inert for
         // assistive technology; the aria-describedby wiring is untouched.
@@ -74,7 +78,7 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
         // trailing punctuation, and white-space inherits — without the reset
         // the fixed-width tooltip cannot wrap and its text overflows the box.
         data-pagefind-ignore
-        className="absolute bottom-full left-0 z-20 mb-1.5 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed whitespace-normal text-text group-hover:block group-focus-within:block"
+        className="absolute bottom-full left-0 z-20 mb-1.5 hidden w-64 max-w-[calc(100vw-3rem)] rounded-sm border border-border bg-surface p-2.5 font-sans text-xs leading-relaxed whitespace-normal text-text shadow-floating group-hover:block group-focus-within:block"
       >
         <span className="block font-medium">{title}</span>
         {meta ? (

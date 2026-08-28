@@ -19,6 +19,9 @@ export type BrandV2Registry = {
     sources: Array<InteractiveRegistryMember>;
     mounts: Array<InteractiveRegistryMember & { sourceId: string; route: string }>;
   };
+  gridDevices: Array<{ id: string; fingerprint: string }>;
+  surfaces: Array<{ id: string; fingerprint: string }>;
+  controls: Array<{ id: string; fingerprint: string }>;
 };
 
 type InteractiveRegistryMember = {

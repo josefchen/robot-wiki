@@ -206,7 +206,16 @@ export default async function ModulePage({ params }: { params: Params }) {
         <Content />
       </div>
       {hasApparatus ? (
-        <hr className="mt-14 border-border" />
+        <hr
+          aria-hidden="true"
+          data-registration-device
+          data-brand-device-id="device:section-rule"
+          data-brand-anchor-selector="[data-prose-column]"
+          data-brand-device-edge="left"
+          data-brand-anchor-edge="left"
+          data-brand-motif="dot-grid"
+          className="pointer-events-none mt-14 border-border"
+        />
       ) : null}
       <SeeAlso entries={seeAlsoEntries} />
       <LinkedFrom entries={linkedFromEntries} />

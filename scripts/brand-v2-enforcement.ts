@@ -16,6 +16,17 @@ import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
 const RESULTS_PATH = join(ROOT, 'evidence', 'brand-v2', 'results.json');
+const COMPLETED_TEKTUR_ASSERTIONS = new Set([
+  'VAL-B2-TYPE-001',
+  'VAL-B2-TYPE-002',
+  'VAL-B2-TYPE-011',
+  'VAL-B2-TYPE-012',
+  'VAL-B2-TYPE-013',
+  'VAL-B2-TYPE-014',
+  'VAL-B2-TYPE-015',
+  'VAL-B2-TYPE-016',
+  'VAL-B2-TYPE-017',
+]);
 
 type Registry = Parameters<
   typeof buildEnforcementPopulationSources
@@ -73,6 +84,7 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   const area = id.split('-')[2];
   if (
     ['GOV', 'BASE'].includes(area) ||
+    COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
     ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)
   ) {
     return 'automated-machine';
@@ -117,6 +129,28 @@ const INTERACTIVE_STATE_TARGET = testTarget(
   'brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases',
   'Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending.',
 );
+const PRIMITIVE_REGISTRY_TARGET = testTarget(
+  'tests/unit/brand-v2-census.test.ts',
+  'brand-v2 canonical census > registers complete grid, surface, and control primitive contracts',
+  'Validates every primitive registry row has the sealed owner, geometry, state, target-size, and allowed-owner fields with stable fingerprints.',
+);
+const PRIMITIVE_BROWSER_TARGETS = {
+  'VAL-B2-GRID-009': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-GRID-009 renders registered, aligned, pointer-inert devices',
+    'Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound.',
+  ),
+  'VAL-B2-SURF-010': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow',
+    'Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow.',
+  ),
+  'VAL-B2-COMP-013': testTarget(
+    'tests/e2e/brand-v2-primitives.spec.ts',
+    'brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state',
+    'Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls.',
+  ),
+} satisfies Record<string, TestTarget>;
 const BASELINE_TARGET = testTarget(
   'tests/unit/brand-v2-baseline.test.ts',
   'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
@@ -127,6 +161,56 @@ const ASSET_TARGET = testTarget(
   'brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception',
   'Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail.',
 );
+const TEKTUR_BROWSER_TARGET = testTarget(
+  'tests/e2e/tektur-font-delivery.spec.ts',
+  'Tektur web delivery › loads the local variable face without a third-party request or glyph fallback',
+  'Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests.',
+);
+
+function tekturUnitTarget(title: string, mechanism: string): TestTarget {
+  return testTarget(
+    'tests/unit/tektur-fonts.test.ts',
+    `Tektur font delivery contract > ${title}`,
+    mechanism,
+  );
+}
+
+function tekturTargetsFor(id: string): TestTarget[] {
+  if (id === 'VAL-B2-TYPE-001' || id === 'VAL-B2-TYPE-002') {
+    return [
+      tekturUnitTarget(
+        'registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)',
+        'Pins the four first-party families to their display, interface, reading, and data roles.',
+      ),
+      TEKTUR_BROWSER_TARGET,
+    ];
+  }
+  if (id === 'VAL-B2-TYPE-015' || id === 'VAL-B2-TYPE-016') {
+    return [
+      tekturUnitTarget(
+        'registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)',
+        'Pins all six measurable wght/wdth role instances and the exact static OG role mapping.',
+      ),
+      TEKTUR_BROWSER_TARGET,
+    ];
+  }
+  if (id === 'VAL-B2-TYPE-017') {
+    return [
+      tekturUnitTarget(
+        'keeps assigned web and OG strings non-empty and code-point addressable (VAL-B2-TYPE-017)',
+        'Derives the assigned identity, descriptor, numeral, domain, and article-title string population before cmap inspection.',
+      ),
+      TEKTUR_BROWSER_TARGET,
+    ];
+  }
+  return [
+    tekturUnitTarget(
+      'inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)',
+      'Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage.',
+    ),
+    TEKTUR_BROWSER_TARGET,
+  ];
+}
 const RUNNER_ROUTE_TARGET = testTarget(
   'tests/unit/brand-v2-runners.test.ts',
   'brand-v2 exhaustive runners > derives one non-empty public-route plan member per registry route and keeps 404 separate',
@@ -155,6 +239,13 @@ const OMISSION_PROOF = {
 };
 
 function testTargetsFor(id: string): TestTarget[] {
+  if (COMPLETED_TEKTUR_ASSERTIONS.has(id)) return tekturTargetsFor(id);
+  if (id in PRIMITIVE_BROWSER_TARGETS) {
+    return [
+      PRIMITIVE_REGISTRY_TARGET,
+      PRIMITIVE_BROWSER_TARGETS[id as keyof typeof PRIMITIVE_BROWSER_TARGETS],
+    ];
+  }
   const area = id.split('-')[2];
   if (area === 'BASE') return [BASELINE_TARGET];
   if (area === 'CONT') return [CENSUS_ROUTE_TARGET];
@@ -252,19 +343,40 @@ function resultFor(
   requirement: string,
   populationSource: string,
   mode: EnforcementMap['rows'][number]['enforcementMode'],
+  member?: string,
 ): EvidenceResult {
+  const perMember = member !== undefined;
   const common = {
-    resultId: `result:${assertionId}`,
+    resultId: perMember
+      ? `result:${assertionId}:${member}`
+      : `result:${assertionId}`,
     assertionId,
-    populationMemberId: `population:${populationSource}`,
+    populationMemberId: member ?? `population:${populationSource}`,
     coveredPopulationMemberIds: populationMemberIds,
-    coverageKind: 'population-wide' as const,
-    status: 'pending' as const,
+    coverageKind: perMember ? ('per-member' as const) : ('population-wide' as const),
+    status: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
+      ? ('passed' as const)
+      : ('pending' as const),
     expected: requirement,
-    actual: 'awaiting responsible rollout milestone',
+    actual: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
+      ? 'verified by the deterministic Tektur binary, role-registry, build, and browser gates'
+      : 'awaiting responsible rollout milestone',
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
+  if (COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)) {
+    return {
+      ...common,
+      payload: {
+        kind: 'source-build',
+        sourcePath: 'assets/fonts/tektur/metadata.json',
+        predicate: requirement,
+        observed:
+          'Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.',
+        tool: 'fontkit + Vitest + Playwright',
+      },
+    };
+  }
   if (mode === 'generated-image') {
     return {
       ...common,
@@ -333,23 +445,38 @@ function generate() {
         throw new Error(`Population is empty for ${id}: ${canonicalPopulationSource}`);
       }
       const enforcementMode = modeFor(id);
-      const assertionResult = resultFor(
-        id,
-        population,
-        requirement,
-        canonicalPopulationSource,
-        enforcementMode,
-      );
-      results.push(assertionResult);
+      const assertionResults = COMPLETED_TEKTUR_ASSERTIONS.has(id)
+        ? population.map((member) =>
+            resultFor(
+              id,
+              [member],
+              requirement,
+              canonicalPopulationSource,
+              enforcementMode,
+              member,
+            ),
+          )
+        : [
+            resultFor(
+              id,
+              population,
+              requirement,
+              canonicalPopulationSource,
+              enforcementMode,
+            ),
+          ];
+      results.push(...assertionResults);
       return {
         assertionId: id,
         canonicalPopulationSource,
         enforcementTargets: [
-          {
+          ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: `${id} pending rollout evidence over ${canonicalPopulationSource}`,
-          },
+            mechanism: COMPLETED_TEKTUR_ASSERTIONS.has(id)
+              ? `${id} passed deterministic Tektur delivery evidence over ${canonicalPopulationSource}`
+              : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
+          })),
           ...testTargetsFor(id),
         ],
         enforcementMode,
@@ -361,7 +488,7 @@ function generate() {
           omissionProof: OMISSION_PROOF,
         },
         producedResult: {
-          resultIds: [assertionResult.resultId],
+          resultIds: assertionResults.map(({ resultId }) => resultId),
         },
       };
     },

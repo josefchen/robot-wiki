@@ -15,8 +15,10 @@ export function Aside({ title, className, children }: AsideProps) {
     <div
       role="note"
       aria-label={title ?? 'Aside'}
+      data-brand-surface-id="surface:flat"
+      data-brand-frame-depth="1"
       className={cx(
-        'my-6 rounded-md border border-border bg-surface p-4',
+        'my-6 rounded-sm border border-border bg-surface p-4',
         className,
       )}
     >

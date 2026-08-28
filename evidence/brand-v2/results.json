@@ -7811,6 +7811,7 @@
       "assertionId": "VAL-B2-IMG-001",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -7971,6 +7972,7 @@
       "assertionId": "VAL-B2-IMG-002",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8131,6 +8133,7 @@
       "assertionId": "VAL-B2-IMG-003",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8291,6 +8294,7 @@
       "assertionId": "VAL-B2-IMG-004",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8451,6 +8455,7 @@
       "assertionId": "VAL-B2-IMG-005",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8611,6 +8616,7 @@
       "assertionId": "VAL-B2-IMG-006",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8771,6 +8777,7 @@
       "assertionId": "VAL-B2-IMG-007",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -8931,6 +8938,7 @@
       "assertionId": "VAL-B2-IMG-008",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -9091,6 +9099,7 @@
       "assertionId": "VAL-B2-IMG-009",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -9251,6 +9260,7 @@
       "assertionId": "VAL-B2-IMG-010",
       "populationMemberId": "population:contract/brand-v2-registries.json#assets",
       "coveredPopulationMemberIds": [
+        "asset:fonts/Tektur-latin-wdth-wght.woff2",
         "asset:images/anymal-anybotics-2022.jpg",
         "asset:images/atlas-darpa-frontview-2013.jpg",
         "asset:images/covariate-shift.svg",
@@ -14576,67 +14586,171 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-001",
+      "resultId": "result:VAL-B2-TYPE-001:type:display",
       "assertionId": "VAL-B2-TYPE-001",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-001",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-001"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-002",
-      "assertionId": "VAL-B2-TYPE-002",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "resultId": "result:VAL-B2-TYPE-001:type:interface",
+      "assertionId": "VAL-B2-TYPE-001",
+      "populationMemberId": "type:interface",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:interface"
       ],
-      "coverageKind": "population-wide",
-      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "awaiting responsible rollout milestone",
+      "coverageKind": "per-member",
+      "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-002",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-002"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-001:type:reading",
+      "assertionId": "VAL-B2-TYPE-001",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-001:type:data",
+      "assertionId": "VAL-B2-TYPE-001",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-002:type:display",
+      "assertionId": "VAL-B2-TYPE-002",
+      "populationMemberId": "type:display",
+      "coveredPopulationMemberIds": [
+        "type:display"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-002:type:interface",
+      "assertionId": "VAL-B2-TYPE-002",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-002:type:reading",
+      "assertionId": "VAL-B2-TYPE-002",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-002:type:data",
+      "assertionId": "VAL-B2-TYPE-002",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
@@ -14896,227 +15010,591 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-011",
+      "resultId": "result:VAL-B2-TYPE-011:type:display",
       "assertionId": "VAL-B2-TYPE-011",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-011",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-011"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-012",
+      "resultId": "result:VAL-B2-TYPE-011:type:interface",
+      "assertionId": "VAL-B2-TYPE-011",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-011:type:reading",
+      "assertionId": "VAL-B2-TYPE-011",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-011:type:data",
+      "assertionId": "VAL-B2-TYPE-011",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-012:type:display",
       "assertionId": "VAL-B2-TYPE-012",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-012",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-012"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-013",
+      "resultId": "result:VAL-B2-TYPE-012:type:interface",
+      "assertionId": "VAL-B2-TYPE-012",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-012:type:reading",
+      "assertionId": "VAL-B2-TYPE-012",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-012:type:data",
+      "assertionId": "VAL-B2-TYPE-012",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-013:type:display",
       "assertionId": "VAL-B2-TYPE-013",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-013",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-013"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-014",
+      "resultId": "result:VAL-B2-TYPE-013:type:interface",
+      "assertionId": "VAL-B2-TYPE-013",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-013:type:reading",
+      "assertionId": "VAL-B2-TYPE-013",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-013:type:data",
+      "assertionId": "VAL-B2-TYPE-013",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-014:type:display",
       "assertionId": "VAL-B2-TYPE-014",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-014",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-014"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-015",
+      "resultId": "result:VAL-B2-TYPE-014:type:interface",
+      "assertionId": "VAL-B2-TYPE-014",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-014:type:reading",
+      "assertionId": "VAL-B2-TYPE-014",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-014:type:data",
+      "assertionId": "VAL-B2-TYPE-014",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-015:type:display",
       "assertionId": "VAL-B2-TYPE-015",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-015",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-015"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-016",
+      "resultId": "result:VAL-B2-TYPE-015:type:interface",
+      "assertionId": "VAL-B2-TYPE-015",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-015:type:reading",
+      "assertionId": "VAL-B2-TYPE-015",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-015:type:data",
+      "assertionId": "VAL-B2-TYPE-015",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-016:type:display",
       "assertionId": "VAL-B2-TYPE-016",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "populationMemberId": "type:display",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:display"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-016",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-016"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-017",
-      "assertionId": "VAL-B2-TYPE-017",
-      "populationMemberId": "population:contract/brand-v2-registries.json#typeRoles",
+      "resultId": "result:VAL-B2-TYPE-016:type:interface",
+      "assertionId": "VAL-B2-TYPE-016",
+      "populationMemberId": "type:interface",
       "coveredPopulationMemberIds": [
-        "type:display",
-        "type:interface",
-        "type:reading",
-        "type:data"
+        "type:interface"
       ],
-      "coverageKind": "population-wide",
-      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "awaiting responsible rollout milestone",
+      "coverageKind": "per-member",
+      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-TYPE-017",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-TYPE-017"
-        ]
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-016:type:reading",
+      "assertionId": "VAL-B2-TYPE-016",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-016:type:data",
+      "assertionId": "VAL-B2-TYPE-016",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:type:display",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "type:display",
+      "coveredPopulationMemberIds": [
+        "type:display"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:type:interface",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "type:interface",
+      "coveredPopulationMemberIds": [
+        "type:interface"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:type:reading",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "type:reading",
+      "coveredPopulationMemberIds": [
+        "type:reading"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:type:data",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "type:data",
+      "coveredPopulationMemberIds": [
+        "type:data"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "tool": "fontkit + Vitest + Playwright"
       }
     },
     {

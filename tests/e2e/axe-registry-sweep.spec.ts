@@ -25,12 +25,12 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
 
 const OUT = join(process.cwd(), 'out');
 /**
- * The site's one page-ground token, #f4f3ef (contract VAL-CROSS-020). Every
+ * The site's one page-ground token, #F5F6F7 (contract VAL-CROSS-020). Every
  * route resolves to exactly this: there is no second theme and no
  * prefers-color-scheme branch, so a route reporting anything else is either
  * unthemed or has been given a ground of its own.
  */
-const PAGE_GROUND = 'rgb(244, 243, 239)';
+const PAGE_GROUND = 'rgb(245, 246, 247)';
 
 /**
  * Routes served as-is by the export server (each has its index.html).

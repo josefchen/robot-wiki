@@ -93,6 +93,7 @@ export function Term({ termId, term, definition, children }: TermProps) {
       <Link
         href={`/glossary#${termId}`}
         aria-describedby={tooltipId}
+        data-brand-control-id="control:link-focus"
         className="term-link"
       >
         {children ?? term}
@@ -101,13 +102,14 @@ export function Term({ termId, term, definition, children }: TermProps) {
         role="tooltip"
         id={tooltipId}
         ref={tooltipRef}
+        data-brand-surface-id="surface:floating"
         // Hidden copy: excluded from the Pagefind index so search excerpts
         // never fuse the definition onto the surrounding prose. Inert for
         // assistive technology; the aria-describedby wiring is untouched.
         data-pagefind-ignore
         style={{ marginLeft: placement.dx }}
         className={[
-          'absolute left-0 z-20 hidden w-64 max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface-2 p-2.5 font-sans text-xs leading-relaxed text-text group-hover:block group-focus-within:block',
+          'absolute left-0 z-20 hidden w-64 max-w-[calc(100vw-3rem)] rounded-sm border border-border bg-surface p-2.5 font-sans text-xs leading-relaxed text-text shadow-floating group-hover:block group-focus-within:block',
           placement.vertical === 'above' ? 'bottom-full mb-1.5' : 'top-full mt-1.5',
         ].join(' ')}
       >

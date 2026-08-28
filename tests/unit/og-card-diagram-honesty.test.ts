@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import { DOMAIN_META } from '@/data/modules';
+import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
 import { articleCardElement, siteCardElement, type CardNode } from '@/lib/og-card-artwork';
 
 /**
@@ -15,7 +16,7 @@ import { articleCardElement, siteCardElement, type CardNode } from '@/lib/og-car
  * is a constant of its family, so it cannot be read as per-article data.
  */
 
-const ACCENT = '#245edb';
+const ACCENT = BRAND_COLORS.signal;
 const PANEL_WIDTH = 304;
 
 const SOURCE_PATH = join(process.cwd(), 'lib/og-card-artwork.ts');

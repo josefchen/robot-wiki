@@ -10,9 +10,9 @@
  * The route set is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
  * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
- * Fonts: Geist Regular (bundled with @vercel/og) for titles and
- * KaTeX_Typewriter (a dependency we already ship) for the mono labels;
- * text is sanitized to the fonts' coverage by sanitizeCardText.
+ * Fonts: the separately vendored static Tektur SemiBold TTF for display
+ * text and KaTeX_Typewriter (a dependency we already ship) for mono labels.
+ * No runtime font request or variable-font renderer support is involved.
  *
  * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
  * panel artwork is one constant ornament per domain chosen by a literal
@@ -31,6 +31,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
+import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
 import matter from 'gray-matter';
 import {
   OG_CARD_HEIGHT,
@@ -72,16 +73,21 @@ export function articleCardFacts(mdxSource: string): ArticleCardFacts {
 }
 
 const FONT_PATHS = {
-  sans: join(root, 'node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf'),
+  display: join(root, TEKTUR_FONT_METADATA.og.path),
   mono: join(root, 'node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf'),
 };
 
-// ImageResponse's bundled typings expect a ReactElement; the node build
-// accepts the same plain satori element trees our CardNode type
-// describes. Cast at the boundary rather than loosening CardNode.
-async function render(node: CardNode): Promise<Buffer> {
+let cachedFonts: NonNullable<ImageResponseOptions['fonts']> | null = null;
+
+function rendererFonts(): NonNullable<ImageResponseOptions['fonts']> {
+  if (cachedFonts) return cachedFonts;
   const fonts = [
-    { name: 'Geist', data: readFileSync(FONT_PATHS.sans), weight: 400, style: 'normal' },
+    {
+      name: TEKTUR_FONT_METADATA.family,
+      data: readFileSync(FONT_PATHS.display),
+      weight: TEKTUR_FONT_METADATA.og.weight,
+      style: TEKTUR_FONT_METADATA.og.style,
+    },
     {
       name: 'KaTeX_Typewriter',
       data: readFileSync(FONT_PATHS.mono),
@@ -89,10 +95,18 @@ async function render(node: CardNode): Promise<Buffer> {
       style: 'normal',
     },
   ] satisfies NonNullable<ImageResponseOptions['fonts']>;
+  cachedFonts = fonts;
+  return fonts;
+}
+
+// ImageResponse's bundled typings expect a ReactElement; the node build
+// accepts the same plain satori element trees our CardNode type
+// describes. Cast at the boundary rather than loosening CardNode.
+async function render(node: CardNode): Promise<Buffer> {
   const response = new ImageResponse(node as never, {
     width: OG_CARD_WIDTH,
     height: OG_CARD_HEIGHT,
-    fonts,
+    fonts: rendererFonts(),
   });
   return Buffer.from(await response.arrayBuffer());
 }

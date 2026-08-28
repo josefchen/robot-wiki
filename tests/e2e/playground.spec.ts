@@ -171,7 +171,7 @@ test.describe('3D playground scene and model', () => {
         gl.deleteTexture(tex);
 
         let nonBackground = 0;
-        // Background is #f4f3ef (244, 243, 239), channel sum 726. The arm and
+        // Background is #F5F6F7 (245, 246, 247), channel sum 738. The arm and
         // grid are darker than the ground, so a painted pixel reads BELOW it;
         // the threshold looked for brighter-than-ground under the old theme.
         for (let i = 0; i < pixels.length; i += 4) {

@@ -16,15 +16,15 @@ const variantLabel: Record<CalloutVariant, string> = {
 };
 
 const borderColor: Record<CalloutVariant, string> = {
-  info: 'border-l-border-strong',
+  info: 'border-l-signal',
   warn: 'border-l-warn',
-  error: 'border-l-err',
+  error: 'border-l-error',
 };
 
 const titleColor: Record<CalloutVariant, string> = {
   info: 'text-text',
   warn: 'text-warn',
-  error: 'text-err',
+  error: 'text-error',
 };
 
 export function Callout({ variant = 'info', title, children }: CalloutProps) {
@@ -33,8 +33,10 @@ export function Callout({ variant = 'info', title, children }: CalloutProps) {
       role={variant === 'error' ? 'alert' : 'note'}
       aria-label={title ?? variantLabel[variant]}
       data-variant={variant}
+      data-brand-surface-id="surface:flat"
+      data-brand-frame-depth="1"
       className={cx(
-        'my-6 rounded-md border border-border border-l-2 bg-surface p-4',
+        'my-6 rounded-sm border border-border border-l-2 bg-surface p-4',
         borderColor[variant],
       )}
     >
