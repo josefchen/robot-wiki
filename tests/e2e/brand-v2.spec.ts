@@ -62,10 +62,16 @@ test.describe('brand-v2 core visual authority', () => {
     await page.goto(`${staticBase}/`);
     expect(await page.evaluate(() => {
       const style = getComputedStyle(document.documentElement);
+      const readHex = (name: string) => {
+        const value = style.getPropertyValue(name).trim().toUpperCase();
+        return /^#[0-9A-F]{3}$/.test(value)
+          ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
+          : value;
+      };
       return {
-        signal: style.getPropertyValue('--color-signal').trim().toUpperCase(),
-        focus: style.getPropertyValue('--color-focus').trim(),
-        selection: style.getPropertyValue('--color-selection').trim(),
+        signal: readHex('--color-signal'),
+        focus: readHex('--color-focus'),
+        selection: readHex('--color-selection'),
       };
     })).toEqual({
       signal: '#245FFF',
@@ -81,8 +87,12 @@ test.describe('brand-v2 core visual authority', () => {
     await page.goto(`${staticBase}/`);
     expect(await page.evaluate(() => {
       const style = getComputedStyle(document.documentElement);
-      const read = (name: string) =>
-        style.getPropertyValue(name).trim().toUpperCase();
+      const read = (name: string) => {
+        const value = style.getPropertyValue(name).trim().toUpperCase();
+        return /^#[0-9A-F]{3}$/.test(value)
+          ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
+          : value;
+      };
       return {
         foundation: [
           read('--color-ink'),

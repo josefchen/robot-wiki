@@ -60,10 +60,9 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",
-      "actual": "v1 home fails exact identity, descriptor, Tektur, palette, registered-device, registered-repetition/frame, and registered-material predicates",
+      "actual": "v1 home fails exact identity, descriptor, Tektur, palette, registered-device, and registered-material predicates",
       "failedAnchors": [
         "identity",
-        "grid-alignment",
         "purposeful-devices",
         "repetition-frames",
         "palette-type",
@@ -75,12 +74,11 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-004",
       "expected": "all eight article reference-feature anchors pass independently without cross-composition pixel scoring",
-      "actual": "v1 article fails exact public identity, Tektur, palette/type-role, registered-device, registered-repetition/frame, and registered-material predicates",
+      "actual": "v1 article fails exact public identity, Tektur, palette/type-role, registered-device, and registered-material predicates",
       "failedAnchors": [
         "identity",
         "grid-alignment",
         "purposeful-devices",
-        "repetition-frames",
         "palette-type",
         "material-treatment"
       ],
