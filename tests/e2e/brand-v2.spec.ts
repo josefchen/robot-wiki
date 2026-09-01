@@ -64,6 +64,10 @@ test.describe('brand-v2 core visual authority', () => {
       const style = getComputedStyle(document.documentElement);
       const readHex = (name: string) => {
         const value = style.getPropertyValue(name).trim().toUpperCase();
+        // The authored tokens are pinned as uppercase six-digit literals by
+        // design-system-contract.test.ts. Lightning CSS may shorten #FFFFFF
+        // to #fff in the production bundle, so normalize only the runtime
+        // representation before comparing the resolved semantic value.
         return /^#[0-9A-F]{3}$/.test(value)
           ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
           : value;
@@ -89,6 +93,8 @@ test.describe('brand-v2 core visual authority', () => {
       const style = getComputedStyle(document.documentElement);
       const read = (name: string) => {
         const value = style.getPropertyValue(name).trim().toUpperCase();
+        // Source-format drift is guarded separately; this accepts only the
+        // production optimizer's equivalent three-digit runtime spelling.
         return /^#[0-9A-F]{3}$/.test(value)
           ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
           : value;
