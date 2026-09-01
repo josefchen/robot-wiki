@@ -76,37 +76,66 @@ interface PlaybackSample {
 }
 
 /**
- * Polls (progress t, joint readout) pairs until playback ends. Reading both
- * values in one evaluate keeps each sample consistent even when the
- * headless SwiftShader main thread lags behind wall-clock time.
+ * Records progress/readout pairs inside the page so SwiftShader load cannot
+ * make Node-side polling miss the eased segment. MutationObserver runs after
+ * each React DOM commit, keeping each recorded pair internally consistent.
  */
-async function collectPlaybackSeries(page: Page): Promise<PlaybackSample[]> {
-  const series: PlaybackSample[] = [];
-  const deadline = Date.now() + 10_000;
-  while (Date.now() < deadline) {
-    const sample = await page.evaluate(() => {
+async function startPlaybackRecorder(page: Page) {
+  await page.evaluate(() => {
+    const playbackWindow = window as typeof window & {
+      __robotWikiPlaybackObserver?: MutationObserver;
+      __robotWikiPlaybackSamples?: PlaybackSample[];
+    };
+    playbackWindow.__robotWikiPlaybackObserver?.disconnect();
+    const samples: PlaybackSample[] = [];
+    const capture = () => {
       const progressEl = document.querySelector(
         '[data-testid="trajectory-progress"]',
       );
-      if (!progressEl) return null;
+      if (!progressEl) return;
       const readoutEl = document.querySelector(
         '[data-testid="joint-readout-shoulder_pan"]',
       );
       const match = progressEl.textContent!.match(
         /t ([\d.]+) s \/ ([\d.]+) s/,
       );
-      if (!match || !readoutEl) return null;
-      return {
+      if (!match || !readoutEl) return;
+      const sample = {
         t: Number(match[1]),
         duration: Number(match[2]),
         pan: Number.parseFloat(readoutEl.textContent!.replace('°', '')),
       };
+      const previous = samples.at(-1);
+      if (
+        previous?.t === sample.t &&
+        previous.duration === sample.duration &&
+        previous.pan === sample.pan
+      ) {
+        return;
+      }
+      samples.push(sample);
+    };
+    const observer = new MutationObserver(capture);
+    observer.observe(document.body, {
+      childList: true,
+      characterData: true,
+      subtree: true,
     });
-    if (sample === null) break;
-    series.push(sample);
-    await page.waitForTimeout(60);
-  }
-  return series;
+    playbackWindow.__robotWikiPlaybackObserver = observer;
+    playbackWindow.__robotWikiPlaybackSamples = samples;
+    capture();
+  });
+}
+
+async function collectPlaybackSeries(page: Page): Promise<PlaybackSample[]> {
+  return page.evaluate(() => {
+    const playbackWindow = window as typeof window & {
+      __robotWikiPlaybackObserver?: MutationObserver;
+      __robotWikiPlaybackSamples?: PlaybackSample[];
+    };
+    playbackWindow.__robotWikiPlaybackObserver?.disconnect();
+    return playbackWindow.__robotWikiPlaybackSamples ?? [];
+  });
 }
 
 test.describe('trajectory recording and playback', () => {
@@ -161,9 +190,11 @@ test.describe('trajectory recording and playback', () => {
     // Playback starts from wherever the arm is; park it on the first pose.
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '0');
 
+    await startPlaybackRecorder(page);
     await page.getByTestId('trajectory-play').click();
     await expect(page.getByTestId('trajectory-progress')).toBeVisible();
 
+    await waitForPlaybackEnd(page);
     const series = await collectPlaybackSeries(page);
 
     // The pose updated continuously through playback (no teleport).
@@ -197,7 +228,6 @@ test.describe('trajectory recording and playback', () => {
     });
     expect(discriminating.length).toBeGreaterThan(0);
 
-    await waitForPlaybackEnd(page);
     expect(await readoutDeg(page, 'shoulder_pan')).toBeCloseTo(60, 0);
     await expect(page.getByTestId('hud-joint-shoulder_pan')).toHaveText(
       '+60.0°',
