@@ -621,7 +621,7 @@ test.describe('design chrome discipline', () => {
     expect(proseH3.size).toBeCloseTo(18, 5);
   });
 
-  test('components use only the locked 2/3/4px radius scale (VAL-DESIGN-021)', async ({ page }) => {
+  test('components use only the brand-v2 radius ladder (VAL-B2-SURF-001)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     // Population is derived exhaustively per route: every element in the
     // document is measured (not a hand-picked selector list), and the
@@ -630,11 +630,9 @@ test.describe('design chrome discipline', () => {
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
       const { offenders, population } = await page.evaluate(() => {
-        // Data marks (legend swatches, dots) whose geometry carries
-        // meaning are the contract's only exception. They are small
-        // painted marks rather than surfaces, so the exception is
-        // encoded as: any corner radius outside {0,2,3,4}px is allowed
-        // only on an element small enough to be a mark.
+        // Data marks (legend swatches, dots) whose geometry carries meaning
+        // are exempt. Every other first-party radius must resolve to the
+        // sealed brand-v2 ladder: 0, 2, 4, 8, 16, or 24px.
         const offenders: string[] = [];
         let population = 0;
         for (const el of Array.from(document.querySelectorAll('*'))) {
@@ -651,7 +649,7 @@ test.describe('design chrome discipline', () => {
           for (const value of radii) {
             const px = parseFloat(value);
             if (Number.isNaN(px)) continue;
-            const inScale = value === '0px' || px === 2 || px === 3 || px === 4;
+            const inScale = [0, 2, 4, 8, 16, 24].includes(px);
             if (inScale) continue;
             const isSmallMark = rect.width <= 12 && rect.height <= 12;
             if (!isSmallMark) {
@@ -672,7 +670,7 @@ test.describe('design chrome discipline', () => {
     }
   });
 
-  test('no product surface renders any box-shadow, inset or outset (VAL-DSSURFACE-022)', async ({ page }) => {
+  test('product surfaces use only registered neutral elevation and no glass (VAL-B2-SURF-004/005)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     // Exhaustive per-route sweep of every element plus both
     // pseudo-elements for box-shadow/text-shadow values other than
@@ -689,9 +687,32 @@ test.describe('design chrome discipline', () => {
           for (const prop of ['boxShadow', 'textShadow', 'filter', 'backdropFilter'] as const) {
             const value = cs[prop];
             if (prop === 'boxShadow' && value !== 'none') {
-              offenders.push(
-                `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} box-shadow: ${value}`,
+              const surfaceId = (el as HTMLElement).dataset.brandSurfaceId;
+              const expectedBlur =
+                surfaceId === 'surface:raised'
+                  ? 8
+                  : surfaceId === 'surface:floating'
+                    ? 20
+                    : null;
+              const lengths = [...value.matchAll(/(-?[\d.]+)px/g)].map(
+                (match) => Number(match[1]),
               );
+              const blur = lengths[2] ?? Number.POSITIVE_INFINITY;
+              const neutralInk =
+                /rgba?\(\s*11[,\s]+\s*11[,\s]+\s*12(?:[,\s/]|\))/i.test(
+                  value,
+                );
+              if (
+                pseudo !== '' ||
+                expectedBlur === null ||
+                value.includes('inset') ||
+                !neutralInk ||
+                blur > expectedBlur
+              ) {
+                offenders.push(
+                  `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}${pseudo} box-shadow: ${value}`,
+                );
+              }
             }
             if (prop === 'textShadow' && value !== 'none') {
               offenders.push(
