@@ -27,9 +27,22 @@ const expectedRed = JSON.parse(
   failures: Array<{
     suite: string;
     assertionId: string;
+    actual: string;
+    failedAnchors?: string[];
     rolloutMilestone: string;
   }>;
 };
+
+const referenceAnchorIds = [
+  'identity',
+  'hierarchy',
+  'grid-alignment',
+  'purposeful-devices',
+  'light-dark-balance',
+  'repetition-frames',
+  'palette-type',
+  'material-treatment',
+] as const;
 
 describe('brand-v2 exhaustive runners', () => {
   it('rejects the five-route smoke set as final public-route evidence', () => {
@@ -204,6 +217,22 @@ describe('brand-v2 exhaustive runners', () => {
               ? deepSource
             : coreSource;
       expect(source).toContain(failure.assertionId);
+    }
+  });
+
+  it('keeps reference-rubric prose synchronized with its exact failed-anchor set', () => {
+    const referenceFailures = expectedRed.failures.filter(
+      ({ suite }) => suite === 'brand-v2 reference-feature rubric',
+    );
+    expect(referenceFailures.length).toBeGreaterThan(0);
+    for (const failure of referenceFailures) {
+      expect(failure.failedAnchors).toBeDefined();
+      for (const anchorId of referenceAnchorIds) {
+        expect(
+          failure.actual.includes(anchorId),
+          `${failure.assertionId} prose for ${anchorId}`,
+        ).toBe(failure.failedAnchors?.includes(anchorId) ?? false);
+      }
     }
   });
 });

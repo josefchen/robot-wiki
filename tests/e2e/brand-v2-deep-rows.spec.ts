@@ -297,6 +297,15 @@ test.describe('brand-v2 27-row deep executor', () => {
               // evidence assembly may tile these viewport-bounded captures.
               fullPage: false,
               animations: 'disabled',
+              // The 10s suite actionTimeout is not a compositor budget. The
+              // WebGL rows capture a live SwiftShader canvas mid-playback,
+              // which needs a rendered frame from a software rasteriser this
+              // test has already driven through 22 earlier rows in the same
+              // page: measured at 1.3s in isolation on this Linux host and
+              // observed exceeding 10s inside the full sequential run. A
+              // capture either produces the frame or fails, so this budget
+              // asserts nothing weaker.
+              timeout: 60_000,
             });
           } else {
             const computed = await page.evaluate(() => {

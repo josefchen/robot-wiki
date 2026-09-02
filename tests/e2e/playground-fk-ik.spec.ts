@@ -268,7 +268,9 @@ test.describe('playground inverse kinematics', () => {
     await page.getByTestId('ik-solve').click();
 
     await expect(page.getByTestId('hud-ik-status')).toHaveText('not reached', {
-      timeout: 5_000,
+      // The solver's own wall-clock guard is 2.5 s, but a busy SwiftShader
+      // main thread can delay the interval callback that observes that guard.
+      timeout: 10_000,
     });
     const residual = await hudResidualMm(page);
     expect(residual).toBeGreaterThan(100);
