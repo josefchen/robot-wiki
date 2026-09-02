@@ -58,6 +58,7 @@ test.describe('self-check (CommitToReveal)', () => {
   for (const { route } of ROUTES) {
     test(`${route}: native grouped control, closed reveal, commit loop, a11y`, async ({ page }) => {
       await page.goto(route);
+      await page.waitForLoadState('networkidle');
       const region = page.locator('[data-self-check]');
       await expect(region).toHaveCount(1);
 
@@ -170,6 +171,12 @@ test.describe('self-check (CommitToReveal)', () => {
 
     test(`${route}: keyboard operation, focus stays on the radio, axe after answer, 375px width`, async ({ page }) => {
       await page.goto(route);
+      // The reveal is React state, not native <details> behaviour: with
+      // scripts blocked the arrow key still moves the native selection and
+      // the reveal stays shut. keyboard.press runs no actionability wait, so
+      // without settling the client bundle first the commit can land before
+      // hydration and never reach the component.
+      await page.waitForLoadState('networkidle');
       const region = page.locator('[data-self-check]');
       const radios = region.locator('fieldset input[type="radio"]');
       const first = radios.first();
