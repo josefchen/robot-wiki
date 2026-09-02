@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
 export type Column<T> = {
@@ -62,6 +62,7 @@ export function Table<T extends Record<string, unknown>>({
   highlightedAnchor,
 }: TableProps<T>) {
   const [sort, setSort] = useState<SortState | null>(initialSort ?? null);
+  const captionId = useId();
 
   useEffect(() => {
     if (!highlightedAnchor) return;
@@ -106,7 +107,12 @@ export function Table<T extends Record<string, unknown>>({
       // The overflow-x-auto wrapper is a scrollable region on narrow
       // viewports and needs keyboard access (axe scrollable-region-focusable);
       // same convention as the bespoke MDX tables and .katex-display.
+      // Because it is focusable it must also be named: without the region
+      // role and the caption reference a keyboard or screen-reader user
+      // lands on an anonymous scrollable box (VAL-B2-COMP-009).
       tabIndex={0}
+      role="region"
+      aria-labelledby={captionId}
       data-brand-surface-id="surface:flat"
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="table"
@@ -116,7 +122,10 @@ export function Table<T extends Record<string, unknown>>({
       )}
     >
       <table className="w-full border-collapse text-sm">
-        <caption className="border-b border-border bg-surface-2 px-3 py-2 text-left font-sans text-xs text-text-dim">
+        <caption
+          id={captionId}
+          className="border-b border-border bg-surface-2 px-3 py-2 text-left font-sans text-xs text-text-dim"
+        >
           {caption}
         </caption>
         <thead>

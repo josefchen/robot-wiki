@@ -45,6 +45,15 @@ export function Tabs({
     tabs[next]?.focus();
   }
 
+  // The roving tab stop must land on a focusable tab. A controlled value
+  // naming a disabled item would otherwise give that unfocusable tab
+  // tabIndex 0 and every enabled tab -1, leaving the tablist with no
+  // Tab-key entry point at all.
+  const enabled = items.filter((item) => !item.disabled);
+  const tabStopValue = (
+    enabled.find((item) => item.value === value) ?? enabled[0]
+  )?.value;
+
   return (
     <div
       role="tablist"
@@ -66,7 +75,7 @@ export function Tabs({
             role="tab"
             aria-selected={selected}
             disabled={item.disabled}
-            tabIndex={selected ? 0 : -1}
+            tabIndex={item.value === tabStopValue ? 0 : -1}
             onClick={() => onValueChange(item.value)}
             data-brand-control-id={
               item.disabled ? 'control:disabled' : 'control:selection'

@@ -38,6 +38,21 @@ describe('Table', () => {
     );
   });
 
+  it('names the focusable horizontal scroll wrapper after the caption', () => {
+    const { container } = render(
+      <Table caption="Policy comparison" columns={columns} rows={rows} />,
+    );
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper.tabIndex).toBe(0);
+    const region = screen.getByRole('region', { name: 'Policy comparison' });
+    expect(region).toBe(wrapper);
+    const captionId = wrapper.getAttribute('aria-labelledby');
+    expect(captionId).toBeTruthy();
+    const caption = document.getElementById(captionId as string);
+    expect(caption?.tagName).toBe('CAPTION');
+    expect(caption?.textContent).toBe('Policy comparison');
+  });
+
   it('renders all rows in the given order', () => {
     render(<Table caption="Policy comparison" columns={columns} rows={rows} />);
     expect(rowOrder()).toEqual(['Diffusion Policy', 'ACT', 'RT-1']);
