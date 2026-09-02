@@ -31,8 +31,18 @@ test.describe('brand-v2-playground-states', () => {
               await page.getByTestId('ik-input-y').fill('0.5');
               await page.getByTestId('ik-input-z').fill('0');
               await page.getByTestId('ik-solve').click();
+              // The incremental solver ends on convergence, its 100-iteration
+              // cap, or the 2.5s wall-clock guard in
+              // use-playground-kinematics, so the settled state always
+              // arrives. Observing it costs much longer on a software-WebGL
+              // host: every solver tick re-renders the SwiftShader scene, and
+              // a measured solve on this Linux box settled at ~4.2s with
+              // Playwright managing only five locator polls in 5s. The budget
+              // covers that without accepting the transient `solving`, which
+              // still fails the assertion if the solver never settles.
               await expect(page.getByTestId('hud-ik-status')).toHaveText(
                 /reached|not reached/,
+                { timeout: 30_000 },
               );
             } else if (step.action === 'import-export-errors') {
               await page

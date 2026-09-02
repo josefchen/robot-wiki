@@ -4,6 +4,53 @@ import {
   expect,
 } from './brand-v2-static-fixture';
 
+/**
+ * Every contract colour, authored in app/globals.css as an uppercase
+ * six-digit literal and pinned in that exact source form by
+ * tests/unit/design-system-contract.test.ts.
+ */
+const CONTRACT_HEX = [
+  '#0B0B0C',
+  '#242D33',
+  '#D9DADB',
+  '#F5F6F7',
+  '#FFFFFF',
+  '#C6FF19',
+  '#245FFF',
+  '#1A6F45',
+  '#8A5A00',
+  '#A52A1E',
+  '#6B1839',
+] as const;
+
+/**
+ * Lightning CSS collapses a six-digit hex whose channel pairs repeat, so
+ * `--color-white: #FFFFFF` is served as `#fff` in the production bundle while
+ * every other contract colour keeps six digits (measured in
+ * out/_next/static/chunks/*.css). Because the authored source form is guarded
+ * separately, the runtime comparison only has to accept the optimizer's
+ * equivalent spelling — and it accepts the exact shorthand OF A CONTRACT
+ * COLOUR rather than expanding any three-digit token, so an authored or
+ * resolved value like `#ABC` is left alone and still fails.
+ */
+const SHORTHAND_TO_CONTRACT_HEX = new Map<string, string>(
+  CONTRACT_HEX.flatMap<[string, string]>((hex) => {
+    const repeatedPairs = /^#([0-9A-F])\1([0-9A-F])\2([0-9A-F])\3$/.exec(hex);
+    return repeatedPairs
+      ? [[`#${repeatedPairs[1]}${repeatedPairs[2]}${repeatedPairs[3]}`, hex]]
+      : [];
+  }),
+);
+
+function canonicalToken(value: string): string {
+  return SHORTHAND_TO_CONTRACT_HEX.get(value) ?? value;
+}
+
+const readRootTokens = (names: readonly string[]): string[] => {
+  const style = getComputedStyle(document.documentElement);
+  return names.map((name) => style.getPropertyValue(name).trim().toUpperCase());
+};
+
 test.describe('brand-v2 core visual authority', () => {
   test('home public identity exposes the v2 contract', async ({
     page,
@@ -60,24 +107,16 @@ test.describe('brand-v2 core visual authority', () => {
     staticBase,
   }) => {
     await page.goto(`${staticBase}/`);
-    expect(await page.evaluate(() => {
-      const style = getComputedStyle(document.documentElement);
-      const readHex = (name: string) => {
-        const value = style.getPropertyValue(name).trim().toUpperCase();
-        // The authored tokens are pinned as uppercase six-digit literals by
-        // design-system-contract.test.ts. Lightning CSS may shorten #FFFFFF
-        // to #fff in the production bundle, so normalize only the runtime
-        // representation before comparing the resolved semantic value.
-        return /^#[0-9A-F]{3}$/.test(value)
-          ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
-          : value;
-      };
-      return {
-        signal: readHex('--color-signal'),
-        focus: readHex('--color-focus'),
-        selection: readHex('--color-selection'),
-      };
-    })).toEqual({
+    const [signal, focus, selection] = await page.evaluate(readRootTokens, [
+      '--color-signal',
+      '--color-focus',
+      '--color-selection',
+    ]);
+    expect({
+      signal: canonicalToken(signal),
+      focus: canonicalToken(focus),
+      selection: canonicalToken(selection),
+    }).toEqual({
       signal: '#245FFF',
       focus: '#245FFF',
       selection: '#C6FF19',
@@ -89,45 +128,50 @@ test.describe('brand-v2 core visual authority', () => {
     staticBase,
   }) => {
     await page.goto(`${staticBase}/`);
-    expect(await page.evaluate(() => {
-      const style = getComputedStyle(document.documentElement);
-      const read = (name: string) => {
-        const value = style.getPropertyValue(name).trim().toUpperCase();
-        // Source-format drift is guarded separately; this accepts only the
-        // production optimizer's equivalent three-digit runtime spelling.
-        return /^#[0-9A-F]{3}$/.test(value)
-          ? `#${value.slice(1).split('').map((digit) => `${digit}${digit}`).join('')}`
-          : value;
-      };
-      return {
-        foundation: [
-          read('--color-ink'),
-          read('--color-graphite'),
-          read('--color-concrete'),
-          read('--color-paper'),
-          read('--color-white'),
-          read('--color-highlight'),
-        ],
-        semantic: [
-          read('--color-ok'),
-          read('--color-warn'),
-          read('--color-error'),
-          read('--color-destructive'),
-        ],
-        spacing: [
-          read('--space-4'),
-          read('--space-8'),
-          read('--space-12'),
-          read('--space-16'),
-          read('--space-24'),
-          read('--space-32'),
-          read('--space-48'),
-          read('--space-64'),
-          read('--space-96'),
-          read('--space-128'),
-        ],
-      };
-    })).toEqual({
+    const FOUNDATION = [
+      '--color-ink',
+      '--color-graphite',
+      '--color-concrete',
+      '--color-paper',
+      '--color-white',
+      '--color-highlight',
+    ] as const;
+    const SEMANTIC = [
+      '--color-ok',
+      '--color-warn',
+      '--color-error',
+      '--color-destructive',
+    ] as const;
+    const SPACING = [
+      '--space-4',
+      '--space-8',
+      '--space-12',
+      '--space-16',
+      '--space-24',
+      '--space-32',
+      '--space-48',
+      '--space-64',
+      '--space-96',
+      '--space-128',
+    ] as const;
+    const raw = await page.evaluate(readRootTokens, [
+      ...FOUNDATION,
+      ...SEMANTIC,
+      ...SPACING,
+    ]);
+    // Non-vacuous guard for SHORTHAND_TO_CONTRACT_HEX: `--color-white` is the
+    // one contract colour the optimizer can shorten, so the mapping stays
+    // exercised rather than becoming a blanket loosening nothing depends on.
+    expect(['#FFFFFF', '#FFF']).toContain(raw[FOUNDATION.indexOf('--color-white')]);
+    const canonical = raw.map(canonicalToken);
+    expect({
+      foundation: canonical.slice(0, FOUNDATION.length),
+      semantic: canonical.slice(
+        FOUNDATION.length,
+        FOUNDATION.length + SEMANTIC.length,
+      ),
+      spacing: canonical.slice(FOUNDATION.length + SEMANTIC.length),
+    }).toEqual({
       foundation: [
         '#0B0B0C',
         '#242D33',

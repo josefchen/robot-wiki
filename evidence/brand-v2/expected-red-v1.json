@@ -36,14 +36,10 @@
       "suite": "brand-v2-reflow-320-200",
       "assertionId": "VAL-B2-EVID-011",
       "expected": "all three sealed accessibility profiles pass every public route",
-      "actual": "v1 profile drift includes 320px document overflow",
+      "actual": "the shared v2 primitives cleared four of the seven archived routes, which now reflow at 320 CSS px with zero overflow; three still overflow on article-owned content a later milestone converges: a non-wrapping citation cluster on industrial-deployment (25px), a 2px residue on cross-embodiment, and a wide instrument panel on reward-design-mpc (35px)",
       "failedRoutes": [
-        "/adjacent/autonomous-vehicles/",
-        "/data-hardware/data-bottleneck/",
-        "/data-hardware/datasets/",
         "/data-hardware/industrial-deployment/",
         "/manipulation/cross-embodiment/",
-        "/manipulation/vla-models/",
         "/rl-sim2real/reward-design-mpc/"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
