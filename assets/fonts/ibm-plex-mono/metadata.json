@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "family": "IBM Plex Mono",
+  "license": {
+    "id": "OFL-1.1",
+    "path": "assets/fonts/ibm-plex-mono/OFL.txt"
+  },
+  "upstream": {
+    "repositoryUrl": "https://github.com/google/fonts",
+    "revision": "0b58fb370093f9a9f4ff785d94405710b79de67c",
+    "googleFontsMetadataUrl": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexmono/METADATA.pb",
+    "googleFontsStylesheetUrl": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap",
+    "retrieved": "2026-09-03"
+  },
+  "og": {
+    "path": "assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf",
+    "sourceUrl": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+    "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+    "format": "TTF",
+    "subset": "upstream-full",
+    "style": "normal",
+    "weight": 400,
+    "width": 100,
+    "widthClass": 5,
+    "mappedRoleId": "data"
+  }
+}

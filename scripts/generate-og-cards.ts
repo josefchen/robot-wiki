@@ -10,9 +10,11 @@
  * The route set is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
  * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
- * Fonts: the separately vendored static Tektur SemiBold TTF for display
- * text and KaTeX_Typewriter (a dependency we already ship) for mono labels.
- * No runtime font request or variable-font renderer support is involved.
+ * Fonts come from the renderer face registry (lib/og-renderer-fonts.ts):
+ * the separately vendored static Tektur SemiBold TTF for display text and
+ * the vendored static IBM Plex Mono Regular TTF for the data and
+ * registration labels. No runtime font request or variable-font renderer
+ * support is involved.
  *
  * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
  * panel artwork is one constant ornament per domain chosen by a literal
@@ -31,8 +33,6 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
-import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
-import matter from 'gray-matter';
 import {
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
@@ -44,57 +44,24 @@ import {
   articleCardElement,
   siteCardElement,
 } from '../lib/og-card-artwork.ts';
+import { articleCardFacts } from '../lib/og-card-facts.ts';
+import { OG_RENDERER_FACES } from '../lib/og-renderer-fonts.ts';
 import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/index.node.js';
 
 const root = join(import.meta.dirname, '..');
 const publicOgDir = join(root, 'public', 'og');
 const outOgDir = join(root, 'out', 'og');
 
-/** Article frontmatter facts the card carries (registry + MDX, no new data). */
-export interface ArticleCardFacts {
-  referenceCount: number;
-  reviewYear: number;
-}
-
-
-/** Extracts the citations count and lastReviewed year from MDX frontmatter. */
-export function articleCardFacts(mdxSource: string): ArticleCardFacts {
-  const fm = matter(mdxSource).data as Record<string, unknown>;
-  const citations = Array.isArray(fm.citations) ? fm.citations.length : 0;
-  const lastReviewed = typeof fm.lastReviewed === 'string' ? fm.lastReviewed : '';
-  const year = Number.parseInt(lastReviewed.slice(0, 4), 10);
-  if (!Number.isInteger(year) || year < 2000 || year > 2100) {
-    throw new Error(`invalid lastReviewed: ${lastReviewed}`);
-  }
-  if (citations < 1) {
-    throw new Error('published article cites nothing; refusing to render an empty count');
-  }
-  return { referenceCount: citations, reviewYear: year };
-}
-
-const FONT_PATHS = {
-  display: join(root, TEKTUR_FONT_METADATA.og.path),
-  mono: join(root, 'node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf'),
-};
-
 let cachedFonts: NonNullable<ImageResponseOptions['fonts']> | null = null;
 
 function rendererFonts(): NonNullable<ImageResponseOptions['fonts']> {
   if (cachedFonts) return cachedFonts;
-  const fonts = [
-    {
-      name: TEKTUR_FONT_METADATA.family,
-      data: readFileSync(FONT_PATHS.display),
-      weight: TEKTUR_FONT_METADATA.og.weight,
-      style: TEKTUR_FONT_METADATA.og.style,
-    },
-    {
-      name: 'KaTeX_Typewriter',
-      data: readFileSync(FONT_PATHS.mono),
-      weight: 400,
-      style: 'normal',
-    },
-  ] satisfies NonNullable<ImageResponseOptions['fonts']>;
+  const fonts = OG_RENDERER_FACES.map((face) => ({
+    name: face.family,
+    data: readFileSync(join(root, face.path)),
+    weight: face.weight,
+    style: face.style,
+  })) satisfies NonNullable<ImageResponseOptions['fonts']>;
   cachedFonts = fonts;
   return fonts;
 }

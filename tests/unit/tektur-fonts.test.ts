@@ -16,6 +16,7 @@ import {
 } from '@/data/type-roles';
 import { TEKTUR_FONT_METADATA } from '@/data/tektur-font-metadata';
 import { inspectTekturAssets } from '@/lib/tektur-font-inspection';
+import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
 
 const ROOT = process.cwd();
 const source = (path: string): string =>
@@ -70,7 +71,12 @@ describe('Tektur font delivery contract', () => {
     expect(layout).toContain("variable: '--font-tektur'");
     expect(globalCss).not.toContain('.ttf');
     expect(layout).not.toContain('Tektur-SemiBold.ttf');
-    expect(generator).toContain('TEKTUR_FONT_METADATA.og.path');
+    // The generator no longer names the binary: it registers whatever the
+    // renderer face registry declares, which is where the static path lives.
+    expect(generator).toContain('OG_RENDERER_FACES');
+    expect(OG_RENDERER_FACES.map(({ path }) => path)).toContain(
+      TEKTUR_FONT_METADATA.og.path,
+    );
     expect(TEKTUR_FONT_METADATA.og.path).toBe(
       'assets/fonts/tektur/Tektur-SemiBold.ttf',
     );

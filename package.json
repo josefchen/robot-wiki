@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev -p 3200",
-    "prebuild": "node scripts/prune-next-type-duplicates.ts && node scripts/prune-generated-og-shadows.ts && npm run validate:content && npm run check:tektur-fonts",
+    "prebuild": "node scripts/prune-next-type-duplicates.ts && node scripts/prune-generated-og-shadows.ts && npm run validate:content && npm run check:tektur-fonts && npm run check:og-renderer-fonts",
     "build": "next build && node scripts/measure-reading-times.ts && next build",
     "postbuild": "node scripts/check-reading-times.ts && node scripts/prune-export-artifacts.ts && node scripts/patch-404-guard.ts && node scripts/build-search.ts && node scripts/lint-no-slop.ts && npm run check:brand-v2-registries && npm run check:brand-v2-enforcement && npm run generate:og-cards",
     "pretypecheck": "node scripts/prune-next-type-duplicates.ts",
@@ -42,6 +42,7 @@
     "check:crossref-authors": "node scripts/check-crossref-authors.ts",
     "check:dataset-sources": "node scripts/check-dataset-sources.ts",
     "check:tektur-fonts": "node scripts/check-tektur-fonts.ts",
+    "check:og-renderer-fonts": "node scripts/check-og-renderer-fonts.ts",
     "postinstall": "node scripts/postinstall.mjs"
   },
   "dependencies": {

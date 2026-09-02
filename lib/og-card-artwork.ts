@@ -21,6 +21,7 @@
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
 import { BRAND_COLORS } from './brand-v2-tokens.ts';
+import { OG_DISPLAY_STACK, OG_MONO_STACK } from './og-renderer-fonts.ts';
 import { sanitizeCardText } from './og-cards.ts';
 
 export interface CardArtworkInput {
@@ -49,11 +50,13 @@ const TEXT = OG_RENDERER_COLORS.ink;
 const DIM = OG_RENDERER_COLORS.graphite;
 const ACCENT = OG_RENDERER_COLORS.signal;
 
-// Satori consumes the separately vendored static Tektur SemiBold TTF. The
-// browser uses the approved variable WOFF2 through next/font/local instead;
-// keeping those paths separate makes OG rendering deterministic and offline.
-const SANS = 'Tektur, sans-serif';
-const MONO = 'KaTeX_Typewriter, monospace';
+// Satori consumes separately vendored static TTFs. The browser uses the
+// approved variable Tektur WOFF2 through next/font/local and Plex Mono
+// through next/font/google instead; keeping those paths separate makes OG
+// rendering deterministic and offline. Both stacks come from the renderer
+// face registry so nothing can be painted in an unregistered family.
+const SANS = OG_DISPLAY_STACK;
+const MONO = OG_MONO_STACK;
 
 /* ------------------------------------------------------------------ */
 /* Element helpers. Satori accepts plain element objects; a thin typed */
@@ -88,6 +91,27 @@ function el(
 
 function div(style: Record<string, unknown>, children?: string | CardNode[]): CardNode {
   return el('div', style, children);
+}
+
+export type CardTextRun = { family: string; text: string };
+
+/**
+ * Every text run a card paints, paired with the font-family stack that
+ * resolves for it. Font checks read the population out of the element tree
+ * the generator actually renders rather than restating a label list.
+ */
+export function cardTextRuns(
+  node: CardNode,
+  inheritedFamily = '',
+): CardTextRun[] {
+  const declared = node.props.style.fontFamily;
+  const family = typeof declared === 'string' ? declared : inheritedFamily;
+  const children = node.props.children;
+  if (typeof children === 'string') return [{ family, text: children }];
+  if (Array.isArray(children)) {
+    return children.flatMap((child) => cardTextRuns(child, family));
+  }
+  return [];
 }
 
 /* ------------------------------------------------------------------ */
