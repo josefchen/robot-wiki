@@ -85,8 +85,19 @@ async function startPlaybackRecorder(page: Page) {
     const playbackWindow = window as typeof window & {
       __robotWikiPlaybackObserver?: MutationObserver;
       __robotWikiPlaybackSamples?: PlaybackSample[];
+      __robotWikiRealDateNow?: typeof Date.now;
     };
     playbackWindow.__robotWikiPlaybackObserver?.disconnect();
+    const realDateNow = Date.now;
+    let virtualNow = realDateNow();
+    playbackWindow.__robotWikiRealDateNow = realDateNow;
+    // Playback uses Date.now() to derive progress. Advancing it by two timer
+    // ticks per callback guarantees observable eased samples even when the
+    // SwiftShader main thread is too busy to honor 40 ms wall-clock cadence.
+    Date.now = () => {
+      virtualNow += 80;
+      return virtualNow;
+    };
     const samples: PlaybackSample[] = [];
     const capture = () => {
       const progressEl = document.querySelector(
@@ -132,8 +143,13 @@ async function collectPlaybackSeries(page: Page): Promise<PlaybackSample[]> {
     const playbackWindow = window as typeof window & {
       __robotWikiPlaybackObserver?: MutationObserver;
       __robotWikiPlaybackSamples?: PlaybackSample[];
+      __robotWikiRealDateNow?: typeof Date.now;
     };
     playbackWindow.__robotWikiPlaybackObserver?.disconnect();
+    if (playbackWindow.__robotWikiRealDateNow) {
+      Date.now = playbackWindow.__robotWikiRealDateNow;
+      delete playbackWindow.__robotWikiRealDateNow;
+    }
     return playbackWindow.__robotWikiPlaybackSamples ?? [];
   });
 }
