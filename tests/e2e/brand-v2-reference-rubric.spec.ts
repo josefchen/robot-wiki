@@ -40,6 +40,15 @@ const ARTICLE_CONFIG = {
   repeatedModuleSelector: 'article section',
 } satisfies BrowserReferenceFeatureConfig;
 
+// The site shell that owns <main> is a client component, so a node appended
+// to it before hydration is discarded when React re-renders that subtree and
+// the plant silently disappears. Every test that plants DOM must navigate
+// through this.
+async function gotoPlantable(page: Page, url: string) {
+  await page.goto(url);
+  await page.waitForLoadState('networkidle');
+}
+
 async function compareSurface(
   page: Page,
   testInfo: TestInfo,
@@ -194,7 +203,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await gotoPlantable(page, `${staticBase}/manipulation/action-chunking/`);
     await page.evaluate(() => {
       const material = document.createElement('span');
       material.dataset.brandMaterialId = 'material:planted-prose-texture';
@@ -213,7 +222,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
         ?.predicates.find(({ id }) => id === 'prose-texture-intersections'),
     ).toMatchObject({ actual: 1, passed: false });
 
-    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await gotoPlantable(page, `${staticBase}/manipulation/action-chunking/`);
     await page.locator('article .prose').evaluate((prose) => {
       const material = document.createElement('div');
       material.dataset.brandMaterialId = 'material:planted-prose-wrapper';
@@ -235,7 +244,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/manipulation/action-chunking/`);
+    await gotoPlantable(page, `${staticBase}/manipulation/action-chunking/`);
     await page.locator('article .prose').evaluate((element) => element.remove());
     const measurements = await page.evaluate(
       collectBrowserReferenceFeatures,
@@ -273,7 +282,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
     await page.evaluate(() => {
       const primary = document.querySelector<HTMLElement>('main h1');
       if (primary) primary.style.fontSize = '96px';
@@ -319,7 +328,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
     const before = await page.evaluate(
       collectBrowserReferenceFeatures,
       HOME_CONFIG,
@@ -358,7 +367,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     staticBase,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
     await page.evaluate(() => {
       const style = document.createElement('style');
       style.textContent =
@@ -375,6 +384,9 @@ test.describe('brand-v2 reference-feature rubric', () => {
       device.style.height = '1px';
       document.querySelector('main')?.append(device);
     });
+    // A plant that never landed would leave both populations at their natural
+    // count and read as a passing predicate rather than a broken test.
+    await expect(page.locator('#planted-mobile-device')).toHaveCount(1);
     const desktop = await page.evaluate(
       collectBrowserReferenceFeatures,
       HOME_CONFIG,
@@ -399,7 +411,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
     await page.evaluate(() => {
       const main = document.querySelector('main');
       for (let index = 0; index < 3; index += 1) {
@@ -418,7 +430,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
       separateParents.repetitionAndFrames.maximumAdjacentRepeatedSignatures,
     ).toBe(1);
 
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
     await page.evaluate(() => {
       const parent = document.createElement('div');
       for (let index = 0; index < 4; index += 1) {
