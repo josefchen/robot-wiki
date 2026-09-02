@@ -36,14 +36,10 @@
       "suite": "brand-v2-reflow-320-200",
       "assertionId": "VAL-B2-EVID-011",
       "expected": "all three sealed accessibility profiles pass every public route",
-      "actual": "v1 profile drift includes 320px document overflow",
+      "actual": "the shared v2 primitives cleared four of the seven archived routes, which now reflow at 320 CSS px with zero overflow; three still overflow on article-owned content a later milestone converges: a non-wrapping citation cluster on industrial-deployment (25px), a 2px residue on cross-embodiment, and a wide instrument panel on reward-design-mpc (35px)",
       "failedRoutes": [
-        "/adjacent/autonomous-vehicles/",
-        "/data-hardware/data-bottleneck/",
-        "/data-hardware/datasets/",
         "/data-hardware/industrial-deployment/",
         "/manipulation/cross-embodiment/",
-        "/manipulation/vla-models/",
         "/rl-sim2real/reward-design-mpc/"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
@@ -60,7 +56,7 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",
-      "actual": "v1 home fails exact identity, descriptor, Tektur, palette, registered-device, and registered-material predicates",
+      "actual": "v1 home fails identity (exact name, descriptor, and Tektur), purposeful-devices, repetition-frames, palette-type, and material-treatment",
       "failedAnchors": [
         "identity",
         "purposeful-devices",
@@ -74,7 +70,7 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-004",
       "expected": "all eight article reference-feature anchors pass independently without cross-composition pixel scoring",
-      "actual": "v1 article fails exact public identity, Tektur, palette/type-role, registered-device, and registered-material predicates",
+      "actual": "v1 article fails identity (exact public name and Tektur), grid-alignment, purposeful-devices, palette-type, and material-treatment",
       "failedAnchors": [
         "identity",
         "grid-alignment",
