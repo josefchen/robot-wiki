@@ -71,6 +71,7 @@ export default function GlossaryPage() {
                 {sources.map((source) => (
                   <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">
                     <a
+                      data-brand-control-id="control:link-focus"
                       href={source.url}
                       target="_blank"
                       rel="noopener noreferrer"

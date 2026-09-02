@@ -120,6 +120,7 @@ export function ActionTokenization({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -139,6 +140,7 @@ export function ActionTokenization({
           <input
             id="at-step"
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={CHUNK_STEPS - 1}
             step={1}
@@ -156,6 +158,7 @@ export function ActionTokenization({
           >
             {ACTION_DIMS.map((d, i) => (
               <button
+                data-brand-control-id="control:selection"
                 key={d.id}
                 type="button"
                 aria-pressed={i === dim}
@@ -172,6 +175,7 @@ export function ActionTokenization({
             ))}
           </div>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => {

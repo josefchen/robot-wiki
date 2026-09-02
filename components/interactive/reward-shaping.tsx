@@ -186,6 +186,7 @@ export function RewardShaping({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -193,6 +194,7 @@ export function RewardShaping({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
@@ -207,6 +209,7 @@ export function RewardShaping({ className }: { className?: string }) {
           {playing ? 'Pause' : 'Play'}
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setPhase((p) => f((p + PHASE_STEP) % 1))}
@@ -216,6 +219,7 @@ export function RewardShaping({ className }: { className?: string }) {
           Step
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -425,6 +429,7 @@ export function RewardShaping({ className }: { className?: string }) {
             <input
               id={`rs-${term.id}`}
               type="range"
+              data-brand-control-id="control:input"
               min={toSlider(WEIGHT_MIN)}
               max={toSlider(WEIGHT_MAX)}
               step={1}

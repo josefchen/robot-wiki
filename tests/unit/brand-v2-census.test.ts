@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, publishedModules } from '@/data/modules';
 import {
@@ -96,11 +96,15 @@ type Registry = {
   typeRoles: Array<{ id: string; family: string; fingerprint: string }>;
   controls: Array<{
     id: string;
-    ownerRouteOrMount: string;
+    ownerRouteOrMount: string[];
     action: string;
     persistentAria: string[];
     disabledException: string | null;
-    targetSize: unknown;
+    targetSize: {
+      minimumPx: number;
+      preferredPx: number;
+      exceptions: Array<{ kind: string; criterion: string; reason: string }>;
+    };
     pointerAlternative: string;
     supportedStates: string[];
     fingerprint: string;
@@ -310,10 +314,26 @@ describe('brand-v2 canonical census', () => {
     }
 
     for (const control of registry.controls) {
-      expect(control.ownerRouteOrMount).toBeTruthy();
+      // The owner field used to read "shared primitive; concrete owner
+      // supplied at render" on every row, which is a sentence about owners
+      // rather than owner data: it cannot go stale and it cannot be wrong.
+      expect(control.ownerRouteOrMount).toBeInstanceOf(Array);
+      expect(control.ownerRouteOrMount.length).toBeGreaterThan(0);
+      for (const owner of control.ownerRouteOrMount) {
+        expect(owner).not.toMatch(/shared primitive|supplied at render/i);
+        expect(existsSync(join(ROOT, owner))).toBe(true);
+        expect(readFileSync(join(ROOT, owner), 'utf8')).toContain(control.id);
+      }
       expect(control.action).toBeTruthy();
       expect(control.persistentAria).toBeInstanceOf(Array);
-      expect(control.targetSize).toBeTruthy();
+      expect(control.targetSize.minimumPx).toBe(24);
+      expect(control.targetSize.preferredPx).toBeGreaterThanOrEqual(24);
+      expect(control.targetSize.exceptions).toBeInstanceOf(Array);
+      for (const exception of control.targetSize.exceptions) {
+        expect(['inline', 'spacing', 'equivalent']).toContain(exception.kind);
+        expect(exception.criterion).toMatch(/WCAG 2\.2 SC 2\.5\.8/);
+        expect(exception.reason.trim().length).toBeGreaterThan(20);
+      }
       expect(control.pointerAlternative).toBeTruthy();
       expect(control.supportedStates.length).toBeGreaterThan(0);
     }
@@ -336,6 +356,63 @@ describe('brand-v2 canonical census', () => {
         'missing-primitive-registry-field',
       ]),
     );
+  });
+
+  it('rejects narrated control owners and blanket target-size claims', () => {
+    const control = registry.controls[0];
+    const reasonsFor = (patch: Record<string, unknown>) =>
+      validatePrimitiveRegistries({
+        gridDevices: registry.gridDevices,
+        surfaces: registry.surfaces,
+        controls: [{ ...control, ...patch }],
+      }).map(({ reason }) => reason);
+
+    expect(
+      reasonsFor({
+        ownerRouteOrMount: [
+          'shared primitive; concrete owner supplied at render',
+        ],
+      }),
+    ).toContain('placeholder-control-owner');
+    expect(reasonsFor({ ownerRouteOrMount: [] })).toContain(
+      'unowned-control-registry-row',
+    );
+    expect(
+      reasonsFor({ ownerRouteOrMount: 'components/ui/cite.tsx' }),
+    ).toContain('unowned-control-registry-row');
+    expect(reasonsFor({ ownerRouteOrMount: ['node_modules/react'] })).toContain(
+      'unresolvable-control-owner',
+    );
+    expect(
+      reasonsFor({ targetSize: { ...control.targetSize, minimumPx: 20 } }),
+    ).toContain('wrong-target-size-minimum');
+    expect(
+      reasonsFor({ targetSize: { minimumPx: 24, preferredPx: 44 } }),
+    ).toContain('missing-target-size-exceptions');
+    expect(
+      reasonsFor({
+        targetSize: {
+          ...control.targetSize,
+          exceptions: [
+            {
+              kind: 'inlineException',
+              criterion: 'WCAG 2.2 SC 2.5.8',
+              reason: 'the control is small',
+            },
+          ],
+        },
+      }),
+    ).toContain('unrecognised-target-size-exception');
+    expect(
+      reasonsFor({
+        targetSize: {
+          ...control.targetSize,
+          exceptions: [
+            { kind: 'inline', criterion: 'WCAG 2.2 SC 2.5.8', reason: '  ' },
+          ],
+        },
+      }),
+    ).toContain('undocumented-target-size-exception');
   });
 
   it('covers every metadata owner and field with stable fingerprints', () => {

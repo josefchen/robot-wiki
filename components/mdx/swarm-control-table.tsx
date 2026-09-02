@@ -41,6 +41,9 @@ export function SwarmControlTable({ className }: { className?: string }) {
       // keyboard access (axe scrollable-region-focusable); same pattern
       // as lib/rehype-scrollable-math.mjs applies to .katex-display.
       tabIndex={0}
+      role="region"
+      aria-label="Aerial swarm control families"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

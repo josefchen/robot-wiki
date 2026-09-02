@@ -57,11 +57,14 @@ export function SearchBox({ idPrefix, onNavigate, className }: SearchBoxProps) {
           // width, so the placeholder has to fit that, not the viewport.
           placeholder="ALOHA, chunk size"
           autoComplete="off"
+          data-brand-control-id="control:input"
+          data-brand-surface-id="surface:flat"
           className="min-w-0 flex-1 rounded-sm border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-dim"
         />
         <button
           type="submit"
           aria-label="Search the wiki"
+          data-brand-control-id="control:secondary-action"
           className="flex items-center rounded-sm px-2.5 text-text-dim transition-colors hover:bg-surface-2 hover:text-text active:translate-y-[1px]"
         >
           <MagnifyingGlass size={16} aria-hidden />

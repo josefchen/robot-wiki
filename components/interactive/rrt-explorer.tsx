@@ -162,6 +162,7 @@ export function RrtExplorer({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -181,6 +182,7 @@ export function RrtExplorer({ className }: { className?: string }) {
           <input
             id="rrt-iteration"
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={total}
             step={1}
@@ -192,6 +194,7 @@ export function RrtExplorer({ className }: { className?: string }) {
         </div>
         <div className="flex gap-2">
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => setPlaying((p) => !p)}
@@ -209,6 +212,7 @@ export function RrtExplorer({ className }: { className?: string }) {
             {playing ? 'Pause' : 'Run'}
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => scrub(iteration + 1)}
@@ -217,7 +221,7 @@ export function RrtExplorer({ className }: { className?: string }) {
           >
             Step forward
           </button>
-          <button data-pagefind-ignore type="button" onClick={reset} className={buttonBase}>
+          <button data-brand-control-id="control:secondary-action" data-pagefind-ignore type="button" onClick={reset} className={buttonBase}>
             Reset
           </button>
         </div>

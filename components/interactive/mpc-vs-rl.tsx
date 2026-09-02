@@ -99,6 +99,7 @@ export function MpcVsRl({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -108,6 +109,7 @@ export function MpcVsRl({ className }: { className?: string }) {
         <div role="group" aria-label="Perturbation" className="flex flex-wrap gap-1">
           {PERTURBATIONS.map((p) => (
             <button
+              data-brand-control-id="control:selection"
               key={p.id}
               type="button"
               aria-pressed={selected === p.id}
@@ -122,6 +124,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           ))}
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setSelected(DEFAULT_PERTURBATION)}

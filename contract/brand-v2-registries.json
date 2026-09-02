@@ -472,7 +472,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "71a76c8b84154362f9630ea83d580d7ff4497a678e83ecae1849893fd34345b1",
+      "ownerSourceFingerprint": "52a1f84a13e1a4387ac7ebc022de4b425ec2eeec93f3a68ff9103b2855494e6c",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published robot-wiki article and glossary term in one alphabetical list.",
@@ -494,14 +494,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "949fc56468c2f41f9115bf7372b5a9d8cfaeb5efcce9835f6d4bc3fccd676b48"
+      "fingerprint": "453ea32e1ed58cc1d71453cb36de8d0750e064da20d5f8e5011ae23ba7147d9f"
     },
     {
       "id": "metadata:/adjacent/",
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -523,7 +523,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "24677728fbeb77984f70f7657ef9f9924709a4cd5483fa55d03133864c98be59"
+      "fingerprint": "1af20d747a0b1b433ad9a21bd3e68c4cdb1b945fa5647227e90a196b980654d2"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -646,7 +646,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -668,7 +668,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f035196e46b6871ee680089ca3ddacfd485f2fc91bdf0730cc57aa0fc571c725"
+      "fingerprint": "9cd46e4de36bd8d0a8bd977d3f29658fb5c9446269d2e721622a5e7dd7156dbf"
     },
     {
       "id": "metadata:/classical/control/",
@@ -878,7 +878,7 @@
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "63d8d609728c17d17e6cb7935b61babc0148211d81e7ea28f887e40b9245fad0",
+      "ownerSourceFingerprint": "5b0426ce4bd4f9dcda4c0f373cad6b7ee2523a6f49fbcd0cd077ab31588dc91a",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on robot-wiki, with its creator, source, and licence.",
@@ -898,14 +898,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2b64e60932fde49d399b94ab9e9d9bc7b48502d5eab4b7b7959485437f20d1ad"
+      "fingerprint": "e0b11bec6adf551e75061752d49f7d72887cd6811f1feb5d56363ce21e965191"
     },
     {
       "id": "metadata:/data-hardware/",
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
@@ -927,7 +927,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7b8a13932b7f4f776bf9ef2ef44e67fc1229ac3feb5333729f0ea7548a7ddf81"
+      "fingerprint": "6cc6942cfdc5da84c87d1442dcd18f3da11729e980485e24358f1c8e1aefbc71"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1108,7 +1108,7 @@
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1130,7 +1130,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dc27ea9175dfc34db14a85cda43e5c173ba11aeaeb655e2d71f43d9538a06932"
+      "fingerprint": "f5864db902498336e35d7d676fe64c3efbf8c9ac3b12ad575e01781b5dc0629f"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -1311,7 +1311,7 @@
       "routeId": "route:/glossary/",
       "owner": "route:/glossary/",
       "ownerPath": "app/glossary/page.tsx",
-      "ownerSourceFingerprint": "9fbe1fae7765ab6ced4a8569d44d079fd5ed457df39385eeb1afe8943c45487a",
+      "ownerSourceFingerprint": "1b58962f60c55de0b0a849296f0d9a1cf37a915a25062bdb12519eac081dc1ed",
       "canonical": "https://robot-wiki.com/glossary/",
       "title": "Glossary",
       "description": "Cited definitions of the robotics and machine-learning terms used across robot-wiki.",
@@ -1331,14 +1331,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6d8b151a3d2047dedbb81d00f645d6ea6a0fc97c7575d5570e2a14c2f973e7a7"
+      "fingerprint": "91670c4ac0bbfc4677ff03bc187df469a3df1046800cb1f750d0da8a857d4c4d"
     },
     {
       "id": "metadata:/manipulation/",
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -1360,7 +1360,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "38e157ab4218d88d6f8ae354b20daab385ca2b23927530f5c45b98d00a273923"
+      "fingerprint": "b8bbe8ec04b62627e6ae13327e788febb8d40fb9ad5ad227fe40d1c73edf9920"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -1742,7 +1742,7 @@
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "9ca9a882ec9f431dad037bc7e86bba7c7757fd8700be0f60a91af779408e33e8",
+      "ownerSourceFingerprint": "0446c152006a2a652c30152c8b679e9dad19798acc802421ac86c3a47ef8c630",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -1762,14 +1762,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9ba493c22d839f042f35d8e937e885121b3fd2e120571e7b83d5253de568df74"
+      "fingerprint": "c69920ffe59c2ca8ab3e05a456c4806fe78fc74e17e917651e245eaf5c990618"
     },
     {
       "id": "metadata:/rl-sim2real/",
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -1791,7 +1791,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c32afd06b4a2c12efea099fafb075dd15f34428e416d996669cd543dad9b8f5b"
+      "fingerprint": "3e21d71c5e6e97962a7b6506313f6dfe2cef3ead3f85d6c2ac3f0dbbce51dfde"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -2028,7 +2028,7 @@
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "f3c361cc873b06c17f4952d7ed85589074be4a6e2ac26ac63c298538bd7f38dc",
+      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -2050,7 +2050,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4c9a400b6addce4ec283cf78ef17106ba893df78973aeae02ffaf306ead25cba"
+      "fingerprint": "cd18791ee2062e03e8df6b1be008973528da3c1763a265f3ff582ed47de0f7a2"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
@@ -2202,7 +2202,7 @@
       "routeId": "route:/404/",
       "owner": "app/not-found.tsx",
       "ownerPath": "app/not-found.tsx",
-      "ownerSourceFingerprint": "c7acb74345692c33bc7e3a9635cbd627c5e6d695d52d7957720af95a97602768",
+      "ownerSourceFingerprint": "0588a59656c16d280bea87f06334128007a397e90f0ef66405de35328f14bf9c",
       "canonical": "https://robot-wiki.com/404/",
       "title": "Page not found",
       "description": null,
@@ -2225,7 +2225,7 @@
         "publicContent": false,
         "index": false
       },
-      "fingerprint": "405e2925cbb2af1bd1ad3b4e4327fac7bbcbb7b1f8304761ae22a158ef98b941"
+      "fingerprint": "631a88c9f050159924aabdcbf1e21d71be8f41e5857e9aae05e1b423d74a3545"
     }
   ],
   "assets": [
@@ -10950,15 +10950,17 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/ui/action.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "5144c8e3e53e51356ae9e0038e807c2a1f7f67c452ca5ea97fe0d3f676a3fd4a"
+      "fingerprint": "d885ede11db6b4054d23951118eed6ed966d776b908bca5faafdccf323af08e7"
     },
     {
       "id": "control:secondary-action",
@@ -10973,15 +10975,92 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/article/author-list.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/article/heading-permalink.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/market-map/funding-timeline.tsx",
+        "components/market-map/market-map.tsx",
+        "components/nav/nav-tree.tsx",
+        "components/nav/search-box.tsx",
+        "components/nav/site-shell.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/ik-target-form.tsx",
+        "components/three/joint-controls.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/action.tsx",
+        "components/ui/chart-description.tsx",
+        "components/ui/copy-button.tsx",
+        "components/ui/table.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": [
+          {
+            "kind": "spacing",
+            "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+            "reason": "Disclosure summaries are one text line high and occupy their own row, so the 24px circle clears the surrounding targets."
+          }
+        ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "4656d15435ed77e4d789281281b67bbb14bf01495ed07289ee1917831a6c8901"
+      "fingerprint": "0ac0b13c746842227d3c8af44722e31126e297e0aa47eda0800fab44dbf858de"
     },
     {
       "id": "control:selection",
@@ -11000,15 +11079,62 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/article/commit-to-reveal.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/search/type-facet-bar.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/chip.tsx",
+        "components/ui/tabs.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": [
+          {
+            "kind": "spacing",
+            "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+            "reason": "Native radio indicators render at the user agent size inside a full-width label row that keeps the 24px circles apart."
+          }
+        ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "60746880945bb6ff89e0fe8c597d3acf548240a40d33f33f62f5884a2b74f23b"
+      "fingerprint": "2804c886cf5cfe72c7165d9af9f1341f2b300f739012e26d8ad40ad50893404b"
     },
     {
       "id": "control:link-focus",
@@ -11024,15 +11150,62 @@
         "focus-visible",
         "visited"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/page.tsx",
+        "app/a-z/page.tsx",
+        "app/credits/page.tsx",
+        "app/glossary/page.tsx",
+        "app/not-found.tsx",
+        "app/page.tsx",
+        "app/playground/page.tsx",
+        "components/article/article-links.tsx",
+        "components/article/breadcrumbs.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/article/references.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/funding-timeline.tsx",
+        "components/nav/nav-tree.tsx",
+        "components/nav/site-footer.tsx",
+        "components/nav/site-shell.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/action.tsx",
+        "components/ui/card.tsx",
+        "components/ui/cite.tsx",
+        "components/ui/figure.tsx",
+        "components/ui/skip-link.tsx",
+        "components/ui/term.tsx",
+        "mdx-components.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": [
+          {
+            "kind": "inline",
+            "criterion": "WCAG 2.2 SC 2.5.8 inline exception",
+            "reason": "Citation chips, glossary term links and prose links sit inside a sentence, so their height is set by the prose line box; enlarging them would break the approved article reference."
+          },
+          {
+            "kind": "spacing",
+            "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+            "reason": "Reference-list, see-also, breadcrumb and index links are short text rows whose 24px undisturbed circles clear every neighbouring target."
+          }
+        ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "97abdf397c9106f5b9a9578a148f0359c07ef48a922c9c3140f1206b9e28ba2b"
+      "fingerprint": "b346821d0e06f5345293b35883a83564148b5f2e8feebb941369cad4e33d5868"
     },
     {
       "id": "control:segmented",
@@ -11049,15 +11222,17 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/ui/tabs.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8b0a0efce30b222858a7d9efb73df6f1f97b2ea850ca6aa39c9869418c1af91b"
+      "fingerprint": "fdf25e1746f7baeabba3b36d3cd452a4eb5ae3596eaebea47d94f8c11c8b28ce"
     },
     {
       "id": "control:input",
@@ -11075,15 +11250,66 @@
         "invalid",
         "disabled"
       ],
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/nav/search-box.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/ik-target-form.tsx",
+        "components/three/joint-controls.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/input-field.tsx"
+      ],
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": [
+          {
+            "kind": "spacing",
+            "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+            "reason": "A native range track renders at the user agent thumb height; each slider owns a full-width row, so its 24px circle clears the readout and the reset control."
+          }
+        ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "b310f54499b7bc7d8b34ebe119c4636c9d622f18ce429a15a37ef691e8095d74"
+      "fingerprint": "2ec6feec52b3d4518588cc23cee82f0caf1861e8d6365a9e09f9f518d786b8b0"
     },
     {
       "id": "control:disabled",
@@ -11097,14 +11323,19 @@
         "disabled"
       ],
       "disabledException": "neutral treatment; excluded from active-action colour requirements",
-      "ownerRouteOrMount": "shared primitive; concrete owner supplied at render",
+      "ownerRouteOrMount": [
+        "components/ui/action.tsx",
+        "components/ui/chip.tsx",
+        "components/ui/input-field.tsx",
+        "components/ui/tabs.tsx"
+      ],
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
-        "inlineException": false
+        "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "602a8fb6ab1c549abc7c6767e674d44c90a209276586e0b73b74b2b3bf22c432"
+      "fingerprint": "6e28048e5332950ae222b52179c6bc4a139a5f37a05215e600d625f5baafca56"
     }
   ],
   "materials": [
@@ -11130,5 +11361,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "644b00f704a12d564ce82d50c73021689cf724c99bfc291891c4808ffca4811f"
+  "rootFingerprint": "84ff6e89fc600cb16c108bd85b36c717ff22d2116cea056c2b6c0a8ccc5e6545"
 }

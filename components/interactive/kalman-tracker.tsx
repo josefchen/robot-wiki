@@ -245,6 +245,7 @@ export function KalmanTracker({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -273,6 +274,7 @@ export function KalmanTracker({ className }: { className?: string }) {
             <input
               id={`kalman-${spec.id}`}
               type="range"
+              data-brand-control-id="control:input"
               min={spec.min}
               max={spec.max}
               step={spec.step}
@@ -457,6 +459,7 @@ export function KalmanTracker({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={togglePlay}
@@ -471,6 +474,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           {running ? 'Pause' : 'Run'}
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={stepOnce}
@@ -480,6 +484,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           Step
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reseed}
@@ -489,6 +494,7 @@ export function KalmanTracker({ className }: { className?: string }) {
           Reseed
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

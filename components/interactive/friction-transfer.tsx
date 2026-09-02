@@ -129,6 +129,7 @@ export function FrictionTransfer({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -148,6 +149,7 @@ export function FrictionTransfer({
           <input
             id={`${uid}-real-mu`}
             type="range"
+            data-brand-control-id="control:input"
             min={Math.round(MU_MIN * 100)}
             max={Math.round(MU_MAX * 100)}
             step={1}
@@ -170,6 +172,7 @@ export function FrictionTransfer({
           <input
             id={`${uid}-range`}
             type="range"
+            data-brand-control-id="control:input"
             min={Math.round(DR_RANGE_MIN * 100)}
             max={Math.round(DR_RANGE_MAX * 100)}
             step={5}
@@ -180,6 +183,7 @@ export function FrictionTransfer({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

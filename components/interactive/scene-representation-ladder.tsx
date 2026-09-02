@@ -393,6 +393,7 @@ export function SceneRepresentationLadder({
   return (
     <div
       data-testid="scene-ladder"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -407,6 +408,7 @@ export function SceneRepresentationLadder({
           const active = rep.id === selectedId;
           return (
             <button
+              data-brand-control-id="control:selection"
               key={rep.id}
               type="button"
               aria-pressed={active}
@@ -457,6 +459,7 @@ export function SceneRepresentationLadder({
           <input
             id={`${uid}-resolution`}
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={RESOLUTION_CM.length - 1}
             step={1}
@@ -512,6 +515,7 @@ export function SceneRepresentationLadder({
           </ul>
 
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}

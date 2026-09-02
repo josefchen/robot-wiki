@@ -52,7 +52,10 @@ export default function Home() {
             closes the hero sheet, with the overview and CTA outside the
             sheet; from md the two-column layout restores (grid right,
             13rem). */}
-        <div className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]">
+        <div
+          data-brand-surface-id="surface:flat"
+          className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]"
+        >
           <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
             <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
               Robotics encyclopaedia
@@ -119,6 +122,7 @@ export default function Home() {
           source.
         </p>
         <Link
+          data-brand-control-id="control:link-focus"
           href="/manipulation/action-chunking"
           className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
         >
@@ -160,6 +164,7 @@ export default function Home() {
               <li key={domain}>
                 <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
                   <Link
+                    data-brand-control-id="control:link-focus"
                     href={`/${domain}/`}
                     className="font-sans text-[15px] font-medium text-text transition-colors hover:text-accent"
                   >
@@ -175,6 +180,7 @@ export default function Home() {
                               : ', '
                             : ''}
                           <Link
+                            data-brand-control-id="control:link-focus"
                             href={`/adjacent/${m.slug}/`}
                             className="transition-colors hover:text-accent"
                           >
@@ -213,6 +219,7 @@ export default function Home() {
           episode it is not. Move the sliders to see how small per-step errors
           erode end-to-end reliability; the{' '}
           <Link
+            data-brand-control-id="control:link-focus"
             href="/frontier"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
@@ -240,6 +247,7 @@ export default function Home() {
           machines. Every photograph and diagram on the site is licensed and
           credited, and the full list lives on the{' '}
           <Link
+            data-brand-control-id="control:link-focus"
             href="/credits"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >
@@ -264,10 +272,14 @@ export default function Home() {
         </h2>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <Link
+            data-brand-control-id="control:link-focus"
             href="/playground"
             className="group block"
           >
-            <div className="mb-4 rounded-sm bg-surface px-4 py-3">
+            <div
+              data-brand-surface-id="surface:flat"
+              className="mb-4 rounded-sm bg-surface px-4 py-3"
+            >
               <svg
                 viewBox="0 0 320 112"
                 aria-hidden="true"
@@ -356,10 +368,14 @@ export default function Home() {
             </p>
           </Link>
           <Link
+            data-brand-control-id="control:link-focus"
             href="/market-map"
             className="group block"
           >
-            <div className="mb-4 rounded-sm bg-surface px-4 py-3">
+            <div
+              data-brand-surface-id="surface:flat"
+              className="mb-4 rounded-sm bg-surface px-4 py-3"
+            >
               <svg
                 viewBox="0 0 320 112"
                 aria-hidden="true"
@@ -452,6 +468,7 @@ export default function Home() {
             in registry order: later entries assume the earlier ones. If you
             come from machine learning rather than robotics, start with{' '}
             <Link
+              data-brand-control-id="control:link-focus"
               href="/manipulation/action-chunking"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
@@ -467,6 +484,7 @@ export default function Home() {
             backfill as needed. Terms of art are defined where they first
             appear and collected in the{' '}
             <Link
+              data-brand-control-id="control:link-focus"
               href="/glossary"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >

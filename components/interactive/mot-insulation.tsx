@@ -105,6 +105,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -127,6 +128,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           <input
             id="mot-depth"
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={LAYER_COUNT}
             step={1}
@@ -144,6 +146,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           >
             {(['forward', 'backward'] as const).map((p) => (
               <button
+                data-brand-control-id="control:selection"
                 key={p}
                 type="button"
                 aria-pressed={p === pass}
@@ -160,6 +163,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             ))}
           </div>
           <button
+            data-brand-control-id="control:selection"
             type="button"
             aria-pressed={stopGradient}
             onClick={toggleStopGradient}
@@ -173,6 +177,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             Stop gradient: {stopGradient ? 'on' : 'off'}
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}
@@ -536,6 +541,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           <>
             {' '}
             <a
+              data-brand-control-id="control:link-focus"
               href={citation.url}
               target="_blank"
               rel="noopener"

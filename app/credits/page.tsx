@@ -120,6 +120,7 @@ export default function CreditsPage() {
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           Written and maintained by{' '}
           <a
+            data-brand-control-id="control:link-focus"
             href={AUTHOR_PROFILE_URL}
             target="_blank"
             rel="noopener"
@@ -155,6 +156,7 @@ export default function CreditsPage() {
         <p className="mt-4 font-sans text-sm text-text-dim">
           Corrections and source disputes are welcome:{' '}
           <a
+            data-brand-control-id="control:link-focus"
             href={AUTHOR_PROFILE_URL}
             target="_blank"
             rel="noopener"
@@ -184,6 +186,7 @@ export default function CreditsPage() {
                     <span key={link.route}>
                       {index > 0 ? ', ' : ''}
                       <Link
+                        data-brand-control-id="control:link-focus"
                         href={link.route}
                         className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
                       >

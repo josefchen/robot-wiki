@@ -91,6 +91,7 @@ export default function AzIndexPage() {
           {groups.map((group) => (
             <li key={group.letter}>
               <Link
+                data-brand-control-id="control:link-focus"
                 href={`/a-z/#${letterAnchorId(group.letter)}`}
                 className="text-text-dim transition-colors hover:text-accent"
               >
@@ -123,6 +124,7 @@ export default function AzIndexPage() {
                   className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
                 >
                   <Link
+                    data-brand-control-id="control:link-focus"
                     href={entry.href}
                     className="font-sans text-sm font-medium leading-snug text-text transition-colors hover:text-accent"
                   >

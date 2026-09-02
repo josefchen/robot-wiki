@@ -174,6 +174,7 @@ export function JepaPlanning({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -193,6 +194,7 @@ export function JepaPlanning({
           <input
             id="jp-budget"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_CANDIDATES}
             max={MAX_CANDIDATES}
             step={4}
@@ -205,6 +207,7 @@ export function JepaPlanning({
         <div role="group" aria-label="Goal" className="flex gap-2">
           {GOALS.map((g, i) => (
             <button
+              data-brand-control-id="control:selection"
               key={g.id}
               type="button"
               aria-pressed={goalIndex === i}
@@ -217,6 +220,7 @@ export function JepaPlanning({
         </div>
         <div className="flex gap-2">
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={plan}
@@ -231,6 +235,7 @@ export function JepaPlanning({
             Plan step
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}

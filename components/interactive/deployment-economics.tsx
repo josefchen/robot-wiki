@@ -119,6 +119,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -127,6 +128,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
       <div className="flex items-baseline justify-between gap-3">
         <p className="text-[13px] font-medium text-text">Cell economics calculator</p>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -155,6 +157,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
               <input
                 id={id}
                 type="range"
+                data-brand-control-id="control:input"
                 min={range.min}
                 max={range.max}
                 step={range.step}

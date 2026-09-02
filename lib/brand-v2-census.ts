@@ -224,6 +224,138 @@ function validFingerprint(value: string): boolean {
   return /^[a-f0-9]{64}$/.test(value);
 }
 
+const OWNER_PLACEHOLDER =
+  /shared primitive|supplied at render|concrete owner|to be (?:supplied|determined)|tbd|various|as needed/i;
+const OWNER_MODULE = /^(?:app|components|lib|mdx-components)[\w./[\]()@-]*\.tsx?$/;
+const TARGET_SIZE_EXCEPTION_KINDS = new Set(['inline', 'spacing', 'equivalent']);
+
+/**
+ * A required-field presence check cannot tell a real owner record from a
+ * sentence that says an owner exists, and it cannot tell a measured target
+ * size from a blanket claim. Both were true of the control registry, so the
+ * owner and target-size values are checked for substance here.
+ */
+function validateControlRecord(
+  record: PrimitiveRegistryRecord,
+): CensusFailure[] {
+  const assertionId = 'VAL-B2-COMP-013';
+  const failures: CensusFailure[] = [];
+  const owners = record.ownerRouteOrMount;
+  if (!Array.isArray(owners) || owners.length === 0) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'non-empty list of concrete owner routes or mount modules',
+      actual: owners,
+      reason: 'unowned-control-registry-row',
+    });
+  } else {
+    for (const owner of owners) {
+      if (typeof owner !== 'string' || owner.trim().length === 0) {
+        failures.push({
+          assertionId,
+          memberId: record.id,
+          expected: 'owner route or mount module path',
+          actual: owner,
+          reason: 'invalid-control-owner',
+        });
+        continue;
+      }
+      if (OWNER_PLACEHOLDER.test(owner)) {
+        failures.push({
+          assertionId,
+          memberId: record.id,
+          expected: 'concrete owner route or mount module path',
+          actual: owner,
+          reason: 'placeholder-control-owner',
+        });
+        continue;
+      }
+      if (!owner.startsWith('/') && !OWNER_MODULE.test(owner)) {
+        failures.push({
+          assertionId,
+          memberId: record.id,
+          expected: 'route path starting with / or a first-party module path',
+          actual: owner,
+          reason: 'unresolvable-control-owner',
+        });
+      }
+    }
+  }
+
+  const targetSize = record.targetSize;
+  if (targetSize === null || typeof targetSize !== 'object') {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'target-size record',
+      actual: targetSize,
+      reason: 'missing-target-size-record',
+    });
+    return failures;
+  }
+  const size = targetSize as Record<string, unknown>;
+  if (size.minimumPx !== 24) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'WCAG 2.2 SC 2.5.8 minimum of 24px',
+      actual: size.minimumPx,
+      reason: 'wrong-target-size-minimum',
+    });
+  }
+  if (typeof size.preferredPx !== 'number' || size.preferredPx < 24) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'preferred target size of at least the 24px minimum',
+      actual: size.preferredPx,
+      reason: 'wrong-target-size-preference',
+    });
+  }
+  if (!Array.isArray(size.exceptions)) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'explicit target-size exception list (empty when none apply)',
+      actual: size.exceptions,
+      reason: 'missing-target-size-exceptions',
+    });
+    return failures;
+  }
+  for (const [index, value] of size.exceptions.entries()) {
+    const exception = (value ?? {}) as Record<string, unknown>;
+    const memberId = `${record.id} exception ${index}`;
+    if (
+      typeof exception.kind !== 'string' ||
+      !TARGET_SIZE_EXCEPTION_KINDS.has(exception.kind)
+    ) {
+      failures.push({
+        assertionId,
+        memberId,
+        expected: [...TARGET_SIZE_EXCEPTION_KINDS].join(' | '),
+        actual: exception.kind,
+        reason: 'unrecognised-target-size-exception',
+      });
+    }
+    for (const field of ['criterion', 'reason'] as const) {
+      if (
+        typeof exception[field] !== 'string' ||
+        exception[field].trim().length === 0
+      ) {
+        failures.push({
+          assertionId,
+          memberId,
+          expected: `non-empty ${field}`,
+          actual: exception[field],
+          reason: 'undocumented-target-size-exception',
+        });
+      }
+    }
+  }
+  return failures;
+}
+
 export function validatePrimitiveRegistries(
   registries: PrimitiveRegistrySet,
 ): CensusFailure[] {
@@ -305,6 +437,9 @@ export function validatePrimitiveRegistries(
         }
       }
     }
+  }
+  for (const record of registries.controls) {
+    failures.push(...validateControlRecord(record));
   }
   return failures;
 }

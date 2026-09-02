@@ -111,6 +111,7 @@ export function TrainingTimeChart({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -130,6 +131,7 @@ export function TrainingTimeChart({
           <input
             id="ttc-envs"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_LOG2}
             max={MAX_LOG2}
             step={1}
@@ -140,6 +142,7 @@ export function TrainingTimeChart({
           />
         </div>
         <button
+          data-brand-control-id="control:selection"
           type="button"
           aria-pressed={cpuBound}
           onClick={() => setCpuBound((v) => !v)}
@@ -153,6 +156,7 @@ export function TrainingTimeChart({
           CPU single-core bottleneck
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

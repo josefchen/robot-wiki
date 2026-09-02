@@ -89,6 +89,7 @@ export function RecedingHorizon({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -108,6 +109,7 @@ export function RecedingHorizon({
           <input
             id="rh-tp"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_TP}
             max={MAX_TP}
             step={1}
@@ -130,6 +132,7 @@ export function RecedingHorizon({
           <input
             id="rh-ta"
             type="range"
+            data-brand-control-id="control:input"
             min={1}
             max={MAX_TP}
             step={1}
@@ -143,6 +146,7 @@ export function RecedingHorizon({
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -150,6 +154,7 @@ export function RecedingHorizon({
           Diffusion Policy (16/8)
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(MAX_TP, MAX_TP)}
           className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
@@ -157,6 +162,7 @@ export function RecedingHorizon({
           Open-loop (32/32)
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}

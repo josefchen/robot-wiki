@@ -142,15 +142,25 @@ const PRIMITIVE_BROWSER_TARGETS = {
   ),
   'VAL-B2-SURF-010': testTarget(
     'tests/e2e/brand-v2-primitives.spec.ts',
-    'brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow',
-    'Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow.',
+    'brand-v2 shared primitive registry › VAL-B2-SURF-010 source, registry and rendered surface populations are equal',
+    'Discovers surfaces structurally, requires an annotation on every discovered member, and equates the source, registry, and rendered populations while rejecting backdrop blur, filters, and coloured glow.',
   ),
   'VAL-B2-COMP-013': testTarget(
     'tests/e2e/brand-v2-primitives.spec.ts',
-    'brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state',
-    'Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls.',
+    'brand-v2 shared primitive registry › VAL-B2-COMP-013 source, registry and rendered control populations reconcile',
+    'Discovers controls structurally, requires an annotation on every discovered member, checks each row owner list against the modules that render it, and rejects persistent selected, pressed, or current ARIA on transient controls.',
   ),
 } satisfies Record<string, TestTarget>;
+const PRIMITIVE_TARGET_SIZE_TARGET = testTarget(
+  'tests/e2e/brand-v2-primitives.spec.ts',
+  'brand-v2 shared primitive registry › VAL-B2-COMP-014 undersized targets rely only on registered WCAG exceptions',
+  'Measures every structurally discovered control against the registered 24px minimum and admits an undersized target only when the SC 2.5.8 exception it satisfies geometrically is the one its registry row records.',
+);
+const PRIMITIVE_TABLE_REGION_TARGET = testTarget(
+  'tests/e2e/brand-v2-primitives.spec.ts',
+  'brand-v2 shared primitive registry › VAL-B2-COMP-009 focusable table scroll regions are named regions',
+  'Requires every focusable horizontal table-scroll container to expose the region role with a name that resolves to real text.',
+);
 const BASELINE_TARGET = testTarget(
   'tests/unit/brand-v2-baseline.test.ts',
   'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
@@ -333,6 +343,12 @@ function testTargetsFor(id: string): TestTarget[] {
       )];
     }
     return [RUNNER_DEEP_TARGET];
+  }
+  if (id === 'VAL-B2-COMP-014') {
+    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TARGET_SIZE_TARGET];
+  }
+  if (id === 'VAL-B2-COMP-009') {
+    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TABLE_REGION_TARGET];
   }
   return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
 }

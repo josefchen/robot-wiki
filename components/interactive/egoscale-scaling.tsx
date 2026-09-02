@@ -204,6 +204,7 @@ export function EgoScaleScaling({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -223,6 +224,7 @@ export function EgoScaleScaling({
           <input
             id={horizonId}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_MIN}
             max={SLIDER_MAX}
             step={1}
@@ -233,6 +235,7 @@ export function EgoScaleScaling({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

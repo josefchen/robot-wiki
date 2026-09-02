@@ -85,6 +85,7 @@ export function IkTargetForm({
               Target {axis} (m)
             </label>
             <input
+              data-brand-control-id="control:input"
               id={`ik-target-${axis}`}
               data-testid={`ik-input-${axis}`}
               type="number"
@@ -118,6 +119,7 @@ export function IkTargetForm({
 
       <div className="mt-3 flex flex-wrap gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="ik-solve"
           onClick={submit}
@@ -126,6 +128,7 @@ export function IkTargetForm({
           Solve to target
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="ik-clear"
           onClick={onClear}

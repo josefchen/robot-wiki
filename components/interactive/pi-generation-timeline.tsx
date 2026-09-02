@@ -89,6 +89,7 @@ export function PiGenerationTimeline({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -240,6 +241,7 @@ export function PiGenerationTimeline({
       >
         {PI_GENERATIONS.map((g, i) => (
           <button
+            data-brand-control-id="control:selection"
             key={g.id}
             ref={(el) => {
               buttonRefs.current[i] = el;
@@ -278,6 +280,7 @@ export function PiGenerationTimeline({
           </button>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => select(PI_GENERATIONS.findIndex((g) => g.id === defaultSelected))}
@@ -313,6 +316,7 @@ export function PiGenerationTimeline({
         {citation && (
           <p className="mt-1.5 font-mono text-xs">
             <a
+              data-brand-control-id="control:link-focus"
               href={citation.url}
               target="_blank"
               rel="noopener"

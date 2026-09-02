@@ -139,6 +139,7 @@ export function CommitToReveal({
       data-self-check={region === 'self-check' ? '' : undefined}
       data-predict={region === 'predict' ? '' : undefined}
       aria-labelledby={`${uid}-prompt`}
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -162,6 +163,7 @@ export function CommitToReveal({
                 value={option.value}
                 checked={chosen === option.value}
                 onChange={() => commit(option.value)}
+                data-brand-control-id="control:selection"
                 className="mt-0.5 accent-accent"
               />
               <span>{option.label}</span>
@@ -175,7 +177,10 @@ export function CommitToReveal({
         onToggle={(event) => setOpen((event.target as HTMLDetailsElement).open)}
         className="mt-3 bg-surface-2 p-3 text-sm"
       >
-        <summary className="cursor-pointer text-text-dim">
+        <summary
+          data-brand-control-id="control:secondary-action"
+          className="cursor-pointer text-text-dim"
+        >
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
         </summary>
         <div aria-live="polite">
@@ -224,9 +229,13 @@ export function CommitToReveal({
                     // wrapping span, and the anchor itself carries no
                     // border. A bordered anchor inside the fully bordered
                     // reveal shell is a doubly boxed control (VAL-EDU-031).
-                    <span className="ml-1 inline-block rounded-xs border border-border bg-surface-2 align-baseline transition-colors hover:border-accent">
+                    <span
+                      data-brand-surface-id="surface:flat"
+                      className="ml-1 inline-block rounded-xs border border-border bg-surface-2 align-baseline transition-colors hover:border-accent"
+                    >
                       <a
                         href={`#ref-${option.cite}`}
+                        data-brand-control-id="control:link-focus"
                         className="px-1 font-mono text-[0.72em] leading-5 text-text-dim no-underline transition-colors hover:text-accent"
                       >
                         {option.cite}
@@ -236,6 +245,7 @@ export function CommitToReveal({
                   {option.anchorHref && option.anchorLabel ? (
                     <a
                       href={option.anchorHref}
+                      data-brand-control-id="control:link-focus"
                       className="ml-1 text-[0.72em] text-text-dim underline decoration-border transition-colors hover:text-accent"
                     >
                       {option.anchorLabel}

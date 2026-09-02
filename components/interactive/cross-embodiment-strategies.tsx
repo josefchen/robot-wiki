@@ -198,6 +198,7 @@ export function CrossEmbodimentStrategies({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -210,6 +211,7 @@ export function CrossEmbodimentStrategies({
       >
         {STRATEGY_ORDER.map((id) => (
           <button
+            data-brand-control-id="control:selection"
             key={id}
             type="button"
             aria-pressed={id === strategyId}
@@ -225,6 +227,7 @@ export function CrossEmbodimentStrategies({
           </button>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -319,6 +322,7 @@ export function CrossEmbodimentStrategies({
         {citation && (
           <p className="mt-1.5 font-mono text-xs">
             <a
+              data-brand-control-id="control:link-focus"
               href={citation.url}
               target="_blank"
               rel="noopener"

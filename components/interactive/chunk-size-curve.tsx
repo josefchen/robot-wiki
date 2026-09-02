@@ -118,6 +118,7 @@ export function ChunkSizeCurve({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -137,6 +138,7 @@ export function ChunkSizeCurve({
           <input
             id="csc-chunk-size"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_CHUNK}
             max={MAX_CHUNK}
             step={1}
@@ -147,6 +149,7 @@ export function ChunkSizeCurve({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

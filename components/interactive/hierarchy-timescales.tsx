@@ -94,6 +94,7 @@ export function HierarchyTimescales({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -106,6 +107,7 @@ export function HierarchyTimescales({
       >
         {HIERARCHY_SYSTEMS.map((s) => (
           <button
+            data-brand-control-id="control:selection"
             key={s.id}
             type="button"
             aria-pressed={s.id === system.id}
@@ -121,6 +123,7 @@ export function HierarchyTimescales({
           </button>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -150,6 +153,7 @@ export function HierarchyTimescales({
         <input
           id="hierarchy-playhead"
           type="range"
+          data-brand-control-id="control:input"
           min={0}
           max={HORIZON_MS}
           step={20}
@@ -324,6 +328,7 @@ export function HierarchyTimescales({
         {citation && (
           <p className="mt-1.5 font-mono text-xs">
             <a
+              data-brand-control-id="control:link-focus"
               href={citation.url}
               target="_blank"
               rel="noopener"

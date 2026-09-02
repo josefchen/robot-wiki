@@ -20,6 +20,9 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
       // keyboard access (axe scrollable-region-focusable), matching
       // components/mdx/swarm-control-table.tsx.
       tabIndex={0}
+      role="region"
+      aria-label="Commercial surgical robot systems compared"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

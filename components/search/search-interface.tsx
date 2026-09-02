@@ -269,6 +269,7 @@ export function SearchInterface({
         </label>
         <div className="flex items-stretch gap-1.5">
           <input
+            data-brand-control-id="control:input"
             id="search-page-input"
             ref={inputRef}
             type="search"
@@ -345,6 +346,7 @@ export function SearchInterface({
             in the methods, companies, and datasets of the wiki data layer.
             Check the spelling, try a broader term, or browse{' '}
             <Link
+              data-brand-control-id="control:link-focus"
               href="/a-z"
               className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
             >
@@ -372,6 +374,7 @@ export function SearchInterface({
                 {hits.map((entry, index) => (
                   <li key={entry.url}>
                     <Link
+                      data-brand-control-id="control:link-focus"
                       href={entry.url}
                       data-search-result
                       onKeyDown={(event) => onResultKeyDown(event, index)}
@@ -402,6 +405,7 @@ export function SearchInterface({
                 <>
                   {`The ${ENTITY_TYPE_LABEL[facetType as EntityType]} filter is hiding ${structuredAll.length} ${structuredAll.length === 1 ? 'entity that matches' : 'entities that match'} "${trimmed}".`}{' '}
                   <button
+                    data-brand-control-id="control:secondary-action"
                     type="button"
                     onClick={() => setFacetType('all')}
                     className="cursor-pointer text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
@@ -429,6 +433,7 @@ export function SearchInterface({
                         trailing slash before a hash, and the destination
                         contract is the exact `/path/#id` stored in the index. */}
                     <a
+                      data-brand-control-id="control:link-focus"
                       href={entry.url}
                       data-search-result
                       onKeyDown={(event) =>

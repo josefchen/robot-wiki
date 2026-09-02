@@ -282,6 +282,7 @@ export function WmDisambiguator({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -305,6 +306,7 @@ export function WmDisambiguator({
           </span>
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -323,6 +325,7 @@ export function WmDisambiguator({
           const active = p.id === selectedId;
           return (
             <button
+              data-brand-control-id="control:selection"
               key={p.id}
               type="button"
               aria-pressed={active}

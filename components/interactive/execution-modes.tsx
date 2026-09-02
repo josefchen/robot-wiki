@@ -305,6 +305,7 @@ export function ExecutionModes({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -324,6 +325,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           <input
             id="em-delay"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_DELAY_MS}
             max={MAX_DELAY_MS}
             step={10}
@@ -335,6 +337,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

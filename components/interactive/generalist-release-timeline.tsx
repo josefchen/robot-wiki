@@ -176,6 +176,7 @@ export function GeneralistReleaseTimeline({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -188,6 +189,7 @@ export function GeneralistReleaseTimeline({
       >
         {FILTERS.map(({ id, label }) => (
           <button
+            data-brand-control-id="control:selection"
             key={id}
             type="button"
             aria-pressed={filter === id}
@@ -203,6 +205,7 @@ export function GeneralistReleaseTimeline({
           </button>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -323,6 +326,7 @@ export function GeneralistReleaseTimeline({
       >
         {visible.map((r, i) => (
           <button
+            data-brand-control-id="control:selection"
             key={r.id}
             ref={(el) => {
               buttonRefs.current[i] = el;
@@ -394,6 +398,7 @@ export function GeneralistReleaseTimeline({
           <p className="mt-1.5 font-mono text-xs text-text-dim">
             Cross-reference: full treatment in{' '}
             <Link
+              data-brand-control-id="control:link-focus"
               href="/manipulation/pi-line"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
@@ -405,6 +410,7 @@ export function GeneralistReleaseTimeline({
         {citation && (
           <p className="mt-1.5 font-mono text-xs">
             <a
+              data-brand-control-id="control:link-focus"
               href={citation.url}
               target="_blank"
               rel="noopener"

@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import type { ComponentPropsWithoutRef } from 'react';
 import { PredictThenReveal, SelfCheck } from '@/components/article/commit-to-reveal';
 import {
   Aside,
@@ -38,6 +39,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     SelfCheck,
     Stat,
     Term: TermRef,
+    // Every anchor markdown produces is an information path and belongs in
+    // the control registry: authored prose links, the reference-list and
+    // figure-credit links, and the heading-wrapping anchors
+    // rehype-autolink-headings inserts. Annotating the shared override
+    // rather than each authored link is what keeps the registered
+    // population equal to the rendered one.
+    a: (props: ComponentPropsWithoutRef<'a'>) => (
+      <a data-brand-control-id="control:link-focus" {...props} />
+    ),
+    // rehype-pretty-code emits the highlighted block's title bar and its
+    // bordered <pre>; both are painted planes the surface registry governs,
+    // and neither passes through a first-party component where the
+    // annotation could otherwise live.
+    figcaption: (props: ComponentPropsWithoutRef<'figcaption'>) => (
+      <figcaption data-brand-surface-id="surface:flat" {...props} />
+    ),
+    pre: (props: ComponentPropsWithoutRef<'pre'>) => (
+      <pre data-brand-surface-id="surface:flat" {...props} />
+    ),
     h2: ProseH2,
     h3: ProseH3,
     ...components,

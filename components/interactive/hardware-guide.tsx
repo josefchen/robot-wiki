@@ -118,6 +118,7 @@ function availabilityCell(entry: HardwareEntry): ReactNode {
 function sourceCell(entry: HardwareEntry): ReactNode {
   return (
     <a
+      data-brand-control-id="control:link-focus"
       href={entry.url}
       target="_blank"
       rel="noopener"
@@ -226,6 +227,7 @@ function FilterGroup<T extends string>({
       <div className="flex flex-wrap gap-1.5">
         {options.map((option) => (
           <button
+            data-brand-control-id="control:selection"
             key={option.value}
             type="button"
             aria-pressed={active === option.value}
@@ -268,6 +270,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -304,6 +307,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
             {rows.length} of {HARDWARE.length} entries
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}
@@ -327,6 +331,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
             option; try widening the selection.
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={clearFilters}

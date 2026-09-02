@@ -105,6 +105,7 @@ export default async function DomainLandingPage({
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <Link
+                  data-brand-control-id="control:link-focus"
                   href={`/${m.domain}/${m.slug}`}
                   className="font-sans text-base font-medium text-text transition-colors hover:text-accent"
                 >

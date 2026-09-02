@@ -16,6 +16,7 @@ import {
   TEKTUR_ROLE_INSTANCES,
 } from '../data/type-roles.ts';
 import { referencedImageIds } from '../lib/images.ts';
+import { scanAnnotationLiterals } from '../lib/brand-v2-annotation-scan.ts';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -445,6 +446,69 @@ function interactiveRegistry() {
   return { sources, mounts };
 }
 
+const ANNOTATION_SCAN = scanAnnotationLiterals(ROOT);
+
+/**
+ * The modules that actually render a primitive ID, read out of the source
+ * rather than described. A shared primitive's owner is where it mounts, so
+ * the row has to name those modules; a fixed prose placeholder makes the
+ * field unfalsifiable and lets an unmounted row look owned.
+ */
+function annotationOwnerModules(id: string): readonly string[] {
+  return ANNOTATION_SCAN.ownersById[id] ?? [];
+}
+
+/**
+ * Recorded WCAG 2.2 SC 2.5.8 exceptions, per control class, for the
+ * measured members that do not reach the 24px minimum. Each entry names the
+ * exception route the SC actually provides, so the rendered-DOM gate can
+ * re-derive it from geometry (tests/e2e/brand-v2-primitives.spec.ts) instead
+ * of taking the registry's word for it.
+ */
+const CONTROL_TARGET_SIZE_EXCEPTIONS: Record<
+  string,
+  ReadonlyArray<{ kind: 'inline' | 'spacing'; criterion: string; reason: string }>
+> = {
+  'control:link-focus': [
+    {
+      kind: 'inline',
+      criterion: 'WCAG 2.2 SC 2.5.8 inline exception',
+      reason:
+        'Citation chips, glossary term links and prose links sit inside a sentence, so their height is set by the prose line box; enlarging them would break the approved article reference.',
+    },
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Reference-list, see-also, breadcrumb and index links are short text rows whose 24px undisturbed circles clear every neighbouring target.',
+    },
+  ],
+  'control:input': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'A native range track renders at the user agent thumb height; each slider owns a full-width row, so its 24px circle clears the readout and the reset control.',
+    },
+  ],
+  'control:selection': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Native radio indicators render at the user agent size inside a full-width label row that keeps the 24px circles apart.',
+    },
+  ],
+  'control:secondary-action': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Disclosure summaries are one text line high and occupy their own row, so the 24px circle clears the surrounding targets.',
+    },
+  ],
+};
+
 function staticRegistries() {
   const gridDevices = [
     {
@@ -629,9 +693,13 @@ function staticRegistries() {
   ].map((entry) =>
     stableRecord({
       ...entry,
-      ownerRouteOrMount: 'shared primitive; concrete owner supplied at render',
+      ownerRouteOrMount: annotationOwnerModules(entry.id),
       disabledException: entry.disabledException ?? null,
-      targetSize: { minimumPx: 24, preferredPx: 44, inlineException: false },
+      targetSize: {
+        minimumPx: 24,
+        preferredPx: 44,
+        exceptions: CONTROL_TARGET_SIZE_EXCEPTIONS[entry.id] ?? [],
+      },
       pointerAlternative: 'native pointer activation matching keyboard activation',
     }),
   );

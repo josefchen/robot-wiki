@@ -61,6 +61,7 @@ export function EurekaLoop({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -68,6 +69,7 @@ export function EurekaLoop({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))}
@@ -83,6 +85,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           Run next generation
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setGen(0)}

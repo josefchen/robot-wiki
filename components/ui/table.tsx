@@ -154,7 +154,12 @@ export function Table<T extends Record<string, unknown>>({
                       onClick={() => toggleSort(column.key)}
                       aria-label={`Sort by ${column.header}`}
                       data-brand-control-id="control:secondary-action"
-                      className="inline-flex cursor-pointer items-center gap-1 hover:text-text"
+                      // py-1/-my-1 lifts the hit box to the registered 24px
+                      // minimum without changing the header row height: the
+                      // sort controls sit side by side in adjacent header
+                      // cells, so neither the inline nor the spacing
+                      // exception of WCAG 2.2 SC 2.5.8 is available to them.
+                      className="-my-1 inline-flex cursor-pointer items-center gap-1 py-1 hover:text-text"
                     >
                       {column.header}
                       <span aria-hidden="true" className="font-mono text-[10px]">

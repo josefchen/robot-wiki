@@ -215,6 +215,7 @@ export function CompoundingError({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -234,6 +235,7 @@ export function CompoundingError({
           <input
             id={`${uid}-epsilon`}
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_EPSILON_PERCENT}
             max={MAX_EPSILON_PERCENT}
             step={0.5}
@@ -256,6 +258,7 @@ export function CompoundingError({
           <input
             id={`${uid}-horizon`}
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_STEPS}
             max={maxSteps}
             step={5}
@@ -266,6 +269,7 @@ export function CompoundingError({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -282,6 +286,7 @@ export function CompoundingError({
           className="flex gap-2"
         >
           <button
+            data-brand-control-id="control:selection"
             type="button"
             aria-pressed={mode === 'per-step'}
             onClick={() => setMode('per-step')}
@@ -290,6 +295,7 @@ export function CompoundingError({
             Per-timestep prediction
           </button>
           <button
+            data-brand-control-id="control:selection"
             type="button"
             aria-pressed={mode === 'chunk'}
             onClick={() => setMode('chunk')}
@@ -299,6 +305,7 @@ export function CompoundingError({
           </button>
         </div>
         <button
+          data-brand-control-id="control:selection"
           type="button"
           aria-pressed={dagger}
           onClick={() => setDagger((v) => !v)}

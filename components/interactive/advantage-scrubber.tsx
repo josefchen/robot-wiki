@@ -175,6 +175,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -187,6 +188,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
       >
         {VIEWS.map((v) => (
           <button
+            data-brand-control-id="control:selection"
             key={v.id}
             type="button"
             aria-pressed={v.id === view}
@@ -202,6 +204,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </button>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -238,6 +241,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             <input
               id="advantage-playhead"
               type="range"
+              data-brand-control-id="control:input"
               min={0}
               max={EPISODE_LENGTH_S}
               step={0.5}

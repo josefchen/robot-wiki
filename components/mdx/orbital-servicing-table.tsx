@@ -54,6 +54,9 @@ export function OrbitalServicingTable({ className }: { className?: string }) {
       // keyboard access (axe scrollable-region-focusable); same pattern
       // as components/mdx/swarm-control-table.tsx.
       tabIndex={0}
+      role="region"
+      aria-label="On-orbit servicing robotics milestones"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

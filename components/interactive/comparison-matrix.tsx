@@ -210,6 +210,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -224,6 +225,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             Filter methods
           </label>
           <input
+            data-brand-control-id="control:input"
             id="matrix-filter"
             type="search"
             value={filters.query}
@@ -242,6 +244,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           <div className="flex flex-wrap gap-1.5">
             {WEIGHT_OPTIONS.map((option) => (
               <button
+                data-brand-control-id="control:selection"
                 key={option.value}
                 type="button"
                 aria-pressed={filters.weights === option.value}
@@ -265,6 +268,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
           <div className="flex flex-wrap gap-1.5">
             {REPRESENTATION_OPTIONS.map((option) => (
               <button
+                data-brand-control-id="control:selection"
                 key={option.value}
                 type="button"
                 aria-pressed={filters.representation === option.value}
@@ -284,6 +288,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             {rows.length} of {METHODS.length} methods
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}
@@ -307,6 +312,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
             filter; try widening the weights or representation selection.
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={clearFilters}

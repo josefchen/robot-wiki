@@ -2183,6 +2183,12 @@
           "file": "tests/e2e/brand-v2-route-flows.spec.ts",
           "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
           "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-primitives.spec.ts",
+          "title": "brand-v2 shared primitive registry › VAL-B2-COMP-009 focusable table scroll regions are named regions",
+          "mechanism": "Requires every focusable horizontal table-scroll container to expose the region role with a name that resolves to real text."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2341,8 +2347,8 @@
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2-primitives.spec.ts",
-          "title": "brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state",
-          "mechanism": "Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls."
+          "title": "brand-v2 shared primitive registry › VAL-B2-COMP-013 source, registry and rendered control populations reconcile",
+          "mechanism": "Discovers controls structurally, requires an annotation on every discovered member, checks each row owner list against the modules that render it, and rejects persistent selected, pressed, or current ARIA on transient controls."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2383,6 +2389,12 @@
           "file": "tests/e2e/brand-v2-route-flows.spec.ts",
           "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
           "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-primitives.spec.ts",
+          "title": "brand-v2 shared primitive registry › VAL-B2-COMP-014 undersized targets rely only on registered WCAG exceptions",
+          "mechanism": "Measures every structurally discovered control against the registered 24px minimum and admits an undersized target only when the SC 2.5.8 exception it satisfies geometrically is the one its registry row records."
         }
       ],
       "enforcementMode": "browser-state",
@@ -7853,8 +7865,8 @@
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2-primitives.spec.ts",
-          "title": "brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow",
-          "mechanism": "Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow."
+          "title": "brand-v2 shared primitive registry › VAL-B2-SURF-010 source, registry and rendered surface populations are equal",
+          "mechanism": "Discovers surfaces structurally, requires an annotation on every discovered member, and equates the source, registry, and rendered populations while rejecting backdrop blur, filters, and coloured glow."
         }
       ],
       "enforcementMode": "autonomous-visual",

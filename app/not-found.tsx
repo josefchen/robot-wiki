@@ -46,6 +46,7 @@ export default function NotFound() {
       </p>
       <p className="mt-6">
         <Link
+          data-brand-control-id="control:link-focus"
           href="/"
           className="rounded-sm border border-accent px-4 py-2 font-sans text-sm font-medium text-accent transition-colors hover:bg-surface-2 active:translate-y-[1px]"
         >

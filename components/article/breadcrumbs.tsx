@@ -43,6 +43,7 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
               {item.href && !last ? (
                 <Link
                   href={item.href}
+                  data-brand-control-id="control:link-focus"
                   className="text-text-dim transition-colors hover:text-accent"
                 >
                   {item.label}

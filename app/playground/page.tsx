@@ -47,6 +47,7 @@ export default function PlaygroundPage() {
         panel, Record arms keyframe capture and Play eases between the saved
         poses. Model: SO-101 from{' '}
         <a
+          data-brand-control-id="control:link-focus"
           href="https://github.com/TheRobotStudio/SO-ARM100"
           target="_blank"
           rel="noopener"

@@ -72,6 +72,7 @@ function SourceLink({ id, label }: { id: string; label: string }) {
   }
   return (
     <a
+      data-brand-control-id="control:link-focus"
       href={citation.url}
       target="_blank"
       rel="noopener"
@@ -129,6 +130,7 @@ export function HandComparison({ className }: { className?: string }) {
   return (
     <div
       data-testid="hand-comparison"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -143,6 +145,7 @@ export function HandComparison({ className }: { className?: string }) {
           {readout}
         </p>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -175,6 +178,7 @@ export function HandComparison({ className }: { className?: string }) {
                     className={HEADER_CELL}
                   >
                     <button
+                      data-brand-control-id="control:secondary-action"
                       type="button"
                       aria-label={column.ariaLabel}
                       onClick={() => handleSort(column.key)}
@@ -217,6 +221,7 @@ export function HandComparison({ className }: { className?: string }) {
                 >
                   <th scope="row" className={cx(CELL, 'min-w-[140px]')}>
                     <button
+                      data-brand-control-id="control:selection"
                       type="button"
                       aria-pressed={isSelected}
                       aria-label={`Select ${hand.name} for comparison`}

@@ -103,6 +103,7 @@ export function ControlLoopBudget({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -128,6 +129,7 @@ export function ControlLoopBudget({
           <input
             id={modelSizeId}
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_PARAMS_B}
             max={MAX_PARAMS_B}
             step={0.1}
@@ -139,6 +141,7 @@ export function ControlLoopBudget({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
