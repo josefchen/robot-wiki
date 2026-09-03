@@ -610,7 +610,25 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
         .join(', ')} from ${OG_CARD_TREE_SOURCE}; it may take only the corpus itself, so it cannot reach ${OG_CARD_SEAL_OPENER} and unwrap a card tree before ${OG_CARD_RENDER_BOUNDARY} renders it`,
     );
   }
-  const modules = [...graph.reachableFrom(producers)].sort();
+  // A barrel a closure module imports through is evaluated when the closure
+  // runs, and the graph attributes the forwarded binding to the defining
+  // module — right for "which module mounts this", wrong here, because the
+  // barrel is precisely where `export { ImageResponse } from 'next/og.js'`
+  // would sit and it would never appear in the walk that looks for it.
+  const closure = new Set(graph.reachableFrom(producers));
+  const pending = [...closure];
+  while (pending.length > 0) {
+    const current = pending.pop() as string;
+    for (const hop of graph.reexportHopsByModule.get(current) ?? []) {
+      if (closure.has(hop)) continue;
+      for (const reached of graph.reachableFrom([hop])) {
+        if (closure.has(reached)) continue;
+        closure.add(reached);
+        pending.push(reached);
+      }
+    }
+  }
+  const modules = [...closure].sort();
   if (!graph.reachableFrom([OG_CARD_GENERATOR]).has(OG_CARD_RENDER_BOUNDARY)) {
     throw new Error(
       `${OG_CARD_GENERATOR} does not reach ${OG_CARD_RENDER_BOUNDARY}, so it paints cards somewhere else`,

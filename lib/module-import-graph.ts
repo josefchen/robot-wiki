@@ -29,6 +29,16 @@ export type ModuleImportGraph = {
    * `<Card>`" needs the binding, not just the edge.
    */
   bindingsByModule: ReadonlyMap<string, readonly ImportBinding[]>;
+  /**
+   * The barrels each module's used imports were forwarded through.
+   *
+   * A forwarded binding is attributed to its defining module, which is the
+   * right answer for "which module mounts this component" and the wrong one
+   * for "which modules are evaluated": the barrel runs too, and its own
+   * dependencies are its own. A consumer that cares what a module can reach
+   * rather than what it renders has to add these back.
+   */
+  reexportHopsByModule: ReadonlyMap<string, ReadonlySet<string>>;
   /** Modules reachable from the given entries through used imports. */
   reachableFrom: (entries: Iterable<string>) => Set<string>;
   /**
@@ -192,12 +202,17 @@ export function buildModuleImportGraph(
     reexports.set(modulePath, table);
   }
 
-  const followReexport = (modulePath: string, imported: string): string => {
+  const followReexport = (
+    modulePath: string,
+    imported: string,
+    hops?: Set<string>,
+  ): string => {
     let current = modulePath;
     let name = imported;
     for (let hop = 0; hop < 8; hop += 1) {
       const forwarded = reexports.get(current)?.get(name);
       if (!forwarded) return current;
+      hops?.add(current);
       current = forwarded.module;
       name = forwarded.imported;
     }
@@ -206,10 +221,12 @@ export function buildModuleImportGraph(
 
   const edges = new Map<string, Set<string>>();
   const bindingsByModule = new Map<string, ImportBinding[]>();
+  const reexportHopsByModule = new Map<string, Set<string>>();
   for (const [modulePath, text] of textByModule) {
     const used = text.replace(IMPORT_STATEMENT, ' ');
     const targets = new Set<string>();
     const moduleBindings: ImportBinding[] = [];
+    const hops = new Set<string>();
     for (const match of text.matchAll(IMPORT_STATEMENT)) {
       if (match[1]) continue;
       const specifier = match[3] ?? match[4];
@@ -225,7 +242,7 @@ export function buildModuleImportGraph(
       }
       for (const binding of bindings) {
         if (!new RegExp(`\\b${binding.local}\\b`).test(used)) continue;
-        const defining = followReexport(target, binding.imported);
+        const defining = followReexport(target, binding.imported, hops);
         targets.add(defining);
         moduleBindings.push({ ...binding, module: defining });
       }
@@ -241,6 +258,7 @@ export function buildModuleImportGraph(
     }
     edges.set(modulePath, targets);
     bindingsByModule.set(modulePath, moduleBindings);
+    reexportHopsByModule.set(modulePath, hops);
   }
 
   return {
@@ -249,6 +267,7 @@ export function buildModuleImportGraph(
     textByModule,
     edges,
     bindingsByModule,
+    reexportHopsByModule,
     resolveSpecifier: resolve,
     reachableFrom(entries) {
       const reachable = new Set<string>();

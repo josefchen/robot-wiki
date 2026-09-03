@@ -573,17 +573,15 @@ function summarizeFontRequests(result: {
   for (const [key, transaction] of result.capture.transactions) {
     classified.set(key, classifyTransaction(transaction));
   }
-  const unclassified = [...classified.values()]
+  const describe = ({ transaction }: ClassifiedTransaction): string =>
+    `${transaction.url} (transaction ${transaction.ordinal}, ${transaction.origin}-origin, request type ${transaction.resourceType}, response type ${transaction.contentType ?? 'none'}${
+      transaction.bodyError === null
+        ? ''
+        : `, payload unreadable: ${transaction.bodyError}`
+    })`;
+  const undecided = [...classified.values()]
     .filter(({ classified: decided }) => !decided)
-    .map(
-      ({ transaction }) =>
-        `${transaction.url} (transaction ${transaction.ordinal}, ${transaction.origin}-origin, request type ${transaction.resourceType}, response type ${transaction.contentType ?? 'none'}${
-          transaction.bodyError === null
-            ? ''
-            : `, payload unreadable: ${transaction.bodyError}`
-        })`,
-    )
-    .sort();
+    .map(describe);
   let observationsWithFontRequest = 0;
   let observationsMixingForeignOrigin = 0;
   for (const [key, ordinals] of result.capture.byObservation) {
@@ -610,8 +608,26 @@ function summarizeFontRequests(result: {
     string,
     TekturDeliveryEvidence['fontResources']['fontRequests'][number]
   >();
-  for (const { isFont, transaction } of classified.values()) {
-    if (!isFont) continue;
+  const fonts = [...classified.values()].filter(({ isFont }) => isFont);
+  // A body read that never completed is a missing observation, not a
+  // conflicting one. Navigating away cancels the reads still in flight, so
+  // at 248 documents most fetches of a face end that way; the transaction
+  // carries no signal of its own and must not borrow a sibling's checksum,
+  // which is the merge this summary exists to avoid. It is dropped only
+  // when some transaction to the same URL was read, and is otherwise
+  // unclassified: a font nobody could read supports no delivery claim.
+  const readUrls = new Set(
+    fonts
+      .filter(({ transaction }) => transaction.sha256 !== null)
+      .map(({ transaction }) => transaction.url),
+  );
+  const unreadable: string[] = [];
+  for (const font of fonts) {
+    const { transaction } = font;
+    if (transaction.sha256 === null) {
+      if (!readUrls.has(transaction.url)) unreadable.push(describe(font));
+      continue;
+    }
     const row = {
       url: transaction.key,
       origin: transaction.origin,
@@ -619,10 +635,11 @@ function summarizeFontRequests(result: {
       contentTypes:
         transaction.contentType === null ? [] : [transaction.contentType],
       payloadSignature: transaction.payloadSignature ?? '',
-      sha256: transaction.sha256 ?? '',
+      sha256: transaction.sha256,
     };
     rows.set(JSON.stringify(row), row);
   }
+  const unclassified = [...undecided, ...unreadable].sort();
   const fontRows = [...rows.entries()]
     .sort(([leftKey, left], [rightKey, right]) =>
       left.url === right.url

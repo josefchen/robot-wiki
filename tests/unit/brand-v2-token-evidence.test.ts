@@ -1069,6 +1069,32 @@ describe('brand-v2 token evidence', () => {
         },
       );
 
+      // The same barrel, entered through a name it forwards from another
+      // first-party module. The graph attributes that binding to the module
+      // that defines it and does not make the barrel a mount, which is the
+      // right answer for "what does this route render" and hid the barrel
+      // from the walk that asks who can obtain a renderer: the closure
+      // listed the boundary and never the barrel that also holds one.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-barrel.ts': [
+            "export { ImageResponse } from 'next/og.js';",
+            "export { renderCorpusCard } from './og-card-render-boundary.ts';",
+          ].join('\n'),
+          'scripts/generate-og-cards.ts': [
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-barrel.ts';",
+            'void ogCardCorpus;',
+            'void renderCorpusCard;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /lib\/og-card-barrel\.ts re-exports next\/og\.js/,
+          );
+        },
+      );
+
       for (const [source, specifier] of forms) {
         withFixture(
           fixtureFiles({
