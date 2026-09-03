@@ -17,6 +17,10 @@ import {
   type ReferenceFeatureMeasurements,
 } from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
+import {
+  AUTHORED_TOKEN_SOURCE,
+  deriveSemanticTokenPopulation,
+} from '@/lib/brand-v2-token-evidence';
 import { deriveTestTargetInventory } from '@/lib/brand-v2-test-inventory';
 import { TEKTUR_POPULATION_IDS } from '@/lib/tektur-populations';
 
@@ -238,6 +242,11 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
           deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
           assertionIds: extractBrandV2Assertions(contract).map(({ id }) => id),
           tekturPopulations: TEKTUR_POPULATION_IDS,
+          semanticTokenPopulation: deriveSemanticTokenPopulation({
+            root: ROOT,
+            contract,
+            css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
+          }).map(({ id }) => id),
         }),
         map,
         results,

@@ -10600,9 +10600,11 @@
       },
       "classification": "structural",
       "ariaBehavior": "aria-hidden when decorative; owner landmark carries meaning",
-      "definedIn": [],
+      "definedIn": [
+        "components/ui/brand-device.tsx"
+      ],
       "ownerRouteOrMount": [],
-      "mountState": "unwritten",
+      "mountState": "library-only",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10610,7 +10612,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "c96134ec250c4c6f0f5a0262f112dce2c78671bbfdcc31fabf148ef2b2090a3a"
+      "fingerprint": "c2e4a6884ace4dff0bed67f5cbd7857638d5d9a91a0123221271b171d30d2bc0"
     },
     {
       "id": "device:section-rule",
@@ -10627,7 +10629,8 @@
       "ariaBehavior": "aria-hidden; adjacent heading carries meaning",
       "definedIn": [
         "app/(content)/[domain]/[slug]/page.tsx",
-        "app/page.tsx"
+        "app/page.tsx",
+        "components/ui/brand-device.tsx"
       ],
       "ownerRouteOrMount": [
         "app/(content)/[domain]/[slug]/page.tsx",
@@ -10641,7 +10644,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "c4124bc864e14552c43cfa9f32ba52c0db1e54b1185a9bde1035fd043b7b5f40"
+      "fingerprint": "16f2ba880694945a52fc951caa532ce75be7c48a052d25620f254a1fa17ae8ab"
     },
     {
       "id": "device:registration-cross",
@@ -10657,7 +10660,8 @@
       "classification": "decorative",
       "ariaBehavior": "aria-hidden",
       "definedIn": [
-        "app/page.tsx"
+        "app/page.tsx",
+        "components/ui/brand-device.tsx"
       ],
       "ownerRouteOrMount": [
         "app/page.tsx"
@@ -10670,7 +10674,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "7da216c5098d0ba04a6e8599b2b6848dcacd1bf46bfefa34e00b96739b6510ec"
+      "fingerprint": "a6a9e6c704b09502912578e5ae92f8faccb8352d69596953f63503ae5aa34b38"
     },
     {
       "id": "device:axis-tick",
@@ -10727,7 +10731,8 @@
       "classification": "decorative",
       "ariaBehavior": "aria-hidden",
       "definedIn": [
-        "app/page.tsx"
+        "app/page.tsx",
+        "components/ui/brand-device.tsx"
       ],
       "ownerRouteOrMount": [
         "app/page.tsx"
@@ -10740,7 +10745,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "36f401adc310a570a75574d70665b03550b706d0b9947d941f393c768b0a874c"
+      "fingerprint": "2d168bb325889287f3948d41818e94ebedfa38704a5733ec032ff1f5dae30fde"
     }
   ],
   "surfaces": [
@@ -10850,6 +10855,7 @@
         "components/ui/aside.tsx",
         "components/ui/badge.tsx",
         "components/ui/callout.tsx",
+        "components/ui/card.tsx",
         "components/ui/chip.tsx",
         "components/ui/cite.tsx",
         "components/ui/code-block.tsx",
@@ -10932,13 +10938,14 @@
         "components/ui/aside.tsx",
         "components/ui/badge.tsx",
         "components/ui/callout.tsx",
+        "components/ui/card.tsx",
         "components/ui/cite.tsx",
         "components/ui/code-block.tsx",
         "components/ui/table.tsx",
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "aa44b95cc9c80a021a66672f086c2a8e2a4c5237dca09dcdb4f3e575875b1e48"
+      "fingerprint": "0c3058920a8e7097ae48fcb1f59069ab80e1900c91c30b9d270f11e2228665d1"
     },
     {
       "id": "surface:raised",
@@ -10970,11 +10977,12 @@
         "active-module"
       ],
       "definedIn": [
+        "components/ui/card.tsx",
         "components/ui/surface.tsx"
       ],
       "ownerRouteOrMount": [],
       "mountState": "library-only",
-      "fingerprint": "46f59aef62efaad269f04f81500aecd54f74411dcc847e85431f0ead173a525a"
+      "fingerprint": "1d4ddc7965a6042699d3e0806bf2be24d888cf72d8f33fb52fc33ce4c2e8a048"
     },
     {
       "id": "surface:floating",
@@ -11050,12 +11058,11 @@
         "playground"
       ],
       "definedIn": [
-        "components/ui/surface.tsx",
-        "lib/brand-v2-reference-rubric.ts"
+        "components/ui/surface.tsx"
       ],
       "ownerRouteOrMount": [],
       "mountState": "library-only",
-      "fingerprint": "988c8c71ec7554c1c788d7e01f127af0cba9ad3c1eaffdf5458dc65494b8e7cf"
+      "fingerprint": "83927910d67adb0e8e9dd97f277db3a0439ae12279bd40925967126398ca5642"
     }
   ],
   "pageFrames": [
@@ -11803,5 +11810,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "0ea20b96a4ad3259285d6ae4c6e8ad6efb6a045f3398ba3284fde438568b64b7"
+  "rootFingerprint": "be4ed4c7470cb11c1c976838f73a93eb42b4d4e36f76f37dc6f494f7e1ac91a2"
 }

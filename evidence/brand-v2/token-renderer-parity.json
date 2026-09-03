@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "fingerprint": "85f05f1d854cc81f27993538efa50a8b1e52607abc59623f61840c0590869631",
+  "cardCount": 48,
+  "paintedProperties": 9743,
+  "paintedByHex": {
+    "#0B0B0C": 95,
+    "#242D33": 97,
+    "#245FFF": 47,
+    "#D9DADB": 9408,
+    "#F5F6F7": 48,
+    "#FFFFFF": 48
+  },
+  "unregisteredPaintedValues": [],
+  "mirrorParity": [
+    {
+      "token": "concrete",
+      "mirror": "#D9DADB",
+      "authored": "#D9DADB"
+    },
+    {
+      "token": "destructive",
+      "mirror": "#6B1839",
+      "authored": "#6B1839"
+    },
+    {
+      "token": "error",
+      "mirror": "#A52A1E",
+      "authored": "#A52A1E"
+    },
+    {
+      "token": "graphite",
+      "mirror": "#242D33",
+      "authored": "#242D33"
+    },
+    {
+      "token": "highlight",
+      "mirror": "#C6FF19",
+      "authored": "#C6FF19"
+    },
+    {
+      "token": "ink",
+      "mirror": "#0B0B0C",
+      "authored": "#0B0B0C"
+    },
+    {
+      "token": "ok",
+      "mirror": "#1A6F45",
+      "authored": "#1A6F45"
+    },
+    {
+      "token": "paper",
+      "mirror": "#F5F6F7",
+      "authored": "#F5F6F7"
+    },
+    {
+      "token": "signal",
+      "mirror": "#245FFF",
+      "authored": "#245FFF"
+    },
+    {
+      "token": "warn",
+      "mirror": "#8A5A00",
+      "authored": "#8A5A00"
+    },
+    {
+      "token": "white",
+      "mirror": "#FFFFFF",
+      "authored": "#FFFFFF"
+    }
+  ]
+}

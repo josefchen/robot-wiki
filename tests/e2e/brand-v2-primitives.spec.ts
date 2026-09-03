@@ -8,12 +8,13 @@ import {
   expect,
   brandV2Registry,
 } from './brand-v2-static-fixture';
-import { scanAnnotationLiterals } from '../../lib/brand-v2-annotation-scan';
+import { scanAnnotationAssignments } from '../../lib/brand-v2-annotation-scan';
 import {
   discoverBrandPrimitives,
   type ControlEvidence,
   type PrimitiveDiscovery,
 } from '../../lib/brand-v2-primitive-discovery';
+import { derivePrimitiveSweepRouteStates } from '../../lib/brand-v2-primitive-reconciliation';
 
 /**
  * The surface and control gates used to locate their own population with
@@ -40,7 +41,7 @@ const VIEWPORT = { width: 1440, height: 900 } as const;
  * enforcement map.
  */
 const SUITE = 'brand-v2 shared primitive registry';
-const SOURCE_SCAN = scanAnnotationLiterals(join(process.cwd()));
+const SOURCE_SCAN = scanAnnotationAssignments(join(process.cwd()));
 const RECONCILIATION_PATH = join(
   process.cwd(),
   'evidence',
@@ -49,19 +50,13 @@ const RECONCILIATION_PATH = join(
 );
 
 /**
- * Route states outside the default document of a registered route. The
- * market-map bubble view is the only place `control:selection` is carried by
- * an SVG shape, so leaving it unswept hid the whole vector control class.
+ * Every registered public destination plus one state per non-default
+ * market-map view, derived in the same module the enforcement generator
+ * reads the artifact with, so "the sweep covered the population" is a
+ * comparison against a derived set rather than against a literal typed
+ * beside one side of it.
  */
-const ROUTE_STATES = [
-  '/market-map/?view=bubble',
-  '/market-map/?view=timeline',
-] as const;
-
-const APPLICABLE_ROUTES = [
-  ...brandV2Registry.routes.public.map(({ path }) => path),
-  ...ROUTE_STATES,
-] as const;
+const APPLICABLE_ROUTES = derivePrimitiveSweepRouteStates(brandV2Registry);
 
 const registeredSurfaceIds = new Set(
   brandV2Registry.surfaces.map(({ id }) => id),

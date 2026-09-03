@@ -1450,307 +1450,307 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/a-z/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/autonomous-vehicles/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/drones/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/space/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/surgical/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/control/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/grasp-planning/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/kinematics/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/motion-planning/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/perception/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/scene-representation/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/state-estimation/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/credits/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/data-bottleneck/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/datasets/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/evaluation-crisis/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/hardware-taxonomy/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/industrial-deployment/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/teleop-rigs/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/bear-case/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/competing-theses/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/dexterity/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/generalization/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/reliability-gap/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/safety-and-assurance/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/glossary/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/action-chunking/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/bc-foundations/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/comparison-matrix/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/cross-embodiment/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/diffusion-policy/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/generalist-policies/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/hierarchical/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/knowledge-insulation/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/pi-line/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/realtime-execution/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/rl-finetuning/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/vla-models/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/market-map/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/playground/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/humanoid-wbc/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/legged-locomotion/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/parallel-sim-rl/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/reward-design-mpc/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/rl-for-robotics/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/sim2real-transfer/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/why-rl-locomotion/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/search/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/generative-sim/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/generative-video/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/jepa/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/latent-dynamics/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/taxonomy/",
-          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-001 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
@@ -1762,13 +1762,25 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
-          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+          "mechanism": "Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads."
         },
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › runtime signal token resolves to exact v2 blue",
           "mechanism": "Measures the resolved signal, focus, and selection tokens in a live document."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
+          "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
+          "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
       ],
       "enforcementMode": "browser-state",
@@ -1856,307 +1868,307 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/a-z/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/autonomous-vehicles/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/drones/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/space/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/surgical/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/control/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/grasp-planning/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/kinematics/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/motion-planning/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/perception/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/scene-representation/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/state-estimation/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/credits/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/data-bottleneck/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/datasets/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/evaluation-crisis/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/hardware-taxonomy/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/industrial-deployment/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/teleop-rigs/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/bear-case/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/competing-theses/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/dexterity/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/generalization/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/reliability-gap/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/safety-and-assurance/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/glossary/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/action-chunking/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/bc-foundations/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/comparison-matrix/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/cross-embodiment/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/diffusion-policy/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/generalist-policies/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/hierarchical/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/knowledge-insulation/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/pi-line/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/realtime-execution/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/rl-finetuning/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/vla-models/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/market-map/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/playground/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/humanoid-wbc/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/legged-locomotion/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/parallel-sim-rl/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/reward-design-mpc/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/rl-for-robotics/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/sim2real-transfer/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/why-rl-locomotion/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/search/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/generative-sim/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/generative-video/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/jepa/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/latent-dynamics/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/taxonomy/",
-          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-002 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
@@ -2168,13 +2180,25 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
-          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+          "mechanism": "Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads."
         },
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › runtime signal token resolves to exact v2 blue",
           "mechanism": "Measures the resolved signal, focus, and selection tokens in a live document."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
+          "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
+          "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2262,307 +2286,307 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/a-z/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/autonomous-vehicles/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/drones/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/space/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/surgical/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/control/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/grasp-planning/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/kinematics/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/motion-planning/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/perception/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/scene-representation/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/state-estimation/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/credits/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/data-bottleneck/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/datasets/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/evaluation-crisis/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/hardware-taxonomy/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/industrial-deployment/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/teleop-rigs/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/bear-case/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/competing-theses/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/dexterity/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/generalization/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/reliability-gap/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/safety-and-assurance/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/glossary/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/action-chunking/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/bc-foundations/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/comparison-matrix/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/cross-embodiment/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/diffusion-policy/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/generalist-policies/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/hierarchical/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/knowledge-insulation/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/pi-line/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/realtime-execution/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/rl-finetuning/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/vla-models/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/market-map/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/playground/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/humanoid-wbc/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/legged-locomotion/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/parallel-sim-rl/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/reward-design-mpc/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/rl-for-robotics/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/sim2real-transfer/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/why-rl-locomotion/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/search/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/generative-sim/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/generative-video/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/jepa/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/latent-dynamics/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/taxonomy/",
-          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+          "mechanism": "VAL-B2-COL-003 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
@@ -2574,13 +2598,25 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
-          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+          "mechanism": "Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads."
         },
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › runtime paper token resolves to exact v2 foundation",
           "mechanism": "Measures the resolved foundation, semantic, and spacing tokens in a live document."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
+          "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
+          "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
       ],
       "enforcementMode": "browser-state",
@@ -3389,42 +3425,332 @@
     },
     {
       "assertionId": "VAL-B2-COMP-012",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#controls",
+      "canonicalPopulationSource": "app/globals.css#semantic-tokens-and-use-sites",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:primary-action",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:secondary-action",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:selection",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:link-focus",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-token:destructive",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:segmented",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-token:error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:input",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-token:ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:control:disabled",
-          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-token:warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/article/commit-to-reveal.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/advantage-scrubber.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/advantage-scrubber.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/appearance-physics-push.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/collaborative-operation-modes.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/compounding-error.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/contact-geometry.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/contact-geometry.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/control-loop-budget.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/control-loop-budget.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/cross-embodiment-strategies.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/cross-embodiment-strategies.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/egoscale-scaling.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/grasp-wrench-lab.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/grasp-wrench-lab.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/hierarchy-timescales.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/impedance-contact-lab.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/jepa-planning.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/mot-insulation.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/mot-insulation.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/pendulum-controller.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-error-budget.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-error-budget.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-latency.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/rrt-explorer.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/sample-efficiency-ledger.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/sample-efficiency-ledger.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/scene-representation-ladder.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/teacher-student.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/interactive/training-time-chart.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/mdx/cite-ref.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/mdx/image-ref.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/mdx/term-ref.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/trajectory-panel.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#ok",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/callout.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/callout.tsx#warn",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/ui/input-field.tsx#error",
+          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
           "kind": "test",
@@ -3442,13 +3768,25 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
-          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+          "mechanism": "Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads."
         },
         {
           "kind": "test",
           "file": "tests/e2e/brand-v2.spec.ts",
           "title": "brand-v2 core visual authority › runtime paper token resolves to exact v2 foundation",
           "mechanism": "Measures the resolved foundation, semantic, and spacing tokens in a live document."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
+          "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
+          "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
       ],
       "enforcementMode": "browser-state",
@@ -3456,7 +3794,7 @@
         "statement": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 7,
+        "populationSize": 65,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -3465,13 +3803,71 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-012:control:primary-action",
-          "result:VAL-B2-COMP-012:control:secondary-action",
-          "result:VAL-B2-COMP-012:control:selection",
-          "result:VAL-B2-COMP-012:control:link-focus",
-          "result:VAL-B2-COMP-012:control:segmented",
-          "result:VAL-B2-COMP-012:control:input",
-          "result:VAL-B2-COMP-012:control:disabled"
+          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-token:destructive",
+          "result:VAL-B2-COMP-012:semantic-token:error",
+          "result:VAL-B2-COMP-012:semantic-token:ok",
+          "result:VAL-B2-COMP-012:semantic-token:warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/article/commit-to-reveal.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/advantage-scrubber.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/advantage-scrubber.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/appearance-physics-push.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/collaborative-operation-modes.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/compounding-error.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/contact-geometry.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/contact-geometry.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/control-loop-budget.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/control-loop-budget.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/cross-embodiment-strategies.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/cross-embodiment-strategies.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/egoscale-scaling.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/eureka-loop.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/execution-modes.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/grasp-wrench-lab.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/grasp-wrench-lab.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/hierarchy-timescales.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/impedance-contact-lab.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/jepa-planning.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/latency-comparison.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/mot-insulation.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/mot-insulation.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/mpc-vs-rl.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/pendulum-controller.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-error-budget.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-error-budget.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/perception-latency.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/reward-shaping.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/rrt-explorer.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/sample-efficiency-ledger.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/sample-efficiency-ledger.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/scene-representation-ladder.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/teacher-student.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/interactive/training-time-chart.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/mdx/cite-ref.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/mdx/image-ref.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/mdx/term-ref.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/three/trajectory-panel.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#ok",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/callout.tsx#error",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/callout.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-use:components/ui/input-field.tsx#error"
         ]
       }
     },

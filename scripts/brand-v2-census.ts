@@ -16,7 +16,7 @@ import {
   TEKTUR_ROLE_INSTANCES,
 } from '../data/type-roles.ts';
 import { referencedImageIds } from '../lib/images.ts';
-import { scanAnnotationLiterals } from '../lib/brand-v2-annotation-scan.ts';
+import { scanAnnotationAssignments } from '../lib/brand-v2-annotation-scan.ts';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -446,7 +446,7 @@ function interactiveRegistry() {
   return { sources, mounts };
 }
 
-const ANNOTATION_SCAN = scanAnnotationLiterals(ROOT);
+const ANNOTATION_SCAN = scanAnnotationAssignments(ROOT);
 
 /**
  * The modules that actually render a primitive ID in production, read out of
@@ -454,9 +454,11 @@ const ANNOTATION_SCAN = scanAnnotationLiterals(ROOT);
  * shared `components/ui/action.tsx` primitive writes
  * `control:primary-action`, but nothing mounts `<Action>`, so recording that
  * definition file as the owner claims a production mount that does not
- * exist. Only writers the module graph reaches from a route entry qualify;
- * a primitive the library defines and no route mounts records an empty owner
- * list, which is the truth.
+ * exist. Reachability alone is not owning it either: `components/ui/card.tsx`
+ * can assign `surface:raised`, and every reachable `<Card>` omits `level`,
+ * so the only ID it supplies in production is `surface:flat`. A primitive
+ * the library defines and no route supplies records an empty owner list,
+ * which is the truth.
  */
 function annotationOwnerModules(id: string): readonly string[] {
   return ANNOTATION_SCAN.productionOwnersById[id] ?? [];

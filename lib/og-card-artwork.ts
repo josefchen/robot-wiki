@@ -114,6 +114,61 @@ export function cardTextRuns(
   return [];
 }
 
+export type CardPaintedColor = {
+  property: string;
+  /** The declared value, e.g. `#D9DADB` or `1px solid #D9DADB`. */
+  value: string;
+  /** Uppercase six-digit hexes found in the value. */
+  hexes: string[];
+  /** Colour syntax in the value that is not a six-digit hex. */
+  unregistered: string[];
+};
+
+const HEX_IN_VALUE = /#[0-9a-fA-F]{3,8}\b/g;
+const NON_HEX_COLOR = /\b(?:rgba?|hsla?|color-mix|oklch|lab)\(|\bcurrentColor\b/gi;
+const COLOR_PROPERTY =
+  /^(?:color|background|backgroundColor|backgroundImage|border|borderTop|borderRight|borderBottom|borderLeft|borderColor|outline|outlineColor|boxShadow|textDecorationColor|fill|stroke)$/;
+
+/**
+ * Every colour a card actually paints, read out of the element tree the
+ * generator renders. Renderer parity checks that walk this population fail
+ * when the artwork paints a value the stylesheet authors for no token,
+ * whereas comparing the mirror constant with itself cannot.
+ */
+export function cardPaintedColors(node: CardNode): CardPaintedColor[] {
+  const painted: CardPaintedColor[] = [];
+  for (const [property, raw] of Object.entries(node.props.style)) {
+    if (typeof raw !== 'string') continue;
+    const hexes = [...raw.matchAll(HEX_IN_VALUE)].map((match) =>
+      match[0].toUpperCase(),
+    );
+    const unregistered = [...raw.matchAll(NON_HEX_COLOR)].map(
+      (match) => match[0],
+    );
+    // A six-digit hex is the only spelling the token contract seals, so a
+    // colour property carrying anything else is reported rather than
+    // silently skipped.
+    if (COLOR_PROPERTY.test(property) && hexes.length === 0) {
+      unregistered.push(`${property}: ${raw}`);
+    }
+    if (hexes.length === 0 && unregistered.length === 0) continue;
+    painted.push({
+      property,
+      value: raw,
+      hexes: hexes.filter((hex) => hex.length === 7),
+      unregistered: [
+        ...unregistered,
+        ...hexes.filter((hex) => hex.length !== 7),
+      ],
+    });
+  }
+  const children = node.props.children;
+  if (Array.isArray(children)) {
+    for (const child of children) painted.push(...cardPaintedColors(child));
+  }
+  return painted;
+}
+
 /* ------------------------------------------------------------------ */
 /* Engineering-grid panel. Flat geometry, no gradients, glow, logo or  */
 /* data encoding. The grid stays neutral; signal blue belongs to text. */

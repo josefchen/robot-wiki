@@ -10,9 +10,30 @@ import {
   type EvidenceResult,
   type EnforcementMap,
 } from '../lib/brand-v2-enforcement.ts';
+import {
+  readPrimitiveReconciliation,
+  type PrimitiveRegistrySlice,
+} from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
-import { BRAND_COLORS, type BrandColor } from '../lib/brand-v2-tokens.ts';
+import { publishedModules } from '../data/modules.ts';
+import {
+  AUTHORED_TOKEN_SOURCE,
+  RENDERER_MIRROR_SOURCE,
+  SEMANTIC_ROLE_ASSERTION,
+  SEMANTIC_TOKEN_POPULATION_SOURCE,
+  TOKEN_ASSERTION_TOKENS,
+  TOKEN_RENDERER_EVIDENCE_PATH,
+  TOKEN_RUNTIME_EVIDENCE_PATH,
+  contrastRatio,
+  deriveAuthoredColorTokens,
+  deriveContractTokenExpectations,
+  deriveRuntimeTokenExpectations,
+  deriveSemanticTokenPopulation,
+  readTokenRendererEvidence,
+  readTokenRuntimeEvidence,
+  type SemanticTokenMember,
+} from '../lib/brand-v2-token-evidence.ts';
 import {
   TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE,
   TEKTUR_BINARY_POPULATION_SOURCE,
@@ -58,25 +79,23 @@ const RECONCILED_PRIMITIVE_ASSERTIONS = new Map<string, PrimitiveRegistryKey>([
 ]);
 
 /**
- * Completed by the foundation-token feature. The renderer-mirror contract is
- * proved by tests/unit/design-system-contract.test.ts, which compares the
- * mirror constants against the sealed palette and against every
- * `--color-*` declaration in app/globals.css, and the runtime resolution is
- * measured in a real browser on every public route. Leaving them pending
- * while the feature's fulfils list claims them is R8c.
+ * The token assertions, routed to the tokens their own contract rows name.
+ *
+ * Membership grants nothing. It previously did: the four IDs were declared
+ * complete here and the generator then filled each `computed` block by
+ * reading the expected colour back out of BRAND_COLORS, so the row asserted
+ * that a constant equals itself. Status and payload now come from two
+ * persisted measurements — the all-route runtime sweep and the renderer
+ * corpus walk — through readers that throw on stale, incomplete or
+ * disagreeing evidence.
  */
-const COMPLETED_TOKEN_ASSERTIONS = new Map<string, readonly BrandColor[]>([
-  ['VAL-B2-COL-001', ['highlight']],
-  ['VAL-B2-COL-002', ['signal']],
-  ['VAL-B2-COL-003', ['ink', 'graphite', 'concrete', 'paper', 'white']],
-  ['VAL-B2-COMP-012', ['ok', 'warn', 'error', 'destructive']],
-]);
+const TOKEN_ASSERTIONS = new Set(Object.keys(TOKEN_ASSERTION_TOKENS));
 
 function isCompleted(id: string): boolean {
   return (
     COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
-    COMPLETED_TOKEN_ASSERTIONS.has(id)
+    TOKEN_ASSERTIONS.has(id)
   );
 }
 
@@ -104,78 +123,41 @@ const RECONCILIATION_PATH = join(
   'primitive-reconciliation.json',
 );
 
-type ReconciliationMember = {
-  kind: PrimitiveRegistryKey;
-  fingerprint: string;
-  mountState: string;
-  definedIn: string[];
-  ownerRouteOrMount: string[];
-  renderedOn: string[];
+const RECONCILIATION = readPrimitiveReconciliation({
+  artifact: readJson(RECONCILIATION_PATH),
+  registry: REGISTRY as unknown as PrimitiveRegistrySlice,
+});
+
+const TOKEN_SOURCES = {
+  root: ROOT,
+  contract: readFileSync(join(ROOT, 'contract', 'design-integrity.md'), 'utf8'),
+  css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
 };
-
-type Reconciliation = {
-  version: number;
-  viewport: { width: number; height: number };
-  routes: string[];
-  members: Record<string, ReconciliationMember>;
-  unregisteredRendered: string[];
-  unannotatedRendered: string[];
-};
-
-/**
- * The persisted browser reconciliation, checked against the registry it
- * claims to describe. A stale or partial artifact must not be able to grant
- * a pass, so every mismatch throws instead of degrading to a weaker claim:
- * the generator refuses to emit rather than emitting an unfalsifiable row.
- */
-function readReconciliation(): Reconciliation {
-  const artifact = readJson(RECONCILIATION_PATH) as Reconciliation;
-  if (artifact.version !== 1) {
-    throw new Error(`Unsupported primitive reconciliation version`);
-  }
-  const registryRoutes = REGISTRY.routes.public.map(({ path }) => path);
-  for (const route of registryRoutes) {
-    if (!artifact.routes.includes(route)) {
-      throw new Error(
-        `Primitive reconciliation never visited ${route}; re-run npm run test:brand-v2`,
-      );
-    }
-  }
-  if (artifact.unannotatedRendered.length > 0) {
-    throw new Error(
-      `Primitive reconciliation records ${artifact.unannotatedRendered.length} unannotated rendered members`,
-    );
-  }
-  if (artifact.unregisteredRendered.length > 0) {
-    throw new Error(
-      `Primitive reconciliation records unregistered rendered members: ${artifact.unregisteredRendered.join(', ')}`,
-    );
-  }
-  for (const key of ['gridDevices', 'surfaces', 'controls'] as const) {
-    for (const row of REGISTRY[key]) {
-      const member = artifact.members[row.id as string];
-      if (!member) {
-        throw new Error(
-          `Primitive reconciliation has no member record for ${row.id}`,
-        );
-      }
-      if (member.fingerprint !== row.fingerprint) {
-        throw new Error(
-          `Primitive reconciliation for ${row.id} is stale: fingerprint ${member.fingerprint} does not match the registry`,
-        );
-      }
-      const mounted = member.renderedOn.length > 0;
-      if (mounted !== (member.mountState === 'production')) {
-        throw new Error(
-          `Primitive reconciliation for ${row.id} contradicts its mount state ${member.mountState}`,
-        );
-      }
-    }
-  }
-  return artifact;
-}
-
-const RECONCILIATION = readReconciliation();
+const PUBLIC_ROUTE_PATH_BY_ID = new Map(
+  REGISTRY.routes.public.map(({ id, path }) => [id, path]),
+);
+const TOKEN_RUNTIME = readTokenRuntimeEvidence({
+  artifact: readJson(join(ROOT, TOKEN_RUNTIME_EVIDENCE_PATH)),
+  ...TOKEN_SOURCES,
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+});
+const TOKEN_RENDERER = readTokenRendererEvidence({
+  artifact: readJson(join(ROOT, TOKEN_RENDERER_EVIDENCE_PATH)),
+  ...TOKEN_SOURCES,
+  // Counted from the published corpus rather than trusted from the artifact,
+  // so a walk that skipped cards cannot certify the cards it never saw.
+  cardCount: publishedModules().length + 1,
+});
+const TOKEN_EXPECTATIONS = deriveContractTokenExpectations(TOKEN_SOURCES);
+const RUNTIME_TOKEN_EXPECTATIONS = deriveRuntimeTokenExpectations(TOKEN_SOURCES);
+const AUTHORED_TOKENS = deriveAuthoredColorTokens(TOKEN_SOURCES.css);
+const SEMANTIC_POPULATION = deriveSemanticTokenPopulation(TOKEN_SOURCES);
+const SEMANTIC_MEMBERS = new Map(
+  SEMANTIC_POPULATION.map((member) => [member.id, member]),
+);
+const MIRROR_PARITY = new Map(
+  TOKEN_RENDERER.mirrorParity.map((entry) => [entry.token, entry]),
+);
 
 function populationSources(assertionIds: string[]) {
   const baseline = readJson(
@@ -187,10 +169,14 @@ function populationSources(assertionIds: string[]) {
     deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
     assertionIds,
     tekturPopulations: TEKTUR_POPULATION_IDS,
+    semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
   });
 }
 
 function populationSourceFor(id: string): string {
+  if (id === SEMANTIC_ROLE_ASSERTION) {
+    return SEMANTIC_TOKEN_POPULATION_SOURCE;
+  }
   if (id === 'VAL-B2-TYPE-015') {
     return TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE;
   }
@@ -238,7 +224,7 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // A token row's evidence is a computed value read out of a live document,
   // and a primitive row's evidence is the persisted browser reconciliation,
   // so both stay browser-state rows rather than becoming source-build ones.
-  if (COMPLETED_TOKEN_ASSERTIONS.has(id)) return 'browser-state';
+  if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
   if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
   if (
     ['GOV', 'BASE'].includes(area) ||
@@ -466,7 +452,17 @@ const TOKEN_SEMANTIC_TARGET = testTarget(
 const TOKEN_ROUTE_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2.spec.ts',
   'brand-v2 core visual authority › every public route resolves the sealed palette exactly',
-  'Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly.',
+  'Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads.',
+);
+const TOKEN_RENDERER_PARITY_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity',
+  'Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token.',
+);
+const TOKEN_EVIDENCE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence',
+  'Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected.',
 );
 const TOKEN_ACCENT_TARGET = testTarget(
   'tests/e2e/brand-v2.spec.ts',
@@ -480,24 +476,28 @@ const TOKEN_FOUNDATION_TARGET = testTarget(
 );
 
 function tokenTargetsFor(id: string): TestTarget[] {
-  if (id === 'VAL-B2-COMP-012') {
+  if (id === SEMANTIC_ROLE_ASSERTION) {
     return [
       TOKEN_MIRROR_TARGET,
       TOKEN_SEMANTIC_TARGET,
       TOKEN_ROUTE_SWEEP_TARGET,
       TOKEN_FOUNDATION_TARGET,
+      TOKEN_RENDERER_PARITY_TARGET,
+      TOKEN_EVIDENCE_READER_TARGET,
     ];
   }
   return [
     TOKEN_MIRROR_TARGET,
     TOKEN_ROUTE_SWEEP_TARGET,
     id === 'VAL-B2-COL-003' ? TOKEN_FOUNDATION_TARGET : TOKEN_ACCENT_TARGET,
+    TOKEN_RENDERER_PARITY_TARGET,
+    TOKEN_EVIDENCE_READER_TARGET,
   ];
 }
 
 function testTargetsFor(id: string): TestTarget[] {
   if (COMPLETED_TEKTUR_ASSERTIONS.has(id)) return tekturTargetsFor(id);
-  if (COMPLETED_TOKEN_ASSERTIONS.has(id)) return tokenTargetsFor(id);
+  if (TOKEN_ASSERTIONS.has(id)) return tokenTargetsFor(id);
   if (id in PRIMITIVE_BROWSER_TARGETS) {
     return [
       PRIMITIVE_REGISTRY_TARGET,
@@ -713,6 +713,216 @@ function completedEvidence(
   };
 }
 
+type TokenResultCommon = {
+  resultId: string;
+  assertionId: string;
+  populationMemberId: string;
+  coveredPopulationMemberIds: string[];
+  coverageKind: 'per-member' | 'population-wide';
+  status: 'passed' | 'pending';
+  expected: string;
+  actual: string;
+  selectorOrRegistryId: string;
+  exceptionVerdict: 'none';
+};
+
+const AA_CONTRAST = 4.5;
+
+/**
+ * One colour assertion, on one public route, from what that route actually
+ * resolved in the recorded sweep — plus the renderer mirror comparison for
+ * the same token against the authored declaration.
+ */
+function routeTokenResult(
+  common: TokenResultCommon,
+  assertionId: string,
+  member: string,
+): EvidenceResult {
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (route === undefined) {
+    throw new Error(`${assertionId}: ${member} is not a registered public route`);
+  }
+  const observed = TOKEN_RUNTIME.observedByRoute[route];
+  if (!observed) {
+    throw new Error(
+      `${assertionId}: the recorded sweep has no observation for ${route}`,
+    );
+  }
+  const expectations = TOKEN_EXPECTATIONS[assertionId];
+  const tokens = new Set(expectations.map(({ token }) => token));
+  const properties = Object.values(RUNTIME_TOKEN_EXPECTATIONS).filter(
+    (expectation) => tokens.has(expectation.aliasOf ?? expectation.token),
+  );
+  const resolved: Record<string, string> = {};
+  for (const expectation of properties) {
+    const value = observed[expectation.property];
+    if (value !== expectation.expectedHex) {
+      throw new Error(
+        `${assertionId}: ${route} resolved ${expectation.property} to ${String(value)} rather than ${expectation.expectedHex}`,
+      );
+    }
+    resolved[expectation.property] = value;
+  }
+  const rendererMirror: Record<string, string> = {};
+  const paintedInCardCorpus: Record<string, number> = {};
+  for (const expectation of expectations) {
+    const parity = MIRROR_PARITY.get(expectation.token);
+    if (!parity) {
+      throw new Error(
+        `${assertionId}: ${RENDERER_MIRROR_SOURCE} exports no mirror for ${expectation.token}`,
+      );
+    }
+    rendererMirror[expectation.token] = parity.mirror;
+    paintedInCardCorpus[expectation.token] =
+      TOKEN_RENDERER.paintedByHex[expectation.authoredHex] ?? 0;
+  }
+  return {
+    ...common,
+    actual: `${route} resolved ${Object.keys(resolved).length} token properties to the contract values in a sweep of ${TOKEN_RUNTIME.routes.length} public routes, and the renderer mirror matches the authored declaration`,
+    payload: {
+      kind: 'browser-state',
+      computed: {
+        route,
+        resolved,
+        contract: Object.fromEntries(
+          expectations.map(({ token, contractHex }) => [token, contractHex]),
+        ),
+        rendererMirror,
+        paintedInCardCorpus,
+        cardsWalked: TOKEN_RENDERER.cardCount,
+        evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, TOKEN_RENDERER_EVIDENCE_PATH],
+      },
+    },
+  };
+}
+
+/**
+ * One member of VAL-B2-COMP-012's own population: a semantic token
+ * declaration, a module that uses one, or a renderer that mirrors one. The
+ * clause each member answers differs, so the payload differs: a declaration
+ * records distinctness and measured contrast, a use site records the
+ * non-colour cue carried beside the hue, and a renderer records mirror
+ * parity against the authored stylesheet.
+ */
+function semanticTokenResult(
+  common: TokenResultCommon,
+  memberId: string,
+): EvidenceResult {
+  const member = SEMANTIC_MEMBERS.get(memberId) as SemanticTokenMember;
+  if (!member) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: ${memberId} is not a semantic-token population member`,
+    );
+  }
+  const authoredHex = AUTHORED_TOKENS.hexByToken[member.token];
+  const parity = MIRROR_PARITY.get(member.token);
+  if (authoredHex === undefined || !parity) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: ${member.token} has no authored declaration or renderer mirror`,
+    );
+  }
+  const routesResolved = TOKEN_RUNTIME.routes.filter(
+    (route) =>
+      TOKEN_RUNTIME.observedByRoute[route][`--color-${member.token}`] ===
+      authoredHex,
+  ).length;
+  if (routesResolved !== TOKEN_RUNTIME.routes.length) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: --color-${member.token} resolved to ${authoredHex} on ${routesResolved} of ${TOKEN_RUNTIME.routes.length} swept routes`,
+    );
+  }
+  if (member.kind === 'declaration') {
+    const accents = Object.entries(AUTHORED_TOKENS.hexByToken).filter(
+      ([token, hex]) =>
+        hex === authoredHex &&
+        token !== member.token &&
+        AUTHORED_TOKENS.aliasTargetByToken[token] !== member.token,
+    );
+    if (accents.length > 0) {
+      throw new Error(
+        `--color-${member.token} shares ${authoredHex} with ${accents.map(([token]) => token).join(', ')}, so it is not separate from the other tokens`,
+      );
+    }
+    const grounds = { paper: 'paper', surface: 'white' } as const;
+    const contrast: Record<string, number> = {};
+    for (const [label, ground] of Object.entries(grounds)) {
+      const groundHex = AUTHORED_TOKENS.hexByToken[ground];
+      if (groundHex === undefined) {
+        throw new Error(`${AUTHORED_TOKEN_SOURCE} authors no --color-${ground}`);
+      }
+      const ratio = contrastRatio(authoredHex, groundHex);
+      if (ratio < AA_CONTRAST) {
+        throw new Error(
+          `--color-${member.token} measures ${ratio.toFixed(2)}:1 on ${label}, below WCAG AA`,
+        );
+      }
+      contrast[`${label}:${groundHex}`] = Number(ratio.toFixed(2));
+    }
+    return {
+      ...common,
+      actual: `declared as ${authoredHex}, distinct from every other authored colour token, at or above WCAG AA on both reading grounds, and resolved on all ${routesResolved} swept public routes`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          member: member.id,
+          token: member.token,
+          declaration: member.forms,
+          authored: authoredHex,
+          rendererMirror: parity.mirror,
+          contrastRatios: contrast,
+          routesResolved,
+          evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, TOKEN_RENDERER_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
+  if (member.kind === 'renderer') {
+    return {
+      ...common,
+      actual: `${member.module} mirrors ${member.token} as ${parity.mirror}, which equals the ${authoredHex} authored in ${AUTHORED_TOKEN_SOURCE}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          member: member.id,
+          token: member.token,
+          module: member.module,
+          forms: member.forms,
+          references: member.references,
+          rendererMirror: parity.mirror,
+          authored: authoredHex,
+          paintedInCardCorpus:
+            TOKEN_RENDERER.paintedByHex[authoredHex] ?? 0,
+          evidence: [TOKEN_RENDERER_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
+  if (member.cueCarriers.length === 0) {
+    throw new Error(
+      `${member.module} carries ${member.token} as colour alone: no border, weight, shape, state attribute or role cue accompanies it`,
+    );
+  }
+  return {
+    ...common,
+    actual: `${member.module} uses ${member.token} through ${member.forms.join(', ')} beside the non-colour cues ${member.cueCarriers.join(', ')}, and the token resolved on all ${routesResolved} swept public routes`,
+    payload: {
+      kind: 'browser-state',
+      computed: {
+        member: member.id,
+        token: member.token,
+        module: member.module,
+        forms: member.forms,
+        references: member.references,
+        viaAlias: member.viaAlias,
+        cueCarriers: member.cueCarriers,
+        authored: authoredHex,
+        routesResolved,
+        evidence: [TOKEN_RUNTIME_EVIDENCE_PATH],
+      },
+    },
+  };
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -780,27 +990,15 @@ function resultFor(
       },
     };
   }
-  const tokenNames = COMPLETED_TOKEN_ASSERTIONS.get(assertionId);
-  if (tokenNames) {
+  if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
-        `${assertionId} is completed and must record per-member evidence`,
+        `${assertionId} is measured per member and must record per-member evidence`,
       );
     }
-    return {
-      ...common,
-      payload: {
-        kind: 'browser-state',
-        computed: {
-          populationMember: member,
-          resolvedTokens: Object.fromEntries(
-            tokenNames.map((name) => [`--color-${name}`, BRAND_COLORS[name]]),
-          ),
-          mirrorSource: 'lib/brand-v2-tokens.ts',
-          runtimeSource: 'app/globals.css',
-        },
-      },
-    };
+    return assertionId === SEMANTIC_ROLE_ASSERTION
+      ? semanticTokenResult(common, member)
+      : routeTokenResult(common, assertionId, member);
   }
   if (isCompleted(assertionId)) {
     if (member === undefined) {
@@ -918,7 +1116,9 @@ function generate() {
             evidenceRowId: assertionResult.resultId,
             mechanism: RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
-              : isCompleted(id)
+              : TOKEN_ASSERTIONS.has(id)
+                ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
+                : isCompleted(id)
                 ? `${id} passed per-member evidence derived from ${canonicalPopulationSource}`
                 : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
           })),

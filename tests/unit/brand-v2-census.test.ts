@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, publishedModules } from '@/data/modules';
+import { scanAnnotationAssignments } from '@/lib/brand-v2-annotation-scan';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -326,7 +327,16 @@ describe('brand-v2 canonical census', () => {
     // rather than owner data: it cannot go stale and it cannot be wrong. It
     // then named every module containing the ID literal, which made an
     // unmounted library definition look like a shipped mount. Owners are now
-    // the route-reachable writers, and `mountState` records the rest.
+    // the writers that supply the ID on a production route, and `mountState`
+    // records the rest.
+    //
+    // The definition set is compared with the resolved annotation
+    // assignments rather than with a substring search, because a finite
+    // dynamic writer never contains its own ID as a literal:
+    // components/ui/card.tsx assigns `surface:${level}` and
+    // components/ui/brand-device.tsx assigns `device:${device}`.
+    const scan = scanAnnotationAssignments(ROOT);
+    expect(scan.writes.length).toBeGreaterThan(0);
     for (const row of [
       ...registry.gridDevices,
       ...registry.surfaces,
@@ -337,10 +347,24 @@ describe('brand-v2 canonical census', () => {
       );
       expect(row.definedIn).toBeInstanceOf(Array);
       expect(row.ownerRouteOrMount).toBeInstanceOf(Array);
+      expect(
+        [...row.definedIn].sort(),
+        `${row.id} definedIn must equal its resolved annotation writers`,
+      ).toEqual([...(scan.ownersById[row.id] ?? [])].sort());
+      expect(
+        [...row.ownerRouteOrMount].sort(),
+        `${row.id} owners must equal the writers that supply it in production`,
+      ).toEqual([...(scan.productionOwnersById[row.id] ?? [])].sort());
       for (const owner of row.definedIn) {
         expect(owner).not.toMatch(/shared primitive|supplied at render/i);
         expect(existsSync(join(ROOT, owner))).toBe(true);
-        expect(readFileSync(join(ROOT, owner), 'utf8')).toContain(row.id);
+        const writes = scan.writes.filter(
+          (write) => write.module === owner && write.ids.includes(row.id),
+        );
+        expect(
+          writes.length,
+          `${owner} must contain a resolved assignment of ${row.id}`,
+        ).toBeGreaterThan(0);
       }
       for (const owner of row.ownerRouteOrMount) {
         expect(row.definedIn).toContain(owner);

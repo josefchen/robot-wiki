@@ -1,6 +1,8 @@
-import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { dirname, extname, join, relative } from 'node:path';
-import { isSyncConflictDuplicate } from './sync-duplicates.ts';
+import { extname } from 'node:path';
+import {
+  buildModuleImportGraph,
+  type ModuleImportGraph,
+} from './module-import-graph.ts';
 
 /**
  * The source half of the surface/control population (VAL-B2-SURF-010:
@@ -10,43 +12,82 @@ import { isSyncConflictDuplicate } from './sync-duplicates.ts';
  *
  * A rendered-DOM sweep alone cannot see an ID that only some unvisited route
  * paints, and a registry read alone cannot see an ID a component invents. So
- * the annotation literals are read straight out of first-party source and
- * reconciled against the registry independently of any browser run.
+ * the population is read straight out of first-party source and reconciled
+ * against the registry independently of any browser run.
  *
- * Writing an ID is not owning it. `components/ui/action.tsx` defines the
- * shared primitive that writes `control:primary-action`, but nothing mounts
- * `<Action>`, so recording that definition file as the control's
- * `ownerRouteOrMount` claims a production mount that does not exist. The
- * mount graph below therefore resolves each module's imports and answers a
- * different question: is this module reachable from a route entry — an
- * `app/` segment file, an MDX article, or the MDX component registry — by a
- * chain of modules that actually use what they import? Only the reachable
- * writers are owners; the rest are recorded as defined-but-unmounted.
+ * What is read is the ANNOTATION ASSIGNMENT, not a quoted string. Scanning
+ * quoted literals got two things wrong at once. It missed every finite
+ * dynamic writer — `components/ui/brand-device.tsx` assigns
+ * `device:${device}` for a four-member union and `components/ui/card.tsx`
+ * assigns `surface:${level}`, so both were invisible and `device:outer-rail`
+ * was recorded as written by nothing. And it counted read-only comparisons
+ * as definitions: `lib/brand-v2-reference-rubric.ts` only compares
+ * `dataset.brandSurfaceId` with `surface:bounded-dark-instrument`, yet was
+ * recorded as defining it. Each assignment's expression is therefore
+ * resolved to its finite ID set, and an expression this resolver cannot
+ * enumerate throws rather than contributing a silently short population.
+ *
+ * Writing an ID is not owning it, and for a parameter-driven writer neither
+ * is being reachable. `components/ui/card.tsx` can assign `surface:raised`,
+ * but every reachable `<Card>` omits `level`, so the only ID that module
+ * supplies in production is `surface:flat`. Ownership therefore resolves the
+ * variant each reachable call site actually passes, and a call site that
+ * passes a computed value throws instead of guessing.
  */
+export type AnnotationKind = 'surface' | 'control' | 'device';
+
+/** How an assignment's ID set was enumerated. */
+export type AnnotationWriteForm =
+  /** A quoted ID in the assignment itself. */
+  | 'literal'
+  /** Driven by a parameter whose finite variants map onto IDs. */
+  | 'parameter'
+  /** A conditional whose every branch resolves to a literal ID. */
+  | 'condition';
+
+export type AnnotationWrite = {
+  module: string;
+  kind: AnnotationKind;
+  form: AnnotationWriteForm;
+  /** Every ID this assignment can produce. */
+  ids: readonly string[];
+  /** Present for `parameter` writes: which variant value yields which ID. */
+  parameter?: {
+    name: string;
+    idByVariant: Readonly<Record<string, string>>;
+    defaultVariant: string | null;
+  };
+};
+
 export type AnnotationScan = {
-  /** First-party modules scanned, repository-relative. */
+  /** First-party modules scanned for assignments, repository-relative. */
   modules: readonly string[];
   /** Modules reachable from a route entry through used imports. */
   productionModules: readonly string[];
   /** Route-entry modules the reachability walk starts from. */
   routeEntries: readonly string[];
+  /** Every resolved annotation assignment, in module order. */
+  writes: readonly AnnotationWrite[];
   surfaceIds: readonly string[];
   controlIds: readonly string[];
   deviceIds: readonly string[];
-  /** Modules that write each annotation ID, by ID. */
+  /** Modules whose assignments can write each ID, by ID. */
   ownersById: Readonly<Record<string, readonly string[]>>;
-  /** Production-reachable writers of each annotation ID, by ID. */
+  /** Modules that write each ID on a production route, by ID. */
   productionOwnersById: Readonly<Record<string, readonly string[]>>;
-  /** Writers of each annotation ID that no route entry reaches, by ID. */
+  /** Writers whose assignment no production route reaches, by ID. */
   unmountedOwnersById: Readonly<Record<string, readonly string[]>>;
 };
 
-const SOURCE_ROOTS = ['app', 'components', 'lib'] as const;
-const SOURCE_FILES = ['mdx-components.tsx'] as const;
+const SCAN_ROOTS = ['app', 'components', 'lib'] as const;
+const SCAN_FILES = ['mdx-components.tsx'] as const;
 const CONTENT_ROOT = 'content';
-const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx']);
-const MODULE_EXTENSIONS = new Set(['.ts', '.tsx', '.mdx']);
-const ID_PATTERN = /(?:'|")((?:surface|control|device):[a-z0-9-]+)(?:'|")/g;
+const SCAN_EXTENSIONS = new Set(['.ts', '.tsx']);
+const MDX_REGISTRY_MODULE = 'mdx-components.tsx';
+const ID_PATTERN = /^(surface|control|device):[a-z0-9-]+$/;
+const ATTRIBUTE_ASSIGNMENT = /data-brand-(surface|control|device)-id\s*=\s*/g;
+const DATASET_ASSIGNMENT =
+  /\.dataset\.brand(Surface|Control|Device)Id\s*=(?!=)/g;
 /** Next.js App Router segment files; each is an entry into the rendered tree. */
 const ROUTE_SEGMENT_FILES = new Set([
   'page.tsx',
@@ -59,211 +100,587 @@ const ROUTE_SEGMENT_FILES = new Set([
   'default.tsx',
 ]);
 
-function filesUnder(directory: string): string[] {
-  const files: string[] = [];
-  for (const name of readdirSync(directory).sort()) {
-    const path = join(directory, name);
-    if (statSync(path).isDirectory()) files.push(...filesUnder(path));
-    else files.push(path);
-  }
-  return files;
-}
-
-const IMPORT_STATEMENT =
-  /import\s+(type\s+)?([^'";]*?)\s*from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]/g;
-const REEXPORT_STATEMENT =
-  /export\s+(type\s+)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g;
-
-type Binding = { local: string; imported: string };
-
-function parseClause(clause: string): Binding[] {
-  const bindings: Binding[] = [];
-  const trimmed = clause.trim();
-  if (trimmed.length === 0) return bindings;
-  const braceStart = trimmed.indexOf('{');
-  const braceEnd = trimmed.lastIndexOf('}');
-  const head =
-    braceStart === -1 ? trimmed : trimmed.slice(0, braceStart).replace(/,\s*$/, '');
-  for (const part of head.split(',')) {
-    const name = part.trim();
-    if (name.length === 0) continue;
-    if (name.startsWith('*')) {
-      const alias = name.split(/\s+as\s+/)[1]?.trim();
-      if (alias) bindings.push({ local: alias, imported: '*' });
+/**
+ * Comments are stripped before any assignment is read, so an example inside
+ * a doc comment cannot register as a writer. The scan is quote-aware because
+ * `//` occurs inside ordinary URLs and class strings.
+ */
+export function stripComments(text: string): string {
+  let output = '';
+  let index = 0;
+  const stack: Array<'"' | "'" | '`' | '${'> = [];
+  while (index < text.length) {
+    const char = text[index];
+    const next = text[index + 1];
+    const top = stack.at(-1);
+    if (top === '"' || top === "'" || top === '`') {
+      if (char === '\\') {
+        output += text.slice(index, index + 2);
+        index += 2;
+        continue;
+      }
+      if (char === top) stack.pop();
+      else if (top === '`' && char === '$' && next === '{') {
+        stack.push('${');
+        output += '${';
+        index += 2;
+        continue;
+      }
+      output += char;
+      index += 1;
       continue;
     }
-    bindings.push({ local: name, imported: 'default' });
-  }
-  if (braceStart !== -1 && braceEnd > braceStart) {
-    for (const part of trimmed.slice(braceStart + 1, braceEnd).split(',')) {
-      const entry = part.trim();
-      if (entry.length === 0 || entry.startsWith('type ')) continue;
-      const [imported, alias] = entry.split(/\s+as\s+/).map((piece) => piece.trim());
-      bindings.push({ local: alias ?? imported, imported });
+    if (char === '/' && next === '/') {
+      while (index < text.length && text[index] !== '\n') index += 1;
+      continue;
     }
+    if (char === '/' && next === '*') {
+      index += 2;
+      while (index < text.length && !(text[index] === '*' && text[index + 1] === '/')) {
+        // Newlines are preserved so reported line numbers stay usable.
+        if (text[index] === '\n') output += '\n';
+        index += 1;
+      }
+      index += 2;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') stack.push(char);
+    else if (char === '}' && top === '${') stack.pop();
+    output += char;
+    index += 1;
   }
-  return bindings;
+  return output;
 }
 
-function stripImports(text: string): string {
-  return text.replace(IMPORT_STATEMENT, ' ');
+function readQuoted(text: string, start: number): { value: string; end: number } {
+  const quote = text[start];
+  let index = start + 1;
+  let value = '';
+  while (index < text.length) {
+    if (text[index] === '\\') {
+      value += text[index + 1];
+      index += 2;
+      continue;
+    }
+    if (text[index] === quote) return { value, end: index + 1 };
+    value += text[index];
+    index += 1;
+  }
+  throw new Error('Unterminated string literal in annotation assignment');
 }
 
-export function scanAnnotationLiterals(root: string): AnnotationScan {
-  const paths = [
-    ...SOURCE_ROOTS.flatMap((directory) => filesUnder(join(root, directory))),
-    ...SOURCE_FILES.map((file) => join(root, file)),
-  ]
-    .filter((path) => SOURCE_EXTENSIONS.has(extname(path)))
-    .filter(
-      (path) =>
-        !relative(root, path)
-          .split('/')
-          .some((name) => isSyncConflictDuplicate(name)),
-    )
-    .sort();
-  const contentPaths = filesUnder(join(root, CONTENT_ROOT))
-    .filter((path) => extname(path) === '.mdx')
-    .filter(
-      (path) =>
-        !relative(root, path)
-          .split('/')
-          .some((name) => isSyncConflictDuplicate(name)),
-    )
-    .sort();
-
-  const owners = new Map<string, string[]>();
-  const modules: string[] = [];
-  const textByModule = new Map<string, string>();
-  for (const path of paths) {
-    const modulePath = relative(root, path);
-    modules.push(modulePath);
-    const text = readFileSync(path, 'utf8');
-    textByModule.set(modulePath, text);
-    for (const match of text.matchAll(ID_PATTERN)) {
-      const id = match[1];
-      const seen = owners.get(id);
-      if (seen === undefined) owners.set(id, [modulePath]);
-      else if (seen.at(-1) !== modulePath) seen.push(modulePath);
+/** The balanced `{...}` expression of a JSX attribute value. */
+function readBraced(text: string, start: number): { value: string; end: number } {
+  let depth = 0;
+  let index = start;
+  while (index < text.length) {
+    const char = text[index];
+    if (char === '"' || char === "'" || char === '`') {
+      index = readQuoted(text, index).end;
+      continue;
     }
-  }
-  for (const path of contentPaths) {
-    const modulePath = relative(root, path);
-    textByModule.set(modulePath, readFileSync(path, 'utf8'));
-  }
-
-  const known = new Set(textByModule.keys());
-  const resolve = (specifier: string, fromModule: string): string | null => {
-    let base: string;
-    if (specifier.startsWith('@/')) base = specifier.slice(2);
-    else if (specifier.startsWith('.')) {
-      base = relative(root, join(root, dirname(fromModule), specifier));
-    } else return null;
-    const candidates = MODULE_EXTENSIONS.has(extname(base))
-      ? [base]
-      : [
-          `${base}.tsx`,
-          `${base}.ts`,
-          `${base}.mdx`,
-          `${base}/index.tsx`,
-          `${base}/index.ts`,
-        ];
-    return candidates.find((candidate) => known.has(candidate)) ?? null;
-  };
-
-  // Re-export tables let a barrel forward a name without using it: importing
-  // `{ Surface }` from `components/ui` must resolve to `components/ui/surface`
-  // without making the barrel itself a mount of every primitive it lists.
-  const reexports = new Map<string, Map<string, { module: string; imported: string }>>();
-  for (const [modulePath, text] of textByModule) {
-    const table = new Map<string, { module: string; imported: string }>();
-    for (const match of text.matchAll(REEXPORT_STATEMENT)) {
-      if (match[1]) continue;
-      const target = resolve(match[3], modulePath);
-      if (target === null) continue;
-      for (const binding of parseClause(`{${match[2]}}`)) {
-        table.set(binding.local, { module: target, imported: binding.imported });
+    if (char === '{') depth += 1;
+    else if (char === '}') {
+      depth -= 1;
+      if (depth === 0) {
+        return { value: text.slice(start + 1, index), end: index + 1 };
       }
     }
-    reexports.set(modulePath, table);
+    index += 1;
+  }
+  throw new Error('Unbalanced expression in annotation assignment');
+}
+
+function splitTopLevelConditional(
+  expression: string,
+): { consequent: string; alternate: string } | null {
+  let depth = 0;
+  let questionAt = -1;
+  let index = 0;
+  while (index < expression.length) {
+    const char = expression[index];
+    if (char === '"' || char === "'" || char === '`') {
+      index = readQuoted(expression, index).end;
+      continue;
+    }
+    if ('([{'.includes(char)) depth += 1;
+    else if (')]}'.includes(char)) depth -= 1;
+    else if (char === '?' && depth === 0 && expression[index + 1] !== '.') {
+      questionAt = index;
+      break;
+    }
+    index += 1;
+  }
+  if (questionAt === -1) return null;
+  let nested = 0;
+  index = questionAt + 1;
+  while (index < expression.length) {
+    const char = expression[index];
+    if (char === '"' || char === "'" || char === '`') {
+      index = readQuoted(expression, index).end;
+      continue;
+    }
+    if ('([{'.includes(char)) depth += 1;
+    else if (')]}'.includes(char)) depth -= 1;
+    else if (char === '?' && depth === 0) nested += 1;
+    else if (char === ':' && depth === 0) {
+      if (nested === 0) {
+        return {
+          consequent: expression.slice(questionAt + 1, index),
+          alternate: expression.slice(index + 1),
+        };
+      }
+      nested -= 1;
+    }
+    index += 1;
+  }
+  throw new Error(`Unbalanced conditional in annotation assignment: ${expression}`);
+}
+
+function unionMembers(type: string): string[] | null {
+  const parts = type
+    .replace(/^\s*\|/, '')
+    .split('|')
+    .map((part) => part.trim());
+  const members: string[] = [];
+  for (const part of parts) {
+    const quoted = /^(['"])(.*)\1$/.exec(part);
+    if (!quoted) return null;
+    members.push(quoted[2]);
+  }
+  return members.length > 0 ? members : null;
+}
+
+/** The balanced object literal assigned to `const <name>`. */
+function objectLiteralEntries(
+  name: string,
+  text: string,
+): Record<string, string> | null {
+  const declaration = new RegExp(`\\bconst\\s+${name}\\b[^=]*=\\s*\\{`).exec(text);
+  if (!declaration) return null;
+  const braceAt = text.indexOf('{', declaration.index);
+  const { value } = readBraced(text, braceAt);
+  const entries: Record<string, string> = {};
+  const pattern = /(?:'([^']+)'|"([^"]+)"|([A-Za-z_$][\w$]*))\s*:\s*(?:'([^']+)'|"([^"]+)")/g;
+  for (const match of value.matchAll(pattern)) {
+    const key = match[1] ?? match[2] ?? match[3];
+    const entryValue = match[4] ?? match[5];
+    if (key === undefined || entryValue === undefined) continue;
+    entries[key] = entryValue;
+  }
+  return Object.keys(entries).length > 0 ? entries : null;
+}
+
+type ParameterFacts = { variants: string[]; defaultVariant: string | null };
+
+/**
+ * The finite variant set of a parameter that drives an assignment, read from
+ * its declared type. A parameter whose type is not a closed union of string
+ * literals cannot be enumerated, and the caller throws rather than recording
+ * a partial ID set.
+ */
+function parameterFacts(name: string, text: string): ParameterFacts | null {
+  const declaration = new RegExp(
+    `\\b${name}\\s*\\??:\\s*([^;,\\n)}]+(?:\\n\\s*\\|[^;,\\n)}]+)*)`,
+  ).exec(text);
+  if (!declaration) return null;
+  const declared = declaration[1].trim();
+  let variants = unionMembers(declared);
+  if (variants === null && /^[A-Za-z_$][\w$]*$/.test(declared)) {
+    const alias = new RegExp(`\\btype\\s+${declared}\\s*=\\s*([^;]+);`).exec(text);
+    if (alias) variants = unionMembers(alias[1]);
+  }
+  if (variants === null) return null;
+  const defaultMatch = new RegExp(`\\b${name}\\s*=\\s*(['"])([^'"]+)\\1`).exec(text);
+  return {
+    variants,
+    defaultVariant: defaultMatch ? defaultMatch[2] : null,
+  };
+}
+
+type ResolvedExpression = {
+  form: AnnotationWriteForm;
+  ids: string[];
+  parameter?: AnnotationWrite['parameter'];
+};
+
+function resolveExpression(
+  expression: string,
+  module: string,
+  text: string,
+  depth = 0,
+): ResolvedExpression {
+  if (depth > 4) {
+    throw new Error(`${module}: annotation assignment nests too deeply`);
+  }
+  const trimmed = expression.trim().replace(/^\((.*)\)$/s, '$1').trim();
+  const quoted = /^(['"])(.*)\1$/s.exec(trimmed);
+  if (quoted) return { form: 'literal', ids: [quoted[2]] };
+
+  const template = /^`([^`]*)`$/s.exec(trimmed);
+  if (template) {
+    const body = template[1];
+    const interpolations = [...body.matchAll(/\$\{([^}]*)\}/g)];
+    if (interpolations.length === 0) {
+      return { form: 'literal', ids: [body] };
+    }
+    if (interpolations.length > 1) {
+      throw new Error(
+        `${module}: annotation template ${trimmed} interpolates more than one expression`,
+      );
+    }
+    const name = interpolations[0][1].trim();
+    if (!/^[A-Za-z_$][\w$]*$/.test(name)) {
+      throw new Error(
+        `${module}: annotation template ${trimmed} interpolates a computed expression`,
+      );
+    }
+    const facts = parameterFacts(name, text);
+    if (!facts) {
+      throw new Error(
+        `${module}: cannot enumerate the variants of ${name} used by ${trimmed}`,
+      );
+    }
+    const [prefix, suffix] = body.split(interpolations[0][0]);
+    const idByVariant = Object.fromEntries(
+      facts.variants.map((variant) => [variant, `${prefix}${variant}${suffix}`]),
+    );
+    return {
+      form: 'parameter',
+      ids: Object.values(idByVariant),
+      parameter: { name, idByVariant, defaultVariant: facts.defaultVariant },
+    };
   }
 
-  const followReexport = (
-    modulePath: string,
-    imported: string,
-  ): string => {
-    let current = modulePath;
-    let name = imported;
-    for (let hop = 0; hop < 8; hop += 1) {
-      const forwarded = reexports.get(current)?.get(name);
-      if (!forwarded) return current;
-      current = forwarded.module;
-      name = forwarded.imported;
-    }
-    return current;
-  };
+  const conditional = splitTopLevelConditional(trimmed);
+  if (conditional) {
+    const consequent = resolveExpression(
+      conditional.consequent,
+      module,
+      text,
+      depth + 1,
+    );
+    const alternate = resolveExpression(
+      conditional.alternate,
+      module,
+      text,
+      depth + 1,
+    );
+    return {
+      form: 'condition',
+      ids: [...new Set([...consequent.ids, ...alternate.ids])],
+    };
+  }
 
-  const edges = new Map<string, Set<string>>();
-  for (const [modulePath, text] of textByModule) {
-    const used = stripImports(text);
-    const targets = new Set<string>();
-    for (const match of text.matchAll(IMPORT_STATEMENT)) {
-      if (match[1]) continue;
-      const specifier = match[3] ?? match[4];
-      if (specifier === undefined) continue;
-      const target = resolve(specifier, modulePath);
-      if (target === null) continue;
-      for (const binding of parseClause(match[2] ?? '')) {
-        // An imported name that the module never mentions again cannot mount
-        // anything; counting it would make every barrel a production owner.
-        if (!new RegExp(`\\b${binding.local}\\b`).test(used)) continue;
-        targets.add(followReexport(target, binding.imported));
+  const indexed = /^([A-Za-z_$][\w$]*)\[\s*([A-Za-z_$][\w$]*)\s*\]$/.exec(trimmed);
+  if (indexed) {
+    const entries = objectLiteralEntries(indexed[1], text);
+    if (!entries) {
+      throw new Error(
+        `${module}: cannot enumerate the entries of ${indexed[1]} used by ${trimmed}`,
+      );
+    }
+    const facts = parameterFacts(indexed[2], text);
+    const variants = facts?.variants ?? Object.keys(entries);
+    const idByVariant: Record<string, string> = {};
+    for (const variant of variants) {
+      const id = entries[variant];
+      if (id === undefined) {
+        throw new Error(
+          `${module}: ${indexed[1]} has no entry for the ${indexed[2]} variant ${variant}`,
+        );
+      }
+      idByVariant[variant] = id;
+    }
+    return {
+      form: 'parameter',
+      ids: [...new Set(Object.values(idByVariant))],
+      parameter: {
+        name: indexed[2],
+        idByVariant,
+        defaultVariant: facts?.defaultVariant ?? null,
+      },
+    };
+  }
+
+  if (/^[A-Za-z_$][\w$]*$/.test(trimmed)) {
+    const binding = new RegExp(`\\bconst\\s+${trimmed}\\s*=\\s*([^;]+);`).exec(text);
+    if (!binding) {
+      throw new Error(
+        `${module}: annotation assignment reads ${trimmed}, which is not a local constant`,
+      );
+    }
+    return resolveExpression(binding[1], module, text, depth + 1);
+  }
+
+  throw new Error(
+    `${module}: annotation assignment ${trimmed} is computed and cannot be enumerated`,
+  );
+}
+
+function assignmentsIn(
+  module: string,
+  rawText: string,
+): AnnotationWrite[] {
+  const text = stripComments(rawText);
+  const writes: AnnotationWrite[] = [];
+  const record = (kind: AnnotationKind, at: number) => {
+    let index = at;
+    while (index < text.length && /\s/.test(text[index])) index += 1;
+    const char = text[index];
+    let expression: string;
+    if (char === '"' || char === "'") {
+      const { value } = readQuoted(text, index);
+      expression = JSON.stringify(value);
+    } else if (char === '{') {
+      expression = readBraced(text, index).value;
+    } else {
+      throw new Error(
+        `${module}: data-brand-${kind}-id is assigned an unreadable value`,
+      );
+    }
+    const resolved = resolveExpression(expression, module, text);
+    for (const id of resolved.ids) {
+      if (!ID_PATTERN.test(id) || !id.startsWith(`${kind}:`)) {
+        throw new Error(
+          `${module}: data-brand-${kind}-id resolves to ${id}, which is not a ${kind} ID`,
+        );
       }
     }
-    edges.set(modulePath, targets);
+    writes.push({
+      module,
+      kind,
+      form: resolved.form,
+      ids: resolved.ids,
+      ...(resolved.parameter ? { parameter: resolved.parameter } : {}),
+    });
+  };
+  for (const match of text.matchAll(ATTRIBUTE_ASSIGNMENT)) {
+    record(match[1] as AnnotationKind, match.index + match[0].length);
+  }
+  for (const match of text.matchAll(DATASET_ASSIGNMENT)) {
+    record(
+      match[1].toLowerCase() as AnnotationKind,
+      match.index + match[0].length,
+    );
+  }
+  return writes;
+}
+
+/** The exported component whose parameter drives a `parameter` write. */
+function componentFor(
+  module: string,
+  text: string,
+  parameterName: string,
+): string {
+  const candidates = [
+    ...text.matchAll(/export\s+function\s+([A-Z][\w$]*)\s*\(\s*\{([^}]*)\}/g),
+  ].filter(([, , destructured]) =>
+    new RegExp(`\\b${parameterName}\\b`).test(destructured),
+  );
+  if (candidates.length !== 1) {
+    throw new Error(
+      `${module}: expected exactly one exported component destructuring ${parameterName}, found ${candidates.length}`,
+    );
+  }
+  return candidates[0][1];
+}
+
+/** Component names an MDX body can mount without importing them. */
+function mdxRegistryBindings(
+  graph: ModuleImportGraph,
+): Map<string, string> {
+  const text = graph.textByModule.get(MDX_REGISTRY_MODULE);
+  const provided = new Map<string, string>();
+  if (text === undefined) return provided;
+  const bindings = new Map(
+    (graph.bindingsByModule.get(MDX_REGISTRY_MODULE) ?? []).map((binding) => [
+      binding.local,
+      binding.module,
+    ]),
+  );
+  const registry = /useMDXComponents\s*\([^)]*\)\s*:\s*MDXComponents\s*\{/.exec(
+    text,
+  );
+  if (!registry) {
+    throw new Error(`${MDX_REGISTRY_MODULE} exposes no MDX component registry`);
+  }
+  const body = text.slice(registry.index);
+  for (const match of body.matchAll(
+    /(?:^|[\s{,])([A-Za-z][\w$]*)\s*(?::\s*([A-Za-z][\w$]*))?\s*,/g,
+  )) {
+    const name = match[1];
+    const value = match[2] ?? name;
+    const target = bindings.get(value);
+    if (target !== undefined) provided.set(name, target);
+  }
+  return provided;
+}
+
+function attributeValueAt(
+  module: string,
+  component: string,
+  attributes: string,
+  parameterName: string,
+): string | null {
+  const literal = new RegExp(
+    `\\b${parameterName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|\\{\\s*(['"])([^'"]*)\\3\\s*\\})`,
+  ).exec(attributes);
+  if (literal) return literal[1] ?? literal[2] ?? literal[4];
+  if (new RegExp(`\\b${parameterName}\\s*=`).test(attributes)) {
+    throw new Error(
+      `${module}: <${component}> passes a computed ${parameterName}, so its annotation variant cannot be resolved`,
+    );
+  }
+  return null;
+}
+
+/**
+ * The IDs a write supplies on a production route. A literal or conditional
+ * write supplies everything it can produce; a parameter-driven write supplies
+ * only the variants its reachable call sites actually pass.
+ */
+function suppliedIds(
+  write: AnnotationWrite,
+  graph: ModuleImportGraph,
+  reachable: ReadonlySet<string>,
+  mdxProvided: ReadonlyMap<string, string>,
+): string[] {
+  if (!reachable.has(write.module)) return [];
+  if (write.parameter === undefined) return [...write.ids];
+  const text = graph.textByModule.get(write.module) as string;
+  const component = componentFor(write.module, text, write.parameter.name);
+  const supplied = new Set<string>();
+  for (const callSite of reachable) {
+    if (callSite === write.module) continue;
+    const bound =
+      (graph.bindingsByModule.get(callSite) ?? []).some(
+        (binding) =>
+          binding.local === component && binding.module === write.module,
+      ) ||
+      (extname(callSite) === '.mdx' &&
+        mdxProvided.get(component) === write.module);
+    if (!bound) continue;
+    const callText = graph.textByModule.get(callSite) as string;
+    const mounts = [
+      ...stripComments(callText).matchAll(
+        new RegExp(`<${component}\\b([^>]*)>`, 'g'),
+      ),
+    ];
+    for (const mount of mounts) {
+      const variant =
+        attributeValueAt(
+          callSite,
+          component,
+          mount[1],
+          write.parameter.name,
+        ) ?? write.parameter.defaultVariant;
+      if (variant === null) {
+        throw new Error(
+          `${callSite}: <${component}> omits ${write.parameter.name} and the component declares no default`,
+        );
+      }
+      const id = write.parameter.idByVariant[variant];
+      if (id === undefined) {
+        throw new Error(
+          `${callSite}: <${component}> passes ${write.parameter.name}="${variant}", which is not a registered variant`,
+        );
+      }
+      supplied.add(id);
+    }
+  }
+  return [...supplied];
+}
+
+export function scanAnnotationAssignments(root: string): AnnotationScan {
+  const graph = buildModuleImportGraph(root);
+  const modules = graph.modules
+    .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
+    .filter(
+      (modulePath) =>
+        SCAN_ROOTS.some((directory) => modulePath.startsWith(`${directory}/`)) ||
+        SCAN_FILES.includes(modulePath as (typeof SCAN_FILES)[number]),
+    );
+  if (modules.length === 0) {
+    throw new Error('No first-party modules to scan for brand annotations.');
   }
 
-  const routeEntries = [...known]
+  const writes: AnnotationWrite[] = [];
+  for (const modulePath of modules) {
+    writes.push(
+      ...assignmentsIn(
+        modulePath,
+        graph.textByModule.get(modulePath) as string,
+      ),
+    );
+  }
+  if (writes.length === 0) {
+    throw new Error('No module assigns a data-brand primitive annotation.');
+  }
+  // An MDX body cannot be resolved by this scanner, so an annotation
+  // authored there would leave the population short without saying so.
+  for (const modulePath of graph.modules) {
+    if (extname(modulePath) !== '.mdx') continue;
+    const text = stripComments(graph.textByModule.get(modulePath) as string);
+    if (/data-brand-(surface|control|device)-id/.test(text)) {
+      throw new Error(
+        `${modulePath} assigns a brand primitive annotation in MDX, which this scan does not resolve.`,
+      );
+    }
+  }
+
+  const routeEntries = graph.modules
     .filter(
       (modulePath) =>
         (modulePath.startsWith('app/') &&
           ROUTE_SEGMENT_FILES.has(modulePath.split('/').at(-1) ?? '')) ||
         modulePath.startsWith(`${CONTENT_ROOT}/`) ||
-        modulePath === 'mdx-components.tsx',
+        modulePath === MDX_REGISTRY_MODULE,
     )
     .sort();
+  const reachable = graph.reachableFrom(routeEntries);
+  const mdxProvided = mdxRegistryBindings(graph);
 
-  const reachable = new Set<string>();
-  const queue = [...routeEntries];
-  while (queue.length > 0) {
-    const current = queue.pop() as string;
-    if (reachable.has(current)) continue;
-    reachable.add(current);
-    for (const next of edges.get(current) ?? []) queue.push(next);
+  const owners = new Map<string, Set<string>>();
+  const productionOwners = new Map<string, Set<string>>();
+  for (const write of writes) {
+    const supplied = new Set(suppliedIds(write, graph, reachable, mdxProvided));
+    for (const id of write.ids) {
+      const seen = owners.get(id) ?? new Set<string>();
+      seen.add(write.module);
+      owners.set(id, seen);
+      if (!supplied.has(id)) continue;
+      const producing = productionOwners.get(id) ?? new Set<string>();
+      producing.add(write.module);
+      productionOwners.set(id, producing);
+    }
   }
 
   const ids = [...owners.keys()].sort();
+  const sorted = (values: Iterable<string>) => [...values].sort();
   const ownersById = Object.fromEntries(
-    [...owners].map(([id, list]) => [id, [...list].sort()]),
+    ids.map((id) => [id, sorted(owners.get(id) ?? [])]),
   );
   const productionOwnersById = Object.fromEntries(
-    [...owners].map(([id, list]) => [
-      id,
-      [...list].filter((modulePath) => reachable.has(modulePath)).sort(),
-    ]),
+    ids.map((id) => [id, sorted(productionOwners.get(id) ?? [])]),
   );
   const unmountedOwnersById = Object.fromEntries(
-    [...owners].map(([id, list]) => [
+    ids.map((id) => [
       id,
-      [...list].filter((modulePath) => !reachable.has(modulePath)).sort(),
+      sorted(
+        [...(owners.get(id) ?? [])].filter(
+          (modulePath) => !(productionOwners.get(id)?.has(modulePath) ?? false),
+        ),
+      ),
     ]),
   );
   return {
     modules,
     productionModules: [...reachable]
-      .filter((modulePath) => SOURCE_EXTENSIONS.has(extname(modulePath)))
+      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
       .sort(),
     routeEntries,
+    writes,
     surfaceIds: ids.filter((id) => id.startsWith('surface:')),
     controlIds: ids.filter((id) => id.startsWith('control:')),
     deviceIds: ids.filter((id) => id.startsWith('device:')),

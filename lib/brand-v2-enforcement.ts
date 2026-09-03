@@ -409,9 +409,22 @@ export function buildEnforcementPopulationSources(input: {
    * assigned string is not a claim about a family (R8a).
    */
   tekturPopulations: Readonly<Record<string, readonly string[]>>;
+  /**
+   * VAL-B2-COMP-012's own population: the semantic token declarations, their
+   * use sites, and the renderer mirrors that repeat them. It is separate
+   * from the `controls` registry because a claim about the semantic tokens
+   * is not a claim about a button, a tab, or a chip (R8a).
+   */
+  semanticTokenPopulation: readonly string[];
 }): Record<string, string[]> {
   const { registry } = input;
+  if (input.semanticTokenPopulation.length === 0) {
+    throw new Error('The semantic-token population is empty');
+  }
   return {
+    'app/globals.css#semantic-tokens-and-use-sites': [
+      ...input.semanticTokenPopulation,
+    ],
     ...Object.fromEntries(
       Object.entries(input.tekturPopulations).map(([source, ids]) => [
         source,

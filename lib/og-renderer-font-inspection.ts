@@ -17,6 +17,7 @@ import {
   articleCardElement,
   cardTextRuns,
   siteCardElement,
+  type CardNode,
   type CardTextRun,
 } from './og-card-artwork.ts';
 import { articleCardFacts } from './og-card-facts.ts';
@@ -50,25 +51,32 @@ function resolve(root: string, path: string): string {
   return isAbsolute(path) ? path : join(root, path);
 }
 
-/** Every text run the shipped card corpus paints, with its resolved stack. */
-export function ogCardTextRuns(root: string): CardTextRun[] {
-  const runs: CardTextRun[] = [...cardTextRuns(siteCardElement())];
+/**
+ * The element tree of every card the generator ships: the site card plus one
+ * per published module. Font and colour inspections walk this population
+ * rather than restating what the corpus is meant to contain.
+ */
+export function ogCardElements(root: string): CardNode[] {
+  const cards: CardNode[] = [siteCardElement()];
   for (const entry of publishedModules()) {
     const mdx = readFileSync(
       join(root, 'content', entry.domain, `${entry.slug}.mdx`),
       'utf8',
     );
-    runs.push(
-      ...cardTextRuns(
-        articleCardElement({
-          entry,
-          domainName: DOMAIN_META[entry.domain].name,
-          ...articleCardFacts(mdx),
-        }),
-      ),
+    cards.push(
+      articleCardElement({
+        entry,
+        domainName: DOMAIN_META[entry.domain].name,
+        ...articleCardFacts(mdx),
+      }),
     );
   }
-  return runs;
+  return cards;
+}
+
+/** Every text run the shipped card corpus paints, with its resolved stack. */
+export function ogCardTextRuns(root: string): CardTextRun[] {
+  return ogCardElements(root).flatMap((card) => cardTextRuns(card));
 }
 
 function inspectFace(

@@ -21,8 +21,23 @@ export type ModuleImportGraph = {
   modules: readonly string[];
   textByModule: ReadonlyMap<string, string>;
   edges: ReadonlyMap<string, ReadonlySet<string>>;
+  /**
+   * The local name each used import binds, and the module that defines it
+   * after re-export forwarding. A consumer asking "which modules can mount
+   * `<Card>`" needs the binding, not just the edge.
+   */
+  bindingsByModule: ReadonlyMap<string, readonly ImportBinding[]>;
   /** Modules reachable from the given entries through used imports. */
   reachableFrom: (entries: Iterable<string>) => Set<string>;
+};
+
+export type ImportBinding = {
+  /** The name the importing module refers to it by. */
+  local: string;
+  /** The exported name, `default`, or `*`. */
+  imported: string;
+  /** The module the name resolves to after re-export forwarding. */
+  module: string;
 };
 
 export type ModuleImportGraphOptions = {
@@ -163,9 +178,11 @@ export function buildModuleImportGraph(
   };
 
   const edges = new Map<string, Set<string>>();
+  const bindingsByModule = new Map<string, ImportBinding[]>();
   for (const [modulePath, text] of textByModule) {
     const used = text.replace(IMPORT_STATEMENT, ' ');
     const targets = new Set<string>();
+    const moduleBindings: ImportBinding[] = [];
     for (const match of text.matchAll(IMPORT_STATEMENT)) {
       if (match[1]) continue;
       const specifier = match[3] ?? match[4];
@@ -181,10 +198,13 @@ export function buildModuleImportGraph(
       }
       for (const binding of bindings) {
         if (!new RegExp(`\\b${binding.local}\\b`).test(used)) continue;
-        targets.add(followReexport(target, binding.imported));
+        const defining = followReexport(target, binding.imported);
+        targets.add(defining);
+        moduleBindings.push({ ...binding, module: defining });
       }
     }
     edges.set(modulePath, targets);
+    bindingsByModule.set(modulePath, moduleBindings);
   }
 
   return {
@@ -192,6 +212,7 @@ export function buildModuleImportGraph(
     modules: [...known].sort(),
     textByModule,
     edges,
+    bindingsByModule,
     reachableFrom(entries) {
       const reachable = new Set<string>();
       const queue = [...entries];
