@@ -146,12 +146,25 @@ describe('environment-trap script wiring', () => {
     // parity artifact is source-derived and needs no export. Only then does
     // the export get built, the browser suites write the three artifacts
     // that need it, and the enforcement corpus read all four.
+    //
+    // The export prune runs explicitly right after build:ungated because
+    // --ignore-scripts also skips the postbuild prune, so the ungated build
+    // leaves `out/_not-found/` behind and the census route-set reconciliation
+    // (VAL-B2-CONT-007) at the head of the NEXT refresh fails on it. Without
+    // this step the documented escape hatch works exactly once.
     expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
       'npm run generate:brand-v2-registries' +
         ' && npm run refresh:brand-v2-evidence:renderer-parity' +
         ' && npm run build:ungated' +
+        ' && node scripts/prune-export-artifacts.ts' +
         ' && npm run refresh:brand-v2-evidence:browser' +
         ' && npm run generate:brand-v2-enforcement',
+    );
+    // Pinned independently of the exact chain string: whatever else moves,
+    // the prune must stay immediately after the ungated build and ahead of
+    // the browser suites that read out/.
+    expect(pkg.scripts['refresh:brand-v2-evidence']).toMatch(
+      /npm run build:ungated && node scripts\/prune-export-artifacts\.ts && npm run refresh:brand-v2-evidence:browser/,
     );
     // Each fail-closed artifact has a writer in the refresh chain.
     expect(pkg.scripts['refresh:brand-v2-evidence:renderer-parity']).toContain(
