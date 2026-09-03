@@ -224,6 +224,203 @@ function validFingerprint(value: string): boolean {
   return /^[a-f0-9]{64}$/.test(value);
 }
 
+const OWNER_PLACEHOLDER =
+  /shared primitive|supplied at render|concrete owner|to be (?:supplied|determined)|tbd|various|as needed/i;
+const OWNER_MODULE = /^(?:app|components|lib|mdx-components)[\w./[\]()@-]*\.tsx?$/;
+const TARGET_SIZE_EXCEPTION_KINDS = new Set(['inline', 'spacing', 'equivalent']);
+
+/**
+ * A required-field presence check cannot tell a real owner record from a
+ * sentence that says an owner exists, and it cannot tell a measured target
+ * size from a blanket claim. Both were true of the control registry, so the
+ * owner and target-size values are checked for substance here.
+ */
+const MOUNT_STATES = new Set(['production', 'library-only', 'unwritten']);
+
+/**
+ * Every primitive row records where its ID is written (`definedIn`) and
+ * whether a route entry actually reaches one of those modules
+ * (`mountState`). Recording a definition file as an owner is how an
+ * unmounted shared primitive came to look like a production mount, so the
+ * two fields have to agree: `production` requires owners, `library-only`
+ * requires definitions and no owner, and `unwritten` requires neither. A row
+ * cannot claim a mount it does not have, and it cannot hide one it does.
+ */
+function validateMountRecord(
+  assertionId: string,
+  record: PrimitiveRegistryRecord,
+): CensusFailure[] {
+  const failures: CensusFailure[] = [];
+  const owners = record.ownerRouteOrMount ?? [];
+  const definedIn = record.definedIn;
+  const mountState = record.mountState;
+  if (typeof mountState !== 'string' || !MOUNT_STATES.has(mountState)) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: [...MOUNT_STATES].join(' | '),
+      actual: mountState,
+      reason: 'unrecognised-primitive-mount-state',
+    });
+  }
+  if (!Array.isArray(definedIn) || !Array.isArray(owners)) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'definedIn and ownerRouteOrMount arrays',
+      actual: { definedIn, owners },
+      reason: 'invalid-control-owner',
+    });
+    return failures;
+  }
+  for (const owner of [...definedIn, ...owners]) {
+    if (typeof owner !== 'string' || owner.trim().length === 0) {
+      failures.push({
+        assertionId,
+        memberId: record.id,
+        expected: 'owner route or mount module path',
+        actual: owner,
+        reason: 'invalid-control-owner',
+      });
+      continue;
+    }
+    if (OWNER_PLACEHOLDER.test(owner)) {
+      failures.push({
+        assertionId,
+        memberId: record.id,
+        expected: 'concrete owner route or mount module path',
+        actual: owner,
+        reason: 'placeholder-control-owner',
+      });
+      continue;
+    }
+    if (!owner.startsWith('/') && !OWNER_MODULE.test(owner)) {
+      failures.push({
+        assertionId,
+        memberId: record.id,
+        expected: 'route path starting with / or a first-party module path',
+        actual: owner,
+        reason: 'unresolvable-control-owner',
+      });
+    }
+  }
+  for (const owner of owners) {
+    if (!definedIn.includes(owner)) {
+      failures.push({
+        assertionId,
+        memberId: record.id,
+        expected: `${owner} listed among the modules that write ${record.id}`,
+        actual: definedIn,
+        reason: 'owner-outside-definition-set',
+      });
+    }
+  }
+  const expectedState =
+    definedIn.length === 0
+      ? 'unwritten'
+      : owners.length > 0
+        ? 'production'
+        : 'library-only';
+  if (mountState !== expectedState) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: expectedState,
+      actual: mountState,
+      reason: 'mount-state-contradicts-owners',
+    });
+  }
+  if (mountState === 'production' && owners.length === 0) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'non-empty list of concrete owner routes or mount modules',
+      actual: owners,
+      reason: 'unowned-control-registry-row',
+    });
+  }
+  return failures;
+}
+
+function validateControlRecord(
+  record: PrimitiveRegistryRecord,
+): CensusFailure[] {
+  const assertionId = 'VAL-B2-COMP-013';
+  const failures: CensusFailure[] = [];
+
+  const targetSize = record.targetSize;
+  if (targetSize === null || typeof targetSize !== 'object') {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'target-size record',
+      actual: targetSize,
+      reason: 'missing-target-size-record',
+    });
+    return failures;
+  }
+  const size = targetSize as Record<string, unknown>;
+  if (size.minimumPx !== 24) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'WCAG 2.2 SC 2.5.8 minimum of 24px',
+      actual: size.minimumPx,
+      reason: 'wrong-target-size-minimum',
+    });
+  }
+  if (typeof size.preferredPx !== 'number' || size.preferredPx < 24) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'preferred target size of at least the 24px minimum',
+      actual: size.preferredPx,
+      reason: 'wrong-target-size-preference',
+    });
+  }
+  if (!Array.isArray(size.exceptions)) {
+    failures.push({
+      assertionId,
+      memberId: record.id,
+      expected: 'explicit target-size exception list (empty when none apply)',
+      actual: size.exceptions,
+      reason: 'missing-target-size-exceptions',
+    });
+    return failures;
+  }
+  for (const [index, value] of size.exceptions.entries()) {
+    const exception = (value ?? {}) as Record<string, unknown>;
+    const memberId = `${record.id} exception ${index}`;
+    if (
+      typeof exception.kind !== 'string' ||
+      !TARGET_SIZE_EXCEPTION_KINDS.has(exception.kind)
+    ) {
+      failures.push({
+        assertionId,
+        memberId,
+        expected: [...TARGET_SIZE_EXCEPTION_KINDS].join(' | '),
+        actual: exception.kind,
+        reason: 'unrecognised-target-size-exception',
+      });
+    }
+    for (const field of ['criterion', 'reason'] as const) {
+      if (
+        typeof exception[field] !== 'string' ||
+        exception[field].trim().length === 0
+      ) {
+        failures.push({
+          assertionId,
+          memberId,
+          expected: `non-empty ${field}`,
+          actual: exception[field],
+          reason: 'undocumented-target-size-exception',
+        });
+      }
+    }
+  }
+  return failures;
+}
+
 export function validatePrimitiveRegistries(
   registries: PrimitiveRegistrySet,
 ): CensusFailure[] {
@@ -234,6 +431,9 @@ export function validatePrimitiveRegistries(
       name: 'gridDevices',
       records: registries.gridDevices,
       fields: [
+        'definedIn',
+        'mountState',
+        'ownerRouteOrMount',
         'ownerSurface',
         'structuralPurpose',
         'anchorGeometry',
@@ -248,6 +448,9 @@ export function validatePrimitiveRegistries(
       name: 'surfaces',
       records: registries.surfaces,
       fields: [
+        'definedIn',
+        'mountState',
+        'ownerRouteOrMount',
         'level',
         'stackingPurpose',
         'allowedRadiusPx',
@@ -261,6 +464,8 @@ export function validatePrimitiveRegistries(
       name: 'controls',
       records: registries.controls,
       fields: [
+        'definedIn',
+        'mountState',
         'ownerRouteOrMount',
         'action',
         'persistentAria',
@@ -304,7 +509,11 @@ export function validatePrimitiveRegistries(
           });
         }
       }
+      failures.push(...validateMountRecord(definition.assertionId, record));
     }
+  }
+  for (const record of registries.controls) {
+    failures.push(...validateControlRecord(record));
   }
   return failures;
 }

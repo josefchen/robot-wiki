@@ -135,6 +135,7 @@ export function ReliabilityCompounding({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -154,6 +155,7 @@ export function ReliabilityCompounding({
           <input
             id={perStepId}
             type="range"
+            data-brand-control-id="control:input"
             min={minPerStepPercent}
             max={maxPerStepPercent}
             step={0.1}
@@ -176,6 +178,7 @@ export function ReliabilityCompounding({
           <input
             id={stepsId}
             type="range"
+            data-brand-control-id="control:input"
             min={1}
             max={maxSteps}
             step={1}
@@ -186,6 +189,7 @@ export function ReliabilityCompounding({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

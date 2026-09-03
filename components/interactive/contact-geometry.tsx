@@ -329,6 +329,7 @@ export function ContactGeometry({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -349,6 +350,7 @@ export function ContactGeometry({
           >
             {SCENARIO_ORDER.map((id) => (
               <button
+                data-brand-control-id="control:selection"
                 key={id}
                 type="button"
                 aria-pressed={id === scenarioId}
@@ -378,6 +380,7 @@ export function ContactGeometry({
           <input
             id="cg-error"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_ERROR_MM}
             max={MAX_ERROR_MM}
             step={0.1}
@@ -388,6 +391,7 @@ export function ContactGeometry({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

@@ -304,6 +304,7 @@ export function BubbleView({ companies, highlightedId = null }: BubbleViewProps)
               <circle
                 key={point.id}
                 data-company-id={point.id}
+                data-brand-control-id="control:selection"
                 cx={point.cx}
                 cy={point.cy}
                 r={selectedId === point.id ? 6 : 4.5}

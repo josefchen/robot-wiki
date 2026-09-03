@@ -95,6 +95,7 @@ export function ChartDescription({
 }: ChartDescriptionProps) {
   const generatedId = useId();
   const id = explicitId ?? generatedId;
+  const summaryId = `${id}-chart-data-summary`;
   if (form === 'table' && (!columns || !rows || rows.length === 0)) {
     throw new Error('ChartDescription: form="table" requires columns and rows');
   }
@@ -119,14 +120,23 @@ export function ChartDescription({
         {description}
       </p>
       <details data-chart-data data-chart-form={form} data-pagefind-ignore className="mt-2">
-        <summary className="cursor-pointer select-none font-sans text-sm text-text-dim transition-colors hover:text-text">
+        <summary
+          id={summaryId}
+          data-brand-control-id="control:secondary-action"
+          className="cursor-pointer select-none font-sans text-sm text-text-dim transition-colors hover:text-text"
+        >
           {summary ?? 'Chart data'}
         </summary>
         {form === 'table' ? (
           <div
             // Scrollable region on narrow viewports; keyboard-accessible
             // per the same axe rule as the house Table and .katex-display.
+            // Focusable and anonymous is the failure mode: the region role
+            // plus the disclosure summary as its name mean a screen reader
+            // announces what the box holds when focus lands in it.
             tabIndex={0}
+            role="region"
+            aria-labelledby={summaryId}
             className="mt-2 overflow-x-auto"
           >
             <table className="w-full min-w-[480px] border-collapse text-left">

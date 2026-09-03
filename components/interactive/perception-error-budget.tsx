@@ -97,6 +97,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
   return (
     <div
       data-testid="perception-budget"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -114,6 +115,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
             >
               <input
                 type="radio"
+                data-brand-control-id="control:selection"
                 name={`${uid}-target`}
                 value={option.id}
                 checked={params.target === option.id}
@@ -150,6 +152,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <input
             id={`${uid}-handeye`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.handEye.min}
             max={SLIDER_SPECS.handEye.max}
             step={SLIDER_SPECS.handEye.step}
@@ -176,6 +179,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <input
             id={`${uid}-distance`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.distance.min}
             max={SLIDER_SPECS.distance.max}
             step={SLIDER_SPECS.distance.step}
@@ -202,6 +206,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <input
             id={`${uid}-depth`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.depth.min}
             max={SLIDER_SPECS.depth.max}
             step={SLIDER_SPECS.depth.step}
@@ -228,6 +233,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <input
             id={`${uid}-pose`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.pose.min}
             max={SLIDER_SPECS.pose.max}
             step={SLIDER_SPECS.pose.step}
@@ -354,6 +360,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

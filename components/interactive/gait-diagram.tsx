@@ -197,6 +197,7 @@ export function GaitDiagram({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -210,6 +211,7 @@ export function GaitDiagram({
         >
           {GAIT_ORDER.map((id) => (
             <button
+              data-brand-control-id="control:selection"
               key={id}
               type="button"
               aria-pressed={gaitId === id}
@@ -225,6 +227,7 @@ export function GaitDiagram({
         </div>
         <div className="flex items-center gap-1">
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => setPlaying((p) => !p)}
@@ -239,6 +242,7 @@ export function GaitDiagram({
             {playing ? 'Pause' : 'Play'}
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => step(-1)}
@@ -248,6 +252,7 @@ export function GaitDiagram({
             Step back
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => step(1)}
@@ -257,6 +262,7 @@ export function GaitDiagram({
             Step forward
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}
@@ -280,6 +286,7 @@ export function GaitDiagram({
         <input
           id="gait-phase"
           type="range"
+          data-brand-control-id="control:input"
           min={0}
           max={100}
           step={5}

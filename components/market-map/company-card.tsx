@@ -78,6 +78,7 @@ export function CompanyCard({
           {company.approach.map((tag) => (
             <li
               key={tag}
+              data-brand-surface-id="surface:flat"
               className="rounded-xs bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-text-dim"
             >
               {formatApproach(tag)}
@@ -121,6 +122,7 @@ export function CompanyCard({
         {company.sources.map((source) => (
           <li key={source.url}>
             <a
+              data-brand-control-id="control:link-focus"
               href={source.url}
               target="_blank"
               rel="noopener"
@@ -133,6 +135,7 @@ export function CompanyCard({
       </ul>
 
       <button
+        data-brand-control-id="control:secondary-action"
         type="button"
         aria-expanded={expanded}
         aria-controls={`${headingId}-detail`}
@@ -160,6 +163,7 @@ export function CompanyCard({
             <dd data-field="website">
               {company.website ? (
                 <a
+                  data-brand-control-id="control:link-focus"
                   href={company.website}
                   target="_blank"
                   rel="noopener"

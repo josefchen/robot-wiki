@@ -61,6 +61,7 @@ export function EurekaLoop({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -68,6 +69,7 @@ export function EurekaLoop({ className }: { className?: string }) {
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setGen((g) => Math.min(g + 1, EUREKA_GENERATIONS.length - 1))}
@@ -83,6 +85,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           Run next generation
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setGen(0)}
@@ -120,6 +123,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <pre
             data-testid="eureka-code"
+            data-brand-surface-id="surface:flat"
             className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed text-text"
           >
             {current.code.join('\n')}
@@ -131,6 +135,7 @@ export function EurekaLoop({ className }: { className?: string }) {
               </p>
               <pre
                 data-testid="eureka-diff"
+                data-brand-surface-id="surface:flat"
                 className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed"
               >
                 {diff.map((line, i) => (
@@ -154,6 +159,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <dl
             data-testid="eureka-stats"
+            data-brand-surface-id="surface:flat"
             className="mt-2 divide-y divide-border rounded-sm border border-border bg-bg"
           >
             {current.stats.map((s) => (
@@ -185,6 +191,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <blockquote
             data-testid="eureka-reflection"
+            data-brand-surface-id="surface:flat"
             className="mt-2 rounded-sm border border-border border-l-accent border-l-2 bg-bg p-3 font-sans text-xs leading-relaxed text-text"
           >
             {current.reflection}

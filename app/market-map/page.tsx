@@ -28,7 +28,10 @@ export default function MarketMapPage() {
           their prose here would return this page for every company name
           instead of the entity row. */}
       <div data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           Market Map
         </h1>
         <p className="mt-3 max-w-3xl leading-relaxed text-text-dim">

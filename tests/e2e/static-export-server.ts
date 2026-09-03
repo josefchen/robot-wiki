@@ -26,9 +26,15 @@ const MIME: Record<string, string> = {
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.gif': 'image/gif',
   '.webp': 'image/webp',
+  '.wasm': 'application/wasm',
   '.glb': 'model/gltf-binary',
   '.gltf': 'model/gltf+json',
+  // URDF is XML. Served with its real type because the font sweep now
+  // requires a negative classification to be supported rather than inferred,
+  // and an `application/octet-stream` fallback supports nothing.
+  '.urdf': 'application/xml; charset=utf-8',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.webmanifest': 'application/manifest+json',

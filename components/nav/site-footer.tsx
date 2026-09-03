@@ -34,6 +34,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
           href={AUTHOR_PROFILE_URL}
           target="_blank"
           rel="noopener"
+          data-brand-control-id="control:link-focus"
           className={externalLink}
         >
           {AUTHOR_NAME}
@@ -43,6 +44,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
           href={REPOSITORY_URL}
           target="_blank"
           rel="noopener"
+          data-brand-control-id="control:link-focus"
           className={externalLink}
         >
           Source on GitHub

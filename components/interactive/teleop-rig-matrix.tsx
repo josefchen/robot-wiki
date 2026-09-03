@@ -132,7 +132,10 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           return cellWrap(
             highlight === field,
             <span>
-              <span className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide text-text">
+              <span
+                data-brand-surface-id="surface:flat"
+                className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide text-text"
+              >
                 {rating}
               </span>
               <span className="mt-1 block font-sans text-xs text-text-dim">
@@ -151,6 +154,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         <span className="flex flex-col gap-0.5">
           {rig.links.map((link) => (
             <a
+              data-brand-control-id="control:link-focus"
               key={link.url}
               href={link.url}
               target="_blank"
@@ -185,6 +189,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -202,6 +207,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           <div className="flex flex-wrap gap-1.5">
             {RIG_FIELDS.map((field) => (
               <button
+                data-brand-control-id="control:selection"
                 key={field.id}
                 type="button"
                 aria-pressed={highlight === field.id}
@@ -224,6 +230,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
             {TELEOP_RIGS.length} of {TELEOP_RIGS.length} rigs
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}

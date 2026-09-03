@@ -86,6 +86,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -105,6 +106,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
           <input
             id="dl-step"
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={DENOISING_STEPS}
             step={1}
@@ -116,6 +118,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
         </div>
         <div className="flex gap-2">
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => move(-1)}
@@ -125,6 +128,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             Step back
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => move(1)}
@@ -134,6 +138,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             Step forward
           </button>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => setStep(defaultStep)}

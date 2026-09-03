@@ -16,6 +16,7 @@ import {
 } from '@/data/type-roles';
 import { TEKTUR_FONT_METADATA } from '@/data/tektur-font-metadata';
 import { inspectTekturAssets } from '@/lib/tektur-font-inspection';
+import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
 
 const ROOT = process.cwd();
 const source = (path: string): string =>
@@ -64,13 +65,21 @@ describe('Tektur font delivery contract', () => {
   it('loads web Tektur only through next/font/local and keeps the OG TTF offline-only', () => {
     const layout = source('app/layout.tsx');
     const globalCss = source('app/globals.css');
-    const generator = source('scripts/generate-og-cards.ts');
+    const renderBoundary = source('lib/og-card-render-boundary.ts');
     expect(layout).toContain("from 'next/font/local'");
     expect(layout).toContain('Tektur-latin-wdth-wght.woff2');
     expect(layout).toContain("variable: '--font-tektur'");
     expect(globalCss).not.toContain('.ttf');
     expect(layout).not.toContain('Tektur-SemiBold.ttf');
-    expect(generator).toContain('TEKTUR_FONT_METADATA.og.path');
+    // The card renderer no longer names the binary: it registers whatever
+    // the renderer face registry declares, which is where the static path
+    // lives. The generator names neither, because it hands the render
+    // boundary a sealed corpus entry and nothing else.
+    expect(source('scripts/generate-og-cards.ts')).not.toContain('.ttf');
+    expect(renderBoundary).toContain('OG_RENDERER_FACES');
+    expect(OG_RENDERER_FACES.map(({ path }) => path)).toContain(
+      TEKTUR_FONT_METADATA.og.path,
+    );
     expect(TEKTUR_FONT_METADATA.og.path).toBe(
       'assets/fonts/tektur/Tektur-SemiBold.ttf',
     );

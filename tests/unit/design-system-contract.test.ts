@@ -1,6 +1,8 @@
 import { readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { BRAND_COLORS, BRAND_SPACING } from '@/lib/brand-v2-tokens';
+import { OG_RENDERER_FACES } from '@/lib/og-renderer-fonts';
 
 /**
  * The design system is load-bearing documentation: Factory agents read it,
@@ -194,6 +196,43 @@ describe('design tokens stay aligned', () => {
       'error',
     ]) {
       expect(robotScene).toContain(`BRAND_COLORS.${token}`);
+    }
+  });
+
+  it('compares the shared renderer constants against the sealed values', () => {
+    // Asserting only that lib/og-card-artwork.ts mentions BRAND_COLORS.signal
+    // proves the renderer reads the mirror, not that the mirror is right: a
+    // wrong literal in lib/brand-v2-tokens.ts propagates to every card and
+    // to the WebGL scene and stays green through regeneration. The values
+    // themselves are therefore compared against the same expectations the
+    // authority documents and app/globals.css are held to.
+    expect(BRAND_COLORS).toEqual({ ...palette, ...semanticPalette });
+    expect(Object.keys(BRAND_COLORS)).toEqual([
+      ...Object.keys(palette),
+      ...Object.keys(semanticPalette),
+    ]);
+    for (const [name, value] of Object.entries(BRAND_COLORS)) {
+      expect(
+        globals,
+        `renderer mirror BRAND_COLORS.${name} must equal --color-${name}`,
+      ).toContain(`--color-${name}: ${value};`);
+      expect(value).toMatch(/^#[0-9A-F]{6}$/);
+    }
+    expect([...BRAND_SPACING]).toEqual([4, 8, 12, 16, 24, 32, 48, 64, 96, 128]);
+    for (const step of BRAND_SPACING) {
+      expect(
+        globals,
+        `renderer mirror BRAND_SPACING ${step} must equal --space-${step}`,
+      ).toContain(`--space-${step}: ${step}px;`);
+    }
+    // The OG faces are the other half of the mirror: every registered face
+    // serves one of the four first-party roles and names its own family
+    // first, so a card cannot be painted in an unregistered family.
+    expect(OG_RENDERER_FACES.length).toBeGreaterThan(0);
+    for (const face of OG_RENDERER_FACES) {
+      expect(spec, `renderer face role ${face.roleId}`).toContain(face.family);
+      expect(face.stack.startsWith(face.family)).toBe(true);
+      expect(face.sha256).toMatch(/^[a-f0-9]{64}$/);
     }
   });
 

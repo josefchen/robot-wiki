@@ -23,37 +23,62 @@
       "id": "home-wordmark",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-home"
+      "cssClass": "font-display-home",
+      "definedIn": [
+        "app/page.tsx"
+      ]
     },
     {
       "id": "shell-wordmark",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-shell"
+      "cssClass": "font-display-shell",
+      "definedIn": [
+        "components/nav/site-shell.tsx"
+      ]
     },
     {
       "id": "page-h1",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-page"
+      "cssClass": "font-display-page",
+      "definedIn": [
+        "app/(content)/[domain]/page.tsx",
+        "app/a-z/page.tsx",
+        "app/credits/page.tsx",
+        "app/glossary/page.tsx",
+        "app/market-map/page.tsx",
+        "app/not-found.tsx",
+        "app/playground/page.tsx",
+        "app/search/page.tsx"
+      ]
     },
     {
       "id": "article-h1",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-article"
+      "cssClass": "font-display-article",
+      "definedIn": [
+        "components/article/article-header.tsx"
+      ]
     },
     {
       "id": "section-display",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-section"
+      "cssClass": "font-display-section",
+      "definedIn": [
+        "app/page.tsx"
+      ]
     },
     {
       "id": "display-numerals",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-numerals"
+      "cssClass": "font-display-numerals",
+      "definedIn": [
+        "app/not-found.tsx"
+      ]
     }
   ],
   "tekturOgRoleId": "home-wordmark",

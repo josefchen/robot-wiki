@@ -101,7 +101,10 @@ export default function CreditsPage() {
           index: it is 40-odd repeated licence identifiers and creator
           names, which would crowd out real prose matches. */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
@@ -120,6 +123,7 @@ export default function CreditsPage() {
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
           Written and maintained by{' '}
           <a
+            data-brand-control-id="control:link-focus"
             href={AUTHOR_PROFILE_URL}
             target="_blank"
             rel="noopener"
@@ -155,6 +159,7 @@ export default function CreditsPage() {
         <p className="mt-4 font-sans text-sm text-text-dim">
           Corrections and source disputes are welcome:{' '}
           <a
+            data-brand-control-id="control:link-focus"
             href={AUTHOR_PROFILE_URL}
             target="_blank"
             rel="noopener"
@@ -184,6 +189,7 @@ export default function CreditsPage() {
                     <span key={link.route}>
                       {index > 0 ? ', ' : ''}
                       <Link
+                        data-brand-control-id="control:link-focus"
                         href={link.route}
                         className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
                       >

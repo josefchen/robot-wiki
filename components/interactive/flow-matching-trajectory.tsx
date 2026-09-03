@@ -88,6 +88,7 @@ export function FlowMatchingTrajectory({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -107,6 +108,7 @@ export function FlowMatchingTrajectory({
           <input
             id="fm-steps"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_STEPS}
             max={MAX_STEPS}
             step={1}
@@ -124,6 +126,7 @@ export function FlowMatchingTrajectory({
           >
             {PRESETS.map((preset) => (
               <button
+                data-brand-control-id="control:selection"
                 key={preset.steps}
                 type="button"
                 aria-pressed={steps === preset.steps}
@@ -143,6 +146,7 @@ export function FlowMatchingTrajectory({
             ))}
           </div>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={() => setSteps(defaultSteps)}

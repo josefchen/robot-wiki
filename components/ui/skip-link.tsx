@@ -5,7 +5,11 @@
  */
 export function SkipLink() {
   return (
-    <a href="#main-content" className="skip-link">
+    <a
+      href="#main-content"
+      data-brand-control-id="control:link-focus"
+      className="skip-link"
+    >
       Skip to content
     </a>
   );

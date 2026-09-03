@@ -76,6 +76,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -95,6 +96,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
           <input
             id="perception-latency"
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={INTERACTIVE_MAX_LATENCY_MS}
             step={5}
@@ -107,6 +109,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
         <div role="group" aria-label="Maximum lateral acceleration" className="flex flex-wrap gap-1">
           {AGILITY_STEPS.map((u) => (
             <button
+              data-brand-control-id="control:selection"
               key={u}
               type="button"
               aria-pressed={agility === u}
@@ -116,7 +119,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
               {u} m/s²
             </button>
           ))}
-          <button type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
+          <button data-brand-control-id="control:secondary-action" type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
             Reset
           </button>
         </div>

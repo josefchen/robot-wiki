@@ -256,6 +256,7 @@ export function LatentImagination({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -275,6 +276,7 @@ export function LatentImagination({
           <input
             id="li-horizon"
             type="range"
+            data-brand-control-id="control:input"
             min={1}
             max={MAX_HORIZON}
             step={1}
@@ -297,6 +299,7 @@ export function LatentImagination({
           <input
             id="li-epsilon"
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_EPSILON_PERCENT}
             max={MAX_EPSILON_PERCENT}
             step={0.5}
@@ -307,6 +310,7 @@ export function LatentImagination({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -319,6 +323,7 @@ export function LatentImagination({
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <div role="group" aria-label="Model type" className="flex gap-2">
           <button
+            data-brand-control-id="control:selection"
             type="button"
             aria-pressed={mode === 'decoder'}
             onClick={() => setMode('decoder')}
@@ -327,6 +332,7 @@ export function LatentImagination({
             Dreamer: with decoder
           </button>
           <button
+            data-brand-control-id="control:selection"
             type="button"
             aria-pressed={mode === 'decoder-free'}
             onClick={() => setMode('decoder-free')}

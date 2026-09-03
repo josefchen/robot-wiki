@@ -31,7 +31,8 @@ export default function SearchPage() {
           (the design contract allows exactly one aria-current per route). */}
       <h1
         aria-current="page"
-        className="font-sans text-3xl font-semibold tracking-tight text-text"
+        data-tektur-role="page-h1"
+        className="font-display-page text-3xl tracking-tight text-text"
       >
         Search
       </h1>

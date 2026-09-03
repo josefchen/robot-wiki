@@ -46,6 +46,7 @@ export function TypeFacetBar({
         const active = value === option.type;
         return (
           <button
+            data-brand-control-id="control:selection"
             key={option.type}
             type="button"
             aria-pressed={active}

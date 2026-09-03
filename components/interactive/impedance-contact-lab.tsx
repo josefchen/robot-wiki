@@ -125,6 +125,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
   return (
     <div
       data-testid="impedance-lab"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -144,6 +145,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
             >
               <input
                 type="radio"
+                data-brand-control-id="control:selection"
                 name={`${uid}-hardware`}
                 value={opt.value}
                 checked={params.hardware === opt.value}
@@ -182,6 +184,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           <input
             id={`${uid}-depth`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.depth.min}
             max={SLIDER_SPECS.depth.max}
             step={SLIDER_SPECS.depth.step}
@@ -211,6 +214,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           <input
             id={`${uid}-stiffness`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.stiffness.min}
             max={SLIDER_SPECS.stiffness.max}
             step={SLIDER_SPECS.stiffness.step}
@@ -241,6 +245,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
           <input
             id={`${uid}-damping`}
             type="range"
+            data-brand-control-id="control:input"
             min={SLIDER_SPECS.damping.min}
             max={SLIDER_SPECS.damping.max}
             step={SLIDER_SPECS.damping.step}
@@ -372,6 +377,7 @@ export function ImpedanceContactLab({ className }: { className?: string }) {
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

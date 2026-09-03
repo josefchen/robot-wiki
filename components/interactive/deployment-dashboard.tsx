@@ -46,6 +46,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
   return (
     <div
       data-testid="deployment-dashboard"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -60,6 +61,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           <span className="font-sans text-xs text-text-dim">Evidence status</span>
           {FILTERS.map((option) => (
             <button
+              data-brand-control-id="control:selection"
               key={option.value}
               type="button"
               aria-pressed={filter === option.value}
@@ -83,6 +85,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           {rows.length} of {DEPLOYMENT_ROWS.length} rows
         </p>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setFilter('all')}
@@ -140,6 +143,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
                   <td className="px-3 py-2.5 align-top font-mono text-xs">
                     {citation ? (
                       <a
+                        data-brand-control-id="control:link-focus"
                         href={citation.url}
                         target="_blank"
                         rel="noopener"

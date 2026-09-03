@@ -46,6 +46,7 @@ export function AuthorList({
       </span>
       {trailing}{' '}
       <button
+        data-brand-control-id="control:secondary-action"
         type="button"
         aria-expanded={expanded}
         onClick={() => setExpanded((value) => !value)}

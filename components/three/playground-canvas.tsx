@@ -110,6 +110,7 @@ export function PlaygroundCanvas() {
       <div
         ref={viewportRef}
         data-testid="playground-viewport"
+        data-brand-surface-id="surface:flat"
         className="relative h-[min(72dvh,760px)] min-h-[420px] w-full overflow-hidden rounded-sm border border-border bg-bg"
       >
         {webgl === false ? <WebGLUnavailable /> : null}
@@ -176,6 +177,7 @@ export function PlaygroundCanvas() {
         <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
           <section
             aria-label="Joint angle controls"
+            data-brand-surface-id="surface:flat"
             className="rounded-sm border border-border bg-surface p-4"
           >
             <JointControls
@@ -187,6 +189,7 @@ export function PlaygroundCanvas() {
           </section>
           <section
             aria-label="Inverse kinematics target"
+            data-brand-surface-id="surface:flat"
             className="rounded-sm border border-border bg-surface p-4"
           >
             <IkTargetForm
@@ -198,6 +201,7 @@ export function PlaygroundCanvas() {
           </section>
           <section
             aria-label="Trajectory recording and playback"
+            data-brand-surface-id="surface:flat"
             className="rounded-sm border border-border bg-surface p-4 lg:col-span-2"
           >
             <TrajectoryPanel controller={trajectory} />

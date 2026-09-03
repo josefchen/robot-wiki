@@ -213,6 +213,7 @@ export function PendulumController({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -236,6 +237,7 @@ export function PendulumController({
             <input
               id={`${uid}-gain-${spec.id}`}
               type="range"
+              data-brand-control-id="control:input"
               min={spec.min}
               max={spec.max}
               step={spec.step}
@@ -370,6 +372,7 @@ export function PendulumController({
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => setPlaying((p) => !p)}
@@ -386,6 +389,7 @@ export function PendulumController({
           {playing ? 'Pause' : 'Run'}
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={push}
@@ -395,6 +399,7 @@ export function PendulumController({
           Push
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

@@ -159,6 +159,7 @@ export function MarketMap({ companies }: MarketMapProps) {
             No companies match these filters.
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             type="button"
             onClick={clearFilters}
             className="mt-3 cursor-pointer font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"

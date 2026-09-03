@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
+import { matchingToken, tokenizeSource } from './source-tokens.ts';
 
 const UNIT_TEST = /^tests\/unit\/.+\.test\.ts$/;
 const E2E_TEST = /^tests\/e2e\/.+\.spec\.ts$/;
@@ -18,89 +19,8 @@ function trackedTestFiles(root: string): string[] {
     .sort(compareCodePoints);
 }
 
-type Token = {
-  kind: 'identifier' | 'punctuation' | 'string';
-  value: string;
-  start: number;
-};
-
-function tokenize(source: string): Token[] {
-  const tokens: Token[] = [];
-  for (let index = 0; index < source.length;) {
-    const character = source[index];
-    if (/\s/.test(character)) {
-      index += 1;
-      continue;
-    }
-    if (source.startsWith('//', index)) {
-      index = source.indexOf('\n', index + 2);
-      if (index === -1) break;
-      continue;
-    }
-    if (source.startsWith('/*', index)) {
-      const end = source.indexOf('*/', index + 2);
-      index = end === -1 ? source.length : end + 2;
-      continue;
-    }
-    if (character === "'" || character === '"' || character === '`') {
-      const quote = character;
-      const start = index;
-      index += 1;
-      let value = '';
-      while (index < source.length) {
-        const next = source[index];
-        if (next === '\\') {
-          const escaped = source[index + 1];
-          value += escaped === 'n' ? '\n' : escaped === 't' ? '\t' : escaped;
-          index += 2;
-          continue;
-        }
-        if (next === quote) {
-          index += 1;
-          break;
-        }
-        value += next;
-        index += 1;
-      }
-      tokens.push({ kind: 'string', value, start });
-      continue;
-    }
-    if (/[A-Za-z_$]/.test(character)) {
-      const start = index;
-      index += 1;
-      while (index < source.length && /[A-Za-z0-9_$-]/.test(source[index])) {
-        index += 1;
-      }
-      tokens.push({
-        kind: 'identifier',
-        value: source.slice(start, index),
-        start,
-      });
-      continue;
-    }
-    tokens.push({ kind: 'punctuation', value: character, start: index });
-    index += 1;
-  }
-  return tokens;
-}
-
-function matchingToken(
-  tokens: readonly Token[],
-  start: number,
-  open: string,
-  close: string,
-): number | null {
-  let depth = 0;
-  for (let index = start; index < tokens.length; index += 1) {
-    if (tokens[index].value === open) depth += 1;
-    if (tokens[index].value === close) depth -= 1;
-    if (depth === 0) return index;
-  }
-  return null;
-}
-
 function titlesForFile(file: string, source: string): string[] {
-  const tokens = tokenize(source);
+  const tokens = tokenizeSource(source);
   const separator = E2E_TEST.test(file) ? ' › ' : ' > ';
   const titles: string[] = [];
   const suites: Array<{ title: string; start: number; end: number }> = [];

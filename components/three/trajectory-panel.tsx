@@ -72,6 +72,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
 
       <div className="mt-3 flex flex-wrap gap-2">
         <button
+          data-brand-control-id="control:selection"
           type="button"
           data-testid="trajectory-record"
           aria-pressed={controller.recording}
@@ -85,6 +86,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           {controller.recording ? 'Stop recording' : 'Record'}
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="trajectory-add"
           onClick={controller.addKeyframe}
@@ -94,6 +96,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           Add keyframe
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="trajectory-play"
           onClick={controller.play}
@@ -103,6 +106,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           Play
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="trajectory-stop"
           onClick={controller.stopPlayback}
@@ -112,6 +116,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           Stop
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           data-testid="trajectory-clear"
           onClick={controller.clear}
@@ -127,6 +132,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           {controller.keyframes.map((keyframe, index) => (
             <li key={index}>
               <button
+                data-brand-control-id="control:secondary-action"
                 type="button"
                 data-testid={`trajectory-keyframe-${index}`}
                 onClick={() => controller.jumpToKeyframe(index)}
@@ -167,6 +173,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-mono text-xs text-text">Export</h3>
             <button
+              data-brand-control-id="control:secondary-action"
               type="button"
               data-testid="trajectory-export"
               onClick={controller.exportTrajectory}
@@ -179,6 +186,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           {controller.exportText !== null ? (
             <div className="mt-2">
               <textarea
+                data-brand-control-id="control:input"
                 data-testid="trajectory-export-json"
                 readOnly
                 value={controller.exportText}
@@ -189,6 +197,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
               />
               {downloadUrl ? (
                 <a
+                  data-brand-control-id="control:link-focus"
                   data-testid="trajectory-download"
                   href={downloadUrl}
                   download="so101-trajectory.json"
@@ -205,6 +214,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-mono text-xs text-text">Import</h3>
             <button
+              data-brand-control-id="control:secondary-action"
               type="button"
               data-testid="trajectory-import"
               onClick={() => controller.importTrajectory(importText)}
@@ -215,6 +225,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
             </button>
           </div>
           <textarea
+            data-brand-control-id="control:input"
             data-testid="trajectory-import-json"
             value={importText}
             onChange={(event) => setImportText(event.target.value)}
@@ -224,6 +235,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
             className="mt-2 w-full rounded-sm border border-border bg-bg px-2 py-1.5 font-mono text-[11px] leading-relaxed text-text placeholder:text-text-dim"
           />
           <input
+            data-brand-control-id="control:input"
             data-testid="trajectory-import-file"
             type="file"
             accept=".json,application/json"

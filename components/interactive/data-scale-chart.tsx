@@ -168,6 +168,7 @@ export function DataScaleChart({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -187,6 +188,7 @@ export function DataScaleChart({
           <input
             id={rigsId}
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_RIGS}
             max={MAX_RIGS}
             step={1}
@@ -197,6 +199,7 @@ export function DataScaleChart({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -213,6 +216,7 @@ export function DataScaleChart({
       >
         {COLLECTION_RATES.map((r) => (
           <button
+            data-brand-control-id="control:selection"
             key={r.id}
             type="button"
             aria-pressed={rateId === r.id}

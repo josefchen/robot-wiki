@@ -60,6 +60,7 @@ function SelectField({
         {label}
       </label>
       <select
+        data-brand-control-id="control:input"
         id={id}
         value={value}
         onChange={onChange}
@@ -220,6 +221,7 @@ export function FilterBar({
         >
           {VIEW_IDS.map((id) => (
             <button
+              data-brand-control-id="control:selection"
               key={id}
               type="button"
               aria-pressed={view === id}
@@ -246,6 +248,7 @@ export function FilterBar({
           </p>
           {canClear ? (
             <button
+              data-brand-control-id="control:secondary-action"
               type="button"
               onClick={onClear}
               className="cursor-pointer font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
@@ -258,6 +261,7 @@ export function FilterBar({
 
       <div className="md:hidden">
         <button
+          data-brand-control-id="control:secondary-action"
           type="button"
           aria-expanded={filtersOpen}
           aria-controls="market-map-filters"
