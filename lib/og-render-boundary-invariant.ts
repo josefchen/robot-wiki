@@ -43,8 +43,10 @@ const IMAGE_RENDERER_SPECIFIERS: readonly RegExp[] = [
   /(?:^|\/)@vercel\/og(?:$|\/)/,
   /(?:^|[/@])satori(?:$|[/.])/,
   /(?:^|[/@])resvg(?:$|[-/.])/,
-  /^next\/og$/,
-  /^next\/server$/,
+  // `next` publishes no `exports` map, so Node resolves the public entry
+  // points by file: `next/og` and `next/og.js` are the same module.
+  /^next\/og(?:\.[cm]?js)?$/,
+  /^next\/server(?:\.[cm]?js)?$/,
   /^next\/.*(?:image-response|\/og\/)/,
 ];
 
@@ -65,6 +67,13 @@ const RENDERER_FREE_SPECIFIERS: ReadonlySet<string> = new Set([
   'node:path',
   'zod',
 ]);
+
+/**
+ * Stands in for `import(expression)`, whose target is decided at runtime.
+ * It matches no first-party prefix and appears in no list, so it classifies
+ * as unrecognized and the caller fails on it.
+ */
+export const COMPUTED_IMPORT_SPECIFIER = '<computed import expression>';
 
 export type SpecifierRendererClass =
   | 'first-party'
@@ -111,13 +120,17 @@ export function moduleImports(text: string): ModuleImport[] {
     // `import('...')`, including the deferred form inside a callback.
     if (next.value === '(') {
       const specifier = tokens[index + 2];
-      if (specifier?.kind === 'string') {
-        imports.push({
-          specifier: specifier.value,
-          typeOnly: false,
-          locals: [],
-        });
-      }
+      imports.push({
+        // A computed specifier names no module a reader can classify, so it
+        // is reported under a name no classifier recognizes rather than
+        // dropped.
+        specifier:
+          specifier?.kind === 'string'
+            ? specifier.value
+            : COMPUTED_IMPORT_SPECIFIER,
+        typeOnly: false,
+        locals: [],
+      });
       continue;
     }
     // `import './globals.css'`

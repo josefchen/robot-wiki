@@ -593,13 +593,19 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
   }
   // Opening a seal is how a card tree becomes mutable. The generator has no
   // reason to hold one: it hands the sealed entry to the render boundary.
-  const opened = (graph.bindingsByModule.get(OG_CARD_GENERATOR) ?? []).filter(
-    ({ local, imported }) =>
-      local === OG_CARD_SEAL_OPENER || imported === OG_CARD_SEAL_OPENER,
-  );
-  if (opened.length > 0) {
+  // Stated as a closed list of names it may take from the corpus rather than
+  // as a ban on the opener's name, because a re-export under another name
+  // still resolves to the corpus module and would evade the name.
+  const fromCorpus = (graph.bindingsByModule.get(OG_CARD_GENERATOR) ?? [])
+    .filter(({ module }) => module === OG_CARD_TREE_SOURCE)
+    .filter(({ imported }) => imported !== 'ogCardCorpus');
+  if (fromCorpus.length > 0) {
     throw new Error(
-      `${OG_CARD_GENERATOR} binds ${OG_CARD_SEAL_OPENER}, so it can unwrap a sealed card tree before ${OG_CARD_RENDER_BOUNDARY} renders it`,
+      `${OG_CARD_GENERATOR} binds ${fromCorpus
+        .map(({ local, imported }) =>
+          local === imported ? local : `${imported} as ${local}`,
+        )
+        .join(', ')} from ${OG_CARD_TREE_SOURCE}; it may take only the corpus itself, so it cannot reach ${OG_CARD_SEAL_OPENER} and unwrap a card tree before ${OG_CARD_RENDER_BOUNDARY} renders it`,
     );
   }
   const modules = [...graph.reachableFrom(producers)].sort();

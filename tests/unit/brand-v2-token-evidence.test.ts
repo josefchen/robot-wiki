@@ -37,7 +37,10 @@ import {
 } from '@/lib/brand-v2-token-evidence';
 import { buildTokenRendererEvidence } from '@/lib/brand-v2-renderer-parity';
 import { buildModuleImportGraph } from '@/lib/module-import-graph';
-import { classifyModuleSpecifier } from '@/lib/og-render-boundary-invariant';
+import {
+  classifyModuleSpecifier,
+  COMPUTED_IMPORT_SPECIFIER,
+} from '@/lib/og-render-boundary-invariant';
 
 const ROOT = process.cwd();
 const SOURCES = {
@@ -835,7 +838,11 @@ describe('brand-v2 token evidence', () => {
     it('classifies every specifier that can yield an image renderer, and fails closed on one it cannot', () => {
       for (const specifier of [
         'next/og',
+        // The spelling Node actually resolves: `next` publishes no
+        // `exports` map, so the public entry point is a file.
+        'next/og.js',
         'next/server',
+        'next/server.js',
         '@vercel/og',
         'next/dist/compiled/@vercel/og/index.node.js',
         'next/dist/server/og/image-response',
@@ -920,6 +927,65 @@ describe('brand-v2 token evidence', () => {
           ).toBe(true);
           expect(() => rendererSourceIdentity(root)).toThrow(
             /module\(s\) in the renderer closure import an image renderer.*next\/og/s,
+          );
+        },
+      );
+    });
+
+    /**
+     * The seal-opener prohibition used to match the export's name, so a
+     * re-export under another name resolved to the corpus module and walked
+     * straight past it. It is a closed list of what the generator may take
+     * from the corpus instead.
+     */
+    it('fails a generator that takes the seal opener from the corpus under an alias', () => {
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-barrel.ts':
+            "export { openSealedCardTree as unseal } from './og-card-corpus.ts';\n",
+          'scripts/generate-og-cards.ts': [
+            "import { writeFileSync } from 'node:fs';",
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { unseal } from '../lib/og-card-barrel.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  void unseal(entry.card);',
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  writeFileSync(entry.cardPath, buffer);',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /binds unseal from lib\/og-card-corpus\.ts; it may take only the corpus itself/,
+          );
+        },
+      );
+    });
+
+    /**
+     * A specifier assembled at runtime names no module the reader can
+     * classify, so it has to fail rather than go unseen.
+     */
+    it('fails a renderer-closure module that imports a computed specifier', () => {
+      expect(classifyModuleSpecifier(COMPUTED_IMPORT_SPECIFIER)).toBe(
+        'unrecognized',
+      );
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-substitute.ts': [
+            'const which = process.env.RENDERER ?? "next/og";',
+            'export const paint = await import(which);',
+          ].join('\n'),
+          'scripts/generate-og-cards.ts': [
+            GENERATOR_CONSUMING_CORPUS,
+            "import { paint } from '../lib/og-card-substitute.ts';",
+            'void paint;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /neither a known image renderer nor known to be free of one \(lib\/og-card-substitute\.ts imports <computed import expression>\)/,
           );
         },
       );
