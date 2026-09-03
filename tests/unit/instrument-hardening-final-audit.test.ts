@@ -91,20 +91,26 @@ const REQUIRED_ASSERTIONS = [
 
 /**
  * The audit is only a proof if the commands that produced it are still in the
- * record. A `.min(1)` array accepts a lone `git show`, so the mandatory gate
- * set and each gate's expected outcome are named here: deleting an entry, or
- * recording a gate that did not end the way the audit claims, has to fail.
+ * record, with the identity they were run under. Each entry is the exact
+ * invocation, so substituting a different spec, configuration, or worker count
+ * for the focused mutation run — or recording a gate that did not end the way
+ * the audit claims — has to fail.
  */
-const REQUIRED_COMMANDS = [
-  { id: 'lint', pattern: /^npm run lint$/, exitCode: 0 },
-  { id: 'typecheck', pattern: /^npm run typecheck$/, exitCode: 0 },
-  { id: 'unit', pattern: /^npm(?: run)? test$/, exitCode: 0 },
-  { id: 'build', pattern: /^npm run build$/, exitCode: 0 },
-  { id: 'brand-v2', pattern: /^npm run test:brand-v2$/, exitCode: 0 },
-  { id: 'full-e2e', pattern: /^npm run test:e2e$/, exitCode: 0 },
+const REQUIRED_COMMANDS: ReadonlyArray<{
+  id: string;
+  command: string;
+  exitCode: number;
+  observation?: RegExp[];
+}> = [
+  { id: 'lint', command: 'npm run lint', exitCode: 0 },
+  { id: 'typecheck', command: 'npm run typecheck', exitCode: 0 },
+  { id: 'unit', command: 'npm test', exitCode: 0 },
+  { id: 'build', command: 'npm run build', exitCode: 0 },
+  { id: 'brand-v2', command: 'npm run test:brand-v2', exitCode: 0 },
+  { id: 'full-e2e', command: 'npm run test:e2e', exitCode: 0 },
   {
     id: 'release-count',
-    pattern: /^npm run check:brand-v2-enforcement:release:counts$/,
+    command: 'npm run check:brand-v2-enforcement:release:counts',
     // The sealed milestone-red shape: the release gate must still refuse the
     // pending corpus, so a zero exit code here would mean the audit recorded
     // a gate that had stopped enforcing.
@@ -112,23 +118,145 @@ const REQUIRED_COMMANDS = [
   },
   {
     id: 'focused-mutation',
-    pattern: /^npx playwright test .*-g "rejects a route profile".*$/,
+    command:
+      'npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g "rejects a route profile" --workers=1',
     exitCode: 0,
+    observation: [/empty-font-resource-population/, /320/, /reflow/i],
   },
-] as const;
+];
 
-const REQUIRED_MUTATIONS = [
-  'font-empty-population',
-  'forced-320-overflow',
-  'omitted-route-check-class',
-  'combined-value-state-and-manifest-drift',
-] as const;
+/**
+ * Naming a mutation and restoring the file proves only that a file was edited
+ * and put back. Each required mutation is therefore bound to the subject it
+ * ran against, the failure class it expected, and the observation markers the
+ * real run produced. Each named failure class must also still be emitted by
+ * the product source that emits it: a mutation proof whose failure class no
+ * longer exists in the shipped code is stale evidence, not evidence.
+ */
+const REQUIRED_MUTATIONS: ReadonlyArray<{
+  name: string;
+  subject: RegExp[];
+  expectedFailure: RegExp[];
+  observed: RegExp[];
+  emittedFailures: Array<{
+    record: RegExp;
+    source: string;
+    sourceMarker: RegExp;
+  }>;
+}> = [
+  {
+    name: 'font-empty-population',
+    subject: [/font/i, /resource|timing/i],
+    expectedFailure: [/\bresource-font\b/, /\bempty-font-resource-population\b/],
+    observed: [/\bempty\b/i, /validateRouteProfile/, /clear|abort|block/i],
+    emittedFailures: [
+      {
+        record: /empty-font-resource-population/,
+        source: 'lib/brand-v2-route-profile.ts',
+        sourceMarker: /reason: 'empty-font-resource-population'/,
+      },
+    ],
+  },
+  {
+    name: 'forced-320-overflow',
+    subject: [/320/, /viewport/i],
+    expectedFailure: [/reflow/i, /positive/i, /overflow/i],
+    observed: [/\b\d+px\b/, /positive/i, /overflow/i, /reflow/i],
+    emittedFailures: [
+      {
+        record: /px-overflow/,
+        source: 'lib/brand-v2-route-profile.ts',
+        sourceMarker: /px-overflow/,
+      },
+    ],
+  },
+  {
+    name: 'omitted-route-check-class',
+    subject: [/executedChecks/, /brand-v2-route-flows\.spec\.ts/],
+    expectedFailure: [/\baxe\b/, /missing|equality|reconcil/i],
+    observed: [/\baxe\b/, /remov(?:ing|ed)/i, /fail/i],
+    emittedFailures: [
+      {
+        record: /\baxe\b/,
+        source: 'lib/brand-v2-runners.ts',
+        sourceMarker: /'axe'/,
+      },
+    ],
+  },
+  {
+    name: 'combined-value-state-and-manifest-drift',
+    subject: [/baseline/i, /value/i],
+    expectedFailure: [
+      /empty-value-state-population/,
+      /manifest/i,
+      /ok:false|envelope/i,
+    ],
+    observed: [
+      /empty-value-state-population/,
+      /accessible-names/,
+      /changed-member/,
+    ],
+    emittedFailures: [
+      {
+        record: /empty-value-state-population/,
+        source: 'lib/brand-v2-baseline.ts',
+        sourceMarker: /reason: 'empty-value-state-population'/,
+      },
+      {
+        record: /accessible-names/,
+        source: 'scripts/brand-v2-baseline.ts',
+        sourceMarker: /'accessible-names'/,
+      },
+    ],
+  },
+];
 
 function git(...args: string[]): string {
   return execFileSync('git', args, {
     cwd: process.cwd(),
     encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
   }).trim();
+}
+
+/**
+ * The sealed release outcome, recounted from the audited commit's own
+ * enforcement corpus rather than read back out of the audit's prose: a count a
+ * record supplies about itself is not evidence for that count.
+ */
+function auditedReleaseFailureCounts(): {
+  pendingResultBlocksRelease: number;
+  populationWideCoverageBlocksRelease: number;
+  total: number;
+} {
+  const corpus = JSON.parse(
+    git('show', `${AUDITED_COMMIT}:evidence/brand-v2/results.json`),
+  ) as {
+    results: Array<{ status: string; coverageKind: string }>;
+  };
+  if (corpus.results.length === 0) {
+    throw new Error('The audited enforcement corpus is empty.');
+  }
+  const pendingResultBlocksRelease = corpus.results.filter(
+    ({ status }) => status === 'pending',
+  ).length;
+  const populationWideCoverageBlocksRelease = corpus.results.filter(
+    ({ coverageKind }) => coverageKind === 'population-wide',
+  ).length;
+  if (
+    pendingResultBlocksRelease === 0 ||
+    populationWideCoverageBlocksRelease === 0
+  ) {
+    throw new Error(
+      'The audited corpus no longer produces both release-blocking failure classes.',
+    );
+  }
+  return {
+    pendingResultBlocksRelease,
+    populationWideCoverageBlocksRelease,
+    total:
+      pendingResultBlocksRelease + populationWideCoverageBlocksRelease,
+  };
 }
 
 describe('instrument hardening final audit evidence', () => {
@@ -164,19 +292,26 @@ describe('instrument hardening final audit evidence', () => {
     }
     expect(new Set(assertions).size).toBe(audit.assertions.length);
 
+    const sealedCounts = auditedReleaseFailureCounts();
     for (const required of REQUIRED_COMMANDS) {
-      const matching = audit.commands.filter(({ command }) =>
-        required.pattern.test(command),
+      const matching = audit.commands.filter(
+        ({ command }) => command === required.command,
       );
       expect(
         matching.length,
-        `missing required audit command ${required.id} (${required.pattern.source})`,
+        `missing required audit command ${required.id}: ${required.command}`,
       ).toBeGreaterThan(0);
       for (const entry of matching) {
         expect(
           entry.exitCode,
           `audit command ${required.id} recorded the wrong outcome: ${entry.command}`,
         ).toBe(required.exitCode);
+        for (const marker of required.observation ?? []) {
+          expect(
+            entry.observation,
+            `audit command ${required.id} observation must record ${marker.source}`,
+          ).toMatch(marker);
+        }
       }
       if (required.id !== 'release-count') continue;
       for (const entry of matching) {
@@ -186,16 +321,16 @@ describe('instrument hardening final audit evidence', () => {
           'the release-count gate must record the failure population it reported',
         ).toBeDefined();
         if (counts === undefined) continue;
-        expect(counts.total).toBe(
-          counts.pendingResultBlocksRelease +
-            counts.populationWideCoverageBlocksRelease,
-        );
+        expect(
+          counts,
+          'the recorded release-count outcome must equal the audited enforcement corpus',
+        ).toEqual(sealedCounts);
         // Recorded and asserted, so the prose and the structured counts
         // cannot drift apart: a number changed in one place fails here.
         for (const value of [
-          counts.total,
-          counts.pendingResultBlocksRelease,
-          counts.populationWideCoverageBlocksRelease,
+          sealedCounts.total,
+          sealedCounts.pendingResultBlocksRelease,
+          sealedCounts.populationWideCoverageBlocksRelease,
         ]) {
           expect(
             entry.observation,
@@ -208,9 +343,33 @@ describe('instrument hardening final audit evidence', () => {
     const mutations = new Map(
       audit.mutations.map((mutation) => [mutation.name, mutation]),
     );
-    for (const name of REQUIRED_MUTATIONS) {
-      expect(mutations.has(name), `missing audit mutation ${name}`).toBe(true);
-      expect(mutations.get(name)?.restoredByteIdentical).toBe(true);
+    for (const required of REQUIRED_MUTATIONS) {
+      const mutation = mutations.get(required.name);
+      expect(mutation, `missing audit mutation ${required.name}`).toBeDefined();
+      if (mutation === undefined) continue;
+      expect(mutation.restoredByteIdentical).toBe(true);
+      for (const [field, markers] of [
+        ['subject', required.subject],
+        ['expectedFailure', required.expectedFailure],
+        ['observed', required.observed],
+      ] as const) {
+        for (const marker of markers) {
+          expect(
+            mutation[field],
+            `audit mutation ${required.name} ${field} must record ${marker.source}`,
+          ).toMatch(marker);
+        }
+      }
+      for (const emitted of required.emittedFailures) {
+        expect(
+          `${mutation.expectedFailure}\n${mutation.observed}`,
+          `audit mutation ${required.name} must name the ${emitted.source} failure class`,
+        ).toMatch(emitted.record);
+        expect(
+          readFileSync(join(process.cwd(), emitted.source), 'utf8'),
+          `${emitted.source} no longer emits the failure class ${required.name} claims`,
+        ).toMatch(emitted.sourceMarker);
+      }
     }
     expect(new Set(mutations).size).toBe(audit.mutations.length);
 

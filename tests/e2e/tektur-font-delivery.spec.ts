@@ -3,17 +3,15 @@ import {
   TEKTUR_ASSIGNED_STRINGS,
   TEKTUR_ROLE_INSTANCES,
 } from '../../data/type-roles';
+import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
 
 /**
- * The sealed base viewports. VAL-B2-TYPE-015 requires the rendered axis
- * values to match the registry "at every declared viewport", so a role that
- * only resolves on one width is a failure rather than a pass.
+ * VAL-B2-TYPE-015 requires the rendered axis values to match the registry "at
+ * every declared viewport", so the sweep is the canonical width population
+ * derived from the declaring documents. Retyping a subset here is how a
+ * width-specific role override escapes the gate entirely.
  */
-const VIEWPORTS = [
-  { name: 'mobile', width: 375, height: 812 },
-  { name: 'tablet', width: 768, height: 1024 },
-  { name: 'desktop', width: 1440, height: 900 },
-] as const;
+const VIEWPORTS = BRAND_V2_RESPONSIVE_VIEWPORTS;
 
 const REGISTERED_ROLE_IDS = TEKTUR_ROLE_INSTANCES.map(({ id }) => id);
 const REGISTERED_CLASSES = TEKTUR_ROLE_INSTANCES.map(
@@ -59,6 +57,7 @@ test.describe('Tektur role population', () => {
       staticBase,
     }) => {
       const failures: string[] = [];
+      expect(VIEWPORTS.length).toBeGreaterThan(1);
       for (const viewport of VIEWPORTS) {
         await page.setViewportSize({
           width: viewport.width,
@@ -112,7 +111,7 @@ test.describe('Tektur role population', () => {
           };
         }, { roleIds: REGISTERED_ROLE_IDS, classes: REGISTERED_CLASSES });
 
-        const where = `${route} @${viewport.name}`;
+        const where = `${route} @${viewport.id}`;
         for (const unregistered of observed.annotatedRoles.filter(
           (role) => !REGISTERED_ROLE_IDS.includes(role as never),
         )) {
