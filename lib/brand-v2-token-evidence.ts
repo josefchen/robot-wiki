@@ -480,41 +480,94 @@ export function readTokenRuntimeEvidence(input: {
 }
 
 /**
- * The module that produces the renderer artifact, and the first-party source
- * closure it reaches.
+ * The modules that build and measure the shipped Open Graph cards, and the
+ * first-party source closure they reach.
  *
- * A painted-colour record is only evidence about the renderer it was
- * measured from. Binding the artifact to the bytes of that closure means an
- * artwork or renderer edit invalidates the record instead of letting it
- * certify cards it never saw — including an edit that happens to leave the
- * token and stylesheet fingerprint untouched, which is exactly the case the
- * colour re-derivation alone cannot notice.
+ * A painted-colour record is only evidence about the artwork it was measured
+ * from. Two producers are named, and both matter: the module that writes the
+ * artifact and the build-time generator that writes the PNGs. While only the
+ * former was fingerprinted, the generator was outside the recorded identity
+ * altogether, so a painted colour changed in the generator — by substituting
+ * or wrapping the tree on its way to `ImageResponse` — shipped inside 48
+ * cards while the artifact stayed valid.
  *
- * The graph's roots are app/, components/, lib/ and content/, so `data/`
- * registries sit outside it. That is why staleness detection is not the only
- * guard: the reader also re-derives the painted population from the current
- * corpus, which is what notices a changed card population.
+ * `OG_CARD_TREE_SOURCE` is required to sit in both closures, and the
+ * generator is required not to bind the artwork builders itself, so the two
+ * sides cannot drift into parallel constructions again: a generator that
+ * rebuilds its own trees fails this derivation instead of quietly escaping
+ * the measurement.
+ *
+ * `data/` joins the graph roots because the registries there decide which
+ * cards exist and what each one paints, so they genuinely participate in
+ * building a card tree; `scripts/` joins it because the generator lives
+ * there. Staleness detection is still not the only guard: the reader also
+ * re-derives the painted population from the current corpus.
  */
 export const RENDERER_EVIDENCE_PRODUCER = 'lib/brand-v2-renderer-parity.ts';
+export const OG_CARD_GENERATOR = 'scripts/generate-og-cards.ts';
+export const OG_CARD_TREE_SOURCE = 'lib/og-card-corpus.ts';
+export const OG_CARD_ARTWORK_SOURCE = 'lib/og-card-artwork.ts';
+const RENDERER_IDENTITY_ROOTS = [
+  'app',
+  'components',
+  'lib',
+  'content',
+  'data',
+  'scripts',
+] as const;
 
 export type RendererSourceIdentity = {
-  producer: string;
+  /** Sorted: the artifact producer and the production card generator. */
+  producers: string[];
+  cardTreeSource: string;
   modules: string[];
   fingerprint: string;
 };
 
 export function rendererSourceIdentity(root: string): RendererSourceIdentity {
-  const graph = buildModuleImportGraph(root);
-  const modules = [
-    ...graph.reachableFrom([RENDERER_EVIDENCE_PRODUCER]),
-  ].sort();
+  const graph = buildModuleImportGraph(root, {
+    roots: RENDERER_IDENTITY_ROOTS,
+  });
+  const producers = [OG_CARD_GENERATOR, RENDERER_EVIDENCE_PRODUCER].sort();
+  for (const producer of producers) {
+    if (!graph.textByModule.has(producer)) {
+      throw new Error(
+        `${producer} is not a scanned module, so the renderer closure cannot be identified`,
+      );
+    }
+    const closure = graph.reachableFrom([producer]);
+    if (!closure.has(OG_CARD_TREE_SOURCE)) {
+      throw new Error(
+        `${producer} does not reach ${OG_CARD_TREE_SOURCE}, so it builds a card corpus of its own`,
+      );
+    }
+  }
+  const rebuilt = (graph.bindingsByModule.get(OG_CARD_GENERATOR) ?? []).filter(
+    ({ module }) => module === OG_CARD_ARTWORK_SOURCE,
+  );
+  if (rebuilt.length > 0) {
+    throw new Error(
+      `${OG_CARD_GENERATOR} binds ${rebuilt
+        .map(({ local }) => local)
+        .join(', ')} from ${OG_CARD_ARTWORK_SOURCE}, so it constructs card trees outside ${OG_CARD_TREE_SOURCE}`,
+    );
+  }
+  const modules = [...graph.reachableFrom(producers)].sort();
+  for (const required of [...producers, OG_CARD_TREE_SOURCE]) {
+    if (!modules.includes(required)) {
+      throw new Error(
+        `The renderer closure omits ${required}, so the recorded identity would not cover it`,
+      );
+    }
+  }
   if (modules.length < 2) {
     throw new Error(
-      `${RENDERER_EVIDENCE_PRODUCER} reaches ${modules.length} first-party modules, so the renderer closure is not measurable`,
+      `${producers.join(' and ')} reach ${modules.length} first-party modules, so the renderer closure is not measurable`,
     );
   }
   return {
-    producer: RENDERER_EVIDENCE_PRODUCER,
+    producers,
+    cardTreeSource: OG_CARD_TREE_SOURCE,
     modules,
     fingerprint: sha256(
       JSON.stringify(
@@ -661,13 +714,15 @@ export function readTokenRendererEvidence(input: {
   if (
     recordedSource === null ||
     typeof recordedSource !== 'object' ||
-    recordedSource.producer !== rendererSource.producer ||
+    !Array.isArray(recordedSource.producers) ||
+    recordedSource.producers.join('|') !== rendererSource.producers.join('|') ||
+    recordedSource.cardTreeSource !== rendererSource.cardTreeSource ||
     !Array.isArray(recordedSource.modules) ||
     recordedSource.modules.join('|') !== rendererSource.modules.join('|') ||
     recordedSource.fingerprint !== rendererSource.fingerprint
   ) {
     throw new Error(
-      `Token renderer evidence records renderer source ${JSON.stringify(recordedSource ?? null)}; ${rendererSource.producer} now reaches ${rendererSource.modules.length} modules hashing to ${rendererSource.fingerprint}; re-run npm test`,
+      `Token renderer evidence records renderer source ${JSON.stringify(recordedSource ?? null)}; ${rendererSource.producers.join(' and ')} now reach ${rendererSource.modules.length} modules hashing to ${rendererSource.fingerprint}; re-run npm test`,
     );
   }
   if (artifact.cardCount !== input.cardCount) {

@@ -7,7 +7,14 @@
  * them as plain files, no framework process, no image-optimisation
  * endpoint, no API route (the three shapes VAL-DIST-005 rejects).
  *
- * The route set is derived from the module registry, so publishing a
+ * The card trees and their destinations come from the shared corpus in
+ * lib/og-card-corpus.ts, which is also the population the renderer
+ * evidence measures. This module must not build a card tree of its own:
+ * two parallel constructions of the same corpus made a painted-colour
+ * change here invisible to the evidence, so `rendererSourceIdentity`
+ * rejects a generator that binds the artwork builders directly.
+ *
+ * The corpus is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
  * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
  * Fonts come from the renderer face registry (lib/og-renderer-fonts.ts):
@@ -32,19 +39,9 @@ import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { DOMAIN_META, publishedModules } from '../data/modules.ts';
-import {
-  OG_CARD_HEIGHT,
-  OG_CARD_WIDTH,
-  SITE_CARD_PATH,
-  articleCardPath,
-} from '../lib/og-cards.ts';
+import { OG_CARD_HEIGHT, OG_CARD_WIDTH } from '../lib/og-cards.ts';
 import type { CardNode } from '../lib/og-card-artwork.ts';
-import {
-  articleCardElement,
-  siteCardElement,
-} from '../lib/og-card-artwork.ts';
-import { articleCardFacts } from '../lib/og-card-facts.ts';
+import { ogCardCorpus } from '../lib/og-card-corpus.ts';
 import { OG_RENDERER_FACES } from '../lib/og-renderer-fonts.ts';
 import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/index.node.js';
 
@@ -83,7 +80,7 @@ function sha256(buf: Buffer): string {
 }
 
 async function main(): Promise<void> {
-  const published = publishedModules();
+  const corpus = ogCardCorpus(root);
   const hashes = new Map<string, string>(); // sha -> path
   const seen = new Map<string, string>(); // path -> sha
 
@@ -119,51 +116,33 @@ async function main(): Promise<void> {
   }
 
   const t0 = Date.now();
-  let count = 0;
+  let articleCards = 0;
+  let siteCards = 0;
 
-  for (const entry of published) {
-    const mdx = readFileSync(
-      join(root, 'content', entry.domain, `${entry.slug}.mdx`),
-      'utf8',
-    );
-    const facts = articleCardFacts(mdx);
-    const node = articleCardElement({
-      entry,
-      domainName: DOMAIN_META[entry.domain].name,
-      ...facts,
-    });
-    const buf = await render(node);
-    check(articleCardPath(entry.domain, entry.slug), buf);
-    emit(articleCardPath(entry.domain, entry.slug), buf);
-    count += 1;
+  for (const { cardId, cardPath, card } of corpus) {
+    const buf = await render(card);
+    check(cardPath, buf);
+    emit(cardPath, buf);
+    if (cardId === 'site') siteCards += 1;
+    else articleCards += 1;
   }
-
-  const siteBuf = await render(siteCardElement());
-  check(SITE_CARD_PATH, siteBuf);
-  emit(SITE_CARD_PATH, siteBuf);
 
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
-    `generate-og-cards: OK (${count} article cards + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
+    `generate-og-cards: OK (${articleCards} article cards + ${siteCards} site card, ${seen.size} distinct assets, ${seconds}s)`,
   );
 }
 
-// If invoked with --check, only validate facts parsing (unit-test hook).
+// If invoked with --check-only, build the corpus without rendering, which
+// exercises registry lookup and frontmatter fact parsing for every card.
 if (process.argv.includes('--check-only')) {
-  let failures = 0;
-  for (const entry of publishedModules()) {
-    try {
-      const mdx = readFileSync(
-        join(root, 'content', entry.domain, `${entry.slug}.mdx`),
-        'utf8',
-      );
-      articleCardFacts(mdx);
-    } catch (error) {
-      failures += 1;
-      console.error(`${entry.domain}/${entry.slug}: ${(error as Error).message}`);
-    }
+  try {
+    const corpus = ogCardCorpus(root);
+    console.log(`generate-og-cards: OK (${corpus.length} card trees built)`);
+  } catch (error) {
+    console.error(`generate-og-cards: FAILED (${(error as Error).message})`);
+    process.exit(1);
   }
-  if (failures > 0) process.exit(1);
 } else {
   await main().catch((error: unknown) => {
     console.error(`generate-og-cards: FAILED (${(error as Error).message})`);

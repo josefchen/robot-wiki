@@ -1,10 +1,21 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import { deriveSemanticMarks } from '@/lib/brand-v2-semantic-marks';
 import {
   AUTHORED_TOKEN_SOURCE,
+  OG_CARD_ARTWORK_SOURCE,
+  OG_CARD_GENERATOR,
+  OG_CARD_TREE_SOURCE,
+  RENDERER_EVIDENCE_PRODUCER,
   SEMANTIC_COLOUR_ONLY_MARKS_PATH,
   SEMANTIC_ROLE_ASSERTION,
   TOKEN_RENDERER_EVIDENCE_PATH,
@@ -16,6 +27,7 @@ import {
   deriveSemanticTokenPopulation,
   readTokenRendererEvidence,
   readTokenRuntimeEvidence,
+  rendererSourceIdentity,
   tokenEvidenceFingerprint,
   tokenEvidenceProperties,
   unusedRoutedAliases,
@@ -437,6 +449,201 @@ describe('brand-v2 token evidence', () => {
         ).toBeGreaterThanOrEqual(4.5);
       }
     }
+  });
+
+  it('records the generator and the shared card-tree source in the renderer identity', () => {
+    const identity = rendererSourceIdentity(ROOT);
+    expect(identity.producers).toEqual(
+      [RENDERER_EVIDENCE_PRODUCER, OG_CARD_GENERATOR].sort(),
+    );
+    expect(identity.cardTreeSource).toBe(OG_CARD_TREE_SOURCE);
+    // The generator that writes the shipped PNGs, the corpus both sides
+    // consume, the artwork builders, and the registry that decides which
+    // cards exist all participate in building a card tree, so all four are
+    // inside the fingerprinted closure.
+    for (const modulePath of [
+      OG_CARD_GENERATOR,
+      OG_CARD_TREE_SOURCE,
+      OG_CARD_ARTWORK_SOURCE,
+      'data/modules.ts',
+    ]) {
+      expect(identity.modules, modulePath).toContain(modulePath);
+    }
+    expect(identity.fingerprint).toMatch(/^[0-9a-f]{64}$/);
+
+    const renderer = buildTokenRendererEvidence(SOURCES);
+    const foreignProducers: TokenRendererEvidence = {
+      ...renderer,
+      rendererSource: {
+        ...renderer.rendererSource,
+        producers: [RENDERER_EVIDENCE_PRODUCER],
+      },
+    };
+    expect(() => readRenderer(foreignProducers)).toThrow(/renderer source/);
+
+    const foreignTreeSource: TokenRendererEvidence = {
+      ...renderer,
+      rendererSource: {
+        ...renderer.rendererSource,
+        cardTreeSource: OG_CARD_ARTWORK_SOURCE,
+      },
+    };
+    expect(() => readRenderer(foreignTreeSource)).toThrow(/renderer source/);
+
+    const withoutGenerator: TokenRendererEvidence = {
+      ...renderer,
+      rendererSource: {
+        ...renderer.rendererSource,
+        modules: renderer.rendererSource.modules.filter(
+          (modulePath) => modulePath !== OG_CARD_GENERATOR,
+        ),
+      },
+    };
+    expect(() => readRenderer(withoutGenerator)).toThrow(/renderer source/);
+  });
+
+  /**
+   * The identity is derived from files on disk, so the mechanism is
+   * falsified against fixture trees rather than by editing the repository:
+   * a generator-only byte change must move the fingerprint, and a generator
+   * that constructs its own card trees must fail the derivation instead of
+   * escaping the measurement.
+   */
+  describe('the renderer identity over a fixture tree', () => {
+    const GENERATOR_CONSUMING_CORPUS = [
+      "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+      'for (const card of ogCardCorpus(process.cwd())) void card;',
+    ].join('\n');
+
+    function fixtureFiles(
+      overrides: Record<string, string | null> = {},
+    ): Record<string, string> {
+      const files: Record<string, string | null> = {
+        'app/page.tsx': 'export default function Page() { return null; }\n',
+        'components/card.tsx': 'export const Card = 1;\n',
+        'content/note.mdx': '# note\n',
+        'mdx-components.tsx':
+          'export function useMDXComponents(components) { return components; }\n',
+        'data/modules.ts': 'export function publishedModules() { return []; }\n',
+        'lib/og-card-artwork.ts': [
+          'export function articleCardElement(root) { return { root }; }',
+          'export function siteCardElement() { return {}; }',
+        ].join('\n'),
+        'lib/og-card-corpus.ts': [
+          "import { publishedModules } from '../data/modules.ts';",
+          "import { articleCardElement, siteCardElement } from './og-card-artwork.ts';",
+          'export function ogCardCorpus(root) {',
+          '  return [siteCardElement(), ...publishedModules().map(() => articleCardElement(root))];',
+          '}',
+        ].join('\n'),
+        'lib/brand-v2-renderer-parity.ts': [
+          "import { ogCardCorpus } from './og-card-corpus.ts';",
+          'export function buildTokenRendererEvidence(root) { return ogCardCorpus(root); }',
+        ].join('\n'),
+        'scripts/generate-og-cards.ts': GENERATOR_CONSUMING_CORPUS,
+        ...overrides,
+      };
+      return Object.fromEntries(
+        Object.entries(files).filter(([, text]) => text !== null),
+      ) as Record<string, string>;
+    }
+
+    function withFixture(
+      files: Record<string, string>,
+      body: (root: string) => void,
+    ): void {
+      const root = mkdtempSync(join(tmpdir(), 'og-card-tree-identity-'));
+      try {
+        for (const [path, text] of Object.entries(files)) {
+          const file = join(root, path);
+          mkdirSync(dirname(file), { recursive: true });
+          writeFileSync(file, text);
+        }
+        body(root);
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    }
+
+    it('moves the fingerprint when only the generator changes', () => {
+      withFixture(fixtureFiles(), (root) => {
+        const before = rendererSourceIdentity(root);
+        expect(before.producers).toEqual(
+          [RENDERER_EVIDENCE_PRODUCER, OG_CARD_GENERATOR].sort(),
+        );
+        expect(before.modules).toContain(OG_CARD_GENERATOR);
+        expect(before.modules).toContain('data/modules.ts');
+
+        writeFileSync(
+          join(root, OG_CARD_GENERATOR),
+          `${GENERATOR_CONSUMING_CORPUS}\nconst ground = '#FF00FF';\nvoid ground;\n`,
+        );
+        const after = rendererSourceIdentity(root);
+        // The closure is unchanged, so nothing but the generator's own bytes
+        // can account for the difference.
+        expect(after.modules).toEqual(before.modules);
+        expect(after.fingerprint).not.toBe(before.fingerprint);
+      });
+    });
+
+    it('fails a generator that builds card trees outside the shared corpus', () => {
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': [
+            "import { articleCardElement, siteCardElement } from '../lib/og-card-artwork.ts';",
+            'void articleCardElement;',
+            'void siteCardElement;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /does not reach lib\/og-card-corpus\.ts/,
+          );
+        },
+      );
+
+      // The harder case: it consumes the corpus and still reaches for the
+      // artwork builders, so the closure check alone would pass it.
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': [
+            GENERATOR_CONSUMING_CORPUS,
+            "import { siteCardElement } from '../lib/og-card-artwork.ts';",
+            'void siteCardElement;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /constructs card trees outside/,
+          );
+        },
+      );
+    });
+
+    it('fails when a producer is absent or stops reaching the corpus', () => {
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': null,
+          'scripts/other.ts': 'export const other = 1;\n',
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /is not a scanned module/,
+          );
+        },
+      );
+
+      withFixture(
+        fixtureFiles({
+          'lib/brand-v2-renderer-parity.ts': 'export const nothing = 1;\n',
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /does not reach lib\/og-card-corpus\.ts/,
+          );
+        },
+      );
+    });
   });
 
   it('reads the persisted runtime sweep when the browser gate has produced one', () => {

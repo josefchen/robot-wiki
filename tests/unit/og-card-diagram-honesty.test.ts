@@ -4,7 +4,8 @@ import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import { DOMAIN_META } from '@/data/modules';
 import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
-import { articleCardElement, siteCardElement, type CardNode } from '@/lib/og-card-artwork';
+import { articleCardElement, type CardNode } from '@/lib/og-card-artwork';
+import { ogCardCorpus } from '@/lib/og-card-corpus';
 
 /**
  * VAL-IMG-015: no generated card draws a quantity it does not have.
@@ -106,27 +107,34 @@ function diagramOf(card: CardNode): CardNode {
   return inner[0];
 }
 
-function articleDiagrams(): Array<{ label: string; domain: string; node: CardNode }> {
-  return publishedModules().map((entry) => ({
-    label: `${entry.domain}/${entry.slug}`,
-    domain: entry.domain,
-    node: diagramOf(
-      articleCardElement({
-        entry,
-        domainName: DOMAIN_META[entry.domain].name,
-        referenceCount: 12,
-        reviewYear: 2026,
-      }),
-    ),
+/**
+ * The shipped corpus, built once. These clauses are about the cards the
+ * site actually ships, so the population is the generator's own corpus
+ * rather than a second walk of the registry with invented facts: a replica
+ * built here would keep passing while the shipped trees changed.
+ */
+const CORPUS = ogCardCorpus(process.cwd());
+
+function everyDiagram(): Array<{ label: string; domain: string; node: CardNode }> {
+  return CORPUS.map(({ cardId, card }) => ({
+    label: cardId === 'site' ? 'site card' : cardId,
+    domain: cardId === 'site' ? '<site>' : cardId.split('/')[0],
+    node: diagramOf(card),
   }));
 }
 
-function everyDiagram(): Array<{ label: string; domain: string; node: CardNode }> {
-  return [
-    ...articleDiagrams(),
-    { label: 'site card', domain: '<site>', node: diagramOf(siteCardElement()) },
-  ];
+function articleDiagrams(): Array<{ label: string; domain: string; node: CardNode }> {
+  return everyDiagram().filter(({ domain }) => domain !== '<site>');
 }
+
+describe('VAL-IMG-015 population', () => {
+  it('grades the shipped card corpus, one diagram per card', () => {
+    const diagrams = everyDiagram();
+    expect(diagrams.length).toBe(publishedModules().length + 1);
+    expect(diagrams.filter(({ domain }) => domain === '<site>').length).toBe(1);
+    expect(articleDiagrams().length).toBe(publishedModules().length);
+  });
+});
 
 describe('VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry', () => {
   it('constructs no random-number generator anywhere in the artwork module', () => {

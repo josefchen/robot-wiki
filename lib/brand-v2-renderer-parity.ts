@@ -20,6 +20,10 @@ import {
  * reports every colour the artwork paints per card, so a hex the stylesheet
  * authors for no token fails instead of shipping inside 48 cards, and a walk
  * that stops early cannot be reconciled with the card trees.
+ *
+ * The walked corpus is the one scripts/generate-og-cards.ts renders, and
+ * `rendererSourceIdentity` records the generator alongside this module and
+ * refuses an identity where the two build separate card trees.
  */
 export function buildTokenRendererEvidence(input: {
   root: string;

@@ -14,7 +14,7 @@ import { publishedModules } from '../data/modules.ts';
 import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
 import { sha256 } from './brand-v2-baseline.ts';
 import { cardTextRuns, type CardTextRun } from './og-card-artwork.ts';
-import { ogCardElements } from './og-card-corpus.ts';
+import { ogCardCorpus, type OgCardCorpusEntry } from './og-card-corpus.ts';
 import {
   OG_RENDERER_FACES,
   primaryFamily,
@@ -45,9 +45,13 @@ function resolve(root: string, path: string): string {
   return isAbsolute(path) ? path : join(root, path);
 }
 
+function textRunsOf(corpus: readonly OgCardCorpusEntry[]): CardTextRun[] {
+  return corpus.flatMap(({ card }) => cardTextRuns(card));
+}
+
 /** Every text run the shipped card corpus paints, with its resolved stack. */
 export function ogCardTextRuns(root: string): CardTextRun[] {
-  return ogCardElements(root).flatMap((card) => cardTextRuns(card));
+  return textRunsOf(ogCardCorpus(root));
 }
 
 function inspectFace(
@@ -147,8 +151,18 @@ export function inspectOgRendererFonts(
   if (options.textRuns) {
     runs = options.textRuns;
   } else {
-    runs = ogCardTextRuns(root);
-    cardCount = publishedModules().length + 1;
+    const corpus = ogCardCorpus(root);
+    runs = textRunsOf(corpus);
+    cardCount = corpus.length;
+    // The count used to be taken from the registry while the runs came from
+    // the corpus, so a corpus that walked three cards still reported the
+    // registry's total. Both sources are independent, so they are compared.
+    const published = publishedModules().length + 1;
+    if (cardCount !== published) {
+      failures.push(
+        `the card corpus holds ${cardCount} cards; the module registry publishes ${published}`,
+      );
+    }
   }
   if (runs.length === 0) {
     failures.push('the card corpus painted no text run');
