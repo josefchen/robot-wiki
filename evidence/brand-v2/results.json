@@ -26381,19 +26381,68 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified for type:display by the gates named in this row's enforcement targets",
+      "actual": "Tektur Variable resolves as the computed head \"tektur\" on 768 elements across 62 of 62 swept routes; the sweep reconciled 235709 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": {
-          "role": "type:display",
-          "family": "Tektur Variable"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+        "kind": "browser-state",
+        "computed": {
+          "role": "display",
+          "family": "Tektur Variable",
+          "runtimeFace": "tektur",
+          "declaredStacks": [
+            "--font-display: \"tektur\", \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
+          ],
+          "elementsResolvingFamily": 768,
+          "routesResolvingFamily": 62,
+          "routesMeasured": 62,
+          "useSitesMeasured": 235709,
+          "approvedFamilies": [
+            "Tektur Variable",
+            "IBM Plex Sans",
+            "Newsreader",
+            "IBM Plex Mono"
+          ],
+          "scopedExceptions": [
+            {
+              "id": "katex-math-face",
+              "reason": "KaTeX typesets rendered mathematics with its own metric-specific faces",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "katex_ams",
+                "katex_caligraphic",
+                "katex_main",
+                "katex_math",
+                "katex_size1",
+                "katex_size2",
+                "katex_size3"
+              ],
+              "elements": 31104,
+              "routes": 16
+            },
+            {
+              "id": "mathml-content-face",
+              "reason": "the MathML content element KaTeX emits for assistive technology carries the user-agent math face",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "math"
+              ],
+              "elements": 11904,
+              "routes": 16
+            }
+          ],
+          "unapprovedFamilyHeads": [],
+          "ogRendererFaceId": "og-face:display",
+          "ogRendererFamiliesPainted": [
+            "IBM Plex Mono",
+            "Tektur"
+          ],
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + satori card walk"
+        }
       }
     },
     {
@@ -26405,19 +26454,68 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified for type:interface by the gates named in this row's enforcement targets",
+      "actual": "IBM Plex Sans resolves as the computed head \"ibm plex sans\" on 111065 elements across 62 of 62 swept routes; the sweep reconciled 235709 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": {
-          "role": "type:interface",
-          "family": "IBM Plex Sans"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+        "kind": "browser-state",
+        "computed": {
+          "role": "interface",
+          "family": "IBM Plex Sans",
+          "runtimeFace": "ibm plex sans",
+          "declaredStacks": [
+            "--font-sans: \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
+          ],
+          "elementsResolvingFamily": 111065,
+          "routesResolvingFamily": 62,
+          "routesMeasured": 62,
+          "useSitesMeasured": 235709,
+          "approvedFamilies": [
+            "Tektur Variable",
+            "IBM Plex Sans",
+            "Newsreader",
+            "IBM Plex Mono"
+          ],
+          "scopedExceptions": [
+            {
+              "id": "katex-math-face",
+              "reason": "KaTeX typesets rendered mathematics with its own metric-specific faces",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "katex_ams",
+                "katex_caligraphic",
+                "katex_main",
+                "katex_math",
+                "katex_size1",
+                "katex_size2",
+                "katex_size3"
+              ],
+              "elements": 31104,
+              "routes": 16
+            },
+            {
+              "id": "mathml-content-face",
+              "reason": "the MathML content element KaTeX emits for assistive technology carries the user-agent math face",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "math"
+              ],
+              "elements": 11904,
+              "routes": 16
+            }
+          ],
+          "unapprovedFamilyHeads": [],
+          "ogRendererFaceId": null,
+          "ogRendererFamiliesPainted": [
+            "IBM Plex Mono",
+            "Tektur"
+          ],
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + satori card walk"
+        }
       }
     },
     {
@@ -26429,19 +26527,68 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified for type:reading by the gates named in this row's enforcement targets",
+      "actual": "Newsreader resolves as the computed head \"newsreader\" on 37608 elements across 50 of 62 swept routes; the sweep reconciled 235709 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": {
-          "role": "type:reading",
-          "family": "Newsreader"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+        "kind": "browser-state",
+        "computed": {
+          "role": "reading",
+          "family": "Newsreader",
+          "runtimeFace": "newsreader",
+          "declaredStacks": [
+            "--font-serif: \"Newsreader\", \"Newsreader Fallback\", ui-serif, Georgia, serif"
+          ],
+          "elementsResolvingFamily": 37608,
+          "routesResolvingFamily": 50,
+          "routesMeasured": 62,
+          "useSitesMeasured": 235709,
+          "approvedFamilies": [
+            "Tektur Variable",
+            "IBM Plex Sans",
+            "Newsreader",
+            "IBM Plex Mono"
+          ],
+          "scopedExceptions": [
+            {
+              "id": "katex-math-face",
+              "reason": "KaTeX typesets rendered mathematics with its own metric-specific faces",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "katex_ams",
+                "katex_caligraphic",
+                "katex_main",
+                "katex_math",
+                "katex_size1",
+                "katex_size2",
+                "katex_size3"
+              ],
+              "elements": 31104,
+              "routes": 16
+            },
+            {
+              "id": "mathml-content-face",
+              "reason": "the MathML content element KaTeX emits for assistive technology carries the user-agent math face",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "math"
+              ],
+              "elements": 11904,
+              "routes": 16
+            }
+          ],
+          "unapprovedFamilyHeads": [],
+          "ogRendererFaceId": null,
+          "ogRendererFamiliesPainted": [
+            "IBM Plex Mono",
+            "Tektur"
+          ],
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + satori card walk"
+        }
       }
     },
     {
@@ -26453,19 +26600,68 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified for type:data by the gates named in this row's enforcement targets",
+      "actual": "IBM Plex Mono resolves as the computed head \"ibm plex mono\" on 43260 elements across 62 of 62 swept routes; the sweep reconciled 235709 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": {
-          "role": "type:data",
-          "family": "IBM Plex Mono"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+        "kind": "browser-state",
+        "computed": {
+          "role": "data",
+          "family": "IBM Plex Mono",
+          "runtimeFace": "ibm plex mono",
+          "declaredStacks": [
+            "--font-mono: \"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace"
+          ],
+          "elementsResolvingFamily": 43260,
+          "routesResolvingFamily": 62,
+          "routesMeasured": 62,
+          "useSitesMeasured": 235709,
+          "approvedFamilies": [
+            "Tektur Variable",
+            "IBM Plex Sans",
+            "Newsreader",
+            "IBM Plex Mono"
+          ],
+          "scopedExceptions": [
+            {
+              "id": "katex-math-face",
+              "reason": "KaTeX typesets rendered mathematics with its own metric-specific faces",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "katex_ams",
+                "katex_caligraphic",
+                "katex_main",
+                "katex_math",
+                "katex_size1",
+                "katex_size2",
+                "katex_size3"
+              ],
+              "elements": 31104,
+              "routes": 16
+            },
+            {
+              "id": "mathml-content-face",
+              "reason": "the MathML content element KaTeX emits for assistive technology carries the user-agent math face",
+              "scope": ".katex, .katex-display",
+              "heads": [
+                "math"
+              ],
+              "elements": 11904,
+              "routes": 16
+            }
+          ],
+          "unapprovedFamilyHeads": [],
+          "ogRendererFaceId": "og-face:data",
+          "ogRendererFamiliesPainted": [
+            "IBM Plex Mono",
+            "Tektur"
+          ],
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + satori card walk"
+        }
       }
     },
     {
@@ -26477,29 +26673,43 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "actual": "the checked-in WOFF2 is delivered from 15 framework-bundled same-origin path(s) and 248 route states (62 routes x 4 declared widths) produced no third-party font request",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
-        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": {
-          "family": "Tektur",
-          "role": "web display delivery through next/font/local",
+        "kind": "browser-state",
+        "computed": {
+          "binary": "tektur:web-woff2",
           "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
-          "format": "WOFF2",
-          "subset": "latin",
           "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
-          "axes": {
-            "wdth": "width axis 75..100 default 100",
-            "wght": "weight axis 400..900 default 400"
-          },
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "format": "WOFF2",
+          "bundledSameOriginPaths": [
+            "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+            "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+            "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+            "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+            "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+            "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+            "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+            "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+            "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+            "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+            "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+            "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+            "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+          ],
+          "requestedByRuntimeRoute": false,
+          "thirdPartyFontRequests": [],
+          "routeStatesSwept": 248,
+          "routeStatesRequestingAFont": 248,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + fontkit inspection of the checked-in binaries"
+        }
       }
     },
     {
@@ -26511,26 +26721,27 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "actual": "the checked-in TTF is consumed only by the offline card renderer: 248 route states (62 routes x 4 declared widths) requested it on none of them, and none produced a third-party font request",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": {
-          "family": "Tektur",
-          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+        "kind": "browser-state",
+        "computed": {
+          "binary": "tektur:og-ttf",
           "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-          "format": "TTF",
-          "subset": "upstream-full",
           "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
-          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "format": "TTF",
+          "bundledSameOriginPaths": [],
+          "requestedByRuntimeRoute": false,
+          "thirdPartyFontRequests": [],
+          "routeStatesSwept": 248,
+          "routeStatesRequestingAFont": 248,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json) + fontkit inspection of the checked-in binaries"
+        }
       }
     },
     {
@@ -26798,29 +27009,68 @@
       ],
       "coverageKind": "per-member",
       "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "actual": "the latin-subset WOFF2 exposes exactly wdth and wght, is served from /_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2, /_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2, /_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2, /_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2, /_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2, /_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2, /_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2, /_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2, /_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2, /_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2, /_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2, /_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2, /_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2, /_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2, /_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2, and 248 route states (62 routes x 4 declared widths) produced no third-party font request",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#web",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
-        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "observed": {
-          "family": "Tektur",
-          "role": "web display delivery through next/font/local",
+        "kind": "browser-state",
+        "computed": {
+          "binary": "tektur:web-woff2",
           "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
           "format": "WOFF2",
           "subset": "latin",
-          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
-          "axes": {
-            "wdth": "width axis 75..100 default 100",
-            "wght": "weight axis 400..900 default 400"
+          "measuredVariationAxes": {
+            "wdth": {
+              "min": 75,
+              "default": 100,
+              "max": 100
+            },
+            "wght": {
+              "min": 400,
+              "default": 400,
+              "max": 900
+            }
           },
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "declaredVariationAxes": {
+            "wdth": {
+              "label": "width axis",
+              "min": 75,
+              "default": 100,
+              "max": 100
+            },
+            "wght": {
+              "label": "weight axis",
+              "min": 400,
+              "default": 400,
+              "max": 900
+            }
+          },
+          "nextFontLocalDelivery": [
+            "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+            "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+            "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+            "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+            "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+            "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+            "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+            "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+            "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+            "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+            "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+            "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+            "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+          ],
+          "thirdPartyFontRequests": [],
+          "routeStatesSwept": 248,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -26832,26 +27082,45 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "actual": "the static TTF carries no variation axis, is registered with the offline renderer as og-face:display, and 248 route states (62 routes x 4 declared widths) requested Tektur-SemiBold.ttf on none of them",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#og",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-        "observed": {
-          "family": "Tektur",
-          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+        "kind": "browser-state",
+        "computed": {
+          "binary": "tektur:og-ttf",
           "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-          "format": "TTF",
-          "subset": "upstream-full",
           "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
-          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "format": "TTF",
+          "measuredVariationAxes": {},
+          "usWeightClass": 600,
+          "usWidthClass": 5,
+          "consumedByRendererFaceId": "og-face:display",
+          "requestedByRuntimeRoute": false,
+          "sameOriginFontPathsObserved": [
+            "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+            "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+            "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+            "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+            "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+            "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+            "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+            "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+            "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+            "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+            "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+            "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+            "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+          ],
+          "routeStatesSwept": 248,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -26863,29 +27132,53 @@
       ],
       "coverageKind": "per-member",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "actual": "public/fonts/Tektur-latin-wdth-wght.woff2 records the OFL-1.1 licence text at assets/fonts/tektur/OFL.txt, upstream revision 0313e9612ed814c7a480fa54c7b295452b966954, the 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1 checksum this run recomputed, format WOFF2, subset latin, and the wght/wdth ranges and defaults the binary exposes",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
         "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
         "observed": {
-          "family": "Tektur",
-          "role": "web display delivery through next/font/local",
+          "binary": "tektur:web-woff2",
           "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
           "format": "WOFF2",
           "subset": "latin",
-          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
-          "axes": {
-            "wdth": "width axis 75..100 default 100",
-            "wght": "weight axis 400..900 default 400"
-          },
           "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+          "licenseIdentifier": "OFL-1.1",
+          "upstreamRepositoryUrl": "https://github.com/hyvyys/Tektur",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954",
+          "retrieved": "2026-08-27",
+          "measuredVariationAxes": {
+            "wdth": {
+              "min": 75,
+              "default": 100,
+              "max": 100
+            },
+            "wght": {
+              "min": 400,
+              "default": 400,
+              "max": 900
+            }
+          },
+          "declaredVariationAxes": {
+            "wdth": {
+              "label": "width axis",
+              "min": 75,
+              "default": 100,
+              "max": 100
+            },
+            "wght": {
+              "label": "weight axis",
+              "min": 400,
+              "default": 400,
+              "max": 900
+            }
+          }
         },
-        "tool": "fontkit + Vitest + Playwright"
+        "tool": "fontkit inspection of the checked-in binaries"
       }
     },
     {
@@ -26897,26 +27190,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "actual": "assets/fonts/tektur/Tektur-SemiBold.ttf records the OFL-1.1 licence text at assets/fonts/tektur/OFL.txt, upstream revision 0313e9612ed814c7a480fa54c7b295452b966954, the d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8 checksum this run recomputed, format TTF, subset upstream-full, and the static style normal at weight 600",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+        "sourcePath": "assets/fonts/tektur/metadata.json",
         "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
         "observed": {
-          "family": "Tektur",
-          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "binary": "tektur:og-ttf",
           "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
           "format": "TTF",
           "subset": "upstream-full",
-          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
-          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
           "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+          "licenseIdentifier": "OFL-1.1",
+          "upstreamRepositoryUrl": "https://github.com/hyvyys/Tektur",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954",
+          "retrieved": "2026-08-27",
+          "style": "normal",
+          "weight": 600,
+          "usWeightClass": 600,
+          "usWidthClass": 5
         },
-        "tool": "fontkit + Vitest + Playwright"
+        "tool": "fontkit inspection of the checked-in binaries"
       }
     },
     {
@@ -26928,29 +27226,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "actual": "the inspection recomputed public/fonts/Tektur-latin-wdth-wght.woff2's checksum as 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1, measured format WOFF2 and axes [wdth, wght], recorded wdth as \"width axis\", and rejected the mutant with \"web axes mismatch: expected wdth,wght, received opsz,wdth,wght\"",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
+        "sourcePath": "lib/tektur-font-inspection.ts",
         "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
         "observed": {
-          "family": "Tektur",
-          "role": "web display delivery through next/font/local",
+          "binary": "tektur:web-woff2",
           "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
-          "format": "WOFF2",
-          "subset": "latin",
-          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
-          "axes": {
-            "wdth": "width axis 75..100 default 100",
-            "wght": "weight axis 400..900 default 400"
+          "recomputedSha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "metadataSha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "measuredFormat": "WOFF2",
+          "measuredVariationAxisTags": [
+            "wdth",
+            "wght"
+          ],
+          "axisLabels": {
+            "wdth": "width axis",
+            "wght": "weight axis"
           },
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+          "observedRejection": "web axes mismatch: expected wdth,wght, received opsz,wdth,wght"
         },
-        "tool": "fontkit + Vitest + Playwright"
+        "tool": "fontkit inspection of the checked-in binaries re-run against an in-memory mutant"
       }
     },
     {
@@ -26962,26 +27262,28 @@
       ],
       "coverageKind": "per-member",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "actual": "the inspection recomputed assets/fonts/tektur/Tektur-SemiBold.ttf's checksum as d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8, measured format TTF and axes [none], recorded wdth as \"width axis\", and rejected the mutant with \"OG TTF must be static, received axes wght\"",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+        "sourcePath": "lib/tektur-font-inspection.ts",
         "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
         "observed": {
-          "family": "Tektur",
-          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "binary": "tektur:og-ttf",
           "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-          "format": "TTF",
-          "subset": "upstream-full",
-          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
-          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
-          "licensePath": "assets/fonts/tektur/OFL.txt",
-          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+          "recomputedSha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "metadataSha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "measuredFormat": "TTF",
+          "measuredVariationAxisTags": [],
+          "axisLabels": {
+            "wdth": "width axis",
+            "wght": "weight axis"
+          },
+          "observedRejection": "OG TTF must be static, received axes wght"
         },
-        "tool": "fontkit + Vitest + Playwright"
+        "tool": "fontkit inspection of the checked-in binaries re-run against an in-memory mutant"
       }
     },
     {
@@ -26993,27 +27295,33 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:home-wordmark by the gates named in this row's enforcement targets",
+      "actual": "home-wordmark computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 4 elements across 1 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "home-wordmark",
           "cssClass": "font-display-home",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 4,
+          "routesRendered": 1,
+          "widthsMeasured": 4,
           "definedIn": [
             "app/page.tsx"
           ],
-          "derivedRoutes": [
-            "/"
+          "sourceOccurrences": 1,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 1
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27025,88 +27333,33 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:shell-wordmark by the gates named in this row's enforcement targets",
+      "actual": "shell-wordmark computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 496 elements across 62 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "shell-wordmark",
           "cssClass": "font-display-shell",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 496,
+          "routesRendered": 62,
+          "widthsMeasured": 4,
           "definedIn": [
             "components/nav/site-shell.tsx"
           ],
-          "derivedRoutes": [
-            "/",
-            "/a-z/",
-            "/adjacent/",
-            "/adjacent/autonomous-vehicles/",
-            "/adjacent/drones/",
-            "/adjacent/space/",
-            "/adjacent/surgical/",
-            "/classical/",
-            "/classical/control/",
-            "/classical/grasp-planning/",
-            "/classical/kinematics/",
-            "/classical/motion-planning/",
-            "/classical/perception/",
-            "/classical/scene-representation/",
-            "/classical/state-estimation/",
-            "/credits/",
-            "/data-hardware/",
-            "/data-hardware/data-bottleneck/",
-            "/data-hardware/datasets/",
-            "/data-hardware/evaluation-crisis/",
-            "/data-hardware/hardware-taxonomy/",
-            "/data-hardware/industrial-deployment/",
-            "/data-hardware/teleop-rigs/",
-            "/frontier/",
-            "/frontier/bear-case/",
-            "/frontier/competing-theses/",
-            "/frontier/dexterity/",
-            "/frontier/generalization/",
-            "/frontier/reliability-gap/",
-            "/frontier/safety-and-assurance/",
-            "/glossary/",
-            "/manipulation/",
-            "/manipulation/action-chunking/",
-            "/manipulation/bc-foundations/",
-            "/manipulation/comparison-matrix/",
-            "/manipulation/cross-embodiment/",
-            "/manipulation/diffusion-policy/",
-            "/manipulation/generalist-policies/",
-            "/manipulation/hierarchical/",
-            "/manipulation/knowledge-insulation/",
-            "/manipulation/pi-line/",
-            "/manipulation/realtime-execution/",
-            "/manipulation/rl-finetuning/",
-            "/manipulation/vla-models/",
-            "/market-map/",
-            "/playground/",
-            "/rl-sim2real/",
-            "/rl-sim2real/humanoid-wbc/",
-            "/rl-sim2real/legged-locomotion/",
-            "/rl-sim2real/parallel-sim-rl/",
-            "/rl-sim2real/reward-design-mpc/",
-            "/rl-sim2real/rl-for-robotics/",
-            "/rl-sim2real/sim2real-transfer/",
-            "/rl-sim2real/why-rl-locomotion/",
-            "/search/",
-            "/world-models/",
-            "/world-models/generative-sim/",
-            "/world-models/generative-video/",
-            "/world-models/jepa/",
-            "/world-models/latent-dynamics/",
-            "/world-models/taxonomy/",
-            "/404/"
+          "sourceOccurrences": 3,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 3
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27118,18 +27371,24 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:page-h1 by the gates named in this row's enforcement targets",
+      "actual": "page-h1 computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 56 elements across 14 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "page-h1",
           "cssClass": "font-display-page",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 56,
+          "routesRendered": 14,
+          "widthsMeasured": 4,
           "definedIn": [
             "app/(content)/[domain]/page.tsx",
             "app/a-z/page.tsx",
@@ -27140,25 +27399,12 @@
             "app/playground/page.tsx",
             "app/search/page.tsx"
           ],
-          "derivedRoutes": [
-            "/a-z/",
-            "/adjacent/",
-            "/classical/",
-            "/credits/",
-            "/data-hardware/",
-            "/frontier/",
-            "/glossary/",
-            "/manipulation/",
-            "/market-map/",
-            "/playground/",
-            "/rl-sim2real/",
-            "/search/",
-            "/world-models/",
-            "/404/"
+          "sourceOccurrences": 8,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 8
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27170,73 +27416,33 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:article-h1 by the gates named in this row's enforcement targets",
+      "actual": "article-h1 computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 188 elements across 47 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "article-h1",
           "cssClass": "font-display-article",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 188,
+          "routesRendered": 47,
+          "widthsMeasured": 4,
           "definedIn": [
             "components/article/article-header.tsx"
           ],
-          "derivedRoutes": [
-            "/adjacent/autonomous-vehicles/",
-            "/adjacent/drones/",
-            "/adjacent/space/",
-            "/adjacent/surgical/",
-            "/classical/control/",
-            "/classical/grasp-planning/",
-            "/classical/kinematics/",
-            "/classical/motion-planning/",
-            "/classical/perception/",
-            "/classical/scene-representation/",
-            "/classical/state-estimation/",
-            "/data-hardware/data-bottleneck/",
-            "/data-hardware/datasets/",
-            "/data-hardware/evaluation-crisis/",
-            "/data-hardware/hardware-taxonomy/",
-            "/data-hardware/industrial-deployment/",
-            "/data-hardware/teleop-rigs/",
-            "/frontier/bear-case/",
-            "/frontier/competing-theses/",
-            "/frontier/dexterity/",
-            "/frontier/generalization/",
-            "/frontier/reliability-gap/",
-            "/frontier/safety-and-assurance/",
-            "/manipulation/action-chunking/",
-            "/manipulation/bc-foundations/",
-            "/manipulation/comparison-matrix/",
-            "/manipulation/cross-embodiment/",
-            "/manipulation/diffusion-policy/",
-            "/manipulation/generalist-policies/",
-            "/manipulation/hierarchical/",
-            "/manipulation/knowledge-insulation/",
-            "/manipulation/pi-line/",
-            "/manipulation/realtime-execution/",
-            "/manipulation/rl-finetuning/",
-            "/manipulation/vla-models/",
-            "/rl-sim2real/humanoid-wbc/",
-            "/rl-sim2real/legged-locomotion/",
-            "/rl-sim2real/parallel-sim-rl/",
-            "/rl-sim2real/reward-design-mpc/",
-            "/rl-sim2real/rl-for-robotics/",
-            "/rl-sim2real/sim2real-transfer/",
-            "/rl-sim2real/why-rl-locomotion/",
-            "/world-models/generative-sim/",
-            "/world-models/generative-video/",
-            "/world-models/jepa/",
-            "/world-models/latent-dynamics/",
-            "/world-models/taxonomy/"
+          "sourceOccurrences": 1,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 1
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27248,27 +27454,33 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:section-display by the gates named in this row's enforcement targets",
+      "actual": "section-display computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 20 elements across 1 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "section-display",
           "cssClass": "font-display-section",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 20,
+          "routesRendered": 1,
+          "widthsMeasured": 4,
           "definedIn": [
             "app/page.tsx"
           ],
-          "derivedRoutes": [
-            "/"
+          "sourceOccurrences": 5,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 5
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27280,27 +27492,33 @@
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified for type-instance:display-numerals by the gates named in this row's enforcement targets",
+      "actual": "display-numerals computes tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif at weight 600, stretch 100% and \"wdth\" 100, \"wght\" 600 on 4 elements across 1 routes at all 4 declared widths, matching the registry's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.json",
-        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "role": "display-numerals",
           "cssClass": "font-display-numerals",
-          "wght": 600,
-          "wdth": 100,
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "computedFamily": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "computedWeight": "600",
+          "computedStretch": "100%",
+          "computedVariationSettings": "\"wdth\" 100, \"wght\" 600",
+          "elementsMeasured": 4,
+          "routesRendered": 1,
+          "widthsMeasured": 4,
           "definedIn": [
             "app/not-found.tsx"
           ],
-          "derivedRoutes": [
-            "/404/"
+          "sourceOccurrences": 1,
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
           ],
-          "sourceOccurrences": 1
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "tool": "Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27312,7 +27530,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "verified for og-static-mapping:home-wordmark by the gates named in this row's enforcement targets",
+      "actual": "assets/fonts/tektur/Tektur-SemiBold.ttf maps to the registered home-wordmark instance and the binary measures usWeightClass 600 / usWidthClass 5 with no variation axis, matching that role's wght 600 / wdth 100",
       "selectorOrRegistryId": "data/type-roles.json#tekturOgRoleMapping",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -27324,10 +27542,14 @@
           "mappedRoleId": "home-wordmark",
           "registryOgRoleId": "home-wordmark",
           "staticPath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
-          "weight": 600,
-          "width": 100
+          "registeredWght": 600,
+          "registeredWdth": 100,
+          "measuredUsWeightClass": 600,
+          "measuredUsWidthClass": 5,
+          "measuredVariationAxisTags": [],
+          "rendererFaceId": "og-face:display"
         },
-        "tool": "fontkit + Vitest + Playwright"
+        "tool": "fontkit inspection of the checked-in binaries"
       }
     },
     {
@@ -27339,23 +27561,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:identity by the gates named in this row's enforcement targets",
+      "actual": "identity addresses 8 distinct code points across 10 characters, all covered by the og and web cmap, and the glyph probe measured a 163px Tektur advance against 192.66px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "identity",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 10,
           "codePoints": 8,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 8,
+          "ogCmapCovered": 8,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 163,
+          "fallbackAdvance": 192.66,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27367,23 +27597,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:descriptor by the gates named in this row's enforcement targets",
+      "actual": "descriptor addresses 21 distinct code points across 53 characters, all covered by the og and web cmap, and the glyph probe measured a 825px Tektur advance against 1021.08px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "descriptor",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 53,
           "codePoints": 21,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 21,
+          "ogCmapCovered": 21,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 825,
+          "fallbackAdvance": 1021.08,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27395,23 +27633,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:display-numerals by the gates named in this row's enforcement targets",
+      "actual": "display-numerals addresses 10 distinct code points across 10 characters, all covered by the og and web cmap, and the glyph probe measured a 197px Tektur advance against 192.66px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "display-numerals",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 10,
           "codePoints": 10,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 10,
+          "ogCmapCovered": 10,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 197,
+          "fallbackAdvance": 192.66,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27423,23 +27669,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:manipulation by the gates named in this row's enforcement targets",
+      "actual": "domain:manipulation addresses 18 distinct code points across 31 characters, all covered by the og and web cmap, and the glyph probe measured a 498px Tektur advance against 597.23px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:manipulation",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 31,
           "codePoints": 18,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 18,
+          "ogCmapCovered": 18,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 498,
+          "fallbackAdvance": 597.23,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27451,23 +27705,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:rl-sim2real by the gates named in this row's enforcement targets",
+      "actual": "domain:rl-sim2real addresses 16 distinct code points across 28 characters, all covered by the og and web cmap, and the glyph probe measured a 459px Tektur advance against 539.44px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:rl-sim2real",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 28,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 459,
+          "fallbackAdvance": 539.44,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27479,23 +27741,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:world-models by the gates named in this row's enforcement targets",
+      "actual": "domain:world-models addresses 9 distinct code points across 12 characters, all covered by the og and web cmap, and the glyph probe measured a 207px Tektur advance against 231.19px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:world-models",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 12,
           "codePoints": 9,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 9,
+          "ogCmapCovered": 9,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 207,
+          "fallbackAdvance": 231.19,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27507,23 +27777,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:data-hardware by the gates named in this row's enforcement targets",
+      "actual": "domain:data-hardware addresses 18 distinct code points across 27 characters, all covered by the og and web cmap, and the glyph probe measured a 449px Tektur advance against 520.17px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:data-hardware",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 27,
           "codePoints": 18,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 18,
+          "ogCmapCovered": 18,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 449,
+          "fallbackAdvance": 520.17,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27535,23 +27813,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:classical by the gates named in this row's enforcement targets",
+      "actual": "domain:classical addresses 13 distinct code points across 21 characters, all covered by the og and web cmap, and the glyph probe measured a 339px Tektur advance against 404.58px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:classical",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 21,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 339,
+          "fallbackAdvance": 404.58,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27563,23 +27849,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:frontier by the gates named in this row's enforcement targets",
+      "actual": "domain:frontier addresses 16 distinct code points across 24 characters, all covered by the og and web cmap, and the glyph probe measured a 407px Tektur advance against 462.38px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:frontier",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 24,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 407,
+          "fallbackAdvance": 462.38,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27591,23 +27885,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:domain:adjacent by the gates named in this row's enforcement targets",
+      "actual": "domain:adjacent addresses 14 distinct code points across 16 characters, all covered by the og and web cmap, and the glyph probe measured a 280px Tektur advance against 308.25px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "domain:adjacent",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 16,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 280,
+          "fallbackAdvance": 308.25,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27619,23 +27921,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/bc-foundations by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/bc-foundations addresses 18 distinct code points across 28 characters, all covered by the og and web cmap, and the glyph probe measured a 465px Tektur advance against 539.44px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/bc-foundations",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 28,
           "codePoints": 18,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 18,
+          "ogCmapCovered": 18,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 465,
+          "fallbackAdvance": 539.44,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27647,23 +27957,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/action-chunking by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/action-chunking addresses 20 distinct code points across 31 characters, all covered by the og and web cmap, and the glyph probe measured a 518px Tektur advance against 597.23px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/action-chunking",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 31,
           "codePoints": 20,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 20,
+          "ogCmapCovered": 20,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 518,
+          "fallbackAdvance": 597.23,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27675,23 +27993,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/diffusion-policy by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/diffusion-policy addresses 12 distinct code points across 16 characters, all covered by the og and web cmap, and the glyph probe measured a 241px Tektur advance against 308.25px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/diffusion-policy",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 16,
           "codePoints": 12,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 12,
+          "ogCmapCovered": 12,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 241,
+          "fallbackAdvance": 308.25,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27703,23 +28029,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/vla-models by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/vla-models addresses 18 distinct code points across 29 characters, all covered by the og and web cmap, and the glyph probe measured a 490px Tektur advance against 558.7px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/vla-models",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 29,
           "codePoints": 18,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 18,
+          "ogCmapCovered": 18,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 490,
+          "fallbackAdvance": 558.7,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27731,23 +28065,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/pi-line by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/pi-line addresses 8 distinct code points across 11 characters, all covered by the og and web cmap, and the glyph probe measured a 167px Tektur advance against 211.92px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/pi-line",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 11,
           "codePoints": 8,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 8,
+          "ogCmapCovered": 8,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 167,
+          "fallbackAdvance": 211.92,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27759,23 +28101,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/generalist-policies by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/generalist-policies addresses 15 distinct code points across 25 characters, all covered by the og and web cmap, and the glyph probe measured a 386px Tektur advance against 481.64px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/generalist-policies",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 25,
           "codePoints": 15,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 15,
+          "ogCmapCovered": 15,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 386,
+          "fallbackAdvance": 481.64,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27787,23 +28137,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/comparison-matrix by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/comparison-matrix addresses 13 distinct code points across 17 characters, all covered by the og and web cmap, and the glyph probe measured a 295px Tektur advance against 327.52px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/comparison-matrix",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 17,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 295,
+          "fallbackAdvance": 327.52,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27815,23 +28173,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/hierarchical by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/hierarchical addresses 13 distinct code points across 23 characters, all covered by the og and web cmap, and the glyph probe measured a 383px Tektur advance against 443.11px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/hierarchical",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 23,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 383,
+          "fallbackAdvance": 443.11,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27843,23 +28209,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/rl-finetuning by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/rl-finetuning addresses 17 distinct code points across 26 characters, all covered by the og and web cmap, and the glyph probe measured a 397px Tektur advance against 500.91px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/rl-finetuning",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 26,
           "codePoints": 17,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 17,
+          "ogCmapCovered": 17,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 397,
+          "fallbackAdvance": 500.91,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27871,23 +28245,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/realtime-execution by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/realtime-execution addresses 16 distinct code points across 19 characters, all covered by the og and web cmap, and the glyph probe measured a 315px Tektur advance against 366.05px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/realtime-execution",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 19,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 315,
+          "fallbackAdvance": 366.05,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27899,23 +28281,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/cross-embodiment by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/cross-embodiment addresses 17 distinct code points across 25 characters, all covered by the og and web cmap, and the glyph probe measured a 445px Tektur advance against 481.64px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/cross-embodiment",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 25,
           "codePoints": 17,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 17,
+          "ogCmapCovered": 17,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 445,
+          "fallbackAdvance": 481.64,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27927,23 +28317,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:manipulation/knowledge-insulation by the gates named in this row's enforcement targets",
+      "actual": "article:manipulation/knowledge-insulation addresses 15 distinct code points across 20 characters, all covered by the og and web cmap, and the glyph probe measured a 342px Tektur advance against 385.31px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:manipulation/knowledge-insulation",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 20,
           "codePoints": 15,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 15,
+          "ogCmapCovered": 15,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 342,
+          "fallbackAdvance": 385.31,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27955,23 +28353,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/rl-for-robotics by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/rl-for-robotics addresses 11 distinct code points across 15 characters, all covered by the og and web cmap, and the glyph probe measured a 241px Tektur advance against 288.98px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/rl-for-robotics",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 15,
           "codePoints": 11,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 11,
+          "ogCmapCovered": 11,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 241,
+          "fallbackAdvance": 288.98,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -27983,23 +28389,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/why-rl-locomotion by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/why-rl-locomotion addresses 19 distinct code points across 42 characters, all covered by the og and web cmap, and the glyph probe measured a 712px Tektur advance against 809.16px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/why-rl-locomotion",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 42,
           "codePoints": 19,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 19,
+          "ogCmapCovered": 19,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 712,
+          "fallbackAdvance": 809.16,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28011,23 +28425,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/parallel-sim-rl by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/parallel-sim-rl addresses 15 distinct code points across 25 characters, all covered by the og and web cmap, and the glyph probe measured a 392px Tektur advance against 481.64px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/parallel-sim-rl",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 25,
           "codePoints": 15,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 15,
+          "ogCmapCovered": 15,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 392,
+          "fallbackAdvance": 481.64,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28039,23 +28461,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/sim2real-transfer by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/sim2real-transfer addresses 16 distinct code points across 20 characters, all covered by the og and web cmap, and the glyph probe measured a 326px Tektur advance against 385.31px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/sim2real-transfer",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 20,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 326,
+          "fallbackAdvance": 385.31,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28067,23 +28497,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/legged-locomotion by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/legged-locomotion addresses 12 distinct code points across 25 characters, all covered by the og and web cmap, and the glyph probe measured a 440px Tektur advance against 481.64px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/legged-locomotion",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 25,
           "codePoints": 12,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 12,
+          "ogCmapCovered": 12,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 440,
+          "fallbackAdvance": 481.64,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28095,23 +28533,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/humanoid-wbc by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/humanoid-wbc addresses 19 distinct code points across 27 characters, all covered by the og and web cmap, and the glyph probe measured a 468px Tektur advance against 520.17px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/humanoid-wbc",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 27,
           "codePoints": 19,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 19,
+          "ogCmapCovered": 19,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 468,
+          "fallbackAdvance": 520.17,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28123,23 +28569,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:rl-sim2real/reward-design-mpc by the gates named in this row's enforcement targets",
+      "actual": "article:rl-sim2real/reward-design-mpc addresses 18 distinct code points across 32 characters, all covered by the og and web cmap, and the glyph probe measured a 553px Tektur advance against 616.5px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:rl-sim2real/reward-design-mpc",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 32,
           "codePoints": 18,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 18,
+          "ogCmapCovered": 18,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 553,
+          "fallbackAdvance": 616.5,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28151,23 +28605,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:world-models/taxonomy by the gates named in this row's enforcement targets",
+      "actual": "article:world-models/taxonomy addresses 14 distinct code points across 22 characters, all covered by the og and web cmap, and the glyph probe measured a 362px Tektur advance against 423.84px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:world-models/taxonomy",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 22,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 362,
+          "fallbackAdvance": 423.84,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28179,23 +28641,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:world-models/latent-dynamics by the gates named in this row's enforcement targets",
+      "actual": "article:world-models/latent-dynamics addresses 19 distinct code points across 28 characters, all covered by the og and web cmap, and the glyph probe measured a 482px Tektur advance against 539.44px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:world-models/latent-dynamics",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 28,
           "codePoints": 19,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 19,
+          "ogCmapCovered": 19,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 482,
+          "fallbackAdvance": 539.44,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28207,23 +28677,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:world-models/generative-video by the gates named in this row's enforcement targets",
+      "actual": "article:world-models/generative-video addresses 16 distinct code points across 29 characters, all covered by the og and web cmap, and the glyph probe measured a 483px Tektur advance against 558.7px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:world-models/generative-video",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 29,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 483,
+          "fallbackAdvance": 558.7,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28235,23 +28713,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:world-models/jepa by the gates named in this row's enforcement targets",
+      "actual": "article:world-models/jepa addresses 22 distinct code points across 43 characters, all covered by the og and web cmap, and the glyph probe measured a 748px Tektur advance against 828.42px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:world-models/jepa",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 43,
           "codePoints": 22,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 22,
+          "ogCmapCovered": 22,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 748,
+          "fallbackAdvance": 828.42,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28263,23 +28749,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:world-models/generative-sim by the gates named in this row's enforcement targets",
+      "actual": "article:world-models/generative-sim addresses 14 distinct code points across 21 characters, all covered by the og and web cmap, and the glyph probe measured a 346px Tektur advance against 404.58px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:world-models/generative-sim",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 21,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 346,
+          "fallbackAdvance": 404.58,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28291,23 +28785,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/data-bottleneck by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/data-bottleneck addresses 13 distinct code points across 19 characters, all covered by the og and web cmap, and the glyph probe measured a 315px Tektur advance against 366.05px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/data-bottleneck",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 19,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 315,
+          "fallbackAdvance": 366.05,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28319,23 +28821,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/datasets by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/datasets addresses 10 distinct code points across 14 characters, all covered by the og and web cmap, and the glyph probe measured a 237px Tektur advance against 269.72px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/datasets",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 14,
           "codePoints": 10,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 10,
+          "ogCmapCovered": 10,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 237,
+          "fallbackAdvance": 269.72,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28347,23 +28857,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/hardware-taxonomy by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/hardware-taxonomy addresses 13 distinct code points across 17 characters, all covered by the og and web cmap, and the glyph probe measured a 324px Tektur advance against 327.52px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/hardware-taxonomy",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 17,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 324,
+          "fallbackAdvance": 327.52,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28375,23 +28893,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/teleop-rigs by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/teleop-rigs addresses 14 distinct code points across 18 characters, all covered by the og and web cmap, and the glyph probe measured a 292px Tektur advance against 346.78px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/teleop-rigs",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 18,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 292,
+          "fallbackAdvance": 346.78,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28403,23 +28929,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/evaluation-crisis by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/evaluation-crisis addresses 16 distinct code points across 21 characters, all covered by the og and web cmap, and the glyph probe measured a 325px Tektur advance against 404.58px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/evaluation-crisis",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 21,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 325,
+          "fallbackAdvance": 404.58,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28431,23 +28965,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:data-hardware/industrial-deployment by the gates named in this row's enforcement targets",
+      "actual": "article:data-hardware/industrial-deployment addresses 17 distinct code points across 21 characters, all covered by the og and web cmap, and the glyph probe measured a 352px Tektur advance against 404.58px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:data-hardware/industrial-deployment",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 21,
           "codePoints": 17,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 17,
+          "ogCmapCovered": 17,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 352,
+          "fallbackAdvance": 404.58,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28459,23 +29001,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/kinematics by the gates named in this row's enforcement targets",
+      "actual": "article:classical/kinematics addresses 9 distinct code points across 10 characters, all covered by the og and web cmap, and the glyph probe measured a 174px Tektur advance against 192.66px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/kinematics",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 10,
           "codePoints": 9,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 9,
+          "ogCmapCovered": 9,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 174,
+          "fallbackAdvance": 192.66,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28487,23 +29037,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/motion-planning by the gates named in this row's enforcement targets",
+      "actual": "article:classical/motion-planning addresses 10 distinct code points across 15 characters, all covered by the og and web cmap, and the glyph probe measured a 248px Tektur advance against 288.98px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/motion-planning",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 15,
           "codePoints": 10,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 10,
+          "ogCmapCovered": 10,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 248,
+          "fallbackAdvance": 288.98,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28515,23 +29073,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/control by the gates named in this row's enforcement targets",
+      "actual": "article:classical/control addresses 6 distinct code points across 7 characters, all covered by the og and web cmap, and the glyph probe measured a 113px Tektur advance against 134.86px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/control",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 7,
           "codePoints": 6,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 6,
+          "ogCmapCovered": 6,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 113,
+          "fallbackAdvance": 134.86,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28543,23 +29109,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/state-estimation by the gates named in this row's enforcement targets",
+      "actual": "article:classical/state-estimation addresses 11 distinct code points across 16 characters, all covered by the og and web cmap, and the glyph probe measured a 263px Tektur advance against 308.25px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/state-estimation",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 16,
           "codePoints": 11,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 11,
+          "ogCmapCovered": 11,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 263,
+          "fallbackAdvance": 308.25,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28571,23 +29145,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/grasp-planning by the gates named in this row's enforcement targets",
+      "actual": "article:classical/grasp-planning addresses 11 distinct code points across 14 characters, all covered by the og and web cmap, and the glyph probe measured a 237px Tektur advance against 269.72px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/grasp-planning",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 14,
           "codePoints": 11,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 11,
+          "ogCmapCovered": 11,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 237,
+          "fallbackAdvance": 269.72,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28599,23 +29181,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/perception by the gates named in this row's enforcement targets",
+      "actual": "article:classical/perception addresses 15 distinct code points across 27 characters, all covered by the og and web cmap, and the glyph probe measured a 435px Tektur advance against 520.17px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/perception",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 27,
           "codePoints": 15,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 15,
+          "ogCmapCovered": 15,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 435,
+          "fallbackAdvance": 520.17,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28627,23 +29217,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:classical/scene-representation by the gates named in this row's enforcement targets",
+      "actual": "article:classical/scene-representation addresses 16 distinct code points across 32 characters, all covered by the og and web cmap, and the glyph probe measured a 556px Tektur advance against 616.5px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:classical/scene-representation",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 32,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 556,
+          "fallbackAdvance": 616.5,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28655,23 +29253,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/reliability-gap by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/reliability-gap addresses 13 distinct code points across 19 characters, all covered by the og and web cmap, and the glyph probe measured a 285px Tektur advance against 366.05px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/reliability-gap",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 19,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 285,
+          "fallbackAdvance": 366.05,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28683,23 +29289,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/dexterity by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/dexterity addresses 7 distinct code points across 9 characters, all covered by the og and web cmap, and the glyph probe measured a 148px Tektur advance against 173.39px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/dexterity",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 9,
           "codePoints": 7,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 7,
+          "ogCmapCovered": 7,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 148,
+          "fallbackAdvance": 173.39,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28711,23 +29325,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/generalization by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/generalization addresses 10 distinct code points across 14 characters, all covered by the og and web cmap, and the glyph probe measured a 226px Tektur advance against 269.72px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/generalization",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 14,
           "codePoints": 10,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 10,
+          "ogCmapCovered": 10,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 226,
+          "fallbackAdvance": 269.72,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28739,23 +29361,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/competing-theses by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/competing-theses addresses 13 distinct code points across 16 characters, all covered by the og and web cmap, and the glyph probe measured a 289px Tektur advance against 308.25px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/competing-theses",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 16,
           "codePoints": 13,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 13,
+          "ogCmapCovered": 13,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 289,
+          "fallbackAdvance": 308.25,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28767,23 +29397,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/bear-case by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/bear-case addresses 9 distinct code points across 13 characters, all covered by the og and web cmap, and the glyph probe measured a 222px Tektur advance against 250.45px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/bear-case",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 13,
           "codePoints": 9,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 9,
+          "ogCmapCovered": 9,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 222,
+          "fallbackAdvance": 250.45,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28795,23 +29433,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:frontier/safety-and-assurance by the gates named in this row's enforcement targets",
+      "actual": "article:frontier/safety-and-assurance addresses 14 distinct code points across 20 characters, all covered by the og and web cmap, and the glyph probe measured a 349px Tektur advance against 385.31px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:frontier/safety-and-assurance",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 20,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 349,
+          "fallbackAdvance": 385.31,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28823,23 +29469,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:adjacent/autonomous-vehicles by the gates named in this row's enforcement targets",
+      "actual": "article:adjacent/autonomous-vehicles addresses 14 distinct code points across 19 characters, all covered by the og and web cmap, and the glyph probe measured a 339px Tektur advance against 366.05px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:adjacent/autonomous-vehicles",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 19,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 339,
+          "fallbackAdvance": 366.05,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28851,23 +29505,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:adjacent/drones by the gates named in this row's enforcement targets",
+      "actual": "article:adjacent/drones addresses 16 distinct code points across 26 characters, all covered by the og and web cmap, and the glyph probe measured a 422px Tektur advance against 500.91px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:adjacent/drones",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 26,
           "codePoints": 16,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 16,
+          "ogCmapCovered": 16,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 422,
+          "fallbackAdvance": 500.91,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28879,23 +29541,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:adjacent/surgical by the gates named in this row's enforcement targets",
+      "actual": "article:adjacent/surgical addresses 14 distinct code points across 17 characters, all covered by the og and web cmap, and the glyph probe measured a 272px Tektur advance against 327.52px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:adjacent/surgical",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 17,
           "codePoints": 14,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 14,
+          "ogCmapCovered": 14,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 272,
+          "fallbackAdvance": 327.52,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {
@@ -28907,23 +29577,31 @@
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified for assigned-string:article:adjacent/space by the gates named in this row's enforcement targets",
+      "actual": "article:adjacent/space addresses 12 distinct code points across 14 characters, all covered by the og and web cmap, and the glyph probe measured a 240px Tektur advance against 269.72px in the generic fallback with the face fully loaded",
       "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
-        "kind": "source-build",
-        "sourcePath": "data/type-roles.ts",
-        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": {
+        "kind": "browser-state",
+        "computed": {
+          "assignedString": "article:adjacent/space",
+          "targets": [
+            "og",
+            "web"
+          ],
           "characters": 14,
           "codePoints": 12,
-          "targets": [
-            "web",
-            "og"
-          ]
-        },
-        "tool": "fontkit + Vitest + Playwright"
+          "webCmapCovered": 12,
+          "ogCmapCovered": 12,
+          "glyphProbeLoaded": true,
+          "tekturAdvance": 240,
+          "fallbackAdvance": 269.72,
+          "observedCmapRejection": "web cmap missing U+10FFFF (mutation:missing-glyph:􏿿)",
+          "evidence": [
+            "evidence/brand-v2/tektur-delivery.json"
+          ],
+          "tool": "fontkit inspection of the checked-in binaries + Playwright brand-v2 Tektur sweep (evidence/brand-v2/tektur-delivery.json)"
+        }
       }
     },
     {

@@ -1,0 +1,3657 @@
+{
+  "version": 1,
+  "fingerprint": "f7b7e58df17dc42899e4314110f1093a8499c4052400ac5201802797ac28c3da",
+  "viewports": [
+    {
+      "id": "375px",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "id": "768px",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "id": "1024px",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "1440px",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "routes": [
+    "/",
+    "/a-z/",
+    "/adjacent/",
+    "/adjacent/autonomous-vehicles/",
+    "/adjacent/drones/",
+    "/adjacent/space/",
+    "/adjacent/surgical/",
+    "/classical/",
+    "/classical/control/",
+    "/classical/grasp-planning/",
+    "/classical/kinematics/",
+    "/classical/motion-planning/",
+    "/classical/perception/",
+    "/classical/scene-representation/",
+    "/classical/state-estimation/",
+    "/credits/",
+    "/data-hardware/",
+    "/data-hardware/data-bottleneck/",
+    "/data-hardware/datasets/",
+    "/data-hardware/evaluation-crisis/",
+    "/data-hardware/hardware-taxonomy/",
+    "/data-hardware/industrial-deployment/",
+    "/data-hardware/teleop-rigs/",
+    "/frontier/",
+    "/frontier/bear-case/",
+    "/frontier/competing-theses/",
+    "/frontier/dexterity/",
+    "/frontier/generalization/",
+    "/frontier/reliability-gap/",
+    "/frontier/safety-and-assurance/",
+    "/glossary/",
+    "/manipulation/",
+    "/manipulation/action-chunking/",
+    "/manipulation/bc-foundations/",
+    "/manipulation/comparison-matrix/",
+    "/manipulation/cross-embodiment/",
+    "/manipulation/diffusion-policy/",
+    "/manipulation/generalist-policies/",
+    "/manipulation/hierarchical/",
+    "/manipulation/knowledge-insulation/",
+    "/manipulation/pi-line/",
+    "/manipulation/realtime-execution/",
+    "/manipulation/rl-finetuning/",
+    "/manipulation/vla-models/",
+    "/market-map/",
+    "/playground/",
+    "/rl-sim2real/",
+    "/rl-sim2real/humanoid-wbc/",
+    "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/parallel-sim-rl/",
+    "/rl-sim2real/reward-design-mpc/",
+    "/rl-sim2real/rl-for-robotics/",
+    "/rl-sim2real/sim2real-transfer/",
+    "/rl-sim2real/why-rl-locomotion/",
+    "/search/",
+    "/world-models/",
+    "/world-models/generative-sim/",
+    "/world-models/generative-video/",
+    "/world-models/jepa/",
+    "/world-models/latent-dynamics/",
+    "/world-models/taxonomy/",
+    "/404/"
+  ],
+  "roleObservations": [
+    {
+      "route": "/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "home-wordmark": 1,
+        "section-display": 5
+      }
+    },
+    {
+      "route": "/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "home-wordmark": 1,
+        "section-display": 5
+      }
+    },
+    {
+      "route": "/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "home-wordmark": 1,
+        "section-display": 5
+      }
+    },
+    {
+      "route": "/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "home-wordmark": 1,
+        "section-display": 5
+      }
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/search/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/search/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/search/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/search/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/404/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 2,
+        "display-numerals": 1,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/404/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 2,
+        "display-numerals": 1,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/404/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 2,
+        "display-numerals": 1,
+        "page-h1": 1
+      }
+    },
+    {
+      "route": "/404/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 2,
+        "display-numerals": 1,
+        "page-h1": 1
+      }
+    }
+  ],
+  "roleAxes": [
+    {
+      "role": "article-h1",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 188
+    },
+    {
+      "role": "display-numerals",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 4
+    },
+    {
+      "role": "home-wordmark",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 4
+    },
+    {
+      "role": "page-h1",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 56
+    },
+    {
+      "role": "section-display",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 20
+    },
+    {
+      "role": "shell-wordmark",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600",
+      "elements": 496
+    }
+  ],
+  "unannotatedDisplayClassUses": [],
+  "familyObservations": [
+    {
+      "route": "/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1060,
+        "IBM Plex Mono": 116,
+        "tektur": 32
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/a-z/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2116,
+        "IBM Plex Mono": 868,
+        "tektur": 12,
+        "Newsreader": 4
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/adjacent/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 620,
+        "IBM Plex Mono": 36,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2108,
+        "IBM Plex Mono": 868,
+        "tektur": 12,
+        "Newsreader": 508
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/adjacent/drones/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1396,
+        "IBM Plex Mono": 700,
+        "tektur": 12,
+        "Newsreader": 428
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/adjacent/space/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1492,
+        "IBM Plex Mono": 628,
+        "tektur": 12,
+        "Newsreader": 332
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1328,
+        "IBM Plex Mono": 500,
+        "tektur": 12,
+        "Newsreader": 280
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/classical/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 692,
+        "IBM Plex Mono": 48,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/classical/control/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2137,
+        "IBM Plex Mono": 1128,
+        "tektur": 12,
+        "Newsreader": 1136,
+        "KaTeX_Main": 4244,
+        "math": 1968,
+        "KaTeX_Math": 576,
+        "KaTeX_Size2": 16,
+        "KaTeX_Size1": 16,
+        "KaTeX_Caligraphic": 16
+      },
+      "mathScoped": {
+        "KaTeX_Main": 4244,
+        "math": 1968,
+        "KaTeX_Math": 576,
+        "Newsreader": 28,
+        "KaTeX_Size2": 16,
+        "KaTeX_Size1": 16,
+        "KaTeX_Caligraphic": 16
+      }
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1496,
+        "IBM Plex Mono": 632,
+        "tektur": 12,
+        "Newsreader": 576,
+        "KaTeX_Main": 2376,
+        "math": 1100,
+        "KaTeX_Math": 280,
+        "KaTeX_Size3": 16,
+        "KaTeX_Caligraphic": 12
+      },
+      "mathScoped": {
+        "KaTeX_Main": 2376,
+        "math": 1100,
+        "KaTeX_Math": 280,
+        "Newsreader": 20,
+        "KaTeX_Size3": 16,
+        "KaTeX_Caligraphic": 12
+      }
+    },
+    {
+      "route": "/classical/kinematics/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1424,
+        "IBM Plex Mono": 528,
+        "tektur": 12,
+        "Newsreader": 500,
+        "KaTeX_Main": 6140,
+        "math": 2684,
+        "KaTeX_Math": 684,
+        "KaTeX_Size3": 16,
+        "KaTeX_Size2": 8,
+        "KaTeX_Size1": 8
+      },
+      "mathScoped": {
+        "KaTeX_Main": 6140,
+        "math": 2684,
+        "KaTeX_Math": 684,
+        "Newsreader": 40,
+        "KaTeX_Size3": 16,
+        "KaTeX_Size2": 8,
+        "KaTeX_Size1": 8
+      }
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1392,
+        "IBM Plex Mono": 480,
+        "tektur": 12,
+        "Newsreader": 372,
+        "KaTeX_Main": 2756,
+        "math": 1376,
+        "KaTeX_Math": 460,
+        "KaTeX_Caligraphic": 52,
+        "KaTeX_Size3": 8,
+        "KaTeX_AMS": 4,
+        "KaTeX_Size2": 12
+      },
+      "mathScoped": {
+        "KaTeX_Main": 2756,
+        "math": 1376,
+        "KaTeX_Math": 460,
+        "KaTeX_Caligraphic": 52,
+        "Newsreader": 24,
+        "KaTeX_Size3": 8,
+        "KaTeX_AMS": 4,
+        "KaTeX_Size2": 12
+      }
+    },
+    {
+      "route": "/classical/perception/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2328,
+        "IBM Plex Mono": 1044,
+        "tektur": 12,
+        "Newsreader": 724,
+        "KaTeX_Main": 232,
+        "math": 180,
+        "KaTeX_Math": 52
+      },
+      "mathScoped": {
+        "KaTeX_Main": 232,
+        "math": 180,
+        "KaTeX_Math": 52,
+        "Newsreader": 4
+      }
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1940,
+        "IBM Plex Mono": 808,
+        "tektur": 12,
+        "Newsreader": 1076
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1556,
+        "IBM Plex Mono": 660,
+        "tektur": 12,
+        "Newsreader": 692,
+        "KaTeX_Main": 7064,
+        "math": 2444,
+        "KaTeX_Math": 812,
+        "KaTeX_Size2": 12,
+        "KaTeX_Caligraphic": 8,
+        "KaTeX_Size1": 16
+      },
+      "mathScoped": {
+        "KaTeX_Main": 7064,
+        "math": 2444,
+        "KaTeX_Math": 812,
+        "Newsreader": 36,
+        "KaTeX_Size2": 12,
+        "KaTeX_Caligraphic": 8,
+        "KaTeX_Size1": 16
+      }
+    },
+    {
+      "route": "/credits/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 5216,
+        "IBM Plex Mono": 12,
+        "tektur": 12,
+        "Newsreader": 16
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 668,
+        "IBM Plex Mono": 44,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1672,
+        "IBM Plex Mono": 1108,
+        "tektur": 12,
+        "Newsreader": 972
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1560,
+        "IBM Plex Mono": 876,
+        "tektur": 12,
+        "Newsreader": 548
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1528,
+        "IBM Plex Mono": 708,
+        "tektur": 12,
+        "Newsreader": 748
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2260,
+        "IBM Plex Mono": 1856,
+        "tektur": 12,
+        "Newsreader": 2468
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1840,
+        "IBM Plex Mono": 804,
+        "tektur": 12,
+        "Newsreader": 572
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1520,
+        "IBM Plex Mono": 580,
+        "tektur": 12,
+        "Newsreader": 560
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/frontier/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 668,
+        "IBM Plex Mono": 44,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1864,
+        "IBM Plex Mono": 816,
+        "tektur": 12,
+        "Newsreader": 524
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2308,
+        "IBM Plex Mono": 1088,
+        "tektur": 12,
+        "Newsreader": 604
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2140,
+        "IBM Plex Mono": 1136,
+        "tektur": 12,
+        "Newsreader": 496
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/frontier/generalization/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1716,
+        "IBM Plex Mono": 960,
+        "tektur": 12,
+        "Newsreader": 896,
+        "KaTeX_Main": 180,
+        "math": 104,
+        "KaTeX_Math": 16
+      },
+      "mathScoped": {
+        "KaTeX_Main": 180,
+        "math": 104,
+        "KaTeX_Math": 16
+      }
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1456,
+        "IBM Plex Mono": 664,
+        "tektur": 12,
+        "Newsreader": 548,
+        "KaTeX_Main": 92,
+        "math": 68,
+        "KaTeX_Math": 16
+      },
+      "mathScoped": {
+        "KaTeX_Main": 92,
+        "math": 68,
+        "KaTeX_Math": 16
+      }
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2100,
+        "IBM Plex Mono": 908,
+        "tektur": 12,
+        "Newsreader": 552
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/glossary/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 3436,
+        "IBM Plex Mono": 776,
+        "tektur": 12,
+        "Newsreader": 480
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 812,
+        "IBM Plex Mono": 68,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1860,
+        "IBM Plex Mono": 1260,
+        "tektur": 12,
+        "Newsreader": 1224,
+        "KaTeX_Main": 580,
+        "math": 220,
+        "KaTeX_Math": 44
+      },
+      "mathScoped": {
+        "Newsreader": 4,
+        "KaTeX_Main": 580,
+        "math": 220,
+        "KaTeX_Math": 44
+      }
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1544,
+        "IBM Plex Mono": 744,
+        "tektur": 12,
+        "Newsreader": 864,
+        "KaTeX_Main": 780,
+        "math": 356,
+        "KaTeX_Math": 76
+      },
+      "mathScoped": {
+        "KaTeX_Main": 780,
+        "math": 356,
+        "KaTeX_Math": 76,
+        "Newsreader": 4
+      }
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1892,
+        "IBM Plex Mono": 936,
+        "tektur": 12,
+        "Newsreader": 1216,
+        "KaTeX_Main": 80,
+        "math": 48,
+        "KaTeX_Math": 8
+      },
+      "mathScoped": {
+        "KaTeX_Main": 80,
+        "math": 48,
+        "KaTeX_Math": 8
+      }
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1332,
+        "IBM Plex Mono": 480,
+        "tektur": 12,
+        "Newsreader": 1324
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1440,
+        "IBM Plex Mono": 628,
+        "tektur": 12,
+        "Newsreader": 708,
+        "KaTeX_Main": 2008,
+        "math": 844,
+        "KaTeX_Math": 276,
+        "KaTeX_Size1": 8,
+        "KaTeX_Caligraphic": 4
+      },
+      "mathScoped": {
+        "KaTeX_Main": 2008,
+        "math": 844,
+        "KaTeX_Math": 276,
+        "Newsreader": 8,
+        "KaTeX_Size1": 8,
+        "KaTeX_Caligraphic": 4
+      }
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1616,
+        "IBM Plex Mono": 936,
+        "tektur": 12,
+        "Newsreader": 532
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1564,
+        "IBM Plex Mono": 656,
+        "tektur": 12,
+        "Newsreader": 884
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1452,
+        "IBM Plex Mono": 592,
+        "tektur": 12,
+        "Newsreader": 564
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1908,
+        "IBM Plex Mono": 1064,
+        "tektur": 12,
+        "Newsreader": 2844,
+        "KaTeX_Main": 544,
+        "math": 276,
+        "KaTeX_Math": 76,
+        "KaTeX_Caligraphic": 4
+      },
+      "mathScoped": {
+        "KaTeX_Main": 544,
+        "math": 276,
+        "KaTeX_Math": 76,
+        "KaTeX_Caligraphic": 4
+      }
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1660,
+        "IBM Plex Mono": 1124,
+        "tektur": 12,
+        "Newsreader": 1112
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1696,
+        "IBM Plex Mono": 752,
+        "tektur": 12,
+        "Newsreader": 696,
+        "KaTeX_Main": 248,
+        "math": 156,
+        "KaTeX_Math": 40
+      },
+      "mathScoped": {
+        "KaTeX_Main": 248,
+        "math": 156,
+        "KaTeX_Math": 40
+      }
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1668,
+        "IBM Plex Mono": 796,
+        "tektur": 12,
+        "Newsreader": 1704
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/market-map/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 13704,
+        "IBM Plex Mono": 3352,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/playground/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 512,
+        "IBM Plex Mono": 24,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 692,
+        "IBM Plex Mono": 48,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1748,
+        "IBM Plex Mono": 892,
+        "tektur": 12,
+        "Newsreader": 472
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1472,
+        "IBM Plex Mono": 580,
+        "tektur": 12,
+        "Newsreader": 440,
+        "KaTeX_Main": 20,
+        "math": 20,
+        "KaTeX_Math": 4
+      },
+      "mathScoped": {
+        "KaTeX_Main": 20,
+        "math": 20,
+        "KaTeX_Math": 4
+      }
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1396,
+        "IBM Plex Mono": 588,
+        "tektur": 12,
+        "Newsreader": 444
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1812,
+        "IBM Plex Mono": 1004,
+        "tektur": 12,
+        "Newsreader": 800
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 2260,
+        "IBM Plex Mono": 1024,
+        "tektur": 12,
+        "Newsreader": 748
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1728,
+        "IBM Plex Mono": 968,
+        "tektur": 12,
+        "Newsreader": 1304
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1340,
+        "IBM Plex Mono": 416,
+        "tektur": 12,
+        "Newsreader": 344
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/search/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 520,
+        "IBM Plex Mono": 24,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/world-models/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 644,
+        "IBM Plex Mono": 40,
+        "tektur": 12
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1324,
+        "IBM Plex Mono": 488,
+        "tektur": 12,
+        "Newsreader": 384,
+        "KaTeX_Main": 92,
+        "math": 60,
+        "KaTeX_Math": 12
+      },
+      "mathScoped": {
+        "KaTeX_Main": 92,
+        "math": 60,
+        "KaTeX_Math": 12
+      }
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1440,
+        "IBM Plex Mono": 612,
+        "tektur": 12,
+        "Newsreader": 688
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/world-models/jepa/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1348,
+        "IBM Plex Mono": 544,
+        "tektur": 12,
+        "Newsreader": 420
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1416,
+        "IBM Plex Mono": 552,
+        "tektur": 12,
+        "Newsreader": 560
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 1764,
+        "IBM Plex Mono": 632,
+        "tektur": 12,
+        "Newsreader": 720
+      },
+      "mathScoped": {}
+    },
+    {
+      "route": "/404/",
+      "widths": [
+        "375px",
+        "768px",
+        "1024px",
+        "1440px"
+      ],
+      "heads": {
+        "IBM Plex Sans": 464,
+        "IBM Plex Mono": 12,
+        "tektur": 16
+      },
+      "mathScoped": {}
+    }
+  ],
+  "fontResources": {
+    "sameOriginPaths": [
+      "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+      "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+      "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+      "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+      "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+      "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+      "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+      "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+      "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+      "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+      "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+      "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+      "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+      "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+      "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+    ],
+    "foreignOrigin": [],
+    "observationsWithFontRequest": 248,
+    "observationsMixingForeignOrigin": 0
+  },
+  "delivery": {
+    "route": "/",
+    "viewportId": "1440px",
+    "stacks": {
+      "--font-display": "\"tektur\", \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "--font-mono": "\"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace",
+      "--font-sans": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "--font-serif": "\"Newsreader\", \"Newsreader Fallback\", ui-serif, Georgia, serif"
+    },
+    "wordmark": {
+      "role": "home-wordmark",
+      "family": "tektur, \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+      "weight": "600",
+      "stretch": "100%",
+      "variationSettings": "\"wdth\" 100, \"wght\" 600"
+    }
+  },
+  "assignedStringProbes": [
+    {
+      "id": "identity",
+      "loaded": true,
+      "tekturAdvance": 163,
+      "fallbackAdvance": 192.66
+    },
+    {
+      "id": "descriptor",
+      "loaded": true,
+      "tekturAdvance": 825,
+      "fallbackAdvance": 1021.08
+    },
+    {
+      "id": "display-numerals",
+      "loaded": true,
+      "tekturAdvance": 197,
+      "fallbackAdvance": 192.66
+    },
+    {
+      "id": "domain:manipulation",
+      "loaded": true,
+      "tekturAdvance": 498,
+      "fallbackAdvance": 597.23
+    },
+    {
+      "id": "domain:rl-sim2real",
+      "loaded": true,
+      "tekturAdvance": 459,
+      "fallbackAdvance": 539.44
+    },
+    {
+      "id": "domain:world-models",
+      "loaded": true,
+      "tekturAdvance": 207,
+      "fallbackAdvance": 231.19
+    },
+    {
+      "id": "domain:data-hardware",
+      "loaded": true,
+      "tekturAdvance": 449,
+      "fallbackAdvance": 520.17
+    },
+    {
+      "id": "domain:classical",
+      "loaded": true,
+      "tekturAdvance": 339,
+      "fallbackAdvance": 404.58
+    },
+    {
+      "id": "domain:frontier",
+      "loaded": true,
+      "tekturAdvance": 407,
+      "fallbackAdvance": 462.38
+    },
+    {
+      "id": "domain:adjacent",
+      "loaded": true,
+      "tekturAdvance": 280,
+      "fallbackAdvance": 308.25
+    },
+    {
+      "id": "article:manipulation/bc-foundations",
+      "loaded": true,
+      "tekturAdvance": 465,
+      "fallbackAdvance": 539.44
+    },
+    {
+      "id": "article:manipulation/action-chunking",
+      "loaded": true,
+      "tekturAdvance": 518,
+      "fallbackAdvance": 597.23
+    },
+    {
+      "id": "article:manipulation/diffusion-policy",
+      "loaded": true,
+      "tekturAdvance": 241,
+      "fallbackAdvance": 308.25
+    },
+    {
+      "id": "article:manipulation/vla-models",
+      "loaded": true,
+      "tekturAdvance": 490,
+      "fallbackAdvance": 558.7
+    },
+    {
+      "id": "article:manipulation/pi-line",
+      "loaded": true,
+      "tekturAdvance": 167,
+      "fallbackAdvance": 211.92
+    },
+    {
+      "id": "article:manipulation/generalist-policies",
+      "loaded": true,
+      "tekturAdvance": 386,
+      "fallbackAdvance": 481.64
+    },
+    {
+      "id": "article:manipulation/comparison-matrix",
+      "loaded": true,
+      "tekturAdvance": 295,
+      "fallbackAdvance": 327.52
+    },
+    {
+      "id": "article:manipulation/hierarchical",
+      "loaded": true,
+      "tekturAdvance": 383,
+      "fallbackAdvance": 443.11
+    },
+    {
+      "id": "article:manipulation/rl-finetuning",
+      "loaded": true,
+      "tekturAdvance": 397,
+      "fallbackAdvance": 500.91
+    },
+    {
+      "id": "article:manipulation/realtime-execution",
+      "loaded": true,
+      "tekturAdvance": 315,
+      "fallbackAdvance": 366.05
+    },
+    {
+      "id": "article:manipulation/cross-embodiment",
+      "loaded": true,
+      "tekturAdvance": 445,
+      "fallbackAdvance": 481.64
+    },
+    {
+      "id": "article:manipulation/knowledge-insulation",
+      "loaded": true,
+      "tekturAdvance": 342,
+      "fallbackAdvance": 385.31
+    },
+    {
+      "id": "article:rl-sim2real/rl-for-robotics",
+      "loaded": true,
+      "tekturAdvance": 241,
+      "fallbackAdvance": 288.98
+    },
+    {
+      "id": "article:rl-sim2real/why-rl-locomotion",
+      "loaded": true,
+      "tekturAdvance": 712,
+      "fallbackAdvance": 809.16
+    },
+    {
+      "id": "article:rl-sim2real/parallel-sim-rl",
+      "loaded": true,
+      "tekturAdvance": 392,
+      "fallbackAdvance": 481.64
+    },
+    {
+      "id": "article:rl-sim2real/sim2real-transfer",
+      "loaded": true,
+      "tekturAdvance": 326,
+      "fallbackAdvance": 385.31
+    },
+    {
+      "id": "article:rl-sim2real/legged-locomotion",
+      "loaded": true,
+      "tekturAdvance": 440,
+      "fallbackAdvance": 481.64
+    },
+    {
+      "id": "article:rl-sim2real/humanoid-wbc",
+      "loaded": true,
+      "tekturAdvance": 468,
+      "fallbackAdvance": 520.17
+    },
+    {
+      "id": "article:rl-sim2real/reward-design-mpc",
+      "loaded": true,
+      "tekturAdvance": 553,
+      "fallbackAdvance": 616.5
+    },
+    {
+      "id": "article:world-models/taxonomy",
+      "loaded": true,
+      "tekturAdvance": 362,
+      "fallbackAdvance": 423.84
+    },
+    {
+      "id": "article:world-models/latent-dynamics",
+      "loaded": true,
+      "tekturAdvance": 482,
+      "fallbackAdvance": 539.44
+    },
+    {
+      "id": "article:world-models/generative-video",
+      "loaded": true,
+      "tekturAdvance": 483,
+      "fallbackAdvance": 558.7
+    },
+    {
+      "id": "article:world-models/jepa",
+      "loaded": true,
+      "tekturAdvance": 748,
+      "fallbackAdvance": 828.42
+    },
+    {
+      "id": "article:world-models/generative-sim",
+      "loaded": true,
+      "tekturAdvance": 346,
+      "fallbackAdvance": 404.58
+    },
+    {
+      "id": "article:data-hardware/data-bottleneck",
+      "loaded": true,
+      "tekturAdvance": 315,
+      "fallbackAdvance": 366.05
+    },
+    {
+      "id": "article:data-hardware/datasets",
+      "loaded": true,
+      "tekturAdvance": 237,
+      "fallbackAdvance": 269.72
+    },
+    {
+      "id": "article:data-hardware/hardware-taxonomy",
+      "loaded": true,
+      "tekturAdvance": 324,
+      "fallbackAdvance": 327.52
+    },
+    {
+      "id": "article:data-hardware/teleop-rigs",
+      "loaded": true,
+      "tekturAdvance": 292,
+      "fallbackAdvance": 346.78
+    },
+    {
+      "id": "article:data-hardware/evaluation-crisis",
+      "loaded": true,
+      "tekturAdvance": 325,
+      "fallbackAdvance": 404.58
+    },
+    {
+      "id": "article:data-hardware/industrial-deployment",
+      "loaded": true,
+      "tekturAdvance": 352,
+      "fallbackAdvance": 404.58
+    },
+    {
+      "id": "article:classical/kinematics",
+      "loaded": true,
+      "tekturAdvance": 174,
+      "fallbackAdvance": 192.66
+    },
+    {
+      "id": "article:classical/motion-planning",
+      "loaded": true,
+      "tekturAdvance": 248,
+      "fallbackAdvance": 288.98
+    },
+    {
+      "id": "article:classical/control",
+      "loaded": true,
+      "tekturAdvance": 113,
+      "fallbackAdvance": 134.86
+    },
+    {
+      "id": "article:classical/state-estimation",
+      "loaded": true,
+      "tekturAdvance": 263,
+      "fallbackAdvance": 308.25
+    },
+    {
+      "id": "article:classical/grasp-planning",
+      "loaded": true,
+      "tekturAdvance": 237,
+      "fallbackAdvance": 269.72
+    },
+    {
+      "id": "article:classical/perception",
+      "loaded": true,
+      "tekturAdvance": 435,
+      "fallbackAdvance": 520.17
+    },
+    {
+      "id": "article:classical/scene-representation",
+      "loaded": true,
+      "tekturAdvance": 556,
+      "fallbackAdvance": 616.5
+    },
+    {
+      "id": "article:frontier/reliability-gap",
+      "loaded": true,
+      "tekturAdvance": 285,
+      "fallbackAdvance": 366.05
+    },
+    {
+      "id": "article:frontier/dexterity",
+      "loaded": true,
+      "tekturAdvance": 148,
+      "fallbackAdvance": 173.39
+    },
+    {
+      "id": "article:frontier/generalization",
+      "loaded": true,
+      "tekturAdvance": 226,
+      "fallbackAdvance": 269.72
+    },
+    {
+      "id": "article:frontier/competing-theses",
+      "loaded": true,
+      "tekturAdvance": 289,
+      "fallbackAdvance": 308.25
+    },
+    {
+      "id": "article:frontier/bear-case",
+      "loaded": true,
+      "tekturAdvance": 222,
+      "fallbackAdvance": 250.45
+    },
+    {
+      "id": "article:frontier/safety-and-assurance",
+      "loaded": true,
+      "tekturAdvance": 349,
+      "fallbackAdvance": 385.31
+    },
+    {
+      "id": "article:adjacent/autonomous-vehicles",
+      "loaded": true,
+      "tekturAdvance": 339,
+      "fallbackAdvance": 366.05
+    },
+    {
+      "id": "article:adjacent/drones",
+      "loaded": true,
+      "tekturAdvance": 422,
+      "fallbackAdvance": 500.91
+    },
+    {
+      "id": "article:adjacent/surgical",
+      "loaded": true,
+      "tekturAdvance": 272,
+      "fallbackAdvance": 327.52
+    },
+    {
+      "id": "article:adjacent/space",
+      "loaded": true,
+      "tekturAdvance": 240,
+      "fallbackAdvance": 269.72
+    }
+  ]
+}

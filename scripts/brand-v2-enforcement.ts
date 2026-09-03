@@ -35,6 +35,12 @@ import {
   type SemanticTokenMember,
 } from '../lib/brand-v2-token-evidence.ts';
 import {
+  TEKTUR_ASSERTION_MODES,
+  TEKTUR_DELIVERY_EVIDENCE_PATH,
+  measureTekturEvidence,
+  tekturAssertionEvidence,
+} from '../lib/brand-v2-tektur-evidence.ts';
+import {
   TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE,
   TEKTUR_BINARY_POPULATION_SOURCE,
   TEKTUR_OG_BINARY_POPULATION_SOURCE,
@@ -42,23 +48,25 @@ import {
   TEKTUR_POPULATION_IDS,
   TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE,
   TEKTUR_WEB_BINARY_POPULATION_SOURCE,
-  tekturPopulationMember,
 } from '../lib/tektur-populations.ts';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
 const RESULTS_PATH = join(ROOT, 'evidence', 'brand-v2', 'results.json');
-const COMPLETED_TEKTUR_ASSERTIONS = new Set([
-  'VAL-B2-TYPE-001',
-  'VAL-B2-TYPE-002',
-  'VAL-B2-TYPE-011',
-  'VAL-B2-TYPE-012',
-  'VAL-B2-TYPE-013',
-  'VAL-B2-TYPE-014',
-  'VAL-B2-TYPE-015',
-  'VAL-B2-TYPE-016',
-  'VAL-B2-TYPE-017',
-]);
+/**
+ * The Tektur assertions, routed to the four measurements that decide them.
+ *
+ * Membership grants nothing. It previously did: the nine IDs were declared
+ * complete in a `COMPLETED_TEKTUR_ASSERTIONS` set and the generator then
+ * emitted `passed` rows whose payloads were registry and metadata fields, so
+ * a route-specific axis defect, a runtime third-party font request, a
+ * renderer family mutation or a cmap hole could coexist with freshly
+ * regenerated green evidence. Status and payload now come from the persisted
+ * all-route browser sweep plus the fontkit binary inspection, its in-memory
+ * rejection mutants, and the Open Graph renderer walk, through a reader that
+ * throws on stale, incomplete or disagreeing evidence.
+ */
+const TEKTUR_ASSERTIONS = new Set(Object.keys(TEKTUR_ASSERTION_MODES));
 /**
  * The primitive assertions whose evidence is the persisted browser
  * reconciliation (evidence/brand-v2/primitive-reconciliation.json, written
@@ -91,9 +99,15 @@ const RECONCILED_PRIMITIVE_ASSERTIONS = new Map<string, PrimitiveRegistryKey>([
  */
 const TOKEN_ASSERTIONS = new Set(Object.keys(TOKEN_ASSERTION_TOKENS));
 
-function isCompleted(id: string): boolean {
+/**
+ * Whether an assertion's status and payload come from a measurement rather
+ * than from the pending-rollout default. It routes; it never grants: every
+ * branch below derives the row from an artifact or a re-run inspection, and
+ * throws when that evidence is stale, incomplete or disagrees.
+ */
+function isMeasured(id: string): boolean {
   return (
-    COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
+    TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
     TOKEN_ASSERTIONS.has(id)
   );
@@ -133,6 +147,11 @@ const TOKEN_SOURCES = {
   contract: readFileSync(join(ROOT, 'contract', 'design-integrity.md'), 'utf8'),
   css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
 };
+const TEKTUR_MEASUREMENTS = measureTekturEvidence({
+  artifact: readJson(join(ROOT, TEKTUR_DELIVERY_EVIDENCE_PATH)),
+  root: ROOT,
+  css: TOKEN_SOURCES.css,
+});
 const PUBLIC_ROUTE_PATH_BY_ID = new Map(
   REGISTRY.routes.public.map(({ id, path }) => [id, path]),
 );
@@ -226,9 +245,12 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // so both stay browser-state rows rather than becoming source-build ones.
   if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
   if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
+  // A Tektur row whose predicate has a runtime clause is decided by the
+  // persisted browser sweep, so it is a browser-state row; the three that
+  // are entirely about the checked-in binaries stay machine-inspection rows.
+  if (TEKTUR_ASSERTIONS.has(id)) return TEKTUR_ASSERTION_MODES[id];
   if (
     ['GOV', 'BASE'].includes(area) ||
-    isCompleted(id) ||
     ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)
   ) {
     return 'automated-machine';
@@ -316,9 +338,14 @@ const ASSET_TARGET = testTarget(
   'Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail.',
 );
 const TEKTUR_BROWSER_TARGET = testTarget(
-  'tests/e2e/tektur-font-delivery.spec.ts',
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
   'Tektur web delivery › loads the local variable face without a third-party request or glyph fallback',
-  'Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request.',
+  'Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request.',
+);
+const TEKTUR_FAMILY_POPULATION_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur web typography population › resolves exactly the four registered first-party families on every route, with bounded scoped exceptions (VAL-B2-TYPE-001)',
+  'Reads the computed font-family of every element on every derived route at every declared width and reconciles the resulting head population exactly, in both directions, against the four registered first-party families plus an enumerated scoped-exception vocabulary each of whose members must stay inside rendered mathematics, so a fifth family on an unannotated surface fails.',
 );
 
 function tekturUnitTarget(title: string, mechanism: string): TestTarget {
@@ -330,12 +357,12 @@ function tekturUnitTarget(title: string, mechanism: string): TestTarget {
 }
 
 const TEKTUR_ROLE_POPULATION_TARGET = testTarget(
-  'tests/e2e/tektur-font-delivery.spec.ts',
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
   'Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)',
   'Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width.',
 );
 const TEKTUR_ROLE_OWNERSHIP_TARGET = testTarget(
-  'tests/e2e/tektur-font-delivery.spec.ts',
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
   'Tektur role population › registers exactly the roles first-party source writes, each reaching a public route',
   'Reconciles the registered roles with the annotation assignments in first-party source, each row’s definedIn modules with the modules that write it, and requires every role to be reachable from a route entry.',
 );
@@ -354,6 +381,22 @@ const OG_RENDERER_RUN_TARGET = testTarget(
   'Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points.',
 );
 
+const TEKTUR_EVIDENCE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence',
+  'Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement.',
+);
+const TEKTUR_FAMILY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects an unapproved or unscoped font family anywhere in the population',
+  'Plants a fifth family in the measured population, unscopes an exception face, scopes a face nothing resolved, deletes a registered family, and empties the exception population, and requires each to be rejected.',
+);
+const TEKTUR_DELIVERY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph',
+  'Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected.',
+);
+
 /**
  * Each Tektur row names the gates that decide its own predicate. Naming only
  * the registry-shaped unit test and the single-route delivery spec left the
@@ -362,7 +405,7 @@ const OG_RENDERER_RUN_TARGET = testTarget(
  * reach the evidence from the row.
  */
 function tekturTargetsFor(id: string): TestTarget[] {
-  if (id === 'VAL-B2-TYPE-001' || id === 'VAL-B2-TYPE-002') {
+  if (id === 'VAL-B2-TYPE-001') {
     return [
       tekturUnitTarget(
         'registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)',
@@ -373,6 +416,17 @@ function tekturTargetsFor(id: string): TestTarget[] {
       // what proves the shipped corpus paints nothing outside them, so a
       // role-family claim about the OG path names both.
       OG_RENDERER_RUN_TARGET,
+      // The population this row quantifies over is the families production
+      // typography resolves, not the four registry rows, so the sweep that
+      // measures every element's computed family is the deciding gate.
+      TEKTUR_FAMILY_POPULATION_TARGET,
+      TEKTUR_ROLE_POPULATION_TARGET,
+      TEKTUR_BROWSER_TARGET,
+    ];
+  }
+  if (id === 'VAL-B2-TYPE-002') {
+    return [
+      TEKTUR_BINARY_TARGET,
       TEKTUR_ROLE_POPULATION_TARGET,
       TEKTUR_BROWSER_TARGET,
     ];
@@ -496,7 +550,24 @@ function tokenTargetsFor(id: string): TestTarget[] {
 }
 
 function testTargetsFor(id: string): TestTarget[] {
-  if (COMPLETED_TEKTUR_ASSERTIONS.has(id)) return tekturTargetsFor(id);
+  if (TEKTUR_ASSERTIONS.has(id)) {
+    return [
+      ...tekturTargetsFor(id),
+      // The measuring runs alone would still pass on a stale artifact, so
+      // every Tektur row also names the gate that proves the reader refuses
+      // one, plus the mutation gate covering its own clause.
+      TEKTUR_EVIDENCE_READER_TARGET,
+      ...(id === 'VAL-B2-TYPE-001' ? [TEKTUR_FAMILY_READER_TARGET] : []),
+      ...([
+        'VAL-B2-TYPE-002',
+        'VAL-B2-TYPE-011',
+        'VAL-B2-TYPE-012',
+        'VAL-B2-TYPE-017',
+      ].includes(id)
+        ? [TEKTUR_DELIVERY_READER_TARGET]
+        : []),
+    ];
+  }
   if (TOKEN_ASSERTIONS.has(id)) return tokenTargetsFor(id);
   if (id in PRIMITIVE_BROWSER_TARGETS) {
     return [
@@ -601,12 +672,6 @@ function testTargetsFor(id: string): TestTarget[] {
   return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
 }
 
-type CompletedEvidence = {
-  sourcePath: string;
-  observed: Record<string, unknown>;
-  tool: string;
-};
-
 const PRIMITIVE_EVIDENCE_FIELDS = {
   'VAL-B2-GRID-009': {
     registryKey: 'gridDevices' as const,
@@ -650,43 +715,22 @@ const PRIMITIVE_EVIDENCE_FIELDS = {
 } as const;
 
 /**
- * Per-member evidence for a completed assertion, read out of the artifact the
- * assertion inspects. A missing field or an unmounted registry ID throws
- * rather than producing a `passed` row, because a result the generator could
- * emit without the underlying record being complete would be exactly the
- * unfalsifiable evidence this corpus exists to prevent.
+ * Per-member registry evidence for a reconciled primitive row, read out of
+ * the registry record the browser reconciliation matched. A missing field or
+ * an unregistered ID throws rather than producing a `passed` row, because a
+ * result the generator could emit without the underlying record being
+ * complete would be exactly the unfalsifiable evidence this corpus exists to
+ * prevent.
  */
-function completedEvidence(
+function primitiveRegistryEvidence(
   assertionId: string,
-  populationSource: string,
   member: string,
-): CompletedEvidence {
-  if (COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)) {
-    if (populationSource === 'contract/brand-v2-registries.json#typeRoles') {
-      const role = REGISTRY.typeRoles.find(({ id }) => id === member) as
-        | { id: string; family?: string }
-        | undefined;
-      if (!role?.family) {
-        throw new Error(`Type role ${member} records no family`);
-      }
-      return {
-        sourcePath: 'data/type-roles.json',
-        observed: { role: role.id, family: role.family },
-        tool: 'fontkit + Vitest + Playwright',
-      };
-    }
-    const entry = tekturPopulationMember(populationSource, member);
-    return {
-      sourcePath: entry.sourcePath,
-      observed: entry.observed,
-      tool: 'fontkit + Vitest + Playwright',
-    };
-  }
+): { sourcePath: string; observed: Record<string, unknown>; tool: string } {
   const spec =
     PRIMITIVE_EVIDENCE_FIELDS[
       assertionId as keyof typeof PRIMITIVE_EVIDENCE_FIELDS
     ];
-  if (!spec) throw new Error(`No completed evidence shape for ${assertionId}`);
+  if (!spec) throw new Error(`No primitive evidence shape for ${assertionId}`);
   const row = REGISTRY[spec.registryKey].find(
     (candidate) => candidate.id === member,
   );
@@ -940,11 +984,12 @@ function resultFor(
     populationMemberId: member ?? `population:${populationSource}`,
     coveredPopulationMemberIds: populationMemberIds,
     coverageKind: perMember ? ('per-member' as const) : ('population-wide' as const),
-    status: isCompleted(assertionId) ? ('passed' as const) : ('pending' as const),
+    status: isMeasured(assertionId) ? ('passed' as const) : ('pending' as const),
     expected: requirement,
-    actual: isCompleted(assertionId)
-      ? `verified for ${member} by the gates named in this row's enforcement targets`
-      : 'awaiting responsible rollout milestone',
+    // Every measured branch below replaces this with what its measurement
+    // actually recorded; a row that reached the generator without one would
+    // be asserting its own targets rather than an observation.
+    actual: 'awaiting responsible rollout milestone',
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
@@ -973,7 +1018,7 @@ function resultFor(
         },
       };
     }
-    const evidence = completedEvidence(assertionId, populationSource, member);
+    const evidence = primitiveRegistryEvidence(assertionId, member);
     return {
       ...common,
       actual: `rendered on ${record.renderedOn.length} of ${RECONCILIATION.routes.length} swept route states and reconciled exactly against the registry row`,
@@ -1000,22 +1045,38 @@ function resultFor(
       ? semanticTokenResult(common, member)
       : routeTokenResult(common, assertionId, member);
   }
-  if (isCompleted(assertionId)) {
+  if (TEKTUR_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
-        `${assertionId} is completed and must record per-member evidence`,
+        `${assertionId} is measured per member and must record per-member evidence`,
       );
     }
-    const evidence = completedEvidence(assertionId, populationSource, member);
+    const evidence = tekturAssertionEvidence({
+      assertionId,
+      populationSource,
+      member,
+      measurements: TEKTUR_MEASUREMENTS,
+    });
     return {
       ...common,
-      payload: {
-        kind: 'source-build',
-        sourcePath: evidence.sourcePath,
-        predicate: requirement,
-        observed: evidence.observed,
-        tool: evidence.tool,
-      },
+      actual: evidence.actual,
+      payload:
+        mode === 'browser-state'
+          ? {
+              kind: 'browser-state',
+              computed: {
+                ...evidence.observed,
+                evidence: [evidence.sourcePath],
+                tool: evidence.tool,
+              },
+            }
+          : {
+              kind: 'source-build',
+              sourcePath: evidence.sourcePath,
+              predicate: requirement,
+              observed: evidence.observed,
+              tool: evidence.tool,
+            },
     };
   }
   if (mode === 'generated-image') {
@@ -1086,7 +1147,7 @@ function generate() {
         throw new Error(`Population is empty for ${id}: ${canonicalPopulationSource}`);
       }
       const enforcementMode = modeFor(id);
-      const assertionResults = isCompleted(id)
+      const assertionResults = isMeasured(id)
         ? population.map((member) =>
             resultFor(
               id,
@@ -1118,8 +1179,8 @@ function generate() {
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
-                : isCompleted(id)
-                ? `${id} passed per-member evidence derived from ${canonicalPopulationSource}`
+                : TEKTUR_ASSERTIONS.has(id)
+                ? `${id} per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over ${canonicalPopulationSource}`
                 : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
           })),
           ...testTargetsFor(id),

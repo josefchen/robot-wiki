@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { BRAND_V2_DEEP_ROWS } from './brand-v2-runners';
+import { BRAND_V2_DEEP_ROWS } from './brand-v2-runners.ts';
 
 /**
  * The canonical responsive sweep widths, derived from the documents that

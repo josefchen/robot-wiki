@@ -9560,22 +9560,22 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:display",
-          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:interface",
-          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:reading",
-          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:data",
-          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
@@ -9597,18 +9597,36 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
+          "title": "Tektur web typography population › resolves exactly the four registered first-party families on every route, with bounded scoped exceptions (VAL-B2-TYPE-001)",
+          "mechanism": "Reads the computed font-family of every element on every derived route at every declared width and reconciles the resulting head population exactly, in both directions, against the four registered first-party families plus an enumerated scoped-exception vocabulary each of whose members must stay inside rendered mathematics, so a fifth family on an unannotated surface fails."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
           "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects an unapproved or unscoped font family anywhere in the population",
+          "mechanism": "Plants a fifth family in the measured population, unscopes an exception face, scopes a face nothing resolved, deletes a registered family, and empties the exception population, and requires each to be rejected."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
         "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
@@ -9636,45 +9654,45 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-002:tektur:web-woff2",
-          "mechanism": "VAL-B2-TYPE-002 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-002 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-002:tektur:og-ttf",
-          "mechanism": "VAL-B2-TYPE-002 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-002 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
           "file": "tests/unit/tektur-fonts.test.ts",
-          "title": "Tektur font delivery contract > registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)",
-          "mechanism": "Pins the four first-party families to their display, interface, reading, and data roles."
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
         },
         {
           "kind": "test",
-          "file": "tests/unit/og-renderer-fonts.test.ts",
-          "title": "OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)",
-          "mechanism": "Requires every registered OG renderer face to carry the family the first-party registry gives the role it claims, pins the registered family list and both stack heads, and rejects a scoped exception family in a first-party role."
-        },
-        {
-          "kind": "test",
-          "file": "tests/unit/og-renderer-fonts.test.ts",
-          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
-          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
-        },
-        {
-          "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
           "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph",
+          "mechanism": "Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
         "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
@@ -10020,7 +10038,7 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-011:tektur:web-woff2",
-          "mechanism": "VAL-B2-TYPE-011 passed per-member evidence derived from assets/fonts/tektur/metadata.json#web"
+          "mechanism": "VAL-B2-TYPE-011 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#web"
         },
         {
           "kind": "test",
@@ -10036,12 +10054,24 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph",
+          "mechanism": "Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
         "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
@@ -10066,7 +10096,7 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-012:tektur:og-ttf",
-          "mechanism": "VAL-B2-TYPE-012 passed per-member evidence derived from assets/fonts/tektur/metadata.json#og"
+          "mechanism": "VAL-B2-TYPE-012 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#og"
         },
         {
           "kind": "test",
@@ -10082,12 +10112,24 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph",
+          "mechanism": "Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
         "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
@@ -10112,12 +10154,12 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-013:tektur:web-woff2",
-          "mechanism": "VAL-B2-TYPE-013 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-013 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-013:tektur:og-ttf",
-          "mechanism": "VAL-B2-TYPE-013 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-013 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
@@ -10133,9 +10175,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -10164,12 +10212,12 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-014:tektur:web-woff2",
-          "mechanism": "VAL-B2-TYPE-014 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-014 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-014:tektur:og-ttf",
-          "mechanism": "VAL-B2-TYPE-014 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
+          "mechanism": "VAL-B2-TYPE-014 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
@@ -10185,9 +10233,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -10216,32 +10270,32 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:home-wordmark",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:shell-wordmark",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:page-h1",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:article-h1",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:section-display",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:display-numerals",
-          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+          "mechanism": "VAL-B2-TYPE-015 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "test",
@@ -10251,24 +10305,30 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
           "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur role population › registers exactly the roles first-party source writes, each reaching a public route",
           "mechanism": "Reconciles the registered roles with the annotation assignments in first-party source, each row’s definedIn modules with the modules that write it, and requires every role to be reachable from a route entry."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
         "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
@@ -10298,7 +10358,7 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark",
-          "mechanism": "VAL-B2-TYPE-016 passed per-member evidence derived from data/type-roles.json#tekturOgRoleMapping"
+          "mechanism": "VAL-B2-TYPE-016 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.json#tekturOgRoleMapping"
         },
         {
           "kind": "test",
@@ -10320,9 +10380,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -10350,287 +10416,287 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:identity",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:descriptor",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:display-numerals",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:manipulation",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:rl-sim2real",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:world-models",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:data-hardware",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:classical",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:frontier",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:adjacent",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/bc-foundations",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/action-chunking",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/diffusion-policy",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/vla-models",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/pi-line",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/generalist-policies",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/comparison-matrix",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/hierarchical",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/rl-finetuning",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/realtime-execution",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/cross-embodiment",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/knowledge-insulation",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/rl-for-robotics",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/why-rl-locomotion",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/parallel-sim-rl",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/sim2real-transfer",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/legged-locomotion",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/humanoid-wbc",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/reward-design-mpc",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/taxonomy",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/latent-dynamics",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-video",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/jepa",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-sim",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/data-bottleneck",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/datasets",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/hardware-taxonomy",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/teleop-rigs",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/evaluation-crisis",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/industrial-deployment",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/kinematics",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/motion-planning",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/control",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/state-estimation",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/grasp-planning",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/perception",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/scene-representation",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/reliability-gap",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/dexterity",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/generalization",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/competing-theses",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/bear-case",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/safety-and-assurance",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/autonomous-vehicles",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/drones",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/surgical",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/space",
-          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+          "mechanism": "VAL-B2-TYPE-017 per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "test",
@@ -10652,12 +10718,24 @@
         },
         {
           "kind": "test",
-          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence",
+          "mechanism": "Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-tektur-evidence.test.ts",
+          "title": "brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph",
+          "mechanism": "Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
         "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",

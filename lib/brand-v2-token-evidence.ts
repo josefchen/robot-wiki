@@ -2,6 +2,9 @@ import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { BRAND_COLORS, BRAND_SPACING } from './brand-v2-tokens.ts';
+import { buildModuleImportGraph } from './module-import-graph.ts';
+import { cardPaintedColors } from './og-card-artwork.ts';
+import { ogCardCorpus } from './og-card-corpus.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
 
 /**
@@ -463,15 +466,162 @@ export function readTokenRuntimeEvidence(input: {
   return artifact;
 }
 
+/**
+ * The module that produces the renderer artifact, and the first-party source
+ * closure it reaches.
+ *
+ * A painted-colour record is only evidence about the renderer it was
+ * measured from. Binding the artifact to the bytes of that closure means an
+ * artwork or renderer edit invalidates the record instead of letting it
+ * certify cards it never saw — including an edit that happens to leave the
+ * token and stylesheet fingerprint untouched, which is exactly the case the
+ * colour re-derivation alone cannot notice.
+ *
+ * The graph's roots are app/, components/, lib/ and content/, so `data/`
+ * registries sit outside it. That is why staleness detection is not the only
+ * guard: the reader also re-derives the painted population from the current
+ * corpus, which is what notices a changed card population.
+ */
+export const RENDERER_EVIDENCE_PRODUCER = 'lib/brand-v2-renderer-parity.ts';
+
+export type RendererSourceIdentity = {
+  producer: string;
+  modules: string[];
+  fingerprint: string;
+};
+
+export function rendererSourceIdentity(root: string): RendererSourceIdentity {
+  const graph = buildModuleImportGraph(root);
+  const modules = [
+    ...graph.reachableFrom([RENDERER_EVIDENCE_PRODUCER]),
+  ].sort();
+  if (modules.length < 2) {
+    throw new Error(
+      `${RENDERER_EVIDENCE_PRODUCER} reaches ${modules.length} first-party modules, so the renderer closure is not measurable`,
+    );
+  }
+  return {
+    producer: RENDERER_EVIDENCE_PRODUCER,
+    modules,
+    fingerprint: sha256(
+      JSON.stringify(
+        modules.map((modulePath) => [
+          modulePath,
+          sha256(graph.textByModule.get(modulePath) ?? ''),
+        ]),
+      ),
+    ),
+  };
+}
+
+export type RendererPaintedPopulation = {
+  cardIds: string[];
+  paintedByCard: Array<{
+    cardId: string;
+    paintedProperties: number;
+    byHex: Record<string, number>;
+  }>;
+  paintedByHex: Record<string, number>;
+  paintedProperties: number;
+  unregisteredPaintedValues: string[];
+};
+
+function sortedCounts(counts: Map<string, number>): Record<string, number> {
+  return Object.fromEntries(
+    [...counts].sort(([left], [right]) => left.localeCompare(right)),
+  );
+}
+
+/**
+ * Every colour property the shipped card corpus paints, per card and in
+ * aggregate, derived from the current card trees.
+ *
+ * This is the population the persisted artifact is compared against. The
+ * artifact used to be graded on its own arithmetic — the reader summed the
+ * per-hex counts it carried and compared that sum with the total it also
+ * carried — so deleting a complete hex entry and decrementing the total was
+ * accepted. A short or truncated walk now disagrees with a population
+ * derived here at read time.
+ */
+export function deriveRendererPaintedPopulation(input: {
+  root: string;
+  css: string;
+}): RendererPaintedPopulation {
+  const corpus = ogCardCorpus(input.root);
+  if (corpus.length === 0) {
+    throw new Error('The Open Graph corpus is empty');
+  }
+  const authored = deriveAuthoredColorTokens(input.css);
+  const authoredHexes = new Set(Object.values(authored.hexByToken));
+  const aggregate = new Map<string, number>();
+  const unregistered = new Set<string>();
+  let total = 0;
+  const paintedByCard = corpus.map(({ cardId, card }) => {
+    const byCard = new Map<string, number>();
+    let cardTotal = 0;
+    for (const painted of cardPaintedColors(card)) {
+      for (const value of painted.unregistered) {
+        unregistered.add(`${painted.property}: ${value}`);
+      }
+      for (const hex of painted.hexes) {
+        cardTotal += 1;
+        total += 1;
+        byCard.set(hex, (byCard.get(hex) ?? 0) + 1);
+        aggregate.set(hex, (aggregate.get(hex) ?? 0) + 1);
+        if (!authoredHexes.has(hex)) {
+          unregistered.add(`${painted.property}: ${hex}`);
+        }
+      }
+    }
+    if (cardTotal === 0) {
+      throw new Error(`Open Graph card ${cardId} paints no colour property`);
+    }
+    return {
+      cardId,
+      paintedProperties: cardTotal,
+      byHex: sortedCounts(byCard),
+    };
+  });
+  return {
+    cardIds: corpus.map(({ cardId }) => cardId),
+    paintedByCard,
+    paintedByHex: sortedCounts(aggregate),
+    paintedProperties: total,
+    unregisteredPaintedValues: [...unregistered].sort(),
+  };
+}
+
 export type TokenRendererEvidence = {
   version: number;
   fingerprint: string;
+  rendererSource: RendererSourceIdentity;
   cardCount: number;
   paintedProperties: number;
+  paintedByCard: RendererPaintedPopulation['paintedByCard'];
   paintedByHex: Record<string, number>;
   unregisteredPaintedValues: string[];
   mirrorParity: Array<{ token: string; mirror: string; authored: string }>;
 };
+
+function sameCounts(
+  left: Record<string, number>,
+  right: Record<string, number>,
+): boolean {
+  const keys = Object.keys(left).sort();
+  const otherKeys = Object.keys(right).sort();
+  return (
+    keys.join('|') === otherKeys.join('|') &&
+    keys.every((key) => left[key] === right[key])
+  );
+}
+
+function describeCounts(counts: Record<string, number>): string {
+  return (
+    Object.entries(counts)
+      .map(([key, count]) => `${key}=${count}`)
+      .join(', ') || 'nothing'
+  );
+}
 
 export function readTokenRendererEvidence(input: {
   artifact: unknown;
@@ -491,6 +641,20 @@ export function readTokenRendererEvidence(input: {
   if (artifact.fingerprint !== fingerprint) {
     throw new Error(
       `Token renderer evidence is stale: it was measured against ${artifact.fingerprint} and the current tokens hash to ${fingerprint}; re-run npm test`,
+    );
+  }
+  const rendererSource = rendererSourceIdentity(input.root);
+  const recordedSource = artifact.rendererSource;
+  if (
+    recordedSource === null ||
+    typeof recordedSource !== 'object' ||
+    recordedSource.producer !== rendererSource.producer ||
+    !Array.isArray(recordedSource.modules) ||
+    recordedSource.modules.join('|') !== rendererSource.modules.join('|') ||
+    recordedSource.fingerprint !== rendererSource.fingerprint
+  ) {
+    throw new Error(
+      `Token renderer evidence records renderer source ${JSON.stringify(recordedSource ?? null)}; ${rendererSource.producer} now reaches ${rendererSource.modules.length} modules hashing to ${rendererSource.fingerprint}; re-run npm test`,
     );
   }
   if (artifact.cardCount !== input.cardCount) {
@@ -534,6 +698,70 @@ export function readTokenRendererEvidence(input: {
   if (total !== artifact.paintedProperties) {
     throw new Error(
       `Token renderer evidence counts ${artifact.paintedProperties} painted properties but attributes ${total}`,
+    );
+  }
+  // The self-reported arithmetic above cannot notice a walk that omitted
+  // real properties, so the recorded populations are reconciled against the
+  // card trees the current corpus builds, exactly and per card.
+  const derived = deriveRendererPaintedPopulation(input);
+  if (derived.cardIds.length !== input.cardCount) {
+    throw new Error(
+      `The derived Open Graph corpus has ${derived.cardIds.length} cards; the published registry counts ${input.cardCount}`,
+    );
+  }
+  if (!Array.isArray(artifact.paintedByCard)) {
+    throw new Error(
+      'Token renderer evidence records no per-card painted population',
+    );
+  }
+  const recordedCardIds = artifact.paintedByCard.map(({ cardId }) => cardId);
+  if (recordedCardIds.join('|') !== derived.cardIds.join('|')) {
+    const missing = derived.cardIds.filter(
+      (cardId) => !recordedCardIds.includes(cardId),
+    );
+    const extra = recordedCardIds.filter(
+      (cardId) => !derived.cardIds.includes(cardId),
+    );
+    throw new Error(
+      `Token renderer evidence walked the wrong cards; missing ${
+        missing.join(', ') || 'none'
+      } and unexpected ${extra.join(', ') || 'none'}; re-run npm test`,
+    );
+  }
+  const derivedByCard = new Map(
+    derived.paintedByCard.map((entry) => [entry.cardId, entry]),
+  );
+  for (const recorded of artifact.paintedByCard) {
+    const expected = derivedByCard.get(
+      recorded.cardId,
+    ) as RendererPaintedPopulation['paintedByCard'][number];
+    if (recorded.paintedProperties !== expected.paintedProperties) {
+      throw new Error(
+        `Token renderer evidence records ${recorded.paintedProperties} painted properties on card ${recorded.cardId}; the card tree paints ${expected.paintedProperties}`,
+      );
+    }
+    if (!sameCounts(recorded.byHex ?? {}, expected.byHex)) {
+      throw new Error(
+        `Token renderer evidence records ${describeCounts(recorded.byHex ?? {})} on card ${recorded.cardId}; the card tree paints ${describeCounts(expected.byHex)}`,
+      );
+    }
+  }
+  if (!sameCounts(artifact.paintedByHex ?? {}, derived.paintedByHex)) {
+    throw new Error(
+      `Token renderer evidence attributes ${describeCounts(artifact.paintedByHex ?? {})}; the shipped card corpus paints ${describeCounts(derived.paintedByHex)}; re-run npm test`,
+    );
+  }
+  if (artifact.paintedProperties !== derived.paintedProperties) {
+    throw new Error(
+      `Token renderer evidence counts ${artifact.paintedProperties} painted properties; the shipped card corpus paints ${derived.paintedProperties}`,
+    );
+  }
+  if (
+    artifact.unregisteredPaintedValues.join('|') !==
+    derived.unregisteredPaintedValues.join('|')
+  ) {
+    throw new Error(
+      `Token renderer evidence records unregistered painted values ${JSON.stringify(artifact.unregisteredPaintedValues)}; the card corpus paints ${JSON.stringify(derived.unregisteredPaintedValues)}`,
     );
   }
   const mirrorTokens = Object.keys(BRAND_COLORS).sort();

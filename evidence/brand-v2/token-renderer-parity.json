@@ -1,8 +1,601 @@
 {
   "version": 1,
   "fingerprint": "85f05f1d854cc81f27993538efa50a8b1e52607abc59623f61840c0590869631",
+  "rendererSource": {
+    "producer": "lib/brand-v2-renderer-parity.ts",
+    "modules": [
+      "lib/brand-v2-renderer-parity.ts",
+      "lib/brand-v2-token-evidence.ts",
+      "lib/brand-v2-tokens.ts",
+      "lib/module-import-graph.ts",
+      "lib/og-card-artwork.ts",
+      "lib/og-card-corpus.ts",
+      "lib/og-card-facts.ts",
+      "lib/og-cards.ts",
+      "lib/og-renderer-fonts.ts",
+      "lib/sync-duplicates.ts"
+    ],
+    "fingerprint": "63199c99eebaa6e055c99c06073d273d7434d35ce41dc2ae3b243ca8cfed7162"
+  },
   "cardCount": 48,
   "paintedProperties": 9743,
+  "paintedByCard": [
+    {
+      "cardId": "site",
+      "paintedProperties": 202,
+      "byHex": {
+        "#0B0B0C": 1,
+        "#242D33": 3,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/bc-foundations",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/action-chunking",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/diffusion-policy",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/vla-models",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/pi-line",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/generalist-policies",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/comparison-matrix",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/hierarchical",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/rl-finetuning",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/realtime-execution",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/cross-embodiment",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "manipulation/knowledge-insulation",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/rl-for-robotics",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/why-rl-locomotion",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/parallel-sim-rl",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/sim2real-transfer",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/legged-locomotion",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/humanoid-wbc",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "rl-sim2real/reward-design-mpc",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/taxonomy",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/latent-dynamics",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/generative-video",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/jepa",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "world-models/generative-sim",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/data-bottleneck",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/datasets",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/hardware-taxonomy",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/teleop-rigs",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/evaluation-crisis",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "data-hardware/industrial-deployment",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/kinematics",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/motion-planning",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/control",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/state-estimation",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/grasp-planning",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/perception",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "classical/scene-representation",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/reliability-gap",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/dexterity",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/generalization",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/competing-theses",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/bear-case",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "frontier/safety-and-assurance",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "adjacent/autonomous-vehicles",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "adjacent/drones",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "adjacent/surgical",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    },
+    {
+      "cardId": "adjacent/space",
+      "paintedProperties": 203,
+      "byHex": {
+        "#0B0B0C": 2,
+        "#242D33": 2,
+        "#245FFF": 1,
+        "#D9DADB": 196,
+        "#F5F6F7": 1,
+        "#FFFFFF": 1
+      }
+    }
+  ],
   "paintedByHex": {
     "#0B0B0C": 95,
     "#242D33": 97,

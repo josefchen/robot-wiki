@@ -206,6 +206,106 @@ describe('brand-v2 token evidence', () => {
     expect(() => readRenderer(partialMirror)).toThrow(/exports/);
   });
 
+  /**
+   * A truncated walk that also decrements its own total is arithmetically
+   * consistent, which is exactly why the previous reader accepted it: it
+   * summed the artifact's per-hex counts and compared that sum with the
+   * total the same artifact carried. Every mutation here keeps the artifact
+   * self-consistent and has to be rejected by comparison with the card
+   * trees instead.
+   */
+  it('rejects a self-consistent truncation of the painted colour population', () => {
+    const renderer = buildTokenRendererEvidence(SOURCES);
+    expect(readRenderer(renderer)).toBe(renderer);
+
+    const dropHex = (hex: string): TokenRendererEvidence => {
+      const dropped = renderer.paintedByHex[hex];
+      expect(dropped, `${hex} must be painted for this mutation to bite`)
+        .toBeGreaterThan(0);
+      const without = (counts: Record<string, number>): Record<string, number> =>
+        Object.fromEntries(
+          Object.entries(counts).filter(([key]) => key !== hex),
+        );
+      return {
+        ...renderer,
+        paintedByHex: without(renderer.paintedByHex),
+        paintedProperties: renderer.paintedProperties - dropped,
+        paintedByCard: renderer.paintedByCard.map((card) => ({
+          ...card,
+          byHex: without(card.byHex),
+          paintedProperties: card.paintedProperties - (card.byHex[hex] ?? 0),
+        })),
+      };
+    };
+    for (const hex of ['#245FFF', '#0B0B0C']) {
+      expect(() => readRenderer(dropHex(hex)), hex).toThrow(
+        /the card tree paints|the shipped card corpus paints/,
+      );
+    }
+
+    // A short walk: the last card is dropped and every total it contributed
+    // is removed, so the record still adds up on its own terms.
+    const lastCard = renderer.paintedByCard.at(-1) as
+      TokenRendererEvidence['paintedByCard'][number];
+    const shortWalk: TokenRendererEvidence = {
+      ...renderer,
+      cardCount: renderer.cardCount - 1,
+      paintedByCard: renderer.paintedByCard.slice(0, -1),
+      paintedProperties: renderer.paintedProperties - lastCard.paintedProperties,
+      paintedByHex: Object.fromEntries(
+        Object.entries(renderer.paintedByHex)
+          .map(([hex, count]) => [hex, count - (lastCard.byHex[hex] ?? 0)])
+          .filter(([, count]) => (count as number) > 0),
+      ) as Record<string, number>,
+    };
+    expect(() => readRenderer(shortWalk)).toThrow(/shipped corpus has/);
+
+    // The same short walk while still claiming the full card count: the card
+    // population itself is what disagrees.
+    const hiddenShortWalk = { ...shortWalk, cardCount: renderer.cardCount };
+    expect(() => readRenderer(hiddenShortWalk)).toThrow(/walked the wrong cards/);
+
+    const renamedCard: TokenRendererEvidence = {
+      ...renderer,
+      paintedByCard: renderer.paintedByCard.map((card, index) =>
+        index === 0 ? { ...card, cardId: 'invented/card' } : card,
+      ),
+    };
+    expect(() => readRenderer(renamedCard)).toThrow(/walked the wrong cards/);
+
+    const movedBetweenCards: TokenRendererEvidence = {
+      ...renderer,
+      paintedByCard: renderer.paintedByCard.map((card, index) =>
+        index === 0
+          ? { ...card, paintedProperties: card.paintedProperties - 1 }
+          : index === 1
+            ? { ...card, paintedProperties: card.paintedProperties + 1 }
+            : card,
+      ),
+    };
+    expect(() => readRenderer(movedBetweenCards)).toThrow(
+      /painted properties on card/,
+    );
+
+    const staleRenderer: TokenRendererEvidence = {
+      ...renderer,
+      rendererSource: {
+        ...renderer.rendererSource,
+        fingerprint: 'a'.repeat(64),
+      },
+    };
+    expect(() => readRenderer(staleRenderer)).toThrow(/renderer source/);
+
+    const shrunkClosure: TokenRendererEvidence = {
+      ...renderer,
+      rendererSource: {
+        ...renderer.rendererSource,
+        modules: renderer.rendererSource.modules.slice(1),
+      },
+    };
+    expect(() => readRenderer(shrunkClosure)).toThrow(/renderer source/);
+  });
+
   it('derives VAL-B2-COMP-012 population from the semantic tokens and their use sites', () => {
     const population = deriveSemanticTokenPopulation(SOURCES);
     const declarations = population.filter(

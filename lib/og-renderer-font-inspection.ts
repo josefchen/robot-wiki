@@ -10,17 +10,11 @@
 import { readFileSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import { openSync, type Font } from 'fontkit';
-import { DOMAIN_META, publishedModules } from '../data/modules.ts';
+import { publishedModules } from '../data/modules.ts';
 import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
 import { sha256 } from './brand-v2-baseline.ts';
-import {
-  articleCardElement,
-  cardTextRuns,
-  siteCardElement,
-  type CardNode,
-  type CardTextRun,
-} from './og-card-artwork.ts';
-import { articleCardFacts } from './og-card-facts.ts';
+import { cardTextRuns, type CardTextRun } from './og-card-artwork.ts';
+import { ogCardElements } from './og-card-corpus.ts';
 import {
   OG_RENDERER_FACES,
   primaryFamily,
@@ -49,29 +43,6 @@ const EXCEPTION_FAMILY = /^KaTeX/i;
 
 function resolve(root: string, path: string): string {
   return isAbsolute(path) ? path : join(root, path);
-}
-
-/**
- * The element tree of every card the generator ships: the site card plus one
- * per published module. Font and colour inspections walk this population
- * rather than restating what the corpus is meant to contain.
- */
-export function ogCardElements(root: string): CardNode[] {
-  const cards: CardNode[] = [siteCardElement()];
-  for (const entry of publishedModules()) {
-    const mdx = readFileSync(
-      join(root, 'content', entry.domain, `${entry.slug}.mdx`),
-      'utf8',
-    );
-    cards.push(
-      articleCardElement({
-        entry,
-        domainName: DOMAIN_META[entry.domain].name,
-        ...articleCardFacts(mdx),
-      }),
-    );
-  }
-  return cards;
 }
 
 /** Every text run the shipped card corpus paints, with its resolved stack. */
