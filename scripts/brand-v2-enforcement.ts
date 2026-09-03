@@ -12,6 +12,17 @@ import {
 } from '../lib/brand-v2-enforcement.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
+import { scanAnnotationLiterals } from '../lib/brand-v2-annotation-scan.ts';
+import {
+  TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE,
+  TEKTUR_BINARY_POPULATION_SOURCE,
+  TEKTUR_OG_BINARY_POPULATION_SOURCE,
+  TEKTUR_OG_MAPPING_POPULATION_SOURCE,
+  TEKTUR_POPULATION_IDS,
+  TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE,
+  TEKTUR_WEB_BINARY_POPULATION_SOURCE,
+  tekturPopulationMember,
+} from '../lib/tektur-populations.ts';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
@@ -27,6 +38,23 @@ const COMPLETED_TEKTUR_ASSERTIONS = new Set([
   'VAL-B2-TYPE-016',
   'VAL-B2-TYPE-017',
 ]);
+/**
+ * Completed by the shared-primitive feature. Leaving them pending while the
+ * feature claims to fulfil them is R8c: a fulfils list with no truthful
+ * passing result. Their evidence is derived per registered member below.
+ */
+const COMPLETED_PRIMITIVE_ASSERTIONS = new Set([
+  'VAL-B2-GRID-009',
+  'VAL-B2-SURF-010',
+  'VAL-B2-COMP-013',
+]);
+
+function isCompleted(id: string): boolean {
+  return (
+    COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
+    COMPLETED_PRIMITIVE_ASSERTIONS.has(id)
+  );
+}
 
 type Registry = Parameters<
   typeof buildEnforcementPopulationSources
@@ -36,22 +64,43 @@ function readJson(path: string): unknown {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
+const REGISTRY = readJson(
+  join(ROOT, 'contract', 'brand-v2-registries.json'),
+) as Registry & {
+  gridDevices: Array<Record<string, unknown>>;
+  surfaces: Array<Record<string, unknown>>;
+  controls: Array<Record<string, unknown>>;
+};
+const ANNOTATION_SCAN = scanAnnotationLiterals(ROOT);
+
 function populationSources(assertionIds: string[]) {
-  const registry = readJson(
-    join(ROOT, 'contract', 'brand-v2-registries.json'),
-  ) as Registry;
   const baseline = readJson(
     join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
   ) as { manifests: Record<string, unknown> };
   return buildEnforcementPopulationSources({
-    registry,
+    registry: REGISTRY,
     baselineManifestIds: Object.keys(baseline.manifests).sort(),
     deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
     assertionIds,
+    tekturPopulations: TEKTUR_POPULATION_IDS,
   });
 }
 
 function populationSourceFor(id: string): string {
+  if (id === 'VAL-B2-TYPE-015') {
+    return TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE;
+  }
+  if (id === 'VAL-B2-TYPE-016') return TEKTUR_OG_MAPPING_POPULATION_SOURCE;
+  if (id === 'VAL-B2-TYPE-017') {
+    return TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE;
+  }
+  if (id === 'VAL-B2-TYPE-011') return TEKTUR_WEB_BINARY_POPULATION_SOURCE;
+  if (id === 'VAL-B2-TYPE-012') return TEKTUR_OG_BINARY_POPULATION_SOURCE;
+  if (
+    ['VAL-B2-TYPE-002', 'VAL-B2-TYPE-013', 'VAL-B2-TYPE-014'].includes(id)
+  ) {
+    return TEKTUR_BINARY_POPULATION_SOURCE;
+  }
   const area = id.split('-')[2];
   if (area === 'BASE') {
     return 'evidence/brand-v2/baseline/baseline.json#manifests';
@@ -84,7 +133,7 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   const area = id.split('-')[2];
   if (
     ['GOV', 'BASE'].includes(area) ||
-    COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
+    isCompleted(id) ||
     ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)
   ) {
     return 'automated-machine';
@@ -353,6 +402,137 @@ function testTargetsFor(id: string): TestTarget[] {
   return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
 }
 
+type CompletedEvidence = {
+  sourcePath: string;
+  observed: Record<string, unknown>;
+  tool: string;
+};
+
+const PRIMITIVE_EVIDENCE_FIELDS = {
+  'VAL-B2-GRID-009': {
+    registryKey: 'gridDevices' as const,
+    fields: [
+      'ownerSurface',
+      'structuralPurpose',
+      'anchorGeometry',
+      'classification',
+      'ariaBehavior',
+      'pointerBehavior',
+      'allowedViewports',
+      'alignmentTolerancePx',
+    ],
+    // VAL-B2-GRID-009 requires every *rendered* device layer to carry a
+    // complete registry row, not every registered class to be mounted, so a
+    // declared class the product has not adopted yet is recorded as
+    // unmounted rather than treated as a missing owner.
+    requireSourceOwner: false,
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+  'VAL-B2-SURF-010': {
+    registryKey: 'surfaces' as const,
+    fields: [
+      'level',
+      'stackingPurpose',
+      'allowedRadiusPx',
+      'border',
+      'shadow',
+      'allowedOwners',
+    ],
+    requireSourceOwner: true,
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+  'VAL-B2-COMP-013': {
+    registryKey: 'controls' as const,
+    fields: [
+      'action',
+      'statePurpose',
+      'persistentAria',
+      'supportedStates',
+      'ownerRouteOrMount',
+      'targetSize',
+      'pointerAlternative',
+    ],
+    requireSourceOwner: true,
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+} as const;
+
+/**
+ * Per-member evidence for a completed assertion, read out of the artifact the
+ * assertion inspects. A missing field or an unmounted registry ID throws
+ * rather than producing a `passed` row, because a result the generator could
+ * emit without the underlying record being complete would be exactly the
+ * unfalsifiable evidence this corpus exists to prevent.
+ */
+function completedEvidence(
+  assertionId: string,
+  populationSource: string,
+  member: string,
+): CompletedEvidence {
+  if (COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)) {
+    if (populationSource === 'contract/brand-v2-registries.json#typeRoles') {
+      const role = REGISTRY.typeRoles.find(({ id }) => id === member) as
+        | { id: string; family?: string }
+        | undefined;
+      if (!role?.family) {
+        throw new Error(`Type role ${member} records no family`);
+      }
+      return {
+        sourcePath: 'data/type-roles.json',
+        observed: { role: role.id, family: role.family },
+        tool: 'fontkit + Vitest + Playwright',
+      };
+    }
+    const entry = tekturPopulationMember(populationSource, member);
+    return {
+      sourcePath: entry.sourcePath,
+      observed: entry.observed,
+      tool: 'fontkit + Vitest + Playwright',
+    };
+  }
+  const spec =
+    PRIMITIVE_EVIDENCE_FIELDS[
+      assertionId as keyof typeof PRIMITIVE_EVIDENCE_FIELDS
+    ];
+  if (!spec) throw new Error(`No completed evidence shape for ${assertionId}`);
+  const row = REGISTRY[spec.registryKey].find(
+    (candidate) => candidate.id === member,
+  );
+  if (!row) throw new Error(`${assertionId}: ${member} is not registered`);
+  const observed: Record<string, unknown> = {};
+  for (const field of spec.fields) {
+    const value = (row as Record<string, unknown>)[field];
+    const empty =
+      value === undefined ||
+      value === null ||
+      (typeof value === 'string' && value.trim().length === 0) ||
+      // A control legitimately carries no persistent ARIA; every other listed
+      // field is meaningless when empty.
+      (Array.isArray(value) &&
+        value.length === 0 &&
+        field !== 'persistentAria');
+    if (empty) throw new Error(`${assertionId}: ${member} records no ${field}`);
+    observed[field] = value;
+  }
+  // The registry row is only half the claim: where the assertion demands
+  // source/registry equality, an ID nothing writes is a record of a primitive
+  // that does not exist. The module list itself is not recorded, because a
+  // committed artifact must not carry a filesystem walk's machine-local
+  // result.
+  const mounted = (ANNOTATION_SCAN.ownersById[member] ?? []).length > 0;
+  if (spec.requireSourceOwner && !mounted) {
+    throw new Error(
+      `${assertionId}: ${member} is registered but no first-party module writes it`,
+    );
+  }
+  observed.sourceMounted = mounted;
+  return {
+    sourcePath: 'contract/brand-v2-registries.json',
+    observed,
+    tool: spec.tool,
+  };
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -370,26 +550,29 @@ function resultFor(
     populationMemberId: member ?? `population:${populationSource}`,
     coveredPopulationMemberIds: populationMemberIds,
     coverageKind: perMember ? ('per-member' as const) : ('population-wide' as const),
-    status: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
-      ? ('passed' as const)
-      : ('pending' as const),
+    status: isCompleted(assertionId) ? ('passed' as const) : ('pending' as const),
     expected: requirement,
-    actual: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
-      ? 'verified by the deterministic Tektur binary, role-registry, build, and browser gates'
+    actual: isCompleted(assertionId)
+      ? `verified for ${member} by the gates named in this row's enforcement targets`
       : 'awaiting responsible rollout milestone',
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
-  if (COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)) {
+  if (isCompleted(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is completed and must record per-member evidence`,
+      );
+    }
+    const evidence = completedEvidence(assertionId, populationSource, member);
     return {
       ...common,
       payload: {
         kind: 'source-build',
-        sourcePath: 'assets/fonts/tektur/metadata.json',
+        sourcePath: evidence.sourcePath,
         predicate: requirement,
-        observed:
-          'Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.',
-        tool: 'fontkit + Vitest + Playwright',
+        observed: evidence.observed,
+        tool: evidence.tool,
       },
     };
   }
@@ -461,7 +644,7 @@ function generate() {
         throw new Error(`Population is empty for ${id}: ${canonicalPopulationSource}`);
       }
       const enforcementMode = modeFor(id);
-      const assertionResults = COMPLETED_TEKTUR_ASSERTIONS.has(id)
+      const assertionResults = isCompleted(id)
         ? population.map((member) =>
             resultFor(
               id,
@@ -489,8 +672,8 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: COMPLETED_TEKTUR_ASSERTIONS.has(id)
-              ? `${id} passed deterministic Tektur delivery evidence over ${canonicalPopulationSource}`
+            mechanism: isCompleted(id)
+              ? `${id} passed per-member evidence derived from ${canonicalPopulationSource}`
               : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
           })),
           ...testTargetsFor(id),

@@ -101,7 +101,10 @@ export default function CreditsPage() {
           index: it is 40-odd repeated licence identifiers and creator
           names, which would crowd out real prose matches. */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">

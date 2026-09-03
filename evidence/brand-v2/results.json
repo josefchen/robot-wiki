@@ -3467,29 +3467,522 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-013",
+      "resultId": "result:VAL-B2-COMP-013:control:primary-action",
       "assertionId": "VAL-B2-COMP-013",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified for control:primary-action by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "status": "pending"
-        }
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "activate the page or tool primary action",
+          "statePurpose": "action",
+          "persistentAria": [],
+          "supportedStates": [
+            "default",
+            "hover",
+            "active",
+            "focus-visible",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/ui/action.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": []
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:secondary-action by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "activate a supporting action",
+          "statePurpose": "action",
+          "persistentAria": [],
+          "supportedStates": [
+            "default",
+            "hover",
+            "active",
+            "focus-visible",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/article/author-list.tsx",
+            "components/article/commit-to-reveal.tsx",
+            "components/article/heading-permalink.tsx",
+            "components/interactive/action-conditioning.tsx",
+            "components/interactive/action-tokenization.tsx",
+            "components/interactive/advantage-scrubber.tsx",
+            "components/interactive/appearance-physics-push.tsx",
+            "components/interactive/chunk-size-curve.tsx",
+            "components/interactive/collaborative-operation-modes.tsx",
+            "components/interactive/comparison-matrix.tsx",
+            "components/interactive/compounding-error.tsx",
+            "components/interactive/contact-geometry.tsx",
+            "components/interactive/control-loop-budget.tsx",
+            "components/interactive/cross-embodiment-strategies.tsx",
+            "components/interactive/data-scale-chart.tsx",
+            "components/interactive/dataset-table.tsx",
+            "components/interactive/denoising-loop.tsx",
+            "components/interactive/deployment-dashboard.tsx",
+            "components/interactive/deployment-economics.tsx",
+            "components/interactive/egoscale-scaling.tsx",
+            "components/interactive/eureka-loop.tsx",
+            "components/interactive/execution-modes.tsx",
+            "components/interactive/flow-matching-trajectory.tsx",
+            "components/interactive/friction-transfer.tsx",
+            "components/interactive/gait-diagram.tsx",
+            "components/interactive/generalist-release-timeline.tsx",
+            "components/interactive/grasp-wrench-lab.tsx",
+            "components/interactive/hand-comparison.tsx",
+            "components/interactive/hardware-guide.tsx",
+            "components/interactive/hierarchy-timescales.tsx",
+            "components/interactive/impedance-contact-lab.tsx",
+            "components/interactive/jepa-planning.tsx",
+            "components/interactive/kalman-tracker.tsx",
+            "components/interactive/latency-comparison.tsx",
+            "components/interactive/latent-imagination.tsx",
+            "components/interactive/milestones-watchlist.tsx",
+            "components/interactive/mot-insulation.tsx",
+            "components/interactive/mpc-vs-rl.tsx",
+            "components/interactive/pendulum-controller.tsx",
+            "components/interactive/perception-error-budget.tsx",
+            "components/interactive/perception-latency.tsx",
+            "components/interactive/pi-generation-timeline.tsx",
+            "components/interactive/planar-fk-arm.tsx",
+            "components/interactive/receding-horizon.tsx",
+            "components/interactive/reliability-compounding.tsx",
+            "components/interactive/reward-shaping.tsx",
+            "components/interactive/rrt-explorer.tsx",
+            "components/interactive/sample-efficiency-ledger.tsx",
+            "components/interactive/scene-representation-ladder.tsx",
+            "components/interactive/teacher-student.tsx",
+            "components/interactive/teleop-rig-matrix.tsx",
+            "components/interactive/thesis-explorer.tsx",
+            "components/interactive/training-time-chart.tsx",
+            "components/interactive/wbc-decomposition.tsx",
+            "components/interactive/wm-disambiguator.tsx",
+            "components/market-map/company-card.tsx",
+            "components/market-map/filter-bar.tsx",
+            "components/market-map/funding-timeline.tsx",
+            "components/market-map/market-map.tsx",
+            "components/nav/nav-tree.tsx",
+            "components/nav/search-box.tsx",
+            "components/nav/site-shell.tsx",
+            "components/search/search-interface.tsx",
+            "components/three/ik-target-form.tsx",
+            "components/three/joint-controls.tsx",
+            "components/three/trajectory-panel.tsx",
+            "components/ui/action.tsx",
+            "components/ui/chart-description.tsx",
+            "components/ui/copy-button.tsx",
+            "components/ui/table.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": [
+              {
+                "kind": "spacing",
+                "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+                "reason": "Disclosure summaries are one text line high and occupy their own row, so the 24px circle clears the surrounding targets."
+              }
+            ]
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:selection",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:selection by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "select or toggle one persistent state",
+          "statePurpose": "persistent-selection",
+          "persistentAria": [
+            "aria-pressed",
+            "aria-selected",
+            "aria-current"
+          ],
+          "supportedStates": [
+            "unselected",
+            "selected",
+            "hover",
+            "focus-visible",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/article/commit-to-reveal.tsx",
+            "components/interactive/action-conditioning.tsx",
+            "components/interactive/action-tokenization.tsx",
+            "components/interactive/advantage-scrubber.tsx",
+            "components/interactive/appearance-physics-push.tsx",
+            "components/interactive/collaborative-operation-modes.tsx",
+            "components/interactive/comparison-matrix.tsx",
+            "components/interactive/compounding-error.tsx",
+            "components/interactive/contact-geometry.tsx",
+            "components/interactive/cross-embodiment-strategies.tsx",
+            "components/interactive/data-scale-chart.tsx",
+            "components/interactive/dataset-table.tsx",
+            "components/interactive/deployment-dashboard.tsx",
+            "components/interactive/flow-matching-trajectory.tsx",
+            "components/interactive/gait-diagram.tsx",
+            "components/interactive/generalist-release-timeline.tsx",
+            "components/interactive/hand-comparison.tsx",
+            "components/interactive/hardware-guide.tsx",
+            "components/interactive/hierarchy-timescales.tsx",
+            "components/interactive/impedance-contact-lab.tsx",
+            "components/interactive/jepa-planning.tsx",
+            "components/interactive/latent-imagination.tsx",
+            "components/interactive/milestones-watchlist.tsx",
+            "components/interactive/mot-insulation.tsx",
+            "components/interactive/mpc-vs-rl.tsx",
+            "components/interactive/perception-error-budget.tsx",
+            "components/interactive/perception-latency.tsx",
+            "components/interactive/pi-generation-timeline.tsx",
+            "components/interactive/sample-efficiency-ledger.tsx",
+            "components/interactive/scene-representation-ladder.tsx",
+            "components/interactive/teleop-rig-matrix.tsx",
+            "components/interactive/thesis-explorer.tsx",
+            "components/interactive/training-time-chart.tsx",
+            "components/interactive/wbc-decomposition.tsx",
+            "components/interactive/wm-disambiguator.tsx",
+            "components/market-map/filter-bar.tsx",
+            "components/search/type-facet-bar.tsx",
+            "components/three/trajectory-panel.tsx",
+            "components/ui/chip.tsx",
+            "components/ui/tabs.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": [
+              {
+                "kind": "spacing",
+                "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+                "reason": "Native radio indicators render at the user agent size inside a full-width label row that keeps the 24px circles apart."
+              }
+            ]
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:link-focus",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:link-focus by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "navigate to a truthful destination",
+          "statePurpose": "information-path",
+          "persistentAria": [
+            "aria-current when the destination is current"
+          ],
+          "supportedStates": [
+            "default",
+            "hover",
+            "focus-visible",
+            "visited"
+          ],
+          "ownerRouteOrMount": [
+            "app/(content)/[domain]/page.tsx",
+            "app/a-z/page.tsx",
+            "app/credits/page.tsx",
+            "app/glossary/page.tsx",
+            "app/not-found.tsx",
+            "app/page.tsx",
+            "app/playground/page.tsx",
+            "components/article/article-links.tsx",
+            "components/article/breadcrumbs.tsx",
+            "components/article/commit-to-reveal.tsx",
+            "components/article/references.tsx",
+            "components/interactive/cross-embodiment-strategies.tsx",
+            "components/interactive/dataset-table.tsx",
+            "components/interactive/deployment-dashboard.tsx",
+            "components/interactive/generalist-release-timeline.tsx",
+            "components/interactive/hand-comparison.tsx",
+            "components/interactive/hardware-guide.tsx",
+            "components/interactive/hierarchy-timescales.tsx",
+            "components/interactive/mot-insulation.tsx",
+            "components/interactive/pi-generation-timeline.tsx",
+            "components/interactive/teleop-rig-matrix.tsx",
+            "components/market-map/company-card.tsx",
+            "components/market-map/funding-timeline.tsx",
+            "components/nav/nav-tree.tsx",
+            "components/nav/site-footer.tsx",
+            "components/nav/site-shell.tsx",
+            "components/search/search-interface.tsx",
+            "components/three/trajectory-panel.tsx",
+            "components/ui/action.tsx",
+            "components/ui/card.tsx",
+            "components/ui/cite.tsx",
+            "components/ui/figure.tsx",
+            "components/ui/skip-link.tsx",
+            "components/ui/term.tsx",
+            "mdx-components.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": [
+              {
+                "kind": "inline",
+                "criterion": "WCAG 2.2 SC 2.5.8 inline exception",
+                "reason": "Citation chips, glossary term links and prose links sit inside a sentence, so their height is set by the prose line box; enlarging them would break the approved article reference."
+              },
+              {
+                "kind": "spacing",
+                "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+                "reason": "Reference-list, see-also, breadcrumb and index links are short text rows whose 24px undisturbed circles clear every neighbouring target."
+              }
+            ]
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:segmented",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:segmented by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "select one option from a compact group",
+          "statePurpose": "discrete-selection",
+          "persistentAria": [
+            "aria-selected or aria-pressed on the active option"
+          ],
+          "supportedStates": [
+            "unselected",
+            "selected",
+            "hover",
+            "focus-visible",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/ui/tabs.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": []
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:input",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:input by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "enter or adjust a labelled value",
+          "statePurpose": "input",
+          "persistentAria": [
+            "aria-invalid",
+            "aria-describedby"
+          ],
+          "supportedStates": [
+            "default",
+            "focus-visible",
+            "filled",
+            "invalid",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/interactive/action-tokenization.tsx",
+            "components/interactive/advantage-scrubber.tsx",
+            "components/interactive/appearance-physics-push.tsx",
+            "components/interactive/chunk-size-curve.tsx",
+            "components/interactive/collaborative-operation-modes.tsx",
+            "components/interactive/comparison-matrix.tsx",
+            "components/interactive/compounding-error.tsx",
+            "components/interactive/contact-geometry.tsx",
+            "components/interactive/control-loop-budget.tsx",
+            "components/interactive/data-scale-chart.tsx",
+            "components/interactive/denoising-loop.tsx",
+            "components/interactive/deployment-economics.tsx",
+            "components/interactive/egoscale-scaling.tsx",
+            "components/interactive/execution-modes.tsx",
+            "components/interactive/flow-matching-trajectory.tsx",
+            "components/interactive/friction-transfer.tsx",
+            "components/interactive/gait-diagram.tsx",
+            "components/interactive/grasp-wrench-lab.tsx",
+            "components/interactive/hierarchy-timescales.tsx",
+            "components/interactive/impedance-contact-lab.tsx",
+            "components/interactive/jepa-planning.tsx",
+            "components/interactive/kalman-tracker.tsx",
+            "components/interactive/latency-comparison.tsx",
+            "components/interactive/latent-imagination.tsx",
+            "components/interactive/mot-insulation.tsx",
+            "components/interactive/pendulum-controller.tsx",
+            "components/interactive/perception-error-budget.tsx",
+            "components/interactive/perception-latency.tsx",
+            "components/interactive/planar-fk-arm.tsx",
+            "components/interactive/receding-horizon.tsx",
+            "components/interactive/reliability-compounding.tsx",
+            "components/interactive/reward-shaping.tsx",
+            "components/interactive/rrt-explorer.tsx",
+            "components/interactive/sample-efficiency-ledger.tsx",
+            "components/interactive/scene-representation-ladder.tsx",
+            "components/interactive/teacher-student.tsx",
+            "components/interactive/training-time-chart.tsx",
+            "components/market-map/filter-bar.tsx",
+            "components/nav/search-box.tsx",
+            "components/search/search-interface.tsx",
+            "components/three/ik-target-form.tsx",
+            "components/three/joint-controls.tsx",
+            "components/three/trajectory-panel.tsx",
+            "components/ui/input-field.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": [
+              {
+                "kind": "spacing",
+                "criterion": "WCAG 2.2 SC 2.5.8 spacing exception",
+                "reason": "A native range track renders at the user agent thumb height; each slider owns a full-width row, so its 24px circle clears the readout and the reset control."
+              }
+            ]
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-013:control:disabled",
+      "assertionId": "VAL-B2-COMP-013",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+      "actual": "verified for control:disabled by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
+        "observed": {
+          "action": "expose an unavailable action without activation",
+          "statePurpose": "unavailable-action",
+          "persistentAria": [
+            "disabled or aria-disabled"
+          ],
+          "supportedStates": [
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/ui/action.tsx",
+            "components/ui/chip.tsx",
+            "components/ui/input-field.tsx",
+            "components/ui/tabs.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": []
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
       }
     },
     {
@@ -7019,37 +7512,240 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-GRID-009",
+      "resultId": "result:VAL-B2-GRID-009:device:outer-rail",
       "assertionId": "VAL-B2-GRID-009",
-      "populationMemberId": "population:contract/brand-v2-registries.json#gridDevices",
+      "populationMemberId": "device:outer-rail",
       "coveredPopulationMemberIds": [
-        "device:outer-rail",
-        "device:section-rule",
-        "device:registration-cross",
-        "device:axis-tick",
-        "device:sequence-label",
-        "device:dot-grid"
+        "device:outer-rail"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified for device:outer-rail by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-GRID-009",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-GRID-009"
-        ]
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "shared-shell",
+          "structuralPurpose": "content-frame-boundary",
+          "anchorGeometry": {
+            "kind": "edge",
+            "allowedEdges": [
+              "left",
+              "right"
+            ]
+          },
+          "classification": "structural",
+          "ariaBehavior": "aria-hidden when decorative; owner landmark carries meaning",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": false
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-GRID-009:device:section-rule",
+      "assertionId": "VAL-B2-GRID-009",
+      "populationMemberId": "device:section-rule",
+      "coveredPopulationMemberIds": [
+        "device:section-rule"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+      "actual": "verified for device:section-rule by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "shared-section",
+          "structuralPurpose": "section-start-or-apparatus-boundary",
+          "anchorGeometry": {
+            "kind": "edge",
+            "allowedEdges": [
+              "top",
+              "bottom"
+            ]
+          },
+          "classification": "structural",
+          "ariaBehavior": "aria-hidden; adjacent heading carries meaning",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-GRID-009:device:registration-cross",
+      "assertionId": "VAL-B2-GRID-009",
+      "populationMemberId": "device:registration-cross",
+      "coveredPopulationMemberIds": [
+        "device:registration-cross"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+      "actual": "verified for device:registration-cross by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "registered-surface",
+          "structuralPurpose": "real-layout-anchor",
+          "anchorGeometry": {
+            "kind": "intersection",
+            "axes": [
+              "center-x",
+              "center-y"
+            ]
+          },
+          "classification": "decorative",
+          "ariaBehavior": "aria-hidden",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-GRID-009:device:axis-tick",
+      "assertionId": "VAL-B2-GRID-009",
+      "populationMemberId": "device:axis-tick",
+      "coveredPopulationMemberIds": [
+        "device:axis-tick"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+      "actual": "verified for device:axis-tick by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "visualization",
+          "structuralPurpose": "source-backed-axis-or-state",
+          "anchorGeometry": {
+            "kind": "axis",
+            "sourceRequired": true
+          },
+          "classification": "semantic",
+          "ariaBehavior": "named by the bound chart description or table equivalent",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": false
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-GRID-009:device:sequence-label",
+      "assertionId": "VAL-B2-GRID-009",
+      "populationMemberId": "device:sequence-label",
+      "coveredPopulationMemberIds": [
+        "device:sequence-label"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+      "actual": "verified for device:sequence-label by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "indexed-content",
+          "structuralPurpose": "real-order-or-state",
+          "anchorGeometry": {
+            "kind": "baseline",
+            "sequenceRequired": true
+          },
+          "classification": "semantic",
+          "ariaBehavior": "visible text remains in the accessibility tree",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": false
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-GRID-009:device:dot-grid",
+      "assertionId": "VAL-B2-GRID-009",
+      "populationMemberId": "device:dot-grid",
+      "coveredPopulationMemberIds": [
+        "device:dot-grid"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+      "actual": "verified for device:dot-grid by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#gridDevices",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
+        "observed": {
+          "ownerSurface": "instrument-or-index",
+          "structuralPurpose": "registered-grid-boundary",
+          "anchorGeometry": {
+            "kind": "surface-bounds",
+            "pitchPx": 32
+          },
+          "classification": "decorative",
+          "ariaBehavior": "aria-hidden",
+          "pointerBehavior": "none",
+          "allowedViewports": [
+            "mobile",
+            "tablet",
+            "desktop"
+          ],
+          "alignmentTolerancePx": 2,
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
       }
     },
     {
@@ -14522,35 +15218,210 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-SURF-010",
+      "resultId": "result:VAL-B2-SURF-010:surface:flat",
       "assertionId": "VAL-B2-SURF-010",
-      "populationMemberId": "population:contract/brand-v2-registries.json#surfaces",
+      "populationMemberId": "surface:flat",
       "coveredPopulationMemberIds": [
-        "surface:flat",
-        "surface:raised",
-        "surface:floating",
-        "surface:bounded-dark-instrument"
+        "surface:flat"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "verified for surface:flat by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
-        "kind": "autonomous-reference-comparison",
-        "rubricVersion": 1,
-        "comparisonMode": "feature-anchors-only",
-        "contractLiteralOverridesApplied": true,
-        "referenceIds": [
-          "library/brand-reference-board.jpeg",
-          "library/brand-reference-article.png"
-        ],
-        "surfaceId": "pending:VAL-B2-SURF-010",
-        "migrationStatus": "pending",
-        "screenshotPaths": [
-          "pending://VAL-B2-SURF-010"
-        ]
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+        "observed": {
+          "level": "flat",
+          "stackingPurpose": "content-plane",
+          "allowedRadiusPx": [
+            0,
+            2,
+            4,
+            8
+          ],
+          "border": {
+            "allowedWidthsPx": [
+              0,
+              1
+            ],
+            "styles": [
+              "solid",
+              "dashed"
+            ]
+          },
+          "shadow": {
+            "neutralOnly": true,
+            "maxBlurPx": 0,
+            "maxAlpha": 0
+          },
+          "allowedOwners": [
+            "article",
+            "card",
+            "callout",
+            "table",
+            "input",
+            "code"
+          ],
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SURF-010:surface:raised",
+      "assertionId": "VAL-B2-SURF-010",
+      "populationMemberId": "surface:raised",
+      "coveredPopulationMemberIds": [
+        "surface:raised"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+      "actual": "verified for surface:raised by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+        "observed": {
+          "level": "raised",
+          "stackingPurpose": "actionable-or-selected",
+          "allowedRadiusPx": [
+            4,
+            8,
+            16
+          ],
+          "border": {
+            "allowedWidthsPx": [
+              0,
+              1,
+              2
+            ],
+            "styles": [
+              "solid"
+            ]
+          },
+          "shadow": {
+            "neutralOnly": true,
+            "maxBlurPx": 8,
+            "maxAlpha": 0.12
+          },
+          "allowedOwners": [
+            "actionable-card",
+            "calculator",
+            "active-module"
+          ],
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SURF-010:surface:floating",
+      "assertionId": "VAL-B2-SURF-010",
+      "populationMemberId": "surface:floating",
+      "coveredPopulationMemberIds": [
+        "surface:floating"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+      "actual": "verified for surface:floating by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+        "observed": {
+          "level": "floating",
+          "stackingPurpose": "temporary-overlay",
+          "allowedRadiusPx": [
+            4,
+            8,
+            16
+          ],
+          "border": {
+            "allowedWidthsPx": [
+              0,
+              1
+            ],
+            "styles": [
+              "solid"
+            ]
+          },
+          "shadow": {
+            "neutralOnly": true,
+            "maxBlurPx": 20,
+            "maxAlpha": 0.18
+          },
+          "allowedOwners": [
+            "tooltip",
+            "menu",
+            "drawer",
+            "modal",
+            "dragged-object"
+          ],
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SURF-010:surface:bounded-dark-instrument",
+      "assertionId": "VAL-B2-SURF-010",
+      "populationMemberId": "surface:bounded-dark-instrument",
+      "coveredPopulationMemberIds": [
+        "surface:bounded-dark-instrument"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+      "actual": "verified for surface:bounded-dark-instrument by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "contract/brand-v2-registries.json",
+        "predicate": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
+        "observed": {
+          "level": "bounded-dark",
+          "stackingPurpose": "technical-instrument",
+          "allowedRadiusPx": [
+            0,
+            2,
+            4,
+            8
+          ],
+          "border": {
+            "allowedWidthsPx": [
+              1
+            ],
+            "styles": [
+              "solid"
+            ]
+          },
+          "shadow": {
+            "neutralOnly": true,
+            "maxBlurPx": 0,
+            "maxAlpha": 0
+          },
+          "allowedOwners": [
+            "chart",
+            "diagram",
+            "simulation",
+            "code",
+            "media",
+            "playground"
+          ],
+          "sourceMounted": true
+        },
+        "tool": "brand-v2-census + Playwright brand-v2-primitives"
       }
     },
     {
@@ -14594,15 +15465,18 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "actual": "verified for type:display by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "role": "type:display",
+          "family": "Tektur Variable"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
@@ -14615,15 +15489,18 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "actual": "verified for type:interface by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "role": "type:interface",
+          "family": "IBM Plex Sans"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
@@ -14636,15 +15513,18 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "actual": "verified for type:reading by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "role": "type:reading",
+          "family": "Newsreader"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
@@ -14657,99 +15537,83 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
+      "actual": "verified for type:data by the gates named in this row's enforcement targets",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "role": "type:data",
+          "family": "IBM Plex Mono"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-002:type:display",
+      "resultId": "result:VAL-B2-TYPE-002:tektur:web-woff2",
       "assertionId": "VAL-B2-TYPE-002",
-      "populationMemberId": "type:display",
+      "populationMemberId": "tektur:web-woff2",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "tektur:web-woff2"
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
         "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "web display delivery through next/font/local",
+          "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "format": "WOFF2",
+          "subset": "latin",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "axes": {
+            "wdth": "width axis 75..100 default 100",
+            "wght": "weight axis 400..900 default 400"
+          },
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-002:type:interface",
+      "resultId": "result:VAL-B2-TYPE-002:tektur:og-ttf",
       "assertionId": "VAL-B2-TYPE-002",
-      "populationMemberId": "type:interface",
+      "populationMemberId": "tektur:og-ttf",
       "coveredPopulationMemberIds": [
-        "type:interface"
+        "tektur:og-ttf"
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
         "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-002:type:reading",
-      "assertionId": "VAL-B2-TYPE-002",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-002:type:data",
-      "assertionId": "VAL-B2-TYPE-002",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "format": "TTF",
+          "subset": "upstream-full",
+          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
@@ -15010,590 +15874,1997 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-011:type:display",
+      "resultId": "result:VAL-B2-TYPE-011:tektur:web-woff2",
       "assertionId": "VAL-B2-TYPE-011",
-      "populationMemberId": "type:display",
+      "populationMemberId": "tektur:web-woff2",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "tektur:web-woff2"
       ],
       "coverageKind": "per-member",
       "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#web",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
         "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "web display delivery through next/font/local",
+          "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "format": "WOFF2",
+          "subset": "latin",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "axes": {
+            "wdth": "width axis 75..100 default 100",
+            "wght": "weight axis 400..900 default 400"
+          },
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-011:type:interface",
-      "assertionId": "VAL-B2-TYPE-011",
-      "populationMemberId": "type:interface",
-      "coveredPopulationMemberIds": [
-        "type:interface"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-011:type:reading",
-      "assertionId": "VAL-B2-TYPE-011",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-011:type:data",
-      "assertionId": "VAL-B2-TYPE-011",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-012:type:display",
+      "resultId": "result:VAL-B2-TYPE-012:tektur:og-ttf",
       "assertionId": "VAL-B2-TYPE-012",
-      "populationMemberId": "type:display",
+      "populationMemberId": "tektur:og-ttf",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "tektur:og-ttf"
       ],
       "coverageKind": "per-member",
       "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#og",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
         "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "format": "TTF",
+          "subset": "upstream-full",
+          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-012:type:interface",
-      "assertionId": "VAL-B2-TYPE-012",
-      "populationMemberId": "type:interface",
-      "coveredPopulationMemberIds": [
-        "type:interface"
-      ],
-      "coverageKind": "per-member",
-      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-012:type:reading",
-      "assertionId": "VAL-B2-TYPE-012",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-012:type:data",
-      "assertionId": "VAL-B2-TYPE-012",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-013:type:display",
+      "resultId": "result:VAL-B2-TYPE-013:tektur:web-woff2",
       "assertionId": "VAL-B2-TYPE-013",
-      "populationMemberId": "type:display",
+      "populationMemberId": "tektur:web-woff2",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "tektur:web-woff2"
       ],
       "coverageKind": "per-member",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
         "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "web display delivery through next/font/local",
+          "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "format": "WOFF2",
+          "subset": "latin",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "axes": {
+            "wdth": "width axis 75..100 default 100",
+            "wght": "weight axis 400..900 default 400"
+          },
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-013:type:interface",
+      "resultId": "result:VAL-B2-TYPE-013:tektur:og-ttf",
       "assertionId": "VAL-B2-TYPE-013",
-      "populationMemberId": "type:interface",
+      "populationMemberId": "tektur:og-ttf",
       "coveredPopulationMemberIds": [
-        "type:interface"
+        "tektur:og-ttf"
       ],
       "coverageKind": "per-member",
       "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
         "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "format": "TTF",
+          "subset": "upstream-full",
+          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-013:type:reading",
-      "assertionId": "VAL-B2-TYPE-013",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-013:type:data",
-      "assertionId": "VAL-B2-TYPE-013",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-014:type:display",
+      "resultId": "result:VAL-B2-TYPE-014:tektur:web-woff2",
       "assertionId": "VAL-B2-TYPE-014",
-      "populationMemberId": "type:display",
+      "populationMemberId": "tektur:web-woff2",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "tektur:web-woff2"
       ],
       "coverageKind": "per-member",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:web-woff2 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "public/fonts/Tektur-latin-wdth-wght.woff2",
         "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "web display delivery through next/font/local",
+          "path": "public/fonts/Tektur-latin-wdth-wght.woff2",
+          "format": "WOFF2",
+          "subset": "latin",
+          "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+          "axes": {
+            "wdth": "width axis 75..100 default 100",
+            "wght": "weight axis 400..900 default 400"
+          },
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-014:type:interface",
+      "resultId": "result:VAL-B2-TYPE-014:tektur:og-ttf",
       "assertionId": "VAL-B2-TYPE-014",
-      "populationMemberId": "type:interface",
+      "populationMemberId": "tektur:og-ttf",
       "coveredPopulationMemberIds": [
-        "type:interface"
+        "tektur:og-ttf"
       ],
       "coverageKind": "per-member",
       "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for tektur:og-ttf by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
         "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "family": "Tektur",
+          "role": "offline Open Graph renderer only; never loaded by a runtime route",
+          "path": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "format": "TTF",
+          "subset": "upstream-full",
+          "sha256": "d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8",
+          "staticInstance": "wght 600 / wdth 100 / usWidthClass 5",
+          "licensePath": "assets/fonts/tektur/OFL.txt",
+          "upstreamRevision": "0313e9612ed814c7a480fa54c7b295452b966954"
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-014:type:reading",
-      "assertionId": "VAL-B2-TYPE-014",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-014:type:data",
-      "assertionId": "VAL-B2-TYPE-014",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-015:type:display",
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:home-wordmark",
       "assertionId": "VAL-B2-TYPE-015",
-      "populationMemberId": "type:display",
+      "populationMemberId": "type-instance:home-wordmark",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "type-instance:home-wordmark"
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for type-instance:home-wordmark by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "cssClass": "font-display-home",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-015:type:interface",
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:shell-wordmark",
       "assertionId": "VAL-B2-TYPE-015",
-      "populationMemberId": "type:interface",
+      "populationMemberId": "type-instance:shell-wordmark",
       "coveredPopulationMemberIds": [
-        "type:interface"
+        "type-instance:shell-wordmark"
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for type-instance:shell-wordmark by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "cssClass": "font-display-shell",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/",
+            "/glossary/",
+            "/manipulation/action-chunking/"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-015:type:reading",
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:page-h1",
       "assertionId": "VAL-B2-TYPE-015",
-      "populationMemberId": "type:reading",
+      "populationMemberId": "type-instance:page-h1",
       "coveredPopulationMemberIds": [
-        "type:reading"
+        "type-instance:page-h1"
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for type-instance:page-h1 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "cssClass": "font-display-page",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/a-z/",
+            "/credits/",
+            "/glossary/",
+            "/manipulation/",
+            "/market-map/",
+            "/playground/",
+            "/search/",
+            "/404/"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-015:type:data",
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:article-h1",
       "assertionId": "VAL-B2-TYPE-015",
-      "populationMemberId": "type:data",
+      "populationMemberId": "type-instance:article-h1",
       "coveredPopulationMemberIds": [
-        "type:data"
+        "type-instance:article-h1"
       ],
       "coverageKind": "per-member",
       "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for type-instance:article-h1 by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.json",
         "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "cssClass": "font-display-article",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/manipulation/action-chunking/"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-016:type:display",
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:section-display",
+      "assertionId": "VAL-B2-TYPE-015",
+      "populationMemberId": "type-instance:section-display",
+      "coveredPopulationMemberIds": [
+        "type-instance:section-display"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+      "actual": "verified for type-instance:section-display by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": {
+          "cssClass": "font-display-section",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-015:type-instance:display-numerals",
+      "assertionId": "VAL-B2-TYPE-015",
+      "populationMemberId": "type-instance:display-numerals",
+      "coveredPopulationMemberIds": [
+        "type-instance:display-numerals"
+      ],
+      "coverageKind": "per-member",
+      "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+      "actual": "verified for type-instance:display-numerals by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturRoleInstances",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.json",
+        "predicate": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
+        "observed": {
+          "cssClass": "font-display-numerals",
+          "wght": 600,
+          "wdth": 100,
+          "routes": [
+            "/404/"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark",
       "assertionId": "VAL-B2-TYPE-016",
-      "populationMemberId": "type:display",
+      "populationMemberId": "og-static-mapping:home-wordmark",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "og-static-mapping:home-wordmark"
       ],
       "coverageKind": "per-member",
       "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for og-static-mapping:home-wordmark by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.json#tekturOgRoleMapping",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
         "sourcePath": "assets/fonts/tektur/metadata.json",
         "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "mappedRoleId": "home-wordmark",
+          "registryOgRoleId": "home-wordmark",
+          "staticPath": "assets/fonts/tektur/Tektur-SemiBold.ttf",
+          "weight": 600,
+          "width": 100
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-016:type:interface",
-      "assertionId": "VAL-B2-TYPE-016",
-      "populationMemberId": "type:interface",
-      "coveredPopulationMemberIds": [
-        "type:interface"
-      ],
-      "coverageKind": "per-member",
-      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-016:type:reading",
-      "assertionId": "VAL-B2-TYPE-016",
-      "populationMemberId": "type:reading",
-      "coveredPopulationMemberIds": [
-        "type:reading"
-      ],
-      "coverageKind": "per-member",
-      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-016:type:data",
-      "assertionId": "VAL-B2-TYPE-016",
-      "populationMemberId": "type:data",
-      "coveredPopulationMemberIds": [
-        "type:data"
-      ],
-      "coverageKind": "per-member",
-      "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
-        "predicate": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
-        "tool": "fontkit + Vitest + Playwright"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-TYPE-017:type:display",
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:identity",
       "assertionId": "VAL-B2-TYPE-017",
-      "populationMemberId": "type:display",
+      "populationMemberId": "assigned-string:identity",
       "coveredPopulationMemberIds": [
-        "type:display"
+        "assigned-string:identity"
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for assigned-string:identity by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.ts",
         "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "characters": 10,
+          "codePoints": 8,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-017:type:interface",
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:descriptor",
       "assertionId": "VAL-B2-TYPE-017",
-      "populationMemberId": "type:interface",
+      "populationMemberId": "assigned-string:descriptor",
       "coveredPopulationMemberIds": [
-        "type:interface"
+        "assigned-string:descriptor"
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for assigned-string:descriptor by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.ts",
         "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "characters": 53,
+          "codePoints": 21,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-017:type:reading",
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:display-numerals",
       "assertionId": "VAL-B2-TYPE-017",
-      "populationMemberId": "type:reading",
+      "populationMemberId": "assigned-string:display-numerals",
       "coveredPopulationMemberIds": [
-        "type:reading"
+        "assigned-string:display-numerals"
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for assigned-string:display-numerals by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.ts",
         "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "characters": 10,
+          "codePoints": 10,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },
     {
-      "resultId": "result:VAL-B2-TYPE-017:type:data",
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:manipulation",
       "assertionId": "VAL-B2-TYPE-017",
-      "populationMemberId": "type:data",
+      "populationMemberId": "assigned-string:domain:manipulation",
       "coveredPopulationMemberIds": [
-        "type:data"
+        "assigned-string:domain:manipulation"
       ],
       "coverageKind": "per-member",
       "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-      "actual": "verified by the deterministic Tektur binary, role-registry, build, and browser gates",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
+      "actual": "verified for assigned-string:domain:manipulation by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "source-build",
-        "sourcePath": "assets/fonts/tektur/metadata.json",
+        "sourcePath": "data/type-roles.ts",
         "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
-        "observed": "Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.",
+        "observed": {
+          "characters": 31,
+          "codePoints": 18,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:rl-sim2real",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:rl-sim2real",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:rl-sim2real"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:rl-sim2real by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 28,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:world-models",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:world-models",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:world-models"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:world-models by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 12,
+          "codePoints": 9,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:data-hardware",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:data-hardware",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:data-hardware"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:data-hardware by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 27,
+          "codePoints": 18,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:classical",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:classical",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:classical"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:classical by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 21,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:frontier",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:frontier",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:frontier"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:frontier by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 24,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:domain:adjacent",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:domain:adjacent",
+      "coveredPopulationMemberIds": [
+        "assigned-string:domain:adjacent"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:domain:adjacent by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 16,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/bc-foundations",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/bc-foundations",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/bc-foundations"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/bc-foundations by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 28,
+          "codePoints": 18,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/action-chunking",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/action-chunking",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/action-chunking"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/action-chunking by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 31,
+          "codePoints": 20,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/diffusion-policy",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/diffusion-policy",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/diffusion-policy"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/diffusion-policy by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 16,
+          "codePoints": 12,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/vla-models",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/vla-models",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/vla-models"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/vla-models by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 29,
+          "codePoints": 18,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/pi-line",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/pi-line",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/pi-line"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/pi-line by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 11,
+          "codePoints": 8,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/generalist-policies",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/generalist-policies",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/generalist-policies"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/generalist-policies by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 25,
+          "codePoints": 15,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/comparison-matrix",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/comparison-matrix",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/comparison-matrix"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/comparison-matrix by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 17,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/hierarchical",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/hierarchical",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/hierarchical"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/hierarchical by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 23,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/rl-finetuning",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/rl-finetuning",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/rl-finetuning"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/rl-finetuning by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 26,
+          "codePoints": 17,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/realtime-execution",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/realtime-execution",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/realtime-execution"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/realtime-execution by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 19,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/cross-embodiment",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/cross-embodiment",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/cross-embodiment"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/cross-embodiment by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 25,
+          "codePoints": 17,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/knowledge-insulation",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:manipulation/knowledge-insulation",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:manipulation/knowledge-insulation"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:manipulation/knowledge-insulation by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 20,
+          "codePoints": 15,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/rl-for-robotics",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/rl-for-robotics",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/rl-for-robotics"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/rl-for-robotics by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 15,
+          "codePoints": 11,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/why-rl-locomotion",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/why-rl-locomotion",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/why-rl-locomotion"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/why-rl-locomotion by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 42,
+          "codePoints": 19,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/parallel-sim-rl",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/parallel-sim-rl",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/parallel-sim-rl"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/parallel-sim-rl by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 25,
+          "codePoints": 15,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/sim2real-transfer",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/sim2real-transfer",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/sim2real-transfer"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/sim2real-transfer by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 20,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/legged-locomotion",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/legged-locomotion",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/legged-locomotion"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/legged-locomotion by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 25,
+          "codePoints": 12,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/humanoid-wbc",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/humanoid-wbc",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/humanoid-wbc"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/humanoid-wbc by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 27,
+          "codePoints": 19,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/reward-design-mpc",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:rl-sim2real/reward-design-mpc",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:rl-sim2real/reward-design-mpc"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:rl-sim2real/reward-design-mpc by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 32,
+          "codePoints": 18,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/taxonomy",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:world-models/taxonomy",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:world-models/taxonomy"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:world-models/taxonomy by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 22,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/latent-dynamics",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:world-models/latent-dynamics",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:world-models/latent-dynamics"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:world-models/latent-dynamics by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 28,
+          "codePoints": 19,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-video",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:world-models/generative-video",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:world-models/generative-video"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:world-models/generative-video by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 29,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/jepa",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:world-models/jepa",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:world-models/jepa"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:world-models/jepa by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 43,
+          "codePoints": 22,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-sim",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:world-models/generative-sim",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:world-models/generative-sim"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:world-models/generative-sim by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 21,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/data-bottleneck",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/data-bottleneck",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/data-bottleneck"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/data-bottleneck by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 19,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/datasets",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/datasets",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/datasets"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/datasets by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 14,
+          "codePoints": 10,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/hardware-taxonomy",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/hardware-taxonomy",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/hardware-taxonomy"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/hardware-taxonomy by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 17,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/teleop-rigs",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/teleop-rigs",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/teleop-rigs"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/teleop-rigs by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 18,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/evaluation-crisis",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/evaluation-crisis",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/evaluation-crisis"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/evaluation-crisis by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 21,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/industrial-deployment",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:data-hardware/industrial-deployment",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:data-hardware/industrial-deployment"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:data-hardware/industrial-deployment by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 21,
+          "codePoints": 17,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/kinematics",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/kinematics",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/kinematics"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/kinematics by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 10,
+          "codePoints": 9,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/motion-planning",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/motion-planning",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/motion-planning"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/motion-planning by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 15,
+          "codePoints": 10,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/control",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/control",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/control"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/control by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 7,
+          "codePoints": 6,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/state-estimation",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/state-estimation",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/state-estimation"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/state-estimation by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 16,
+          "codePoints": 11,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/grasp-planning",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/grasp-planning",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/grasp-planning"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/grasp-planning by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 14,
+          "codePoints": 11,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/perception",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/perception",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/perception"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/perception by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 27,
+          "codePoints": 15,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/scene-representation",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:classical/scene-representation",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:classical/scene-representation"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:classical/scene-representation by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 32,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/reliability-gap",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/reliability-gap",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/reliability-gap"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/reliability-gap by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 19,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/dexterity",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/dexterity",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/dexterity"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/dexterity by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 9,
+          "codePoints": 7,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/generalization",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/generalization",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/generalization"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/generalization by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 14,
+          "codePoints": 10,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/competing-theses",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/competing-theses",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/competing-theses"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/competing-theses by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 16,
+          "codePoints": 13,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/bear-case",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/bear-case",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/bear-case"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/bear-case by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 13,
+          "codePoints": 9,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/safety-and-assurance",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:frontier/safety-and-assurance",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:frontier/safety-and-assurance"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:frontier/safety-and-assurance by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 20,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/autonomous-vehicles",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:adjacent/autonomous-vehicles",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:adjacent/autonomous-vehicles"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:adjacent/autonomous-vehicles by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 19,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/drones",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:adjacent/drones",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:adjacent/drones"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:adjacent/drones by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 26,
+          "codePoints": 16,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/surgical",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:adjacent/surgical",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:adjacent/surgical"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:adjacent/surgical by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 17,
+          "codePoints": 14,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
+        "tool": "fontkit + Vitest + Playwright"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/space",
+      "assertionId": "VAL-B2-TYPE-017",
+      "populationMemberId": "assigned-string:article:adjacent/space",
+      "coveredPopulationMemberIds": [
+        "assigned-string:article:adjacent/space"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+      "actual": "verified for assigned-string:article:adjacent/space by the gates named in this row's enforcement targets",
+      "selectorOrRegistryId": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "data/type-roles.ts",
+        "predicate": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
+        "observed": {
+          "characters": 14,
+          "codePoints": 12,
+          "targets": [
+            "web",
+            "og"
+          ]
+        },
         "tool": "fontkit + Vitest + Playwright"
       }
     },

@@ -24,6 +24,15 @@ const tekturRoleInstanceSchema = z.object({
   wght: z.number().int(),
   wdth: z.number().int(),
   cssClass: z.string().min(1),
+  /**
+   * The public routes that mount this role. Declared here rather than
+   * discovered from the DOM: a population read back out of the rendered
+   * page can only ever confirm what is already there, so the browser gate
+   * would pass on a role no route mounts.
+   */
+  routes: z
+    .array(z.string().regex(/^\/(?:[a-z0-9-]+\/)*$/))
+    .min(1),
 });
 
 const tekturAssignedStringSchema = z.object({

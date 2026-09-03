@@ -23,37 +23,64 @@
       "id": "home-wordmark",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-home"
+      "cssClass": "font-display-home",
+      "routes": [
+        "/"
+      ]
     },
     {
       "id": "shell-wordmark",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-shell"
+      "cssClass": "font-display-shell",
+      "routes": [
+        "/",
+        "/glossary/",
+        "/manipulation/action-chunking/"
+      ]
     },
     {
       "id": "page-h1",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-page"
+      "cssClass": "font-display-page",
+      "routes": [
+        "/a-z/",
+        "/credits/",
+        "/glossary/",
+        "/manipulation/",
+        "/market-map/",
+        "/playground/",
+        "/search/",
+        "/404/"
+      ]
     },
     {
       "id": "article-h1",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-article"
+      "cssClass": "font-display-article",
+      "routes": [
+        "/manipulation/action-chunking/"
+      ]
     },
     {
       "id": "section-display",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-section"
+      "cssClass": "font-display-section",
+      "routes": [
+        "/"
+      ]
     },
     {
       "id": "display-numerals",
       "wght": 600,
       "wdth": 100,
-      "cssClass": "font-display-numerals"
+      "cssClass": "font-display-numerals",
+      "routes": [
+        "/404/"
+      ]
     }
   ],
   "tekturOgRoleId": "home-wordmark",

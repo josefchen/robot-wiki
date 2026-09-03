@@ -37,6 +37,20 @@ const auditSchema = z
             command: z.string().min(1),
             exitCode: z.number().int(),
             observation: z.string().min(1),
+            /**
+             * The release-count gate is the one required command whose value
+             * is the failure population rather than the exit code, so the
+             * number it reported is recorded structurally instead of being
+             * left readable only in the prose.
+             */
+            releaseFailureCounts: z
+              .object({
+                pendingResultBlocksRelease: z.number().int().positive(),
+                populationWideCoverageBlocksRelease: z.number().int().positive(),
+                total: z.number().int().positive(),
+              })
+              .strict()
+              .optional(),
           })
           .strict(),
       )
@@ -73,6 +87,34 @@ const REQUIRED_ASSERTIONS = [
   'collect-bundle-aggregation',
   'dot-grid-zero-baseline',
   'structural-detection-boundary',
+] as const;
+
+/**
+ * The audit is only a proof if the commands that produced it are still in the
+ * record. A `.min(1)` array accepts a lone `git show`, so the mandatory gate
+ * set and each gate's expected outcome are named here: deleting an entry, or
+ * recording a gate that did not end the way the audit claims, has to fail.
+ */
+const REQUIRED_COMMANDS = [
+  { id: 'lint', pattern: /^npm run lint$/, exitCode: 0 },
+  { id: 'typecheck', pattern: /^npm run typecheck$/, exitCode: 0 },
+  { id: 'unit', pattern: /^npm(?: run)? test$/, exitCode: 0 },
+  { id: 'build', pattern: /^npm run build$/, exitCode: 0 },
+  { id: 'brand-v2', pattern: /^npm run test:brand-v2$/, exitCode: 0 },
+  { id: 'full-e2e', pattern: /^npm run test:e2e$/, exitCode: 0 },
+  {
+    id: 'release-count',
+    pattern: /^npm run check:brand-v2-enforcement:release:counts$/,
+    // The sealed milestone-red shape: the release gate must still refuse the
+    // pending corpus, so a zero exit code here would mean the audit recorded
+    // a gate that had stopped enforcing.
+    exitCode: 1,
+  },
+  {
+    id: 'focused-mutation',
+    pattern: /^npx playwright test .*-g "rejects a route profile".*$/,
+    exitCode: 0,
+  },
 ] as const;
 
 const REQUIRED_MUTATIONS = [
@@ -121,6 +163,47 @@ describe('instrument hardening final audit evidence', () => {
       expect(assertions.has(id), `missing audit assertion ${id}`).toBe(true);
     }
     expect(new Set(assertions).size).toBe(audit.assertions.length);
+
+    for (const required of REQUIRED_COMMANDS) {
+      const matching = audit.commands.filter(({ command }) =>
+        required.pattern.test(command),
+      );
+      expect(
+        matching.length,
+        `missing required audit command ${required.id} (${required.pattern.source})`,
+      ).toBeGreaterThan(0);
+      for (const entry of matching) {
+        expect(
+          entry.exitCode,
+          `audit command ${required.id} recorded the wrong outcome: ${entry.command}`,
+        ).toBe(required.exitCode);
+      }
+      if (required.id !== 'release-count') continue;
+      for (const entry of matching) {
+        const counts = entry.releaseFailureCounts;
+        expect(
+          counts,
+          'the release-count gate must record the failure population it reported',
+        ).toBeDefined();
+        if (counts === undefined) continue;
+        expect(counts.total).toBe(
+          counts.pendingResultBlocksRelease +
+            counts.populationWideCoverageBlocksRelease,
+        );
+        // Recorded and asserted, so the prose and the structured counts
+        // cannot drift apart: a number changed in one place fails here.
+        for (const value of [
+          counts.total,
+          counts.pendingResultBlocksRelease,
+          counts.populationWideCoverageBlocksRelease,
+        ]) {
+          expect(
+            entry.observation,
+            `release-count observation must state ${value}`,
+          ).toContain(String(value));
+        }
+      }
+    }
 
     const mutations = new Map(
       audit.mutations.map((mutation) => [mutation.name, mutation]),

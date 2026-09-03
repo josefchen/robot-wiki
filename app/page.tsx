@@ -138,7 +138,8 @@ export default function Home() {
       >
         <h2
           id="domain-index-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
         >
           Domain index
         </h2>
@@ -210,7 +211,8 @@ export default function Home() {
       >
         <h2
           id="featured-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
         >
           Featured interactive
         </h2>
@@ -238,7 +240,8 @@ export default function Home() {
       >
         <h2
           id="hardware-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
         >
           Real hardware
         </h2>
@@ -266,7 +269,8 @@ export default function Home() {
       >
         <h2
           id="tools-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
         >
           Interactive tools
         </h2>
@@ -458,7 +462,8 @@ export default function Home() {
       >
         <h2
           id="how-to-read-heading"
-          className="font-sans text-xl font-semibold tracking-tight text-text"
+          data-tektur-role="section-display"
+          className="font-display-section text-xl tracking-tight text-text"
         >
           How to read this wiki
         </h2>

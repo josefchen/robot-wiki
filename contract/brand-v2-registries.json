@@ -472,7 +472,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "52a1f84a13e1a4387ac7ebc022de4b425ec2eeec93f3a68ff9103b2855494e6c",
+      "ownerSourceFingerprint": "9be9b285869c106cf44a07c5d5b4a9c7e72b72ecc592a5e5ddd0232503c7494a",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published robot-wiki article and glossary term in one alphabetical list.",
@@ -494,14 +494,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "453ea32e1ed58cc1d71453cb36de8d0750e064da20d5f8e5011ae23ba7147d9f"
+      "fingerprint": "133e4be6c9ba7b2593cf72a0060884f50894730f21d4cfcc499cd625dccc8dc3"
     },
     {
       "id": "metadata:/adjacent/",
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -523,7 +523,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1af20d747a0b1b433ad9a21bd3e68c4cdb1b945fa5647227e90a196b980654d2"
+      "fingerprint": "8ffb94ba016383e9277a747422e4355c5dba5936e50b580183afeaa65c349f91"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -646,7 +646,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -668,7 +668,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9cd46e4de36bd8d0a8bd977d3f29658fb5c9446269d2e721622a5e7dd7156dbf"
+      "fingerprint": "d4e7f2b5780a25095243efcb6476ee565d30c60c1aadfedb4ba8c38840191f9c"
     },
     {
       "id": "metadata:/classical/control/",
@@ -878,7 +878,7 @@
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "5b0426ce4bd4f9dcda4c0f373cad6b7ee2523a6f49fbcd0cd077ab31588dc91a",
+      "ownerSourceFingerprint": "7946ef5c43442d79ebfadf236215e72bef8772964890b599d32087b1154b3665",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on robot-wiki, with its creator, source, and licence.",
@@ -898,14 +898,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e0b11bec6adf551e75061752d49f7d72887cd6811f1feb5d56363ce21e965191"
+      "fingerprint": "4b69ac2e7cedf86475cba29ba23610a6ac8c401754f2f2173d319d95ab8cecf4"
     },
     {
       "id": "metadata:/data-hardware/",
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
@@ -927,7 +927,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6cc6942cfdc5da84c87d1442dcd18f3da11729e980485e24358f1c8e1aefbc71"
+      "fingerprint": "43be16b0c704cfa2e037614c108197f93d01171a7da6c311b5db36678cb02e32"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1108,7 +1108,7 @@
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1130,7 +1130,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f5864db902498336e35d7d676fe64c3efbf8c9ac3b12ad575e01781b5dc0629f"
+      "fingerprint": "db139eb25ef08dac5e2d9a6ab85df4e1277abb0cb8d846093e03e0bf906c61cd"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -1311,7 +1311,7 @@
       "routeId": "route:/glossary/",
       "owner": "route:/glossary/",
       "ownerPath": "app/glossary/page.tsx",
-      "ownerSourceFingerprint": "1b58962f60c55de0b0a849296f0d9a1cf37a915a25062bdb12519eac081dc1ed",
+      "ownerSourceFingerprint": "6b94c2d3fe3517c76e1484bbd2c08abb8b167704cee913dd9894eec140708059",
       "canonical": "https://robot-wiki.com/glossary/",
       "title": "Glossary",
       "description": "Cited definitions of the robotics and machine-learning terms used across robot-wiki.",
@@ -1331,14 +1331,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "91670c4ac0bbfc4677ff03bc187df469a3df1046800cb1f750d0da8a857d4c4d"
+      "fingerprint": "5e8e9fbcb6c28330c82160589a97a2808ca8251e3f0edf1731c0ebb8ebf42f66"
     },
     {
       "id": "metadata:/manipulation/",
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -1360,7 +1360,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b8bbe8ec04b62627e6ae13327e788febb8d40fb9ad5ad227fe40d1c73edf9920"
+      "fingerprint": "42c882cb6e185bef356a7b2e066a4544a1a3a3e91eafba00bd9f29d2af39c379"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -1715,7 +1715,7 @@
       "routeId": "route:/market-map/",
       "owner": "route:/market-map/",
       "ownerPath": "app/market-map/page.tsx",
-      "ownerSourceFingerprint": "6093cd1c59eec8402d81a2b6d994624da46f8f32b8984e578bde6aedee70f1d6",
+      "ownerSourceFingerprint": "149d7a732824c59a08204b93297f26dfbc3161bbbc5ce75323046bf68c272e0b",
       "canonical": "https://robot-wiki.com/market-map/",
       "title": "Market Map",
       "description": "The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.",
@@ -1735,14 +1735,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6109f47184805109cb6379d7f879bb55c1536b46015c3321ebbbb17d5b048827"
+      "fingerprint": "c30c74c5505fec9ff1ef5bda76a84a7adfb29a69968f56c1867206c4ada186c8"
     },
     {
       "id": "metadata:/playground/",
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "0446c152006a2a652c30152c8b679e9dad19798acc802421ac86c3a47ef8c630",
+      "ownerSourceFingerprint": "13fee678d7a04c88f219957ea1411ae77d6e0ac33ef82deb15f0c52af1b3af07",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -1762,14 +1762,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c69920ffe59c2ca8ab3e05a456c4806fe78fc74e17e917651e245eaf5c990618"
+      "fingerprint": "0412e9a9e11f2be9304d5171b692509a160d8c5ab49171393d2eabf7544c7313"
     },
     {
       "id": "metadata:/rl-sim2real/",
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -1791,7 +1791,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3e21d71c5e6e97962a7b6506313f6dfe2cef3ead3f85d6c2ac3f0dbbce51dfde"
+      "fingerprint": "0398f729aa9dcc51aaf6c63369924c09f752c810045906e84d32404d7e9a1997"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -2001,7 +2001,7 @@
       "routeId": "route:/search/",
       "owner": "route:/search/",
       "ownerPath": "app/search/page.tsx",
-      "ownerSourceFingerprint": "ac32f1754bd514a2fe6717bcec0ee179932a9a9426b3fde9a7da6cd5ee9823e1",
+      "ownerSourceFingerprint": "881f5b0e098c0b274a41cc9c8ea54daacf626465857c9f63dddbdb6c1f3f498a",
       "canonical": "https://robot-wiki.com/search/",
       "title": "Search",
       "description": "Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).",
@@ -2021,14 +2021,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b6bcfcbae4d60e5c14e4249ef884ebc5eea6332b559b17fe09c9d76391dc3a86"
+      "fingerprint": "b1a279c6510ff948dd98110c86a2bfc75e0acbbcb3dcc57a78878e86f46773ee"
     },
     {
       "id": "metadata:/world-models/",
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d46012f84faebc5a7aa440a76a3a75e73da9ffe1046af93a16fac8264cb6f8d6",
+      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -2050,7 +2050,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cd18791ee2062e03e8df6b1be008973528da3c1763a265f3ff582ed47de0f7a2"
+      "fingerprint": "469d24d6aabd960450f1d73003271a705e18b9ecb783b2bd99b84700f057801d"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
@@ -2202,7 +2202,7 @@
       "routeId": "route:/404/",
       "owner": "app/not-found.tsx",
       "ownerPath": "app/not-found.tsx",
-      "ownerSourceFingerprint": "0588a59656c16d280bea87f06334128007a397e90f0ef66405de35328f14bf9c",
+      "ownerSourceFingerprint": "94e33eab237c9415be06de78360253326e6bd6500032346f424de05ad0a0962d",
       "canonical": "https://robot-wiki.com/404/",
       "title": "Page not found",
       "description": null,
@@ -2225,7 +2225,7 @@
         "publicContent": false,
         "index": false
       },
-      "fingerprint": "631a88c9f050159924aabdcbf1e21d71be8f41e5857e9aae05e1b423d74a3545"
+      "fingerprint": "5c45eac4df88bc2c313ec130468d12b6140521769a7d20eb2141148e17488dd0"
     }
   ],
   "assets": [
@@ -10883,42 +10883,69 @@
           "id": "home-wordmark",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-home"
+          "cssClass": "font-display-home",
+          "routes": [
+            "/"
+          ]
         },
         {
           "id": "shell-wordmark",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-shell"
+          "cssClass": "font-display-shell",
+          "routes": [
+            "/",
+            "/glossary/",
+            "/manipulation/action-chunking/"
+          ]
         },
         {
           "id": "page-h1",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-page"
+          "cssClass": "font-display-page",
+          "routes": [
+            "/a-z/",
+            "/credits/",
+            "/glossary/",
+            "/manipulation/",
+            "/market-map/",
+            "/playground/",
+            "/search/",
+            "/404/"
+          ]
         },
         {
           "id": "article-h1",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-article"
+          "cssClass": "font-display-article",
+          "routes": [
+            "/manipulation/action-chunking/"
+          ]
         },
         {
           "id": "section-display",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-section"
+          "cssClass": "font-display-section",
+          "routes": [
+            "/"
+          ]
         },
         {
           "id": "display-numerals",
           "wght": 600,
           "wdth": 100,
-          "cssClass": "font-display-numerals"
+          "cssClass": "font-display-numerals",
+          "routes": [
+            "/404/"
+          ]
         }
       ],
       "ogRoleId": "home-wordmark",
       "assignedStringCount": 57,
-      "fingerprint": "2df6594ec4134cc8a13c59f7eaf4dd338e3db829bfcc8a69d1c73f7deae3a7e7"
+      "fingerprint": "6e20f395aa5b4cfe45c581ab52fc1f969885f5fbd5cb9bf992776aec82fc7862"
     },
     {
       "id": "type:interface",
@@ -11361,5 +11388,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "84ff6e89fc600cb16c108bd85b36c717ff22d2116cea056c2b6c0a8ccc5e6545"
+  "rootFingerprint": "cd34f09f64ce9eb57bc390602a1bc8ca14b25c516be2356ff8da182f5dc08455"
 }

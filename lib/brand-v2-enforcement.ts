@@ -398,9 +398,22 @@ export function buildEnforcementPopulationSources(input: {
   baselineManifestIds: string[];
   deepRowIds: string[];
   assertionIds: string[];
+  /**
+   * Assertion-specific populations for the completed font assertions, keyed
+   * by canonical source. They are separate from the four-family `typeRoles`
+   * registry because a claim about role instances, the static mapping, or an
+   * assigned string is not a claim about a family (R8a).
+   */
+  tekturPopulations: Readonly<Record<string, readonly string[]>>;
 }): Record<string, string[]> {
   const { registry } = input;
   return {
+    ...Object.fromEntries(
+      Object.entries(input.tekturPopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
     'contract/brand-v2-registries.json#routes.public':
       registry.routes.public.map(({ id }) => id),
     'contract/brand-v2-registries.json#routes.public:article':

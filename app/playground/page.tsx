@@ -25,7 +25,10 @@ export default function PlaygroundPage() {
           (VAL-SEARCH-021). The canvas below carries live joint readouts
           that change on every interaction and are not prose. */}
       <div data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           3D Kinematics Playground
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">

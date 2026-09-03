@@ -18,6 +18,7 @@ import {
 } from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
 import { deriveTestTargetInventory } from '@/lib/brand-v2-test-inventory';
+import { TEKTUR_POPULATION_IDS } from '@/lib/tektur-populations';
 
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
@@ -236,6 +237,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
           ),
           deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
           assertionIds: extractBrandV2Assertions(contract).map(({ id }) => id),
+          tekturPopulations: TEKTUR_POPULATION_IDS,
         }),
         map,
         results,

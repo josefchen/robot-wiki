@@ -73,7 +73,10 @@ export default function AzIndexPage() {
           indexing them here would put this page in front of the article a
           reader was looking for. */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           A-Z Index
         </h1>
         <p className="mt-2 font-mono text-xs text-text-dim">

@@ -84,7 +84,10 @@ export default async function DomainLandingPage({
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
         <header className="mb-8 border-b border-border pb-6">
-          <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+          <h1
+            data-tektur-role="page-h1"
+            className="font-display-page text-3xl tracking-tight text-text"
+          >
             {meta.name}
           </h1>
           <p className="mt-3 leading-relaxed text-text-dim">{meta.description}</p>

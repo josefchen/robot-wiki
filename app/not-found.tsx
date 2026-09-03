@@ -36,8 +36,19 @@ export default function NotFound() {
       data-pagefind-ignore
       className="mx-auto flex min-h-[70dvh] w-full max-w-3xl flex-col justify-center px-6 py-12"
     >
-      <p className="font-mono text-sm text-accent">404</p>
-      <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+      {/* The status numeral is editorial wayfinding rather than a data
+          readout, so it takes the display numeral role (design-system
+          4.2) instead of the mono data face. */}
+      <p
+        data-tektur-role="display-numerals"
+        className="font-display-numerals text-sm text-accent"
+      >
+        404
+      </p>
+      <h1
+        data-tektur-role="page-h1"
+        className="font-display-page mt-2 text-3xl tracking-tight text-text"
+      >
         Page not found
       </h1>
       <p className="mt-3 max-w-[55ch] leading-relaxed text-text-dim">

@@ -206,7 +206,12 @@
     {
       "command": "npm run check:brand-v2-enforcement:release:counts",
       "exitCode": 1,
-      "observation": "The expected sealed milestone-red shape remained exactly 476 failures: 238 pending-result-blocks-release plus 238 population-wide-coverage-blocks-release."
+      "observation": "The expected sealed milestone-red shape remained exactly 476 failures: 238 pending-result-blocks-release plus 238 population-wide-coverage-blocks-release.",
+      "releaseFailureCounts": {
+        "pendingResultBlocksRelease": 238,
+        "populationWideCoverageBlocksRelease": 238,
+        "total": 476
+      }
     },
     {
       "command": "npm run test:e2e",

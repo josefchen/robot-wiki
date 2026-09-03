@@ -2335,8 +2335,38 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-013",
-          "mechanism": "VAL-B2-COMP-013 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:primary-action",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:selection",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:link-focus",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:segmented",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:input",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-013:control:disabled",
+          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
@@ -2351,7 +2381,7 @@
           "mechanism": "Discovers controls structurally, requires an annotation on every discovered member, checks each row owner list against the modules that render it, and rejects persistent selected, pressed, or current ARIA on transient controls."
         }
       ],
-      "enforcementMode": "browser-state",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
         "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
@@ -2365,7 +2395,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-013"
+          "result:VAL-B2-COMP-013:control:primary-action",
+          "result:VAL-B2-COMP-013:control:secondary-action",
+          "result:VAL-B2-COMP-013:control:selection",
+          "result:VAL-B2-COMP-013:control:link-focus",
+          "result:VAL-B2-COMP-013:control:segmented",
+          "result:VAL-B2-COMP-013:control:input",
+          "result:VAL-B2-COMP-013:control:disabled"
         ]
       }
     },
@@ -4153,8 +4189,33 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-GRID-009",
-          "mechanism": "VAL-B2-GRID-009 pending rollout evidence over contract/brand-v2-registries.json#gridDevices"
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:outer-rail",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:section-rule",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:registration-cross",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:axis-tick",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:sequence-label",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:dot-grid",
+          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "test",
@@ -4169,7 +4230,7 @@
           "mechanism": "Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
         "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
@@ -4183,7 +4244,12 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-GRID-009"
+          "result:VAL-B2-GRID-009:device:outer-rail",
+          "result:VAL-B2-GRID-009:device:section-rule",
+          "result:VAL-B2-GRID-009:device:registration-cross",
+          "result:VAL-B2-GRID-009:device:axis-tick",
+          "result:VAL-B2-GRID-009:device:sequence-label",
+          "result:VAL-B2-GRID-009:device:dot-grid"
         ]
       }
     },
@@ -7853,8 +7919,23 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SURF-010",
-          "mechanism": "VAL-B2-SURF-010 pending rollout evidence over contract/brand-v2-registries.json#surfaces"
+          "evidenceRowId": "result:VAL-B2-SURF-010:surface:flat",
+          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SURF-010:surface:raised",
+          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SURF-010:surface:floating",
+          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SURF-010:surface:bounded-dark-instrument",
+          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
         },
         {
           "kind": "test",
@@ -7869,7 +7950,7 @@
           "mechanism": "Discovers surfaces structurally, requires an annotation on every discovered member, and equates the source, registry, and rendered populations while rejecting backdrop blur, filters, and coloured glow."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "automated-machine",
       "machinePredicate": {
         "statement": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
         "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
@@ -7883,7 +7964,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SURF-010"
+          "result:VAL-B2-SURF-010:surface:flat",
+          "result:VAL-B2-SURF-010:surface:raised",
+          "result:VAL-B2-SURF-010:surface:floating",
+          "result:VAL-B2-SURF-010:surface:bounded-dark-instrument"
         ]
       }
     },
@@ -7934,22 +8018,22 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:display",
-          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:interface",
-          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:reading",
-          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-TYPE-001:type:data",
-          "mechanism": "VAL-B2-TYPE-001 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "mechanism": "VAL-B2-TYPE-001 passed per-member evidence derived from contract/brand-v2-registries.json#typeRoles"
         },
         {
           "kind": "test",
@@ -7987,27 +8071,17 @@
     },
     {
       "assertionId": "VAL-B2-TYPE-002",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "assets/fonts/tektur/metadata.json#binaries",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-002:type:display",
-          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-002:tektur:web-woff2",
+          "mechanism": "VAL-B2-TYPE-002 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-002:type:interface",
-          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-002:type:reading",
-          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-002:type:data",
-          "mechanism": "VAL-B2-TYPE-002 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-002:tektur:og-ttf",
+          "mechanism": "VAL-B2-TYPE-002 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
@@ -8027,7 +8101,7 @@
         "statement": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
         "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 2,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8036,10 +8110,8 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-002:type:display",
-          "result:VAL-B2-TYPE-002:type:interface",
-          "result:VAL-B2-TYPE-002:type:reading",
-          "result:VAL-B2-TYPE-002:type:data"
+          "result:VAL-B2-TYPE-002:tektur:web-woff2",
+          "result:VAL-B2-TYPE-002:tektur:og-ttf"
         ]
       }
     },
@@ -8365,27 +8437,12 @@
     },
     {
       "assertionId": "VAL-B2-TYPE-011",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "assets/fonts/tektur/metadata.json#web",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-011:type:display",
-          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-011:type:interface",
-          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-011:type:reading",
-          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-011:type:data",
-          "mechanism": "VAL-B2-TYPE-011 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-011:tektur:web-woff2",
+          "mechanism": "VAL-B2-TYPE-011 passed per-member evidence derived from assets/fonts/tektur/metadata.json#web"
         },
         {
           "kind": "test",
@@ -8405,7 +8462,7 @@
         "statement": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
         "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 1,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8414,36 +8471,18 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-011:type:display",
-          "result:VAL-B2-TYPE-011:type:interface",
-          "result:VAL-B2-TYPE-011:type:reading",
-          "result:VAL-B2-TYPE-011:type:data"
+          "result:VAL-B2-TYPE-011:tektur:web-woff2"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-012",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "assets/fonts/tektur/metadata.json#og",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-012:type:display",
-          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-012:type:interface",
-          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-012:type:reading",
-          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-012:type:data",
-          "mechanism": "VAL-B2-TYPE-012 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-012:tektur:og-ttf",
+          "mechanism": "VAL-B2-TYPE-012 passed per-member evidence derived from assets/fonts/tektur/metadata.json#og"
         },
         {
           "kind": "test",
@@ -8463,7 +8502,7 @@
         "statement": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
         "expected": "OG/X Tektur is a separate checked-in static TTF consumed only by the offline card renderer; it is not loaded by website CSS, `next/font/local`, or any runtime route.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 1,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8472,36 +8511,23 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-012:type:display",
-          "result:VAL-B2-TYPE-012:type:interface",
-          "result:VAL-B2-TYPE-012:type:reading",
-          "result:VAL-B2-TYPE-012:type:data"
+          "result:VAL-B2-TYPE-012:tektur:og-ttf"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-013",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "assets/fonts/tektur/metadata.json#binaries",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-013:type:display",
-          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-013:tektur:web-woff2",
+          "mechanism": "VAL-B2-TYPE-013 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-013:type:interface",
-          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-013:type:reading",
-          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-013:type:data",
-          "mechanism": "VAL-B2-TYPE-013 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-013:tektur:og-ttf",
+          "mechanism": "VAL-B2-TYPE-013 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
@@ -8521,7 +8547,7 @@
         "statement": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
         "expected": "Checked-in Tektur assets include the applicable OFL license text and metadata recording upstream source URL and revision, SHA-256 checksum for each binary, format and subset, `wght`/`wdth` ranges and defaults for the variable file, and style/weight for the static file.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 2,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8530,36 +8556,24 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-013:type:display",
-          "result:VAL-B2-TYPE-013:type:interface",
-          "result:VAL-B2-TYPE-013:type:reading",
-          "result:VAL-B2-TYPE-013:type:data"
+          "result:VAL-B2-TYPE-013:tektur:web-woff2",
+          "result:VAL-B2-TYPE-013:tektur:og-ttf"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-014",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "assets/fonts/tektur/metadata.json#binaries",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-014:type:display",
-          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-014:tektur:web-woff2",
+          "mechanism": "VAL-B2-TYPE-014 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-014:type:interface",
-          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-014:type:reading",
-          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-014:type:data",
-          "mechanism": "VAL-B2-TYPE-014 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-014:tektur:og-ttf",
+          "mechanism": "VAL-B2-TYPE-014 passed per-member evidence derived from assets/fonts/tektur/metadata.json#binaries"
         },
         {
           "kind": "test",
@@ -8579,7 +8593,7 @@
         "statement": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
         "expected": "Automated font inspection verifies every recorded checksum and binary property, rejects an undocumented variable axis, rejects a variable OG TTF, and records `wdth` with the label `width axis`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 2,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8588,36 +8602,44 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-014:type:display",
-          "result:VAL-B2-TYPE-014:type:interface",
-          "result:VAL-B2-TYPE-014:type:reading",
-          "result:VAL-B2-TYPE-014:type:data"
+          "result:VAL-B2-TYPE-014:tektur:web-woff2",
+          "result:VAL-B2-TYPE-014:tektur:og-ttf"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-015",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "data/type-roles.json#tekturRoleInstances",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-015:type:display",
-          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:home-wordmark",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-015:type:interface",
-          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:shell-wordmark",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-015:type:reading",
-          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:page-h1",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-015:type:data",
-          "mechanism": "VAL-B2-TYPE-015 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:article-h1",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:section-display",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-015:type-instance:display-numerals",
+          "mechanism": "VAL-B2-TYPE-015 passed per-member evidence derived from data/type-roles.json#tekturRoleInstances"
         },
         {
           "kind": "test",
@@ -8637,7 +8659,7 @@
         "statement": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
         "expected": "A checked-in type-role registry assigns measurable Tektur `wght`/`wdth` values to home wordmark, shell wordmark, page h1, article h1, section display, and display numerals; rendered computed axis values match the registry at every declared viewport.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 6,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8646,36 +8668,23 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-015:type:display",
-          "result:VAL-B2-TYPE-015:type:interface",
-          "result:VAL-B2-TYPE-015:type:reading",
-          "result:VAL-B2-TYPE-015:type:data"
+          "result:VAL-B2-TYPE-015:type-instance:home-wordmark",
+          "result:VAL-B2-TYPE-015:type-instance:shell-wordmark",
+          "result:VAL-B2-TYPE-015:type-instance:page-h1",
+          "result:VAL-B2-TYPE-015:type-instance:article-h1",
+          "result:VAL-B2-TYPE-015:type-instance:section-display",
+          "result:VAL-B2-TYPE-015:type-instance:display-numerals"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-016",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "data/type-roles.json#tekturOgRoleMapping",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016:type:display",
-          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016:type:interface",
-          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016:type:reading",
-          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-016:type:data",
-          "mechanism": "VAL-B2-TYPE-016 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark",
+          "mechanism": "VAL-B2-TYPE-016 passed per-member evidence derived from data/type-roles.json#tekturOgRoleMapping"
         },
         {
           "kind": "test",
@@ -8695,7 +8704,7 @@
         "statement": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
         "expected": "The static OG TTF is mapped to one specific registered web Tektur role instance, and binary inspection proves its style/weight/width instance matches that mapping.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 1,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8704,36 +8713,298 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-016:type:display",
-          "result:VAL-B2-TYPE-016:type:interface",
-          "result:VAL-B2-TYPE-016:type:reading",
-          "result:VAL-B2-TYPE-016:type:data"
+          "result:VAL-B2-TYPE-016:og-static-mapping:home-wordmark"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-TYPE-017",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#typeRoles",
+      "canonicalPopulationSource": "data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-017:type:display",
-          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:identity",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-017:type:interface",
-          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:descriptor",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-017:type:reading",
-          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:display-numerals",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-017:type:data",
-          "mechanism": "VAL-B2-TYPE-017 passed deterministic Tektur delivery evidence over contract/brand-v2-registries.json#typeRoles"
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:manipulation",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:rl-sim2real",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:world-models",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:data-hardware",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:classical",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:frontier",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:domain:adjacent",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/bc-foundations",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/action-chunking",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/diffusion-policy",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/vla-models",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/pi-line",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/generalist-policies",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/comparison-matrix",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/hierarchical",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/rl-finetuning",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/realtime-execution",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/cross-embodiment",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/knowledge-insulation",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/rl-for-robotics",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/why-rl-locomotion",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/parallel-sim-rl",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/sim2real-transfer",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/legged-locomotion",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/humanoid-wbc",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/reward-design-mpc",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/taxonomy",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/latent-dynamics",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-video",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/jepa",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-sim",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/data-bottleneck",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/datasets",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/hardware-taxonomy",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/teleop-rigs",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/evaluation-crisis",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/industrial-deployment",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/kinematics",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/motion-planning",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/control",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/state-estimation",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/grasp-planning",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/perception",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:classical/scene-representation",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/reliability-gap",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/dexterity",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/generalization",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/competing-theses",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/bear-case",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:frontier/safety-and-assurance",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/autonomous-vehicles",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/drones",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/surgical",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/space",
+          "mechanism": "VAL-B2-TYPE-017 passed per-member evidence derived from data/type-roles.ts#TEKTUR_ASSIGNED_STRINGS"
         },
         {
           "kind": "test",
@@ -8753,7 +9024,7 @@
         "statement": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
         "expected": "Font `cmap` inspection covers every code point in every assigned web and OG string; a glyph-probe render proves no assigned string uses per-glyph fallback. OCR is secondary evidence only.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 4,
+        "populationSize": 57,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -8762,10 +9033,63 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-TYPE-017:type:display",
-          "result:VAL-B2-TYPE-017:type:interface",
-          "result:VAL-B2-TYPE-017:type:reading",
-          "result:VAL-B2-TYPE-017:type:data"
+          "result:VAL-B2-TYPE-017:assigned-string:identity",
+          "result:VAL-B2-TYPE-017:assigned-string:descriptor",
+          "result:VAL-B2-TYPE-017:assigned-string:display-numerals",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:manipulation",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:rl-sim2real",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:world-models",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:data-hardware",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:classical",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:frontier",
+          "result:VAL-B2-TYPE-017:assigned-string:domain:adjacent",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/bc-foundations",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/action-chunking",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/diffusion-policy",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/vla-models",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/pi-line",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/generalist-policies",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/comparison-matrix",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/hierarchical",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/rl-finetuning",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/realtime-execution",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/cross-embodiment",
+          "result:VAL-B2-TYPE-017:assigned-string:article:manipulation/knowledge-insulation",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/rl-for-robotics",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/why-rl-locomotion",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/parallel-sim-rl",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/sim2real-transfer",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/legged-locomotion",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/humanoid-wbc",
+          "result:VAL-B2-TYPE-017:assigned-string:article:rl-sim2real/reward-design-mpc",
+          "result:VAL-B2-TYPE-017:assigned-string:article:world-models/taxonomy",
+          "result:VAL-B2-TYPE-017:assigned-string:article:world-models/latent-dynamics",
+          "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-video",
+          "result:VAL-B2-TYPE-017:assigned-string:article:world-models/jepa",
+          "result:VAL-B2-TYPE-017:assigned-string:article:world-models/generative-sim",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/data-bottleneck",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/datasets",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/hardware-taxonomy",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/teleop-rigs",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/evaluation-crisis",
+          "result:VAL-B2-TYPE-017:assigned-string:article:data-hardware/industrial-deployment",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/kinematics",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/motion-planning",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/control",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/state-estimation",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/grasp-planning",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/perception",
+          "result:VAL-B2-TYPE-017:assigned-string:article:classical/scene-representation",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/reliability-gap",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/dexterity",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/generalization",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/competing-theses",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/bear-case",
+          "result:VAL-B2-TYPE-017:assigned-string:article:frontier/safety-and-assurance",
+          "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/autonomous-vehicles",
+          "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/drones",
+          "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/surgical",
+          "result:VAL-B2-TYPE-017:assigned-string:article:adjacent/space"
         ]
       }
     },

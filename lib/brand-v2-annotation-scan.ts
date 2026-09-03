@@ -16,6 +16,7 @@ export type AnnotationScan = {
   modules: readonly string[];
   surfaceIds: readonly string[];
   controlIds: readonly string[];
+  deviceIds: readonly string[];
   /** Modules that mention each annotation ID, by ID. */
   ownersById: Readonly<Record<string, readonly string[]>>;
 };
@@ -23,7 +24,7 @@ export type AnnotationScan = {
 const SOURCE_ROOTS = ['app', 'components', 'lib'] as const;
 const SOURCE_FILES = ['mdx-components.tsx'] as const;
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx']);
-const ID_PATTERN = /(?:'|")((?:surface|control):[a-z0-9-]+)(?:'|")/g;
+const ID_PATTERN = /(?:'|")((?:surface|control|device):[a-z0-9-]+)(?:'|")/g;
 
 function filesUnder(directory: string): string[] {
   const files: string[] = [];
@@ -68,6 +69,7 @@ export function scanAnnotationLiterals(root: string): AnnotationScan {
     modules,
     surfaceIds: ids.filter((id) => id.startsWith('surface:')),
     controlIds: ids.filter((id) => id.startsWith('control:')),
+    deviceIds: ids.filter((id) => id.startsWith('device:')),
     ownersById: Object.fromEntries(
       [...owners].map(([id, list]) => [id, [...list].sort()]),
     ),
