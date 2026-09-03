@@ -9191,19 +9191,25 @@
           "kind": "test",
           "file": "tests/unit/og-renderer-fonts.test.ts",
           "title": "OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)",
-          "mechanism": "Checks the OG renderer registers only the first-party role families, so the card corpus and the web pages resolve the same four families."
+          "mechanism": "Requires every registered OG renderer face to carry the family the first-party registry gives the role it claims, pins the registered family list and both stack heads, and rejects a scoped exception family in a first-party role."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
-          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
-          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
+          "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9251,19 +9257,25 @@
           "kind": "test",
           "file": "tests/unit/og-renderer-fonts.test.ts",
           "title": "OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)",
-          "mechanism": "Checks the OG renderer registers only the first-party role families, so the card corpus and the web pages resolve the same four families."
+          "mechanism": "Requires every registered OG renderer face to carry the family the first-party registry gives the role it claims, pins the registered family list and both stack heads, and rejects a scoped exception family in a first-party role."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
-          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
-          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
+          "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9630,7 +9642,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9676,7 +9688,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9727,7 +9739,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9779,7 +9791,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9844,20 +9856,20 @@
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
-          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
-          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
+          "title": "Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
-          "title": "Tektur role population › every registered role is owned by at least one public route",
-          "mechanism": "Proves the swept route population covers every registered role, so no role escapes the per-route viewport measurement."
+          "title": "Tektur role population › registers exactly the roles first-party source writes, each reaching a public route",
+          "mechanism": "Reconciles the registered roles with the annotation assignments in first-party source, each row’s definedIn modules with the modules that write it, and requires every role to be reachable from a route entry."
         },
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -9914,7 +9926,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -10246,7 +10258,7 @@
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
-          "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
+          "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
         }
       ],
       "enforcementMode": "automated-machine",

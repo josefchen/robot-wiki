@@ -11098,8 +11098,8 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-home",
-          "routes": [
-            "/"
+          "definedIn": [
+            "app/page.tsx"
           ]
         },
         {
@@ -11107,10 +11107,8 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-shell",
-          "routes": [
-            "/",
-            "/glossary/",
-            "/manipulation/action-chunking/"
+          "definedIn": [
+            "components/nav/site-shell.tsx"
           ]
         },
         {
@@ -11118,15 +11116,15 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-page",
-          "routes": [
-            "/a-z/",
-            "/credits/",
-            "/glossary/",
-            "/manipulation/",
-            "/market-map/",
-            "/playground/",
-            "/search/",
-            "/404/"
+          "definedIn": [
+            "app/(content)/[domain]/page.tsx",
+            "app/a-z/page.tsx",
+            "app/credits/page.tsx",
+            "app/glossary/page.tsx",
+            "app/market-map/page.tsx",
+            "app/not-found.tsx",
+            "app/playground/page.tsx",
+            "app/search/page.tsx"
           ]
         },
         {
@@ -11134,8 +11132,8 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-article",
-          "routes": [
-            "/manipulation/action-chunking/"
+          "definedIn": [
+            "components/article/article-header.tsx"
           ]
         },
         {
@@ -11143,8 +11141,8 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-section",
-          "routes": [
-            "/"
+          "definedIn": [
+            "app/page.tsx"
           ]
         },
         {
@@ -11152,14 +11150,14 @@
           "wght": 600,
           "wdth": 100,
           "cssClass": "font-display-numerals",
-          "routes": [
-            "/404/"
+          "definedIn": [
+            "app/not-found.tsx"
           ]
         }
       ],
       "ogRoleId": "home-wordmark",
       "assignedStringCount": 57,
-      "fingerprint": "6e20f395aa5b4cfe45c581ab52fc1f969885f5fbd5cb9bf992776aec82fc7862"
+      "fingerprint": "f5e4e9bbbf38b7165503c2799156af65f890e46c5c42e235da976b9d7893fd22"
     },
     {
       "id": "type:interface",
@@ -11805,5 +11803,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "57fc22c166063ed0e9a56b40a64441717def9f547c80ef0e2ffe288be8fa51df"
+  "rootFingerprint": "0ea20b96a4ad3259285d6ae4c6e8ad6efb6a045f3398ba3284fde438568b64b7"
 }

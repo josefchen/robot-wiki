@@ -33,8 +33,16 @@ describe('OG renderer font delivery contract', () => {
     expect(OG_RENDERER_FACES.length).toBeGreaterThan(0);
     for (const face of OG_RENDERER_FACES) {
       const family = roleFamilies.get(face.roleId);
-      expect(family).toBeDefined();
-      expect([family, `${face.family} Variable`]).toContain(family);
+      expect(family, `${face.faceId} claims role ${face.roleId}`).toBeDefined();
+      // The registry's family for the claimed role has to be the face's own
+      // family (the web display role names the variable file, so `Tektur`
+      // and `Tektur Variable` are the same family). Comparing `family`
+      // against an array that already contains `family` restated the input
+      // and could not fail: swapping the two roleId values left it green.
+      expect(
+        [face.family, `${face.family} Variable`],
+        `${face.faceId} serves role ${face.roleId}, whose registered family is ${String(family)}`,
+      ).toContain(family);
       expect(face.family).not.toMatch(/^KaTeX/i);
     }
     expect(OG_RENDERER_FACES.map(({ family }) => family)).toEqual([

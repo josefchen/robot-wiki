@@ -24,8 +24,8 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-home",
-      "routes": [
-        "/"
+      "definedIn": [
+        "app/page.tsx"
       ]
     },
     {
@@ -33,10 +33,8 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-shell",
-      "routes": [
-        "/",
-        "/glossary/",
-        "/manipulation/action-chunking/"
+      "definedIn": [
+        "components/nav/site-shell.tsx"
       ]
     },
     {
@@ -44,15 +42,15 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-page",
-      "routes": [
-        "/a-z/",
-        "/credits/",
-        "/glossary/",
-        "/manipulation/",
-        "/market-map/",
-        "/playground/",
-        "/search/",
-        "/404/"
+      "definedIn": [
+        "app/(content)/[domain]/page.tsx",
+        "app/a-z/page.tsx",
+        "app/credits/page.tsx",
+        "app/glossary/page.tsx",
+        "app/market-map/page.tsx",
+        "app/not-found.tsx",
+        "app/playground/page.tsx",
+        "app/search/page.tsx"
       ]
     },
     {
@@ -60,8 +58,8 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-article",
-      "routes": [
-        "/manipulation/action-chunking/"
+      "definedIn": [
+        "components/article/article-header.tsx"
       ]
     },
     {
@@ -69,8 +67,8 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-section",
-      "routes": [
-        "/"
+      "definedIn": [
+        "app/page.tsx"
       ]
     },
     {
@@ -78,8 +76,8 @@
       "wght": 600,
       "wdth": 100,
       "cssClass": "font-display-numerals",
-      "routes": [
-        "/404/"
+      "definedIn": [
+        "app/not-found.tsx"
       ]
     }
   ],

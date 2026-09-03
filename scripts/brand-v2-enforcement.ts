@@ -332,7 +332,7 @@ const ASSET_TARGET = testTarget(
 const TEKTUR_BROWSER_TARGET = testTarget(
   'tests/e2e/tektur-font-delivery.spec.ts',
   'Tektur web delivery › loads the local variable face without a third-party request or glyph fallback',
-  'Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests.',
+  'Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for the assigned strings, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request.',
 );
 
 function tekturUnitTarget(title: string, mechanism: string): TestTarget {
@@ -345,16 +345,13 @@ function tekturUnitTarget(title: string, mechanism: string): TestTarget {
 
 const TEKTUR_ROLE_POPULATION_TARGET = testTarget(
   'tests/e2e/tektur-font-delivery.spec.ts',
-  // The reporter interpolates the route into this title; the enforcement
-  // inventory reads the authored template, so the row has to name it as
-  // written in the spec.
-  'Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)',
-  'Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns.',
+  'Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)',
+  'Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width.',
 );
 const TEKTUR_ROLE_OWNERSHIP_TARGET = testTarget(
   'tests/e2e/tektur-font-delivery.spec.ts',
-  'Tektur role population › every registered role is owned by at least one public route',
-  'Proves the swept route population covers every registered role, so no role escapes the per-route viewport measurement.',
+  'Tektur role population › registers exactly the roles first-party source writes, each reaching a public route',
+  'Reconciles the registered roles with the annotation assignments in first-party source, each row’s definedIn modules with the modules that write it, and requires every role to be reachable from a route entry.',
 );
 const TEKTUR_BINARY_TARGET = tekturUnitTarget(
   'inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)',
@@ -363,7 +360,7 @@ const TEKTUR_BINARY_TARGET = tekturUnitTarget(
 const OG_RENDERER_FAMILY_TARGET = testTarget(
   'tests/unit/og-renderer-fonts.test.ts',
   'OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)',
-  'Checks the OG renderer registers only the first-party role families, so the card corpus and the web pages resolve the same four families.',
+  'Requires every registered OG renderer face to carry the family the first-party registry gives the role it claims, pins the registered family list and both stack heads, and rejects a scoped exception family in a first-party role.',
 );
 const OG_RENDERER_RUN_TARGET = testTarget(
   'tests/unit/og-renderer-fonts.test.ts',
@@ -386,6 +383,10 @@ function tekturTargetsFor(id: string): TestTarget[] {
         'Pins the four first-party families to their display, interface, reading, and data roles.',
       ),
       OG_RENDERER_FAMILY_TARGET,
+      // The family row alone inspects registrations; the renderer walk is
+      // what proves the shipped corpus paints nothing outside them, so a
+      // role-family claim about the OG path names both.
+      OG_RENDERER_RUN_TARGET,
       TEKTUR_ROLE_POPULATION_TARGET,
       TEKTUR_BROWSER_TARGET,
     ];

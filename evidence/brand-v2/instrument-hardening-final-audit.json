@@ -110,7 +110,7 @@
       "result": "fail",
       "evidence": [
         "lib/brand-v2-route-profile.ts correctly emits a reflow failure for every finite reflowOverflowPx > 0.",
-        "The forced 640px DOM plant at a 320x800 viewport produced positive measured overflow and the expected reflow failure.",
+        "The forced 1280px DOM plant at a 320x800 viewport measured 960px of document overflow and produced the expected reflow failure.",
         "The audited all-route executor nevertheless removed reflow failures from its normal assertion; fix-forward ca1729e5f6dcda01d2e23b50baa1e44587ae269d adds exact equality against seven archived v1 overflow routes."
       ]
     },
@@ -161,7 +161,7 @@
     {
       "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g \"rejects a route profile\" --workers=1",
       "exitCode": 0,
-      "observation": "2 passed: empty font observations emitted empty-font-resource-population, and a 640px plant at 320 CSS px emitted a measured reflow failure."
+      "observation": "2 passed: empty font observations emitted empty-font-resource-population, and a 1280px plant at 320 CSS px emitted a measured reflow failure of 960px overflow."
     },
     {
       "command": "npx playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g \"derives and renders every public destination\" --workers=1",
@@ -231,7 +231,8 @@
       "name": "forced-320-overflow",
       "subject": "Rendered home route at a literal 320x800 CSS-pixel viewport",
       "expectedFailure": "A measured reflow failure with positive pixel overflow",
-      "observed": "A 640px-wide, 1px-high DOM node produced positive document overflow and validateRouteProfile returned reflow / <measured>px-overflow.",
+      "observed": "A 1280px-wide, 1px-high DOM node produced 960px of positive document overflow and validateRouteProfile returned reflow / 960px-overflow.",
+      "measuredOverflowPx": 960,
       "restoredByteIdentical": true
     },
     {

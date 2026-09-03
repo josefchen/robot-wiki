@@ -21010,9 +21010,13 @@
           "cssClass": "font-display-home",
           "wght": 600,
           "wdth": 100,
-          "routes": [
+          "definedIn": [
+            "app/page.tsx"
+          ],
+          "derivedRoutes": [
             "/"
-          ]
+          ],
+          "sourceOccurrences": 1
         },
         "tool": "fontkit + Vitest + Playwright"
       }
@@ -21038,11 +21042,74 @@
           "cssClass": "font-display-shell",
           "wght": 600,
           "wdth": 100,
-          "routes": [
+          "definedIn": [
+            "components/nav/site-shell.tsx"
+          ],
+          "derivedRoutes": [
             "/",
+            "/a-z/",
+            "/adjacent/",
+            "/adjacent/autonomous-vehicles/",
+            "/adjacent/drones/",
+            "/adjacent/space/",
+            "/adjacent/surgical/",
+            "/classical/",
+            "/classical/control/",
+            "/classical/grasp-planning/",
+            "/classical/kinematics/",
+            "/classical/motion-planning/",
+            "/classical/perception/",
+            "/classical/scene-representation/",
+            "/classical/state-estimation/",
+            "/credits/",
+            "/data-hardware/",
+            "/data-hardware/data-bottleneck/",
+            "/data-hardware/datasets/",
+            "/data-hardware/evaluation-crisis/",
+            "/data-hardware/hardware-taxonomy/",
+            "/data-hardware/industrial-deployment/",
+            "/data-hardware/teleop-rigs/",
+            "/frontier/",
+            "/frontier/bear-case/",
+            "/frontier/competing-theses/",
+            "/frontier/dexterity/",
+            "/frontier/generalization/",
+            "/frontier/reliability-gap/",
+            "/frontier/safety-and-assurance/",
             "/glossary/",
-            "/manipulation/action-chunking/"
-          ]
+            "/manipulation/",
+            "/manipulation/action-chunking/",
+            "/manipulation/bc-foundations/",
+            "/manipulation/comparison-matrix/",
+            "/manipulation/cross-embodiment/",
+            "/manipulation/diffusion-policy/",
+            "/manipulation/generalist-policies/",
+            "/manipulation/hierarchical/",
+            "/manipulation/knowledge-insulation/",
+            "/manipulation/pi-line/",
+            "/manipulation/realtime-execution/",
+            "/manipulation/rl-finetuning/",
+            "/manipulation/vla-models/",
+            "/market-map/",
+            "/playground/",
+            "/rl-sim2real/",
+            "/rl-sim2real/humanoid-wbc/",
+            "/rl-sim2real/legged-locomotion/",
+            "/rl-sim2real/parallel-sim-rl/",
+            "/rl-sim2real/reward-design-mpc/",
+            "/rl-sim2real/rl-for-robotics/",
+            "/rl-sim2real/sim2real-transfer/",
+            "/rl-sim2real/why-rl-locomotion/",
+            "/search/",
+            "/world-models/",
+            "/world-models/generative-sim/",
+            "/world-models/generative-video/",
+            "/world-models/jepa/",
+            "/world-models/latent-dynamics/",
+            "/world-models/taxonomy/",
+            "/404/"
+          ],
+          "sourceOccurrences": 3
         },
         "tool": "fontkit + Vitest + Playwright"
       }
@@ -21068,16 +21135,33 @@
           "cssClass": "font-display-page",
           "wght": 600,
           "wdth": 100,
-          "routes": [
+          "definedIn": [
+            "app/(content)/[domain]/page.tsx",
+            "app/a-z/page.tsx",
+            "app/credits/page.tsx",
+            "app/glossary/page.tsx",
+            "app/market-map/page.tsx",
+            "app/not-found.tsx",
+            "app/playground/page.tsx",
+            "app/search/page.tsx"
+          ],
+          "derivedRoutes": [
             "/a-z/",
+            "/adjacent/",
+            "/classical/",
             "/credits/",
+            "/data-hardware/",
+            "/frontier/",
             "/glossary/",
             "/manipulation/",
             "/market-map/",
             "/playground/",
+            "/rl-sim2real/",
             "/search/",
+            "/world-models/",
             "/404/"
-          ]
+          ],
+          "sourceOccurrences": 8
         },
         "tool": "fontkit + Vitest + Playwright"
       }
@@ -21103,9 +21187,59 @@
           "cssClass": "font-display-article",
           "wght": 600,
           "wdth": 100,
-          "routes": [
-            "/manipulation/action-chunking/"
-          ]
+          "definedIn": [
+            "components/article/article-header.tsx"
+          ],
+          "derivedRoutes": [
+            "/adjacent/autonomous-vehicles/",
+            "/adjacent/drones/",
+            "/adjacent/space/",
+            "/adjacent/surgical/",
+            "/classical/control/",
+            "/classical/grasp-planning/",
+            "/classical/kinematics/",
+            "/classical/motion-planning/",
+            "/classical/perception/",
+            "/classical/scene-representation/",
+            "/classical/state-estimation/",
+            "/data-hardware/data-bottleneck/",
+            "/data-hardware/datasets/",
+            "/data-hardware/evaluation-crisis/",
+            "/data-hardware/hardware-taxonomy/",
+            "/data-hardware/industrial-deployment/",
+            "/data-hardware/teleop-rigs/",
+            "/frontier/bear-case/",
+            "/frontier/competing-theses/",
+            "/frontier/dexterity/",
+            "/frontier/generalization/",
+            "/frontier/reliability-gap/",
+            "/frontier/safety-and-assurance/",
+            "/manipulation/action-chunking/",
+            "/manipulation/bc-foundations/",
+            "/manipulation/comparison-matrix/",
+            "/manipulation/cross-embodiment/",
+            "/manipulation/diffusion-policy/",
+            "/manipulation/generalist-policies/",
+            "/manipulation/hierarchical/",
+            "/manipulation/knowledge-insulation/",
+            "/manipulation/pi-line/",
+            "/manipulation/realtime-execution/",
+            "/manipulation/rl-finetuning/",
+            "/manipulation/vla-models/",
+            "/rl-sim2real/humanoid-wbc/",
+            "/rl-sim2real/legged-locomotion/",
+            "/rl-sim2real/parallel-sim-rl/",
+            "/rl-sim2real/reward-design-mpc/",
+            "/rl-sim2real/rl-for-robotics/",
+            "/rl-sim2real/sim2real-transfer/",
+            "/rl-sim2real/why-rl-locomotion/",
+            "/world-models/generative-sim/",
+            "/world-models/generative-video/",
+            "/world-models/jepa/",
+            "/world-models/latent-dynamics/",
+            "/world-models/taxonomy/"
+          ],
+          "sourceOccurrences": 1
         },
         "tool": "fontkit + Vitest + Playwright"
       }
@@ -21131,9 +21265,13 @@
           "cssClass": "font-display-section",
           "wght": 600,
           "wdth": 100,
-          "routes": [
+          "definedIn": [
+            "app/page.tsx"
+          ],
+          "derivedRoutes": [
             "/"
-          ]
+          ],
+          "sourceOccurrences": 5
         },
         "tool": "fontkit + Vitest + Playwright"
       }
@@ -21159,9 +21297,13 @@
           "cssClass": "font-display-numerals",
           "wght": 600,
           "wdth": 100,
-          "routes": [
+          "definedIn": [
+            "app/not-found.tsx"
+          ],
+          "derivedRoutes": [
             "/404/"
-          ]
+          ],
+          "sourceOccurrences": 1
         },
         "tool": "fontkit + Vitest + Playwright"
       }

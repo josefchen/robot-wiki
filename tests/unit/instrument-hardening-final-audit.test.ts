@@ -64,6 +64,14 @@ const auditSchema = z
             expectedFailure: z.string().min(1),
             observed: z.string().min(1),
             restoredByteIdentical: z.boolean(),
+            /**
+             * A mutation whose whole result is a measured quantity records
+             * that quantity as a number, and the prose has to quote it. The
+             * forced-reflow proof carried `<measured>` in its reason string
+             * instead, so the record could satisfy a numeric marker from the
+             * viewport it set up and prove no overflow at all.
+             */
+            measuredOverflowPx: z.number().int().positive().optional(),
           })
           .strict(),
       )
@@ -138,6 +146,14 @@ const REQUIRED_MUTATIONS: ReadonlyArray<{
   subject: RegExp[];
   expectedFailure: RegExp[];
   observed: RegExp[];
+  /**
+   * The mutation's result is a measured overflow: `measuredOverflowPx` must
+   * be present and positive, the reason the run returned must quote exactly
+   * that number, and the number must not be one of the dimensions the
+   * subject set up, so restating the 320x800 viewport cannot pass for a
+   * measurement.
+   */
+  measuredOverflow?: true;
   emittedFailures: Array<{
     record: RegExp;
     source: string;
@@ -162,6 +178,7 @@ const REQUIRED_MUTATIONS: ReadonlyArray<{
     subject: [/320/, /viewport/i],
     expectedFailure: [/reflow/i, /positive/i, /overflow/i],
     observed: [/\b\d+px\b/, /positive/i, /overflow/i, /reflow/i],
+    measuredOverflow: true,
     emittedFailures: [
       {
         record: /px-overflow/,
@@ -210,6 +227,50 @@ const REQUIRED_MUTATIONS: ReadonlyArray<{
     ],
   },
 ];
+
+/**
+ * An unfilled token is not evidence, and a schema that only requires a
+ * non-empty string accepts one. `reflow / <measured>px-overflow` satisfied
+ * every marker the forced-reflow proof was asked for while recording no
+ * result, so the whole record is swept rather than the one field that was
+ * caught.
+ */
+const PLACEHOLDER_TOKEN =
+  /<[A-Za-z][\w .-]*>|\bTBD\b|\bTODO\b|\bFIXME\b|\bXX+\b|\bplaceholder\b|\?\?\?|\bpending\s+measurement\b/i;
+
+function recordedStrings(
+  value: unknown,
+  path = '$',
+): Array<{ path: string; value: string }> {
+  if (typeof value === 'string') return [{ path, value }];
+  if (Array.isArray(value)) {
+    return value.flatMap((entry, index) =>
+      recordedStrings(entry, `${path}[${index}]`),
+    );
+  }
+  if (value !== null && typeof value === 'object') {
+    return Object.entries(value).flatMap(([key, entry]) =>
+      recordedStrings(entry, `${path}.${key}`),
+    );
+  }
+  return [];
+}
+
+function integersIn(text: string): number[] {
+  return [...text.matchAll(/\d+/g)].map(([digits]) => Number(digits));
+}
+
+/** Every `npm run`/`npm test` invocation inside a recorded command line. */
+function npmScriptsIn(command: string): string[] {
+  return command
+    .split('&&')
+    .map((segment) => segment.trim())
+    .flatMap((segment) => {
+      const run = /^npm\s+run\s+([^\s]+)/.exec(segment);
+      if (run) return [run[1]];
+      return /^npm\s+test\b/.test(segment) ? ['test'] : [];
+    });
+}
 
 function git(...args: string[]): string {
   return execFileSync('git', args, {
@@ -292,6 +353,10 @@ describe('instrument hardening final audit evidence', () => {
     }
     expect(new Set(assertions).size).toBe(audit.assertions.length);
 
+    const mutations = new Map(
+      audit.mutations.map((mutation) => [mutation.name, mutation]),
+    );
+
     const sealedCounts = auditedReleaseFailureCounts();
     for (const required of REQUIRED_COMMANDS) {
       const matching = audit.commands.filter(
@@ -311,6 +376,23 @@ describe('instrument hardening final audit evidence', () => {
             entry.observation,
             `audit command ${required.id} observation must record ${marker.source}`,
           ).toMatch(marker);
+        }
+      }
+      if (required.id === 'focused-mutation') {
+        // The command that ran the reflow plant has to report the same
+        // overflow the mutation record stores, so the two halves of the
+        // proof cannot drift into agreeing with nothing.
+        const measured = mutations.get('forced-320-overflow')
+          ?.measuredOverflowPx;
+        expect(
+          measured,
+          'the focused mutation run measures the forced-reflow overflow',
+        ).toBeDefined();
+        for (const entry of matching) {
+          expect(
+            entry.observation,
+            `the focused mutation observation must state the ${String(measured)}px overflow it measured`,
+          ).toContain(`${String(measured)}px`);
         }
       }
       if (required.id !== 'release-count') continue;
@@ -340,9 +422,6 @@ describe('instrument hardening final audit evidence', () => {
       }
     }
 
-    const mutations = new Map(
-      audit.mutations.map((mutation) => [mutation.name, mutation]),
-    );
     for (const required of REQUIRED_MUTATIONS) {
       const mutation = mutations.get(required.name);
       expect(mutation, `missing audit mutation ${required.name}`).toBeDefined();
@@ -370,8 +449,34 @@ describe('instrument hardening final audit evidence', () => {
           `${emitted.source} no longer emits the failure class ${required.name} claims`,
         ).toMatch(emitted.sourceMarker);
       }
+      if (!required.measuredOverflow) continue;
+      const measured = mutation.measuredOverflowPx;
+      expect(
+        measured,
+        `audit mutation ${required.name} must record the overflow it measured`,
+      ).toBeDefined();
+      if (measured === undefined) continue;
+      expect(
+        mutation.observed,
+        `audit mutation ${required.name} must report the ${measured}px-overflow reason the run returned`,
+      ).toContain(`${measured}px-overflow`);
+      // The measurement is the result; the viewport and the plant are the
+      // setup. A number that only restates the setup is not an observation,
+      // which is how a `320x800` subject could satisfy a bare `\d+px` marker.
+      expect(
+        integersIn(mutation.subject),
+        `audit mutation ${required.name} measured overflow must not restate a setup dimension`,
+      ).not.toContain(measured);
     }
     expect(new Set(mutations).size).toBe(audit.mutations.length);
+    // Restoration is asserted for every recorded mutation, not only the
+    // required ones: a plant left in the tree is not a proof.
+    for (const mutation of audit.mutations) {
+      expect(
+        mutation.restoredByteIdentical,
+        `audit mutation ${mutation.name} was not restored byte-identically`,
+      ).toBe(true);
+    }
 
     expect(
       audit.knownBoundaries.some((boundary) =>
@@ -388,5 +493,71 @@ describe('instrument hardening final audit evidence', () => {
         true,
       );
     }
+  });
+
+  it('records no placeholder token in any evidence string', () => {
+    const audit = auditSchema.parse(
+      JSON.parse(readFileSync(AUDIT_PATH, 'utf8')) as unknown,
+    );
+    const recorded = recordedStrings(audit);
+    expect(recorded.length).toBeGreaterThan(0);
+    expect(
+      recorded
+        .filter(({ value }) => PLACEHOLDER_TOKEN.test(value))
+        .map(({ path, value }) => `${path}: ${value}`),
+    ).toEqual([]);
+  });
+
+  it('records commands and an auditor commit that exist outside the record', () => {
+    const audit = auditSchema.parse(
+      JSON.parse(readFileSync(AUDIT_PATH, 'utf8')) as unknown,
+    );
+    const scripts = Object.keys(
+      (
+        JSON.parse(
+          readFileSync(join(process.cwd(), 'package.json'), 'utf8'),
+        ) as { scripts: Record<string, string> }
+      ).scripts,
+    );
+    // Every recorded gate has to be a gate this repository can run. A
+    // command naming a script that does not exist records a run that could
+    // not have happened.
+    const referenced = audit.commands.flatMap(({ command }) =>
+      npmScriptsIn(command),
+    );
+    expect(referenced.length).toBeGreaterThan(0);
+    expect(
+      referenced.filter((script) => !scripts.includes(script)),
+      'recorded npm scripts must exist in package.json',
+    ).toEqual([]);
+    if (audit.auditorCommit !== null) {
+      expect(
+        git('cat-file', '-t', audit.auditorCommit),
+        'the recorded auditor commit must resolve in this repository',
+      ).toBe('commit');
+    }
+  });
+
+  it('cites only source and artifact files that exist', () => {
+    const audit = auditSchema.parse(
+      JSON.parse(readFileSync(AUDIT_PATH, 'utf8')) as unknown,
+    );
+    const tracked = new Set(git('ls-files').split('\n').filter(Boolean));
+    expect(tracked.size).toBeGreaterThan(0);
+    // Only code and artifact citations are resolved here: the audit also
+    // cites mission guidance, which lives outside this repository.
+    const CITATION = /\b(?:[A-Za-z0-9_.-]+\/)+[A-Za-z0-9_.-]+\.(?:ts|tsx|json|css|mdx)\b/g;
+    const cited = [
+      ...new Set(
+        recordedStrings(audit).flatMap(({ value }) =>
+          [...value.matchAll(CITATION)].map(([path]) => path),
+        ),
+      ),
+    ].sort();
+    expect(cited.length).toBeGreaterThan(0);
+    expect(
+      cited.filter((path) => !tracked.has(path)),
+      'every cited source or artifact file must be tracked in this repository',
+    ).toEqual([]);
   });
 });

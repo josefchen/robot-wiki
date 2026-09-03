@@ -17,6 +17,7 @@ import {
   TEKTUR_OG_ROLE_ID,
   TEKTUR_ROLE_INSTANCES,
 } from '../data/type-roles.ts';
+import { deriveTekturRoleOccurrences } from './tektur-role-occurrences.ts';
 
 export type TekturPopulationMember = {
   id: string;
@@ -68,6 +69,10 @@ function binaryMembers(): TekturPopulationMember[] {
 }
 
 function roleInstanceMembers(): TekturPopulationMember[] {
+  // The routes are derived from the annotation writers and the used-import
+  // graph, not read back out of the registry row: a row that declares its
+  // own route population cannot be wrong about it.
+  const occurrences = deriveTekturRoleOccurrences();
   return TEKTUR_ROLE_INSTANCES.map((instance) => ({
     id: `type-instance:${instance.id}`,
     sourcePath: 'data/type-roles.json',
@@ -75,7 +80,11 @@ function roleInstanceMembers(): TekturPopulationMember[] {
       cssClass: instance.cssClass,
       wght: instance.wght,
       wdth: instance.wdth,
-      routes: instance.routes,
+      definedIn: instance.definedIn,
+      derivedRoutes: occurrences.routesByRole[instance.id] ?? [],
+      sourceOccurrences: occurrences.writers
+        .filter(({ role }) => role === instance.id)
+        .reduce((total, { occurrences: count }) => total + count, 0),
     },
   }));
 }
