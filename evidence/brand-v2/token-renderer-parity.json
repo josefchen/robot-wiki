@@ -13,12 +13,6 @@
       "sealOpener": "openSealedCardTree",
       "finalTree": "finalTree"
     },
-    "generatorEmit": {
-      "module": "scripts/generate-og-cards.ts",
-      "boundaryCall": "renderCorpusCard",
-      "emitted": "buffer",
-      "writes": 2
-    },
     "modules": [
       "data/modules.ts",
       "data/plex-mono-font-metadata.ts",
@@ -41,7 +35,7 @@
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "d6c05fc32b2d259656b36053112e380cb5fab7377b1093897569e927cb1fa4df"
+    "fingerprint": "41d3b26e8c4683e1d6ef5afde84fbd757a099133b38a5348e93a5588528b7ab4"
   },
   "cardCount": 48,
   "paintedProperties": 9743,

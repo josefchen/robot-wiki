@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import type { Page } from '@playwright/test';
+import type { Page, Request } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import {
   FIRST_PARTY_TYPE_ROLES,
@@ -197,8 +197,8 @@ function measureDocument(input: {
 }
 
 /**
- * What the sweep learned about one request URL, from the network rather than
- * from its spelling.
+ * What the sweep learned about one network transaction, from the network
+ * rather than from its spelling.
  *
  * VAL-B2-TYPE-002 is a claim about font requests, and the previous discovery
  * accepted a Resource Timing entry whose `initiatorType` was `font` or whose
@@ -208,22 +208,36 @@ function measureDocument(input: {
  * so the extension was the whole test, and `https://cdn.example/f?id=plex`
  * has no extension. A request is a font here when the payload that arrived
  * is one.
+ *
+ * Identity is the request, never the URL. While the capture kept one record
+ * per URL it unioned the observations of separate transactions and retained
+ * only the first readable body, so two fetches of one extensionless foreign
+ * URL — a recognized PNG, then corrupt bytes under
+ * `application/octet-stream` — combined into a *supported* non-font: the
+ * ambiguous second transaction reached neither `fontRequests` nor the
+ * fail-closed unclassified set, and disappeared. Each transaction carries
+ * its own destination, declared type and payload, is classified alone, and
+ * is aggregated only afterwards.
  */
-type CapturedRequest = {
+type CapturedTransaction = {
+  /** Capture order; two transactions to one URL stay distinguishable. */
+  ordinal: number;
   url: string;
   /** Same-origin as `pathname` + `search`; foreign as the absolute URL. */
   key: string;
   origin: 'same' | 'foreign';
-  resourceTypes: Set<string>;
-  contentTypes: Set<string>;
+  /** The browser's declared destination for this request. */
+  resourceType: string;
+  /** This response's `content-type`, or null when none arrived. */
+  contentType: string | null;
   payloadSignature: string | null;
   sha256: string | null;
   responded: boolean;
   bodyError: string | null;
 };
 
-type ClassifiedRequest = CapturedRequestClassification & {
-  request: CapturedRequest;
+type ClassifiedTransaction = CapturedRequestClassification & {
+  transaction: CapturedTransaction;
 };
 
 /**
@@ -231,25 +245,32 @@ type ClassifiedRequest = CapturedRequestClassification & {
  * `lib/brand-v2-tektur-evidence.ts` so that the union of the three positive
  * signals is falsifiable under Vitest, one signal at a time, instead of
  * only inside a 248-document browser sweep.
+ *
+ * The union it computes is over the signals of a single transaction — its
+ * payload, its declared type, its destination — which is what makes it a
+ * union rather than a merge of separate answers.
  */
-function classifyRequest(request: CapturedRequest): ClassifiedRequest {
+function classifyTransaction(
+  transaction: CapturedTransaction,
+): ClassifiedTransaction {
   return {
-    request,
+    transaction,
     ...classifyCapturedRequest({
-      resourceTypes: [...request.resourceTypes],
-      contentTypes: [...request.contentTypes],
-      payloadSignature: request.payloadSignature,
-      responded: request.responded,
-      origin: request.origin,
+      resourceTypes: [transaction.resourceType],
+      contentTypes:
+        transaction.contentType === null ? [] : [transaction.contentType],
+      payloadSignature: transaction.payloadSignature,
+      responded: transaction.responded,
+      origin: transaction.origin,
     }),
   };
 }
 
 type RequestCapture = {
-  /** Observation key to the request URLs captured while it was navigated. */
-  byObservation: Map<string, Set<string>>;
-  requests: Map<string, CapturedRequest>;
-  /** Opens the bucket every subsequent request is attributed to. */
+  /** Observation key to the transactions captured while it was navigated. */
+  byObservation: Map<string, Set<number>>;
+  transactions: Map<number, CapturedTransaction>;
+  /** Opens the bucket every subsequent transaction is attributed to. */
   open: (observationKey: string) => void;
   settled: () => Promise<void>;
 };
@@ -264,55 +285,78 @@ type RequestCapture = {
  * styles, images and documents are not fetched, and misreading one of those
  * as a non-font cannot manufacture a same-origin claim: the assertion is
  * that every font request is same-origin, and their origin is not in doubt.
+ * Every transaction that qualifies is read; a body is never skipped because
+ * an earlier request to the same URL already produced one.
  */
 function captureRequests(page: Page, origin: string): RequestCapture {
-  const requests = new Map<string, CapturedRequest>();
-  const byObservation = new Map<string, Set<string>>();
+  const transactions = new Map<number, CapturedTransaction>();
+  const byRequest = new Map<Request, number>();
+  const byObservation = new Map<string, Set<number>>();
   const bodies: Array<Promise<void>> = [];
   let current = 'setup';
+  let ordinal = 0;
 
-  const record = (url: string): CapturedRequest => {
-    const existing = requests.get(url);
-    if (existing) return existing;
-    const parsed = new URL(url);
-    const created: CapturedRequest = {
-      url,
+  const mint = (request: Request): CapturedTransaction => {
+    const parsed = new URL(request.url());
+    ordinal += 1;
+    const created: CapturedTransaction = {
+      ordinal,
+      url: request.url(),
       key:
-        parsed.origin === origin ? `${parsed.pathname}${parsed.search}` : url,
+        parsed.origin === origin
+          ? `${parsed.pathname}${parsed.search}`
+          : request.url(),
       origin: parsed.origin === origin ? 'same' : 'foreign',
-      resourceTypes: new Set(),
-      contentTypes: new Set(),
+      resourceType: request.resourceType(),
+      contentType: null,
       payloadSignature: null,
       sha256: null,
       responded: false,
       bodyError: null,
     };
-    requests.set(url, created);
+    transactions.set(ordinal, created);
     return created;
   };
 
-  page.on('request', (request) => {
-    const url = request.url();
-    if (!/^https?:/.test(url)) return;
-    record(url).resourceTypes.add(request.resourceType());
-    const bucket = byObservation.get(current) ?? new Set<string>();
-    bucket.add(url);
+  const record = (request: Request): CapturedTransaction => {
+    const existing = byRequest.get(request);
+    if (existing !== undefined) {
+      return transactions.get(existing) as CapturedTransaction;
+    }
+    const created = mint(request);
+    byRequest.set(request, created.ordinal);
+    return created;
+  };
+
+  const attribute = (transaction: CapturedTransaction): void => {
+    const bucket = byObservation.get(current) ?? new Set<number>();
+    bucket.add(transaction.ordinal);
     byObservation.set(current, bucket);
+  };
+
+  page.on('request', (request) => {
+    if (!/^https?:/.test(request.url())) return;
+    attribute(record(request));
   });
   page.on('response', (response) => {
-    const url = response.url();
-    if (!/^https?:/.test(url)) return;
-    const captured = record(url);
+    const request = response.request();
+    if (!/^https?:/.test(request.url())) return;
+    let captured = record(request);
+    if (captured.responded) {
+      // A second response on one request would overwrite the first's
+      // observations, which is the merge this capture exists to avoid.
+      captured = mint(request);
+      attribute(captured);
+    }
     captured.responded = true;
     const contentType = (response.headers()['content-type'] ?? '')
       .split(';')[0]
       .trim()
       .toLowerCase();
-    captured.contentTypes.add(contentType);
-    if (captured.sha256 !== null) return;
+    captured.contentType = contentType;
     const undecided =
       captured.origin === 'foreign' ||
-      response.request().resourceType() === 'font' ||
+      captured.resourceType === 'font' ||
       isFontContentType(contentType) ||
       !isDecidedNonFontContentType(contentType);
     if (!undecided) return;
@@ -336,7 +380,7 @@ function captureRequests(page: Page, origin: string): RequestCapture {
 
   return {
     byObservation,
-    requests,
+    transactions,
     open: (observationKey: string) => {
       current = observationKey;
       if (!byObservation.has(observationKey)) {
@@ -512,11 +556,10 @@ type FontRequestSummary = {
   observationsMixingForeignOrigin: number;
   foreignOrigin: string[];
   sameOriginPaths: string[];
-  fontUrlsByObservation: Map<string, string[]>;
 };
 
 /**
- * Classifies every captured request and attributes the font ones to the
+ * Classifies every captured transaction and attributes the font ones to the
  * observations they were made from.
  *
  * Takes the capture rather than the whole sweep so the planted-request gate
@@ -526,60 +569,80 @@ function summarizeFontRequests(result: {
   capture: RequestCapture;
   deliveryKey: string;
 }): FontRequestSummary {
-  const classified = new Map<string, ClassifiedRequest>();
-  for (const [url, request] of result.capture.requests) {
-    classified.set(url, classifyRequest(request));
+  const classified = new Map<number, ClassifiedTransaction>();
+  for (const [key, transaction] of result.capture.transactions) {
+    classified.set(key, classifyTransaction(transaction));
   }
   const unclassified = [...classified.values()]
     .filter(({ classified: decided }) => !decided)
     .map(
-      ({ request }) =>
-        `${request.url} (${request.origin}-origin, request types [${[...request.resourceTypes].sort().join(', ')}], response types [${[...request.contentTypes].sort().join(', ')}]${
-          request.bodyError === null ? '' : `, payload unreadable: ${request.bodyError}`
+      ({ transaction }) =>
+        `${transaction.url} (transaction ${transaction.ordinal}, ${transaction.origin}-origin, request type ${transaction.resourceType}, response type ${transaction.contentType ?? 'none'}${
+          transaction.bodyError === null
+            ? ''
+            : `, payload unreadable: ${transaction.bodyError}`
         })`,
     )
     .sort();
-  const fontUrlsByObservation = new Map<string, string[]>();
   let observationsWithFontRequest = 0;
   let observationsMixingForeignOrigin = 0;
-  for (const [key, urls] of result.capture.byObservation) {
+  for (const [key, ordinals] of result.capture.byObservation) {
     if (key === result.deliveryKey) continue;
-    const fontUrls = [...urls].filter(
-      (url) => classified.get(url)?.isFont === true,
+    const fonts = [...ordinals].filter(
+      (entry) => classified.get(entry)?.isFont === true,
     );
-    fontUrlsByObservation.set(key, fontUrls.sort());
-    if (fontUrls.length > 0) observationsWithFontRequest += 1;
+    if (fonts.length > 0) observationsWithFontRequest += 1;
     if (
-      fontUrls.some((url) => classified.get(url)?.request.origin === 'foreign')
+      fonts.some(
+        (entry) => classified.get(entry)?.transaction.origin === 'foreign',
+      )
     ) {
       observationsMixingForeignOrigin += 1;
     }
   }
-  const fontRows = [...classified.values()]
-    .filter(({ isFont }) => isFont)
-    .map(({ request }) => ({
-      url: request.key,
-      origin: request.origin,
-      resourceTypes: [...request.resourceTypes].sort(),
-      contentTypes: [...request.contentTypes].sort(),
-      payloadSignature: request.payloadSignature ?? '',
-      sha256: request.sha256 ?? '',
-    }))
-    .sort((left, right) => left.url.localeCompare(right.url));
+  // One row per distinct observation, not per transaction: the sweep runs
+  // with the HTTP cache disabled, so each document fetches the same faces
+  // again and 248 identical rows would be 248 copies of one fact. A
+  // transaction that observed something different — other bytes, another
+  // declared type, another destination — keeps its own row rather than
+  // being folded into the first one's.
+  const rows = new Map<
+    string,
+    TekturDeliveryEvidence['fontResources']['fontRequests'][number]
+  >();
+  for (const { isFont, transaction } of classified.values()) {
+    if (!isFont) continue;
+    const row = {
+      url: transaction.key,
+      origin: transaction.origin,
+      resourceTypes: [transaction.resourceType],
+      contentTypes:
+        transaction.contentType === null ? [] : [transaction.contentType],
+      payloadSignature: transaction.payloadSignature ?? '',
+      sha256: transaction.sha256 ?? '',
+    };
+    rows.set(JSON.stringify(row), row);
+  }
+  const fontRows = [...rows.entries()]
+    .sort(([leftKey, left], [rightKey, right]) =>
+      left.url === right.url
+        ? leftKey.localeCompare(rightKey)
+        : left.url.localeCompare(right.url),
+    )
+    .map(([, row]) => row);
+  const paths = (origin: 'same' | 'foreign'): string[] =>
+    [
+      ...new Set(
+        fontRows.filter((row) => row.origin === origin).map(({ url }) => url),
+      ),
+    ].sort();
   return {
     rows: fontRows,
     unclassified,
     observationsWithFontRequest,
     observationsMixingForeignOrigin,
-    foreignOrigin: fontRows
-      .filter(({ origin }) => origin === 'foreign')
-      .map(({ url }) => url)
-      .sort(),
-    sameOriginPaths: fontRows
-      .filter(({ origin }) => origin === 'same')
-      .map(({ url }) => url)
-      .sort(),
-    fontUrlsByObservation,
+    foreignOrigin: paths('foreign'),
+    sameOriginPaths: paths('same'),
   };
 }
 
@@ -1022,9 +1085,9 @@ test.describe('Tektur web delivery', () => {
     const deliveryFonts = [
       ...(result.capture.byObservation.get(result.deliveryKey) ?? []),
     ]
-      .map((url) => result.capture.requests.get(url))
-      .filter((request) => request !== undefined)
-      .map((request) => classifyRequest(request))
+      .map((ordinal) => result.capture.transactions.get(ordinal))
+      .filter((transaction) => transaction !== undefined)
+      .map((transaction) => classifyTransaction(transaction))
       .filter(({ isFont }) => isFont);
     expect(
       deliveryFonts.length,
@@ -1032,8 +1095,8 @@ test.describe('Tektur web delivery', () => {
     ).toBeGreaterThan(0);
     expect(
       deliveryFonts
-        .filter(({ request }) => request.origin === 'foreign')
-        .map(({ request }) => request.url),
+        .filter(({ transaction }) => transaction.origin === 'foreign')
+        .map(({ transaction }) => transaction.url),
       'the delivery navigation must fetch no third-party font',
     ).toEqual([]);
     // Identified by payload, not by the shape of a URL: the registered
@@ -1042,18 +1105,20 @@ test.describe('Tektur web delivery', () => {
     expect(
       deliveryFonts
         .filter(
-          ({ request }) => request.sha256 === TEKTUR_FONT_METADATA.web.sha256,
+          ({ transaction }) =>
+            transaction.sha256 === TEKTUR_FONT_METADATA.web.sha256,
         )
-        .map(({ request }) => request.key)
+        .map(({ transaction }) => transaction.key)
         .filter((key) => key.startsWith('/_next/static/')),
       'the registered Tektur payload must be delivered from /_next/static/',
     ).not.toEqual([]);
     expect(
       deliveryFonts
         .filter(
-          ({ request }) => request.sha256 === TEKTUR_FONT_METADATA.og.sha256,
+          ({ transaction }) =>
+            transaction.sha256 === TEKTUR_FONT_METADATA.og.sha256,
         )
-        .map(({ request }) => request.key),
+        .map(({ transaction }) => transaction.key),
       'no runtime route may request the offline OG payload',
     ).toEqual([]);
   });
@@ -1077,54 +1142,54 @@ test.describe('Tektur web delivery', () => {
   }) => {
     test.setTimeout(1_800_000);
     const result = await sweep(page, staticBase);
-    const classified = [...result.capture.requests.values()].map(
-      classifyRequest,
+    const classified = [...result.capture.transactions.values()].map(
+      classifyTransaction,
     );
     expect(
       classified.length,
-      'requests captured across the sweep',
+      'network transactions captured across the sweep',
     ).toBeGreaterThan(0);
     expect(
       classified
         .filter(({ classified: decided }) => !decided)
         .map(
-          ({ request }) =>
-            `${request.url} [${[...request.resourceTypes].sort().join(', ')}] [${[...request.contentTypes].sort().join(', ')}]`,
+          ({ transaction }) =>
+            `${transaction.url} [${transaction.resourceType}] [${transaction.contentType ?? 'no declared type'}]`,
         ),
-      'every request must be decided from its payload or its declared type',
+      'every transaction must be decided from its payload or its declared type',
     ).toEqual([]);
 
     const fonts = classified.filter(({ isFont }) => isFont);
     expect(fonts.length, 'font requests captured').toBeGreaterThan(0);
     expect(
       fonts
-        .filter(({ request }) => request.origin === 'foreign')
+        .filter(({ transaction }) => transaction.origin === 'foreign')
         .map(
-          ({ request, basis }) =>
-            `${request.url} is a font by ${basis}, served as ${[...request.contentTypes].join('/') || 'no declared type'}`,
+          ({ transaction, basis }) =>
+            `${transaction.url} is a font by ${basis}, served as ${transaction.contentType ?? 'no declared type'}`,
         ),
       'no swept document may request a font from another origin',
     ).toEqual([]);
     // Non-vacuity for the payload path itself: if nothing were ever decided
     // from its bytes, the content check would be unexercised and the suite
     // would be back to trusting the URL.
-    const byPayload = fonts.filter(({ request }) =>
-      request.payloadSignature === null
+    const byPayload = fonts.filter(({ transaction }) =>
+      transaction.payloadSignature === null
         ? false
-        : request.payloadSignature in FONT_PAYLOAD_SIGNATURES,
+        : transaction.payloadSignature in FONT_PAYLOAD_SIGNATURES,
     );
     expect(
       byPayload.length,
-      'font requests confirmed by their payload signature',
+      'font transactions confirmed by their payload signature',
     ).toBeGreaterThan(0);
-    for (const { request } of byPayload) {
+    for (const { transaction } of byPayload) {
       expect(
-        request.payloadSignature,
-        `${request.url} must record four payload bytes`,
+        transaction.payloadSignature,
+        `${transaction.url} must record four payload bytes`,
       ).toMatch(/^[0-9a-f]{8}$/);
       expect(
-        request.sha256,
-        `${request.url} must record its payload checksum`,
+        transaction.sha256,
+        `${transaction.url} must record its payload checksum`,
       ).toMatch(/^[0-9a-f]{64}$/);
     }
     // The vocabulary itself has to be able to say no; a classifier whose
@@ -1140,22 +1205,27 @@ test.describe('Tektur web delivery', () => {
    * request destinations and real response payloads rather than a
    * hand-built record.
    *
-   * Six third-party requests are planted on a page of the site's own
+   * Seven third-party requests are planted on a page of the site's own
    * export: three that a real prohibited `@font-face` or font fetch would
    * produce with bytes that are *not* a usable font container, one carrying
    * a genuine WOFF2 payload under a neutral response type, one whose payload
-   * never arrives at all, and one fetched with an unsupported container
-   * under `application/octet-stream` and no font destination. The first four
-   * have to reach `fontRequests` and the foreign-origin list; the last two
-   * have to reach `unclassifiedRequests`, whose non-emptiness the delivery
-   * reader rejects.
+   * never arrives at all, one fetched with an unsupported container under
+   * `application/octet-stream` and no font destination, and one
+   * extensionless URL fetched twice that answers a recognized PNG first and
+   * an unidentifiable payload second. The first four have to reach
+   * `fontRequests` and the foreign-origin list; the rest have to reach
+   * `unclassifiedRequests`, whose non-emptiness the delivery reader rejects.
    *
    * Before the union fix, the three corrupt-payload plants were decided
    * non-fonts the moment their bytes were readable, so they appeared in
    * neither list and a prohibited third-party font request left no trace.
    * The sixth plant is the same erasure one step further in: no positive
    * signal fired for it, but neither did any negative one, and an
-   * unrecognized payload was still being read as "not a font".
+   * unrecognized payload was still being read as "not a font". The seventh
+   * is that erasure across transactions: while the capture kept one record
+   * per URL, the PNG supplied a conclusive negative that also answered for
+   * the later ambiguous response, and the second transaction reached
+   * neither list.
    */
   test('catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable or unidentifiable one unclassified (VAL-B2-TYPE-002)', async ({
     page,
@@ -1170,6 +1240,7 @@ test.describe('Tektur web delivery', () => {
       payloadOnly: `${foreign}/fetched-b`,
       unreadable: `${foreign}/aborted`,
       unidentifiable: `${foreign}/fetched-c`,
+      conflicting: `${foreign}/fetched-d`,
     };
     // Not a font container in any format the signature table knows, and
     // deliberately long enough to be a plausible response body.
@@ -1184,7 +1255,15 @@ test.describe('Tektur web delivery', () => {
       Buffer.from([0x77, 0x4f, 0x46, 0x32]),
       Buffer.from('truncated wOF2 payload'),
     ]);
+    // A container the signature table supports a negative for, which is
+    // what makes the first response to the conflicting plant conclusive.
+    const png = Buffer.concat([
+      Buffer.from([0x89, 0x50, 0x4e, 0x47]),
+      Buffer.from([0x0d, 0x0a, 0x1a, 0x0a]),
+      Buffer.from('truncated PNG'),
+    ]);
     const cors = { 'access-control-allow-origin': '*' };
+    let conflictingServed = 0;
     await page.route(`${foreign}/**`, async (route) => {
       const url = route.request().url();
       if (url === plants.unreadable) {
@@ -1197,7 +1276,11 @@ test.describe('Tektur web delivery', () => {
           ? woff2
           : url === plants.unidentifiable
             ? unidentifiable
-            : corrupt;
+            : url === plants.conflicting
+              ? ((conflictingServed += 1), conflictingServed === 1
+                  ? png
+                  : unidentifiable)
+              : corrupt;
       await route.fulfill({
         status: 200,
         headers: {
@@ -1226,13 +1309,24 @@ test.describe('Tektur web delivery', () => {
         fetch(urls.unreadable),
         fetch(urls.unidentifiable),
       ]);
+      // Sequential and uncached, so the two answers to one URL are two
+      // network transactions in a known order.
+      await fetch(urls.conflicting, { cache: 'no-store' }).catch(() => {});
+      await fetch(urls.conflicting, { cache: 'no-store' }).catch(() => {});
     }, plants);
     await capture.settled();
 
-    const classify = (url: string): ClassifiedRequest => {
-      const request = capture.requests.get(url);
-      expect(request, `${url} was never requested`).toBeDefined();
-      return classifyRequest(request as CapturedRequest);
+    const transactionsFor = (url: string): ClassifiedTransaction[] =>
+      [...capture.transactions.values()]
+        .filter((transaction) => transaction.url === url)
+        .sort((left, right) => left.ordinal - right.ordinal)
+        .map(classifyTransaction);
+    const classify = (url: string): ClassifiedTransaction => {
+      const found = transactionsFor(url);
+      expect(found.length, `${url} was requested ${found.length} time(s)`).toBe(
+        1,
+      );
+      return found[0];
     };
 
     const byTypeAndDestination = classify(plants.typeAndDestination);
@@ -1245,21 +1339,25 @@ test.describe('Tektur web delivery', () => {
     // The premise of the regression: the three corrupt plants delivered a
     // readable body whose signature is in no font container table, which is
     // exactly the state the classifier used to call a decided non-font.
-    for (const { request } of [byTypeAndDestination, byDestination, byType]) {
+    for (const { transaction } of [
+      byTypeAndDestination,
+      byDestination,
+      byType,
+    ]) {
       expect(
-        request.payloadSignature,
-        `${request.url} must have delivered readable bytes`,
+        transaction.payloadSignature,
+        `${transaction.url} must have delivered readable bytes`,
       ).toMatch(/^[0-9a-f]{8}$/);
       expect(
-        (request.payloadSignature ?? '') in FONT_PAYLOAD_SIGNATURES,
-        `${request.url} must carry no recognized font signature`,
+        (transaction.payloadSignature ?? '') in FONT_PAYLOAD_SIGNATURES,
+        `${transaction.url} must carry no recognized font signature`,
       ).toBe(false);
     }
 
     expect(
-      [...byTypeAndDestination.request.resourceTypes],
+      byTypeAndDestination.transaction.resourceType,
       'an @font-face load must arrive with the browser font destination',
-    ).toContain('font');
+    ).toBe('font');
     expect(byTypeAndDestination.isFont, 'font by type and destination').toBe(
       true,
     );
@@ -1275,14 +1373,14 @@ test.describe('Tektur web delivery', () => {
     expect(byDestination.basis).toBe('browser font request destination');
     expect(byType.isFont, 'font by response type alone').toBe(true);
     expect(byType.basis).toBe('response type font/woff2');
-    expect([...byType.request.resourceTypes]).not.toContain('font');
+    expect(byType.transaction.resourceType).not.toBe('font');
     expect(byPayloadSignature.isFont, 'font by payload signature alone').toBe(
       true,
     );
     expect(byPayloadSignature.basis).toContain('payload signature 0x774f4632');
-    expect([...byPayloadSignature.request.contentTypes]).toEqual([
+    expect(byPayloadSignature.transaction.contentType).toBe(
       'application/octet-stream',
-    ]);
+    );
 
     expect(
       undecidable.classified,
@@ -1292,16 +1390,46 @@ test.describe('Tektur web delivery', () => {
     // The readable-but-unidentifiable plant: bytes arrived, no positive
     // signal fired, and nothing supports a negative either.
     expect(
-      unidentified.request.payloadSignature,
+      unidentified.transaction.payloadSignature,
       `${plants.unidentifiable} must have delivered readable bytes`,
     ).toBe('deadbeef');
-    expect([...unidentified.request.resourceTypes]).not.toContain('font');
-    expect([...unidentified.request.contentTypes]).toEqual([
+    expect(unidentified.transaction.resourceType).not.toBe('font');
+    expect(unidentified.transaction.contentType).toBe(
       'application/octet-stream',
-    ]);
+    );
     expect(
       unidentified.classified,
       'an unrecognized payload under an ambiguous type must stay undecided',
+    ).toBe(false);
+
+    // The conflicting plant: one URL, two transactions, and the conclusive
+    // negative of the first must not answer for the second.
+    const conflicting = transactionsFor(plants.conflicting);
+    expect(
+      conflicting.length,
+      'the conflicting plant must be captured as two separate transactions',
+    ).toBe(2);
+    const [firstAnswer, secondAnswer] = conflicting;
+    expect(
+      firstAnswer.transaction.payloadSignature,
+      'the first answer must be the recognized non-font container',
+    ).toBe('89504e47');
+    expect(
+      firstAnswer.classified,
+      'a supported non-font container decides its own transaction',
+    ).toBe(true);
+    expect(firstAnswer.isFont).toBe(false);
+    expect(
+      secondAnswer.transaction.payloadSignature,
+      'the second answer must have been read rather than skipped',
+    ).toBe('deadbeef');
+    expect(
+      secondAnswer.transaction.contentType,
+      'the second answer must arrive under the ambiguous type',
+    ).toBe('application/octet-stream');
+    expect(
+      secondAnswer.classified,
+      'the second answer supports no verdict of its own and must stay undecided',
     ).toBe(false);
 
     const summary = summarizeFontRequests({
@@ -1324,11 +1452,36 @@ test.describe('Tektur web delivery', () => {
         .map((entry) => entry.split(' (')[0])
         .filter((url) => url.startsWith(foreign))
         .sort(),
-      'both undecidable plants must reach the fail-closed unclassified set',
-    ).toEqual([plants.unreadable, plants.unidentifiable].sort());
+      'every undecidable plant must reach the fail-closed unclassified set',
+    ).toEqual(
+      [plants.unreadable, plants.unidentifiable, plants.conflicting].sort(),
+    );
+    // The undecided transaction is named by its ordinal, so the decided
+    // answer to the same URL cannot be mistaken for it.
+    expect(
+      summary.unclassified.filter((entry) =>
+        entry.startsWith(
+          `${plants.conflicting} (transaction ${secondAnswer.transaction.ordinal},`,
+        ),
+      ),
+      'the ambiguous transaction must be identified apart from the decided one',
+    ).toHaveLength(1);
+    expect(
+      summary.unclassified.some((entry) =>
+        entry.startsWith(
+          `${plants.conflicting} (transaction ${firstAnswer.transaction.ordinal},`,
+        ),
+      ),
+      'the decided transaction must not be reported as unclassified',
+    ).toBe(false);
     expect(
       summary.observationsMixingForeignOrigin,
       'the planted observation must be recorded as mixing a foreign origin',
     ).toBe(1);
+    // This summary is exactly the shape the sweep writes to
+    // `fontResources`, and a non-empty `unclassifiedRequests` is fatal to
+    // the reader — falsified per-request in
+    // `tests/unit/brand-v2-tektur-evidence.test.ts`. The erased transaction
+    // therefore cannot be published as a clean delivery record.
   });
 });

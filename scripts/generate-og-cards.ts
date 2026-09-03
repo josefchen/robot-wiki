@@ -15,11 +15,12 @@
  * so did a wrapper applied to a corpus tree on its way to the renderer.
  * What it receives is a sealed handle whose element tree is unreachable
  * from here, and lib/og-card-render-boundary.ts is the only module that
- * opens one and paints it. The write below is deliberately inline and takes
- * the render boundary's own return value: `deriveGeneratorEmitHandoff`
- * follows the bytes from that single call to disk, so importing the
- * boundary and shipping something else is a failure rather than a
- * reachable-but-unused reference.
+ * opens one and paints it. Whether the files that end up on disk are that
+ * module's output is not read out of this source: scripts/check-og-card-
+ * bytes.ts runs immediately after this one in postbuild, re-renders every
+ * corpus card through the boundary and requires each shipped file to be
+ * exactly those bytes, so importing the boundary and shipping something
+ * else — or overwriting the cards after these writes — fails the build.
  *
  * The corpus is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled

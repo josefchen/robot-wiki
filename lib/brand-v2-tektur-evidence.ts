@@ -710,12 +710,25 @@ function reconcileFontResources(
       if (typeof row.url !== 'string' || row.url.length === 0) {
         throw new Error('A captured font request records no URL');
       }
-      if (seen.has(row.url)) {
+      // Identity is the whole observation, not the URL. Two transactions to
+      // one URL that saw different bytes, types or destinations are two
+      // facts and each has to re-derive as a font on its own; collapsing
+      // them on the URL is the merge that let one transaction's negative
+      // stand in for another's.
+      const identity = JSON.stringify([
+        row.url,
+        row.origin,
+        row.resourceTypes,
+        row.contentTypes,
+        row.payloadSignature,
+        row.sha256,
+      ]);
+      if (seen.has(identity)) {
         throw new Error(
           `Tektur delivery evidence repeats the font request ${row.url}`,
         );
       }
-      seen.add(row.url);
+      seen.add(identity);
       if (row.origin !== 'same' && row.origin !== 'foreign') {
         throw new Error(
           `${row.url} records the origin ${String(row.origin)}, which is neither same nor foreign`,
@@ -778,10 +791,13 @@ function reconcileFontResources(
         .join('; ')}`,
     );
   }
-  const sameOriginPaths = fontRequests
-    .filter(({ origin }) => origin === 'same')
-    .map(({ url }) => url)
-    .sort();
+  const sameOriginPaths = [
+    ...new Set(
+      fontRequests
+        .filter(({ origin }) => origin === 'same')
+        .map(({ url }) => url),
+    ),
+  ].sort();
   // The two published sets are derived from the rows rather than recorded
   // beside them, so a hand-edited summary cannot disagree with the capture.
   const recordedSameOrigin = requireStringArray(

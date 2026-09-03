@@ -40,6 +40,7 @@ import { buildModuleImportGraph } from '@/lib/module-import-graph';
 import {
   classifyModuleSpecifier,
   COMPUTED_IMPORT_SPECIFIER,
+  moduleDependencies,
 } from '@/lib/og-render-boundary-invariant';
 
 const ROOT = process.cwd();
@@ -673,7 +674,7 @@ describe('brand-v2 token evidence', () => {
         }),
         (root) => {
           expect(() => rendererSourceIdentity(root)).toThrow(
-            /module\(s\) in the renderer closure import an image renderer/,
+            /module\(s\) in the renderer closure can obtain an image renderer/,
           );
         },
       );
@@ -926,7 +927,7 @@ describe('brand-v2 token evidence', () => {
             ),
           ).toBe(true);
           expect(() => rendererSourceIdentity(root)).toThrow(
-            /module\(s\) in the renderer closure import an image renderer.*next\/og/s,
+            /module\(s\) in the renderer closure can obtain an image renderer.*next\/og/s,
           );
         },
       );
@@ -992,122 +993,164 @@ describe('brand-v2 token evidence', () => {
     });
 
     /**
-     * The same lesson without the alias: the generator may reach the
-     * boundary and still ship bytes that never came out of it.
+     * The other half of the same syntax. Renderer discovery was made
+     * alias-aware over `import` statements and stopped there, so a module
+     * that never imports a renderer could still be where an importer gets
+     * one: `export { ImageResponse } from 'next/og.js'` in a first-party
+     * barrel puts the constructor inside the closure while every module in
+     * it reports no renderer import at all.
+     *
+     * Every runtime form is covered, in the spellings Node actually
+     * resolves — `next` publishes no `exports` map, so the public entry
+     * points are files.
      */
-    it('binds the bytes the generator writes to the one render boundary call', () => {
-      withFixture(fixtureFiles(), (root) => {
-        expect(rendererSourceIdentity(root).generatorEmit).toEqual({
-          module: OG_CARD_GENERATOR,
-          boundaryCall: 'renderCorpusCard',
-          emitted: 'buffer',
-          writes: 1,
-        });
-      });
-
-      const generator = (...body: string[]): string =>
+    it('fails a renderer reached through a runtime re-export, in every form and spelling', () => {
+      // The parser has to see each form before the closure check can act on
+      // it, so the reading is asserted directly as well as through a plant.
+      const forms: Array<[string, string, string[]]> = [
+        ["export { ImageResponse } from 'next/og';", 'next/og', ['ImageResponse']],
         [
-          "import { writeFileSync } from 'node:fs';",
-          "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
-          "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
-          'for (const entry of ogCardCorpus(process.cwd())) {',
-          ...body,
-          '}',
-        ].join('\n');
-
-      const cases: Array<[string, RegExp]> = [
-        // Reachable, referenced, never called.
-        [
-          generator(
-            '  void renderCorpusCard;',
-            '  const buffer = Buffer.from(entry.cardId);',
-            '  writeFileSync(entry.cardPath, buffer);',
-          ),
-          /calls renderCorpusCard 0 times/,
+          "export { ImageResponse as Paint } from 'next/og.js';",
+          'next/og.js',
+          ['Paint'],
         ],
-        // Called, and something else is written.
+        ["export * from 'next/og.cjs';", 'next/og.cjs', []],
         [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  void buffer;',
-            '  writeFileSync(entry.cardPath, Buffer.from(entry.cardId));',
-          ),
-          /every card write must ship buffer/,
+          "export * as renderer from 'next/og.mjs';",
+          'next/og.mjs',
+          ['renderer'],
         ],
-        // Called, and the result is transformed on its way to disk.
         [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  writeFileSync(entry.cardPath, recolour(buffer));',
-          ),
-          /every card write must ship buffer/,
+          "export { ImageResponse } from 'next/server';",
+          'next/server',
+          ['ImageResponse'],
         ],
-        // Called, and the bytes are edited in place before the write.
         [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  buffer[0] = 0;',
-            '  writeFileSync(entry.cardPath, buffer);',
-          ),
-          /uses buffer after `;`; the rendered bytes may only be passed on as they are/,
-        ],
-        // Called, and the bytes are read through a member on their way out.
-        [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  writeFileSync(entry.cardPath, buffer.subarray(0));',
-          ),
-          /every card write must ship buffer/,
-        ],
-        // Written, then read through a member the derivation cannot follow.
-        [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  writeFileSync(entry.cardPath, buffer);',
-            '  record(entry.cardPath, buffer.length);',
-          ),
-          /the rendered bytes may not be indexed, reassigned or read through a member/,
-        ],
-        // Called, and handed to a helper before it is written.
-        [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  stash(entry.cardPath, buffer);',
-            '  writeFileSync(entry.cardPath, buffer);',
-          ),
-          /passes buffer elsewhere before writing it/,
-        ],
-        // Called, and never written at all.
-        [
-          generator(
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  void buffer;',
-          ),
-          /never writes buffer/,
-        ],
-        // Writing through an API this derivation does not follow.
-        [
-          [
-            "import { appendFileSync, writeFileSync } from 'node:fs';",
-            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
-            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
-            'void writeFileSync;',
-            'for (const entry of ogCardCorpus(process.cwd())) {',
-            '  const buffer = await renderCorpusCard(entry, process.cwd());',
-            '  appendFileSync(entry.cardPath, buffer);',
-            '}',
-          ].join('\n'),
-          /binds unrecognized file API\(s\) appendFileSync/,
+          "export { type ImageResponseOptions, ImageResponse } from 'next/server.js';",
+          'next/server.js',
+          ['ImageResponse'],
         ],
       ];
-      for (const [text, message] of cases) {
+      for (const [source, specifier, locals] of forms) {
+        expect(moduleDependencies(source), source).toEqual([
+          { specifier, kind: 'reexport', typeOnly: false, locals },
+        ]);
+      }
+      // Erased at runtime, so it forwards no constructor.
+      expect(moduleDependencies("export type { X } from 'next/og';")).toEqual([
+        { specifier: 'next/og', kind: 'reexport', typeOnly: true, locals: [] },
+      ]);
+      // A local export list is not a dependency at all.
+      expect(moduleDependencies('const a = 1;\nexport { a };')).toEqual([]);
+
+      // The realistic bypass: the generator obtains the constructor from a
+      // first-party barrel and repaints every card, and no module in the
+      // closure contains a renderer `import`.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-barrel.ts':
+            "export { ImageResponse as Paint } from 'next/og.js';\n",
+          'scripts/generate-og-cards.ts': [
+            "import { writeFileSync } from 'node:fs';",
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            "import { Paint } from '../lib/og-card-barrel.ts';",
+            'void renderCorpusCard;',
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  const response = new Paint(entry.card, {});',
+            '  writeFileSync(entry.cardPath, Buffer.from(await response.arrayBuffer()));',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /module\(s\) in the renderer closure can obtain an image renderer .*lib\/og-card-barrel\.ts re-exports next\/og\.js/s,
+          );
+        },
+      );
+
+      for (const [source, specifier] of forms) {
         withFixture(
-          fixtureFiles({ 'scripts/generate-og-cards.ts': text }),
+          fixtureFiles({
+            'lib/og-card-barrel.ts': `${source}\n`,
+            'scripts/generate-og-cards.ts': [
+              GENERATOR_CONSUMING_CORPUS,
+              "import { forwarded } from '../lib/og-card-barrel.ts';",
+              'void forwarded;',
+            ].join('\n'),
+          }),
           (root) => {
-            expect(() => rendererSourceIdentity(root), text).toThrow(message);
+            expect(() => rendererSourceIdentity(root), source).toThrow(
+              new RegExp(
+                `lib/og-card-barrel\\.ts re-exports ${specifier.replace(/[./]/g, '\\$&')}`,
+              ),
+            );
           },
         );
       }
+
+      // A star re-export forwards names this scan cannot enumerate, so its
+      // first-party target is an unconditional dependency: without that
+      // edge the renderer module stayed outside the closure entirely.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-substitute.ts': [
+            "import { ImageResponse } from 'next/og.js';",
+            'export const Paint = ImageResponse;',
+          ].join('\n'),
+          'lib/og-card-barrel.ts': "export * from './og-card-substitute.ts';\n",
+          'scripts/generate-og-cards.ts': [
+            GENERATOR_CONSUMING_CORPUS,
+            "import { Paint } from '../lib/og-card-barrel.ts';",
+            'void Paint;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /lib\/og-card-substitute\.ts imports next\/og\.js/,
+          );
+        },
+      );
+
+      // And a re-export nobody has classified fails closed, exactly as the
+      // matching import does.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-barrel.ts':
+            "export { paint } from 'unclassified-image-library';\n",
+          'scripts/generate-og-cards.ts': [
+            GENERATOR_CONSUMING_CORPUS,
+            "import { paint } from '../lib/og-card-barrel.ts';",
+            'void paint;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /neither a known image renderer nor known to be free of one \(lib\/og-card-barrel\.ts imports unclassified-image-library\)/,
+          );
+        },
+      );
+
+      // The boundary itself may not forward its renderer either: a
+      // re-exported name is not callable, so a boundary that only forwards
+      // one never constructs anything.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': [
+            "export { ImageResponse } from 'next/og.js';",
+            "import { openSealedCardTree } from './og-card-corpus.ts';",
+            'export async function renderCorpusCard(entry, root) {',
+            '  const finalTree = openSealedCardTree(entry.card);',
+            '  return { finalTree, root };',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /re-exports next\/og\.js; the render boundary must construct its renderer, not forward one/,
+          );
+        },
+      );
     });
   });
 

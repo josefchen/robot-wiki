@@ -13,7 +13,9 @@ import { isSyncConflictDuplicate } from './sync-duplicates.ts';
  * articles. Two properties keep it from over-reporting: an imported binding
  * the module never mentions again is not an edge (otherwise every barrel
  * would reach everything it lists), and a re-export table forwards a name to
- * its defining module without making the barrel itself a mount.
+ * its defining module without making the barrel itself a mount. A star
+ * re-export is the exception to the first property: it forwards names this
+ * scan cannot enumerate, so its target is an unconditional dependency.
  */
 export type ModuleImportGraph = {
   root: string;
@@ -64,6 +66,18 @@ const IMPORT_STATEMENT =
   /import\s+(type\s+)?([^'";]*?)\s*from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]/g;
 const REEXPORT_STATEMENT =
   /export\s+(type\s+)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g;
+/**
+ * `export * from './x'` and `export * as ns from './x'`.
+ *
+ * A named re-export forwards one name, so it becomes an edge only when an
+ * importer uses that name. A star re-export forwards everything the target
+ * exports under names this scan cannot enumerate, so the dependency is
+ * unconditional — and treating it as no dependency at all left the target
+ * outside every reachability walk while an importer of the barrel could
+ * still get its values.
+ */
+const STAR_REEXPORT =
+  /export\s+(type\s+)?\*(?:\s+as\s+[A-Za-z_$][\w$]*)?\s*from\s*['"]([^'"]+)['"]/g;
 /**
  * A deferred import is still a dependency: `next/dynamic(() =>
  * import('./robot-scene'))` is how the playground mounts its WebGL scene,
@@ -218,6 +232,11 @@ export function buildModuleImportGraph(
     }
     for (const match of text.matchAll(DYNAMIC_IMPORT)) {
       const target = resolve(match[1], modulePath);
+      if (target !== null) targets.add(target);
+    }
+    for (const match of text.matchAll(STAR_REEXPORT)) {
+      if (match[1]) continue;
+      const target = resolve(match[2], modulePath);
       if (target !== null) targets.add(target);
     }
     edges.set(modulePath, targets);
