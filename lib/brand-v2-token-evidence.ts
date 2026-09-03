@@ -4,7 +4,12 @@ import { extname, join, relative } from 'node:path';
 import { BRAND_COLORS, BRAND_SPACING } from './brand-v2-tokens.ts';
 import { buildModuleImportGraph } from './module-import-graph.ts';
 import { cardPaintedColors } from './og-card-artwork.ts';
-import { ogCardCorpus } from './og-card-corpus.ts';
+import { ogCardCorpus, openSealedCardTree } from './og-card-corpus.ts';
+import {
+  deriveRenderBoundaryHandoff,
+  importsImageRenderer,
+  type RenderBoundaryHandoff,
+} from './og-render-boundary-invariant.ts';
 import { stripComments } from './source-comments.ts';
 import {
   deriveSemanticMarks,
@@ -497,6 +502,22 @@ export function readTokenRuntimeEvidence(input: {
  * rebuilds its own trees fails this derivation instead of quietly escaping
  * the measurement.
  *
+ * That much is still only a same-source guarantee, and it was not enough. A
+ * generator that obtained a corpus entry and then wrapped, cloned or
+ * substituted the tree on its way to `ImageResponse` changed all 48 shipped
+ * cards while `deriveRendererPaintedPopulation` kept walking the untouched
+ * corpus. The generator fingerprint moved, so stale evidence failed once —
+ * but a fingerprint is a drift detector, not an invariant, and the
+ * sanctioned refresh recorded the new hash and re-certified the unchanged
+ * numbers. So the handoff is now closed rather than watched: the corpus
+ * hands out sealed entries whose element tree is unreachable except through
+ * `openSealedCardTree`, exactly one module in the closure may import an
+ * image renderer, the generator may bind neither the artwork builders nor
+ * the seal opener, and `deriveRenderBoundaryHandoff` requires that single
+ * renderer call to receive the opened tree itself. None of that is recorded
+ * evidence a refresh can update; it is re-derived from current source every
+ * time the evidence is written or read.
+ *
  * `data/` joins the graph roots because the registries there decide which
  * cards exist and what each one paints, so they genuinely participate in
  * building a card tree; `scripts/` joins it because the generator lives
@@ -507,6 +528,8 @@ export const RENDERER_EVIDENCE_PRODUCER = 'lib/brand-v2-renderer-parity.ts';
 export const OG_CARD_GENERATOR = 'scripts/generate-og-cards.ts';
 export const OG_CARD_TREE_SOURCE = 'lib/og-card-corpus.ts';
 export const OG_CARD_ARTWORK_SOURCE = 'lib/og-card-artwork.ts';
+export const OG_CARD_RENDER_BOUNDARY = 'lib/og-card-render-boundary.ts';
+export const OG_CARD_SEAL_OPENER = 'openSealedCardTree';
 const RENDERER_IDENTITY_ROOTS = [
   'app',
   'components',
@@ -520,6 +543,8 @@ export type RendererSourceIdentity = {
   /** Sorted: the artifact producer and the production card generator. */
   producers: string[];
   cardTreeSource: string;
+  /** The sole renderer call site, and the names it binds. */
+  renderBoundary: RenderBoundaryHandoff;
   modules: string[];
   fingerprint: string;
 };
@@ -552,7 +577,38 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
         .join(', ')} from ${OG_CARD_ARTWORK_SOURCE}, so it constructs card trees outside ${OG_CARD_TREE_SOURCE}`,
     );
   }
+  // Opening a seal is how a card tree becomes mutable. The generator has no
+  // reason to hold one: it hands the sealed entry to the render boundary.
+  const opened = (graph.bindingsByModule.get(OG_CARD_GENERATOR) ?? []).filter(
+    ({ local, imported }) =>
+      local === OG_CARD_SEAL_OPENER || imported === OG_CARD_SEAL_OPENER,
+  );
+  if (opened.length > 0) {
+    throw new Error(
+      `${OG_CARD_GENERATOR} binds ${OG_CARD_SEAL_OPENER}, so it can unwrap a sealed card tree before ${OG_CARD_RENDER_BOUNDARY} renders it`,
+    );
+  }
   const modules = [...graph.reachableFrom(producers)].sort();
+  if (!graph.reachableFrom([OG_CARD_GENERATOR]).has(OG_CARD_RENDER_BOUNDARY)) {
+    throw new Error(
+      `${OG_CARD_GENERATOR} does not reach ${OG_CARD_RENDER_BOUNDARY}, so it paints cards somewhere else`,
+    );
+  }
+  const renderers = modules.filter((modulePath) =>
+    importsImageRenderer(graph.textByModule.get(modulePath) ?? ''),
+  );
+  if (renderers.join('|') !== OG_CARD_RENDER_BOUNDARY) {
+    throw new Error(
+      `${renderers.length} module(s) in the renderer closure import an image renderer (${
+        renderers.join(', ') || 'none'
+      }); only ${OG_CARD_RENDER_BOUNDARY} may`,
+    );
+  }
+  const renderBoundary = deriveRenderBoundaryHandoff({
+    module: OG_CARD_RENDER_BOUNDARY,
+    text: graph.textByModule.get(OG_CARD_RENDER_BOUNDARY) ?? '',
+    sealOpener: OG_CARD_SEAL_OPENER,
+  });
   for (const required of [...producers, OG_CARD_TREE_SOURCE]) {
     if (!modules.includes(required)) {
       throw new Error(
@@ -568,6 +624,7 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
   return {
     producers,
     cardTreeSource: OG_CARD_TREE_SOURCE,
+    renderBoundary,
     modules,
     fingerprint: sha256(
       JSON.stringify(
@@ -625,7 +682,7 @@ export function deriveRendererPaintedPopulation(input: {
   const paintedByCard = corpus.map(({ cardId, card }) => {
     const byCard = new Map<string, number>();
     let cardTotal = 0;
-    for (const painted of cardPaintedColors(card)) {
+    for (const painted of cardPaintedColors(openSealedCardTree(card))) {
       for (const value of painted.unregistered) {
         unregistered.add(`${painted.property}: ${value}`);
       }
@@ -717,6 +774,8 @@ export function readTokenRendererEvidence(input: {
     !Array.isArray(recordedSource.producers) ||
     recordedSource.producers.join('|') !== rendererSource.producers.join('|') ||
     recordedSource.cardTreeSource !== rendererSource.cardTreeSource ||
+    JSON.stringify(recordedSource.renderBoundary ?? null) !==
+      JSON.stringify(rendererSource.renderBoundary) ||
     !Array.isArray(recordedSource.modules) ||
     recordedSource.modules.join('|') !== rendererSource.modules.join('|') ||
     recordedSource.fingerprint !== rendererSource.fingerprint

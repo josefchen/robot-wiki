@@ -14,6 +14,7 @@ import {
   FONT_PAYLOAD_SIGNATURES,
   SCOPED_FONT_FAMILY_EXCEPTIONS,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  classifyCapturedRequest,
   deriveTypographyStackProperties,
   fontFamilyHead,
   fontFamilyKey,
@@ -22,6 +23,7 @@ import {
   measureRuntimeFamilyAliases,
   measureTekturEvidence,
   tekturDeliveryFingerprint,
+  type CapturedRequestClassification,
   type TekturDeliveryEvidence,
 } from '../../lib/brand-v2-tektur-evidence';
 import { TEKTUR_FONT_METADATA } from '../../data/tektur-font-metadata';
@@ -220,60 +222,27 @@ type CapturedRequest = {
   bodyError: string | null;
 };
 
-type ClassifiedRequest = {
+type ClassifiedRequest = CapturedRequestClassification & {
   request: CapturedRequest;
-  isFont: boolean;
-  classified: boolean;
-  basis: string;
 };
 
+/**
+ * The classification decision itself lives in
+ * `lib/brand-v2-tektur-evidence.ts` so that the union of the three positive
+ * signals is falsifiable under Vitest, one signal at a time, instead of
+ * only inside a 248-document browser sweep.
+ */
 function classifyRequest(request: CapturedRequest): ClassifiedRequest {
-  const { payloadSignature } = request;
-  if (payloadSignature !== null) {
-    return {
-      request,
-      isFont: payloadSignature in FONT_PAYLOAD_SIGNATURES,
-      classified: true,
-      basis: `payload signature 0x${payloadSignature}`,
-    };
-  }
-  if ([...request.contentTypes].some(isFontContentType)) {
-    return { request, isFont: true, classified: true, basis: 'response type' };
-  }
-  if (request.resourceTypes.has('font')) {
-    return {
-      request,
-      isFont: true,
-      classified: true,
-      basis: 'browser font request destination',
-    };
-  }
-  const contentTypes = [...request.contentTypes];
-  if (
-    contentTypes.length > 0 &&
-    contentTypes.every(isDecidedNonFontContentType)
-  ) {
-    return {
-      request,
-      isFont: false,
-      classified: true,
-      basis: `response type ${contentTypes.join('/')}`,
-    };
-  }
-  // A request that produced no response body delivered no font. That is a
-  // fact about the payload, not a guess from the URL, so a same-origin
-  // aborted prefetch is decided rather than left ambiguous. A foreign-origin
-  // request is not let through this way: VAL-B2-TYPE-002 forbids the
-  // request, so one whose payload cannot be read stays unclassified.
-  if (!request.responded && request.origin === 'same') {
-    return {
-      request,
-      isFont: false,
-      classified: true,
-      basis: 'no response payload',
-    };
-  }
-  return { request, isFont: false, classified: false, basis: 'undetermined' };
+  return {
+    request,
+    ...classifyCapturedRequest({
+      resourceTypes: [...request.resourceTypes],
+      contentTypes: [...request.contentTypes],
+      payloadSignature: request.payloadSignature,
+      responded: request.responded,
+      origin: request.origin,
+    }),
+  };
 }
 
 type RequestCapture = {
@@ -549,8 +518,14 @@ type FontRequestSummary = {
 /**
  * Classifies every captured request and attributes the font ones to the
  * observations they were made from.
+ *
+ * Takes the capture rather than the whole sweep so the planted-request gate
+ * below can summarize its own capture without fabricating 248 documents.
  */
-function summarizeFontRequests(result: Sweep): FontRequestSummary {
+function summarizeFontRequests(result: {
+  capture: RequestCapture;
+  deliveryKey: string;
+}): FontRequestSummary {
   const classified = new Map<string, ClassifiedRequest>();
   for (const [url, request] of result.capture.requests) {
     classified.set(url, classifyRequest(request));
@@ -1158,5 +1133,166 @@ test.describe('Tektur web delivery', () => {
     expect(isFontContentType('application/octet-stream')).toBe(false);
     expect(isDecidedNonFontContentType('application/octet-stream')).toBe(false);
     expect(isDecidedNonFontContentType('text/html')).toBe(true);
+  });
+
+  /**
+   * The falsification gate for the classifier, run against real Chromium
+   * request destinations and real response payloads rather than a
+   * hand-built record.
+   *
+   * Five third-party requests are planted on a page of the site's own
+   * export: three that a real prohibited `@font-face` or font fetch would
+   * produce with bytes that are *not* a usable font container, one carrying
+   * a genuine WOFF2 payload under a neutral response type, and one whose
+   * payload never arrives at all. Every one of the first four has to reach
+   * `fontRequests` and the foreign-origin list, and the fifth has to reach
+   * `unclassifiedRequests`, whose non-emptiness the delivery reader rejects.
+   *
+   * Before the union fix, the three corrupt-payload plants were decided
+   * non-fonts the moment their bytes were readable, so they appeared in
+   * neither list and a prohibited third-party font request left no trace.
+   */
+  test('catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable one unclassified (VAL-B2-TYPE-002)', async ({
+    page,
+    staticBase,
+  }) => {
+    test.setTimeout(120_000);
+    const foreign = 'https://cdn.plant.invalid';
+    const plants = {
+      typeAndDestination: `${foreign}/face-a`,
+      destinationOnly: `${foreign}/face-b`,
+      typeOnly: `${foreign}/fetched-a`,
+      payloadOnly: `${foreign}/fetched-b`,
+      unreadable: `${foreign}/aborted`,
+    };
+    // Not a font container in any format the signature table knows, and
+    // deliberately long enough to be a plausible response body.
+    const corrupt = Buffer.from(`<!doctype html>${'x'.repeat(64)}`);
+    const woff2 = Buffer.concat([
+      Buffer.from([0x77, 0x4f, 0x46, 0x32]),
+      Buffer.from('truncated wOF2 payload'),
+    ]);
+    const cors = { 'access-control-allow-origin': '*' };
+    await page.route(`${foreign}/**`, async (route) => {
+      const url = route.request().url();
+      if (url === plants.unreadable) {
+        await route.abort('failed');
+        return;
+      }
+      const font = url === plants.typeAndDestination || url === plants.typeOnly;
+      await route.fulfill({
+        status: 200,
+        headers: {
+          ...cors,
+          'content-type': font ? 'font/woff2' : 'application/octet-stream',
+        },
+        body: url === plants.payloadOnly ? woff2 : corrupt,
+      });
+    });
+
+    const capture = captureRequests(page, staticBase);
+    capture.open('planted third-party requests');
+    await page.goto(`${staticBase}/`);
+    await page.evaluate(async (urls) => {
+      const style = document.createElement('style');
+      style.textContent = [
+        `@font-face { font-family: plant-a; src: url("${urls.typeAndDestination}"); }`,
+        `@font-face { font-family: plant-b; src: url("${urls.destinationOnly}"); }`,
+      ].join('\n');
+      document.head.append(style);
+      await Promise.allSettled([
+        document.fonts.load('16px plant-a'),
+        document.fonts.load('16px plant-b'),
+        fetch(urls.typeOnly),
+        fetch(urls.payloadOnly),
+        fetch(urls.unreadable),
+      ]);
+    }, plants);
+    await capture.settled();
+
+    const classify = (url: string): ClassifiedRequest => {
+      const request = capture.requests.get(url);
+      expect(request, `${url} was never requested`).toBeDefined();
+      return classifyRequest(request as CapturedRequest);
+    };
+
+    const byTypeAndDestination = classify(plants.typeAndDestination);
+    const byDestination = classify(plants.destinationOnly);
+    const byType = classify(plants.typeOnly);
+    const byPayloadSignature = classify(plants.payloadOnly);
+    const undecidable = classify(plants.unreadable);
+
+    // The premise of the regression: the three corrupt plants delivered a
+    // readable body whose signature is in no font container table, which is
+    // exactly the state the classifier used to call a decided non-font.
+    for (const { request } of [byTypeAndDestination, byDestination, byType]) {
+      expect(
+        request.payloadSignature,
+        `${request.url} must have delivered readable bytes`,
+      ).toMatch(/^[0-9a-f]{8}$/);
+      expect(
+        (request.payloadSignature ?? '') in FONT_PAYLOAD_SIGNATURES,
+        `${request.url} must carry no recognized font signature`,
+      ).toBe(false);
+    }
+
+    expect(
+      [...byTypeAndDestination.request.resourceTypes],
+      'an @font-face load must arrive with the browser font destination',
+    ).toContain('font');
+    expect(byTypeAndDestination.isFont, 'font by type and destination').toBe(
+      true,
+    );
+    expect(byTypeAndDestination.basis).toContain('response type font/woff2');
+    expect(byTypeAndDestination.basis).toContain(
+      'browser font request destination',
+    );
+
+    // Each signal alone is sufficient.
+    expect(byDestination.isFont, 'font by request destination alone').toBe(
+      true,
+    );
+    expect(byDestination.basis).toBe('browser font request destination');
+    expect(byType.isFont, 'font by response type alone').toBe(true);
+    expect(byType.basis).toBe('response type font/woff2');
+    expect([...byType.request.resourceTypes]).not.toContain('font');
+    expect(byPayloadSignature.isFont, 'font by payload signature alone').toBe(
+      true,
+    );
+    expect(byPayloadSignature.basis).toContain('payload signature 0x774f4632');
+    expect([...byPayloadSignature.request.contentTypes]).toEqual([
+      'application/octet-stream',
+    ]);
+
+    expect(
+      undecidable.classified,
+      'a foreign request with no readable payload must stay undecided',
+    ).toBe(false);
+
+    const summary = summarizeFontRequests({
+      capture,
+      deliveryKey: 'not this capture',
+    });
+    expect(
+      summary.foreignOrigin.sort(),
+      'every planted third-party font must reach the foreign-origin rows',
+    ).toEqual(
+      [
+        plants.typeAndDestination,
+        plants.destinationOnly,
+        plants.typeOnly,
+        plants.payloadOnly,
+      ].sort(),
+    );
+    expect(
+      summary.unclassified.filter((entry) =>
+        entry.startsWith(plants.unreadable),
+      ).length,
+      'the unreadable plant must reach the fail-closed unclassified set',
+    ).toBe(1);
+    expect(
+      summary.observationsMixingForeignOrigin,
+      'the planted observation must be recorded as mixing a foreign origin',
+    ).toBe(1);
   });
 });

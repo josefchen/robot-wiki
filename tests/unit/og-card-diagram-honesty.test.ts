@@ -5,7 +5,7 @@ import { publishedModules } from '@/data/modules';
 import { DOMAIN_META } from '@/data/modules';
 import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
 import { articleCardElement, type CardNode } from '@/lib/og-card-artwork';
-import { ogCardCorpus } from '@/lib/og-card-corpus';
+import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
 
 /**
  * VAL-IMG-015: no generated card draws a quantity it does not have.
@@ -119,7 +119,7 @@ function everyDiagram(): Array<{ label: string; domain: string; node: CardNode }
   return CORPUS.map(({ cardId, card }) => ({
     label: cardId === 'site' ? 'site card' : cardId,
     domain: cardId === 'site' ? '<site>' : cardId.split('/')[0],
-    node: diagramOf(card),
+    node: diagramOf(openSealedCardTree(card)),
   }));
 }
 

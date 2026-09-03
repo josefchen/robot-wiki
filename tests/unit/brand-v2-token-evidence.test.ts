@@ -512,7 +512,20 @@ describe('brand-v2 token evidence', () => {
   describe('the renderer identity over a fixture tree', () => {
     const GENERATOR_CONSUMING_CORPUS = [
       "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
-      'for (const card of ogCardCorpus(process.cwd())) void card;',
+      "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+      'for (const entry of ogCardCorpus(process.cwd())) {',
+      '  void renderCorpusCard(entry, process.cwd());',
+      '}',
+    ].join('\n');
+    const RENDER_BOUNDARY = [
+      "import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';",
+      "import { openSealedCardTree } from './og-card-corpus.ts';",
+      'export async function renderCorpusCard(entry, root) {',
+      '  const options = { root };',
+      '  const finalTree = openSealedCardTree(entry.card);',
+      '  const response = new ImageResponse(finalTree as never, options);',
+      '  return response;',
+      '}',
     ].join('\n');
 
     function fixtureFiles(
@@ -532,10 +545,12 @@ describe('brand-v2 token evidence', () => {
         'lib/og-card-corpus.ts': [
           "import { publishedModules } from '../data/modules.ts';",
           "import { articleCardElement, siteCardElement } from './og-card-artwork.ts';",
+          'export function openSealedCardTree(sealed) { return sealed; }',
           'export function ogCardCorpus(root) {',
           '  return [siteCardElement(), ...publishedModules().map(() => articleCardElement(root))];',
           '}',
         ].join('\n'),
+        'lib/og-card-render-boundary.ts': RENDER_BOUNDARY,
         'lib/brand-v2-renderer-parity.ts': [
           "import { ogCardCorpus } from './og-card-corpus.ts';",
           'export function buildTokenRendererEvidence(root) { return ogCardCorpus(root); }',
@@ -615,6 +630,164 @@ describe('brand-v2 token evidence', () => {
         (root) => {
           expect(() => rendererSourceIdentity(root)).toThrow(
             /constructs card trees outside/,
+          );
+        },
+      );
+    });
+
+    /**
+     * The plant this milestone's round-five fix did not stop: the generator
+     * obtains a corpus entry and transforms the tree on its way to the
+     * renderer. It changes all 48 shipped cards while
+     * `deriveRendererPaintedPopulation` keeps walking the untouched corpus.
+     *
+     * The fingerprint alone could not close it. A fingerprint says "source
+     * changed", and the sanctioned evidence refresh answers by recording the
+     * new hash, after which the unchanged painted-property numbers are
+     * accepted again. Each plant below therefore has to fail the *identity*,
+     * which is re-derived from current source on every write and every read,
+     * so no refresh can absorb it.
+     */
+    it('fails a generator that transforms a card tree after obtaining it', () => {
+      // Renders its own tree: the second renderer in the closure.
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': [
+            "import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';",
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            'const wrap = (card) => ({ ...card, props: { style: { background: "#FF00FF" } } });',
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  void renderCorpusCard(entry, process.cwd());',
+            '  void new ImageResponse(wrap(entry.card), {});',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /module\(s\) in the renderer closure import an image renderer/,
+          );
+        },
+      );
+
+      // Unwraps the seal itself, which is the only way to reach a mutable
+      // tree, and hands the wrapped result on.
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': [
+            "import { ogCardCorpus, openSealedCardTree } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  const card = openSealedCardTree(entry.card);',
+            '  card.props.style.background = "#FF00FF";',
+            '  void renderCorpusCard(entry, process.cwd());',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /binds openSealedCardTree/,
+          );
+        },
+      );
+    });
+
+    it('fails a render boundary that does not hand the opened tree straight to the renderer', () => {
+      const boundaryLines = RENDER_BOUNDARY.split('\n');
+      const rewrite = (from: string, to: string): string =>
+        boundaryLines
+          .map((line) => (line.includes(from) ? to : line))
+          .join('\n');
+
+      // A wrapper at the call site.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': rewrite(
+            'const response =',
+            '  const response = new ImageResponse({ ...finalTree, props: {} }, options);',
+          ),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /must render the opened corpus tree itself, unwrapped/,
+          );
+        },
+      );
+
+      // A wrapper applied through a local helper.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': rewrite(
+            'const response =',
+            '  const response = new ImageResponse(recolour(finalTree) as never, options);',
+          ),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /must render the opened corpus tree itself, unwrapped/,
+          );
+        },
+      );
+
+      // An in-place edit between opening the seal and rendering it.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': rewrite(
+            'const response =',
+            '  finalTree.props.style.background = "#FF00FF";\n  const response = new ImageResponse(finalTree as never, options);',
+          ),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /touched nowhere else/,
+          );
+        },
+      );
+
+      // A substituted tree that never came from the seal at all.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': rewrite(
+            'const finalTree =',
+            '  const finalTree = { type: "div", props: { style: {} } };',
+          ),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /the rendered tree must come from the seal/,
+          );
+        },
+      );
+
+      // A boundary that renders without opening a seal at all.
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-render-boundary.ts': [
+            "import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';",
+            'export async function renderCorpusCard(entry, root) {',
+            '  const finalTree = entry.card;',
+            '  return new ImageResponse(finalTree as never, { root });',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /does not import openSealedCardTree/,
+          );
+        },
+      );
+
+      // And a generator that stops going through the boundary.
+      withFixture(
+        fixtureFiles({
+          'scripts/generate-og-cards.ts': [
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            'for (const entry of ogCardCorpus(process.cwd())) void entry;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /does not reach lib\/og-card-render-boundary\.ts/,
           );
         },
       );

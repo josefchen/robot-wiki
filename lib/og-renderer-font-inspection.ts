@@ -14,7 +14,11 @@ import { publishedModules } from '../data/modules.ts';
 import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
 import { sha256 } from './brand-v2-baseline.ts';
 import { cardTextRuns, type CardTextRun } from './og-card-artwork.ts';
-import { ogCardCorpus, type OgCardCorpusEntry } from './og-card-corpus.ts';
+import {
+  ogCardCorpus,
+  openSealedCardTree,
+  type OgCardCorpusEntry,
+} from './og-card-corpus.ts';
 import {
   OG_RENDERER_FACES,
   primaryFamily,
@@ -46,7 +50,7 @@ function resolve(root: string, path: string): string {
 }
 
 function textRunsOf(corpus: readonly OgCardCorpusEntry[]): CardTextRun[] {
-  return corpus.flatMap(({ card }) => cardTextRuns(card));
+  return corpus.flatMap(({ card }) => cardTextRuns(openSealedCardTree(card)));
 }
 
 /** Every text run the shipped card corpus paints, with its resolved stack. */

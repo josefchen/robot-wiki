@@ -296,6 +296,103 @@ export function isDecidedNonFontContentType(contentType: string): boolean {
 }
 
 /**
+ * One captured request, as the sweep observed it: what the browser said it
+ * was fetching, what the response declared, and what the first four payload
+ * bytes were when a body could be read.
+ */
+export type CapturedRequestObservation = {
+  /** Playwright `request.resourceType()` values seen for this URL. */
+  resourceTypes: readonly string[];
+  /** Response `content-type` values, lower-cased with parameters removed. */
+  contentTypes: readonly string[];
+  /** The first four payload bytes in hex, or null when none was read. */
+  payloadSignature: string | null;
+  responded: boolean;
+  origin: 'same' | 'foreign';
+};
+
+export type CapturedRequestClassification = {
+  isFont: boolean;
+  /** False leaves the request undecided, which fails closed upstream. */
+  classified: boolean;
+  basis: string;
+};
+
+/**
+ * Decides whether a captured request carried a font, from three independent
+ * positive signals in union.
+ *
+ * The three signals are the payload's own container signature, a response
+ * type that declares a font, and the browser's font request destination.
+ * Any one of them identifies a font; none of them is required. An earlier
+ * version consulted the payload first and returned immediately whenever a
+ * body had been read, so a readable response with an unrecognized signature
+ * was a *decided* non-font before the response type or the request
+ * destination was looked at. A prohibited third-party `@font-face` request
+ * answered with a corrupt payload, an unsupported container or an HTML
+ * error page was therefore dropped from the font rows and from the
+ * fail-closed unclassified set at once, and disappeared.
+ *
+ * Readable bytes that match no known container are the absence of one
+ * signal, not evidence of "not a font". They decide the question only once
+ * the other two signals have also failed to identify one, and a request
+ * that none of the three can decide stays unclassified and fails.
+ */
+export function classifyCapturedRequest(
+  request: CapturedRequestObservation,
+): CapturedRequestClassification {
+  const { payloadSignature } = request;
+  const signals: string[] = [];
+  const payloadFormat =
+    payloadSignature === null
+      ? undefined
+      : FONT_PAYLOAD_SIGNATURES[payloadSignature];
+  if (payloadFormat !== undefined) {
+    signals.push(`payload signature 0x${payloadSignature} (${payloadFormat})`);
+  }
+  const fontTypes = [...request.contentTypes].filter(isFontContentType).sort();
+  if (fontTypes.length > 0) {
+    signals.push(`response type ${fontTypes.join('/')}`);
+  }
+  if (request.resourceTypes.includes('font')) {
+    signals.push('browser font request destination');
+  }
+  if (signals.length > 0) {
+    return { isFont: true, classified: true, basis: signals.join(' + ') };
+  }
+
+  const contentTypes = [...request.contentTypes];
+  if (payloadSignature !== null) {
+    return {
+      isFont: false,
+      classified: true,
+      basis: `payload signature 0x${payloadSignature} is no font container, served as ${
+        contentTypes.sort().join('/') || 'no declared type'
+      } to a ${[...request.resourceTypes].sort().join('/') || 'unknown'} request`,
+    };
+  }
+  if (
+    contentTypes.length > 0 &&
+    contentTypes.every(isDecidedNonFontContentType)
+  ) {
+    return {
+      isFont: false,
+      classified: true,
+      basis: `response type ${contentTypes.sort().join('/')}`,
+    };
+  }
+  // A request that produced no response body delivered no font. That is a
+  // fact about the payload, not a guess from the URL, so a same-origin
+  // aborted prefetch is decided rather than left ambiguous. A foreign-origin
+  // request is not let through this way: VAL-B2-TYPE-002 forbids the
+  // request, so one whose payload cannot be read stays unclassified.
+  if (!request.responded && request.origin === 'same') {
+    return { isFont: false, classified: true, basis: 'no response payload' };
+  }
+  return { isFont: false, classified: false, basis: 'undetermined' };
+}
+
+/**
  * The `--font-*` typography stacks `app/globals.css` declares.
  *
  * `VAL-B2-TYPE-001` seals the number of first-party role families, so the

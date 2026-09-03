@@ -56,7 +56,11 @@ describe('OG renderer font delivery contract', () => {
   it('keeps the KaTeX exception out of the renderer and its artwork', () => {
     expect(source('lib/og-card-artwork.ts')).not.toMatch(/KaTeX/);
     expect(source('scripts/generate-og-cards.ts')).not.toMatch(/KaTeX/);
-    expect(source('scripts/generate-og-cards.ts')).toContain(
+    expect(source('lib/og-card-render-boundary.ts')).not.toMatch(/KaTeX/);
+    // The faces are registered where the cards are painted. The generator
+    // no longer supplies them: it hands the render boundary a sealed corpus
+    // entry and nothing else.
+    expect(source('lib/og-card-render-boundary.ts')).toContain(
       'OG_RENDERER_FACES',
     );
   });

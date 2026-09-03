@@ -7,6 +7,12 @@
       "scripts/generate-og-cards.ts"
     ],
     "cardTreeSource": "lib/og-card-corpus.ts",
+    "renderBoundary": {
+      "module": "lib/og-card-render-boundary.ts",
+      "renderer": "ImageResponse",
+      "sealOpener": "openSealedCardTree",
+      "finalTree": "finalTree"
+    },
     "modules": [
       "data/modules.ts",
       "data/plex-mono-font-metadata.ts",
@@ -20,13 +26,16 @@
       "lib/og-card-artwork.ts",
       "lib/og-card-corpus.ts",
       "lib/og-card-facts.ts",
+      "lib/og-card-render-boundary.ts",
       "lib/og-cards.ts",
+      "lib/og-render-boundary-invariant.ts",
       "lib/og-renderer-fonts.ts",
       "lib/source-comments.ts",
+      "lib/source-tokens.ts",
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "65d478aab1347bf400e09aecf2f8e2ee22c622db7777891111a0be628f3fa817"
+    "fingerprint": "7d3c18e3bc84af157606ec3994ac733d26bf5e100d1e7788fb9c3afd1767241f"
   },
   "cardCount": 48,
   "paintedProperties": 9743,

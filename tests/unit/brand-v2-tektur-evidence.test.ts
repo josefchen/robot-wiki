@@ -2,8 +2,10 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  FONT_PAYLOAD_SIGNATURES,
   TEKTUR_ASSERTION_MODES,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  classifyCapturedRequest,
   fontFamilyKey,
   measureTekturEvidence,
   tekturAssertionEvidence,
@@ -597,5 +599,150 @@ describe('brand-v2 Tektur delivery evidence', () => {
       -1,
     );
     expect(() => measure(shortProbes)).toThrow(/probed \d+ assigned strings/);
+  });
+});
+
+/**
+ * The capture-side classifier, which decides what reaches `fontRequests` and
+ * `unclassifiedRequests` in the first place.
+ *
+ * A reader that rejects a third-party font row can only reject rows it is
+ * given. The defect these gates exist for: the classifier consulted the
+ * payload first and returned as soon as a body had been read, so a readable
+ * response whose signature it did not recognize was a *decided* non-font
+ * before the response type or the browser's font destination was consulted.
+ * A prohibited third-party `@font-face` request answered with a corrupt
+ * payload, an unsupported container or an error page was omitted from both
+ * lists and vanished.
+ */
+describe('brand-v2 captured request classification', () => {
+  const corrupt = '3c21646f'; // `<!do`, a readable payload in no font table
+  const base = {
+    resourceTypes: ['other'],
+    contentTypes: [] as string[],
+    payloadSignature: null as string | null,
+    responded: true,
+    origin: 'foreign' as const,
+  };
+
+  it('treats each of the three positive signals as independently sufficient', () => {
+    expect(corrupt in FONT_PAYLOAD_SIGNATURES).toBe(false);
+
+    const byDestination = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['font'],
+      contentTypes: ['application/octet-stream'],
+      payloadSignature: corrupt,
+    });
+    expect(byDestination.isFont).toBe(true);
+    expect(byDestination.classified).toBe(true);
+    expect(byDestination.basis).toBe('browser font request destination');
+
+    const byContentType = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['fetch'],
+      contentTypes: ['font/woff2'],
+      payloadSignature: corrupt,
+    });
+    expect(byContentType.isFont).toBe(true);
+    expect(byContentType.basis).toBe('response type font/woff2');
+
+    const byPayload = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['fetch'],
+      contentTypes: ['application/octet-stream'],
+      payloadSignature: '774f4632',
+    });
+    expect(byPayload.isFont).toBe(true);
+    expect(byPayload.basis).toBe('payload signature 0x774f4632 (WOFF2)');
+
+    // An error page answering an @font-face request is still a font request.
+    const errorPayload = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['font'],
+      contentTypes: ['text/html'],
+      payloadSignature: corrupt,
+    });
+    expect(errorPayload.isFont).toBe(true);
+    expect(errorPayload.basis).toBe('browser font request destination');
+
+    // And the union reports every signal that fired, not just the first.
+    const all = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['font'],
+      contentTypes: ['font/woff2'],
+      payloadSignature: '774f4632',
+    });
+    expect(all.basis).toBe(
+      'payload signature 0x774f4632 (WOFF2) + response type font/woff2 + browser font request destination',
+    );
+  });
+
+  it('decides a non-font only when none of the three signals identifies one', () => {
+    const readableNonFont = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['script'],
+      contentTypes: ['application/octet-stream'],
+      payloadSignature: corrupt,
+    });
+    expect(readableNonFont.isFont).toBe(false);
+    expect(readableNonFont.classified).toBe(true);
+    expect(readableNonFont.basis).toContain('is no font container');
+
+    const declaredNonFont = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['document'],
+      contentTypes: ['text/html'],
+    });
+    expect(declaredNonFont).toEqual({
+      isFont: false,
+      classified: true,
+      basis: 'response type text/html',
+    });
+
+    const abortedSameOrigin = classifyCapturedRequest({
+      ...base,
+      origin: 'same',
+      resourceTypes: ['fetch'],
+      responded: false,
+    });
+    expect(abortedSameOrigin).toEqual({
+      isFont: false,
+      classified: true,
+      basis: 'no response payload',
+    });
+  });
+
+  it('leaves an undecidable request unclassified so it fails closed', () => {
+    const unreadable = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['fetch'],
+      responded: false,
+    });
+    expect(unreadable.classified).toBe(false);
+    expect(unreadable.isFont).toBe(false);
+
+    const ambiguousType = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['other'],
+      contentTypes: ['application/octet-stream'],
+    });
+    expect(ambiguousType.classified).toBe(false);
+
+    // A mixed set is only decided when every observed type settles it.
+    const mixed = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['other'],
+      contentTypes: ['text/html', 'application/octet-stream'],
+    });
+    expect(mixed.classified).toBe(false);
+
+    // And the reader refuses an artifact carrying an undecided request, so
+    // "unclassified" is a failure rather than a note.
+    const undecided = clone();
+    undecided.fontResources.unclassifiedRequests = [
+      'https://cdn.example/f (foreign-origin, request types [other], response types [])',
+    ];
+    expect(() => measure(undecided)).toThrow(/could not classify 1 request/);
   });
 });

@@ -9,10 +9,13 @@
  *
  * The card trees and their destinations come from the shared corpus in
  * lib/og-card-corpus.ts, which is also the population the renderer
- * evidence measures. This module must not build a card tree of its own:
- * two parallel constructions of the same corpus made a painted-colour
- * change here invisible to the evidence, so `rendererSourceIdentity`
- * rejects a generator that binds the artwork builders directly.
+ * evidence measures. This module must not build a card tree of its own,
+ * and cannot transform one either: two parallel constructions of the same
+ * corpus made a painted-colour change here invisible to the evidence, and
+ * so did a wrapper applied to a corpus tree on its way to the renderer.
+ * What it receives is a sealed handle whose element tree is unreachable
+ * from here, and lib/og-card-render-boundary.ts is the only module that
+ * opens one and paints it.
  *
  * The corpus is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
@@ -35,45 +38,15 @@
  * frontmatter (citations list and lastReviewed) via the same helpers
  * the article template uses.
  */
-import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { OG_CARD_HEIGHT, OG_CARD_WIDTH } from '../lib/og-cards.ts';
-import type { CardNode } from '../lib/og-card-artwork.ts';
 import { ogCardCorpus } from '../lib/og-card-corpus.ts';
-import { OG_RENDERER_FACES } from '../lib/og-renderer-fonts.ts';
-import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/index.node.js';
+import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';
 
 const root = join(import.meta.dirname, '..');
 const publicOgDir = join(root, 'public', 'og');
 const outOgDir = join(root, 'out', 'og');
-
-let cachedFonts: NonNullable<ImageResponseOptions['fonts']> | null = null;
-
-function rendererFonts(): NonNullable<ImageResponseOptions['fonts']> {
-  if (cachedFonts) return cachedFonts;
-  const fonts = OG_RENDERER_FACES.map((face) => ({
-    name: face.family,
-    data: readFileSync(join(root, face.path)),
-    weight: face.weight,
-    style: face.style,
-  })) satisfies NonNullable<ImageResponseOptions['fonts']>;
-  cachedFonts = fonts;
-  return fonts;
-}
-
-// ImageResponse's bundled typings expect a ReactElement; the node build
-// accepts the same plain satori element trees our CardNode type
-// describes. Cast at the boundary rather than loosening CardNode.
-async function render(node: CardNode): Promise<Buffer> {
-  const response = new ImageResponse(node as never, {
-    width: OG_CARD_WIDTH,
-    height: OG_CARD_HEIGHT,
-    fonts: rendererFonts(),
-  });
-  return Buffer.from(await response.arrayBuffer());
-}
 
 function sha256(buf: Buffer): string {
   return createHash('sha256').update(buf).digest('hex');
@@ -119,8 +92,9 @@ async function main(): Promise<void> {
   let articleCards = 0;
   let siteCards = 0;
 
-  for (const { cardId, cardPath, card } of corpus) {
-    const buf = await render(card);
+  for (const entry of corpus) {
+    const { cardId, cardPath } = entry;
+    const buf = await renderCorpusCard(entry, root);
     check(cardPath, buf);
     emit(cardPath, buf);
     if (cardId === 'site') siteCards += 1;
