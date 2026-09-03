@@ -343,6 +343,11 @@ const TEKTUR_BROWSER_TARGET = testTarget(
   'Tektur web delivery › loads the local variable face without a third-party request or glyph fallback',
   'Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request.',
 );
+const TEKTUR_REQUEST_CLASSIFIER_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur web delivery › catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable one unclassified (VAL-B2-TYPE-002)',
+  'Plants third-party font requests that carry only one of the three identifying signals — a font response type, a browser font destination, or a font payload signature — requires each on its own to make the request a font, and requires a request that carries none of them and cannot be read to stay unclassified rather than be cleared.',
+);
 const TEKTUR_FAMILY_POPULATION_TARGET = testTarget(
   'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
   'Tektur web typography population › resolves exactly the four registered first-party families on every route, with bounded scoped exceptions (VAL-B2-TYPE-001)',
@@ -430,6 +435,10 @@ function tekturTargetsFor(id: string): TestTarget[] {
       TEKTUR_BINARY_TARGET,
       TEKTUR_ROLE_POPULATION_TARGET,
       TEKTUR_BROWSER_TARGET,
+      // A sweep that admits no third-party font is only as good as what it
+      // counts as a font, so the row names the gate that plants third-party
+      // requests the payload table alone cannot recognise.
+      TEKTUR_REQUEST_CLASSIFIER_TARGET,
     ];
   }
   if (id === 'VAL-B2-TYPE-015') {
@@ -519,6 +528,16 @@ const TOKEN_EVIDENCE_READER_TARGET = testTarget(
   'brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence',
   'Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected.',
 );
+const TOKEN_RENDER_BOUNDARY_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer',
+  'Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures.',
+);
+const OG_CARD_SEAL_TARGET = testTarget(
+  'tests/unit/og-card-seal.test.ts',
+  'the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed',
+  'Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform.',
+);
 const TOKEN_ACCENT_TARGET = testTarget(
   'tests/e2e/brand-v2.spec.ts',
   'brand-v2 core visual authority › runtime signal token resolves to exact v2 blue',
@@ -531,13 +550,22 @@ const TOKEN_FOUNDATION_TARGET = testTarget(
 );
 
 function tokenTargetsFor(id: string): TestTarget[] {
+  // The renderer-parity walk measures the corpus tree. It is decisive for
+  // the shipped cards only while the painted tree is that same tree, so
+  // every row reading a renderer number also names the two gates that hold
+  // the boundary: the source invariant and the runtime seal.
+  const renderer = [
+    TOKEN_RENDERER_PARITY_TARGET,
+    TOKEN_RENDER_BOUNDARY_TARGET,
+    OG_CARD_SEAL_TARGET,
+  ];
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return [
       TOKEN_MIRROR_TARGET,
       TOKEN_SEMANTIC_TARGET,
       TOKEN_ROUTE_SWEEP_TARGET,
       TOKEN_FOUNDATION_TARGET,
-      TOKEN_RENDERER_PARITY_TARGET,
+      ...renderer,
       TOKEN_EVIDENCE_READER_TARGET,
     ];
   }
@@ -545,7 +573,7 @@ function tokenTargetsFor(id: string): TestTarget[] {
     TOKEN_MIRROR_TARGET,
     TOKEN_ROUTE_SWEEP_TARGET,
     id === 'VAL-B2-COL-003' ? TOKEN_FOUNDATION_TARGET : TOKEN_ACCENT_TARGET,
-    TOKEN_RENDERER_PARITY_TARGET,
+    ...renderer,
     TOKEN_EVIDENCE_READER_TARGET,
   ];
 }

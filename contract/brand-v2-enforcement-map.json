@@ -1779,6 +1779,18 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer",
+          "mechanism": "Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-card-seal.test.ts",
+          "title": "the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed",
+          "mechanism": "Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
           "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
           "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
@@ -2197,6 +2209,18 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer",
+          "mechanism": "Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-card-seal.test.ts",
+          "title": "the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed",
+          "mechanism": "Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
           "title": "brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence",
           "mechanism": "Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected."
         }
@@ -2611,6 +2635,18 @@
           "file": "tests/unit/brand-v2-token-evidence.test.ts",
           "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
           "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer",
+          "mechanism": "Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-card-seal.test.ts",
+          "title": "the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed",
+          "mechanism": "Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform."
         },
         {
           "kind": "test",
@@ -3781,6 +3817,18 @@
           "file": "tests/unit/brand-v2-token-evidence.test.ts",
           "title": "brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity",
           "mechanism": "Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-token-evidence.test.ts",
+          "title": "brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer",
+          "mechanism": "Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-card-seal.test.ts",
+          "title": "the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed",
+          "mechanism": "Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform."
         },
         {
           "kind": "test",
@@ -9678,6 +9726,12 @@
           "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
           "mechanism": "Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-tektur-font-delivery.spec.ts",
+          "title": "Tektur web delivery › catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable one unclassified (VAL-B2-TYPE-002)",
+          "mechanism": "Plants third-party font requests that carry only one of the three identifying signals — a font response type, a browser font destination, or a font payload signature — requires each on its own to make the request a font, and requires a request that carries none of them and cannot be read to stay unclassified rather than be cleared."
         },
         {
           "kind": "test",
