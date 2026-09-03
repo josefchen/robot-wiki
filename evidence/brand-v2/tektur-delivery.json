@@ -6270,6 +6270,301 @@
       ]
     }
   ],
+  "fontFaces": [
+    {
+      "family": "\"IBM Plex Mono Fallback\"",
+      "sources": []
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/02263ebadd758ea4-s.29yke99gs9qpn.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/59b15b4bcd7b1eb5-s.2vemzm0itqzfy.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/5e05ae5b48faa55e-s.1yd4_i3e35931.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/68757d6cddeff913-s.1i-sca43-qwng.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/a7afbb44bec2bb18-s.1qc6dx89jd2qv.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/e390973e931a41c5-s.0rgnxg2b64rzs.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/e532fa1b9921e1cd-s.3cb5lpr2l6xud.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Mono\"",
+      "sources": [
+        "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans Fallback\"",
+      "sources": []
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/1bcd0e671759a44c-s.2qt3tdwt-y9x_.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/7fea77d1d19108bf-s.2y65deuc30pmy.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/90c51ce8fb754fe8-s.02z5rrbg5nt92.woff2"
+      ]
+    },
+    {
+      "family": "\"IBM Plex Sans\"",
+      "sources": [
+        "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2"
+      ]
+    },
+    {
+      "family": "\"Newsreader Fallback\"",
+      "sources": []
+    },
+    {
+      "family": "KaTeX_AMS",
+      "sources": [
+        "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+        "/_next/static/media/KaTeX_AMS-Regular.10y3kupq4t663.woff",
+        "/_next/static/media/KaTeX_AMS-Regular.418dr7cz3fo2x.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Caligraphic",
+      "sources": [
+        "/_next/static/media/KaTeX_Caligraphic-Bold.06b-ya9t43ioz.woff2",
+        "/_next/static/media/KaTeX_Caligraphic-Bold.2vmk2hva4ctha.woff",
+        "/_next/static/media/KaTeX_Caligraphic-Bold.40ltxhe834pns.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Caligraphic",
+      "sources": [
+        "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+        "/_next/static/media/KaTeX_Caligraphic-Regular.3gxeetazf831f.woff",
+        "/_next/static/media/KaTeX_Caligraphic-Regular.07-7u27-nhn_r.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Fraktur",
+      "sources": [
+        "/_next/static/media/KaTeX_Fraktur-Bold.2sasz-d-jtw8y.woff2",
+        "/_next/static/media/KaTeX_Fraktur-Bold.1alcy76__wdj2.woff",
+        "/_next/static/media/KaTeX_Fraktur-Bold.19yqa_tc9d_gx.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Fraktur",
+      "sources": [
+        "/_next/static/media/KaTeX_Fraktur-Regular.2d10y4xmjvzlf.woff2",
+        "/_next/static/media/KaTeX_Fraktur-Regular.110oo81prr9n5.woff",
+        "/_next/static/media/KaTeX_Fraktur-Regular.2qhy34r6a05dn.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Main",
+      "sources": [
+        "/_next/static/media/KaTeX_Main-Bold.3-rowy8o6_4ky.woff2",
+        "/_next/static/media/KaTeX_Main-Bold.0v1esh257kqpe.woff",
+        "/_next/static/media/KaTeX_Main-Bold.0us_n0tnxlxu7.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Main",
+      "sources": [
+        "/_next/static/media/KaTeX_Main-BoldItalic.14r2naom8mrec.woff2",
+        "/_next/static/media/KaTeX_Main-BoldItalic.13355ck5zr48q.woff",
+        "/_next/static/media/KaTeX_Main-BoldItalic.3x_u9cepaced0.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Main",
+      "sources": [
+        "/_next/static/media/KaTeX_Main-Italic.0lig0v9j0700p.woff2",
+        "/_next/static/media/KaTeX_Main-Italic.0afv392dj4w59.woff",
+        "/_next/static/media/KaTeX_Main-Italic.2hkw3230mfwcv.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Main",
+      "sources": [
+        "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+        "/_next/static/media/KaTeX_Main-Regular.15u8r3b2y7fv4.woff",
+        "/_next/static/media/KaTeX_Main-Regular.0symfa7dqj6jd.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Math",
+      "sources": [
+        "/_next/static/media/KaTeX_Math-BoldItalic.1oopuu636h4il.woff2",
+        "/_next/static/media/KaTeX_Math-BoldItalic.12pl58orkw9rg.woff",
+        "/_next/static/media/KaTeX_Math-BoldItalic.0y5w36a5aq__2.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Math",
+      "sources": [
+        "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+        "/_next/static/media/KaTeX_Math-Italic.0w0b1ugh62cfr.woff",
+        "/_next/static/media/KaTeX_Math-Italic.2vkekfblmz5nb.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_SansSerif",
+      "sources": [
+        "/_next/static/media/KaTeX_SansSerif-Bold.0h3wi2z_eouyg.woff2",
+        "/_next/static/media/KaTeX_SansSerif-Bold.1ovw5p-yjp56g.woff",
+        "/_next/static/media/KaTeX_SansSerif-Bold.2d03q85pwxpti.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_SansSerif",
+      "sources": [
+        "/_next/static/media/KaTeX_SansSerif-Italic.0wkjc4dm2kcit.woff2",
+        "/_next/static/media/KaTeX_SansSerif-Italic.1qavw__2zz8gk.woff",
+        "/_next/static/media/KaTeX_SansSerif-Italic.3i-q087b23-m8.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_SansSerif",
+      "sources": [
+        "/_next/static/media/KaTeX_SansSerif-Regular.2peiewu59z3d-.woff2",
+        "/_next/static/media/KaTeX_SansSerif-Regular.1i4afx8nk8n4r.woff",
+        "/_next/static/media/KaTeX_SansSerif-Regular.31pbu25feko_c.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Script",
+      "sources": [
+        "/_next/static/media/KaTeX_Script-Regular.11h14300o9pd0.woff2",
+        "/_next/static/media/KaTeX_Script-Regular.3110jb9c-bxna.woff",
+        "/_next/static/media/KaTeX_Script-Regular.28p_x7iz71ofe.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Size1",
+      "sources": [
+        "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+        "/_next/static/media/KaTeX_Size1-Regular.1slf4bh0hc6vm.woff",
+        "/_next/static/media/KaTeX_Size1-Regular.1y57-ck23ey8c.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Size2",
+      "sources": [
+        "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+        "/_next/static/media/KaTeX_Size2-Regular.0-kwyvx03omo8.woff",
+        "/_next/static/media/KaTeX_Size2-Regular.2u0s-b07k2o9m.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Size3",
+      "sources": [
+        "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+        "/_next/static/media/KaTeX_Size3-Regular.04o9a_02gu_e8.woff",
+        "/_next/static/media/KaTeX_Size3-Regular.1pkn-dge4q0fv.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Size4",
+      "sources": [
+        "/_next/static/media/KaTeX_Size4-Regular.2sgotkdv3dcyv.woff2",
+        "/_next/static/media/KaTeX_Size4-Regular.3p2r1l7xmebxv.woff",
+        "/_next/static/media/KaTeX_Size4-Regular.2uelkfk2yna5e.ttf"
+      ]
+    },
+    {
+      "family": "KaTeX_Typewriter",
+      "sources": [
+        "/_next/static/media/KaTeX_Typewriter-Regular.11gr2d2wuwz77.woff2",
+        "/_next/static/media/KaTeX_Typewriter-Regular.12f8myjij3617.woff",
+        "/_next/static/media/KaTeX_Typewriter-Regular.3nee9kjfy6nm8.ttf"
+      ]
+    },
+    {
+      "family": "Newsreader",
+      "sources": [
+        "/_next/static/media/150f724d70372c02-s.1ljbalzvxyif7.woff2"
+      ]
+    },
+    {
+      "family": "Newsreader",
+      "sources": [
+        "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2"
+      ]
+    },
+    {
+      "family": "Newsreader",
+      "sources": [
+        "/_next/static/media/750c737482d9de2f-s.3ex3j6ahhvjry.woff2"
+      ]
+    },
+    {
+      "family": "tektur",
+      "sources": [
+        "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2"
+      ]
+    }
+  ],
+  "unreadableStyleSheets": [],
   "fontResources": {
     "sameOriginPaths": [
       "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
@@ -6290,7 +6585,190 @@
     ],
     "foreignOrigin": [],
     "observationsWithFontRequest": 248,
-    "observationsMixingForeignOrigin": 0
+    "observationsMixingForeignOrigin": 0,
+    "fontRequests": [
+      {
+        "url": "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "056e4e2459f57a0033c8c9c844ff19d6e42ac8602027803d4345823bcc939818"
+      },
+      {
+        "url": "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "f1050dc5317b43434c0aeda599d4624c774ffc162e87a8cf204b949b6a85816d"
+      },
+      {
+        "url": "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "ae1d854fefa1167a79071f1afe01d4d51b60c5840c1be36dd74bd5fe7375b405"
+      },
+      {
+        "url": "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
+      },
+      {
+        "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "c36f509c0a8f9f85f29cb44bc8701d8a9e0b14c499e77a884f789ead7093a7ac"
+      },
+      {
+        "url": "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
+      },
+      {
+        "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "a76f53ca6612e7b3828eec2311098675b7f9849ae4169a8bcef6302aec02a6c0"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+      },
+      {
+        "url": "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+      },
+      {
+        "url": "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+        "origin": "same",
+        "resourceTypes": [
+          "font"
+        ],
+        "contentTypes": [
+          "font/woff2"
+        ],
+        "payloadSignature": "774f4632",
+        "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1"
+      }
+    ],
+    "unclassifiedRequests": []
   },
   "delivery": {
     "route": "/",

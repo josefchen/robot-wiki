@@ -4,11 +4,13 @@ import { describe, expect, it } from 'vitest';
 import {
   TEKTUR_ASSERTION_MODES,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  fontFamilyKey,
   measureTekturEvidence,
   tekturAssertionEvidence,
   type TekturDeliveryEvidence,
 } from '../../lib/brand-v2-tektur-evidence';
 import { FIRST_PARTY_TYPE_ROLES } from '../../data/type-roles';
+import { TEKTUR_FONT_METADATA } from '../../data/tektur-font-metadata';
 
 const ROOT = process.cwd();
 const CSS = readFileSync(join(ROOT, 'app', 'globals.css'), 'utf8');
@@ -47,6 +49,44 @@ function katexHead(
   );
   if (!head) throw new Error('observation resolves no KaTeX face');
   return head;
+}
+
+/** The captured request whose payload is the registered web binary. */
+function registeredWebRequest(
+  artifact: TekturDeliveryEvidence,
+): TekturDeliveryEvidence['fontResources']['fontRequests'][number] {
+  const row = artifact.fontResources.fontRequests.find(
+    ({ sha256 }) => sha256 === TEKTUR_FONT_METADATA.web.sha256,
+  );
+  if (!row) throw new Error('the sweep captured no registered Tektur payload');
+  return row;
+}
+
+/** The `@font-face` record that publishes the registered web binary. */
+function aliasFace(
+  artifact: TekturDeliveryEvidence,
+): TekturDeliveryEvidence['fontFaces'][number] {
+  const delivered = registeredWebRequest(artifact).url;
+  const face = artifact.fontFaces.find(({ sources }) =>
+    sources.includes(delivered),
+  );
+  if (!face) {
+    throw new Error(`no @font-face declares ${delivered}`);
+  }
+  return face;
+}
+
+function facesFor(
+  artifact: TekturDeliveryEvidence,
+  family: string,
+): TekturDeliveryEvidence['fontFaces'] {
+  const faces = artifact.fontFaces.filter(
+    (candidate) => fontFamilyKey(candidate.family) === fontFamilyKey(family),
+  );
+  if (faces.length === 0) {
+    throw new Error(`the sweep observed no @font-face for ${family}`);
+  }
+  return faces;
 }
 
 describe('brand-v2 Tektur delivery evidence', () => {
@@ -176,6 +216,25 @@ describe('brand-v2 Tektur delivery evidence', () => {
     const droppedAxis = clone();
     droppedAxis.roleAxes = droppedAxis.roleAxes.slice(1);
     expect(() => measure(droppedAxis)).toThrow(/measured axes for/);
+
+    // Both of these passed a `family.includes('tektur')` substring test.
+    const lookalikeAxis = clone();
+    lookalikeAxis.roleAxes[0].family = 'Tektur Clone, sans-serif';
+    expect(() => measure(lookalikeAxis)).toThrow(
+      /rather than the registered Tektur runtime family/,
+    );
+
+    const displacedHead = clone();
+    displacedHead.roleAxes[0].family = 'Arial, tektur, sans-serif';
+    expect(() => measure(displacedHead)).toThrow(
+      /whose head is arial rather than the registered Tektur runtime family/,
+    );
+
+    const lookalikeWordmark = clone();
+    lookalikeWordmark.delivery.wordmark.family = 'Tektur Clone, sans-serif';
+    expect(() => measure(lookalikeWordmark)).toThrow(
+      /the registry records wght/,
+    );
   });
 
   it('rejects an unapproved or unscoped font family anywhere in the population', () => {
@@ -270,6 +329,180 @@ describe('brand-v2 Tektur delivery evidence', () => {
     );
   });
 
+  /**
+   * The family reconciler used to strip a trailing ` Variable` from every
+   * observed name so that the registered `Tektur Variable` would meet its
+   * runtime family `tektur`. Any unapproved `<approved> Variable` family
+   * therefore normalized onto an approved key and produced no failure, on
+   * any production surface, even though the browser would fall back because
+   * no face of that name is loaded. The rename is now an observation, not a
+   * transformation.
+   */
+  it('rejects an unapproved family that differs from an approved one only by a Variable suffix', () => {
+    const planted = clone();
+    planted.familyObservations[0].heads.push('IBM Plex Sans Variable');
+    planted.familyObservations[0].headsOutsideMath.push(
+      'IBM Plex Sans Variable',
+    );
+    expect(() => measure(planted)).toThrow(
+      /neither one of the 4 registered first-party families nor a scoped exception: IBM Plex Sans Variable on/,
+    );
+
+    const suffixed = clone();
+    suffixed.familyObservations[1].heads.push('Newsreader Variable');
+    suffixed.familyObservations[1].headsOutsideMath.push('Newsreader Variable');
+    expect(() => measure(suffixed)).toThrow(
+      /nor a scoped exception: Newsreader Variable on/,
+    );
+  });
+
+  /**
+   * The positive control for the same mechanism: the one legitimate rename
+   * still resolves, and it resolves because the sweep saw the `@font-face`
+   * that performs it load the registered payload.
+   */
+  it('accepts the registered Tektur runtime alias, and only on that evidence', () => {
+    const measurements = measure(clone());
+    const display = measurements.families.approved.find(
+      ({ roleId }) => roleId === 'display',
+    );
+    expect(display?.family).toBe('Tektur Variable');
+    expect(display?.alias?.binaryPath).toBe(TEKTUR_FONT_METADATA.web.path);
+    expect(display?.alias?.binarySha256).toBe(TEKTUR_FONT_METADATA.web.sha256);
+    expect(display?.runtimeFace).toBe(display?.alias?.runtimeKey);
+    expect(display?.alias?.deliveredFrom.length).toBeGreaterThan(0);
+    expect(display?.observations).toBeGreaterThan(0);
+    // Exactly one alias: the other three families are published under their
+    // registered names, so nothing else may be renamed.
+    expect(
+      measurements.families.approved
+        .filter(({ alias }) => alias !== null)
+        .map(({ roleId }) => roleId),
+    ).toEqual(['display']);
+
+    // Without the declaring face, the head the display role resolves is not
+    // an approved family at all.
+    const undeclared = clone();
+    undeclared.fontFaces = undeclared.fontFaces.filter(
+      (face) => face !== aliasFace(undeclared),
+    );
+    expect(() => measure(undeclared)).toThrow(
+      /distinct @font-face families declare that payload \(none\)/,
+    );
+
+    // A second face claiming the same payload leaves the runtime family
+    // ambiguous, so an added alias cannot approve a new name.
+    const ambiguous = clone();
+    ambiguous.fontFaces = [
+      ...ambiguous.fontFaces,
+      {
+        family: '"IBM Plex Sans Variable"',
+        sources: [...aliasFace(ambiguous).sources],
+      },
+    ];
+    expect(() => measure(ambiguous)).toThrow(
+      /2 distinct @font-face families declare that payload/,
+    );
+
+    // A declared face pointing somewhere else backs nothing.
+    const detached = clone();
+    aliasFace(detached).sources = ['/_next/static/media/not-delivered.woff2'];
+    expect(() => measure(detached)).toThrow(
+      /distinct @font-face families declare that payload \(none\)/,
+    );
+
+    // A registered family whose runtime name no face declares would resolve
+    // to a fallback on every element that names it.
+    const unloaded = clone();
+    for (const face of facesFor(unloaded, 'Newsreader')) {
+      face.family = 'Newsreader Unloaded';
+    }
+    expect(() => measure(unloaded)).toThrow(
+      /which no observed @font-face declares, so every element naming it falls back/,
+    );
+
+    const unreadable = clone();
+    unreadable.unreadableStyleSheets = ['https://cdn.example/theme.css'];
+    expect(() => measure(unreadable)).toThrow(
+      /could not read 1 stylesheet\(s\)/,
+    );
+  });
+
+  /**
+   * Font discovery used to accept a Resource Timing entry whose
+   * `initiatorType` was `font` or whose URL ended in `.woff2`, `.ttf` or
+   * `.otf`. The browser reports a CSS `@font-face` load with a `css`
+   * initiator, so the extension was the only discriminator, and an
+   * extensionless third-party URL matched neither branch: it was invisible
+   * while the local WOFF2 requests kept the non-empty floor green. These are
+   * the records that has to reject now.
+   */
+  it('rejects a third-party font request identified only by its payload', () => {
+    const extensionless = clone();
+    extensionless.fontResources.fontRequests = [
+      ...extensionless.fontResources.fontRequests,
+      {
+        url: 'https://cdn.example/f?id=plex',
+        origin: 'foreign',
+        // Neither a font extension nor a font resource type nor a font
+        // response type: only the four bytes that came back.
+        resourceTypes: ['other'],
+        contentTypes: ['application/octet-stream'],
+        payloadSignature: '774f4632',
+        sha256: 'f'.repeat(64),
+      },
+    ];
+    expect(() => measure(extensionless)).toThrow(
+      /came from another origin: https:\/\/cdn\.example\/f\?id=plex \(WOFF2 payload, served as application\/octet-stream\)/,
+    );
+
+    const declaredType = clone();
+    declaredType.fontResources.fontRequests = [
+      ...declaredType.fontResources.fontRequests,
+      {
+        url: 'https://fonts.gstatic.com/s/tektur/v1/asset',
+        origin: 'foreign',
+        resourceTypes: ['stylesheet'],
+        contentTypes: ['font/woff2'],
+        payloadSignature: '',
+        sha256: 'e'.repeat(64),
+      },
+    ];
+    expect(() => measure(declaredType)).toThrow(/came from another origin/);
+
+    // A row recorded as a font resource that the record does not show to be
+    // one: the artifact may not simply assert the classification.
+    const unproven = clone();
+    unproven.fontResources.fontRequests = [
+      ...unproven.fontResources.fontRequests,
+      {
+        url: '/_next/static/media/mystery',
+        origin: 'same',
+        resourceTypes: ['other'],
+        contentTypes: ['text/plain'],
+        payloadSignature: 'deadbeef',
+        sha256: 'd'.repeat(64),
+      },
+    ];
+    expect(() => measure(unproven)).toThrow(
+      /do not show a font|the captured requests are/,
+    );
+
+    const undecided = clone();
+    undecided.fontResources.unclassifiedRequests = [
+      'https://cdn.example/f?id=plex (foreign-origin, request types [other], response types [], payload unreadable: Error)',
+    ];
+    expect(() => measure(undecided)).toThrow(
+      /could not classify 1 request\(s\), so it cannot claim they carried no font/,
+    );
+
+    const emptyCapture = clone();
+    emptyCapture.fontResources.fontRequests = [];
+    expect(() => measure(emptyCapture)).toThrow(
+      /captured no font request at all|the captured requests are/,
+    );
+  });
+
   it('rejects a delivery record that hides a third-party request or a fallback glyph', () => {
     const foreign = clone();
     foreign.fontResources.foreignOrigin = [
@@ -281,20 +514,62 @@ describe('brand-v2 Tektur delivery evidence', () => {
     mixing.fontResources.observationsMixingForeignOrigin = 1;
     expect(() => measure(mixing)).toThrow(/requested a font from another origin/);
 
-    const noBundle = clone();
-    noBundle.fontResources.sameOriginPaths =
-      noBundle.fontResources.sameOriginPaths.filter(
-        (path) => !/\.woff2$/i.test(path),
-      );
-    expect(() => measure(noBundle)).toThrow(
-      /none is a framework-bundled WOFF2|no same-origin font resource/,
+    // The published path set is derived from the captured rows, so a summary
+    // edited on its own cannot disagree with the capture.
+    const trimmedSummary = clone();
+    trimmedSummary.fontResources.sameOriginPaths =
+      trimmedSummary.fontResources.sameOriginPaths.slice(1);
+    expect(() => measure(trimmedSummary)).toThrow(
+      /lists the same-origin font paths/,
     );
 
+    // Delivery of the registered binary is identified by payload checksum,
+    // not by a `/_next/static/media/*.woff2` URL shape.
+    const noBundle = clone();
+    for (const row of noBundle.fontResources.fontRequests) {
+      if (row.sha256 === TEKTUR_FONT_METADATA.web.sha256) {
+        row.sha256 = 'a'.repeat(64);
+      }
+    }
+    expect(() => measure(noBundle)).toThrow(
+      /No captured same-origin font request delivered/,
+    );
+
+    const offBundle = clone();
+    const bundled = registeredWebRequest(offBundle);
+    const bundledFace = aliasFace(offBundle);
+    bundledFace.sources = bundledFace.sources.map((source) =>
+      source === bundled.url ? '/vendor/tektur.woff2' : source,
+    );
+    bundled.url = '/vendor/tektur.woff2';
+    offBundle.fontResources.sameOriginPaths = [
+      ...offBundle.fontResources.sameOriginPaths.filter(
+        (path) => path !== registeredWebRequest(clone()).url,
+      ),
+      '/vendor/tektur.woff2',
+    ].sort();
+    expect(() => measure(offBundle)).toThrow(
+      /none of it from the framework's bundled asset path/,
+    );
+
+    // The offline OG binary is caught by its bytes, so a renamed copy is the
+    // same leak.
     const ogLeak = clone();
+    ogLeak.fontResources.fontRequests = [
+      ...ogLeak.fontResources.fontRequests,
+      {
+        url: '/_next/static/media/display-face',
+        origin: 'same',
+        resourceTypes: ['font'],
+        contentTypes: ['font/ttf'],
+        payloadSignature: '00010000',
+        sha256: TEKTUR_FONT_METADATA.og.sha256,
+      },
+    ];
     ogLeak.fontResources.sameOriginPaths = [
       ...ogLeak.fontResources.sameOriginPaths,
-      '/_next/static/media/Tektur-SemiBold.ttf',
-    ];
+      '/_next/static/media/display-face',
+    ].sort();
     expect(() => measure(ogLeak)).toThrow(/requested the offline OG binary/);
 
     const noRequests = clone();

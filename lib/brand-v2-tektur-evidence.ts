@@ -140,11 +140,56 @@ export type TekturDeliveryEvidence = {
     heads: string[];
     headsOutsideMath: string[];
   }>;
+  /**
+   * Every `@font-face` rule the swept documents declared, with each `url()`
+   * source resolved to a same-origin path or an absolute foreign URL.
+   *
+   * This is what binds a runtime family name to a payload. `next/font/local`
+   * publishes the registered `Tektur Variable` face under the runtime family
+   * `tektur`, and the only honest way to accept that rename is to observe the
+   * `@font-face` that performs it and confirm the bytes it loads are the
+   * registered binary.
+   */
+  fontFaces: Array<{ family: string; sources: string[] }>;
+  /**
+   * Stylesheets whose rules the sweep could not read. A stylesheet the sweep
+   * cannot read could declare any face at all, so a non-empty list fails.
+   */
+  unreadableStyleSheets: string[];
   fontResources: {
     sameOriginPaths: string[];
     foreignOrigin: string[];
     observationsWithFontRequest: number;
     observationsMixingForeignOrigin: number;
+    /**
+     * One row per distinct request the sweep classified as carrying a font
+     * payload, with the evidence that classified it.
+     *
+     * This replaced a Resource Timing scan that accepted an entry when its
+     * `initiatorType` was `font` or its URL ended in a font extension. In
+     * this browser a CSS `@font-face` load is reported with a `css`
+     * initiator — the sweep observed `initiatorType === 'font'` zero times
+     * while resolving five to ten font requests per document — so the URL
+     * suffix was doing all of the work, and
+     * `https://cdn.example/f?id=plex` has no suffix. What a request is, is
+     * decided here by the payload that arrived.
+     */
+    fontRequests: Array<{
+      /** Same-origin as `pathname` + `search`; foreign as the absolute URL. */
+      url: string;
+      origin: 'same' | 'foreign';
+      resourceTypes: string[];
+      contentTypes: string[];
+      /** The first four payload bytes, hex. */
+      payloadSignature: string;
+      sha256: string;
+    }>;
+    /**
+     * Requests the sweep could not decide about: a foreign-origin request
+     * with no readable payload, or any response whose payload and declared
+     * type both leave it ambiguous. A non-empty list fails.
+     */
+    unclassifiedRequests: string[];
   };
   delivery: {
     route: string;
@@ -171,18 +216,83 @@ function sha256(value: string): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
-/** `Tektur Variable` and the runtime face `tektur` are the same family. */
-export function normalizeFontFamilyName(family: string): string {
+/**
+ * A CSS font-family name reduced to a comparison key, lexically and only
+ * lexically.
+ *
+ * Surrounding whitespace and the one layer of quoting CSS serialization adds
+ * are removed, and the name is case-folded, which is what CSS font matching
+ * itself does to family names. Nothing else is removed. An earlier version
+ * also stripped a trailing ` Variable` from every observed name so that the
+ * registered `Tektur Variable` would meet its runtime family `tektur`; that
+ * folded the unapproved `IBM Plex Sans Variable` onto the approved
+ * `IBM Plex Sans` key too, and a fifth family with a ` Variable` suffix
+ * anywhere in production passed as first-party. A runtime family name that
+ * differs from its registered name is now admitted only by
+ * `reconcileRuntimeFamilyAliases`, which requires an observed `@font-face`
+ * loading the registered binary's bytes.
+ */
+export function fontFamilyKey(family: string): string {
   return family
     .trim()
     .replace(/^["']|["']$/g, '')
-    .replace(/\s+Variable$/i, '')
+    .trim()
     .toLowerCase();
 }
 
-/** The first family a CSS stack names, normalized. */
+/** The first family a CSS stack names, as a comparison key. */
 export function fontFamilyHead(stack: string): string {
-  return normalizeFontFamilyName((stack.split(',')[0] ?? '').trim());
+  return fontFamilyKey((stack.split(',')[0] ?? '').trim());
+}
+
+/**
+ * The payload signatures a font file starts with, keyed by the first four
+ * bytes in hex.
+ *
+ * `VAL-B2-TYPE-002` is a claim about font requests, and whether a request
+ * carried a font is a fact about the bytes that came back. A URL with no
+ * extension and a response type of `application/octet-stream` is still a
+ * font if it starts with `wOF2`.
+ */
+export const FONT_PAYLOAD_SIGNATURES: Readonly<Record<string, string>> = {
+  '774f4632': 'WOFF2',
+  '774f4646': 'WOFF',
+  '4f54544f': 'OpenType/CFF',
+  '00010000': 'TrueType',
+  '74727565': 'TrueType (true)',
+  '74746366': 'TrueType collection',
+};
+
+const FONT_CONTENT_TYPES: ReadonlySet<string> = new Set([
+  'application/font-woff',
+  'application/font-woff2',
+  'application/font-sfnt',
+  'application/vnd.ms-fontobject',
+  'application/x-font-otf',
+  'application/x-font-ttf',
+  'application/x-font-woff',
+]);
+
+/** A response type that declares a font payload. */
+export function isFontContentType(contentType: string): boolean {
+  return (
+    contentType.startsWith('font/') || FONT_CONTENT_TYPES.has(contentType)
+  );
+}
+
+/**
+ * A response type that settles the question the other way. Deliberately a
+ * closed list: anything outside it, including `application/octet-stream` and
+ * a missing type, is ambiguous and has to be decided from the payload.
+ */
+export function isDecidedNonFontContentType(contentType: string): boolean {
+  if (contentType.length === 0 || isFontContentType(contentType)) return false;
+  return (
+    /^(?:text|image|video|audio|model)\//.test(contentType) ||
+    /^application\/(?:javascript|x-javascript|ecmascript|json|xml|manifest\+json|wasm|pdf|zip|octet-stream\+dash\+xml)$/.test(
+      contentType,
+    )
+  );
 }
 
 /**
@@ -242,10 +352,59 @@ export function tekturDeliveryFingerprint(input: {
   );
 }
 
+/**
+ * A registered first-party family published to the browser under a different
+ * runtime name, and the observation that earns the rename.
+ *
+ * `next/font/local` emits `@font-face { font-family: tektur }` for the
+ * registered `Tektur Variable`, so the sweep resolves the head `tektur` on
+ * every display element. The alias is accepted because a swept document
+ * declared that `@font-face`, its `src` was fetched same-origin, and the
+ * payload hashed to the registered binary's checksum — not because a name
+ * transformation happened to map one onto the other.
+ */
+export type TekturFamilyAlias = {
+  roleId: string;
+  registeredFamily: string;
+  /** The runtime family name as the `@font-face` rule declares it. */
+  runtimeFamily: string;
+  runtimeKey: string;
+  binaryPath: string;
+  binarySha256: string;
+  /** Same-origin request paths whose payload hashed to that checksum. */
+  deliveredFrom: string[];
+  /** The `@font-face` sources that declare the runtime family. */
+  declaredBy: string[];
+};
+
+export type TekturFontRequestMeasurement = {
+  url: string;
+  origin: 'same' | 'foreign';
+  resourceTypes: string[];
+  contentTypes: string[];
+  payloadSignature: string;
+  payloadFormat: string;
+  sha256: string;
+};
+
+export type TekturFontDeliveryMeasurement = {
+  fontRequests: TekturFontRequestMeasurement[];
+  sameOriginPaths: string[];
+  foreignOrigin: string[];
+  /** Same-origin paths whose payload is the registered web binary. */
+  registeredWebBinaryPaths: string[];
+  frameworkBundledPaths: string[];
+  observationsWithFontRequest: number;
+  observationsMixingForeignOrigin: number;
+  unclassifiedRequests: string[];
+};
+
 export type TekturFamilyMember = {
   roleId: string;
   family: string;
   runtimeFace: string;
+  /** The alias observation, when the runtime name is not the registered one. */
+  alias: TekturFamilyAlias | null;
   heads: string[];
   /** Route x width documents that resolved this family on some element. */
   observations: number;
@@ -255,6 +414,7 @@ export type TekturFamilyMember = {
 };
 
 export type TekturFamilyReconciliation = {
+  aliases: TekturFamilyAlias[];
   approved: TekturFamilyMember[];
   scopedExceptions: Array<{
     id: string;
@@ -334,6 +494,7 @@ export type TekturCmapCoverage = {
 export type TekturMeasurements = {
   delivery: TekturDeliveryEvidence;
   occurrences: TekturRoleOccurrences;
+  fontDelivery: TekturFontDeliveryMeasurement;
   families: TekturFamilyReconciliation;
   roles: Record<string, TekturRoleMeasurement>;
   binaries: { web: TekturBinaryMeasurement; og: TekturBinaryMeasurement };
@@ -359,6 +520,341 @@ function requirePositiveCounts(
   }
 }
 
+const SHA256_PATTERN = /^[a-f0-9]{64}$/;
+
+function requireStringArray(value: unknown, label: string): string[] {
+  if (!Array.isArray(value) || value.some((entry) => typeof entry !== 'string')) {
+    throw new Error(`${label} is not a list of strings`);
+  }
+  return value as string[];
+}
+
+/**
+ * Reconciles the font requests the sweep captured against
+ * `VAL-B2-TYPE-002`'s claim that the Tektur faces are locally or framework
+ * bundled and that no runtime route produces a third-party font request.
+ *
+ * Every row has to re-derive as a font from what the record says arrived, the
+ * origin split has to agree with the rows rather than being a separate
+ * assertion, the registered binary has to be identified by its checksum
+ * rather than by a `/_next/static/media/*.woff2` path shape, and any request
+ * the sweep could not decide about is a failure.
+ */
+function reconcileFontResources(
+  artifact: TekturDeliveryEvidence,
+  routeStateCount: number,
+): TekturFontDeliveryMeasurement {
+  const resources = artifact.fontResources;
+  if (resources === null || typeof resources !== 'object') {
+    throw new Error('Tektur delivery evidence records no font resources');
+  }
+  const unclassified = requireStringArray(
+    resources.unclassifiedRequests,
+    'Tektur delivery evidence unclassifiedRequests',
+  );
+  if (unclassified.length > 0) {
+    throw new Error(
+      `The sweep could not classify ${unclassified.length} request(s), so it cannot claim they carried no font: ${[
+        ...unclassified,
+      ]
+        .sort()
+        .join('; ')}`,
+    );
+  }
+  if (!Array.isArray(resources.fontRequests)) {
+    throw new Error(
+      'Tektur delivery evidence records no captured font requests',
+    );
+  }
+  const seen = new Set<string>();
+  const fontRequests: TekturFontRequestMeasurement[] = resources.fontRequests
+    .map((row) => {
+      if (row === null || typeof row !== 'object') {
+        throw new Error('Tektur delivery evidence records a malformed font request');
+      }
+      if (typeof row.url !== 'string' || row.url.length === 0) {
+        throw new Error('A captured font request records no URL');
+      }
+      if (seen.has(row.url)) {
+        throw new Error(
+          `Tektur delivery evidence repeats the font request ${row.url}`,
+        );
+      }
+      seen.add(row.url);
+      if (row.origin !== 'same' && row.origin !== 'foreign') {
+        throw new Error(
+          `${row.url} records the origin ${String(row.origin)}, which is neither same nor foreign`,
+        );
+      }
+      const resourceTypes = requireStringArray(
+        row.resourceTypes,
+        `${row.url} resourceTypes`,
+      );
+      if (resourceTypes.length === 0) {
+        throw new Error(`${row.url} records no request resource type`);
+      }
+      const contentTypes = requireStringArray(
+        row.contentTypes,
+        `${row.url} contentTypes`,
+      );
+      if (typeof row.sha256 !== 'string' || !SHA256_PATTERN.test(row.sha256)) {
+        throw new Error(
+          `${row.url} records the payload checksum ${String(row.sha256)}`,
+        );
+      }
+      const payloadFormat = FONT_PAYLOAD_SIGNATURES[row.payloadSignature];
+      // The recorded row has to prove itself: a request is reported as a font
+      // resource only when its payload signature, its response type or the
+      // browser's own request destination says so. Otherwise the artifact
+      // would be asserting the classification instead of evidencing it.
+      const byPayload = payloadFormat !== undefined;
+      const byContentType = contentTypes.some(isFontContentType);
+      const byDestination = resourceTypes.includes('font');
+      if (!byPayload && !byContentType && !byDestination) {
+        throw new Error(
+          `${row.url} is recorded as a font request, but its payload signature ${String(row.payloadSignature)}, response types [${contentTypes.join(', ')}] and request types [${resourceTypes.join(', ')}] do not show a font`,
+        );
+      }
+      return {
+        url: row.url,
+        origin: row.origin,
+        resourceTypes: [...resourceTypes].sort(),
+        contentTypes: [...contentTypes].sort(),
+        payloadSignature: row.payloadSignature,
+        payloadFormat: payloadFormat ?? 'unrecognized',
+        sha256: row.sha256,
+      };
+    })
+    .sort((left, right) => left.url.localeCompare(right.url));
+  if (fontRequests.length === 0) {
+    throw new Error(
+      'Tektur delivery evidence captured no font request at all, so the delivery claim is vacuous',
+    );
+  }
+
+  const foreign = fontRequests.filter(({ origin }) => origin === 'foreign');
+  if (foreign.length > 0) {
+    throw new Error(
+      `${foreign.length} runtime font request(s) came from another origin: ${foreign
+        .map(
+          (row) =>
+            `${row.url} (${row.payloadFormat} payload, served as ${row.contentTypes.join('/') || 'no declared type'})`,
+        )
+        .join('; ')}`,
+    );
+  }
+  const sameOriginPaths = fontRequests
+    .filter(({ origin }) => origin === 'same')
+    .map(({ url }) => url)
+    .sort();
+  // The two published sets are derived from the rows rather than recorded
+  // beside them, so a hand-edited summary cannot disagree with the capture.
+  const recordedSameOrigin = requireStringArray(
+    resources.sameOriginPaths,
+    'Tektur delivery evidence sameOriginPaths',
+  );
+  if ([...recordedSameOrigin].sort().join('|') !== sameOriginPaths.join('|')) {
+    throw new Error(
+      `Tektur delivery evidence lists the same-origin font paths [${[...recordedSameOrigin].sort().join(', ')}]; the captured requests are [${sameOriginPaths.join(', ')}]`,
+    );
+  }
+  const recordedForeign = requireStringArray(
+    resources.foreignOrigin,
+    'Tektur delivery evidence foreignOrigin',
+  );
+  if (recordedForeign.length > 0) {
+    throw new Error(
+      `Tektur delivery evidence records third-party font requests: ${recordedForeign.join(', ')}`,
+    );
+  }
+
+  const registeredWebBinaryPaths = fontRequests
+    .filter(({ sha256 }) => sha256 === TEKTUR_FONT_METADATA.web.sha256)
+    .map(({ url }) => url);
+  if (registeredWebBinaryPaths.length === 0) {
+    throw new Error(
+      `No captured same-origin font request delivered the registered ${TEKTUR_FONT_METADATA.web.path} payload (${TEKTUR_FONT_METADATA.web.sha256}); the sweep fetched ${sameOriginPaths.join(', ')}`,
+    );
+  }
+  const frameworkBundledPaths = registeredWebBinaryPaths.filter((path) =>
+    path.startsWith('/_next/static/'),
+  );
+  if (frameworkBundledPaths.length === 0) {
+    throw new Error(
+      `The registered Tektur binary was delivered from ${registeredWebBinaryPaths.join(', ')}, none of it from the framework's bundled asset path`,
+    );
+  }
+  // The offline OG binary is identified by its bytes first: a renamed copy
+  // served from a runtime route is the same leak. The file name is a second
+  // trigger, not the test.
+  const ogFileName = TEKTUR_FONT_METADATA.og.path.split('/').at(-1) as string;
+  const ogLeaks = fontRequests.filter(
+    (row) =>
+      row.sha256 === TEKTUR_FONT_METADATA.og.sha256 ||
+      row.url.includes(ogFileName),
+  );
+  if (ogLeaks.length > 0) {
+    throw new Error(
+      `A runtime route requested the offline OG binary (${TEKTUR_FONT_METADATA.og.sha256}): ${ogLeaks
+        .map(({ url, sha256 }) => `${url} -> ${sha256}`)
+        .join(', ')}`,
+    );
+  }
+
+  if (resources.observationsMixingForeignOrigin !== 0) {
+    throw new Error(
+      `${resources.observationsMixingForeignOrigin} swept route states requested a font from another origin`,
+    );
+  }
+  if (
+    !(resources.observationsWithFontRequest > 0) ||
+    resources.observationsWithFontRequest > routeStateCount
+  ) {
+    throw new Error(
+      `Tektur delivery evidence records ${resources.observationsWithFontRequest} of ${routeStateCount} route states requesting a font resource`,
+    );
+  }
+
+  return {
+    fontRequests,
+    sameOriginPaths,
+    foreignOrigin: [],
+    registeredWebBinaryPaths,
+    frameworkBundledPaths,
+    observationsWithFontRequest: resources.observationsWithFontRequest,
+    observationsMixingForeignOrigin: resources.observationsMixingForeignOrigin,
+    unclassifiedRequests: unclassified,
+  };
+}
+
+/**
+ * Derives the runtime family names the registered first-party binaries are
+ * actually published under.
+ *
+ * The only admissible rename is one the sweep watched happen: a declared
+ * `@font-face`, a same-origin fetch of its `src`, and a payload whose
+ * checksum is the registered binary's. `OG_RENDERER_FACES` is where a
+ * vendored family is bound to one of the four first-party roles, so the role
+ * an alias belongs to is read from there rather than inferred from the name.
+ * Two faces claiming the same payload, or none, both fail: an alias is an
+ * observation, and there is no way to declare one into existence.
+ */
+function reconcileRuntimeFamilyAliases(
+  artifact: TekturDeliveryEvidence,
+  delivery: TekturFontDeliveryMeasurement,
+): TekturFamilyAlias[] {
+  const unreadable = requireStringArray(
+    artifact.unreadableStyleSheets,
+    'Tektur delivery evidence unreadableStyleSheets',
+  );
+  if (unreadable.length > 0) {
+    throw new Error(
+      `The sweep could not read ${unreadable.length} stylesheet(s), which could declare any font face: ${unreadable.sort().join(', ')}`,
+    );
+  }
+  if (!Array.isArray(artifact.fontFaces) || artifact.fontFaces.length === 0) {
+    throw new Error(
+      'Tektur delivery evidence records no @font-face declarations, so no runtime family name is backed by a payload',
+    );
+  }
+  const faces = artifact.fontFaces.map((face, index) => {
+    if (typeof face?.family !== 'string' || face.family.trim().length === 0) {
+      throw new Error(`@font-face record ${index} declares no family`);
+    }
+    return {
+      family: face.family,
+      key: fontFamilyKey(face.family),
+      sources: requireStringArray(
+        face.sources,
+        `@font-face ${face.family} sources`,
+      ),
+    };
+  });
+
+  const ogFace = OG_RENDERER_FACES.find(
+    ({ sha256 }) => sha256 === TEKTUR_FONT_METADATA.og.sha256,
+  );
+  if (!ogFace) {
+    throw new Error(
+      'No registered Open Graph renderer face carries the Tektur checksum, so no first-party role owns the Tektur binaries',
+    );
+  }
+  const role = FIRST_PARTY_TYPE_ROLES.find(({ id }) => id === ogFace.roleId);
+  if (!role) {
+    throw new Error(
+      `The Open Graph face ${ogFace.faceId} serves the role ${ogFace.roleId}, which is not a registered first-party role`,
+    );
+  }
+
+  const aliases: TekturFamilyAlias[] = [];
+  for (const binary of [
+    {
+      roleId: role.id,
+      registeredFamily: role.family,
+      path: TEKTUR_FONT_METADATA.web.path,
+      sha256: TEKTUR_FONT_METADATA.web.sha256,
+    },
+  ]) {
+    const deliveredFrom = delivery.fontRequests
+      .filter((row) => row.origin === 'same' && row.sha256 === binary.sha256)
+      .map(({ url }) => url)
+      .sort();
+    if (deliveredFrom.length === 0) {
+      throw new Error(
+        `No same-origin font request delivered ${binary.path} (${binary.sha256}), so nothing backs the runtime family it is published under`,
+      );
+    }
+    const declaring = faces.filter((face) =>
+      face.sources.some((source) => deliveredFrom.includes(source)),
+    );
+    const keys = [...new Set(declaring.map(({ key }) => key))].sort();
+    if (keys.length !== 1) {
+      throw new Error(
+        `${deliveredFrom.join(', ')} delivered ${binary.path}; ${keys.length} distinct @font-face families declare that payload (${keys.join(', ') || 'none'}), so the runtime family of the registered ${binary.registeredFamily} is not determined`,
+      );
+    }
+    aliases.push({
+      roleId: binary.roleId,
+      registeredFamily: binary.registeredFamily,
+      runtimeFamily: declaring[0].family,
+      runtimeKey: keys[0],
+      binaryPath: binary.path,
+      binarySha256: binary.sha256,
+      deliveredFrom,
+      declaredBy: [
+        ...new Set(declaring.flatMap(({ sources }) => sources)),
+      ].sort(),
+    });
+  }
+  if (aliases.length === 0) {
+    throw new Error(
+      'No runtime family alias was derived, so the alias mechanism accepted a rename nothing observed',
+    );
+  }
+  return aliases;
+}
+
+/**
+ * The runtime family names the registered first-party binaries are published
+ * under, derived from the captured payloads and the observed `@font-face`
+ * declarations alone.
+ *
+ * Exported so the browser sweep can compare the family its role annotations
+ * computed against the same derivation the reader will apply, instead of
+ * asking whether the resolved family "contains tektur".
+ */
+export function measureRuntimeFamilyAliases(
+  artifact: TekturDeliveryEvidence,
+): TekturFamilyAlias[] {
+  const routeStateCount =
+    (Array.isArray(artifact.routes) ? artifact.routes.length : 0) *
+    BRAND_V2_RESPONSIVE_VIEWPORTS.length;
+  return reconcileRuntimeFamilyAliases(
+    artifact,
+    reconcileFontResources(artifact, routeStateCount),
+  );
+}
+
 /**
  * Reconciles the measured `font-family` population against the four
  * registered first-party families.
@@ -376,6 +872,7 @@ function reconcileFamilies(
   css: string,
   occurrences: TekturRoleOccurrences,
   roles: Record<string, TekturRoleMeasurement>,
+  aliases: readonly TekturFamilyAlias[],
 ): TekturFamilyReconciliation {
   const stackProperties = deriveTypographyStackProperties(css);
   if (stackProperties.length !== FIRST_PARTY_TYPE_ROLES.length) {
@@ -383,12 +880,30 @@ function reconcileFamilies(
       `app/globals.css declares ${stackProperties.length} --font-* stacks (${stackProperties.join(', ')}); the registry seals ${FIRST_PARTY_TYPE_ROLES.length} first-party role families`,
     );
   }
-  const roleByFace = new Map(
-    FIRST_PARTY_TYPE_ROLES.map((role) => [
-      normalizeFontFamilyName(role.family),
-      role,
-    ]),
+  const aliasByRole = new Map(aliases.map((alias) => [alias.roleId, alias]));
+  const declaredFaceKeys = new Set(
+    (artifact.fontFaces ?? []).map(({ family }) => fontFamilyKey(family)),
   );
+  // One approved key per role: the runtime name the family is published
+  // under. The registered name is not separately approved, because a
+  // production declaration of a name no `@font-face` loads resolves to a
+  // fallback face, which is the defect and not the compliance.
+  const roleByFace = new Map<string, (typeof FIRST_PARTY_TYPE_ROLES)[number]>();
+  for (const role of FIRST_PARTY_TYPE_ROLES) {
+    const alias = aliasByRole.get(role.id);
+    const key = alias?.runtimeKey ?? fontFamilyKey(role.family);
+    if (roleByFace.has(key)) {
+      throw new Error(
+        `Two registered first-party roles resolve to the runtime family ${key}`,
+      );
+    }
+    if (!declaredFaceKeys.has(key)) {
+      throw new Error(
+        `The ${role.id} family ${role.family} is published as ${key}, which no observed @font-face declares, so every element naming it falls back`,
+      );
+    }
+    roleByFace.set(key, role);
+  }
   if (roleByFace.size !== FIRST_PARTY_TYPE_ROLES.length) {
     throw new Error('Two registered first-party roles name the same family');
   }
@@ -442,16 +957,14 @@ function reconcileFamilies(
   for (const observation of artifact.familyObservations) {
     const where = `${observation.route} @${observation.viewportId}`;
     observationsMeasured += 1;
-    const heads = observation.heads.map(normalizeFontFamilyName);
+    const heads = observation.heads.map(fontFamilyKey);
     if (new Set(heads).size !== heads.length) {
       throw new Error(`${where} records the same font-family head twice`);
     }
     if (heads.length === 0) {
       throw new Error(`${where} resolved no font family`);
     }
-    const outside = new Set(
-      observation.headsOutsideMath.map(normalizeFontFamilyName),
-    );
+    const outside = new Set(observation.headsOutsideMath.map(fontFamilyKey));
     for (const head of outside) {
       if (!heads.includes(head)) {
         throw new Error(
@@ -520,17 +1033,19 @@ function reconcileFamilies(
   }
 
   const approved: TekturFamilyMember[] = FIRST_PARTY_TYPE_ROLES.map((role) => {
-    const face = normalizeFontFamilyName(role.family);
+    const alias = aliasByRole.get(role.id) ?? null;
+    const face = alias?.runtimeKey ?? fontFamilyKey(role.family);
     const observations = observationsByHead.get(face) ?? 0;
     if (observations === 0) {
       throw new Error(
-        `No swept document resolves the registered ${role.id} family ${role.family}, so the registration has no referent`,
+        `No swept document resolves the registered ${role.id} family ${role.family}${alias ? ` (published as ${alias.runtimeFamily})` : ''}, so the registration has no referent`,
       );
     }
     return {
       roleId: role.id,
       family: role.family,
       runtimeFace: face,
+      alias,
       heads: [face],
       observations,
       routes: [...(routesByHead.get(face) ?? [])].sort(),
@@ -569,6 +1084,7 @@ function reconcileFamilies(
   }
 
   return {
+    aliases: [...aliases],
     approved,
     scopedExceptions,
     stacks,
@@ -588,6 +1104,7 @@ function reconcileFamilies(
 function reconcileRoles(
   artifact: TekturDeliveryEvidence,
   occurrences: TekturRoleOccurrences,
+  tekturRuntimeKey: string,
 ): Record<string, TekturRoleMeasurement> {
   const viewportIds = BRAND_V2_RESPONSIVE_VIEWPORTS.map(({ id }) => id);
   const registered = new Map(
@@ -693,9 +1210,12 @@ function reconcileRoles(
   const measurements: Record<string, TekturRoleMeasurement> = {};
   for (const [role, instance] of registered) {
     const axis = axisByRole.get(role) as TekturDeliveryEvidence['roleAxes'][number];
-    if (!normalizeFontFamilyName(axis.family).includes('tektur')) {
+    // Head equality, not a substring test: `includes('tektur')` accepted
+    // `Tektur Clone` or a stack whose head is something else entirely as
+    // long as the string appeared anywhere in the resolved family list.
+    if (fontFamilyHead(axis.family) !== tekturRuntimeKey) {
       throw new Error(
-        `${role} computed the family ${axis.family} rather than Tektur`,
+        `${role} computed the family ${axis.family}, whose head is ${fontFamilyHead(axis.family)} rather than the registered Tektur runtime family ${tekturRuntimeKey}`,
       );
     }
     if (axis.weight !== String(instance.wght)) {
@@ -859,11 +1379,17 @@ function requireRejection(
 export function measureTekturInspectionRejections(
   root: string,
 ): TekturInspectionRejections {
+  // The mutation target is the exact resolved metadata path, not "the file
+  // with the .woff2 suffix": a suffix test would silently mutate nothing if
+  // the vendored format changed, and an inspection that rejects nothing is
+  // indistinguishable from one that was never given a defect.
+  const webBinary = resolveAsset(root, TEKTUR_FONT_METADATA.web.path);
+  const ogBinary = resolveAsset(root, TEKTUR_FONT_METADATA.og.path);
   const extraAxis = inspectTekturAssets({
     root,
     openFont(path) {
       const font = openSync(path);
-      if (!path.endsWith('.woff2')) return font;
+      if (path !== webBinary) return font;
       return mutatedFont(font, {
         ...font.variationAxes,
         opsz: { name: 'Optical size', min: 12, default: 14, max: 72 },
@@ -874,7 +1400,7 @@ export function measureTekturInspectionRejections(
     root,
     openFont(path) {
       const font = openSync(path);
-      if (!path.endsWith('.ttf')) return font;
+      if (path !== ogBinary) return font;
       return mutatedFont(font, {
         wght: { name: 'Weight', min: 400, default: 600, max: 900 },
       });
@@ -1057,64 +1583,30 @@ export function measureTekturEvidence(input: {
     );
   }
 
-  const roles = reconcileRoles(artifact, occurrences);
-  const families = reconcileFamilies(artifact, input.css, occurrences, roles);
-
-  const resources = artifact.fontResources;
-  if (resources === null || typeof resources !== 'object') {
-    throw new Error('Tektur delivery evidence records no font resources');
-  }
   const routeStateCount =
     artifact.routes.length * BRAND_V2_RESPONSIVE_VIEWPORTS.length;
-  if (
-    !Array.isArray(resources.sameOriginPaths) ||
-    resources.sameOriginPaths.length === 0
-  ) {
-    throw new Error(
-      'Tektur delivery evidence observed no same-origin font resource, so the delivery claim is vacuous',
-    );
-  }
-  if (
-    !resources.sameOriginPaths.some((path) =>
-      /^\/_next\/static\/media\/.+\.woff2(?:$|\?)/i.test(path),
-    )
-  ) {
-    throw new Error(
-      `Tektur delivery evidence observed ${resources.sameOriginPaths.join(', ')}; none is a framework-bundled WOFF2`,
-    );
-  }
-  const ogFileName = TEKTUR_FONT_METADATA.og.path.split('/').at(-1) as string;
-  const offenders = resources.sameOriginPaths.filter((path) =>
-    path.includes(ogFileName),
+  // Requests first, because the family reconciliation now depends on them:
+  // the runtime family name a registered binary is published under is read
+  // off an observed `@font-face` whose payload the capture identified.
+  const fontDelivery = reconcileFontResources(artifact, routeStateCount);
+  const aliases = reconcileRuntimeFamilyAliases(artifact, fontDelivery);
+  const tekturAlias = aliases.find(
+    ({ binarySha256 }) => binarySha256 === TEKTUR_FONT_METADATA.web.sha256,
   );
-  if (offenders.length > 0) {
+  if (!tekturAlias) {
     throw new Error(
-      `A runtime route requested the offline OG binary ${ogFileName}: ${offenders.join(', ')}`,
+      'No observed @font-face publishes the registered Tektur web binary',
     );
   }
-  if (
-    !Array.isArray(resources.foreignOrigin) ||
-    resources.foreignOrigin.length > 0
-  ) {
-    throw new Error(
-      `Tektur delivery evidence records third-party font requests: ${
-        (resources.foreignOrigin ?? []).join(', ') || 'unreadable'
-      }`,
-    );
-  }
-  if (resources.observationsMixingForeignOrigin !== 0) {
-    throw new Error(
-      `${resources.observationsMixingForeignOrigin} swept route states requested a font from another origin`,
-    );
-  }
-  if (
-    !(resources.observationsWithFontRequest > 0) ||
-    resources.observationsWithFontRequest > routeStateCount
-  ) {
-    throw new Error(
-      `Tektur delivery evidence records ${resources.observationsWithFontRequest} of ${routeStateCount} route states requesting a font resource`,
-    );
-  }
+  const tekturRuntimeKey = tekturAlias.runtimeKey;
+  const roles = reconcileRoles(artifact, occurrences, tekturRuntimeKey);
+  const families = reconcileFamilies(
+    artifact,
+    input.css,
+    occurrences,
+    roles,
+    aliases,
+  );
 
   const delivery = artifact.delivery;
   if (!required.includes(delivery?.route)) {
@@ -1142,7 +1634,7 @@ export function measureTekturEvidence(input: {
     throw new Error(`${TEKTUR_OG_ROLE_ID} is not a registered role instance`);
   }
   if (
-    !normalizeFontFamilyName(wordmark.family).includes('tektur') ||
+    fontFamilyHead(wordmark.family) !== tekturRuntimeKey ||
     wordmark.weight !== String(wordmarkInstance.wght) ||
     wordmark.stretch !== `${wordmarkInstance.wdth}%` ||
     !wordmark.variationSettings.includes(`"wght" ${wordmarkInstance.wght}`) ||
@@ -1201,6 +1693,7 @@ export function measureTekturEvidence(input: {
   return {
     delivery: artifact,
     occurrences,
+    fontDelivery,
     families,
     roles,
     binaries: measureTekturBinaries(input.root),
@@ -1269,10 +1762,13 @@ function binaryFor(
   throw new Error(`${member} is not a measured Tektur binary`);
 }
 
+/**
+ * The same-origin paths that delivered the registered web binary, identified
+ * by payload checksum. Previously a `/_next/static/media/*.woff2` path
+ * match, which certified "framework bundled" from the shape of a URL.
+ */
 function bundledWoff2Paths(measurements: TekturMeasurements): string[] {
-  return measurements.delivery.fontResources.sameOriginPaths.filter((path) =>
-    /^\/_next\/static\/media\/.+\.woff2(?:$|\?)/i.test(path),
-  );
+  return measurements.fontDelivery.frameworkBundledPaths;
 }
 
 export function tekturAssertionEvidence(input: {
@@ -1300,11 +1796,24 @@ export function tekturAssertionEvidence(input: {
     return {
       sourcePath: TEKTUR_DELIVERY_EVIDENCE_PATH,
       tool: `${BROWSER_TOOL} + satori card walk`,
-      actual: `${family.family} resolves as the computed head "${family.runtimeFace}" on ${family.routes.length} of ${families.routesMeasured} swept routes, in ${family.observations} of ${families.observationsMeasured} route x width documents; walking every element of those documents resolved ${families.distinctHeads.length} distinct font-family heads, of which ${families.unapprovedHeads.length} were neither one of the ${families.approved.length} registered first-party families nor a scoped exception (${families.unapprovedHeadObservations} such documents), and every exception head appeared only inside rendered mathematics`,
+      actual: `${family.family} resolves as the computed head "${family.runtimeFace}"${
+        family.alias
+          ? ` (the runtime family an observed @font-face declares for the ${family.alias.binarySha256} payload delivered from ${family.alias.deliveredFrom.join(', ')})`
+          : ''
+      } on ${family.routes.length} of ${families.routesMeasured} swept routes, in ${family.observations} of ${families.observationsMeasured} route x width documents; walking every element of those documents resolved ${families.distinctHeads.length} distinct font-family heads, of which ${families.unapprovedHeads.length} were neither one of the ${families.approved.length} registered first-party families nor a scoped exception (${families.unapprovedHeadObservations} such documents), and every exception head appeared only inside rendered mathematics`,
       observed: {
         role: roleId,
         family: family.family,
         runtimeFace: family.runtimeFace,
+        runtimeFamilyAlias: family.alias
+          ? {
+              declaredFamily: family.alias.runtimeFamily,
+              declaredBy: family.alias.declaredBy,
+              backedByBinary: family.alias.binaryPath,
+              payloadSha256: family.alias.binarySha256,
+              deliveredFrom: family.alias.deliveredFrom,
+            }
+          : null,
         declaredStacks: family.stackProperties.map(
           (property) => `${property}: ${families.stacks[property].stack}`,
         ),
@@ -1331,8 +1840,8 @@ export function tekturAssertionEvidence(input: {
       tool: `${BROWSER_TOOL} + ${BINARY_TOOL}`,
       actual:
         side === 'web'
-          ? `the checked-in ${facts.format} is delivered from ${bundled.length} framework-bundled same-origin path(s) and ${sweptStates} produced no third-party font request`
-          : `the checked-in ${facts.format} is consumed only by the offline card renderer: ${sweptStates} requested it on none of them, and none produced a third-party font request`,
+          ? `the checked-in ${facts.format} is delivered from ${bundled.length} framework-bundled same-origin path(s) whose payload hashes to ${facts.sha256}, and the ${measurements.fontDelivery.fontRequests.length} font request(s) the sweep captured over ${sweptStates} are all same-origin with no request left unclassified`
+          : `the checked-in ${facts.format} is consumed only by the offline card renderer: none of the ${measurements.fontDelivery.fontRequests.length} font payloads captured over ${sweptStates} hashes to ${facts.sha256}, and none came from another origin`,
       observed: {
         binary: member,
         path: facts.path,
@@ -1340,7 +1849,12 @@ export function tekturAssertionEvidence(input: {
         format: facts.format,
         bundledSameOriginPaths: side === 'web' ? bundled : [],
         requestedByRuntimeRoute: false,
-        thirdPartyFontRequests: delivery.fontResources.foreignOrigin,
+        // Classification of each captured request, so the row states what
+        // made a request a font: the payload signature, the response type,
+        // and the browser's request destination.
+        capturedFontRequests: measurements.fontDelivery.fontRequests,
+        unclassifiedRequests: measurements.fontDelivery.unclassifiedRequests,
+        thirdPartyFontRequests: measurements.fontDelivery.foreignOrigin,
         routeStatesSwept: measurements.routeStateCount,
         routeStatesRequestingAFont:
           delivery.fontResources.observationsWithFontRequest,

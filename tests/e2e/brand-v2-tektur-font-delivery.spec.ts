@@ -11,15 +11,22 @@ import {
 } from '../../data/type-roles';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
 import {
+  FONT_PAYLOAD_SIGNATURES,
   SCOPED_FONT_FAMILY_EXCEPTIONS,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
   deriveTypographyStackProperties,
+  fontFamilyHead,
+  fontFamilyKey,
+  isDecidedNonFontContentType,
+  isFontContentType,
+  measureRuntimeFamilyAliases,
   measureTekturEvidence,
-  normalizeFontFamilyName,
   tekturDeliveryFingerprint,
   type TekturDeliveryEvidence,
 } from '../../lib/brand-v2-tektur-evidence';
+import { TEKTUR_FONT_METADATA } from '../../data/tektur-font-metadata';
 import { deriveTekturRoleOccurrences } from '../../lib/tektur-role-occurrences';
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 /**
@@ -81,9 +88,13 @@ type RouteMeasurement = {
    */
   familyHeads: string[];
   headsOutsideMath: string[];
-  /** Font resources the document requested, split by origin. */
-  sameOriginFontPaths: string[];
-  foreignOriginFontUrls: string[];
+  /**
+   * Every `@font-face` rule the document declares, with each `url()` source
+   * resolved against its stylesheet, plus any stylesheet whose rules could
+   * not be read.
+   */
+  fontFaces: Array<{ family: string; sources: string[] }>;
+  unreadableStyleSheets: string[];
 };
 
 function measureDocument(input: {
@@ -115,29 +126,62 @@ function measureDocument(input: {
   const headsOutsideMath = new Set<string>();
   for (const element of document.querySelectorAll('*')) {
     const stack = getComputedStyle(element).fontFamily;
+    // Recorded as measured apart from the quoting CSS serialization adds.
+    // The quote characters are escapes for the reason given below, where the
+    // same constraint applies to the `src` matcher.
     const head = (stack.split(',')[0] ?? '')
       .trim()
-      .replace(/^["']|["']$/g, '');
+      .replace(/^[\x22\x27]|[\x22\x27]$/g, '');
     familyHeads.add(head);
     if (!element.closest(input.mathScope)) headsOutsideMath.add(head);
   }
 
-  const sameOrigin = new Set<string>();
-  const foreign = new Set<string>();
-  for (const entry of performance.getEntriesByType('resource')) {
-    const timing = entry as PerformanceResourceTiming;
-    if (
-      timing.initiatorType !== 'font' &&
-      !/\.(?:woff2?|ttf|otf)(?:$|\?)/i.test(entry.name)
-    ) {
+  // `@font-face` rules are what bind a runtime family name to a payload, so
+  // they are measured rather than assumed: `next/font/local` publishes the
+  // registered `Tektur Variable` under the runtime family `tektur`, and the
+  // reader will only accept that rename if a rule declares it and the bytes
+  // its `src` delivered are the registered binary's.
+  const fontFaces: Array<{ family: string; sources: string[] }> = [];
+  const unreadableStyleSheets: string[] = [];
+  for (const sheet of document.styleSheets) {
+    let rules: CSSRuleList;
+    try {
+      rules = sheet.cssRules;
+    } catch {
+      unreadableStyleSheets.push(sheet.href ?? '(inline stylesheet)');
       continue;
     }
-    const url = new URL(entry.name);
-    // The static fixture serves from an OS-assigned port, so the origin is
-    // dropped from same-origin paths: a port in a committed artifact would
-    // churn on every run.
-    if (url.origin === location.origin) sameOrigin.add(`${url.pathname}${url.search}`);
-    else foreign.add(entry.name);
+    for (const rule of rules) {
+      if (!(rule instanceof CSSFontFaceRule)) continue;
+      const sources = [
+        ...rule.style
+          .getPropertyValue('src')
+          // The quotes and the closing parenthesis are written as escapes
+          // because `lib/brand-v2-test-inventory.ts` tokenizes this file to
+          // collect the test titles the enforcement map targets, and it has
+          // no regex-literal state: a literal quote here opens a string it
+          // never closes, and an unbalanced `)` ends the enclosing
+          // `describe` early, which silently moves or drops titles.
+          .matchAll(
+            /url\((?:\x22([^\x22]*)\x22|\x27([^\x27]*)\x27|([^\x29]*))\)/g,
+          ),
+      ]
+        .map((match) => (match[1] ?? match[2] ?? match[3] ?? '').trim())
+        .filter((value) => value.length > 0)
+        .map((value) => {
+          const url = new URL(value, sheet.href ?? location.href);
+          // The static fixture serves from an OS-assigned port, so the
+          // origin is dropped from same-origin paths: a port in a committed
+          // artifact would churn on every run.
+          return url.origin === location.origin
+            ? `${url.pathname}${url.search}`
+            : url.href;
+        });
+      fontFaces.push({
+        family: rule.style.getPropertyValue('font-family'),
+        sources,
+      });
+    }
   }
 
   return {
@@ -145,8 +189,194 @@ function measureDocument(input: {
     unannotatedClassUses,
     familyHeads: [...familyHeads].sort(),
     headsOutsideMath: [...headsOutsideMath].sort(),
-    sameOriginFontPaths: [...sameOrigin].sort(),
-    foreignOriginFontUrls: [...foreign].sort(),
+    fontFaces,
+    unreadableStyleSheets,
+  };
+}
+
+/**
+ * What the sweep learned about one request URL, from the network rather than
+ * from its spelling.
+ *
+ * VAL-B2-TYPE-002 is a claim about font requests, and the previous discovery
+ * accepted a Resource Timing entry whose `initiatorType` was `font` or whose
+ * URL ended in a font extension. In this browser a CSS `@font-face` load is
+ * reported with a `css` initiator — measured: zero entries with
+ * `initiatorType === 'font'` while five to ten fonts loaded per document —
+ * so the extension was the whole test, and `https://cdn.example/f?id=plex`
+ * has no extension. A request is a font here when the payload that arrived
+ * is one.
+ */
+type CapturedRequest = {
+  url: string;
+  /** Same-origin as `pathname` + `search`; foreign as the absolute URL. */
+  key: string;
+  origin: 'same' | 'foreign';
+  resourceTypes: Set<string>;
+  contentTypes: Set<string>;
+  payloadSignature: string | null;
+  sha256: string | null;
+  responded: boolean;
+  bodyError: string | null;
+};
+
+type ClassifiedRequest = {
+  request: CapturedRequest;
+  isFont: boolean;
+  classified: boolean;
+  basis: string;
+};
+
+function classifyRequest(request: CapturedRequest): ClassifiedRequest {
+  const { payloadSignature } = request;
+  if (payloadSignature !== null) {
+    return {
+      request,
+      isFont: payloadSignature in FONT_PAYLOAD_SIGNATURES,
+      classified: true,
+      basis: `payload signature 0x${payloadSignature}`,
+    };
+  }
+  if ([...request.contentTypes].some(isFontContentType)) {
+    return { request, isFont: true, classified: true, basis: 'response type' };
+  }
+  if (request.resourceTypes.has('font')) {
+    return {
+      request,
+      isFont: true,
+      classified: true,
+      basis: 'browser font request destination',
+    };
+  }
+  const contentTypes = [...request.contentTypes];
+  if (
+    contentTypes.length > 0 &&
+    contentTypes.every(isDecidedNonFontContentType)
+  ) {
+    return {
+      request,
+      isFont: false,
+      classified: true,
+      basis: `response type ${contentTypes.join('/')}`,
+    };
+  }
+  // A request that produced no response body delivered no font. That is a
+  // fact about the payload, not a guess from the URL, so a same-origin
+  // aborted prefetch is decided rather than left ambiguous. A foreign-origin
+  // request is not let through this way: VAL-B2-TYPE-002 forbids the
+  // request, so one whose payload cannot be read stays unclassified.
+  if (!request.responded && request.origin === 'same') {
+    return {
+      request,
+      isFont: false,
+      classified: true,
+      basis: 'no response payload',
+    };
+  }
+  return { request, isFont: false, classified: false, basis: 'undetermined' };
+}
+
+type RequestCapture = {
+  /** Observation key to the request URLs captured while it was navigated. */
+  byObservation: Map<string, Set<string>>;
+  requests: Map<string, CapturedRequest>;
+  /** Opens the bucket every subsequent request is attributed to. */
+  open: (observationKey: string) => void;
+  settled: () => Promise<void>;
+};
+
+/**
+ * Attaches request/response capture to the page.
+ *
+ * A response body is read whenever the answer could matter: always for a
+ * foreign origin, and same-origin whenever the browser called it a font, the
+ * response declared a font type, or the declared type is outside the closed
+ * list of types that settle the question. Bodies for the site's own scripts,
+ * styles, images and documents are not fetched, and misreading one of those
+ * as a non-font cannot manufacture a same-origin claim: the assertion is
+ * that every font request is same-origin, and their origin is not in doubt.
+ */
+function captureRequests(page: Page, origin: string): RequestCapture {
+  const requests = new Map<string, CapturedRequest>();
+  const byObservation = new Map<string, Set<string>>();
+  const bodies: Array<Promise<void>> = [];
+  let current = 'setup';
+
+  const record = (url: string): CapturedRequest => {
+    const existing = requests.get(url);
+    if (existing) return existing;
+    const parsed = new URL(url);
+    const created: CapturedRequest = {
+      url,
+      key:
+        parsed.origin === origin ? `${parsed.pathname}${parsed.search}` : url,
+      origin: parsed.origin === origin ? 'same' : 'foreign',
+      resourceTypes: new Set(),
+      contentTypes: new Set(),
+      payloadSignature: null,
+      sha256: null,
+      responded: false,
+      bodyError: null,
+    };
+    requests.set(url, created);
+    return created;
+  };
+
+  page.on('request', (request) => {
+    const url = request.url();
+    if (!/^https?:/.test(url)) return;
+    record(url).resourceTypes.add(request.resourceType());
+    const bucket = byObservation.get(current) ?? new Set<string>();
+    bucket.add(url);
+    byObservation.set(current, bucket);
+  });
+  page.on('response', (response) => {
+    const url = response.url();
+    if (!/^https?:/.test(url)) return;
+    const captured = record(url);
+    captured.responded = true;
+    const contentType = (response.headers()['content-type'] ?? '')
+      .split(';')[0]
+      .trim()
+      .toLowerCase();
+    captured.contentTypes.add(contentType);
+    if (captured.sha256 !== null) return;
+    const undecided =
+      captured.origin === 'foreign' ||
+      response.request().resourceType() === 'font' ||
+      isFontContentType(contentType) ||
+      !isDecidedNonFontContentType(contentType);
+    if (!undecided) return;
+    // Started inside the handler so the read is issued while the payload is
+    // still retained, and awaited later.
+    bodies.push(
+      response
+        .body()
+        .then((buffer) => {
+          captured.payloadSignature = buffer
+            .subarray(0, 4)
+            .toString('hex')
+            .padEnd(8, '0');
+          captured.sha256 = createHash('sha256').update(buffer).digest('hex');
+        })
+        .catch((error: unknown) => {
+          captured.bodyError = String(error).split('\n')[0];
+        }),
+    );
+  });
+
+  return {
+    byObservation,
+    requests,
+    open: (observationKey: string) => {
+      current = observationKey;
+      if (!byObservation.has(observationKey)) {
+        byObservation.set(observationKey, new Set());
+      }
+    },
+    settled: async () => {
+      await Promise.all(bodies);
+    },
   };
 }
 
@@ -165,8 +395,6 @@ type DeliveryProbe = {
     fallbackAdvance: number;
   }>;
   tekturFamily: string;
-  resources: string[];
-  origin: string;
 };
 
 function measureDelivery(input: {
@@ -216,15 +444,6 @@ function measureDelivery(input: {
     },
     assignedStrings,
     tekturFamily: family,
-    resources: performance
-      .getEntriesByType('resource')
-      .filter(
-        (entry) =>
-          (entry as PerformanceResourceTiming).initiatorType === 'font' ||
-          /\.(?:woff2?|ttf|otf)(?:$|\?)/i.test(entry.name),
-      )
-      .map(({ name }) => name),
-    origin: location.origin,
   };
 }
 
@@ -233,6 +452,8 @@ type Sweep = {
   delivery: DeliveryProbe;
   deliveryRoute: string;
   deliveryViewportId: string;
+  deliveryKey: string;
+  capture: RequestCapture;
 };
 
 const sweepKey = (route: string, viewportId: string): string =>
@@ -248,6 +469,15 @@ let sweepCache: Sweep | null = null;
  */
 async function sweep(page: Page, base: string): Promise<Sweep> {
   if (sweepCache) return sweepCache;
+  const capture = captureRequests(page, base);
+  // Whether a document requested a font has to be a fact about the document,
+  // not about what the browser happened to keep from an earlier one. With the
+  // cache live, a font served from memory produces no request event and the
+  // per-observation count becomes a cache-timing artifact — the same class of
+  // non-determinism that the per-head element tally was removed for.
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send('Network.enable');
+  await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
   const measured = new Map<string, RouteMeasurement>();
   for (const route of SWEPT_ROUTES) {
     for (const viewport of VIEWPORTS) {
@@ -255,6 +485,8 @@ async function sweep(page: Page, base: string): Promise<Sweep> {
         width: viewport.width,
         height: viewport.height,
       });
+      const key = sweepKey(route, viewport.id);
+      capture.open(key);
       const response = await page.goto(`${base}${route}`);
       expect(
         response?.status(),
@@ -264,7 +496,7 @@ async function sweep(page: Page, base: string): Promise<Sweep> {
       ).toBe(200);
       await page.evaluate(() => document.fonts.ready);
       measured.set(
-        sweepKey(route, viewport.id),
+        key,
         await page.evaluate(measureDocument, {
           classes: REGISTERED_CLASSES,
           mathScope: MATH_SCOPE,
@@ -272,15 +504,17 @@ async function sweep(page: Page, base: string): Promise<Sweep> {
       );
     }
   }
-  // Font delivery is not width-dependent, so the resource, stack and glyph
-  // probes run at a single viewport — the widest declared one, taken from
-  // the derived population rather than retyped.
+  // Font delivery is not width-dependent, so the stack and glyph probes run
+  // at a single viewport — the widest declared one, taken from the derived
+  // population rather than retyped.
   const widest = VIEWPORTS.at(-1);
   expect(widest, 'declared viewport population').toBeDefined();
   await page.setViewportSize({
     width: widest?.width ?? 0,
     height: widest?.height ?? 0,
   });
+  const deliveryKey = 'delivery probe @/';
+  capture.open(deliveryKey);
   await page.goto(`${base}/`);
   await page.evaluate(() => document.fonts.ready);
   const delivery = await page.evaluate(measureDelivery, {
@@ -290,13 +524,88 @@ async function sweep(page: Page, base: string): Promise<Sweep> {
       text,
     })),
   });
+  await capture.settled();
   sweepCache = {
     measured,
     delivery,
     deliveryRoute: '/',
     deliveryViewportId: widest?.id ?? '',
+    deliveryKey,
+    capture,
   };
   return sweepCache;
+}
+
+type FontRequestSummary = {
+  rows: TekturDeliveryEvidence['fontResources']['fontRequests'];
+  unclassified: string[];
+  observationsWithFontRequest: number;
+  observationsMixingForeignOrigin: number;
+  foreignOrigin: string[];
+  sameOriginPaths: string[];
+  fontUrlsByObservation: Map<string, string[]>;
+};
+
+/**
+ * Classifies every captured request and attributes the font ones to the
+ * observations they were made from.
+ */
+function summarizeFontRequests(result: Sweep): FontRequestSummary {
+  const classified = new Map<string, ClassifiedRequest>();
+  for (const [url, request] of result.capture.requests) {
+    classified.set(url, classifyRequest(request));
+  }
+  const unclassified = [...classified.values()]
+    .filter(({ classified: decided }) => !decided)
+    .map(
+      ({ request }) =>
+        `${request.url} (${request.origin}-origin, request types [${[...request.resourceTypes].sort().join(', ')}], response types [${[...request.contentTypes].sort().join(', ')}]${
+          request.bodyError === null ? '' : `, payload unreadable: ${request.bodyError}`
+        })`,
+    )
+    .sort();
+  const fontUrlsByObservation = new Map<string, string[]>();
+  let observationsWithFontRequest = 0;
+  let observationsMixingForeignOrigin = 0;
+  for (const [key, urls] of result.capture.byObservation) {
+    if (key === result.deliveryKey) continue;
+    const fontUrls = [...urls].filter(
+      (url) => classified.get(url)?.isFont === true,
+    );
+    fontUrlsByObservation.set(key, fontUrls.sort());
+    if (fontUrls.length > 0) observationsWithFontRequest += 1;
+    if (
+      fontUrls.some((url) => classified.get(url)?.request.origin === 'foreign')
+    ) {
+      observationsMixingForeignOrigin += 1;
+    }
+  }
+  const fontRows = [...classified.values()]
+    .filter(({ isFont }) => isFont)
+    .map(({ request }) => ({
+      url: request.key,
+      origin: request.origin,
+      resourceTypes: [...request.resourceTypes].sort(),
+      contentTypes: [...request.contentTypes].sort(),
+      payloadSignature: request.payloadSignature ?? '',
+      sha256: request.sha256 ?? '',
+    }))
+    .sort((left, right) => left.url.localeCompare(right.url));
+  return {
+    rows: fontRows,
+    unclassified,
+    observationsWithFontRequest,
+    observationsMixingForeignOrigin,
+    foreignOrigin: fontRows
+      .filter(({ origin }) => origin === 'foreign')
+      .map(({ url }) => url)
+      .sort(),
+    sameOriginPaths: fontRows
+      .filter(({ origin }) => origin === 'same')
+      .map(({ url }) => url)
+      .sort(),
+    fontUrlsByObservation,
+  };
 }
 
 /**
@@ -363,21 +672,19 @@ function buildArtifact(result: Sweep): TekturDeliveryEvidence {
     }
   }
 
-  const sameOrigin = new Set<string>();
-  const foreign = new Set<string>();
-  let withFontRequest = 0;
-  let mixingForeign = 0;
+  const requests = summarizeFontRequests(result);
+  // Union over the sweep, deduplicated on family plus resolved sources: the
+  // same stylesheet is parsed on every route, and the reader needs the set of
+  // faces the site declares, not 248 copies of it.
+  const fontFaces = new Map<string, { family: string; sources: string[] }>();
+  const unreadableStyleSheets = new Set<string>();
   for (const observation of result.measured.values()) {
-    for (const path of observation.sameOriginFontPaths) sameOrigin.add(path);
-    for (const url of observation.foreignOriginFontUrls) foreign.add(url);
-    if (
-      observation.sameOriginFontPaths.length +
-        observation.foreignOriginFontUrls.length >
-      0
-    ) {
-      withFontRequest += 1;
+    for (const face of observation.fontFaces) {
+      fontFaces.set(`${face.family}|${face.sources.join(' ')}`, face);
     }
-    if (observation.foreignOriginFontUrls.length > 0) mixingForeign += 1;
+    for (const sheet of observation.unreadableStyleSheets) {
+      unreadableStyleSheets.add(sheet);
+    }
   }
 
   return {
@@ -397,11 +704,20 @@ function buildArtifact(result: Sweep): TekturDeliveryEvidence {
     ),
     unannotatedDisplayClassUses: [...unannotated].sort(),
     familyObservations,
+    fontFaces: [...fontFaces.values()].sort((left, right) =>
+      left.family === right.family
+        ? left.sources.join(' ').localeCompare(right.sources.join(' '))
+        : left.family.localeCompare(right.family),
+    ),
+    unreadableStyleSheets: [...unreadableStyleSheets].sort(),
     fontResources: {
-      sameOriginPaths: [...sameOrigin].sort(),
-      foreignOrigin: [...foreign].sort(),
-      observationsWithFontRequest: withFontRequest,
-      observationsMixingForeignOrigin: mixingForeign,
+      sameOriginPaths: requests.sameOriginPaths,
+      foreignOrigin: requests.foreignOrigin,
+      observationsWithFontRequest: requests.observationsWithFontRequest,
+      observationsMixingForeignOrigin:
+        requests.observationsMixingForeignOrigin,
+      fontRequests: requests.rows,
+      unclassifiedRequests: requests.unclassified,
     },
     delivery: {
       route: result.deliveryRoute,
@@ -432,6 +748,19 @@ test.describe('Tektur role population', () => {
       TEKTUR_ROLE_INSTANCES.map((instance) => [instance.id, instance]),
     );
     const result = await sweep(page, staticBase);
+    const artifact = buildArtifact(result);
+    // The family every role annotation has to compute is the runtime family
+    // the registered binary is actually published under, derived from the
+    // `@font-face` that declares it and the payload checksum that backs it.
+    // `family.includes('tektur')` accepted any stack mentioning the word.
+    const tekturAlias = measureRuntimeFamilyAliases(artifact).find(
+      ({ binarySha256 }) => binarySha256 === TEKTUR_FONT_METADATA.web.sha256,
+    );
+    expect(
+      tekturAlias,
+      'an observed @font-face must publish the registered Tektur payload',
+    ).toBeDefined();
+    const tekturRuntimeKey = tekturAlias?.runtimeKey ?? '';
     const measured = result.measured;
     // The sweep has to have visited the whole cross product; a route or a
     // width dropped from the loop would otherwise reduce the population
@@ -480,8 +809,10 @@ test.describe('Tektur role population', () => {
             failures.push(`${at} is not a registered role`);
             return;
           }
-          if (!occurrence.family.toLowerCase().includes('tektur')) {
-            failures.push(`${at} resolves ${occurrence.family}, not Tektur`);
+          if (fontFamilyHead(occurrence.family) !== tekturRuntimeKey) {
+            failures.push(
+              `${at} resolves ${occurrence.family}, whose head is ${fontFamilyHead(occurrence.family)} rather than the registered Tektur runtime family ${tekturRuntimeKey}`,
+            );
           }
           if (occurrence.weight !== String(instance.wght)) {
             failures.push(
@@ -529,7 +860,6 @@ test.describe('Tektur role population', () => {
       ).toEqual([...(OCCURRENCES.routesByRole[role] ?? [])].sort());
     }
 
-    const artifact = buildArtifact(result);
     const artifactPath = join(ROOT, TEKTUR_DELIVERY_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
@@ -617,11 +947,36 @@ test.describe('Tektur web typography population', () => {
       ).toBeGreaterThan(0);
     }
 
+    // The approved keys are the runtime families the registered binaries are
+    // published under, one per role, each backed by an observed `@font-face`.
+    // Deriving them from the registry names instead would have to fold
+    // `Tektur Variable` onto `tektur` by a name transformation, and the
+    // transformation that did it also folded `IBM Plex Sans Variable` onto
+    // the approved `IBM Plex Sans`.
     const approvedFaces = new Set(
-      FIRST_PARTY_TYPE_ROLES.map(({ family }) =>
-        normalizeFontFamilyName(family),
-      ),
+      measurements.families.approved.map(({ runtimeFace }) => runtimeFace),
     );
+    expect(
+      approvedFaces.size,
+      'one runtime family key per registered first-party role',
+    ).toBe(FIRST_PARTY_TYPE_ROLES.length);
+    const aliased = measurements.families.approved.filter(
+      ({ alias }) => alias !== null,
+    );
+    expect(
+      aliased.length,
+      'at least one runtime family alias must be observed, or the alias path is untested',
+    ).toBeGreaterThan(0);
+    for (const member of aliased) {
+      expect(
+        member.alias?.binarySha256,
+        `${member.family} alias must be backed by a registered binary payload`,
+      ).toBe(TEKTUR_FONT_METADATA.web.sha256);
+      expect(
+        member.alias?.deliveredFrom.length,
+        `${member.family} alias must be backed by a same-origin delivery`,
+      ).toBeGreaterThan(0);
+    }
     const exceptionHeads = new Set(
       measurements.families.scopedExceptions.flatMap(({ heads }) => heads),
     );
@@ -629,7 +984,7 @@ test.describe('Tektur web typography population', () => {
     // an approved family or an enumerated exception, and nothing else.
     const heads = new Set(
       measurements.delivery.familyObservations.flatMap((observation) =>
-        observation.heads.map(normalizeFontFamilyName),
+        observation.heads.map(fontFamilyKey),
       ),
     );
     expect([...heads].sort(), 'every resolved font-family head').toEqual(
@@ -653,10 +1008,15 @@ test.describe('Tektur web delivery', () => {
     staticBase,
   }) => {
     test.setTimeout(1_800_000);
-    const { delivery } = await sweep(page, staticBase);
+    const result = await sweep(page, staticBase);
+    const { delivery } = result;
+    const tekturRuntimeKey =
+      measureRuntimeFamilyAliases(buildArtifact(result)).find(
+        ({ binarySha256 }) => binarySha256 === TEKTUR_FONT_METADATA.web.sha256,
+      )?.runtimeKey ?? '';
 
-    expect(delivery.tekturFamily.toLowerCase()).toContain('tektur');
-    expect(delivery.wordmark.family.toLowerCase()).toContain('tektur');
+    expect(fontFamilyHead(delivery.tekturFamily)).toBe(tekturRuntimeKey);
+    expect(fontFamilyHead(delivery.wordmark.family)).toBe(tekturRuntimeKey);
     expect(delivery.wordmark.weight).toBe('600');
     expect(delivery.wordmark.stretch).toBe('100%');
     expect(delivery.wordmark.variationSettings).toContain('"wght" 600');
@@ -684,22 +1044,119 @@ test.describe('Tektur web delivery', () => {
       ).not.toBe(probe.fallbackAdvance);
     }
 
-    expect(delivery.resources.length).toBeGreaterThan(0);
-    expect(delivery.resources).toEqual(
-      expect.arrayContaining([
-        expect.stringMatching(/\/_next\/static\/media\/.+\.woff2(?:$|\?)/i),
-      ]),
+    const deliveryFonts = [
+      ...(result.capture.byObservation.get(result.deliveryKey) ?? []),
+    ]
+      .map((url) => result.capture.requests.get(url))
+      .filter((request) => request !== undefined)
+      .map((request) => classifyRequest(request))
+      .filter(({ isFont }) => isFont);
+    expect(
+      deliveryFonts.length,
+      'the delivery navigation must fetch at least one font',
+    ).toBeGreaterThan(0);
+    expect(
+      deliveryFonts
+        .filter(({ request }) => request.origin === 'foreign')
+        .map(({ request }) => request.url),
+      'the delivery navigation must fetch no third-party font',
+    ).toEqual([]);
+    // Identified by payload, not by the shape of a URL: the registered
+    // binary is the one whose bytes hash to the checksum its metadata
+    // records, delivered from the framework's bundled asset path.
+    expect(
+      deliveryFonts
+        .filter(
+          ({ request }) => request.sha256 === TEKTUR_FONT_METADATA.web.sha256,
+        )
+        .map(({ request }) => request.key)
+        .filter((key) => key.startsWith('/_next/static/')),
+      'the registered Tektur payload must be delivered from /_next/static/',
+    ).not.toEqual([]);
+    expect(
+      deliveryFonts
+        .filter(
+          ({ request }) => request.sha256 === TEKTUR_FONT_METADATA.og.sha256,
+        )
+        .map(({ request }) => request.key),
+      'no runtime route may request the offline OG payload',
+    ).toEqual([]);
+  });
+
+  /**
+   * VAL-B2-TYPE-002's third-party clause, enforced over the requests the
+   * browser actually made.
+   *
+   * This replaced a Resource Timing filter that accepted an entry whose
+   * `initiatorType` was `font` or whose URL ended in `.woff2`, `.ttf` or
+   * `.otf`. Both halves were evadable: this browser reports a CSS
+   * `@font-face` load with a `css` initiator, so the extension was the whole
+   * discriminator, and a third-party URL such as
+   * `https://cdn.example/f?id=plex` has none. Every request is decided from
+   * the payload that arrived and its declared type, and a request that
+   * cannot be decided fails instead of passing.
+   */
+  test('classifies every captured request from its payload and admits no third-party font (VAL-B2-TYPE-002)', async ({
+    page,
+    staticBase,
+  }) => {
+    test.setTimeout(1_800_000);
+    const result = await sweep(page, staticBase);
+    const classified = [...result.capture.requests.values()].map(
+      classifyRequest,
     );
     expect(
-      delivery.resources.every(
-        (url) => new URL(url).origin === delivery.origin,
-      ),
-    ).toBe(true);
-    expect(delivery.resources).not.toEqual(
-      expect.arrayContaining([
-        expect.stringMatching(/fonts\.(?:googleapis|gstatic)\.com/i),
-        expect.stringMatching(/Tektur-SemiBold\.ttf/i),
-      ]),
+      classified.length,
+      'requests captured across the sweep',
+    ).toBeGreaterThan(0);
+    expect(
+      classified
+        .filter(({ classified: decided }) => !decided)
+        .map(
+          ({ request }) =>
+            `${request.url} [${[...request.resourceTypes].sort().join(', ')}] [${[...request.contentTypes].sort().join(', ')}]`,
+        ),
+      'every request must be decided from its payload or its declared type',
+    ).toEqual([]);
+
+    const fonts = classified.filter(({ isFont }) => isFont);
+    expect(fonts.length, 'font requests captured').toBeGreaterThan(0);
+    expect(
+      fonts
+        .filter(({ request }) => request.origin === 'foreign')
+        .map(
+          ({ request, basis }) =>
+            `${request.url} is a font by ${basis}, served as ${[...request.contentTypes].join('/') || 'no declared type'}`,
+        ),
+      'no swept document may request a font from another origin',
+    ).toEqual([]);
+    // Non-vacuity for the payload path itself: if nothing were ever decided
+    // from its bytes, the content check would be unexercised and the suite
+    // would be back to trusting the URL.
+    const byPayload = fonts.filter(({ request }) =>
+      request.payloadSignature === null
+        ? false
+        : request.payloadSignature in FONT_PAYLOAD_SIGNATURES,
     );
+    expect(
+      byPayload.length,
+      'font requests confirmed by their payload signature',
+    ).toBeGreaterThan(0);
+    for (const { request } of byPayload) {
+      expect(
+        request.payloadSignature,
+        `${request.url} must record four payload bytes`,
+      ).toMatch(/^[0-9a-f]{8}$/);
+      expect(
+        request.sha256,
+        `${request.url} must record its payload checksum`,
+      ).toMatch(/^[0-9a-f]{64}$/);
+    }
+    // The vocabulary itself has to be able to say no; a classifier whose
+    // non-font branch is unreachable is not classifying.
+    expect(isFontContentType('font/woff2')).toBe(true);
+    expect(isFontContentType('application/octet-stream')).toBe(false);
+    expect(isDecidedNonFontContentType('application/octet-stream')).toBe(false);
+    expect(isDecidedNonFontContentType('text/html')).toBe(true);
   });
 });

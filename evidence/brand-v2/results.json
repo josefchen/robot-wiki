@@ -28156,7 +28156,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "Tektur Variable resolves as the computed head \"tektur\" on 62 of 62 swept routes, in 248 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
+      "actual": "Tektur Variable resolves as the computed head \"tektur\" (the runtime family an observed @font-face declares for the 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1 payload delivered from /_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2) on 62 of 62 swept routes, in 248 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28166,6 +28166,17 @@
           "role": "display",
           "family": "Tektur Variable",
           "runtimeFace": "tektur",
+          "runtimeFamilyAlias": {
+            "declaredFamily": "tektur",
+            "declaredBy": [
+              "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2"
+            ],
+            "backedByBinary": "public/fonts/Tektur-latin-wdth-wght.woff2",
+            "payloadSha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
+            "deliveredFrom": [
+              "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2"
+            ]
+          },
           "declaredStacks": [
             "--font-display: \"tektur\", \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
           ],
@@ -28254,6 +28265,7 @@
           "role": "interface",
           "family": "IBM Plex Sans",
           "runtimeFace": "ibm plex sans",
+          "runtimeFamilyAlias": null,
           "declaredStacks": [
             "--font-sans: \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
           ],
@@ -28342,6 +28354,7 @@
           "role": "reading",
           "family": "Newsreader",
           "runtimeFace": "newsreader",
+          "runtimeFamilyAlias": null,
           "declaredStacks": [
             "--font-serif: \"Newsreader\", \"Newsreader Fallback\", ui-serif, Georgia, serif"
           ],
@@ -28430,6 +28443,7 @@
           "role": "data",
           "family": "IBM Plex Mono",
           "runtimeFace": "ibm plex mono",
+          "runtimeFamilyAlias": null,
           "declaredStacks": [
             "--font-mono: \"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace"
           ],
@@ -28508,7 +28522,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "the checked-in WOFF2 is delivered from 15 framework-bundled same-origin path(s) and 248 route states (62 routes x 4 declared widths) produced no third-party font request",
+      "actual": "the checked-in WOFF2 is delivered from 1 framework-bundled same-origin path(s) whose payload hashes to 19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1, and the 15 font request(s) the sweep captured over 248 route states (62 routes x 4 declared widths) are all same-origin with no request left unclassified",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28520,23 +28534,207 @@
           "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1",
           "format": "WOFF2",
           "bundledSameOriginPaths": [
-            "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
-            "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
-            "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
-            "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
-            "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
-            "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
-            "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
-            "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
-            "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
-            "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
-            "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
-            "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
-            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
-            "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
-            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2"
           ],
           "requestedByRuntimeRoute": false,
+          "capturedFontRequests": [
+            {
+              "url": "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "056e4e2459f57a0033c8c9c844ff19d6e42ac8602027803d4345823bcc939818"
+            },
+            {
+              "url": "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "f1050dc5317b43434c0aeda599d4624c774ffc162e87a8cf204b949b6a85816d"
+            },
+            {
+              "url": "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "ae1d854fefa1167a79071f1afe01d4d51b60c5840c1be36dd74bd5fe7375b405"
+            },
+            {
+              "url": "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
+            },
+            {
+              "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "c36f509c0a8f9f85f29cb44bc8701d8a9e0b14c499e77a884f789ead7093a7ac"
+            },
+            {
+              "url": "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
+            },
+            {
+              "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "a76f53ca6612e7b3828eec2311098675b7f9849ae4169a8bcef6302aec02a6c0"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+            },
+            {
+              "url": "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1"
+            }
+          ],
+          "unclassifiedRequests": [],
           "thirdPartyFontRequests": [],
           "routeStatesSwept": 248,
           "routeStatesRequestingAFont": 248,
@@ -28556,7 +28754,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tektur font files are locally or framework bundled and produce no runtime third-party font request.",
-      "actual": "the checked-in TTF is consumed only by the offline card renderer: 248 route states (62 routes x 4 declared widths) requested it on none of them, and none produced a third-party font request",
+      "actual": "the checked-in TTF is consumed only by the offline card renderer: none of the 15 font payloads captured over 248 route states (62 routes x 4 declared widths) hashes to d82cba589d06dba9a8907f67c11f7bcf29212b552982c92d737733cb9c86c2b8, and none came from another origin",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#binaries",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28569,6 +28767,204 @@
           "format": "TTF",
           "bundledSameOriginPaths": [],
           "requestedByRuntimeRoute": false,
+          "capturedFontRequests": [
+            {
+              "url": "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "056e4e2459f57a0033c8c9c844ff19d6e42ac8602027803d4345823bcc939818"
+            },
+            {
+              "url": "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "f1050dc5317b43434c0aeda599d4624c774ffc162e87a8cf204b949b6a85816d"
+            },
+            {
+              "url": "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "ae1d854fefa1167a79071f1afe01d4d51b60c5840c1be36dd74bd5fe7375b405"
+            },
+            {
+              "url": "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "2a69ec1c0fb79a464de0e19957cdb3a65b5f626d85fffd164f9de557d3a64878"
+            },
+            {
+              "url": "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "c36f509c0a8f9f85f29cb44bc8701d8a9e0b14c499e77a884f789ead7093a7ac"
+            },
+            {
+              "url": "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8"
+            },
+            {
+              "url": "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "a76f53ca6612e7b3828eec2311098675b7f9849ae4169a8bcef6302aec02a6c0"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+            },
+            {
+              "url": "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+            },
+            {
+              "url": "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
+              "origin": "same",
+              "resourceTypes": [
+                "font"
+              ],
+              "contentTypes": [
+                "font/woff2"
+              ],
+              "payloadSignature": "774f4632",
+              "payloadFormat": "WOFF2",
+              "sha256": "19d3beb395906c32f206c82d01580e993d257a8872277e254b97c6ca96a64dc1"
+            }
+          ],
+          "unclassifiedRequests": [],
           "thirdPartyFontRequests": [],
           "routeStatesSwept": 248,
           "routeStatesRequestingAFont": 248,
@@ -28844,7 +29240,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Web Tektur is a checked-in Latin-subset variable WOFF2 exposing exactly the `wght` and `wdth` axes and is loaded through `next/font/local`; it produces no runtime third-party font request.",
-      "actual": "the latin-subset WOFF2 exposes exactly wdth and wght, is served from /_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2, /_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2, /_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2, /_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2, /_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2, /_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2, /_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2, /_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2, /_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2, /_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2, /_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2, /_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2, /_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2, /_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2, /_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2, and 248 route states (62 routes x 4 declared widths) produced no third-party font request",
+      "actual": "the latin-subset WOFF2 exposes exactly wdth and wght, is served from /_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2, and 248 route states (62 routes x 4 declared widths) produced no third-party font request",
       "selectorOrRegistryId": "assets/fonts/tektur/metadata.json#web",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28883,21 +29279,7 @@
             }
           },
           "nextFontLocalDelivery": [
-            "/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2",
-            "/_next/static/media/2fe89d53234c61d4-s.1u30mmyq6lnsd.woff2",
-            "/_next/static/media/57215795b8570f5c-s.2rixgazldzomk.woff2",
-            "/_next/static/media/5f402bd2d8eef81a-s.p.40bho2kviej2o.woff2",
-            "/_next/static/media/99e609270109b47d-s.p.40sczeszzbjw1.woff2",
-            "/_next/static/media/KaTeX_AMS-Regular.25ieegmnh38ts.woff2",
-            "/_next/static/media/KaTeX_Caligraphic-Regular.2eph4dlhid_m9.woff2",
-            "/_next/static/media/KaTeX_Main-Regular.1ryvsdzh2w1_e.woff2",
-            "/_next/static/media/KaTeX_Math-Italic.32405s1aq8vas.woff2",
-            "/_next/static/media/KaTeX_Size1-Regular.03lhvx36ekcou.woff2",
-            "/_next/static/media/KaTeX_Size2-Regular.14s5gg-puz6h-.woff2",
-            "/_next/static/media/KaTeX_Size3-Regular.1n1rgzz84z8r9.woff2",
-            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2",
-            "/_next/static/media/e15f58668ad64cb8-s.3cvcemwuzoywn.woff2",
-            "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
+            "/_next/static/media/Tektur_latin_wdth_wght.p.09ebggml5avnm.woff2"
           ],
           "thirdPartyFontRequests": [],
           "routeStatesSwept": 248,
