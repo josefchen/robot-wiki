@@ -1,5 +1,6 @@
 import {
   archivedExpectedRed,
+  brandV2Registry,
   test,
   expect,
 } from './brand-v2-static-fixture';
@@ -50,6 +51,30 @@ const readRootTokens = (names: readonly string[]): string[] => {
   const style = getComputedStyle(document.documentElement);
   return names.map((name) => style.getPropertyValue(name).trim().toUpperCase());
 };
+
+/**
+ * The sealed runtime token set, in one place, because the colour assertions
+ * (VAL-B2-COL-001/002/003) and the semantic-token assertion
+ * (VAL-B2-COMP-012) are scoped to the public-route population: measuring the
+ * tokens on the home route alone leaves the other routes unmeasured, and a
+ * route-scoped `passed` row would then quantify over a population no run
+ * visited.
+ */
+const SEALED_ROOT_TOKENS = [
+  ['--color-ink', '#0B0B0C'],
+  ['--color-graphite', '#242D33'],
+  ['--color-concrete', '#D9DADB'],
+  ['--color-paper', '#F5F6F7'],
+  ['--color-white', '#FFFFFF'],
+  ['--color-highlight', '#C6FF19'],
+  ['--color-signal', '#245FFF'],
+  ['--color-focus', '#245FFF'],
+  ['--color-selection', '#C6FF19'],
+  ['--color-ok', '#1A6F45'],
+  ['--color-warn', '#8A5A00'],
+  ['--color-error', '#A52A1E'],
+  ['--color-destructive', '#6B1839'],
+] as const;
 
 test.describe('brand-v2 core visual authority', () => {
   test('home public identity exposes the v2 contract', async ({
@@ -194,5 +219,29 @@ test.describe('brand-v2 core visual authority', () => {
         '128PX',
       ],
     });
+  });
+
+  test('every public route resolves the sealed palette exactly', async ({
+    page,
+    staticBase,
+  }) => {
+    test.setTimeout(600_000);
+    const routes = brandV2Registry.routes.public.map(({ path }) => path);
+    expect(routes.length).toBeGreaterThan(5);
+    const names = SEALED_ROOT_TOKENS.map(([name]) => name);
+    const expected = Object.fromEntries(
+      routes.map((route) => [
+        route,
+        SEALED_ROOT_TOKENS.map(([, value]) => value),
+      ]),
+    );
+    const observed: Record<string, string[]> = {};
+    for (const route of routes) {
+      const response = await page.goto(`${staticBase}${route}`);
+      expect(response?.status(), route).toBe(200);
+      const raw = await page.evaluate(readRootTokens, names);
+      observed[route] = raw.map(canonicalToken);
+    }
+    expect(observed).toEqual(expected);
   });
 });

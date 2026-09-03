@@ -1449,23 +1449,329 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COL-001",
-          "mechanism": "VAL-B2-COL-001 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/a-z/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/space/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/control/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/perception/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/credits/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/glossary/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/market-map/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/playground/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/search/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-001:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-COL-001 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/design-system-contract.test.ts",
+          "title": "design tokens stay aligned > compares the shared renderer constants against the sealed values",
+          "mechanism": "Compares every renderer mirror constant against the sealed palette and against the matching --color-* declaration in app/globals.css, so a wrong mirror literal fails instead of propagating."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
+          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › runtime signal token resolves to exact v2 blue",
+          "mechanism": "Measures the resolved signal, focus, and selection tokens in a live document."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
         "expected": "Runtime highlight token and all renderer mirrors resolve exactly to `#C6FF19`.",
@@ -1479,7 +1785,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COL-001"
+          "result:VAL-B2-COL-001:route:/",
+          "result:VAL-B2-COL-001:route:/a-z/",
+          "result:VAL-B2-COL-001:route:/adjacent/",
+          "result:VAL-B2-COL-001:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-COL-001:route:/adjacent/drones/",
+          "result:VAL-B2-COL-001:route:/adjacent/space/",
+          "result:VAL-B2-COL-001:route:/adjacent/surgical/",
+          "result:VAL-B2-COL-001:route:/classical/",
+          "result:VAL-B2-COL-001:route:/classical/control/",
+          "result:VAL-B2-COL-001:route:/classical/grasp-planning/",
+          "result:VAL-B2-COL-001:route:/classical/kinematics/",
+          "result:VAL-B2-COL-001:route:/classical/motion-planning/",
+          "result:VAL-B2-COL-001:route:/classical/perception/",
+          "result:VAL-B2-COL-001:route:/classical/scene-representation/",
+          "result:VAL-B2-COL-001:route:/classical/state-estimation/",
+          "result:VAL-B2-COL-001:route:/credits/",
+          "result:VAL-B2-COL-001:route:/data-hardware/",
+          "result:VAL-B2-COL-001:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-COL-001:route:/data-hardware/datasets/",
+          "result:VAL-B2-COL-001:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-COL-001:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-COL-001:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-COL-001:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-COL-001:route:/frontier/",
+          "result:VAL-B2-COL-001:route:/frontier/bear-case/",
+          "result:VAL-B2-COL-001:route:/frontier/competing-theses/",
+          "result:VAL-B2-COL-001:route:/frontier/dexterity/",
+          "result:VAL-B2-COL-001:route:/frontier/generalization/",
+          "result:VAL-B2-COL-001:route:/frontier/reliability-gap/",
+          "result:VAL-B2-COL-001:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-COL-001:route:/glossary/",
+          "result:VAL-B2-COL-001:route:/manipulation/",
+          "result:VAL-B2-COL-001:route:/manipulation/action-chunking/",
+          "result:VAL-B2-COL-001:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-COL-001:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-COL-001:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-COL-001:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-COL-001:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-COL-001:route:/manipulation/hierarchical/",
+          "result:VAL-B2-COL-001:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-COL-001:route:/manipulation/pi-line/",
+          "result:VAL-B2-COL-001:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-COL-001:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-COL-001:route:/manipulation/vla-models/",
+          "result:VAL-B2-COL-001:route:/market-map/",
+          "result:VAL-B2-COL-001:route:/playground/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-COL-001:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-COL-001:route:/search/",
+          "result:VAL-B2-COL-001:route:/world-models/",
+          "result:VAL-B2-COL-001:route:/world-models/generative-sim/",
+          "result:VAL-B2-COL-001:route:/world-models/generative-video/",
+          "result:VAL-B2-COL-001:route:/world-models/jepa/",
+          "result:VAL-B2-COL-001:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-COL-001:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -1489,23 +1855,329 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COL-002",
-          "mechanism": "VAL-B2-COL-002 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/a-z/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/space/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/control/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/perception/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/credits/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/glossary/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/market-map/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/playground/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/search/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-002:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-COL-002 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/design-system-contract.test.ts",
+          "title": "design tokens stay aligned > compares the shared renderer constants against the sealed values",
+          "mechanism": "Compares every renderer mirror constant against the sealed palette and against the matching --color-* declaration in app/globals.css, so a wrong mirror literal fails instead of propagating."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
+          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › runtime signal token resolves to exact v2 blue",
+          "mechanism": "Measures the resolved signal, focus, and selection tokens in a live document."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
         "expected": "Runtime signal token and all renderer mirrors resolve exactly to `#245FFF`.",
@@ -1519,7 +2191,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COL-002"
+          "result:VAL-B2-COL-002:route:/",
+          "result:VAL-B2-COL-002:route:/a-z/",
+          "result:VAL-B2-COL-002:route:/adjacent/",
+          "result:VAL-B2-COL-002:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-COL-002:route:/adjacent/drones/",
+          "result:VAL-B2-COL-002:route:/adjacent/space/",
+          "result:VAL-B2-COL-002:route:/adjacent/surgical/",
+          "result:VAL-B2-COL-002:route:/classical/",
+          "result:VAL-B2-COL-002:route:/classical/control/",
+          "result:VAL-B2-COL-002:route:/classical/grasp-planning/",
+          "result:VAL-B2-COL-002:route:/classical/kinematics/",
+          "result:VAL-B2-COL-002:route:/classical/motion-planning/",
+          "result:VAL-B2-COL-002:route:/classical/perception/",
+          "result:VAL-B2-COL-002:route:/classical/scene-representation/",
+          "result:VAL-B2-COL-002:route:/classical/state-estimation/",
+          "result:VAL-B2-COL-002:route:/credits/",
+          "result:VAL-B2-COL-002:route:/data-hardware/",
+          "result:VAL-B2-COL-002:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-COL-002:route:/data-hardware/datasets/",
+          "result:VAL-B2-COL-002:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-COL-002:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-COL-002:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-COL-002:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-COL-002:route:/frontier/",
+          "result:VAL-B2-COL-002:route:/frontier/bear-case/",
+          "result:VAL-B2-COL-002:route:/frontier/competing-theses/",
+          "result:VAL-B2-COL-002:route:/frontier/dexterity/",
+          "result:VAL-B2-COL-002:route:/frontier/generalization/",
+          "result:VAL-B2-COL-002:route:/frontier/reliability-gap/",
+          "result:VAL-B2-COL-002:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-COL-002:route:/glossary/",
+          "result:VAL-B2-COL-002:route:/manipulation/",
+          "result:VAL-B2-COL-002:route:/manipulation/action-chunking/",
+          "result:VAL-B2-COL-002:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-COL-002:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-COL-002:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-COL-002:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-COL-002:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-COL-002:route:/manipulation/hierarchical/",
+          "result:VAL-B2-COL-002:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-COL-002:route:/manipulation/pi-line/",
+          "result:VAL-B2-COL-002:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-COL-002:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-COL-002:route:/manipulation/vla-models/",
+          "result:VAL-B2-COL-002:route:/market-map/",
+          "result:VAL-B2-COL-002:route:/playground/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-COL-002:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-COL-002:route:/search/",
+          "result:VAL-B2-COL-002:route:/world-models/",
+          "result:VAL-B2-COL-002:route:/world-models/generative-sim/",
+          "result:VAL-B2-COL-002:route:/world-models/generative-video/",
+          "result:VAL-B2-COL-002:route:/world-models/jepa/",
+          "result:VAL-B2-COL-002:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-COL-002:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -1529,23 +2261,329 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COL-003",
-          "mechanism": "VAL-B2-COL-003 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/a-z/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/space/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/control/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/perception/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/credits/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/glossary/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/market-map/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/playground/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/search/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COL-003:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-COL-003 passed per-member evidence derived from contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/design-system-contract.test.ts",
+          "title": "design tokens stay aligned > compares the shared renderer constants against the sealed values",
+          "mechanism": "Compares every renderer mirror constant against the sealed palette and against the matching --color-* declaration in app/globals.css, so a wrong mirror literal fails instead of propagating."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
+          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › runtime paper token resolves to exact v2 foundation",
+          "mechanism": "Measures the resolved foundation, semantic, and spacing tokens in a live document."
         }
       ],
-      "enforcementMode": "autonomous-visual",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
         "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
@@ -1559,7 +2597,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COL-003"
+          "result:VAL-B2-COL-003:route:/",
+          "result:VAL-B2-COL-003:route:/a-z/",
+          "result:VAL-B2-COL-003:route:/adjacent/",
+          "result:VAL-B2-COL-003:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-COL-003:route:/adjacent/drones/",
+          "result:VAL-B2-COL-003:route:/adjacent/space/",
+          "result:VAL-B2-COL-003:route:/adjacent/surgical/",
+          "result:VAL-B2-COL-003:route:/classical/",
+          "result:VAL-B2-COL-003:route:/classical/control/",
+          "result:VAL-B2-COL-003:route:/classical/grasp-planning/",
+          "result:VAL-B2-COL-003:route:/classical/kinematics/",
+          "result:VAL-B2-COL-003:route:/classical/motion-planning/",
+          "result:VAL-B2-COL-003:route:/classical/perception/",
+          "result:VAL-B2-COL-003:route:/classical/scene-representation/",
+          "result:VAL-B2-COL-003:route:/classical/state-estimation/",
+          "result:VAL-B2-COL-003:route:/credits/",
+          "result:VAL-B2-COL-003:route:/data-hardware/",
+          "result:VAL-B2-COL-003:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-COL-003:route:/data-hardware/datasets/",
+          "result:VAL-B2-COL-003:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-COL-003:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-COL-003:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-COL-003:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-COL-003:route:/frontier/",
+          "result:VAL-B2-COL-003:route:/frontier/bear-case/",
+          "result:VAL-B2-COL-003:route:/frontier/competing-theses/",
+          "result:VAL-B2-COL-003:route:/frontier/dexterity/",
+          "result:VAL-B2-COL-003:route:/frontier/generalization/",
+          "result:VAL-B2-COL-003:route:/frontier/reliability-gap/",
+          "result:VAL-B2-COL-003:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-COL-003:route:/glossary/",
+          "result:VAL-B2-COL-003:route:/manipulation/",
+          "result:VAL-B2-COL-003:route:/manipulation/action-chunking/",
+          "result:VAL-B2-COL-003:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-COL-003:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-COL-003:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-COL-003:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-COL-003:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-COL-003:route:/manipulation/hierarchical/",
+          "result:VAL-B2-COL-003:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-COL-003:route:/manipulation/pi-line/",
+          "result:VAL-B2-COL-003:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-COL-003:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-COL-003:route:/manipulation/vla-models/",
+          "result:VAL-B2-COL-003:route:/market-map/",
+          "result:VAL-B2-COL-003:route:/playground/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-COL-003:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-COL-003:route:/search/",
+          "result:VAL-B2-COL-003:route:/world-models/",
+          "result:VAL-B2-COL-003:route:/world-models/generative-sim/",
+          "result:VAL-B2-COL-003:route:/world-models/generative-video/",
+          "result:VAL-B2-COL-003:route:/world-models/jepa/",
+          "result:VAL-B2-COL-003:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-COL-003:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -2295,20 +3393,62 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012",
-          "mechanism": "VAL-B2-COMP-012 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:primary-action",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:selection",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:link-focus",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:segmented",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:input",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-012:control:disabled",
+          "mechanism": "VAL-B2-COMP-012 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/unit/design-system-contract.test.ts",
+          "title": "design tokens stay aligned > compares the shared renderer constants against the sealed values",
+          "mechanism": "Compares every renderer mirror constant against the sealed palette and against the matching --color-* declaration in app/globals.css, so a wrong mirror literal fails instead of propagating."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/design-system-contract.test.ts",
+          "title": "design tokens stay aligned > uses semantic warning colour in warning primitives",
+          "mechanism": "Proves the four semantic tokens are distinct from the brand accents, declared in app/globals.css, carried by the badge and callout non-colour cues, and measured at or above WCAG AA against both reading grounds."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › every public route resolves the sealed palette exactly",
+          "mechanism": "Loads every registered public route and compares the resolved :root colour tokens against the sealed contract values exactly."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2.spec.ts",
+          "title": "brand-v2 core visual authority › runtime paper token resolves to exact v2 foundation",
+          "mechanism": "Measures the resolved foundation, semantic, and spacing tokens in a live document."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2325,7 +3465,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-012"
+          "result:VAL-B2-COMP-012:control:primary-action",
+          "result:VAL-B2-COMP-012:control:secondary-action",
+          "result:VAL-B2-COMP-012:control:selection",
+          "result:VAL-B2-COMP-012:control:link-focus",
+          "result:VAL-B2-COMP-012:control:segmented",
+          "result:VAL-B2-COMP-012:control:input",
+          "result:VAL-B2-COMP-012:control:disabled"
         ]
       }
     },
@@ -2336,37 +3482,37 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:primary-action",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:secondary-action",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:selection",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:link-focus",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:segmented",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:input",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-013:control:disabled",
-          "mechanism": "VAL-B2-COMP-013 passed per-member evidence derived from contract/brand-v2-registries.json#controls"
+          "mechanism": "VAL-B2-COMP-013 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
@@ -2378,10 +3524,10 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2-primitives.spec.ts",
           "title": "brand-v2 shared primitive registry › VAL-B2-COMP-013 source, registry and rendered control populations reconcile",
-          "mechanism": "Discovers controls structurally, requires an annotation on every discovered member, checks each row owner list against the modules that render it, and rejects persistent selected, pressed, or current ARIA on transient controls."
+          "mechanism": "Sweeps every registered public route plus the market-map view states, discovers controls structurally including keyboard-operable SVG shapes, asserts the rendered set equals the production-mounted registry rows exactly, checks each row owner list against the route-reachable writers, and rejects persistent selected, pressed, or current ARIA on transient controls."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
         "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
@@ -4190,32 +5336,32 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:outer-rail",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:section-rule",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:registration-cross",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:axis-tick",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:sequence-label",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:dot-grid",
-          "mechanism": "VAL-B2-GRID-009 passed per-member evidence derived from contract/brand-v2-registries.json#gridDevices"
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
           "kind": "test",
@@ -4227,10 +5373,10 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2-primitives.spec.ts",
           "title": "brand-v2 shared primitive registry › VAL-B2-GRID-009 renders registered, aligned, pointer-inert devices",
-          "mechanism": "Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound."
+          "mechanism": "Sweeps every registered public route plus the market-map view states and checks rendered device IDs against the registry, pointer and ARIA behavior, the sealed 2px alignment bound, and exact equality with the production-mounted registry rows."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
         "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
@@ -7920,22 +9066,22 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SURF-010:surface:flat",
-          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+          "mechanism": "VAL-B2-SURF-010 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#surfaces"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SURF-010:surface:raised",
-          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+          "mechanism": "VAL-B2-SURF-010 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#surfaces"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SURF-010:surface:floating",
-          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+          "mechanism": "VAL-B2-SURF-010 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#surfaces"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-SURF-010:surface:bounded-dark-instrument",
-          "mechanism": "VAL-B2-SURF-010 passed per-member evidence derived from contract/brand-v2-registries.json#surfaces"
+          "mechanism": "VAL-B2-SURF-010 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#surfaces"
         },
         {
           "kind": "test",
@@ -7947,10 +9093,10 @@
           "kind": "test",
           "file": "tests/e2e/brand-v2-primitives.spec.ts",
           "title": "brand-v2 shared primitive registry › VAL-B2-SURF-010 source, registry and rendered surface populations are equal",
-          "mechanism": "Discovers surfaces structurally, requires an annotation on every discovered member, and equates the source, registry, and rendered populations while rejecting backdrop blur, filters, and coloured glow."
+          "mechanism": "Sweeps every registered public route plus the market-map view states, discovers surfaces structurally, requires an annotation on every discovered member, and asserts the rendered set equals the production-mounted registry rows exactly while rejecting backdrop blur, filters, and coloured glow."
         }
       ],
-      "enforcementMode": "automated-machine",
+      "enforcementMode": "browser-state",
       "machinePredicate": {
         "statement": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
         "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
@@ -8043,6 +9189,18 @@
         },
         {
           "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)",
+          "mechanism": "Checks the OG renderer registers only the first-party role families, so the card corpus and the web pages resolve the same four families."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
+        },
+        {
+          "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
           "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
@@ -8088,6 +9246,18 @@
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)",
           "mechanism": "Pins the four first-party families to their display, interface, reading, and data roles."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)",
+          "mechanism": "Checks the OG renderer registers only the first-party role families, so the card corpus and the web pages resolve the same four families."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
         },
         {
           "kind": "test",
@@ -8448,7 +9618,13 @@
           "kind": "test",
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
-          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
@@ -8488,7 +9664,13 @@
           "kind": "test",
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
-          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
@@ -8533,7 +9715,13 @@
           "kind": "test",
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
-          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
@@ -8579,7 +9767,13 @@
           "kind": "test",
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
-          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage."
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
@@ -8650,6 +9844,18 @@
         {
           "kind": "test",
           "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur role population › renders every registered role ${route} owns, at every declared viewport (VAL-B2-TYPE-015)",
+          "mechanism": "Loads each public route at every declared viewport and measures the computed family and wght/wdth axes of every role that route owns."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
+          "title": "Tektur role population › every registered role is owned by at least one public route",
+          "mechanism": "Proves the swept route population covers every registered role, so no role escapes the per-route viewport measurement."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/tektur-font-delivery.spec.ts",
           "title": "Tektur web delivery › loads the local variable face without a third-party request or glyph fallback",
           "mechanism": "Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests."
         }
@@ -8691,6 +9897,18 @@
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)",
           "mechanism": "Pins all six measurable wght/wdth role instances and the exact static OG role mapping."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",
@@ -9011,6 +10229,18 @@
           "file": "tests/unit/tektur-fonts.test.ts",
           "title": "Tektur font delivery contract > keeps assigned web and OG strings non-empty and code-point addressable (VAL-B2-TYPE-017)",
           "mechanism": "Derives the assigned identity, descriptor, numeral, domain, and article-title string population before cmap inspection."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/tektur-fonts.test.ts",
+          "title": "Tektur font delivery contract > inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)",
+          "mechanism": "Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/og-renderer-fonts.test.ts",
+          "title": "OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)",
+          "mechanism": "Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points."
         },
         {
           "kind": "test",

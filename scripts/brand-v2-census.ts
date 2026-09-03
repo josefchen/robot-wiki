@@ -449,13 +449,41 @@ function interactiveRegistry() {
 const ANNOTATION_SCAN = scanAnnotationLiterals(ROOT);
 
 /**
- * The modules that actually render a primitive ID, read out of the source
- * rather than described. A shared primitive's owner is where it mounts, so
- * the row has to name those modules; a fixed prose placeholder makes the
- * field unfalsifiable and lets an unmounted row look owned.
+ * The modules that actually render a primitive ID in production, read out of
+ * the source rather than described. Writing the ID is not owning it: the
+ * shared `components/ui/action.tsx` primitive writes
+ * `control:primary-action`, but nothing mounts `<Action>`, so recording that
+ * definition file as the owner claims a production mount that does not
+ * exist. Only writers the module graph reaches from a route entry qualify;
+ * a primitive the library defines and no route mounts records an empty owner
+ * list, which is the truth.
  */
 function annotationOwnerModules(id: string): readonly string[] {
-  return ANNOTATION_SCAN.ownersById[id] ?? [];
+  return ANNOTATION_SCAN.productionOwnersById[id] ?? [];
+}
+
+/**
+ * The mount half of every primitive row: where the ID is written at all, and
+ * whether a route entry reaches one of those writers. `library-only` and
+ * `unwritten` are recorded rather than hidden, because a row that silently
+ * borrows its definition file as an owner reads as a shipped mount.
+ */
+function annotationMountRecord(id: string) {
+  const ownerRouteOrMount = annotationOwnerModules(id);
+  const definedIn = [
+    ...ownerRouteOrMount,
+    ...(ANNOTATION_SCAN.unmountedOwnersById[id] ?? []),
+  ].sort();
+  return {
+    definedIn,
+    ownerRouteOrMount,
+    mountState:
+      definedIn.length === 0
+        ? 'unwritten'
+        : ownerRouteOrMount.length > 0
+          ? 'production'
+          : 'library-only',
+  };
 }
 
 /**
@@ -562,6 +590,7 @@ function staticRegistries() {
   ].map((entry) =>
     stableRecord({
       ...entry,
+      ...annotationMountRecord(entry.id),
       pointerBehavior: 'none',
       allowedViewports: ['mobile', 'tablet', 'desktop'],
       alignmentTolerancePx: 2,
@@ -604,7 +633,7 @@ function staticRegistries() {
       shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
       allowedOwners: ['chart', 'diagram', 'simulation', 'code', 'media', 'playground'],
     },
-  ].map(stableRecord);
+  ].map((entry) => stableRecord({ ...entry, ...annotationMountRecord(entry.id) }));
   const pageFrames = [
     ['frame:mobile', 4, 20],
     ['frame:tablet', 8, 32],
@@ -654,7 +683,12 @@ function staticRegistries() {
       treatment: 'lime-plus-non-colour-marker',
       statePurpose: 'persistent-selection',
       action: 'select or toggle one persistent state',
-      persistentAria: ['aria-pressed', 'aria-selected', 'aria-current'],
+      // `aria-current` marks the current destination or item in a set, not a
+      // pressed or selected state, and the browser gate restricts it to
+      // truthful current links (control:link-focus). Listing it here as a
+      // permitted persistent ARIA of a selection control contradicted that
+      // rule and serialized an allowance no member may use.
+      persistentAria: ['aria-pressed', 'aria-selected'],
       supportedStates: ['unselected', 'selected', 'hover', 'focus-visible', 'disabled'],
     },
     {
@@ -693,7 +727,7 @@ function staticRegistries() {
   ].map((entry) =>
     stableRecord({
       ...entry,
-      ownerRouteOrMount: annotationOwnerModules(entry.id),
+      ...annotationMountRecord(entry.id),
       disabledException: entry.disabledException ?? null,
       targetSize: {
         minimumPx: 24,

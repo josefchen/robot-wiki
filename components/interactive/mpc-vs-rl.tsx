@@ -284,6 +284,7 @@ export function MpcVsRl({ className }: { className?: string }) {
           return (
             <div
               key={id}
+              data-brand-surface-id="surface:flat"
               className="rounded-sm border border-border bg-bg p-3"
             >
               <div className="flex items-baseline justify-between gap-3">

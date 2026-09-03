@@ -123,6 +123,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <pre
             data-testid="eureka-code"
+            data-brand-surface-id="surface:flat"
             className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed text-text"
           >
             {current.code.join('\n')}
@@ -134,6 +135,7 @@ export function EurekaLoop({ className }: { className?: string }) {
               </p>
               <pre
                 data-testid="eureka-diff"
+                data-brand-surface-id="surface:flat"
                 className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed"
               >
                 {diff.map((line, i) => (
@@ -157,6 +159,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <dl
             data-testid="eureka-stats"
+            data-brand-surface-id="surface:flat"
             className="mt-2 divide-y divide-border rounded-sm border border-border bg-bg"
           >
             {current.stats.map((s) => (
@@ -188,6 +191,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           </p>
           <blockquote
             data-testid="eureka-reflection"
+            data-brand-surface-id="surface:flat"
             className="mt-2 rounded-sm border border-border border-l-accent border-l-2 bg-bg p-3 font-sans text-xs leading-relaxed text-text"
           >
             {current.reflection}

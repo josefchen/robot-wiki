@@ -19,9 +19,21 @@ export type BrandV2Registry = {
     sources: Array<InteractiveRegistryMember>;
     mounts: Array<InteractiveRegistryMember & { sourceId: string; route: string }>;
   };
-  gridDevices: Array<{ id: string; fingerprint: string }>;
-  surfaces: Array<{ id: string; fingerprint: string }>;
-  controls: Array<{ id: string; fingerprint: string }>;
+  gridDevices: Array<PrimitiveRegistryRow>;
+  surfaces: Array<PrimitiveRegistryRow>;
+  controls: Array<PrimitiveRegistryRow>;
+};
+
+export type PrimitiveMountState = 'production' | 'library-only' | 'unwritten';
+
+type PrimitiveRegistryRow = {
+  id: string;
+  fingerprint: string;
+  /** First-party modules whose source writes this primitive ID. */
+  definedIn: string[];
+  /** The subset of `definedIn` a route entry actually reaches. */
+  ownerRouteOrMount: string[];
+  mountState: PrimitiveMountState;
 };
 
 type InteractiveRegistryMember = {

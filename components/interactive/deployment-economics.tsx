@@ -231,6 +231,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
             box, so dragging a control never shifts layout. */}
         <div
           data-testid="time-breakdown"
+          data-brand-surface-id="surface:flat"
           className="mt-2 flex h-8 w-full overflow-hidden rounded-sm border border-border"
           role="img"
           aria-label={`Time breakdown per elapsed hour: ${pct(

@@ -78,6 +78,7 @@ export function CompanyCard({
           {company.approach.map((tag) => (
             <li
               key={tag}
+              data-brand-surface-id="surface:flat"
               className="rounded-xs bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-text-dim"
             >
               {formatApproach(tag)}

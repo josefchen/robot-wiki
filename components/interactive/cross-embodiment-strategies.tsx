@@ -303,6 +303,7 @@ export function CrossEmbodimentStrategies({
 
       <div
         data-testid="strategy-detail"
+        data-brand-surface-id="surface:flat"
         className="mt-3 rounded-sm border border-border bg-surface-2 px-3 py-2.5"
       >
         {strategy.underSpecified && (

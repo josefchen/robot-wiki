@@ -320,6 +320,7 @@ export function HierarchyTimescales({
 
       <div
         data-testid="system-detail"
+        data-brand-surface-id="surface:flat"
         className="mt-3 rounded-sm border border-border bg-surface-2 px-3 py-2.5"
       >
         <p className="font-sans text-xs leading-relaxed text-text">

@@ -12,6 +12,11 @@
  * carry an annotation are unioned in so a stray or misspelled ID still has to
  * reconcile.
  *
+ * SVG participates in control discovery. A `<circle role="button" tabindex>`
+ * in a chart is a keyboard-operable product control; skipping every
+ * `SVGElement` made those controls invisible to a gate whose whole claim is
+ * that it sees the population without the annotation's help.
+ *
  * `discoverBrandPrimitives` runs inside the page (`page.evaluate`), so it is
  * deliberately self-contained: it closes over nothing from module scope.
  */
@@ -42,6 +47,8 @@ export type ControlEvidence = {
   widthPx: number;
   heightPx: number;
   meetsMinimumTarget: boolean;
+  /** The control is an SVG shape rather than an HTML element. */
+  vector: boolean;
   inlineInTextBlock: boolean;
   spacingSatisfied: boolean;
   ariaPressed: string | null;
@@ -54,8 +61,29 @@ export type ScrollRegionEvidence = {
   memberId: string;
   tag: string;
   role: string | null;
-  hasAccessibleName: boolean;
+  /** A naming attribute is present. */
+  hasLabelSource: boolean;
+  /** The naming attribute resolves to real text rather than a dangling id. */
+  named: boolean;
+  containsTable: boolean;
   focusable: boolean;
+  outline: string;
+};
+
+/**
+ * A bordered or painted box carrying neither text nor an element child. It
+ * paints a mark — a legend swatch, a status dot — not a plane that holds
+ * content, so the surface registry does not govern it. The evidence is
+ * emitted so the exclusion stays falsifiable: put content in one and it
+ * becomes a surface that must be registered.
+ */
+export type MarkEvidence = {
+  memberId: string;
+  tag: string;
+  textLength: number;
+  childElementCount: number;
+  widthPx: number;
+  heightPx: number;
   outline: string;
 };
 
@@ -64,6 +92,7 @@ export type PrimitiveDiscovery = {
   surfaces: SurfaceEvidence[];
   controls: ControlEvidence[];
   scrollRegions: ScrollRegionEvidence[];
+  marks: MarkEvidence[];
 };
 
 export function discoverBrandPrimitives(): PrimitiveDiscovery {
@@ -100,16 +129,20 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   ]);
 
   type Entry = {
-    element: HTMLElement;
+    element: Element;
     computed: CSSStyleDeclaration;
     rect: DOMRect;
     visible: boolean;
     exposed: boolean;
+    vector: boolean;
     nativeControl: boolean;
     widgetRole: boolean;
     keyboardReachable: boolean;
     scrollContainer: boolean;
   };
+
+  const datasetOf = (element: Element): DOMStringMap =>
+    (element as HTMLElement | SVGElement).dataset;
 
   const transparent = (colour: string): boolean =>
     colour === 'transparent' ||
@@ -138,10 +171,11 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
     element.outerHTML.replace(/\s+/g, ' ').slice(0, 180);
 
   const entries: Entry[] = [];
-  const byElement = new Map<HTMLElement, Entry>();
-  for (const node of document.querySelectorAll<HTMLElement>('body *')) {
-    if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') continue;
-    if (node instanceof SVGElement) continue;
+  const byElement = new Map<Element, Entry>();
+  for (const node of document.querySelectorAll('body *')) {
+    const tag = node.tagName.toUpperCase();
+    if (tag === 'SCRIPT' || tag === 'STYLE') continue;
+    const vector = node instanceof SVGElement;
     const computed = getComputedStyle(node);
     const rect = node.getBoundingClientRect();
     const tabIndexAttribute = node.getAttribute('tabindex');
@@ -150,6 +184,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
       element: node,
       computed,
       rect,
+      vector,
       visible:
         computed.display !== 'none' &&
         computed.visibility !== 'hidden' &&
@@ -196,10 +231,21 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
         memberId: `scroll:${scrollRegions.length}:${signature(entry.element)}`,
         tag: entry.element.tagName.toLowerCase(),
         role,
-        hasAccessibleName:
+        hasLabelSource:
           (entry.element.getAttribute('aria-label') ?? '').trim().length > 0 ||
           (entry.element.getAttribute('aria-labelledby') ?? '').trim().length >
             0,
+        named:
+          (entry.element.getAttribute('aria-label') ?? '').trim().length > 0 ||
+          (entry.element.getAttribute('aria-labelledby') ?? '')
+            .split(/\s+/)
+            .filter(Boolean)
+            .every(
+              (id) =>
+                (document.getElementById(id)?.textContent ?? '').trim()
+                  .length > 0,
+            ),
+        containsTable: entry.element.querySelector('table') !== null,
         focusable: true,
         outline: outlineOf(entry.element),
       });
@@ -210,12 +256,12 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
 
   const controlSet = new Set(structuralControls.map(({ element }) => element));
   const annotatedControls = [
-    ...document.querySelectorAll<HTMLElement>('[data-brand-control-id]'),
+    ...document.querySelectorAll('[data-brand-control-id]'),
   ];
   const controlEntries: Array<{ entry: Entry; origin: DiscoveryOrigin }> =
     structuralControls.map((entry) => ({
       entry,
-      origin: entry.element.dataset.brandControlId
+      origin: datasetOf(entry.element).brandControlId
         ? ('structure+annotation' as const)
         : ('structure' as const),
     }));
@@ -299,7 +345,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
    * its own line does not.
    */
   const inlineInTextBlockFor = (
-    element: HTMLElement,
+    element: Element,
     rect: DOMRect,
   ): boolean => {
     let block = element.parentElement;
@@ -328,7 +374,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
         rect.width >= MINIMUM_TARGET_PX && rect.height >= MINIMUM_TARGET_PX;
       return {
         memberId: `control:${index}:${signature(element)}`,
-        registeredId: element.dataset.brandControlId ?? null,
+        registeredId: datasetOf(element).brandControlId ?? null,
         tag: element.tagName.toLowerCase(),
         role: element.getAttribute('role'),
         origin,
@@ -339,6 +385,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
         widthPx: Math.round(rect.width * 100) / 100,
         heightPx: Math.round(rect.height * 100) / 100,
         meetsMinimumTarget,
+        vector: entry.vector,
         inlineInTextBlock:
           entry.visible && !meetsMinimumTarget
             ? inlineInTextBlockFor(element, rect)
@@ -354,7 +401,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   );
 
   // --- surfaces -----------------------------------------------------------
-  const nearestPaintedBackground = (element: HTMLElement): string => {
+  const nearestPaintedBackground = (element: Element): string => {
     let parent = element.parentElement;
     while (parent) {
       const parentEntry = byElement.get(parent);
@@ -368,9 +415,14 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   };
 
   const structuralSurfaces: Array<{ entry: Entry; reason: string }> = [];
+  const marks: MarkEvidence[] = [];
   for (const entry of entries) {
     const { element, computed } = entry;
     if (MEDIA_TAGS.has(element.tagName)) continue;
+    // An SVG shape paints inside a chart; the plane the surface registry
+    // governs is the HTML frame that holds the chart, which this walk sees
+    // separately.
+    if (entry.vector) continue;
     if (!entry.visible || !entry.exposed) continue;
     // A control's plane is governed by the control registry, whose rows carry
     // the treatment, states, and target size; the surface registry's allowed
@@ -403,6 +455,23 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
       background !== nearestPaintedBackground(element) &&
       radius > 0;
     if (!bordered && !paintedPlane) continue;
+    const textLength = (element.textContent ?? '').trim().length;
+    if (
+      textLength === 0 &&
+      element.childElementCount === 0 &&
+      datasetOf(element).brandSurfaceId === undefined
+    ) {
+      marks.push({
+        memberId: `mark:${marks.length}:${signature(element)}`,
+        tag: element.tagName.toLowerCase(),
+        textLength,
+        childElementCount: element.childElementCount,
+        widthPx: Math.round(entry.rect.width * 100) / 100,
+        heightPx: Math.round(entry.rect.height * 100) / 100,
+        outline: outlineOf(element),
+      });
+      continue;
+    }
     structuralSurfaces.push({
       entry,
       reason: bordered ? 'four-sided-border' : 'distinct-painted-plane',
@@ -417,13 +486,11 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   }> = structuralSurfaces.map(({ entry, reason }) => ({
     entry,
     reason,
-    origin: entry.element.dataset.brandSurfaceId
+    origin: datasetOf(entry.element).brandSurfaceId
       ? ('structure+annotation' as const)
       : ('structure' as const),
   }));
-  for (const node of document.querySelectorAll<HTMLElement>(
-    '[data-brand-surface-id]',
-  )) {
+  for (const node of document.querySelectorAll('[data-brand-surface-id]')) {
     if (surfaceSet.has(node)) continue;
     const entry = byElement.get(node);
     if (!entry) continue;
@@ -433,7 +500,7 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
   const surfaces: SurfaceEvidence[] = surfaceEntries.map(
     ({ entry, reason, origin }, index) => ({
       memberId: `surface:${index}:${signature(entry.element)}`,
-      registeredId: entry.element.dataset.brandSurfaceId ?? null,
+      registeredId: datasetOf(entry.element).brandSurfaceId ?? null,
       tag: entry.element.tagName.toLowerCase(),
       origin,
       reason,
@@ -445,5 +512,11 @@ export function discoverBrandPrimitives(): PrimitiveDiscovery {
     }),
   );
 
-  return { minimumTargetPx: MINIMUM_TARGET_PX, surfaces, controls, scrollRegions };
+  return {
+    minimumTargetPx: MINIMUM_TARGET_PX,
+    surfaces,
+    controls,
+    scrollRegions,
+    marks,
+  };
 }

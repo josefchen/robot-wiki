@@ -132,7 +132,10 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
           return cellWrap(
             highlight === field,
             <span>
-              <span className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide text-text">
+              <span
+                data-brand-surface-id="surface:flat"
+                className="inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] leading-none tracking-wide text-text"
+              >
                 {rating}
               </span>
               <span className="mt-1 block font-sans text-xs text-text-dim">

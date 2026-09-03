@@ -470,6 +470,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         </div>
         <div
           role="meter"
+          data-brand-surface-id="surface:flat"
           aria-valuenow={score}
           aria-valuemin={0}
           aria-valuemax={100}

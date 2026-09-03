@@ -58,6 +58,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: (props: ComponentPropsWithoutRef<'pre'>) => (
       <pre data-brand-surface-id="surface:flat" {...props} />
     ),
+    // Inline prose code is a bordered painted plane of its own
+    // (app/globals.css `.prose :where(code):not(pre code)`), so the shared
+    // override carries the annotation rather than every authored span.
+    code: (props: ComponentPropsWithoutRef<'code'>) => (
+      <code data-brand-surface-id="surface:flat" {...props} />
+    ),
     h2: ProseH2,
     h3: ProseH3,
     ...components,

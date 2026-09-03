@@ -80,10 +80,16 @@ type Registry = {
     pointerBehavior: string;
     ariaBehavior: string;
     allowedViewports: string[];
+    definedIn: string[];
+    ownerRouteOrMount: string[];
+    mountState: string;
     fingerprint: string;
   }>;
   surfaces: Array<{
     id: string;
+    definedIn: string[];
+    ownerRouteOrMount: string[];
+    mountState: string;
     level: string;
     stackingPurpose: string;
     allowedRadiusPx: number[];
@@ -96,6 +102,8 @@ type Registry = {
   typeRoles: Array<{ id: string; family: string; fingerprint: string }>;
   controls: Array<{
     id: string;
+    definedIn: string[];
+    mountState: string;
     ownerRouteOrMount: string[];
     action: string;
     persistentAria: string[];
@@ -313,17 +321,40 @@ describe('brand-v2 canonical census', () => {
       expect(surface.allowedOwners.length).toBeGreaterThan(0);
     }
 
-    for (const control of registry.controls) {
-      // The owner field used to read "shared primitive; concrete owner
-      // supplied at render" on every row, which is a sentence about owners
-      // rather than owner data: it cannot go stale and it cannot be wrong.
-      expect(control.ownerRouteOrMount).toBeInstanceOf(Array);
-      expect(control.ownerRouteOrMount.length).toBeGreaterThan(0);
-      for (const owner of control.ownerRouteOrMount) {
+    // The owner field used to read "shared primitive; concrete owner
+    // supplied at render" on every row, which is a sentence about owners
+    // rather than owner data: it cannot go stale and it cannot be wrong. It
+    // then named every module containing the ID literal, which made an
+    // unmounted library definition look like a shipped mount. Owners are now
+    // the route-reachable writers, and `mountState` records the rest.
+    for (const row of [
+      ...registry.gridDevices,
+      ...registry.surfaces,
+      ...registry.controls,
+    ]) {
+      expect(['production', 'library-only', 'unwritten']).toContain(
+        row.mountState,
+      );
+      expect(row.definedIn).toBeInstanceOf(Array);
+      expect(row.ownerRouteOrMount).toBeInstanceOf(Array);
+      for (const owner of row.definedIn) {
         expect(owner).not.toMatch(/shared primitive|supplied at render/i);
         expect(existsSync(join(ROOT, owner))).toBe(true);
-        expect(readFileSync(join(ROOT, owner), 'utf8')).toContain(control.id);
+        expect(readFileSync(join(ROOT, owner), 'utf8')).toContain(row.id);
       }
+      for (const owner of row.ownerRouteOrMount) {
+        expect(row.definedIn).toContain(owner);
+      }
+      if (row.mountState === 'production') {
+        expect(row.ownerRouteOrMount.length).toBeGreaterThan(0);
+      } else {
+        expect(row.ownerRouteOrMount).toEqual([]);
+      }
+      if (row.mountState === 'unwritten') expect(row.definedIn).toEqual([]);
+      else expect(row.definedIn.length).toBeGreaterThan(0);
+    }
+
+    for (const control of registry.controls) {
       expect(control.action).toBeTruthy();
       expect(control.persistentAria).toBeInstanceOf(Array);
       expect(control.targetSize.minimumPx).toBe(24);
@@ -359,29 +390,63 @@ describe('brand-v2 canonical census', () => {
   });
 
   it('rejects narrated control owners and blanket target-size claims', () => {
-    const control = registry.controls[0];
+    // A production-mounted row: the mount-state cases below have to be able
+    // to move it in both directions, so the base row cannot already be the
+    // library-only one.
+    const control = registry.controls.find(
+      (row) => row.mountState === 'production',
+    ) as (typeof registry.controls)[number];
+    const libraryOnly = registry.controls.find(
+      (row) => row.mountState === 'library-only',
+    ) as (typeof registry.controls)[number];
     const reasonsFor = (patch: Record<string, unknown>) =>
       validatePrimitiveRegistries({
         gridDevices: registry.gridDevices,
         surfaces: registry.surfaces,
         controls: [{ ...control, ...patch }],
       }).map(({ reason }) => reason);
+    const libraryReasonsFor = (patch: Record<string, unknown>) =>
+      validatePrimitiveRegistries({
+        gridDevices: registry.gridDevices,
+        surfaces: registry.surfaces,
+        controls: [{ ...libraryOnly, ...patch }],
+      }).map(({ reason }) => reason);
 
     expect(
       reasonsFor({
+        definedIn: ['shared primitive; concrete owner supplied at render'],
         ownerRouteOrMount: [
           'shared primitive; concrete owner supplied at render',
         ],
       }),
     ).toContain('placeholder-control-owner');
     expect(reasonsFor({ ownerRouteOrMount: [] })).toContain(
-      'unowned-control-registry-row',
+      'mount-state-contradicts-owners',
     );
     expect(
       reasonsFor({ ownerRouteOrMount: 'components/ui/cite.tsx' }),
-    ).toContain('unowned-control-registry-row');
-    expect(reasonsFor({ ownerRouteOrMount: ['node_modules/react'] })).toContain(
-      'unresolvable-control-owner',
+    ).toContain('invalid-control-owner');
+    expect(
+      reasonsFor({
+        definedIn: ['node_modules/react'],
+        ownerRouteOrMount: ['node_modules/react'],
+      }),
+    ).toContain('unresolvable-control-owner');
+    // A row cannot claim an owner it never defined, and it cannot record a
+    // mount state its own owner list contradicts.
+    expect(
+      reasonsFor({ ownerRouteOrMount: ['components/ui/skip-link.tsx'] }),
+    ).toContain('owner-outside-definition-set');
+    expect(reasonsFor({ mountState: 'library-only' })).toContain(
+      'mount-state-contradicts-owners',
+    );
+    expect(reasonsFor({ mountState: 'mounted' })).toContain(
+      'unrecognised-primitive-mount-state',
+    );
+    // The reverse direction: an unmounted library definition cannot upgrade
+    // itself to a production mount while its owner list stays empty.
+    expect(libraryReasonsFor({ mountState: 'production' })).toContain(
+      'unowned-control-registry-row',
     );
     expect(
       reasonsFor({ targetSize: { ...control.targetSize, minimumPx: 20 } }),

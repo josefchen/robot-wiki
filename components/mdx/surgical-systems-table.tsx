@@ -62,6 +62,7 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
                 {row.system}
                 <span
                   data-testid={`surgical-level-${row.key}`}
+                  data-brand-surface-id="surface:flat"
                   // No letter-spacing: this is a data chip (the system's
                   // autonomy level), and an uppercase letterspaced span
                   // would count against the micro-label

@@ -434,6 +434,7 @@ export function ActionTokenization({
           {ACTION_DIMS.map((d, i) => (
             <span
               key={d.id}
+              data-brand-surface-id="surface:flat"
               className={cx(
                 'inline-flex items-baseline gap-1.5 rounded-sm border px-2 py-1 font-mono text-xs',
                 i === dim

@@ -376,6 +376,7 @@ export function WmDisambiguator({
               <li
                 key={use.id}
                 data-testid={`use-${use.id}`}
+                data-brand-surface-id="surface:flat"
                 data-active={active}
                 className={cx(
                   'rounded-sm border px-2 py-1 font-mono text-xs',

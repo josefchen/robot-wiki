@@ -329,6 +329,7 @@ export function TrainingTimeChart({
 
       {/* Iteration-time breakdown bar. */}
       <div
+        data-brand-surface-id="surface:flat"
         className="mt-3 flex h-[18px] overflow-hidden rounded-sm border border-border"
         role="img"
         aria-label={`Iteration time breakdown: simulation ${Math.round(simPct)} percent, learning update ${Math.round(learnPct)} percent, CPU and transfer ${Math.round(cpuPct)} percent.`}

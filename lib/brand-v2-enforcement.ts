@@ -381,7 +381,11 @@ export function summarizeEnforcementFailures(
 export function buildEnforcementPopulationSources(input: {
   registry: {
     routes: {
-      public: Array<{ id: string; routeKind: 'article' | 'destination' }>;
+      public: Array<{
+        id: string;
+        path: string;
+        routeKind: 'article' | 'destination';
+      }>;
     };
     metadata: Array<{ id: string }>;
     assets: Array<{ id: string }>;

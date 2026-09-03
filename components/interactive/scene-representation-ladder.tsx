@@ -435,7 +435,10 @@ export function SceneRepresentationLadder({
           column's height, which left the drawing floating in the top half
           of its own frame. */}
       <div className="mt-4 grid items-start gap-4 md:grid-cols-[minmax(12rem,1fr)_minmax(0,12rem)]">
-        <div className="rounded-sm border border-border bg-surface-2 p-2">
+        <div
+          data-brand-surface-id="surface:flat"
+          className="rounded-sm border border-border bg-surface-2 p-2"
+        >
           <Panel
             id={selectedId}
             spacingCm={cellCm}
@@ -495,6 +498,7 @@ export function SceneRepresentationLadder({
                 <li
                   key={capability.id}
                   data-testid={`scene-capability-${capability.id}`}
+                  data-brand-surface-id="surface:flat"
                   data-state={graded.state}
                   aria-label={`${capability.label}: ${CAPABILITY_STATE_TEXT[graded.state]}`}
                   className={cx(

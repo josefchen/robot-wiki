@@ -530,7 +530,7 @@
       "routeId": "route:/adjacent/autonomous-vehicles/",
       "owner": "module:adjacent/autonomous-vehicles",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/adjacent/autonomous-vehicles/",
       "title": "Autonomous Vehicles",
       "description": "The AV stack as a robotics problem: perception, prediction, planning, and the long tail.",
@@ -552,14 +552,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b80ba87b022e755cc05d0e89515938ec9a0ae611b840fca4e4686f4d82a7e56e"
+      "fingerprint": "0de8d8c0572e5e0833388d86fc0f4a5f41e1c9849e977102b18029db102d47b2"
     },
     {
       "id": "metadata:/adjacent/drones/",
       "routeId": "route:/adjacent/drones/",
       "owner": "module:adjacent/drones",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/adjacent/drones/",
       "title": "Drones and Aerial Robotics",
       "description": "Autonomous flight, aggressive maneuvers, and swarm coordination.",
@@ -581,14 +581,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0294ddcbaad2fde0ee9be456512f4c341945bafffdf4ec4bd71759156dfec2fc"
+      "fingerprint": "b1f27e31cd6b85542e935cffa4fa7e1545795470cda9819bfd3ea17600a6571a"
     },
     {
       "id": "metadata:/adjacent/space/",
       "routeId": "route:/adjacent/space/",
       "owner": "module:adjacent/space",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/adjacent/space/",
       "title": "Space Robotics",
       "description": "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossible.",
@@ -610,14 +610,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ceb8becef9c0722939fafa297fd5ddd0ab9076d463a8b054954feb35a7df8ccf"
+      "fingerprint": "79fa0d30318c949df8348498e088d7a4021ee3baf08c3dc4d571879be7e78c8c"
     },
     {
       "id": "metadata:/adjacent/surgical/",
       "routeId": "route:/adjacent/surgical/",
       "owner": "module:adjacent/surgical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/adjacent/surgical/",
       "title": "Surgical Robotics",
       "description": "Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certified robots.",
@@ -639,7 +639,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0d8e4bab44ff83612cc67c027b3e346e7582e5b3023edc25b69340fd61fc451b"
+      "fingerprint": "1da7251839873cb240ffd361538cdaac573ea2607b0aefeac3fdfe46d79e2bf0"
     },
     {
       "id": "metadata:/classical/",
@@ -675,7 +675,7 @@
       "routeId": "route:/classical/control/",
       "owner": "module:classical/control",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/control/",
       "title": "Control",
       "description": "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy.",
@@ -697,14 +697,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "125bde8f78d6006635755f03aac9185489e00d23ee7a484849adba38079d0864"
+      "fingerprint": "f77e6069a8596debb3f265b60c5590ced2764df125cf6cc695d973db4313b269"
     },
     {
       "id": "metadata:/classical/grasp-planning/",
       "routeId": "route:/classical/grasp-planning/",
       "owner": "module:classical/grasp-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/grasp-planning/",
       "title": "Grasp Planning",
       "description": "Contact mechanics, grasp quality metrics, and force closure.",
@@ -726,14 +726,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ebbc9b0856676d9c6e65bafb1bf82c2311a9dde823f0bf7a935d161de8f9c8ca"
+      "fingerprint": "b5c2e7c601413bc30024de142e50177605497c2ad1f5d2a85e5765bd53ad8a27"
     },
     {
       "id": "metadata:/classical/kinematics/",
       "routeId": "route:/classical/kinematics/",
       "owner": "module:classical/kinematics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/kinematics/",
       "title": "Kinematics",
       "description": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.",
@@ -755,14 +755,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4fd0c2fc0e5fd1a479293db481aaf0a03a5689d7b06117deaaf78d7d6c0e0d95"
+      "fingerprint": "b055dccd0437e924892c9a8edc8187616ecb679eeeace7a91c1e65cef72e77c7"
     },
     {
       "id": "metadata:/classical/motion-planning/",
       "routeId": "route:/classical/motion-planning/",
       "owner": "module:classical/motion-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/motion-planning/",
       "title": "Motion Planning",
       "description": "RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.",
@@ -784,14 +784,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "09d0511cc590416cc64743baa3ad5ec03e7fc8be43792cec36bd4e640a22d8e9"
+      "fingerprint": "fbd59324c49853956839853e427e12d2e411aebdefd44ae02d05a20f5c38daaa"
     },
     {
       "id": "metadata:/classical/perception/",
       "routeId": "route:/classical/perception/",
       "owner": "module:classical/perception",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/perception/",
       "title": "Perception for Manipulation",
       "description": "Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.",
@@ -813,14 +813,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9279884929a468b128d3aec93ee061de93fc274cf0c2a1b17bd378183deb6410"
+      "fingerprint": "8e70fa5a1c7832bee02b20369a970c649ef8cf452df96ebad3412b493d3e7e15"
     },
     {
       "id": "metadata:/classical/scene-representation/",
       "routeId": "route:/classical/scene-representation/",
       "owner": "module:classical/scene-representation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/scene-representation/",
       "title": "Scene Representation and Mapping",
       "description": "What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.",
@@ -842,14 +842,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "25460cd9f64b1cfda4d2934f00cf77a9c760f4b1c2324ebb334f5e7467d7f686"
+      "fingerprint": "812a2324c88769c623e999c3c287f5d82d65d46f5acf147fd0fcd6231849c406"
     },
     {
       "id": "metadata:/classical/state-estimation/",
       "routeId": "route:/classical/state-estimation/",
       "owner": "module:classical/state-estimation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/classical/state-estimation/",
       "title": "State Estimation",
       "description": "Kalman filters, factor graphs, and pose estimation from noisy sensors.",
@@ -871,7 +871,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "164d33d065305f458e77507a8d728d6b86fc899ec8f4478651751a099f92c1f7"
+      "fingerprint": "e8047bc68561e1426fe46d8dd1599f02f7a83e45e85e6e1459f73bcef94e7fcf"
     },
     {
       "id": "metadata:/credits/",
@@ -934,7 +934,7 @@
       "routeId": "route:/data-hardware/data-bottleneck/",
       "owner": "module:data-hardware/data-bottleneck",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/data-bottleneck/",
       "title": "The Data Bottleneck",
       "description": "Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.",
@@ -956,14 +956,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7b3de8acedfab9748663f588a587a3b87360fd698760d9250021a2261613f9e6"
+      "fingerprint": "7b9425b90533077d892df65ab262f67b08c4c5563e5c98e2ada6586a2cf41fe1"
     },
     {
       "id": "metadata:/data-hardware/datasets/",
       "routeId": "route:/data-hardware/datasets/",
       "owner": "module:data-hardware/datasets",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/datasets/",
       "title": "Major Datasets",
       "description": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.",
@@ -985,14 +985,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fd0f1edb522e88698625f5af4dc087f20557d8d8eb21bd153587890f32f5ad3f"
+      "fingerprint": "69c43fde3012765499d20fbcc5859d070831e08a9f3282227a017292c4b20928"
     },
     {
       "id": "metadata:/data-hardware/evaluation-crisis/",
       "routeId": "route:/data-hardware/evaluation-crisis/",
       "owner": "module:data-hardware/evaluation-crisis",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/evaluation-crisis/",
       "title": "The Evaluation Crisis",
       "description": "Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.",
@@ -1014,14 +1014,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2c278f9127bda49efd684a4dc9e71e6823c0c008b1889b3cd27de50a9564893e"
+      "fingerprint": "f7782bb35984d5aa5bd4885e5b9de432ecda4475dc6caf73b5b274ad345009dc"
     },
     {
       "id": "metadata:/data-hardware/hardware-taxonomy/",
       "routeId": "route:/data-hardware/hardware-taxonomy/",
       "owner": "module:data-hardware/hardware-taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/hardware-taxonomy/",
       "title": "Hardware Taxonomy",
       "description": "Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jetson Thor.",
@@ -1043,14 +1043,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c56aa8e0b74565429a3d8d3fc26ff6072cef7ca346704b9a600bd88e84ac3b26"
+      "fingerprint": "058d5ea250dc8d8ca8616ba0e1d4fa8412d9314b8b497b678327b6003486d675"
     },
     {
       "id": "metadata:/data-hardware/industrial-deployment/",
       "routeId": "route:/data-hardware/industrial-deployment/",
       "owner": "module:data-hardware/industrial-deployment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/industrial-deployment/",
       "title": "Industrial Deployment",
       "description": "The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.",
@@ -1072,14 +1072,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f0452979a73747f084a7db9c3a0a25fb0a925d4542c0cecc116bb6c534a477f4"
+      "fingerprint": "a393788414d00b68bb031d508a5ad031799de5d80d26526ffe8084faf81e32af"
     },
     {
       "id": "metadata:/data-hardware/teleop-rigs/",
       "routeId": "route:/data-hardware/teleop-rigs/",
       "owner": "module:data-hardware/teleop-rigs",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/data-hardware/teleop-rigs/",
       "title": "Teleoperation Rigs",
       "description": "ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.",
@@ -1101,7 +1101,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "bbaf3a97e0125b978f8bd61d9a6c1abbe0e840740b4e1e2f88e51682221f5883"
+      "fingerprint": "271963dbd479d3a96755efff297e7a418433e405b9dc4304350896659241ac53"
     },
     {
       "id": "metadata:/frontier/",
@@ -1137,7 +1137,7 @@
       "routeId": "route:/frontier/bear-case/",
       "owner": "module:frontier/bear-case",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/bear-case/",
       "title": "The Bear Case",
       "description": "Why this could be another robotics winter, and the milestones that would prove it wrong.",
@@ -1159,14 +1159,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1af3777b03d0b03706ee1186f5a217c543688ba5bbe7f8641af28a2162062d3e"
+      "fingerprint": "e8bf215fc048758859f0cd6cdf3ee0771c75b2fd84bbf73a000a4addca234ee4"
     },
     {
       "id": "metadata:/frontier/competing-theses/",
       "routeId": "route:/frontier/competing-theses/",
       "owner": "module:frontier/competing-theses",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/competing-theses/",
       "title": "Competing Theses",
       "description": "End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.",
@@ -1188,14 +1188,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "15dac89a2991a25332892374b1cd7384dedc1c4b1314b4d2d8719329dd52df88"
+      "fingerprint": "8459ed7b01cff8261bdee4cd6d9df9d0550ed35ed04b8eb14cddec8051fb1c28"
     },
     {
       "id": "metadata:/frontier/dexterity/",
       "routeId": "route:/frontier/dexterity/",
       "owner": "module:frontier/dexterity",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/dexterity/",
       "title": "Dexterity",
       "description": "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and deformables.",
@@ -1217,14 +1217,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e55c550910c90f98e834768bb1f63356012e345e0dc4c26ee2b12acee2a7c0b6"
+      "fingerprint": "cdffc129e2e9fa9b6bfb32acd9a202176de8bb2ac77c230035b2d10c0cac6830"
     },
     {
       "id": "metadata:/frontier/generalization/",
       "routeId": "route:/frontier/generalization/",
       "owner": "module:frontier/generalization",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/generalization/",
       "title": "Generalization",
       "description": "What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.",
@@ -1246,14 +1246,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "48efcc8edb980312824b4c2577d163d94e9899ad0a342bbb0f642f89a380039c"
+      "fingerprint": "1f5a8fe4cd9f8937a2ab4ae2ceae178f036c281a3b928bc66dd2c1ddbbe16029"
     },
     {
       "id": "metadata:/frontier/reliability-gap/",
       "routeId": "route:/frontier/reliability-gap/",
       "owner": "module:frontier/reliability-gap",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/reliability-gap/",
       "title": "The Reliability Gap",
       "description": "80% is a demo, 99.9% is a product: what deployment numbers actually show.",
@@ -1275,14 +1275,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2adf35e0c3a06973b0e78230c249d28abd88d2b803e801eaa850a32a287bae8c"
+      "fingerprint": "66aa5a16c4c46218cddda95b72b316b1d055d96dc32656b4063bea6038d0358d"
     },
     {
       "id": "metadata:/frontier/safety-and-assurance/",
       "routeId": "route:/frontier/safety-and-assurance/",
       "owner": "module:frontier/safety-and-assurance",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/frontier/safety-and-assurance/",
       "title": "Safety and Assurance",
       "description": "Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.",
@@ -1304,7 +1304,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ad484a64f320d0aa167242212a1fe63ef81d1a58172e202fa4f481f61b0d9287"
+      "fingerprint": "8b67a427dd65220c82b5ae6affe53f30717e3ad4f05d5faa8bdeea63362082df"
     },
     {
       "id": "metadata:/glossary/",
@@ -1367,7 +1367,7 @@
       "routeId": "route:/manipulation/action-chunking/",
       "owner": "module:manipulation/action-chunking",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/action-chunking/",
       "title": "Action Chunking (ACT and ALOHA)",
       "description": "Predicting action sequences instead of single steps: the CVAE structure, the chunk-size tradeoff, and temporal ensembling.",
@@ -1389,14 +1389,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8613622abfa3cce22a03b19967476ddb649c497b6e8cc5905c6766f066a0ec9e"
+      "fingerprint": "0ff0095a734693c3802dda8c3d04b4756ce374c1d82fb9c3813fb1f57e71af2a"
     },
     {
       "id": "metadata:/manipulation/bc-foundations/",
       "routeId": "route:/manipulation/bc-foundations/",
       "owner": "module:manipulation/bc-foundations",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/bc-foundations/",
       "title": "Behavior Cloning Foundations",
       "description": "Covariate shift and compounding error: why naive imitation breaks in closed loop, with DAgger as the standard fix.",
@@ -1418,14 +1418,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d7423880f0582957df37a748262ae282e2f60c0c0d146606272dc0f49e80995d"
+      "fingerprint": "12995d31ce0655a86e5f60e6f78e98b8e9300c9927f9ba06ef9efcc89fbecb82"
     },
     {
       "id": "metadata:/manipulation/comparison-matrix/",
       "routeId": "route:/manipulation/comparison-matrix/",
       "owner": "module:manipulation/comparison-matrix",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/comparison-matrix/",
       "title": "Comparison Matrix",
       "description": "Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness.",
@@ -1447,14 +1447,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3af9f3f1e08d17445a69e418fccf0c67fec9bf18f3cb51bcea4acb3e82a4b2fc"
+      "fingerprint": "ade3cda95d3fd2453ccadad03b80e06256b5077d7950c123051f225f5ca83480"
     },
     {
       "id": "metadata:/manipulation/cross-embodiment/",
       "routeId": "route:/manipulation/cross-embodiment/",
       "owner": "module:manipulation/cross-embodiment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/",
       "title": "Cross-Embodiment Transfer",
       "description": "Padded action vectors, motion transfer, and shared relative end-effector frames; the live disagreement.",
@@ -1476,14 +1476,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cb2eecdd57794bf7b9fb673ce1418a047e0baa2c3687b20913192af664770511"
+      "fingerprint": "70df8e0596e3abb33af877e5b9e1a21d0a6561233fab74988434ff097b0f398c"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
       "routeId": "route:/manipulation/diffusion-policy/",
       "owner": "module:manipulation/diffusion-policy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/diffusion-policy/",
       "title": "Diffusion Policy",
       "description": "Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.",
@@ -1505,14 +1505,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "19eae8f3816d7295b78e7e5de16676957df1e901b1a4a1ea1f6b15f677b41fbf"
+      "fingerprint": "de3b4ad9aebd5bbcec076d2abd913243a667deb8860463b5e2ffe200438e6484"
     },
     {
       "id": "metadata:/manipulation/generalist-policies/",
       "routeId": "route:/manipulation/generalist-policies/",
       "owner": "module:manipulation/generalist-policies",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/generalist-policies/",
       "title": "Other Generalist Policies",
       "description": "Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor claims.",
@@ -1534,14 +1534,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fb9a7e3bbbdf513063b94b5dd4b0605a734dbc65e695993e45ee067aab1e0165"
+      "fingerprint": "2913acaf1bfb7f5e86aeb4c141194d57c25f0f6f00b9e0ad86a2aa38c0205cf6"
     },
     {
       "id": "metadata:/manipulation/hierarchical/",
       "routeId": "route:/manipulation/hierarchical/",
       "owner": "module:manipulation/hierarchical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/hierarchical/",
       "title": "Hierarchical Approaches",
       "description": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.",
@@ -1563,14 +1563,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "821c2043954ccf6eff7fbe71ded989ac1a4f8bd5ddef3b8780829d04f3f70dd9"
+      "fingerprint": "4003616cec3d8e9f3c8f6e59e91356a180cd6e976ca4bd39ce5159c7ef421e66"
     },
     {
       "id": "metadata:/manipulation/knowledge-insulation/",
       "routeId": "route:/manipulation/knowledge-insulation/",
       "owner": "module:manipulation/knowledge-insulation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/knowledge-insulation/",
       "title": "Knowledge Insulation",
       "description": "Training the VLM backbone on discrete tokens while a flow-matching expert learns actions behind a stop-gradient.",
@@ -1592,14 +1592,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "059aa6b50966050da9683a3b9419f312e553c9b2391757475a9cd0def7bd4bb8"
+      "fingerprint": "fd1ee19090a0dee6151b74b226d289ebc745a785afcb89fead49daddd597bf09"
     },
     {
       "id": "metadata:/manipulation/pi-line/",
       "routeId": "route:/manipulation/pi-line/",
       "owner": "module:manipulation/pi-line",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/pi-line/",
       "title": "The Pi Line",
       "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop.",
@@ -1621,14 +1621,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e7d4235dbbecac280848841bdda21b0be4a8c7a856c6a8bab6c673c2fcff35a8"
+      "fingerprint": "b5ff3ae2fe523d8ccd8f8d03bab1be50fd33d919f2aead419a4f7202e64e3165"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
       "routeId": "route:/manipulation/realtime-execution/",
       "owner": "module:manipulation/realtime-execution",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/realtime-execution/",
       "title": "Real-Time Execution",
       "description": "Temporal ensembling and real-time chunking: the latency budgets that decide whether the control loop closes.",
@@ -1650,14 +1650,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cd8d701077d32b2d7a20f482fbcdbfebcbaaa57834bad4b70c83578596263fb8"
+      "fingerprint": "5d6f2289c21d75903b8a1eb91c349a8dfaca8d4bcb1e42e0e4619f77a502952c"
     },
     {
       "id": "metadata:/manipulation/rl-finetuning/",
       "routeId": "route:/manipulation/rl-finetuning/",
       "owner": "module:manipulation/rl-finetuning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/",
       "title": "RL Fine-Tuning of Policies",
       "description": "DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.",
@@ -1679,14 +1679,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ee8e3a2896616729fae6c3a1ee5eeeae4e497e041002e1a5e7d07d71200aa97b"
+      "fingerprint": "06667aeb12de2e4e27ea3efd27e3fd3fb1b932d9bed94ba86220c9a8cab8bae9"
     },
     {
       "id": "metadata:/manipulation/vla-models/",
       "routeId": "route:/manipulation/vla-models/",
       "owner": "module:manipulation/vla-models",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/manipulation/vla-models/",
       "title": "Vision-Language-Action Models",
       "description": "RT-1, RT-2, RT-X, Octo, and OpenVLA: web-scale pretraining meets robot control, and the cost of discrete action tokens.",
@@ -1708,7 +1708,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "08db28d33b62b9a7d4956c5a29d4ffdecd84159d368eb9d0659e517b6b872f96"
+      "fingerprint": "a48471e487806ff55324823176f5bede911201a3a3ea1ecb6d654614feabbb4f"
     },
     {
       "id": "metadata:/market-map/",
@@ -1798,7 +1798,7 @@
       "routeId": "route:/rl-sim2real/humanoid-wbc/",
       "owner": "module:rl-sim2real/humanoid-wbc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/",
       "title": "Humanoid Whole-Body Control",
       "description": "Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.",
@@ -1820,14 +1820,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a5553d169a13f0672bff82f71457ee021dc75b60eb4effe1c8303ca292c52cf7"
+      "fingerprint": "2c00e56a1e26f28789737f40bb5e15da73f4ac0b3cf40559b6b0587c50e9e5bd"
     },
     {
       "id": "metadata:/rl-sim2real/legged-locomotion/",
       "routeId": "route:/rl-sim2real/legged-locomotion/",
       "owner": "module:rl-sim2real/legged-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/legged-locomotion/",
       "title": "Legged Locomotion Lineage",
       "description": "From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.",
@@ -1849,14 +1849,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "00021dff9c2ba755faefc010fd18085f170a4b8600a5677e9a0357e9fd0f2654"
+      "fingerprint": "61510be2c74f3b50ad642ca9e5193fac6fd48fdb5c040298886f3e4c0096c49c"
     },
     {
       "id": "metadata:/rl-sim2real/parallel-sim-rl/",
       "routeId": "route:/rl-sim2real/parallel-sim-rl/",
       "owner": "module:rl-sim2real/parallel-sim-rl",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/parallel-sim-rl/",
       "title": "Massively Parallel Sim RL",
       "description": "Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock economics of training.",
@@ -1878,14 +1878,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "77f9421de63bab115fe250c30e7afd33ad5d20517f4ddbddf9f6fe4e42f8ad6f"
+      "fingerprint": "3bc7d384d74a7276ace6664fa14688b1deeb88d778e3603aa6fbb15a44942cf6"
     },
     {
       "id": "metadata:/rl-sim2real/reward-design-mpc/",
       "routeId": "route:/rl-sim2real/reward-design-mpc/",
       "owner": "module:rl-sim2real/reward-design-mpc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/",
       "title": "Reward Design and the MPC Debate",
       "description": "LLM-written rewards and curricula; where classical trajectory optimization still wins.",
@@ -1907,14 +1907,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "713bf1602f029d417f4ca952ad26a5f0665bb7575d5c45c9a6c4ea090faa7932"
+      "fingerprint": "f342448780e853039dabd81ec43dd0c28e94abbfbf09bbbd7cc01ba6cfea9f89"
     },
     {
       "id": "metadata:/rl-sim2real/rl-for-robotics/",
       "routeId": "route:/rl-sim2real/rl-for-robotics/",
       "owner": "module:rl-sim2real/rl-for-robotics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/rl-for-robotics/",
       "title": "RL for Robotics",
       "description": "Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.",
@@ -1936,14 +1936,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c99e6d824f0af9abd1c6104b98c6915629107d7c6dd9a2ad0672f58b3c11b650"
+      "fingerprint": "b48b04e30c0988cad0ed7bbd553640fb22164938bae3fbd7573d7d4661ddfa41"
     },
     {
       "id": "metadata:/rl-sim2real/sim2real-transfer/",
       "routeId": "route:/rl-sim2real/sim2real-transfer/",
       "owner": "module:rl-sim2real/sim2real-transfer",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/sim2real-transfer/",
       "title": "Sim-to-Real Transfer",
       "description": "Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.",
@@ -1965,14 +1965,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e7da3e5e2d74a4edb32d62466d8eb88dc7eb095d9e8d055b57c853d7d90b0c24"
+      "fingerprint": "9115bc7cdfbcf1c5547edc05221bc74817d1068c866008b6067fffd8ad4398c4"
     },
     {
       "id": "metadata:/rl-sim2real/why-rl-locomotion/",
       "routeId": "route:/rl-sim2real/why-rl-locomotion/",
       "owner": "module:rl-sim2real/why-rl-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/rl-sim2real/why-rl-locomotion/",
       "title": "Why RL Won Locomotion but Not Manipulation",
       "description": "The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.",
@@ -1994,7 +1994,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "874e92ba39b9aeb0692ecae708cd9977db0f4b1a4c3a1ca37b65187b586dee9b"
+      "fingerprint": "54639434e3aa5ce1a15b826ed99fbdf153aba4acc0f9ab4bfb63021a54e02303"
     },
     {
       "id": "metadata:/search/",
@@ -2057,7 +2057,7 @@
       "routeId": "route:/world-models/generative-sim/",
       "owner": "module:world-models/generative-sim",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/world-models/generative-sim/",
       "title": "Generative Simulation",
       "description": "Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.",
@@ -2079,14 +2079,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ec4b458b0b4091f74bba864a20a077a2de6d8b71db04202db97112f167f396f5"
+      "fingerprint": "bcae38461ecf0deed5dd90ffcef705a80e6e8cf3a29acac56d095ab512017945"
     },
     {
       "id": "metadata:/world-models/generative-video/",
       "routeId": "route:/world-models/generative-video/",
       "owner": "module:world-models/generative-video",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/world-models/generative-video/",
       "title": "Generative Video World Models",
       "description": "Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.",
@@ -2108,14 +2108,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4232563ad9a2508912bd31612b01857732aacc151f1f850296f00d1eb0aa6587"
+      "fingerprint": "af1be957d4dec3883a3c76b5260739bb5706580efaa94c9f9bb68249173d5afa"
     },
     {
       "id": "metadata:/world-models/jepa/",
       "routeId": "route:/world-models/jepa/",
       "owner": "module:world-models/jepa",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/world-models/jepa/",
       "title": "JEPA and the Non-Generative Counterargument",
       "description": "V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.",
@@ -2137,14 +2137,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3661be574b796bb3dde49bd5cc546bafeac1f4532a5fe555b64bac0c12c76c79"
+      "fingerprint": "07dda97bb0d2bfc56615c2876aa60adfa7c0b4d0265c448e07882a24769841d8"
     },
     {
       "id": "metadata:/world-models/latent-dynamics/",
       "routeId": "route:/world-models/latent-dynamics/",
       "owner": "module:world-models/latent-dynamics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/world-models/latent-dynamics/",
       "title": "Latent-Dynamics World Models",
       "description": "Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.",
@@ -2166,14 +2166,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "63de1d1cca4f53889cddbc9e1499e1e7f3903b981f70f5dfa4bda204a8986a9d"
+      "fingerprint": "ae8d5f8d139a7d36d44b6752cb1d9109463394b18eb474bbc73c9eee1d26e98f"
     },
     {
       "id": "metadata:/world-models/taxonomy/",
       "routeId": "route:/world-models/taxonomy/",
       "owner": "module:world-models/taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "9ce651002af7ff243c229348bd4ca9692b08449daa5a8aace4fbd44b4f108b60",
+      "ownerSourceFingerprint": "6b61959a27c8a31f275ebfe896fca2ddb5c87b9d59c975ce919ca003ab2fa6e1",
       "canonical": "https://robot-wiki.com/world-models/taxonomy/",
       "title": "What Is a World Model?",
       "description": "Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.",
@@ -2195,7 +2195,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e1fcee909c25f86c778b0b76dedff717a6553dce5e687cb71ac78a6118aba0fc"
+      "fingerprint": "59018a33f79db83eaf16bd5b9f33f95cb35630f1e2ca49852351b4cdb80d68b0"
     },
     {
       "id": "metadata:/404/",
@@ -10600,6 +10600,9 @@
       },
       "classification": "structural",
       "ariaBehavior": "aria-hidden when decorative; owner landmark carries meaning",
+      "definedIn": [],
+      "ownerRouteOrMount": [],
+      "mountState": "unwritten",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10607,7 +10610,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "397d0e036478a2ed754187c9fa7b63388c48a1c3abb9ba92efa1eaa478463e12"
+      "fingerprint": "c96134ec250c4c6f0f5a0262f112dce2c78671bbfdcc31fabf148ef2b2090a3a"
     },
     {
       "id": "device:section-rule",
@@ -10622,6 +10625,15 @@
       },
       "classification": "structural",
       "ariaBehavior": "aria-hidden; adjacent heading carries meaning",
+      "definedIn": [
+        "app/(content)/[domain]/[slug]/page.tsx",
+        "app/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/[slug]/page.tsx",
+        "app/page.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10629,7 +10641,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "1e99366513cddd07239010e955521094bcd583748b5cf4e5902c873cb07d4974"
+      "fingerprint": "c4124bc864e14552c43cfa9f32ba52c0db1e54b1185a9bde1035fd043b7b5f40"
     },
     {
       "id": "device:registration-cross",
@@ -10644,6 +10656,13 @@
       },
       "classification": "decorative",
       "ariaBehavior": "aria-hidden",
+      "definedIn": [
+        "app/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/page.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10651,7 +10670,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "5b9aceb09dcfb8ef20b267a50bf4603477a06e892ad988fd02e0047446486106"
+      "fingerprint": "7da216c5098d0ba04a6e8599b2b6848dcacd1bf46bfefa34e00b96739b6510ec"
     },
     {
       "id": "device:axis-tick",
@@ -10663,6 +10682,9 @@
       },
       "classification": "semantic",
       "ariaBehavior": "named by the bound chart description or table equivalent",
+      "definedIn": [],
+      "ownerRouteOrMount": [],
+      "mountState": "unwritten",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10670,7 +10692,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "aee033a1ab7816e7a038047a4af5510c4deafbffcd2be4ecabd1f4cc892b1134"
+      "fingerprint": "a79e6d79f404dc24f9016872cb447fa428d2bb0ba020f9d3180fbfe2876a050d"
     },
     {
       "id": "device:sequence-label",
@@ -10682,6 +10704,9 @@
       },
       "classification": "semantic",
       "ariaBehavior": "visible text remains in the accessibility tree",
+      "definedIn": [],
+      "ownerRouteOrMount": [],
+      "mountState": "unwritten",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10689,7 +10714,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "f588e6459093b25279fee329dcbb351180d04711b6aafa042c3ab9c3dcb82205"
+      "fingerprint": "d3d30965e579601807da8a867135c19f99b24fb907dc9e0433f42d04702d4b89"
     },
     {
       "id": "device:dot-grid",
@@ -10701,6 +10726,13 @@
       },
       "classification": "decorative",
       "ariaBehavior": "aria-hidden",
+      "definedIn": [
+        "app/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/page.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10708,7 +10740,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "f53c0b8b5e007927d93a9c1ecd603631a3f0c49c6a9292048fc8c773c3eb7044"
+      "fingerprint": "36f401adc310a570a75574d70665b03550b706d0b9947d941f393c768b0a874c"
     }
   ],
   "surfaces": [
@@ -10745,7 +10777,168 @@
         "input",
         "code"
       ],
-      "fingerprint": "9b035a4d618510191141304814ab32b1525228ced935786505af58ba73f79b0c"
+      "definedIn": [
+        "app/page.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/company-logo.tsx",
+        "components/mdx/av-stack-table.tsx",
+        "components/mdx/dh-parameter-table.tsx",
+        "components/mdx/gr2-results-table.tsx",
+        "components/mdx/mdp-comparison.tsx",
+        "components/mdx/mpc-comparison.tsx",
+        "components/mdx/orbital-servicing-table.tsx",
+        "components/mdx/scaling-laws-table.tsx",
+        "components/mdx/surgical-systems-table.tsx",
+        "components/mdx/swarm-control-table.tsx",
+        "components/mdx/wm-taxonomy-table.tsx",
+        "components/nav/search-box.tsx",
+        "components/three/playground-canvas.tsx",
+        "components/three/playground-hud.tsx",
+        "components/ui/aside.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/callout.tsx",
+        "components/ui/chip.tsx",
+        "components/ui/cite.tsx",
+        "components/ui/code-block.tsx",
+        "components/ui/input-field.tsx",
+        "components/ui/surface.tsx",
+        "components/ui/table.tsx",
+        "components/ui/tabs.tsx",
+        "mdx-components.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/page.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/company-logo.tsx",
+        "components/mdx/av-stack-table.tsx",
+        "components/mdx/dh-parameter-table.tsx",
+        "components/mdx/gr2-results-table.tsx",
+        "components/mdx/mdp-comparison.tsx",
+        "components/mdx/mpc-comparison.tsx",
+        "components/mdx/orbital-servicing-table.tsx",
+        "components/mdx/scaling-laws-table.tsx",
+        "components/mdx/surgical-systems-table.tsx",
+        "components/mdx/swarm-control-table.tsx",
+        "components/mdx/wm-taxonomy-table.tsx",
+        "components/nav/search-box.tsx",
+        "components/three/playground-canvas.tsx",
+        "components/three/playground-hud.tsx",
+        "components/ui/aside.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/callout.tsx",
+        "components/ui/cite.tsx",
+        "components/ui/code-block.tsx",
+        "components/ui/table.tsx",
+        "mdx-components.tsx"
+      ],
+      "mountState": "production",
+      "fingerprint": "aa44b95cc9c80a021a66672f086c2a8e2a4c5237dca09dcdb4f3e575875b1e48"
     },
     {
       "id": "surface:raised",
@@ -10776,7 +10969,12 @@
         "calculator",
         "active-module"
       ],
-      "fingerprint": "e516d1149ec242debef5050d2328c266ce8c912f392fc305fa9008335316f467"
+      "definedIn": [
+        "components/ui/surface.tsx"
+      ],
+      "ownerRouteOrMount": [],
+      "mountState": "library-only",
+      "fingerprint": "46f59aef62efaad269f04f81500aecd54f74411dcc847e85431f0ead173a525a"
     },
     {
       "id": "surface:floating",
@@ -10808,7 +11006,17 @@
         "modal",
         "dragged-object"
       ],
-      "fingerprint": "92939b28658c9c6b48fa31b5b11591657b7a7ff184c0ce4c06644ae7fd6001ec"
+      "definedIn": [
+        "components/ui/cite.tsx",
+        "components/ui/surface.tsx",
+        "components/ui/term.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "components/ui/cite.tsx",
+        "components/ui/term.tsx"
+      ],
+      "mountState": "production",
+      "fingerprint": "d446287f3f9cdc1edfdfe7ffac227c0230c4dc0ccb0a7f3c5bd27b1a028b1e02"
     },
     {
       "id": "surface:bounded-dark-instrument",
@@ -10841,7 +11049,13 @@
         "media",
         "playground"
       ],
-      "fingerprint": "91d40c91fd1e57eb4214aac74817569c9e3c447104f67db7a1acad18c5acb012"
+      "definedIn": [
+        "components/ui/surface.tsx",
+        "lib/brand-v2-reference-rubric.ts"
+      ],
+      "ownerRouteOrMount": [],
+      "mountState": "library-only",
+      "fingerprint": "988c8c71ec7554c1c788d7e01f127af0cba9ad3c1eaffdf5458dc65494b8e7cf"
     }
   ],
   "pageFrames": [
@@ -10977,9 +11191,11 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": [
+      "definedIn": [
         "components/ui/action.tsx"
       ],
+      "ownerRouteOrMount": [],
+      "mountState": "library-only",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -10987,7 +11203,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "d885ede11db6b4054d23951118eed6ed966d776b908bca5faafdccf323af08e7"
+      "fingerprint": "f5057c8fefb87b26e8c95396c5b99d9339d4d15a0ebaef0db3ad7e0a917de994"
     },
     {
       "id": "control:secondary-action",
@@ -11002,7 +11218,7 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": [
+      "definedIn": [
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
@@ -11074,6 +11290,78 @@
         "components/ui/copy-button.tsx",
         "components/ui/table.tsx"
       ],
+      "ownerRouteOrMount": [
+        "components/article/author-list.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/article/heading-permalink.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/eureka-loop.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/market-map/funding-timeline.tsx",
+        "components/market-map/market-map.tsx",
+        "components/nav/nav-tree.tsx",
+        "components/nav/search-box.tsx",
+        "components/nav/site-shell.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/ik-target-form.tsx",
+        "components/three/joint-controls.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/chart-description.tsx",
+        "components/ui/copy-button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11087,7 +11375,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "0ac0b13c746842227d3c8af44722e31126e297e0aa47eda0800fab44dbf858de"
+      "fingerprint": "05f92fa1b4f7dbb3980e834c61718324edba3e49230059898d1bb5f0801e0316"
     },
     {
       "id": "control:selection",
@@ -11096,8 +11384,7 @@
       "action": "select or toggle one persistent state",
       "persistentAria": [
         "aria-pressed",
-        "aria-selected",
-        "aria-current"
+        "aria-selected"
       ],
       "supportedStates": [
         "unselected",
@@ -11105,6 +11392,49 @@
         "hover",
         "focus-visible",
         "disabled"
+      ],
+      "definedIn": [
+        "components/article/commit-to-reveal.tsx",
+        "components/interactive/action-conditioning.tsx",
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/milestones-watchlist.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/mpc-vs-rl.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/interactive/thesis-explorer.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/interactive/wbc-decomposition.tsx",
+        "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/bubble-view.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/search/type-facet-bar.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/chip.tsx",
+        "components/ui/tabs.tsx"
       ],
       "ownerRouteOrMount": [
         "components/article/commit-to-reveal.tsx",
@@ -11142,12 +11472,12 @@
         "components/interactive/training-time-chart.tsx",
         "components/interactive/wbc-decomposition.tsx",
         "components/interactive/wm-disambiguator.tsx",
+        "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx",
-        "components/ui/chip.tsx",
-        "components/ui/tabs.tsx"
+        "components/three/trajectory-panel.tsx"
       ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11161,7 +11491,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "2804c886cf5cfe72c7165d9af9f1341f2b300f739012e26d8ad40ad50893404b"
+      "fingerprint": "015ac50a222e0bd8ac24ee1ed43188bbd5f49fe55445f2a0ff60fcf0e3519d3d"
     },
     {
       "id": "control:link-focus",
@@ -11177,7 +11507,7 @@
         "focus-visible",
         "visited"
       ],
-      "ownerRouteOrMount": [
+      "definedIn": [
         "app/(content)/[domain]/page.tsx",
         "app/a-z/page.tsx",
         "app/credits/page.tsx",
@@ -11214,6 +11544,43 @@
         "components/ui/term.tsx",
         "mdx-components.tsx"
       ],
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/page.tsx",
+        "app/a-z/page.tsx",
+        "app/credits/page.tsx",
+        "app/glossary/page.tsx",
+        "app/not-found.tsx",
+        "app/page.tsx",
+        "app/playground/page.tsx",
+        "components/article/article-links.tsx",
+        "components/article/breadcrumbs.tsx",
+        "components/article/commit-to-reveal.tsx",
+        "components/article/references.tsx",
+        "components/interactive/cross-embodiment-strategies.tsx",
+        "components/interactive/dataset-table.tsx",
+        "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/generalist-release-timeline.tsx",
+        "components/interactive/hand-comparison.tsx",
+        "components/interactive/hardware-guide.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/pi-generation-timeline.tsx",
+        "components/interactive/teleop-rig-matrix.tsx",
+        "components/market-map/company-card.tsx",
+        "components/market-map/funding-timeline.tsx",
+        "components/nav/nav-tree.tsx",
+        "components/nav/site-footer.tsx",
+        "components/nav/site-shell.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/trajectory-panel.tsx",
+        "components/ui/card.tsx",
+        "components/ui/cite.tsx",
+        "components/ui/figure.tsx",
+        "components/ui/skip-link.tsx",
+        "components/ui/term.tsx",
+        "mdx-components.tsx"
+      ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11232,7 +11599,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "b346821d0e06f5345293b35883a83564148b5f2e8feebb941369cad4e33d5868"
+      "fingerprint": "b4758793414ad3f04e4f766fd326054665335cbc8de583efd8e05a2c16f4efca"
     },
     {
       "id": "control:segmented",
@@ -11249,9 +11616,11 @@
         "focus-visible",
         "disabled"
       ],
-      "ownerRouteOrMount": [
+      "definedIn": [
         "components/ui/tabs.tsx"
       ],
+      "ownerRouteOrMount": [],
+      "mountState": "library-only",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11259,7 +11628,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "fdf25e1746f7baeabba3b36d3cd452a4eb5ae3596eaebea47d94f8c11c8b28ce"
+      "fingerprint": "d71f07d6b907585e083ba04f95c674a9c7fa9b0a2be7cdfb137927bdc96322f9"
     },
     {
       "id": "control:input",
@@ -11277,7 +11646,7 @@
         "invalid",
         "disabled"
       ],
-      "ownerRouteOrMount": [
+      "definedIn": [
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
@@ -11323,6 +11692,52 @@
         "components/three/trajectory-panel.tsx",
         "components/ui/input-field.tsx"
       ],
+      "ownerRouteOrMount": [
+        "components/interactive/action-tokenization.tsx",
+        "components/interactive/advantage-scrubber.tsx",
+        "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-size-curve.tsx",
+        "components/interactive/collaborative-operation-modes.tsx",
+        "components/interactive/comparison-matrix.tsx",
+        "components/interactive/compounding-error.tsx",
+        "components/interactive/contact-geometry.tsx",
+        "components/interactive/control-loop-budget.tsx",
+        "components/interactive/data-scale-chart.tsx",
+        "components/interactive/denoising-loop.tsx",
+        "components/interactive/deployment-economics.tsx",
+        "components/interactive/egoscale-scaling.tsx",
+        "components/interactive/execution-modes.tsx",
+        "components/interactive/flow-matching-trajectory.tsx",
+        "components/interactive/friction-transfer.tsx",
+        "components/interactive/gait-diagram.tsx",
+        "components/interactive/grasp-wrench-lab.tsx",
+        "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/jepa-planning.tsx",
+        "components/interactive/kalman-tracker.tsx",
+        "components/interactive/latency-comparison.tsx",
+        "components/interactive/latent-imagination.tsx",
+        "components/interactive/mot-insulation.tsx",
+        "components/interactive/pendulum-controller.tsx",
+        "components/interactive/perception-error-budget.tsx",
+        "components/interactive/perception-latency.tsx",
+        "components/interactive/planar-fk-arm.tsx",
+        "components/interactive/receding-horizon.tsx",
+        "components/interactive/reliability-compounding.tsx",
+        "components/interactive/reward-shaping.tsx",
+        "components/interactive/rrt-explorer.tsx",
+        "components/interactive/sample-efficiency-ledger.tsx",
+        "components/interactive/scene-representation-ladder.tsx",
+        "components/interactive/teacher-student.tsx",
+        "components/interactive/training-time-chart.tsx",
+        "components/market-map/filter-bar.tsx",
+        "components/nav/search-box.tsx",
+        "components/search/search-interface.tsx",
+        "components/three/ik-target-form.tsx",
+        "components/three/joint-controls.tsx",
+        "components/three/trajectory-panel.tsx"
+      ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11336,7 +11751,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "2ec6feec52b3d4518588cc23cee82f0caf1861e8d6365a9e09f9f518d786b8b0"
+      "fingerprint": "5ca48c5e413c0656a1122a05ceeacd4036b63d0c480d45216c4bae5bd320ded1"
     },
     {
       "id": "control:disabled",
@@ -11350,19 +11765,21 @@
         "disabled"
       ],
       "disabledException": "neutral treatment; excluded from active-action colour requirements",
-      "ownerRouteOrMount": [
+      "definedIn": [
         "components/ui/action.tsx",
         "components/ui/chip.tsx",
         "components/ui/input-field.tsx",
         "components/ui/tabs.tsx"
       ],
+      "ownerRouteOrMount": [],
+      "mountState": "library-only",
       "targetSize": {
         "minimumPx": 24,
         "preferredPx": 44,
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "6e28048e5332950ae222b52179c6bc4a139a5f37a05215e600d625f5baafca56"
+      "fingerprint": "8554bf671b364a2674c6e14c332d569c63b48fc352a20400fb4c5a5429f43e29"
     }
   ],
   "materials": [
@@ -11388,5 +11805,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "cd34f09f64ce9eb57bc390602a1bc8ca14b25c516be2356ff8da182f5dc08455"
+  "rootFingerprint": "57fc22c166063ed0e9a56b40a64441717def9f547c80ef0e2ffe288be8fa51df"
 }

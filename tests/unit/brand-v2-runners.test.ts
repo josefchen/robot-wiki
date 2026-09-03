@@ -191,6 +191,10 @@ describe('brand-v2 exhaustive runners', () => {
       join(process.cwd(), 'tests', 'e2e', 'brand-v2-deep-rows.spec.ts'),
       'utf8',
     );
+    const primitiveSource = readFileSync(
+      join(process.cwd(), 'tests', 'e2e', 'brand-v2-primitives.spec.ts'),
+      'utf8',
+    );
     const referenceRubricSource = readFileSync(
       join(
         process.cwd(),
@@ -215,6 +219,8 @@ describe('brand-v2 exhaustive runners', () => {
             ? reflowSource
             : failure.suite === 'brand-v2 27-row deep executor'
               ? deepSource
+            : failure.suite === 'brand-v2 shared primitive registry'
+              ? primitiveSource
             : coreSource;
       expect(source).toContain(failure.assertionId);
     }

@@ -79,6 +79,22 @@
         "material-treatment"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
+    },
+    {
+      "suite": "brand-v2 shared primitive registry",
+      "assertionId": "VAL-B2-COMP-014",
+      "expected": "every rendered control reaches the registered 24px minimum or satisfies a registered SC 2.5.8 exception",
+      "actual": "undersized controls with no satisfiable SC 2.5.8 exception remain on the routes listed below",
+      "failedRoutes": [
+        "/a-z/",
+        "/data-hardware/evaluation-crisis/",
+        "/data-hardware/teleop-rigs/",
+        "/frontier/dexterity/",
+        "/manipulation/realtime-execution/",
+        "/market-map/?view=bubble",
+        "/rl-sim2real/sim2real-transfer/"
+      ],
+      "rolloutMilestone": "brand-v2-foundations"
     }
   ]
 }
