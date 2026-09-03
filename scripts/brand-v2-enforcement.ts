@@ -345,8 +345,8 @@ const TEKTUR_BROWSER_TARGET = testTarget(
 );
 const TEKTUR_REQUEST_CLASSIFIER_TARGET = testTarget(
   'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
-  'Tektur web delivery › catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable one unclassified (VAL-B2-TYPE-002)',
-  'Plants third-party font requests that carry only one of the three identifying signals — a font response type, a browser font destination, or a font payload signature — requires each on its own to make the request a font, and requires a request that carries none of them and cannot be read to stay unclassified rather than be cleared.',
+  'Tektur web delivery › catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable or unidentifiable one unclassified (VAL-B2-TYPE-002)',
+  'Plants third-party font requests that carry only one of the three identifying signals — a font response type, a browser font destination, or a font payload signature — requires each on its own to make the request a font, and requires a request that carries none of them, whether its payload cannot be read at all or arrives in a container that identifies neither a font nor a recognized non-font, to stay unclassified rather than be cleared.',
 );
 const TEKTUR_FAMILY_POPULATION_TARGET = testTarget(
   'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',

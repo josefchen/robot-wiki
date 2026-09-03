@@ -14,6 +14,7 @@ import {
   AUTHORED_TOKEN_SOURCE,
   OG_CARD_ARTWORK_SOURCE,
   OG_CARD_GENERATOR,
+  OG_CARD_RENDER_BOUNDARY,
   OG_CARD_TREE_SOURCE,
   RENDERER_EVIDENCE_PRODUCER,
   SEMANTIC_COLOUR_ONLY_MARKS_PATH,
@@ -35,6 +36,8 @@ import {
   type TokenRuntimeEvidence,
 } from '@/lib/brand-v2-token-evidence';
 import { buildTokenRendererEvidence } from '@/lib/brand-v2-renderer-parity';
+import { buildModuleImportGraph } from '@/lib/module-import-graph';
+import { classifyModuleSpecifier } from '@/lib/og-render-boundary-invariant';
 
 const ROOT = process.cwd();
 const SOURCES = {
@@ -511,10 +514,12 @@ describe('brand-v2 token evidence', () => {
    */
   describe('the renderer identity over a fixture tree', () => {
     const GENERATOR_CONSUMING_CORPUS = [
+      "import { writeFileSync } from 'node:fs';",
       "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
       "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
       'for (const entry of ogCardCorpus(process.cwd())) {',
-      '  void renderCorpusCard(entry, process.cwd());',
+      '  const buffer = await renderCorpusCard(entry, process.cwd());',
+      '  writeFileSync(entry.cardPath, buffer);',
       '}',
     ].join('\n');
     const RENDER_BOUNDARY = [
@@ -816,6 +821,227 @@ describe('brand-v2 token evidence', () => {
           );
         },
       );
+    });
+
+    /**
+     * `ImageResponse` has several public spellings, and the discovery used
+     * to recognize one compiled path. Everything else was not "not a
+     * renderer", it was unexamined — so a helper could import the same
+     * constructor from `next/og`, paint a substituted tree, and leave the
+     * canonical boundary imported but unused for the reachability walk to
+     * find. The next sanctioned refresh then folded the helper into the
+     * closure fingerprint and re-certified the corpus-derived numbers.
+     */
+    it('classifies every specifier that can yield an image renderer, and fails closed on one it cannot', () => {
+      for (const specifier of [
+        'next/og',
+        'next/server',
+        '@vercel/og',
+        'next/dist/compiled/@vercel/og/index.node.js',
+        'next/dist/server/og/image-response',
+        'next/dist/server/web/spec-extension/image-response',
+        'satori',
+        '@resvg/resvg-js',
+      ]) {
+        expect(classifyModuleSpecifier(specifier), specifier).toBe(
+          'image-renderer',
+        );
+      }
+      expect(classifyModuleSpecifier('node:fs')).toBe('renderer-free');
+      expect(classifyModuleSpecifier('./og-card-corpus.ts')).toBe(
+        'first-party',
+      );
+      // Not silently safe: an unlisted package could be another spelling.
+      expect(classifyModuleSpecifier('next/image')).toBe('unrecognized');
+      expect(classifyModuleSpecifier('some-image-library')).toBe(
+        'unrecognized',
+      );
+
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-substitute.ts': [
+            "import mystery from 'unclassified-image-library';",
+            'export const helper = mystery;',
+          ].join('\n'),
+          'scripts/generate-og-cards.ts': [
+            GENERATOR_CONSUMING_CORPUS,
+            "import { helper } from '../lib/og-card-substitute.ts';",
+            'void helper;',
+          ].join('\n'),
+        }),
+        (root) => {
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /neither a known image renderer nor known to be free of one \(lib\/og-card-substitute\.ts imports unclassified-image-library\)/,
+          );
+        },
+      );
+    });
+
+    /**
+     * The decisive plant: the canonical boundary stays imported and
+     * reachable, and the bytes that reach disk come from a helper rendering
+     * a substituted tree through the public `next/og` alias.
+     */
+    it('fails a helper that paints through a renderer alias while the boundary stays merely reachable', () => {
+      withFixture(
+        fixtureFiles({
+          'lib/og-card-substitute.ts': [
+            "import { ImageResponse } from 'next/og';",
+            "import { openSealedCardTree } from './og-card-corpus.ts';",
+            'export async function renderSubstituted(entry) {',
+            '  const node = openSealedCardTree(entry.card);',
+            '  const substituted = { ...node, props: { style: { background: "#FF00FF" } } };',
+            '  const response = new ImageResponse(substituted, {});',
+            '  return Buffer.from(await response.arrayBuffer());',
+            '}',
+          ].join('\n'),
+          'scripts/generate-og-cards.ts': [
+            "import { writeFileSync } from 'node:fs';",
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            "import { renderSubstituted } from '../lib/og-card-substitute.ts';",
+            'void renderCorpusCard;',
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  const buffer = await renderSubstituted(entry);',
+            '  writeFileSync(entry.cardPath, buffer);',
+            '}',
+          ].join('\n'),
+        }),
+        (root) => {
+          // Reachability alone still holds here: the generator imports and
+          // mentions the boundary, so the import walk reaches it.
+          const graph = buildModuleImportGraph(root, {
+            roots: ['app', 'components', 'lib', 'content', 'data', 'scripts'],
+          });
+          expect(
+            graph.reachableFrom([OG_CARD_GENERATOR]).has(
+              OG_CARD_RENDER_BOUNDARY,
+            ),
+          ).toBe(true);
+          expect(() => rendererSourceIdentity(root)).toThrow(
+            /module\(s\) in the renderer closure import an image renderer.*next\/og/s,
+          );
+        },
+      );
+    });
+
+    /**
+     * The same lesson without the alias: the generator may reach the
+     * boundary and still ship bytes that never came out of it.
+     */
+    it('binds the bytes the generator writes to the one render boundary call', () => {
+      withFixture(fixtureFiles(), (root) => {
+        expect(rendererSourceIdentity(root).generatorEmit).toEqual({
+          module: OG_CARD_GENERATOR,
+          boundaryCall: 'renderCorpusCard',
+          emitted: 'buffer',
+          writes: 1,
+        });
+      });
+
+      const generator = (...body: string[]): string =>
+        [
+          "import { writeFileSync } from 'node:fs';",
+          "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+          "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+          'for (const entry of ogCardCorpus(process.cwd())) {',
+          ...body,
+          '}',
+        ].join('\n');
+
+      const cases: Array<[string, RegExp]> = [
+        // Reachable, referenced, never called.
+        [
+          generator(
+            '  void renderCorpusCard;',
+            '  const buffer = Buffer.from(entry.cardId);',
+            '  writeFileSync(entry.cardPath, buffer);',
+          ),
+          /calls renderCorpusCard 0 times/,
+        ],
+        // Called, and something else is written.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  void buffer;',
+            '  writeFileSync(entry.cardPath, Buffer.from(entry.cardId));',
+          ),
+          /every card write must ship buffer/,
+        ],
+        // Called, and the result is transformed on its way to disk.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  writeFileSync(entry.cardPath, recolour(buffer));',
+          ),
+          /every card write must ship buffer/,
+        ],
+        // Called, and the bytes are edited in place before the write.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  buffer[0] = 0;',
+            '  writeFileSync(entry.cardPath, buffer);',
+          ),
+          /uses buffer after `;`; the rendered bytes may only be passed on as they are/,
+        ],
+        // Called, and the bytes are read through a member on their way out.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  writeFileSync(entry.cardPath, buffer.subarray(0));',
+          ),
+          /every card write must ship buffer/,
+        ],
+        // Written, then read through a member the derivation cannot follow.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  writeFileSync(entry.cardPath, buffer);',
+            '  record(entry.cardPath, buffer.length);',
+          ),
+          /the rendered bytes may not be indexed, reassigned or read through a member/,
+        ],
+        // Called, and handed to a helper before it is written.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  stash(entry.cardPath, buffer);',
+            '  writeFileSync(entry.cardPath, buffer);',
+          ),
+          /passes buffer elsewhere before writing it/,
+        ],
+        // Called, and never written at all.
+        [
+          generator(
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  void buffer;',
+          ),
+          /never writes buffer/,
+        ],
+        // Writing through an API this derivation does not follow.
+        [
+          [
+            "import { appendFileSync, writeFileSync } from 'node:fs';",
+            "import { ogCardCorpus } from '../lib/og-card-corpus.ts';",
+            "import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';",
+            'void writeFileSync;',
+            'for (const entry of ogCardCorpus(process.cwd())) {',
+            '  const buffer = await renderCorpusCard(entry, process.cwd());',
+            '  appendFileSync(entry.cardPath, buffer);',
+            '}',
+          ].join('\n'),
+          /binds unrecognized file API\(s\) appendFileSync/,
+        ],
+      ];
+      for (const [text, message] of cases) {
+        withFixture(
+          fixtureFiles({ 'scripts/generate-og-cards.ts': text }),
+          (root) => {
+            expect(() => rendererSourceIdentity(root), text).toThrow(message);
+          },
+        );
+      }
     });
   });
 

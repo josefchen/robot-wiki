@@ -15,7 +15,11 @@
  * so did a wrapper applied to a corpus tree on its way to the renderer.
  * What it receives is a sealed handle whose element tree is unreachable
  * from here, and lib/og-card-render-boundary.ts is the only module that
- * opens one and paints it.
+ * opens one and paints it. The write below is deliberately inline and takes
+ * the render boundary's own return value: `deriveGeneratorEmitHandoff`
+ * follows the bytes from that single call to disk, so importing the
+ * boundary and shipping something else is a failure rather than a
+ * reachable-but-unused reference.
  *
  * The corpus is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
@@ -70,16 +74,6 @@ async function main(): Promise<void> {
     seen.set(path, digest);
   };
 
-  const emit = (path: string, buf: Buffer): void => {
-    const rel = path.replace(/^\/+/, '');
-    const publicFile = join(root, 'public', rel);
-    const outFile = join(root, 'out', rel);
-    mkdirSync(join(publicFile, '..'), { recursive: true });
-    writeFileSync(publicFile, buf);
-    mkdirSync(join(outFile, '..'), { recursive: true });
-    writeFileSync(outFile, buf);
-  };
-
   // Stale-card sweep: cards for unpublished modules must not ship. The
   // whole tree is regenerated from the registry every build, so clear it
   // first (drafts are excluded from the export and from this set).
@@ -94,9 +88,18 @@ async function main(): Promise<void> {
 
   for (const entry of corpus) {
     const { cardId, cardPath } = entry;
-    const buf = await renderCorpusCard(entry, root);
-    check(cardPath, buf);
-    emit(cardPath, buf);
+    const rel = cardPath.replace(/^\/+/, '');
+    const publicFile = join(root, 'public', rel);
+    const outFile = join(root, 'out', rel);
+    mkdirSync(join(publicFile, '..'), { recursive: true });
+    mkdirSync(join(outFile, '..'), { recursive: true });
+    const buffer = await renderCorpusCard(entry, root);
+    writeFileSync(publicFile, buffer);
+    writeFileSync(outFile, buffer);
+    // After the writes, so nothing between the render call and disk can
+    // touch the bytes: a collision still fails the build, and the tree is
+    // cleared and regenerated on every run.
+    check(cardPath, buffer);
     if (cardId === 'site') siteCards += 1;
     else articleCards += 1;
   }

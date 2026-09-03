@@ -281,9 +281,45 @@ export function isFontContentType(contentType: string): boolean {
 }
 
 /**
+ * Payload prefixes that positively identify a container which is not a font,
+ * in hex.
+ *
+ * Deliberately the mirror of the font table rather than its complement. A
+ * signature that matches nothing is the absence of a signal, so the negative
+ * side needs its own positive identification, and only binary container
+ * magics can supply one. A text-shaped body — an HTML error page, an XML
+ * document, a plain-text notice — is exactly what a blocked, redirected or
+ * failed font fetch answers with, so a text prefix says nothing about what
+ * was requested and is deliberately absent here.
+ */
+export const NON_FONT_PAYLOAD_SIGNATURES: Readonly<Record<string, string>> = {
+  '0061736d': 'WebAssembly',
+  '1f8b': 'gzip',
+  '25504446': 'PDF',
+  '47494638': 'GIF',
+  '504b0304': 'ZIP',
+  '52494646': 'RIFF (WebP/WAV/AVI)',
+  '676c5446': 'glTF binary',
+  '89504e47': 'PNG',
+  ffd8ff: 'JPEG',
+};
+
+/**
+ * The non-font container a payload signature identifies, or null when the
+ * bytes identify nothing.
+ */
+export function nonFontPayloadFormat(signature: string | null): string | null {
+  if (signature === null || signature in FONT_PAYLOAD_SIGNATURES) return null;
+  const match = Object.entries(NON_FONT_PAYLOAD_SIGNATURES).find(([prefix]) =>
+    signature.startsWith(prefix),
+  );
+  return match?.[1] ?? null;
+}
+
+/**
  * A response type that settles the question the other way. Deliberately a
  * closed list: anything outside it, including `application/octet-stream` and
- * a missing type, is ambiguous and has to be decided from the payload.
+ * a missing type, is ambiguous and cannot support a negative on its own.
  */
 export function isDecidedNonFontContentType(contentType: string): boolean {
   if (contentType.length === 0 || isFontContentType(contentType)) return false;
@@ -334,9 +370,14 @@ export type CapturedRequestClassification = {
  * fail-closed unclassified set at once, and disappeared.
  *
  * Readable bytes that match no known container are the absence of one
- * signal, not evidence of "not a font". They decide the question only once
- * the other two signals have also failed to identify one, and a request
- * that none of the three can decide stays unclassified and fails.
+ * signal, not evidence of "not a font", and failing every positive signal is
+ * not a negative either. A non-font is therefore identified as positively as
+ * a font is: every observed response type lies in the closed non-font list,
+ * or the payload matches a closed table of non-font container magics. An
+ * extensionless foreign request answered with corrupt or unsupported bytes
+ * under `application/octet-stream` satisfies neither and stays unclassified,
+ * which fails, where it used to be a decided non-font and vanish from both
+ * lists.
  */
 export function classifyCapturedRequest(
   request: CapturedRequestObservation,
@@ -361,25 +402,22 @@ export function classifyCapturedRequest(
     return { isFont: true, classified: true, basis: signals.join(' + ') };
   }
 
-  const contentTypes = [...request.contentTypes];
-  if (payloadSignature !== null) {
-    return {
-      isFont: false,
-      classified: true,
-      basis: `payload signature 0x${payloadSignature} is no font container, served as ${
-        contentTypes.sort().join('/') || 'no declared type'
-      } to a ${[...request.resourceTypes].sort().join('/') || 'unknown'} request`,
-    };
-  }
+  const contentTypes = [...request.contentTypes].sort();
+  const negatives: string[] = [];
   if (
     contentTypes.length > 0 &&
     contentTypes.every(isDecidedNonFontContentType)
   ) {
-    return {
-      isFont: false,
-      classified: true,
-      basis: `response type ${contentTypes.sort().join('/')}`,
-    };
+    negatives.push(`response type ${contentTypes.join('/')}`);
+  }
+  const nonFontFormat = nonFontPayloadFormat(payloadSignature);
+  if (nonFontFormat !== null) {
+    negatives.push(
+      `payload signature 0x${payloadSignature} (${nonFontFormat})`,
+    );
+  }
+  if (negatives.length > 0) {
+    return { isFont: false, classified: true, basis: negatives.join(' + ') };
   }
   // A request that produced no response body delivered no font. That is a
   // fact about the payload, not a guess from the URL, so a same-origin

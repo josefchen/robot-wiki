@@ -6,8 +6,10 @@ import { buildModuleImportGraph } from './module-import-graph.ts';
 import { cardPaintedColors } from './og-card-artwork.ts';
 import { ogCardCorpus, openSealedCardTree } from './og-card-corpus.ts';
 import {
+  deriveGeneratorEmitHandoff,
   deriveRenderBoundaryHandoff,
-  importsImageRenderer,
+  moduleRendererUse,
+  type GeneratorEmitHandoff,
   type RenderBoundaryHandoff,
 } from './og-render-boundary-invariant.ts';
 import { stripComments } from './source-comments.ts';
@@ -518,6 +520,16 @@ export function readTokenRuntimeEvidence(input: {
  * evidence a refresh can update; it is re-derived from current source every
  * time the evidence is written or read.
  *
+ * Two further things are needed before "one boundary" means anything.
+ * `ImageResponse` has more than one public spelling, so every external
+ * import in the closure is classified as a renderer or as established not to
+ * be one, and an unclassified specifier fails instead of quietly failing to
+ * match — otherwise a helper importing `next/og` is simply invisible here.
+ * And the generator's shipped bytes are followed back to that one call by
+ * `deriveGeneratorEmitHandoff`, because a module can reach the boundary,
+ * retain an unused reference to it, and write bytes it obtained elsewhere.
+ * Reaching the boundary is availability; writing what it returned is use.
+ *
  * `data/` joins the graph roots because the registries there decide which
  * cards exist and what each one paints, so they genuinely participate in
  * building a card tree; `scripts/` joins it because the generator lives
@@ -545,6 +557,8 @@ export type RendererSourceIdentity = {
   cardTreeSource: string;
   /** The sole renderer call site, and the names it binds. */
   renderBoundary: RenderBoundaryHandoff;
+  /** The generator's path from that call to the bytes it writes. */
+  generatorEmit: GeneratorEmitHandoff;
   modules: string[];
   fingerprint: string;
 };
@@ -594,13 +608,32 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
       `${OG_CARD_GENERATOR} does not reach ${OG_CARD_RENDER_BOUNDARY}, so it paints cards somewhere else`,
     );
   }
-  const renderers = modules.filter((modulePath) =>
-    importsImageRenderer(graph.textByModule.get(modulePath) ?? ''),
-  );
+  const renderers: string[] = [];
+  const rendererImports: string[] = [];
+  const unclassified: string[] = [];
+  for (const modulePath of modules) {
+    const use = moduleRendererUse(graph.textByModule.get(modulePath) ?? '');
+    if (use.rendererLocals.length > 0) {
+      renderers.push(modulePath);
+      rendererImports.push(
+        `${modulePath} from ${use.rendererSpecifiers.join(' and ')}`,
+      );
+    }
+    for (const specifier of use.unrecognizedSpecifiers) {
+      unclassified.push(`${modulePath} imports ${specifier}`);
+    }
+  }
+  if (unclassified.length > 0) {
+    throw new Error(
+      `The renderer closure holds external import(s) that are neither a known image renderer nor known to be free of one (${unclassified.join(
+        '; ',
+      )}); classify them before they can paint`,
+    );
+  }
   if (renderers.join('|') !== OG_CARD_RENDER_BOUNDARY) {
     throw new Error(
       `${renderers.length} module(s) in the renderer closure import an image renderer (${
-        renderers.join(', ') || 'none'
+        rendererImports.join('; ') || 'none'
       }); only ${OG_CARD_RENDER_BOUNDARY} may`,
     );
   }
@@ -608,6 +641,17 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
     module: OG_CARD_RENDER_BOUNDARY,
     text: graph.textByModule.get(OG_CARD_RENDER_BOUNDARY) ?? '',
     sealOpener: OG_CARD_SEAL_OPENER,
+  });
+  const generatorEmit = deriveGeneratorEmitHandoff({
+    module: OG_CARD_GENERATOR,
+    text: graph.textByModule.get(OG_CARD_GENERATOR) ?? '',
+    boundaryLocals: [
+      ...new Set(
+        (graph.bindingsByModule.get(OG_CARD_GENERATOR) ?? [])
+          .filter(({ module }) => module === OG_CARD_RENDER_BOUNDARY)
+          .map(({ local }) => local),
+      ),
+    ],
   });
   for (const required of [...producers, OG_CARD_TREE_SOURCE]) {
     if (!modules.includes(required)) {
@@ -625,6 +669,7 @@ export function rendererSourceIdentity(root: string): RendererSourceIdentity {
     producers,
     cardTreeSource: OG_CARD_TREE_SOURCE,
     renderBoundary,
+    generatorEmit,
     modules,
     fingerprint: sha256(
       JSON.stringify(
@@ -776,6 +821,8 @@ export function readTokenRendererEvidence(input: {
     recordedSource.cardTreeSource !== rendererSource.cardTreeSource ||
     JSON.stringify(recordedSource.renderBoundary ?? null) !==
       JSON.stringify(rendererSource.renderBoundary) ||
+    JSON.stringify(recordedSource.generatorEmit ?? null) !==
+      JSON.stringify(rendererSource.generatorEmit) ||
     !Array.isArray(recordedSource.modules) ||
     recordedSource.modules.join('|') !== rendererSource.modules.join('|') ||
     recordedSource.fingerprint !== rendererSource.fingerprint

@@ -8,6 +8,7 @@ import {
   classifyCapturedRequest,
   fontFamilyKey,
   measureTekturEvidence,
+  nonFontPayloadFormat,
   tekturAssertionEvidence,
   type TekturDeliveryEvidence,
 } from '../../lib/brand-v2-tektur-evidence';
@@ -678,16 +679,21 @@ describe('brand-v2 captured request classification', () => {
     );
   });
 
-  it('decides a non-font only when none of the three signals identifies one', () => {
-    const readableNonFont = classifyCapturedRequest({
+  it('decides a non-font only from a supported negative signal', () => {
+    // A container magic that is positively something else. The signature
+    // table is the mirror of the font one, so this is an identification
+    // rather than a failure to match.
+    const identifiedContainer = classifyCapturedRequest({
       ...base,
-      resourceTypes: ['script'],
+      resourceTypes: ['image'],
       contentTypes: ['application/octet-stream'],
-      payloadSignature: corrupt,
+      payloadSignature: '47494638',
     });
-    expect(readableNonFont.isFont).toBe(false);
-    expect(readableNonFont.classified).toBe(true);
-    expect(readableNonFont.basis).toContain('is no font container');
+    expect(identifiedContainer.isFont).toBe(false);
+    expect(identifiedContainer.classified).toBe(true);
+    expect(identifiedContainer.basis).toBe(
+      'payload signature 0x47494638 (GIF)',
+    );
 
     const declaredNonFont = classifyCapturedRequest({
       ...base,
@@ -721,6 +727,42 @@ describe('brand-v2 captured request classification', () => {
     });
     expect(unreadable.classified).toBe(false);
     expect(unreadable.isFont).toBe(false);
+
+    // The case this gate exists for, and the one an earlier expectation here
+    // locked in the wrong way round: an extensionless foreign request whose
+    // body arrives corrupt or in an unsupported container, under a type that
+    // settles nothing and to a destination that is not `font`. No positive
+    // signal fired, and no negative one did either.
+    const corruptUnderAmbiguousType = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['fetch'],
+      contentTypes: ['application/octet-stream'],
+      payloadSignature: corrupt,
+    });
+    expect(corruptUnderAmbiguousType.classified).toBe(false);
+    expect(corruptUnderAmbiguousType.isFont).toBe(false);
+    expect(nonFontPayloadFormat(corrupt)).toBeNull();
+
+    // Same shape with no declared type at all, and with bytes that are not
+    // even text: a truncated or unsupported font container.
+    const unsupportedContainer = classifyCapturedRequest({
+      ...base,
+      resourceTypes: ['other'],
+      payloadSignature: 'deadbeef',
+    });
+    expect(unsupportedContainer.classified).toBe(false);
+
+    // A recognized non-font container under the same ambiguous type is
+    // decided, so the negative branch is reachable and this is not a rule
+    // that makes every unrecognized byte string unclassified by accident.
+    expect(
+      classifyCapturedRequest({
+        ...base,
+        resourceTypes: ['fetch'],
+        contentTypes: ['application/octet-stream'],
+        payloadSignature: '0061736d',
+      }).classified,
+    ).toBe(true);
 
     const ambiguousType = classifyCapturedRequest({
       ...base,

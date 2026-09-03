@@ -1140,19 +1140,24 @@ test.describe('Tektur web delivery', () => {
    * request destinations and real response payloads rather than a
    * hand-built record.
    *
-   * Five third-party requests are planted on a page of the site's own
+   * Six third-party requests are planted on a page of the site's own
    * export: three that a real prohibited `@font-face` or font fetch would
    * produce with bytes that are *not* a usable font container, one carrying
-   * a genuine WOFF2 payload under a neutral response type, and one whose
-   * payload never arrives at all. Every one of the first four has to reach
-   * `fontRequests` and the foreign-origin list, and the fifth has to reach
-   * `unclassifiedRequests`, whose non-emptiness the delivery reader rejects.
+   * a genuine WOFF2 payload under a neutral response type, one whose payload
+   * never arrives at all, and one fetched with an unsupported container
+   * under `application/octet-stream` and no font destination. The first four
+   * have to reach `fontRequests` and the foreign-origin list; the last two
+   * have to reach `unclassifiedRequests`, whose non-emptiness the delivery
+   * reader rejects.
    *
    * Before the union fix, the three corrupt-payload plants were decided
    * non-fonts the moment their bytes were readable, so they appeared in
    * neither list and a prohibited third-party font request left no trace.
+   * The sixth plant is the same erasure one step further in: no positive
+   * signal fired for it, but neither did any negative one, and an
+   * unrecognized payload was still being read as "not a font".
    */
-  test('catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable one unclassified (VAL-B2-TYPE-002)', async ({
+  test('catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable or unidentifiable one unclassified (VAL-B2-TYPE-002)', async ({
     page,
     staticBase,
   }) => {
@@ -1164,10 +1169,17 @@ test.describe('Tektur web delivery', () => {
       typeOnly: `${foreign}/fetched-a`,
       payloadOnly: `${foreign}/fetched-b`,
       unreadable: `${foreign}/aborted`,
+      unidentifiable: `${foreign}/fetched-c`,
     };
     // Not a font container in any format the signature table knows, and
     // deliberately long enough to be a plausible response body.
     const corrupt = Buffer.from(`<!doctype html>${'x'.repeat(64)}`);
+    // Bytes that identify nothing at all: neither a font container nor one
+    // of the containers that can support a negative.
+    const unidentifiable = Buffer.concat([
+      Buffer.from([0xde, 0xad, 0xbe, 0xef]),
+      Buffer.from('truncated container'),
+    ]);
     const woff2 = Buffer.concat([
       Buffer.from([0x77, 0x4f, 0x46, 0x32]),
       Buffer.from('truncated wOF2 payload'),
@@ -1180,13 +1192,19 @@ test.describe('Tektur web delivery', () => {
         return;
       }
       const font = url === plants.typeAndDestination || url === plants.typeOnly;
+      const body =
+        url === plants.payloadOnly
+          ? woff2
+          : url === plants.unidentifiable
+            ? unidentifiable
+            : corrupt;
       await route.fulfill({
         status: 200,
         headers: {
           ...cors,
           'content-type': font ? 'font/woff2' : 'application/octet-stream',
         },
-        body: url === plants.payloadOnly ? woff2 : corrupt,
+        body,
       });
     });
 
@@ -1206,6 +1224,7 @@ test.describe('Tektur web delivery', () => {
         fetch(urls.typeOnly),
         fetch(urls.payloadOnly),
         fetch(urls.unreadable),
+        fetch(urls.unidentifiable),
       ]);
     }, plants);
     await capture.settled();
@@ -1221,6 +1240,7 @@ test.describe('Tektur web delivery', () => {
     const byType = classify(plants.typeOnly);
     const byPayloadSignature = classify(plants.payloadOnly);
     const undecidable = classify(plants.unreadable);
+    const unidentified = classify(plants.unidentifiable);
 
     // The premise of the regression: the three corrupt plants delivered a
     // readable body whose signature is in no font container table, which is
@@ -1269,6 +1289,21 @@ test.describe('Tektur web delivery', () => {
       'a foreign request with no readable payload must stay undecided',
     ).toBe(false);
 
+    // The readable-but-unidentifiable plant: bytes arrived, no positive
+    // signal fired, and nothing supports a negative either.
+    expect(
+      unidentified.request.payloadSignature,
+      `${plants.unidentifiable} must have delivered readable bytes`,
+    ).toBe('deadbeef');
+    expect([...unidentified.request.resourceTypes]).not.toContain('font');
+    expect([...unidentified.request.contentTypes]).toEqual([
+      'application/octet-stream',
+    ]);
+    expect(
+      unidentified.classified,
+      'an unrecognized payload under an ambiguous type must stay undecided',
+    ).toBe(false);
+
     const summary = summarizeFontRequests({
       capture,
       deliveryKey: 'not this capture',
@@ -1285,11 +1320,12 @@ test.describe('Tektur web delivery', () => {
       ].sort(),
     );
     expect(
-      summary.unclassified.filter((entry) =>
-        entry.startsWith(plants.unreadable),
-      ).length,
-      'the unreadable plant must reach the fail-closed unclassified set',
-    ).toBe(1);
+      summary.unclassified
+        .map((entry) => entry.split(' (')[0])
+        .filter((url) => url.startsWith(foreign))
+        .sort(),
+      'both undecidable plants must reach the fail-closed unclassified set',
+    ).toEqual([plants.unreadable, plants.unidentifiable].sort());
     expect(
       summary.observationsMixingForeignOrigin,
       'the planted observation must be recorded as mixing a foreign origin',
