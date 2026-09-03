@@ -70,10 +70,9 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-004",
       "expected": "all eight article reference-feature anchors pass independently without cross-composition pixel scoring",
-      "actual": "v1 article fails identity (exact public name and Tektur), grid-alignment, purposeful-devices, palette-type, and material-treatment",
+      "actual": "v1 article fails identity (exact public name and Tektur), purposeful-devices, palette-type, and material-treatment",
       "failedAnchors": [
         "identity",
-        "grid-alignment",
         "purposeful-devices",
         "palette-type",
         "material-treatment"
