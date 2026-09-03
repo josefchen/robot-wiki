@@ -2135,1140 +2135,4139 @@
   "familyObservations": [
     {
       "route": "/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1060,
-        "IBM Plex Mono": 116,
-        "tektur": 32
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/a-z/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2116,
-        "IBM Plex Mono": 868,
-        "tektur": 12,
-        "Newsreader": 4
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/a-z/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/adjacent/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 620,
-        "IBM Plex Mono": 36,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2108,
-        "IBM Plex Mono": 868,
-        "tektur": 12,
-        "Newsreader": 508
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/adjacent/drones/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1396,
-        "IBM Plex Mono": 700,
-        "tektur": 12,
-        "Newsreader": 428
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/drones/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/adjacent/space/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1492,
-        "IBM Plex Mono": 628,
-        "tektur": 12,
-        "Newsreader": 332
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/space/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/adjacent/surgical/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1328,
-        "IBM Plex Mono": 500,
-        "tektur": 12,
-        "Newsreader": 280
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 692,
-        "IBM Plex Mono": 48,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/control/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2139,
-        "IBM Plex Mono": 1128,
-        "tektur": 12,
-        "Newsreader": 1136,
-        "KaTeX_Main": 4244,
-        "math": 1968,
-        "KaTeX_Math": 576,
-        "KaTeX_Size2": 16,
-        "KaTeX_Size1": 16,
-        "KaTeX_Caligraphic": 16
-      },
-      "mathScoped": {
-        "KaTeX_Main": 4244,
-        "math": 1968,
-        "KaTeX_Math": 576,
-        "Newsreader": 28,
-        "KaTeX_Size2": 16,
-        "KaTeX_Size1": 16,
-        "KaTeX_Caligraphic": 16
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/control/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/grasp-planning/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1496,
-        "IBM Plex Mono": 632,
-        "tektur": 12,
-        "Newsreader": 576,
-        "KaTeX_Main": 2376,
-        "math": 1100,
-        "KaTeX_Math": 280,
-        "KaTeX_Size3": 16,
-        "KaTeX_Caligraphic": 12
-      },
-      "mathScoped": {
-        "KaTeX_Main": 2376,
-        "math": 1100,
-        "KaTeX_Math": 280,
-        "Newsreader": 20,
-        "KaTeX_Size3": 16,
-        "KaTeX_Caligraphic": 12
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/kinematics/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1424,
-        "IBM Plex Mono": 528,
-        "tektur": 12,
-        "Newsreader": 500,
-        "KaTeX_Main": 6140,
-        "math": 2684,
-        "KaTeX_Math": 684,
-        "KaTeX_Size3": 16,
-        "KaTeX_Size2": 8,
-        "KaTeX_Size1": 8
-      },
-      "mathScoped": {
-        "KaTeX_Main": 6140,
-        "math": 2684,
-        "KaTeX_Math": 684,
-        "Newsreader": 40,
-        "KaTeX_Size3": 16,
-        "KaTeX_Size2": 8,
-        "KaTeX_Size1": 8
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/kinematics/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/motion-planning/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_AMS",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1392,
-        "IBM Plex Mono": 480,
-        "tektur": 12,
-        "Newsreader": 372,
-        "KaTeX_Main": 2756,
-        "math": 1376,
-        "KaTeX_Math": 460,
-        "KaTeX_Caligraphic": 52,
-        "KaTeX_Size3": 8,
-        "KaTeX_AMS": 4,
-        "KaTeX_Size2": 12
-      },
-      "mathScoped": {
-        "KaTeX_Main": 2756,
-        "math": 1376,
-        "KaTeX_Math": 460,
-        "KaTeX_Caligraphic": 52,
-        "Newsreader": 24,
-        "KaTeX_Size3": 8,
-        "KaTeX_AMS": 4,
-        "KaTeX_Size2": 12
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_AMS",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_AMS",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_AMS",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/perception/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2328,
-        "IBM Plex Mono": 1044,
-        "tektur": 12,
-        "Newsreader": 724,
-        "KaTeX_Main": 232,
-        "math": 180,
-        "KaTeX_Math": 52
-      },
-      "mathScoped": {
-        "KaTeX_Main": 232,
-        "math": 180,
-        "KaTeX_Math": 52,
-        "Newsreader": 4
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/perception/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/scene-representation/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1940,
-        "IBM Plex Mono": 808,
-        "tektur": 12,
-        "Newsreader": 1076
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/classical/state-estimation/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1556,
-        "IBM Plex Mono": 660,
-        "tektur": 12,
-        "Newsreader": 692,
-        "KaTeX_Main": 7064,
-        "math": 2444,
-        "KaTeX_Math": 812,
-        "KaTeX_Size2": 12,
-        "KaTeX_Caligraphic": 8,
-        "KaTeX_Size1": 16
-      },
-      "mathScoped": {
-        "KaTeX_Main": 7064,
-        "math": 2444,
-        "KaTeX_Math": 812,
-        "Newsreader": 36,
-        "KaTeX_Size2": 12,
-        "KaTeX_Caligraphic": 8,
-        "KaTeX_Size1": 16
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/credits/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 5216,
-        "IBM Plex Mono": 12,
-        "tektur": 12,
-        "Newsreader": 16
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/credits/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 668,
-        "IBM Plex Mono": 44,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1672,
-        "IBM Plex Mono": 1108,
-        "tektur": 12,
-        "Newsreader": 972
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/datasets/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1560,
-        "IBM Plex Mono": 876,
-        "tektur": 12,
-        "Newsreader": 548
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1528,
-        "IBM Plex Mono": 708,
-        "tektur": 12,
-        "Newsreader": 748
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2260,
-        "IBM Plex Mono": 1856,
-        "tektur": 12,
-        "Newsreader": 2468
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1840,
-        "IBM Plex Mono": 804,
-        "tektur": 12,
-        "Newsreader": 572
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1520,
-        "IBM Plex Mono": 580,
-        "tektur": 12,
-        "Newsreader": 560
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 668,
-        "IBM Plex Mono": 44,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/bear-case/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1864,
-        "IBM Plex Mono": 816,
-        "tektur": 12,
-        "Newsreader": 524
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/competing-theses/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2308,
-        "IBM Plex Mono": 1088,
-        "tektur": 12,
-        "Newsreader": 604
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/dexterity/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2140,
-        "IBM Plex Mono": 1136,
-        "tektur": 12,
-        "Newsreader": 496
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/generalization/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1716,
-        "IBM Plex Mono": 960,
-        "tektur": 12,
-        "Newsreader": 896,
-        "KaTeX_Main": 180,
-        "math": 104,
-        "KaTeX_Math": 16
-      },
-      "mathScoped": {
-        "KaTeX_Main": 180,
-        "math": 104,
-        "KaTeX_Math": 16
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/generalization/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/reliability-gap/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1456,
-        "IBM Plex Mono": 664,
-        "tektur": 12,
-        "Newsreader": 548,
-        "KaTeX_Main": 92,
-        "math": 68,
-        "KaTeX_Math": 16
-      },
-      "mathScoped": {
-        "KaTeX_Main": 92,
-        "math": 68,
-        "KaTeX_Math": 16
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2100,
-        "IBM Plex Mono": 908,
-        "tektur": 12,
-        "Newsreader": 552
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/glossary/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 3436,
-        "IBM Plex Mono": 776,
-        "tektur": 12,
-        "Newsreader": 480
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/glossary/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 812,
-        "IBM Plex Mono": 68,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/action-chunking/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1860,
-        "IBM Plex Mono": 1260,
-        "tektur": 12,
-        "Newsreader": 1224,
-        "KaTeX_Main": 580,
-        "math": 220,
-        "KaTeX_Math": 44
-      },
-      "mathScoped": {
-        "Newsreader": 4,
-        "KaTeX_Main": 580,
-        "math": 220,
-        "KaTeX_Math": 44
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1544,
-        "IBM Plex Mono": 744,
-        "tektur": 12,
-        "Newsreader": 864,
-        "KaTeX_Main": 780,
-        "math": 356,
-        "KaTeX_Math": 76
-      },
-      "mathScoped": {
-        "KaTeX_Main": 780,
-        "math": 356,
-        "KaTeX_Math": 76,
-        "Newsreader": 4
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1892,
-        "IBM Plex Mono": 936,
-        "tektur": 12,
-        "Newsreader": 1216,
-        "KaTeX_Main": 80,
-        "math": 48,
-        "KaTeX_Math": 8
-      },
-      "mathScoped": {
-        "KaTeX_Main": 80,
-        "math": 48,
-        "KaTeX_Math": 8
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1332,
-        "IBM Plex Mono": 480,
-        "tektur": 12,
-        "Newsreader": 1324
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1440,
-        "IBM Plex Mono": 628,
-        "tektur": 12,
-        "Newsreader": 708,
-        "KaTeX_Main": 2008,
-        "math": 844,
-        "KaTeX_Math": 276,
-        "KaTeX_Size1": 8,
-        "KaTeX_Caligraphic": 4
-      },
-      "mathScoped": {
-        "KaTeX_Main": 2008,
-        "math": 844,
-        "KaTeX_Math": 276,
-        "Newsreader": 8,
-        "KaTeX_Size1": 8,
-        "KaTeX_Caligraphic": 4
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1616,
-        "IBM Plex Mono": 936,
-        "tektur": 12,
-        "Newsreader": 532
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/hierarchical/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1564,
-        "IBM Plex Mono": 656,
-        "tektur": 12,
-        "Newsreader": 884
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/knowledge-insulation/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1452,
-        "IBM Plex Mono": 592,
-        "tektur": 12,
-        "Newsreader": 564
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/pi-line/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1908,
-        "IBM Plex Mono": 1064,
-        "tektur": 12,
-        "Newsreader": 2844,
-        "KaTeX_Main": 544,
-        "math": 276,
-        "KaTeX_Math": 76,
-        "KaTeX_Caligraphic": 4
-      },
-      "mathScoped": {
-        "KaTeX_Main": 544,
-        "math": 276,
-        "KaTeX_Math": 76,
-        "KaTeX_Caligraphic": 4
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Caligraphic",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1660,
-        "IBM Plex Mono": 1124,
-        "tektur": 12,
-        "Newsreader": 1112
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1696,
-        "IBM Plex Mono": 752,
-        "tektur": 12,
-        "Newsreader": 696,
-        "KaTeX_Main": 248,
-        "math": 156,
-        "KaTeX_Math": 40
-      },
-      "mathScoped": {
-        "KaTeX_Main": 248,
-        "math": 156,
-        "KaTeX_Math": 40
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/manipulation/vla-models/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1668,
-        "IBM Plex Mono": 796,
-        "tektur": 12,
-        "Newsreader": 1704
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/market-map/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 13704,
-        "IBM Plex Mono": 3352,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/market-map/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/playground/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 512,
-        "IBM Plex Mono": 24,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/playground/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 692,
-        "IBM Plex Mono": 48,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1748,
-        "IBM Plex Mono": 892,
-        "tektur": 12,
-        "Newsreader": 472
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1472,
-        "IBM Plex Mono": 580,
-        "tektur": 12,
-        "Newsreader": 440,
-        "KaTeX_Main": 20,
-        "math": 20,
-        "KaTeX_Math": 4
-      },
-      "mathScoped": {
-        "KaTeX_Main": 20,
-        "math": 20,
-        "KaTeX_Math": 4
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1396,
-        "IBM Plex Mono": 588,
-        "tektur": 12,
-        "Newsreader": 444
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1812,
-        "IBM Plex Mono": 1004,
-        "tektur": 12,
-        "Newsreader": 800
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 2260,
-        "IBM Plex Mono": 1024,
-        "tektur": 12,
-        "Newsreader": 748
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1728,
-        "IBM Plex Mono": 968,
-        "tektur": 12,
-        "Newsreader": 1304
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1340,
-        "IBM Plex Mono": 416,
-        "tektur": 12,
-        "Newsreader": 344
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/search/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 520,
-        "IBM Plex Mono": 24,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/search/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/search/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/search/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 644,
-        "IBM Plex Mono": 40,
-        "tektur": 12
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/generative-sim/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1324,
-        "IBM Plex Mono": 488,
-        "tektur": 12,
-        "Newsreader": 384,
-        "KaTeX_Main": 92,
-        "math": 60,
-        "KaTeX_Math": 12
-      },
-      "mathScoped": {
-        "KaTeX_Main": 92,
-        "math": 60,
-        "KaTeX_Math": 12
-      }
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/generative-video/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1440,
-        "IBM Plex Mono": 612,
-        "tektur": 12,
-        "Newsreader": 688
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/jepa/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1348,
-        "IBM Plex Mono": 544,
-        "tektur": 12,
-        "Newsreader": 420
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/jepa/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1416,
-        "IBM Plex Mono": 552,
-        "tektur": 12,
-        "Newsreader": 560
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/world-models/taxonomy/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 1764,
-        "IBM Plex Mono": 632,
-        "tektur": 12,
-        "Newsreader": 720
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
     },
     {
       "route": "/404/",
-      "widths": [
-        "375px",
-        "768px",
-        "1024px",
-        "1440px"
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
       ],
-      "heads": {
-        "IBM Plex Sans": 469,
-        "IBM Plex Mono": 12,
-        "tektur": 16
-      },
-      "mathScoped": {}
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/404/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/404/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/404/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "tektur"
+      ]
     }
   ],
   "fontResources": {

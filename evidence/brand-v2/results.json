@@ -28156,7 +28156,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "Tektur Variable resolves as the computed head \"tektur\" on 768 elements across 62 of 62 swept routes; the sweep reconciled 235716 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
+      "actual": "Tektur Variable resolves as the computed head \"tektur\" on 62 of 62 swept routes, in 248 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28169,10 +28169,24 @@
           "declaredStacks": [
             "--font-display: \"tektur\", \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
           ],
-          "elementsResolvingFamily": 768,
+          "observationsResolvingFamily": 248,
           "routesResolvingFamily": 62,
           "routesMeasured": 62,
-          "useSitesMeasured": 235716,
+          "observationsMeasured": 248,
+          "distinctHeadsMeasured": [
+            "ibm plex mono",
+            "ibm plex sans",
+            "katex_ams",
+            "katex_caligraphic",
+            "katex_main",
+            "katex_math",
+            "katex_size1",
+            "katex_size2",
+            "katex_size3",
+            "math",
+            "newsreader",
+            "tektur"
+          ],
           "approvedFamilies": [
             "Tektur Variable",
             "IBM Plex Sans",
@@ -28193,7 +28207,7 @@
                 "katex_size2",
                 "katex_size3"
               ],
-              "elements": 31104,
+              "observations": 200,
               "routes": 16
             },
             {
@@ -28203,11 +28217,12 @@
               "heads": [
                 "math"
               ],
-              "elements": 11904,
+              "observations": 64,
               "routes": 16
             }
           ],
           "unapprovedFamilyHeads": [],
+          "unapprovedHeadObservations": 0,
           "ogRendererFaceId": "og-face:display",
           "ogRendererFamiliesPainted": [
             "IBM Plex Mono",
@@ -28229,7 +28244,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "IBM Plex Sans resolves as the computed head \"ibm plex sans\" on 111072 elements across 62 of 62 swept routes; the sweep reconciled 235716 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
+      "actual": "IBM Plex Sans resolves as the computed head \"ibm plex sans\" on 62 of 62 swept routes, in 248 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28242,10 +28257,24 @@
           "declaredStacks": [
             "--font-sans: \"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif"
           ],
-          "elementsResolvingFamily": 111072,
+          "observationsResolvingFamily": 248,
           "routesResolvingFamily": 62,
           "routesMeasured": 62,
-          "useSitesMeasured": 235716,
+          "observationsMeasured": 248,
+          "distinctHeadsMeasured": [
+            "ibm plex mono",
+            "ibm plex sans",
+            "katex_ams",
+            "katex_caligraphic",
+            "katex_main",
+            "katex_math",
+            "katex_size1",
+            "katex_size2",
+            "katex_size3",
+            "math",
+            "newsreader",
+            "tektur"
+          ],
           "approvedFamilies": [
             "Tektur Variable",
             "IBM Plex Sans",
@@ -28266,7 +28295,7 @@
                 "katex_size2",
                 "katex_size3"
               ],
-              "elements": 31104,
+              "observations": 200,
               "routes": 16
             },
             {
@@ -28276,11 +28305,12 @@
               "heads": [
                 "math"
               ],
-              "elements": 11904,
+              "observations": 64,
               "routes": 16
             }
           ],
           "unapprovedFamilyHeads": [],
+          "unapprovedHeadObservations": 0,
           "ogRendererFaceId": null,
           "ogRendererFamiliesPainted": [
             "IBM Plex Mono",
@@ -28302,7 +28332,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "Newsreader resolves as the computed head \"newsreader\" on 37608 elements across 50 of 62 swept routes; the sweep reconciled 235716 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
+      "actual": "Newsreader resolves as the computed head \"newsreader\" on 50 of 62 swept routes, in 200 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28315,10 +28345,24 @@
           "declaredStacks": [
             "--font-serif: \"Newsreader\", \"Newsreader Fallback\", ui-serif, Georgia, serif"
           ],
-          "elementsResolvingFamily": 37608,
+          "observationsResolvingFamily": 200,
           "routesResolvingFamily": 50,
           "routesMeasured": 62,
-          "useSitesMeasured": 235716,
+          "observationsMeasured": 248,
+          "distinctHeadsMeasured": [
+            "ibm plex mono",
+            "ibm plex sans",
+            "katex_ams",
+            "katex_caligraphic",
+            "katex_main",
+            "katex_math",
+            "katex_size1",
+            "katex_size2",
+            "katex_size3",
+            "math",
+            "newsreader",
+            "tektur"
+          ],
           "approvedFamilies": [
             "Tektur Variable",
             "IBM Plex Sans",
@@ -28339,7 +28383,7 @@
                 "katex_size2",
                 "katex_size3"
               ],
-              "elements": 31104,
+              "observations": 200,
               "routes": 16
             },
             {
@@ -28349,11 +28393,12 @@
               "heads": [
                 "math"
               ],
-              "elements": 11904,
+              "observations": 64,
               "routes": 16
             }
           ],
           "unapprovedFamilyHeads": [],
+          "unapprovedHeadObservations": 0,
           "ogRendererFaceId": null,
           "ogRendererFamiliesPainted": [
             "IBM Plex Mono",
@@ -28375,7 +28420,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly four role families: Tektur Variable, IBM Plex Sans, Newsreader, and IBM Plex Mono. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "IBM Plex Mono resolves as the computed head \"ibm plex mono\" on 43260 elements across 62 of 62 swept routes; the sweep reconciled 235716 computed font-family use sites against the 4 registered first-party families and every remaining head was a scoped exception confined to rendered mathematics",
+      "actual": "IBM Plex Mono resolves as the computed head \"ibm plex mono\" on 62 of 62 swept routes, in 248 of 248 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -28388,10 +28433,24 @@
           "declaredStacks": [
             "--font-mono: \"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace"
           ],
-          "elementsResolvingFamily": 43260,
+          "observationsResolvingFamily": 248,
           "routesResolvingFamily": 62,
           "routesMeasured": 62,
-          "useSitesMeasured": 235716,
+          "observationsMeasured": 248,
+          "distinctHeadsMeasured": [
+            "ibm plex mono",
+            "ibm plex sans",
+            "katex_ams",
+            "katex_caligraphic",
+            "katex_main",
+            "katex_math",
+            "katex_size1",
+            "katex_size2",
+            "katex_size3",
+            "math",
+            "newsreader",
+            "tektur"
+          ],
           "approvedFamilies": [
             "Tektur Variable",
             "IBM Plex Sans",
@@ -28412,7 +28471,7 @@
                 "katex_size2",
                 "katex_size3"
               ],
-              "elements": 31104,
+              "observations": 200,
               "routes": 16
             },
             {
@@ -28422,11 +28481,12 @@
               "heads": [
                 "math"
               ],
-              "elements": 11904,
+              "observations": 64,
               "routes": 16
             }
           ],
           "unapprovedFamilyHeads": [],
+          "unapprovedHeadObservations": 0,
           "ogRendererFaceId": "og-face:data",
           "ogRendererFamiliesPainted": [
             "IBM Plex Mono",

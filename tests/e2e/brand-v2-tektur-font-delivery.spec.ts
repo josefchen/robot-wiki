@@ -64,15 +64,23 @@ type RouteMeasurement = {
   /** Elements carrying a registered display class but no role annotation. */
   unannotatedClassUses: string[];
   /**
-   * Every computed `font-family` head the document resolved, with the
-   * element count, and how many of those elements sit inside rendered
-   * mathematical content. VAL-B2-TYPE-001 quantifies over the families
-   * production typography uses, so the population is every element rather
-   * than only the annotated display roles: a fifth family on an unannotated
-   * surface has to be a failure, not an invisible one.
+   * Every computed `font-family` head the document resolved, and which of
+   * them at least one element outside rendered mathematics resolved.
+   * VAL-B2-TYPE-001 quantifies over the families production typography
+   * uses, so the scan still walks every element rather than only the
+   * annotated display roles: a fifth family on an unannotated surface has
+   * to be a failure, not an invisible one.
+   *
+   * Sets rather than element tallies, because the tally is not
+   * reproducible. The Next.js client runtime appends nodes of its own after
+   * hydration — `<next-route-announcer>` in the body and `<link>` preload
+   * and prefetch hints in the head — on scheduler timing this sweep cannot
+   * observe a settled state for. They inherit the UI body family, so they
+   * moved the IBM Plex Sans tally between identical runs while never
+   * changing which families were resolved.
    */
-  familyHeads: Record<string, number>;
-  mathScopedHeads: Record<string, number>;
+  familyHeads: string[];
+  headsOutsideMath: string[];
   /** Font resources the document requested, split by origin. */
   sameOriginFontPaths: string[];
   foreignOriginFontUrls: string[];
@@ -103,17 +111,15 @@ function measureDocument(input: {
       .map((element) => `${cssClass}:${element.tagName.toLowerCase()}`),
   );
 
-  const familyHeads: Record<string, number> = {};
-  const mathScopedHeads: Record<string, number> = {};
+  const familyHeads = new Set<string>();
+  const headsOutsideMath = new Set<string>();
   for (const element of document.querySelectorAll('*')) {
     const stack = getComputedStyle(element).fontFamily;
     const head = (stack.split(',')[0] ?? '')
       .trim()
       .replace(/^["']|["']$/g, '');
-    familyHeads[head] = (familyHeads[head] ?? 0) + 1;
-    if (element.closest(input.mathScope)) {
-      mathScopedHeads[head] = (mathScopedHeads[head] ?? 0) + 1;
-    }
+    familyHeads.add(head);
+    if (!element.closest(input.mathScope)) headsOutsideMath.add(head);
   }
 
   const sameOrigin = new Set<string>();
@@ -137,8 +143,8 @@ function measureDocument(input: {
   return {
     occurrences,
     unannotatedClassUses,
-    familyHeads,
-    mathScopedHeads,
+    familyHeads: [...familyHeads].sort(),
+    headsOutsideMath: [...headsOutsideMath].sort(),
     sameOriginFontPaths: [...sameOrigin].sort(),
     foreignOriginFontUrls: [...foreign].sort(),
   };
@@ -344,27 +350,17 @@ function buildArtifact(result: Sweep): TekturDeliveryEvidence {
       for (const use of observation.unannotatedClassUses) {
         unannotated.add(`${route} @${viewport.id}: ${use}`);
       }
+      // One entry per declared width rather than a union over them: a
+      // component that only mounts below a breakpoint resolves families no
+      // desktop-width document contains, and the width it appeared at is
+      // part of the record instead of being summed away.
+      familyObservations.push({
+        route,
+        viewportId: viewport.id,
+        heads: observation.familyHeads,
+        headsOutsideMath: observation.headsOutsideMath,
+      });
     }
-    // Summed over every declared width rather than read off one of them: a
-    // component that only mounts below a breakpoint renders elements no
-    // desktop-width observation contains, and its families still have to be
-    // in the population VAL-B2-TYPE-001 reconciles.
-    const heads: Record<string, number> = {};
-    const mathScoped: Record<string, number> = {};
-    for (const { observation } of perWidth) {
-      for (const [head, count] of Object.entries(observation.familyHeads)) {
-        heads[head] = (heads[head] ?? 0) + count;
-      }
-      for (const [head, count] of Object.entries(observation.mathScopedHeads)) {
-        mathScoped[head] = (mathScoped[head] ?? 0) + count;
-      }
-    }
-    familyObservations.push({
-      route,
-      widths: perWidth.map(({ viewport }) => viewport.id),
-      heads,
-      mathScoped,
-    });
   }
 
   const sameOrigin = new Set<string>();
@@ -607,11 +603,18 @@ test.describe('Tektur web typography population', () => {
       'routes whose complete font-family population was measured',
     ).toBe(SWEPT_ROUTES.length);
     expect(
-      measurements.families.elementsMeasured,
-      'measured font-family use sites',
-    ).toBeGreaterThan(SWEPT_ROUTES.length);
+      measurements.families.observationsMeasured,
+      'route x width documents whose complete font-family population was measured',
+    ).toBe(SWEPT_ROUTES.length * VIEWPORTS.length);
+    expect(
+      measurements.families.unapprovedHeadObservations,
+      'documents resolving a font family that is neither first-party nor a scoped exception',
+    ).toBe(0);
     for (const member of measurements.families.approved) {
-      expect(member.elements, `${member.family} use sites`).toBeGreaterThan(0);
+      expect(
+        member.observations,
+        `${member.family} documents resolving it`,
+      ).toBeGreaterThan(0);
     }
 
     const approvedFaces = new Set(
@@ -626,7 +629,7 @@ test.describe('Tektur web typography population', () => {
     // an approved family or an enumerated exception, and nothing else.
     const heads = new Set(
       measurements.delivery.familyObservations.flatMap((observation) =>
-        Object.keys(observation.heads).map(normalizeFontFamilyName),
+        observation.heads.map(normalizeFontFamilyName),
       ),
     );
     expect([...heads].sort(), 'every resolved font-family head').toEqual(

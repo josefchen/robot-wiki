@@ -118,19 +118,27 @@ export type TekturDeliveryEvidence = {
   /** Registered display classes rendered without a role annotation. */
   unannotatedDisplayClassUses: string[];
   /**
-   * One entry per route: every computed `font-family` head the document
-   * resolved at any declared width, with the element count summed over those
-   * widths, and how many of those elements sit inside rendered mathematical
-   * content. The union is the population rather than one chosen width,
-   * because a responsive component that only mounts below a breakpoint would
-   * otherwise never have its families measured.
+   * One entry per route x declared width: every computed `font-family` head
+   * that document resolved over all of its elements, and which of those
+   * heads at least one element outside rendered mathematics resolved.
+   *
+   * Head sets rather than per-head element tallies. The scan still walks
+   * every element, so the population VAL-B2-TYPE-001 reconciles is
+   * unchanged, but the tally itself is not reproducible: the Next.js client
+   * runtime appends `<next-route-announcer>` and `<link>` preload/prefetch
+   * hints of its own after hydration, on scheduler timing with no settled
+   * state to wait for, and those nodes inherit the UI body family. Three
+   * consecutive sweeps of an unchanged tree therefore recorded
+   * `IBM Plex Sans` as 2139/2138/2138 on `/classical/control/` and
+   * 469/464/464 on `/404/` while resolving an identical set of families
+   * every time. The set is what the assertion quantifies over; the tally
+   * was an exactly-compared number nothing asserted on.
    */
   familyObservations: Array<{
     route: string;
-    /** The declared widths this route's head population was summed over. */
-    widths: string[];
-    heads: Record<string, number>;
-    mathScoped: Record<string, number>;
+    viewportId: string;
+    heads: string[];
+    headsOutsideMath: string[];
   }>;
   fontResources: {
     sameOriginPaths: string[];
@@ -239,7 +247,8 @@ export type TekturFamilyMember = {
   family: string;
   runtimeFace: string;
   heads: string[];
-  elements: number;
+  /** Route x width documents that resolved this family on some element. */
+  observations: number;
   routes: string[];
   stackProperties: string[];
   rendererFaceId: string | null;
@@ -252,12 +261,28 @@ export type TekturFamilyReconciliation = {
     reason: string;
     scope: string;
     heads: string[];
-    elements: number;
+    /**
+     * Route x width documents resolving each of this exception's heads,
+     * summed over those heads, so a seven-face KaTeX exception counts each
+     * face it actually painted.
+     */
+    observations: number;
     routes: number;
   }>;
   stacks: Record<string, { stack: string; head: string; roleId: string }>;
   routesMeasured: number;
-  elementsMeasured: number;
+  observationsMeasured: number;
+  /** Every distinct head the sweep resolved, normalized and sorted. */
+  distinctHeads: string[];
+  /**
+   * Empty and zero on every reconciliation that returns, because the
+   * reconciliation throws on the first sweep that resolved an unapproved
+   * head rather than reporting one. They are carried so the emitted
+   * evidence states the quantity the assertion turns on instead of leaving
+   * "0 unapproved" as prose.
+   */
+  unapprovedHeads: string[];
+  unapprovedHeadObservations: number;
 };
 
 export type TekturRoleMeasurement = {
@@ -349,6 +374,8 @@ function requirePositiveCounts(
 function reconcileFamilies(
   artifact: TekturDeliveryEvidence,
   css: string,
+  occurrences: TekturRoleOccurrences,
+  roles: Record<string, TekturRoleMeasurement>,
 ): TekturFamilyReconciliation {
   const stackProperties = deriveTypographyStackProperties(css);
   if (stackProperties.length !== FIRST_PARTY_TYPE_ROLES.length) {
@@ -406,55 +433,96 @@ function reconcileFamilies(
     );
   }
 
-  const elementsByHead = new Map<string, number>();
+  const observationsByHead = new Map<string, number>();
   const routesByHead = new Map<string, Set<string>>();
-  const exceptionElementsByHead = new Map<string, number>();
-  let elementsMeasured = 0;
+  const exceptionObservationsByHead = new Map<string, number>();
+  const unapproved = new Map<string, Set<string>>();
+  const substituting: string[] = [];
+  let observationsMeasured = 0;
   for (const observation of artifact.familyObservations) {
-    for (const [rawHead, elements] of Object.entries(observation.heads)) {
-      const head = normalizeFontFamilyName(rawHead);
-      elementsByHead.set(head, (elementsByHead.get(head) ?? 0) + elements);
+    const where = `${observation.route} @${observation.viewportId}`;
+    observationsMeasured += 1;
+    const heads = observation.heads.map(normalizeFontFamilyName);
+    if (new Set(heads).size !== heads.length) {
+      throw new Error(`${where} records the same font-family head twice`);
+    }
+    if (heads.length === 0) {
+      throw new Error(`${where} resolved no font family`);
+    }
+    const outside = new Set(
+      observation.headsOutsideMath.map(normalizeFontFamilyName),
+    );
+    for (const head of outside) {
+      if (!heads.includes(head)) {
+        throw new Error(
+          `${where} records ${head} outside rendered mathematics but records no element resolving it`,
+        );
+      }
+    }
+    // The per-document non-emptiness floor. A `document.querySelectorAll`
+    // that stops matching the whole document no longer shows up as a
+    // shrinking element tally, so the floor is tied to an independently
+    // derived fact instead: this route's role annotations come from the
+    // occurrence derivation, their computed family from the measured axes,
+    // and a scan narrow enough to miss them fails here rather than
+    // reconciling a smaller population successfully.
+    for (const role of occurrences.rolesByRoute[observation.route] ?? []) {
+      const required = fontFamilyHead(roles[role].family);
+      if (!heads.includes(required)) {
+        throw new Error(
+          `${where} renders the ${role} role, which computes the head ${required}, but the font-family scan resolved only [${heads.join(', ')}]`,
+        );
+      }
+    }
+    observation.heads.forEach((rawHead, index) => {
+      const head = heads[index];
+      observationsByHead.set(head, (observationsByHead.get(head) ?? 0) + 1);
       routesByHead.set(
         head,
         (routesByHead.get(head) ?? new Set()).add(observation.route),
       );
-      elementsMeasured += elements;
-      const scoped = observation.mathScoped[rawHead] ?? 0;
-      if (roleByFace.has(head)) continue;
+      if (roleByFace.has(head)) return;
       const exception = SCOPED_FONT_FAMILY_EXCEPTIONS.find(({ pattern }) =>
         pattern.test(head),
       );
       if (!exception) {
-        throw new Error(
-          `${observation.route} resolves the font family ${rawHead} on ${elements} elements; it is neither one of the ${FIRST_PARTY_TYPE_ROLES.length} registered first-party families nor a scoped exception`,
-        );
+        unapproved.set(rawHead, (unapproved.get(rawHead) ?? new Set()).add(where));
+        return;
       }
-      if (scoped !== elements) {
-        throw new Error(
-          `${observation.route} resolves the scoped exception family ${rawHead} on ${elements} elements but only ${scoped} sit inside ${exception.scope}, so the exception substitutes for a first-party role`,
+      if (outside.has(head)) {
+        substituting.push(
+          `${where} resolves the scoped exception family ${rawHead} on an element outside ${exception.scope}`,
         );
+        return;
       }
-      exceptionElementsByHead.set(
+      exceptionObservationsByHead.set(
         head,
-        (exceptionElementsByHead.get(head) ?? 0) + elements,
+        (exceptionObservationsByHead.get(head) ?? 0) + 1,
       );
-    }
-    for (const rawHead of Object.keys(observation.mathScoped)) {
-      if (!Object.hasOwn(observation.heads, rawHead)) {
-        throw new Error(
-          `${observation.route} scopes ${rawHead} to mathematical content but records no element resolving it`,
-        );
-      }
-    }
+    });
   }
-  if (elementsMeasured === 0) {
+  if (unapproved.size > 0) {
+    throw new Error(
+      `The sweep resolved ${unapproved.size} font family/families that are neither one of the ${FIRST_PARTY_TYPE_ROLES.length} registered first-party families nor a scoped exception: ${[
+        ...unapproved,
+      ]
+        .map(([head, states]) => `${head} on ${[...states].sort().join(', ')}`)
+        .join('; ')}`,
+    );
+  }
+  if (substituting.length > 0) {
+    throw new Error(
+      `${substituting.length} document(s) let a scoped exception substitute for a first-party role: ${substituting.sort().join('; ')}`,
+    );
+  }
+  if (observationsMeasured === 0) {
     throw new Error('The measured font-family population is empty');
   }
 
   const approved: TekturFamilyMember[] = FIRST_PARTY_TYPE_ROLES.map((role) => {
     const face = normalizeFontFamilyName(role.family);
-    const elements = elementsByHead.get(face) ?? 0;
-    if (elements === 0) {
+    const observations = observationsByHead.get(face) ?? 0;
+    if (observations === 0) {
       throw new Error(
         `No swept document resolves the registered ${role.id} family ${role.family}, so the registration has no referent`,
       );
@@ -464,7 +532,7 @@ function reconcileFamilies(
       family: role.family,
       runtimeFace: face,
       heads: [face],
-      elements,
+      observations,
       routes: [...(routesByHead.get(face) ?? [])].sort(),
       stackProperties: stackPropertiesByRole.get(role.id) ?? [],
       rendererFaceId:
@@ -474,7 +542,7 @@ function reconcileFamilies(
   });
 
   const scopedExceptions = SCOPED_FONT_FAMILY_EXCEPTIONS.map((exception) => {
-    const heads = [...exceptionElementsByHead.keys()]
+    const heads = [...exceptionObservationsByHead.keys()]
       .filter((head) => exception.pattern.test(head))
       .sort();
     return {
@@ -482,8 +550,8 @@ function reconcileFamilies(
       reason: exception.reason,
       scope: exception.scope,
       heads,
-      elements: heads.reduce(
-        (total, head) => total + (exceptionElementsByHead.get(head) ?? 0),
+      observations: heads.reduce(
+        (total, head) => total + (exceptionObservationsByHead.get(head) ?? 0),
         0,
       ),
       routes: new Set(
@@ -494,7 +562,7 @@ function reconcileFamilies(
   // A sweep that resolved no exception family at all would prove the
   // exception is bounded only vacuously, so the bound is asserted against a
   // non-empty observed population.
-  if (scopedExceptions.every(({ elements }) => elements === 0)) {
+  if (scopedExceptions.every(({ observations }) => observations === 0)) {
     throw new Error(
       'The sweep observed no scoped exception family, so the exception bound is vacuous',
     );
@@ -504,8 +572,16 @@ function reconcileFamilies(
     approved,
     scopedExceptions,
     stacks,
-    routesMeasured: artifact.familyObservations.length,
-    elementsMeasured,
+    routesMeasured: new Set(
+      artifact.familyObservations.map(({ route }) => route),
+    ).size,
+    observationsMeasured,
+    distinctHeads: [...observationsByHead.keys()].sort(),
+    unapprovedHeads: [...unapproved.keys()].sort(),
+    unapprovedHeadObservations: [...unapproved.values()].reduce(
+      (total, states) => total + states.size,
+      0,
+    ),
   };
 }
 
@@ -943,34 +1019,46 @@ export function measureTekturEvidence(input: {
       'Tektur delivery evidence records no font-family observations',
     );
   }
-  const familyRoutes = artifact.familyObservations.map(({ route }) => route);
-  if ([...familyRoutes].sort().join('|') !== required.join('|')) {
-    throw new Error(
-      `Tektur delivery evidence measured font families on [${[...familyRoutes].sort().join(', ')}]; the derived route population is [${required.join(', ')}]`,
-    );
-  }
-  const declaredWidths = artifact.viewports.map(({ id }) => id).sort();
+  const declaredWidths = BRAND_V2_RESPONSIVE_VIEWPORTS.map(({ id }) => id);
+  const familyStates = new Set<string>();
   for (const observation of artifact.familyObservations) {
-    requirePositiveCounts(
-      observation.heads ?? {},
-      `${observation.route} font-family heads`,
-    );
-    if (Object.keys(observation.heads ?? {}).length === 0) {
-      throw new Error(`${observation.route} resolved no font family`);
-    }
-    // Summing over the widths hides which ones contributed, so the record
-    // names them: a family population built from three of four declared
-    // widths would otherwise read as complete.
-    const widths = [...(observation.widths ?? [])].sort();
-    if (widths.join('|') !== declaredWidths.join('|')) {
+    const key = `${observation.route} @${observation.viewportId}`;
+    if (familyStates.has(key)) {
       throw new Error(
-        `${observation.route} measured font families at [${widths.join(', ')}]; the declared widths are [${declaredWidths.join(', ')}]`,
+        `Tektur delivery evidence repeats the font-family observation ${key}`,
+      );
+    }
+    familyStates.add(key);
+    if (!required.includes(observation.route)) {
+      throw new Error(
+        `Tektur delivery evidence measured font families on ${key}, which the derived route population does not contain`,
+      );
+    }
+    if (!declaredWidths.includes(observation.viewportId)) {
+      throw new Error(
+        `Tektur delivery evidence measured font families on ${key} at an undeclared width`,
+      );
+    }
+    if (
+      !Array.isArray(observation.heads) ||
+      !Array.isArray(observation.headsOutsideMath)
+    ) {
+      throw new Error(
+        `Tektur delivery evidence records no font-family head set for ${key}`,
       );
     }
   }
+  // Exact over the cross product, not per route: a width dropped from the
+  // family scan would otherwise leave a complete-looking route list.
+  const requiredFamilyStates = required.length * declaredWidths.length;
+  if (familyStates.size !== requiredFamilyStates) {
+    throw new Error(
+      `Tektur delivery evidence carries ${familyStates.size} font-family observations; the derived population needs ${requiredFamilyStates}; re-run npm run test:brand-v2`,
+    );
+  }
 
   const roles = reconcileRoles(artifact, occurrences);
-  const families = reconcileFamilies(artifact, input.css);
+  const families = reconcileFamilies(artifact, input.css, occurrences, roles);
 
   const resources = artifact.fontResources;
   if (resources === null || typeof resources !== 'object') {
@@ -1212,7 +1300,7 @@ export function tekturAssertionEvidence(input: {
     return {
       sourcePath: TEKTUR_DELIVERY_EVIDENCE_PATH,
       tool: `${BROWSER_TOOL} + satori card walk`,
-      actual: `${family.family} resolves as the computed head "${family.runtimeFace}" on ${family.elements} elements across ${family.routes.length} of ${families.routesMeasured} swept routes; the sweep reconciled ${families.elementsMeasured} computed font-family use sites against the ${families.approved.length} registered first-party families and every remaining head was a scoped exception confined to rendered mathematics`,
+      actual: `${family.family} resolves as the computed head "${family.runtimeFace}" on ${family.routes.length} of ${families.routesMeasured} swept routes, in ${family.observations} of ${families.observationsMeasured} route x width documents; walking every element of those documents resolved ${families.distinctHeads.length} distinct font-family heads, of which ${families.unapprovedHeads.length} were neither one of the ${families.approved.length} registered first-party families nor a scoped exception (${families.unapprovedHeadObservations} such documents), and every exception head appeared only inside rendered mathematics`,
       observed: {
         role: roleId,
         family: family.family,
@@ -1220,13 +1308,15 @@ export function tekturAssertionEvidence(input: {
         declaredStacks: family.stackProperties.map(
           (property) => `${property}: ${families.stacks[property].stack}`,
         ),
-        elementsResolvingFamily: family.elements,
+        observationsResolvingFamily: family.observations,
         routesResolvingFamily: family.routes.length,
         routesMeasured: families.routesMeasured,
-        useSitesMeasured: families.elementsMeasured,
+        observationsMeasured: families.observationsMeasured,
+        distinctHeadsMeasured: families.distinctHeads,
         approvedFamilies: families.approved.map(({ family: name }) => name),
         scopedExceptions: families.scopedExceptions,
-        unapprovedFamilyHeads: [],
+        unapprovedFamilyHeads: families.unapprovedHeads,
+        unapprovedHeadObservations: families.unapprovedHeadObservations,
         ogRendererFaceId: family.rendererFaceId,
         ogRendererFamiliesPainted: ogRenderer.familiesPainted,
       },

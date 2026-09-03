@@ -30,10 +30,23 @@ function measure(artifact: TekturDeliveryEvidence) {
  */
 function mathRoute(artifact: TekturDeliveryEvidence): TekturDeliveryEvidence['familyObservations'][number] {
   const observation = artifact.familyObservations.find((candidate) =>
-    Object.keys(candidate.mathScoped).some((head) => /^katex_/i.test(head)),
+    candidate.heads.some(
+      (head) =>
+        /^katex_/i.test(head) && !candidate.headsOutsideMath.includes(head),
+    ),
   );
   if (!observation) throw new Error('no swept route renders KaTeX faces');
   return observation;
+}
+
+function katexHead(
+  observation: TekturDeliveryEvidence['familyObservations'][number],
+): string {
+  const head = observation.heads.find((candidate) =>
+    /^katex_/i.test(candidate),
+  );
+  if (!head) throw new Error('observation resolves no KaTeX face');
+  return head;
 }
 
 describe('brand-v2 Tektur delivery evidence', () => {
@@ -49,10 +62,13 @@ describe('brand-v2 Tektur delivery evidence', () => {
     );
     expect(measurements.families.approved.map(({ family }) => family).sort())
       .toEqual(FIRST_PARTY_TYPE_ROLES.map(({ family }) => family).sort());
-    expect(measurements.families.elementsMeasured).toBeGreaterThan(0);
+    expect(measurements.families.observationsMeasured).toBe(
+      measurements.routeStateCount,
+    );
+    expect(measurements.families.unapprovedHeadObservations).toBe(0);
     expect(
       measurements.families.scopedExceptions.some(
-        ({ elements }) => elements > 0,
+        ({ observations }) => observations > 0,
       ),
       'the scoped-exception bound must be observed non-vacuously',
     ).toBe(true);
@@ -116,18 +132,33 @@ describe('brand-v2 Tektur delivery evidence', () => {
       /route x width observations|was not measured at/,
     );
 
-    const shortFamilyWidths = clone();
-    shortFamilyWidths.familyObservations[0].widths =
-      shortFamilyWidths.familyObservations[0].widths.slice(0, -1);
-    expect(() => measure(shortFamilyWidths)).toThrow(
-      /measured font families at/,
+    // The family scan is exact over the route x width cross product, so a
+    // width dropped from it fails even though every route it still measured
+    // resolves an approved family.
+    const droppedFamilyWidth = clone();
+    const familyWidth = droppedFamilyWidth.viewports[1].id;
+    droppedFamilyWidth.familyObservations =
+      droppedFamilyWidth.familyObservations.filter(
+        (observation) => observation.viewportId !== familyWidth,
+      );
+    expect(() => measure(droppedFamilyWidth)).toThrow(
+      /font-family observations; the derived population needs/,
+    );
+
+    const repeatedFamilyState = clone();
+    repeatedFamilyState.familyObservations = [
+      ...repeatedFamilyState.familyObservations.slice(0, -1),
+      repeatedFamilyState.familyObservations[0],
+    ];
+    expect(() => measure(repeatedFamilyState)).toThrow(
+      /repeats the font-family observation/,
     );
 
     const droppedFamilyRoute = clone();
     droppedFamilyRoute.familyObservations =
       droppedFamilyRoute.familyObservations.slice(0, -1);
     expect(() => measure(droppedFamilyRoute)).toThrow(
-      /measured font families on/,
+      /font-family observations; the derived population needs/,
     );
 
     const missingRole = clone();
@@ -152,33 +183,33 @@ describe('brand-v2 Tektur delivery evidence', () => {
     // production surface left every Tektur row green because nothing
     // measured the families production typography actually resolves.
     const planted = clone();
-    planted.familyObservations[0].heads.Arial = 12;
+    planted.familyObservations[0].heads.push('Arial');
+    planted.familyObservations[0].headsOutsideMath.push('Arial');
     expect(() => measure(planted)).toThrow(
-      /resolves the font family Arial on 12 elements/,
+      /neither one of the 4 registered first-party families nor a scoped exception: Arial on/,
     );
 
     const unscoped = clone();
     const observation = mathRoute(unscoped);
-    const katexHead = Object.keys(observation.mathScoped).find((head) =>
-      /^katex_/i.test(head),
-    ) as string;
-    observation.mathScoped[katexHead] -= 1;
+    observation.headsOutsideMath.push(katexHead(observation));
     expect(() => measure(unscoped)).toThrow(
-      /sit inside \.katex, \.katex-display, so the exception substitutes/,
+      /on an element outside \.katex, \.katex-display/,
     );
 
     const phantomScope = clone();
-    mathRoute(phantomScope).mathScoped['KaTeX_Phantom'] = 3;
+    mathRoute(phantomScope).headsOutsideMath.push('KaTeX_Phantom');
     expect(() => measure(phantomScope)).toThrow(
-      /scopes KaTeX_Phantom to mathematical content but records no element/,
+      /records katex_phantom outside rendered mathematics but records no element/,
     );
 
     // A registered family nothing resolves is a registration without a
     // referent, which is how a family could be "approved" and unused.
     const unusedFamily = clone();
     for (const entry of unusedFamily.familyObservations) {
-      delete entry.heads.Newsreader;
-      delete entry.mathScoped.Newsreader;
+      entry.heads = entry.heads.filter((head) => head !== 'Newsreader');
+      entry.headsOutsideMath = entry.headsOutsideMath.filter(
+        (head) => head !== 'Newsreader',
+      );
     }
     expect(() => measure(unusedFamily)).toThrow(/has no referent/);
 
@@ -186,13 +217,57 @@ describe('brand-v2 Tektur delivery evidence', () => {
     // substitutes" vacuously.
     const noExceptions = clone();
     for (const entry of noExceptions.familyObservations) {
-      for (const head of Object.keys(entry.heads)) {
-        if (!/^(?:katex_|math$)/i.test(head)) continue;
-        delete entry.heads[head];
-        delete entry.mathScoped[head];
-      }
+      entry.heads = entry.heads.filter(
+        (head) => !/^(?:katex_|math$)/i.test(head),
+      );
+      entry.headsOutsideMath = entry.headsOutsideMath.filter(
+        (head) => !/^(?:katex_|math$)/i.test(head),
+      );
     }
     expect(() => measure(noExceptions)).toThrow(/vacuous/);
+  });
+
+  /**
+   * The head set replaced a per-head element tally that moved between
+   * identical runs, and the tally was the only thing standing between a
+   * font-family scan that stops matching the document and a green
+   * reconciliation. These are the mutations that floor has to reject.
+   */
+  it('rejects a font-family scan that matched less than the document', () => {
+    const empty = clone();
+    empty.familyObservations[0].heads = [];
+    empty.familyObservations[0].headsOutsideMath = [];
+    expect(() => measure(empty)).toThrow(/resolved no font family/);
+
+    const missingSchema = clone();
+    (
+      missingSchema.familyObservations[0] as { heads?: string[] }
+    ).heads = undefined;
+    expect(() => measure(missingSchema)).toThrow(
+      /records no font-family head set/,
+    );
+
+    const duplicated = clone();
+    duplicated.familyObservations[0].heads = [
+      ...duplicated.familyObservations[0].heads,
+      duplicated.familyObservations[0].heads[0],
+    ];
+    expect(() => measure(duplicated)).toThrow(
+      /records the same font-family head twice/,
+    );
+
+    // Every swept route renders at least one Tektur role, so a scan narrowed
+    // to anything less than the whole document loses the display head.
+    const narrowedScan = clone();
+    for (const entry of narrowedScan.familyObservations) {
+      entry.heads = entry.heads.filter((head) => !/tektur/i.test(head));
+      entry.headsOutsideMath = entry.headsOutsideMath.filter(
+        (head) => !/tektur/i.test(head),
+      );
+    }
+    expect(() => measure(narrowedScan)).toThrow(
+      /role, which computes the head tektur, but the font-family scan resolved only/,
+    );
   });
 
   it('rejects a delivery record that hides a third-party request or a fallback glyph', () => {
