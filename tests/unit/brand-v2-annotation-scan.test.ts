@@ -223,6 +223,122 @@ describe('brand primitive annotation assignments', () => {
     );
   });
 
+  it('classifies a globally MDX-registered but unmounted component as library-only', () => {
+    // The decisive case from the shipped tree: CodeBlock is registered on
+    // every MDX body and CopyButton is called only by CodeBlock, so both are
+    // importable from a route entry while nothing renders either one.
+    const root = fixtureRoot({
+      'components/copy-button.tsx': [
+        'export function CopyButton() {',
+        '  return <button data-brand-control-id="control:secondary-action" />;',
+        '}',
+      ].join('\n'),
+      'components/code-block.tsx': [
+        "import { CopyButton } from '@/components/copy-button';",
+        'export function CodeBlock() {',
+        '  return (',
+        '    <div data-brand-surface-id="surface:flat">',
+        '      <CopyButton />',
+        '    </div>',
+        '  );',
+        '}',
+      ].join('\n'),
+      'mdx-components.tsx': [
+        "import type { MDXComponents } from 'mdx/types';",
+        "import { CodeBlock } from '@/components/code-block';",
+        'export function useMDXComponents(components: MDXComponents): MDXComponents {',
+        '  return {',
+        '    ...components,',
+        '    CodeBlock,',
+        '  };',
+        '}',
+      ].join('\n'),
+    });
+    const scan = scanAnnotationAssignments(root);
+
+    // Availability is real: both modules are import-reachable from a route
+    // entry, which is exactly what used to be read as production ownership.
+    expect(scan.importReachableModules).toContain('components/code-block.tsx');
+    expect(scan.importReachableModules).toContain('components/copy-button.tsx');
+    expect(scan.mountedModules).not.toContain('components/code-block.tsx');
+    expect(scan.mountedModules).not.toContain('components/copy-button.tsx');
+
+    expect(scan.ownersById['surface:flat']).toEqual([
+      'components/code-block.tsx',
+    ]);
+    expect(scan.productionOwnersById['surface:flat']).toEqual([]);
+    expect(scan.unmountedOwnersById['surface:flat']).toEqual([
+      'components/code-block.tsx',
+    ]);
+    // The dependency chain propagates: the helper's only caller is itself
+    // unmounted, so the helper is not a production owner either.
+    expect(scan.productionOwnersById['control:secondary-action']).toEqual([]);
+    expect(scan.unmountedOwnersById['control:secondary-action']).toEqual([
+      'components/copy-button.tsx',
+    ]);
+  });
+
+  it('records a globally MDX-registered component an MDX body does render', () => {
+    const root = fixtureRoot({
+      'components/copy-button.tsx': [
+        'export function CopyButton() {',
+        '  return <button data-brand-control-id="control:secondary-action" />;',
+        '}',
+      ].join('\n'),
+      'components/code-block.tsx': [
+        "import { CopyButton } from '@/components/copy-button';",
+        'export function CodeBlock() {',
+        '  return (',
+        '    <div data-brand-surface-id="surface:flat">',
+        '      <CopyButton />',
+        '    </div>',
+        '  );',
+        '}',
+      ].join('\n'),
+      'mdx-components.tsx': [
+        "import type { MDXComponents } from 'mdx/types';",
+        "import { CodeBlock } from '@/components/code-block';",
+        'export function useMDXComponents(components: MDXComponents): MDXComponents {',
+        '  return {',
+        '    ...components,',
+        '    CodeBlock,',
+        '  };',
+        '}',
+      ].join('\n'),
+      'content/domain/article.mdx': '# Article\n\n<CodeBlock />\n',
+    });
+    const scan = scanAnnotationAssignments(root);
+    expect(scan.mountedModules).toContain('components/code-block.tsx');
+    expect(scan.productionOwnersById['surface:flat']).toEqual([
+      'components/code-block.tsx',
+    ]);
+    expect(scan.productionOwnersById['control:secondary-action']).toEqual([
+      'components/copy-button.tsx',
+    ]);
+  });
+
+  it('follows a deferred mount so the mount and import walks agree', () => {
+    const root = fixtureRoot({
+      'components/scene.tsx': [
+        'export function Scene() {',
+        '  return <div data-brand-surface-id="surface:bounded-dark-instrument" />;',
+        '}',
+      ].join('\n'),
+      'app/page.tsx': [
+        "import dynamic from 'next/dynamic';",
+        "const Scene = dynamic(() => import('@/components/scene'), { ssr: false });",
+        'export default function Page() {',
+        '  return <Scene />;',
+        '}',
+      ].join('\n'),
+    });
+    const scan = scanAnnotationAssignments(root);
+    expect(scan.mountedModules).toContain('components/scene.tsx');
+    expect(
+      scan.productionOwnersById['surface:bounded-dark-instrument'],
+    ).toEqual(['components/scene.tsx']);
+  });
+
   it('resolves a variant a reachable call site does supply', () => {
     const root = fixtureRoot({
       'components/panel.tsx': [

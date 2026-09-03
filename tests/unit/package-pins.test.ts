@@ -125,4 +125,49 @@ describe('environment-trap script wiring', () => {
       /prune-export-artifacts\.ts && node scripts\/patch-404-guard\.ts && node scripts\/build-search\.ts/,
     );
   });
+
+  /**
+   * postbuild READS four fail-closed brand-v2 artifacts that only a browser
+   * suite can WRITE, and that suite needs the export postbuild guards. Any
+   * token, registry, width, route or font change therefore deadlocks
+   * `npm run build` until the artifacts are refreshed, and the refresh has
+   * exactly one correct order.
+   */
+  it('wires a brand-v2 evidence refresh whose order can break the build deadlock', () => {
+    // The ungated build produces out/ without the postbuild reads that the
+    // stale artifacts would fail, while keeping the prebuild prunes the
+    // duplicate-type trap needs.
+    expect(pkg.scripts['build:ungated']).toBe(
+      'npm run prebuild && npm run build --ignore-scripts',
+    );
+    // The registry is regenerated first: the reconciliation artifact records
+    // the registry fingerprint, so writing it against the old registry would
+    // persist evidence that is stale the moment it lands. The renderer
+    // parity artifact is source-derived and needs no export. Only then does
+    // the export get built, the browser suites write the three artifacts
+    // that need it, and the enforcement corpus read all four.
+    expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
+      'npm run generate:brand-v2-registries' +
+        ' && npm run refresh:brand-v2-evidence:renderer-parity' +
+        ' && npm run build:ungated' +
+        ' && npm run refresh:brand-v2-evidence:browser' +
+        ' && npm run generate:brand-v2-enforcement',
+    );
+    // Each fail-closed artifact has a writer in the refresh chain.
+    expect(pkg.scripts['refresh:brand-v2-evidence:renderer-parity']).toContain(
+      'tests/unit/brand-v2-token-evidence.test.ts',
+    );
+    for (const spec of [
+      'tests/e2e/brand-v2-primitives.spec.ts',
+      'tests/e2e/brand-v2.spec.ts',
+      'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+    ]) {
+      expect(pkg.scripts['refresh:brand-v2-evidence:browser']).toContain(spec);
+    }
+    // The refresh must not be able to re-tell the gates it exists to unblock.
+    expect(pkg.scripts['refresh:brand-v2-evidence']).not.toContain('--check');
+    for (const script of Object.values(pkg.scripts)) {
+      expect(script).not.toContain('|| true');
+    }
+  });
 });

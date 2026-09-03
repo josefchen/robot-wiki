@@ -5,6 +5,11 @@ import { BRAND_COLORS, BRAND_SPACING } from './brand-v2-tokens.ts';
 import { buildModuleImportGraph } from './module-import-graph.ts';
 import { cardPaintedColors } from './og-card-artwork.ts';
 import { ogCardCorpus } from './og-card-corpus.ts';
+import { stripComments } from './source-comments.ts';
+import {
+  deriveSemanticMarks,
+  type SemanticMark,
+} from './brand-v2-semantic-marks.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
 
 /**
@@ -36,6 +41,14 @@ export const TOKEN_RUNTIME_EVIDENCE_PATH =
   'evidence/brand-v2/token-runtime.json';
 export const TOKEN_RENDERER_EVIDENCE_PATH =
   'evidence/brand-v2/token-renderer-parity.json';
+/**
+ * The exact set of marks measured to carry a semantic hue with no non-colour
+ * cue of their own. It is archived rather than summarised so that both
+ * directions of drift break a test: a newly authored colour-only mark, and a
+ * remediated one that is still listed.
+ */
+export const SEMANTIC_COLOUR_ONLY_MARKS_PATH =
+  'evidence/brand-v2/semantic-colour-only-marks.json';
 export const AUTHORED_TOKEN_SOURCE = 'app/globals.css';
 export const RENDERER_MIRROR_SOURCE = 'lib/brand-v2-tokens.ts';
 
@@ -836,8 +849,10 @@ export type SemanticTokenMember = {
   references: number;
   /** The alias the use goes through, when it does not name the token. */
   viaAlias: string | null;
-  /** Non-colour carriers of the same state observed in the module. */
-  cueCarriers: string[];
+  /** The concrete marks this member paints, each with its own cues. */
+  marks: SemanticMark[];
+  /** Marks that carry the hue with no non-colour cue of their own. */
+  colourOnlyMarks: string[];
 };
 
 const SEMANTIC_SCAN_ROOTS = ['app', 'components', 'lib'] as const;
@@ -864,31 +879,6 @@ const UTILITY_PREFIXES = [
   'accent',
   'divide',
 ] as const;
-
-/**
- * Non-colour carriers of a semantic state, as concrete syntactic forms. A
- * cue has to be something other than the hue, so a border, a weight, a
- * shape, a state attribute or a role switch counts and the colour utility
- * does not. "Contains some text" is deliberately not a form: every module
- * satisfies it, so accepting it would make the cue check unfalsifiable.
- */
-const CUE_FORMS: ReadonlyArray<{ id: string; pattern: RegExp }> = [
-  {
-    id: 'border-utility',
-    pattern: /\bborder(?:-[lrtb])?-(?:ok|warn|error|err|destructive)\b/,
-  },
-  { id: 'weight-utility', pattern: /\bfont-(?:medium|semibold|bold)\b/ },
-  {
-    id: 'shape-geometry',
-    pattern: /strokeDasharray|<path\b|markerEnd|marker-end/,
-  },
-  {
-    id: 'state-attribute',
-    pattern:
-      /\bdata-(?:variant|testid|state|correct)\b|\baria-(?:invalid|live|label)\b/,
-  },
-  { id: 'role-switch', pattern: /\brole=/ },
-];
 
 function filesUnder(directory: string): string[] {
   const files: string[] = [];
@@ -962,15 +952,21 @@ export function deriveSemanticTokenPopulation(input: {
     ].sort(),
     references: 1,
     viaAlias: null,
-    cueCarriers: [],
+    marks: [],
+    colourOnlyMarks: [],
   }));
 
   const uses = new Map<string, SemanticTokenMember>();
   for (const modulePath of semanticModules(input.root)) {
-    const text = readFileSync(join(input.root, modulePath), 'utf8');
-    const cues = CUE_FORMS.filter(({ pattern }) => pattern.test(text)).map(
-      ({ id }) => id,
+    // Comments are stripped before a use is counted. Naming a token in
+    // prose is not using it, and this module's own documentation of the cue
+    // vocabulary would otherwise enter the population it derives — the same
+    // self-feeding hazard that keeps the Tailwind-emitted token scan out of
+    // lib/.
+    const text = stripComments(
+      readFileSync(join(input.root, modulePath), 'utf8'),
     );
+    const tokenByForm = new Map<string, string>();
     for (const token of tokens) {
       const names = [token, ...(aliasesByToken.get(token) ?? [])];
       const forms = new Map<string, number>();
@@ -998,6 +994,7 @@ export function deriveSemanticTokenPopulation(input: {
           form.endsWith(`-${alias}`) || form === `var(--color-${alias})`,
         ),
       );
+      for (const form of forms.keys()) tokenByForm.set(form, token);
       const id = `semantic-use:${modulePath}#${token}`;
       uses.set(id, {
         id,
@@ -1009,8 +1006,33 @@ export function deriveSemanticTokenPopulation(input: {
         viaAlias: usedAlias
           ? ((aliasesByToken.get(token) ?? [])[0] ?? null)
           : null,
-        cueCarriers: cues,
+        marks: [],
+        colourOnlyMarks: [],
       });
+    }
+    if (tokenByForm.size > 0) {
+      if (extname(modulePath) !== '.tsx') {
+        throw new Error(
+          `${modulePath} uses a semantic colour token outside JSX, so no mark can be resolved to carry its cue`,
+        );
+      }
+      const marks = deriveSemanticMarks({
+        module: modulePath,
+        text,
+        tokenByForm,
+      });
+      for (const member of uses.values()) {
+        if (member.module !== modulePath || member.kind !== 'use') continue;
+        member.marks = marks.filter(({ token }) => token === member.token);
+        if (member.marks.length === 0) {
+          throw new Error(
+            `${modulePath} uses ${member.token} through ${member.forms.join(', ')}, but no concrete mark was resolved for it`,
+          );
+        }
+        member.colourOnlyMarks = member.marks
+          .filter(({ cues }) => cues.length === 0)
+          .map(({ id }) => id);
+      }
     }
     for (const token of tokens) {
       const mirror = new RegExp(`BRAND_COLORS\\.${token}\\b`, 'g');
@@ -1025,7 +1047,8 @@ export function deriveSemanticTokenPopulation(input: {
         forms: [`BRAND_COLORS.${token}`],
         references: count,
         viaAlias: null,
-        cueCarriers: cues,
+        marks: [],
+        colourOnlyMarks: [],
       });
     }
   }

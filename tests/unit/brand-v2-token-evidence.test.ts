@@ -2,8 +2,10 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
+import { deriveSemanticMarks } from '@/lib/brand-v2-semantic-marks';
 import {
   AUTHORED_TOKEN_SOURCE,
+  SEMANTIC_COLOUR_ONLY_MARKS_PATH,
   SEMANTIC_ROLE_ASSERTION,
   TOKEN_RENDERER_EVIDENCE_PATH,
   TOKEN_RUNTIME_EVIDENCE_PATH,
@@ -326,15 +328,100 @@ describe('brand-v2 token evidence', () => {
     for (const member of population) {
       expect(member.id).toMatch(/^semantic-(token|use|renderer):/);
     }
-    // Every use site carries a non-colour cue beside the hue, and the cue
-    // vocabulary excludes "contains some text", which every module has.
+    // Every use resolves to concrete marks, and each mark's cues are read
+    // from that mark's own syntax: a mark with no cue of its own stays in
+    // colourOnlyMarks instead of borrowing a cue from elsewhere in the file.
     for (const member of uses) {
-      expect(member.cueCarriers, member.id).not.toEqual([]);
-      expect(member.cueCarriers).not.toContain('text-label');
+      expect(member.marks, member.id).not.toEqual([]);
+      for (const mark of member.marks) {
+        expect(mark.id, member.id).toContain(member.module);
+        expect(mark.token).toBe(member.token);
+        if (mark.cues.length === 0) {
+          expect(member.colourOnlyMarks, member.id).toContain(mark.id);
+        }
+      }
     }
     // The alias is followed rather than missed: text-err is a use of error.
     const aliasUse = uses.find(({ viaAlias }) => viaAlias === 'err');
     expect(aliasUse?.token).toBe('error');
+  });
+
+  it('reads a mark cue from that mark and not from elsewhere in the module', () => {
+    const tokenByForm = new Map([['var(--color-err)', 'error']]);
+    // The caption carries a role, a weight utility and text; the coloured
+    // path carries none of them. A module-scope cue search reports this
+    // module as cued, which is what made the clause unfalsifiable.
+    const decoyed = [
+      'export function Plot() {',
+      '  return (',
+      '    <figure>',
+      '      <figcaption role="status" className="font-medium">Tracking error</figcaption>',
+      '      <svg viewBox="0 0 10 10">',
+      '        <path d="M0 0 L10 10" stroke="var(--color-err)" />',
+      '      </svg>',
+      '    </figure>',
+      '  );',
+      '}',
+    ].join('\n');
+    const decoyedMarks = deriveSemanticMarks({
+      module: 'components/interactive/plot.tsx',
+      text: decoyed,
+      tokenByForm,
+    });
+    expect(decoyedMarks.map(({ element }) => element)).toEqual(['path']);
+    expect(decoyedMarks[0].cues).toEqual([]);
+    expect(decoyedMarks[0].binding).toBe('inline');
+
+    // The same mark with a cue of its own resolves that cue, so the check
+    // separates the two cases rather than failing everything.
+    const cued = decoyed.replace(
+      '<path d="M0 0 L10 10" stroke="var(--color-err)" />',
+      '<path d="M0 0 L10 10" stroke="var(--color-err)" strokeDasharray="4 2" />',
+    );
+    const cuedMarks = deriveSemanticMarks({
+      module: 'components/interactive/plot.tsx',
+      text: cued,
+      tokenByForm,
+    });
+    expect(cuedMarks[0].cues).toEqual(['stroke-pattern']);
+  });
+
+  it('does not accept geometry as a text carrier', () => {
+    const marks = deriveSemanticMarks({
+      module: 'components/interactive/plot.tsx',
+      text: [
+        'export function Plot() {',
+        '  return (',
+        '    <svg viewBox="0 0 10 10">',
+        '      <rect className="fill-err" width="4" height="4" />',
+        '      <text className="fill-err">4 failures</text>',
+        '    </svg>',
+        '  );',
+        '}',
+      ].join('\n'),
+      tokenByForm: new Map([['fill-err', 'error']]),
+    });
+    const byElement = new Map(marks.map((mark) => [mark.element, mark.cues]));
+    expect(byElement.get('rect')).toEqual([]);
+    expect(byElement.get('text')).toEqual(['text-carrier']);
+  });
+
+  it('archives the exact set of marks that carry a semantic hue alone', () => {
+    const measured = deriveSemanticTokenPopulation(SOURCES)
+      .flatMap(({ marks }) => marks)
+      .filter(({ cues }) => cues.length === 0)
+      .map(({ id }) => id)
+      .sort();
+    const archived = (
+      JSON.parse(
+        readFileSync(join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH), 'utf8'),
+      ) as { marks: Array<{ id: string }> }
+    ).marks
+      .map(({ id }) => id)
+      .sort();
+    // Set equality in both directions: a newly authored colour-only mark and
+    // a remediated one that is still listed both break this.
+    expect(archived).toEqual(measured);
   });
 
   it('measures each semantic token at or above WCAG AA on both reading grounds', () => {

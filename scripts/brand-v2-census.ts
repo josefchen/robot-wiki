@@ -454,11 +454,15 @@ const ANNOTATION_SCAN = scanAnnotationAssignments(ROOT);
  * shared `components/ui/action.tsx` primitive writes
  * `control:primary-action`, but nothing mounts `<Action>`, so recording that
  * definition file as the owner claims a production mount that does not
- * exist. Reachability alone is not owning it either: `components/ui/card.tsx`
- * can assign `surface:raised`, and every reachable `<Card>` omits `level`,
- * so the only ID it supplies in production is `surface:flat`. A primitive
- * the library defines and no route supplies records an empty owner list,
- * which is the truth.
+ * exist. Import reachability is not owning it either, in two separate ways.
+ * A reachable module need not be mounted: `components/ui/code-block.tsx` is
+ * registered on every MDX body and `components/ui/copy-button.tsx` is called
+ * only by it, so both are importable from a route entry while nothing
+ * renders either one. And a mounted module need not supply every variant it
+ * can write: `components/ui/card.tsx` can assign `surface:raised`, but every
+ * mounted `<Card>` omits `level`, so the only ID it supplies in production
+ * is `surface:flat`. A primitive the library defines and no route mounts
+ * records an empty owner list, which is the truth.
  */
 function annotationOwnerModules(id: string): readonly string[] {
   return ANNOTATION_SCAN.productionOwnersById[id] ?? [];

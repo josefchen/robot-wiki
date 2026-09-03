@@ -29,6 +29,7 @@ export const ENFORCEMENT_FAILURE_REASONS = [
   'duplicate-evidence-result',
   'generated-map-drift',
   'generated-results-drift',
+  'colour-only-mark-archive-drift',
 ] as const;
 const enforcementFailureReasonSchema = z.enum(ENFORCEMENT_FAILURE_REASONS);
 const jsonValueSchema: z.ZodType<unknown> = z.lazy(() =>

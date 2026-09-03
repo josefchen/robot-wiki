@@ -12020,7 +12020,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/article/commit-to-reveal.tsx uses ok through text-ok beside the non-colour cues weight-utility, state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/article/commit-to-reveal.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier, weight-shift), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12035,14 +12035,24 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "weight-utility",
-            "state-attribute"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/article/commit-to-reveal.tsx#213:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier",
+                "weight-shift"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12056,10 +12066,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/advantage-scrubber.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/advantage-scrubber.tsx paints error on 2 marks; 1 of them (components/interactive/advantage-scrubber.tsx#286:rect:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12072,16 +12082,34 @@
           ],
           "references": 3,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/advantage-scrubber.tsx#286:rect:error",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "TAG_FILL",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/advantage-scrubber.tsx#412:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/advantage-scrubber.tsx#286:rect:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12094,10 +12122,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/advantage-scrubber.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/advantage-scrubber.tsx paints ok on 2 marks; 1 of them (components/interactive/advantage-scrubber.tsx#286:rect:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12110,16 +12138,34 @@
           ],
           "references": 3,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/advantage-scrubber.tsx#286:rect:ok",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "TAG_FILL",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/advantage-scrubber.tsx#412:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/advantage-scrubber.tsx#286:rect:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12132,10 +12178,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/appearance-physics-push.tsx uses ok through var(--color-ok) beside the non-colour cues weight-utility, shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/appearance-physics-push.tsx paints ok on 7 marks; 4 of them (components/interactive/appearance-physics-push.tsx#259:path:ok, components/interactive/appearance-physics-push.tsx#280:LayerCaption:ok, components/interactive/appearance-physics-push.tsx#493:line:ok, components/interactive/appearance-physics-push.tsx#502:path:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12147,17 +12193,76 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "weight-utility",
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#259:path:ok",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#280:LayerCaption:ok",
+              "element": "LayerCaption",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#295:line:ok",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#304:text:ok",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#394:rect:ok",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#493:line:ok",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/appearance-physics-push.tsx#502:path:ok",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/appearance-physics-push.tsx#259:path:ok",
+            "components/interactive/appearance-physics-push.tsx#280:LayerCaption:ok",
+            "components/interactive/appearance-physics-push.tsx#493:line:ok",
+            "components/interactive/appearance-physics-push.tsx#502:path:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12170,10 +12275,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/collaborative-operation-modes.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/collaborative-operation-modes.tsx paints error on 10 marks; 5 of them (components/interactive/collaborative-operation-modes.tsx#109:line:error, components/interactive/collaborative-operation-modes.tsx#117:line:error, components/interactive/collaborative-operation-modes.tsx#125:circle:error, components/interactive/collaborative-operation-modes.tsx#351:rect:error, components/interactive/collaborative-operation-modes.tsx#397:RobotGlyph:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12186,16 +12291,102 @@
           ],
           "references": 4,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#109:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#117:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#125:circle:error",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#262:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#299:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#351:rect:error",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#365:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#379:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#397:RobotGlyph:error",
+              "element": "RobotGlyph",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/collaborative-operation-modes.tsx#407:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "ERR",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/collaborative-operation-modes.tsx#109:line:error",
+            "components/interactive/collaborative-operation-modes.tsx#117:line:error",
+            "components/interactive/collaborative-operation-modes.tsx#125:circle:error",
+            "components/interactive/collaborative-operation-modes.tsx#351:rect:error",
+            "components/interactive/collaborative-operation-modes.tsx#397:RobotGlyph:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12208,10 +12399,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/compounding-error.tsx uses ok through var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/compounding-error.tsx paints ok on 3 marks; 1 of them (components/interactive/compounding-error.tsx#356:line:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12223,16 +12414,43 @@
           ],
           "references": 3,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/compounding-error.tsx#356:line:ok",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/compounding-error.tsx#440:path:ok",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/compounding-error.tsx#486:line:ok",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/compounding-error.tsx#356:line:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12245,10 +12463,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/contact-geometry.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/contact-geometry.tsx paints error on 6 marks; 3 of them (components/interactive/contact-geometry.tsx#238:rect:error, components/interactive/contact-geometry.tsx#78:line:error, components/interactive/contact-geometry.tsx#86:circle:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12261,16 +12479,68 @@
           ],
           "references": 7,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/contact-geometry.tsx#166:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/contact-geometry.tsx#238:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/contact-geometry.tsx#284:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/contact-geometry.tsx#445:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/contact-geometry.tsx#78:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/contact-geometry.tsx#86:circle:error",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/contact-geometry.tsx#238:rect:error",
+            "components/interactive/contact-geometry.tsx#78:line:error",
+            "components/interactive/contact-geometry.tsx#86:circle:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12283,7 +12553,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/contact-geometry.tsx uses ok through text-ok beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/contact-geometry.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12298,15 +12568,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/contact-geometry.tsx#445:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12320,10 +12598,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/control-loop-budget.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/control-loop-budget.tsx paints error on 6 marks; 2 of them (components/interactive/control-loop-budget.tsx#248:rect:error, components/interactive/control-loop-budget.tsx#257:rect:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12336,16 +12614,69 @@
           ],
           "references": 6,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/control-loop-budget.tsx#201:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#210:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#248:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#257:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#267:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#293:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/control-loop-budget.tsx#248:rect:error",
+            "components/interactive/control-loop-budget.tsx#257:rect:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12358,10 +12689,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/control-loop-budget.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/control-loop-budget.tsx paints ok on 3 marks; 2 of them (components/interactive/control-loop-budget.tsx#248:rect:ok, components/interactive/control-loop-budget.tsx#257:rect:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12374,16 +12705,42 @@
           ],
           "references": 3,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/control-loop-budget.tsx#248:rect:ok",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#257:rect:ok",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/control-loop-budget.tsx#293:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/control-loop-budget.tsx#248:rect:ok",
+            "components/interactive/control-loop-budget.tsx#257:rect:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12396,7 +12753,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/cross-embodiment-strategies.tsx uses ok through text-ok beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/cross-embodiment-strategies.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12411,15 +12768,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/cross-embodiment-strategies.tsx#245:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12433,7 +12798,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/cross-embodiment-strategies.tsx uses warn through text-warn beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/cross-embodiment-strategies.tsx uses warn through text-warn on 2 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12448,15 +12813,32 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/cross-embodiment-strategies.tsx#245:span:warn",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/cross-embodiment-strategies.tsx#310:p:warn",
+              "element": "p",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12470,7 +12852,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/egoscale-scaling.tsx uses error through var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/egoscale-scaling.tsx uses error through var(--color-err) on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12485,15 +12867,23 @@
           ],
           "references": 1,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/egoscale-scaling.tsx#510:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12507,10 +12897,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/eureka-loop.tsx uses error through bg-err, text-err beside the non-colour cues state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/eureka-loop.tsx paints error on 2 marks; 1 of them (components/interactive/eureka-loop.tsx#142:div:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12523,14 +12913,34 @@
           ],
           "references": 3,
           "viaAlias": "err",
-          "cueCarriers": [
-            "state-attribute"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/eureka-loop.tsx#142:div:error",
+              "element": "div",
+              "binding": "class-constant",
+              "via": "DIFF_STYLE",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/eureka-loop.tsx#171:dd:error",
+              "element": "dd",
+              "binding": "class-constant",
+              "via": "STAT_TONE",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/eureka-loop.tsx#142:div:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12543,10 +12953,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/eureka-loop.tsx uses ok through bg-ok, text-ok beside the non-colour cues state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/eureka-loop.tsx paints ok on 2 marks; 1 of them (components/interactive/eureka-loop.tsx#142:div:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12559,14 +12969,34 @@
           ],
           "references": 3,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/eureka-loop.tsx#142:div:ok",
+              "element": "div",
+              "binding": "class-constant",
+              "via": "DIFF_STYLE",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/eureka-loop.tsx#171:dd:ok",
+              "element": "dd",
+              "binding": "class-constant",
+              "via": "STAT_TONE",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/eureka-loop.tsx#142:div:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12579,7 +13009,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/eureka-loop.tsx uses warn through text-warn beside the non-colour cues state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/eureka-loop.tsx uses warn through text-warn on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12594,13 +13024,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/eureka-loop.tsx#171:dd:warn",
+              "element": "dd",
+              "binding": "class-constant",
+              "via": "STAT_TONE",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12614,10 +13054,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/execution-modes.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/execution-modes.tsx paints error on 8 marks; 2 of them (components/interactive/execution-modes.tsx#213:path:error, components/interactive/execution-modes.tsx#223:circle:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12630,16 +13070,92 @@
           ],
           "references": 6,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/execution-modes.tsx#107:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#120:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#135:svg:error",
+              "element": "svg",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#213:path:error",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#223:circle:error",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#229:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#353:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#366:ModePanel:error",
+              "element": "ModePanel",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch",
+                "stroke-pattern"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/execution-modes.tsx#213:path:error",
+            "components/interactive/execution-modes.tsx#223:circle:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12652,10 +13168,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/execution-modes.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/execution-modes.tsx paints ok on 6 marks; 1 of them (components/interactive/execution-modes.tsx#213:path:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12668,16 +13184,75 @@
           ],
           "references": 4,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/execution-modes.tsx#107:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#120:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#135:svg:ok",
+              "element": "svg",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#213:path:ok",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#357:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#366:ModePanel:ok",
+              "element": "ModePanel",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch",
+                "stroke-pattern"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/execution-modes.tsx#213:path:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12690,10 +13265,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/execution-modes.tsx uses warn through text-warn, var(--color-warn) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/execution-modes.tsx paints warn on 7 marks; 2 of them (components/interactive/execution-modes.tsx#145:rect:warn, components/interactive/execution-modes.tsx#213:path:warn) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12706,16 +13281,83 @@
           ],
           "references": 5,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/execution-modes.tsx#107:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#129:span:warn",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#135:svg:warn",
+              "element": "svg",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#145:rect:warn",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#153:text:warn",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#213:path:warn",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/execution-modes.tsx#366:ModePanel:warn",
+              "element": "ModePanel",
+              "binding": "class-constant",
+              "via": "MODE_META",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch",
+                "stroke-pattern"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/execution-modes.tsx#145:rect:warn",
+            "components/interactive/execution-modes.tsx#213:path:warn"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12728,10 +13370,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/grasp-wrench-lab.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/grasp-wrench-lab.tsx paints error on 5 marks; 3 of them (components/interactive/grasp-wrench-lab.tsx#376:circle:error, components/interactive/grasp-wrench-lab.tsx#384:circle:error, components/interactive/grasp-wrench-lab.tsx#417:span:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12744,16 +13386,59 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#376:circle:error",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#384:circle:error",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#385:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#417:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/grasp-wrench-lab.tsx#376:circle:error",
+            "components/interactive/grasp-wrench-lab.tsx#384:circle:error",
+            "components/interactive/grasp-wrench-lab.tsx#417:span:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12766,10 +13451,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/grasp-wrench-lab.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/grasp-wrench-lab.tsx paints ok on 5 marks; 3 of them (components/interactive/grasp-wrench-lab.tsx#376:circle:ok, components/interactive/grasp-wrench-lab.tsx#384:circle:ok, components/interactive/grasp-wrench-lab.tsx#417:span:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12782,16 +13467,59 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#376:circle:ok",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#384:circle:ok",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#385:text:ok",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#417:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "stateColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/grasp-wrench-lab.tsx#466:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/grasp-wrench-lab.tsx#376:circle:ok",
+            "components/interactive/grasp-wrench-lab.tsx#384:circle:ok",
+            "components/interactive/grasp-wrench-lab.tsx#417:span:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12804,7 +13532,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/hierarchy-timescales.tsx uses warn through text-warn, var(--color-warn) beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/hierarchy-timescales.tsx uses warn through text-warn, var(--color-warn) on 2 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12820,14 +13548,32 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/hierarchy-timescales.tsx#191:text:warn",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/hierarchy-timescales.tsx#297:span:warn",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12841,7 +13587,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/impedance-contact-lab.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/impedance-contact-lab.tsx uses error through text-err, var(--color-err) on 4 marks, each carrying its own non-colour cue (stroke-pattern, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -12857,15 +13603,50 @@
           ],
           "references": 4,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/impedance-contact-lab.tsx#310:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/impedance-contact-lab.tsx#319:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/impedance-contact-lab.tsx#397:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/impedance-contact-lab.tsx#404:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -12879,10 +13660,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/jepa-planning.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/jepa-planning.tsx paints ok on 4 marks; 2 of them (components/interactive/jepa-planning.tsx#351:circle:ok, components/interactive/jepa-planning.tsx#359:circle:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12895,16 +13676,51 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/jepa-planning.tsx#351:circle:ok",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/jepa-planning.tsx#359:circle:ok",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/jepa-planning.tsx#360:text:ok",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "OK",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/jepa-planning.tsx#486:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/jepa-planning.tsx#351:circle:ok",
+            "components/interactive/jepa-planning.tsx#359:circle:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12917,10 +13733,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/latency-comparison.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/latency-comparison.tsx paints error on 11 marks; 7 of them (components/interactive/latency-comparison.tsx#251:rect:error, components/interactive/latency-comparison.tsx#331:path:error, components/interactive/latency-comparison.tsx#347:circle:error, components/interactive/latency-comparison.tsx#365:line:error, components/interactive/latency-comparison.tsx#423:rect:error, components/interactive/latency-comparison.tsx#537:path:error, components/interactive/latency-comparison.tsx#545:circle:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12933,16 +13749,109 @@
           ],
           "references": 11,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/latency-comparison.tsx#251:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#259:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#331:path:error",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#347:circle:error",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#365:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#423:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#431:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#537:path:error",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#545:circle:error",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#551:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#586:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_COLOR",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/latency-comparison.tsx#251:rect:error",
+            "components/interactive/latency-comparison.tsx#331:path:error",
+            "components/interactive/latency-comparison.tsx#347:circle:error",
+            "components/interactive/latency-comparison.tsx#365:line:error",
+            "components/interactive/latency-comparison.tsx#423:rect:error",
+            "components/interactive/latency-comparison.tsx#537:path:error",
+            "components/interactive/latency-comparison.tsx#545:circle:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12955,10 +13864,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/latency-comparison.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/latency-comparison.tsx paints ok on 6 marks; 4 of them (components/interactive/latency-comparison.tsx#325:path:ok, components/interactive/latency-comparison.tsx#355:circle:ok, components/interactive/latency-comparison.tsx#380:line:ok, components/interactive/latency-comparison.tsx#531:path:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -12971,16 +13880,67 @@
           ],
           "references": 6,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/latency-comparison.tsx#325:path:ok",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#355:circle:ok",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#380:line:ok",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#531:path:ok",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#586:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_COLOR",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/latency-comparison.tsx#593:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/latency-comparison.tsx#325:path:ok",
+            "components/interactive/latency-comparison.tsx#355:circle:ok",
+            "components/interactive/latency-comparison.tsx#380:line:ok",
+            "components/interactive/latency-comparison.tsx#531:path:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -12993,7 +13953,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/latency-comparison.tsx uses warn through text-warn beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/latency-comparison.tsx uses warn through text-warn on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13008,15 +13968,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/latency-comparison.tsx#586:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_COLOR",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13030,10 +13998,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mot-insulation.tsx uses error through border-err, text-err, var(--color-err) beside the non-colour cues border-utility, shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/mot-insulation.tsx paints error on 9 marks; 3 of them (components/interactive/mot-insulation.tsx#218:path:error, components/interactive/mot-insulation.tsx#346:rect:error, components/interactive/mot-insulation.tsx#480:div:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13047,17 +14015,97 @@
           ],
           "references": 8,
           "viaAlias": "err",
-          "cueCarriers": [
-            "border-utility",
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/mot-insulation.tsx#165:button:error",
+              "element": "button",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "assistive-state",
+                "semantic-rule",
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#218:path:error",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#281:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#346:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#381:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#420:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#465:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "meterColor",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#480:div:error",
+              "element": "div",
+              "binding": "class-constant",
+              "via": "meterColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#527:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/mot-insulation.tsx#218:path:error",
+            "components/interactive/mot-insulation.tsx#346:rect:error",
+            "components/interactive/mot-insulation.tsx#480:div:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13070,10 +14118,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mot-insulation.tsx uses ok through border-ok, text-ok, var(--color-ok) beside the non-colour cues border-utility, shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/mot-insulation.tsx paints ok on 7 marks; 1 of them (components/interactive/mot-insulation.tsx#228:path:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13087,17 +14135,81 @@
           ],
           "references": 7,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/mot-insulation.tsx#165:button:ok",
+              "element": "button",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "assistive-state",
+                "semantic-rule",
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#228:path:ok",
+              "element": "path",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#281:line:ok",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#291:text:ok",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#318:line:ok",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#327:text:ok",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/mot-insulation.tsx#530:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/mot-insulation.tsx#228:path:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13110,7 +14222,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mpc-vs-rl.tsx uses error through text-err beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/mpc-vs-rl.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13125,15 +14237,23 @@
           ],
           "references": 1,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/mpc-vs-rl.tsx#294:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13147,7 +14267,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mpc-vs-rl.tsx uses ok through text-ok beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/mpc-vs-rl.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13162,15 +14282,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/mpc-vs-rl.tsx#294:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13184,7 +14312,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/mpc-vs-rl.tsx uses warn through text-warn beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/mpc-vs-rl.tsx uses warn through text-warn on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13199,15 +14327,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/mpc-vs-rl.tsx#294:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "STATUS_TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13221,10 +14357,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/pendulum-controller.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/pendulum-controller.tsx paints error on 11 marks; 7 of them (components/interactive/pendulum-controller.tsx#271:line:error, components/interactive/pendulum-controller.tsx#280:line:error, components/interactive/pendulum-controller.tsx#291:line:error, components/interactive/pendulum-controller.tsx#312:path:error, components/interactive/pendulum-controller.tsx#347:circle:error, components/interactive/pendulum-controller.tsx#355:circle:error, components/interactive/pendulum-controller.tsx#363:path:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13237,16 +14373,109 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/pendulum-controller.tsx#271:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#280:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#291:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#300:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#312:path:error",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#324:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#336:line:error",
+              "element": "line",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#347:circle:error",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#355:circle:error",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#363:path:error",
+              "element": "path",
+              "binding": "class-constant",
+              "via": "poleColor",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/pendulum-controller.tsx#431:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/pendulum-controller.tsx#271:line:error",
+            "components/interactive/pendulum-controller.tsx#280:line:error",
+            "components/interactive/pendulum-controller.tsx#291:line:error",
+            "components/interactive/pendulum-controller.tsx#312:path:error",
+            "components/interactive/pendulum-controller.tsx#347:circle:error",
+            "components/interactive/pendulum-controller.tsx#355:circle:error",
+            "components/interactive/pendulum-controller.tsx#363:path:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13259,10 +14488,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/perception-error-budget.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/perception-error-budget.tsx paints error on 9 marks; 3 of them (components/interactive/perception-error-budget.tsx#259:rect:error, components/interactive/perception-error-budget.tsx#267:rect:error, components/interactive/perception-error-budget.tsx#315:rect:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13275,16 +14504,95 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/perception-error-budget.tsx#259:rect:error",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#267:rect:error",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#284:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#305:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#315:rect:error",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#324:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#338:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#350:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "fill",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#384:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "verdictTone",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/perception-error-budget.tsx#259:rect:error",
+            "components/interactive/perception-error-budget.tsx#267:rect:error",
+            "components/interactive/perception-error-budget.tsx#315:rect:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13297,10 +14605,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/perception-error-budget.tsx uses warn through text-warn, var(--color-warn) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/perception-error-budget.tsx paints warn on 2 marks; 1 of them (components/interactive/perception-error-budget.tsx#267:rect:warn) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13313,16 +14621,34 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/perception-error-budget.tsx#267:rect:warn",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/perception-error-budget.tsx#384:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "verdictTone",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/perception-error-budget.tsx#267:rect:warn"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13335,10 +14661,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/perception-latency.tsx uses error through var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/perception-latency.tsx paints error on 2 marks; 1 of them (components/interactive/perception-latency.tsx#234:line:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13350,16 +14676,34 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/perception-latency.tsx#234:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/perception-latency.tsx#242:text:error",
+              "element": "text",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/perception-latency.tsx#234:line:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13372,7 +14716,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/reward-shaping.tsx uses error through text-err, var(--color-err) beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/reward-shaping.tsx uses error through text-err, var(--color-err) on 3 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13388,14 +14732,41 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/reward-shaping.tsx#230:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#263:text:error",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "TONE_FILL",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#446:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13409,7 +14780,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/reward-shaping.tsx uses ok through text-ok, var(--color-ok) beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/reward-shaping.tsx uses ok through text-ok, var(--color-ok) on 3 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13425,14 +14796,41 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/reward-shaping.tsx#230:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#263:text:ok",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "TONE_FILL",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#446:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13446,7 +14844,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/reward-shaping.tsx uses warn through text-warn, var(--color-warn) beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/reward-shaping.tsx uses warn through text-warn, var(--color-warn) on 3 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13462,14 +14860,41 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/reward-shaping.tsx#230:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#263:text:warn",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "TONE_FILL",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/reward-shaping.tsx#446:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "TONE_TEXT",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13483,10 +14908,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/rrt-explorer.tsx uses ok through var(--color-ok) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/rrt-explorer.tsx paints ok on 1 marks; 1 of them (components/interactive/rrt-explorer.tsx#335:circle:ok) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13498,16 +14923,25 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/interactive/rrt-explorer.tsx#335:circle:ok",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/rrt-explorer.tsx#335:circle:ok"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13520,10 +14954,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/sample-efficiency-ledger.tsx uses error through text-err, var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/sample-efficiency-ledger.tsx paints error on 2 marks; 1 of them (components/interactive/sample-efficiency-ledger.tsx#241:rect:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13536,16 +14970,34 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/sample-efficiency-ledger.tsx#241:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/sample-efficiency-ledger.tsx#404:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "verdictTone",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/sample-efficiency-ledger.tsx#241:rect:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13558,7 +15010,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/sample-efficiency-ledger.tsx uses warn through text-warn beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/sample-efficiency-ledger.tsx uses warn through text-warn on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13573,15 +15025,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/sample-efficiency-ledger.tsx#404:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "verdictTone",
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13595,10 +15055,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/scene-representation-ladder.tsx uses warn through border-warn, text-warn, var(--color-warn) beside the non-colour cues border-utility, weight-utility, shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/scene-representation-ladder.tsx paints warn on 12 marks; 9 of them (components/interactive/scene-representation-ladder.tsx#206:polyline:warn, components/interactive/scene-representation-ladder.tsx#217:rect:warn, components/interactive/scene-representation-ladder.tsx#230:circle:warn, components/interactive/scene-representation-ladder.tsx#249:ellipse:warn, components/interactive/scene-representation-ladder.tsx#260:ellipse:warn, components/interactive/scene-representation-ladder.tsx#327:SamplePanel:warn, components/interactive/scene-representation-ladder.tsx#328:SamplePanel:warn, components/interactive/scene-representation-ladder.tsx#329:SamplePanel:warn, components/interactive/scene-representation-ladder.tsx#330:SplatPanel:warn) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13612,18 +15072,120 @@
           ],
           "references": 3,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#206:polyline:warn",
+              "element": "polyline",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#217:rect:warn",
+              "element": "rect",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#230:circle:warn",
+              "element": "circle",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#249:ellipse:warn",
+              "element": "ellipse",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#260:ellipse:warn",
+              "element": "ellipse",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#272:text:warn",
+              "element": "text",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": [
+                "text-carrier"
+              ]
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#327:SamplePanel:warn",
+              "element": "SamplePanel",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#328:SamplePanel:warn",
+              "element": "SamplePanel",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#329:SamplePanel:warn",
+              "element": "SamplePanel",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#330:SplatPanel:warn",
+              "element": "SplatPanel",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": []
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#442:Panel:warn",
+              "element": "Panel",
+              "binding": "class-constant",
+              "via": "WARN",
+              "cues": [
+                "accessible-label",
+                "assistive-state",
+                "role-switch"
+              ]
+            },
+            {
+              "id": "components/interactive/scene-representation-ladder.tsx#498:li:warn",
+              "element": "li",
+              "binding": "class-constant",
+              "via": "STATE_TONE",
+              "cues": [
+                "accessible-label",
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/scene-representation-ladder.tsx#206:polyline:warn",
+            "components/interactive/scene-representation-ladder.tsx#217:rect:warn",
+            "components/interactive/scene-representation-ladder.tsx#230:circle:warn",
+            "components/interactive/scene-representation-ladder.tsx#249:ellipse:warn",
+            "components/interactive/scene-representation-ladder.tsx#260:ellipse:warn",
+            "components/interactive/scene-representation-ladder.tsx#327:SamplePanel:warn",
+            "components/interactive/scene-representation-ladder.tsx#328:SamplePanel:warn",
+            "components/interactive/scene-representation-ladder.tsx#329:SamplePanel:warn",
+            "components/interactive/scene-representation-ladder.tsx#330:SplatPanel:warn"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13636,10 +15198,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/teacher-student.tsx uses error through var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/teacher-student.tsx paints error on 3 marks; 2 of them (components/interactive/teacher-student.tsx#182:rect:error, components/interactive/teacher-student.tsx#239:rect:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13651,16 +15213,42 @@
           ],
           "references": 3,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/teacher-student.tsx#182:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/teacher-student.tsx#189:line:error",
+              "element": "line",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "stroke-pattern"
+              ]
+            },
+            {
+              "id": "components/interactive/teacher-student.tsx#239:rect:error",
+              "element": "rect",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/teacher-student.tsx#182:rect:error",
+            "components/interactive/teacher-student.tsx#239:rect:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13673,10 +15261,10 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/interactive/training-time-chart.tsx uses error through var(--color-err) beside the non-colour cues shape-geometry, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/interactive/training-time-chart.tsx paints error on 4 marks; 4 of them (components/interactive/training-time-chart.tsx#284:polyline:error, components/interactive/training-time-chart.tsx#319:circle:error, components/interactive/training-time-chart.tsx#345:div:error, components/interactive/training-time-chart.tsx#372:span:error) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
-      "status": "passed",
+      "status": "pending",
       "payload": {
         "kind": "browser-state",
         "computed": {
@@ -13688,16 +15276,49 @@
           ],
           "references": 4,
           "viaAlias": "err",
-          "cueCarriers": [
-            "shape-geometry",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/interactive/training-time-chart.tsx#284:polyline:error",
+              "element": "polyline",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/training-time-chart.tsx#319:circle:error",
+              "element": "circle",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/training-time-chart.tsx#345:div:error",
+              "element": "div",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            },
+            {
+              "id": "components/interactive/training-time-chart.tsx#372:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": []
+            }
+          ],
+          "colourOnlyMarks": [
+            "components/interactive/training-time-chart.tsx#284:polyline:error",
+            "components/interactive/training-time-chart.tsx#319:circle:error",
+            "components/interactive/training-time-chart.tsx#345:div:error",
+            "components/interactive/training-time-chart.tsx#372:span:error"
+          ],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
-          ]
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
+          ],
+          "deferredTo": "brand-v2-interactive-data-legends-and-render-parity"
         }
       }
     },
@@ -13710,7 +15331,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/mdx/cite-ref.tsx uses error through border-err, text-err beside the non-colour cues border-utility, and the token resolved on all 61 swept public routes",
+      "actual": "components/mdx/cite-ref.tsx uses error through border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13726,13 +15347,24 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "border-utility"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/mdx/cite-ref.tsx#16:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13746,7 +15378,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/mdx/image-ref.tsx uses error through border-err, text-err beside the non-colour cues border-utility, and the token resolved on all 61 swept public routes",
+      "actual": "components/mdx/image-ref.tsx uses error through border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13762,13 +15394,24 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "border-utility"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/mdx/image-ref.tsx#18:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13782,7 +15425,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/mdx/term-ref.tsx uses error through border-err, text-err beside the non-colour cues border-utility, and the token resolved on all 61 swept public routes",
+      "actual": "components/mdx/term-ref.tsx uses error through border-err, text-err on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13798,13 +15441,24 @@
           ],
           "references": 2,
           "viaAlias": "err",
-          "cueCarriers": [
-            "border-utility"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/mdx/term-ref.tsx#19:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13818,7 +15472,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/ik-target-form.tsx uses error through text-err beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/three/ik-target-form.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (role-switch, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13833,14 +15487,24 @@
           ],
           "references": 1,
           "viaAlias": "err",
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/three/ik-target-form.tsx#115:p:error",
+              "element": "p",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "role-switch",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13854,7 +15518,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/playground-hud.tsx uses error through text-err beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/three/playground-hud.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13869,14 +15533,23 @@
           ],
           "references": 1,
           "viaAlias": "err",
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/three/playground-hud.tsx#107:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13890,7 +15563,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/playground-hud.tsx uses ok through text-ok beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/three/playground-hud.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13905,14 +15578,23 @@
           ],
           "references": 1,
           "viaAlias": null,
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/three/playground-hud.tsx#107:span:ok",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13926,7 +15608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/trajectory-panel.tsx uses error through text-err beside the non-colour cues state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/three/trajectory-panel.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (role-switch, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13941,14 +15623,24 @@
           ],
           "references": 1,
           "viaAlias": "err",
-          "cueCarriers": [
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/three/trajectory-panel.tsx#160:p:error",
+              "element": "p",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "role-switch",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -13962,7 +15654,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/badge.tsx uses error through border-error, text-error beside the non-colour cues border-utility, weight-utility, state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/badge.tsx uses error through border-error, text-error on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -13978,15 +15670,24 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/ui/badge.tsx#21:span:error",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "variantClasses",
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -14000,7 +15701,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/badge.tsx uses ok through border-ok, text-ok beside the non-colour cues border-utility, weight-utility, state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/badge.tsx uses ok through border-ok, text-ok on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -14016,15 +15717,24 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute"
-          ],
           "authored": "#1A6F45",
+          "marks": [
+            {
+              "id": "components/ui/badge.tsx#21:span:ok",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "variantClasses",
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -14038,7 +15748,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/badge.tsx uses warn through border-warn, text-warn beside the non-colour cues border-utility, weight-utility, state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/badge.tsx uses warn through border-warn, text-warn on 1 marks, each carrying its own non-colour cue (semantic-rule, text-carrier), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -14054,15 +15764,24 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/ui/badge.tsx#21:span:warn",
+              "element": "span",
+              "binding": "class-constant",
+              "via": "variantClasses",
+              "cues": [
+                "semantic-rule",
+                "text-carrier"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -14076,7 +15795,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/callout.tsx uses error through border-l-error, text-error beside the non-colour cues border-utility, weight-utility, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/callout.tsx uses error through border-l-error, text-error on 2 marks, each carrying its own non-colour cue (accessible-label, role-switch, semantic-rule, text-carrier, weight-shift), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -14092,16 +15811,35 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/ui/callout.tsx#32:div:error",
+              "element": "div",
+              "binding": "class-constant",
+              "via": "borderColor",
+              "cues": [
+                "accessible-label",
+                "role-switch",
+                "semantic-rule"
+              ]
+            },
+            {
+              "id": "components/ui/callout.tsx#43:p:error",
+              "element": "p",
+              "binding": "class-constant",
+              "via": "titleColor",
+              "cues": [
+                "text-carrier",
+                "weight-shift"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -14115,7 +15853,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/callout.tsx uses warn through border-l-warn, text-warn beside the non-colour cues border-utility, weight-utility, state-attribute, role-switch, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/callout.tsx uses warn through border-l-warn, text-warn on 2 marks, each carrying its own non-colour cue (accessible-label, role-switch, semantic-rule, text-carrier, weight-shift), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -14131,16 +15869,35 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute",
-            "role-switch"
-          ],
           "authored": "#8A5A00",
+          "marks": [
+            {
+              "id": "components/ui/callout.tsx#32:div:warn",
+              "element": "div",
+              "binding": "class-constant",
+              "via": "borderColor",
+              "cues": [
+                "accessible-label",
+                "role-switch",
+                "semantic-rule"
+              ]
+            },
+            {
+              "id": "components/ui/callout.tsx#43:p:warn",
+              "element": "p",
+              "binding": "class-constant",
+              "via": "titleColor",
+              "cues": [
+                "text-carrier",
+                "weight-shift"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }
@@ -14154,7 +15911,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/ui/input-field.tsx uses error through border-error, text-error beside the non-colour cues border-utility, weight-utility, state-attribute, and the token resolved on all 61 swept public routes",
+      "actual": "components/ui/input-field.tsx uses error through border-error, text-error on 2 marks, each carrying its own non-colour cue (assistive-state, semantic-rule, text-carrier, weight-shift), and the token resolved on all 61 swept public routes",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -14170,15 +15927,34 @@
           ],
           "references": 2,
           "viaAlias": null,
-          "cueCarriers": [
-            "border-utility",
-            "weight-utility",
-            "state-attribute"
-          ],
           "authored": "#A52A1E",
+          "marks": [
+            {
+              "id": "components/ui/input-field.tsx#32:input:error",
+              "element": "input",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "assistive-state",
+                "semantic-rule"
+              ]
+            },
+            {
+              "id": "components/ui/input-field.tsx#53:span:error",
+              "element": "span",
+              "binding": "inline",
+              "via": null,
+              "cues": [
+                "text-carrier",
+                "weight-shift"
+              ]
+            }
+          ],
+          "colourOnlyMarks": [],
           "routesResolved": 61,
           "evidence": [
-            "evidence/brand-v2/token-runtime.json"
+            "evidence/brand-v2/token-runtime.json",
+            "evidence/brand-v2/semantic-colour-only-marks.json"
           ]
         }
       }

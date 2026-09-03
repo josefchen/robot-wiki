@@ -29,6 +29,13 @@ export type ModuleImportGraph = {
   bindingsByModule: ReadonlyMap<string, readonly ImportBinding[]>;
   /** Modules reachable from the given entries through used imports. */
   reachableFrom: (entries: Iterable<string>) => Set<string>;
+  /**
+   * The module a specifier resolves to, or null when it leaves the
+   * first-party tree. Exposed because a consumer resolving a deferred mount
+   * (`dynamic(() => import('./robot-scene'))`) has to answer the same
+   * question the import walk answers, and a second resolver would drift.
+   */
+  resolveSpecifier: (specifier: string, fromModule: string) => string | null;
 };
 
 export type ImportBinding = {
@@ -57,6 +64,12 @@ const IMPORT_STATEMENT =
   /import\s+(type\s+)?([^'";]*?)\s*from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]/g;
 const REEXPORT_STATEMENT =
   /export\s+(type\s+)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g;
+/**
+ * A deferred import is still a dependency: `next/dynamic(() =>
+ * import('./robot-scene'))` is how the playground mounts its WebGL scene,
+ * and leaving it out made the module unreachable from any route entry.
+ */
+const DYNAMIC_IMPORT = /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
 
 type Binding = { local: string; imported: string };
 
@@ -203,6 +216,10 @@ export function buildModuleImportGraph(
         moduleBindings.push({ ...binding, module: defining });
       }
     }
+    for (const match of text.matchAll(DYNAMIC_IMPORT)) {
+      const target = resolve(match[1], modulePath);
+      if (target !== null) targets.add(target);
+    }
     edges.set(modulePath, targets);
     bindingsByModule.set(modulePath, moduleBindings);
   }
@@ -213,6 +230,7 @@ export function buildModuleImportGraph(
     textByModule,
     edges,
     bindingsByModule,
+    resolveSpecifier: resolve,
     reachableFrom(entries) {
       const reachable = new Set<string>();
       const queue = [...entries];

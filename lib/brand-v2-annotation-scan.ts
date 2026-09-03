@@ -3,6 +3,9 @@ import {
   buildModuleImportGraph,
   type ModuleImportGraph,
 } from './module-import-graph.ts';
+import { stripComments } from './source-comments.ts';
+
+export { stripComments } from './source-comments.ts';
 
 /**
  * The source half of the surface/control population (VAL-B2-SURF-010:
@@ -27,12 +30,25 @@ import {
  * resolved to its finite ID set, and an expression this resolver cannot
  * enumerate throws rather than contributing a silently short population.
  *
- * Writing an ID is not owning it, and for a parameter-driven writer neither
- * is being reachable. `components/ui/card.tsx` can assign `surface:raised`,
- * but every reachable `<Card>` omits `level`, so the only ID that module
- * supplies in production is `surface:flat`. Ownership therefore resolves the
- * variant each reachable call site actually passes, and a call site that
- * passes a computed value throws instead of guessing.
+ * Writing an ID is not owning it, and being reachable is not being mounted.
+ * `components/ui/card.tsx` can assign `surface:raised`, but every mounted
+ * `<Card>` omits `level`, so the only ID that module supplies in production
+ * is `surface:flat`. Ownership therefore resolves the variant each mounted
+ * call site actually passes, and a call site that passes a computed value
+ * throws instead of guessing.
+ *
+ * Import reachability answers a weaker question than production ownership,
+ * and treating the two as one recorded two false owners. `mdx-components.tsx`
+ * exposes the whole design-system registry to every MDX body, so every
+ * component it lists is import-reachable from a route entry; being available
+ * to an author is not being used by one. `components/ui/code-block.tsx` is
+ * registered there, is mounted by no `<CodeBlock>` anywhere in app/, content/
+ * or components/, and was nonetheless recorded as a `surface:flat` production
+ * owner — as was `components/ui/copy-button.tsx`, whose only caller is that
+ * unmounted component. Ownership therefore walks concrete mounts: JSX call
+ * sites resolved through import bindings, deferred `dynamic(() => import())`
+ * mounts, MDX tags resolved through the global registry, and the registry's
+ * lowercase element overrides, which markdown itself emits.
  */
 export type AnnotationKind = 'surface' | 'control' | 'device';
 
@@ -63,8 +79,14 @@ export type AnnotationScan = {
   /** First-party modules scanned for assignments, repository-relative. */
   modules: readonly string[];
   /** Modules reachable from a route entry through used imports. */
-  productionModules: readonly string[];
-  /** Route-entry modules the reachability walk starts from. */
+  importReachableModules: readonly string[];
+  /**
+   * Modules a route entry concretely mounts, through JSX call sites, MDX
+   * tags, the MDX registry's element overrides, or a deferred dynamic
+   * import. A strict subset of `importReachableModules`.
+   */
+  mountedModules: readonly string[];
+  /** Route-entry modules both walks start from. */
   routeEntries: readonly string[];
   /** Every resolved annotation assignment, in module order. */
   writes: readonly AnnotationWrite[];
@@ -100,57 +122,6 @@ const ROUTE_SEGMENT_FILES = new Set([
   'default.tsx',
 ]);
 
-/**
- * Comments are stripped before any assignment is read, so an example inside
- * a doc comment cannot register as a writer. The scan is quote-aware because
- * `//` occurs inside ordinary URLs and class strings.
- */
-export function stripComments(text: string): string {
-  let output = '';
-  let index = 0;
-  const stack: Array<'"' | "'" | '`' | '${'> = [];
-  while (index < text.length) {
-    const char = text[index];
-    const next = text[index + 1];
-    const top = stack.at(-1);
-    if (top === '"' || top === "'" || top === '`') {
-      if (char === '\\') {
-        output += text.slice(index, index + 2);
-        index += 2;
-        continue;
-      }
-      if (char === top) stack.pop();
-      else if (top === '`' && char === '$' && next === '{') {
-        stack.push('${');
-        output += '${';
-        index += 2;
-        continue;
-      }
-      output += char;
-      index += 1;
-      continue;
-    }
-    if (char === '/' && next === '/') {
-      while (index < text.length && text[index] !== '\n') index += 1;
-      continue;
-    }
-    if (char === '/' && next === '*') {
-      index += 2;
-      while (index < text.length && !(text[index] === '*' && text[index + 1] === '/')) {
-        // Newlines are preserved so reported line numbers stay usable.
-        if (text[index] === '\n') output += '\n';
-        index += 1;
-      }
-      index += 2;
-      continue;
-    }
-    if (char === '"' || char === "'" || char === '`') stack.push(char);
-    else if (char === '}' && top === '${') stack.pop();
-    output += char;
-    index += 1;
-  }
-  return output;
-}
 
 function readQuoted(text: string, start: number): { value: string; end: number } {
   const quote = text[start];
@@ -517,6 +488,88 @@ function mdxRegistryBindings(
   return provided;
 }
 
+/** Component tag names a module's JSX mounts, by their root identifier. */
+function componentTagsIn(text: string): Set<string> {
+  const tags = new Set<string>();
+  for (const match of text.matchAll(/<([A-Z][\w$]*(?:\.[A-Za-z][\w$]*)*)[\s/>]/g)) {
+    tags.add(match[1].split('.')[0]);
+  }
+  return tags;
+}
+
+/**
+ * Local names a module binds to a deferred mount. `next/dynamic` is how the
+ * playground defers its WebGL scene, and the resulting `<RobotScene>` is a
+ * concrete mount even though no import statement binds that name.
+ */
+function dynamicComponentBindings(
+  graph: ModuleImportGraph,
+  module: string,
+  text: string,
+): Map<string, string> {
+  const bindings = new Map<string, string>();
+  const declaration =
+    /\b(?:const|let|var)\s+([A-Z][\w$]*)\s*=\s*dynamic\s*\(([^;]*?)\)\s*;/g;
+  for (const match of text.matchAll(declaration)) {
+    const specifier = /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/.exec(match[2]);
+    if (!specifier) continue;
+    const target = graph.resolveSpecifier(specifier[1], module);
+    if (target !== null) bindings.set(match[1], target);
+  }
+  return bindings;
+}
+
+/**
+ * The modules a route entry concretely mounts.
+ *
+ * The walk follows rendered call sites rather than imports: a module joins
+ * the set only when a module already in it renders one of its components.
+ * That is the difference between `<CodeBlock>` appearing somewhere and
+ * `CodeBlock` merely being importable, and it propagates — a component whose
+ * only caller is itself unmounted stays out.
+ */
+function mountedFrom(
+  graph: ModuleImportGraph,
+  entries: readonly string[],
+  mdxProvided: ReadonlyMap<string, string>,
+): Set<string> {
+  // Markdown emits the registry's lowercase element overrides itself, so a
+  // component mapped onto `h2` or `a` is mounted by every MDX body without
+  // any authored tag; a capitalised entry needs one.
+  const elementOverrides = [...mdxProvided]
+    .filter(([name]) => /^[a-z]/.test(name))
+    .map(([, target]) => target);
+  const mounted = new Set<string>();
+  const queue = [...entries];
+  while (queue.length > 0) {
+    const current = queue.pop() as string;
+    if (mounted.has(current)) continue;
+    const text = graph.textByModule.get(current);
+    if (text === undefined) {
+      throw new Error(`Unknown module in mount walk: ${current}`);
+    }
+    mounted.add(current);
+    const source = stripComments(text);
+    const isMdx = extname(current) === '.mdx';
+    if (isMdx) queue.push(...elementOverrides);
+    const bindings = new Map(
+      (graph.bindingsByModule.get(current) ?? []).map((binding) => [
+        binding.local,
+        binding.module,
+      ]),
+    );
+    const deferred = dynamicComponentBindings(graph, current, source);
+    for (const tag of componentTagsIn(source)) {
+      const target =
+        bindings.get(tag) ??
+        deferred.get(tag) ??
+        (isMdx ? mdxProvided.get(tag) : undefined);
+      if (target !== undefined) queue.push(target);
+    }
+  }
+  return mounted;
+}
+
 function attributeValueAt(
   module: string,
   component: string,
@@ -537,21 +590,22 @@ function attributeValueAt(
 
 /**
  * The IDs a write supplies on a production route. A literal or conditional
- * write supplies everything it can produce; a parameter-driven write supplies
- * only the variants its reachable call sites actually pass.
+ * write supplies everything it can produce, but only once a route entry
+ * concretely mounts the module that carries it; a parameter-driven write
+ * supplies only the variants its mounted call sites actually pass.
  */
 function suppliedIds(
   write: AnnotationWrite,
   graph: ModuleImportGraph,
-  reachable: ReadonlySet<string>,
+  mounted: ReadonlySet<string>,
   mdxProvided: ReadonlyMap<string, string>,
 ): string[] {
-  if (!reachable.has(write.module)) return [];
+  if (!mounted.has(write.module)) return [];
   if (write.parameter === undefined) return [...write.ids];
   const text = graph.textByModule.get(write.module) as string;
   const component = componentFor(write.module, text, write.parameter.name);
   const supplied = new Set<string>();
-  for (const callSite of reachable) {
+  for (const callSite of mounted) {
     if (callSite === write.module) continue;
     const bound =
       (graph.bindingsByModule.get(callSite) ?? []).some(
@@ -640,11 +694,19 @@ export function scanAnnotationAssignments(root: string): AnnotationScan {
     .sort();
   const reachable = graph.reachableFrom(routeEntries);
   const mdxProvided = mdxRegistryBindings(graph);
+  const mounted = mountedFrom(graph, routeEntries, mdxProvided);
+  for (const modulePath of mounted) {
+    if (!reachable.has(modulePath)) {
+      throw new Error(
+        `${modulePath} is mounted by a route entry but is not import-reachable from one, so the two walks disagree`,
+      );
+    }
+  }
 
   const owners = new Map<string, Set<string>>();
   const productionOwners = new Map<string, Set<string>>();
   for (const write of writes) {
-    const supplied = new Set(suppliedIds(write, graph, reachable, mdxProvided));
+    const supplied = new Set(suppliedIds(write, graph, mounted, mdxProvided));
     for (const id of write.ids) {
       const seen = owners.get(id) ?? new Set<string>();
       seen.add(write.module);
@@ -676,7 +738,10 @@ export function scanAnnotationAssignments(root: string): AnnotationScan {
   );
   return {
     modules,
-    productionModules: [...reachable]
+    importReachableModules: [...reachable]
+      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
+      .sort(),
+    mountedModules: [...mounted]
       .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
       .sort(),
     routeEntries,

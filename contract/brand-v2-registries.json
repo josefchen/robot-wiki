@@ -10940,12 +10940,11 @@
         "components/ui/callout.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
-        "components/ui/code-block.tsx",
         "components/ui/table.tsx",
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "0c3058920a8e7097ae48fcb1f59069ab80e1900c91c30b9d270f11e2228665d1"
+      "fingerprint": "fe242cb7852447dad5e9ca3a45926b61c8a89c8288e927ea301b60dda51aad3c"
     },
     {
       "id": "surface:raised",
@@ -11363,7 +11362,6 @@
         "components/three/joint-controls.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chart-description.tsx",
-        "components/ui/copy-button.tsx",
         "components/ui/table.tsx"
       ],
       "mountState": "production",
@@ -11380,7 +11378,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "05f92fa1b4f7dbb3980e834c61718324edba3e49230059898d1bb5f0801e0316"
+      "fingerprint": "83e1d20b4c0ab10805bf884aa4f26d464dfaa6e4e114fcf92c215dd40c8f0e99"
     },
     {
       "id": "control:selection",
@@ -11810,5 +11808,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "be4ed4c7470cb11c1c976838f73a93eb42b4d4e36f76f37dc6f494f7e1ac91a2"
+  "rootFingerprint": "330488ba0220f31b187fe096eb2944723b69f2cf5d23c536371d3f07b387dd1d"
 }

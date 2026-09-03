@@ -20,6 +20,7 @@ import { publishedModules } from '../data/modules.ts';
 import {
   AUTHORED_TOKEN_SOURCE,
   RENDERER_MIRROR_SOURCE,
+  SEMANTIC_COLOUR_ONLY_MARKS_PATH,
   SEMANTIC_ROLE_ASSERTION,
   SEMANTIC_TOKEN_POPULATION_SOURCE,
   TOKEN_ASSERTION_TOKENS,
@@ -941,29 +942,51 @@ function semanticTokenResult(
       },
     };
   }
-  if (member.cueCarriers.length === 0) {
-    throw new Error(
-      `${member.module} carries ${member.token} as colour alone: no border, weight, shape, state attribute or role cue accompanies it`,
-    );
+  const cueSubject = {
+    member: member.id,
+    token: member.token,
+    module: member.module,
+    forms: member.forms,
+    references: member.references,
+    viaAlias: member.viaAlias,
+    authored: authoredHex,
+    marks: member.marks.map(({ id, element, binding, via, cues }) => ({
+      id,
+      element,
+      binding,
+      via,
+      cues,
+    })),
+    colourOnlyMarks: member.colourOnlyMarks,
+    routesResolved,
+    evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, SEMANTIC_COLOUR_ONLY_MARKS_PATH],
+  };
+  // A mark measured to carry the hue alone is not an unmeasured mark, and it
+  // is not a pass either. The cue clause is unsatisfied for it, the exact set
+  // is archived, and the remediation belongs to the interactive legends
+  // feature that owns chart series differentiation.
+  if (member.colourOnlyMarks.length > 0) {
+    return {
+      ...common,
+      status: 'pending' as const,
+      actual: `${member.module} paints ${member.token} on ${member.marks.length} marks; ${member.colourOnlyMarks.length} of them (${member.colourOnlyMarks.join(', ')}) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          ...cueSubject,
+          deferredTo: 'brand-v2-interactive-data-legends-and-render-parity',
+        },
+      },
+    };
   }
   return {
     ...common,
-    actual: `${member.module} uses ${member.token} through ${member.forms.join(', ')} beside the non-colour cues ${member.cueCarriers.join(', ')}, and the token resolved on all ${routesResolved} swept public routes`,
-    payload: {
-      kind: 'browser-state',
-      computed: {
-        member: member.id,
-        token: member.token,
-        module: member.module,
-        forms: member.forms,
-        references: member.references,
-        viaAlias: member.viaAlias,
-        cueCarriers: member.cueCarriers,
-        authored: authoredHex,
-        routesResolved,
-        evidence: [TOKEN_RUNTIME_EVIDENCE_PATH],
-      },
-    },
+    actual: `${member.module} uses ${member.token} through ${member.forms.join(', ')} on ${member.marks.length} marks, each carrying its own non-colour cue (${[
+      ...new Set(member.marks.flatMap(({ cues }) => cues)),
+    ]
+      .sort()
+      .join(', ')}), and the token resolved on all ${routesResolved} swept public routes`,
+    payload: { kind: 'browser-state', computed: cueSubject },
   };
 }
 
@@ -1203,6 +1226,35 @@ function generate() {
     sources,
     map: enforcementMapSchema.parse({ schemaVersion: 1, rows }),
     results: results.map((result) => evidenceResultSchema.parse(result)),
+    colourOnlyMarks: colourOnlyMarkArchive(),
+  };
+}
+
+/**
+ * The archive of marks that paint a semantic hue with no non-colour cue of
+ * their own. Written and compared alongside the map and the results, so a
+ * newly authored colour-only mark and a remediated one both show up as a
+ * stale-artifact failure rather than as silence.
+ */
+function colourOnlyMarkArchive() {
+  return {
+    schemaVersion: 1,
+    generator: 'scripts/brand-v2-enforcement.ts',
+    populationSource: SEMANTIC_TOKEN_POPULATION_SOURCE,
+    ownedBy: 'brand-v2-interactive-data-legends-and-render-parity',
+    marks: SEMANTIC_POPULATION.flatMap(({ marks }) =>
+      marks
+        .filter(({ cues }) => cues.length === 0)
+        .map(({ id, module, token, element, form, binding, via }) => ({
+          id,
+          module,
+          token,
+          element,
+          form,
+          binding,
+          via,
+        })),
+    ).sort((left, right) => left.id.localeCompare(right.id)),
   };
 }
 
@@ -1218,8 +1270,12 @@ if (mode === '--write') {
     RESULTS_PATH,
     `${JSON.stringify({ schemaVersion: 1, results: generated.results }, null, 2)}\n`,
   );
+  writeFileSync(
+    join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH),
+    `${JSON.stringify(generated.colourOnlyMarks, null, 2)}\n`,
+  );
   console.log(
-    `brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows and ${generated.results.length} tagged results`,
+    `brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows, ${generated.results.length} tagged results and ${generated.colourOnlyMarks.marks.length} archived colour-only marks`,
   );
 } else if (mode === '--check' || mode === '--check-release') {
   const map = enforcementMapSchema.parse(readJson(MAP_PATH));
@@ -1253,6 +1309,16 @@ if (mode === '--write') {
       reason: 'generated-results-drift',
       expected: 'deterministic generated tagged results',
       actual: RESULTS_PATH,
+    });
+  }
+  if (
+    JSON.stringify(readJson(join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH))) !==
+    JSON.stringify(generated.colourOnlyMarks)
+  ) {
+    failures.push({
+      reason: 'colour-only-mark-archive-drift',
+      expected: 'archived colour-only marks equal to the measured set',
+      actual: SEMANTIC_COLOUR_ONLY_MARKS_PATH,
     });
   }
   if (failures.length > 0) {

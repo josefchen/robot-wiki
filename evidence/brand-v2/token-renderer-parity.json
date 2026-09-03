@@ -5,6 +5,7 @@
     "producer": "lib/brand-v2-renderer-parity.ts",
     "modules": [
       "lib/brand-v2-renderer-parity.ts",
+      "lib/brand-v2-semantic-marks.ts",
       "lib/brand-v2-token-evidence.ts",
       "lib/brand-v2-tokens.ts",
       "lib/module-import-graph.ts",
@@ -13,9 +14,10 @@
       "lib/og-card-facts.ts",
       "lib/og-cards.ts",
       "lib/og-renderer-fonts.ts",
+      "lib/source-comments.ts",
       "lib/sync-duplicates.ts"
     ],
-    "fingerprint": "63199c99eebaa6e055c99c06073d273d7434d35ce41dc2ae3b243ca8cfed7162"
+    "fingerprint": "3b373791fb13b1695490253b70eb6a873f09c51e1e19ff78abe935572086149a"
   },
   "cardCount": 48,
   "paintedProperties": 9743,
