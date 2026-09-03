@@ -14,6 +14,9 @@ export function MdpComparison({ className }: { className?: string }) {
       // viewports and needs keyboard access (axe scrollable-region-focusable),
       // matching the surgical/swarm/orbital table convention.
       tabIndex={0}
+      role="region"
+      aria-label="Locomotion and manipulation MDP properties"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,

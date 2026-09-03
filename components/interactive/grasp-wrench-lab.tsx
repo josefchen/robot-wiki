@@ -139,6 +139,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -163,6 +164,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
         <input
           id="grasp-mu"
           type="range"
+          data-brand-control-id="control:input"
           min={0.05}
           max={1.0}
           step={0.05}
@@ -198,6 +200,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
               <input
                 id={`grasp-contact-${i}`}
                 type="range"
+                data-brand-control-id="control:input"
                 min={CONTACT_POSITION_MIN}
                 max={CONTACT_POSITION_MAX}
                 step={CONTACT_POSITION_STEP}
@@ -421,6 +424,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={addContact}
@@ -431,6 +435,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           Add contact
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={removeContact}
@@ -441,6 +446,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           Remove contact
         </button>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

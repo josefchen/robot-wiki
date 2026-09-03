@@ -393,6 +393,7 @@ export function SceneRepresentationLadder({
   return (
     <div
       data-testid="scene-ladder"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -407,6 +408,7 @@ export function SceneRepresentationLadder({
           const active = rep.id === selectedId;
           return (
             <button
+              data-brand-control-id="control:selection"
               key={rep.id}
               type="button"
               aria-pressed={active}
@@ -433,7 +435,10 @@ export function SceneRepresentationLadder({
           column's height, which left the drawing floating in the top half
           of its own frame. */}
       <div className="mt-4 grid items-start gap-4 md:grid-cols-[minmax(12rem,1fr)_minmax(0,12rem)]">
-        <div className="rounded-sm border border-border bg-surface-2 p-2">
+        <div
+          data-brand-surface-id="surface:flat"
+          className="rounded-sm border border-border bg-surface-2 p-2"
+        >
           <Panel
             id={selectedId}
             spacingCm={cellCm}
@@ -457,6 +462,7 @@ export function SceneRepresentationLadder({
           <input
             id={`${uid}-resolution`}
             type="range"
+            data-brand-control-id="control:input"
             min={0}
             max={RESOLUTION_CM.length - 1}
             step={1}
@@ -492,6 +498,7 @@ export function SceneRepresentationLadder({
                 <li
                   key={capability.id}
                   data-testid={`scene-capability-${capability.id}`}
+                  data-brand-surface-id="surface:flat"
                   data-state={graded.state}
                   aria-label={`${capability.label}: ${CAPABILITY_STATE_TEXT[graded.state]}`}
                   className={cx(
@@ -512,6 +519,7 @@ export function SceneRepresentationLadder({
           </ul>
 
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}

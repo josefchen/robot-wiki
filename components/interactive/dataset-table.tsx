@@ -68,6 +68,7 @@ function embodimentsCell(dataset: Dataset): ReactNode {
 function sourceCell(dataset: Dataset): ReactNode {
   return (
     <a
+      data-brand-control-id="control:link-focus"
       href={dataset.url}
       target="_blank"
       rel="noopener"
@@ -181,6 +182,7 @@ function FilterGroup<T extends string>({
       <div className="flex flex-wrap gap-1.5">
         {options.map((option) => (
           <button
+            data-brand-control-id="control:selection"
             key={option.value}
             type="button"
             aria-pressed={active === option.value}
@@ -227,6 +229,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -257,6 +260,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             {rows.length} of {DATASETS.length} datasets
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={reset}
@@ -280,6 +284,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             options; try widening the selection.
           </p>
           <button
+            data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
             onClick={clearFilters}

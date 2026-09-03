@@ -29,6 +29,7 @@ export const ENFORCEMENT_FAILURE_REASONS = [
   'duplicate-evidence-result',
   'generated-map-drift',
   'generated-results-drift',
+  'colour-only-mark-archive-drift',
 ] as const;
 const enforcementFailureReasonSchema = z.enum(ENFORCEMENT_FAILURE_REASONS);
 const jsonValueSchema: z.ZodType<unknown> = z.lazy(() =>
@@ -381,7 +382,11 @@ export function summarizeEnforcementFailures(
 export function buildEnforcementPopulationSources(input: {
   registry: {
     routes: {
-      public: Array<{ id: string; routeKind: 'article' | 'destination' }>;
+      public: Array<{
+        id: string;
+        path: string;
+        routeKind: 'article' | 'destination';
+      }>;
     };
     metadata: Array<{ id: string }>;
     assets: Array<{ id: string }>;
@@ -398,9 +403,35 @@ export function buildEnforcementPopulationSources(input: {
   baselineManifestIds: string[];
   deepRowIds: string[];
   assertionIds: string[];
+  /**
+   * Assertion-specific populations for the completed font assertions, keyed
+   * by canonical source. They are separate from the four-family `typeRoles`
+   * registry because a claim about role instances, the static mapping, or an
+   * assigned string is not a claim about a family (R8a).
+   */
+  tekturPopulations: Readonly<Record<string, readonly string[]>>;
+  /**
+   * VAL-B2-COMP-012's own population: the semantic token declarations, their
+   * use sites, and the renderer mirrors that repeat them. It is separate
+   * from the `controls` registry because a claim about the semantic tokens
+   * is not a claim about a button, a tab, or a chip (R8a).
+   */
+  semanticTokenPopulation: readonly string[];
 }): Record<string, string[]> {
   const { registry } = input;
+  if (input.semanticTokenPopulation.length === 0) {
+    throw new Error('The semantic-token population is empty');
+  }
   return {
+    'app/globals.css#semantic-tokens-and-use-sites': [
+      ...input.semanticTokenPopulation,
+    ],
+    ...Object.fromEntries(
+      Object.entries(input.tekturPopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
     'contract/brand-v2-registries.json#routes.public':
       registry.routes.public.map(({ id }) => id),
     'contract/brand-v2-registries.json#routes.public:article':

@@ -16,6 +16,7 @@ import {
   TEKTUR_ROLE_INSTANCES,
 } from '../data/type-roles.ts';
 import { referencedImageIds } from '../lib/images.ts';
+import { scanAnnotationAssignments } from '../lib/brand-v2-annotation-scan.ts';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -445,6 +446,103 @@ function interactiveRegistry() {
   return { sources, mounts };
 }
 
+const ANNOTATION_SCAN = scanAnnotationAssignments(ROOT);
+
+/**
+ * The modules that actually render a primitive ID in production, read out of
+ * the source rather than described. Writing the ID is not owning it: the
+ * shared `components/ui/action.tsx` primitive writes
+ * `control:primary-action`, but nothing mounts `<Action>`, so recording that
+ * definition file as the owner claims a production mount that does not
+ * exist. Import reachability is not owning it either, in two separate ways.
+ * A reachable module need not be mounted: `components/ui/code-block.tsx` is
+ * registered on every MDX body and `components/ui/copy-button.tsx` is called
+ * only by it, so both are importable from a route entry while nothing
+ * renders either one. And a mounted module need not supply every variant it
+ * can write: `components/ui/card.tsx` can assign `surface:raised`, but every
+ * mounted `<Card>` omits `level`, so the only ID it supplies in production
+ * is `surface:flat`. A primitive the library defines and no route mounts
+ * records an empty owner list, which is the truth.
+ */
+function annotationOwnerModules(id: string): readonly string[] {
+  return ANNOTATION_SCAN.productionOwnersById[id] ?? [];
+}
+
+/**
+ * The mount half of every primitive row: where the ID is written at all, and
+ * whether a route entry reaches one of those writers. `library-only` and
+ * `unwritten` are recorded rather than hidden, because a row that silently
+ * borrows its definition file as an owner reads as a shipped mount.
+ */
+function annotationMountRecord(id: string) {
+  const ownerRouteOrMount = annotationOwnerModules(id);
+  const definedIn = [
+    ...ownerRouteOrMount,
+    ...(ANNOTATION_SCAN.unmountedOwnersById[id] ?? []),
+  ].sort();
+  return {
+    definedIn,
+    ownerRouteOrMount,
+    mountState:
+      definedIn.length === 0
+        ? 'unwritten'
+        : ownerRouteOrMount.length > 0
+          ? 'production'
+          : 'library-only',
+  };
+}
+
+/**
+ * Recorded WCAG 2.2 SC 2.5.8 exceptions, per control class, for the
+ * measured members that do not reach the 24px minimum. Each entry names the
+ * exception route the SC actually provides, so the rendered-DOM gate can
+ * re-derive it from geometry (tests/e2e/brand-v2-primitives.spec.ts) instead
+ * of taking the registry's word for it.
+ */
+const CONTROL_TARGET_SIZE_EXCEPTIONS: Record<
+  string,
+  ReadonlyArray<{ kind: 'inline' | 'spacing'; criterion: string; reason: string }>
+> = {
+  'control:link-focus': [
+    {
+      kind: 'inline',
+      criterion: 'WCAG 2.2 SC 2.5.8 inline exception',
+      reason:
+        'Citation chips, glossary term links and prose links sit inside a sentence, so their height is set by the prose line box; enlarging them would break the approved article reference.',
+    },
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Reference-list, see-also, breadcrumb and index links are short text rows whose 24px undisturbed circles clear every neighbouring target.',
+    },
+  ],
+  'control:input': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'A native range track renders at the user agent thumb height; each slider owns a full-width row, so its 24px circle clears the readout and the reset control.',
+    },
+  ],
+  'control:selection': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Native radio indicators render at the user agent size inside a full-width label row that keeps the 24px circles apart.',
+    },
+  ],
+  'control:secondary-action': [
+    {
+      kind: 'spacing',
+      criterion: 'WCAG 2.2 SC 2.5.8 spacing exception',
+      reason:
+        'Disclosure summaries are one text line high and occupy their own row, so the 24px circle clears the surrounding targets.',
+    },
+  ],
+};
+
 function staticRegistries() {
   const gridDevices = [
     {
@@ -498,6 +596,7 @@ function staticRegistries() {
   ].map((entry) =>
     stableRecord({
       ...entry,
+      ...annotationMountRecord(entry.id),
       pointerBehavior: 'none',
       allowedViewports: ['mobile', 'tablet', 'desktop'],
       alignmentTolerancePx: 2,
@@ -540,7 +639,7 @@ function staticRegistries() {
       shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
       allowedOwners: ['chart', 'diagram', 'simulation', 'code', 'media', 'playground'],
     },
-  ].map(stableRecord);
+  ].map((entry) => stableRecord({ ...entry, ...annotationMountRecord(entry.id) }));
   const pageFrames = [
     ['frame:mobile', 4, 20],
     ['frame:tablet', 8, 32],
@@ -590,7 +689,12 @@ function staticRegistries() {
       treatment: 'lime-plus-non-colour-marker',
       statePurpose: 'persistent-selection',
       action: 'select or toggle one persistent state',
-      persistentAria: ['aria-pressed', 'aria-selected', 'aria-current'],
+      // `aria-current` marks the current destination or item in a set, not a
+      // pressed or selected state, and the browser gate restricts it to
+      // truthful current links (control:link-focus). Listing it here as a
+      // permitted persistent ARIA of a selection control contradicted that
+      // rule and serialized an allowance no member may use.
+      persistentAria: ['aria-pressed', 'aria-selected'],
       supportedStates: ['unselected', 'selected', 'hover', 'focus-visible', 'disabled'],
     },
     {
@@ -629,9 +733,13 @@ function staticRegistries() {
   ].map((entry) =>
     stableRecord({
       ...entry,
-      ownerRouteOrMount: 'shared primitive; concrete owner supplied at render',
+      ...annotationMountRecord(entry.id),
       disabledException: entry.disabledException ?? null,
-      targetSize: { minimumPx: 24, preferredPx: 44, inlineException: false },
+      targetSize: {
+        minimumPx: 24,
+        preferredPx: 44,
+        exceptions: CONTROL_TARGET_SIZE_EXCEPTIONS[entry.id] ?? [],
+      },
       pointerAlternative: 'native pointer activation matching keyboard activation',
     }),
   );

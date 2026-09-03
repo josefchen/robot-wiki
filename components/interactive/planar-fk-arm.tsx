@@ -73,6 +73,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -96,6 +97,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
             <input
               id={joint.id}
               type="range"
+              data-brand-control-id="control:input"
               min={-JOINT_LIMIT_DEG}
               max={JOINT_LIMIT_DEG}
               step={1}
@@ -107,6 +109,7 @@ export function PlanarFkArm({ className }: { className?: string }) {
           </div>
         ))}
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

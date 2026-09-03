@@ -73,6 +73,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           aria-expanded={drawerOpen}
           aria-controls="mobile-nav-drawer"
           aria-label="Open navigation menu"
+          data-brand-control-id="control:secondary-action"
           onClick={() => setDrawerOpen(true)}
           className="flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]"
         >
@@ -81,6 +82,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <Link
           href="/"
           data-tektur-role="shell-wordmark"
+          data-brand-control-id="control:link-focus"
           className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
         >
           robot-wiki
@@ -99,6 +101,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               href="/"
               aria-current={pathname === '/' ? 'page' : undefined}
               data-tektur-role="shell-wordmark"
+              data-brand-control-id="control:link-focus"
               className="font-display-shell text-[17px] tracking-[-0.025em] text-text"
             >
               robot-wiki
@@ -156,6 +159,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 href="/"
                 onClick={() => setDrawerOpen(false)}
                 data-tektur-role="shell-wordmark"
+                data-brand-control-id="control:link-focus"
                 className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
               >
                 robot-wiki
@@ -164,6 +168,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 ref={closeButtonRef}
                 type="button"
                 aria-label="Close navigation menu"
+                data-brand-control-id="control:secondary-action"
                 onClick={closeDrawer}
                 className="flex items-center rounded-sm p-1.5 text-text transition-colors hover:bg-surface-2 active:translate-y-[1px]"
               >

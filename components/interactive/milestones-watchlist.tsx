@@ -110,6 +110,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
   return (
     <div
       data-testid="milestones-watchlist"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -124,6 +125,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           <span className="font-sans text-xs text-text-dim">Status</span>
           {FILTERS.map((option) => (
             <button
+              data-brand-control-id="control:selection"
               key={option.value}
               type="button"
               aria-pressed={filter === option.value}
@@ -147,6 +149,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
           {readout}
         </p>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}
@@ -202,6 +205,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
                     >
                       <th scope="row" className={cx(CELL, 'min-w-[170px]')}>
                         <button
+                          data-brand-control-id="control:selection"
                           ref={(el) => {
                             rowButtons.current[index] = el;
                           }}

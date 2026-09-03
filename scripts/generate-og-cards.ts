@@ -7,12 +7,28 @@
  * them as plain files, no framework process, no image-optimisation
  * endpoint, no API route (the three shapes VAL-DIST-005 rejects).
  *
- * The route set is derived from the module registry, so publishing a
+ * The card trees and their destinations come from the shared corpus in
+ * lib/og-card-corpus.ts, which is also the population the renderer
+ * evidence measures. This module must not build a card tree of its own,
+ * and cannot transform one either: two parallel constructions of the same
+ * corpus made a painted-colour change here invisible to the evidence, and
+ * so did a wrapper applied to a corpus tree on its way to the renderer.
+ * What it receives is a sealed handle whose element tree is unreachable
+ * from here, and lib/og-card-render-boundary.ts is the only module that
+ * opens one and paints it. The write below is deliberately inline and takes
+ * the render boundary's own return value: `deriveGeneratorEmitHandoff`
+ * follows the bytes from that single call to disk, so importing the
+ * boundary and shipping something else is a failure rather than a
+ * reachable-but-unused reference.
+ *
+ * The corpus is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
  * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
- * Fonts: the separately vendored static Tektur SemiBold TTF for display
- * text and KaTeX_Typewriter (a dependency we already ship) for mono labels.
- * No runtime font request or variable-font renderer support is involved.
+ * Fonts come from the renderer face registry (lib/og-renderer-fonts.ts):
+ * the separately vendored static Tektur SemiBold TTF for display text and
+ * the vendored static IBM Plex Mono Regular TTF for the data and
+ * registration labels. No runtime font request or variable-font renderer
+ * support is involved.
  *
  * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
  * panel artwork is one constant ornament per domain chosen by a literal
@@ -26,97 +42,22 @@
  * frontmatter (citations list and lastReviewed) via the same helpers
  * the article template uses.
  */
-import { ImageResponse } from 'next/dist/compiled/@vercel/og/index.node.js';
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
-import { DOMAIN_META, publishedModules } from '../data/modules.ts';
-import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
-import matter from 'gray-matter';
-import {
-  OG_CARD_HEIGHT,
-  OG_CARD_WIDTH,
-  SITE_CARD_PATH,
-  articleCardPath,
-} from '../lib/og-cards.ts';
-import type { CardNode } from '../lib/og-card-artwork.ts';
-import {
-  articleCardElement,
-  siteCardElement,
-} from '../lib/og-card-artwork.ts';
-import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/index.node.js';
+import { ogCardCorpus } from '../lib/og-card-corpus.ts';
+import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';
 
 const root = join(import.meta.dirname, '..');
 const publicOgDir = join(root, 'public', 'og');
 const outOgDir = join(root, 'out', 'og');
-
-/** Article frontmatter facts the card carries (registry + MDX, no new data). */
-export interface ArticleCardFacts {
-  referenceCount: number;
-  reviewYear: number;
-}
-
-
-/** Extracts the citations count and lastReviewed year from MDX frontmatter. */
-export function articleCardFacts(mdxSource: string): ArticleCardFacts {
-  const fm = matter(mdxSource).data as Record<string, unknown>;
-  const citations = Array.isArray(fm.citations) ? fm.citations.length : 0;
-  const lastReviewed = typeof fm.lastReviewed === 'string' ? fm.lastReviewed : '';
-  const year = Number.parseInt(lastReviewed.slice(0, 4), 10);
-  if (!Number.isInteger(year) || year < 2000 || year > 2100) {
-    throw new Error(`invalid lastReviewed: ${lastReviewed}`);
-  }
-  if (citations < 1) {
-    throw new Error('published article cites nothing; refusing to render an empty count');
-  }
-  return { referenceCount: citations, reviewYear: year };
-}
-
-const FONT_PATHS = {
-  display: join(root, TEKTUR_FONT_METADATA.og.path),
-  mono: join(root, 'node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf'),
-};
-
-let cachedFonts: NonNullable<ImageResponseOptions['fonts']> | null = null;
-
-function rendererFonts(): NonNullable<ImageResponseOptions['fonts']> {
-  if (cachedFonts) return cachedFonts;
-  const fonts = [
-    {
-      name: TEKTUR_FONT_METADATA.family,
-      data: readFileSync(FONT_PATHS.display),
-      weight: TEKTUR_FONT_METADATA.og.weight,
-      style: TEKTUR_FONT_METADATA.og.style,
-    },
-    {
-      name: 'KaTeX_Typewriter',
-      data: readFileSync(FONT_PATHS.mono),
-      weight: 400,
-      style: 'normal',
-    },
-  ] satisfies NonNullable<ImageResponseOptions['fonts']>;
-  cachedFonts = fonts;
-  return fonts;
-}
-
-// ImageResponse's bundled typings expect a ReactElement; the node build
-// accepts the same plain satori element trees our CardNode type
-// describes. Cast at the boundary rather than loosening CardNode.
-async function render(node: CardNode): Promise<Buffer> {
-  const response = new ImageResponse(node as never, {
-    width: OG_CARD_WIDTH,
-    height: OG_CARD_HEIGHT,
-    fonts: rendererFonts(),
-  });
-  return Buffer.from(await response.arrayBuffer());
-}
 
 function sha256(buf: Buffer): string {
   return createHash('sha256').update(buf).digest('hex');
 }
 
 async function main(): Promise<void> {
-  const published = publishedModules();
+  const corpus = ogCardCorpus(root);
   const hashes = new Map<string, string>(); // sha -> path
   const seen = new Map<string, string>(); // path -> sha
 
@@ -133,16 +74,6 @@ async function main(): Promise<void> {
     seen.set(path, digest);
   };
 
-  const emit = (path: string, buf: Buffer): void => {
-    const rel = path.replace(/^\/+/, '');
-    const publicFile = join(root, 'public', rel);
-    const outFile = join(root, 'out', rel);
-    mkdirSync(join(publicFile, '..'), { recursive: true });
-    writeFileSync(publicFile, buf);
-    mkdirSync(join(outFile, '..'), { recursive: true });
-    writeFileSync(outFile, buf);
-  };
-
   // Stale-card sweep: cards for unpublished modules must not ship. The
   // whole tree is regenerated from the registry every build, so clear it
   // first (drafts are excluded from the export and from this set).
@@ -152,51 +83,43 @@ async function main(): Promise<void> {
   }
 
   const t0 = Date.now();
-  let count = 0;
+  let articleCards = 0;
+  let siteCards = 0;
 
-  for (const entry of published) {
-    const mdx = readFileSync(
-      join(root, 'content', entry.domain, `${entry.slug}.mdx`),
-      'utf8',
-    );
-    const facts = articleCardFacts(mdx);
-    const node = articleCardElement({
-      entry,
-      domainName: DOMAIN_META[entry.domain].name,
-      ...facts,
-    });
-    const buf = await render(node);
-    check(articleCardPath(entry.domain, entry.slug), buf);
-    emit(articleCardPath(entry.domain, entry.slug), buf);
-    count += 1;
+  for (const entry of corpus) {
+    const { cardId, cardPath } = entry;
+    const rel = cardPath.replace(/^\/+/, '');
+    const publicFile = join(root, 'public', rel);
+    const outFile = join(root, 'out', rel);
+    mkdirSync(join(publicFile, '..'), { recursive: true });
+    mkdirSync(join(outFile, '..'), { recursive: true });
+    const buffer = await renderCorpusCard(entry, root);
+    writeFileSync(publicFile, buffer);
+    writeFileSync(outFile, buffer);
+    // After the writes, so nothing between the render call and disk can
+    // touch the bytes: a collision still fails the build, and the tree is
+    // cleared and regenerated on every run.
+    check(cardPath, buffer);
+    if (cardId === 'site') siteCards += 1;
+    else articleCards += 1;
   }
-
-  const siteBuf = await render(siteCardElement());
-  check(SITE_CARD_PATH, siteBuf);
-  emit(SITE_CARD_PATH, siteBuf);
 
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
-    `generate-og-cards: OK (${count} article cards + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
+    `generate-og-cards: OK (${articleCards} article cards + ${siteCards} site card, ${seen.size} distinct assets, ${seconds}s)`,
   );
 }
 
-// If invoked with --check, only validate facts parsing (unit-test hook).
+// If invoked with --check-only, build the corpus without rendering, which
+// exercises registry lookup and frontmatter fact parsing for every card.
 if (process.argv.includes('--check-only')) {
-  let failures = 0;
-  for (const entry of publishedModules()) {
-    try {
-      const mdx = readFileSync(
-        join(root, 'content', entry.domain, `${entry.slug}.mdx`),
-        'utf8',
-      );
-      articleCardFacts(mdx);
-    } catch (error) {
-      failures += 1;
-      console.error(`${entry.domain}/${entry.slug}: ${(error as Error).message}`);
-    }
+  try {
+    const corpus = ogCardCorpus(root);
+    console.log(`generate-og-cards: OK (${corpus.length} card trees built)`);
+  } catch (error) {
+    console.error(`generate-og-cards: FAILED (${(error as Error).message})`);
+    process.exit(1);
   }
-  if (failures > 0) process.exit(1);
 } else {
   await main().catch((error: unknown) => {
     console.error(`generate-og-cards: FAILED (${(error as Error).message})`);

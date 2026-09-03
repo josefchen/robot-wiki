@@ -93,6 +93,7 @@ function NavEntryLink({
     <Link
       href={href}
       aria-current={active ? 'page' : undefined}
+      data-brand-control-id="control:link-focus"
       onClick={onNavigate}
       className={className}
     >
@@ -144,6 +145,7 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                 type="button"
                 aria-expanded={expanded}
                 aria-controls={panelId}
+                data-brand-control-id="control:secondary-action"
                 onClick={() => toggle(domain)}
                 className="flex w-full items-center gap-1.5 rounded-sm px-2 py-1.5 text-left font-sans text-sm font-medium text-text transition-colors hover:bg-surface-2"
               >

@@ -185,6 +185,7 @@ export function ActionConditioning({
         <div className="mt-1.5 flex flex-wrap gap-2">
           {ACTIONS.map((a) => (
             <button
+              data-brand-control-id="control:selection"
               key={a.id}
               type="button"
               aria-pressed={current === a.id}
@@ -241,6 +242,7 @@ export function ActionConditioning({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -250,6 +252,7 @@ export function ActionConditioning({
           </div>
           <div className="mt-1.5 flex flex-wrap gap-2">
             <button
+              data-brand-control-id="control:selection"
               type="button"
               aria-pressed={conditioning === 'strong'}
               onClick={() => setConditioning('strong')}
@@ -258,6 +261,7 @@ export function ActionConditioning({
               Strong conditioning
             </button>
             <button
+              data-brand-control-id="control:selection"
               type="button"
               aria-pressed={conditioning === 'weak'}
               onClick={() => setConditioning('weak')}
@@ -268,6 +272,7 @@ export function ActionConditioning({
           </div>
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

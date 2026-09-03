@@ -50,6 +50,7 @@ export function HeadingPermalink({
         type="button"
         onClick={copy}
         aria-label={`Copy link to this section, ${headingText}`}
+        data-brand-control-id="control:secondary-action"
         className="ml-2 cursor-pointer text-text-dim opacity-0 transition-opacity hover:text-accent focus:opacity-100 focus-visible:opacity-100 group-hover/heading:opacity-100"
       >
         <LinkSimple size={15} aria-hidden />

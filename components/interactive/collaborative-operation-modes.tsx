@@ -185,10 +185,11 @@ export function CollaborativeOperationModes({ className }: { className?: string 
         : `Under ${mode.name.toLowerCase()} the ${formatSpeed(robotSpeed)} robot speed and ${formatSpeed(humanSpeed)} operator approach set no distance and no force budget, because the mode permits no autonomous motion beside the operator: the ${formatMetres(separation)} separation and ${formatForce(force)} impact force are what the other two modes would have to hold.`;
 
   return (
-    <div className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}>
+    <div data-brand-surface-id="surface:flat" className={cx('rounded-md border border-border bg-surface p-4 sm:p-5', className)}>
       <div role="group" aria-label="Collaborative operation mode" className="flex flex-wrap gap-1">
         {MODES.map((m) => (
           <button
+            data-brand-control-id="control:selection"
             key={m.id}
             type="button"
             aria-pressed={modeId === m.id}
@@ -199,7 +200,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
             {m.short}
           </button>
         ))}
-        <button type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
+        <button data-brand-control-id="control:secondary-action" type="button" onClick={reset} className={cx(buttonBase, buttonIdle)}>
           Reset
         </button>
       </div>
@@ -218,6 +219,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           <input
             id="safety-robot-speed"
             type="range"
+            data-brand-control-id="control:input"
             min={ROBOT_SPEED_RANGE.min}
             max={ROBOT_SPEED_RANGE.max}
             step={ROBOT_SPEED_RANGE.step}
@@ -240,6 +242,7 @@ export function CollaborativeOperationModes({ className }: { className?: string 
           <input
             id="safety-human-speed"
             type="range"
+            data-brand-control-id="control:input"
             min={HUMAN_SPEED_RANGE.min}
             max={HUMAN_SPEED_RANGE.max}
             step={HUMAN_SPEED_RANGE.step}

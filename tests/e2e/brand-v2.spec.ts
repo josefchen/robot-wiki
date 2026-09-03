@@ -1,27 +1,40 @@
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import {
   archivedExpectedRed,
+  brandV2Registry,
   test,
   expect,
 } from './brand-v2-static-fixture';
+import {
+  TOKEN_RUNTIME_EVIDENCE_PATH,
+  deriveAuthoredColorTokens,
+  deriveRuntimeTokenExpectations,
+  readTokenRuntimeEvidence,
+  tokenEvidenceFingerprint,
+  tokenEvidenceProperties,
+  unusedRoutedAliases,
+} from '../../lib/brand-v2-token-evidence';
+
+const ROOT = process.cwd();
+const TOKEN_SOURCES = {
+  root: ROOT,
+  contract: readFileSync(
+    join(ROOT, 'contract', 'design-integrity.md'),
+    'utf8',
+  ),
+  css: readFileSync(join(ROOT, 'app', 'globals.css'), 'utf8'),
+};
 
 /**
- * Every contract colour, authored in app/globals.css as an uppercase
- * six-digit literal and pinned in that exact source form by
- * tests/unit/design-system-contract.test.ts.
+ * Every colour the stylesheet authors as an uppercase six-digit literal,
+ * derived rather than copied: a list typed here is a second palette that a
+ * token addition silently leaves behind, and the source form itself is
+ * pinned by tests/unit/design-system-contract.test.ts.
  */
-const CONTRACT_HEX = [
-  '#0B0B0C',
-  '#242D33',
-  '#D9DADB',
-  '#F5F6F7',
-  '#FFFFFF',
-  '#C6FF19',
-  '#245FFF',
-  '#1A6F45',
-  '#8A5A00',
-  '#A52A1E',
-  '#6B1839',
-] as const;
+const CONTRACT_HEX = Object.values(
+  deriveAuthoredColorTokens(TOKEN_SOURCES.css).hexByToken,
+);
 
 /**
  * Lightning CSS collapses a six-digit hex whose channel pairs repeat, so
@@ -50,6 +63,22 @@ const readRootTokens = (names: readonly string[]): string[] => {
   const style = getComputedStyle(document.documentElement);
   return names.map((name) => style.getPropertyValue(name).trim().toUpperCase());
 };
+
+/**
+ * The sealed runtime token set, derived rather than typed: every token the
+ * colour assertions (VAL-B2-COL-001/002/003) and the semantic-token
+ * assertion (VAL-B2-COMP-012) are routed to in their own contract rows, plus
+ * every authored alias that resolves to one of them. A list typed here would
+ * be a second copy of the stylesheet that a token rename silently empties,
+ * and the aliases (`--color-focus`, `--color-link`, `--color-err`) are what
+ * the product actually consumes.
+ *
+ * The sweep is route-scoped because those assertions quantify over the
+ * public-route population: measuring the tokens on the home route alone
+ * leaves the rest unmeasured, and a route-scoped `passed` row would then
+ * quantify over a population no run visited.
+ */
+const SEALED_ROOT_TOKENS = deriveRuntimeTokenExpectations(TOKEN_SOURCES);
 
 test.describe('brand-v2 core visual authority', () => {
   test('home public identity exposes the v2 contract', async ({
@@ -194,5 +223,61 @@ test.describe('brand-v2 core visual authority', () => {
         '128PX',
       ],
     });
+  });
+
+  /**
+   * The observation is persisted because the enforcement generator used to
+   * fill the colour assertions' `computed` payloads by reading the expected
+   * value back out of BRAND_COLORS: nothing a document resolved entered the
+   * record, so a runtime drift with a correct mirror still produced a passing
+   * row. This run is the only place those values are measured, so it writes
+   * what it saw and the generator reads it back through the same fail-closed
+   * reader used here.
+   */
+  test('every public route resolves the sealed palette exactly', async ({
+    page,
+    staticBase,
+  }) => {
+    test.setTimeout(600_000);
+    const routes = brandV2Registry.routes.public.map(({ path }) => path);
+    expect(routes.length).toBeGreaterThan(5);
+    const names = tokenEvidenceProperties(TOKEN_SOURCES);
+    expect(names.length).toBeGreaterThan(10);
+    const expectedRoute = Object.fromEntries(
+      names.map((name) => [name, SEALED_ROOT_TOKENS[name].expectedHex]),
+    );
+    const expected = Object.fromEntries(
+      routes.map((route) => [route, expectedRoute]),
+    );
+    const observedByRoute: Record<string, Record<string, string>> = {};
+    for (const route of routes) {
+      const response = await page.goto(`${staticBase}${route}`);
+      expect(response?.status(), route).toBe(200);
+      const raw = await page.evaluate(readRootTokens, names);
+      observedByRoute[route] = Object.fromEntries(
+        names.map((name, index) => [name, canonicalToken(raw[index])]),
+      );
+    }
+    expect(observedByRoute).toEqual(expected);
+
+    const viewport = page.viewportSize();
+    expect(viewport, 'the sweep must record the viewport it measured').not.toBe(
+      null,
+    );
+    const artifact = {
+      version: 1,
+      fingerprint: tokenEvidenceFingerprint(TOKEN_SOURCES),
+      viewport: viewport as { width: number; height: number },
+      properties: names,
+      routes,
+      observedByRoute,
+      unusedRoutedAliases: unusedRoutedAliases(TOKEN_SOURCES),
+    };
+    const artifactPath = join(ROOT, TOKEN_RUNTIME_EVIDENCE_PATH);
+    mkdirSync(dirname(artifactPath), { recursive: true });
+    writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
+    // Fails here rather than in the generator if the artifact this run just
+    // wrote would not satisfy the reader that has to accept it.
+    readTokenRuntimeEvidence({ artifact, ...TOKEN_SOURCES, routes });
   });
 });

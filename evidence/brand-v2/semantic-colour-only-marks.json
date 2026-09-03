@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 1,
+  "generator": "scripts/brand-v2-enforcement.ts",
+  "populationSource": "app/globals.css#semantic-tokens-and-use-sites",
+  "ownedBy": "brand-v2-interactive-data-legends-and-render-parity",
+  "marks": [
+    {
+      "id": "components/interactive/advantage-scrubber.tsx#286:rect:error",
+      "module": "components/interactive/advantage-scrubber.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "TAG_FILL"
+    },
+    {
+      "id": "components/interactive/advantage-scrubber.tsx#286:rect:ok",
+      "module": "components/interactive/advantage-scrubber.tsx",
+      "token": "ok",
+      "element": "rect",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "TAG_FILL"
+    },
+    {
+      "id": "components/interactive/appearance-physics-push.tsx#259:path:ok",
+      "module": "components/interactive/appearance-physics-push.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/appearance-physics-push.tsx#280:LayerCaption:ok",
+      "module": "components/interactive/appearance-physics-push.tsx",
+      "token": "ok",
+      "element": "LayerCaption",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/appearance-physics-push.tsx#493:line:ok",
+      "module": "components/interactive/appearance-physics-push.tsx",
+      "token": "ok",
+      "element": "line",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/appearance-physics-push.tsx#502:path:ok",
+      "module": "components/interactive/appearance-physics-push.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/collaborative-operation-modes.tsx#109:line:error",
+      "module": "components/interactive/collaborative-operation-modes.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "ERR"
+    },
+    {
+      "id": "components/interactive/collaborative-operation-modes.tsx#117:line:error",
+      "module": "components/interactive/collaborative-operation-modes.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "ERR"
+    },
+    {
+      "id": "components/interactive/collaborative-operation-modes.tsx#125:circle:error",
+      "module": "components/interactive/collaborative-operation-modes.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "ERR"
+    },
+    {
+      "id": "components/interactive/collaborative-operation-modes.tsx#351:rect:error",
+      "module": "components/interactive/collaborative-operation-modes.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "ERR"
+    },
+    {
+      "id": "components/interactive/collaborative-operation-modes.tsx#397:RobotGlyph:error",
+      "module": "components/interactive/collaborative-operation-modes.tsx",
+      "token": "error",
+      "element": "RobotGlyph",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "ERR"
+    },
+    {
+      "id": "components/interactive/compounding-error.tsx#356:line:ok",
+      "module": "components/interactive/compounding-error.tsx",
+      "token": "ok",
+      "element": "line",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/contact-geometry.tsx#238:rect:error",
+      "module": "components/interactive/contact-geometry.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/contact-geometry.tsx#78:line:error",
+      "module": "components/interactive/contact-geometry.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/contact-geometry.tsx#86:circle:error",
+      "module": "components/interactive/contact-geometry.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/control-loop-budget.tsx#248:rect:error",
+      "module": "components/interactive/control-loop-budget.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/control-loop-budget.tsx#248:rect:ok",
+      "module": "components/interactive/control-loop-budget.tsx",
+      "token": "ok",
+      "element": "rect",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/control-loop-budget.tsx#257:rect:error",
+      "module": "components/interactive/control-loop-budget.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/control-loop-budget.tsx#257:rect:ok",
+      "module": "components/interactive/control-loop-budget.tsx",
+      "token": "ok",
+      "element": "rect",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/eureka-loop.tsx#142:div:error",
+      "module": "components/interactive/eureka-loop.tsx",
+      "token": "error",
+      "element": "div",
+      "form": "text-err",
+      "binding": "class-constant",
+      "via": "DIFF_STYLE"
+    },
+    {
+      "id": "components/interactive/eureka-loop.tsx#142:div:ok",
+      "module": "components/interactive/eureka-loop.tsx",
+      "token": "ok",
+      "element": "div",
+      "form": "text-ok",
+      "binding": "class-constant",
+      "via": "DIFF_STYLE"
+    },
+    {
+      "id": "components/interactive/execution-modes.tsx#145:rect:warn",
+      "module": "components/interactive/execution-modes.tsx",
+      "token": "warn",
+      "element": "rect",
+      "form": "var(--color-warn)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/execution-modes.tsx#213:path:error",
+      "module": "components/interactive/execution-modes.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "text-err",
+      "binding": "class-constant",
+      "via": "MODE_META"
+    },
+    {
+      "id": "components/interactive/execution-modes.tsx#213:path:ok",
+      "module": "components/interactive/execution-modes.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "text-ok",
+      "binding": "class-constant",
+      "via": "MODE_META"
+    },
+    {
+      "id": "components/interactive/execution-modes.tsx#213:path:warn",
+      "module": "components/interactive/execution-modes.tsx",
+      "token": "warn",
+      "element": "path",
+      "form": "text-warn",
+      "binding": "class-constant",
+      "via": "MODE_META"
+    },
+    {
+      "id": "components/interactive/execution-modes.tsx#223:circle:error",
+      "module": "components/interactive/execution-modes.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#376:circle:error",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#376:circle:ok",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#384:circle:error",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#384:circle:ok",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#417:span:error",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "error",
+      "element": "span",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/grasp-wrench-lab.tsx#417:span:ok",
+      "module": "components/interactive/grasp-wrench-lab.tsx",
+      "token": "ok",
+      "element": "span",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "stateColor"
+    },
+    {
+      "id": "components/interactive/jepa-planning.tsx#351:circle:ok",
+      "module": "components/interactive/jepa-planning.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/jepa-planning.tsx#359:circle:ok",
+      "module": "components/interactive/jepa-planning.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "class-constant",
+      "via": "OK"
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#251:rect:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#325:path:ok",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#331:path:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#347:circle:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#355:circle:ok",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#365:line:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#380:line:ok",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "ok",
+      "element": "line",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#423:rect:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#531:path:ok",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#537:path:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/latency-comparison.tsx#545:circle:error",
+      "module": "components/interactive/latency-comparison.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/mot-insulation.tsx#218:path:error",
+      "module": "components/interactive/mot-insulation.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/mot-insulation.tsx#228:path:ok",
+      "module": "components/interactive/mot-insulation.tsx",
+      "token": "ok",
+      "element": "path",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/mot-insulation.tsx#346:rect:error",
+      "module": "components/interactive/mot-insulation.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/mot-insulation.tsx#480:div:error",
+      "module": "components/interactive/mot-insulation.tsx",
+      "token": "error",
+      "element": "div",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "meterColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#271:line:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#280:line:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#291:line:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#312:path:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#347:circle:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#355:circle:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/pendulum-controller.tsx#363:path:error",
+      "module": "components/interactive/pendulum-controller.tsx",
+      "token": "error",
+      "element": "path",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "poleColor"
+    },
+    {
+      "id": "components/interactive/perception-error-budget.tsx#259:rect:error",
+      "module": "components/interactive/perception-error-budget.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "fill"
+    },
+    {
+      "id": "components/interactive/perception-error-budget.tsx#267:rect:error",
+      "module": "components/interactive/perception-error-budget.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "fill"
+    },
+    {
+      "id": "components/interactive/perception-error-budget.tsx#267:rect:warn",
+      "module": "components/interactive/perception-error-budget.tsx",
+      "token": "warn",
+      "element": "rect",
+      "form": "var(--color-warn)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/perception-error-budget.tsx#315:rect:error",
+      "module": "components/interactive/perception-error-budget.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "class-constant",
+      "via": "fill"
+    },
+    {
+      "id": "components/interactive/perception-latency.tsx#234:line:error",
+      "module": "components/interactive/perception-latency.tsx",
+      "token": "error",
+      "element": "line",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/rrt-explorer.tsx#335:circle:ok",
+      "module": "components/interactive/rrt-explorer.tsx",
+      "token": "ok",
+      "element": "circle",
+      "form": "var(--color-ok)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/sample-efficiency-ledger.tsx#241:rect:error",
+      "module": "components/interactive/sample-efficiency-ledger.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#206:polyline:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "polyline",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#217:rect:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "rect",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#230:circle:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "circle",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#249:ellipse:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "ellipse",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#260:ellipse:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "ellipse",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#327:SamplePanel:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "SamplePanel",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#328:SamplePanel:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "SamplePanel",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#329:SamplePanel:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "SamplePanel",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/scene-representation-ladder.tsx#330:SplatPanel:warn",
+      "module": "components/interactive/scene-representation-ladder.tsx",
+      "token": "warn",
+      "element": "SplatPanel",
+      "form": "var(--color-warn)",
+      "binding": "class-constant",
+      "via": "WARN"
+    },
+    {
+      "id": "components/interactive/teacher-student.tsx#182:rect:error",
+      "module": "components/interactive/teacher-student.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/teacher-student.tsx#239:rect:error",
+      "module": "components/interactive/teacher-student.tsx",
+      "token": "error",
+      "element": "rect",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/training-time-chart.tsx#284:polyline:error",
+      "module": "components/interactive/training-time-chart.tsx",
+      "token": "error",
+      "element": "polyline",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/training-time-chart.tsx#319:circle:error",
+      "module": "components/interactive/training-time-chart.tsx",
+      "token": "error",
+      "element": "circle",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/training-time-chart.tsx#345:div:error",
+      "module": "components/interactive/training-time-chart.tsx",
+      "token": "error",
+      "element": "div",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    },
+    {
+      "id": "components/interactive/training-time-chart.tsx#372:span:error",
+      "module": "components/interactive/training-time-chart.tsx",
+      "token": "error",
+      "element": "span",
+      "form": "var(--color-err)",
+      "binding": "inline",
+      "via": null
+    }
+  ]
+}

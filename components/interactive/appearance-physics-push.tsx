@@ -135,6 +135,7 @@ export function AppearancePhysicsPush({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -155,6 +156,7 @@ export function AppearancePhysicsPush({
             <input
               id="ap-force"
               type="range"
+              data-brand-control-id="control:input"
               min={MIN_FORCE_N}
               max={MAX_FORCE_N}
               step={1}
@@ -166,6 +168,7 @@ export function AppearancePhysicsPush({
           </div>
           <div className="flex gap-2">
             <button
+              data-brand-control-id="control:secondary-action"
               data-pagefind-ignore
               type="button"
               onClick={push}
@@ -180,6 +183,7 @@ export function AppearancePhysicsPush({
               Push the mug
             </button>
             <button
+              data-brand-control-id="control:secondary-action"
               data-pagefind-ignore
               type="button"
               onClick={reset}
@@ -192,6 +196,7 @@ export function AppearancePhysicsPush({
         <div role="group" aria-label="Layers" className="flex flex-wrap gap-2">
           {layerButtons.map((b) => (
             <button
+              data-brand-control-id="control:selection"
               key={b.id}
               type="button"
               aria-pressed={layers[b.id]}

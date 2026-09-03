@@ -91,6 +91,7 @@ export function FundingTimeline({
               )}
             >
               <button
+                data-brand-control-id="control:secondary-action"
                 type="button"
                 ref={(el) => {
                   if (el === null) rowRefs.current.delete(event.id);
@@ -184,6 +185,7 @@ function EventDetail({ event }: { event: TimelineEvent }) {
         <dt className="text-text-dim">Source</dt>
         <dd>
           <a
+            data-brand-control-id="control:link-focus"
             href={event.sourceUrl}
             target="_blank"
             rel="noopener"

@@ -210,7 +210,10 @@ export default async function ModulePage({ params }: { params: Params }) {
           aria-hidden="true"
           data-registration-device
           data-brand-device-id="device:section-rule"
-          data-brand-anchor-selector="[data-prose-column]"
+          // The rule starts where the prose column starts, not where the
+          // article element starts: the article carries the page gutter, so
+          // anchoring to it declared an alignment the rule never had.
+          data-brand-anchor-selector="[data-pagefind-body]"
           data-brand-device-edge="left"
           data-brand-anchor-edge="left"
           data-brand-motif="dot-grid"

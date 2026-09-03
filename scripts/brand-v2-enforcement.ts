@@ -10,23 +10,109 @@ import {
   type EvidenceResult,
   type EnforcementMap,
 } from '../lib/brand-v2-enforcement.ts';
+import {
+  readPrimitiveReconciliation,
+  type PrimitiveRegistrySlice,
+} from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
+import { publishedModules } from '../data/modules.ts';
+import {
+  AUTHORED_TOKEN_SOURCE,
+  RENDERER_MIRROR_SOURCE,
+  SEMANTIC_COLOUR_ONLY_MARKS_PATH,
+  SEMANTIC_ROLE_ASSERTION,
+  SEMANTIC_TOKEN_POPULATION_SOURCE,
+  TOKEN_ASSERTION_TOKENS,
+  TOKEN_RENDERER_EVIDENCE_PATH,
+  TOKEN_RUNTIME_EVIDENCE_PATH,
+  contrastRatio,
+  deriveAuthoredColorTokens,
+  deriveContractTokenExpectations,
+  deriveRuntimeTokenExpectations,
+  deriveSemanticTokenPopulation,
+  readTokenRendererEvidence,
+  readTokenRuntimeEvidence,
+  type SemanticTokenMember,
+} from '../lib/brand-v2-token-evidence.ts';
+import {
+  TEKTUR_ASSERTION_MODES,
+  TEKTUR_DELIVERY_EVIDENCE_PATH,
+  measureTekturEvidence,
+  tekturAssertionEvidence,
+} from '../lib/brand-v2-tektur-evidence.ts';
+import {
+  TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE,
+  TEKTUR_BINARY_POPULATION_SOURCE,
+  TEKTUR_OG_BINARY_POPULATION_SOURCE,
+  TEKTUR_OG_MAPPING_POPULATION_SOURCE,
+  TEKTUR_POPULATION_IDS,
+  TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE,
+  TEKTUR_WEB_BINARY_POPULATION_SOURCE,
+} from '../lib/tektur-populations.ts';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, 'contract', 'brand-v2-enforcement-map.json');
 const RESULTS_PATH = join(ROOT, 'evidence', 'brand-v2', 'results.json');
-const COMPLETED_TEKTUR_ASSERTIONS = new Set([
-  'VAL-B2-TYPE-001',
-  'VAL-B2-TYPE-002',
-  'VAL-B2-TYPE-011',
-  'VAL-B2-TYPE-012',
-  'VAL-B2-TYPE-013',
-  'VAL-B2-TYPE-014',
-  'VAL-B2-TYPE-015',
-  'VAL-B2-TYPE-016',
-  'VAL-B2-TYPE-017',
+/**
+ * The Tektur assertions, routed to the four measurements that decide them.
+ *
+ * Membership grants nothing. It previously did: the nine IDs were declared
+ * complete in a `COMPLETED_TEKTUR_ASSERTIONS` set and the generator then
+ * emitted `passed` rows whose payloads were registry and metadata fields, so
+ * a route-specific axis defect, a runtime third-party font request, a
+ * renderer family mutation or a cmap hole could coexist with freshly
+ * regenerated green evidence. Status and payload now come from the persisted
+ * all-route browser sweep plus the fontkit binary inspection, its in-memory
+ * rejection mutants, and the Open Graph renderer walk, through a reader that
+ * throws on stale, incomplete or disagreeing evidence.
+ */
+const TEKTUR_ASSERTIONS = new Set(Object.keys(TEKTUR_ASSERTION_MODES));
+/**
+ * The primitive assertions whose evidence is the persisted browser
+ * reconciliation (evidence/brand-v2/primitive-reconciliation.json, written
+ * by tests/e2e/brand-v2-primitives.spec.ts).
+ *
+ * Membership here routes an assertion to that artifact; it does not grant a
+ * pass. Status is derived per member from what the sweep actually rendered,
+ * and a member the sweep never rendered becomes a typed not-applicable row
+ * rather than a `passed` one. The previous allowlist did grant the pass: the
+ * three IDs were declared complete and the generator then read registry
+ * fields and a source regex, so a registered primitive that no route mounts
+ * still produced a passing result.
+ */
+const RECONCILED_PRIMITIVE_ASSERTIONS = new Map<string, PrimitiveRegistryKey>([
+  ['VAL-B2-GRID-009', 'gridDevices'],
+  ['VAL-B2-SURF-010', 'surfaces'],
+  ['VAL-B2-COMP-013', 'controls'],
 ]);
+
+/**
+ * The token assertions, routed to the tokens their own contract rows name.
+ *
+ * Membership grants nothing. It previously did: the four IDs were declared
+ * complete here and the generator then filled each `computed` block by
+ * reading the expected colour back out of BRAND_COLORS, so the row asserted
+ * that a constant equals itself. Status and payload now come from two
+ * persisted measurements — the all-route runtime sweep and the renderer
+ * corpus walk — through readers that throw on stale, incomplete or
+ * disagreeing evidence.
+ */
+const TOKEN_ASSERTIONS = new Set(Object.keys(TOKEN_ASSERTION_TOKENS));
+
+/**
+ * Whether an assertion's status and payload come from a measurement rather
+ * than from the pending-rollout default. It routes; it never grants: every
+ * branch below derives the row from an artifact or a re-run inspection, and
+ * throws when that evidence is stale, incomplete or disagrees.
+ */
+function isMeasured(id: string): boolean {
+  return (
+    TEKTUR_ASSERTIONS.has(id) ||
+    RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
+    TOKEN_ASSERTIONS.has(id)
+  );
+}
 
 type Registry = Parameters<
   typeof buildEnforcementPopulationSources
@@ -36,22 +122,95 @@ function readJson(path: string): unknown {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
+const REGISTRY = readJson(
+  join(ROOT, 'contract', 'brand-v2-registries.json'),
+) as Registry & {
+  gridDevices: Array<Record<string, unknown>>;
+  surfaces: Array<Record<string, unknown>>;
+  controls: Array<Record<string, unknown>>;
+};
+type PrimitiveRegistryKey = 'gridDevices' | 'surfaces' | 'controls';
+
+const RECONCILIATION_PATH = join(
+  ROOT,
+  'evidence',
+  'brand-v2',
+  'primitive-reconciliation.json',
+);
+
+const RECONCILIATION = readPrimitiveReconciliation({
+  artifact: readJson(RECONCILIATION_PATH),
+  registry: REGISTRY as unknown as PrimitiveRegistrySlice,
+});
+
+const TOKEN_SOURCES = {
+  root: ROOT,
+  contract: readFileSync(join(ROOT, 'contract', 'design-integrity.md'), 'utf8'),
+  css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
+};
+const TEKTUR_MEASUREMENTS = measureTekturEvidence({
+  artifact: readJson(join(ROOT, TEKTUR_DELIVERY_EVIDENCE_PATH)),
+  root: ROOT,
+  css: TOKEN_SOURCES.css,
+});
+const PUBLIC_ROUTE_PATH_BY_ID = new Map(
+  REGISTRY.routes.public.map(({ id, path }) => [id, path]),
+);
+const TOKEN_RUNTIME = readTokenRuntimeEvidence({
+  artifact: readJson(join(ROOT, TOKEN_RUNTIME_EVIDENCE_PATH)),
+  ...TOKEN_SOURCES,
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+});
+const TOKEN_RENDERER = readTokenRendererEvidence({
+  artifact: readJson(join(ROOT, TOKEN_RENDERER_EVIDENCE_PATH)),
+  ...TOKEN_SOURCES,
+  // Counted from the published corpus rather than trusted from the artifact,
+  // so a walk that skipped cards cannot certify the cards it never saw.
+  cardCount: publishedModules().length + 1,
+});
+const TOKEN_EXPECTATIONS = deriveContractTokenExpectations(TOKEN_SOURCES);
+const RUNTIME_TOKEN_EXPECTATIONS = deriveRuntimeTokenExpectations(TOKEN_SOURCES);
+const AUTHORED_TOKENS = deriveAuthoredColorTokens(TOKEN_SOURCES.css);
+const SEMANTIC_POPULATION = deriveSemanticTokenPopulation(TOKEN_SOURCES);
+const SEMANTIC_MEMBERS = new Map(
+  SEMANTIC_POPULATION.map((member) => [member.id, member]),
+);
+const MIRROR_PARITY = new Map(
+  TOKEN_RENDERER.mirrorParity.map((entry) => [entry.token, entry]),
+);
+
 function populationSources(assertionIds: string[]) {
-  const registry = readJson(
-    join(ROOT, 'contract', 'brand-v2-registries.json'),
-  ) as Registry;
   const baseline = readJson(
     join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
   ) as { manifests: Record<string, unknown> };
   return buildEnforcementPopulationSources({
-    registry,
+    registry: REGISTRY,
     baselineManifestIds: Object.keys(baseline.manifests).sort(),
     deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
     assertionIds,
+    tekturPopulations: TEKTUR_POPULATION_IDS,
+    semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
   });
 }
 
 function populationSourceFor(id: string): string {
+  if (id === SEMANTIC_ROLE_ASSERTION) {
+    return SEMANTIC_TOKEN_POPULATION_SOURCE;
+  }
+  if (id === 'VAL-B2-TYPE-015') {
+    return TEKTUR_ROLE_INSTANCE_POPULATION_SOURCE;
+  }
+  if (id === 'VAL-B2-TYPE-016') return TEKTUR_OG_MAPPING_POPULATION_SOURCE;
+  if (id === 'VAL-B2-TYPE-017') {
+    return TEKTUR_ASSIGNED_STRING_POPULATION_SOURCE;
+  }
+  if (id === 'VAL-B2-TYPE-011') return TEKTUR_WEB_BINARY_POPULATION_SOURCE;
+  if (id === 'VAL-B2-TYPE-012') return TEKTUR_OG_BINARY_POPULATION_SOURCE;
+  if (
+    ['VAL-B2-TYPE-002', 'VAL-B2-TYPE-013', 'VAL-B2-TYPE-014'].includes(id)
+  ) {
+    return TEKTUR_BINARY_POPULATION_SOURCE;
+  }
   const area = id.split('-')[2];
   if (area === 'BASE') {
     return 'evidence/brand-v2/baseline/baseline.json#manifests';
@@ -82,9 +241,17 @@ function populationSourceFor(id: string): string {
 
 function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] {
   const area = id.split('-')[2];
+  // A token row's evidence is a computed value read out of a live document,
+  // and a primitive row's evidence is the persisted browser reconciliation,
+  // so both stay browser-state rows rather than becoming source-build ones.
+  if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
+  if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
+  // A Tektur row whose predicate has a runtime clause is decided by the
+  // persisted browser sweep, so it is a browser-state row; the three that
+  // are entirely about the checked-in binaries stay machine-inspection rows.
+  if (TEKTUR_ASSERTIONS.has(id)) return TEKTUR_ASSERTION_MODES[id];
   if (
     ['GOV', 'BASE'].includes(area) ||
-    COMPLETED_TEKTUR_ASSERTIONS.has(id) ||
     ['VAL-B2-EVID-014', 'VAL-B2-EVID-016'].includes(id)
   ) {
     return 'automated-machine';
@@ -138,19 +305,29 @@ const PRIMITIVE_BROWSER_TARGETS = {
   'VAL-B2-GRID-009': testTarget(
     'tests/e2e/brand-v2-primitives.spec.ts',
     'brand-v2 shared primitive registry › VAL-B2-GRID-009 renders registered, aligned, pointer-inert devices',
-    'Checks rendered device IDs against the registry, pointer and ARIA behavior, and the sealed 2px alignment bound.',
+    'Sweeps every registered public route plus the market-map view states and checks rendered device IDs against the registry, pointer and ARIA behavior, the sealed 2px alignment bound, and exact equality with the production-mounted registry rows.',
   ),
   'VAL-B2-SURF-010': testTarget(
     'tests/e2e/brand-v2-primitives.spec.ts',
-    'brand-v2 shared primitive registry › VAL-B2-SURF-010 renders registered surface variants without glass or glow',
-    'Checks rendered surface IDs against the registry and rejects backdrop blur, filters, and coloured glow.',
+    'brand-v2 shared primitive registry › VAL-B2-SURF-010 source, registry and rendered surface populations are equal',
+    'Sweeps every registered public route plus the market-map view states, discovers surfaces structurally, requires an annotation on every discovered member, and asserts the rendered set equals the production-mounted registry rows exactly while rejecting backdrop blur, filters, and coloured glow.',
   ),
   'VAL-B2-COMP-013': testTarget(
     'tests/e2e/brand-v2-primitives.spec.ts',
-    'brand-v2 shared primitive registry › VAL-B2-COMP-013 keeps persistent ARIA scoped to persistent state',
-    'Reconciles rendered controls to registry IDs and rejects persistent selected, pressed, or current ARIA on transient controls.',
+    'brand-v2 shared primitive registry › VAL-B2-COMP-013 source, registry and rendered control populations reconcile',
+    'Sweeps every registered public route plus the market-map view states, discovers controls structurally including keyboard-operable SVG shapes, asserts the rendered set equals the production-mounted registry rows exactly, checks each row owner list against the route-reachable writers, and rejects persistent selected, pressed, or current ARIA on transient controls.',
   ),
 } satisfies Record<string, TestTarget>;
+const PRIMITIVE_TARGET_SIZE_TARGET = testTarget(
+  'tests/e2e/brand-v2-primitives.spec.ts',
+  'brand-v2 shared primitive registry › VAL-B2-COMP-014 undersized targets rely only on registered WCAG exceptions',
+  'Measures every structurally discovered control against the registered 24px minimum and admits an undersized target only when the SC 2.5.8 exception it satisfies geometrically is the one its registry row records.',
+);
+const PRIMITIVE_TABLE_REGION_TARGET = testTarget(
+  'tests/e2e/brand-v2-primitives.spec.ts',
+  'brand-v2 shared primitive registry › VAL-B2-COMP-009 focusable table scroll regions are named regions',
+  'Requires every focusable horizontal table-scroll container to expose the region role with a name that resolves to real text.',
+);
 const BASELINE_TARGET = testTarget(
   'tests/unit/brand-v2-baseline.test.ts',
   'brand-v2 immutable baseline > fails with a tagged omission when one %s member is deleted',
@@ -162,9 +339,19 @@ const ASSET_TARGET = testTarget(
   'Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail.',
 );
 const TEKTUR_BROWSER_TARGET = testTarget(
-  'tests/e2e/tektur-font-delivery.spec.ts',
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
   'Tektur web delivery › loads the local variable face without a third-party request or glyph fallback',
-  'Loads every registered Tektur role instance from the static export, verifies computed axes and same-origin WOFF2 resources, and rejects runtime Google-font or static-OG-TTF requests.',
+  'Loads the home route at the widest declared viewport, measures the resolved --font-tektur family and the home-wordmark axes, compares Tektur and monospace text advance for every assigned string, and asserts same-origin WOFF2 delivery with no Google-font or static-OG-TTF request.',
+);
+const TEKTUR_REQUEST_CLASSIFIER_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur web delivery › catches a corrupt third-party font payload by response type or request destination, and leaves an unreadable or unidentifiable one unclassified (VAL-B2-TYPE-002)',
+  'Plants third-party font requests that carry only one of the three identifying signals — a font response type, a browser font destination, or a font payload signature — requires each on its own to make the request a font, and requires a request that carries none of them, whether its payload cannot be read at all or arrives in a container that identifies neither a font nor a recognized non-font, to stay unclassified rather than be cleared.',
+);
+const TEKTUR_FAMILY_POPULATION_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur web typography population › resolves exactly the four registered first-party families on every route, with bounded scoped exceptions (VAL-B2-TYPE-001)',
+  'Reads the computed font-family of every element on every derived route at every declared width and reconciles the resulting head population exactly, in both directions, against the four registered first-party families plus an enumerated scoped-exception vocabulary each of whose members must stay inside rendered mathematics, so a fifth family on an unannotated surface fails.',
 );
 
 function tekturUnitTarget(title: string, mechanism: string): TestTarget {
@@ -175,22 +362,104 @@ function tekturUnitTarget(title: string, mechanism: string): TestTarget {
   );
 }
 
+const TEKTUR_ROLE_POPULATION_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur role population › renders the derived role occurrences with registry axes on every public route at every declared viewport (VAL-B2-TYPE-015)',
+  'Loads every registered public destination plus the 404 document at every declared viewport, measures the computed family and wght/wdth axes of every role annotation the page renders, and requires the rendered role set to equal the occurrence set derived from the annotation writers and the used-import graph exactly, per route and per width.',
+);
+const TEKTUR_ROLE_OWNERSHIP_TARGET = testTarget(
+  'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+  'Tektur role population › registers exactly the roles first-party source writes, each reaching a public route',
+  'Reconciles the registered roles with the annotation assignments in first-party source, each row’s definedIn modules with the modules that write it, and requires every role to be reachable from a route entry.',
+);
+const TEKTUR_BINARY_TARGET = tekturUnitTarget(
+  'inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)',
+  'Opens both binaries with fontkit and verifies checksums, formats, exact axes, the static OG mapping, license metadata, and assigned-string cmap coverage.',
+);
+const OG_RENDERER_FAMILY_TARGET = testTarget(
+  'tests/unit/og-renderer-fonts.test.ts',
+  'OG renderer font delivery contract > registers only first-party role families (VAL-B2-TYPE-001)',
+  'Requires every registered OG renderer face to carry the family the first-party registry gives the role it claims, pins the registered family list and both stack heads, and rejects a scoped exception family in a first-party role.',
+);
+const OG_RENDERER_RUN_TARGET = testTarget(
+  'tests/unit/og-renderer-fonts.test.ts',
+  'OG renderer font delivery contract > walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)',
+  'Walks every shipped card and proves each painted run resolves to a registered static face whose cmap covers its code points.',
+);
+
+const TEKTUR_EVIDENCE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects stale, truncated, and disagreeing Tektur evidence',
+  'Feeds the reader artifacts with a stale fingerprint, a dropped route, a dropped width, a family record built from fewer widths than declared, a removed role, a drifted axis and a missing axis tuple, and requires each to be rejected instead of read as a measurement.',
+);
+const TEKTUR_FAMILY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects an unapproved or unscoped font family anywhere in the population',
+  'Plants a fifth family in the measured population, unscopes an exception face, scopes a face nothing resolved, deletes a registered family, and empties the exception population, and requires each to be rejected.',
+);
+const TEKTUR_DELIVERY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-tektur-evidence.test.ts',
+  'brand-v2 Tektur delivery evidence > rejects a delivery record that hides a third-party request or a fallback glyph',
+  'Plants a third-party font request, a foreign-origin route state, a missing bundled WOFF2, a runtime request for the offline OG binary, a zeroed request count, a drifted wordmark axis, an equal-advance glyph probe, an unloaded probe and a short probe population, and requires each to be rejected.',
+);
+
+/**
+ * Each Tektur row names the gates that decide its own predicate. Naming only
+ * the registry-shaped unit test and the single-route delivery spec left the
+ * measuring runs — the per-route viewport sweep, the fontkit binary
+ * inspection, and the OG renderer walk — unnamed, so a reader could not
+ * reach the evidence from the row.
+ */
 function tekturTargetsFor(id: string): TestTarget[] {
-  if (id === 'VAL-B2-TYPE-001' || id === 'VAL-B2-TYPE-002') {
+  if (id === 'VAL-B2-TYPE-001') {
     return [
       tekturUnitTarget(
         'registers exactly four first-party families (VAL-B2-TYPE-001, VAL-A11Y-014)',
         'Pins the four first-party families to their display, interface, reading, and data roles.',
       ),
+      OG_RENDERER_FAMILY_TARGET,
+      // The family row alone inspects registrations; the renderer walk is
+      // what proves the shipped corpus paints nothing outside them, so a
+      // role-family claim about the OG path names both.
+      OG_RENDERER_RUN_TARGET,
+      // The population this row quantifies over is the families production
+      // typography resolves, not the four registry rows, so the sweep that
+      // measures every element's computed family is the deciding gate.
+      TEKTUR_FAMILY_POPULATION_TARGET,
+      TEKTUR_ROLE_POPULATION_TARGET,
       TEKTUR_BROWSER_TARGET,
     ];
   }
-  if (id === 'VAL-B2-TYPE-015' || id === 'VAL-B2-TYPE-016') {
+  if (id === 'VAL-B2-TYPE-002') {
+    return [
+      TEKTUR_BINARY_TARGET,
+      TEKTUR_ROLE_POPULATION_TARGET,
+      TEKTUR_BROWSER_TARGET,
+      // A sweep that admits no third-party font is only as good as what it
+      // counts as a font, so the row names the gate that plants third-party
+      // requests the payload table alone cannot recognise.
+      TEKTUR_REQUEST_CLASSIFIER_TARGET,
+    ];
+  }
+  if (id === 'VAL-B2-TYPE-015') {
     return [
       tekturUnitTarget(
         'registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)',
         'Pins all six measurable wght/wdth role instances and the exact static OG role mapping.',
       ),
+      TEKTUR_ROLE_POPULATION_TARGET,
+      TEKTUR_ROLE_OWNERSHIP_TARGET,
+      TEKTUR_BROWSER_TARGET,
+    ];
+  }
+  if (id === 'VAL-B2-TYPE-016') {
+    return [
+      tekturUnitTarget(
+        'registers measurable Tektur role instances and the exact OG mapping (VAL-B2-TYPE-015, VAL-B2-TYPE-016)',
+        'Pins all six measurable wght/wdth role instances and the exact static OG role mapping.',
+      ),
+      TEKTUR_BINARY_TARGET,
+      OG_RENDERER_RUN_TARGET,
       TEKTUR_BROWSER_TARGET,
     ];
   }
@@ -200,16 +469,12 @@ function tekturTargetsFor(id: string): TestTarget[] {
         'keeps assigned web and OG strings non-empty and code-point addressable (VAL-B2-TYPE-017)',
         'Derives the assigned identity, descriptor, numeral, domain, and article-title string population before cmap inspection.',
       ),
+      TEKTUR_BINARY_TARGET,
+      OG_RENDERER_RUN_TARGET,
       TEKTUR_BROWSER_TARGET,
     ];
   }
-  return [
-    tekturUnitTarget(
-      'inspects checksums, formats, axes, static mapping, and cmap coverage (VAL-B2-TYPE-011 through 017)',
-      'Opens both binaries with fontkit and verifies checksums, formats, exact axes, static mapping, license metadata, and assigned-string cmap coverage.',
-    ),
-    TEKTUR_BROWSER_TARGET,
-  ];
+  return [TEKTUR_BINARY_TARGET, OG_RENDERER_RUN_TARGET, TEKTUR_BROWSER_TARGET];
 }
 const RUNNER_ROUTE_TARGET = testTarget(
   'tests/unit/brand-v2-runners.test.ts',
@@ -238,8 +503,101 @@ const OMISSION_PROOF = {
   failureReason: 'missing-assertion-row' as const,
 };
 
+const TOKEN_MIRROR_TARGET = testTarget(
+  'tests/unit/design-system-contract.test.ts',
+  'design tokens stay aligned > compares the shared renderer constants against the sealed values',
+  'Compares every renderer mirror constant against the sealed palette and against the matching --color-* declaration in app/globals.css, so a wrong mirror literal fails instead of propagating.',
+);
+const TOKEN_SEMANTIC_TARGET = testTarget(
+  'tests/unit/design-system-contract.test.ts',
+  'design tokens stay aligned > uses semantic warning colour in warning primitives',
+  'Proves the four semantic tokens are distinct from the brand accents, declared in app/globals.css, carried by the badge and callout non-colour cues, and measured at or above WCAG AA against both reading grounds.',
+);
+const TOKEN_ROUTE_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2.spec.ts',
+  'brand-v2 core visual authority › every public route resolves the sealed palette exactly',
+  'Loads every registered public route, compares the resolved :root colour tokens and their aliases against the contract-derived values exactly, and persists the observation this row reads.',
+);
+const TOKEN_RENDERER_PARITY_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > records the colours the shipped card corpus paints and the renderer mirror parity',
+  'Walks every shipped Open Graph card, records the painted colours and the mirror-versus-authored-stylesheet comparison this row reads, and fails when the artwork paints a value the stylesheet authors for no token.',
+);
+const TOKEN_EVIDENCE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > rejects spoofed, stale, and incomplete token evidence',
+  'Feeds the readers artifacts with a stale fingerprint, a missing route, an unmeasured property, a disagreeing hex, a wrong card count, and a drifted mirror, and requires each to be rejected.',
+);
+const TOKEN_RENDER_BOUNDARY_TARGET = testTarget(
+  'tests/unit/brand-v2-token-evidence.test.ts',
+  'brand-v2 token evidence > the renderer identity over a fixture tree > fails a render boundary that does not hand the opened tree straight to the renderer',
+  'Plants a wrapper at the render call site, a wrapper behind a helper, an in-place edit between opening the seal and rendering, a substituted tree, a boundary that never opens the seal, and a generator that bypasses the boundary, and requires each to be rejected, so the painted tree cannot differ from the corpus tree this row measures.',
+);
+const OG_CARD_SEAL_TARGET = testTarget(
+  'tests/unit/og-card-seal.test.ts',
+  'the sealed Open Graph card corpus > refuses a card tree edited in place after it was sealed',
+  'Proves the corpus handle carries no route to the element tree, that a forged or copied handle is refused, and that a tree edited after sealing can no longer be opened, which is what leaves the render boundary no reachable tree to transform.',
+);
+const TOKEN_ACCENT_TARGET = testTarget(
+  'tests/e2e/brand-v2.spec.ts',
+  'brand-v2 core visual authority › runtime signal token resolves to exact v2 blue',
+  'Measures the resolved signal, focus, and selection tokens in a live document.',
+);
+const TOKEN_FOUNDATION_TARGET = testTarget(
+  'tests/e2e/brand-v2.spec.ts',
+  'brand-v2 core visual authority › runtime paper token resolves to exact v2 foundation',
+  'Measures the resolved foundation, semantic, and spacing tokens in a live document.',
+);
+
+function tokenTargetsFor(id: string): TestTarget[] {
+  // The renderer-parity walk measures the corpus tree. It is decisive for
+  // the shipped cards only while the painted tree is that same tree, so
+  // every row reading a renderer number also names the two gates that hold
+  // the boundary: the source invariant and the runtime seal.
+  const renderer = [
+    TOKEN_RENDERER_PARITY_TARGET,
+    TOKEN_RENDER_BOUNDARY_TARGET,
+    OG_CARD_SEAL_TARGET,
+  ];
+  if (id === SEMANTIC_ROLE_ASSERTION) {
+    return [
+      TOKEN_MIRROR_TARGET,
+      TOKEN_SEMANTIC_TARGET,
+      TOKEN_ROUTE_SWEEP_TARGET,
+      TOKEN_FOUNDATION_TARGET,
+      ...renderer,
+      TOKEN_EVIDENCE_READER_TARGET,
+    ];
+  }
+  return [
+    TOKEN_MIRROR_TARGET,
+    TOKEN_ROUTE_SWEEP_TARGET,
+    id === 'VAL-B2-COL-003' ? TOKEN_FOUNDATION_TARGET : TOKEN_ACCENT_TARGET,
+    ...renderer,
+    TOKEN_EVIDENCE_READER_TARGET,
+  ];
+}
+
 function testTargetsFor(id: string): TestTarget[] {
-  if (COMPLETED_TEKTUR_ASSERTIONS.has(id)) return tekturTargetsFor(id);
+  if (TEKTUR_ASSERTIONS.has(id)) {
+    return [
+      ...tekturTargetsFor(id),
+      // The measuring runs alone would still pass on a stale artifact, so
+      // every Tektur row also names the gate that proves the reader refuses
+      // one, plus the mutation gate covering its own clause.
+      TEKTUR_EVIDENCE_READER_TARGET,
+      ...(id === 'VAL-B2-TYPE-001' ? [TEKTUR_FAMILY_READER_TARGET] : []),
+      ...([
+        'VAL-B2-TYPE-002',
+        'VAL-B2-TYPE-011',
+        'VAL-B2-TYPE-012',
+        'VAL-B2-TYPE-017',
+      ].includes(id)
+        ? [TEKTUR_DELIVERY_READER_TARGET]
+        : []),
+    ];
+  }
+  if (TOKEN_ASSERTIONS.has(id)) return tokenTargetsFor(id);
   if (id in PRIMITIVE_BROWSER_TARGETS) {
     return [
       PRIMITIVE_REGISTRY_TARGET,
@@ -334,7 +692,330 @@ function testTargetsFor(id: string): TestTarget[] {
     }
     return [RUNNER_DEEP_TARGET];
   }
+  if (id === 'VAL-B2-COMP-014') {
+    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TARGET_SIZE_TARGET];
+  }
+  if (id === 'VAL-B2-COMP-009') {
+    return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET, PRIMITIVE_TABLE_REGION_TARGET];
+  }
   return [CENSUS_ROUTE_TARGET, ROUTE_FLOW_TARGET];
+}
+
+const PRIMITIVE_EVIDENCE_FIELDS = {
+  'VAL-B2-GRID-009': {
+    registryKey: 'gridDevices' as const,
+    fields: [
+      'ownerSurface',
+      'structuralPurpose',
+      'anchorGeometry',
+      'classification',
+      'ariaBehavior',
+      'pointerBehavior',
+      'allowedViewports',
+      'alignmentTolerancePx',
+    ],
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+  'VAL-B2-SURF-010': {
+    registryKey: 'surfaces' as const,
+    fields: [
+      'level',
+      'stackingPurpose',
+      'allowedRadiusPx',
+      'border',
+      'shadow',
+      'allowedOwners',
+    ],
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+  'VAL-B2-COMP-013': {
+    registryKey: 'controls' as const,
+    fields: [
+      'action',
+      'statePurpose',
+      'persistentAria',
+      'supportedStates',
+      'ownerRouteOrMount',
+      'targetSize',
+      'pointerAlternative',
+    ],
+    tool: 'brand-v2-census + Playwright brand-v2-primitives',
+  },
+} as const;
+
+/**
+ * Per-member registry evidence for a reconciled primitive row, read out of
+ * the registry record the browser reconciliation matched. A missing field or
+ * an unregistered ID throws rather than producing a `passed` row, because a
+ * result the generator could emit without the underlying record being
+ * complete would be exactly the unfalsifiable evidence this corpus exists to
+ * prevent.
+ */
+function primitiveRegistryEvidence(
+  assertionId: string,
+  member: string,
+): { sourcePath: string; observed: Record<string, unknown>; tool: string } {
+  const spec =
+    PRIMITIVE_EVIDENCE_FIELDS[
+      assertionId as keyof typeof PRIMITIVE_EVIDENCE_FIELDS
+    ];
+  if (!spec) throw new Error(`No primitive evidence shape for ${assertionId}`);
+  const row = REGISTRY[spec.registryKey].find(
+    (candidate) => candidate.id === member,
+  );
+  if (!row) throw new Error(`${assertionId}: ${member} is not registered`);
+  const observed: Record<string, unknown> = {};
+  for (const field of spec.fields) {
+    const value = (row as Record<string, unknown>)[field];
+    const empty =
+      value === undefined ||
+      value === null ||
+      (typeof value === 'string' && value.trim().length === 0) ||
+      // A control legitimately carries no persistent ARIA; every other listed
+      // field is meaningless when empty.
+      (Array.isArray(value) &&
+        value.length === 0 &&
+        field !== 'persistentAria');
+    if (empty) throw new Error(`${assertionId}: ${member} records no ${field}`);
+    observed[field] = value;
+  }
+  return {
+    sourcePath: 'contract/brand-v2-registries.json',
+    observed,
+    tool: spec.tool,
+  };
+}
+
+type TokenResultCommon = {
+  resultId: string;
+  assertionId: string;
+  populationMemberId: string;
+  coveredPopulationMemberIds: string[];
+  coverageKind: 'per-member' | 'population-wide';
+  status: 'passed' | 'pending';
+  expected: string;
+  actual: string;
+  selectorOrRegistryId: string;
+  exceptionVerdict: 'none';
+};
+
+const AA_CONTRAST = 4.5;
+
+/**
+ * One colour assertion, on one public route, from what that route actually
+ * resolved in the recorded sweep — plus the renderer mirror comparison for
+ * the same token against the authored declaration.
+ */
+function routeTokenResult(
+  common: TokenResultCommon,
+  assertionId: string,
+  member: string,
+): EvidenceResult {
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (route === undefined) {
+    throw new Error(`${assertionId}: ${member} is not a registered public route`);
+  }
+  const observed = TOKEN_RUNTIME.observedByRoute[route];
+  if (!observed) {
+    throw new Error(
+      `${assertionId}: the recorded sweep has no observation for ${route}`,
+    );
+  }
+  const expectations = TOKEN_EXPECTATIONS[assertionId];
+  const tokens = new Set(expectations.map(({ token }) => token));
+  const properties = Object.values(RUNTIME_TOKEN_EXPECTATIONS).filter(
+    (expectation) => tokens.has(expectation.aliasOf ?? expectation.token),
+  );
+  const resolved: Record<string, string> = {};
+  for (const expectation of properties) {
+    const value = observed[expectation.property];
+    if (value !== expectation.expectedHex) {
+      throw new Error(
+        `${assertionId}: ${route} resolved ${expectation.property} to ${String(value)} rather than ${expectation.expectedHex}`,
+      );
+    }
+    resolved[expectation.property] = value;
+  }
+  const rendererMirror: Record<string, string> = {};
+  const paintedInCardCorpus: Record<string, number> = {};
+  for (const expectation of expectations) {
+    const parity = MIRROR_PARITY.get(expectation.token);
+    if (!parity) {
+      throw new Error(
+        `${assertionId}: ${RENDERER_MIRROR_SOURCE} exports no mirror for ${expectation.token}`,
+      );
+    }
+    rendererMirror[expectation.token] = parity.mirror;
+    paintedInCardCorpus[expectation.token] =
+      TOKEN_RENDERER.paintedByHex[expectation.authoredHex] ?? 0;
+  }
+  return {
+    ...common,
+    actual: `${route} resolved ${Object.keys(resolved).length} token properties to the contract values in a sweep of ${TOKEN_RUNTIME.routes.length} public routes, and the renderer mirror matches the authored declaration`,
+    payload: {
+      kind: 'browser-state',
+      computed: {
+        route,
+        resolved,
+        contract: Object.fromEntries(
+          expectations.map(({ token, contractHex }) => [token, contractHex]),
+        ),
+        rendererMirror,
+        paintedInCardCorpus,
+        cardsWalked: TOKEN_RENDERER.cardCount,
+        evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, TOKEN_RENDERER_EVIDENCE_PATH],
+      },
+    },
+  };
+}
+
+/**
+ * One member of VAL-B2-COMP-012's own population: a semantic token
+ * declaration, a module that uses one, or a renderer that mirrors one. The
+ * clause each member answers differs, so the payload differs: a declaration
+ * records distinctness and measured contrast, a use site records the
+ * non-colour cue carried beside the hue, and a renderer records mirror
+ * parity against the authored stylesheet.
+ */
+function semanticTokenResult(
+  common: TokenResultCommon,
+  memberId: string,
+): EvidenceResult {
+  const member = SEMANTIC_MEMBERS.get(memberId) as SemanticTokenMember;
+  if (!member) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: ${memberId} is not a semantic-token population member`,
+    );
+  }
+  const authoredHex = AUTHORED_TOKENS.hexByToken[member.token];
+  const parity = MIRROR_PARITY.get(member.token);
+  if (authoredHex === undefined || !parity) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: ${member.token} has no authored declaration or renderer mirror`,
+    );
+  }
+  const routesResolved = TOKEN_RUNTIME.routes.filter(
+    (route) =>
+      TOKEN_RUNTIME.observedByRoute[route][`--color-${member.token}`] ===
+      authoredHex,
+  ).length;
+  if (routesResolved !== TOKEN_RUNTIME.routes.length) {
+    throw new Error(
+      `${SEMANTIC_ROLE_ASSERTION}: --color-${member.token} resolved to ${authoredHex} on ${routesResolved} of ${TOKEN_RUNTIME.routes.length} swept routes`,
+    );
+  }
+  if (member.kind === 'declaration') {
+    const accents = Object.entries(AUTHORED_TOKENS.hexByToken).filter(
+      ([token, hex]) =>
+        hex === authoredHex &&
+        token !== member.token &&
+        AUTHORED_TOKENS.aliasTargetByToken[token] !== member.token,
+    );
+    if (accents.length > 0) {
+      throw new Error(
+        `--color-${member.token} shares ${authoredHex} with ${accents.map(([token]) => token).join(', ')}, so it is not separate from the other tokens`,
+      );
+    }
+    const grounds = { paper: 'paper', surface: 'white' } as const;
+    const contrast: Record<string, number> = {};
+    for (const [label, ground] of Object.entries(grounds)) {
+      const groundHex = AUTHORED_TOKENS.hexByToken[ground];
+      if (groundHex === undefined) {
+        throw new Error(`${AUTHORED_TOKEN_SOURCE} authors no --color-${ground}`);
+      }
+      const ratio = contrastRatio(authoredHex, groundHex);
+      if (ratio < AA_CONTRAST) {
+        throw new Error(
+          `--color-${member.token} measures ${ratio.toFixed(2)}:1 on ${label}, below WCAG AA`,
+        );
+      }
+      contrast[`${label}:${groundHex}`] = Number(ratio.toFixed(2));
+    }
+    return {
+      ...common,
+      actual: `declared as ${authoredHex}, distinct from every other authored colour token, at or above WCAG AA on both reading grounds, and resolved on all ${routesResolved} swept public routes`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          member: member.id,
+          token: member.token,
+          declaration: member.forms,
+          authored: authoredHex,
+          rendererMirror: parity.mirror,
+          contrastRatios: contrast,
+          routesResolved,
+          evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, TOKEN_RENDERER_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
+  if (member.kind === 'renderer') {
+    return {
+      ...common,
+      actual: `${member.module} mirrors ${member.token} as ${parity.mirror}, which equals the ${authoredHex} authored in ${AUTHORED_TOKEN_SOURCE}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          member: member.id,
+          token: member.token,
+          module: member.module,
+          forms: member.forms,
+          references: member.references,
+          rendererMirror: parity.mirror,
+          authored: authoredHex,
+          paintedInCardCorpus:
+            TOKEN_RENDERER.paintedByHex[authoredHex] ?? 0,
+          evidence: [TOKEN_RENDERER_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
+  const cueSubject = {
+    member: member.id,
+    token: member.token,
+    module: member.module,
+    forms: member.forms,
+    references: member.references,
+    viaAlias: member.viaAlias,
+    authored: authoredHex,
+    marks: member.marks.map(({ id, element, binding, via, cues }) => ({
+      id,
+      element,
+      binding,
+      via,
+      cues,
+    })),
+    colourOnlyMarks: member.colourOnlyMarks,
+    routesResolved,
+    evidence: [TOKEN_RUNTIME_EVIDENCE_PATH, SEMANTIC_COLOUR_ONLY_MARKS_PATH],
+  };
+  // A mark measured to carry the hue alone is not an unmeasured mark, and it
+  // is not a pass either. The cue clause is unsatisfied for it, the exact set
+  // is archived, and the remediation belongs to the interactive legends
+  // feature that owns chart series differentiation.
+  if (member.colourOnlyMarks.length > 0) {
+    return {
+      ...common,
+      status: 'pending' as const,
+      actual: `${member.module} paints ${member.token} on ${member.marks.length} marks; ${member.colourOnlyMarks.length} of them (${member.colourOnlyMarks.join(', ')}) carry the hue with no non-colour cue of their own, so the text/icon/shape clause is unsatisfied for those marks`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          ...cueSubject,
+          deferredTo: 'brand-v2-interactive-data-legends-and-render-parity',
+        },
+      },
+    };
+  }
+  return {
+    ...common,
+    actual: `${member.module} uses ${member.token} through ${member.forms.join(', ')} on ${member.marks.length} marks, each carrying its own non-colour cue (${[
+      ...new Set(member.marks.flatMap(({ cues }) => cues)),
+    ]
+      .sort()
+      .join(', ')}), and the token resolved on all ${routesResolved} swept public routes`,
+    payload: { kind: 'browser-state', computed: cueSubject },
+  };
 }
 
 function resultFor(
@@ -354,27 +1035,99 @@ function resultFor(
     populationMemberId: member ?? `population:${populationSource}`,
     coveredPopulationMemberIds: populationMemberIds,
     coverageKind: perMember ? ('per-member' as const) : ('population-wide' as const),
-    status: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
-      ? ('passed' as const)
-      : ('pending' as const),
+    status: isMeasured(assertionId) ? ('passed' as const) : ('pending' as const),
     expected: requirement,
-    actual: COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)
-      ? 'verified by the deterministic Tektur binary, role-registry, build, and browser gates'
-      : 'awaiting responsible rollout milestone',
+    // Every measured branch below replaces this with what its measurement
+    // actually recorded; a row that reached the generator without one would
+    // be asserting its own targets rather than an observation.
+    actual: 'awaiting responsible rollout milestone',
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
-  if (COMPLETED_TEKTUR_ASSERTIONS.has(assertionId)) {
+  const registryKey = RECONCILED_PRIMITIVE_ASSERTIONS.get(assertionId);
+  if (registryKey) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is reconciled per member and must record per-member evidence`,
+      );
+    }
+    const record = RECONCILIATION.members[member];
+    if (!record || record.kind !== registryKey) {
+      throw new Error(
+        `${assertionId}: ${member} has no ${registryKey} reconciliation record`,
+      );
+    }
+    if (record.renderedOn.length === 0) {
+      return {
+        ...common,
+        status: 'not-applicable' as const,
+        actual: `registered and defined in ${record.definedIn.join(', ') || 'no first-party module'}, mounted by no public route`,
+        notApplicableReason: {
+          code: 'unsupported-state' as const,
+          registryId: member,
+          detail: `${member} has mount state ${record.mountState}: the reconciliation over ${RECONCILIATION.routes.length} route states rendered it 0 times, so no rendered member exists to measure.`,
+        },
+      };
+    }
+    const evidence = primitiveRegistryEvidence(assertionId, member);
     return {
       ...common,
+      actual: `rendered on ${record.renderedOn.length} of ${RECONCILIATION.routes.length} swept route states and reconciled exactly against the registry row`,
       payload: {
-        kind: 'source-build',
-        sourcePath: 'assets/fonts/tektur/metadata.json',
-        predicate: requirement,
-        observed:
-          'Pinned variable-web/static-OG assets, exact role axes, cmap coverage, and same-origin browser delivery all passed.',
-        tool: 'fontkit + Vitest + Playwright',
+        kind: 'browser-state',
+        computed: {
+          ...evidence.observed,
+          mountState: record.mountState,
+          renderedOn: record.renderedOn,
+          sweptRouteStates: RECONCILIATION.routes.length,
+          reconciliationSource:
+            'evidence/brand-v2/primitive-reconciliation.json',
+        },
       },
+    };
+  }
+  if (TOKEN_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    return assertionId === SEMANTIC_ROLE_ASSERTION
+      ? semanticTokenResult(common, member)
+      : routeTokenResult(common, assertionId, member);
+  }
+  if (TEKTUR_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = tekturAssertionEvidence({
+      assertionId,
+      populationSource,
+      member,
+      measurements: TEKTUR_MEASUREMENTS,
+    });
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload:
+        mode === 'browser-state'
+          ? {
+              kind: 'browser-state',
+              computed: {
+                ...evidence.observed,
+                evidence: [evidence.sourcePath],
+                tool: evidence.tool,
+              },
+            }
+          : {
+              kind: 'source-build',
+              sourcePath: evidence.sourcePath,
+              predicate: requirement,
+              observed: evidence.observed,
+              tool: evidence.tool,
+            },
     };
   }
   if (mode === 'generated-image') {
@@ -445,7 +1198,7 @@ function generate() {
         throw new Error(`Population is empty for ${id}: ${canonicalPopulationSource}`);
       }
       const enforcementMode = modeFor(id);
-      const assertionResults = COMPLETED_TEKTUR_ASSERTIONS.has(id)
+      const assertionResults = isMeasured(id)
         ? population.map((member) =>
             resultFor(
               id,
@@ -473,9 +1226,13 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: COMPLETED_TEKTUR_ASSERTIONS.has(id)
-              ? `${id} passed deterministic Tektur delivery evidence over ${canonicalPopulationSource}`
-              : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
+            mechanism: RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
+              ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
+              : TOKEN_ASSERTIONS.has(id)
+                ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
+                : TEKTUR_ASSERTIONS.has(id)
+                ? `${id} per-member evidence derived from the persisted all-route Tektur sweep, the fontkit binary inspection and its rejection mutants, and the Open Graph renderer walk over ${canonicalPopulationSource}`
+                : `${id} pending rollout evidence over ${canonicalPopulationSource}`,
           })),
           ...testTargetsFor(id),
         ],
@@ -497,6 +1254,35 @@ function generate() {
     sources,
     map: enforcementMapSchema.parse({ schemaVersion: 1, rows }),
     results: results.map((result) => evidenceResultSchema.parse(result)),
+    colourOnlyMarks: colourOnlyMarkArchive(),
+  };
+}
+
+/**
+ * The archive of marks that paint a semantic hue with no non-colour cue of
+ * their own. Written and compared alongside the map and the results, so a
+ * newly authored colour-only mark and a remediated one both show up as a
+ * stale-artifact failure rather than as silence.
+ */
+function colourOnlyMarkArchive() {
+  return {
+    schemaVersion: 1,
+    generator: 'scripts/brand-v2-enforcement.ts',
+    populationSource: SEMANTIC_TOKEN_POPULATION_SOURCE,
+    ownedBy: 'brand-v2-interactive-data-legends-and-render-parity',
+    marks: SEMANTIC_POPULATION.flatMap(({ marks }) =>
+      marks
+        .filter(({ cues }) => cues.length === 0)
+        .map(({ id, module, token, element, form, binding, via }) => ({
+          id,
+          module,
+          token,
+          element,
+          form,
+          binding,
+          via,
+        })),
+    ).sort((left, right) => left.id.localeCompare(right.id)),
   };
 }
 
@@ -512,8 +1298,12 @@ if (mode === '--write') {
     RESULTS_PATH,
     `${JSON.stringify({ schemaVersion: 1, results: generated.results }, null, 2)}\n`,
   );
+  writeFileSync(
+    join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH),
+    `${JSON.stringify(generated.colourOnlyMarks, null, 2)}\n`,
+  );
   console.log(
-    `brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows and ${generated.results.length} tagged results`,
+    `brand-v2-enforcement: wrote ${generated.map.rows.length} assertion rows, ${generated.results.length} tagged results and ${generated.colourOnlyMarks.marks.length} archived colour-only marks`,
   );
 } else if (mode === '--check' || mode === '--check-release') {
   const map = enforcementMapSchema.parse(readJson(MAP_PATH));
@@ -547,6 +1337,16 @@ if (mode === '--write') {
       reason: 'generated-results-drift',
       expected: 'deterministic generated tagged results',
       actual: RESULTS_PATH,
+    });
+  }
+  if (
+    JSON.stringify(readJson(join(ROOT, SEMANTIC_COLOUR_ONLY_MARKS_PATH))) !==
+    JSON.stringify(generated.colourOnlyMarks)
+  ) {
+    failures.push({
+      reason: 'colour-only-mark-archive-drift',
+      expected: 'archived colour-only marks equal to the measured set',
+      actual: SEMANTIC_COLOUR_ONLY_MARKS_PATH,
     });
   }
   if (failures.length > 0) {

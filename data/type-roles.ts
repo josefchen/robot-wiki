@@ -24,6 +24,22 @@ const tekturRoleInstanceSchema = z.object({
   wght: z.number().int(),
   wdth: z.number().int(),
   cssClass: z.string().min(1),
+  /**
+   * The first-party modules that write this role's annotation.
+   *
+   * This replaced a hand-typed list of the routes that mount the role. That
+   * list decided which pages the browser gate visited, so it could not be
+   * wrong: `SiteShell` is mounted globally by `app/layout.tsx` while the
+   * array named three routes, and the shared article template renders
+   * `article-h1` on every published article while the array named one, and
+   * an axis override on any unlisted page was invisible. The route
+   * population is now derived from these modules through the used-import
+   * graph (`lib/tektur-role-occurrences.ts`), and `definedIn` itself is
+   * reconciled exactly against the annotation assignments in source.
+   */
+  definedIn: z
+    .array(z.string().regex(/^(?:app|components|lib)\/[\w()[\].,/-]+\.tsx?$/))
+    .min(1),
 });
 
 const tekturAssignedStringSchema = z.object({

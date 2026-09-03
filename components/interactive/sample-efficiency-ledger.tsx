@@ -120,6 +120,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
   return (
     <div
       data-testid="sample-efficiency"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -141,6 +142,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         <input
           id={`${uid}-budget`}
           type="range"
+          data-brand-control-id="control:input"
           min={BUDGET_SPEC.min}
           max={BUDGET_SPEC.max}
           step={BUDGET_SPEC.step}
@@ -164,6 +166,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
             >
               <input
                 type="radio"
+                data-brand-control-id="control:selection"
                 name={`${uid}-source`}
                 value={option.id}
                 checked={params.source === option.id}
@@ -205,6 +208,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         <input
           id={`${uid}-fleet`}
           type="range"
+          data-brand-control-id="control:input"
           min={FLEET_SPEC.min}
           max={FLEET_SPEC.max}
           step={FLEET_SPEC.step}
@@ -374,6 +378,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

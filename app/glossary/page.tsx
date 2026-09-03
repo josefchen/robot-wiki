@@ -34,7 +34,10 @@ export default function GlossaryPage() {
           route unreachable by the query "Glossary" that the sidebar itself
           invites (VAL-SEARCH-021, VAL-SEARCH-022). */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           Glossary
         </h1>
         <p className="mt-2 font-mono text-xs text-text-dim">
@@ -71,6 +74,7 @@ export default function GlossaryPage() {
                 {sources.map((source) => (
                   <li key={source.id} className="flex flex-wrap items-baseline gap-x-2">
                     <a
+                      data-brand-control-id="control:link-focus"
                       href={source.url}
                       target="_blank"
                       rel="noopener noreferrer"

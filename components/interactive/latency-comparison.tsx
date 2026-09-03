@@ -198,6 +198,7 @@ export function LatencyComparison({
 
   return (
     <div
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -217,6 +218,7 @@ export function LatencyComparison({
           <input
             id={delayId}
             type="range"
+            data-brand-control-id="control:input"
             min={MIN_DELAY_MS}
             max={MAX_DELAY_MS}
             step={5}
@@ -227,6 +229,7 @@ export function LatencyComparison({
           />
         </div>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={reset}

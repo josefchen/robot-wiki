@@ -48,6 +48,7 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                   href={citation.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-brand-control-id="control:link-focus"
                   className="break-words font-sans text-sm font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
                 >
                   {citation.title}

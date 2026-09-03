@@ -73,7 +73,10 @@ export default function AzIndexPage() {
           indexing them here would put this page in front of the article a
           reader was looking for. */}
       <header data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1
+          data-tektur-role="page-h1"
+          className="font-display-page text-3xl tracking-tight text-text"
+        >
           A-Z Index
         </h1>
         <p className="mt-2 font-mono text-xs text-text-dim">
@@ -91,6 +94,7 @@ export default function AzIndexPage() {
           {groups.map((group) => (
             <li key={group.letter}>
               <Link
+                data-brand-control-id="control:link-focus"
                 href={`/a-z/#${letterAnchorId(group.letter)}`}
                 className="text-text-dim transition-colors hover:text-accent"
               >
@@ -123,6 +127,7 @@ export default function AzIndexPage() {
                   className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5"
                 >
                   <Link
+                    data-brand-control-id="control:link-focus"
                     href={entry.href}
                     className="font-sans text-sm font-medium leading-snug text-text transition-colors hover:text-accent"
                   >

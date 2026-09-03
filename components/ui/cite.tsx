@@ -38,7 +38,10 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
       {...(citeId ? { 'data-cite-id': citeId } : {})}
       className="group relative inline-block align-baseline"
     >
-      <span className="inline-flex items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent">
+      <span
+        data-brand-surface-id="surface:flat"
+        className="inline-flex items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent"
+      >
         <a
           href={href}
           target="_blank"

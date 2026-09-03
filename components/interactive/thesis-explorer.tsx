@@ -105,6 +105,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
   return (
     <div
       data-testid="thesis-explorer"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'rounded-md border border-border bg-surface p-4 sm:p-5',
         className,
@@ -119,6 +120,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
           {readout}
         </p>
         <button
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           type="button"
           onClick={() => select(DEFAULT_THESIS_ID)}
@@ -163,6 +165,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
                 >
                   <th scope="row" className={cx(CELL, 'min-w-[170px]')}>
                     <button
+                      data-brand-control-id="control:selection"
                       ref={(el) => {
                         rowButtons.current[index] = el;
                       }}

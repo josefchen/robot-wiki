@@ -51,6 +51,7 @@ export function CompanyLogo({
       <span
         data-company-logo={company.id}
         data-logo-state="image"
+        data-brand-surface-id="surface:flat"
         className={cx(
           'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xs bg-logo-plate',
           box,

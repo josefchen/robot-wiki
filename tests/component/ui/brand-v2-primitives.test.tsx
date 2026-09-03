@@ -119,6 +119,50 @@ describe('brand-v2 shared primitives', () => {
     expect(onValueChange).toHaveBeenCalledWith('timeline');
   });
 
+  it('keeps a keyboard entry point when the controlled value names a disabled tab', () => {
+    render(
+      <Tabs
+        ariaLabel="Segment"
+        value="retired"
+        onValueChange={() => undefined}
+        items={[
+          { value: 'retired', label: 'Retired', disabled: true },
+          { value: 'grid', label: 'Grid' },
+          { value: 'timeline', label: 'Timeline' },
+        ]}
+      />,
+    );
+
+    const tabs = screen.getAllByRole('tab');
+    const stops = tabs.filter((tab) => tab.tabIndex === 0);
+    expect(stops).toHaveLength(1);
+    expect(stops[0]).toHaveAccessibleName('Grid');
+    expect(stops[0]).not.toBeDisabled();
+    expect(screen.getByRole('tab', { name: 'Retired' })).toHaveProperty(
+      'tabIndex',
+      -1,
+    );
+  });
+
+  it('prefers the selected tab as the roving stop when it is enabled', () => {
+    render(
+      <Tabs
+        ariaLabel="Segment"
+        value="timeline"
+        onValueChange={() => undefined}
+        items={[
+          { value: 'grid', label: 'Grid' },
+          { value: 'timeline', label: 'Timeline' },
+        ]}
+      />,
+    );
+    const stops = screen
+      .getAllByRole('tab')
+      .filter((tab) => tab.tabIndex === 0);
+    expect(stops).toHaveLength(1);
+    expect(stops[0]).toHaveAccessibleName('Timeline');
+  });
+
   it('keeps decorative devices pointer-inert and absent from accessibility', () => {
     const { container } = render(
       <BrandDevice

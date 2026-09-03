@@ -42,6 +42,13 @@ export type MarketMapViewId = 'grid' | 'bubble' | 'timeline';
 
 export const VIEW_IDS = ['grid', 'bubble', 'timeline'] as const;
 
+/**
+ * The view a bare `/market-map/` URL renders. Named because the primitive
+ * sweep derives its extra route states from the views that are NOT the
+ * default, and a second literal would let those two drift apart.
+ */
+export const DEFAULT_MARKET_MAP_VIEW: MarketMapViewId = 'grid';
+
 export const STATUS_FILTERS = [
   'private',
   'public',
@@ -328,7 +335,7 @@ export function parseMarketMapSearch(
   if (confidence && isConfidence(confidence)) filters.confidence = confidence;
 
   const viewRaw = params.get('view');
-  const view = viewRaw && isView(viewRaw) ? viewRaw : 'grid';
+  const view = viewRaw && isView(viewRaw) ? viewRaw : DEFAULT_MARKET_MAP_VIEW;
 
   return { view, filters };
 }
@@ -396,7 +403,7 @@ export function serializeMarketMapSearch(
   if (filters.approach) params.set('approach', filters.approach);
   if (filters.openSource) params.set('openSource', filters.openSource);
   if (filters.confidence) params.set('confidence', filters.confidence);
-  if (view !== 'grid') params.set('view', view);
+  if (view !== DEFAULT_MARKET_MAP_VIEW) params.set('view', view);
   return params.toString();
 }
 

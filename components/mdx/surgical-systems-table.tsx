@@ -20,6 +20,9 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
       // keyboard access (axe scrollable-region-focusable), matching
       // components/mdx/swarm-control-table.tsx.
       tabIndex={0}
+      role="region"
+      aria-label="Commercial surgical robot systems compared"
+      data-brand-surface-id="surface:flat"
       className={cx(
         'overflow-x-auto rounded-md border border-border bg-surface',
         className,
@@ -59,6 +62,7 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
                 {row.system}
                 <span
                   data-testid={`surgical-level-${row.key}`}
+                  data-brand-surface-id="surface:flat"
                   // No letter-spacing: this is a data chip (the system's
                   // autonomy level), and an uppercase letterspaced span
                   // would count against the micro-label

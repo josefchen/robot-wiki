@@ -71,6 +71,7 @@ export function Figure({
               href={credit.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-brand-control-id="control:link-focus"
               className="underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
             >
               {credit.sourceName}
@@ -83,6 +84,7 @@ export function Figure({
             href={credit.licenceUrl}
             target="_blank"
             rel="noopener noreferrer"
+            data-brand-control-id="control:link-focus"
             className="underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
           >
             {credit.licenceLabel}

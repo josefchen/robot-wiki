@@ -303,9 +303,13 @@ test.describe('brand-v2-route-flows', () => {
   }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto(staticBase);
+    // Wider than twice the viewport, so the overflow the document reports is
+    // a number no setup dimension supplies: a plant at 640px overflows a
+    // 320px viewport by exactly 320px, which is indistinguishable from the
+    // viewport width in any record of the result.
     await page.evaluate(() => {
       const plant = document.createElement('div');
-      plant.style.width = '640px';
+      plant.style.width = '1280px';
       plant.style.height = '1px';
       document.body.append(plant);
     });

@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { DOMAINS, publishedModules } from '@/data/modules';
+import { scanAnnotationAssignments } from '@/lib/brand-v2-annotation-scan';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -80,10 +81,16 @@ type Registry = {
     pointerBehavior: string;
     ariaBehavior: string;
     allowedViewports: string[];
+    definedIn: string[];
+    ownerRouteOrMount: string[];
+    mountState: string;
     fingerprint: string;
   }>;
   surfaces: Array<{
     id: string;
+    definedIn: string[];
+    ownerRouteOrMount: string[];
+    mountState: string;
     level: string;
     stackingPurpose: string;
     allowedRadiusPx: number[];
@@ -96,11 +103,17 @@ type Registry = {
   typeRoles: Array<{ id: string; family: string; fingerprint: string }>;
   controls: Array<{
     id: string;
-    ownerRouteOrMount: string;
+    definedIn: string[];
+    mountState: string;
+    ownerRouteOrMount: string[];
     action: string;
     persistentAria: string[];
     disabledException: string | null;
-    targetSize: unknown;
+    targetSize: {
+      minimumPx: number;
+      preferredPx: number;
+      exceptions: Array<{ kind: string; criterion: string; reason: string }>;
+    };
     pointerAlternative: string;
     supportedStates: string[];
     fingerprint: string;
@@ -309,11 +322,73 @@ describe('brand-v2 canonical census', () => {
       expect(surface.allowedOwners.length).toBeGreaterThan(0);
     }
 
+    // The owner field used to read "shared primitive; concrete owner
+    // supplied at render" on every row, which is a sentence about owners
+    // rather than owner data: it cannot go stale and it cannot be wrong. It
+    // then named every module containing the ID literal, which made an
+    // unmounted library definition look like a shipped mount. Owners are now
+    // the writers that supply the ID on a production route, and `mountState`
+    // records the rest.
+    //
+    // The definition set is compared with the resolved annotation
+    // assignments rather than with a substring search, because a finite
+    // dynamic writer never contains its own ID as a literal:
+    // components/ui/card.tsx assigns `surface:${level}` and
+    // components/ui/brand-device.tsx assigns `device:${device}`.
+    const scan = scanAnnotationAssignments(ROOT);
+    expect(scan.writes.length).toBeGreaterThan(0);
+    for (const row of [
+      ...registry.gridDevices,
+      ...registry.surfaces,
+      ...registry.controls,
+    ]) {
+      expect(['production', 'library-only', 'unwritten']).toContain(
+        row.mountState,
+      );
+      expect(row.definedIn).toBeInstanceOf(Array);
+      expect(row.ownerRouteOrMount).toBeInstanceOf(Array);
+      expect(
+        [...row.definedIn].sort(),
+        `${row.id} definedIn must equal its resolved annotation writers`,
+      ).toEqual([...(scan.ownersById[row.id] ?? [])].sort());
+      expect(
+        [...row.ownerRouteOrMount].sort(),
+        `${row.id} owners must equal the writers that supply it in production`,
+      ).toEqual([...(scan.productionOwnersById[row.id] ?? [])].sort());
+      for (const owner of row.definedIn) {
+        expect(owner).not.toMatch(/shared primitive|supplied at render/i);
+        expect(existsSync(join(ROOT, owner))).toBe(true);
+        const writes = scan.writes.filter(
+          (write) => write.module === owner && write.ids.includes(row.id),
+        );
+        expect(
+          writes.length,
+          `${owner} must contain a resolved assignment of ${row.id}`,
+        ).toBeGreaterThan(0);
+      }
+      for (const owner of row.ownerRouteOrMount) {
+        expect(row.definedIn).toContain(owner);
+      }
+      if (row.mountState === 'production') {
+        expect(row.ownerRouteOrMount.length).toBeGreaterThan(0);
+      } else {
+        expect(row.ownerRouteOrMount).toEqual([]);
+      }
+      if (row.mountState === 'unwritten') expect(row.definedIn).toEqual([]);
+      else expect(row.definedIn.length).toBeGreaterThan(0);
+    }
+
     for (const control of registry.controls) {
-      expect(control.ownerRouteOrMount).toBeTruthy();
       expect(control.action).toBeTruthy();
       expect(control.persistentAria).toBeInstanceOf(Array);
-      expect(control.targetSize).toBeTruthy();
+      expect(control.targetSize.minimumPx).toBe(24);
+      expect(control.targetSize.preferredPx).toBeGreaterThanOrEqual(24);
+      expect(control.targetSize.exceptions).toBeInstanceOf(Array);
+      for (const exception of control.targetSize.exceptions) {
+        expect(['inline', 'spacing', 'equivalent']).toContain(exception.kind);
+        expect(exception.criterion).toMatch(/WCAG 2\.2 SC 2\.5\.8/);
+        expect(exception.reason.trim().length).toBeGreaterThan(20);
+      }
       expect(control.pointerAlternative).toBeTruthy();
       expect(control.supportedStates.length).toBeGreaterThan(0);
     }
@@ -336,6 +411,97 @@ describe('brand-v2 canonical census', () => {
         'missing-primitive-registry-field',
       ]),
     );
+  });
+
+  it('rejects narrated control owners and blanket target-size claims', () => {
+    // A production-mounted row: the mount-state cases below have to be able
+    // to move it in both directions, so the base row cannot already be the
+    // library-only one.
+    const control = registry.controls.find(
+      (row) => row.mountState === 'production',
+    ) as (typeof registry.controls)[number];
+    const libraryOnly = registry.controls.find(
+      (row) => row.mountState === 'library-only',
+    ) as (typeof registry.controls)[number];
+    const reasonsFor = (patch: Record<string, unknown>) =>
+      validatePrimitiveRegistries({
+        gridDevices: registry.gridDevices,
+        surfaces: registry.surfaces,
+        controls: [{ ...control, ...patch }],
+      }).map(({ reason }) => reason);
+    const libraryReasonsFor = (patch: Record<string, unknown>) =>
+      validatePrimitiveRegistries({
+        gridDevices: registry.gridDevices,
+        surfaces: registry.surfaces,
+        controls: [{ ...libraryOnly, ...patch }],
+      }).map(({ reason }) => reason);
+
+    expect(
+      reasonsFor({
+        definedIn: ['shared primitive; concrete owner supplied at render'],
+        ownerRouteOrMount: [
+          'shared primitive; concrete owner supplied at render',
+        ],
+      }),
+    ).toContain('placeholder-control-owner');
+    expect(reasonsFor({ ownerRouteOrMount: [] })).toContain(
+      'mount-state-contradicts-owners',
+    );
+    expect(
+      reasonsFor({ ownerRouteOrMount: 'components/ui/cite.tsx' }),
+    ).toContain('invalid-control-owner');
+    expect(
+      reasonsFor({
+        definedIn: ['node_modules/react'],
+        ownerRouteOrMount: ['node_modules/react'],
+      }),
+    ).toContain('unresolvable-control-owner');
+    // A row cannot claim an owner it never defined, and it cannot record a
+    // mount state its own owner list contradicts.
+    expect(
+      reasonsFor({ ownerRouteOrMount: ['components/ui/skip-link.tsx'] }),
+    ).toContain('owner-outside-definition-set');
+    expect(reasonsFor({ mountState: 'library-only' })).toContain(
+      'mount-state-contradicts-owners',
+    );
+    expect(reasonsFor({ mountState: 'mounted' })).toContain(
+      'unrecognised-primitive-mount-state',
+    );
+    // The reverse direction: an unmounted library definition cannot upgrade
+    // itself to a production mount while its owner list stays empty.
+    expect(libraryReasonsFor({ mountState: 'production' })).toContain(
+      'unowned-control-registry-row',
+    );
+    expect(
+      reasonsFor({ targetSize: { ...control.targetSize, minimumPx: 20 } }),
+    ).toContain('wrong-target-size-minimum');
+    expect(
+      reasonsFor({ targetSize: { minimumPx: 24, preferredPx: 44 } }),
+    ).toContain('missing-target-size-exceptions');
+    expect(
+      reasonsFor({
+        targetSize: {
+          ...control.targetSize,
+          exceptions: [
+            {
+              kind: 'inlineException',
+              criterion: 'WCAG 2.2 SC 2.5.8',
+              reason: 'the control is small',
+            },
+          ],
+        },
+      }),
+    ).toContain('unrecognised-target-size-exception');
+    expect(
+      reasonsFor({
+        targetSize: {
+          ...control.targetSize,
+          exceptions: [
+            { kind: 'inline', criterion: 'WCAG 2.2 SC 2.5.8', reason: '  ' },
+          ],
+        },
+      }),
+    ).toContain('undocumented-target-size-exception');
   });
 
   it('covers every metadata owner and field with stable fingerprints', () => {
