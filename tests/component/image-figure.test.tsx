@@ -77,8 +77,8 @@ describe('ImageRef (registry resolver)', () => {
     expect(diagram.sourceUrl).toBeUndefined();
     render(<ImageRef id="covariate-shift" />);
     const credit = document.querySelector('[data-image-credit]')!;
-    expect(credit.textContent).toContain('robot-wiki contributors');
-    expect(credit.textContent).toContain('robot-wiki (original diagram)');
+    expect(credit.textContent).toContain('Robot Wiki contributors');
+    expect(credit.textContent).toContain('Robot Wiki (original diagram)');
     expect(credit.textContent).toContain('CC BY 4.0');
     // The only anchor in the credit is the licence deed; nothing links to
     // an inaccessible "original".

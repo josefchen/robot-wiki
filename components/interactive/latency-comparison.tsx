@@ -18,6 +18,7 @@ import {
   teThroughput,
   type ExecutionStatus,
 } from '@/lib/latency-chunking';
+import { EDGE_DASH, SERIES_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -254,7 +255,10 @@ export function LatencyComparison({
           width={throughputChart.windowToX - throughputChart.windowFromX}
           height={throughputChart.plotH}
           fill="var(--color-err)"
-          opacity={0.08}
+          fillOpacity={0.08}
+          stroke="var(--color-err)"
+          strokeWidth={1}
+          strokeDasharray={EDGE_DASH.error}
         />
         <text
           x={(throughputChart.windowFromX + throughputChart.windowToX) / 2}
@@ -327,12 +331,15 @@ export function LatencyComparison({
           fill="none"
           stroke="var(--color-ok)"
           strokeWidth={2}
+          strokeDasharray={SERIES_DASH.ok}
+          strokeLinecap="round"
         />
         <path
           d={throughputChart.tePath}
           fill="none"
           stroke="var(--color-err)"
           strokeWidth={2}
+          strokeDasharray={SERIES_DASH.error}
         />
         {/* Current-delay marker. */}
         <line
@@ -347,18 +354,21 @@ export function LatencyComparison({
         <circle
           cx={throughputChart.markerX}
           cy={throughputChart.teMarkerY}
-          r={4}
+          r={4.5}
           fill="var(--color-bg)"
           stroke="var(--color-err)"
           strokeWidth={2}
+          strokeDasharray={EDGE_DASH.error}
         />
         <circle
           cx={throughputChart.markerX}
           cy={throughputChart.rtcMarkerY}
-          r={4}
+          r={4.5}
           fill="var(--color-bg)"
           stroke="var(--color-ok)"
           strokeWidth={2}
+          strokeDasharray={EDGE_DASH.ok}
+          strokeLinecap="round"
         />
         {/* Legend. */}
         <g fontSize={11} fontFamily="var(--font-mono)">
@@ -369,6 +379,7 @@ export function LatencyComparison({
             y2={CHART.pad.top + 26}
             stroke="var(--color-err)"
             strokeWidth={2}
+            strokeDasharray={SERIES_DASH.error}
           />
           <text
             x={CHART.pad.left + 28}
@@ -384,6 +395,8 @@ export function LatencyComparison({
             y2={CHART.pad.top + 44}
             stroke="var(--color-ok)"
             strokeWidth={2}
+            strokeDasharray={SERIES_DASH.ok}
+            strokeLinecap="round"
           />
           <text
             x={CHART.pad.left + 28}
@@ -426,7 +439,10 @@ export function LatencyComparison({
           width={traceChart.plotW}
           height={traceChart.negFloorY - traceChart.floorY}
           fill="var(--color-err)"
-          opacity={0.07}
+          fillOpacity={0.07}
+          stroke="var(--color-err)"
+          strokeWidth={1}
+          strokeDasharray={EDGE_DASH.error}
         />
         <text
           x={TRACE.pad.left + 6}
@@ -533,20 +549,32 @@ export function LatencyComparison({
           fill="none"
           stroke="var(--color-ok)"
           strokeWidth={2}
+          strokeDasharray={SERIES_DASH.ok}
+          strokeLinecap="round"
         />
         <path
           d={traceChart.tePath}
           fill="none"
           stroke="var(--color-err)"
           strokeWidth={2}
+          strokeDasharray={SERIES_DASH.error}
         />
         {offMode && (
           <g data-testid="te-offmode-marker">
             <circle
               cx={traceChart.teEnd.cx}
               cy={traceChart.teEnd.cy}
-              r={4.5}
-              fill="var(--color-err)"
+              r={5.5}
+              fill="var(--color-bg)"
+              stroke="var(--color-err)"
+              strokeWidth={1.5}
+              strokeDasharray={EDGE_DASH.error}
+            />
+            <path
+              d={`M ${traceChart.teEnd.cx - 3} ${traceChart.teEnd.cy - 3} L ${traceChart.teEnd.cx + 3} ${traceChart.teEnd.cy + 3} M ${traceChart.teEnd.cx - 3} ${traceChart.teEnd.cy + 3} L ${traceChart.teEnd.cx + 3} ${traceChart.teEnd.cy - 3}`}
+              stroke="var(--color-err)"
+              strokeWidth={1.5}
+              strokeLinecap="round"
             />
             <text
               x={traceChart.teEnd.cx - 8}

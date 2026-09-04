@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeTwitter, siteOgImage } from '@/lib/og-cards';
 
 const title = 'Page not found';
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
     title,
     url: '/404/',
-    siteName: 'robot-wiki',
+    siteName: PUBLIC_IDENTITY,
     images: siteOgImage(),
   },
   twitter: routeTwitter(title),

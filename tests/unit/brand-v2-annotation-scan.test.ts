@@ -67,6 +67,7 @@ describe('brand primitive annotation assignments', () => {
     );
     expect(deviceWrite?.form).toBe('parameter');
     expect([...(deviceWrite?.ids ?? [])].sort()).toEqual([
+      'device:active-interval-rail',
       'device:dot-grid',
       'device:outer-rail',
       'device:registration-cross',

@@ -112,7 +112,7 @@ test.describe('rl-for-robotics module', () => {
     ).toBeVisible();
 
     // First in the sidebar's RL group, and carrying the active highlight.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: TITLE, exact: true }),
     ).toHaveAttribute('aria-current', 'page');
@@ -171,7 +171,7 @@ test.describe('rl-for-robotics module', () => {
       // And the sidebar highlight still lands on this route.
       await expect(
         page
-          .getByRole('navigation', { name: 'robot-wiki taxonomy' })
+          .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
           .getByRole('link', { name: sibling.title, exact: true }),
       ).toHaveAttribute('aria-current', 'page');
     }

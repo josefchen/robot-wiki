@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { CORE_DOMAINS } from '../../data/domains';
+import { PUBLIC_IDENTITY } from '../../lib/identity';
 
 /**
  * Structural contract for the restructured home page (2026-08-10). Encodes
@@ -77,10 +78,10 @@ function countMicroLabels(page: Page): Promise<number> {
 }
 
 test.describe('home page', () => {
-  test('renders the robot-wiki wordmark heading', async ({ page }) => {
+  test('renders the Robot Wiki wordmark heading', async ({ page }) => {
     await page.goto('/');
     await expect(
-      page.getByRole('heading', { level: 1, name: 'robot-wiki' }),
+      page.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
     ).toBeVisible();
   });
 
@@ -97,7 +98,7 @@ test.describe('home page', () => {
     await page.goto('/');
     const wordmark = page.getByRole('heading', {
       level: 1,
-      name: 'robot-wiki',
+      name: PUBLIC_IDENTITY,
     });
     const overview = page.getByText(/encyclopedia of modern robotics/);
     // The full box must sit inside the first viewport (VAL-HOME-001/
@@ -126,6 +127,78 @@ test.describe('home page', () => {
       expect(hrefValue).toMatch(new RegExp(`^${href}/?$`));
       await insideFirstViewport(link, `${name} link`);
     }
+  });
+
+  test('the wordmark holds its locked type scale at both stated viewports (VAL-B2-TYPE-006)', async ({
+    page,
+  }) => {
+    // contract/design-integrity.md VAL-B2-TYPE-006 and design-system 4.3:
+    // 52-68px at 375, 88-120px at 1440, line height 0.88-0.98, at the
+    // registered wght=600/wdth=100 instance. Measured after fonts settle,
+    // because the size is fluid and a fallback face would change the box
+    // the seventh domain link is then checked against.
+    const bands = [
+      { width: 375, height: 812, min: 52, max: 68 },
+      { width: 1440, height: 900, min: 88, max: 120 },
+    ] as const;
+    for (const band of bands) {
+      await page.setViewportSize({ width: band.width, height: band.height });
+      await page.goto('/');
+      await page.evaluate(() => document.fonts.ready);
+      const measured = await page
+        .locator('h1[data-tektur-role="home-wordmark"]')
+        .evaluate((el) => {
+          const style = getComputedStyle(el);
+          const fontSizePx = parseFloat(style.fontSize);
+          return {
+            text: (el.textContent ?? '').trim(),
+            fontSizePx,
+            lineHeightRatio: parseFloat(style.lineHeight) / fontSizePx,
+            variation: style.fontVariationSettings,
+            family: style.fontFamily.split(',')[0].replaceAll('"', ''),
+          };
+        });
+      const at = `${band.width}px`;
+      expect(measured.text, `wordmark text at ${at}`).toBe(PUBLIC_IDENTITY);
+      expect(measured.family.toLowerCase(), `family at ${at}`).toContain(
+        'tektur',
+      );
+      expect(measured.fontSizePx, `wordmark size at ${at}`).toBeGreaterThanOrEqual(
+        band.min,
+      );
+      expect(measured.fontSizePx, `wordmark size at ${at}`).toBeLessThanOrEqual(
+        band.max,
+      );
+      expect(
+        measured.lineHeightRatio,
+        `wordmark line height at ${at}`,
+      ).toBeGreaterThanOrEqual(0.88);
+      expect(
+        measured.lineHeightRatio,
+        `wordmark line height at ${at}`,
+      ).toBeLessThanOrEqual(0.98);
+      expect(measured.variation, `role instance at ${at}`).toMatch(
+        /"wght"\s*600/,
+      );
+      expect(measured.variation, `role instance at ${at}`).toMatch(
+        /"wdth"\s*100/,
+      );
+    }
+
+    // The scale and the fold are one constraint: a wordmark inside its band
+    // that pushed the seventh domain link past y=900 would trade
+    // VAL-B2-TYPE-006 for VAL-HOME-001. Asserted here as well as in the
+    // first-viewport test so a type change cannot pass this test alone.
+    const seventh = page
+      .locator('#main-content')
+      .getByRole('link', { name: 'Adjacent Domains', exact: true })
+      .first();
+    const box = await seventh.boundingBox();
+    expect(box, 'seventh domain link measured at 1440x900').not.toBeNull();
+    expect(
+      box!.y + box!.height,
+      'seventh domain link bottom edge at 1440x900',
+    ).toBeLessThanOrEqual(900);
   });
 
   test('domain index is a dense list, not a grid of bordered cards', async ({
@@ -204,11 +277,16 @@ test.describe('home page', () => {
     page,
   }) => {
     await page.goto('/');
-    const link = page.getByRole('link', { name: /Kinematics Playground/ });
-    const shapes = await link
-      .locator('svg')
-      .first()
-      .locator('circle, line, path, rect')
+    // The drawing sits beside the link rather than inside it: it carries its
+    // own textual alternative in a <details>, which HTML does not allow
+    // inside an anchor.
+    const card = page.locator('article', {
+      has: page.getByRole('link', { name: /Kinematics Playground/ }),
+    });
+    const figure = card.getByRole('img', { name: /SO-101/ });
+    await expect(figure).toBeVisible();
+    const shapes = await figure
+      .locator('circle, line, path, rect, polyline')
       .count();
     expect(shapes).toBeGreaterThanOrEqual(3);
   });

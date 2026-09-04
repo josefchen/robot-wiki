@@ -105,8 +105,14 @@ describe('environment-trap script wiring', () => {
     expect(pkg.scripts['generate:og-cards']).toBe(
       'node scripts/generate-og-cards.ts',
     );
+    // The byte check re-renders every corpus card and compares the files
+    // both destinations hold, so it has to run after the generation and
+    // last: anything writing a card after it is unobserved.
     expect(pkg.scripts.postbuild).toMatch(
-      /npm run generate:og-cards$/,
+      /npm run generate:og-cards && npm run check:og-card-bytes$/,
+    );
+    expect(pkg.scripts['check:og-card-bytes']).toBe(
+      'node scripts/check-og-card-bytes.ts',
     );
     expect(pkg.scripts.postbuild).not.toContain(
       'node scripts/generate-og-cards.ts',
@@ -152,8 +158,14 @@ describe('environment-trap script wiring', () => {
     // leaves `out/_not-found/` behind and the census route-set reconciliation
     // (VAL-B2-CONT-007) at the head of the NEXT refresh fails on it. Without
     // this step the documented escape hatch works exactly once.
+    // The cards are regenerated before the renderer-parity step because
+    // that step compares the shipped card bytes with a fresh render through
+    // the boundary. `build:ungated` skips postbuild and so generates no
+    // card, which would leave an artwork change deadlocked in the one chain
+    // that exists to break deadlocks.
     expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
       'npm run generate:brand-v2-registries' +
+        ' && npm run generate:og-cards' +
         ' && npm run refresh:brand-v2-evidence:renderer-parity' +
         ' && npm run build:ungated' +
         ' && node scripts/prune-export-artifacts.ts' +
@@ -167,9 +179,14 @@ describe('environment-trap script wiring', () => {
       /npm run build:ungated && node scripts\/prune-export-artifacts\.ts && npm run refresh:brand-v2-evidence:browser/,
     );
     // Each fail-closed artifact has a writer in the refresh chain.
-    expect(pkg.scripts['refresh:brand-v2-evidence:renderer-parity']).toContain(
+    for (const spec of [
       'tests/unit/brand-v2-token-evidence.test.ts',
-    );
+      'tests/unit/og-card-shipped-bytes.test.ts',
+    ]) {
+      expect(
+        pkg.scripts['refresh:brand-v2-evidence:renderer-parity'],
+      ).toContain(spec);
+    }
     for (const spec of [
       'tests/e2e/brand-v2-primitives.spec.ts',
       'tests/e2e/brand-v2.spec.ts',

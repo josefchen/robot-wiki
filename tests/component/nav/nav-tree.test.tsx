@@ -10,6 +10,7 @@ vi.mock('next/navigation', () => ({
 
 import { NavTree } from '@/components/nav/nav-tree';
 import { DOMAIN_META, modules } from '@/data/modules';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { firstDraftModule } from '@/tests/helpers/draft-fixtures';
 
 // Fixtures derive from the module registry (data/modules.ts) so publishing a
@@ -32,14 +33,21 @@ const GROUP_NAMES = [
   'Adjacent Domains',
 ];
 
+/** Every link the tree currently marks as the route the reader is on. */
+function currentLinks(): HTMLElement[] {
+  return screen
+    .getAllByRole('link')
+    .filter((el) => el.getAttribute('aria-current') === 'page');
+}
+
 describe('NavTree', () => {
   beforeEach(() => {
     mockPathname = '/';
   });
 
   it('renders the seven taxonomy groups plus market map and playground', () => {
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
-    const nav = screen.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
+    const nav = screen.getByRole('navigation', { name: `${PUBLIC_IDENTITY} taxonomy` });
     for (const name of GROUP_NAMES) {
       expect(
         within(nav).getByRole('button', { name }),
@@ -54,7 +62,7 @@ describe('NavTree', () => {
   });
 
   it('starts with every group collapsed on the home page', () => {
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     for (const name of GROUP_NAMES) {
       expect(screen.getByRole('button', { name })).toHaveAttribute(
         'aria-expanded',
@@ -65,7 +73,7 @@ describe('NavTree', () => {
 
   it('toggles one group without affecting the others', async () => {
     const user = userEvent.setup();
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     const target = screen.getByRole('button', {
       name: 'Classical Foundations',
     });
@@ -80,7 +88,7 @@ describe('NavTree', () => {
 
   it('links every published module in the manipulation group to its route', async () => {
     const user = userEvent.setup();
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     await user.click(
       screen.getByRole('button', { name: DOMAIN_META[PROBE_DOMAIN].name }),
     );
@@ -99,7 +107,7 @@ describe('NavTree', () => {
     async () => {
       if (draftProbe === undefined) return; // narrowing; runIf guards this
       const user = userEvent.setup();
-      render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+      render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
       await user.click(
         screen.getByRole('button', { name: DOMAIN_META[draftProbe.domain].name }),
       );
@@ -115,7 +123,7 @@ describe('NavTree', () => {
 
   it('offers a domain overview link inside each expanded group', async () => {
     const user = userEvent.setup();
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     await user.click(
       screen.getByRole('button', { name: 'Frontier & Open Problems' }),
     );
@@ -126,7 +134,7 @@ describe('NavTree', () => {
 
   it('expands the active group and marks the active module on deep links', () => {
     mockPathname = '/manipulation/action-chunking/';
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     expect(
       screen.getByRole('button', { name: 'Manipulation & Learned Policies' }),
     ).toHaveAttribute('aria-expanded', 'true');
@@ -141,9 +149,59 @@ describe('NavTree', () => {
     expect(allCurrent).toHaveLength(1);
   });
 
+  it('reopens the group holding the route a client-side navigation lands on', async () => {
+    const user = userEvent.setup();
+    const target = publishedProbeModules[0];
+    mockPathname = `/${PROBE_DOMAIN}/`;
+    const { rerender } = render(
+      <NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />,
+    );
+    const group = screen.getByRole('button', {
+      name: DOMAIN_META[PROBE_DOMAIN].name,
+    });
+    expect(currentLinks()).toHaveLength(1);
+
+    // The reader collapses the group they are standing in, then follows a
+    // link into the same domain. The tree is never remounted, so the
+    // collapse is still in state when the new route arrives.
+    await user.click(group);
+    expect(group).toHaveAttribute('aria-expanded', 'false');
+    expect(currentLinks()).toHaveLength(0);
+
+    mockPathname = `/${target.domain}/${target.slug}/`;
+    rerender(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
+
+    // A route with a taxonomy entry always shows that entry marked: a stale
+    // collapse must not leave the shell with no current-route mark at all.
+    expect(group).toHaveAttribute('aria-expanded', 'true');
+    const current = currentLinks();
+    expect(current).toHaveLength(1);
+    expect(current[0]).toHaveAccessibleName(target.title);
+  });
+
+  it('keeps the reader arrangement of groups they are not navigating into', async () => {
+    const user = userEvent.setup();
+    const target = publishedProbeModules[0];
+    mockPathname = `/${PROBE_DOMAIN}/`;
+    const { rerender } = render(
+      <NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />,
+    );
+    const other = screen.getByRole('button', { name: 'World Models' });
+    await user.click(other);
+    expect(other).toHaveAttribute('aria-expanded', 'true');
+
+    mockPathname = `/${target.domain}/${target.slug}/`;
+    rerender(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
+
+    // Only the group that now holds the route drops its override; a group
+    // the reader opened to compare against stays open.
+    expect(other).toHaveAttribute('aria-expanded', 'true');
+    expect(currentLinks()).toHaveLength(1);
+  });
+
   it('marks standalone entries active on their routes', () => {
     mockPathname = '/playground/';
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     expect(screen.getByRole('link', { name: 'Playground' })).toHaveAttribute(
       'aria-current',
       'page',
@@ -152,7 +210,7 @@ describe('NavTree', () => {
 
   it('marks the domain overview active on a domain landing', () => {
     mockPathname = '/classical/';
-    render(<NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" />);
+    render(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
     expect(
       screen.getByRole('button', { name: 'Classical Foundations' }),
     ).toHaveAttribute('aria-expanded', 'true');
@@ -165,7 +223,7 @@ describe('NavTree', () => {
     const user = userEvent.setup();
     const onNavigate = vi.fn();
     render(
-      <NavTree idPrefix="test" ariaLabel="robot-wiki taxonomy" onNavigate={onNavigate} />,
+      <NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} onNavigate={onNavigate} />,
     );
     await user.click(screen.getByRole('link', { name: 'Market Map' }));
     expect(onNavigate).toHaveBeenCalledTimes(1);

@@ -332,11 +332,15 @@ export function RrtExplorer({ className }: { className?: string }) {
         ) : null}
         {/* Start marker (drawn last so the tree never covers it) */}
         <g data-testid="rrt-start">
-          <circle
-            cx={f(RRT_SCENE.start.x)}
-            cy={f(RRT_SCENE.start.y)}
-            r={5}
+          {/* A triangle, so the start is told from the round goal marker by
+              shape. Rounded joins keep a 11px glyph from spiking. */}
+          <path
+            d={`M ${f(RRT_SCENE.start.x)} ${f(RRT_SCENE.start.y - 6)} L ${f(RRT_SCENE.start.x + 5.5)} ${f(RRT_SCENE.start.y + 4)} L ${f(RRT_SCENE.start.x - 5.5)} ${f(RRT_SCENE.start.y + 4)} Z`}
             fill="var(--color-ok)"
+            stroke="var(--color-ok)"
+            strokeWidth={1.5}
+            strokeLinejoin="round"
+            strokeLinecap="round"
           />
           <text
             x={f(RRT_SCENE.start.x) + 10}

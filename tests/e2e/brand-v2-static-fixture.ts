@@ -48,6 +48,18 @@ export function archivedExpectedRed(
   return `Expected-red v1 drift until ${entry.rolloutMilestone}: ${entry.actual} → ${entry.expected}`;
 }
 
+/**
+ * The assertion IDs a suite still has archived as expected-red. A converted
+ * row asserts against this so retiring the archive entry and enforcing the
+ * claim stay one change: restoring the entry without restoring the
+ * `test.fail` wrapper fails loudly instead of quietly re-excusing the row.
+ */
+export function expectedRedAssertionIds(suite: string): string[] {
+  return expectedRedArchive.failures
+    .filter((failure) => failure.suite === suite)
+    .map(({ assertionId }) => assertionId);
+}
+
 export function archivedExpectedRedAnchors(
   suite: string,
   assertionId: string,

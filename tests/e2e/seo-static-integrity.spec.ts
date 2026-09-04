@@ -221,7 +221,7 @@ test.describe('static-export integrity (VAL-CROSS-023, VAL-CROSS-024)', () => {
 
   test('sampled routes serve 200 with their heading from a plain static server (VAL-CROSS-024)', async ({ page }) => {
     const sampled: Array<[string, RegExp]> = [
-      ['/', /robot-wiki|Modern Robotics/i],
+      ['/', /Robot Wiki|Modern Robotics/i],
       ...DOMAINS.slice(0, 6).map((d) => {
         const mod = publishedModules().find((m) => m.domain === d)!;
         return [moduleRoute(mod), new RegExp(mod.title.split('(')[0].trim().slice(0, 24), 'i')] as [string, RegExp];

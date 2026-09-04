@@ -244,8 +244,20 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
           width={f(WIDTH - PAD_R - x(OFFLINE_ONLY_ABOVE_HOURS * 3600))}
           height={f(AXIS_Y - LANE_TOP + 8)}
           fill="var(--color-err)"
-          opacity={0.08}
+          fillOpacity={0.08}
+          stroke="var(--color-err)"
+          strokeWidth={1}
+          strokeDasharray="5 3"
         />
+        <text
+          x={f(x(OFFLINE_ONLY_ABOVE_HOURS * 3600) + 6)}
+          y={LANE_TOP + 4}
+          fill="var(--color-err)"
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          offline only
+        </text>
 
         {/* Measured anchors: a tick down from the top plus a visible label. */}
         {anchorsByTime.map((anchor, i) => {

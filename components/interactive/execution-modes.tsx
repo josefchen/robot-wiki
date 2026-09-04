@@ -38,16 +38,29 @@ import { cx } from '@/lib/utils';
  * control, fixed-height panels (no layout shift), no auto-playing motion.
  */
 
+/**
+ * Each mode's trace carries its cost in the line itself: the mode that keeps
+ * the command stream whole is drawn whole, the mode that stops the robot is
+ * drawn with a long broken rhythm, and the mode that tears the command
+ * stream is drawn dash-dot. Three panels compared side by side stay
+ * separable when the hues are desaturated away.
+ */
 const MODE_META: Record<
   ExecutionMode,
-  { label: string; color: string; textClass: string }
+  { label: string; color: string; textClass: string; dash?: string }
 > = {
   synchronous: {
     label: 'synchronous',
     color: 'var(--color-warn)',
     textClass: 'text-warn',
+    dash: '8 4',
   },
-  naive: { label: 'naive switch', color: 'var(--color-err)', textClass: 'text-err' },
+  naive: {
+    label: 'naive switch',
+    color: 'var(--color-err)',
+    textClass: 'text-err',
+    dash: '10 3 2 3',
+  },
   rtc: { label: 'real-time chunking', color: 'var(--color-ok)', textClass: 'text-ok' },
 };
 
@@ -148,7 +161,10 @@ function ModePanel({
               width={f(pauseToX - pauseFromX)}
               height={plotH}
               fill="var(--color-warn)"
-              opacity={0.08}
+              fillOpacity={0.08}
+              stroke="var(--color-warn)"
+              strokeWidth={1}
+              strokeDasharray="5 3"
             />
             <text
               x={(pauseFromX + pauseToX) / 2}
@@ -216,15 +232,27 @@ function ModePanel({
           fill="none"
           stroke={meta.color}
           strokeWidth={2}
+          strokeDasharray={meta.dash}
         />
         {/* Spike marker where the worst step lands. */}
         {!within && (
           <g data-testid={`spike-${mode}`}>
+            {/* Broken ring with a cross in it: the same marker the latency
+                comparison uses for a step the controller cannot execute. */}
             <circle
               cx={x(spikeTick)}
               cy={y(trace[spikeTick].v)}
-              r={4}
-              fill="var(--color-err)"
+              r={5.5}
+              fill="var(--color-bg)"
+              stroke="var(--color-err)"
+              strokeWidth={1.5}
+              strokeDasharray="4 2.5"
+            />
+            <path
+              d={`M ${f(x(spikeTick) - 3)} ${f(y(trace[spikeTick].v) - 3)} L ${f(x(spikeTick) + 3)} ${f(y(trace[spikeTick].v) + 3)} M ${f(x(spikeTick) - 3)} ${f(y(trace[spikeTick].v) + 3)} L ${f(x(spikeTick) + 3)} ${f(y(trace[spikeTick].v) - 3)}`}
+              stroke="var(--color-err)"
+              strokeWidth={1.5}
+              strokeLinecap="round"
             />
             <text
               x={x(spikeTick) + 8}

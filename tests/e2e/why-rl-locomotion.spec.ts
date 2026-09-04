@@ -39,7 +39,7 @@ test.describe('why-rl-locomotion module', () => {
       for (const cell of cells) expect(cell.trim().length).toBeGreaterThan(0);
     }
     // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', {
         name: 'Why RL Won Locomotion but Not Manipulation',

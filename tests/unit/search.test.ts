@@ -24,7 +24,7 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) - Robot Wiki' },
             excerpt: 'the <mark>chunk</mark> size tradeoff',
           }),
         ],
@@ -57,12 +57,12 @@ describe('toSearchHits', () => {
   it('handles a missing excerpt as an empty string', async () => {
     const hits = await toSearchHits(
       {
-        results: [fakeResult({ url: '/', meta: { title: 'robot-wiki' } })],
+        results: [fakeResult({ url: '/', meta: { title: 'Robot Wiki' } })],
       },
       'wiki',
     );
     expect(hits[0].excerpt).toBe('');
-    expect(hits[0].title).toBe('robot-wiki');
+    expect(hits[0].title).toBe('Robot Wiki');
   });
 
   it('caps the hits at the result limit, preserving rank order within a tier', async () => {
@@ -89,17 +89,17 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/',
-            meta: { title: 'robot-wiki' },
+            meta: { title: 'Robot Wiki' },
             content: 'Action Chunking is one of the modules listed here.',
           }),
           fakeResult({
             url: '/manipulation/',
-            meta: { title: 'Manipulation - robot-wiki' },
+            meta: { title: 'Manipulation - Robot Wiki' },
             content: 'Action Chunking sits in this domain.',
           }),
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) - Robot Wiki' },
             content: 'Action Chunking predicts a chunk of actions.',
           }),
         ],

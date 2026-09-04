@@ -59,6 +59,12 @@ const BARRIER_X = 340;
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
+/**
+ * A gradient that crosses the insulation boundary is drawn dash-dot as well
+ * as red, so the corruption the diagram is about is legible without hue.
+ */
+const CORRUPT_DASH = '9 3 2 3';
+
 const layerY = (index: number) =>
   f(STACK_TOP + (LAYER_COUNT - 1 - index) * (LAYER_H + LAYER_GAP));
 
@@ -69,7 +75,9 @@ const SUPERVISION_LABEL: Record<string, string> = {
 };
 
 export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsulationProps) {
-  const descriptionId = `${useId()}-description`;
+  const uid = useId();
+  const descriptionId = `${uid}-description`;
+  const corruptTileId = `${uid}-corrupt-tile`;
   const [pass, setPass] = useState<Pass>('forward');
   const [stopGradient, setStopGradient] = useState(true);
   const [step, setStep] = useState(defaultStep);
@@ -205,7 +213,14 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             refY="4"
             orient="auto"
           >
-            <path d="M0,0 L8,4 L0,8 z" fill="var(--color-accent)" />
+            <path
+              d="M0.5,0.5 L7.5,4 L0.5,7.5"
+              fill="none"
+              stroke="var(--color-accent)"
+              strokeWidth={1.6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </marker>
           <marker
             id="mot-arrow-err"
@@ -215,7 +230,14 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             refY="4"
             orient="auto"
           >
-            <path d="M0,0 L8,4 L0,8 z" fill="var(--color-err)" />
+            <path
+              d="M0.5,0.5 L7.5,4 L0.5,7.5"
+              fill="none"
+              stroke="var(--color-err)"
+              strokeWidth={1.6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </marker>
           <marker
             id="mot-arrow-ok"
@@ -225,7 +247,14 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
             refY="4"
             orient="auto"
           >
-            <path d="M0,0 L8,4 L0,8 z" fill="var(--color-ok)" />
+            <path
+              d="M0.5,0.5 L7.5,4 L0.5,7.5"
+              fill="none"
+              stroke="var(--color-ok)"
+              strokeWidth={1.6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </marker>
         </defs>
 
@@ -285,6 +314,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
               y2={STACK_TOP - 4}
               stroke={stopGradient ? 'var(--color-ok)' : 'var(--color-err)'}
               strokeWidth={1.5}
+              strokeDasharray={stopGradient ? undefined : CORRUPT_DASH}
               markerEnd={`url(#${stopGradient ? 'mot-arrow-ok' : 'mot-arrow-err'})`}
             />
             {stopGradient && (
@@ -360,6 +390,9 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                       : 'var(--color-border)'
                 }
                 strokeWidth={1}
+                strokeDasharray={
+                  s.backboneActive && corrupted ? '3 2' : undefined
+                }
               />
               <rect
                 data-testid={`expert-layer-${s.index}`}
@@ -385,6 +418,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                   y2={pass === 'forward' ? f(y + 6) : f(y + LAYER_H - 6)}
                   stroke={corrupted ? 'var(--color-err)' : 'var(--color-accent)'}
                   strokeWidth={1.5}
+                  strokeDasharray={corrupted ? CORRUPT_DASH : undefined}
                   markerEnd={`url(#${corrupted ? 'mot-arrow-err' : 'mot-arrow-accent'})`}
                 />
               )}
@@ -425,6 +459,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                   y2={cy}
                   stroke="var(--color-err)"
                   strokeWidth={1.5}
+                  strokeDasharray={CORRUPT_DASH}
                   markerEnd="url(#mot-arrow-err)"
                 />
               )}
@@ -475,13 +510,45 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           aria-valuemin={0}
           aria-valuemax={100}
           aria-label={`Language-following score, ${score} of 100`}
-          className="mt-1.5 h-1.5 w-full rounded-sm border border-border"
+          className="mt-1.5 h-2 w-full overflow-hidden rounded-sm border border-border"
         >
-          <div
-            data-testid="language-meter-fill"
-            className="h-full rounded-sm"
-            style={{ width: `${score}%`, backgroundColor: meterColor }}
-          />
+          {/* Corruption is a texture, not only a hue: a solid bar means the
+              backbone is insulated, a dotted bar means expert gradients are
+              crossing into it. */}
+          <svg
+            viewBox="0 0 200 8"
+            preserveAspectRatio="none"
+            aria-hidden
+            className="block h-full w-full"
+          >
+            <defs>
+              <pattern
+                id={corruptTileId}
+                width={4}
+                height={4}
+                patternUnits="userSpaceOnUse"
+                patternTransform="rotate(45)"
+              >
+                <line
+                  x1={2}
+                  y1={0}
+                  x2={2}
+                  y2={4}
+                  stroke="var(--color-err)"
+                  strokeWidth={2}
+                  strokeDasharray="2 2"
+                />
+              </pattern>
+            </defs>
+            <rect
+              data-testid="language-meter-fill"
+              x={0}
+              y={0}
+              width={f(score * 2)}
+              height={8}
+              fill={corrupted ? `url(#${corruptTileId})` : 'var(--color-accent)'}
+            />
+          </svg>
         </div>
       </div>
 
@@ -524,10 +591,12 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           dashed blue: sideways attention (forward)
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-err">red</span>: corrupting gradient (backward)
+          <span className="text-err">dash-dot arrow</span>: corrupting gradient
+          (backward)
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          <span className="text-ok">green</span>: gradient barrier
+          <span className="text-ok">long-dashed vertical line</span>: gradient
+          barrier
         </span>
       </div>
 

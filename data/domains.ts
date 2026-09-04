@@ -1,5 +1,5 @@
 /**
- * Domain taxonomy for robot-wiki. Single source of truth for the seven
+ * Domain taxonomy for Robot Wiki. Single source of truth for the seven
  * top-level groups: the six core domains plus the adjacent group.
  *
  * This file intentionally has zero imports so it can be consumed by the

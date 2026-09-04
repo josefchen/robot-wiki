@@ -3,9 +3,11 @@ import { dirname, join } from 'node:path';
 import {
   archivedExpectedRed,
   brandV2Registry,
+  expectedRedAssertionIds,
   test,
   expect,
 } from './brand-v2-static-fixture';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import {
   TOKEN_RUNTIME_EVIDENCE_PATH,
   deriveAuthoredColorTokens,
@@ -85,31 +87,29 @@ test.describe('brand-v2 core visual authority', () => {
     page,
     staticBase,
   }) => {
-    test.fail(
-      true,
-      archivedExpectedRed('brand-v2 core visual authority', 'VAL-B2-ID-001'),
-    );
     await page.goto(`${staticBase}/`);
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Robot Wiki' }),
+      page.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
     ).toBeVisible();
+    // The archive entry for this row is retired, so the enforcing form
+    // above is the only claim left; a v1 lockup fails here rather than
+    // reading as expected drift.
+    expect(
+      expectedRedAssertionIds('brand-v2 core visual authority'),
+    ).not.toContain('VAL-B2-ID-001');
   });
 
   test('home descriptor exposes the exact v2 contract', async ({
     page,
     staticBase,
   }) => {
-    test.fail(
-      true,
-      archivedExpectedRed('brand-v2 core visual authority', 'VAL-B2-ID-002'),
-    );
     await page.goto(`${staticBase}/`);
     await expect(
-      page.getByText(
-        'Citation-first encyclopedia of modern robot learning.',
-        { exact: true },
-      ),
+      page.getByText(PUBLIC_DESCRIPTOR, { exact: true }),
     ).toHaveCount(1);
+    expect(
+      expectedRedAssertionIds('brand-v2 core visual authority'),
+    ).not.toContain('VAL-B2-ID-002');
   });
 
   test('home display identity resolves to Tektur Variable', async ({

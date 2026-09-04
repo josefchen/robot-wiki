@@ -3,8 +3,9 @@
  *
  * Everything about this module is structural. `rendererSourceIdentity` in
  * lib/brand-v2-token-evidence.ts requires that no other module in the
- * renderer closure imports an image renderer, that the card generator does
- * not bind the seal opener or the artwork builders, and that the single
+ * renderer closure can obtain an image renderer — by import or by
+ * re-export — that the card generator does not bind the seal opener or the
+ * artwork builders, and that the single
  * `new ImageResponse(...)` below receives the identifier the seal opener
  * returned, unwrapped and unreassigned. Together with the sealed corpus
  * handle — whose element tree is unreachable except through
@@ -12,7 +13,8 @@
  * `deriveRendererPaintedPopulation` measures, and keeps it so across an
  * evidence refresh: the check is re-derived from current source every time
  * the evidence is written or read, so no recorded fingerprint can absorb a
- * post-corpus transformation.
+ * post-corpus transformation. lib/og-card-emitted-bytes.ts then requires
+ * the cards on disk to be exactly what this function returns.
  *
  * ImageResponse's bundled typings expect a ReactElement; the node build
  * accepts the same plain satori element trees our CardNode type describes.

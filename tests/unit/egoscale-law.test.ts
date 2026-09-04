@@ -91,7 +91,7 @@ describe('EgoScale downstream completion points', () => {
   });
 });
 
-describe('completion fit (robot-wiki least-squares over the five reported scores)', () => {
+describe('completion fit (Robot Wiki least-squares over the five reported scores)', () => {
   it('fits the measured points closely', () => {
     expect(COMPLETION_FIT.rSquared).toBeGreaterThan(0.9);
     expect(completionFit(1000)).toBeCloseTo(0.32, 1);

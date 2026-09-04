@@ -30,6 +30,16 @@ import type { ChartDescriptionEntry } from './chart-description-rules.ts';
 
 export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
   {
+    // Derived, not authored: the preview builds this sentence from the
+    // shipped URDF, so a model change fails the registry comparison instead
+    // of leaving a stale claim under a redrawn schematic.
+    component: 'So101ChainPreview',
+    file: 'components/home/so101-chain-preview.tsx',
+    route: '/',
+    quantityNames: ['revolute joints', 'degrees'],
+    text: 'The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper.',
+  },
+  {
     component: 'ReliabilityCompounding',
     file: 'components/interactive/reliability-compounding.tsx',
     route: '/',

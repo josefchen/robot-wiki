@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { DESIGN_DEFS } from './helpers/design-defs';
 import { settleTransitions } from './settle';
 
@@ -34,7 +35,7 @@ function evaluateDefs<T>(page: Page, call: string): Promise<T> {
   return page.evaluate(`(() => { ${DEFS}; return ${call}; })()`) as Promise<T>;
 }
 
-/** The active marker: the aria-hidden 2px rule inside the active link. */
+/** The active marker: the registered aria-hidden rail inside the active link. */
 async function markerMetrics(page: Page, route: string) {
   await page.goto(route);
   return page.evaluate(() => {
@@ -56,6 +57,8 @@ async function markerMetrics(page: Page, route: string) {
         mcs.borderBottomRightRadius,
       ],
       markerBorderLeft: mcs.borderLeftWidth,
+      markerBorderColour: mcs.borderLeftColor,
+      markerDeviceId: marker.getAttribute('data-brand-device-id'),
       linkBoxShadow: lcs.boxShadow,
       heightDiff: Math.abs(mr.height - lr.height),
       leftOffset: mr.left - aside.getBoundingClientRect().left,
@@ -73,7 +76,13 @@ test.describe('design chrome discipline', () => {
     expect(m!.linkBoxShadow).toBe('none');
     expect(m!.markerBoxShadow).toBe('none');
     expect(m!.markerRadii).toEqual(['0px', '0px', '0px', '0px']);
-    expect(m!.markerBorderLeft).toBe('2px');
+    // The v2 mark is the registered active-interval rail: a real element at
+    // the design system's 3px rail weight in selection lime, not the v1 2px
+    // signal-blue border. Asserting the registry id as well as the geometry
+    // means a hand-rolled span that merely looks the same still fails.
+    expect(m!.markerDeviceId).toBe('device:active-interval-rail');
+    expect(m!.markerBorderLeft).toBe('3px');
+    expect(m!.markerBorderColour).toBe('rgb(198, 255, 25)');
     expect(m!.heightDiff).toBeLessThanOrEqual(1);
   });
 
@@ -307,36 +316,51 @@ test.describe('design chrome discipline', () => {
       const pcs = getComputedStyle(panel);
       const scs = getComputedStyle(scrim);
       const sr = scrim.getBoundingClientRect();
-      // The scrim's separation is its background alpha, which must parse
-      // to exactly 0.8 (80%). Tailwind 4 compiles bg-bg/80 to
-      // color-mix(in oklab, ... 80%), and the computed value resolves
-      // through several notations (rgba, color(srgb r g b / a),
-      // color-mix with a resolved ratio), so every channel is captured
-      // and the alpha is extracted from whichever notation appears.
-      const bg = scs.backgroundColor;
-      let scrimAlpha = 1;
-      const rgba = bg.match(/rgba?\(([^)]+)\)/);
-      if (rgba) {
-        const parts = rgba[1].split(',').map((s) => parseFloat(s));
-        if (parts.length === 4) scrimAlpha = parts[3];
-      } else {
-        const fnAlpha = bg.match(/\/\s*([\d.]+)%?\s*\)/);
-        if (fnAlpha) {
-          scrimAlpha = parseFloat(fnAlpha[1]);
-          if (bg.match(/\/\s*[\d.]+%\s*\)/)) scrimAlpha /= 100;
-        } else {
-          const mix = bg.match(/color-mix\([^)]*?\s([\d.]+)%\s*\)/);
-          if (mix) scrimAlpha = parseFloat(mix[1]) / 100;
+      // What separates the panel is the colour the scrim actually paints
+      // over the page, so it is composited by the browser's own colour
+      // engine rather than parsed out of the notation. Reading the alpha
+      // instead would have called the previous paper-on-paper scrim an 80%
+      // separation when it composited to the panel's own colour and
+      // separated nothing.
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      const ctx = canvas.getContext('2d');
+      const pixel = (fills: string[]): [number, number, number] => {
+        if (!ctx) return [-1, -1, -1];
+        ctx.clearRect(0, 0, 1, 1);
+        for (const fill of fills) {
+          ctx.fillStyle = fill;
+          ctx.fillRect(0, 0, 1, 1);
         }
-      }
+        const data = ctx.getImageData(0, 0, 1, 1).data;
+        return [data[0], data[1], data[2]];
+      };
+      const luminance = (rgb: [number, number, number]) => {
+        const [r, g, b] = rgb.map((channel) => {
+          const value = channel / 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      const pageBg = getComputedStyle(document.body).backgroundColor;
+      const composited = pixel([pageBg, scs.backgroundColor]);
+      const panelRgb = pixel([pcs.backgroundColor]);
+      const light = Math.max(luminance(composited), luminance(panelRgb));
+      const dark = Math.min(luminance(composited), luminance(panelRgb));
       return {
         left: pcs.borderLeftWidth,
         right: pcs.borderRightWidth,
         boxShadow: pcs.boxShadow,
         bg: pcs.backgroundColor,
-        scrimBg: bg,
-        scrimAlpha,
+        scrimBg: scs.backgroundColor,
         scrimOpacity: parseFloat(scs.opacity),
+        canvasRoundTrip: pixel(['rgb(1, 2, 3)']),
+        composited,
+        panelRgb,
+        separation: (light + 0.05) / (dark + 0.05),
         coverage: (sr.width * sr.height) / (innerWidth * innerHeight),
       };
     });
@@ -344,10 +368,15 @@ test.describe('design chrome discipline', () => {
     expect(metrics!.left).toBe('0px');
     expect(metrics!.right).toBe('0px');
     expect(metrics!.boxShadow).toBe('none');
-    // Exact 80% scrim background alpha (VAL-DSSURFACE-020): the parsed
-    // rgba alpha is 0.8, not merely positive, and not the opacity
-    // property (which stays 1; the alpha lives in the colour).
-    expect(metrics!.scrimAlpha).toBeCloseTo(0.8, 3);
+    // A parse failure would composite to the page ground and read as no
+    // separation at all, so the canvas is proved to work first.
+    expect(metrics!.canvasRoundTrip).toEqual([1, 2, 3]);
+    // The scrim carries the boundary on its own, because the panel has no
+    // border and no shadow. WCAG 1.4.11 puts a visible boundary between two
+    // adjacent areas at 3:1, so anything below that is not separating them.
+    expect(metrics!.separation).toBeGreaterThanOrEqual(3);
+    // The alpha lives in the colour, not in the opacity property, so the
+    // panel above it stays fully opaque.
     expect(metrics!.scrimOpacity).toBeCloseTo(1, 3);
     expect(metrics!.coverage).toBeGreaterThanOrEqual(0.9);
     // Opaque panel background keeps the edge legible against the scrim.
@@ -401,10 +430,31 @@ test.describe('design chrome discipline', () => {
       ),
     ) as { linkCount: number; links: Array<{ href: string; name: string }> };
 
+    // aria-current="page" belongs to the navigation entry for the current
+    // route. A route the taxonomy does not list has no entry to mark, so it
+    // exposes none: requiring one everywhere is what previously pushed the
+    // state onto /search's <h1>, where it announced a heading as a
+    // navigation position (VAL-B2-SHELL-002).
+    const taxonomy = new Set(baseline.links.map(({ href }) => href));
+    const listed = (route: string) =>
+      taxonomy.has(route) || taxonomy.has(`${route}/`);
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const current = await page.locator('[aria-current="page"]').count();
-      expect(current, `aria-current count on ${route}`).toBe(1);
+      const marks = page.locator('[aria-current="page"]');
+      expect(await marks.count(), `aria-current count on ${route}`).toBe(
+        listed(route) ? 1 : 0,
+      );
+      if (!listed(route)) continue;
+      // The one mark is a sidebar link pointing at this route, never a
+      // heading or a decorative node standing in for one.
+      const held = await marks.evaluate((el) => ({
+        tag: el.tagName.toLowerCase(),
+        href: el.getAttribute('href'),
+        inAside: el.closest('aside') !== null,
+      }));
+      expect(held.tag, `aria-current holder on ${route}`).toBe('a');
+      expect(held.inAside, `aria-current holder on ${route}`).toBe(true);
+      expect(held.href?.replace(/\/?$/, '/')).toBe(route.replace(/\/?$/, '/'));
     }
 
     // Exactly one <aside> in the document, even on an article whose prose
@@ -453,15 +503,36 @@ test.describe('design chrome discipline', () => {
     }
   });
 
-  test('the protected treatments survive (sidebar border-r, header border-b, focus outline)', async ({
+  test('the protected treatments survive (sidebar right boundary, header border-b, focus outline)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const asideBorder = await page
-      .locator('aside')
-      .evaluate((el) => getComputedStyle(el).borderRightWidth);
-    expect(asideBorder).toBe('1px');
+    // The sidebar's right boundary is unchanged in weight and position but
+    // is now the registered outer rail rather than a border on the <aside>,
+    // so the shell's one structural division has a registry identity the
+    // primitive sweep can own. Measured, not assumed: 1px, full height, at
+    // the aside's right edge.
+    const rail = await page.locator('aside').evaluate((el) => {
+      const device = el.querySelector('[data-brand-device-id="device:outer-rail"]');
+      if (!device) return null;
+      const cs = getComputedStyle(device);
+      const box = device.getBoundingClientRect();
+      const host = el.getBoundingClientRect();
+      return {
+        width: cs.borderLeftWidth,
+        colour: cs.borderLeftColor,
+        edgeOffset: Math.abs(box.right - host.right),
+        heightDiff: Math.abs(box.height - host.height),
+        anchor: device.getAttribute('data-brand-anchor-selector'),
+      };
+    });
+    expect(rail).not.toBeNull();
+    expect(rail!.width).toBe('1px');
+    expect(rail!.anchor).toBe('#sidebar-rail');
+    expect(rail!.edgeOffset).toBeLessThanOrEqual(1);
+    expect(rail!.heightDiff).toBeLessThanOrEqual(1);
+    expect(rail!.colour).not.toBe('rgba(0, 0, 0, 0)');
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
@@ -470,7 +541,7 @@ test.describe('design chrome discipline', () => {
       .evaluate((el) => getComputedStyle(el).borderBottomWidth);
     expect(headerBorder).toBe('1px');
 
-    const link = page.locator('header').getByRole('link', { name: 'robot-wiki' });
+    const link = page.locator('header').getByRole('link', { name: PUBLIC_IDENTITY });
     await link.focus();
     const outline = await link.evaluate((el) => {
       const cs = getComputedStyle(el);
@@ -493,36 +564,37 @@ test.describe('design chrome discipline', () => {
     const heroWordmark = await page
       .getByRole('heading', { level: 1 })
       .textContent();
-    expect(heroWordmark?.trim()).toBe('robot-wiki');
+    expect(heroWordmark?.trim()).toBe(PUBLIC_IDENTITY);
     const heroDescriptor = page
       .getByRole('region', { name: 'Introduction' })
-      .getByText('Robotics encyclopaedia', { exact: true });
+      .getByText(PUBLIC_DESCRIPTOR, { exact: true });
     await expect(heroDescriptor).toHaveCount(1);
+    // The descriptor is a home-hero lockup only: the shell repeats the
+    // wordmark, never the descriptor (VAL-B2-ID-007).
+    await expect(
+      page.getByText(PUBLIC_DESCRIPTOR, { exact: true }),
+    ).toHaveCount(1);
 
-    // Desktop sidebar lockup at 1440px: wordmark link plus descriptor,
-    // exactly once each, and no other lockup on the page carries it.
-    const sidebarDescriptor = page
-      .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true });
-    await expect(sidebarDescriptor).toHaveCount(1);
+    // Desktop sidebar lockup at 1440px: wordmark link, no descriptor.
+    await expect(
+      page.locator('aside').getByText(PUBLIC_DESCRIPTOR, { exact: true }),
+    ).toHaveCount(0);
     const sidebarWordmark = await page
       .locator('aside')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: PUBLIC_IDENTITY })
       .textContent();
-    expect(sidebarWordmark?.trim()).toBe('robot-wiki');
+    expect(sidebarWordmark?.trim()).toBe(PUBLIC_IDENTITY);
 
     // Mobile header at 375px: wordmark present, descriptor omitted.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const headerWordmark = await page
       .locator('header')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: PUBLIC_IDENTITY })
       .textContent();
-    expect(headerWordmark?.trim()).toBe('robot-wiki');
+    expect(headerWordmark?.trim()).toBe(PUBLIC_IDENTITY);
     await expect(
-      page
-        .locator('header')
-        .getByText('Robotics encyclopaedia', { exact: true }),
+      page.locator('header').getByText(PUBLIC_DESCRIPTOR, { exact: true }),
     ).toHaveCount(0);
   });
 
@@ -544,60 +616,79 @@ test.describe('design chrome discipline', () => {
       });
     const em = (m: { size: number; tracking: string }) =>
       parseFloat(m.tracking) / m.size;
+    /**
+     * The first family a computed font-family stack actually resolves to,
+     * lowercased. Reading the HEAD matters because the whole computed
+     * string always contains every fallback, so a check over it accepts
+     * any leading family. Lowercasing matters because `next/font/local`
+     * publishes the registered `Tektur Variable` under the runtime family
+     * `tektur`; the proof that the rename still serves the registered
+     * binary lives in tests/e2e/brand-v2-tektur-font-delivery.spec.ts,
+     * which hashes the payload the browser fetched.
+     */
+    const firstFamily = (stack: string) =>
+      (stack.split(',')[0] ?? '')
+        .trim()
+        .replace(/^["']|["']$/g, '')
+        .toLowerCase();
 
-    // Home wordmark: 48px/48px below sm, 60px/60px from sm, Sans 600,
-    // tracking -0.035em; descriptor 10px mono uppercase 0.14em.
+    // Home wordmark: the bands VAL-B2-TYPE-006 locks, 52-68px at 375 and
+    // 88-120px at 1440 with a 0.88-0.98 line height, at weight 600 and
+    // tracking -0.035em; descriptor 12px mono, sentence case. Stated as
+    // bands rather than as the two literals the pre-v2 scale shipped,
+    // because the size is fluid between them and the contract measures
+    // the two viewports below. The family assertion pins the FIRST
+    // resolved family, because a computed font-family string still
+    // contains every fallback and a `toContain('IBM Plex Sans')` check
+    // would pass on a Tektur-led stack and on a Plex-led one alike.
+    const inBand = (
+      metrics: { size: number; lineHeight: number },
+      label: string,
+      min: number,
+      max: number,
+    ) => {
+      expect(metrics.size, `${label} size`).toBeGreaterThanOrEqual(min);
+      expect(metrics.size, `${label} size`).toBeLessThanOrEqual(max);
+      const ratio = metrics.lineHeight / metrics.size;
+      expect(ratio, `${label} line height`).toBeGreaterThanOrEqual(0.88);
+      expect(ratio, `${label} line height`).toBeLessThanOrEqual(0.98);
+    };
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const homeH1Mobile = await metricsOf('main h1');
-    expect(homeH1Mobile.size).toBeCloseTo(48, 5);
-    expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
+    inBand(homeH1Mobile, 'home wordmark at 375', 52, 68);
     expect(homeH1Mobile.weight).toBe('600');
-    expect(homeH1Mobile.family).toContain('IBM Plex Sans');
+    expect(firstFamily(homeH1Mobile.family)).toBe('tektur');
     expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
     const heroDescriptor = await metricsOf(
       'main [aria-label="Introduction"] p.font-mono',
     );
-    expect(heroDescriptor.size).toBeCloseTo(10, 5);
-    expect(heroDescriptor.transform).toBe('uppercase');
-    expect(heroDescriptor.family).toContain('IBM Plex Mono');
-    expect(em(heroDescriptor)).toBeCloseTo(0.14, 2);
-    // Mobile header lockup: 15px Sans 600 wordmark, no descriptor.
+    expect(heroDescriptor.size).toBeCloseTo(12, 5);
+    // Sentence case is load-bearing: an uppercase transform would render a
+    // descriptor that no longer equals the locked string (VAL-B2-ID-002).
+    expect(heroDescriptor.transform).toBe('none');
+    expect(firstFamily(heroDescriptor.family)).toBe('ibm plex mono');
+    expect(heroDescriptor.text).toBe(PUBLIC_DESCRIPTOR.slice(0, 30));
+    // Mobile header lockup: 15px Tektur 600 wordmark, no descriptor.
     const mobileHeaderWordmark = await metricsOf('header a');
     expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
     expect(mobileHeaderWordmark.weight).toBe('600');
-    expect(mobileHeaderWordmark.family).toContain('IBM Plex Sans');
+    expect(firstFamily(mobileHeaderWordmark.family)).toBe('tektur');
 
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const homeH1Desktop = await metricsOf('main h1');
-    expect(homeH1Desktop.size).toBeCloseTo(60, 5);
-    expect(homeH1Desktop.lineHeight).toBeCloseTo(60, 5);
-    // Desktop sidebar lockup: 17px Sans 600 wordmark, 9px mono
-    // uppercase descriptor at 0.14em.
+    inBand(homeH1Desktop, 'home wordmark at 1440', 88, 120);
+    expect(homeH1Desktop.weight).toBe('600');
+    expect(firstFamily(homeH1Desktop.family)).toBe('tektur');
+    expect(em(homeH1Desktop)).toBeCloseTo(-0.035, 2);
+    // Desktop sidebar lockup: 17px Tektur 600 wordmark, no descriptor
+    // (design-system 3.5 makes the shell descriptor optional).
     const sidebarWordmark = await metricsOf('aside a[href="/"]');
     expect(sidebarWordmark.size).toBeCloseTo(17, 5);
     expect(sidebarWordmark.weight).toBe('600');
-    expect(sidebarWordmark.family).toContain('IBM Plex Sans');
-    const sidebarDescriptor = await page
-      .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true })
-      .evaluate((el) => {
-        const cs = getComputedStyle(el);
-        return {
-          family: cs.fontFamily,
-          size: parseFloat(cs.fontSize),
-          tracking: cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing,
-          transform: cs.textTransform,
-        };
-      });
-    expect(sidebarDescriptor.size).toBeCloseTo(9, 5);
-    expect(sidebarDescriptor.transform).toBe('uppercase');
-    expect(sidebarDescriptor.family).toContain('IBM Plex Mono');
-    expect(parseFloat(sidebarDescriptor.tracking) / sidebarDescriptor.size).toBeCloseTo(
-      0.14,
-      2,
-    );
+    expect(firstFamily(sidebarWordmark.family)).toBe('tektur');
+    expect(sidebarWordmark.text).toBe(PUBLIC_IDENTITY);
 
     // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
     // tracking -0.025em; prose h2 22px and h3 18px, Sans 600.
@@ -612,11 +703,11 @@ test.describe('design chrome discipline', () => {
     const articleH1Desktop = await metricsOf('article h1');
     expect(articleH1Desktop.size).toBeCloseTo(40, 5);
     expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
-    expect(articleH1Desktop.family).toContain('IBM Plex Sans');
+    expect(firstFamily(articleH1Desktop.family)).toBe('tektur');
     expect(articleH1Desktop.weight).toBe('600');
     const proseH2 = await metricsOf('article .prose h2');
     expect(proseH2.size).toBeCloseTo(22, 5);
-    expect(proseH2.family).toContain('IBM Plex Sans');
+    expect(firstFamily(proseH2.family)).toBe('ibm plex sans');
     const proseH3 = await metricsOf('article .prose h3');
     expect(proseH3.size).toBeCloseTo(18, 5);
   });

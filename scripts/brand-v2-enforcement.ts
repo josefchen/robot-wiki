@@ -15,6 +15,78 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import {
+  IDENTITY_RUNTIME_EVIDENCE_PATH,
+  deriveTechnicalIdentifierOccurrences,
+  identityEvidenceFingerprint,
+  readIdentityRuntimeEvidence,
+  routeVerdicts,
+  sealedTechnicalIdentifiers,
+  technicalIdentifierDestinations,
+  technicalIdentifierWitness,
+} from '../lib/brand-v2-identity-evidence.ts';
+import {
+  IDENTITY_ASSERTION_POPULATION_SOURCES,
+  IDENTITY_DESCRIPTOR_POPULATION_SOURCE,
+  IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE,
+  IDENTITY_TECHNICAL_POPULATION_SOURCE,
+  IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
+  firstPartyVisualAssets,
+  identityDescriptorSurfaces,
+  identityLockupSourcePaths,
+  identityWordmarkRoles,
+} from '../lib/identity-populations.ts';
+import {
+  SHELL_RUNTIME_EVIDENCE_PATH,
+  SHELL_VIEWPORT,
+  currentRouteVerdicts,
+  ledgerByBaselineMember,
+  readShellRuntimeEvidence,
+  shellEvidenceFingerprint,
+  skipLinkVerdicts,
+} from '../lib/brand-v2-shell-evidence.ts';
+import {
+  MOBILE_SHELL_EVIDENCE_PATH,
+  MOBILE_VIEWPORT,
+  SCRIM_SEPARATION_FLOOR,
+  drawerVerdicts,
+  mobileHeaderVerdicts,
+  mobileShellEvidenceFingerprint,
+  readMobileShellEvidence,
+} from '../lib/brand-v2-mobile-shell-evidence.ts';
+import {
+  SHELL_ASSERTION_POPULATION_SOURCES,
+  SHELL_NAV_DESTINATION_POPULATION_SOURCE,
+  navigationBaselineMembers,
+} from '../lib/shell-populations.ts';
+import {
+  HOME_COMPOSITION_EVIDENCE_PATH,
+  HOME_VIEWPORT,
+  canonicalDomainEntries,
+  domainDestinationVerdicts,
+  heroLockupVerdicts,
+  homeCompositionVerdicts,
+  homeEvidenceFingerprint,
+  readHomeCompositionEvidence,
+} from '../lib/brand-v2-home-evidence.ts';
+import {
+  HOME_TOOLS_EVIDENCE_PATH,
+  homeToolsEvidenceFingerprint,
+  readHomeToolsEvidence,
+  requiredSweepWidths,
+  responsiveOverflowVerdicts,
+} from '../lib/brand-v2-home-tools-evidence.ts';
+import {
+  HOME_ASSERTION_POPULATION_SOURCES,
+  HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
+  HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
+  HOME_HERO_LOCKUP_POPULATION_SOURCE,
+  canonicalDomainDestinations,
+  homeCompositionAnchorMembers,
+  homeHeroLockupMembers,
+} from '../lib/home-populations.ts';
+import { sha256, stableJson } from '../lib/brand-v2-baseline.ts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
 import { publishedModules } from '../data/modules.ts';
 import {
@@ -35,9 +107,12 @@ import {
   readTokenRuntimeEvidence,
   type SemanticTokenMember,
 } from '../lib/brand-v2-token-evidence.ts';
+import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
+import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
 import {
   TEKTUR_ASSERTION_MODES,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  fontFamilyKey,
   measureTekturEvidence,
   tekturAssertionEvidence,
 } from '../lib/brand-v2-tektur-evidence.ts';
@@ -110,9 +185,80 @@ function isMeasured(id: string): boolean {
   return (
     TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
-    TOKEN_ASSERTIONS.has(id)
+    TOKEN_ASSERTIONS.has(id) ||
+    IDENTITY_ASSERTIONS.has(id) ||
+    SHELL_ASSERTIONS.has(id) ||
+    MOBILE_SHELL_ASSERTIONS.has(id) ||
+    HOME_ASSERTIONS.has(id) ||
+    HOME_TOOLS_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The three home-composition assertions, routed to the desktop sweep of the
+ * built home page that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/home-composition.json` through a reader that throws on
+ * a stale fingerprint, the wrong viewport, the wrong route, an empty page, a
+ * hero with no lockup, or a sweep that discovered no domain entry and no
+ * section. None of the three is decidable from source: whether the hero is
+ * dominant is a ratio between two computed font sizes, whether the black
+ * action and the lime highlight are in the first major composition is
+ * geometry, and whether every domain destination is visible is a fact about
+ * boxes a browser laid out.
+ */
+const HOME_ASSERTIONS = new Set([
+  'VAL-B2-ID-007',
+  'VAL-B2-SHELL-006',
+  'VAL-B2-SHELL-007',
+]);
+
+/**
+ * The responsive-overflow assertion, routed to the four-width sweep of every
+ * public route in the built export.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/home-tools.json` through a reader that throws on a
+ * stale fingerprint, the wrong route or viewport, a sweep with no responsive
+ * measurement, and a per-route verdict that throws when a route was measured
+ * at fewer than the declared widths. It is not decidable from source: an
+ * overflow is a relation between a document's scroll width and the viewport
+ * a browser gave it.
+ */
+const HOME_TOOLS_ASSERTIONS = new Set(['VAL-B2-SHELL-009']);
+
+/**
+ * The two mobile shell assertions, routed to the mobile-viewport sweep of
+ * the built export that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/mobile-shell.json` through a reader that throws on a
+ * stale fingerprint, a wrong viewport, a missing route, an empty page, a
+ * header the sweep never found, a drawer with no tab stops, a keyboard trace
+ * with no destination, or fewer than all three dismissal paths. Neither is
+ * decidable from source: whether the header omits the descriptor is a fact
+ * about rendered leaf text, and whether the drawer traps focus is a fact
+ * about where a real Tab and a real Shift+Tab left `document.activeElement`.
+ */
+const MOBILE_SHELL_ASSERTIONS = new Set(['VAL-B2-ID-008', 'VAL-B2-SHELL-004']);
+
+/**
+ * The desktop shell assertions, routed to the sweep of the built export that
+ * decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/shell-navigation.json` through a reader that throws on
+ * a stale fingerprint, a missing route, an empty page, a route with no
+ * discovered navigation, or an empty taxonomy ledger. A generator that
+ * re-read the class names here would be comparing source with itself; what
+ * decides these rows is what a document rendered and what a keyboard reached.
+ */
+const SHELL_ASSERTIONS = new Set([
+  'VAL-B2-SHELL-002',
+  'VAL-B2-SHELL-003',
+  'VAL-B2-SHELL-005',
+]);
 
 type Registry = Parameters<
   typeof buildEnforcementPopulationSources
@@ -179,21 +325,281 @@ const MIRROR_PARITY = new Map(
   TOKEN_RENDERER.mirrorParity.map((entry) => [entry.token, entry]),
 );
 
+/**
+ * The public-identity assertions, routed to the two-viewport sweep of the
+ * built export that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/identity-runtime.json` through a reader that throws on
+ * a stale fingerprint, a missing route, a missing viewport, an empty page,
+ * or a route with no discovered lockup. A generator that re-read
+ * PUBLIC_IDENTITY here would be comparing a constant with itself; what
+ * decides these rows is what a document rendered.
+ */
+const IDENTITY_ASSERTIONS = new Set([
+  'VAL-B2-ID-001',
+  'VAL-B2-ID-002',
+  'VAL-B2-ID-003',
+  'VAL-B2-ID-004',
+  'VAL-B2-ID-005',
+  'VAL-B2-ID-006',
+]);
+
+const SITE_METADATA_OWNER_PATH = (() => {
+  const site = REGISTRY.metadata.find(
+    (row) => (row as unknown as { routeId?: string }).routeId === 'route:/',
+  ) as unknown as { ownerPath?: string } | undefined;
+  if (!site?.ownerPath) {
+    throw new Error('the metadata registry has no owner for route:/');
+  }
+  return site.ownerPath;
+})();
+
+const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
+const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
+  artifact: readJson(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+  fingerprint: identityEvidenceFingerprint({
+    root: ROOT,
+    metadataOwnerPaths: [
+      ...new Set(
+        REGISTRY.metadata.map(
+          (row) => (row as unknown as { ownerPath: string }).ownerPath,
+        ),
+      ),
+    ],
+    lockupSourcePaths: identityLockupSourcePaths(),
+  }),
+});
+const IDENTITY_ROUTE_VERDICTS = routeVerdicts(IDENTITY_EVIDENCE);
+const IDENTITY_ROUTE_VERDICT_BY_ID = new Map(
+  [...PUBLIC_ROUTE_PATH_BY_ID].map(([id, path]) => {
+    const verdict = IDENTITY_ROUTE_VERDICTS.get(path);
+    if (!verdict) {
+      throw new Error(`the identity sweep did not visit ${path}`);
+    }
+    return [id, verdict];
+  }),
+);
+const DESCRIPTOR_SURFACES = new Map(
+  identityDescriptorSurfaces(IDENTITY_EVIDENCE, SITE_METADATA_OWNER_PATH).map(
+    (surface) => [surface.id, surface],
+  ),
+);
+/**
+ * A `font-variation-settings` value as sorted `"axis" value` pairs, so a
+ * measured setting and a registered one compare on their axes rather than
+ * on the order the browser happened to serialize them in.
+ */
+function serializeVariationAxes(setting: string): string {
+  return setting
+    .split(',')
+    .map((axis) => axis.trim())
+    .filter((axis) => axis.length > 0)
+    .sort()
+    .join(', ');
+}
+
+const IDENTITY_WORDMARK_ROLES = new Map(
+  identityWordmarkRoles().map((role) => [role.id, role]),
+);
+/**
+ * The runtime face the registered display family is actually published
+ * under, taken from the Tektur reconciliation rather than restated here.
+ * `next/font/local` serves `Tektur Variable` as the family `tektur`, and
+ * that rename is admitted only because a swept document declared the
+ * `@font-face` and its same-origin payload hashed to the registered
+ * binary. Comparing a lockup's computed head against a hardcoded
+ * `Tektur` substring would accept any family whose name contains it.
+ */
+const DISPLAY_RUNTIME_FACE = (() => {
+  const registered = FIRST_PARTY_TYPE_ROLES.filter(({ family }) =>
+    fontFamilyKey(family).startsWith(
+      fontFamilyKey(TEKTUR_FONT_METADATA.family),
+    ),
+  );
+  if (registered.length !== 1) {
+    throw new Error(
+      `${registered.length} first-party type roles name the ${TEKTUR_FONT_METADATA.family} family; the identity lockups need exactly one display role`,
+    );
+  }
+  const display = TEKTUR_MEASUREMENTS.families.approved.find(
+    ({ roleId }) => roleId === registered[0].id,
+  );
+  if (!display) {
+    throw new Error(
+      `The Tektur reconciliation approved no ${registered[0].id} family, so no runtime face is earned for the identity lockups`,
+    );
+  }
+  const runtimeKey = fontFamilyKey(display.runtimeFace);
+  return {
+    registeredFamily: display.family,
+    runtimeKey,
+    earnedBy: display.alias
+      ? ` by an observed @font-face in ${display.alias.declaredBy.join(', ')} delivering ${display.alias.binarySha256.slice(0, 12)} from ${display.alias.deliveredFrom.join(', ')}`
+      : '',
+  };
+})();
+const FIRST_PARTY_VISUAL_ASSETS = new Map(
+  firstPartyVisualAssets(
+    REGISTRY.assets as unknown as Array<{
+      id: string;
+      path: string;
+      category: string;
+    }>,
+  ).map((asset) => [asset.id, asset]),
+);
+const TECHNICAL_IDENTIFIER_BY_MEMBER = new Map(
+  TECHNICAL_IDENTIFIERS.map((literal) => [
+    `technical-identifier:${literal}`,
+    literal,
+  ]),
+);
+
+/** Names that would mark an asset as brand iconography rather than content. */
+const BRAND_SYMBOL_NAME = /logo|monogram|mascot|favicon|wordmark|brand-mark|emblem|crest/i;
+
+const IDENTITY_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [IDENTITY_DESCRIPTOR_POPULATION_SOURCE]: [...DESCRIPTOR_SURFACES.keys()],
+  [IDENTITY_TECHNICAL_POPULATION_SOURCE]: [
+    ...TECHNICAL_IDENTIFIER_BY_MEMBER.keys(),
+  ],
+  [IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE]: [
+    ...IDENTITY_WORDMARK_ROLES.keys(),
+  ],
+  [IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE]: [
+    ...FIRST_PARTY_VISUAL_ASSETS.keys(),
+  ],
+};
+
+/** Every icon slot and in-lockup symbol node the sweep saw, across all routes. */
+const IDENTITY_SYMBOL_SIGHTINGS = IDENTITY_EVIDENCE.observations.flatMap(
+  ({ route, iconDeclarations, symbolNodesInLockups }) =>
+    [...iconDeclarations, ...symbolNodesInLockups].map(
+      (entry) => `${route}: ${entry}`,
+    ),
+);
+
+const BASELINE = readJson(
+  join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
+) as { manifests: Record<string, unknown> };
+
+const NAVIGATION_BASELINE = navigationBaselineMembers(
+  BASELINE,
+  readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')),
+);
+const NAVIGATION_BASELINE_BY_ID = new Map(
+  NAVIGATION_BASELINE.map((member) => [member.id, member]),
+);
+
+const SHELL_EVIDENCE = readShellRuntimeEvidence({
+  artifact: readJson(join(ROOT, SHELL_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  fingerprint: shellEvidenceFingerprint({
+    root: ROOT,
+    deviceRegistryRows: REGISTRY.gridDevices as unknown as Array<{
+      id: string;
+      fingerprint: string;
+    }>,
+  }),
+});
+const SHELL_CURRENT_ROUTE_VERDICTS = currentRouteVerdicts(
+  SHELL_EVIDENCE,
+  (REGISTRY.gridDevices as unknown as Array<{ id: string }>).map(({ id }) => id),
+);
+const SHELL_SKIP_LINK_VERDICTS = skipLinkVerdicts(SHELL_EVIDENCE);
+const SHELL_LEDGER_BY_MEMBER = ledgerByBaselineMember(SHELL_EVIDENCE);
+
+const MOBILE_SHELL_EVIDENCE = readMobileShellEvidence({
+  artifact: readJson(join(ROOT, MOBILE_SHELL_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  fingerprint: mobileShellEvidenceFingerprint({
+    root: ROOT,
+    deviceRegistryRows: REGISTRY.gridDevices as unknown as Array<{
+      id: string;
+      fingerprint: string;
+    }>,
+  }),
+});
+const MOBILE_HEADER_VERDICTS = mobileHeaderVerdicts(MOBILE_SHELL_EVIDENCE);
+const MOBILE_DRAWER_VERDICTS = drawerVerdicts(MOBILE_SHELL_EVIDENCE);
+
+const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [SHELL_NAV_DESTINATION_POPULATION_SOURCE]: NAVIGATION_BASELINE.map(
+    ({ id }) => id,
+  ),
+};
+
+const HOME_LITERALS = {
+  identity: PUBLIC_IDENTITY,
+  descriptor: PUBLIC_DESCRIPTOR,
+};
+const HOME_EVIDENCE = readHomeCompositionEvidence({
+  artifact: readJson(join(ROOT, HOME_COMPOSITION_EVIDENCE_PATH)),
+  fingerprint: homeEvidenceFingerprint({ root: ROOT, ...HOME_LITERALS }),
+});
+const HOME_DOMAIN_DESTINATIONS = canonicalDomainDestinations();
+const HOME_HERO_VERDICTS = new Map(
+  heroLockupVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const HOME_ANCHOR_VERDICTS = new Map(
+  homeCompositionVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
+    verdict.id as string,
+    verdict,
+  ]),
+);
+const HOME_DESTINATION_VERDICTS = new Map(
+  domainDestinationVerdicts(HOME_EVIDENCE, HOME_DOMAIN_DESTINATIONS).map(
+    (verdict) => [verdict.id, verdict],
+  ),
+);
+
+const HOME_TOOLS_EVIDENCE = readHomeToolsEvidence({
+  artifact: readJson(join(ROOT, HOME_TOOLS_EVIDENCE_PATH)),
+  fingerprint: homeToolsEvidenceFingerprint({
+    root: ROOT,
+    routeIds: REGISTRY.routes.public.map(({ id }) => id),
+  }),
+});
+const HOME_TOOLS_OVERFLOW_VERDICTS = new Map(
+  responsiveOverflowVerdicts(HOME_TOOLS_EVIDENCE, REGISTRY.routes.public).map(
+    (verdict) => [verdict.id, verdict],
+  ),
+);
+
+const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [HOME_HERO_LOCKUP_POPULATION_SOURCE]: homeHeroLockupMembers(HOME_EVIDENCE),
+  [HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE]: homeCompositionAnchorMembers(),
+  [HOME_DOMAIN_DESTINATION_POPULATION_SOURCE]: HOME_DOMAIN_DESTINATIONS.map(
+    ({ id }) => id,
+  ),
+};
+
 function populationSources(assertionIds: string[]) {
-  const baseline = readJson(
-    join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
-  ) as { manifests: Record<string, unknown> };
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
-    baselineManifestIds: Object.keys(baseline.manifests).sort(),
+    baselineManifestIds: Object.keys(BASELINE.manifests).sort(),
     deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
     assertionIds,
     tekturPopulations: TEKTUR_POPULATION_IDS,
     semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
+    identityPopulations: IDENTITY_POPULATIONS,
+    shellPopulations: SHELL_POPULATIONS,
+    homePopulations: HOME_POPULATIONS,
   });
 }
 
 function populationSourceFor(id: string): string {
+  const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
+  if (identitySource) return identitySource;
+  const shellSource = SHELL_ASSERTION_POPULATION_SOURCES[id];
+  if (shellSource) return shellSource;
+  const homeSource = HOME_ASSERTION_POPULATION_SOURCES[id];
+  if (homeSource) return homeSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -246,6 +652,22 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // so both stay browser-state rows rather than becoming source-build ones.
   if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
   if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
+  // An identity row's evidence is what a built page rendered at two
+  // viewports, so it is a browser-state row even where a supporting clause
+  // also counts source occurrences.
+  if (IDENTITY_ASSERTIONS.has(id)) return 'browser-state';
+  // A shell row's evidence is what a built page rendered and what a keyboard
+  // reached on it, so it is a browser-state row. The mobile rows are the
+  // same kind of reading at the mobile viewport, with the drawer open.
+  if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  if (MOBILE_SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  // A home row's evidence is what the built home page laid out at
+  // 1440x900, so it is a browser-state row.
+  if (HOME_ASSERTIONS.has(id)) return 'browser-state';
+  // The overflow row reads a document's own scroll width against the
+  // viewport a browser gave it, on every public route, so it is the same
+  // kind of reading at four widths.
+  if (HOME_TOOLS_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -578,7 +1000,77 @@ function tokenTargetsFor(id: string): TestTarget[] {
   ];
 }
 
+const IDENTITY_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-identity.spec.ts',
+  'brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports',
+  'Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows.',
+);
+const IDENTITY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-identity-evidence.test.ts',
+  'identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence',
+  'Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against.',
+);
+
+const SHELL_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-shell.spec.ts',
+  'brand-v2 desktop shell and navigation › every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy',
+  'Sweeps every registry-derived public route at the desktop-shell viewport, collects every element carrying aria-current whatever its tag before reading any annotation, measures the current-route rail against its registered anchor with its colour, width, row height and accessible-name contribution, runs a Tab-then-Enter keyboard trace for the skip link, and hashes the all-expanded taxonomy against the sealed navigation baseline.',
+);
+const SHELL_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-shell-evidence.test.ts',
+  'shell runtime evidence > refuses stale, incomplete, and unmeasured shell evidence',
+  'Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading.',
+);
+
+const MOBILE_SHELL_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-mobile-shell.spec.ts',
+  'brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions',
+  'Sweeps every registry-derived public route at the mobile-header viewport, discovers the compact lockup structurally by the whole `robot wiki` spelling family before reading any annotation, reads the header leaf text rather than its source, then opens the drawer three times per route: once to press a real Tab off its last stop and a real Shift+Tab off its first and read where focus landed, once to dismiss it with the close control, and once to dismiss it with the scrim, recording which regions the browser made inert and what the scrim composites to against the panel.',
+);
+const MOBILE_SHELL_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-mobile-shell-evidence.test.ts',
+  'mobile shell evidence > refuses stale, incomplete, and unmeasured mobile shell evidence',
+  'Proves the reader that gates both mobile rows throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a header the sweep never found, a drawer with no tab stops, a keyboard trace with no destination and a missing dismissal path, and proves the verdicts fail a one-way trap, an escaped skip link, a descriptor in the header and a scrim that composites to the panel colour.',
+);
+
+const HOME_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-home.spec.ts',
+  'brand-v2 home composition › home renders one dominant lockup, a black action, a lime highlight, and all seven domain destinations',
+  'Loads the built home page at 1440x900, discovers its hero lockups both by heading level and by the wordmark type role so a duplicate that is not an h1 is still found, resolves the descriptor by computed font family rather than by class name, finds the lime highlights by computed paint on every element in main rather than by an annotation the page could omit, reads the registered primary action’s composited background and label colour with the pointer parked off the composition, measures every canonical domain row’s box, and records the section signatures, the taxonomy anchor counts and the progress-copy matches.',
+);
+const HOME_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-home-evidence.test.ts',
+  'home composition evidence > refuses stale, incomplete, and unmeasured home evidence',
+  'Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination.',
+);
+
+const HOME_TOOLS_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-home-tools.spec.ts',
+  'brand-v2 home live tools and responsive convergence › no public route overflows horizontally at any declared width',
+  'Loads every public route in the built export at each width the contract and the design system both declare, and records the document scroll width against the viewport the browser gave it plus every element laid out past that viewport with no scrolling, clipping, or fixed-position ancestor, so an internal-scroll region stays intended and a page that simply grew past the window does not.',
+);
+const HOME_TOOLS_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-home-tools-evidence.test.ts',
+  'home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence',
+  'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
+  if (HOME_ASSERTIONS.has(id)) {
+    return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
+  }
+  if (HOME_TOOLS_ASSERTIONS.has(id)) {
+    return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
+  }
+  if (IDENTITY_ASSERTIONS.has(id)) {
+    return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
+  }
+  if (SHELL_ASSERTIONS.has(id)) {
+    return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
+  }
+  if (MOBILE_SHELL_ASSERTIONS.has(id)) {
+    return [MOBILE_SHELL_SWEEP_TARGET, MOBILE_SHELL_READER_TARGET];
+  }
   if (TEKTUR_ASSERTIONS.has(id)) {
     return [
       ...tekturTargetsFor(id),
@@ -1018,6 +1510,583 @@ function semanticTokenResult(
   };
 }
 
+type IdentityEvidence = {
+  actual: string;
+  computed: Record<string, unknown>;
+};
+
+/**
+ * What each identity assertion actually observed about one member. Every
+ * branch reads the persisted sweep (or, for the Open Graph clause of
+ * `VAL-B2-ID-005`, the persisted Tektur measurement) and throws rather than
+ * describe a member it has no observation for. A clause that fails throws
+ * too: this generator has no way to emit a red row, so refusing to write is
+ * how a real defect stops the build.
+ */
+function identityAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const viewports = IDENTITY_EVIDENCE.viewports.join(' and ');
+  if (assertionId === 'VAL-B2-ID-001' || assertionId === 'VAL-B2-ID-003') {
+    const verdict = IDENTITY_ROUTE_VERDICT_BY_ID.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no identity observation`);
+    }
+    const failures =
+      assertionId === 'VAL-B2-ID-001'
+        ? [
+            ...verdict.wrongNames,
+            ...verdict.cssSubstitutedNames,
+            ...verdict.unannotatedLockups,
+          ]
+        : [...verdict.forbiddenRenders, ...verdict.forbiddenMetadata];
+    if (failures.length > 0) {
+      throw new Error(
+        `${assertionId}: ${verdict.route} failed on ${failures.join('; ')}`,
+      );
+    }
+    const computed = {
+      route: verdict.route,
+      viewports: IDENTITY_EVIDENCE.viewports,
+      lockupsDiscovered: verdict.lockupCount,
+      renderedNames: verdict.renderedNames,
+      forbiddenRenders: verdict.forbiddenRenders,
+      forbiddenMetadata: verdict.forbiddenMetadata,
+      evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+    };
+    return assertionId === 'VAL-B2-ID-001'
+      ? {
+          actual: `${verdict.route} rendered ${verdict.lockupCount} brand lockup(s) across ${viewports}, every one exactly \`${PUBLIC_IDENTITY}\` and every one carrying a registered wordmark role`,
+          computed,
+        }
+      : {
+          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one`,
+          computed,
+        };
+  }
+  if (assertionId === 'VAL-B2-ID-002') {
+    const surface = DESCRIPTOR_SURFACES.get(member);
+    if (!surface) {
+      throw new Error(`${assertionId}: ${member} is not a descriptor surface`);
+    }
+    // A rendered descriptor slot is the descriptor and nothing else; a
+    // metadata field may frame it (og:image:alt names the card it describes),
+    // so the byte sequence must appear verbatim inside it.
+    const exact =
+      surface.kind === 'rendered'
+        ? surface.value === PUBLIC_DESCRIPTOR
+        : surface.value.includes(PUBLIC_DESCRIPTOR);
+    if (!exact) {
+      throw new Error(
+        `${assertionId}: ${member} carries "${surface.value}", not the locked descriptor`,
+      );
+    }
+    return {
+      actual:
+        surface.kind === 'rendered'
+          ? `${surface.id} renders exactly the locked descriptor, byte for byte, on ${surface.route}`
+          : `${surface.id} ships the locked descriptor verbatim from ${surface.sourcePath}`,
+      computed: {
+        surfaceKind: surface.kind,
+        route: surface.route,
+        sourcePath: surface.sourcePath,
+        value: surface.value,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-004') {
+    const literal = TECHNICAL_IDENTIFIER_BY_MEMBER.get(member);
+    if (!literal) {
+      throw new Error(
+        `${assertionId}: ${member} is not a sealed technical identifier`,
+      );
+    }
+    const occurrences = deriveTechnicalIdentifierOccurrences(ROOT, literal);
+    if (occurrences.length === 0) {
+      throw new Error(
+        `${assertionId}: \`${literal}\` no longer occurs in first-party runtime source, so the public-display migration altered a technical identifier`,
+      );
+    }
+    const displayMatches = [
+      ...new Set(
+        IDENTITY_EVIDENCE.observations.flatMap(
+          ({ route, technicalIdentifierVisibleMatches }) =>
+            technicalIdentifierVisibleMatches
+              .filter((line) => line.includes(literal))
+              .map((line) => `${route}: ${line}`),
+        ),
+      ),
+    ];
+    if (displayMatches.length > 0) {
+      throw new Error(
+        `${assertionId}: \`${literal}\` renders as visible product identity on ${displayMatches.join('; ')}`,
+      );
+    }
+    const destinations = technicalIdentifierDestinations(
+      literal,
+      IDENTITY_EVIDENCE,
+    );
+    // Throws on an absent or empty row: the source scan proves the
+    // identifier is written down, and this proves something the product
+    // ships still resolves through it. A row that reported the first
+    // population alone accepted an identifier whose every shipped use had
+    // gone, because zero destinations read as compliance.
+    const witness = technicalIdentifierWitness(literal, IDENTITY_EVIDENCE);
+    const files = [...new Set(occurrences.map(({ path }) => path))].sort();
+    return {
+      actual: `\`${literal}\` still resolves ${occurrences.length} comment-free use(s) across ${files.length} first-party runtime file(s) and ${witness.occurrences} use(s) across ${witness.fileCount} shipped ${witness.fileKinds.join('/')} file(s) of the built export${destinations.length > 0 ? `, including ${destinations.length} measured destination(s)` : ''}, and renders nowhere as visible product identity across ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}`,
+      computed: {
+        literal,
+        occurrences: occurrences.length,
+        files,
+        destinations,
+        exportFileCount: witness.fileCount,
+        exportFileKinds: witness.fileKinds,
+        exportOccurrences: witness.occurrences,
+        displayMatches,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-005') {
+    const role = IDENTITY_WORDMARK_ROLES.get(member);
+    if (!role) {
+      throw new Error(`${assertionId}: ${member} is not an identity surface`);
+    }
+    if (role.kind === 'og-static-instance') {
+      const evidence = tekturAssertionEvidence({
+        assertionId: 'VAL-B2-TYPE-016',
+        populationSource: TEKTUR_OG_MAPPING_POPULATION_SOURCE,
+        member: `og-static-mapping:${role.roleId}`,
+        measurements: TEKTUR_MEASUREMENTS,
+      });
+      return {
+        actual: `the Open Graph renderer's registered static Tektur instance maps to the approved web role \`${role.roleId}\`: ${evidence.actual}`,
+        computed: {
+          ...evidence.observed,
+          roleId: role.roleId,
+          evidence: [evidence.sourcePath],
+          tool: evidence.tool,
+        },
+      };
+    }
+    const sightings = IDENTITY_EVIDENCE.observations.flatMap(
+      ({ route, viewport, brandDisplayTexts }) =>
+        brandDisplayTexts
+          .filter(({ role: rendered }) => rendered === role.roleId)
+          .map((lockup) => ({ route, viewport, ...lockup })),
+    );
+    if (sightings.length === 0) {
+      throw new Error(
+        `${assertionId}: the sweep never rendered the ${role.roleId} lockup, so nothing about it was measured`,
+      );
+    }
+    const families = [
+      ...new Set(sightings.map(({ fontFamilyHead }) => fontFamilyHead)),
+    ].sort();
+    const offFamily = families.filter(
+      (family) => fontFamilyKey(family) !== DISPLAY_RUNTIME_FACE.runtimeKey,
+    );
+    if (offFamily.length > 0) {
+      throw new Error(
+        `${assertionId}: the ${role.roleId} lockup resolved to ${offFamily.join(', ')} rather than the registered ${DISPLAY_RUNTIME_FACE.registeredFamily}`,
+      );
+    }
+    const axes = [
+      ...new Set(
+        sightings.map(({ fontVariationSettings }) => fontVariationSettings),
+      ),
+    ].sort();
+    const registered = `"wdth" ${role.wdth}, "wght" ${role.wght}`;
+    // The browser reports the axes in its own order, so the comparison is
+    // over the parsed axis/value pairs; comparing the serialized strings
+    // would fail a compliant lockup and pass a reordered wrong one.
+    const offAxis = axes.filter(
+      (setting) => serializeVariationAxes(setting) !== registered,
+    );
+    if (offAxis.length > 0) {
+      throw new Error(
+        `${assertionId}: the ${role.roleId} lockup rendered variation settings ${offAxis.join(' | ')} rather than the registered ${registered}`,
+      );
+    }
+    const routes = [...new Set(sightings.map(({ route }) => route))].sort();
+    return {
+      actual: `the ${role.roleId} lockup resolved to ${families.join(', ')}, the runtime face the registered ${DISPLAY_RUNTIME_FACE.registeredFamily} is published under${DISPLAY_RUNTIME_FACE.earnedBy}, at the registered ${registered} on ${routes.length} route(s) across ${viewports}, in ${sightings.length} sighting(s)`,
+      computed: {
+        roleId: role.roleId,
+        cssClass: role.cssClass,
+        definedIn: role.definedIn,
+        registeredFamily: DISPLAY_RUNTIME_FACE.registeredFamily,
+        runtimeFamilyKey: DISPLAY_RUNTIME_FACE.runtimeKey,
+        families,
+        variationSettings: axes,
+        routes,
+        sightings: sightings.length,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-006') {
+    const asset = FIRST_PARTY_VISUAL_ASSETS.get(member);
+    if (!asset) {
+      throw new Error(
+        `${assertionId}: ${member} is not a first-party visual asset`,
+      );
+    }
+    if (BRAND_SYMBOL_NAME.test(asset.path)) {
+      throw new Error(
+        `${assertionId}: ${asset.path} is named as brand iconography`,
+      );
+    }
+    if (IDENTITY_SYMBOL_SIGHTINGS.length > 0) {
+      throw new Error(
+        `${assertionId}: the sweep found ${IDENTITY_SYMBOL_SIGHTINGS.length} symbol slot(s) filled, starting with ${IDENTITY_SYMBOL_SIGHTINGS[0]}`,
+      );
+    }
+    return {
+      actual: `${asset.path} is registered as ${asset.category} content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}, so it fills no identity slot`,
+      computed: {
+        assetPath: asset.path,
+        category: asset.category,
+        iconDeclarationsAcrossSweep: 0,
+        symbolNodesInLockupsAcrossSweep: 0,
+        routesSwept: IDENTITY_EVIDENCE.routes.length,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no identity evidence branch`);
+}
+
+/**
+ * What the desktop sweep recorded for one shell assertion and one population
+ * member. Every branch throws on a member the sweep did not measure and on a
+ * member whose reading fails the requirement, because the generator has no
+ * way to write a red row: a shell that regressed has to stop the corpus, not
+ * appear in it.
+ */
+function shellAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  if (assertionId === 'VAL-B2-SHELL-002') {
+    const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+    if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+    const verdict = SHELL_CURRENT_ROUTE_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(
+        `${assertionId}: ${verdict.failures.join('; ')}`,
+      );
+    }
+    return {
+      actual: verdict.hasNavigationItem
+        ? `${route} matches the navigation entry ${verdict.matchingEntry?.href}, which alone carries aria-current="page" at ${verdict.ariaCurrentCount} node(s) document-wide, paints ${verdict.matchingEntry?.colour}, and is marked by ${verdict.markerDeviceId} in ${verdict.markerColour} ${verdict.markerAlignmentErrorPx}px from its registered rail anchor, at weight ${verdict.activeWeight} against idle siblings at ${verdict.idleWeight ?? 'no idle sibling'}`
+        : `${route} exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count`,
+      computed: {
+        route,
+        viewport: SHELL_VIEWPORT.id,
+        hasNavigationItem: verdict.hasNavigationItem,
+        ariaCurrentCount: verdict.ariaCurrentCount,
+        ariaCurrentOnNonLink: verdict.misplaced,
+        markerDeviceId: verdict.markerDeviceId,
+        markerColour: verdict.markerColour,
+        markerAlignmentErrorPx: verdict.markerAlignmentErrorPx,
+        activeFontWeight: verdict.activeWeight,
+        idleFontWeight: verdict.idleWeight,
+        evidence: [SHELL_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-003') {
+    const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+    if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+    const verdict = SHELL_SKIP_LINK_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { observation } = verdict;
+    return {
+      actual: `the first Tab on ${route} focused <${observation.firstTabStopTag} href="${observation.firstTabStopHref}">, which sits at ${observation.restTopPx}px unfocused and ${observation.focusedTopPx}px inside the viewport once focused, and activating it moved focus to #${observation.activatedFocusId}`,
+      computed: {
+        route,
+        viewport: SHELL_VIEWPORT.id,
+        firstTabStop: `${observation.firstTabStopTag}[href=${observation.firstTabStopHref}]`,
+        firstTabStopText: observation.firstTabStopText,
+        restTopPx: observation.restTopPx,
+        focusedTopPx: observation.focusedTopPx,
+        visibleWhenFocused: observation.visibleWhenFocused,
+        activatedFocusId: observation.activatedFocusId,
+        evidence: [SHELL_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-005') {
+    const sealed = NAVIGATION_BASELINE_BY_ID.get(member);
+    if (!sealed) {
+      throw new Error(
+        `${assertionId}: ${member} is not a sealed navigation destination`,
+      );
+    }
+    const entry = SHELL_LEDGER_BY_MEMBER.get(member);
+    if (!entry) {
+      throw new Error(
+        `${assertionId}: the expanded taxonomy no longer renders ${member}, so a navigation destination was removed`,
+      );
+    }
+    const rendered = sha256(
+      stableJson({ index: entry.index, href: entry.href, name: entry.name }),
+    );
+    if (rendered !== sealed.hash) {
+      throw new Error(
+        `${assertionId}: ${member} now renders "${entry.name}" at position ${entry.index} pointing at ${entry.href}, which does not hash to the sealed baseline`,
+      );
+    }
+    return {
+      actual: `${member} still renders "${entry.name}" at taxonomy position ${entry.index} pointing at ${entry.href}, hashing to ${sealed.approvedDeltaId === null ? 'the sealed navigation baseline' : `the navigation baseline as moved by the approved delta ${sealed.approvedDeltaId}`}`,
+      computed: {
+        member,
+        href: entry.href,
+        accessibleName: entry.name,
+        taxonomyIndex: entry.index,
+        category: entry.category,
+        renderedHash: rendered,
+        expectedHash: sealed.hash,
+        sealedHash: sealed.sealedHash,
+        approvedDeltaId: sealed.approvedDeltaId,
+        viewport: SHELL_VIEWPORT.id,
+        evidence: [
+          SHELL_RUNTIME_EVIDENCE_PATH,
+          'evidence/brand-v2/baseline/baseline.json',
+        ],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no shell evidence branch`);
+}
+
+/**
+ * What the mobile sweep recorded for one mobile shell assertion and one
+ * route. Both branches throw on a route the sweep did not visit and on a
+ * route whose reading fails the requirement, because the generator has no
+ * way to write a red row: a header that gained a descriptor or a drawer that
+ * stopped trapping focus has to stop the corpus, not appear in it.
+ */
+function mobileShellAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+  if (assertionId === 'VAL-B2-ID-008') {
+    const verdict = MOBILE_HEADER_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { observation, lockup } = verdict;
+    return {
+      actual: `the compact header on ${route} renders \`${lockup?.text}\` on ${lockup?.lineBoxes} line box in ${lockup?.fontFamilyHead} at ${lockup?.fontSizePx}px inside a ${observation.contentWidthPx}px content box, and the whole header renders ${observation.leafTexts.length} leaf text(s) — ${observation.leafTexts.join(', ')} — so no descriptor, and no prose that could stand in for one, reaches it`,
+      computed: {
+        route,
+        viewport: MOBILE_VIEWPORT.id,
+        headerDisplay: observation.display,
+        headerHeightPx: observation.heightPx,
+        headerContentWidthPx: observation.contentWidthPx,
+        headerLeafTexts: observation.leafTexts,
+        lockupsDiscovered: observation.lockups.length,
+        lockupText: lockup?.text ?? null,
+        lockupRole: lockup?.tekturRole ?? null,
+        lockupFamilyHead: lockup?.fontFamilyHead ?? null,
+        lockupFontSizePx: lockup?.fontSizePx ?? null,
+        lockupLineBoxes: lockup?.lineBoxes ?? null,
+        lockupWidthPx: lockup?.widthPx ?? null,
+        descriptorMatches: observation.descriptorMatches,
+        triggerAccessibleName: observation.trigger?.accessibleName ?? null,
+        triggerAriaControls: observation.trigger?.ariaControls ?? null,
+        evidence: [MOBILE_SHELL_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-004') {
+    const verdict = MOBILE_DRAWER_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { focus, inert, dismissals, separation } = verdict.observation;
+    return {
+      actual: `the drawer on ${route} opened onto ${focus.focusOnOpen?.label} with ${focus.tabStopCount} tab stops, sent a Tab off its last stop (${focus.last?.label}) to its first (${focus.forwardWrap.focused?.label}) and a Shift+Tab off its first to its last (${focus.backwardWrap.focused?.label}), both inside the dialog, made all ${inert.regions.filter(({ present }) => present).length} background regions inert with no tab stop reachable behind it, and returned focus to its trigger from all three of ${dismissals.map(({ via }) => via).join(', ')}`,
+      computed: {
+        route,
+        viewport: MOBILE_VIEWPORT.id,
+        closedDrawerTabStops: verdict.observation.closedDrawerTabStops,
+        tabStopCount: focus.tabStopCount,
+        firstTabStop: focus.first,
+        lastTabStop: focus.last,
+        focusOnOpen: focus.focusOnOpen,
+        forwardWrap: focus.forwardWrap,
+        backwardWrap: focus.backwardWrap,
+        inertRegions: inert.regions,
+        reachableOutsideDrawer: inert.reachableOutsideDrawer,
+        dismissals,
+        scrimCompositedRgb: separation.scrimCompositedRgb,
+        panelRgb: separation.panelRgb,
+        scrimSeparationRatio: separation.contrastRatio,
+        scrimSeparationFloor: SCRIM_SEPARATION_FLOOR,
+        panelBorderLeftPx: separation.panelBorderLeftPx,
+        panelBorderRightPx: separation.panelBorderRightPx,
+        evidence: [MOBILE_SHELL_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no mobile shell evidence branch`);
+}
+
+/**
+ * The responsive-overflow rows, read off the persisted four-width sweep.
+ * The verdict throws on a route the sweep measured at fewer than the
+ * declared widths, so a width nobody visited cannot pass as a width that
+ * held.
+ */
+function homeToolsAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdict = HOME_TOOLS_OVERFLOW_VERDICTS.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: the sweep measured no route ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  const rows = HOME_TOOLS_EVIDENCE.responsive.filter(
+    (row) => row.routeId === member,
+  );
+  return {
+    actual: `${verdict.observed.route} lays out inside its viewport at every declared width (${rows.map((row) => `${row.viewportId}: ${row.documentScrollWidthPx}/${row.documentClientWidthPx}px`).join(', ')}), with no element past the viewport that nothing scrolls or clips`,
+    computed: {
+      route: verdict.observed.route,
+      widths: requiredSweepWidths(),
+      measurements: rows.map(
+        ({ viewportId, documentScrollWidthPx, documentClientWidthPx }) => ({
+          viewportId,
+          documentScrollWidthPx,
+          documentClientWidthPx,
+        }),
+      ),
+      unclippedOverflow: rows.flatMap(({ unclippedOverflow }) =>
+        unclippedOverflow,
+      ),
+      evidence: [HOME_TOOLS_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
+ * The home-composition rows, read off the persisted desktop sweep of the
+ * built page. Every branch throws on a member the sweep never decided or a
+ * verdict that recorded a failure, so a regressed home stops the corpus
+ * rather than appearing in it.
+ */
+function homeAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  if (assertionId === 'VAL-B2-ID-007') {
+    const verdict = HOME_HERO_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep decided no lockup ${member}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const lockup = HOME_EVIDENCE.heroLockups[verdict.index];
+    return {
+      actual: `the home hero renders exactly ${HOME_EVIDENCE.heroLockups.length} lockup, printing \`${lockup.text}\` in ${lockup.fontFamilyHead} at ${lockup.fontSizePx}px on ${lockup.renderedLines} line(s) beside the one exact descriptor \`${lockup.descriptorText}\``,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        lockupsDiscovered: HOME_EVIDENCE.heroLockups.length,
+        lockupIndex: lockup.index,
+        lockupText: lockup.text,
+        lockupFamilyHead: lockup.fontFamilyHead,
+        lockupFontSizePx: lockup.fontSizePx,
+        lockupRenderedLines: lockup.renderedLines,
+        descriptorText: lockup.descriptorText,
+        descriptorFamilyHead: lockup.descriptorFontFamilyHead,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-006') {
+    const verdict = HOME_ANCHOR_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep decided no anchor ${member}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return {
+      actual: `${member} holds on the built home page at ${HOME_VIEWPORT.id}: ${JSON.stringify(verdict.observed)}`,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        anchor: member,
+        ...verdict.observed,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-007') {
+    const verdict = HOME_DESTINATION_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the sweep decided no destination ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const entries = canonicalDomainEntries(
+      HOME_EVIDENCE.domainEntries.filter(
+        ({ href }) => href === verdict.href,
+      ),
+      verdict.name,
+    );
+    const first = entries[0];
+    return {
+      actual: `home renders \`${verdict.name}\` linking to ${verdict.href} in a ${first?.heightPx}px index row carrying its own description, one of ${HOME_DOMAIN_DESTINATIONS.length} canonical destinations`,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        domain: verdict.domain,
+        name: verdict.name,
+        href: verdict.href,
+        entriesRendered: entries.length,
+        description: first?.description ?? null,
+        rowHeightPx: first?.heightPx ?? null,
+        rowBottomPx: first?.bottomPx ?? null,
+        borderedCard: first?.bordered ?? null,
+        canonicalDestinations: HOME_DOMAIN_DESTINATIONS.length,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no home composition evidence branch`);
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -1084,6 +2153,71 @@ function resultFor(
             'evidence/brand-v2/primitive-reconciliation.json',
         },
       },
+    };
+  }
+  if (IDENTITY_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = identityAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (SHELL_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = shellAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (MOBILE_SHELL_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = mobileShellAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (HOME_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = homeAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (HOME_TOOLS_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = homeToolsAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
@@ -1226,7 +2360,17 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
+            mechanism: IDENTITY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
+              : SHELL_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
+              : MOBILE_SHELL_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : HOME_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
+              : HOME_TOOLS_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
+              : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`

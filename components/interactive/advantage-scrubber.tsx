@@ -59,6 +59,16 @@ const TAG_STROKE: Record<TaggedSegment['tag'], string> = {
   low: 'var(--color-err)',
 };
 
+/**
+ * The tag is an outline style before it is a colour: a stage whose value
+ * rises is boxed with a closed line, a stage whose value falls is boxed with
+ * a broken one. The legend below the chart names the styles, not the hues.
+ */
+const TAG_DASH: Record<TaggedSegment['tag'], string | undefined> = {
+  high: undefined,
+  low: '4 2.5',
+};
+
 /** Round to 2 decimals so SSR HTML and client hydration serialize identically. */
 const f = (v: number) => Number(v.toFixed(2));
 
@@ -291,6 +301,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                   fill={TAG_FILL[segment.tag]}
                   stroke={TAG_STROKE[segment.tag]}
                   strokeWidth={1}
+                  strokeDasharray={TAG_DASH[segment.tag]}
                 />
                 <text
                   x={(x(segment.start) + x(segment.end)) / 2}
@@ -378,10 +389,10 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           </svg>
 
           <p className="mt-1 font-mono text-[10px] text-text-dim">
-            green outline: value rises, high advantage. red outline: value
-            falls, low advantage. the elapsed value trace is signal blue.
-            trace shape is illustrative, after the Recap portafilter
-            example.
+            solid outline: value rises, high advantage. dashed outline: value
+            falls, low advantage. the elapsed value trace is the heavier line
+            from the left. trace shape is illustrative, after the Recap
+            portafilter example.
           </p>
 
           <p className="mt-3 font-mono text-xs text-text">

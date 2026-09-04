@@ -69,10 +69,13 @@ const STATUS_TEXT: Record<Stability, string> = {
   fallen: 'fallen',
 };
 
+/** Past this lean the plant is treated as fallen rather than recovering. */
+const FALL_LINE_RAD = Math.PI / 3;
+
 /** Rod and mass color: signal blue near balance, red past the fall line. */
 function poleColor(theta: number): string {
   const abs = Math.abs(theta);
-  if (abs > Math.PI / 3) return 'var(--color-err)';
+  if (abs > FALL_LINE_RAD) return 'var(--color-err)';
   if (abs <= (10 * Math.PI) / 180) return 'var(--color-accent)';
   return 'var(--color-text)';
 }
@@ -173,7 +176,10 @@ export function PendulumController({
   const status = started
     ? STATUS_TEXT[classifyStability(history)]
     : 'holding at release';
-  const color = poleColor(sim.theta);
+  // Named apart from `color` so the tone is attributable to the two marks it
+  // actually paints rather than to every element that mentions a colour token.
+  const poleTone = poleColor(sim.theta);
+  const pastFallLine = Math.abs(sim.theta) > FALL_LINE_RAD;
   const tip = tipPosition(sim.theta, ROD_PX, PIVOT);
   const payload = payloadPosition(sim.theta);
   const torque = controlTorque(sim, gains, PENDULUM_PARAMS);
@@ -339,9 +345,10 @@ export function PendulumController({
           y1={PIVOT.y}
           x2={f(tip.x)}
           y2={f(tip.y)}
-          stroke={color}
+          stroke={poleTone}
           strokeWidth={3}
           strokeLinecap="round"
+          strokeDasharray={pastFallLine ? '6 4' : undefined}
         />
         {/* Off-center payload (the bias torque made visible) */}
         <circle
@@ -351,13 +358,18 @@ export function PendulumController({
           r={4.5}
           fill="var(--color-text-dim)"
         />
-        {/* Tip mass */}
+        {/* Tip mass. Past the fall line the rod breaks into dashes and the
+            mass opens into a broken ring, the same "this one failed" shape
+            the other instruments use, so the regime reads without the hue. */}
         <circle
           data-testid="pendulum-mass"
           cx={f(tip.x)}
           cy={f(tip.y)}
           r={15}
-          fill={color}
+          fill={pastFallLine ? 'var(--color-bg)' : poleTone}
+          stroke={poleTone}
+          strokeWidth={pastFallLine ? 3 : 0}
+          strokeDasharray={pastFallLine ? '8 5' : undefined}
         />
         {/* Pivot base, drawn over the rod end */}
         <path

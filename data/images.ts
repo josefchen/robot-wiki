@@ -132,8 +132,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     alt: 'Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.',
     caption:
       'Demonstrations cover a narrow corridor of states around the expert path. The policy\'s first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself.',
-    sourceName: 'robot-wiki (original diagram)',
-    creator: 'robot-wiki contributors',
+    sourceName: 'Robot Wiki (original diagram)',
+    creator: 'Robot Wiki contributors',
     licence: 'cc-by-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
     retrieved: '2026-08-08',
@@ -141,7 +141,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
     height: 250,
     // Original SVG drawn for this site. Convention (library/imagery.md):
     // site-created diagrams carry no sourceUrl, because there is no
-    // external original to link to; the credit names robot-wiki as the
+    // external original to link to; the credit names Robot Wiki as the
     // creator in text. The licence basis is the site's content licence
     // (CC BY 4.0, mission.md).
   },
@@ -151,8 +151,8 @@ const ARTICLE_IMAGES: SiteImage[] = [
     alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.',
     caption:
       'Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.',
-    sourceName: 'robot-wiki (original diagram)',
-    creator: 'robot-wiki contributors',
+    sourceName: 'Robot Wiki (original diagram)',
+    creator: 'Robot Wiki contributors',
     licence: 'cc-by-4.0',
     licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
     retrieved: '2026-08-07',

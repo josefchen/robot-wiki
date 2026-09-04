@@ -8,6 +8,7 @@ import {
   letterAnchorId,
   type AzIndexSourceEntry,
 } from '@/lib/az-index';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 const title = 'A-Z Index';
@@ -15,11 +16,11 @@ const title = 'A-Z Index';
 export const metadata: Metadata = {
   title,
   description:
-    'Every published robot-wiki article and glossary term in one alphabetical list.',
+    `Every published ${PUBLIC_IDENTITY} article and glossary term in one alphabetical list.`,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated ' - Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
