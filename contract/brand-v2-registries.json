@@ -11228,8 +11228,10 @@
       "definedIn": [
         "components/ui/action.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "mountState": "library-only",
+      "ownerRouteOrMount": [
+        "components/ui/action.tsx"
+      ],
+      "mountState": "production",
       "disabledException": null,
       "targetSize": {
         "minimumPx": 24,
@@ -11237,7 +11239,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f5057c8fefb87b26e8c95396c5b99d9339d4d15a0ebaef0db3ad7e0a917de994"
+      "fingerprint": "1bc718beaaeb090725ce3d47b9e89dd606945d51da639a20281c21791d3ef695"
     },
     {
       "id": "control:secondary-action",
@@ -11606,6 +11608,7 @@
         "components/nav/site-shell.tsx",
         "components/search/search-interface.tsx",
         "components/three/trajectory-panel.tsx",
+        "components/ui/action.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
         "components/ui/figure.tsx",
@@ -11632,7 +11635,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "b4758793414ad3f04e4f766fd326054665335cbc8de583efd8e05a2c16f4efca"
+      "fingerprint": "e3e36b724d40bad82726d345425602d59951eb12d47e58a2cfc13d18b74412d8"
     },
     {
       "id": "control:segmented",
@@ -11838,5 +11841,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c195da1ebcab7a585932348db2c03cf3025ed91412429e9e16ac2ac07af7903e"
+  "rootFingerprint": "9d813dc8701698a27af0a58946bd8fd4aa3e791d4e0a29c9bdd69fe1060837f6"
 }

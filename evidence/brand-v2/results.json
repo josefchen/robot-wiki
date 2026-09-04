@@ -15846,14 +15846,39 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "registered and defined in components/ui/action.tsx, mounted by no public route",
+      "actual": "rendered on 1 of 63 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "not-applicable",
-      "notApplicableReason": {
-        "code": "unsupported-state",
-        "registryId": "control:primary-action",
-        "detail": "control:primary-action has mount state library-only: the reconciliation over 63 route states rendered it 0 times, so no rendered member exists to measure."
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "action": "activate the page or tool primary action",
+          "statePurpose": "action",
+          "persistentAria": [],
+          "supportedStates": [
+            "default",
+            "hover",
+            "active",
+            "focus-visible",
+            "disabled"
+          ],
+          "ownerRouteOrMount": [
+            "components/ui/action.tsx"
+          ],
+          "targetSize": {
+            "minimumPx": 24,
+            "preferredPx": 44,
+            "exceptions": []
+          },
+          "pointerAlternative": "native pointer activation matching keyboard activation",
+          "mountState": "production",
+          "renderedOn": [
+            "/"
+          ],
+          "sweptRouteStates": 63,
+          "reconciliationSource": "evidence/brand-v2/primitive-reconciliation.json"
+        }
       }
     },
     {
@@ -16223,6 +16248,7 @@
             "components/nav/site-shell.tsx",
             "components/search/search-interface.tsx",
             "components/three/trajectory-panel.tsx",
+            "components/ui/action.tsx",
             "components/ui/card.tsx",
             "components/ui/cite.tsx",
             "components/ui/figure.tsx",
@@ -22627,7 +22653,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 8052 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 7702 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25683,82 +25709,34 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ID-007",
+      "resultId": "result:VAL-B2-ID-007:home-hero-lockup:0",
       "assertionId": "VAL-B2-ID-007",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "home-hero-lockup:0",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/taxonomy/"
+        "home-hero-lockup:0"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "the home hero renders exactly 1 lockup, printing `Robot Wiki` in tektur at 60px on 1 line(s) beside the one exact descriptor `Citation-first encyclopedia of modern robot learning.`",
+      "selectorOrRegistryId": "evidence/brand-v2/home-composition.json#heroLockups",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "route": "/",
+          "viewport": "1440x900",
+          "lockupsDiscovered": 1,
+          "lockupIndex": 0,
+          "lockupText": "Robot Wiki",
+          "lockupFamilyHead": "tektur",
+          "lockupFontSizePx": 60,
+          "lockupRenderedLines": 1,
+          "descriptorText": "Citation-first encyclopedia of modern robot learning.",
+          "descriptorFamilyHead": "IBM Plex Mono",
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
         }
       }
     },
@@ -47325,162 +47303,423 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-SHELL-006",
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-dominant-hero",
       "assertionId": "VAL-B2-SHELL-006",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "anchor:home-dominant-hero",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/taxonomy/"
+        "anchor:home-dominant-hero"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "actual": "anchor:home-dominant-hero holds on the built home page at 1440x900: {\"lockups\":1,\"fontSizePx\":60,\"largestSupportingHeadingPx\":24,\"hierarchyRatio\":2.5,\"renderedLines\":1}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-dominant-hero",
+          "lockups": 1,
+          "fontSizePx": 60,
+          "largestSupportingHeadingPx": 24,
+          "hierarchyRatio": 2.5,
+          "renderedLines": 1,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
         }
       }
     },
     {
-      "resultId": "result:VAL-B2-SHELL-007",
-      "assertionId": "VAL-B2-SHELL-007",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-exact-descriptor",
+      "assertionId": "VAL-B2-SHELL-006",
+      "populationMemberId": "anchor:home-exact-descriptor",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/taxonomy/"
+        "anchor:home-exact-descriptor"
       ],
-      "coverageKind": "population-wide",
-      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
-      "actual": "awaiting responsible rollout milestone",
-      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "coverageKind": "per-member",
+      "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+      "actual": "anchor:home-exact-descriptor holds on the built home page at 1440x900: {\"descriptors\":[\"Citation-first encyclopedia of modern robot learning.\"]}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-exact-descriptor",
+          "descriptors": [
+            "Citation-first encyclopedia of modern robot learning."
+          ],
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-black-primary-action",
+      "assertionId": "VAL-B2-SHELL-006",
+      "populationMemberId": "anchor:home-black-primary-action",
+      "coveredPopulationMemberIds": [
+        "anchor:home-black-primary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+      "actual": "anchor:home-black-primary-action holds on the built home page at 1440x900: {\"registered\":1,\"blackInFirstViewport\":[{\"accessibleName\":\"Start reading\",\"href\":\"/manipulation/action-chunking/\",\"backgroundColour\":\"rgb(11, 11, 12)\",\"colour\":\"rgb(255, 255, 255)\"}]}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-black-primary-action",
+          "registered": 1,
+          "blackInFirstViewport": [
+            {
+              "accessibleName": "Start reading",
+              "href": "/manipulation/action-chunking/",
+              "backgroundColour": "rgb(11, 11, 12)",
+              "colour": "rgb(255, 255, 255)"
+            }
+          ],
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-lime-highlight",
+      "assertionId": "VAL-B2-SHELL-006",
+      "populationMemberId": "anchor:home-lime-highlight",
+      "coveredPopulationMemberIds": [
+        "anchor:home-lime-highlight"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+      "actual": "anchor:home-lime-highlight holds on the built home page at 1440x900: {\"inFirstViewport\":[{\"tag\":\"mark\",\"carriers\":[\"background\"],\"text\":\"cited to a primary source\",\"nonColourCue\":\"mark-element\"}]}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-lime-highlight",
+          "inFirstViewport": [
+            {
+              "tag": "mark",
+              "carriers": [
+                "background"
+              ],
+              "text": "cited to a primary source",
+              "nonColourCue": "mark-element"
+            }
+          ],
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-board-derived-structure",
+      "assertionId": "VAL-B2-SHELL-006",
+      "populationMemberId": "anchor:home-board-derived-structure",
+      "coveredPopulationMemberIds": [
+        "anchor:home-board-derived-structure"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":3,\"borderedCardCount\":3,\"borderedDomainRows\":0}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-board-derived-structure",
+          "signatures": [
+            "sheet/display-lockup/primary-action",
+            "ruled-plain/index-heading/row-links",
+            "plain/module-heading/live-instrument",
+            "plain/module-heading/credited-figure",
+            "plain/module-heading/schematic-pair",
+            "ruled-plain/closing-heading/guidance-prose"
+          ],
+          "maximumAdjacentRepeatedSignatures": 1,
+          "maximumAdjacentSurfaceHeadingRun": 3,
+          "borderedCardCount": 3,
+          "borderedDomainRows": 0,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-006:anchor:home-no-fabricated-metrics",
+      "assertionId": "VAL-B2-SHELL-006",
+      "populationMemberId": "anchor:home-no-fabricated-metrics",
+      "coveredPopulationMemberIds": [
+        "anchor:home-no-fabricated-metrics"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
+      "actual": "anchor:home-no-fabricated-metrics holds on the built home page at 1440x900: {\"progressMetadataMatches\":[]}",
+      "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "anchor": "anchor:home-no-fabricated-metrics",
+          "progressMetadataMatches": [],
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/manipulation/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/manipulation/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/manipulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `Manipulation & Learned Policies` linking to /manipulation/ in a 43.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "manipulation",
+          "name": "Manipulation & Learned Policies",
+          "href": "/manipulation/",
+          "entriesRendered": 1,
+          "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
+          "rowHeightPx": 43.5,
+          "rowBottomPx": 590.75,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/rl-sim2real/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/rl-sim2real/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/rl-sim2real/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `RL, Sim-to-Real & Locomotion` linking to /rl-sim2real/ in a 43.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "rl-sim2real",
+          "name": "RL, Sim-to-Real & Locomotion",
+          "href": "/rl-sim2real/",
+          "entriesRendered": 1,
+          "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
+          "rowHeightPx": 43.5,
+          "rowBottomPx": 634.25,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/world-models/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/world-models/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/world-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `World Models` linking to /world-models/ in a 43.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "world-models",
+          "name": "World Models",
+          "href": "/world-models/",
+          "entriesRendered": 1,
+          "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
+          "rowHeightPx": 43.5,
+          "rowBottomPx": 677.75,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/data-hardware/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/data-hardware/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/data-hardware/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `Data, Hardware & Evaluation` linking to /data-hardware/ in a 61.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "data-hardware",
+          "name": "Data, Hardware & Evaluation",
+          "href": "/data-hardware/",
+          "entriesRendered": 1,
+          "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
+          "rowHeightPx": 61.5,
+          "rowBottomPx": 739.25,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/classical/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/classical/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/classical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `Classical Foundations` linking to /classical/ in a 43.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "classical",
+          "name": "Classical Foundations",
+          "href": "/classical/",
+          "entriesRendered": 1,
+          "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
+          "rowHeightPx": 43.5,
+          "rowBottomPx": 782.75,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/frontier/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/frontier/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/frontier/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `Frontier & Open Problems` linking to /frontier/ in a 43.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "frontier",
+          "name": "Frontier & Open Problems",
+          "href": "/frontier/",
+          "entriesRendered": 1,
+          "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
+          "rowHeightPx": 43.5,
+          "rowBottomPx": 826.25,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-007:domain-destination:/adjacent/",
+      "assertionId": "VAL-B2-SHELL-007",
+      "populationMemberId": "domain-destination:/adjacent/",
+      "coveredPopulationMemberIds": [
+        "domain-destination:/adjacent/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
+      "actual": "home renders `Adjacent Domains` linking to /adjacent/ in a 42.5px index row carrying its own description, one of 7 canonical destinations",
+      "selectorOrRegistryId": "data/domains.ts#DOMAINS",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/",
+          "viewport": "1440x900",
+          "domain": "adjacent",
+          "name": "Adjacent Domains",
+          "href": "/adjacent/",
+          "entriesRendered": 1,
+          "description": "Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics.",
+          "rowHeightPx": 42.5,
+          "rowBottomPx": 868.75,
+          "borderedCard": false,
+          "canonicalDestinations": 7,
+          "evidence": [
+            "evidence/brand-v2/home-composition.json"
+          ]
         }
       }
     },

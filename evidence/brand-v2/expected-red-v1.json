@@ -34,11 +34,10 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",
-      "actual": "v1 home fails identity (exact name, descriptor, and Tektur), purposeful-devices, repetition-frames, palette-type, and material-treatment",
+      "actual": "home now registers a structural signature on every top-level section, so its module repetition and frame depth are measured and bounded; it still fails identity (exact name, descriptor, and Tektur), purposeful-devices, palette-type, and material-treatment",
       "failedAnchors": [
         "identity",
         "purposeful-devices",
-        "repetition-frames",
         "palette-type",
         "material-treatment"
       ],

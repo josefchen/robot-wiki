@@ -61,6 +61,35 @@ export type AnnotationWriteForm =
   /** A conditional whose every branch resolves to a literal ID. */
   | 'condition';
 
+export type AnnotationParameter = {
+  name: string;
+  idByVariant: Readonly<Record<string, string>>;
+  defaultVariant: string | null;
+};
+
+/** One arm of a resolved conditional assignment. */
+export type AnnotationConditionBranch = {
+  ids: readonly string[];
+  parameter?: AnnotationParameter;
+};
+
+/**
+ * A conditional assignment whose test is a single component parameter, so
+ * each arm's IDs can be attributed to the call sites that can actually take
+ * it. `components/ui/action.tsx` writes
+ * `disabled ? 'control:disabled' : controlIds[variant]`: without this, a
+ * route that mounts one enabled `<Action>` would be recorded as a production
+ * owner of `control:disabled` as well, and the rendered-DOM gate would then
+ * look for a disabled control the site never paints.
+ */
+export type AnnotationCondition = {
+  name: string;
+  /** The parameter's declared default, or null when it declares none. */
+  defaultValue: boolean | null;
+  whenTrue: AnnotationConditionBranch;
+  whenFalse: AnnotationConditionBranch;
+};
+
 export type AnnotationWrite = {
   module: string;
   kind: AnnotationKind;
@@ -68,11 +97,9 @@ export type AnnotationWrite = {
   /** Every ID this assignment can produce. */
   ids: readonly string[];
   /** Present for `parameter` writes: which variant value yields which ID. */
-  parameter?: {
-    name: string;
-    idByVariant: Readonly<Record<string, string>>;
-    defaultVariant: string | null;
-  };
+  parameter?: AnnotationParameter;
+  /** Present for `condition` writes whose test is one component parameter. */
+  condition?: AnnotationCondition;
 };
 
 export type AnnotationScan = {
@@ -164,7 +191,7 @@ function readBraced(text: string, start: number): { value: string; end: number }
 
 function splitTopLevelConditional(
   expression: string,
-): { consequent: string; alternate: string } | null {
+): { test: string; consequent: string; alternate: string } | null {
   let depth = 0;
   let questionAt = -1;
   let index = 0;
@@ -197,6 +224,7 @@ function splitTopLevelConditional(
     else if (char === ':' && depth === 0) {
       if (nested === 0) {
         return {
+          test: expression.slice(0, questionAt),
           consequent: expression.slice(questionAt + 1, index),
           alternate: expression.slice(index + 1),
         };
@@ -269,10 +297,21 @@ function parameterFacts(name: string, text: string): ParameterFacts | null {
   };
 }
 
+/**
+ * The declared default of a boolean parameter, read from its destructuring.
+ * A parameter with no literal default returns null, and the caller then
+ * requires every call site to pass it rather than assuming false.
+ */
+function booleanParameterDefault(name: string, text: string): boolean | null {
+  const declared = new RegExp(`\\b${name}\\s*=\\s*(true|false)\\b`).exec(text);
+  return declared ? declared[1] === 'true' : null;
+}
+
 type ResolvedExpression = {
   form: AnnotationWriteForm;
   ids: string[];
-  parameter?: AnnotationWrite['parameter'];
+  parameter?: AnnotationParameter;
+  condition?: AnnotationCondition;
 };
 
 function resolveExpression(
@@ -337,9 +376,27 @@ function resolveExpression(
       text,
       depth + 1,
     );
+    const test = conditional.test.trim();
+    const branch = (resolved: ResolvedExpression): AnnotationConditionBranch => ({
+      ids: resolved.ids,
+      ...(resolved.parameter ? { parameter: resolved.parameter } : {}),
+    });
     return {
       form: 'condition',
       ids: [...new Set([...consequent.ids, ...alternate.ids])],
+      // Only a bare parameter is attributable to a call site. Anything else
+      // leaves the write unresolved, and `suppliedIds` refuses it rather
+      // than crediting a mounted module with every branch.
+      ...(/^[A-Za-z_$][\w$]*$/.test(test)
+        ? {
+            condition: {
+              name: test,
+              defaultValue: booleanParameterDefault(test, text),
+              whenTrue: branch(consequent),
+              whenFalse: branch(alternate),
+            },
+          }
+        : {}),
     };
   }
 
@@ -424,6 +481,7 @@ function assignmentsIn(
       form: resolved.form,
       ids: resolved.ids,
       ...(resolved.parameter ? { parameter: resolved.parameter } : {}),
+      ...(resolved.condition ? { condition: resolved.condition } : {}),
     });
   };
   for (const match of text.matchAll(ATTRIBUTE_ASSIGNMENT)) {
@@ -589,10 +647,89 @@ function attributeValueAt(
 }
 
 /**
- * The IDs a write supplies on a production route. A literal or conditional
- * write supplies everything it can produce, but only once a route entry
- * concretely mounts the module that carries it; a parameter-driven write
- * supplies only the variants its mounted call sites actually pass.
+ * Whether a mounted call site passes a boolean attribute, and with what
+ * value. An attribute written bare is JSX's `true`; one absent leaves the
+ * component's own default to decide; one passed a computed expression throws
+ * rather than guessing which branch it selects.
+ */
+function booleanAttributeValueAt(
+  module: string,
+  component: string,
+  attributes: string,
+  parameterName: string,
+): boolean | null {
+  const explicit = new RegExp(
+    `\\b${parameterName}\\s*=\\s*\\{\\s*(true|false)\\s*\\}`,
+  ).exec(attributes);
+  if (explicit) return explicit[1] === 'true';
+  if (new RegExp(`\\b${parameterName}\\s*=`).test(attributes)) {
+    throw new Error(
+      `${module}: <${component}> passes a computed ${parameterName}, so its annotation branch cannot be resolved`,
+    );
+  }
+  return new RegExp(`\\b${parameterName}\\b`).test(attributes) ? true : null;
+}
+
+/** Every mounted JSX call site of one component, with its attribute text. */
+function mountSitesOf(
+  component: string,
+  module: string,
+  graph: ModuleImportGraph,
+  mounted: ReadonlySet<string>,
+  mdxProvided: ReadonlyMap<string, string>,
+): Array<{ callSite: string; attributes: string }> {
+  const sites: Array<{ callSite: string; attributes: string }> = [];
+  for (const callSite of mounted) {
+    if (callSite === module) continue;
+    const bound =
+      (graph.bindingsByModule.get(callSite) ?? []).some(
+        (binding) => binding.local === component && binding.module === module,
+      ) ||
+      (extname(callSite) === '.mdx' && mdxProvided.get(component) === module);
+    if (!bound) continue;
+    const callText = graph.textByModule.get(callSite) as string;
+    for (const mount of stripComments(callText).matchAll(
+      new RegExp(`<${component}\\b([^>]*)>`, 'g'),
+    )) {
+      sites.push({ callSite, attributes: mount[1] });
+    }
+  }
+  return sites;
+}
+
+/** The ID one mounted call site takes from a parameter-driven write. */
+function parameterIdAt(
+  site: { callSite: string; attributes: string },
+  component: string,
+  parameter: AnnotationParameter,
+): string {
+  const variant =
+    attributeValueAt(
+      site.callSite,
+      component,
+      site.attributes,
+      parameter.name,
+    ) ?? parameter.defaultVariant;
+  if (variant === null) {
+    throw new Error(
+      `${site.callSite}: <${component}> omits ${parameter.name} and the component declares no default`,
+    );
+  }
+  const id = parameter.idByVariant[variant];
+  if (id === undefined) {
+    throw new Error(
+      `${site.callSite}: <${component}> passes ${parameter.name}="${variant}", which is not a registered variant`,
+    );
+  }
+  return id;
+}
+
+/**
+ * The IDs a write supplies on a production route. A literal write supplies
+ * everything it can produce, but only once a route entry concretely mounts
+ * the module that carries it; a parameter-driven write supplies only the
+ * variants its mounted call sites actually pass, and a conditional write
+ * only the arms those call sites can reach.
  */
 function suppliedIds(
   write: AnnotationWrite,
@@ -601,47 +738,57 @@ function suppliedIds(
   mdxProvided: ReadonlyMap<string, string>,
 ): string[] {
   if (!mounted.has(write.module)) return [];
-  if (write.parameter === undefined) return [...write.ids];
   const text = graph.textByModule.get(write.module) as string;
+  if (write.condition !== undefined) {
+    const { condition } = write;
+    const component = componentFor(write.module, text, condition.name);
+    const supplied = new Set<string>();
+    for (const site of mountSitesOf(
+      component,
+      write.module,
+      graph,
+      mounted,
+      mdxProvided,
+    )) {
+      const passed =
+        booleanAttributeValueAt(
+          site.callSite,
+          component,
+          site.attributes,
+          condition.name,
+        ) ?? condition.defaultValue;
+      if (passed === null) {
+        throw new Error(
+          `${site.callSite}: <${component}> omits ${condition.name} and the component declares no default`,
+        );
+      }
+      const branch = passed ? condition.whenTrue : condition.whenFalse;
+      if (branch.parameter === undefined) {
+        for (const id of branch.ids) supplied.add(id);
+        continue;
+      }
+      supplied.add(parameterIdAt(site, component, branch.parameter));
+    }
+    return [...supplied];
+  }
+  if (write.parameter === undefined) {
+    if (write.form === 'condition') {
+      throw new Error(
+        `${write.module}: a mounted conditional annotation writing ${write.ids.join(', ')} tests an expression this scan cannot attribute to a call site`,
+      );
+    }
+    return [...write.ids];
+  }
   const component = componentFor(write.module, text, write.parameter.name);
   const supplied = new Set<string>();
-  for (const callSite of mounted) {
-    if (callSite === write.module) continue;
-    const bound =
-      (graph.bindingsByModule.get(callSite) ?? []).some(
-        (binding) =>
-          binding.local === component && binding.module === write.module,
-      ) ||
-      (extname(callSite) === '.mdx' &&
-        mdxProvided.get(component) === write.module);
-    if (!bound) continue;
-    const callText = graph.textByModule.get(callSite) as string;
-    const mounts = [
-      ...stripComments(callText).matchAll(
-        new RegExp(`<${component}\\b([^>]*)>`, 'g'),
-      ),
-    ];
-    for (const mount of mounts) {
-      const variant =
-        attributeValueAt(
-          callSite,
-          component,
-          mount[1],
-          write.parameter.name,
-        ) ?? write.parameter.defaultVariant;
-      if (variant === null) {
-        throw new Error(
-          `${callSite}: <${component}> omits ${write.parameter.name} and the component declares no default`,
-        );
-      }
-      const id = write.parameter.idByVariant[variant];
-      if (id === undefined) {
-        throw new Error(
-          `${callSite}: <${component}> passes ${write.parameter.name}="${variant}", which is not a registered variant`,
-        );
-      }
-      supplied.add(id);
-    }
+  for (const site of mountSitesOf(
+    component,
+    write.module,
+    graph,
+    mounted,
+    mdxProvided,
+  )) {
+    supplied.add(parameterIdAt(site, component, write.parameter));
   }
   return [...supplied];
 }

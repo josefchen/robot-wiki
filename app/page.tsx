@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { Action } from '@/components/ui';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import {
   DOMAINS,
@@ -9,18 +10,42 @@ import {
 } from '@/data/modules';
 
 /**
- * Home: hero premise, the seven-domain typographic index, the live featured
- * interactive as the visual anchor, visual entry points for the playground
- * and market map, and the reading guidance folded into the page flow.
+ * Home: the brand title sheet, the seven-domain typographic index, the live
+ * featured interactive as the visual anchor, visual entry points for the
+ * playground and market map, and the reading guidance folded into the page
+ * flow.
  *
  * Structure follows architecture.md 6c and the home page doctrine in
- * library/design-system.md: the taxonomy appears exactly once in main (the
- * index), never as a grid of equal bordered cards, and no build-progress
- * metadata renders anywhere. The sections are direct children of <main> (no
- * wrapper div) so each one is a distinct top-level section for the
- * structural-signature checks in contract/design-integrity.md.
+ * library/design-system.md 12.1: the taxonomy appears exactly once in main
+ * (the index), never as a grid of equal bordered cards, and no
+ * build-progress metadata renders anywhere. The sections are direct children
+ * of <main> (no wrapper div) so each one is a distinct top-level section for
+ * the structural-signature checks in contract/design-integrity.md.
  */
 const container = 'mx-auto w-full max-w-5xl px-6';
+
+/**
+ * The registered structural signature of each top-level home section, as
+ * `surface/heading/form`. `VAL-DESIGN-009` and the rubric's
+ * `repetition-frames` anchor both bound how many adjacent siblings may share
+ * one signature, and the rubric measures runs over the rendered
+ * `data-brand-module-signature` values, so an unannotated page is not a
+ * varied page: it is a page the measurement cannot see.
+ *
+ * The three module sections in the middle deliberately share their surface
+ * and heading treatment and differ only in content form (a live instrument,
+ * a credited photograph, a pair of schematics). That run is exactly three,
+ * which is the bound rather than an accident, and the sheet before them and
+ * the ruled closing note after them break it on both sides.
+ */
+const SECTION_SIGNATURES = {
+  intro: 'sheet/display-lockup/primary-action',
+  domainIndex: 'ruled-plain/index-heading/row-links',
+  featured: 'plain/module-heading/live-instrument',
+  hardware: 'plain/module-heading/credited-figure',
+  tools: 'plain/module-heading/schematic-pair',
+  howToRead: 'ruled-plain/closing-heading/guidance-prose',
+} as const;
 
 export default function Home() {
   // The adjacent group is a survey rather than a stack of prerequisites,
@@ -46,6 +71,7 @@ export default function Home() {
       <section
         aria-label="Introduction"
         data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.intro}
         className={`${container} pt-8 lg:pt-10`}
       >
         {/* VAL-DSHOME-009: below md the grid is an exact 80px band that
@@ -127,39 +153,50 @@ export default function Home() {
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
           teleoperation data pipelines, and the classical control stack
-          underneath them, with every technical claim cited to a primary
-          source.
+          underneath them. Every technical claim is{' '}
+          {/* The board's editorial-structure panel highlights the one phrase
+              a zone is about; here that is the site's premise. <mark> is the
+              non-colour carrier: the highlight is announced as marked text
+              whether or not the lime is perceived, which is what keeps this
+              inside the "never colour alone" rule in design-system 11. */}
+          <mark
+            data-brand-highlight="home-premise"
+            className="whitespace-nowrap bg-selection px-1 text-ink"
+          >
+            cited to a primary source
+          </mark>
+          . The centre of gravity is robot learning, and the site is not a
+          catalogue of the industry.
         </p>
-        <Link
-          data-brand-control-id="control:link-focus"
-          href="/manipulation/action-chunking"
-          className="mt-5 inline-flex font-sans text-sm font-medium text-accent underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
-        >
-          Start reading
-        </Link>
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <Action variant="primary" href="/manipulation/action-chunking">
+            Start reading
+          </Action>
+          <Action variant="link" href="#how-to-read">
+            How to read this wiki
+          </Action>
+        </div>
       </section>
 
       {/* The seven taxonomy entries as one dense typographic index. */}
       <section
         aria-labelledby="domain-index-heading"
         data-pagefind-body
-        className={`${container} mt-10`}
+        data-brand-module-signature={SECTION_SIGNATURES.domainIndex}
+        className={`${container} mt-9 border-t border-border-strong pt-5`}
       >
+        {/* The index is the page's working half, so its heading outranks the
+            module headings below it. The scope sentence that used to sit
+            here moved into the premise: two adjacent paragraphs both ending
+            on "cited to a primary source" was the same claim twice. */}
         <h2
           id="domain-index-heading"
           data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
+          className="font-display-section text-2xl tracking-tight text-text"
         >
           Domain index
         </h2>
-        <p className="mt-3 max-w-[65ch] text-sm leading-relaxed text-text-dim">
-          The scope is modern robotics with a robot-learning centre of
-          gravity: Manipulation &amp; Learned Policies, Classical
-          Foundations, and the five domains around them, every claim cited
-          to a primary source. It is not a product catalogue, and it makes
-          no attempt to cover the whole industry.
-        </p>
-        <ul className="mt-3 divide-y divide-border border-t border-border">
+        <ul className="mt-4 divide-y divide-border border-t border-border">
           {DOMAINS.map((domain) => {
             const meta = DOMAIN_META[domain];
             // The adjacent group is a survey rather than a stack of
@@ -216,6 +253,7 @@ export default function Home() {
       <section
         aria-labelledby="featured-heading"
         data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.featured}
         className={`${container} mt-12`}
       >
         <h2
@@ -245,6 +283,7 @@ export default function Home() {
       <section
         aria-labelledby="hardware-heading"
         data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.hardware}
         className={`${container} mt-14`}
       >
         <h2
@@ -274,6 +313,7 @@ export default function Home() {
       <section
         aria-labelledby="tools-heading"
         data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.tools}
         className={`${container} mt-14`}
       >
         <h2
@@ -467,12 +507,16 @@ export default function Home() {
         id="how-to-read"
         aria-labelledby="how-to-read-heading"
         data-pagefind-body
+        data-brand-module-signature={SECTION_SIGNATURES.howToRead}
         className={`${container} mt-14 border-t border-border pt-10 pb-20`}
       >
+        {/* A closing note rather than another module: the rule above it and
+            the smaller display size say the page has finished offering
+            things and is now explaining itself. */}
         <h2
           id="how-to-read-heading"
           data-tektur-role="section-display"
-          className="font-display-section text-xl tracking-tight text-text"
+          className="font-display-section text-lg tracking-tight text-text"
         >
           How to read this wiki
         </h2>

@@ -434,6 +434,15 @@ export function buildEnforcementPopulationSources(input: {
    * emit a row per route for a claim never checked against that route (R8a).
    */
   shellPopulations: Readonly<Record<string, readonly string[]>>;
+  /**
+   * Assertion-specific populations for the home-composition assertions. None
+   * of the three quantifies over routes: they are claims about the hero
+   * lockups home renders, about the six anchors `VAL-B2-SHELL-006` names,
+   * and about the seven canonical domain destinations, so recording any of
+   * them per public route would emit a row per route for a claim never
+   * checked against that route (R8a).
+   */
+  homePopulations: Readonly<Record<string, readonly string[]>>;
 }): Record<string, string[]> {
   const { registry } = input;
   if (input.semanticTokenPopulation.length === 0) {
@@ -447,6 +456,11 @@ export function buildEnforcementPopulationSources(input: {
   for (const [source, ids] of Object.entries(input.shellPopulations)) {
     if (ids.length === 0) {
       throw new Error(`The shell population ${source} is empty`);
+    }
+  }
+  for (const [source, ids] of Object.entries(input.homePopulations)) {
+    if (ids.length === 0) {
+      throw new Error(`The home population ${source} is empty`);
     }
   }
   return {
@@ -467,6 +481,12 @@ export function buildEnforcementPopulationSources(input: {
     ),
     ...Object.fromEntries(
       Object.entries(input.shellPopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(input.homePopulations).map(([source, ids]) => [
         source,
         [...ids],
       ]),

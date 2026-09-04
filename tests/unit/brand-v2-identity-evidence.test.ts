@@ -76,7 +76,9 @@ describe('identity runtime evidence', () => {
       readIdentityRuntimeEvidence({
         artifact: committed(),
         routes: ROUTES,
-        fingerprint: `${current.slice(0, 63)}0`,
+        // A fixed replacement digit silently stops being a mutation
+        // whenever the real fingerprint already ends in it.
+        fingerprint: `${current.slice(0, 63)}${current.endsWith('0') ? '1' : '0'}`,
       }),
     ).toThrow(/stale/);
     expect(() =>

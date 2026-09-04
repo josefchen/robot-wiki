@@ -311,7 +311,29 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }) => {
-    await page.goto(`${staticBase}/`);
+    await gotoPlantable(page, `${staticBase}/`);
+    // Home now registers a structural signature per top-level section, so
+    // the empty population has to be planted rather than borrowed from the
+    // shipped page: the anchor must fail because nothing is registered, not
+    // because this route happens to register nothing today.
+    const shipped = await page.evaluate(
+      collectBrowserReferenceFeatures,
+      HOME_CONFIG,
+    );
+    expect(
+      shipped.repetitionAndFrames.registeredPopulationCount,
+    ).toBeGreaterThan(0);
+    await page.evaluate(() => {
+      for (const element of document.querySelectorAll(
+        '[data-brand-module-signature], [data-brand-redundant-four-sided-frame], [data-brand-frame-depth], [data-brand-frame-interior-registered]',
+      )) {
+        for (const attribute of [...element.attributes]) {
+          if (attribute.name.startsWith('data-brand-')) {
+            element.removeAttribute(attribute.name);
+          }
+        }
+      }
+    });
     const measurements = await page.evaluate(
       collectBrowserReferenceFeatures,
       HOME_CONFIG,

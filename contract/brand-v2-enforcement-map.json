@@ -7013,24 +7013,24 @@
     },
     {
       "assertionId": "VAL-B2-ID-007",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/home-composition.json#heroLockups",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-007",
-          "mechanism": "VAL-B2-ID-007 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-007:home-hero-lockup:0",
+          "mechanism": "VAL-B2-ID-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over evidence/brand-v2/home-composition.json#heroLockups"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-home.spec.ts",
+          "title": "brand-v2 home composition › home renders one dominant lockup, a black action, a lime highlight, and all seven domain destinations",
+          "mechanism": "Loads the built home page at 1440x900, discovers its hero lockups both by heading level and by the wordmark type role so a duplicate that is not an h1 is still found, resolves the descriptor by computed font family rather than by class name, finds the lime highlights by computed paint on every element in main rather than by an annotation the page could omit, reads the registered primary action’s composited background and label colour with the pointer parked off the composition, measures every canonical domain row’s box, and records the section signatures, the taxonomy anchor counts and the progress-copy matches."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-home-evidence.test.ts",
+          "title": "home composition evidence > refuses stale, incomplete, and unmeasured home evidence",
+          "mechanism": "Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination."
         }
       ],
       "enforcementMode": "browser-state",
@@ -7038,7 +7038,7 @@
         "statement": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
         "expected": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 1,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -7047,7 +7047,7 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-007"
+          "result:VAL-B2-ID-007:home-hero-lockup:0"
         ]
       }
     },
@@ -11427,24 +11427,49 @@
     },
     {
       "assertionId": "VAL-B2-SHELL-006",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-006",
-          "mechanism": "VAL-B2-SHELL-006 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-dominant-hero",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-exact-descriptor",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-black-primary-action",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-lime-highlight",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-board-derived-structure",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-006:anchor:home-no-fabricated-metrics",
+          "mechanism": "VAL-B2-SHELL-006 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-home.spec.ts",
+          "title": "brand-v2 home composition › home renders one dominant lockup, a black action, a lime highlight, and all seven domain destinations",
+          "mechanism": "Loads the built home page at 1440x900, discovers its hero lockups both by heading level and by the wordmark type role so a duplicate that is not an h1 is still found, resolves the descriptor by computed font family rather than by class name, finds the lime highlights by computed paint on every element in main rather than by an annotation the page could omit, reads the registered primary action’s composited background and label colour with the pointer parked off the composition, measures every canonical domain row’s box, and records the section signatures, the taxonomy anchor counts and the progress-copy matches."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-home-evidence.test.ts",
+          "title": "home composition evidence > refuses stale, incomplete, and unmeasured home evidence",
+          "mechanism": "Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination."
         }
       ],
       "enforcementMode": "browser-state",
@@ -11452,7 +11477,7 @@
         "statement": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
         "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 6,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -11461,30 +11486,65 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-006"
+          "result:VAL-B2-SHELL-006:anchor:home-dominant-hero",
+          "result:VAL-B2-SHELL-006:anchor:home-exact-descriptor",
+          "result:VAL-B2-SHELL-006:anchor:home-black-primary-action",
+          "result:VAL-B2-SHELL-006:anchor:home-lime-highlight",
+          "result:VAL-B2-SHELL-006:anchor:home-board-derived-structure",
+          "result:VAL-B2-SHELL-006:anchor:home-no-fabricated-metrics"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-SHELL-007",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "data/domains.ts#DOMAINS",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-007",
-          "mechanism": "VAL-B2-SHELL-007 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/world-models/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/classical/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/frontier/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-007:domain-destination:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-007 per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over data/domains.ts#DOMAINS"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-home.spec.ts",
+          "title": "brand-v2 home composition › home renders one dominant lockup, a black action, a lime highlight, and all seven domain destinations",
+          "mechanism": "Loads the built home page at 1440x900, discovers its hero lockups both by heading level and by the wordmark type role so a duplicate that is not an h1 is still found, resolves the descriptor by computed font family rather than by class name, finds the lime highlights by computed paint on every element in main rather than by an annotation the page could omit, reads the registered primary action’s composited background and label colour with the pointer parked off the composition, measures every canonical domain row’s box, and records the section signatures, the taxonomy anchor counts and the progress-copy matches."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-home-evidence.test.ts",
+          "title": "home composition evidence > refuses stale, incomplete, and unmeasured home evidence",
+          "mechanism": "Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination."
         }
       ],
       "enforcementMode": "browser-state",
@@ -11492,7 +11552,7 @@
         "statement": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
         "expected": "All seven existing domain destinations remain visible, correctly named, and reachable from home.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -11501,7 +11561,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-007"
+          "result:VAL-B2-SHELL-007:domain-destination:/manipulation/",
+          "result:VAL-B2-SHELL-007:domain-destination:/rl-sim2real/",
+          "result:VAL-B2-SHELL-007:domain-destination:/world-models/",
+          "result:VAL-B2-SHELL-007:domain-destination:/data-hardware/",
+          "result:VAL-B2-SHELL-007:domain-destination:/classical/",
+          "result:VAL-B2-SHELL-007:domain-destination:/frontier/",
+          "result:VAL-B2-SHELL-007:domain-destination:/adjacent/"
         ]
       }
     },

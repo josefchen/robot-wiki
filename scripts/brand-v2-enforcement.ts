@@ -58,6 +58,25 @@ import {
   SHELL_NAV_DESTINATION_POPULATION_SOURCE,
   navigationBaselineMembers,
 } from '../lib/shell-populations.ts';
+import {
+  HOME_COMPOSITION_EVIDENCE_PATH,
+  HOME_VIEWPORT,
+  canonicalDomainEntries,
+  domainDestinationVerdicts,
+  heroLockupVerdicts,
+  homeCompositionVerdicts,
+  homeEvidenceFingerprint,
+  readHomeCompositionEvidence,
+} from '../lib/brand-v2-home-evidence.ts';
+import {
+  HOME_ASSERTION_POPULATION_SOURCES,
+  HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
+  HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
+  HOME_HERO_LOCKUP_POPULATION_SOURCE,
+  canonicalDomainDestinations,
+  homeCompositionAnchorMembers,
+  homeHeroLockupMembers,
+} from '../lib/home-populations.ts';
 import { sha256, stableJson } from '../lib/brand-v2-baseline.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
@@ -161,9 +180,30 @@ function isMeasured(id: string): boolean {
     TOKEN_ASSERTIONS.has(id) ||
     IDENTITY_ASSERTIONS.has(id) ||
     SHELL_ASSERTIONS.has(id) ||
-    MOBILE_SHELL_ASSERTIONS.has(id)
+    MOBILE_SHELL_ASSERTIONS.has(id) ||
+    HOME_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The three home-composition assertions, routed to the desktop sweep of the
+ * built home page that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/home-composition.json` through a reader that throws on
+ * a stale fingerprint, the wrong viewport, the wrong route, an empty page, a
+ * hero with no lockup, or a sweep that discovered no domain entry and no
+ * section. None of the three is decidable from source: whether the hero is
+ * dominant is a ratio between two computed font sizes, whether the black
+ * action and the lime highlight are in the first major composition is
+ * geometry, and whether every domain destination is visible is a fact about
+ * boxes a browser laid out.
+ */
+const HOME_ASSERTIONS = new Set([
+  'VAL-B2-ID-007',
+  'VAL-B2-SHELL-006',
+  'VAL-B2-SHELL-007',
+]);
 
 /**
  * The two mobile shell assertions, routed to the mobile-viewport sweep of
@@ -471,6 +511,41 @@ const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
   ),
 };
 
+const HOME_LITERALS = {
+  identity: PUBLIC_IDENTITY,
+  descriptor: PUBLIC_DESCRIPTOR,
+};
+const HOME_EVIDENCE = readHomeCompositionEvidence({
+  artifact: readJson(join(ROOT, HOME_COMPOSITION_EVIDENCE_PATH)),
+  fingerprint: homeEvidenceFingerprint({ root: ROOT, ...HOME_LITERALS }),
+});
+const HOME_DOMAIN_DESTINATIONS = canonicalDomainDestinations();
+const HOME_HERO_VERDICTS = new Map(
+  heroLockupVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
+    verdict.id,
+    verdict,
+  ]),
+);
+const HOME_ANCHOR_VERDICTS = new Map(
+  homeCompositionVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
+    verdict.id as string,
+    verdict,
+  ]),
+);
+const HOME_DESTINATION_VERDICTS = new Map(
+  domainDestinationVerdicts(HOME_EVIDENCE, HOME_DOMAIN_DESTINATIONS).map(
+    (verdict) => [verdict.id, verdict],
+  ),
+);
+
+const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [HOME_HERO_LOCKUP_POPULATION_SOURCE]: homeHeroLockupMembers(HOME_EVIDENCE),
+  [HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE]: homeCompositionAnchorMembers(),
+  [HOME_DOMAIN_DESTINATION_POPULATION_SOURCE]: HOME_DOMAIN_DESTINATIONS.map(
+    ({ id }) => id,
+  ),
+};
+
 function populationSources(assertionIds: string[]) {
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
@@ -481,6 +556,7 @@ function populationSources(assertionIds: string[]) {
     semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
     identityPopulations: IDENTITY_POPULATIONS,
     shellPopulations: SHELL_POPULATIONS,
+    homePopulations: HOME_POPULATIONS,
   });
 }
 
@@ -489,6 +565,8 @@ function populationSourceFor(id: string): string {
   if (identitySource) return identitySource;
   const shellSource = SHELL_ASSERTION_POPULATION_SOURCES[id];
   if (shellSource) return shellSource;
+  const homeSource = HOME_ASSERTION_POPULATION_SOURCES[id];
+  if (homeSource) return homeSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -550,6 +628,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // same kind of reading at the mobile viewport, with the drawer open.
   if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
   if (MOBILE_SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  // A home row's evidence is what the built home page laid out at
+  // 1440x900, so it is a browser-state row.
+  if (HOME_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -915,7 +996,21 @@ const MOBILE_SHELL_READER_TARGET = testTarget(
   'Proves the reader that gates both mobile rows throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a header the sweep never found, a drawer with no tab stops, a keyboard trace with no destination and a missing dismissal path, and proves the verdicts fail a one-way trap, an escaped skip link, a descriptor in the header and a scrim that composites to the panel colour.',
 );
 
+const HOME_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-home.spec.ts',
+  'brand-v2 home composition › home renders one dominant lockup, a black action, a lime highlight, and all seven domain destinations',
+  'Loads the built home page at 1440x900, discovers its hero lockups both by heading level and by the wordmark type role so a duplicate that is not an h1 is still found, resolves the descriptor by computed font family rather than by class name, finds the lime highlights by computed paint on every element in main rather than by an annotation the page could omit, reads the registered primary action’s composited background and label colour with the pointer parked off the composition, measures every canonical domain row’s box, and records the section signatures, the taxonomy anchor counts and the progress-copy matches.',
+);
+const HOME_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-home-evidence.test.ts',
+  'home composition evidence > refuses stale, incomplete, and unmeasured home evidence',
+  'Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
+  if (HOME_ASSERTIONS.has(id)) {
+    return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
+  }
   if (IDENTITY_ASSERTIONS.has(id)) {
     return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
   }
@@ -1795,6 +1890,99 @@ function mobileShellAssertionEvidence(
   throw new Error(`${assertionId} has no mobile shell evidence branch`);
 }
 
+/**
+ * The home-composition rows, read off the persisted desktop sweep of the
+ * built page. Every branch throws on a member the sweep never decided or a
+ * verdict that recorded a failure, so a regressed home stops the corpus
+ * rather than appearing in it.
+ */
+function homeAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  if (assertionId === 'VAL-B2-ID-007') {
+    const verdict = HOME_HERO_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep decided no lockup ${member}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const lockup = HOME_EVIDENCE.heroLockups[verdict.index];
+    return {
+      actual: `the home hero renders exactly ${HOME_EVIDENCE.heroLockups.length} lockup, printing \`${lockup.text}\` in ${lockup.fontFamilyHead} at ${lockup.fontSizePx}px on ${lockup.renderedLines} line(s) beside the one exact descriptor \`${lockup.descriptorText}\``,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        lockupsDiscovered: HOME_EVIDENCE.heroLockups.length,
+        lockupIndex: lockup.index,
+        lockupText: lockup.text,
+        lockupFamilyHead: lockup.fontFamilyHead,
+        lockupFontSizePx: lockup.fontSizePx,
+        lockupRenderedLines: lockup.renderedLines,
+        descriptorText: lockup.descriptorText,
+        descriptorFamilyHead: lockup.descriptorFontFamilyHead,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-006') {
+    const verdict = HOME_ANCHOR_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep decided no anchor ${member}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return {
+      actual: `${member} holds on the built home page at ${HOME_VIEWPORT.id}: ${JSON.stringify(verdict.observed)}`,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        anchor: member,
+        ...verdict.observed,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-007') {
+    const verdict = HOME_DESTINATION_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the sweep decided no destination ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const entries = canonicalDomainEntries(
+      HOME_EVIDENCE.domainEntries.filter(
+        ({ href }) => href === verdict.href,
+      ),
+      verdict.name,
+    );
+    const first = entries[0];
+    return {
+      actual: `home renders \`${verdict.name}\` linking to ${verdict.href} in a ${first?.heightPx}px index row carrying its own description, one of ${HOME_DOMAIN_DESTINATIONS.length} canonical destinations`,
+      computed: {
+        route: HOME_EVIDENCE.route,
+        viewport: HOME_EVIDENCE.viewport,
+        domain: verdict.domain,
+        name: verdict.name,
+        href: verdict.href,
+        entriesRendered: entries.length,
+        description: first?.description ?? null,
+        rowHeightPx: first?.heightPx ?? null,
+        rowBottomPx: first?.bottomPx ?? null,
+        borderedCard: first?.bordered ?? null,
+        canonicalDestinations: HOME_DOMAIN_DESTINATIONS.length,
+        evidence: [HOME_COMPOSITION_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no home composition evidence branch`);
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -1896,6 +2084,19 @@ function resultFor(
       );
     }
     const evidence = mobileShellAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (HOME_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = homeAssertionEvidence(assertionId, member);
     return {
       ...common,
       actual: evidence.actual,
@@ -2048,6 +2249,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : HOME_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

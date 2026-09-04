@@ -43,6 +43,15 @@ import {
   SHELL_NAV_DESTINATION_POPULATION_SOURCE,
   navigationBaselineMembers,
 } from '@/lib/shell-populations';
+import {
+  HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
+  HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
+  HOME_HERO_LOCKUP_POPULATION_SOURCE,
+  canonicalDomainDestinations,
+  homeCompositionAnchorMembers,
+  homeHeroLockupMembers,
+} from '@/lib/home-populations';
+import { HOME_COMPOSITION_EVIDENCE_PATH } from '@/lib/brand-v2-home-evidence';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -338,6 +347,17 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
                   ),
                 ),
               ).map(({ id }) => id),
+          },
+          homePopulations: {
+            [HOME_HERO_LOCKUP_POPULATION_SOURCE]: homeHeroLockupMembers(
+              JSON.parse(
+                readFileSync(join(ROOT, HOME_COMPOSITION_EVIDENCE_PATH), 'utf8'),
+              ),
+            ),
+            [HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE]:
+              homeCompositionAnchorMembers(),
+            [HOME_DOMAIN_DESTINATION_POPULATION_SOURCE]:
+              canonicalDomainDestinations().map(({ id }) => id),
           },
         }),
         map,
