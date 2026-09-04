@@ -56,7 +56,11 @@ describe('Home page', () => {
   it('renders the playground entry point with a visual, not text alone', () => {
     render(<Home />);
     const link = screen.getByRole('link', { name: /Kinematics Playground/ });
-    const svg = link.querySelector('svg');
+    // The card is an <article>: the link titles it and the preview figure is
+    // its sibling, because <details> may not nest inside <a>.
+    const card = link.closest('article');
+    expect(card).not.toBeNull();
+    const svg = card!.querySelector('svg');
     expect(svg).not.toBeNull();
     // A real frame: at least three shape elements inside the svg.
     expect(svg!.querySelectorAll('circle, line, path, rect').length).toBeGreaterThanOrEqual(3);

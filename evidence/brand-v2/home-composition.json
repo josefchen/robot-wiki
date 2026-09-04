@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "a7fcbce2f34c561b7f0769c5b31ea14788cdc462ae6f9ff8c0a151f5d6d93075",
+  "fingerprint": "5b4c097f48dca17b7f5f711ebe419e37be313ccfcfe5fc5cdab003f1c4f65276",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 3625,
+  "visibleTextLength": 4018,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -187,21 +187,21 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "3D Kinematics Playground Drive an SO-101 robot arm in the browser: joint-slider forward kinematics, click-to-reach inverse kinematics, and trajectory replay.",
+      "accessibleName": "3D Kinematics Playground",
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2424.39,
-      "bottomPx": 2640.39
+      "topPx": 2742.39,
+      "bottomPx": 2760.39
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Market Map The embodied-AI industry as data: 111 companies across six segments, filterable by approach, geography, stage, and funding.",
+      "accessibleName": "Market Map",
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2424.39,
-      "bottomPx": 2640.39
+      "topPx": 2617.39,
+      "bottomPx": 2635.39
     },
     {
       "controlId": "control:link-focus",
@@ -209,8 +209,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2836.39,
-      "bottomPx": 2856.39
+      "topPx": 3001.39,
+      "bottomPx": 3021.39
     },
     {
       "controlId": "control:link-focus",
@@ -218,8 +218,8 @@
       "href": "/glossary/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 2982.39,
-      "bottomPx": 3002.39
+      "topPx": 3147.39,
+      "bottomPx": 3167.39
     }
   ],
   "highlights": [
@@ -352,7 +352,7 @@
       "headingSizePx": 18
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 3D Kinematics Playground | Market Map | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 100 mm | 3D Kinematics Playground | Market Map | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -388,5 +388,5 @@
   ],
   "overviewProse": "Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry.",
   "progressMetadataMatches": [],
-  "borderedCardCount": 3
+  "borderedCardCount": 4
 }

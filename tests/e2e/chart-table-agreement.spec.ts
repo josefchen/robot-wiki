@@ -236,9 +236,10 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   expect(
     charts.length,
     'table-form disclosures across the registry walk (round 1 enumerated 27; ' +
-      'SampleEfficiencyLedger made it 28; a change here means a chart was ' +
-      'added, removed or re-declared form)',
-  ).toBe(28);
+      'SampleEfficiencyLedger made it 28; the home SO-101 chain preview made ' +
+      'it 29; a change here means a chart was added, removed or re-declared ' +
+      'form)',
+  ).toBe(29);
 
   // Clause (a): endpoint agreement with rendered tick labels (graded only
   // where the SVG x-axis measures the table's row quantity; recorded

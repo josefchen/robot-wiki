@@ -123,7 +123,13 @@ test.describe('brand-v2 27-row deep executor', () => {
               await search.focus();
               await expect(search).toBeFocused();
             } else if (step.action === 'hero-action') {
-              await page.getByRole('link', { name: 'Start reading' }).click();
+              const hero = page.getByRole('link', { name: 'Start reading' });
+              const destination = await hero.getAttribute('href');
+              expect(destination).toBeTruthy();
+              await hero.click();
+              // Home carries article cards of its own, so the destination has
+              // to be reached before its <article> can be the one measured.
+              await page.waitForURL(new RegExp(`${destination}/?$`));
               await expect(page.locator('article')).toBeVisible();
               await page.goBack();
             } else if (step.action === 'scroll-heading') {

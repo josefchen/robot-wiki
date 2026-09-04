@@ -69,6 +69,13 @@ import {
   readHomeCompositionEvidence,
 } from '../lib/brand-v2-home-evidence.ts';
 import {
+  HOME_TOOLS_EVIDENCE_PATH,
+  homeToolsEvidenceFingerprint,
+  readHomeToolsEvidence,
+  requiredSweepWidths,
+  responsiveOverflowVerdicts,
+} from '../lib/brand-v2-home-tools-evidence.ts';
+import {
   HOME_ASSERTION_POPULATION_SOURCES,
   HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
   HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
@@ -181,7 +188,8 @@ function isMeasured(id: string): boolean {
     IDENTITY_ASSERTIONS.has(id) ||
     SHELL_ASSERTIONS.has(id) ||
     MOBILE_SHELL_ASSERTIONS.has(id) ||
-    HOME_ASSERTIONS.has(id)
+    HOME_ASSERTIONS.has(id) ||
+    HOME_TOOLS_ASSERTIONS.has(id)
   );
 }
 
@@ -204,6 +212,20 @@ const HOME_ASSERTIONS = new Set([
   'VAL-B2-SHELL-006',
   'VAL-B2-SHELL-007',
 ]);
+
+/**
+ * The responsive-overflow assertion, routed to the four-width sweep of every
+ * public route in the built export.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/home-tools.json` through a reader that throws on a
+ * stale fingerprint, the wrong route or viewport, a sweep with no responsive
+ * measurement, and a per-route verdict that throws when a route was measured
+ * at fewer than the declared widths. It is not decidable from source: an
+ * overflow is a relation between a document's scroll width and the viewport
+ * a browser gave it.
+ */
+const HOME_TOOLS_ASSERTIONS = new Set(['VAL-B2-SHELL-009']);
 
 /**
  * The two mobile shell assertions, routed to the mobile-viewport sweep of
@@ -538,6 +560,19 @@ const HOME_DESTINATION_VERDICTS = new Map(
   ),
 );
 
+const HOME_TOOLS_EVIDENCE = readHomeToolsEvidence({
+  artifact: readJson(join(ROOT, HOME_TOOLS_EVIDENCE_PATH)),
+  fingerprint: homeToolsEvidenceFingerprint({
+    root: ROOT,
+    routeIds: REGISTRY.routes.public.map(({ id }) => id),
+  }),
+});
+const HOME_TOOLS_OVERFLOW_VERDICTS = new Map(
+  responsiveOverflowVerdicts(HOME_TOOLS_EVIDENCE, REGISTRY.routes.public).map(
+    (verdict) => [verdict.id, verdict],
+  ),
+);
+
 const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
   [HOME_HERO_LOCKUP_POPULATION_SOURCE]: homeHeroLockupMembers(HOME_EVIDENCE),
   [HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE]: homeCompositionAnchorMembers(),
@@ -631,6 +666,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
+  // The overflow row reads a document's own scroll width against the
+  // viewport a browser gave it, on every public route, so it is the same
+  // kind of reading at four widths.
+  if (HOME_TOOLS_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -1007,9 +1046,23 @@ const HOME_READER_TARGET = testTarget(
   'Proves the reader that gates all three home rows throws on a stale fingerprint, a wrong version, a wrong viewport, a wrong route, an empty rendered page, a sweep with no hero lockup, no domain entry and no section, and proves the verdicts fail a duplicate lockup, a reworded descriptor, a hero under the dominance ratio, a black action pushed below the fold, a lime mark carried by colour alone, an unregistered section, a four-run of identical signatures, a bordered domain card, a progress phrase and a dropped domain destination.',
 );
 
+const HOME_TOOLS_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-home-tools.spec.ts',
+  'brand-v2 home live tools and responsive convergence › no public route overflows horizontally at any declared width',
+  'Loads every public route in the built export at each width the contract and the design system both declare, and records the document scroll width against the viewport the browser gave it plus every element laid out past that viewport with no scrolling, clipping, or fixed-position ancestor, so an internal-scroll region stays intended and a page that simply grew past the window does not.',
+);
+const HOME_TOOLS_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-home-tools-evidence.test.ts',
+  'home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence',
+  'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
   if (HOME_ASSERTIONS.has(id)) {
     return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
+  }
+  if (HOME_TOOLS_ASSERTIONS.has(id)) {
+    return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
   }
   if (IDENTITY_ASSERTIONS.has(id)) {
     return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
@@ -1891,6 +1944,46 @@ function mobileShellAssertionEvidence(
 }
 
 /**
+ * The responsive-overflow rows, read off the persisted four-width sweep.
+ * The verdict throws on a route the sweep measured at fewer than the
+ * declared widths, so a width nobody visited cannot pass as a width that
+ * held.
+ */
+function homeToolsAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdict = HOME_TOOLS_OVERFLOW_VERDICTS.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: the sweep measured no route ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  const rows = HOME_TOOLS_EVIDENCE.responsive.filter(
+    (row) => row.routeId === member,
+  );
+  return {
+    actual: `${verdict.observed.route} lays out inside its viewport at every declared width (${rows.map((row) => `${row.viewportId}: ${row.documentScrollWidthPx}/${row.documentClientWidthPx}px`).join(', ')}), with no element past the viewport that nothing scrolls or clips`,
+    computed: {
+      route: verdict.observed.route,
+      widths: requiredSweepWidths(),
+      measurements: rows.map(
+        ({ viewportId, documentScrollWidthPx, documentClientWidthPx }) => ({
+          viewportId,
+          documentScrollWidthPx,
+          documentClientWidthPx,
+        }),
+      ),
+      unclippedOverflow: rows.flatMap(({ unclippedOverflow }) =>
+        unclippedOverflow,
+      ),
+      evidence: [HOME_TOOLS_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
  * The home-composition rows, read off the persisted desktop sweep of the
  * built page. Every branch throws on a member the sweep never decided or a
  * verdict that recorded a failure, so a regressed home stops the corpus
@@ -2103,6 +2196,19 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (HOME_TOOLS_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = homeToolsAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -2251,6 +2357,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
+              : HOME_TOOLS_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

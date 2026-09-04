@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8e0a31deff22f52e8e89c9791d55e6617cdc932e7dfb517cfa8cc095264a9b3e",
+  "fingerprint": "2ee855f62df593d88e71cc20fd0e12806195d7843df32bdcba4194697a916361",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -68,7 +68,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3740,
+      "visibleTextLength": 4135,
       "header": {
         "present": true,
         "display": "flex",

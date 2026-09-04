@@ -205,11 +205,16 @@ test.describe('home page', () => {
     page,
   }) => {
     await page.goto('/');
-    const link = page.getByRole('link', { name: /Kinematics Playground/ });
-    const shapes = await link
-      .locator('svg')
-      .first()
-      .locator('circle, line, path, rect')
+    // The drawing sits beside the link rather than inside it: it carries its
+    // own textual alternative in a <details>, which HTML does not allow
+    // inside an anchor.
+    const card = page.locator('article', {
+      has: page.getByRole('link', { name: /Kinematics Playground/ }),
+    });
+    const figure = card.getByRole('img', { name: /SO-101/ });
+    await expect(figure).toBeVisible();
+    const shapes = await figure
+      .locator('circle, line, path, rect, polyline')
       .count();
     expect(shapes).toBeGreaterThanOrEqual(3);
   });

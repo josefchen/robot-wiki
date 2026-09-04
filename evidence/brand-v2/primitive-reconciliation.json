@@ -1020,13 +1020,17 @@
     },
     "surface:bounded-dark-instrument": {
       "kind": "surfaces",
-      "fingerprint": "83927910d67adb0e8e9dd97f277db3a0439ae12279bd40925967126398ca5642",
-      "mountState": "library-only",
+      "fingerprint": "05dfda21b01d36f07a567ee7c22e67ad29f8e49cb4af620cf3ed2247be87032e",
+      "mountState": "production",
       "definedIn": [
         "components/ui/surface.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "renderedOn": []
+      "ownerRouteOrMount": [
+        "components/ui/surface.tsx"
+      ],
+      "renderedOn": [
+        "/"
+      ]
     },
     "surface:flat": {
       "kind": "surfaces",

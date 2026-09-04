@@ -23,13 +23,49 @@ export const HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE =
 export const HOME_DOMAIN_DESTINATION_POPULATION_SOURCE =
   'data/domains.ts#DOMAINS';
 
+/**
+ * `VAL-B2-SHELL-009` is the one home assertion that does quantify over
+ * public routes: the shell it bounds is on every one of them, so measuring
+ * home alone would leave the shell claim decided by a single page.
+ */
+export const HOME_RESPONSIVE_POPULATION_SOURCE =
+  'contract/brand-v2-registries.json#routes.public';
+
 export const HOME_ASSERTION_POPULATION_SOURCES: Readonly<
   Record<string, string>
 > = {
   'VAL-B2-ID-007': HOME_HERO_LOCKUP_POPULATION_SOURCE,
   'VAL-B2-SHELL-006': HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
   'VAL-B2-SHELL-007': HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
+  'VAL-B2-SHELL-009': HOME_RESPONSIVE_POPULATION_SOURCE,
 };
+
+/**
+ * The surfaces `VAL-DESIGN-015` names: the shell (measured on home, which
+ * every sweep already loads), the seven domain landings, the A-Z index, and
+ * the glossary. Derived from the taxonomy so an eighth domain becomes an
+ * eighth swept surface rather than a route nobody checked.
+ */
+export function progressCounterSurfaces(): Array<{
+  id: string;
+  path: string;
+}> {
+  const surfaces = [
+    { id: 'route:/', path: '/' },
+    ...DOMAINS.map((domain) => ({
+      id: `route:/${domain}/`,
+      path: `/${domain}/`,
+    })),
+    { id: 'route:/a-z/', path: '/a-z/' },
+    { id: 'route:/glossary/', path: '/glossary/' },
+  ];
+  if (surfaces.length < 3) {
+    throw new Error(
+      'the progress-counter surface population collapsed: VAL-DESIGN-015 would quantify over almost nothing',
+    );
+  }
+  return surfaces;
+}
 
 export type CanonicalDomainDestination = {
   id: string;

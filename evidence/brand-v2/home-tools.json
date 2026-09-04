@@ -1,0 +1,2710 @@
+{
+  "version": 1,
+  "fingerprint": "db6836fc376fe2e991fcce94a4f4b50dd0425f9013659e7bd728e5eddbcea4a9",
+  "route": "/",
+  "viewport": "1440x900",
+  "featured": {
+    "mountId": "mount:/:ReliabilityCompounding:1",
+    "route": "/",
+    "ordinal": 1,
+    "graphicTag": "svg",
+    "graphicRole": "img",
+    "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
+    "initialReadout": "21.5%",
+    "initialSliders": [
+      {
+        "accessibleName": "Per-step success probability in percent, currently 95.0",
+        "value": 95,
+        "min": 50,
+        "max": 99.9,
+        "step": 0.1
+      },
+      {
+        "accessibleName": "Episode length in steps, currently 30",
+        "value": 30,
+        "min": 1,
+        "max": 100,
+        "step": 1
+      }
+    ],
+    "drivenReadout": "35.8%",
+    "drivenSliders": [
+      {
+        "accessibleName": "Per-step success probability in percent, currently 95.0",
+        "value": 95,
+        "min": 50,
+        "max": 99.9,
+        "step": 0.1
+      },
+      {
+        "accessibleName": "Episode length in steps, currently 20",
+        "value": 20,
+        "min": 1,
+        "max": 100,
+        "step": 1
+      }
+    ],
+    "resetReadout": "21.5%",
+    "resetSliders": [
+      {
+        "accessibleName": "Per-step success probability in percent, currently 95.0",
+        "value": 95,
+        "min": 50,
+        "max": 99.9,
+        "step": 0.1
+      },
+      {
+        "accessibleName": "Episode length in steps, currently 30",
+        "value": 30,
+        "min": 1,
+        "max": 100,
+        "step": 1
+      }
+    ],
+    "secondResetReadout": "21.5%",
+    "keyboardDrivenReadout": "22.2%",
+    "focusOutlineWidthPx": 2,
+    "focusOutlineStyle": "solid",
+    "focusOutlineColour": "rgb(36, 95, 255)",
+    "resetControlNames": [
+      "Reset"
+    ],
+    "revealedByControls": [],
+    "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
+    "currentStateText": "PER-STEP SUCCESS 95.0%",
+    "graphicTopPx": 1138.25,
+    "graphicHeightPx": 379.44,
+    "describedByText": "At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length."
+  },
+  "siblingMounts": [
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "route": "/data-hardware/evaluation-crisis/",
+      "ordinal": 1,
+      "graphicTag": "svg",
+      "graphicRole": "img",
+      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
+      "initialReadout": "21.5%",
+      "initialSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "drivenReadout": "35.8%",
+      "drivenSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 20",
+          "value": 20,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "resetReadout": "21.5%",
+      "resetSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "secondResetReadout": "21.5%",
+      "keyboardDrivenReadout": "22.2%",
+      "focusOutlineWidthPx": 2,
+      "focusOutlineStyle": "solid",
+      "focusOutlineColour": "rgb(36, 95, 255)",
+      "resetControlNames": [
+        "Reset"
+      ],
+      "revealedByControls": []
+    },
+    {
+      "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+      "route": "/data-hardware/evaluation-crisis/",
+      "ordinal": 2,
+      "graphicTag": "svg",
+      "graphicRole": "img",
+      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
+      "initialReadout": "48.8%",
+      "initialSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 14",
+          "value": 14,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "drivenReadout": "35.8%",
+      "drivenSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 20",
+          "value": 20,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "resetReadout": "48.8%",
+      "resetSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 14",
+          "value": 14,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "secondResetReadout": "48.8%",
+      "keyboardDrivenReadout": "49.5%",
+      "focusOutlineWidthPx": 2,
+      "focusOutlineStyle": "solid",
+      "focusOutlineColour": "rgb(36, 95, 255)",
+      "resetControlNames": [
+        "Reset"
+      ],
+      "revealedByControls": [
+        "Read the reasoning"
+      ]
+    },
+    {
+      "mountId": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+      "route": "/frontier/reliability-gap/",
+      "ordinal": 1,
+      "graphicTag": "svg",
+      "graphicRole": "img",
+      "graphicAriaLabel": "Line chart of episode success against episode length at 95.0 percent per-step success",
+      "initialReadout": "21.5%",
+      "initialSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "drivenReadout": "35.8%",
+      "drivenSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 20",
+          "value": 20,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "resetReadout": "21.5%",
+      "resetSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "secondResetReadout": "21.5%",
+      "keyboardDrivenReadout": "22.2%",
+      "focusOutlineWidthPx": 2,
+      "focusOutlineStyle": "solid",
+      "focusOutlineColour": "rgb(36, 95, 255)",
+      "resetControlNames": [
+        "Reset"
+      ],
+      "revealedByControls": []
+    }
+  ],
+  "playground": {
+    "href": "/playground/",
+    "graphics": [
+      {
+        "tag": "svg",
+        "role": "img",
+        "ariaHidden": null,
+        "ariaLabel": "Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
+        "describedBy": "so101-chain-preview-description",
+        "shapeCount": 12,
+        "naturalWidth": null,
+        "widthPx": 161,
+        "heightPx": 144
+      }
+    ],
+    "describedByText": "The shipped so101.urdf defines 6 revolute joints from base_link to the moving jaw, and at the zero configuration the chain reaches 407 mm from the base with the wrist 234 mm above it; joint travel spans 320 degrees at wrist_roll and 110 degrees at gripper.",
+    "surfaceId": "surface:bounded-dark-instrument",
+    "surfaceBackgroundColour": "rgb(36, 45, 51)",
+    "renderedNumbers": [
+      100,
+      6,
+      407,
+      234,
+      320,
+      110
+    ],
+    "textLength": 670
+  },
+  "responsive": [
+    {
+      "routeId": "route:/",
+      "route": "/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/",
+      "route": "/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/",
+      "route": "/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/",
+      "route": "/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/a-z/",
+      "route": "/a-z/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/a-z/",
+      "route": "/a-z/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/a-z/",
+      "route": "/a-z/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/a-z/",
+      "route": "/a-z/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/",
+      "route": "/adjacent/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/",
+      "route": "/adjacent/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/",
+      "route": "/adjacent/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/",
+      "route": "/adjacent/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/autonomous-vehicles/",
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/autonomous-vehicles/",
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/autonomous-vehicles/",
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/autonomous-vehicles/",
+      "route": "/adjacent/autonomous-vehicles/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/drones/",
+      "route": "/adjacent/drones/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/drones/",
+      "route": "/adjacent/drones/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/drones/",
+      "route": "/adjacent/drones/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/drones/",
+      "route": "/adjacent/drones/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/space/",
+      "route": "/adjacent/space/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/space/",
+      "route": "/adjacent/space/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/space/",
+      "route": "/adjacent/space/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/space/",
+      "route": "/adjacent/space/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/surgical/",
+      "route": "/adjacent/surgical/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/surgical/",
+      "route": "/adjacent/surgical/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/surgical/",
+      "route": "/adjacent/surgical/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/adjacent/surgical/",
+      "route": "/adjacent/surgical/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/",
+      "route": "/classical/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/",
+      "route": "/classical/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/",
+      "route": "/classical/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/",
+      "route": "/classical/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/control/",
+      "route": "/classical/control/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/control/",
+      "route": "/classical/control/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/control/",
+      "route": "/classical/control/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/control/",
+      "route": "/classical/control/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/grasp-planning/",
+      "route": "/classical/grasp-planning/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/grasp-planning/",
+      "route": "/classical/grasp-planning/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/grasp-planning/",
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/grasp-planning/",
+      "route": "/classical/grasp-planning/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/kinematics/",
+      "route": "/classical/kinematics/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/kinematics/",
+      "route": "/classical/kinematics/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/kinematics/",
+      "route": "/classical/kinematics/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/kinematics/",
+      "route": "/classical/kinematics/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/motion-planning/",
+      "route": "/classical/motion-planning/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/motion-planning/",
+      "route": "/classical/motion-planning/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/motion-planning/",
+      "route": "/classical/motion-planning/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/motion-planning/",
+      "route": "/classical/motion-planning/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/perception/",
+      "route": "/classical/perception/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/perception/",
+      "route": "/classical/perception/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/perception/",
+      "route": "/classical/perception/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/perception/",
+      "route": "/classical/perception/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/scene-representation/",
+      "route": "/classical/scene-representation/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/scene-representation/",
+      "route": "/classical/scene-representation/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/scene-representation/",
+      "route": "/classical/scene-representation/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/scene-representation/",
+      "route": "/classical/scene-representation/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/state-estimation/",
+      "route": "/classical/state-estimation/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/state-estimation/",
+      "route": "/classical/state-estimation/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/state-estimation/",
+      "route": "/classical/state-estimation/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/classical/state-estimation/",
+      "route": "/classical/state-estimation/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/credits/",
+      "route": "/credits/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/credits/",
+      "route": "/credits/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/credits/",
+      "route": "/credits/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/credits/",
+      "route": "/credits/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/",
+      "route": "/data-hardware/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/",
+      "route": "/data-hardware/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/",
+      "route": "/data-hardware/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/",
+      "route": "/data-hardware/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/data-bottleneck/",
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/data-bottleneck/",
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/data-bottleneck/",
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/data-bottleneck/",
+      "route": "/data-hardware/data-bottleneck/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/datasets/",
+      "route": "/data-hardware/datasets/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/datasets/",
+      "route": "/data-hardware/datasets/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/datasets/",
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/datasets/",
+      "route": "/data-hardware/datasets/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/evaluation-crisis/",
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/evaluation-crisis/",
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/evaluation-crisis/",
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/evaluation-crisis/",
+      "route": "/data-hardware/evaluation-crisis/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/hardware-taxonomy/",
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/hardware-taxonomy/",
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/hardware-taxonomy/",
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/hardware-taxonomy/",
+      "route": "/data-hardware/hardware-taxonomy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/industrial-deployment/",
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/industrial-deployment/",
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/industrial-deployment/",
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/industrial-deployment/",
+      "route": "/data-hardware/industrial-deployment/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/teleop-rigs/",
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/teleop-rigs/",
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/teleop-rigs/",
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/data-hardware/teleop-rigs/",
+      "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/",
+      "route": "/frontier/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/",
+      "route": "/frontier/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/",
+      "route": "/frontier/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/",
+      "route": "/frontier/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/bear-case/",
+      "route": "/frontier/bear-case/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/bear-case/",
+      "route": "/frontier/bear-case/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/bear-case/",
+      "route": "/frontier/bear-case/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/bear-case/",
+      "route": "/frontier/bear-case/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/competing-theses/",
+      "route": "/frontier/competing-theses/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/competing-theses/",
+      "route": "/frontier/competing-theses/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/competing-theses/",
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/competing-theses/",
+      "route": "/frontier/competing-theses/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/dexterity/",
+      "route": "/frontier/dexterity/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/dexterity/",
+      "route": "/frontier/dexterity/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/dexterity/",
+      "route": "/frontier/dexterity/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/dexterity/",
+      "route": "/frontier/dexterity/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/generalization/",
+      "route": "/frontier/generalization/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/generalization/",
+      "route": "/frontier/generalization/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/generalization/",
+      "route": "/frontier/generalization/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/generalization/",
+      "route": "/frontier/generalization/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/reliability-gap/",
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/reliability-gap/",
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/reliability-gap/",
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/reliability-gap/",
+      "route": "/frontier/reliability-gap/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/safety-and-assurance/",
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/safety-and-assurance/",
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/safety-and-assurance/",
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/frontier/safety-and-assurance/",
+      "route": "/frontier/safety-and-assurance/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/glossary/",
+      "route": "/glossary/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/glossary/",
+      "route": "/glossary/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/glossary/",
+      "route": "/glossary/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/glossary/",
+      "route": "/glossary/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/",
+      "route": "/manipulation/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/",
+      "route": "/manipulation/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/",
+      "route": "/manipulation/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/",
+      "route": "/manipulation/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-chunking/",
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-chunking/",
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-chunking/",
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/action-chunking/",
+      "route": "/manipulation/action-chunking/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/bc-foundations/",
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/bc-foundations/",
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/bc-foundations/",
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/bc-foundations/",
+      "route": "/manipulation/bc-foundations/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/comparison-matrix/",
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/comparison-matrix/",
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/comparison-matrix/",
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/comparison-matrix/",
+      "route": "/manipulation/comparison-matrix/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/cross-embodiment/",
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/cross-embodiment/",
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/cross-embodiment/",
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/cross-embodiment/",
+      "route": "/manipulation/cross-embodiment/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/diffusion-policy/",
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/diffusion-policy/",
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/diffusion-policy/",
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/diffusion-policy/",
+      "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/generalist-policies/",
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/generalist-policies/",
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/generalist-policies/",
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/generalist-policies/",
+      "route": "/manipulation/generalist-policies/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/hierarchical/",
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/hierarchical/",
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/hierarchical/",
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/hierarchical/",
+      "route": "/manipulation/hierarchical/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/knowledge-insulation/",
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/knowledge-insulation/",
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/knowledge-insulation/",
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/knowledge-insulation/",
+      "route": "/manipulation/knowledge-insulation/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/pi-line/",
+      "route": "/manipulation/pi-line/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/pi-line/",
+      "route": "/manipulation/pi-line/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/pi-line/",
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/pi-line/",
+      "route": "/manipulation/pi-line/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/realtime-execution/",
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/realtime-execution/",
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/realtime-execution/",
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/realtime-execution/",
+      "route": "/manipulation/realtime-execution/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/rl-finetuning/",
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/rl-finetuning/",
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/rl-finetuning/",
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/rl-finetuning/",
+      "route": "/manipulation/rl-finetuning/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/vla-models/",
+      "route": "/manipulation/vla-models/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/vla-models/",
+      "route": "/manipulation/vla-models/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/vla-models/",
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/manipulation/vla-models/",
+      "route": "/manipulation/vla-models/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/market-map/",
+      "route": "/market-map/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/market-map/",
+      "route": "/market-map/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/market-map/",
+      "route": "/market-map/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/market-map/",
+      "route": "/market-map/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/playground/",
+      "route": "/playground/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/playground/",
+      "route": "/playground/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/playground/",
+      "route": "/playground/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/playground/",
+      "route": "/playground/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/",
+      "route": "/rl-sim2real/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/",
+      "route": "/rl-sim2real/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/",
+      "route": "/rl-sim2real/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/",
+      "route": "/rl-sim2real/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/humanoid-wbc/",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/humanoid-wbc/",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/humanoid-wbc/",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/humanoid-wbc/",
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/legged-locomotion/",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/legged-locomotion/",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/legged-locomotion/",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/legged-locomotion/",
+      "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/parallel-sim-rl/",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/parallel-sim-rl/",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/parallel-sim-rl/",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/parallel-sim-rl/",
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/reward-design-mpc/",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/reward-design-mpc/",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/reward-design-mpc/",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/reward-design-mpc/",
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/rl-for-robotics/",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/rl-for-robotics/",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/rl-for-robotics/",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/rl-for-robotics/",
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/sim2real-transfer/",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/sim2real-transfer/",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/sim2real-transfer/",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/sim2real-transfer/",
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/why-rl-locomotion/",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/why-rl-locomotion/",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/why-rl-locomotion/",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/rl-sim2real/why-rl-locomotion/",
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/search/",
+      "route": "/search/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/search/",
+      "route": "/search/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/search/",
+      "route": "/search/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/search/",
+      "route": "/search/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/",
+      "route": "/world-models/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/",
+      "route": "/world-models/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/",
+      "route": "/world-models/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/",
+      "route": "/world-models/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-sim/",
+      "route": "/world-models/generative-sim/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-sim/",
+      "route": "/world-models/generative-sim/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-sim/",
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-sim/",
+      "route": "/world-models/generative-sim/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-video/",
+      "route": "/world-models/generative-video/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-video/",
+      "route": "/world-models/generative-video/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-video/",
+      "route": "/world-models/generative-video/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/generative-video/",
+      "route": "/world-models/generative-video/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/jepa/",
+      "route": "/world-models/jepa/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/jepa/",
+      "route": "/world-models/jepa/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/jepa/",
+      "route": "/world-models/jepa/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/jepa/",
+      "route": "/world-models/jepa/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/latent-dynamics/",
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/latent-dynamics/",
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/latent-dynamics/",
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/latent-dynamics/",
+      "route": "/world-models/latent-dynamics/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/taxonomy/",
+      "route": "/world-models/taxonomy/",
+      "viewportId": "375px",
+      "width": 375,
+      "documentScrollWidthPx": 375,
+      "documentClientWidthPx": 375,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/taxonomy/",
+      "route": "/world-models/taxonomy/",
+      "viewportId": "768px",
+      "width": 768,
+      "documentScrollWidthPx": 768,
+      "documentClientWidthPx": 768,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/taxonomy/",
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1024px",
+      "width": 1024,
+      "documentScrollWidthPx": 1024,
+      "documentClientWidthPx": 1024,
+      "unclippedOverflow": []
+    },
+    {
+      "routeId": "route:/world-models/taxonomy/",
+      "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "width": 1440,
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "unclippedOverflow": []
+    }
+  ],
+  "accessibility": [
+    {
+      "id": "profile:home-keyboard",
+      "route": "/",
+      "description": "every control inside main takes focus and paints a focus indicator at 1440x900",
+      "violationIds": [],
+      "consoleErrors": [],
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "failures": [],
+      "measuredMembers": 24
+    },
+    {
+      "id": "profile:home-forced-colours",
+      "route": "/",
+      "description": "home keeps its landmarks, instrument, and controls under forced-colors: active",
+      "violationIds": [],
+      "consoleErrors": [],
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "failures": [],
+      "measuredMembers": 32
+    },
+    {
+      "id": "profile:home-reflow-320x800",
+      "route": "/",
+      "description": "home reflows into a literal 320x800 CSS-px viewport",
+      "violationIds": [],
+      "consoleErrors": [],
+      "documentScrollWidthPx": 320,
+      "documentClientWidthPx": 320,
+      "failures": [],
+      "measuredMembers": 244
+    },
+    {
+      "id": "profile:home-zoom-200-equivalent",
+      "route": "/",
+      "description": "home at a halved 720x450 CSS viewport with deviceScaleFactor 2, the scripted equivalent of 200% zoom",
+      "violationIds": [],
+      "consoleErrors": [],
+      "documentScrollWidthPx": 720,
+      "documentClientWidthPx": 720,
+      "failures": [],
+      "measuredMembers": 244
+    },
+    {
+      "id": "profile:home-text-200",
+      "route": "/",
+      "description": "every non-empty text member on home computes to exactly twice its baseline size and stays readable",
+      "violationIds": [],
+      "consoleErrors": [],
+      "documentScrollWidthPx": 1440,
+      "documentClientWidthPx": 1440,
+      "failures": [],
+      "measuredMembers": 135
+    }
+  ],
+  "progressCounters": [
+    {
+      "routeId": "route:/",
+      "route": "/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "111 companies",
+          "expected": 111,
+          "actual": 111
+        },
+        {
+          "text": "6 segments",
+          "expected": 6,
+          "actual": 6
+        }
+      ]
+    },
+    {
+      "routeId": "route:/manipulation/",
+      "route": "/manipulation/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "12 articles",
+          "expected": 12,
+          "actual": 12
+        }
+      ]
+    },
+    {
+      "routeId": "route:/rl-sim2real/",
+      "route": "/rl-sim2real/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "7 articles",
+          "expected": 7,
+          "actual": 7
+        }
+      ]
+    },
+    {
+      "routeId": "route:/world-models/",
+      "route": "/world-models/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "5 articles",
+          "expected": 5,
+          "actual": 5
+        }
+      ]
+    },
+    {
+      "routeId": "route:/data-hardware/",
+      "route": "/data-hardware/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "6 articles",
+          "expected": 6,
+          "actual": 6
+        }
+      ]
+    },
+    {
+      "routeId": "route:/classical/",
+      "route": "/classical/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "7 articles",
+          "expected": 7,
+          "actual": 7
+        }
+      ]
+    },
+    {
+      "routeId": "route:/frontier/",
+      "route": "/frontier/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "6 articles",
+          "expected": 6,
+          "actual": 6
+        }
+      ]
+    },
+    {
+      "routeId": "route:/adjacent/",
+      "route": "/adjacent/",
+      "matches": [],
+      "reconciledCounts": [
+        {
+          "text": "4 articles",
+          "expected": 4,
+          "actual": 4
+        }
+      ]
+    },
+    {
+      "routeId": "route:/a-z/",
+      "route": "/a-z/",
+      "matches": [],
+      "reconciledCounts": []
+    },
+    {
+      "routeId": "route:/glossary/",
+      "route": "/glossary/",
+      "matches": [],
+      "reconciledCounts": []
+    }
+  ],
+  "designBounds": {
+    "microLabels": [
+      {
+        "text": "PER-STEP SUCCESS",
+        "fontSizePx": 11,
+        "family": "IBM Plex Mono"
+      },
+      {
+        "text": "EPISODE LENGTH",
+        "fontSizePx": 11,
+        "family": "IBM Plex Mono"
+      }
+    ],
+    "borderedBoxCount": 4,
+    "chartDisclosureSummary": {
+      "text": "Sampled episode success by episode length",
+      "textTransform": "none",
+      "letterSpacing": "normal",
+      "fontSizePx": 14,
+      "borderTopWidthPx": 0,
+      "borderBottomWidthPx": 0
+    },
+    "axeViolationIds": [],
+    "consoleErrors": []
+  }
+}

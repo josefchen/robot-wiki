@@ -11617,20 +11617,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-009",
-          "mechanism": "VAL-B2-SHELL-009 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/space/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/control/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/perception/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/credits/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/glossary/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/market-map/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/playground/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/search/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-009:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-SHELL-009 per-member evidence derived from the persisted 375/768/1024/1440px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-home-tools.spec.ts",
+          "title": "brand-v2 home live tools and responsive convergence › no public route overflows horizontally at any declared width",
+          "mechanism": "Loads every public route in the built export at each width the contract and the design system both declare, and records the document scroll width against the viewport the browser gave it plus every element laid out past that viewport with no scrolling, clipping, or fixed-position ancestor, so an internal-scroll region stays intended and a page that simply grew past the window does not."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-home-tools-evidence.test.ts",
+          "title": "home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence",
+          "mechanism": "Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport."
         }
       ],
       "enforcementMode": "browser-state",
@@ -11647,7 +11947,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-009"
+          "result:VAL-B2-SHELL-009:route:/",
+          "result:VAL-B2-SHELL-009:route:/a-z/",
+          "result:VAL-B2-SHELL-009:route:/adjacent/",
+          "result:VAL-B2-SHELL-009:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-SHELL-009:route:/adjacent/drones/",
+          "result:VAL-B2-SHELL-009:route:/adjacent/space/",
+          "result:VAL-B2-SHELL-009:route:/adjacent/surgical/",
+          "result:VAL-B2-SHELL-009:route:/classical/",
+          "result:VAL-B2-SHELL-009:route:/classical/control/",
+          "result:VAL-B2-SHELL-009:route:/classical/grasp-planning/",
+          "result:VAL-B2-SHELL-009:route:/classical/kinematics/",
+          "result:VAL-B2-SHELL-009:route:/classical/motion-planning/",
+          "result:VAL-B2-SHELL-009:route:/classical/perception/",
+          "result:VAL-B2-SHELL-009:route:/classical/scene-representation/",
+          "result:VAL-B2-SHELL-009:route:/classical/state-estimation/",
+          "result:VAL-B2-SHELL-009:route:/credits/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/datasets/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-SHELL-009:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-SHELL-009:route:/frontier/",
+          "result:VAL-B2-SHELL-009:route:/frontier/bear-case/",
+          "result:VAL-B2-SHELL-009:route:/frontier/competing-theses/",
+          "result:VAL-B2-SHELL-009:route:/frontier/dexterity/",
+          "result:VAL-B2-SHELL-009:route:/frontier/generalization/",
+          "result:VAL-B2-SHELL-009:route:/frontier/reliability-gap/",
+          "result:VAL-B2-SHELL-009:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-SHELL-009:route:/glossary/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/action-chunking/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/hierarchical/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/pi-line/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-SHELL-009:route:/manipulation/vla-models/",
+          "result:VAL-B2-SHELL-009:route:/market-map/",
+          "result:VAL-B2-SHELL-009:route:/playground/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-SHELL-009:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-SHELL-009:route:/search/",
+          "result:VAL-B2-SHELL-009:route:/world-models/",
+          "result:VAL-B2-SHELL-009:route:/world-models/generative-sim/",
+          "result:VAL-B2-SHELL-009:route:/world-models/generative-video/",
+          "result:VAL-B2-SHELL-009:route:/world-models/jepa/",
+          "result:VAL-B2-SHELL-009:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-SHELL-009:route:/world-models/taxonomy/"
         ]
       }
     },

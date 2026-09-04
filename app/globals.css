@@ -540,3 +540,30 @@ article > hr {
     );
   }
 }
+
+/*
+ * The bounded-dark instrument under forced colours.
+ *
+ * A forced palette replaces the instrument's graphite ground with the
+ * reader's canvas but leaves the authored mark colours where they are, so
+ * the instrument would print its near-white marks on a near-white ground and
+ * disappear. These rules hand the figure/ground relationship back to the
+ * system colours the reader chose. They are unlayered on purpose: the
+ * surface primitive paints through Tailwind utilities, and a rule in
+ * @layer base would lose to them.
+ */
+@media (forced-colors: active) {
+  [data-brand-surface-id='surface:bounded-dark-instrument'],
+  [data-brand-surface-id='surface:bounded-dark-instrument'] * {
+    background-color: Canvas;
+    color: CanvasText;
+  }
+
+  [data-brand-surface-id='surface:bounded-dark-instrument'] svg [stroke] {
+    stroke: CanvasText;
+  }
+
+  [data-brand-surface-id='surface:bounded-dark-instrument'] svg text {
+    fill: CanvasText;
+  }
+}

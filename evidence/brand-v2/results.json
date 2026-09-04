@@ -7092,7 +7092,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7109,6 +7109,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7154,7 +7155,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/a-z/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/a-z/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7171,6 +7172,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7216,7 +7218,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/adjacent/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/adjacent/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7233,6 +7235,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7278,7 +7281,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/adjacent/autonomous-vehicles/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/adjacent/autonomous-vehicles/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7295,6 +7298,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7340,7 +7344,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/adjacent/drones/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/adjacent/drones/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7357,6 +7361,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7402,7 +7407,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/adjacent/space/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/adjacent/space/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7419,6 +7424,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7464,7 +7470,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/adjacent/surgical/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/adjacent/surgical/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7481,6 +7487,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7526,7 +7533,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7543,6 +7550,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7588,7 +7596,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/control/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/control/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7605,6 +7613,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7650,7 +7659,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/grasp-planning/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/grasp-planning/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7667,6 +7676,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7712,7 +7722,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/kinematics/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/kinematics/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7729,6 +7739,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7774,7 +7785,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/motion-planning/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/motion-planning/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7791,6 +7802,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7836,7 +7848,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/perception/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/perception/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7853,6 +7865,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7898,7 +7911,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/scene-representation/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/scene-representation/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7915,6 +7928,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -7960,7 +7974,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/classical/state-estimation/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/classical/state-estimation/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -7977,6 +7991,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8022,7 +8037,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/credits/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/credits/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8039,6 +8054,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8084,7 +8100,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8101,6 +8117,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8146,7 +8163,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/data-bottleneck/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/data-bottleneck/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8163,6 +8180,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8208,7 +8226,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/datasets/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/datasets/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8225,6 +8243,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8270,7 +8289,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/evaluation-crisis/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/evaluation-crisis/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8287,6 +8306,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8332,7 +8352,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/hardware-taxonomy/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/hardware-taxonomy/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8349,6 +8369,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8394,7 +8415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/industrial-deployment/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/industrial-deployment/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8411,6 +8432,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8456,7 +8478,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/data-hardware/teleop-rigs/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/data-hardware/teleop-rigs/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8473,6 +8495,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8518,7 +8541,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8535,6 +8558,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8580,7 +8604,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/bear-case/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/bear-case/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8597,6 +8621,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8642,7 +8667,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/competing-theses/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/competing-theses/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8659,6 +8684,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8704,7 +8730,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/dexterity/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/dexterity/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8721,6 +8747,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8766,7 +8793,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/generalization/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/generalization/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8783,6 +8810,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8828,7 +8856,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/reliability-gap/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/reliability-gap/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8845,6 +8873,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8890,7 +8919,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/frontier/safety-and-assurance/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/frontier/safety-and-assurance/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8907,6 +8936,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -8952,7 +8982,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/glossary/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/glossary/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -8969,6 +8999,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9014,7 +9045,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9031,6 +9062,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9076,7 +9108,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/action-chunking/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/action-chunking/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9093,6 +9125,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9138,7 +9171,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/bc-foundations/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/bc-foundations/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9155,6 +9188,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9200,7 +9234,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/comparison-matrix/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/comparison-matrix/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9217,6 +9251,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9262,7 +9297,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/cross-embodiment/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/cross-embodiment/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9279,6 +9314,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9324,7 +9360,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/diffusion-policy/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/diffusion-policy/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9341,6 +9377,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9386,7 +9423,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/generalist-policies/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/generalist-policies/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9403,6 +9440,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9448,7 +9486,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/hierarchical/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/hierarchical/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9465,6 +9503,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9510,7 +9549,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/knowledge-insulation/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/knowledge-insulation/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9527,6 +9566,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9572,7 +9612,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/pi-line/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/pi-line/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9589,6 +9629,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9634,7 +9675,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/realtime-execution/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/realtime-execution/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9651,6 +9692,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9696,7 +9738,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/rl-finetuning/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/rl-finetuning/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9713,6 +9755,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9758,7 +9801,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/manipulation/vla-models/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/manipulation/vla-models/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9775,6 +9818,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9820,7 +9864,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/market-map/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/market-map/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9837,6 +9881,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9882,7 +9927,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/playground/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/playground/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9899,6 +9944,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -9944,7 +9990,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -9961,6 +10007,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10006,7 +10053,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/humanoid-wbc/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/humanoid-wbc/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10023,6 +10070,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10068,7 +10116,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/legged-locomotion/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/legged-locomotion/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10085,6 +10133,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10130,7 +10179,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/parallel-sim-rl/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10147,6 +10196,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10192,7 +10242,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/reward-design-mpc/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/reward-design-mpc/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10209,6 +10259,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10254,7 +10305,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/rl-for-robotics/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/rl-for-robotics/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10271,6 +10322,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10316,7 +10368,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/sim2real-transfer/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/sim2real-transfer/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10333,6 +10385,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10378,7 +10431,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/rl-sim2real/why-rl-locomotion/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/rl-sim2real/why-rl-locomotion/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10395,6 +10448,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10440,7 +10494,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/search/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/search/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10457,6 +10511,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10502,7 +10557,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10519,6 +10574,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10564,7 +10620,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/generative-sim/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/generative-sim/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10581,6 +10637,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10626,7 +10683,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/generative-video/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/generative-video/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10643,6 +10700,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10688,7 +10746,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/jepa/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/jepa/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10705,6 +10763,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10750,7 +10809,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/latent-dynamics/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/latent-dynamics/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10767,6 +10826,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -10812,7 +10872,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Runtime foundation tokens resolve to ink `#0B0B0C`, graphite `#242D33`, concrete `#D9DADB`, paper `#F5F6F7`, and white `#FFFFFF`.",
-      "actual": "/world-models/taxonomy/ resolved 14 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
+      "actual": "/world-models/taxonomy/ resolved 15 token properties to the contract values in a sweep of 61 public routes, and the renderer mirror matches the authored declaration",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -10829,6 +10889,7 @@
             "--color-instrument": "#242D33",
             "--color-concrete": "#D9DADB",
             "--color-border": "#D9DADB",
+            "--color-instrument-muted": "#D9DADB",
             "--color-paper": "#F5F6F7",
             "--color-bg": "#F5F6F7",
             "--color-white": "#FFFFFF",
@@ -22653,7 +22714,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 7702 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 8492 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -47438,7 +47499,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":3,\"borderedCardCount\":3,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":3,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -47458,7 +47519,7 @@
           ],
           "maximumAdjacentRepeatedSignatures": 1,
           "maximumAdjacentSurfaceHeadingRun": 3,
-          "borderedCardCount": 3,
+          "borderedCardCount": 4,
           "borderedDomainRows": 0,
           "evidence": [
             "evidence/brand-v2/home-composition.json"
@@ -47804,82 +47865,3174 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-SHELL-009",
+      "resultId": "result:VAL-B2-SHELL-009:route:/",
       "assertionId": "VAL-B2-SHELL-009",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public",
+      "populationMemberId": "route:/",
       "coveredPopulationMemberIds": [
-        "route:/",
-        "route:/a-z/",
-        "route:/adjacent/",
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/credits/",
-        "route:/data-hardware/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/frontier/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/glossary/",
-        "route:/manipulation/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/vla-models/",
-        "route:/market-map/",
-        "route:/playground/",
-        "route:/rl-sim2real/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/search/",
-        "route:/world-models/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/taxonomy/"
+        "route:/"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "route": "/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/a-z/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/a-z/",
+      "coveredPopulationMemberIds": [
+        "route:/a-z/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/a-z/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/a-z/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/adjacent/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/adjacent/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/adjacent/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/adjacent/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/adjacent/autonomous-vehicles/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/adjacent/autonomous-vehicles/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/autonomous-vehicles/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/adjacent/autonomous-vehicles/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/adjacent/autonomous-vehicles/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/adjacent/drones/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/adjacent/drones/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/drones/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/adjacent/drones/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/adjacent/drones/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/adjacent/space/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/adjacent/space/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/space/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/adjacent/space/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/adjacent/space/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/adjacent/surgical/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/adjacent/surgical/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/surgical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/adjacent/surgical/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/adjacent/surgical/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/control/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/control/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/control/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/control/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/control/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/grasp-planning/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/grasp-planning/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/grasp-planning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/grasp-planning/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/grasp-planning/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/kinematics/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/kinematics/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/kinematics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/kinematics/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/kinematics/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/motion-planning/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/motion-planning/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/motion-planning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/motion-planning/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/motion-planning/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/perception/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/perception/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/perception/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/perception/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/perception/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/scene-representation/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/scene-representation/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/scene-representation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/scene-representation/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/scene-representation/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/classical/state-estimation/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/classical/state-estimation/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/state-estimation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/classical/state-estimation/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/classical/state-estimation/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/credits/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/credits/",
+      "coveredPopulationMemberIds": [
+        "route:/credits/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/credits/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/credits/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/data-bottleneck/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/data-bottleneck/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/data-bottleneck/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/data-bottleneck/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/data-bottleneck/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/datasets/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/datasets/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/datasets/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/datasets/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/datasets/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/evaluation-crisis/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/evaluation-crisis/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/evaluation-crisis/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/evaluation-crisis/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/evaluation-crisis/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/hardware-taxonomy/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/hardware-taxonomy/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/hardware-taxonomy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/hardware-taxonomy/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/hardware-taxonomy/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/industrial-deployment/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/industrial-deployment/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/industrial-deployment/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/industrial-deployment/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/industrial-deployment/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/data-hardware/teleop-rigs/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/data-hardware/teleop-rigs/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/teleop-rigs/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/data-hardware/teleop-rigs/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/data-hardware/teleop-rigs/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/bear-case/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/bear-case/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/bear-case/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/bear-case/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/bear-case/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/competing-theses/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/competing-theses/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/competing-theses/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/competing-theses/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/competing-theses/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/dexterity/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/dexterity/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/dexterity/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/dexterity/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/dexterity/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/generalization/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/generalization/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/generalization/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/generalization/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/generalization/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/reliability-gap/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/reliability-gap/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/reliability-gap/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/reliability-gap/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/reliability-gap/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/frontier/safety-and-assurance/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/frontier/safety-and-assurance/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/safety-and-assurance/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/frontier/safety-and-assurance/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/frontier/safety-and-assurance/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/glossary/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/glossary/",
+      "coveredPopulationMemberIds": [
+        "route:/glossary/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/glossary/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/glossary/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/action-chunking/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/action-chunking/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/action-chunking/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/action-chunking/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/action-chunking/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/bc-foundations/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/bc-foundations/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/bc-foundations/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/bc-foundations/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/bc-foundations/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/comparison-matrix/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/comparison-matrix/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/comparison-matrix/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/comparison-matrix/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/comparison-matrix/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/cross-embodiment/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/cross-embodiment/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/cross-embodiment/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/cross-embodiment/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/cross-embodiment/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/diffusion-policy/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/diffusion-policy/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/diffusion-policy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/diffusion-policy/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/diffusion-policy/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/generalist-policies/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/generalist-policies/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/generalist-policies/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/generalist-policies/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/generalist-policies/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/hierarchical/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/hierarchical/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/hierarchical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/hierarchical/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/hierarchical/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/knowledge-insulation/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/knowledge-insulation/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/knowledge-insulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/knowledge-insulation/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/knowledge-insulation/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/pi-line/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/pi-line/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/pi-line/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/pi-line/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/pi-line/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/realtime-execution/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/realtime-execution/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/realtime-execution/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/realtime-execution/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/realtime-execution/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/rl-finetuning/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/rl-finetuning/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/rl-finetuning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/rl-finetuning/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/rl-finetuning/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/manipulation/vla-models/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/manipulation/vla-models/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/vla-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/manipulation/vla-models/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/manipulation/vla-models/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/market-map/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/market-map/",
+      "coveredPopulationMemberIds": [
+        "route:/market-map/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/market-map/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/market-map/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/playground/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/playground/",
+      "coveredPopulationMemberIds": [
+        "route:/playground/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/playground/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/playground/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/humanoid-wbc/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/humanoid-wbc/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/humanoid-wbc/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/humanoid-wbc/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/humanoid-wbc/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/legged-locomotion/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/legged-locomotion/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/legged-locomotion/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/legged-locomotion/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/legged-locomotion/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/parallel-sim-rl/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/parallel-sim-rl/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/parallel-sim-rl/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/parallel-sim-rl/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/parallel-sim-rl/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/reward-design-mpc/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/reward-design-mpc/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/reward-design-mpc/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/reward-design-mpc/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/reward-design-mpc/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/rl-for-robotics/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/rl-for-robotics/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/rl-for-robotics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/rl-for-robotics/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/rl-for-robotics/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/sim2real-transfer/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/sim2real-transfer/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/sim2real-transfer/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/sim2real-transfer/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/sim2real-transfer/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/rl-sim2real/why-rl-locomotion/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/rl-sim2real/why-rl-locomotion/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/why-rl-locomotion/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/rl-sim2real/why-rl-locomotion/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/rl-sim2real/why-rl-locomotion/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/search/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/search/",
+      "coveredPopulationMemberIds": [
+        "route:/search/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/search/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/search/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/generative-sim/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/generative-sim/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/generative-sim/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/generative-sim/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/generative-sim/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/generative-video/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/generative-video/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/generative-video/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/generative-video/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/generative-video/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/jepa/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/jepa/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/jepa/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/jepa/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/jepa/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/latent-dynamics/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/latent-dynamics/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/latent-dynamics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/latent-dynamics/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/latent-dynamics/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-SHELL-009:route:/world-models/taxonomy/",
+      "assertionId": "VAL-B2-SHELL-009",
+      "populationMemberId": "route:/world-models/taxonomy/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/taxonomy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "At 375px, 768px, 1024px, and 1440px widths, shell and home have no unintended horizontal document overflow.",
+      "actual": "/world-models/taxonomy/ lays out inside its viewport at every declared width (375px: 375/375px, 768px: 768/768px, 1024px: 1024/1024px, 1440px: 1440/1440px), with no element past the viewport that nothing scrolls or clips",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "route": "/world-models/taxonomy/",
+          "widths": [
+            375,
+            768,
+            1024,
+            1440
+          ],
+          "measurements": [
+            {
+              "viewportId": "375px",
+              "documentScrollWidthPx": 375,
+              "documentClientWidthPx": 375
+            },
+            {
+              "viewportId": "768px",
+              "documentScrollWidthPx": 768,
+              "documentClientWidthPx": 768
+            },
+            {
+              "viewportId": "1024px",
+              "documentScrollWidthPx": 1024,
+              "documentClientWidthPx": 1024
+            },
+            {
+              "viewportId": "1440px",
+              "documentScrollWidthPx": 1440,
+              "documentClientWidthPx": 1440
+            }
+          ],
+          "unclippedOverflow": [],
+          "evidence": [
+            "evidence/brand-v2/home-tools.json"
+          ]
         }
       }
     },
@@ -48548,14 +51701,49 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
-      "actual": "registered and defined in components/ui/surface.tsx, mounted by no public route",
+      "actual": "rendered on 1 of 63 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
       "exceptionVerdict": "none",
-      "status": "not-applicable",
-      "notApplicableReason": {
-        "code": "unsupported-state",
-        "registryId": "surface:bounded-dark-instrument",
-        "detail": "surface:bounded-dark-instrument has mount state library-only: the reconciliation over 63 route states rendered it 0 times, so no rendered member exists to measure."
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "level": "bounded-dark",
+          "stackingPurpose": "technical-instrument",
+          "allowedRadiusPx": [
+            0,
+            2,
+            4,
+            8
+          ],
+          "border": {
+            "allowedWidthsPx": [
+              1
+            ],
+            "styles": [
+              "solid"
+            ]
+          },
+          "shadow": {
+            "neutralOnly": true,
+            "maxBlurPx": 0,
+            "maxAlpha": 0
+          },
+          "allowedOwners": [
+            "chart",
+            "diagram",
+            "simulation",
+            "code",
+            "media",
+            "playground"
+          ],
+          "mountState": "production",
+          "renderedOn": [
+            "/"
+          ],
+          "sweptRouteStates": 63,
+          "reconciliationSource": "evidence/brand-v2/primitive-reconciliation.json"
+        }
       }
     },
     {

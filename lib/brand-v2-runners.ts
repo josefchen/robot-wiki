@@ -17,7 +17,14 @@ export type BrandV2Registry = {
   };
   interactive: {
     sources: Array<InteractiveRegistryMember>;
-    mounts: Array<InteractiveRegistryMember & { sourceId: string; route: string }>;
+    mounts: Array<
+      InteractiveRegistryMember & {
+        sourceId: string;
+        route: string;
+        /** 1-based position among that component's mounts on that route. */
+        ordinal: number;
+      }
+    >;
   };
   gridDevices: Array<PrimitiveRegistryRow>;
   surfaces: Array<PrimitiveRegistryRow>;
