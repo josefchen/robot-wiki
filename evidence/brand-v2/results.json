@@ -15182,7 +15182,7 @@
               ]
             },
             {
-              "id": "components/interactive/training-time-chart.tsx#374:line:error",
+              "id": "components/interactive/training-time-chart.tsx#377:line:error",
               "element": "line",
               "binding": "inline",
               "via": null,

@@ -351,7 +351,11 @@ export function TrainingTimeChart({
 
       {/* Iteration-time breakdown bar. The CPU bucket is dotted rather than
           only red, and the legend key repeats the same tile, so the mapping
-          from key to segment survives desaturation. */}
+          from key to segment survives desaturation.
+
+          The bar itself is decorative: the legend immediately below states
+          each bucket by name and share as text, so naming the graphic as
+          well would announce the same three numbers twice. */}
       <div
         data-brand-surface-id="surface:flat"
         className="mt-3 h-[18px] overflow-hidden rounded-sm border border-border"
@@ -359,8 +363,7 @@ export function TrainingTimeChart({
         <svg
           viewBox={`0 0 ${BAR_UNITS} 18`}
           preserveAspectRatio="none"
-          role="img"
-          aria-label={`Iteration time breakdown: simulation ${Math.round(simPct)} percent, learning update ${Math.round(learnPct)} percent, CPU and transfer ${Math.round(cpuPct)} percent.`}
+          aria-hidden
           className="block h-full w-full"
         >
           <defs>
