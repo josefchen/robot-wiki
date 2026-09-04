@@ -84,9 +84,21 @@ function LayerCaption({
 }) {
   return (
     <g opacity={on ? 1 : 0.4}>
-      <rect x={x} y={10} width={10} height={10} fill="none" stroke={color} strokeWidth={1.5} />
+      {/* Filled and closed while the layer is on, hollow and broken while it
+          is off, so the stack state is not carried by the tone alone. */}
+      <rect
+        x={x}
+        y={10}
+        width={10}
+        height={10}
+        fill={color}
+        fillOpacity={on ? 0.3 : 0}
+        stroke={color}
+        strokeWidth={1.5}
+        strokeDasharray={on ? undefined : '2 2'}
+      />
       <text x={x + 16} y={19} fill={DIM} fontSize={10} fontFamily={MONO}>
-        {index} {name}: {detail}
+        {index} {name}: {on ? detail : 'off'}
       </text>
     </g>
   );
@@ -256,7 +268,17 @@ export function AppearancePhysicsPush({
             markerHeight={7}
             orient="auto-start-reverse"
           >
-            <path d="M 0 0 L 10 5 L 0 10 z" fill={OK} />
+            {/* An open chevron rather than a solid triangle: at a 7px marker
+                the round joint keeps the head legible when the arrow is the
+                only thing saying the solver moved the mug. */}
+            <path
+              d="M 1 1 L 9 5 L 1 9"
+              fill="none"
+              stroke={OK}
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </marker>
         </defs>
 
@@ -497,10 +519,8 @@ export function AppearancePhysicsPush({
             y2={30}
             stroke={layers.physics ? OK : DIM}
             strokeWidth={2}
+            markerEnd={layers.physics ? 'url(#ap-arrow-ok)' : undefined}
           />
-          {layers.physics && (
-            <path d="M 72 25 L 82 30 L 72 35 z" fill={OK} />
-          )}
           {!layers.physics && (
             <g stroke={DIM} strokeWidth={1.5}>
               <line x1={56} y1={18} x2={76} y2={42} />

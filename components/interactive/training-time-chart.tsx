@@ -17,6 +17,7 @@ import {
   throughputFps,
   wallClockSeconds,
 } from '@/lib/parallel-sim';
+import { EDGE_DASH, SERIES_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -71,6 +72,13 @@ const Y_TICKS: Array<{ minutes: number; label: string }> = [
 
 const X_TICKS = [64, 256, 1024, 4096, 16384] as const;
 
+/**
+ * User-space width of the breakdown bar. The bar stretches to its container,
+ * so the coordinate system only has to be wide enough that the dot tile is
+ * not distorted out of recognition at the narrowest layout.
+ */
+const BAR_UNITS = 640;
+
 function polylinePoints(cpuBound: boolean): string {
   return curvePoints(cpuBound)
     .map((p) => `${xFor(p.envs)},${yFor(p.minutes)}`)
@@ -86,6 +94,7 @@ export function TrainingTimeChart({
 }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
+  const cpuTileId = `${uid}-cpu-tile`;
   const [log2Envs, setLog2Envs] = useState(Math.log2(defaultEnvs));
   const [cpuBound, setCpuBound] = useState(false);
 
@@ -280,14 +289,26 @@ export function TrainingTimeChart({
           />
         )}
 
-        {/* Active curve. */}
+        {/* Active curve. Dash-dot in the bottleneck regime, so the regime is
+            legible from the line itself and not only from its hue. */}
         <polyline
           data-testid="active-curve"
           points={polylinePoints(cpuBound)}
           fill="none"
           stroke={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
           strokeWidth={2}
+          strokeDasharray={cpuBound ? SERIES_DASH.error : undefined}
         />
+        <text
+          x={f(PLOT.right - 4)}
+          y={f(yFor(wallClockSeconds(MAX_ENVS, cpuBound) / 60) - 10)}
+          textAnchor="end"
+          fill={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
+          fontSize={10}
+          fontFamily="var(--font-mono)"
+        >
+          {cpuBound ? 'CPU-bound' : 'GPU-scaling'}
+        </text>
 
         {/* Rudin ground-truth markers at 4,096 envs. */}
         {RUDIN_MARKERS.map((m) => {
@@ -320,37 +341,77 @@ export function TrainingTimeChart({
           data-testid="position-marker"
           cx={xFor(envs)}
           cy={yFor(f(wallSeconds / 60))}
-          r={4.5}
+          r={5}
           fill={cpuBound ? 'var(--color-err)' : 'var(--color-accent)'}
           stroke="var(--color-bg)"
-          strokeWidth={1.5}
+          strokeWidth={2}
+          strokeDasharray={cpuBound ? EDGE_DASH.error : undefined}
         />
       </svg>
 
-      {/* Iteration-time breakdown bar. */}
+      {/* Iteration-time breakdown bar. The CPU bucket is dotted rather than
+          only red, and the legend key repeats the same tile, so the mapping
+          from key to segment survives desaturation. */}
       <div
         data-brand-surface-id="surface:flat"
-        className="mt-3 flex h-[18px] overflow-hidden rounded-sm border border-border"
-        role="img"
-        aria-label={`Iteration time breakdown: simulation ${Math.round(simPct)} percent, learning update ${Math.round(learnPct)} percent, CPU and transfer ${Math.round(cpuPct)} percent.`}
+        className="mt-3 h-[18px] overflow-hidden rounded-sm border border-border"
       >
-        <div
-          data-testid="breakdown-sim"
-          style={{ width: `${simPct}%`, background: 'var(--color-accent)' }}
-        />
-        <div
-          data-testid="breakdown-learn"
-          style={{ width: `${learnPct}%`, background: 'var(--color-text-dim)' }}
-        />
-        <div
-          data-testid="breakdown-cpu"
-          style={{ width: `${cpuPct}%`, background: 'var(--color-err)' }}
-        />
+        <svg
+          viewBox={`0 0 ${BAR_UNITS} 18`}
+          preserveAspectRatio="none"
+          role="img"
+          aria-label={`Iteration time breakdown: simulation ${Math.round(simPct)} percent, learning update ${Math.round(learnPct)} percent, CPU and transfer ${Math.round(cpuPct)} percent.`}
+          className="block h-full w-full"
+        >
+          <defs>
+            <pattern
+              id={cpuTileId}
+              width={5}
+              height={5}
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <line
+                x1={2.5}
+                y1={0}
+                x2={2.5}
+                y2={5}
+                stroke="var(--color-err)"
+                strokeWidth={2.6}
+                strokeDasharray="2.6 2.4"
+              />
+            </pattern>
+          </defs>
+          <rect
+            data-testid="breakdown-sim"
+            x={0}
+            y={0}
+            width={f((simPct / 100) * BAR_UNITS)}
+            height={18}
+            fill="var(--color-accent)"
+          />
+          <rect
+            data-testid="breakdown-learn"
+            x={f((simPct / 100) * BAR_UNITS)}
+            y={0}
+            width={f((learnPct / 100) * BAR_UNITS)}
+            height={18}
+            fill="var(--color-text-dim)"
+          />
+          <rect
+            data-testid="breakdown-cpu"
+            x={f(((simPct + learnPct) / 100) * BAR_UNITS)}
+            y={0}
+            width={f((cpuPct / 100) * BAR_UNITS)}
+            height={18}
+            fill={`url(#${cpuTileId})`}
+          />
+        </svg>
       </div>
       <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-text-dim">
         <span className="flex items-center gap-1.5">
           <span
-            className="inline-block h-2 w-2 rounded-[1px]"
+            className="inline-block h-2.5 w-2.5 rounded-[1px]"
             style={{ background: 'var(--color-accent)' }}
           />
           simulation{' '}
@@ -360,7 +421,7 @@ export function TrainingTimeChart({
         </span>
         <span className="flex items-center gap-1.5">
           <span
-            className="inline-block h-2 w-2 rounded-[1px]"
+            className="inline-block h-2.5 w-2.5 rounded-[1px]"
             style={{ background: 'var(--color-text-dim)' }}
           />
           learning update{' '}
@@ -369,10 +430,14 @@ export function TrainingTimeChart({
           </span>
         </span>
         <span className="flex items-center gap-1.5">
-          <span
-            className="inline-block h-2 w-2 rounded-[1px]"
-            style={{ background: 'var(--color-err)' }}
-          />
+          <svg
+            width={10}
+            height={10}
+            aria-hidden
+            className="inline-block shrink-0 rounded-[1px]"
+          >
+            <rect width={10} height={10} fill={`url(#${cpuTileId})`} />
+          </svg>
           CPU + transfer{' '}
           <span data-testid="share-cpu" className="text-text">
             {Math.round(cpuPct)}%
@@ -391,7 +456,7 @@ export function TrainingTimeChart({
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
         {cpuBound
-          ? 'With the PhysX CPU APIs and the main training loop bound to a single core, every added environment carries a CPU cost the GPU cannot absorb, and the curve flattens (dashed: the same run without the bottleneck). This is the Isaac Lab finding behind a single 5090 workstation approaching a 2x RTX PRO 6000 server on the Franka task.'
+          ? 'With the PhysX CPU APIs and the main training loop bound to a single core, every added environment carries a CPU cost the GPU cannot absorb, and the dash-dot CPU-bound curve flattens. The fine evenly dashed curve behind it is the same run without the bottleneck. This is the Isaac Lab finding behind a single 5090 workstation approaching a 2x RTX PRO 6000 server on the Franka task.'
           : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds are measured wall-clock from Rudin et al. 2021 at 4,096 envs on one workstation GPU.'}
       </p>
 

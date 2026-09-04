@@ -352,15 +352,17 @@ export function CompoundingError({
           stroke="var(--color-accent)"
           strokeWidth={2}
         />
+        {/* Expert relabeling rounds, drawn as crosses on the trace: a tick in
+            the same tone as the curve disappears into it under desaturation,
+            a cross does not. */}
         {rollout.corrections.map((c) => (
-          <line
+          <path
             key={c.x}
-            x1={c.x}
-            x2={c.x}
-            y1={c.y - 6}
-            y2={c.y + 6}
+            d={`M ${c.x} ${c.y - 6} L ${c.x} ${c.y + 6} M ${c.x - 5} ${c.y} L ${c.x + 5} ${c.y}`}
+            fill="none"
             stroke="var(--color-ok)"
             strokeWidth={1.5}
+            strokeLinecap="round"
           />
         ))}
         <text

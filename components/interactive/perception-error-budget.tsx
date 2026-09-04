@@ -16,6 +16,7 @@ import {
   type BudgetParams,
   type TargetId,
 } from '@/lib/perception-error';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { ChartDescription } from '@/components/ui';
 import { CiteRef } from '@/components/mdx/cite-ref';
 import { cx } from '@/lib/utils';
@@ -270,8 +271,27 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           width={f(x(2 * CLEARANCE_MM) - x(CLEARANCE_MM))}
           height={f(HEIGHT - PAD_T - PAD_B)}
           fill="var(--color-warn)"
-          opacity={0.08}
+          fillOpacity={0.08}
+          stroke="var(--color-warn)"
+          strokeWidth={1}
+          strokeDasharray="5 3"
         />
+        {/* Named only when the axis is wide enough to hold both labels: the
+            scale grows with the composed total, and past a few clearances the
+            band is narrower than the word. */}
+        {x(2 * CLEARANCE_MM) - x(CLEARANCE_MM) > 150 && (
+          <text
+            data-testid="perception-marginal-label"
+            x={f(x(2 * CLEARANCE_MM) - 4)}
+            y={PAD_T + 9}
+            textAnchor="end"
+            fill="var(--color-warn)"
+            fontSize={10}
+            fontFamily="var(--font-mono)"
+          >
+            marginal
+          </text>
+        )}
         <line
           x1={f(x(CLEARANCE_MM))}
           y1={PAD_T}
@@ -295,11 +315,14 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         {rows.map((row, i) => {
           const y = PAD_T + 14 + i * ROW_H;
           const isTotal = row.key === 'total';
-          const fill = isTotal
+          // Named apart from `fill` so the tone is attributable to the bar it
+          // paints rather than to every element that sets a fill.
+          const barTone = isTotal
             ? budget.verdict === 'within'
               ? 'var(--color-accent)'
               : 'var(--color-err)'
             : 'var(--color-border-strong)';
+          const overBudget = isTotal && budget.verdict !== 'within';
           return (
             <g key={row.key}>
               <text
@@ -318,8 +341,11 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
                 y={y}
                 width={f(Math.max(x(row.mm) - PAD_L, 1))}
                 height={BAR_H}
-                fill={fill}
-                opacity={isTotal ? 1 : 0.75}
+                fill={barTone}
+                fillOpacity={isTotal ? (overBudget ? 0.2 : 1) : 0.75}
+                stroke={overBudget ? barTone : 'none'}
+                strokeWidth={1.5}
+                strokeDasharray={overBudget ? EDGE_DASH.error : undefined}
               />
               <text
                 x={f(Math.max(x(row.mm) - PAD_L, 1) + PAD_L + 5)}

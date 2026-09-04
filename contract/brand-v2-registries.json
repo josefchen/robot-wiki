@@ -4054,9 +4054,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -4070,7 +4070,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "485d50a73a41f0b5e291785db2876c54d4f45941a39251d1a7a7b7196dfa40a0"
+        "fingerprint": "a970761c6eda3429699b86c4a5c0ccc9eaaaa690aa430e3a1d03fa9643713e9a"
       },
       {
         "id": "interactive:ComparisonMatrix",
@@ -4296,9 +4296,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -4312,7 +4312,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "595e78de919d48fd0189bc5488e01f3bc512cdee3287393f1aecdcfd53465f64"
+        "fingerprint": "6115f9eaa33629cb9fba08bc7a39485c04f7cd0243c5988f8a73d7353062cad0"
       },
       {
         "id": "interactive:CrossEmbodimentStrategies",
@@ -5093,9 +5093,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -5109,7 +5109,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "5491af8156427461b56e8e1f0f03c06ac9b02001595d8830abacbea63469c6f3"
+        "fingerprint": "c15e5c94587f336f044c25ddd1953ff937fa435c7007d89a31a42f41b5238699"
       },
       {
         "id": "interactive:HandComparison",
@@ -5406,9 +5406,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -5417,7 +5417,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "2d44b1958597533aa868d0e2958ac66e400e74dadd10bd3a9a4e2e1a50970ba4"
+        "fingerprint": "28fb775fda558162bc60a3eba90247348dfb9ebe3c42efe23e0bc7c0eaf5df5e"
       },
       {
         "id": "interactive:KalmanTracker",
@@ -5511,9 +5511,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -5527,7 +5527,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "db4caedfe10af13f9cda4661eed1cd82cc6dc3e80f6e9dfecfcdb44a96514c40"
+        "fingerprint": "a93b6573df2013453af806a48e9daf8ae979db3d69a0c0daa73f301d677cac44"
       },
       {
         "id": "interactive:LatentImagination",
@@ -6633,9 +6633,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -6649,7 +6649,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "5cd626e75370498710d5d6ab415bcd4422e3e17cf5a138c55e2ba4cee47befa5"
+        "fingerprint": "48965dcda62dc4e8c368461829cce38e77febf6bb103f1f869dd35cf5a4b73ee"
       },
       {
         "id": "interactive:WbcDecomposition",
@@ -7115,9 +7115,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -7131,7 +7131,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "6861483b711f58f5de041cdd085448a94b51cc233680eb874a20a811ea6b3569"
+        "fingerprint": "bf770962fcc7414b4de491d84dae93e68e475ad621de7fb35068888f991211bb"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -8388,9 +8388,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -8404,7 +8404,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "77e3f90d60b3e4189d0b930d44fc1b30f8e411028246ff5604ef0734e3a0aa3d"
+        "fingerprint": "4fb34bbe744e4c5160c6159d9655706eb1135005965fd231e21ebd931bea7f57"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -8504,9 +8504,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -8520,7 +8520,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a13ae52b970609d80d0ff0cecdf5e93655eaaed04a611deea42631f88e4fc68e"
+        "fingerprint": "d0c4176f45ac97a25df5e4572906e49ba061032c7d1b969e89bd0be5df52b377"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:2",
@@ -8562,9 +8562,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -8578,7 +8578,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9fdc17ed635ae80bffd1412e7b8242117eb8aa8b8e0986ebb30be7612de98b85"
+        "fingerprint": "0e017ed5909e3bf35609ea76f7e805166b0c04e22fbccc84a2cf457c29ca6b5a"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -9313,9 +9313,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -9329,7 +9329,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "489ab617cd19df573d18a335ba721fe15fa0377937bf421b781f102d56303bc8"
+        "fingerprint": "f1ae70a343e34ad83595a5885fe995c1e44a176bb7ec0bb363c4408c9e2589ba"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:2",
@@ -9371,9 +9371,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -9387,7 +9387,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "32cb64e0cd56c86db2e77de94beb4a77b8fa38b96a653b8f1dba6ceab822a026"
+        "fingerprint": "92fb0078308888f92703ae866fcb213e3f7a2e97b5ca0a3752292c4519160dbf"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
@@ -9763,9 +9763,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a error state."
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
           },
           {
             "id": "empty-not-applicable",
@@ -9779,7 +9779,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "18f3a890b2adb8cd3392c22517c8719522c1d61f19468236a58c384b17d9aed7"
+        "fingerprint": "c9d9480fcbabdcf19f28bb02eda8727c59677a1e1b37ac19127eb75ef373f442"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -10444,9 +10444,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -10455,7 +10455,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "b2c5ae2c0ff1f90c171d32a4630772df35b68d2f9bbe21d43138512de9f929d8"
+        "fingerprint": "4bf08b505ab1bf14705485f9671d264f7c201fa1c91bd70bf89e15e8244908b4"
       },
       {
         "id": "mount:/world-models/latent-dynamics/:LatentImagination:1",
@@ -11808,5 +11808,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "330488ba0220f31b187fe096eb2944723b69f2cf5d23c536371d3f07b387dd1d"
+  "rootFingerprint": "dffd24dcd6aca4d6f02965723cebdcb3dc659a4d532d2f837a1214c1f18883b5"
 }

@@ -179,12 +179,16 @@ export function TeacherStudent({
             if (occluded[i]) {
               return (
                 <g key={i}>
-                  <rect
-                    x={x}
-                    y={f(STUDENT.baseline - 3)}
-                    width={f(CELL_W - 1)}
-                    height={3}
-                    fill="var(--color-err)"
+                  {/* A broken stub rather than a solid one: an occluded cell
+                      has no reading, and the gap says so without the hue. */}
+                  <line
+                    x1={x}
+                    x2={f(x + CELL_W - 1)}
+                    y1={f(STUDENT.baseline - 1.5)}
+                    y2={f(STUDENT.baseline - 1.5)}
+                    stroke="var(--color-err)"
+                    strokeWidth={3}
+                    strokeDasharray="2 2"
                   />
                   <line
                     x1={f(x + (CELL_W - 1) / 2)}
@@ -244,7 +248,8 @@ export function TeacherStudent({
               height={RECON.height}
               fill={terrainColor(h)}
               stroke={occluded[i] ? 'var(--color-err)' : 'none'}
-              strokeWidth={occluded[i] ? 1 : 0}
+              strokeWidth={occluded[i] ? 1.5 : 0}
+              strokeDasharray={occluded[i] ? '2 2' : undefined}
             />
           ))}
         </g>
