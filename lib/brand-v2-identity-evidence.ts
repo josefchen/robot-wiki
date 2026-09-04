@@ -1,7 +1,8 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { extname, join } from 'node:path';
+import { extractBrandV2Assertions } from './brand-v2-enforcement.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import { stripComments } from './source-comments.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
@@ -76,11 +77,35 @@ export function deriveTechnicalIdentifiers(requirement: string): string[] {
   return [...new Set(literals)].sort();
 }
 
+/**
+ * The sealed identifiers, read from the contract row itself so the sweep and
+ * the generator quantify over one population rather than two lists that can
+ * drift apart.
+ */
+export function sealedTechnicalIdentifiers(root: string): string[] {
+  const requirement = extractBrandV2Assertions(
+    readFileSync(join(root, 'contract', 'design-integrity.md'), 'utf8'),
+  ).find(({ id }) => id === 'VAL-B2-ID-004')?.requirement;
+  if (!requirement) {
+    throw new Error('VAL-B2-ID-004 has no requirement row to derive from');
+  }
+  return deriveTechnicalIdentifiers(requirement);
+}
+
 export type IdentityLockupObservation = {
   /** The `data-tektur-role` the lockup carries, or null when unannotated. */
   role: string | null;
   selector: string;
+  /**
+   * What the reader meets: the element's rendered text with `text-transform`
+   * applied and its `::before`/`::after` content included. Not `textContent`,
+   * which a stylesheet can leave correct while the page shows something else.
+   */
   text: string;
+  /** What the document stores, kept only to expose divergence from `text`. */
+  domText: string;
+  /** Text the lockup's own pseudo-elements add to the render. */
+  pseudoText: { before: string; after: string };
   fontFamilyHead: string;
   fontVariationSettings: string;
   textTransform: string;
@@ -124,6 +149,25 @@ export type IdentityRouteObservation = {
   visibleTextLength: number;
 };
 
+/**
+ * What the built export still carries for one sealed technical identifier.
+ *
+ * The source scan alone cannot decide `VAL-B2-ID-004`: it proves an
+ * identifier is written down, not that anything the product ships still
+ * resolves through it. This second population is derived from the shipped
+ * bytes instead of from the sources, so the row reconciles two independent
+ * measurements, and an identifier that survives in source while every
+ * shipped use of it disappeared has an empty witness rather than a pass.
+ */
+export type TechnicalIdentifierExportWitness = {
+  literal: string;
+  /** Shipped files whose bytes still carry the identifier. */
+  fileCount: number;
+  /** The kinds of shipped file carrying it, so the witness names itself. */
+  fileKinds: string[];
+  occurrences: number;
+};
+
 export type IdentityRuntimeEvidence = {
   version: 1;
   fingerprint: string;
@@ -132,6 +176,8 @@ export type IdentityRuntimeEvidence = {
   routes: string[];
   viewports: string[];
   observations: IdentityRouteObservation[];
+  /** One row per sealed technical identifier; none of them may be empty. */
+  technicalIdentifierWitnesses: TechnicalIdentifierExportWitness[];
 };
 
 export type IdentityEvidenceSources = {
@@ -176,6 +222,8 @@ export type IdentityEvidenceInput = {
   artifact: unknown;
   routes: string[];
   fingerprint: string;
+  /** The sealed identifiers the witness rows must cover, exactly. */
+  technicalIdentifiers: string[];
 };
 
 function requireString(value: unknown, label: string): string {
@@ -266,6 +314,24 @@ export function readIdentityRuntimeEvidence(
       `identity runtime evidence is missing ${missing.length} route/viewport observations, starting with ${missing[0]}`,
     );
   }
+  if (input.technicalIdentifiers.length === 0) {
+    throw new Error('sealed technical identifier population is empty');
+  }
+  const witnesses = artifact.technicalIdentifierWitnesses ?? [];
+  const witnessed = [...new Set(witnesses.map(({ literal }) => literal))].sort();
+  const expectedLiterals = [...new Set(input.technicalIdentifiers)].sort();
+  if (JSON.stringify(witnessed) !== JSON.stringify(expectedLiterals)) {
+    throw new Error(
+      `identity runtime evidence witnesses ${witnessed.length} technical identifiers in the built export, not the ${expectedLiterals.length} sealed by VAL-B2-ID-004`,
+    );
+  }
+  for (const witness of witnesses) {
+    if (witness.fileCount <= 0 || witness.occurrences <= 0) {
+      throw new Error(
+        `the built export carries no file containing \`${witness.literal}\`, so nothing shipped still resolves through it and an empty witness cannot read as compliance`,
+      );
+    }
+  }
   return artifact as IdentityRuntimeEvidence;
 }
 
@@ -275,8 +341,14 @@ export type RouteIdentityVerdict = {
   observations: IdentityRouteObservation[];
   /** Distinct rendered brand display strings across both viewports. */
   renderedNames: string[];
-  /** Lockups whose text is not exactly the locked identity. */
+  /** Lockups whose rendered text is not exactly the locked identity. */
   wrongNames: string[];
+  /**
+   * Lockups the reader meets as the locked identity only because CSS put it
+   * there. The stored text is something else, so the source is not compliant
+   * and the next stylesheet edit changes the name on the page.
+   */
+  cssSubstitutedNames: string[];
   /** Discovered lockups carrying no wordmark role annotation. */
   unannotatedLockups: string[];
   /** Rendered strings that are a forbidden v1 identity or descriptor. */
@@ -323,6 +395,24 @@ function forbiddenInMetadata(observation: IdentityRouteObservation): string[] {
   );
 }
 
+/**
+ * Why a rendered string is not the stored one, named so a failure points at
+ * the declaration that caused it rather than at the wordmark generally.
+ */
+function renderCause(lockup: IdentityLockupObservation): string {
+  const causes: string[] = [];
+  if (lockup.textTransform && lockup.textTransform !== 'none') {
+    causes.push(`text-transform: ${lockup.textTransform}`);
+  }
+  if (lockup.pseudoText?.before) {
+    causes.push(`::before content ${JSON.stringify(lockup.pseudoText.before)}`);
+  }
+  if (lockup.pseudoText?.after) {
+    causes.push(`::after content ${JSON.stringify(lockup.pseudoText.after)}`);
+  }
+  return causes.join(' and ');
+}
+
 export function routeVerdicts(
   evidence: IdentityRuntimeEvidence,
 ): Map<string, RouteIdentityVerdict> {
@@ -342,7 +432,28 @@ export function routeVerdicts(
         ...new Set(
           lockups
             .filter(({ text }) => text !== PUBLIC_IDENTITY)
-            .map(({ selector, text }) => `${selector} renders ${text}`),
+            .map((lockup) => {
+              const cause = renderCause(lockup);
+              return `${lockup.selector} renders ${lockup.text}${
+                cause ? ` through ${cause}` : ''
+              }`;
+            }),
+        ),
+      ].sort(),
+      cssSubstitutedNames: [
+        ...new Set(
+          lockups
+            .filter(
+              (lockup) =>
+                lockup.text === PUBLIC_IDENTITY &&
+                lockup.domText !== PUBLIC_IDENTITY,
+            )
+            .map(
+              (lockup) =>
+                `${lockup.selector} renders ${PUBLIC_IDENTITY} only through ${
+                  renderCause(lockup) || 'CSS'
+                }; the document stores ${lockup.domText}`,
+            ),
         ),
       ].sort(),
       unannotatedLockups: [
@@ -497,10 +608,14 @@ export type TechnicalIdentifierVerdict = {
 };
 
 /**
- * Which export-derived destinations prove each identifier is still doing
- * technical work. A `passed` row that only counted source occurrences would
- * accept an identifier that survives in a comment while every real
- * destination moved.
+ * Which measured destinations still resolve through each identifier.
+ *
+ * Every recorded URL-valued field is scanned rather than three named ones:
+ * a hand-written list of fields is checker vocabulary, and a destination
+ * that moves to a field the list does not mention silently stops being
+ * looked at. `og:image` at `/og/robot-wiki.png`, `canonical` at
+ * `robot-wiki.com` and the footer's repository href are what that separation
+ * looks like today, not what it is defined as.
  */
 export function technicalIdentifierDestinations(
   literal: string,
@@ -508,15 +623,110 @@ export function technicalIdentifierDestinations(
 ): string[] {
   const destinations = new Set<string>();
   for (const observation of evidence.observations) {
-    for (const value of [
-      observation.metadata.canonical,
-      observation.metadata.ogImage,
+    const values = [
+      ...Object.values(observation.metadata),
       observation.repositoryHref,
-    ]) {
-      if (typeof value === 'string' && value.includes(literal)) {
-        destinations.add(value);
-      }
+      observation.authorProfileHref,
+    ];
+    for (const value of values) {
+      if (typeof value !== 'string' || !value.includes(literal)) continue;
+      // Prose carrying the identifier is a display failure, not a technical
+      // destination, and `forbiddenMetadata` already fails on it.
+      if (!/^(https?:)?\/\//.test(value) && !value.startsWith('/')) continue;
+      destinations.add(value);
     }
   }
   return [...destinations].sort();
+}
+
+/** Shipped-artifact file kinds a technical identifier can resolve through. */
+const EXPORT_TEXT_EXTENSIONS = new Set([
+  '.html',
+  '.js',
+  '.json',
+  '.txt',
+  '.xml',
+  '.css',
+  '.webmanifest',
+]);
+
+/**
+ * The second, independent population behind `VAL-B2-ID-004`: which shipped
+ * files still carry each sealed identifier. Derived from the built export
+ * rather than from the sources the first population already scanned, so the
+ * row reconciles two measurements instead of restating one.
+ */
+export function deriveTechnicalIdentifierExportWitnesses(
+  exportRoot: string,
+  literals: readonly string[],
+): TechnicalIdentifierExportWitness[] {
+  if (literals.length === 0) {
+    throw new Error(
+      'no sealed technical identifiers to witness: the export scan would be vacuous',
+    );
+  }
+  const tally = new Map(
+    literals.map((literal) => [
+      literal,
+      { fileCount: 0, kinds: new Set<string>(), occurrences: 0 },
+    ]),
+  );
+  const walk = (directory: string): void => {
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      const full = join(directory, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      const extension = extname(entry.name);
+      if (!EXPORT_TEXT_EXTENSIONS.has(extension)) continue;
+      const source = readFileSync(full, 'utf8');
+      for (const literal of literals) {
+        const hits = source.split(literal).length - 1;
+        if (hits === 0) continue;
+        const row = tally.get(literal);
+        if (!row) continue;
+        row.fileCount += 1;
+        row.kinds.add(extension);
+        row.occurrences += hits;
+      }
+    }
+  };
+  walk(exportRoot);
+  return [...literals]
+    .sort()
+    .map((literal) => {
+      const row = tally.get(literal);
+      return {
+        literal,
+        fileCount: row?.fileCount ?? 0,
+        fileKinds: [...(row?.kinds ?? [])].sort(),
+        occurrences: row?.occurrences ?? 0,
+      };
+    });
+}
+
+/**
+ * The witness row for one identifier. Throws rather than returning an empty
+ * default: a missing row is the measurement not having happened, which must
+ * not be reportable as a technical use that survived.
+ */
+export function technicalIdentifierWitness(
+  literal: string,
+  evidence: IdentityRuntimeEvidence,
+): TechnicalIdentifierExportWitness {
+  const witness = evidence.technicalIdentifierWitnesses.find(
+    (row) => row.literal === literal,
+  );
+  if (!witness) {
+    throw new Error(
+      `the identity sweep recorded no built-export witness for \`${literal}\``,
+    );
+  }
+  if (witness.fileCount <= 0 || witness.occurrences <= 0) {
+    throw new Error(
+      `\`${literal}\` occurs in no shipped file of the built export, so no technical use of it survived`,
+    );
+  }
+  return witness;
 }

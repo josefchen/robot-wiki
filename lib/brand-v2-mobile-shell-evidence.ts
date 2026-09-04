@@ -62,6 +62,26 @@ export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
  */
 export const SCRIM_SEPARATION_FLOOR = 3;
 
+/**
+ * The background regions an open drawer must make inert, as a required set
+ * rather than as whatever the sweep happened to look at.
+ *
+ * The reading this replaced iterated the rows the artifact supplied, so a
+ * sweep that stopped querying `main`, the footer or the skip link recorded a
+ * shorter list and the route passed on it. The set the assertion is about is
+ * fixed: the shell's own regions plus the skip link, which lives outside the
+ * content column and is therefore the one an inert-the-siblings
+ * implementation misses. Both the sweep and the verdict quantify over this,
+ * so they cannot disagree about what was supposed to be measured.
+ */
+export const REQUIRED_INERT_REGIONS = [
+  { selector: 'header', id: 'header' },
+  { selector: 'aside#sidebar-rail', id: 'the desktop sidebar' },
+  { selector: 'main#main-content', id: 'main' },
+  { selector: 'footer', id: 'the site footer' },
+  { selector: 'a[href="#main-content"]', id: 'the skip link' },
+] as const;
+
 export type MobileLockupObservation = {
   tag: string;
   /** The rendered accessible text, normalised for whitespace. */
@@ -85,8 +105,17 @@ export type MobileHeaderObservation = {
   heightPx: number;
   /** The header's content box, so an overflowing lockup is not compact. */
   contentWidthPx: number;
-  /** Every leaf text the header renders, in DOM order. */
+  /**
+   * Every leaf text the header renders, in DOM order, as rendered: with
+   * `text-transform` applied and the leaf's own pseudo content included.
+   */
   leafTexts: string[];
+  /**
+   * Text the header's pseudo-elements paint. The DOM stores none of it, so a
+   * descriptor delivered through `::after { content: ... }` left every
+   * `textContent` reading identical to a compliant header's.
+   */
+  pseudoTexts: Array<{ selector: string; position: string; text: string }>;
   lockups: MobileLockupObservation[];
   /** Header text carrying the locked descriptor or a leading run of it. */
   descriptorMatches: string[];
@@ -319,6 +348,11 @@ export function readMobileShellEvidence(input: {
         `${route} discovered no compact header, so the sweep did not measure what it claims`,
       );
     }
+    if (!Array.isArray(observation.header.pseudoTexts)) {
+      throw new Error(
+        `${route} recorded no pseudo-element reading for the compact header, so a CSS-rendered descriptor was never looked for`,
+      );
+    }
     if (observation.focus.tabStopCount === 0) {
       throw new Error(
         `${route} recorded a drawer with no tab stops, so no focus trap was exercised on it`,
@@ -440,6 +474,24 @@ export function mobileHeaderVerdicts(
     for (const match of header.descriptorMatches) {
       failures.push(`${route} carries descriptor text in the header: ${match}`);
     }
+    for (const pseudo of header.pseudoTexts ?? []) {
+      const fragment = fragments.find((candidate) =>
+        pseudo.text.includes(candidate),
+      );
+      if (fragment) {
+        failures.push(
+          `${route} renders "${fragment}" through ${pseudo.selector}${pseudo.position} in the compact header, which is the locked descriptor`,
+        );
+        continue;
+      }
+      // A word is prose; a decorative glyph or rule is not, and the header
+      // is allowed generated punctuation that says nothing.
+      if (/[A-Za-z]{3}/.test(pseudo.text)) {
+        failures.push(
+          `${route} renders "${pseudo.text}" through ${pseudo.selector}${pseudo.position} in the compact header, which the document stores nowhere`,
+        );
+      }
+    }
     if (header.trigger === null) {
       failures.push(
         `${route} renders a compact header with no drawer trigger, so the taxonomy has no mobile entry point`,
@@ -544,10 +596,39 @@ export function drawerVerdicts(
         `${route} sends a Shift+Tab off the first drawer stop to ${focus.backwardWrap.focused?.label ?? 'nothing'}${focus.backwardWrap.insideDrawer ? '' : ', outside the drawer'}`,
       );
     }
-    for (const region of inert.regions) {
-      if (region.present && !region.inert) {
+    // Quantified over the required set, not over the rows the artifact
+    // supplied: a sweep that stopped looking at a region used to contribute
+    // no row, and a shorter list read as a clean one.
+    const observedRegions = new Map(
+      inert.regions.map((region) => [region.id, region]),
+    );
+    for (const required of REQUIRED_INERT_REGIONS) {
+      const region = observedRegions.get(required.id);
+      if (!region) {
+        failures.push(
+          `${route} recorded no reading for ${required.id} (${required.selector}), so the open drawer's inert set was never checked against it`,
+        );
+        continue;
+      }
+      if (!region.present) {
+        failures.push(
+          `${route} renders no ${required.id} (${required.selector}) to make inert`,
+        );
+        continue;
+      }
+      if (!region.inert) {
         failures.push(
           `${route} leaves ${region.id} outside the open drawer's inert set`,
+        );
+      }
+    }
+    const requiredIds = new Set<string>(
+      REQUIRED_INERT_REGIONS.map(({ id }) => id),
+    );
+    for (const region of inert.regions) {
+      if (!requiredIds.has(region.id)) {
+        failures.push(
+          `${route} records ${region.id}, which is not one of the required background regions`,
         );
       }
     }

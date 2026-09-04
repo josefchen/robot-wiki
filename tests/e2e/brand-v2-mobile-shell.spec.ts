@@ -4,6 +4,7 @@ import { brandV2Registry, test, expect } from './brand-v2-static-fixture';
 import {
   MOBILE_SHELL_EVIDENCE_PATH,
   MOBILE_VIEWPORT,
+  REQUIRED_INERT_REGIONS,
   SCRIM_SEPARATION_FLOOR,
   SELECTION_LIME_RGB,
   contrastRatio,
@@ -16,6 +17,7 @@ import {
   type MobileRouteObservation,
 } from '../../lib/brand-v2-mobile-shell-evidence';
 import { PUBLIC_DESCRIPTOR } from '../../lib/identity';
+import { installRenderedTextProbe } from './rendered-text-probe';
 
 const ROOT = process.cwd();
 
@@ -63,6 +65,7 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
         heightPx: -1,
         contentWidthPx: -1,
         leafTexts: [],
+        pseudoTexts: [],
         lockups: [],
         descriptorMatches: [],
         trigger: null,
@@ -75,10 +78,24 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
     };
   }
 
+  const rendered = (el: Element): string =>
+    (
+      window.__brandRenderedText?.(el) ?? (el.textContent ?? '')
+    )
+      .replace(/\s+/g, ' ')
+      .trim();
+  const pseudoOf = (el: Element): { before: string; after: string } =>
+    window.__brandPseudoText?.(el) ?? { before: '', after: '' };
+  const selectorOf = (el: Element): string => {
+    const id = el.id ? `#${el.id}` : '';
+    const role = el.getAttribute('data-tektur-role');
+    return `${el.tagName.toLowerCase()}${id}${role ? `[data-tektur-role="${role}"]` : ''}`;
+  };
+
   const style = getComputedStyle(header);
   const inHeader = [...header.querySelectorAll('*')];
   const nameCandidates = inHeader.filter(
-    (el) => visible(el) && BRAND_FAMILY.test((el.textContent ?? '').trim()),
+    (el) => visible(el) && BRAND_FAMILY.test(rendered(el)),
   );
   const lockupElements = nameCandidates.filter(
     (el) => !nameCandidates.some((other) => other !== el && el.contains(other)),
@@ -86,14 +103,31 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
 
   const leafTexts = inHeader
     .filter((el) => el.children.length === 0 && visible(el))
-    .map((el) => (el.textContent ?? '').replace(/\s+/g, ' ').trim())
+    .map((el) => rendered(el))
     .filter((text) => text.length > 0);
 
+  // The header element itself as well as its descendants: a descriptor
+  // painted by `header::after` is not inside any of them.
+  const pseudoTexts = [header, ...inHeader]
+    .filter((el) => el === header || visible(el))
+    .flatMap((el) => {
+      const pseudo = pseudoOf(el);
+      return (
+        [
+          { position: '::before', text: pseudo.before },
+          { position: '::after', text: pseudo.after },
+        ] as const
+      )
+        .filter(({ text }) => text.trim().length > 0)
+        .map(({ position, text }) => ({
+          selector: selectorOf(el),
+          position,
+          text: text.replace(/\s+/g, ' ').trim(),
+        }));
+    });
+
   const descriptorMatches = inHeader
-    .filter(
-      (el) =>
-        visible(el) && (el.textContent ?? '').includes(input.descriptor),
-    )
+    .filter((el) => visible(el) && rendered(el).includes(input.descriptor))
     .map((el) => el.outerHTML.replace(/\s+/g, ' ').slice(0, 160));
 
   const trigger = header.querySelector('button[aria-controls]');
@@ -110,11 +144,12 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
           parseFloat(style.paddingRight),
       ),
       leafTexts,
+      pseudoTexts,
       lockups: lockupElements.map((el) => {
         const lockupStyle = getComputedStyle(el);
         return {
           tag: el.tagName.toLowerCase(),
-          text: (el.textContent ?? '').replace(/\s+/g, ' ').trim(),
+          text: rendered(el),
           href: el.getAttribute('href'),
           tekturRole: el.getAttribute('data-tektur-role'),
           fontFamilyHead: unquote(
@@ -152,7 +187,16 @@ function collectClosed(input: { descriptor: string; tabStops: string }): {
  * canvas parsed the notations at all, so a parse failure cannot masquerade
  * as an invisible boundary.
  */
-function collectOpen(input: { route: string; tabStops: string }): {
+function collectOpen(input: {
+  route: string;
+  tabStops: string;
+  /**
+   * The regions the assertion requires to be inert, passed in rather than
+   * listed here so the sweep and the verdict cannot disagree about which
+   * ones were supposed to be read.
+   */
+  requiredRegions: ReadonlyArray<{ selector: string; id: string }>;
+}): {
   triggerExpandedWhenOpen: string | null;
   triggerControlsResolvesWhenOpen: boolean;
   stops: DrawerTabStop[];
@@ -195,14 +239,6 @@ function collectOpen(input: { route: string; tabStops: string }): {
         visible(el),
     )
     .map((el) => `${el.tagName.toLowerCase()}[${labelOf(el)}]`);
-
-  const regionIds = [
-    ['header', 'header'],
-    ['aside#sidebar-rail', 'the desktop sidebar'],
-    ['main#main-content', 'main'],
-    ['footer', 'the site footer'],
-    ['a[href="#main-content"]', 'the skip link'],
-  ] as const;
 
   const canvas = document.createElement('canvas');
   canvas.width = 1;
@@ -277,7 +313,7 @@ function collectOpen(input: { route: string; tabStops: string }): {
     })),
     panelRightPx: panelBox ? round(panelBox.right) : -1,
     inert: {
-      regions: regionIds.map(([selector, id]) => {
+      regions: input.requiredRegions.map(({ selector, id }) => {
         const el = document.querySelector(selector);
         return {
           id,
@@ -378,6 +414,7 @@ test.describe('brand-v2 mobile header and drawer', () => {
     test.setTimeout(1_800_000);
     const routes = brandV2Registry.routes.public.map(({ path }) => path);
     expect(routes.length).toBeGreaterThan(5);
+    await page.addInitScript(installRenderedTextProbe);
     await page.setViewportSize({
       width: MOBILE_VIEWPORT.width,
       height: MOBILE_VIEWPORT.height,
@@ -401,7 +438,14 @@ test.describe('brand-v2 mobile header and drawer', () => {
       // presses and dismiss with Escape.
       await trigger.click();
       await dialog.waitFor();
-      const open = await page.evaluate(collectOpen, { route, tabStops: TAB_STOPS });
+      const open = await page.evaluate(collectOpen, {
+        route,
+        tabStops: TAB_STOPS,
+        requiredRegions: REQUIRED_INERT_REGIONS.map(({ selector, id }) => ({
+          selector,
+          id,
+        })),
+      });
       expect(
         open.separation.canvasRoundTrip,
         `${route} could not round-trip a colour through the canvas, so no scrim reading is trustworthy`,
@@ -610,5 +654,51 @@ test.describe('brand-v2 mobile header and drawer', () => {
     const artifactPath = join(ROOT, MOBILE_SHELL_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
+  });
+
+  /**
+   * The plant for the reading this sweep used to do. `::after { content: ... }`
+   * paints the locked descriptor into the compact header while the DOM
+   * stores none of it, so every `textContent` reading — the leaf texts, the
+   * descriptor scan, the lockup's own text — was byte-identical to a
+   * compliant header's.
+   */
+  test('reports a descriptor a pseudo-element paints into the compact header', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.addInitScript(installRenderedTextProbe);
+    await page.setViewportSize({
+      width: MOBILE_VIEWPORT.width,
+      height: MOBILE_VIEWPORT.height,
+    });
+    const response = await page.goto(`${staticBase}/`);
+    expect(response?.status()).toBe(200);
+    await page.evaluate(() => document.fonts.ready);
+
+    const clean = await page.evaluate(collectClosed, {
+      descriptor: PUBLIC_DESCRIPTOR,
+      tabStops: TAB_STOPS,
+    });
+    expect(
+      clean.header.pseudoTexts,
+      'the shipped compact header paints no generated text',
+    ).toEqual([]);
+
+    await page.addStyleTag({
+      content: `header::after { content: ${JSON.stringify(PUBLIC_DESCRIPTOR)}; }`,
+    });
+    const planted = await page.evaluate(collectClosed, {
+      descriptor: PUBLIC_DESCRIPTOR,
+      tabStops: TAB_STOPS,
+    });
+    // The plant has to actually reach the reading, or the case proves nothing.
+    expect(planted.header.pseudoTexts.map(({ text }) => text)).toContain(
+      PUBLIC_DESCRIPTOR,
+    );
+    // And it stays invisible to every stored-text reading, which is why the
+    // pseudo reading is the fix rather than another descriptor pattern.
+    expect(planted.header.leafTexts).toEqual(clean.header.leafTexts);
+    expect(planted.header.descriptorMatches).toEqual([]);
   });
 });

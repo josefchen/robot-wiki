@@ -383,6 +383,33 @@ describe('home tools evidence', () => {
     );
   });
 
+  it('fails a surface whose reconciliation set is empty rather than clean', () => {
+    // The input that used to pass: `/a-z/` and `/glossary/` printed totals
+    // the derivation could not express, every row was filtered out, and the
+    // loop over an empty list reported a pass on a surface where nothing had
+    // been reconciled against anything.
+    const surfaces = progressCounterSurfaces();
+    const emptied = mutate((evidence) => {
+      const row = evidence.progressCounters.find(
+        ({ route }) => route === '/a-z/',
+      );
+      if (!row) throw new Error('the sweep no longer visits /a-z/');
+      row.unreconciledCounts = row.reconciledCounts.map(({ text }) => text);
+      row.reconciledCounts = [];
+    });
+    const failures = progressCounterVerdicts(accept(emptied), surfaces).flatMap(
+      ({ failures: rows }) => rows,
+    );
+    expect(failures.join(' ')).toMatch(
+      /\/a-z\/ reconciled no printed count against the registries, leaving "/,
+    );
+    // The committed sweep reconciles at least one printed total on every
+    // surface, so the floor is met by measurement rather than by exemption.
+    for (const row of committed().progressCounters) {
+      expect(row.reconciledCounts.length, row.route).toBeGreaterThan(0);
+    }
+  });
+
   it('fails an accessibility profile that measured nothing', () => {
     const planted = mutate((evidence) => {
       evidence.accessibility[0].measuredMembers = 0;

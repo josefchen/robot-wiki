@@ -28,6 +28,7 @@ import {
   deriveTechnicalIdentifiers,
   identityEvidenceFingerprint,
   readIdentityRuntimeEvidence,
+  sealedTechnicalIdentifiers,
 } from '@/lib/brand-v2-identity-evidence';
 import {
   IDENTITY_DESCRIPTOR_POPULATION_SOURCE,
@@ -72,6 +73,7 @@ function identityPopulations(registry: {
       readFileSync(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH), 'utf8'),
     ),
     routes: registry.routes.public.map(({ path }) => path),
+    technicalIdentifiers: sealedTechnicalIdentifiers(ROOT),
     fingerprint: identityEvidenceFingerprint({
       root: ROOT,
       metadataOwnerPaths: [

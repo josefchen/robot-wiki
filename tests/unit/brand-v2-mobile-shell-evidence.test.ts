@@ -249,6 +249,92 @@ describe('mobile shell evidence', () => {
     ).toMatch(/reachable behind the drawer, starting with a\[Skip to content\]/);
   });
 
+  it('fails an inert reading that stopped looking at a required region', () => {
+    // The input that used to pass: the verdict iterated the rows the
+    // artifact supplied, so a sweep that stopped querying `main`, the footer
+    // and the skip link recorded a shorter list and the route passed on it
+    // without any of the three ever being checked.
+    const shortened = drawerFailures((evidence) => {
+      for (const observation of evidence.observations) {
+        observation.inert.regions = observation.inert.regions.filter(({ id }) =>
+          ['header', 'the desktop sidebar'].includes(id),
+        );
+      }
+    });
+    for (const id of ['main', 'the site footer', 'the skip link']) {
+      expect(shortened, id).toContain(
+        `recorded no reading for ${id}`,
+      );
+    }
+    // A region the shell stopped rendering is absent, not exempt.
+    expect(
+      drawerFailures((evidence) => {
+        const region = evidence.observations[0].inert.regions.find(
+          ({ id }) => id === 'the site footer',
+        );
+        if (region) region.present = false;
+      }),
+    ).toMatch(/renders no the site footer \(footer\) to make inert/);
+    // And a row the required set does not name cannot pad the reading.
+    expect(
+      drawerFailures((evidence) => {
+        evidence.observations[0].inert.regions.push({
+          id: 'a region nobody asked for',
+          present: true,
+          inert: true,
+        });
+      }),
+    ).toMatch(/not one of the required background regions/);
+  });
+
+  it('fails a descriptor the compact header paints through a pseudo-element', () => {
+    // The input that used to pass: `::after { content: ... }` renders the
+    // locked descriptor while the DOM stores none of it, so the leaf-text
+    // scan, the descriptor scan and the lockup's own text were all
+    // byte-identical to a compliant header's.
+    expect(
+      headerFailures((evidence) => {
+        evidence.observations[0].header.pseudoTexts = [
+          {
+            selector: 'header',
+            position: '::after',
+            text: PUBLIC_DESCRIPTOR,
+          },
+        ];
+      }),
+    ).toMatch(/through header::after in the compact header, which is the locked descriptor/);
+    expect(
+      headerFailures((evidence) => {
+        evidence.observations[0].header.pseudoTexts = [
+          {
+            selector: 'a[data-tektur-role="mobile-wordmark"]',
+            position: '::before',
+            text: 'The robotics wiki',
+          },
+        ];
+      }),
+    ).toMatch(/which the document stores nowhere/);
+    // Generated punctuation says nothing and is not prose.
+    expect(
+      headerFailures((evidence) => {
+        evidence.observations[0].header.pseudoTexts = [
+          { selector: 'span', position: '::after', text: '/' },
+        ];
+      }),
+    ).not.toMatch(/stores nowhere/);
+    expect(() =>
+      accept(
+        mutate((evidence) => {
+          delete (
+            evidence.observations[0].header as Partial<
+              MobileShellEvidence['observations'][number]['header']
+            >
+          ).pseudoTexts;
+        }),
+      ),
+    ).toThrow(/no pseudo-element reading/);
+  });
+
   it('fails a dismissal path that does not close or does not restore the trigger', () => {
     expect(
       drawerFailures((evidence) => {

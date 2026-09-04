@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  ACTIVE_INTERVAL_RAIL_DEVICE_ID,
   SELECTION_LIME_RGB,
   SHELL_RUNTIME_EVIDENCE_PATH,
   SHELL_VIEWPORT,
@@ -28,6 +29,7 @@ const REGISTRY = JSON.parse(
 };
 
 const ROUTES = REGISTRY.routes.public.map(({ path }) => path);
+const DEVICE_IDS = REGISTRY.gridDevices.map(({ id }) => id);
 
 function fingerprint(): string {
   return shellEvidenceFingerprint({
@@ -179,7 +181,7 @@ describe('shell runtime evidence', () => {
   it('passes the committed sweep on every current-route and skip-link reading', () => {
     const evidence = accept(committed());
     expect(
-      [...currentRouteVerdicts(evidence).values()].flatMap(
+      [...currentRouteVerdicts(evidence, DEVICE_IDS).values()].flatMap(
         ({ failures }) => failures,
       ),
     ).toEqual([]);
@@ -201,6 +203,7 @@ describe('shell runtime evidence', () => {
           if (entry?.marker) entry.marker.borderLeftColour = 'rgb(36, 95, 255)';
         }),
       ),
+      DEVICE_IDS,
     );
     expect(
       [...signal.values()].flatMap(({ failures }) => failures).join(' '),
@@ -220,6 +223,7 @@ describe('shell runtime evidence', () => {
           }
         }),
       ),
+      DEVICE_IDS,
     );
     expect(
       [...colourOnly.values()].flatMap(({ failures }) => failures).join(' '),
@@ -243,6 +247,7 @@ describe('shell runtime evidence', () => {
               if (entry?.marker) change(entry.marker);
             }),
           ),
+          DEVICE_IDS,
         ).values(),
       ]
         .flatMap(({ failures }) => failures)
@@ -253,6 +258,31 @@ describe('shell runtime evidence', () => {
         marker.deviceId = null;
       }),
     ).toMatch(/unregistered element/);
+    // The input that used to pass: any non-null device id at all counted as
+    // the registered rail, so a mark annotated with another registered
+    // device's id — with that device's own geometry — read as compliant.
+    expect(
+      withMarker((marker) => {
+        marker.deviceId = 'device:section-rule';
+      }),
+    ).toMatch(
+      new RegExp(
+        `marks the current entry with device:section-rule, not the registered ${ACTIVE_INTERVAL_RAIL_DEVICE_ID}`,
+      ),
+    );
+    expect(
+      withMarker((marker) => {
+        marker.deviceId = 'device:invented-for-this-mark';
+      }),
+    ).toMatch(/device:invented-for-this-mark, which is not in the device registry/);
+    // And the reconciliation cannot be run against a registry that does not
+    // hold the rail at all.
+    expect(() =>
+      currentRouteVerdicts(
+        accept(committed()),
+        DEVICE_IDS.filter((id) => id !== ACTIVE_INTERVAL_RAIL_DEVICE_ID),
+      ),
+    ).toThrow(/is not in the device registry/);
     expect(
       withMarker((marker) => {
         marker.alignmentErrorPx = 9;
@@ -289,6 +319,7 @@ describe('shell runtime evidence', () => {
           });
         }),
       ),
+      DEVICE_IDS,
     );
     expect(
       [...heading.values()].flatMap(({ failures }) => failures).join(' '),
@@ -306,7 +337,7 @@ describe('shell runtime evidence', () => {
       );
     });
     expect(
-      [...currentRouteVerdicts(accept(orphan)).values()]
+      [...currentRouteVerdicts(accept(orphan), DEVICE_IDS).values()]
         .flatMap(({ failures }) => failures)
         .join(' '),
     ).toMatch(/no taxonomy entry yet exposes/);

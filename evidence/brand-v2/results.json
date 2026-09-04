@@ -24727,7 +24727,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-atlas-trajectory` still resolves 3 comment-free use(s) across 1 first-party runtime file(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-atlas-trajectory` still resolves 3 comment-free use(s) across 1 first-party runtime file(s) and 2 use(s) across 1 shipped .js file(s) of the built export, and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -24740,6 +24740,11 @@
             "lib/trajectory.ts"
           ],
           "destinations": [],
+          "exportFileCount": 1,
+          "exportFileKinds": [
+            ".js"
+          ],
+          "exportOccurrences": 2,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -24756,7 +24761,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 9 comment-free use(s) across 6 first-party runtime file(s) and 109 live export destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 9 comment-free use(s) across 6 first-party runtime file(s) and 2295 use(s) across 249 shipped .html/.js/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -24884,6 +24889,14 @@
             "https://robot-wiki.com/world-models/latent-dynamics/",
             "https://robot-wiki.com/world-models/taxonomy/"
           ],
+          "exportFileCount": 249,
+          "exportFileKinds": [
+            ".html",
+            ".js",
+            ".txt",
+            ".xml"
+          ],
+          "exportOccurrences": 2295,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -24900,7 +24913,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 2 comment-free use(s) across 2 first-party runtime file(s) and 109 live export destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 2 comment-free use(s) across 2 first-party runtime file(s) and 2083 use(s) across 248 shipped .html/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25024,6 +25037,13 @@
             "https://robot-wiki.com/world-models/latent-dynamics/",
             "https://robot-wiki.com/world-models/taxonomy/"
           ],
+          "exportFileCount": 248,
+          "exportFileKinds": [
+            ".html",
+            ".txt",
+            ".xml"
+          ],
+          "exportOccurrences": 2083,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -47464,7 +47484,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-lime-highlight holds on the built home page at 1440x900: {\"inFirstViewport\":[{\"tag\":\"mark\",\"carriers\":[\"background\"],\"text\":\"cited to a primary source\",\"nonColourCue\":\"mark-element\"}]}",
+      "actual": "anchor:home-lime-highlight holds on the built home page at 1440x900: {\"inFirstViewport\":[{\"tag\":\"mark\",\"carriers\":[\"background\"],\"text\":\"cited to a primary source\",\"nonColourCue\":\"mark-element\",\"annotation\":\"home-premise\"}]}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -47481,7 +47501,8 @@
                 "background"
               ],
               "text": "cited to a primary source",
-              "nonColourCue": "mark-element"
+              "nonColourCue": "mark-element",
+              "annotation": "home-premise"
             }
           ],
           "evidence": [
@@ -47499,7 +47520,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":3,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -47517,8 +47538,24 @@
             "plain/module-heading/schematic-pair",
             "ruled-plain/closing-heading/guidance-prose"
           ],
+          "derivedForms": [
+            "form:1",
+            "form:2",
+            "form:3",
+            "form:4",
+            "form:5",
+            "form:6"
+          ],
+          "derivedSurfaceHeadingActionForms": [
+            "form:1",
+            "form:2",
+            "form:3",
+            "form:4",
+            "form:5",
+            "form:6"
+          ],
           "maximumAdjacentRepeatedSignatures": 1,
-          "maximumAdjacentSurfaceHeadingRun": 3,
+          "maximumAdjacentSurfaceHeadingRun": 1,
           "borderedCardCount": 4,
           "borderedDomainRows": 0,
           "evidence": [

@@ -202,6 +202,13 @@ export type ProgressCounterObservation = {
   matches: string[];
   /** Registry-derived counts the route printed, with their sourced values. */
   reconciledCounts: Array<{ text: string; expected: number; actual: number }>;
+  /**
+   * Count phrases the route printed that no registry total explains. Kept
+   * visible rather than dropped: a phrase that silently disappears from the
+   * reconciliation is the difference between a checked total and an
+   * unchecked one, and the verdict cannot see a row that was filtered out.
+   */
+  unreconciledCounts: string[];
 };
 
 export type HomeDesignBoundsObservation = {
@@ -959,6 +966,19 @@ export function progressCounterVerdicts(
     for (const match of observation.matches) {
       failures.push(`${path} renders the progress counter "${match}"`);
     }
+    // An empty reconciliation is not a clean one. Every swept surface prints
+    // a registry total, so a surface that reconciled nothing means the
+    // derivation stopped being able to express that total, and the loop
+    // below then iterated no rows and reported a pass.
+    if (observation.reconciledCounts.length === 0) {
+      failures.push(
+        `${path} reconciled no printed count against the registries${
+          observation.unreconciledCounts.length > 0
+            ? `, leaving "${observation.unreconciledCounts.join('", "')}" unchecked`
+            : ''
+        }`,
+      );
+    }
     for (const count of observation.reconciledCounts) {
       if (count.expected !== count.actual) {
         failures.push(
@@ -972,6 +992,7 @@ export function progressCounterVerdicts(
         route: path,
         matches: observation.matches,
         reconciled: observation.reconciledCounts,
+        unreconciled: observation.unreconciledCounts,
       },
       failures,
     };

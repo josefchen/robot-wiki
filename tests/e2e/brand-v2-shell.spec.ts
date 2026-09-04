@@ -302,7 +302,12 @@ test.describe('brand-v2 desktop shell and navigation', () => {
       fingerprint: artifact.fingerprint,
     });
 
-    const currentRouteFailures = [...currentRouteVerdicts(evidence).values()]
+    const registeredDeviceIds = (
+      brandV2Registry.gridDevices as unknown as Array<{ id: string }>
+    ).map(({ id }) => id);
+    const currentRouteFailures = [
+      ...currentRouteVerdicts(evidence, registeredDeviceIds).values(),
+    ]
       .flatMap(({ failures }) => failures)
       .sort();
     expect(currentRouteFailures).toEqual([]);

@@ -28,6 +28,7 @@ import {
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
 import { progressCounterSurfaces } from '../../lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '../../lib/so101-kinematics';
+import { glossaryTermsAlphabetical } from '../../data/glossary';
 import { publishedModules } from '../../data/modules';
 import { COMPANIES } from '../../data/companies';
 import { SEGMENT_ORDER } from '../../lib/market-map';
@@ -56,7 +57,13 @@ const PROGRESS_COUNTER_PATTERNS = [
 ];
 
 /** Nouns whose printed counts must reconcile with registry truth. */
-const COUNT_PHRASE = /(\d[\d,]*)\s+(articles?|modules?|entries|terms?|companies|company|segments?)\b/gi;
+/**
+ * The counted nouns the index surfaces print, with the one qualifier the
+ * A-Z index puts between the number and its noun ("119 glossary terms").
+ * Without it that total matched nothing, so the only phrase carrying the
+ * glossary registry's size was never reconciled against it.
+ */
+const COUNT_PHRASE = /(\d[\d,]*)\s+(?:glossary\s+)?(articles?|modules?|entries|terms?|companies|company|segments?)\b/gi;
 
 /**
  * The registered mounts of the component home features, derived from the
@@ -834,6 +841,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     test.setTimeout(180_000);
     const surfaces = progressCounterSurfaces();
     const published = publishedModules();
+    const GLOSSARY_TERMS = glossaryTermsAlphabetical();
     const rows: ProgressCounterObservation[] = [];
     for (const surface of surfaces) {
       const response = await page.goto(`${staticBase}${surface.path}`);
@@ -847,10 +855,25 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       ]).map((match) => match[0]);
 
       const domain = surface.path.replace(/\//g, '');
+      /**
+       * What each printed noun has to equal, derived from the registries the
+       * page builds itself from. The A-Z index prints the whole published
+       * corpus and the whole glossary, and the glossary index prints the
+       * glossary; neither total was expressible before, so both were dropped
+       * and those two surfaces reconciled nothing at all.
+       */
       const expectedFor = (noun: string): number | null => {
         if (surface.path === HOME_TOOLS_ROUTE) {
           if (/^compan/.test(noun)) return COMPANIES.length;
           if (/^segment/.test(noun)) return SEGMENT_ORDER.length;
+          return null;
+        }
+        if (surface.path === '/glossary/') {
+          return /^(term|entr)/.test(noun) ? GLOSSARY_TERMS.length : null;
+        }
+        if (surface.path === '/a-z/') {
+          if (/^(article|module)/.test(noun)) return published.length;
+          if (/^(term|entr)/.test(noun)) return GLOSSARY_TERMS.length;
           return null;
         }
         if (/^(article|module)/.test(noun)) {
@@ -861,24 +884,30 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         }
         return null;
       };
-      const reconciledCounts = [...text.matchAll(COUNT_PHRASE)]
-        .map((match) => {
-          const expectedValue = expectedFor(match[2].toLowerCase());
-          return expectedValue === null
-            ? null
-            : {
-                text: match[0],
-                expected: expectedValue,
-                actual: Number(match[1].replace(/,/g, '')),
-              };
-        })
-        .filter((row): row is NonNullable<typeof row> => row !== null);
+      const counted = [...text.matchAll(COUNT_PHRASE)].map((match) => ({
+        text: match[0],
+        expected: expectedFor(match[2].toLowerCase()),
+        actual: Number(match[1].replace(/,/g, '')),
+      }));
+      const reconciledCounts = counted
+        .filter(
+          (row): row is typeof row & { expected: number } =>
+            row.expected !== null,
+        )
+        .map(({ text: phrase, expected, actual }) => ({
+          text: phrase,
+          expected,
+          actual,
+        }));
 
       rows.push({
         routeId: surface.id,
         route: surface.path,
         matches,
         reconciledCounts,
+        unreconciledCounts: counted
+          .filter(({ expected }) => expected === null)
+          .map(({ text: phrase }) => phrase),
       });
     }
     evidence.progressCounters = rows;

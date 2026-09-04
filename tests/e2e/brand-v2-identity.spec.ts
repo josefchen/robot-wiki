@@ -4,12 +4,15 @@ import { brandV2Registry, test, expect } from './brand-v2-static-fixture';
 import {
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   IDENTITY_VIEWPORTS,
+  deriveTechnicalIdentifierExportWitnesses,
   identityEvidenceFingerprint,
   readIdentityRuntimeEvidence,
+  sealedTechnicalIdentifiers,
   type IdentityRouteObservation,
 } from '../../lib/brand-v2-identity-evidence';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { identityLockupSourcePaths } from '../../lib/identity-populations';
+import { installRenderedTextProbe } from './rendered-text-probe';
 
 const ROOT = process.cwd();
 
@@ -30,6 +33,8 @@ const METADATA_OWNER_PATHS = [
   ),
 ].sort();
 const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
+/** The `VAL-B2-ID-004` population, read from the contract row it belongs to. */
+const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
 
 /**
  * Runs inside the page. Discovery is structural: it walks every rendered
@@ -37,6 +42,14 @@ const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
  * `robot wiki` family, so a v1 lockup that carries no annotation is found
  * rather than skipped. The wordmark-role annotation is then read off what
  * was found, and the caller reconciles.
+ *
+ * Both the discovery filter and the recorded text are the *rendered* string
+ * (`installRenderedTextProbe`), not `textContent`. A `text-transform:
+ * lowercase` on the wordmark restores the v1 spelling on screen while the
+ * DOM still stores `Robot Wiki`, and none of the forbidden-spelling scans
+ * see it either, because `robot wiki` with a space is not `robot-wiki`.
+ * Reading stored text is reading the source, which is the one thing this
+ * sweep exists not to do.
  */
 function collectIdentity(
   descriptor: string,
@@ -70,10 +83,26 @@ function collectIdentity(
     return `${el.tagName.toLowerCase()}${id}${role ? `[data-tektur-role="${role}"]` : ''}`;
   };
 
+  const renderedText = (el: Element): string =>
+    window.__brandRenderedText?.(el) ?? (el.textContent ?? '').trim();
+  const domText = (el: Element): string =>
+    window.__brandDomText?.(el) ?? (el.textContent ?? '').trim();
+  const pseudoText = (el: Element): { before: string; after: string } =>
+    window.__brandPseudoText?.(el) ?? { before: '', after: '' };
+
   const all = Array.from(document.querySelectorAll('*'));
-  const nameCandidates = all.filter(
-    (el) => visible(el) && BRAND_FAMILY.test((el.textContent ?? '').trim()),
-  );
+  // Pseudo text is one style read per element; `innerText` costs a layout of
+  // the whole subtree, so the cheap reading narrows the set the expensive
+  // one is asked about. An element whose stored text is empty but whose
+  // `::before` renders the wordmark is still in the candidate set.
+  const nameCandidates = all.filter((el) => {
+    if (!visible(el)) return false;
+    const stored = domText(el);
+    if (BRAND_FAMILY.test(stored)) return true;
+    const pseudo = pseudoText(el);
+    if (!pseudo.before && !pseudo.after) return false;
+    return BRAND_FAMILY.test(`${pseudo.before}${stored}${pseudo.after}`.trim());
+  });
   // Keep only the deepest match in each chain: a wrapper whose sole child is
   // the wordmark carries the same text and is not a second lockup.
   const lockupElements = nameCandidates.filter(
@@ -85,12 +114,14 @@ function collectIdentity(
     const container = el.parentElement ?? el;
     const descriptorTexts = Array.from(container.children)
       .filter((child) => child !== el && visible(child))
-      .map((child) => (child.textContent ?? '').trim())
+      .map((child) => renderedText(child))
       .filter((text) => text.length > 0);
     return {
       role: el.getAttribute('data-tektur-role'),
       selector: selectorOf(el),
-      text: (el.textContent ?? '').trim(),
+      text: renderedText(el),
+      domText: domText(el),
+      pseudoText: pseudoText(el),
       fontFamilyHead: unquote((style.fontFamily.split(',')[0] ?? '').trim()),
       fontVariationSettings: style.fontVariationSettings,
       textTransform: style.textTransform,
@@ -102,13 +133,21 @@ function collectIdentity(
   });
 
   const bodyText = (document.body as HTMLElement).innerText ?? '';
-  const exactDescriptorNodes = all
+  const descriptorCandidates = all.filter((el) => {
+    if (!visible(el)) return false;
+    const stored = domText(el);
+    if (stored === descriptor) return true;
+    const pseudo = pseudoText(el);
+    if (!pseudo.before && !pseudo.after) return false;
+    return `${pseudo.before}${stored}${pseudo.after}`.trim() === descriptor;
+  });
+  const exactDescriptorNodes = descriptorCandidates
     .filter(
       (el) =>
-        visible(el) &&
-        (el.textContent ?? '').trim() === descriptor &&
-        !Array.from(el.children).some(
-          (child) => (child.textContent ?? '').trim() === descriptor,
+        renderedText(el) === descriptor &&
+        !descriptorCandidates.some(
+          (other) =>
+            other !== el && el.contains(other) && renderedText(other) === descriptor,
         ),
     )
     .map(selectorOf);
@@ -178,6 +217,7 @@ test.describe('brand-v2 public identity', () => {
     test.setTimeout(1_800_000);
     const routes = brandV2Registry.routes.public.map(({ path }) => path);
     expect(routes.length).toBeGreaterThan(5);
+    await page.addInitScript(installRenderedTextProbe);
 
     const observations: IdentityRouteObservation[] = [];
     for (const viewport of IDENTITY_VIEWPORTS) {
@@ -205,6 +245,17 @@ test.describe('brand-v2 public identity', () => {
         .map(({ selector, text }) => `${route} @ ${viewport}: ${selector} renders "${text}"`),
     );
     expect(wrongNames).toEqual([]);
+    // A lockup the reader meets as `Robot Wiki` only because a stylesheet
+    // put it there is a compliant render over a non-compliant document.
+    const cssSubstituted = observations.flatMap(({ route, viewport, brandDisplayTexts }) =>
+      brandDisplayTexts
+        .filter(({ text, domText }) => text === PUBLIC_IDENTITY && domText !== PUBLIC_IDENTITY)
+        .map(
+          ({ selector, domText }) =>
+            `${route} @ ${viewport}: ${selector} renders the identity from CSS while the document stores "${domText}"`,
+        ),
+    );
+    expect(cssSubstituted).toEqual([]);
     const unannotated = observations.flatMap(({ route, viewport, brandDisplayTexts }) =>
       brandDisplayTexts
         .filter(({ role }) => !role?.endsWith('wordmark'))
@@ -242,7 +293,22 @@ test.describe('brand-v2 public identity', () => {
       routes,
       viewports: IDENTITY_VIEWPORTS.map(({ id }) => id),
       observations,
+      // The second population behind VAL-B2-ID-004, measured off the shipped
+      // bytes rather than the sources the generator already scans, so the
+      // row reconciles two independent readings and an identifier with no
+      // surviving shipped use cannot report as a preserved technical one.
+      technicalIdentifierWitnesses: deriveTechnicalIdentifierExportWitnesses(
+        join(ROOT, 'out'),
+        TECHNICAL_IDENTIFIERS,
+      ),
     };
+    const emptyWitnesses = artifact.technicalIdentifierWitnesses.filter(
+      ({ fileCount }) => fileCount === 0,
+    );
+    expect(
+      emptyWitnesses.map(({ literal }) => literal),
+      'sealed technical identifiers with no surviving use in the built export',
+    ).toEqual([]);
     const artifactPath = join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
@@ -252,6 +318,82 @@ test.describe('brand-v2 public identity', () => {
       artifact,
       routes,
       fingerprint: artifact.fingerprint,
+      technicalIdentifiers: TECHNICAL_IDENTIFIERS,
     });
+  });
+
+  /**
+   * The plant for the reading this sweep used to do. `text-transform:
+   * lowercase` renders the superseded v1 wordmark while the document still
+   * stores `Robot Wiki`, and no forbidden-spelling scan sees it either:
+   * `robot wiki` carries a space, not the hyphen those patterns look for.
+   * Against `textContent` this page was indistinguishable from a compliant
+   * one.
+   */
+  test('reports a wordmark that CSS rewrites, which the stored text hides', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.addInitScript(installRenderedTextProbe);
+    const response = await page.goto(`${staticBase}/`);
+    expect(response?.status()).toBe(200);
+    await page.evaluate(() => document.fonts.ready);
+
+    const clean = await page.evaluate(collectIdentity, PUBLIC_DESCRIPTOR);
+    expect(clean.brandDisplayTexts.length).toBeGreaterThan(0);
+    expect(
+      [...new Set(clean.brandDisplayTexts.map(({ text }) => text))],
+      'the shipped page renders only the locked identity',
+    ).toEqual([PUBLIC_IDENTITY]);
+
+    await page.addStyleTag({
+      content: '[data-tektur-role$="wordmark"] { text-transform: lowercase; }',
+    });
+    const planted = await page.evaluate(collectIdentity, PUBLIC_DESCRIPTOR);
+    // The plant has to actually change the render, or the case proves nothing.
+    expect(planted.brandDisplayTexts.map(({ text }) => text)).toContain(
+      'robot wiki',
+    );
+    for (const lockup of planted.brandDisplayTexts) {
+      expect(lockup.domText, lockup.selector).toBe(PUBLIC_IDENTITY);
+    }
+    expect(
+      planted.brandDisplayTexts.filter(({ text }) => text !== PUBLIC_IDENTITY),
+      'a stored-text reading would have found nothing wrong here',
+    ).not.toHaveLength(0);
+    // And the residue scans this sweep already had stay silent on it, which
+    // is why the rendered reading is the fix rather than another pattern.
+    expect(planted.technicalIdentifierVisibleMatches).toEqual([]);
+    expect(planted.v1DescriptorMatches).toEqual([]);
+  });
+
+  /**
+   * The other half of the same hole: `::after` renders text the DOM stores
+   * nowhere, so a punctuation variant of the wordmark left every reading
+   * that consulted `textContent` unchanged.
+   */
+  test('reports a wordmark a pseudo-element extends, which the DOM stores nowhere', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.addInitScript(installRenderedTextProbe);
+    const response = await page.goto(`${staticBase}/`);
+    expect(response?.status()).toBe(200);
+    await page.evaluate(() => document.fonts.ready);
+    await page.addStyleTag({
+      content:
+        '[data-tektur-role$="wordmark"]::after { content: " \\2014 the robotics wiki"; }',
+    });
+    const planted = await page.evaluate(collectIdentity, PUBLIC_DESCRIPTOR);
+    const extended = planted.brandDisplayTexts.filter(
+      ({ text }) => text !== PUBLIC_IDENTITY,
+    );
+    expect(extended, 'the pseudo-element text reached the recorded reading').not.toHaveLength(
+      0,
+    );
+    for (const lockup of extended) {
+      expect(lockup.pseudoText.after, lockup.selector).toContain('robotics wiki');
+      expect(lockup.domText, lockup.selector).toBe(PUBLIC_IDENTITY);
+    }
   });
 });

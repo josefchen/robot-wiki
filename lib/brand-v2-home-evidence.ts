@@ -86,10 +86,18 @@ export type HomeHighlightObservation = {
   text: string;
   /**
    * The cue a reader who cannot perceive the lime still gets. `<mark>` is
-   * itself that cue; a bare `<span>` painted lime has none, and the verdict
-   * refuses it rather than counting the colour twice.
+   * itself that cue and an ARIA state is announced; both survive greyscale
+   * and forced colours. A bare `<span>` painted lime has none, and the
+   * verdict refuses it rather than counting the colour twice.
    */
   nonColourCue: string | null;
+  /**
+   * Any `data-brand-highlight` the element carries. Recorded and never
+   * credited: an attribute is addressed to the measurement, not to a reader,
+   * so counting it as the non-colour cue let the annotation stand in for the
+   * thing it was supposed to be evidence of.
+   */
+  annotation: string | null;
   topPx: number;
   bottomPx: number;
 };
@@ -111,6 +119,21 @@ export type HomeSectionObservation = {
   label: string;
   /** The registered `surface/heading/form` signature, or null if absent. */
   signature: string | null;
+  /**
+   * The section's structural form as measured: its painted surface, its
+   * heading treatment, the treatment of the actions it offers, and the shape
+   * of its content. The repetition bound runs over this rather than over
+   * `signature`, because a string the markup writes about itself is not a
+   * measurement of the markup: two sections built from one template could
+   * declare two different signatures and the bound never saw the repeat.
+   */
+  derivedSignature: string;
+  /**
+   * The first three parts of the same reading. `VAL-B2-COMP-016` bounds
+   * adjacent siblings sharing one surface/heading/action signature, and
+   * content form is the part it deliberately lets vary.
+   */
+  derivedSurfaceHeadingAction: string;
   headingTag: string | null;
   headingSizePx: number | null;
 };
@@ -454,7 +477,9 @@ export function homeCompositionVerdicts(
     }
     if (highlight.nonColourCue === null) {
       highlightFailures.push(
-        `the highlight on "${highlight.text}" is carried by colour alone, with no semantic or shape cue beside it`,
+        highlight.annotation
+          ? `the highlight on "${highlight.text}" is carried by colour alone: data-brand-highlight="${highlight.annotation}" is an annotation addressed to this sweep, not a cue a reader meets in greyscale or forced colours`
+          : `the highlight on "${highlight.text}" is carried by colour alone, with no semantic or shape cue beside it`,
       );
     }
   }
@@ -469,23 +494,45 @@ export function homeCompositionVerdicts(
       `${unregistered.length} top-level home section(s) render no registered structural signature, starting with "${unregistered[0]?.label}"`,
     );
   }
-  const run = longestAdjacentRun(signatures);
+  // The bound runs over what the sections measure as, not over what they
+  // say about themselves. Two sections built from one template declaring two
+  // different `data-brand-module-signature` strings used to count as two
+  // forms, which made the bound unenforceable by editing an attribute.
+  const run = longestAdjacentRun(
+    evidence.sections.map(({ derivedSignature }) => derivedSignature),
+  );
   if (run > MAX_ADJACENT_REPEATED_SIGNATURES) {
     structureFailures.push(
-      `${run} adjacent top-level sections share one signature, over the ${MAX_ADJACENT_REPEATED_SIGNATURES} the rubric allows`,
+      `${run} adjacent top-level sections measure one structural form, over the ${MAX_ADJACENT_REPEATED_SIGNATURES} the rubric allows`,
     );
   }
   const surfaceHeadingRun = longestAdjacentRun(
-    signatures.map((signature) =>
-      signature === null
-        ? null
-        : signature.split('/').slice(0, 2).join('/'),
+    evidence.sections.map(
+      ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
     ),
   );
   if (surfaceHeadingRun > MAX_ADJACENT_REPEATED_SIGNATURES) {
     structureFailures.push(
-      `${surfaceHeadingRun} adjacent top-level sections share one surface and heading treatment, over the ${MAX_ADJACENT_REPEATED_SIGNATURES} the rubric allows`,
+      `${surfaceHeadingRun} adjacent top-level sections measure one surface, heading and action treatment, over the ${MAX_ADJACENT_REPEATED_SIGNATURES} the rubric allows`,
     );
+  }
+  // And the annotation has to agree with the measurement, or it is decoration
+  // that other rows read as structure.
+  const authoredByForm = new Map<string, HomeSectionObservation[]>();
+  for (const section of evidence.sections) {
+    const group = authoredByForm.get(section.derivedSignature) ?? [];
+    group.push(section);
+    authoredByForm.set(section.derivedSignature, group);
+  }
+  for (const group of authoredByForm.values()) {
+    const declared = [
+      ...new Set(group.map(({ signature }) => signature ?? '(none)')),
+    ].sort();
+    if (declared.length > 1) {
+      structureFailures.push(
+        `sections "${group.map(({ label }) => label).join('", "')}" measure one structural form yet declare ${declared.length} different data-brand-module-signature values (${declared.join(', ')})`,
+      );
+    }
   }
   const griddedDomainRows = evidence.domainEntries.filter(
     ({ bordered }) => bordered,
@@ -539,11 +586,12 @@ export function homeCompositionVerdicts(
       id: 'anchor:home-lime-highlight',
       observed: {
         inFirstViewport: limeInFirstViewport.map(
-          ({ tag, carriers, text, nonColourCue }) => ({
+          ({ tag, carriers, text, nonColourCue, annotation }) => ({
             tag,
             carriers,
             text,
             nonColourCue,
+            annotation,
           }),
         ),
       },
@@ -553,6 +601,17 @@ export function homeCompositionVerdicts(
       id: 'anchor:home-board-derived-structure',
       observed: {
         signatures,
+        // The measured forms as equivalence-class labels rather than as the
+        // long strings themselves: which sections measure alike is the fact
+        // the bound is about, and it survives an unrelated restyle.
+        derivedForms: formLabels(
+          evidence.sections.map(({ derivedSignature }) => derivedSignature),
+        ),
+        derivedSurfaceHeadingActionForms: formLabels(
+          evidence.sections.map(
+            ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
+          ),
+        ),
         maximumAdjacentRepeatedSignatures: run,
         maximumAdjacentSurfaceHeadingRun: surfaceHeadingRun,
         borderedCardCount: evidence.borderedCardCount,
@@ -566,6 +625,21 @@ export function homeCompositionVerdicts(
       failures: metricFailures,
     },
   ];
+}
+
+/**
+ * Equivalence-class labels for a list of measured forms, in first-seen
+ * order. Two entries share a label exactly when they measured identically.
+ */
+export function formLabels(values: readonly string[]): string[] {
+  const labels = new Map<string, string>();
+  return values.map((value) => {
+    const existing = labels.get(value);
+    if (existing) return existing;
+    const label = `form:${labels.size + 1}`;
+    labels.set(value, label);
+    return label;
+  });
 }
 
 /** Longest run of consecutive equal, non-null values. */

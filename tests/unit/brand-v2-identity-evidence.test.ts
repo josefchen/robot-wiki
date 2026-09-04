@@ -10,6 +10,8 @@ import {
   identityEvidenceFingerprint,
   readIdentityRuntimeEvidence,
   routeVerdicts,
+  sealedTechnicalIdentifiers,
+  technicalIdentifierDestinations,
   type IdentityRuntimeEvidence,
 } from '@/lib/brand-v2-identity-evidence';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
@@ -26,6 +28,7 @@ const REGISTRY = JSON.parse(
 
 const ROUTES = REGISTRY.routes.public.map(({ path }) => path);
 const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
+const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
 
 function fingerprint(): string {
   return identityEvidenceFingerprint({
@@ -59,6 +62,7 @@ describe('identity runtime evidence', () => {
     const evidence = readIdentityRuntimeEvidence({
       artifact: committed(),
       routes: ROUTES,
+      technicalIdentifiers: TECHNICAL_IDENTIFIERS,
       fingerprint: fingerprint(),
     });
     expect(evidence.identity).toBe(PUBLIC_IDENTITY);
@@ -76,6 +80,7 @@ describe('identity runtime evidence', () => {
       readIdentityRuntimeEvidence({
         artifact: committed(),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         // A fixed replacement digit silently stops being a mutation
         // whenever the real fingerprint already ends in it.
         fingerprint: `${current.slice(0, 63)}${current.endsWith('0') ? '1' : '0'}`,
@@ -87,6 +92,7 @@ describe('identity runtime evidence', () => {
           evidence.version = 2 as unknown as 1;
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/version/);
@@ -96,6 +102,7 @@ describe('identity runtime evidence', () => {
           evidence.identity = 'robot-wiki';
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/measured robot-wiki/);
@@ -105,6 +112,7 @@ describe('identity runtime evidence', () => {
           evidence.descriptor = 'Robotics encyclopaedia';
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/descriptor other than the locked one/);
@@ -112,6 +120,7 @@ describe('identity runtime evidence', () => {
       readIdentityRuntimeEvidence({
         artifact: committed(),
         routes: ROUTES.slice(0, ROUTES.length - 1),
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/registered public routes/);
@@ -119,6 +128,7 @@ describe('identity runtime evidence', () => {
       readIdentityRuntimeEvidence({
         artifact: committed(),
         routes: [],
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/population is empty/);
@@ -128,6 +138,7 @@ describe('identity runtime evidence', () => {
           evidence.viewports = [evidence.viewports[0]];
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/both required viewports/);
@@ -137,6 +148,7 @@ describe('identity runtime evidence', () => {
           evidence.observations = evidence.observations.slice(1);
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/missing 1 route\/viewport observations/);
@@ -146,6 +158,7 @@ describe('identity runtime evidence', () => {
           evidence.observations[0].visibleTextLength = 0;
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/empty rendered page/);
@@ -155,6 +168,7 @@ describe('identity runtime evidence', () => {
           evidence.observations[0].brandDisplayTexts = [];
         }),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: current,
       }),
     ).toThrow(/discovered no brand display text/);
@@ -167,6 +181,7 @@ describe('identity runtime evidence', () => {
         artifact.observations[0].brandDisplayTexts[0].role = null;
       }),
       routes: ROUTES,
+      technicalIdentifiers: TECHNICAL_IDENTIFIERS,
       fingerprint: fingerprint(),
     });
     const verdict = routeVerdicts(evidence).get(
@@ -174,6 +189,124 @@ describe('identity runtime evidence', () => {
     );
     expect(verdict?.wrongNames.join(' ')).toContain('robot-wiki');
     expect(verdict?.unannotatedLockups).not.toHaveLength(0);
+  });
+
+  it('names the CSS that rewrote a wordmark, and refuses one CSS supplied', () => {
+    // The input that used to pass: `text-transform: lowercase` renders the
+    // superseded v1 wordmark while the document still stores `Robot Wiki`,
+    // and no forbidden-spelling scan matches `robot wiki` with a space.
+    const transformed = routeVerdicts(
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          const lockup = artifact.observations[0].brandDisplayTexts[0];
+          lockup.text = 'robot wiki';
+          lockup.textTransform = 'lowercase';
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        fingerprint: fingerprint(),
+      }),
+    ).get(committed().observations[0].route);
+    expect(transformed?.wrongNames.join(' ')).toMatch(
+      /renders robot wiki through text-transform: lowercase/,
+    );
+    // And the mirror image: a document that stores something else and lets a
+    // stylesheet paint the locked name over it.
+    const substituted = routeVerdicts(
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          const lockup = artifact.observations[0].brandDisplayTexts[0];
+          lockup.domText = 'robot-wiki';
+          lockup.pseudoText = { before: 'Robot Wiki', after: '' };
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        fingerprint: fingerprint(),
+      }),
+    ).get(committed().observations[0].route);
+    expect(substituted?.wrongNames).toEqual([]);
+    expect(substituted?.cssSubstitutedNames.join(' ')).toMatch(
+      /renders Robot Wiki only through ::before content "Robot Wiki"; the document stores robot-wiki/,
+    );
+  });
+
+  it('refuses a technical identifier with no surviving use in the built export', () => {
+    const current = fingerprint();
+    // The input that used to pass: the row reported source occurrences and
+    // an optional destination list, so zero shipped uses read as compliance.
+    expect(() =>
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          const witness = artifact.technicalIdentifierWitnesses[0];
+          witness.fileCount = 0;
+          witness.fileKinds = [];
+          witness.occurrences = 0;
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        fingerprint: current,
+      }),
+    ).toThrow(/carries no file containing/);
+    expect(() =>
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          artifact.technicalIdentifierWitnesses =
+            artifact.technicalIdentifierWitnesses.slice(1);
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        fingerprint: current,
+      }),
+    ).toThrow(/sealed by VAL-B2-ID-004/);
+    expect(() =>
+      readIdentityRuntimeEvidence({
+        artifact: committed(),
+        routes: ROUTES,
+        technicalIdentifiers: [],
+        fingerprint: current,
+      }),
+    ).toThrow(/identifier population is empty/);
+  });
+
+  it('derives technical destinations from every recorded field, not three named ones', () => {
+    const evidence = readIdentityRuntimeEvidence({
+      artifact: committed(),
+      routes: ROUTES,
+      technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+      fingerprint: fingerprint(),
+    });
+    // A destination that moves to a field the old list did not mention is
+    // still a destination, and is now found rather than silently unwatched.
+    const moved = technicalIdentifierDestinations(
+      'robot-wiki',
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          artifact.observations[0].metadata.ogImageAlt =
+            'https://example.invalid/robot-wiki-moved.png';
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        fingerprint: fingerprint(),
+      }),
+    );
+    expect(moved).toContain('https://example.invalid/robot-wiki-moved.png');
+    // Prose is not a destination: VAL-B2-ID-003 fails it as display text.
+    expect(
+      technicalIdentifierDestinations(
+        'robot-wiki',
+        readIdentityRuntimeEvidence({
+          artifact: mutate((artifact) => {
+            artifact.observations[0].metadata.ogSiteName = 'robot-wiki';
+          }),
+          routes: ROUTES,
+          technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+          fingerprint: fingerprint(),
+        }),
+      ),
+    ).not.toContain('robot-wiki');
+    expect(
+      technicalIdentifierDestinations('robot-wiki.com', evidence).length,
+    ).toBeGreaterThan(0);
   });
 
   it('derives the descriptor surfaces the assertion quantifies over', () => {
@@ -185,6 +318,7 @@ describe('identity runtime evidence', () => {
       readIdentityRuntimeEvidence({
         artifact: committed(),
         routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
         fingerprint: fingerprint(),
       }),
       siteOwnerPath as string,

@@ -257,10 +257,11 @@ describe('home composition evidence', () => {
     expect(
       anchorFailures((evidence) => {
         for (const section of evidence.sections.slice(2)) {
-          section.signature = 'plain/module-heading/prose';
+          section.derivedSignature = 'one measured form';
+          section.derivedSurfaceHeadingAction = 'one measured form';
         }
       }),
-    ).toMatch(/adjacent top-level sections share one signature/);
+    ).toMatch(/adjacent top-level sections measure one structural form/);
     expect(
       anchorFailures((evidence) => {
         for (const entry of evidence.domainEntries) entry.bordered = true;
@@ -271,6 +272,51 @@ describe('home composition evidence', () => {
         evidence.progressMetadataMatches = ['coming soon'];
       }),
     ).toEqual(['anchor:home-no-fabricated-metrics']);
+  });
+
+  it('refuses a highlight whose only cue is the annotation the sweep reads', () => {
+    // The input that used to pass: the collector credited
+    // `data-brand-highlight` as the non-colour cue, so a lime-painted span
+    // carrying it satisfied the anchor while a reader in greyscale or forced
+    // colours met nothing at all where the emphasis was supposed to be.
+    expect(
+      anchorFailures((evidence) => {
+        for (const highlight of evidence.highlights) {
+          highlight.tag = 'span';
+          highlight.nonColourCue = null;
+          highlight.annotation = 'home-premise';
+        }
+      }),
+    ).toMatch(/is an annotation addressed to this sweep/);
+  });
+
+  it('refuses four identical sections that declare four different signatures', () => {
+    // The input that used to pass: the bound ran over the authored
+    // `data-brand-module-signature` strings, so four adjacent sections built
+    // from one template could each declare a different string and the run
+    // measured 1. The bound now runs over what they measure as, and the
+    // annotation has to agree with the measurement.
+    const planted = (evidence: HomeCompositionEvidence): void => {
+      for (const [offset, section] of evidence.sections.slice(2, 6).entries()) {
+        section.derivedSignature = 'one measured form';
+        section.derivedSurfaceHeadingAction = 'one measured form';
+        section.signature = `plain/module-heading/variant-${offset}`;
+      }
+    };
+    const failures = anchorFailures(planted);
+    expect(failures).toMatch(
+      /4 adjacent top-level sections measure one structural form, over the 3/,
+    );
+    expect(failures).toMatch(
+      /measure one structural form yet declare 4 different data-brand-module-signature values/,
+    );
+    // The run over the authored strings, which is what used to decide this,
+    // is still 1 on exactly this input.
+    expect(
+      longestAdjacentRun(
+        mutate(planted).sections.map(({ signature }) => signature),
+      ),
+    ).toBe(1);
   });
 
   it('fails a dropped, renamed, undescribed or invisible domain destination', () => {

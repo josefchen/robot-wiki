@@ -40,6 +40,15 @@ export const SHELL_RUNTIME_EVIDENCE_PATH =
  */
 export const SHELL_VIEWPORT = { id: '1440x900', width: 1440, height: 900 } as const;
 
+/**
+ * The one registered device the current-route mark may be. The rail is a
+ * registered grid device with sealed geometry, so "carries some device id"
+ * is not the claim: any annotation at all satisfied that, including one
+ * naming a device with different registered geometry, and the row still read
+ * as the registered rail.
+ */
+export const ACTIVE_INTERVAL_RAIL_DEVICE_ID = 'device:active-interval-rail';
+
 /** The exact lime and ink the contract seals for the current-route mark. */
 export const SELECTION_LIME_RGB = 'rgb(198, 255, 25)';
 export const INK_RGB = 'rgb(11, 11, 12)';
@@ -316,7 +325,14 @@ export type CurrentRouteVerdict = {
  */
 export function currentRouteVerdicts(
   evidence: ShellRuntimeEvidence,
+  registeredDeviceIds: readonly string[],
 ): Map<string, CurrentRouteVerdict> {
+  if (!registeredDeviceIds.includes(ACTIVE_INTERVAL_RAIL_DEVICE_ID)) {
+    throw new Error(
+      `${ACTIVE_INTERVAL_RAIL_DEVICE_ID} is not in the device registry, so the current-route mark cannot be reconciled against a registered device`,
+    );
+  }
+  const registered = new Set(registeredDeviceIds);
   const destinations = new Set(evidence.expandedLedger.map(({ href }) => href));
   const verdicts = new Map<string, CurrentRouteVerdict>();
   for (const observation of evidence.observations) {
@@ -367,6 +383,14 @@ export function currentRouteVerdicts(
         if (marker.deviceId === null) {
           failures.push(
             `${route} marks the current entry with an unregistered element`,
+          );
+        } else if (!registered.has(marker.deviceId)) {
+          failures.push(
+            `${route} marks the current entry with ${marker.deviceId}, which is not in the device registry`,
+          );
+        } else if (marker.deviceId !== ACTIVE_INTERVAL_RAIL_DEVICE_ID) {
+          failures.push(
+            `${route} marks the current entry with ${marker.deviceId}, not the registered ${ACTIVE_INTERVAL_RAIL_DEVICE_ID}`,
           );
         }
         if (marker.borderLeftColour !== SELECTION_LIME_RGB) {

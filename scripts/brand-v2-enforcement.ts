@@ -18,11 +18,12 @@ import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import {
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   deriveTechnicalIdentifierOccurrences,
-  deriveTechnicalIdentifiers,
   identityEvidenceFingerprint,
   readIdentityRuntimeEvidence,
   routeVerdicts,
+  sealedTechnicalIdentifiers,
   technicalIdentifierDestinations,
+  technicalIdentifierWitness,
 } from '../lib/brand-v2-identity-evidence.ts';
 import {
   IDENTITY_ASSERTION_POPULATION_SOURCES,
@@ -354,9 +355,11 @@ const SITE_METADATA_OWNER_PATH = (() => {
   return site.ownerPath;
 })();
 
+const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
 const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
   artifact: readJson(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH)),
   routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  technicalIdentifiers: TECHNICAL_IDENTIFIERS,
   fingerprint: identityEvidenceFingerprint({
     root: ROOT,
     metadataOwnerPaths: [
@@ -447,14 +450,6 @@ const FIRST_PARTY_VISUAL_ASSETS = new Map(
     }>,
   ).map((asset) => [asset.id, asset]),
 );
-const TECHNICAL_IDENTIFIERS = deriveTechnicalIdentifiers(
-  extractBrandV2Assertions(TOKEN_SOURCES.contract).find(
-    ({ id }) => id === 'VAL-B2-ID-004',
-  )?.requirement ??
-    (() => {
-      throw new Error('VAL-B2-ID-004 has no requirement row to derive from');
-    })(),
-);
 const TECHNICAL_IDENTIFIER_BY_MEMBER = new Map(
   TECHNICAL_IDENTIFIERS.map((literal) => [
     `technical-identifier:${literal}`,
@@ -509,7 +504,10 @@ const SHELL_EVIDENCE = readShellRuntimeEvidence({
     }>,
   }),
 });
-const SHELL_CURRENT_ROUTE_VERDICTS = currentRouteVerdicts(SHELL_EVIDENCE);
+const SHELL_CURRENT_ROUTE_VERDICTS = currentRouteVerdicts(
+  SHELL_EVIDENCE,
+  (REGISTRY.gridDevices as unknown as Array<{ id: string }>).map(({ id }) => id),
+);
 const SHELL_SKIP_LINK_VERDICTS = skipLinkVerdicts(SHELL_EVIDENCE);
 const SHELL_LEDGER_BY_MEMBER = ledgerByBaselineMember(SHELL_EVIDENCE);
 
@@ -1537,7 +1535,11 @@ function identityAssertionEvidence(
     }
     const failures =
       assertionId === 'VAL-B2-ID-001'
-        ? [...verdict.wrongNames, ...verdict.unannotatedLockups]
+        ? [
+            ...verdict.wrongNames,
+            ...verdict.cssSubstitutedNames,
+            ...verdict.unannotatedLockups,
+          ]
         : [...verdict.forbiddenRenders, ...verdict.forbiddenMetadata];
     if (failures.length > 0) {
       throw new Error(
@@ -1626,14 +1628,23 @@ function identityAssertionEvidence(
       literal,
       IDENTITY_EVIDENCE,
     );
+    // Throws on an absent or empty row: the source scan proves the
+    // identifier is written down, and this proves something the product
+    // ships still resolves through it. A row that reported the first
+    // population alone accepted an identifier whose every shipped use had
+    // gone, because zero destinations read as compliance.
+    const witness = technicalIdentifierWitness(literal, IDENTITY_EVIDENCE);
     const files = [...new Set(occurrences.map(({ path }) => path))].sort();
     return {
-      actual: `\`${literal}\` still resolves ${occurrences.length} comment-free use(s) across ${files.length} first-party runtime file(s)${destinations.length > 0 ? ` and ${destinations.length} live export destination(s)` : ''}, and renders nowhere as visible product identity across ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}`,
+      actual: `\`${literal}\` still resolves ${occurrences.length} comment-free use(s) across ${files.length} first-party runtime file(s) and ${witness.occurrences} use(s) across ${witness.fileCount} shipped ${witness.fileKinds.join('/')} file(s) of the built export${destinations.length > 0 ? `, including ${destinations.length} measured destination(s)` : ''}, and renders nowhere as visible product identity across ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}`,
       computed: {
         literal,
         occurrences: occurrences.length,
         files,
         destinations,
+        exportFileCount: witness.fileCount,
+        exportFileKinds: witness.fileKinds,
+        exportOccurrences: witness.occurrences,
         displayMatches,
         evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
       },
