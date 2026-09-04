@@ -13,6 +13,7 @@ import {
   type IdentityRuntimeEvidence,
 } from '@/lib/brand-v2-identity-evidence';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
+import { identityLockupSourcePaths } from '@/lib/identity-populations';
 
 const ROOT = process.cwd();
 
@@ -24,12 +25,7 @@ const REGISTRY = JSON.parse(
 };
 
 const ROUTES = REGISTRY.routes.public.map(({ path }) => path);
-const LOCKUP_SOURCE_PATHS = [
-  'components/nav/site-shell.tsx',
-  'components/nav/site-footer.tsx',
-  'lib/identity.ts',
-  'lib/og-cards.ts',
-];
+const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
 
 function fingerprint(): string {
   return identityEvidenceFingerprint({

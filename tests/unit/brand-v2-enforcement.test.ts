@@ -36,6 +36,7 @@ import {
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
+  identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '@/lib/identity-populations';
 
@@ -63,12 +64,7 @@ function identityPopulations(registry: {
       metadataOwnerPaths: [
         ...new Set(registry.metadata.map(({ ownerPath }) => ownerPath)),
       ],
-      lockupSourcePaths: [
-        'components/nav/site-shell.tsx',
-        'components/nav/site-footer.tsx',
-        'lib/identity.ts',
-        'lib/og-cards.ts',
-      ],
+      lockupSourcePaths: identityLockupSourcePaths(),
     }),
   });
   const requirement = extractBrandV2Assertions(contract).find(

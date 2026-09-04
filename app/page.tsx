@@ -68,7 +68,11 @@ export default function Home() {
                 in mono (design-system 3.5). No text-transform: a rendered
                 casing change would fail the byte comparison in
                 VAL-B2-ID-002 while the source still looked correct. */}
-            <p className="mt-3 max-w-[46ch] font-mono text-xs leading-relaxed tracking-[0.01em] text-text-dim">
+            {/* The measure holds the 53-character descriptor on one line
+                from sm up: wrapping the locked sentence cost the seventh
+                domain link its place in the first viewport
+                (VAL-HOME-001). Below sm it wraps as the column allows. */}
+            <p className="mt-3 max-w-[56ch] font-mono text-xs leading-relaxed tracking-[0.01em] text-text-dim">
               {PUBLIC_DESCRIPTOR}
             </p>
           </div>

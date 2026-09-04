@@ -547,14 +547,20 @@ test.describe('design chrome discipline', () => {
     const em = (m: { size: number; tracking: string }) =>
       parseFloat(m.tracking) / m.size;
     /**
-     * The first family a computed font-family stack actually resolves to.
-     * next/font emits hashed family names ('__Tektur_d2a8951f'), so the
-     * caller matches a substring; what matters is that the check reads the
-     * HEAD of the stack rather than the whole string, which always
-     * contains every fallback and would accept any leading family.
+     * The first family a computed font-family stack actually resolves to,
+     * lowercased. Reading the HEAD matters because the whole computed
+     * string always contains every fallback, so a check over it accepts
+     * any leading family. Lowercasing matters because `next/font/local`
+     * publishes the registered `Tektur Variable` under the runtime family
+     * `tektur`; the proof that the rename still serves the registered
+     * binary lives in tests/e2e/brand-v2-tektur-font-delivery.spec.ts,
+     * which hashes the payload the browser fetched.
      */
     const firstFamily = (stack: string) =>
-      (stack.split(',')[0] ?? '').trim().replace(/^["']|["']$/g, '');
+      (stack.split(',')[0] ?? '')
+        .trim()
+        .replace(/^["']|["']$/g, '')
+        .toLowerCase();
 
     // Home wordmark: 48px/48px below sm, 60px/60px from sm, weight 600,
     // tracking -0.035em; descriptor 12px mono, sentence case. The family
@@ -568,7 +574,7 @@ test.describe('design chrome discipline', () => {
     expect(homeH1Mobile.size).toBeCloseTo(48, 5);
     expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
     expect(homeH1Mobile.weight).toBe('600');
-    expect(firstFamily(homeH1Mobile.family)).toContain('Tektur');
+    expect(firstFamily(homeH1Mobile.family)).toBe('tektur');
     expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
     const heroDescriptor = await metricsOf(
       'main [aria-label="Introduction"] p.font-mono',
@@ -577,13 +583,13 @@ test.describe('design chrome discipline', () => {
     // Sentence case is load-bearing: an uppercase transform would render a
     // descriptor that no longer equals the locked string (VAL-B2-ID-002).
     expect(heroDescriptor.transform).toBe('none');
-    expect(firstFamily(heroDescriptor.family)).toContain('IBM_Plex_Mono');
+    expect(firstFamily(heroDescriptor.family)).toBe('ibm plex mono');
     expect(heroDescriptor.text).toBe(PUBLIC_DESCRIPTOR.slice(0, 30));
     // Mobile header lockup: 15px Tektur 600 wordmark, no descriptor.
     const mobileHeaderWordmark = await metricsOf('header a');
     expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
     expect(mobileHeaderWordmark.weight).toBe('600');
-    expect(firstFamily(mobileHeaderWordmark.family)).toContain('Tektur');
+    expect(firstFamily(mobileHeaderWordmark.family)).toBe('tektur');
 
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
@@ -595,7 +601,7 @@ test.describe('design chrome discipline', () => {
     const sidebarWordmark = await metricsOf('aside a[href="/"]');
     expect(sidebarWordmark.size).toBeCloseTo(17, 5);
     expect(sidebarWordmark.weight).toBe('600');
-    expect(firstFamily(sidebarWordmark.family)).toContain('Tektur');
+    expect(firstFamily(sidebarWordmark.family)).toBe('tektur');
     expect(sidebarWordmark.text).toBe(PUBLIC_IDENTITY);
 
     // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
@@ -611,11 +617,11 @@ test.describe('design chrome discipline', () => {
     const articleH1Desktop = await metricsOf('article h1');
     expect(articleH1Desktop.size).toBeCloseTo(40, 5);
     expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
-    expect(firstFamily(articleH1Desktop.family)).toContain('Tektur');
+    expect(firstFamily(articleH1Desktop.family)).toBe('tektur');
     expect(articleH1Desktop.weight).toBe('600');
     const proseH2 = await metricsOf('article .prose h2');
     expect(proseH2.size).toBeCloseTo(22, 5);
-    expect(firstFamily(proseH2.family)).toContain('IBM_Plex_Sans');
+    expect(firstFamily(proseH2.family)).toBe('ibm plex sans');
     const proseH3 = await metricsOf('article .prose h3');
     expect(proseH3.size).toBeCloseTo(18, 5);
   });

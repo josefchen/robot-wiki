@@ -9,6 +9,7 @@ import {
   type IdentityRouteObservation,
 } from '../../lib/brand-v2-identity-evidence';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
+import { identityLockupSourcePaths } from '../../lib/identity-populations';
 
 const ROOT = process.cwd();
 
@@ -28,12 +29,7 @@ const METADATA_OWNER_PATHS = [
     ).metadata.map(({ ownerPath }) => ownerPath),
   ),
 ].sort();
-const LOCKUP_SOURCE_PATHS = [
-  'components/nav/site-shell.tsx',
-  'components/nav/site-footer.tsx',
-  'lib/identity.ts',
-  'lib/og-cards.ts',
-];
+const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
 
 /**
  * Runs inside the page. Discovery is structural: it walks every rendered

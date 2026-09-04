@@ -32,6 +32,7 @@ import {
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
+  identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '../lib/identity-populations.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
@@ -245,12 +246,7 @@ const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
         ),
       ),
     ],
-    lockupSourcePaths: [
-      'components/nav/site-shell.tsx',
-      'components/nav/site-footer.tsx',
-      'lib/identity.ts',
-      'lib/og-cards.ts',
-    ],
+    lockupSourcePaths: identityLockupSourcePaths(),
   }),
 });
 const IDENTITY_ROUTE_VERDICTS = routeVerdicts(IDENTITY_EVIDENCE);

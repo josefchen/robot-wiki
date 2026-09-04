@@ -91,6 +91,33 @@ export function identityWordmarkRoles(): IdentityWordmarkRole[] {
   ];
 }
 
+/**
+ * Every tracked file whose bytes can change what an identity lockup
+ * renders, so the sweep's fingerprint covers them.
+ *
+ * Derived from the role registry rather than listed: the home hero and the
+ * shell wordmark are both `definedIn` entries, and a hero edit that the
+ * fingerprint did not cover would leave a green identity row standing over
+ * an artifact measured against different markup.
+ */
+export function identityLockupSourcePaths(): string[] {
+  return [
+    ...new Set([
+      ...identityWordmarkRoles()
+        .filter(({ kind }) => kind === 'web-role')
+        .flatMap(({ definedIn }) => definedIn),
+      IDENTITY_CONSTANTS_SOURCE,
+      ...IDENTITY_METADATA_SOURCES,
+    ]),
+  ].sort();
+}
+
+const IDENTITY_CONSTANTS_SOURCE = 'lib/identity.ts';
+const IDENTITY_METADATA_SOURCES = [
+  'components/nav/site-footer.tsx',
+  'lib/og-cards.ts',
+];
+
 export type FirstPartyVisualAsset = {
   id: string;
   path: string;
