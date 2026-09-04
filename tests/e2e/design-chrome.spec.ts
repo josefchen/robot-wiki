@@ -632,17 +632,31 @@ test.describe('design chrome discipline', () => {
         .replace(/^["']|["']$/g, '')
         .toLowerCase();
 
-    // Home wordmark: 48px/48px below sm, 60px/60px from sm, weight 600,
-    // tracking -0.035em; descriptor 12px mono, sentence case. The family
-    // assertion pins the FIRST resolved family, because a computed
-    // font-family string still contains every fallback and a
-    // `toContain('IBM Plex Sans')` check would pass on a Tektur-led stack
-    // and on a Plex-led one alike.
+    // Home wordmark: the bands VAL-B2-TYPE-006 locks, 52-68px at 375 and
+    // 88-120px at 1440 with a 0.88-0.98 line height, at weight 600 and
+    // tracking -0.035em; descriptor 12px mono, sentence case. Stated as
+    // bands rather than as the two literals the pre-v2 scale shipped,
+    // because the size is fluid between them and the contract measures
+    // the two viewports below. The family assertion pins the FIRST
+    // resolved family, because a computed font-family string still
+    // contains every fallback and a `toContain('IBM Plex Sans')` check
+    // would pass on a Tektur-led stack and on a Plex-led one alike.
+    const inBand = (
+      metrics: { size: number; lineHeight: number },
+      label: string,
+      min: number,
+      max: number,
+    ) => {
+      expect(metrics.size, `${label} size`).toBeGreaterThanOrEqual(min);
+      expect(metrics.size, `${label} size`).toBeLessThanOrEqual(max);
+      const ratio = metrics.lineHeight / metrics.size;
+      expect(ratio, `${label} line height`).toBeGreaterThanOrEqual(0.88);
+      expect(ratio, `${label} line height`).toBeLessThanOrEqual(0.98);
+    };
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const homeH1Mobile = await metricsOf('main h1');
-    expect(homeH1Mobile.size).toBeCloseTo(48, 5);
-    expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
+    inBand(homeH1Mobile, 'home wordmark at 375', 52, 68);
     expect(homeH1Mobile.weight).toBe('600');
     expect(firstFamily(homeH1Mobile.family)).toBe('tektur');
     expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
@@ -664,8 +678,10 @@ test.describe('design chrome discipline', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const homeH1Desktop = await metricsOf('main h1');
-    expect(homeH1Desktop.size).toBeCloseTo(60, 5);
-    expect(homeH1Desktop.lineHeight).toBeCloseTo(60, 5);
+    inBand(homeH1Desktop, 'home wordmark at 1440', 88, 120);
+    expect(homeH1Desktop.weight).toBe('600');
+    expect(firstFamily(homeH1Desktop.family)).toBe('tektur');
+    expect(em(homeH1Desktop)).toBeCloseTo(-0.035, 2);
     // Desktop sidebar lockup: 17px Tektur 600 wordmark, no descriptor
     // (design-system 3.5 makes the shell descriptor optional).
     const sidebarWordmark = await metricsOf('aside a[href="/"]');
