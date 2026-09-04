@@ -33,6 +33,13 @@ const GROUP_NAMES = [
   'Adjacent Domains',
 ];
 
+/** Every link the tree currently marks as the route the reader is on. */
+function currentLinks(): HTMLElement[] {
+  return screen
+    .getAllByRole('link')
+    .filter((el) => el.getAttribute('aria-current') === 'page');
+}
+
 describe('NavTree', () => {
   beforeEach(() => {
     mockPathname = '/';
@@ -140,6 +147,56 @@ describe('NavTree', () => {
       .getAllByRole('link')
       .filter((el) => el.getAttribute('aria-current') === 'page');
     expect(allCurrent).toHaveLength(1);
+  });
+
+  it('reopens the group holding the route a client-side navigation lands on', async () => {
+    const user = userEvent.setup();
+    const target = publishedProbeModules[0];
+    mockPathname = `/${PROBE_DOMAIN}/`;
+    const { rerender } = render(
+      <NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />,
+    );
+    const group = screen.getByRole('button', {
+      name: DOMAIN_META[PROBE_DOMAIN].name,
+    });
+    expect(currentLinks()).toHaveLength(1);
+
+    // The reader collapses the group they are standing in, then follows a
+    // link into the same domain. The tree is never remounted, so the
+    // collapse is still in state when the new route arrives.
+    await user.click(group);
+    expect(group).toHaveAttribute('aria-expanded', 'false');
+    expect(currentLinks()).toHaveLength(0);
+
+    mockPathname = `/${target.domain}/${target.slug}/`;
+    rerender(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
+
+    // A route with a taxonomy entry always shows that entry marked: a stale
+    // collapse must not leave the shell with no current-route mark at all.
+    expect(group).toHaveAttribute('aria-expanded', 'true');
+    const current = currentLinks();
+    expect(current).toHaveLength(1);
+    expect(current[0]).toHaveAccessibleName(target.title);
+  });
+
+  it('keeps the reader arrangement of groups they are not navigating into', async () => {
+    const user = userEvent.setup();
+    const target = publishedProbeModules[0];
+    mockPathname = `/${PROBE_DOMAIN}/`;
+    const { rerender } = render(
+      <NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />,
+    );
+    const other = screen.getByRole('button', { name: 'World Models' });
+    await user.click(other);
+    expect(other).toHaveAttribute('aria-expanded', 'true');
+
+    mockPathname = `/${target.domain}/${target.slug}/`;
+    rerender(<NavTree idPrefix="test" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />);
+
+    // Only the group that now holds the route drops its override; a group
+    // the reader opened to compare against stays open.
+    expect(other).toHaveAttribute('aria-expanded', 'true');
+    expect(currentLinks()).toHaveLength(1);
   });
 
   it('marks standalone entries active on their routes', () => {

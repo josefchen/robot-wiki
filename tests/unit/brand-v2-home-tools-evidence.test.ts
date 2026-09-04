@@ -202,6 +202,105 @@ describe('home tools evidence', () => {
     );
   });
 
+  it('fails a corresponding mount that opens on different state from home', () => {
+    const home = committed().featured;
+    const drifted = mutate((evidence) => {
+      // A sibling nobody has to unlock is a second presentation of the same
+      // instrument: it reseeds itself to a shorter episode, which is a
+      // different starting state and a different reset for the same tool.
+      const sibling = evidence.siblingMounts.find(
+        (mount) => mount.revealedByControls.length === 0,
+      )!;
+      for (const sliders of [sibling.initialSliders, sibling.resetSliders]) {
+        const steps = sliders.find(({ accessibleName }) =>
+          /episode length/i.test(accessibleName),
+        )!;
+        steps.value = 14;
+      }
+      sibling.initialReadout = '48.8%';
+      sibling.resetReadout = '48.8%';
+      sibling.secondResetReadout = '48.8%';
+    });
+    const failing = crossMountVerdicts(accept(drifted)).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(failing).toHaveLength(1);
+    const reported = failing[0].failures.join(' ');
+    expect(reported).toMatch(/opens at 95% per step over 14 steps/);
+    expect(reported).toContain(`where home opens reading ${home.initialReadout}`);
+  });
+
+  it('holds a disclosure-gated seed to the model without forcing home defaults on it', () => {
+    // A commit-to-reveal panel seeds the instrument to the figure its own
+    // prose commits to, so it is exempt from opening on home's defaults.
+    // The exemption is not a hole: the seed still has to print what the
+    // shared model computes from the inputs it was seeded with.
+    const seeded = mutate((evidence) => {
+      const mount = evidence.siblingMounts[0];
+      mount.revealedByControls = ['Read the reasoning'];
+      const steps = mount.initialSliders.find(({ accessibleName }) =>
+        /episode length/i.test(accessibleName),
+      )!;
+      steps.value = 14;
+      mount.initialReadout = '48.8%';
+      mount.resetReadout = '48.8%';
+      mount.secondResetReadout = '48.8%';
+      const resetSteps = mount.resetSliders.find(({ accessibleName }) =>
+        /episode length/i.test(accessibleName),
+      )!;
+      resetSteps.value = 14;
+    });
+    expect(
+      crossMountVerdicts(accept(seeded)).flatMap(({ failures }) => failures),
+    ).toEqual([]);
+    expect(
+      crossMountVerdicts(accept(seeded))[0].observed.initialStateComparedToHome,
+    ).toBe(false);
+
+    const fabricated = mutate((evidence) => {
+      const mount = evidence.siblingMounts[0];
+      mount.revealedByControls = ['Read the reasoning'];
+      mount.initialReadout = '90.0%';
+      mount.resetReadout = '90.0%';
+      mount.secondResetReadout = '90.0%';
+    });
+    const failing = crossMountVerdicts(accept(fabricated)).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(failing).toHaveLength(1);
+    expect(failing[0].failures.join(' ')).toMatch(
+      /opens reading 90.0% where the shared model predicts/,
+    );
+  });
+
+  it('refuses a population where every sibling has been exempted', () => {
+    const allGated = mutate((evidence) => {
+      for (const mount of evidence.siblingMounts) {
+        mount.revealedByControls = ['Read the reasoning'];
+      }
+    });
+    expect(
+      crossMountVerdicts(accept(allGated))
+        .flatMap(({ failures }) => failures)
+        .join(' '),
+    ).toMatch(/no mount is left to compare/);
+  });
+
+  it('checks the readout home opens on against the model too', () => {
+    // Reset follows the planted opening state, so the mount stays
+    // internally consistent and only the model comparison can fail.
+    const fabricated = mutate((evidence) => {
+      evidence.featured.initialReadout = '99.9%';
+      evidence.featured.resetReadout = '99.9%';
+      evidence.featured.secondResetReadout = '99.9%';
+    });
+    expect(
+      featuredInstrumentVerdicts(accept(fabricated))
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual(['anchor:featured-no-fabricated-telemetry']);
+  });
+
   it('fails a preview that stops being bound to the shipped model', () => {
     const evidence = accept(committed());
     const preview = so101Preview();

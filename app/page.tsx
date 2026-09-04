@@ -95,9 +95,21 @@ export default function Home() {
           className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]"
         >
           <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
+            {/* VAL-B2-TYPE-006 / design-system 4.3 lock the home wordmark
+                to 52-68px at 375 and 88-120px at 1440 with a 0.88-0.98
+                line height. The two clamps hold each band whole rather
+                than interpolating between the two widths the contract
+                measures: below xl the ramp cannot leave 56-68px, and from
+                xl it cannot leave 88-104px, so every width in between
+                lands inside a stated band rather than in the gap.
+                The band switches at xl rather than lg because the sidebar
+                narrows the hero column to 416px at 1024, where the 88px
+                floor sets 420px of Tektur and the identity would break in
+                half; xl is the first breakpoint that fits it on one
+                line. */}
             <h1
               data-tektur-role="home-wordmark"
-              className="font-display-home text-5xl leading-none tracking-[-0.035em] text-text sm:text-6xl"
+              className="font-display-home text-[length:clamp(3.5rem,6.4vw,4.25rem)] leading-[0.92] tracking-[-0.035em] text-text xl:text-[length:clamp(5.5rem,6.4vw,6.5rem)]"
             >
               {PUBLIC_IDENTITY}
             </h1>

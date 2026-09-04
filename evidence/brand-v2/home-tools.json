@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ec1105077df8c71924e52f39834ee1fc3bfd8e97b79ee3b9be8f5a891f14efec",
+  "fingerprint": "5802281ab0272111e2a6743aca2461ed87d86bd3316525cb6f160358eafafcf3",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -72,7 +72,7 @@
     "revealedByControls": [],
     "claimText": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
     "currentStateText": "PER-STEP SUCCESS 95.0%",
-    "graphicTopPx": 1138.25,
+    "graphicTopPx": 1163.03,
     "graphicHeightPx": 379.44,
     "describedByText": "At 95.0 percent per-step success, episode success is 21.5% at 30 steps and 0.6% at the 100-step end of the plotted range, crossing 50 percent at 14 steps as the per-step odds compound over the episode length."
   },

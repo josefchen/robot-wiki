@@ -127,6 +127,24 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
   // (deep links land with context), and user toggles are stored
   // as overrides on top. No effect sync needed on client-side navigation.
   const [overrides, setOverrides] = useState<Record<string, boolean>>({});
+  const [overridePath, setOverridePath] = useState(activePath);
+
+  // A collapse survives client-side navigation, except on the group that
+  // holds the route just landed on: a stale collapse there would unmount
+  // the entry carrying aria-current, leaving the whole shell with no mark
+  // of where the reader is. Overrides on other groups are the reader's
+  // arrangement of the taxonomy and are left alone.
+  if (overridePath !== activePath) {
+    setOverridePath(activePath);
+    if (activeDomain !== null && activeDomain in overrides) {
+      setOverrides((prev) => {
+        const next = { ...prev };
+        delete next[activeDomain];
+        return next;
+      });
+    }
+  }
+
   const isExpanded = (domain: string) =>
     overrides[domain] ?? domain === activeDomain;
 

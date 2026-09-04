@@ -21,6 +21,17 @@ const DRAWER_TAB_STOPS =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /**
+ * The width at which the shell hands the taxonomy from the drawer to the
+ * persistent sidebar: Tailwind's `lg`, the same breakpoint the `lg:hidden`
+ * header and drawer and the `lg:block` sidebar switch on, written as a
+ * media query because a resize past it has to be observable in script.
+ * Above it the drawer stops painting, so an open drawer left in state
+ * would hold every region inert and the body scroll locked behind a dialog
+ * that is no longer on screen to be closed.
+ */
+const DESKTOP_SHELL_QUERY = '(min-width: 64rem)';
+
+/**
  * The application shell: persistent desktop sidebar, mobile top bar with a
  * hamburger-driven drawer, and the <main> content region.
  *
@@ -37,9 +48,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const drawerPanelRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
   // Set when the drawer closes via Escape, the close control, or the scrim:
   // focus returns to the trigger. Navigation closes leave focus alone.
   const restoreFocus = useRef(false);
+  // Set when the drawer closes because the viewport reached desktop width,
+  // where focus has to go to the sidebar rather than back to the trigger.
+  const handedToSidebar = useRef(false);
 
   // While open: move focus into the drawer, trap Tab, listen for Escape,
   // lock scroll.
@@ -79,10 +94,40 @@ export function SiteShell({ children }: { children: ReactNode }) {
     };
   }, [drawerOpen]);
 
+  // The drawer is the taxonomy only below lg. Reaching desktop width with
+  // it open has to close it: the dialog stops painting there, and leaving
+  // the state set would keep the visible shell inert and scroll-locked with
+  // nothing on screen to dismiss. Scroll position is untouched, so the
+  // reader stays where they were reading.
+  useEffect(() => {
+    if (!drawerOpen || typeof window.matchMedia !== 'function') return;
+    const query = window.matchMedia(DESKTOP_SHELL_QUERY);
+    function handOffToSidebar() {
+      if (!query.matches) return;
+      handedToSidebar.current = true;
+      setDrawerOpen(false);
+    }
+    handOffToSidebar();
+    query.addEventListener('change', handOffToSidebar);
+    return () => query.removeEventListener('change', handOffToSidebar);
+  }, [drawerOpen]);
+
   // Restore focus only after the state flush removes `inert` from the
   // header; focusing an element inside an inert subtree is a no-op.
   useEffect(() => {
-    if (drawerOpen || !restoreFocus.current) return;
+    if (drawerOpen) return;
+    if (handedToSidebar.current) {
+      handedToSidebar.current = false;
+      restoreFocus.current = false;
+      // The trigger this drawer came from lives in the `lg:hidden` header,
+      // so returning focus there would park it on a control the reader can
+      // no longer see. The sidebar carries the same taxonomy at this width.
+      const sidebarStop =
+        sidebarRef.current?.querySelector<HTMLElement>(DRAWER_TAB_STOPS);
+      (sidebarStop ?? document.getElementById('main-content'))?.focus();
+      return;
+    }
+    if (!restoreFocus.current) return;
     restoreFocus.current = false;
     menuButtonRef.current?.focus();
   }, [drawerOpen]);
@@ -126,6 +171,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
         {/* Desktop sidebar: sticky, full-height, independently scrollable. */}
         <aside
+          ref={sidebarRef}
           id="sidebar-rail"
           inert={drawerOpen}
           data-pagefind-ignore

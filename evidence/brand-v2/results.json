@@ -25778,7 +25778,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The home hero contains one dominant `Robot Wiki` h1 and one exact descriptor; duplicate hero lockups are prohibited.",
-      "actual": "the home hero renders exactly 1 lockup, printing `Robot Wiki` in tektur at 60px on 1 line(s) beside the one exact descriptor `Citation-first encyclopedia of modern robot learning.`",
+      "actual": "the home hero renders exactly 1 lockup, printing `Robot Wiki` in tektur at 92.16px on 1 line(s) beside the one exact descriptor `Citation-first encyclopedia of modern robot learning.`",
       "selectorOrRegistryId": "evidence/brand-v2/home-composition.json#heroLockups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25791,7 +25791,7 @@
           "lockupIndex": 0,
           "lockupText": "Robot Wiki",
           "lockupFamilyHead": "tektur",
-          "lockupFontSizePx": 60,
+          "lockupFontSizePx": 92.16,
           "lockupRenderedLines": 1,
           "descriptorText": "Citation-first encyclopedia of modern robot learning.",
           "descriptorFamilyHead": "IBM Plex Mono",
@@ -47372,7 +47372,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-dominant-hero holds on the built home page at 1440x900: {\"lockups\":1,\"fontSizePx\":60,\"largestSupportingHeadingPx\":24,\"hierarchyRatio\":2.5,\"renderedLines\":1}",
+      "actual": "anchor:home-dominant-hero holds on the built home page at 1440x900: {\"lockups\":1,\"fontSizePx\":92.16,\"largestSupportingHeadingPx\":24,\"hierarchyRatio\":3.84,\"renderedLines\":1}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -47383,9 +47383,9 @@
           "viewport": "1440x900",
           "anchor": "anchor:home-dominant-hero",
           "lockups": 1,
-          "fontSizePx": 60,
+          "fontSizePx": 92.16,
           "largestSupportingHeadingPx": 24,
-          "hierarchyRatio": 2.5,
+          "hierarchyRatio": 3.84,
           "renderedLines": 1,
           "evidence": [
             "evidence/brand-v2/home-composition.json"
@@ -47577,7 +47577,7 @@
           "entriesRendered": 1,
           "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
           "rowHeightPx": 43.5,
-          "rowBottomPx": 590.75,
+          "rowBottomPx": 615.53,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47610,7 +47610,7 @@
           "entriesRendered": 1,
           "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
           "rowHeightPx": 43.5,
-          "rowBottomPx": 634.25,
+          "rowBottomPx": 659.03,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47643,7 +47643,7 @@
           "entriesRendered": 1,
           "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
           "rowHeightPx": 43.5,
-          "rowBottomPx": 677.75,
+          "rowBottomPx": 702.53,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47676,7 +47676,7 @@
           "entriesRendered": 1,
           "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
           "rowHeightPx": 61.5,
-          "rowBottomPx": 739.25,
+          "rowBottomPx": 764.03,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47709,7 +47709,7 @@
           "entriesRendered": 1,
           "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
           "rowHeightPx": 43.5,
-          "rowBottomPx": 782.75,
+          "rowBottomPx": 807.53,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47742,7 +47742,7 @@
           "entriesRendered": 1,
           "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
           "rowHeightPx": 43.5,
-          "rowBottomPx": 826.25,
+          "rowBottomPx": 851.03,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [
@@ -47775,7 +47775,7 @@
           "entriesRendered": 1,
           "description": "Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics.",
           "rowHeightPx": 42.5,
-          "rowBottomPx": 868.75,
+          "rowBottomPx": 893.53,
           "borderedCard": false,
           "canonicalDestinations": 7,
           "evidence": [

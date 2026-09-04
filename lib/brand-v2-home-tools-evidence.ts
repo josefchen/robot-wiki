@@ -75,6 +75,18 @@ export function expectedEpisodeSuccessPercent(
   return (perStepPercent / 100) ** steps * 100;
 }
 
+/**
+ * The same prediction in the form the instrument prints it, so a recorded
+ * readout can be compared against the model rather than against another
+ * recorded readout.
+ */
+export function expectedEpisodeSuccessReadout(inputs: {
+  perStepPercent: number;
+  steps: number;
+}): string {
+  return `${expectedEpisodeSuccessPercent(inputs.perStepPercent, inputs.steps).toFixed(1)}%`;
+}
+
 export type SliderObservation = {
   accessibleName: string;
   value: number;
@@ -485,6 +497,21 @@ export function featuredInstrumentVerdicts(
       `at ${CROSS_MOUNT_INPUT.perStepPercent}% per step over ${CROSS_MOUNT_INPUT.steps} steps the mount printed ${drivenPercent}%, not the compounded ${expectedPercent.toFixed(1)}%`,
     );
   }
+  // The readout the reader meets before touching anything is telemetry too,
+  // and it is the value every corresponding mount is held to, so it is
+  // checked against the model rather than trusted as the reference.
+  const homeSeed = seededInputs(featured.initialSliders);
+  if (homeSeed === null) {
+    telemetryFailures.push(
+      'the featured mount exposes no identifiable per-step and episode-length controls, so its opening readout cannot be checked against the model',
+    );
+  } else if (
+    featured.initialReadout !== expectedEpisodeSuccessReadout(homeSeed)
+  ) {
+    telemetryFailures.push(
+      `the featured mount opens reading ${featured.initialReadout}, not the ${expectedEpisodeSuccessReadout(homeSeed)} its own ${homeSeed.perStepPercent}% per step over ${homeSeed.steps} steps compounds to`,
+    );
+  }
 
   return [
     {
@@ -554,10 +581,33 @@ export function featuredInstrumentVerdicts(
       observed: {
         driven: featured.drivenReadout,
         expectedPercent: Number(expectedPercent.toFixed(4)),
+        initial: featured.initialReadout,
+        expectedInitial:
+          homeSeed === null ? null : expectedEpisodeSuccessReadout(homeSeed),
       },
       failures: telemetryFailures,
     },
   ];
+}
+
+/**
+ * The two controls every mount of the featured instrument exposes, located
+ * by accessible name rather than by position so a mount that grew a third
+ * control is still read correctly. Returns null when either control cannot
+ * be identified, which the caller turns into a failure: an instrument whose
+ * inputs cannot be named is one whose state cannot be compared.
+ */
+function seededInputs(
+  sliders: readonly SliderObservation[],
+): { perStepPercent: number; steps: number } | null {
+  const perStep = sliders.find(({ accessibleName }) =>
+    /per-step/i.test(accessibleName),
+  );
+  const steps = sliders.find(({ accessibleName }) =>
+    /episode length/i.test(accessibleName),
+  );
+  if (!perStep || !steps) return null;
+  return { perStepPercent: perStep.value, steps: steps.value };
 }
 
 /**
@@ -568,11 +618,62 @@ export function featuredInstrumentVerdicts(
  * made. Parity is asserted on the readout for equal slider values, not on
  * equal key presses: the mounts declare different ranges, and equal presses
  * on different ranges are not the same input.
+ *
+ * Identical behaviour covers the state a reader arrives at, not only the
+ * state they can drive the instrument to, so a corresponding mount must
+ * also open on home's initial inputs and readout. A mount the sweep had to
+ * unlock through a disclosure is the exception: a commit-to-reveal panel
+ * seeds the instrument to the figure its own prose commits to, and forcing
+ * home's defaults on it would make the article's answer text false. That
+ * exemption is not a hole, because such a mount still has to print what the
+ * shared model predicts from the inputs it was seeded with, which is what
+ * separates a documented seed from an instrument that computes something
+ * else. It also cannot swallow the assertion: at least one sibling must
+ * remain comparable, or there is nothing left for parity to mean.
  */
 export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
   const home = evidence.featured;
+  const homeInputs = seededInputs(home.initialSliders);
+  const comparable = evidence.siblingMounts.filter(
+    (mount) => mount.revealedByControls.length === 0,
+  );
   return evidence.siblingMounts.map((mount) => {
     const failures: string[] = [];
+    const disclosureGated = mount.revealedByControls.length > 0;
+    const mountInputs = seededInputs(mount.initialSliders);
+    if (comparable.length === 0) {
+      failures.push(
+        'every sibling mount of the featured instrument is behind a disclosure, so no mount is left to compare home\u2019s initial state against',
+      );
+    }
+    if (mountInputs === null) {
+      failures.push(
+        `${mount.mountId} exposes no identifiable per-step and episode-length controls, so its initial state cannot be compared`,
+      );
+    } else if (mount.initialReadout !== expectedEpisodeSuccessReadout(mountInputs)) {
+      failures.push(
+        `${mount.mountId} opens reading ${mount.initialReadout} where the shared model predicts ${expectedEpisodeSuccessReadout(mountInputs)} for its own ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps`,
+      );
+    }
+    if (!disclosureGated && mountInputs !== null) {
+      if (homeInputs === null) {
+        failures.push(
+          'home exposes no identifiable per-step and episode-length controls, so no mount can be compared against it',
+        );
+      } else if (
+        mountInputs.perStepPercent !== homeInputs.perStepPercent ||
+        mountInputs.steps !== homeInputs.steps
+      ) {
+        failures.push(
+          `${mount.mountId} opens at ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps where home opens at ${homeInputs.perStepPercent}% over ${homeInputs.steps}`,
+        );
+      }
+      if (mount.initialReadout !== home.initialReadout) {
+        failures.push(
+          `${mount.mountId} opens reading ${mount.initialReadout} where home opens reading ${home.initialReadout}`,
+        );
+      }
+    }
     if (mount.drivenReadout !== home.drivenReadout) {
       failures.push(
         `at ${CROSS_MOUNT_INPUT.perStepPercent}% per step over ${CROSS_MOUNT_INPUT.steps} steps ${mount.mountId} reads ${mount.drivenReadout} where home reads ${home.drivenReadout}`,
@@ -613,6 +714,16 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
         driven: mount.drivenReadout,
         homeDriven: home.drivenReadout,
         initial: mount.initialReadout,
+        homeInitial: home.initialReadout,
+        modelPredictedInitial:
+          mountInputs === null
+            ? null
+            : expectedEpisodeSuccessReadout(mountInputs),
+        // Recorded on the verdict rather than inferred by a reader of the
+        // artifact: a mount exempted from initial-state parity has to name
+        // the disclosure that exempted it.
+        initialStateComparedToHome: !disclosureGated,
+        revealedByControls: mount.revealedByControls,
         reset: mount.resetReadout,
       },
       failures,

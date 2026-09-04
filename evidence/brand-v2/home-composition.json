@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5b4c097f48dca17b7f5f711ebe419e37be313ccfcfe5fc5cdab003f1c4f65276",
+  "fingerprint": "68e1ea498b2de4704d140e02d79b899aa04e63728f85a355f1605e2e87cfdbaf",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 4018,
@@ -11,12 +11,12 @@
       "index": 0,
       "text": "Robot Wiki",
       "fontFamilyHead": "tektur",
-      "fontSizePx": 60,
-      "lineHeightPx": 60,
-      "heightPx": 60,
+      "fontSizePx": 92.16,
+      "lineHeightPx": 84.79,
+      "heightPx": 84.78,
       "renderedLines": 1,
       "topPx": 73,
-      "bottomPx": 133,
+      "bottomPx": 157.78,
       "descriptorText": "Citation-first encyclopedia of modern robot learning.",
       "descriptorFontFamilyHead": "IBM Plex Mono"
     }
@@ -29,8 +29,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgb(11, 11, 12)",
       "colour": "rgb(255, 255, 255)",
-      "topPx": 403.25,
-      "bottomPx": 441.25
+      "topPx": 428.03,
+      "bottomPx": 466.03
     },
     {
       "controlId": "control:link-focus",
@@ -38,8 +38,8 @@
       "href": "#how-to-read",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 403.25,
-      "bottomPx": 441.25
+      "topPx": 428.03,
+      "bottomPx": 466.03
     },
     {
       "controlId": "control:link-focus",
@@ -47,8 +47,8 @@
       "href": "/manipulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 557.25,
-      "bottomPx": 579.75
+      "topPx": 582.03,
+      "bottomPx": 604.53
     },
     {
       "controlId": "control:link-focus",
@@ -56,8 +56,8 @@
       "href": "/rl-sim2real/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 600.75,
-      "bottomPx": 623.25
+      "topPx": 625.53,
+      "bottomPx": 648.03
     },
     {
       "controlId": "control:link-focus",
@@ -65,8 +65,8 @@
       "href": "/world-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 644.25,
-      "bottomPx": 666.75
+      "topPx": 669.03,
+      "bottomPx": 691.53
     },
     {
       "controlId": "control:link-focus",
@@ -74,8 +74,8 @@
       "href": "/data-hardware/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 687.75,
-      "bottomPx": 710.25
+      "topPx": 712.53,
+      "bottomPx": 735.03
     },
     {
       "controlId": "control:link-focus",
@@ -83,8 +83,8 @@
       "href": "/classical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 749.25,
-      "bottomPx": 771.75
+      "topPx": 774.03,
+      "bottomPx": 796.53
     },
     {
       "controlId": "control:link-focus",
@@ -92,8 +92,8 @@
       "href": "/frontier/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 792.75,
-      "bottomPx": 815.25
+      "topPx": 817.53,
+      "bottomPx": 840.03
     },
     {
       "controlId": "control:link-focus",
@@ -101,8 +101,8 @@
       "href": "/adjacent/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 836.25,
-      "bottomPx": 858.75
+      "topPx": 861.03,
+      "bottomPx": 883.53
     },
     {
       "controlId": "control:link-focus",
@@ -110,8 +110,8 @@
       "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 838.25,
-      "bottomPx": 856.25
+      "topPx": 863.03,
+      "bottomPx": 881.03
     },
     {
       "controlId": "control:link-focus",
@@ -119,8 +119,8 @@
       "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 838.25,
-      "bottomPx": 856.25
+      "topPx": 863.03,
+      "bottomPx": 881.03
     },
     {
       "controlId": "control:link-focus",
@@ -128,8 +128,8 @@
       "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 838.25,
-      "bottomPx": 856.25
+      "topPx": 863.03,
+      "bottomPx": 881.03
     },
     {
       "controlId": "control:link-focus",
@@ -137,8 +137,8 @@
       "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 838.25,
-      "bottomPx": 856.25
+      "topPx": 863.03,
+      "bottomPx": 881.03
     },
     {
       "controlId": "control:link-focus",
@@ -146,8 +146,8 @@
       "href": "/frontier/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 1011.75,
-      "bottomPx": 1031.75
+      "topPx": 1036.53,
+      "bottomPx": 1056.53
     },
     {
       "controlId": "control:secondary-action",
@@ -155,8 +155,8 @@
       "href": null,
       "backgroundColour": "color(srgb 0.973176 0.973882 0.974588)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 1094.25,
-      "bottomPx": 1122.25
+      "topPx": 1119.03,
+      "bottomPx": 1147.03
     },
     {
       "controlId": "control:link-focus",
@@ -164,8 +164,8 @@
       "href": "/credits/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 1781.19,
-      "bottomPx": 1801.19
+      "topPx": 1805.97,
+      "bottomPx": 1825.97
     },
     {
       "controlId": "control:link-focus",
@@ -173,8 +173,8 @@
       "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2303.52,
-      "bottomPx": 2317.52
+      "topPx": 2328.3,
+      "bottomPx": 2342.3
     },
     {
       "controlId": "control:link-focus",
@@ -182,8 +182,8 @@
       "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 45, 51)",
-      "topPx": 2303.52,
-      "bottomPx": 2317.52
+      "topPx": 2328.3,
+      "bottomPx": 2342.3
     },
     {
       "controlId": "control:link-focus",
@@ -191,8 +191,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2742.39,
-      "bottomPx": 2760.39
+      "topPx": 2767.17,
+      "bottomPx": 2785.17
     },
     {
       "controlId": "control:link-focus",
@@ -200,8 +200,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(11, 11, 12)",
-      "topPx": 2617.39,
-      "bottomPx": 2635.39
+      "topPx": 2642.17,
+      "bottomPx": 2660.17
     },
     {
       "controlId": "control:link-focus",
@@ -209,8 +209,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 3001.39,
-      "bottomPx": 3021.39
+      "topPx": 3026.17,
+      "bottomPx": 3046.17
     },
     {
       "controlId": "control:link-focus",
@@ -218,8 +218,8 @@
       "href": "/glossary/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(36, 95, 255)",
-      "topPx": 3147.39,
-      "bottomPx": 3167.39
+      "topPx": 3172.17,
+      "bottomPx": 3192.17
     }
   ],
   "highlights": [
@@ -230,8 +230,8 @@
       ],
       "text": "cited to a primary source",
       "nonColourCue": "mark-element",
-      "topPx": 330,
-      "bottomPx": 352
+      "topPx": 354.78,
+      "bottomPx": 376.78
     }
   ],
   "domainEntries": [
@@ -239,8 +239,8 @@
       "name": "Manipulation & Learned Policies",
       "href": "/manipulation/",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
-      "topPx": 547.25,
-      "bottomPx": 590.75,
+      "topPx": 572.03,
+      "bottomPx": 615.53,
       "heightPx": 43.5,
       "bordered": false
     },
@@ -248,8 +248,8 @@
       "name": "RL, Sim-to-Real & Locomotion",
       "href": "/rl-sim2real/",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
-      "topPx": 590.75,
-      "bottomPx": 634.25,
+      "topPx": 615.53,
+      "bottomPx": 659.03,
       "heightPx": 43.5,
       "bordered": false
     },
@@ -257,8 +257,8 @@
       "name": "World Models",
       "href": "/world-models/",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
-      "topPx": 634.25,
-      "bottomPx": 677.75,
+      "topPx": 659.03,
+      "bottomPx": 702.53,
       "heightPx": 43.5,
       "bordered": false
     },
@@ -266,8 +266,8 @@
       "name": "Data, Hardware & Evaluation",
       "href": "/data-hardware/",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
-      "topPx": 677.75,
-      "bottomPx": 739.25,
+      "topPx": 702.53,
+      "bottomPx": 764.03,
       "heightPx": 61.5,
       "bordered": false
     },
@@ -275,8 +275,8 @@
       "name": "Classical Foundations",
       "href": "/classical/",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
-      "topPx": 739.25,
-      "bottomPx": 782.75,
+      "topPx": 764.03,
+      "bottomPx": 807.53,
       "heightPx": 43.5,
       "bordered": false
     },
@@ -284,8 +284,8 @@
       "name": "Frontier & Open Problems",
       "href": "/frontier/",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
-      "topPx": 782.75,
-      "bottomPx": 826.25,
+      "topPx": 807.53,
+      "bottomPx": 851.03,
       "heightPx": 43.5,
       "bordered": false
     },
@@ -293,8 +293,8 @@
       "name": "frontier essays",
       "href": "/frontier/",
       "description": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
-      "topPx": 956.75,
-      "bottomPx": 1034.75,
+      "topPx": 981.53,
+      "bottomPx": 1059.53,
       "heightPx": 78,
       "bordered": false
     },
@@ -302,8 +302,8 @@
       "name": "Adjacent Domains",
       "href": "/adjacent/",
       "description": "Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics.",
-      "topPx": 826.25,
-      "bottomPx": 868.75,
+      "topPx": 851.03,
+      "bottomPx": 893.53,
       "heightPx": 42.5,
       "bordered": false
     }
@@ -314,7 +314,7 @@
       "label": "Introduction",
       "signature": "sheet/display-lockup/primary-action",
       "headingTag": "h1",
-      "headingSizePx": 60
+      "headingSizePx": 92.16
     },
     {
       "index": 1,
