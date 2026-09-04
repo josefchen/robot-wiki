@@ -115,6 +115,35 @@
         "VAL-B2-ID-004"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-home-link-accessible-name",
+      "manifest": "accessible-names",
+      "memberId": "nav:/",
+      "oldHash": "4c9befe85275ec1de40d180b207ca9aeaaf48da67b0a855c4dff5e9832103125",
+      "newHash": "b935bfed6b7290f87863f5448787f57e2b68dd9f36b0a4969397721a1fa39d18",
+      "reason": "The home link's accessible name is the public identity, so it reads Robot Wiki; the href, the link order, and the other 59 sidebar names are the same.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001",
+        "VAL-A11Y-014"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-home-link-navigation-entry",
+      "manifest": "navigation",
+      "memberId": "nav:/",
+      "oldHash": "bdfa60a0279de4a05bbbe75df5f75cadad4b8bb9f52cffb6bba5cfb00969dfa3",
+      "newHash": "ada1989d2c6a22148e542229c0522a240616b9266a3165b84254a085ec2b19a9",
+      "reason": "Same home link seen through the navigation manifest: the label is now the public identity Robot Wiki while the destination and sidebar structure are untouched.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

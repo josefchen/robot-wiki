@@ -14,8 +14,8 @@
     {
       "suite": "brand-v2 OG authority",
       "assertionId": "VAL-B2-ID-009",
-      "expected": "Robot Wiki social identity",
-      "actual": "robot-wiki social identity",
+      "expected": "Robot Wiki card artwork",
+      "actual": "robot-wiki card artwork drawn by lib/og-card-artwork.ts",
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {
@@ -28,14 +28,6 @@
         "/manipulation/cross-embodiment/",
         "/rl-sim2real/reward-design-mpc/"
       ],
-      "rolloutMilestone": "brand-v2-social-convergence"
-    },
-    {
-      "suite": "brand-v2 27-row deep executor",
-      "assertionId": "VAL-B2-EVID-010",
-      "expected": "all 27 sealed rows reach every required v2 state and capture",
-      "actual": "v1 routes lack some v2-only state anchors and visual treatments",
-      "failedAnchors": [],
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {

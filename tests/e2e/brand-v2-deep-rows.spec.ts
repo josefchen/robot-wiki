@@ -4,7 +4,6 @@ import {
   validateDeepRows,
 } from '../../lib/brand-v2-runners';
 import {
-  archivedExpectedRed,
   archivedExpectedRedAnchors,
   expect,
   test,
@@ -335,12 +334,7 @@ test.describe('brand-v2 27-row deep executor', () => {
     expect(
       [...actionFailures].sort(),
       actionFailureDetails.join('\n'),
-    ).toEqual(
-      archivedExpectedRedAnchors(
-        'brand-v2 27-row deep executor',
-        'VAL-B2-EVID-010',
-      ),
-    );
+    ).toEqual([]);
   });
 
   test('archives only the still-unreachable v2 visual claim', async ({
@@ -348,13 +342,6 @@ test.describe('brand-v2 27-row deep executor', () => {
     staticBase,
   }) => {
     test.setTimeout(600_000);
-    test.fail(
-      true,
-      archivedExpectedRed(
-        'brand-v2 27-row deep executor',
-        'VAL-B2-EVID-010',
-      ),
-    );
     const failures: string[] = [];
     for (const row of BRAND_V2_DEEP_ROWS) {
       await page.setViewportSize(row.viewport);
