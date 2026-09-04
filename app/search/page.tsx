@@ -27,11 +27,10 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <div data-pagefind-ignore className="mx-auto w-full max-w-3xl px-6 py-12">
-      {/* aria-current stands in for the nav marker here: the shell exposes
-          /search through a form, not a link, so no nav entry can carry it
-          (the design contract allows exactly one aria-current per route). */}
+      {/* No aria-current: the shell reaches /search through a form, not a
+          nav link, and a route with no corresponding navigation item exposes
+          none rather than moving the state onto a heading to keep a count. */}
       <h1
-        aria-current="page"
         data-tektur-role="page-h1"
         className="font-display-page text-3xl tracking-tight text-text"
       >

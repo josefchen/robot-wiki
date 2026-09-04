@@ -555,6 +555,15 @@ function staticRegistries() {
       ariaBehavior: 'aria-hidden when decorative; owner landmark carries meaning',
     },
     {
+      id: 'device:active-interval-rail',
+      ownerSurface: 'shared-shell',
+      structuralPurpose: 'active-measured-interval',
+      anchorGeometry: { kind: 'edge', allowedEdges: ['left'] },
+      classification: 'structural',
+      ariaBehavior:
+        'aria-hidden; the link\u2019s aria-current="page" carries the state',
+    },
+    {
       id: 'device:section-rule',
       ownerSurface: 'shared-section',
       structuralPurpose: 'section-start-or-apparatus-boundary',

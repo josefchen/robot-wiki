@@ -5480,7 +5480,7 @@
         "statement": "Desktop major composition aligns to 12 columns, tablet to 8, and mobile to 4, with 8px base rhythm and 4px fine alignment.",
         "expected": "Desktop major composition aligns to 12 columns, tablet to 8, and mobile to 4, with 8px base rhythm and 4px fine alignment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5520,7 +5520,7 @@
         "statement": "Home, shell, articles, discovery, market map, playground, and OG/X cards each contain at least one intentional shared grid, rail, or registration treatment.",
         "expected": "Home, shell, articles, discovery, market map, playground, and OG/X cards each contain at least one intentional shared grid, rail, or registration treatment.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5560,7 +5560,7 @@
         "statement": "Grid/device layers never reduce body-text contrast below WCAG AA and never appear between prose glyphs and their background.",
         "expected": "Grid/device layers never reduce body-text contrast below WCAG AA and never appear between prose glyphs and their background.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5600,7 +5600,7 @@
         "statement": "Decorative grid/device layers are `aria-hidden`, pointer-inert, and absent from the accessibility tree.",
         "expected": "Decorative grid/device layers are `aria-hidden`, pointer-inert, and absent from the accessibility tree.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5640,7 +5640,7 @@
         "statement": "Registration crosses, crop marks, axes, ticks, and sequence labels align within 2px of a real column, boundary, baseline, axis, or state anchor.",
         "expected": "Registration crosses, crop marks, axes, ticks, and sequence labels align within 2px of a real column, boundary, baseline, axis, or state anchor.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5680,7 +5680,7 @@
         "statement": "No page contains random unanchored technical glyphs, fabricated coordinates, or decorative data labels.",
         "expected": "No page contains random unanchored technical glyphs, fabricated coordinates, or decorative data labels.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5720,7 +5720,7 @@
         "statement": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
         "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5760,7 +5760,7 @@
         "statement": "Grid lines and neutral rails use concrete by default; focus/registration uses signal; active measured intervals may use lime.",
         "expected": "Grid lines and neutral rails use concrete by default; focus/registration uses signal; active measured intervals may use lime.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5780,6 +5780,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-GRID-009:device:outer-rail",
+          "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-GRID-009:device:active-interval-rail",
           "mechanism": "VAL-B2-GRID-009 per-member status derived from the persisted browser reconciliation over contract/brand-v2-registries.json#gridDevices"
         },
         {
@@ -5825,7 +5830,7 @@
         "statement": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
         "expected": "Every grid, rail, registration, texture, and decorative-device layer carries a stable annotation/registry ID naming owner surface, structural purpose, anchor geometry, decorative/semantic classification, pointer/ARIA behavior, and allowed viewports.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5835,6 +5840,7 @@
       "producedResult": {
         "resultIds": [
           "result:VAL-B2-GRID-009:device:outer-rail",
+          "result:VAL-B2-GRID-009:device:active-interval-rail",
           "result:VAL-B2-GRID-009:device:section-rule",
           "result:VAL-B2-GRID-009:device:registration-cross",
           "result:VAL-B2-GRID-009:device:axis-tick",
@@ -5870,7 +5876,7 @@
         "statement": "Computed rendered casing (`innerText` plus `text-transform`) is audited for every registered label, so CSS case conversion cannot hide identity, notation, or natural-language drift.",
         "expected": "Computed rendered casing (`innerText` plus `text-transform`) is audited for every registered label, so CSS case conversion cannot hide identity, notation, or natural-language drift.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 6,
+        "populationSize": 7,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -9471,20 +9477,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-002",
-          "mechanism": "VAL-B2-SHELL-002 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/adjacent/space/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/control/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/perception/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/credits/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/glossary/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/market-map/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/playground/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/search/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-002:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-SHELL-002 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-shell.spec.ts",
+          "title": "brand-v2 desktop shell and navigation › every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell viewport, collects every element carrying aria-current whatever its tag before reading any annotation, measures the current-route rail against its registered anchor with its colour, width, row height and accessible-name contribution, runs a Tab-then-Enter keyboard trace for the skip link, and hashes the all-expanded taxonomy against the sealed navigation baseline."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-shell-evidence.test.ts",
+          "title": "shell runtime evidence > refuses stale, incomplete, and unmeasured shell evidence",
+          "mechanism": "Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading."
         }
       ],
       "enforcementMode": "browser-state",
@@ -9501,7 +9807,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-002"
+          "result:VAL-B2-SHELL-002:route:/",
+          "result:VAL-B2-SHELL-002:route:/a-z/",
+          "result:VAL-B2-SHELL-002:route:/adjacent/",
+          "result:VAL-B2-SHELL-002:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-SHELL-002:route:/adjacent/drones/",
+          "result:VAL-B2-SHELL-002:route:/adjacent/space/",
+          "result:VAL-B2-SHELL-002:route:/adjacent/surgical/",
+          "result:VAL-B2-SHELL-002:route:/classical/",
+          "result:VAL-B2-SHELL-002:route:/classical/control/",
+          "result:VAL-B2-SHELL-002:route:/classical/grasp-planning/",
+          "result:VAL-B2-SHELL-002:route:/classical/kinematics/",
+          "result:VAL-B2-SHELL-002:route:/classical/motion-planning/",
+          "result:VAL-B2-SHELL-002:route:/classical/perception/",
+          "result:VAL-B2-SHELL-002:route:/classical/scene-representation/",
+          "result:VAL-B2-SHELL-002:route:/classical/state-estimation/",
+          "result:VAL-B2-SHELL-002:route:/credits/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/datasets/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-SHELL-002:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-SHELL-002:route:/frontier/",
+          "result:VAL-B2-SHELL-002:route:/frontier/bear-case/",
+          "result:VAL-B2-SHELL-002:route:/frontier/competing-theses/",
+          "result:VAL-B2-SHELL-002:route:/frontier/dexterity/",
+          "result:VAL-B2-SHELL-002:route:/frontier/generalization/",
+          "result:VAL-B2-SHELL-002:route:/frontier/reliability-gap/",
+          "result:VAL-B2-SHELL-002:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-SHELL-002:route:/glossary/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/action-chunking/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/hierarchical/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/pi-line/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-SHELL-002:route:/manipulation/vla-models/",
+          "result:VAL-B2-SHELL-002:route:/market-map/",
+          "result:VAL-B2-SHELL-002:route:/playground/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-SHELL-002:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-SHELL-002:route:/search/",
+          "result:VAL-B2-SHELL-002:route:/world-models/",
+          "result:VAL-B2-SHELL-002:route:/world-models/generative-sim/",
+          "result:VAL-B2-SHELL-002:route:/world-models/generative-video/",
+          "result:VAL-B2-SHELL-002:route:/world-models/jepa/",
+          "result:VAL-B2-SHELL-002:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-SHELL-002:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -9511,20 +9877,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-003",
-          "mechanism": "VAL-B2-SHELL-003 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/adjacent/space/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/control/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/perception/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/credits/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/glossary/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/market-map/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/playground/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/search/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-003:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-SHELL-003 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-shell.spec.ts",
+          "title": "brand-v2 desktop shell and navigation › every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell viewport, collects every element carrying aria-current whatever its tag before reading any annotation, measures the current-route rail against its registered anchor with its colour, width, row height and accessible-name contribution, runs a Tab-then-Enter keyboard trace for the skip link, and hashes the all-expanded taxonomy against the sealed navigation baseline."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-shell-evidence.test.ts",
+          "title": "shell runtime evidence > refuses stale, incomplete, and unmeasured shell evidence",
+          "mechanism": "Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading."
         }
       ],
       "enforcementMode": "browser-state",
@@ -9541,7 +10207,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-003"
+          "result:VAL-B2-SHELL-003:route:/",
+          "result:VAL-B2-SHELL-003:route:/a-z/",
+          "result:VAL-B2-SHELL-003:route:/adjacent/",
+          "result:VAL-B2-SHELL-003:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-SHELL-003:route:/adjacent/drones/",
+          "result:VAL-B2-SHELL-003:route:/adjacent/space/",
+          "result:VAL-B2-SHELL-003:route:/adjacent/surgical/",
+          "result:VAL-B2-SHELL-003:route:/classical/",
+          "result:VAL-B2-SHELL-003:route:/classical/control/",
+          "result:VAL-B2-SHELL-003:route:/classical/grasp-planning/",
+          "result:VAL-B2-SHELL-003:route:/classical/kinematics/",
+          "result:VAL-B2-SHELL-003:route:/classical/motion-planning/",
+          "result:VAL-B2-SHELL-003:route:/classical/perception/",
+          "result:VAL-B2-SHELL-003:route:/classical/scene-representation/",
+          "result:VAL-B2-SHELL-003:route:/classical/state-estimation/",
+          "result:VAL-B2-SHELL-003:route:/credits/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/datasets/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-SHELL-003:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-SHELL-003:route:/frontier/",
+          "result:VAL-B2-SHELL-003:route:/frontier/bear-case/",
+          "result:VAL-B2-SHELL-003:route:/frontier/competing-theses/",
+          "result:VAL-B2-SHELL-003:route:/frontier/dexterity/",
+          "result:VAL-B2-SHELL-003:route:/frontier/generalization/",
+          "result:VAL-B2-SHELL-003:route:/frontier/reliability-gap/",
+          "result:VAL-B2-SHELL-003:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-SHELL-003:route:/glossary/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/action-chunking/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/hierarchical/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/pi-line/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-SHELL-003:route:/manipulation/vla-models/",
+          "result:VAL-B2-SHELL-003:route:/market-map/",
+          "result:VAL-B2-SHELL-003:route:/playground/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-SHELL-003:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-SHELL-003:route:/search/",
+          "result:VAL-B2-SHELL-003:route:/world-models/",
+          "result:VAL-B2-SHELL-003:route:/world-models/generative-sim/",
+          "result:VAL-B2-SHELL-003:route:/world-models/generative-video/",
+          "result:VAL-B2-SHELL-003:route:/world-models/jepa/",
+          "result:VAL-B2-SHELL-003:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-SHELL-003:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -9587,24 +10313,319 @@
     },
     {
       "assertionId": "VAL-B2-SHELL-005",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/baseline/baseline.json#manifests.navigation",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-005",
-          "mechanism": "VAL-B2-SHELL-005 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/a-z/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/adjacent/drones/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/adjacent/space/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/adjacent/surgical/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/control/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/kinematics/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/motion-planning/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/perception/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/scene-representation/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/classical/state-estimation/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/credits/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/bear-case/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/dexterity/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/generalization/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/glossary/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/market-map/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/playground/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/generative-video/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/jepa/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-005:nav:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-SHELL-005 per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over evidence/brand-v2/baseline/baseline.json#manifests.navigation"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-shell.spec.ts",
+          "title": "brand-v2 desktop shell and navigation › every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell viewport, collects every element carrying aria-current whatever its tag before reading any annotation, measures the current-route rail against its registered anchor with its colour, width, row height and accessible-name contribution, runs a Tab-then-Enter keyboard trace for the skip link, and hashes the all-expanded taxonomy against the sealed navigation baseline."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-shell-evidence.test.ts",
+          "title": "shell runtime evidence > refuses stale, incomplete, and unmeasured shell evidence",
+          "mechanism": "Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading."
         }
       ],
       "enforcementMode": "browser-state",
@@ -9612,7 +10633,7 @@
         "statement": "Existing navigation hierarchy, accessible names, and href destinations remain unchanged except the visible product lockup string.",
         "expected": "Existing navigation hierarchy, accessible names, and href destinations remain unchanged except the visible product lockup string.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 60,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -9621,7 +10642,66 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-005"
+          "result:VAL-B2-SHELL-005:nav:/",
+          "result:VAL-B2-SHELL-005:nav:/a-z/",
+          "result:VAL-B2-SHELL-005:nav:/adjacent/",
+          "result:VAL-B2-SHELL-005:nav:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-SHELL-005:nav:/adjacent/drones/",
+          "result:VAL-B2-SHELL-005:nav:/adjacent/space/",
+          "result:VAL-B2-SHELL-005:nav:/adjacent/surgical/",
+          "result:VAL-B2-SHELL-005:nav:/classical/",
+          "result:VAL-B2-SHELL-005:nav:/classical/control/",
+          "result:VAL-B2-SHELL-005:nav:/classical/grasp-planning/",
+          "result:VAL-B2-SHELL-005:nav:/classical/kinematics/",
+          "result:VAL-B2-SHELL-005:nav:/classical/motion-planning/",
+          "result:VAL-B2-SHELL-005:nav:/classical/perception/",
+          "result:VAL-B2-SHELL-005:nav:/classical/scene-representation/",
+          "result:VAL-B2-SHELL-005:nav:/classical/state-estimation/",
+          "result:VAL-B2-SHELL-005:nav:/credits/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/datasets/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-SHELL-005:nav:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/bear-case/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/competing-theses/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/dexterity/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/generalization/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/reliability-gap/",
+          "result:VAL-B2-SHELL-005:nav:/frontier/safety-and-assurance/",
+          "result:VAL-B2-SHELL-005:nav:/glossary/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/action-chunking/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/bc-foundations/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/comparison-matrix/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/cross-embodiment/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/diffusion-policy/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/generalist-policies/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/hierarchical/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/pi-line/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/realtime-execution/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/rl-finetuning/",
+          "result:VAL-B2-SHELL-005:nav:/manipulation/vla-models/",
+          "result:VAL-B2-SHELL-005:nav:/market-map/",
+          "result:VAL-B2-SHELL-005:nav:/playground/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-SHELL-005:nav:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/generative-sim/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/generative-video/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/jepa/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/latent-dynamics/",
+          "result:VAL-B2-SHELL-005:nav:/world-models/taxonomy/"
         ]
       }
     },

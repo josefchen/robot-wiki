@@ -35,7 +35,7 @@ function evaluateDefs<T>(page: Page, call: string): Promise<T> {
   return page.evaluate(`(() => { ${DEFS}; return ${call}; })()`) as Promise<T>;
 }
 
-/** The active marker: the aria-hidden 2px rule inside the active link. */
+/** The active marker: the registered aria-hidden rail inside the active link. */
 async function markerMetrics(page: Page, route: string) {
   await page.goto(route);
   return page.evaluate(() => {
@@ -57,6 +57,8 @@ async function markerMetrics(page: Page, route: string) {
         mcs.borderBottomRightRadius,
       ],
       markerBorderLeft: mcs.borderLeftWidth,
+      markerBorderColour: mcs.borderLeftColor,
+      markerDeviceId: marker.getAttribute('data-brand-device-id'),
       linkBoxShadow: lcs.boxShadow,
       heightDiff: Math.abs(mr.height - lr.height),
       leftOffset: mr.left - aside.getBoundingClientRect().left,
@@ -74,7 +76,13 @@ test.describe('design chrome discipline', () => {
     expect(m!.linkBoxShadow).toBe('none');
     expect(m!.markerBoxShadow).toBe('none');
     expect(m!.markerRadii).toEqual(['0px', '0px', '0px', '0px']);
-    expect(m!.markerBorderLeft).toBe('2px');
+    // The v2 mark is the registered active-interval rail: a real element at
+    // the design system's 3px rail weight in selection lime, not the v1 2px
+    // signal-blue border. Asserting the registry id as well as the geometry
+    // means a hand-rolled span that merely looks the same still fails.
+    expect(m!.markerDeviceId).toBe('device:active-interval-rail');
+    expect(m!.markerBorderLeft).toBe('3px');
+    expect(m!.markerBorderColour).toBe('rgb(198, 255, 25)');
     expect(m!.heightDiff).toBeLessThanOrEqual(1);
   });
 
@@ -402,10 +410,31 @@ test.describe('design chrome discipline', () => {
       ),
     ) as { linkCount: number; links: Array<{ href: string; name: string }> };
 
+    // aria-current="page" belongs to the navigation entry for the current
+    // route. A route the taxonomy does not list has no entry to mark, so it
+    // exposes none: requiring one everywhere is what previously pushed the
+    // state onto /search's <h1>, where it announced a heading as a
+    // navigation position (VAL-B2-SHELL-002).
+    const taxonomy = new Set(baseline.links.map(({ href }) => href));
+    const listed = (route: string) =>
+      taxonomy.has(route) || taxonomy.has(`${route}/`);
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const current = await page.locator('[aria-current="page"]').count();
-      expect(current, `aria-current count on ${route}`).toBe(1);
+      const marks = page.locator('[aria-current="page"]');
+      expect(await marks.count(), `aria-current count on ${route}`).toBe(
+        listed(route) ? 1 : 0,
+      );
+      if (!listed(route)) continue;
+      // The one mark is a sidebar link pointing at this route, never a
+      // heading or a decorative node standing in for one.
+      const held = await marks.evaluate((el) => ({
+        tag: el.tagName.toLowerCase(),
+        href: el.getAttribute('href'),
+        inAside: el.closest('aside') !== null,
+      }));
+      expect(held.tag, `aria-current holder on ${route}`).toBe('a');
+      expect(held.inAside, `aria-current holder on ${route}`).toBe(true);
+      expect(held.href?.replace(/\/?$/, '/')).toBe(route.replace(/\/?$/, '/'));
     }
 
     // Exactly one <aside> in the document, even on an article whose prose
@@ -454,15 +483,36 @@ test.describe('design chrome discipline', () => {
     }
   });
 
-  test('the protected treatments survive (sidebar border-r, header border-b, focus outline)', async ({
+  test('the protected treatments survive (sidebar right boundary, header border-b, focus outline)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const asideBorder = await page
-      .locator('aside')
-      .evaluate((el) => getComputedStyle(el).borderRightWidth);
-    expect(asideBorder).toBe('1px');
+    // The sidebar's right boundary is unchanged in weight and position but
+    // is now the registered outer rail rather than a border on the <aside>,
+    // so the shell's one structural division has a registry identity the
+    // primitive sweep can own. Measured, not assumed: 1px, full height, at
+    // the aside's right edge.
+    const rail = await page.locator('aside').evaluate((el) => {
+      const device = el.querySelector('[data-brand-device-id="device:outer-rail"]');
+      if (!device) return null;
+      const cs = getComputedStyle(device);
+      const box = device.getBoundingClientRect();
+      const host = el.getBoundingClientRect();
+      return {
+        width: cs.borderLeftWidth,
+        colour: cs.borderLeftColor,
+        edgeOffset: Math.abs(box.right - host.right),
+        heightDiff: Math.abs(box.height - host.height),
+        anchor: device.getAttribute('data-brand-anchor-selector'),
+      };
+    });
+    expect(rail).not.toBeNull();
+    expect(rail!.width).toBe('1px');
+    expect(rail!.anchor).toBe('#sidebar-rail');
+    expect(rail!.edgeOffset).toBeLessThanOrEqual(1);
+    expect(rail!.heightDiff).toBeLessThanOrEqual(1);
+    expect(rail!.colour).not.toBe('rgba(0, 0, 0, 0)');
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');

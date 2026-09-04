@@ -6,6 +6,7 @@ import { CaretDown } from '@phosphor-icons/react';
 import { useState, type ReactNode } from 'react';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { Domain } from '@/data/modules';
+import { BrandDevice } from '@/components/ui/brand-device';
 import { cx } from '@/lib/utils';
 
 /**
@@ -16,8 +17,8 @@ import { cx } from '@/lib/utils';
  * drafts are excluded from the sidebar taxonomy entirely, so
  * no reader surface can hint at work that does not exist yet.
  * The group containing the current route is expanded
- * on load and the active link carries aria-current="page" with the signal-blue
- * accent.
+ * on load and the active link carries aria-current="page", ink text, one
+ * extra weight step, and the lime active-interval rail.
  */
 type NavTreeProps = {
   /** Prefix for element ids so desktop and drawer instances never collide. */
@@ -51,26 +52,37 @@ function domainOf(pathname: string): Domain | null {
     : null;
 }
 
-const linkBase =
+const moduleLinkBase =
   'relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors';
-const linkIdle = 'text-text-dim hover:text-text';
-const linkActive = 'text-accent';
+const moduleLinkIdle = 'text-text-dim hover:bg-surface-2 hover:text-text';
+const moduleLinkActive = 'font-medium text-text';
+
+const entryLinkBase =
+  'relative block rounded-sm px-2 py-1.5 font-sans text-sm transition-colors';
+const entryLinkIdle = 'font-medium text-text hover:bg-surface-2';
+const entryLinkActive = 'font-semibold text-text';
 
 /**
- * The active-route marker: a flat, full-height 2px rule pinned to the left
- * edge of the link box. It replaces the previous inset box-shadow, which the
- * link's rounded-sm corners clipped into a broken bracket.
- * A real element (not a shadow) means zero radius on every corner, and
- * because every category of entry renders it at the same offset from the
- * rail, module links, Domain overview links and standalone entries all mark
- * at one depth. aria-hidden and empty so it can never
- * pollute the link's accessible name.
+ * The active-route marker: the lime active-interval rail, pinned to the left
+ * edge of the link box at full row height.
+ *
+ * It replaces an inset box-shadow, which the link's rounded-sm corners
+ * clipped into a broken bracket; a real element means zero radius on every
+ * corner. Every category of entry renders it at `left-0` of its own link
+ * box, and every category's link box starts at the taxonomy rail, so module
+ * links, Domain overview links and standalone entries all mark at one depth.
+ * It is aria-hidden and empty, so it can never pollute the link's accessible
+ * name, and colour is never its only signal: the active link also shifts to
+ * ink and gains one weight step.
  */
-function ActiveMarker() {
+function ActiveMarker({ railAnchorId }: { railAnchorId: string }) {
   return (
-    <span
-      aria-hidden="true"
-      className="absolute left-0 top-0 h-full border-l-2 border-accent"
+    <BrandDevice
+      device="active-interval-rail"
+      anchorSelector={`#${railAnchorId}`}
+      deviceEdge="left"
+      anchorEdge="left"
+      className="left-0 top-0 h-full"
     />
   );
 }
@@ -79,12 +91,14 @@ function ActiveMarker() {
 function NavEntryLink({
   href,
   active,
+  railAnchorId,
   onNavigate,
   className,
   children,
 }: {
   href: string;
   active: boolean;
+  railAnchorId: string;
   onNavigate?: () => void;
   className?: string;
   children: ReactNode;
@@ -97,7 +111,7 @@ function NavEntryLink({
       onClick={onNavigate}
       className={className}
     >
-      {active ? <ActiveMarker /> : null}
+      {active ? <ActiveMarker railAnchorId={railAnchorId} /> : null}
       {children}
     </Link>
   );
@@ -124,15 +138,24 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
   }
 
   function linkClass(href: string) {
-    return cx(linkBase, isActive(href) ? linkActive : linkIdle);
+    return cx(
+      moduleLinkBase,
+      isActive(href) ? moduleLinkActive : moduleLinkIdle,
+    );
   }
 
   function isActive(href: string): boolean {
     return activePath === normalize(href);
   }
 
+  // The rail the active marker aligns to is this instance's own taxonomy
+  // landmark: desktop sidebar and mobile drawer both render a tree, and a
+  // shared selector would measure one instance's marker against the other
+  // instance's box.
+  const railAnchorId = `${idPrefix}-taxonomy`;
+
   return (
-    <nav aria-label={ariaLabel} className={className}>
+    <nav id={railAnchorId} aria-label={ariaLabel} className={className}>
       <ul className="flex flex-col gap-0.5">
         {DOMAINS.map((domain) => {
           const meta = DOMAIN_META[domain];
@@ -165,11 +188,9 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                     <NavEntryLink
                       href={`/${domain}`}
                       active={isActive(`/${domain}`)}
+                      railAnchorId={railAnchorId}
                       onNavigate={onNavigate}
-                      className={cx(
-                        linkClass(`/${domain}`),
-                        'font-mono text-[11px] uppercase tracking-[0.14em]',
-                      )}
+                      className={linkClass(`/${domain}`)}
                     >
                       Domain overview
                     </NavEntryLink>
@@ -181,6 +202,7 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
                         <NavEntryLink
                           href={`/${m.domain}/${m.slug}`}
                           active={isActive(`/${m.domain}/${m.slug}`)}
+                          railAnchorId={railAnchorId}
                           onNavigate={onNavigate}
                           className={linkClass(`/${m.domain}/${m.slug}`)}
                         >
@@ -200,12 +222,11 @@ export function NavTree({ idPrefix, ariaLabel, onNavigate, className }: NavTreeP
             <NavEntryLink
               href={entry.href}
               active={isActive(entry.href)}
+              railAnchorId={railAnchorId}
               onNavigate={onNavigate}
               className={cx(
-                'relative block rounded-sm px-2 py-1.5 font-sans text-sm font-medium transition-colors',
-                isActive(entry.href)
-                  ? linkActive
-                  : 'text-text hover:bg-surface-2',
+                entryLinkBase,
+                isActive(entry.href) ? entryLinkActive : entryLinkIdle,
               )}
             >
               {entry.label}

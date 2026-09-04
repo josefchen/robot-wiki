@@ -39,6 +39,10 @@ import {
   identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '@/lib/identity-populations';
+import {
+  SHELL_NAV_DESTINATION_POPULATION_SOURCE,
+  navigationBaselineMembers,
+} from '@/lib/shell-populations';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -312,6 +316,29 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
             css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
           }).map(({ id }) => id),
           identityPopulations: identityPopulations(registry, contract),
+          shellPopulations: {
+            [SHELL_NAV_DESTINATION_POPULATION_SOURCE]:
+              navigationBaselineMembers(
+                JSON.parse(
+                  readFileSync(
+                    join(
+                      ROOT,
+                      'evidence',
+                      'brand-v2',
+                      'baseline',
+                      'baseline.json',
+                    ),
+                    'utf8',
+                  ),
+                ),
+                JSON.parse(
+                  readFileSync(
+                    join(ROOT, 'contract', 'brand-v2-approved-deltas.json'),
+                    'utf8',
+                  ),
+                ),
+              ).map(({ id }) => id),
+          },
         }),
         map,
         results,

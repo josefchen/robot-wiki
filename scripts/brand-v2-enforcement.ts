@@ -35,6 +35,21 @@ import {
   identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '../lib/identity-populations.ts';
+import {
+  SHELL_RUNTIME_EVIDENCE_PATH,
+  SHELL_VIEWPORT,
+  currentRouteVerdicts,
+  ledgerByBaselineMember,
+  readShellRuntimeEvidence,
+  shellEvidenceFingerprint,
+  skipLinkVerdicts,
+} from '../lib/brand-v2-shell-evidence.ts';
+import {
+  SHELL_ASSERTION_POPULATION_SOURCES,
+  SHELL_NAV_DESTINATION_POPULATION_SOURCE,
+  navigationBaselineMembers,
+} from '../lib/shell-populations.ts';
+import { sha256, stableJson } from '../lib/brand-v2-baseline.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
 import { publishedModules } from '../data/modules.ts';
@@ -135,9 +150,27 @@ function isMeasured(id: string): boolean {
     TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
     TOKEN_ASSERTIONS.has(id) ||
-    IDENTITY_ASSERTIONS.has(id)
+    IDENTITY_ASSERTIONS.has(id) ||
+    SHELL_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The desktop shell assertions, routed to the sweep of the built export that
+ * decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/shell-navigation.json` through a reader that throws on
+ * a stale fingerprint, a missing route, an empty page, a route with no
+ * discovered navigation, or an empty taxonomy ledger. A generator that
+ * re-read the class names here would be comparing source with itself; what
+ * decides these rows is what a document rendered and what a keyboard reached.
+ */
+const SHELL_ASSERTIONS = new Set([
+  'VAL-B2-SHELL-002',
+  'VAL-B2-SHELL-003',
+  'VAL-B2-SHELL-005',
+]);
 
 type Registry = Parameters<
   typeof buildEnforcementPopulationSources
@@ -366,24 +399,57 @@ const IDENTITY_SYMBOL_SIGHTINGS = IDENTITY_EVIDENCE.observations.flatMap(
     ),
 );
 
+const BASELINE = readJson(
+  join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
+) as { manifests: Record<string, unknown> };
+
+const NAVIGATION_BASELINE = navigationBaselineMembers(
+  BASELINE,
+  readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')),
+);
+const NAVIGATION_BASELINE_BY_ID = new Map(
+  NAVIGATION_BASELINE.map((member) => [member.id, member]),
+);
+
+const SHELL_EVIDENCE = readShellRuntimeEvidence({
+  artifact: readJson(join(ROOT, SHELL_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  fingerprint: shellEvidenceFingerprint({
+    root: ROOT,
+    deviceRegistryRows: REGISTRY.gridDevices as unknown as Array<{
+      id: string;
+      fingerprint: string;
+    }>,
+  }),
+});
+const SHELL_CURRENT_ROUTE_VERDICTS = currentRouteVerdicts(SHELL_EVIDENCE);
+const SHELL_SKIP_LINK_VERDICTS = skipLinkVerdicts(SHELL_EVIDENCE);
+const SHELL_LEDGER_BY_MEMBER = ledgerByBaselineMember(SHELL_EVIDENCE);
+
+const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [SHELL_NAV_DESTINATION_POPULATION_SOURCE]: NAVIGATION_BASELINE.map(
+    ({ id }) => id,
+  ),
+};
+
 function populationSources(assertionIds: string[]) {
-  const baseline = readJson(
-    join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
-  ) as { manifests: Record<string, unknown> };
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
-    baselineManifestIds: Object.keys(baseline.manifests).sort(),
+    baselineManifestIds: Object.keys(BASELINE.manifests).sort(),
     deepRowIds: BRAND_V2_DEEP_ROWS.map(({ id }) => id),
     assertionIds,
     tekturPopulations: TEKTUR_POPULATION_IDS,
     semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
     identityPopulations: IDENTITY_POPULATIONS,
+    shellPopulations: SHELL_POPULATIONS,
   });
 }
 
 function populationSourceFor(id: string): string {
   const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
   if (identitySource) return identitySource;
+  const shellSource = SHELL_ASSERTION_POPULATION_SOURCES[id];
+  if (shellSource) return shellSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -440,6 +506,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // viewports, so it is a browser-state row even where a supporting clause
   // also counts source occurrences.
   if (IDENTITY_ASSERTIONS.has(id)) return 'browser-state';
+  // A shell row's evidence is what a built page rendered and what a keyboard
+  // reached on it, so it is a browser-state row.
+  if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -783,9 +852,23 @@ const IDENTITY_READER_TARGET = testTarget(
   'Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against.',
 );
 
+const SHELL_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-shell.spec.ts',
+  'brand-v2 desktop shell and navigation › every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy',
+  'Sweeps every registry-derived public route at the desktop-shell viewport, collects every element carrying aria-current whatever its tag before reading any annotation, measures the current-route rail against its registered anchor with its colour, width, row height and accessible-name contribution, runs a Tab-then-Enter keyboard trace for the skip link, and hashes the all-expanded taxonomy against the sealed navigation baseline.',
+);
+const SHELL_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-shell-evidence.test.ts',
+  'shell runtime evidence > refuses stale, incomplete, and unmeasured shell evidence',
+  'Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
   if (IDENTITY_ASSERTIONS.has(id)) {
     return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
+  }
+  if (SHELL_ASSERTIONS.has(id)) {
+    return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
   }
   if (TEKTUR_ASSERTIONS.has(id)) {
     return [
@@ -1463,6 +1546,118 @@ function identityAssertionEvidence(
   throw new Error(`${assertionId} has no identity evidence branch`);
 }
 
+/**
+ * What the desktop sweep recorded for one shell assertion and one population
+ * member. Every branch throws on a member the sweep did not measure and on a
+ * member whose reading fails the requirement, because the generator has no
+ * way to write a red row: a shell that regressed has to stop the corpus, not
+ * appear in it.
+ */
+function shellAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  if (assertionId === 'VAL-B2-SHELL-002') {
+    const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+    if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+    const verdict = SHELL_CURRENT_ROUTE_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(
+        `${assertionId}: ${verdict.failures.join('; ')}`,
+      );
+    }
+    return {
+      actual: verdict.hasNavigationItem
+        ? `${route} matches the navigation entry ${verdict.matchingEntry?.href}, which alone carries aria-current="page" at ${verdict.ariaCurrentCount} node(s) document-wide, paints ${verdict.matchingEntry?.colour}, and is marked by ${verdict.markerDeviceId} in ${verdict.markerColour} ${verdict.markerAlignmentErrorPx}px from its registered rail anchor, at weight ${verdict.activeWeight} against idle siblings at ${verdict.idleWeight ?? 'no idle sibling'}`
+        : `${route} exposes no navigation entry and no aria-current node, so no heading or unrelated element carries the state to satisfy a count`,
+      computed: {
+        route,
+        viewport: SHELL_VIEWPORT.id,
+        hasNavigationItem: verdict.hasNavigationItem,
+        ariaCurrentCount: verdict.ariaCurrentCount,
+        ariaCurrentOnNonLink: verdict.misplaced,
+        markerDeviceId: verdict.markerDeviceId,
+        markerColour: verdict.markerColour,
+        markerAlignmentErrorPx: verdict.markerAlignmentErrorPx,
+        activeFontWeight: verdict.activeWeight,
+        idleFontWeight: verdict.idleWeight,
+        evidence: [SHELL_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-003') {
+    const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+    if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+    const verdict = SHELL_SKIP_LINK_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { observation } = verdict;
+    return {
+      actual: `the first Tab on ${route} focused <${observation.firstTabStopTag} href="${observation.firstTabStopHref}">, which sits at ${observation.restTopPx}px unfocused and ${observation.focusedTopPx}px inside the viewport once focused, and activating it moved focus to #${observation.activatedFocusId}`,
+      computed: {
+        route,
+        viewport: SHELL_VIEWPORT.id,
+        firstTabStop: `${observation.firstTabStopTag}[href=${observation.firstTabStopHref}]`,
+        firstTabStopText: observation.firstTabStopText,
+        restTopPx: observation.restTopPx,
+        focusedTopPx: observation.focusedTopPx,
+        visibleWhenFocused: observation.visibleWhenFocused,
+        activatedFocusId: observation.activatedFocusId,
+        evidence: [SHELL_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-005') {
+    const sealed = NAVIGATION_BASELINE_BY_ID.get(member);
+    if (!sealed) {
+      throw new Error(
+        `${assertionId}: ${member} is not a sealed navigation destination`,
+      );
+    }
+    const entry = SHELL_LEDGER_BY_MEMBER.get(member);
+    if (!entry) {
+      throw new Error(
+        `${assertionId}: the expanded taxonomy no longer renders ${member}, so a navigation destination was removed`,
+      );
+    }
+    const rendered = sha256(
+      stableJson({ index: entry.index, href: entry.href, name: entry.name }),
+    );
+    if (rendered !== sealed.hash) {
+      throw new Error(
+        `${assertionId}: ${member} now renders "${entry.name}" at position ${entry.index} pointing at ${entry.href}, which does not hash to the sealed baseline`,
+      );
+    }
+    return {
+      actual: `${member} still renders "${entry.name}" at taxonomy position ${entry.index} pointing at ${entry.href}, hashing to ${sealed.approvedDeltaId === null ? 'the sealed navigation baseline' : `the navigation baseline as moved by the approved delta ${sealed.approvedDeltaId}`}`,
+      computed: {
+        member,
+        href: entry.href,
+        accessibleName: entry.name,
+        taxonomyIndex: entry.index,
+        category: entry.category,
+        renderedHash: rendered,
+        expectedHash: sealed.hash,
+        sealedHash: sealed.sealedHash,
+        approvedDeltaId: sealed.approvedDeltaId,
+        viewport: SHELL_VIEWPORT.id,
+        evidence: [
+          SHELL_RUNTIME_EVIDENCE_PATH,
+          'evidence/brand-v2/baseline/baseline.json',
+        ],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no shell evidence branch`);
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -1538,6 +1733,19 @@ function resultFor(
       );
     }
     const evidence = identityAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (SHELL_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = shellAssertionEvidence(assertionId, member);
     return {
       ...common,
       actual: evidence.actual,
@@ -1686,6 +1894,8 @@ function generate() {
             evidenceRowId: assertionResult.resultId,
             mechanism: IDENTITY_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
+              : SHELL_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

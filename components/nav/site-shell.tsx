@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { List, X } from '@phosphor-icons/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { PUBLIC_IDENTITY } from '@/lib/identity';
+import { BrandDevice } from '@/components/ui/brand-device';
 import { NavTree } from './nav-tree';
 import { SearchBox } from './search-box';
 import { SiteFooter } from './site-footer';
@@ -92,19 +93,44 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
       {/* Desktop sidebar: sticky, full-height, independently scrollable. */}
       <aside
+        id="sidebar-rail"
         inert={drawerOpen}
         data-pagefind-ignore
-        className="hidden w-72 shrink-0 border-r border-border lg:block"
+        className="relative hidden w-72 shrink-0 lg:block"
       >
+        {/* The registered outer rail is the sidebar's right boundary. It is
+            a device rather than a border on the <aside> so the shell's one
+            structural division carries a registry identity, an owner and an
+            anchor the primitive sweep can measure. */}
+        <BrandDevice
+          device="outer-rail"
+          anchorSelector="#sidebar-rail"
+          deviceEdge="right"
+          anchorEdge="right"
+          className="right-0 top-0 h-full"
+        />
         <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
-          <div className="px-2">
+          <div>
+            {/* The lockup is the navigation item for "/", so on home it
+                carries the same current-route treatment every taxonomy entry
+                gets: aria-current plus the lime active-interval rail, marked
+                at the shared rail depth rather than at the text indent. */}
             <Link
               href="/"
               aria-current={pathname === '/' ? 'page' : undefined}
               data-tektur-role="shell-wordmark"
               data-brand-control-id="control:link-focus"
-              className="font-display-shell text-[17px] tracking-[-0.025em] text-text"
+              className="relative block rounded-sm px-2 py-0.5 font-display-shell text-[17px] tracking-[-0.025em] text-text"
             >
+              {pathname === '/' ? (
+                <BrandDevice
+                  device="active-interval-rail"
+                  anchorSelector="#sidebar-taxonomy"
+                  deviceEdge="left"
+                  anchorEdge="left"
+                  className="left-0 top-0 h-full"
+                />
+              ) : null}
               {PUBLIC_IDENTITY}
             </Link>
           </div>

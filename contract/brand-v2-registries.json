@@ -2001,7 +2001,7 @@
       "routeId": "route:/search/",
       "owner": "route:/search/",
       "ownerPath": "app/search/page.tsx",
-      "ownerSourceFingerprint": "82686d949084b8bd2ba3a9435d5e55c78f872b5d95b52bedc863bde0ec1b4568",
+      "ownerSourceFingerprint": "db8c1fe9b4c2ed55732c6aa2192ab4601e421eedc1f733b3b68c1ffa14d72b4e",
       "canonical": "https://robot-wiki.com/search/",
       "title": "Search",
       "description": "Search Robot Wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).",
@@ -2021,7 +2021,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "df0b5f721f11fc96f9de09f8d64b9c4b191d2e69acf198db4d462a09b0135308"
+      "fingerprint": "4a427a65283d27172d630cf1435ffcdfd21b4c2b541e5a078728fc76cd7e33ce"
     },
     {
       "id": "metadata:/world-models/",
@@ -10603,8 +10603,10 @@
       "definedIn": [
         "components/ui/brand-device.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "mountState": "library-only",
+      "ownerRouteOrMount": [
+        "components/ui/brand-device.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10612,7 +10614,35 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "c2e4a6884ace4dff0bed67f5cbd7857638d5d9a91a0123221271b171d30d2bc0"
+      "fingerprint": "403cd4ad357e4d856920e3fe4666f2fa5ec9d3f697215f049ca21aa4e5d73b97"
+    },
+    {
+      "id": "device:active-interval-rail",
+      "ownerSurface": "shared-shell",
+      "structuralPurpose": "active-measured-interval",
+      "anchorGeometry": {
+        "kind": "edge",
+        "allowedEdges": [
+          "left"
+        ]
+      },
+      "classification": "structural",
+      "ariaBehavior": "aria-hidden; the link’s aria-current=\"page\" carries the state",
+      "definedIn": [
+        "components/ui/brand-device.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "components/ui/brand-device.tsx"
+      ],
+      "mountState": "production",
+      "pointerBehavior": "none",
+      "allowedViewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "alignmentTolerancePx": 2,
+      "fingerprint": "27774b56e20e78f8f0addbeaec1e930672d8cdf07b49483cea1d04a32a90ac91"
     },
     {
       "id": "device:section-rule",
@@ -11808,5 +11838,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c356a49fd5530812695988a7c11b25bafe8f192014888827b517a4d434a27046"
+  "rootFingerprint": "5b079ca6749a1127e1a343d4571466e49e21b1d43d05b6e60e41652a4f9b2405"
 }

@@ -154,7 +154,7 @@ describe('scanSidebarDocument', () => {
     // an accessible-name derivation must not pick up any of it.
     const html = domainHtml('manipulation', MANIPULATION).replace(
       'href="/manipulation/">Domain overview',
-      'aria-current="page" href="/manipulation/"><span aria-hidden="true" class="absolute left-0 top-0 h-full border-l-2 border-accent"></span>Domain overview',
+      'aria-current="page" href="/manipulation/"><span aria-hidden="true" data-registration-device data-brand-device-id="device:active-interval-rail" data-brand-anchor-selector="#sidebar-taxonomy" data-brand-device-edge="left" data-brand-anchor-edge="left" data-brand-motif="active-interval-rail" class="pointer-events-none absolute block border-l-[3px] border-selection left-0 top-0 h-full"></span>Domain overview',
     );
     expect(scan(html).groups[0].links[0]).toEqual({
       href: '/manipulation/',

@@ -426,6 +426,14 @@ export function buildEnforcementPopulationSources(input: {
    * checked against that route (R8a).
    */
   identityPopulations: Readonly<Record<string, readonly string[]>>;
+  /**
+   * Assertion-specific populations for the desktop shell assertions. Only
+   * the current-route and skip-link claims quantify over routes;
+   * `VAL-B2-SHELL-005` is a claim about navigation destinations, and the two
+   * populations are not even the same size, so recording it per route would
+   * emit a row per route for a claim never checked against that route (R8a).
+   */
+  shellPopulations: Readonly<Record<string, readonly string[]>>;
 }): Record<string, string[]> {
   const { registry } = input;
   if (input.semanticTokenPopulation.length === 0) {
@@ -434,6 +442,11 @@ export function buildEnforcementPopulationSources(input: {
   for (const [source, ids] of Object.entries(input.identityPopulations)) {
     if (ids.length === 0) {
       throw new Error(`The identity population ${source} is empty`);
+    }
+  }
+  for (const [source, ids] of Object.entries(input.shellPopulations)) {
+    if (ids.length === 0) {
+      throw new Error(`The shell population ${source} is empty`);
     }
   }
   return {
@@ -448,6 +461,12 @@ export function buildEnforcementPopulationSources(input: {
     ),
     ...Object.fromEntries(
       Object.entries(input.identityPopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(input.shellPopulations).map(([source, ids]) => [
         source,
         [...ids],
       ]),

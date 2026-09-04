@@ -368,25 +368,54 @@ test.describe('brand-v2 reference-feature rubric', () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await gotoPlantable(page, `${staticBase}/`);
-    await page.evaluate(() => {
+
+    // The shell has desktop-only registered devices of its own: the sidebar
+    // is `hidden lg:block`, so its outer rail and its current-route rail are
+    // absent at 375px. Planting a single mobile-only device is therefore not
+    // enough to drive the population the wrong way. Measure the natural
+    // surplus first and plant past it, so the assertion below reads the
+    // predicate rather than a coincidence of how many rails the shell mounts.
+    const natural = reconcileResponsiveDeviceCounts(
+      await page.evaluate(collectBrowserReferenceFeatures, HOME_CONFIG),
+      await (async () => {
+        await page.setViewportSize({ width: 375, height: 812 });
+        const seen = await page.evaluate(
+          collectBrowserReferenceFeatures,
+          HOME_CONFIG,
+        );
+        await page.setViewportSize({ width: 1440, height: 900 });
+        return seen;
+      })(),
+    );
+    const plantCount =
+      natural.gridAndDevices.desktopDeviceCount -
+      natural.gridAndDevices.mobileDeviceCount +
+      1;
+    expect(plantCount).toBeGreaterThan(0);
+
+    await page.evaluate((count) => {
       const style = document.createElement('style');
       style.textContent =
-        '@media (min-width: 768px) { #planted-mobile-device { display: none } }';
+        '@media (min-width: 768px) { [data-planted-mobile-device] { display: none } }';
       document.head.append(style);
-      const device = document.createElement('div');
-      device.id = 'planted-mobile-device';
-      device.dataset.brandDeviceId = 'device:planted-mobile-only';
-      device.dataset.brandPurpose = 'responsive-mutation';
-      device.dataset.brandOwner = 'test';
-      device.dataset.brandAnchorSelector = 'main';
-      device.style.pointerEvents = 'none';
-      device.style.width = '1px';
-      device.style.height = '1px';
-      document.querySelector('main')?.append(device);
-    });
+      for (let index = 0; index < count; index += 1) {
+        const device = document.createElement('div');
+        device.dataset.plantedMobileDevice = '1';
+        device.dataset.brandDeviceId = `device:planted-mobile-only-${index}`;
+        device.dataset.brandPurpose = 'responsive-mutation';
+        device.dataset.brandOwner = 'test';
+        device.dataset.brandAnchorSelector = 'main';
+        device.style.pointerEvents = 'none';
+        device.style.width = '1px';
+        device.style.height = '1px';
+        document.querySelector('main')?.append(device);
+      }
+    }, plantCount);
     // A plant that never landed would leave both populations at their natural
     // count and read as a passing predicate rather than a broken test.
-    await expect(page.locator('#planted-mobile-device')).toHaveCount(1);
+    await expect(page.locator('[data-planted-mobile-device]')).toHaveCount(
+      plantCount,
+    );
     const desktop = await page.evaluate(
       collectBrowserReferenceFeatures,
       HOME_CONFIG,

@@ -247,10 +247,10 @@ article > hr {
   z-index: 100;
   transform: translateY(-300%);
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-focus);
   border-radius: var(--radius-sm);
   background: var(--color-surface-2);
-  color: var(--color-accent);
+  color: var(--color-link);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   text-decoration: none;
