@@ -15,6 +15,8 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
+import { IMAGES } from '../data/images.ts';
 import {
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   deriveTechnicalIdentifierOccurrences,
@@ -450,15 +452,77 @@ const FIRST_PARTY_VISUAL_ASSETS = new Map(
     }>,
   ).map((asset) => [asset.id, asset]),
 );
+const REGISTERED_ASSET_ROWS = new Map(
+  (
+    REGISTRY.assets as unknown as Array<{
+      id: string;
+      byteHash: string;
+      sourceRegistryId: string | null;
+    }>
+  ).map((row) => [row.id, row]),
+);
+/**
+ * Every source that owns a metadata surface or renders an identity lockup.
+ * An asset referenced from one of these is filling an identity slot whatever
+ * its content, so the role clause is checked per asset against these files.
+ */
+const ASSET_IDENTITY_SOURCE_PATHS = [
+  ...new Set([
+    ...REGISTRY.metadata.map(
+      (row) => (row as unknown as { ownerPath: string }).ownerPath,
+    ),
+    ...identityLockupSourcePaths(),
+  ]),
+].sort();
+const ASSET_IDENTITY_SOURCE_COUNT = ASSET_IDENTITY_SOURCE_PATHS.length;
+
+/**
+ * Per-asset content evidence for `VAL-B2-ID-006`, derived from each asset's
+ * own bytes rather than from its filename. The identity-bearing sources are
+ * the same registry-derived set the evidence fingerprint uses, so an asset
+ * wired into a metadata or lockup surface is caught by the role clause on
+ * its own row rather than by a document-wide observation shared by all
+ * twenty-one members.
+ */
+const ASSET_CONTENT_VERDICTS = new Map(
+  assetContentVerdicts({
+    root: ROOT,
+    assets: [...FIRST_PARTY_VISUAL_ASSETS.values()].map((asset) => {
+      const row = REGISTERED_ASSET_ROWS.get(asset.id);
+      if (!row) {
+        throw new Error(`${asset.id} has no registered asset row`);
+      }
+      return {
+        id: asset.id,
+        path: asset.path,
+        category: asset.category,
+        byteHash: row.byteHash,
+        sourceRegistryId: row.sourceRegistryId,
+      };
+    }),
+    provenanceById: new Map(
+      IMAGES.filter((image) => typeof image.width === 'number').map((image) => [
+        image.id,
+        {
+          sourceName: image.sourceName,
+          sourceUrl: image.sourceUrl,
+          creator: image.creator,
+          licence: image.licence,
+          retrieved: image.retrieved,
+          width: image.width as number,
+          height: image.height as number,
+        },
+      ]),
+    ),
+    identitySourcePaths: ASSET_IDENTITY_SOURCE_PATHS,
+  }).map((verdict) => [verdict.id, verdict]),
+);
 const TECHNICAL_IDENTIFIER_BY_MEMBER = new Map(
   TECHNICAL_IDENTIFIERS.map((literal) => [
     `technical-identifier:${literal}`,
     literal,
   ]),
 );
-
-/** Names that would mark an asset as brand iconography rather than content. */
-const BRAND_SYMBOL_NAME = /logo|monogram|mascot|favicon|wordmark|brand-mark|emblem|crest/i;
 
 const IDENTITY_POPULATIONS: Readonly<Record<string, string[]>> = {
   [IDENTITY_DESCRIPTOR_POPULATION_SOURCE]: [...DESCRIPTOR_SURFACES.keys()],
@@ -1735,10 +1799,14 @@ function identityAssertionEvidence(
         `${assertionId}: ${member} is not a first-party visual asset`,
       );
     }
-    if (BRAND_SYMBOL_NAME.test(asset.path)) {
+    const verdict = ASSET_CONTENT_VERDICTS.get(member);
+    if (!verdict) {
       throw new Error(
-        `${assertionId}: ${asset.path} is named as brand iconography`,
+        `${assertionId}: ${member} has no decoded content verdict, so its row would rest on its filename`,
       );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
     }
     if (IDENTITY_SYMBOL_SIGHTINGS.length > 0) {
       throw new Error(
@@ -1746,14 +1814,24 @@ function identityAssertionEvidence(
       );
     }
     return {
-      actual: `${asset.path} is registered as ${asset.category} content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}, so it fills no identity slot`,
+      actual: `${asset.path} is ${verdict.byteCount} bytes of ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
       computed: {
         assetPath: asset.path,
         category: asset.category,
+        byteCount: verdict.byteCount,
+        byteHash: verdict.byteHash,
+        declaredExtension: verdict.declaredExtension,
+        decodedFormat: verdict.decodedFormat,
+        formatMatchesExtension: verdict.formatMatchesExtension,
+        basis: verdict.basis,
+        decoded: verdict.decode,
+        established: verdict.established,
+        limitations: verdict.limitations,
+        identitySourcesChecked: ASSET_IDENTITY_SOURCE_COUNT,
         iconDeclarationsAcrossSweep: 0,
         symbolNodesInLockupsAcrossSweep: 0,
         routesSwept: IDENTITY_EVIDENCE.routes.length,
-        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+        evidence: [asset.path, IDENTITY_RUNTIME_EVIDENCE_PATH],
       },
     };
   }

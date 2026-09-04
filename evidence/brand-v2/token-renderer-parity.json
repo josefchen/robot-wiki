@@ -36,7 +36,7 @@
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "351ddff54911c9f6db4ef806b5e3a8016a4898ebc70c9323450fb41868f4e3ec"
+    "fingerprint": "b23def38076f923b999ae8b74a432680c121bdc4ff32274790d58cc266e9cd96"
   },
   "cardCount": 48,
   "paintedProperties": 9743,

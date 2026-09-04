@@ -24727,7 +24727,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-atlas-trajectory` still resolves 3 comment-free use(s) across 1 first-party runtime file(s) and 2 use(s) across 1 shipped .js file(s) of the built export, and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-atlas-trajectory` still resolves 4 comment-free use(s) across 2 first-party runtime file(s) and 2 use(s) across 1 shipped .js file(s) of the built export, and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -24735,8 +24735,9 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-atlas-trajectory",
-          "occurrences": 3,
+          "occurrences": 4,
           "files": [
+            "lib/brand-v2-identity-evidence.ts",
             "lib/trajectory.ts"
           ],
           "destinations": [],
@@ -25231,7 +25232,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/anymal-anybotics-2022.jpg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/anymal-anybotics-2022.jpg is 706854 bytes of jpeg matching its .jpg name and its registered hash 65bd6998719c; decoded a 1920x1280 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:ANYbotics_robot_dog_ANYmal.jpg by ANYbotics, so this repository did not author it; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25240,10 +25241,31 @@
         "computed": {
           "assetPath": "images/anymal-anybotics-2022.jpg",
           "category": "editorial-image",
+          "byteCount": 706854,
+          "byteHash": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
+          "declaredExtension": ".jpg",
+          "decodedFormat": "jpeg",
+          "formatMatchesExtension": true,
+          "basis": "external-provenance",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1920,
+            "heightPx": 1280,
+            "colourComponents": 3,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1920x1280 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:ANYbotics_robot_dog_ANYmal.jpg by ANYbotics, so this repository did not author it"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/anymal-anybotics-2022.jpg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25258,7 +25280,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/atlas-darpa-frontview-2013.jpg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/atlas-darpa-frontview-2013.jpg is 333540 bytes of jpeg matching its .jpg name and its registered hash b473db0480ee; decoded a 1280x1762 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Atlas_frontview_2013.jpg by DARPA, so this repository did not author it; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25267,10 +25289,31 @@
         "computed": {
           "assetPath": "images/atlas-darpa-frontview-2013.jpg",
           "category": "editorial-image",
+          "byteCount": 333540,
+          "byteHash": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
+          "declaredExtension": ".jpg",
+          "decodedFormat": "jpeg",
+          "formatMatchesExtension": true,
+          "basis": "external-provenance",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1280,
+            "heightPx": 1762,
+            "colourComponents": 3,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1280x1762 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Atlas_frontview_2013.jpg by DARPA, so this repository did not author it"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/atlas-darpa-frontview-2013.jpg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25285,7 +25328,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/covariate-shift.svg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/covariate-shift.svg is 2257 bytes of svg matching its .svg name and its registered hash 18adc440eb04; decoded 11 drawing primitive(s) and 5 label run(s) on a 640x250 canvas, with 0 embedded raster payload(s); no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25294,10 +25337,47 @@
         "computed": {
           "assetPath": "images/covariate-shift.svg",
           "category": "editorial-image",
+          "byteCount": 2257,
+          "byteHash": "18adc440eb043fd47c42f8851d73d7253d4a2826d9dadd5d600ec75b989590da",
+          "declaredExtension": ".svg",
+          "decodedFormat": "svg",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "vector",
+            "viewBox": "0 0 640 250",
+            "widthPx": 640,
+            "heightPx": 250,
+            "elementCensus": {
+              "svg": 1,
+              "rect": 1,
+              "path": 7,
+              "circle": 2,
+              "line": 1,
+              "text": 5
+            },
+            "drawingPrimitives": 11,
+            "textRuns": [
+              "leaves the training distribution",
+              "expert demonstrations (training)",
+              "policy rollout",
+              "each small error moves the policy into states the expert never visited,",
+              "where its next error is larger"
+            ],
+            "accessibleLabel": "Covariate shift diagram: a policy rollout drifting out of the expert demonstration corridor",
+            "embeddedRasterCount": 0,
+            "externalReferences": []
+          },
+          "established": [
+            "decoded 11 drawing primitive(s) and 5 label run(s) on a 640x250 canvas, with 0 embedded raster payload(s)"
+          ],
+          "limitations": [],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/covariate-shift.svg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25312,7 +25392,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/franka-emika-panda-cebit-2017.jpg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/franka-emika-panda-cebit-2017.jpg is 277465 bytes of jpeg matching its .jpg name and its registered hash 61ace804a61a; decoded a 1920x1280 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Franka_Emika2.jpg by Ims, so this repository did not author it; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25321,10 +25401,31 @@
         "computed": {
           "assetPath": "images/franka-emika-panda-cebit-2017.jpg",
           "category": "editorial-image",
+          "byteCount": 277465,
+          "byteHash": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
+          "declaredExtension": ".jpg",
+          "decodedFormat": "jpeg",
+          "formatMatchesExtension": true,
+          "basis": "external-provenance",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1920,
+            "heightPx": 1280,
+            "colourComponents": 3,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1920x1280 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Franka_Emika2.jpg by Ims, so this repository did not author it"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/franka-emika-panda-cebit-2017.jpg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25339,7 +25440,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/puma-560-nasa-ames.jpg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/puma-560-nasa-ames.jpg is 421421 bytes of jpeg matching its .jpg name and its registered hash 4167b56e4451; decoded a 1280x1627 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Puma_Robotic_Arm_-_GPN-2000-001817.jpg by NASA / Dominic Hart, so this repository did not author it; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25348,10 +25449,31 @@
         "computed": {
           "assetPath": "images/puma-560-nasa-ames.jpg",
           "category": "editorial-image",
+          "byteCount": 421421,
+          "byteHash": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
+          "declaredExtension": ".jpg",
+          "decodedFormat": "jpeg",
+          "formatMatchesExtension": true,
+          "basis": "external-provenance",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1280,
+            "heightPx": 1627,
+            "colourComponents": 3,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1280x1627 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Puma_Robotic_Arm_-_GPN-2000-001817.jpg by NASA / Dominic Hart, so this repository did not author it"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/puma-560-nasa-ames.jpg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25366,7 +25488,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/spot-raf-agile-liberty-2021.jpg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/spot-raf-agile-liberty-2021.jpg is 326852 bytes of jpeg matching its .jpg name and its registered hash 571a6949389d; decoded a 1920x869 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg by Senior Airman John Ennis, U.S. Air Force, so this repository did not author it; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25375,10 +25497,31 @@
         "computed": {
           "assetPath": "images/spot-raf-agile-liberty-2021.jpg",
           "category": "editorial-image",
+          "byteCount": 326852,
+          "byteHash": "571a6949389d5c57db435bb95ab425b3015cce144ebe65f7c628eece583c0327",
+          "declaredExtension": ".jpg",
+          "decodedFormat": "jpeg",
+          "formatMatchesExtension": true,
+          "basis": "external-provenance",
+          "decoded": {
+            "kind": "raster",
+            "widthPx": 1920,
+            "heightPx": 869,
+            "colourComponents": 3,
+            "pixelsDecoded": false
+          },
+          "established": [
+            "decoded a 1920x869 jpeg frame matching the registered original retrieved 2026-08-10 from https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg by Senior Airman John Ennis, U.S. Air Force, so this repository did not author it"
+          ],
+          "limitations": [
+            "JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/spot-raf-agile-liberty-2021.jpg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25393,7 +25536,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "images/temporal-ensembling.svg is registered as editorial-image content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "images/temporal-ensembling.svg is 3284 bytes of svg matching its .svg name and its registered hash 649b4cc247f3; decoded 18 drawing primitive(s) and 16 label run(s) on a 640x250 canvas, with 0 embedded raster payload(s); no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25402,10 +25545,59 @@
         "computed": {
           "assetPath": "images/temporal-ensembling.svg",
           "category": "editorial-image",
+          "byteCount": 3284,
+          "byteHash": "649b4cc247f3625f75222283d706d8468c98b49e2132492c4c3f3004aeee70d7",
+          "declaredExtension": ".svg",
+          "decodedFormat": "svg",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "vector",
+            "viewBox": "0 0 640 250",
+            "widthPx": 640,
+            "heightPx": 250,
+            "elementCensus": {
+              "svg": 1,
+              "rect": 7,
+              "text": 16,
+              "line": 7,
+              "circle": 3,
+              "polygon": 1,
+              "g": 1
+            },
+            "drawingPrimitives": 18,
+            "textRuns": [
+              "chunks in flight",
+              "ensemble weights",
+              "a_t",
+              "issued at t-2",
+              "issued at t-1",
+              "issued at t",
+              "t-2",
+              "t-1",
+              "t",
+              "t+1",
+              "t+2",
+              "control steps",
+              "0.37",
+              "0.61",
+              "1.00",
+              "w_i = exp(-m i)"
+            ],
+            "accessibleLabel": "Temporal ensembling diagram",
+            "embeddedRasterCount": 0,
+            "externalReferences": []
+          },
+          "established": [
+            "decoded 18 drawing primitive(s) and 16 label run(s) on a 640x250 canvas, with 0 embedded raster payload(s)"
+          ],
+          "limitations": [],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "images/temporal-ensembling.svg",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25420,7 +25612,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/base_motor_holder_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/base_motor_holder_so101_v1.glb is 109556 bytes of glb matching its .glb name and its registered hash 2452a592eb9f; decoded a glTF 2.0 scene of 1 node(s) named base_motor_holder_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/base_motor_holder_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25429,10 +25621,36 @@
         "computed": {
           "assetPath": "models/so101/assets/base_motor_holder_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 109556,
+          "byteHash": "2452a592eb9fb5d05e5f23328b1b4502607a220442d3c8c11a285200872fce80",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "base_motor_holder_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named base_motor_holder_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/base_motor_holder_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/base_motor_holder_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25447,7 +25665,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/base_so101_v2.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/base_so101_v2.glb is 35688 bytes of glb matching its .glb name and its registered hash 3d6029538535; decoded a glTF 2.0 scene of 1 node(s) named base_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/base_so101_v2.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25456,10 +25674,36 @@
         "computed": {
           "assetPath": "models/so101/assets/base_so101_v2.glb",
           "category": "playground-model",
+          "byteCount": 35688,
+          "byteHash": "3d602953853522d6a5091699142a3754ea7f451b36634bcc64236c16df40fd04",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "base_so101_v2"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named base_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/base_so101_v2.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/base_so101_v2.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25474,7 +25718,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/motor_holder_so101_base_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/motor_holder_so101_base_v1.glb is 69112 bytes of glb matching its .glb name and its registered hash f15fc345016a; decoded a glTF 2.0 scene of 1 node(s) named motor_holder_so101_base_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/motor_holder_so101_base_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25483,10 +25727,36 @@
         "computed": {
           "assetPath": "models/so101/assets/motor_holder_so101_base_v1.glb",
           "category": "playground-model",
+          "byteCount": 69112,
+          "byteHash": "f15fc345016acaa8f599fd9d24bc815b6d54807f1c358603a372bb07ca72735b",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "motor_holder_so101_base_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named motor_holder_so101_base_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/motor_holder_so101_base_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/motor_holder_so101_base_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25501,7 +25771,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/motor_holder_so101_wrist_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/motor_holder_so101_wrist_v1.glb is 66156 bytes of glb matching its .glb name and its registered hash ba8ee6cb2638; decoded a glTF 2.0 scene of 1 node(s) named motor_holder_so101_wrist_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/motor_holder_so101_wrist_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25510,10 +25780,36 @@
         "computed": {
           "assetPath": "models/so101/assets/motor_holder_so101_wrist_v1.glb",
           "category": "playground-model",
+          "byteCount": 66156,
+          "byteHash": "ba8ee6cb2638ef9bacfaa63aa759603c10740c937991267b43ff74e006bf3aeb",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "motor_holder_so101_wrist_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named motor_holder_so101_wrist_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/motor_holder_so101_wrist_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/motor_holder_so101_wrist_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25528,7 +25824,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/moving_jaw_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/moving_jaw_so101_v1.glb is 86152 bytes of glb matching its .glb name and its registered hash b78ae523c975; decoded a glTF 2.0 scene of 1 node(s) named moving_jaw_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/moving_jaw_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25537,10 +25833,36 @@
         "computed": {
           "assetPath": "models/so101/assets/moving_jaw_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 86152,
+          "byteHash": "b78ae523c975da9c74ad71caa086723a6de780aa2f142a225b6b37f06a6da484",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "moving_jaw_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named moving_jaw_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/moving_jaw_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/moving_jaw_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25555,7 +25877,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/rotation_pitch_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/rotation_pitch_so101_v1.glb is 55136 bytes of glb matching its .glb name and its registered hash 8ef260977bfb; decoded a glTF 2.0 scene of 1 node(s) named rotation_pitch_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/rotation_pitch_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25564,10 +25886,36 @@
         "computed": {
           "assetPath": "models/so101/assets/rotation_pitch_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 55136,
+          "byteHash": "8ef260977bfb20859fd2d5b8fc9968973b1a4415bd7fc9aa539548e3ad76c517",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "rotation_pitch_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named rotation_pitch_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/rotation_pitch_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/rotation_pitch_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25582,7 +25930,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/sts3215_03a_no_horn_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/sts3215_03a_no_horn_v1.glb is 44360 bytes of glb matching its .glb name and its registered hash ef99525fcede; decoded a glTF 2.0 scene of 1 node(s) named sts3215_03a_no_horn_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/sts3215_03a_no_horn_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25591,10 +25939,36 @@
         "computed": {
           "assetPath": "models/so101/assets/sts3215_03a_no_horn_v1.glb",
           "category": "playground-model",
+          "byteCount": 44360,
+          "byteHash": "ef99525fcedee826a2d5a47cc8d31a13423e32224c473df1617407111e926ad1",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "sts3215_03a_no_horn_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named sts3215_03a_no_horn_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/sts3215_03a_no_horn_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/sts3215_03a_no_horn_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25609,7 +25983,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/sts3215_03a_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/sts3215_03a_v1.glb is 49684 bytes of glb matching its .glb name and its registered hash 1f3d99c550d1; decoded a glTF 2.0 scene of 1 node(s) named sts3215_03a_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/sts3215_03a_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25618,10 +25992,36 @@
         "computed": {
           "assetPath": "models/so101/assets/sts3215_03a_v1.glb",
           "category": "playground-model",
+          "byteCount": 49684,
+          "byteHash": "1f3d99c550d1385ed199bf0c42e0a9d52b23ec2aa69712461dd33316414425e5",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "sts3215_03a_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named sts3215_03a_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/sts3215_03a_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/sts3215_03a_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25636,7 +26036,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/under_arm_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/under_arm_so101_v1.glb is 117612 bytes of glb matching its .glb name and its registered hash e73fa2121ae8; decoded a glTF 2.0 scene of 1 node(s) named under_arm_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/under_arm_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25645,10 +26045,36 @@
         "computed": {
           "assetPath": "models/so101/assets/under_arm_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 117612,
+          "byteHash": "e73fa2121ae8fa8302ae96a121b0975eadf8499ffce8bd7416f365630d3c215e",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "under_arm_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named under_arm_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/under_arm_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/under_arm_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25663,7 +26089,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/upper_arm_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/upper_arm_so101_v1.glb is 77472 bytes of glb matching its .glb name and its registered hash 531d6b8f9670; decoded a glTF 2.0 scene of 1 node(s) named upper_arm_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/upper_arm_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25672,10 +26098,36 @@
         "computed": {
           "assetPath": "models/so101/assets/upper_arm_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 77472,
+          "byteHash": "531d6b8f9670eebfd7d09b67983000d5b3b616fd5d19c4e3ea06455ac3b6ccad",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "upper_arm_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named upper_arm_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/upper_arm_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/upper_arm_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25690,7 +26142,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/waveshare_mounting_plate_so101_v2.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/waveshare_mounting_plate_so101_v2.glb is 4952 bytes of glb matching its .glb name and its registered hash bd1dc7b2573c; decoded a glTF 2.0 scene of 1 node(s) named waveshare_mounting_plate_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/waveshare_mounting_plate_so101_v2.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25699,10 +26151,36 @@
         "computed": {
           "assetPath": "models/so101/assets/waveshare_mounting_plate_so101_v2.glb",
           "category": "playground-model",
+          "byteCount": 4952,
+          "byteHash": "bd1dc7b2573c2a9e4dfaf7367d7d9f398f8a7337840cc7cd06785927f85c6dca",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "waveshare_mounting_plate_so101_v2"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named waveshare_mounting_plate_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/waveshare_mounting_plate_so101_v2.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/waveshare_mounting_plate_so101_v2.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25717,7 +26195,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/wrist_roll_follower_so101_v1.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/wrist_roll_follower_so101_v1.glb is 88084 bytes of glb matching its .glb name and its registered hash c728435fba1f; decoded a glTF 2.0 scene of 1 node(s) named wrist_roll_follower_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/wrist_roll_follower_so101_v1.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25726,10 +26204,36 @@
         "computed": {
           "assetPath": "models/so101/assets/wrist_roll_follower_so101_v1.glb",
           "category": "playground-model",
+          "byteCount": 88084,
+          "byteHash": "c728435fba1f51a33a284a213e9f5ab34059e1c2d14bab7d19b28542271231f2",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "wrist_roll_follower_so101_v1"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named wrist_roll_follower_so101_v1, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/wrist_roll_follower_so101_v1.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/wrist_roll_follower_so101_v1.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25744,7 +26248,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/assets/wrist_roll_pitch_so101_v2.glb is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/assets/wrist_roll_pitch_so101_v2.glb is 167936 bytes of glb matching its .glb name and its registered hash 8cfb052019d6; decoded a glTF 2.0 scene of 1 node(s) named wrist_roll_pitch_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/wrist_roll_pitch_so101_v2.glb; no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812. Not established: glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25753,10 +26257,36 @@
         "computed": {
           "assetPath": "models/so101/assets/wrist_roll_pitch_so101_v2.glb",
           "category": "playground-model",
+          "byteCount": 167936,
+          "byteHash": "8cfb052019d607094a3ae9f92c1359e2afd5bea7adc1f525f36208b007180b35",
+          "declaredExtension": ".glb",
+          "decodedFormat": "glb",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "model",
+            "gltfVersion": "2.0",
+            "generator": "glTF-Transform v4.4.2",
+            "nodeNames": [
+              "wrist_roll_pitch_so101_v2"
+            ],
+            "nodeCount": 1,
+            "meshCount": 1,
+            "materialCount": 1,
+            "embeddedImageCount": 0
+          },
+          "established": [
+            "decoded a glTF 2.0 scene of 1 node(s) named wrist_roll_pitch_so101_v2, 1 mesh(es) and 1 material(s) with 0 embedded texture(s), referenced by models/so101/so101.urdf as assets/wrist_roll_pitch_so101_v2.glb"
+          ],
+          "limitations": [
+            "glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified"
+          ],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/assets/wrist_roll_pitch_so101_v2.glb",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }
@@ -25771,7 +26301,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
-      "actual": "models/so101/so101.urdf is registered as playground-model content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812, so it fills no identity slot",
+      "actual": "models/so101/so101.urdf is 16231 bytes of urdf matching its .urdf name and its registered hash 8cc4e19a494c; decoded the kinematic description of so101_new_calib: 8 link(s), 13 joint(s) and 34 mesh reference(s); no icon, manifest or lockup declaration in the 15 sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#assets:first-party-visual",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -25780,10 +26310,87 @@
         "computed": {
           "assetPath": "models/so101/so101.urdf",
           "category": "playground-model",
+          "byteCount": 16231,
+          "byteHash": "8cc4e19a494c19dd78fd4e229e48f318e73e346e5045232e6e2ad493ce04bc95",
+          "declaredExtension": ".urdf",
+          "decodedFormat": "urdf",
+          "formatMatchesExtension": true,
+          "basis": "decoded-content",
+          "decoded": {
+            "kind": "kinematic-description",
+            "robotName": "so101_new_calib",
+            "linkNames": [
+              "base_link",
+              "shoulder_link",
+              "upper_arm_link",
+              "lower_arm_link",
+              "wrist_link",
+              "gripper_link",
+              "gripper_frame_link",
+              "moving_jaw_so101_v1_link"
+            ],
+            "jointNames": [
+              "gripper_frame_joint",
+              "gripper",
+              "gripper",
+              "wrist_roll",
+              "wrist_roll",
+              "wrist_flex",
+              "wrist_flex",
+              "elbow_flex",
+              "elbow_flex",
+              "shoulder_lift",
+              "shoulder_lift",
+              "shoulder_pan",
+              "shoulder_pan"
+            ],
+            "meshReferences": [
+              "assets/base_motor_holder_so101_v1.glb",
+              "assets/base_motor_holder_so101_v1.glb",
+              "assets/base_so101_v2.glb",
+              "assets/base_so101_v2.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/waveshare_mounting_plate_so101_v2.glb",
+              "assets/waveshare_mounting_plate_so101_v2.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/motor_holder_so101_base_v1.glb",
+              "assets/motor_holder_so101_base_v1.glb",
+              "assets/rotation_pitch_so101_v1.glb",
+              "assets/rotation_pitch_so101_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/upper_arm_so101_v1.glb",
+              "assets/upper_arm_so101_v1.glb",
+              "assets/under_arm_so101_v1.glb",
+              "assets/under_arm_so101_v1.glb",
+              "assets/motor_holder_so101_wrist_v1.glb",
+              "assets/motor_holder_so101_wrist_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_no_horn_v1.glb",
+              "assets/sts3215_03a_no_horn_v1.glb",
+              "assets/wrist_roll_pitch_so101_v2.glb",
+              "assets/wrist_roll_pitch_so101_v2.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/sts3215_03a_v1.glb",
+              "assets/wrist_roll_follower_so101_v1.glb",
+              "assets/wrist_roll_follower_so101_v1.glb",
+              "assets/moving_jaw_so101_v1.glb",
+              "assets/moving_jaw_so101_v1.glb"
+            ]
+          },
+          "established": [
+            "decoded the kinematic description of so101_new_calib: 8 link(s), 13 joint(s) and 34 mesh reference(s)"
+          ],
+          "limitations": [],
+          "identitySourcesChecked": 15,
           "iconDeclarationsAcrossSweep": 0,
           "symbolNodesInLockupsAcrossSweep": 0,
           "routesSwept": 61,
           "evidence": [
+            "models/so101/so101.urdf",
             "evidence/brand-v2/identity-runtime.json"
           ]
         }

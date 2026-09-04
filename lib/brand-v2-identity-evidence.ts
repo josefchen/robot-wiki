@@ -1,8 +1,13 @@
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { extname, join } from 'node:path';
 import { extractBrandV2Assertions } from './brand-v2-enforcement.ts';
+import {
+  ARTICLE_BODY_COMPUTED_IMPORT,
+  deriveEvidenceClosure,
+  evidenceClosureGraph,
+  routeEntryModules,
+} from './brand-v2-evidence-closure.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import { stripComments } from './source-comments.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
@@ -188,35 +193,83 @@ export type IdentityEvidenceSources = {
   lockupSourcePaths: string[];
 };
 
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
 
 /**
- * The fingerprint the sweep records and the generator re-derives. It covers
- * the two locked strings plus the bytes of every file that can change what
- * an identity or metadata surface renders, so editing a route's metadata
- * owner without re-running the sweep is a stale-evidence failure rather than
- * a silently preserved green row.
+ * The fingerprint the sweep records and the generator re-derives, over the
+ * two locked strings and the bytes of everything any public route reaches.
+ *
+ * The list this replaces hashed only the registered metadata owners and the
+ * modules that define a wordmark role, which is where the identity is
+ * *authored* rather than where it can *appear*. The sweep visits all
+ * sixty-one routes at two viewports and fails on a legacy public string
+ * anywhere in the document, so an article's trajectory instrument, a
+ * WebGL-unavailable fallback, the EgoScale figure or an image credit could
+ * reintroduce one and the committed artifact still read as current. The
+ * registered metadata owners and the role-defining modules stay as entries,
+ * so a metadata owner that no route reaches is still covered.
+ *
+ * Note what a closure does not fix: covering a file is not the same as
+ * visiting a state. The sweep loads each route once in its default state,
+ * so a fallback that only paints when WebGL is unavailable, and an
+ * instrument state that only exists after interaction, are inside the
+ * fingerprint and outside the sweep. That gap is recorded honestly rather
+ * than closed here; see `IDENTITY_SWEEP_UNVISITED_STATES`.
  */
 export function identityEvidenceFingerprint(
   sources: IdentityEvidenceSources,
 ): string {
-  const paths = [
+  const declared = [
     ...new Set([...sources.metadataOwnerPaths, ...sources.lockupSourcePaths]),
   ].sort();
-  if (paths.length === 0) {
+  if (declared.length === 0) {
     throw new Error(
       'identity fingerprint has no source files: the staleness check would accept any artifact',
     );
   }
-  const parts = paths.map(
-    (path) => `${path}:${sha256(readFileSync(join(sources.root, path), 'utf8'))}`,
-  );
-  return sha256(
-    [PUBLIC_IDENTITY, PUBLIC_DESCRIPTOR, ...parts].join('\n'),
-  );
+  return deriveEvidenceClosure({
+    root: sources.root,
+    entries: [
+      ...routeEntryModules(evidenceClosureGraph(sources.root)),
+      ...declared,
+      'tests/e2e/brand-v2-identity.spec.ts',
+    ],
+    facts: [PUBLIC_IDENTITY, PUBLIC_DESCRIPTOR],
+    computedSpecifiers: [ARTICLE_BODY_COMPUTED_IMPORT],
+  }).fingerprint;
 }
+
+/**
+ * Identity-bearing render paths the closure covers but the sweep never
+ * observes, named so the rows do not read as a complete sweep.
+ *
+ * Covering a file is not the same as visiting a state, and the two halves
+ * of that need separate answers. The closure is the drift half: an edit to
+ * either module below invalidates the artifact, so a legacy public string
+ * added there cannot ride along on stale evidence. It is not the observation
+ * half, and claiming it would be the failure this milestone keeps finding —
+ * evidence about something adjacent to its subject.
+ *
+ * Both entries are measured rather than assumed. The other paths that look
+ * like they belong here do not: the EgoScale legend prints the public
+ * identity in the default render (`completion fit (Robot Wiki, R² = …)` is
+ * in the shipped `frontier/generalization` document), and `Figure` renders
+ * its `data-image-credit` line visibly rather than behind a disclosure, so
+ * both are inside the residue scan on the routes that carry them.
+ */
+export const IDENTITY_SWEEP_UNVISITED_STATES = [
+  {
+    state: 'webgl-unavailable-fallback',
+    definedIn: 'components/three/webgl-unavailable.tsx',
+    reason:
+      'the fallback prints the public identity and paints only when the browser refuses a WebGL context, which the sweep never provokes: the shipped /playground/ document carries none of its text',
+  },
+  {
+    state: 'trajectory-export-format-discriminator',
+    definedIn: 'lib/trajectory.ts',
+    reason:
+      'the robot-atlas-trajectory identifier is written into a downloaded file and never into a document, so no DOM sweep can observe it; VAL-B2-ID-004 covers it through the shipped-bytes witness instead',
+  },
+] as const;
 
 export type IdentityEvidenceInput = {
   artifact: unknown;

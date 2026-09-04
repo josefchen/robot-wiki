@@ -1,6 +1,4 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
 
 /**
  * Evidence for the home-composition assertions (`VAL-B2-ID-007`,
@@ -169,41 +167,44 @@ export type HomeCompositionEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what home renders. Listed rather
- * than derived because these are exactly the modules that build the page:
- * the composition itself, the action primitive its black button comes from,
- * the stylesheet that owns the tokens, the layout that mounts the shell, the
- * identity constants the hero prints, and the registry the seven rows and
- * their descriptions are built from.
+ * The entry points the home composition evidence is about: the page itself
+ * and the layout that wraps it, plus the sweep that measures them.
+ *
+ * The closure of those three is what can change this reading, and it is
+ * derived rather than listed. The six-path list this replaces omitted every
+ * transitive rendering input the page actually has — `data/domains.ts`,
+ * which supplies the seven destinations the domain-index rows are measured
+ * against; `components/interactive/reliability-compounding.tsx`, the
+ * featured instrument inside the first composition;
+ * `components/mdx/image-ref.tsx` and `components/ui/figure.tsx`, which
+ * decide how an image lands in the layout; and
+ * `components/nav/site-shell.tsx`, the chrome every home geometry reading is
+ * relative to. Any of those could move the sections, the fold, or the
+ * highlight while the committed artifact still read as current.
  */
-export const HOME_SOURCE_PATHS = [
-  'app/globals.css',
+export const HOME_CLOSURE_ENTRIES = [
   'app/layout.tsx',
   'app/page.tsx',
-  'components/ui/action.tsx',
-  'data/modules.ts',
-  'lib/identity.ts',
+  'tests/e2e/brand-v2-home.spec.ts',
 ] as const;
-
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every home source plus the exact identity literals the hero has
- * to print. Restyling or rewording the page without re-running the sweep is
- * then a stale-evidence failure rather than a silently preserved green row.
+ * bytes of the whole home closure plus the exact identity literals the hero
+ * has to print. Restyling or rewording the page without re-running the sweep
+ * is then a stale-evidence failure rather than a silently preserved green
+ * row.
  */
 export function homeEvidenceFingerprint(input: {
   root: string;
   identity: string;
   descriptor: string;
 }): string {
-  const parts = [...HOME_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
-  );
-  return sha256([...parts, input.identity, input.descriptor].join('\n'));
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: HOME_CLOSURE_ENTRIES,
+    facts: [input.identity, input.descriptor],
+  }).fingerprint;
 }
 
 /**

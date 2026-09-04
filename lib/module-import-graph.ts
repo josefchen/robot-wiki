@@ -1,5 +1,6 @@
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative } from 'node:path';
+import { tokenizeSource } from './source-tokens.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
 
 /**
@@ -48,7 +49,54 @@ export type ModuleImportGraph = {
    * question the import walk answers, and a second resolver would drift.
    */
   resolveSpecifier: (specifier: string, fromModule: string) => string | null;
+  /**
+   * How every first-party specifier written by the given modules resolves.
+   *
+   * The edge walk above silently drops a specifier it cannot turn into a
+   * scanned module, which is right for `next/font/local` and wrong for
+   * everything first-party: a stylesheet the layout imports, a JSON registry
+   * a data module reads, and a module living outside the scanned roots all
+   * disappear the same way a third-party package does. A consumer building a
+   * closure has to be able to tell those apart, because an omission is
+   * exactly what a closure is supposed to prevent.
+   *
+   * Computed on demand rather than during the walk: it tokenizes source, and
+   * the walk's existing consumers do not need it.
+   */
+  firstPartySpecifiersIn: (
+    modules: Iterable<string>,
+  ) => FirstPartySpecifierResolution[];
 };
+
+/** How a first-party specifier written in a module resolves. */
+export type FirstPartySpecifierResolution = {
+  module: string;
+  specifier: string;
+  kind: ModuleDependencyKind;
+  /**
+   * `module` — a scanned module, already an edge candidate above.
+   * `asset` — an existing file whose extension is not a module extension:
+   *   a stylesheet, a JSON registry, a font metadata file. Its bytes are a
+   *   dependency even though there is nothing in it to walk.
+   * `unscanned-module` — an existing file that *is* a module, outside the
+   *   scanned roots. Reading it as an asset would hash it and never walk
+   *   its own imports, so it is a hole rather than a leaf.
+   * `computed` — a template literal with an interpolation, naming a set of
+   *   modules rather than one. `import(`@/content/${domain}/${slug}.mdx`)`
+   *   is the article template reaching every MDX body.
+   * `missing` — resolves to nothing at all.
+   */
+  resolution:
+    | 'module'
+    | 'asset'
+    | 'unscanned-module'
+    | 'computed'
+    | 'missing';
+  /** The repository-relative path, when one exists. */
+  path: string | null;
+};
+
+export type ModuleDependencyKind = 'import' | 'reexport' | 'dynamic';
 
 export type ImportBinding = {
   /** The name the importing module refers to it by. */
@@ -138,6 +186,98 @@ function parseClause(clause: string): Binding[] {
     }
   }
   return bindings;
+}
+
+type WrittenSpecifier = { specifier: string; kind: ModuleDependencyKind };
+
+/**
+ * Every module specifier a source file writes, read from tokens rather than
+ * from raw text.
+ *
+ * The edge walk above matches regexes against the whole file, which
+ * over-reports: a doc comment showing `import('./robot-scene')` looks
+ * exactly like the call it documents. That costs the walk nothing, because a
+ * specifier naming no real module drops out. It costs a fail-closed consumer
+ * everything, because the same comment becomes an unresolvable first-party
+ * reference and refuses a tree that is fine. Tokenizing discards comments,
+ * so what comes back is what the compiler sees.
+ *
+ * MDX is not TypeScript and tokenizing its prose would classify quoted
+ * phrases as strings, so an MDX body keeps the regex reading. It has no
+ * comment syntax for a specifier to hide in.
+ */
+function writtenSpecifiers(
+  modulePath: string,
+  text: string,
+): WrittenSpecifier[] {
+  if (extname(modulePath) === '.mdx') {
+    const found: WrittenSpecifier[] = [];
+    for (const match of text.matchAll(IMPORT_STATEMENT)) {
+      const specifier = match[3] ?? match[4];
+      if (specifier !== undefined) found.push({ specifier, kind: 'import' });
+    }
+    for (const match of text.matchAll(REEXPORT_STATEMENT)) {
+      found.push({ specifier: match[3], kind: 'reexport' });
+    }
+    for (const match of text.matchAll(STAR_REEXPORT)) {
+      found.push({ specifier: match[2], kind: 'reexport' });
+    }
+    for (const match of text.matchAll(DYNAMIC_IMPORT)) {
+      found.push({ specifier: match[1], kind: 'dynamic' });
+    }
+    return found;
+  }
+  const tokens = tokenizeSource(text);
+  const found: WrittenSpecifier[] = [];
+  for (let index = 0; index < tokens.length; index += 1) {
+    const token = tokens[index];
+    const next = tokens[index + 1];
+    if (next === undefined) break;
+    if (token.kind === 'identifier' && token.value === 'import') {
+      // `import './globals.css'` and `import('./robot-scene')`.
+      if (next.kind === 'string') {
+        found.push({ specifier: next.value, kind: 'import' });
+        continue;
+      }
+      if (
+        next.kind === 'punctuation' &&
+        next.value === '(' &&
+        tokens[index + 2]?.kind === 'string'
+      ) {
+        found.push({
+          specifier: tokens[index + 2].value,
+          kind: 'dynamic',
+        });
+      }
+      continue;
+    }
+    if (
+      token.kind !== 'identifier' ||
+      token.value !== 'from' ||
+      next.kind !== 'string'
+    ) {
+      continue;
+    }
+    // Whether this is an import clause or a re-export table is decided by the
+    // keyword that opened the statement, which is the nearest `import` or
+    // `export` behind the clause.
+    let kind: ModuleDependencyKind | null = null;
+    for (let back = index - 1; back >= 0 && index - back < 400; back -= 1) {
+      const previous = tokens[back];
+      if (previous.kind === 'punctuation' && previous.value === ';') break;
+      if (previous.kind !== 'identifier') continue;
+      if (previous.value === 'import') {
+        kind = 'import';
+        break;
+      }
+      if (previous.value === 'export') {
+        kind = 'reexport';
+        break;
+      }
+    }
+    if (kind !== null) found.push({ specifier: next.value, kind });
+  }
+  return found;
 }
 
 export function buildModuleImportGraph(
@@ -261,6 +401,38 @@ export function buildModuleImportGraph(
     reexportHopsByModule.set(modulePath, hops);
   }
 
+  const classify = (
+    specifier: string,
+    fromModule: string,
+  ): { resolution: FirstPartySpecifierResolution['resolution']; path: string | null } => {
+    // A template literal with an interpolation names a family of modules, and
+    // the regex walk above never saw it at all. Reporting it as missing would
+    // be wrong — it resolves at runtime — and reporting nothing would be the
+    // omission this classification exists to expose.
+    if (specifier.includes('${')) return { resolution: 'computed', path: null };
+    const asModule = resolve(specifier, fromModule);
+    if (asModule !== null) return { resolution: 'module', path: asModule };
+    const base = specifier.startsWith('@/')
+      ? specifier.slice(2)
+      : relative(root, join(root, dirname(fromModule), specifier));
+    const candidates = [
+      base,
+      ...[...extensions].map((extension) => `${base}${extension}`),
+      ...[...extensions].map((extension) => `${base}/index${extension}`),
+    ];
+    for (const candidate of candidates) {
+      const absolute = join(root, candidate);
+      if (!existsSync(absolute) || !statSync(absolute).isFile()) continue;
+      return {
+        resolution: extensions.has(extname(candidate))
+          ? 'unscanned-module'
+          : 'asset',
+        path: candidate,
+      };
+    }
+    return { resolution: 'missing', path: null };
+  };
+
   return {
     root,
     modules: [...known].sort(),
@@ -269,6 +441,33 @@ export function buildModuleImportGraph(
     bindingsByModule,
     reexportHopsByModule,
     resolveSpecifier: resolve,
+    firstPartySpecifiersIn(modules) {
+      const found: FirstPartySpecifierResolution[] = [];
+      for (const modulePath of modules) {
+        const text = textByModule.get(modulePath);
+        if (text === undefined) {
+          throw new Error(
+            `Unknown module in specifier scan: ${modulePath}`,
+          );
+        }
+        for (const { specifier, kind } of writtenSpecifiers(modulePath, text)) {
+          if (!specifier.startsWith('@/') && !specifier.startsWith('.')) {
+            continue;
+          }
+          found.push({
+            module: modulePath,
+            specifier,
+            kind,
+            ...classify(specifier, modulePath),
+          });
+        }
+      }
+      return found.sort(
+        (left, right) =>
+          left.module.localeCompare(right.module) ||
+          left.specifier.localeCompare(right.specifier),
+      );
+    },
     reachableFrom(entries) {
       const reachable = new Set<string>();
       const queue = [...entries];

@@ -1,6 +1,4 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
 
 /**
  * Evidence for the desktop shell and navigation assertions
@@ -159,31 +157,24 @@ export type ShellRuntimeEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what the shell renders. Listed
- * rather than derived because these are exactly the modules that build the
- * chrome: the sidebar and drawer, the taxonomy, the search entry, the device
- * component the markers come from, the stylesheet that owns the tokens and
- * the skip link, the layout that mounts the shell, and the module registry
- * the taxonomy is built from.
+ * The entry points the desktop shell evidence is about: the layout that
+ * mounts the chrome on every route, the search destination the sidebar
+ * entry leads to, and the sweep that measures them.
+ *
+ * Derived from those rather than listed, for the reason the mobile list
+ * gives: a typed list of eight paths is a guess about the closure, and the
+ * guess omitted `lib/utils.ts`, the search index the sidebar entry resolves
+ * against, and the spec that writes the artifact.
  */
-export const SHELL_SOURCE_PATHS = [
-  'app/globals.css',
+export const SHELL_CLOSURE_ENTRIES = [
   'app/layout.tsx',
   'app/search/page.tsx',
-  'components/nav/nav-tree.tsx',
-  'components/nav/search-box.tsx',
-  'components/nav/site-shell.tsx',
-  'components/ui/brand-device.tsx',
-  'data/modules.ts',
+  'tests/e2e/brand-v2-shell.spec.ts',
 ] as const;
-
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every shell source plus the registered geometry of the two
+ * bytes of the whole shell closure plus the registered geometry of the two
  * devices the shell mounts. Restyling the taxonomy without re-running the
  * sweep is then a stale-evidence failure rather than a silently preserved
  * green row.
@@ -192,9 +183,6 @@ export function shellEvidenceFingerprint(input: {
   root: string;
   deviceRegistryRows: ReadonlyArray<{ id: string; fingerprint: string }>;
 }): string {
-  const parts = [...SHELL_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
-  );
   const devices = [...input.deviceRegistryRows]
     .filter(({ id }) => id.endsWith('rail'))
     .sort((left, right) => left.id.localeCompare(right.id))
@@ -204,7 +192,11 @@ export function shellEvidenceFingerprint(input: {
       'the shell fingerprint covers no rail device: the staleness check would miss a registry edit',
     );
   }
-  return sha256([...parts, ...devices].join('\n'));
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: SHELL_CLOSURE_ENTRIES,
+    facts: devices,
+  }).fingerprint;
 }
 
 /**

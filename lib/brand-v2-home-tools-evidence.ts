@@ -1,6 +1,12 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import {
+  ARTICLE_BODY_COMPUTED_IMPORT,
+  deriveEvidenceClosure,
+  evidenceClosureGraph,
+  routeEntryModules,
+} from './brand-v2-evidence-closure.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
 
 /**
@@ -241,43 +247,61 @@ export type HomeToolsEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what this sweep measured: the
- * page that mounts the tools, the instrument itself, the surface primitive
- * the preview stands on, the derivation and the model behind the preview,
- * the registered textual alternatives, the stylesheet that owns the tokens,
- * and the shell that wraps every swept route.
+ * Files this sweep depends on that no module imports.
+ *
+ * The shipped kinematic model is read at build time by
+ * `lib/so101-kinematics.ts` through a filesystem path rather than an import,
+ * so the closure walk cannot see it and every printed figure in the
+ * playground entry card comes out of it.
  */
-export const HOME_TOOLS_SOURCE_PATHS = [
-  'app/globals.css',
-  'app/layout.tsx',
-  'app/page.tsx',
-  'components/home/so101-chain-preview.tsx',
-  'components/interactive/reliability-compounding.tsx',
-  'components/ui/chart-description.tsx',
-  'components/ui/surface.tsx',
-  'lib/chart-descriptions.ts',
-  'lib/so101-kinematics.ts',
+export const HOME_TOOLS_UNIMPORTED_PATHS = [
   'public/models/so101/so101.urdf',
 ] as const;
 
-function sha256(value: string): string {
+/**
+ * The entry points this evidence is about.
+ *
+ * `VAL-B2-SHELL-009` measures document overflow on all sixty-one public
+ * routes at four widths, so its closure is every route entry, not the home
+ * page. The ten-path list this replaces hashed home and a few shared
+ * modules plus the route *ids*, which named which rows existed and nothing
+ * about what any of those rows rendered: an article or an index could grow a
+ * 333px table at 320px and its own row would still read `passed` from a
+ * sweep taken before the edit. Route ids stay in the fingerprint as a fact,
+ * because a route leaving the registry has to invalidate the artifact even
+ * though no file changed.
+ */
+export function homeToolsClosureEntries(root: string): string[] {
+  return [
+    ...routeEntryModules(evidenceClosureGraph(root)),
+    'tests/e2e/brand-v2-home-tools.spec.ts',
+  ];
+}
+
+function sha256(value: string | Uint8Array): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every source above plus the swept route set. Editing the page,
- * the model, or the route registry without re-running the sweep is then a
- * stale-evidence failure rather than a silently preserved green row.
+ * bytes of every module any public route reaches, the shipped model no
+ * module imports, and the swept route set. Editing any route's render
+ * inputs, the model, or the route registry without re-running the sweep is
+ * then a stale-evidence failure rather than a silently preserved green row.
  */
 export function homeToolsEvidenceFingerprint(input: {
   root: string;
   routeIds: readonly string[];
 }): string {
-  const parts = [...HOME_TOOLS_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
+  const unimported = [...HOME_TOOLS_UNIMPORTED_PATHS].sort().map(
+    (path) => `${path}:${sha256(readFileSync(join(input.root, path)))}`,
   );
-  return sha256([...parts, [...input.routeIds].sort().join(',')].join('\n'));
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: homeToolsClosureEntries(input.root),
+    facts: [...unimported, [...input.routeIds].sort().join(',')],
+    computedSpecifiers: [ARTICLE_BODY_COMPUTED_IMPORT],
+  }).fingerprint;
 }
 
 export function readHomeToolsEvidence(input: {

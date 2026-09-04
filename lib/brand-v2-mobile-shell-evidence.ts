@@ -1,6 +1,4 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 
 /**
@@ -237,45 +235,31 @@ export type MobileShellEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what the mobile shell renders or
- * how it behaves. Listed rather than derived because these are exactly the
- * modules that build the compact header and the drawer: the shell itself,
- * the skip link it has to be able to remove from the tab order, the taxonomy
- * and search entry that supply the drawer's tab stops, the device component
- * the current-route marker comes from, the stylesheet that owns the tokens
- * the scrim is mixed from, the layout that mounts the shell, and the module
- * registry the taxonomy is built from.
+ * The entry points the mobile shell evidence is about: the layout that
+ * mounts the shell on every route, and the sweep that measures it.
+ *
+ * The closure of those two is the answer to "what can change this reading",
+ * and it is derived rather than listed. The list this replaced named nine
+ * files and missed both `lib/utils.ts`, which composes the class names the
+ * drawer and header render, and the spec itself, so a class-merge change or
+ * a rewritten measurement left the committed artifact looking current.
  */
-export const MOBILE_SHELL_SOURCE_PATHS = [
-  'app/globals.css',
+export const MOBILE_SHELL_CLOSURE_ENTRIES = [
   'app/layout.tsx',
-  'components/nav/nav-tree.tsx',
-  'components/nav/search-box.tsx',
-  'components/nav/site-shell.tsx',
-  'components/nav/site-footer.tsx',
-  'components/ui/brand-device.tsx',
-  'components/ui/skip-link.tsx',
-  'data/modules.ts',
+  'tests/e2e/brand-v2-mobile-shell.spec.ts',
 ] as const;
-
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every mobile shell source plus the registered geometry of the
- * rail device the drawer marks the current route with. Restyling the drawer
- * or loosening the trap without re-running the sweep is then a
+ * bytes of the whole mobile shell closure plus the registered geometry of
+ * the rail device the drawer marks the current route with. Restyling the
+ * drawer or loosening the trap without re-running the sweep is then a
  * stale-evidence failure rather than a silently preserved green row.
  */
 export function mobileShellEvidenceFingerprint(input: {
   root: string;
   deviceRegistryRows: ReadonlyArray<{ id: string; fingerprint: string }>;
 }): string {
-  const parts = [...MOBILE_SHELL_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
-  );
   const devices = [...input.deviceRegistryRows]
     .filter(({ id }) => id.endsWith('rail'))
     .sort((left, right) => left.id.localeCompare(right.id))
@@ -285,7 +269,11 @@ export function mobileShellEvidenceFingerprint(input: {
       'the mobile shell fingerprint covers no rail device: the staleness check would miss a registry edit',
     );
   }
-  return sha256([...parts, ...devices].join('\n'));
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: MOBILE_SHELL_CLOSURE_ENTRIES,
+    facts: devices,
+  }).fingerprint;
 }
 
 /**
