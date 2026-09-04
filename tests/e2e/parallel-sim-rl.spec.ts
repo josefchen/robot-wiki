@@ -36,7 +36,7 @@ test.describe('parallel-sim-rl module', () => {
       main.getByText(/1\.6 million frames per second/),
     ).toBeVisible();
     // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Massively Parallel Sim RL' }),
     ).toHaveAttribute('aria-current', 'page');

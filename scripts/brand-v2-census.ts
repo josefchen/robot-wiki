@@ -34,6 +34,7 @@ import {
   SITE_CARD_PATH,
   SITE_URL_ORIGIN,
 } from '../lib/og-cards.ts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
 import { SITE_URL } from '../lib/site.ts';
 import { isSyncConflictDuplicate } from '../lib/sync-duplicates.ts';
 
@@ -204,13 +205,13 @@ function titleAndDescription(path: string): {
     };
   }
   const fixed: Record<string, [string, string]> = {
-    '/': ['robot-wiki', 'An encyclopedic interactive guide to modern robotics for ML engineers.'],
-    '/a-z/': ['A-Z Index', 'Every published robot-wiki article and glossary term in one alphabetical list.'],
+    '/': [PUBLIC_IDENTITY, PUBLIC_DESCRIPTOR],
+    '/a-z/': ['A-Z Index', `Every published ${PUBLIC_IDENTITY} article and glossary term in one alphabetical list.`],
     '/market-map/': ['Market Map', 'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.'],
     '/playground/': ['3D Kinematics Playground', 'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.'],
-    '/glossary/': ['Glossary', 'Cited definitions of the robotics and machine-learning terms used across robot-wiki.'],
-    '/credits/': ['Credits', 'Every photograph and diagram on robot-wiki, with its creator, source, and licence.'],
-    '/search/': ['Search', 'Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).'],
+    '/glossary/': ['Glossary', `Cited definitions of the robotics and machine-learning terms used across ${PUBLIC_IDENTITY}.`],
+    '/credits/': ['Credits', `Every photograph and diagram on ${PUBLIC_IDENTITY}, with its creator, source, and licence.`],
+    '/search/': ['Search', `Search ${PUBLIC_IDENTITY}: full-text over article prose plus the structured data layer (methods, companies, datasets).`],
   };
   const value = fixed[path];
   if (!value) throw new Error(`Missing fixed-route metadata owner for ${path}`);

@@ -40,7 +40,7 @@ test.describe('navigation shell', () => {
     page,
   }) => {
     await page.goto('/');
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     for (const name of GROUPS) {
       await expect(nav.getByRole('button', { name })).toBeVisible();
     }
@@ -50,7 +50,7 @@ test.describe('navigation shell', () => {
 
   test('group headers toggle their module lists', async ({ page }) => {
     await page.goto('/');
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const toggle = nav.getByRole('button', { name: 'World Models' });
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await toggle.click();
@@ -70,7 +70,7 @@ test.describe('navigation shell', () => {
     page,
   }) => {
     await page.goto('/manipulation/action-chunking/');
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('button', { name: 'Manipulation & Learned Policies' }),
     ).toHaveAttribute('aria-expanded', 'true');

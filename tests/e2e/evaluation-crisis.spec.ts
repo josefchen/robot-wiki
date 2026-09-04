@@ -84,7 +84,7 @@ test.describe('data-hardware evaluation-crisis module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Evaluation Crisis' }),
     ).toHaveAttribute('aria-current', 'page');

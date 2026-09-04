@@ -37,7 +37,7 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
     // Move focus into the sidebar taxonomy. The section toggles are
     // buttons (Enter toggles them) and the module links are links.
     // Walk tab stops until the Manipulation group toggle is focused.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     let focusedToggle = false;
     for (let i = 0; i < 40 && !focusedToggle; i += 1) {
       await page.keyboard.press('Tab');
@@ -69,7 +69,7 @@ test.describe('keyboard-only global navigation (VAL-CROSS-022)', () => {
         const active = document.activeElement;
         if (!active || active.tagName !== 'A') return false;
         const inNav = document
-          .querySelector('nav[aria-label="robot-wiki taxonomy"]')
+          .querySelector('nav[aria-label="Robot Wiki taxonomy"]')
           ?.contains(active);
         // A module route, not the group's Domain overview link: two
         // segments under /manipulation/ (e.g. /manipulation/bc-foundations/).

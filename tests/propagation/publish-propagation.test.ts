@@ -192,7 +192,7 @@ source so the content gate treats it as an ordinary article
 
     it('appears in the sidebar taxonomy under its domain', async () => {
       await page.goto(`${BASE}/`);
-      const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+      const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
       await nav
         .getByRole('button', { name: DOMAIN_META[PROBE_SENTINEL.domain].name })
         .click();

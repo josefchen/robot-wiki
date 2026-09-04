@@ -46,7 +46,7 @@ test.afterAll(async () => {
 });
 
 function nav(page: import('@playwright/test').Page) {
-  return page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+  return page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
 }
 
 /**

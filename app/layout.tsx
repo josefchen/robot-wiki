@@ -5,7 +5,12 @@ import localFont from 'next/font/local';
 import { SiteShell } from '@/components/nav/site-shell';
 import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
-import { AUTHOR_NAME, AUTHOR_PROFILE_URL } from '@/lib/identity';
+import {
+  AUTHOR_NAME,
+  AUTHOR_PROFILE_URL,
+  PUBLIC_DESCRIPTOR,
+  PUBLIC_IDENTITY,
+} from '@/lib/identity';
 import { largeCardTwitter, siteOgImage } from '@/lib/og-cards';
 import './globals.css';
 
@@ -47,12 +52,13 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // The '%s - robot-wiki' template must stay in lockstep with
+  // The '%s - Robot Wiki' template must stay in lockstep with
   // SITE_TITLE_SUFFIX in lib/search.ts, which strips the site name off
-  // Pagefind result titles.
-  title: { default: 'robot-wiki', template: '%s - robot-wiki' },
-  description:
-    'An encyclopedic interactive guide to modern robotics for ML engineers.',
+  // Pagefind result titles; both derive it from PUBLIC_IDENTITY.
+  title: { default: PUBLIC_IDENTITY, template: `%s - ${PUBLIC_IDENTITY}` },
+  // The site-level description is a descriptor surface (VAL-B2-ID-002), so
+  // it is the exact locked string rather than a summary of it.
+  description: PUBLIC_DESCRIPTOR,
   // Author identity (VAL-DIST-009): declared once in the root layout so
   // every route inherits meta[name=author] (a route-level metadata object
   // replaces only the keys it declares; authors is never overridden).
@@ -66,7 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: './',
-    siteName: 'robot-wiki',
+    siteName: PUBLIC_IDENTITY,
     // Site-level social card (VAL-DIST-002/005): a build-time PNG under
     // /og/, served as a plain static file. Non-article routes inherit
     // this block; routes that declare their own openGraph object (which

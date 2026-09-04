@@ -18,7 +18,7 @@ test.describe('data-hardware hardware-taxonomy module', () => {
         main.getByText(label).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Hardware Taxonomy' }),
     ).toHaveAttribute('aria-current', 'page');

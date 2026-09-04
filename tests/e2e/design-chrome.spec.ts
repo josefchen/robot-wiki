@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 import { DESIGN_DEFS } from './helpers/design-defs';
 import { settleTransitions } from './settle';
 
@@ -470,7 +471,7 @@ test.describe('design chrome discipline', () => {
       .evaluate((el) => getComputedStyle(el).borderBottomWidth);
     expect(headerBorder).toBe('1px');
 
-    const link = page.locator('header').getByRole('link', { name: 'robot-wiki' });
+    const link = page.locator('header').getByRole('link', { name: PUBLIC_IDENTITY });
     await link.focus();
     const outline = await link.evaluate((el) => {
       const cs = getComputedStyle(el);
@@ -493,36 +494,37 @@ test.describe('design chrome discipline', () => {
     const heroWordmark = await page
       .getByRole('heading', { level: 1 })
       .textContent();
-    expect(heroWordmark?.trim()).toBe('robot-wiki');
+    expect(heroWordmark?.trim()).toBe(PUBLIC_IDENTITY);
     const heroDescriptor = page
       .getByRole('region', { name: 'Introduction' })
-      .getByText('Robotics encyclopaedia', { exact: true });
+      .getByText(PUBLIC_DESCRIPTOR, { exact: true });
     await expect(heroDescriptor).toHaveCount(1);
+    // The descriptor is a home-hero lockup only: the shell repeats the
+    // wordmark, never the descriptor (VAL-B2-ID-007).
+    await expect(
+      page.getByText(PUBLIC_DESCRIPTOR, { exact: true }),
+    ).toHaveCount(1);
 
-    // Desktop sidebar lockup at 1440px: wordmark link plus descriptor,
-    // exactly once each, and no other lockup on the page carries it.
-    const sidebarDescriptor = page
-      .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true });
-    await expect(sidebarDescriptor).toHaveCount(1);
+    // Desktop sidebar lockup at 1440px: wordmark link, no descriptor.
+    await expect(
+      page.locator('aside').getByText(PUBLIC_DESCRIPTOR, { exact: true }),
+    ).toHaveCount(0);
     const sidebarWordmark = await page
       .locator('aside')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: PUBLIC_IDENTITY })
       .textContent();
-    expect(sidebarWordmark?.trim()).toBe('robot-wiki');
+    expect(sidebarWordmark?.trim()).toBe(PUBLIC_IDENTITY);
 
     // Mobile header at 375px: wordmark present, descriptor omitted.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const headerWordmark = await page
       .locator('header')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: PUBLIC_IDENTITY })
       .textContent();
-    expect(headerWordmark?.trim()).toBe('robot-wiki');
+    expect(headerWordmark?.trim()).toBe(PUBLIC_IDENTITY);
     await expect(
-      page
-        .locator('header')
-        .getByText('Robotics encyclopaedia', { exact: true }),
+      page.locator('header').getByText(PUBLIC_DESCRIPTOR, { exact: true }),
     ).toHaveCount(0);
   });
 
@@ -544,60 +546,57 @@ test.describe('design chrome discipline', () => {
       });
     const em = (m: { size: number; tracking: string }) =>
       parseFloat(m.tracking) / m.size;
+    /**
+     * The first family a computed font-family stack actually resolves to.
+     * next/font emits hashed family names ('__Tektur_d2a8951f'), so the
+     * caller matches a substring; what matters is that the check reads the
+     * HEAD of the stack rather than the whole string, which always
+     * contains every fallback and would accept any leading family.
+     */
+    const firstFamily = (stack: string) =>
+      (stack.split(',')[0] ?? '').trim().replace(/^["']|["']$/g, '');
 
-    // Home wordmark: 48px/48px below sm, 60px/60px from sm, Sans 600,
-    // tracking -0.035em; descriptor 10px mono uppercase 0.14em.
+    // Home wordmark: 48px/48px below sm, 60px/60px from sm, weight 600,
+    // tracking -0.035em; descriptor 12px mono, sentence case. The family
+    // assertion pins the FIRST resolved family, because a computed
+    // font-family string still contains every fallback and a
+    // `toContain('IBM Plex Sans')` check would pass on a Tektur-led stack
+    // and on a Plex-led one alike.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const homeH1Mobile = await metricsOf('main h1');
     expect(homeH1Mobile.size).toBeCloseTo(48, 5);
     expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
     expect(homeH1Mobile.weight).toBe('600');
-    expect(homeH1Mobile.family).toContain('IBM Plex Sans');
+    expect(firstFamily(homeH1Mobile.family)).toContain('Tektur');
     expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
     const heroDescriptor = await metricsOf(
       'main [aria-label="Introduction"] p.font-mono',
     );
-    expect(heroDescriptor.size).toBeCloseTo(10, 5);
-    expect(heroDescriptor.transform).toBe('uppercase');
-    expect(heroDescriptor.family).toContain('IBM Plex Mono');
-    expect(em(heroDescriptor)).toBeCloseTo(0.14, 2);
-    // Mobile header lockup: 15px Sans 600 wordmark, no descriptor.
+    expect(heroDescriptor.size).toBeCloseTo(12, 5);
+    // Sentence case is load-bearing: an uppercase transform would render a
+    // descriptor that no longer equals the locked string (VAL-B2-ID-002).
+    expect(heroDescriptor.transform).toBe('none');
+    expect(firstFamily(heroDescriptor.family)).toContain('IBM_Plex_Mono');
+    expect(heroDescriptor.text).toBe(PUBLIC_DESCRIPTOR.slice(0, 30));
+    // Mobile header lockup: 15px Tektur 600 wordmark, no descriptor.
     const mobileHeaderWordmark = await metricsOf('header a');
     expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
     expect(mobileHeaderWordmark.weight).toBe('600');
-    expect(mobileHeaderWordmark.family).toContain('IBM Plex Sans');
+    expect(firstFamily(mobileHeaderWordmark.family)).toContain('Tektur');
 
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const homeH1Desktop = await metricsOf('main h1');
     expect(homeH1Desktop.size).toBeCloseTo(60, 5);
     expect(homeH1Desktop.lineHeight).toBeCloseTo(60, 5);
-    // Desktop sidebar lockup: 17px Sans 600 wordmark, 9px mono
-    // uppercase descriptor at 0.14em.
+    // Desktop sidebar lockup: 17px Tektur 600 wordmark, no descriptor
+    // (design-system 3.5 makes the shell descriptor optional).
     const sidebarWordmark = await metricsOf('aside a[href="/"]');
     expect(sidebarWordmark.size).toBeCloseTo(17, 5);
     expect(sidebarWordmark.weight).toBe('600');
-    expect(sidebarWordmark.family).toContain('IBM Plex Sans');
-    const sidebarDescriptor = await page
-      .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true })
-      .evaluate((el) => {
-        const cs = getComputedStyle(el);
-        return {
-          family: cs.fontFamily,
-          size: parseFloat(cs.fontSize),
-          tracking: cs.letterSpacing === 'normal' ? '0px' : cs.letterSpacing,
-          transform: cs.textTransform,
-        };
-      });
-    expect(sidebarDescriptor.size).toBeCloseTo(9, 5);
-    expect(sidebarDescriptor.transform).toBe('uppercase');
-    expect(sidebarDescriptor.family).toContain('IBM Plex Mono');
-    expect(parseFloat(sidebarDescriptor.tracking) / sidebarDescriptor.size).toBeCloseTo(
-      0.14,
-      2,
-    );
+    expect(firstFamily(sidebarWordmark.family)).toContain('Tektur');
+    expect(sidebarWordmark.text).toBe(PUBLIC_IDENTITY);
 
     // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
     // tracking -0.025em; prose h2 22px and h3 18px, Sans 600.
@@ -612,11 +611,11 @@ test.describe('design chrome discipline', () => {
     const articleH1Desktop = await metricsOf('article h1');
     expect(articleH1Desktop.size).toBeCloseTo(40, 5);
     expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
-    expect(articleH1Desktop.family).toContain('IBM Plex Sans');
+    expect(firstFamily(articleH1Desktop.family)).toContain('Tektur');
     expect(articleH1Desktop.weight).toBe('600');
     const proseH2 = await metricsOf('article .prose h2');
     expect(proseH2.size).toBeCloseTo(22, 5);
-    expect(proseH2.family).toContain('IBM Plex Sans');
+    expect(firstFamily(proseH2.family)).toContain('IBM_Plex_Sans');
     const proseH3 = await metricsOf('article .prose h3');
     expect(proseH3.size).toBeCloseTo(18, 5);
   });

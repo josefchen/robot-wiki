@@ -89,9 +89,9 @@ function documentTitle(html: string): string {
   return m ? collapse(decodeEntities(m[1])) : '';
 }
 
-/** document.title minus the '%s - robot-wiki' site-name template. */
+/** document.title minus the '%s - Robot Wiki' site-name template. */
 function strippedTitle(html: string): string {
-  return documentTitle(html).replace(/\s*[-\u2013\u2014|]\s*robot-wiki\s*$/, '');
+  return documentTitle(html).replace(/\s*[-\u2013\u2014|]\s*Robot Wiki\s*$/, '');
 }
 
 test.describe('social card metadata (VAL-DIST-001, VAL-DIST-004)', () => {

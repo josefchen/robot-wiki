@@ -36,7 +36,7 @@ test.describe('frontier bear-case module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Bear Case' }),
     ).toHaveAttribute('aria-current', 'page');

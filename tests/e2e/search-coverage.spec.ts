@@ -297,7 +297,7 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
     page,
   }) => {
     await page.goto(`${BASE}/`, { waitUntil: 'domcontentloaded' });
-    const nav = page.locator('aside nav[aria-label="robot-wiki taxonomy"]');
+    const nav = page.locator('aside nav[aria-label="Robot Wiki taxonomy"]');
     // Only the active route's group is expanded on load, and "Domain
     // overview" renders inside a group's panel, so a collapsed sidebar does
     // not show it. Expanding one group is what a reader does before they

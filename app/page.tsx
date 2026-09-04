@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ReliabilityCompounding } from '@/components/interactive/reliability-compounding';
 import { ImageRef } from '@/components/mdx/image-ref';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import {
   DOMAINS,
   DOMAIN_META,
@@ -57,15 +58,19 @@ export default function Home() {
           className="flex flex-col border border-border bg-bg md:grid md:grid-cols-[minmax(0,1fr)_13rem]"
         >
           <div className="px-6 pb-6 pt-7 sm:px-8 md:py-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
-              Robotics encyclopaedia
-            </p>
             <h1
               data-tektur-role="home-wordmark"
-              className="font-display-home mt-3 text-5xl leading-none tracking-[-0.035em] text-text sm:text-6xl"
+              className="font-display-home text-5xl leading-none tracking-[-0.035em] text-text sm:text-6xl"
             >
-              robot-wiki
+              {PUBLIC_IDENTITY}
             </h1>
+            {/* The descriptor is the locked string verbatim, sentence case
+                in mono (design-system 3.5). No text-transform: a rendered
+                casing change would fail the byte comparison in
+                VAL-B2-ID-002 while the source still looked correct. */}
+            <p className="mt-3 max-w-[46ch] font-mono text-xs leading-relaxed tracking-[0.01em] text-text-dim">
+              {PUBLIC_DESCRIPTOR}
+            </p>
           </div>
           <div
             id="home-engineering-grid"
@@ -114,7 +119,7 @@ export default function Home() {
             close the hero exactly (the test measures the sheet bottom as
             the grid's bottom). */}
         <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
-          robot-wiki is an encyclopedia of modern robotics for engineers who
+          {PUBLIC_IDENTITY} is an encyclopedia of modern robotics for engineers who
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
           teleoperation data pipelines, and the classical control stack

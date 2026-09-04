@@ -27,7 +27,7 @@ test.describe('adjacent surgical module', () => {
     );
     expect(fontFamily.toLowerCase()).toContain('serif');
 
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Surgical Robotics' }),
     ).toHaveAttribute('aria-current', 'page');

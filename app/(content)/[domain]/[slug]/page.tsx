@@ -95,7 +95,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     // route-relative url and site name are restated here. og:title is
     // declared as the PLAIN article title: the framework would otherwise
     // fill it from the templated document title, leaving the
-    // ' - robot-wiki' suffix on the card, and the card title must equal
+    // ' - Robot Wiki' suffix on the card, and the card title must equal
     // the page's rendered h1 (VAL-DIST-004). The article's own social
     // card (one distinct PNG per article, VAL-DIST-002/003/005) travels
     // with this object for the same reason. og:description falls back to

@@ -31,7 +31,7 @@ test.describe('rl-finetuning module', () => {
       ).toBeVisible();
     }
     // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'RL Fine-Tuning of Policies' }),
     ).toHaveAttribute('aria-current', 'page');

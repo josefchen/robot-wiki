@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 const title = 'Glossary';
@@ -8,11 +9,11 @@ const title = 'Glossary';
 export const metadata: Metadata = {
   title,
   description:
-    'Cited definitions of the robotics and machine-learning terms used across robot-wiki.',
+    `Cited definitions of the robotics and machine-learning terms used across ${PUBLIC_IDENTITY}.`,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated ' - Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };

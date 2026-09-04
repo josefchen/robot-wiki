@@ -1,5 +1,5 @@
 /**
- * Module registry: the taxonomy backbone of robot-wiki.
+ * Module registry: the taxonomy backbone of Robot Wiki.
  *
  * Source of truth for which modules exist, their domain, slug, order, and
  * publish status. Sidebar navigation, the MDX route's generateStaticParams,

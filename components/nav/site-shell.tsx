@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { List, X } from '@phosphor-icons/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { NavTree } from './nav-tree';
 import { SearchBox } from './search-box';
 import { SiteFooter } from './site-footer';
@@ -85,7 +86,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           data-brand-control-id="control:link-focus"
           className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
         >
-          robot-wiki
+          {PUBLIC_IDENTITY}
         </Link>
       </header>
 
@@ -104,17 +105,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
               data-brand-control-id="control:link-focus"
               className="font-display-shell text-[17px] tracking-[-0.025em] text-text"
             >
-              robot-wiki
+              {PUBLIC_IDENTITY}
             </Link>
-            <p
-              aria-hidden="true"
-              className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-text-dim"
-            >
-              Robotics encyclopaedia
-            </p>
           </div>
           <SearchBox idPrefix="sidebar" />
-          <NavTree idPrefix="sidebar" ariaLabel="robot-wiki taxonomy" />
+          <NavTree idPrefix="sidebar" ariaLabel={`${PUBLIC_IDENTITY} taxonomy`} />
         </div>
       </aside>
 
@@ -162,7 +157,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 data-brand-control-id="control:link-focus"
                 className="font-display-shell text-[15px] tracking-[-0.02em] text-text"
               >
-                robot-wiki
+                {PUBLIC_IDENTITY}
               </Link>
               <button
                 ref={closeButtonRef}
@@ -182,7 +177,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               />
               <NavTree
                 idPrefix="drawer"
-                ariaLabel="robot-wiki taxonomy drawer"
+                ariaLabel={`${PUBLIC_IDENTITY} taxonomy drawer`}
                 onNavigate={() => setDrawerOpen(false)}
                 className="mt-5"
               />

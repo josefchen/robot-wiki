@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import Home from '@/app/page';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 
 const DOMAIN_ENTRIES = [
   ['Manipulation & Learned Policies', '/manipulation'],
@@ -16,7 +17,7 @@ describe('Home page', () => {
   it('renders the hero with the wiki wordmark and substantive overview prose', () => {
     render(<Home />);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'robot-wiki' }),
+      screen.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/encyclopedia of modern robotics/),

@@ -27,6 +27,8 @@
  * walk the registry.
  */
 
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity';
+
 /** Card canvas: at least 1200x630, aspect within 0.05 of 1.91:1. */
 export const OG_CARD_WIDTH = 1200;
 export const OG_CARD_HEIGHT = 630;
@@ -39,8 +41,13 @@ export const OG_CARD_HEIGHT = 630;
  */
 export const SITE_URL_ORIGIN = 'https://robot-wiki.com';
 
-/** The site name every card block restates (og:site_name). */
-export const SITE_NAME = 'robot-wiki';
+/**
+ * The site name every card block restates (og:site_name). This is the
+ * public display identity, not the repository slug: the card PATH below
+ * keeps `robot-wiki` because it is a generated filename sealed by the
+ * 48-card matrix in contract/design-integrity.md.
+ */
+export const SITE_NAME = PUBLIC_IDENTITY;
 
 /** Where card PNGs live under public/ and out/. */
 export const OG_CARD_DIR = '/og';
@@ -87,12 +94,12 @@ export function clampTitle(title: string, maxChars = 64): string {
 
 /** og:image:alt for an article card: names the article, never just the title. */
 export function ogImageAltForTitle(title: string): string {
-  return `Open graph card for the robot-wiki article ${sanitizeCardText(title)}`;
+  return `Open graph card for the ${PUBLIC_IDENTITY} article ${sanitizeCardText(title)}`;
 }
 
 /** og:image:alt for the site-level card. */
 export function siteOgImageAlt(): string {
-  return 'Open graph card for robot-wiki, an interactive encyclopedia of modern robotics';
+  return `Open graph card for ${PUBLIC_IDENTITY}. ${PUBLIC_DESCRIPTOR}`;
 }
 
 /**
@@ -157,7 +164,7 @@ export type OgImageSet = Array<{ url: string; width: number; height: number; alt
  * replaces the layout's (no deep merge). The PLAIN article title is
  * declared explicitly (VAL-DIST-004): left unset, the framework fills
  * og:title from the templated document title, which leaves the
- * ' - robot-wiki' suffix on the card, and the card title must equal the
+ * ' - Robot Wiki' suffix on the card, and the card title must equal the
  * page's rendered h1. og:description is left to fall back to the route's
  * metadata description (the module summary), the same value on both
  * sides, so the og and twitter pair can never drift.

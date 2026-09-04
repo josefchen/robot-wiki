@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { PUBLIC_IDENTITY } from '../../lib/identity';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -11,7 +12,7 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  *
  * The export must satisfy three rules:
  *  1. The 404 page carries the full brand metadata set the rest of the
- *     site carries, including og:site_name = robot-wiki.
+ *     site carries, including og:site_name = Robot Wiki.
  *  2. No reachable route declares a canonical/og:url pointing at a
  *     different route. Next.js's internal /_not-found/ duplicate of the
  *     404 page is pruned from the export (scripts/prune-export-artifacts.ts
@@ -74,13 +75,13 @@ test.describe('not-found page metadata', () => {
     const response = await page.goto(`${BASE}/404/`);
     expect(response?.ok()).toBe(true);
 
-    await expect(page).toHaveTitle('Page not found - robot-wiki');
+    await expect(page).toHaveTitle(`Page not found - ${PUBLIC_IDENTITY}`);
     // The pre-hydration guard fixed the React #418 mismatch
     // (polish-go-public, 2026-08-15): the 404 route is console-clean.
     expect(consoleErrors, 'no console errors on /404/').toEqual([]);
     await expect(
       page.locator('meta[property="og:site_name"]'),
-    ).toHaveAttribute('content', 'robot-wiki');
+    ).toHaveAttribute('content', PUBLIC_IDENTITY);
     await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
       'content',
       'website',
@@ -118,7 +119,7 @@ test.describe('not-found page metadata', () => {
           : htmlForRoute(route);
 
       const siteName = extract(html, /<meta property="og:site_name" content="([^"]*)"/);
-      expect(siteName, `${route} ships og:site_name`).toBe('robot-wiki');
+      expect(siteName, `${route} ships og:site_name`).toBe(PUBLIC_IDENTITY);
 
       const canonical = extract(html, /<link rel="canonical" href="([^"]*)"/);
       expect(canonical, `${route} ships a canonical link`).toBeTruthy();

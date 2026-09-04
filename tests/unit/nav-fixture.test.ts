@@ -5,6 +5,7 @@ import {
   serializeNavFixture,
   type SidebarScan,
 } from '@/lib/nav-fixture';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 
 /**
  * Pure derivation/ordering logic for the nav accessible-name fixture
@@ -54,9 +55,9 @@ function sidebarHtml(opts: {
   return `<html><body>
     <aside data-pagefind-ignore="true" class="hidden w-72 shrink-0 border-r border-border lg:block">
       <div class="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
-        <a ${brandCurrent ? 'aria-current="page" ' : ''}class="px-2 font-mono text-sm" href="/">robot-wiki</a>
+        <a ${brandCurrent ? 'aria-current="page" ' : ''}class="px-2 font-mono text-sm" href="/">Robot Wiki</a>
         <form role="search" aria-label="Site search"><input type="search" /></form>
-        <nav aria-label="robot-wiki taxonomy">
+        <nav aria-label="Robot Wiki taxonomy">
           <ul class="flex flex-col gap-0.5">${groupHtml}</ul>
           <ul class="mt-3 flex flex-col gap-0.5 border-t border-border pt-3">${topLevel
             .map(
@@ -121,7 +122,7 @@ function assembledFixture() {
 describe('scanSidebarDocument', () => {
   it('extracts brand, button order, expanded groups, and top-level from a domain page', () => {
     const result = scan(domainHtml('manipulation', MANIPULATION));
-    expect(result.brand).toEqual({ href: '/', name: 'robot-wiki' });
+    expect(result.brand).toEqual({ href: '/', name: PUBLIC_IDENTITY });
     expect(result.groupOrder).toEqual(DOMAIN_BUTTONS);
     expect(result.groups).toHaveLength(1);
     expect(result.groups[0]).toEqual({
@@ -200,7 +201,7 @@ describe('buildNavFixture', () => {
       ...ADJACENT.map(([href]) => href),
       ...TOP_LEVEL.map(([href]) => href),
     ]);
-    expect(fixture.links[0]).toEqual({ href: '/', name: 'robot-wiki' });
+    expect(fixture.links[0]).toEqual({ href: '/', name: PUBLIC_IDENTITY });
     expect(fixture.linkCount).toBe(fixture.links.length);
     expect(fixture.linkCount).toBe(1 + 3 + 2 + 2 + 5);
   });

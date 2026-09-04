@@ -1,3 +1,5 @@
+import { PUBLIC_IDENTITY } from '@/lib/identity';
+
 /**
  * Shown when the browser cannot create a WebGL context. Non-blocking: the
  * page around it keeps working, and the message explains why the 3D view is
@@ -15,7 +17,7 @@ export function WebGLUnavailable() {
       <p className="max-w-md text-sm leading-relaxed text-text-dim">
         The playground renders the robot with WebGL, and this browser refused
         to create a WebGL context. That usually means hardware acceleration is
-        disabled or the GPU driver is blocked. The rest of robot-wiki is
+        disabled or the GPU driver is blocked. The rest of {PUBLIC_IDENTITY} is
         static HTML and works without it.
       </p>
     </div>

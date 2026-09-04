@@ -12,6 +12,7 @@ import {
   AUTHOR_HANDLE,
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
+  PUBLIC_IDENTITY,
 } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
@@ -20,11 +21,11 @@ const title = 'Credits';
 export const metadata: Metadata = {
   title,
   description:
-    'Every photograph and diagram on robot-wiki, with its creator, source, and licence.',
+    `Every photograph and diagram on ${PUBLIC_IDENTITY}, with its creator, source, and licence.`,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated ' - Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -108,7 +109,7 @@ export default function CreditsPage() {
           Credits
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
-          robot-wiki uses real photographs and diagrams, and every one of
+          {PUBLIC_IDENTITY} uses real photographs and diagrams, and every one of
           them is listed here with its creator, the page it came from, and
           the licence that permits its reuse. Article images stay under
           CC0, CC BY, CC BY-SA, public domain, or a documented reuse
