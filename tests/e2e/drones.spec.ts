@@ -28,7 +28,7 @@ test.describe('adjacent drones module', () => {
     );
     expect(fontFamily.toLowerCase()).toContain('serif');
 
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Drones and Aerial Robotics' }),
     ).toHaveAttribute('aria-current', 'page');

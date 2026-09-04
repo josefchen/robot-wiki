@@ -399,7 +399,7 @@ test.describe('classical scene-representation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', {
         name: 'Scene Representation and Mapping',

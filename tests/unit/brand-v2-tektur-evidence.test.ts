@@ -440,6 +440,51 @@ describe('brand-v2 Tektur delivery evidence', () => {
    * while the local WOFF2 requests kept the non-empty floor green. These are
    * the records that has to reject now.
    */
+  /**
+   * A URL is not an observation.
+   *
+   * The capture used to hold one record per URL and the reader used to treat
+   * a repeated URL as a duplicate row, so two responses to one extensionless
+   * URL could only ever be published as one fact — and the sweep resolved
+   * that fact by unioning the two responses' signals, which let a supported
+   * non-font container answer for an ambiguous payload that arrived later.
+   * The row identity is now the whole observation, so the two transactions
+   * survive as two rows and each has to re-derive as a font by itself, while
+   * a genuinely repeated row is still rejected.
+   */
+  it('keeps two differing observations of one URL apart and still rejects a repeated row', () => {
+    const base = clone();
+    const [first] = base.fontResources.fontRequests;
+    const differing = clone();
+    differing.fontResources.fontRequests = [
+      ...differing.fontResources.fontRequests,
+      // Same path, a second delivery whose bytes are not the first's. Both
+      // show a font on their own, so both are admissible.
+      { ...first, sha256: 'a'.repeat(64) },
+    ];
+    expect(() => measure(differing)).not.toThrow();
+
+    const repeated = clone();
+    repeated.fontResources.fontRequests = [
+      ...repeated.fontResources.fontRequests,
+      { ...first },
+    ];
+    expect(() => measure(repeated)).toThrow(
+      new RegExp(
+        `repeats the font request ${first.url.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}`,
+      ),
+    );
+
+    // Two observations of one URL are one same-origin path, not two: the
+    // published set is a set.
+    const shadowed = clone();
+    shadowed.fontResources.fontRequests = [
+      ...shadowed.fontResources.fontRequests,
+      { ...first, contentTypes: ['application/octet-stream'] },
+    ];
+    expect(() => measure(shadowed)).not.toThrow();
+  });
+
   it('rejects a third-party font request identified only by its payload', () => {
     const extensionless = clone();
     extensionless.fontResources.fontRequests = [

@@ -14,6 +14,7 @@
  */
 
 import { foldGreekToAscii } from './greek-transliteration';
+import { PUBLIC_IDENTITY } from './identity';
 
 /** One rendered prose result. */
 export type SearchHit = {
@@ -35,11 +36,11 @@ export const RESULT_LIMIT = 20;
 
 /**
  * The site-name tail Pagefind appends to result titles, taken from the
- * <title> template in app/layout.tsx ('%s - robot-wiki'). The two must stay
- * in lockstep, or every search result renders with a visible site-name
- * suffix.
+ * <title> template in app/layout.tsx ('%s - Robot Wiki'). Both derive the
+ * name from PUBLIC_IDENTITY, or every search result renders with a visible
+ * site-name suffix.
  */
-const SITE_TITLE_SUFFIX = ' - robot-wiki';
+const SITE_TITLE_SUFFIX = ` - ${PUBLIC_IDENTITY}`;
 
 /* The subset of the Pagefind runtime API this app consumes. */
 export interface PagefindResultData {

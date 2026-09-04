@@ -14,6 +14,7 @@ import {
   goalDistance,
   planStep,
 } from '@/lib/jepa-planning';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -347,7 +348,9 @@ export function JepaPlanning({
           d = {formatDistance(distance)}
         </text>
 
-        {/* goal latent (the encoded goal image) */}
+        {/* Goal latent (the encoded goal image), drawn as a broken ring
+            around a cross. The current state is a closed ring around empty
+            space, so the two markers are told apart by shape. */}
         <circle
           cx={px(goal.point.x)}
           cy={py(goal.point.y)}
@@ -355,8 +358,14 @@ export function JepaPlanning({
           fill="none"
           stroke={OK}
           strokeWidth={1.5}
+          strokeDasharray={EDGE_DASH.ok}
         />
-        <circle cx={px(goal.point.x)} cy={py(goal.point.y)} r={3} fill={OK} />
+        <path
+          d={`M ${px(goal.point.x) - 4} ${py(goal.point.y)} L ${px(goal.point.x) + 4} ${py(goal.point.y)} M ${px(goal.point.x)} ${py(goal.point.y) - 4} L ${px(goal.point.x)} ${py(goal.point.y) + 4}`}
+          stroke={OK}
+          strokeWidth={1.5}
+          strokeLinecap="round"
+        />
         <text
           x={px(goal.point.x)}
           y={py(goal.point.y) - 14}

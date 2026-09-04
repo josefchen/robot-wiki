@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "85f05f1d854cc81f27993538efa50a8b1e52607abc59623f61840c0590869631",
+  "fingerprint": "bbf734a818a9c4e62802b2ad89d30627c4bfbbaaa15ace71ce4a5e241e27c4a8",
   "rendererSource": {
     "producers": [
       "lib/brand-v2-renderer-parity.ts",
@@ -13,12 +13,6 @@
       "sealOpener": "openSealedCardTree",
       "finalTree": "finalTree"
     },
-    "generatorEmit": {
-      "module": "scripts/generate-og-cards.ts",
-      "boundaryCall": "renderCorpusCard",
-      "emitted": "buffer",
-      "writes": 2
-    },
     "modules": [
       "data/modules.ts",
       "data/plex-mono-font-metadata.ts",
@@ -28,6 +22,7 @@
       "lib/brand-v2-semantic-marks.ts",
       "lib/brand-v2-token-evidence.ts",
       "lib/brand-v2-tokens.ts",
+      "lib/identity.ts",
       "lib/module-import-graph.ts",
       "lib/og-card-artwork.ts",
       "lib/og-card-corpus.ts",
@@ -41,7 +36,7 @@
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "d6c05fc32b2d259656b36053112e380cb5fab7377b1093897569e927cb1fa4df"
+    "fingerprint": "351ddff54911c9f6db4ef806b5e3a8016a4898ebc70c9323450fb41868f4e3ec"
   },
   "cardCount": 48,
   "paintedProperties": 9743,

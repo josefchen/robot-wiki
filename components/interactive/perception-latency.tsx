@@ -230,14 +230,15 @@ export function PerceptionLatency({ className }: { className?: string }) {
           margin
         </text>
 
-        {/* Contact marker: the obstacle, reached at ttc. */}
-        <line
-          x1={contactX}
-          y1={LANE_Y - 8}
-          x2={contactX}
-          y2={LANE_Y + LANE_H + 8}
+        {/* Contact marker: the obstacle, reached at ttc. Terminator bars at
+            both ends make it the hard limit of the lane by shape, not by
+            being the only red thing in the chart. */}
+        <path
+          d={`M ${contactX} ${LANE_Y - 8} L ${contactX} ${LANE_Y + LANE_H + 8} M ${contactX - 4} ${LANE_Y - 8} L ${contactX + 4} ${LANE_Y - 8} M ${contactX - 4} ${LANE_Y + LANE_H + 8} L ${contactX + 4} ${LANE_Y + LANE_H + 8}`}
+          fill="none"
           stroke="var(--color-err)"
           strokeWidth={1.5}
+          strokeLinecap="round"
         />
         <text
           x={contactX - 6}

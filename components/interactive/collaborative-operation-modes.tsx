@@ -26,6 +26,7 @@ import {
   verdict,
   type ModeId,
 } from '@/lib/safety-modes';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -62,6 +63,13 @@ const DIM = 'var(--color-text-dim)';
 const TEXT = 'var(--color-text)';
 const ACCENT = 'var(--color-accent)';
 const ERR = 'var(--color-err)';
+
+/**
+ * A halted arm is drawn broken as well as red: the stop is a state of the
+ * machine, and a reader who cannot see the hue still has to be able to tell
+ * a moving arm from a stopped one.
+ */
+const STOPPED_DASH = '6 4';
 const BORDER = 'var(--color-border)';
 const BORDER_STRONG = 'var(--color-border-strong)';
 
@@ -113,6 +121,7 @@ function RobotGlyph({ x, stopped }: { x: number; stopped: boolean }) {
         y2={FLOOR_Y - 58}
         stroke={tone}
         strokeWidth={2}
+        strokeDasharray={stopped ? STOPPED_DASH : undefined}
       />
       <line
         x1={f(ROBOT_BASE_X + (x - ROBOT_BASE_X) * 0.5)}
@@ -121,8 +130,17 @@ function RobotGlyph({ x, stopped }: { x: number; stopped: boolean }) {
         y2={FLOOR_Y - 34}
         stroke={tone}
         strokeWidth={2}
+        strokeDasharray={stopped ? STOPPED_DASH : undefined}
       />
-      <circle cx={f(x)} cy={FLOOR_Y - 34} r={4} fill={tone} />
+      <circle
+        cx={f(x)}
+        cy={FLOOR_Y - 34}
+        r={stopped ? 5 : 4}
+        fill={stopped ? 'none' : tone}
+        stroke={tone}
+        strokeWidth={1.5}
+        strokeDasharray={stopped ? '3 2' : undefined}
+      />
     </g>
   );
 }
@@ -360,7 +378,10 @@ export function CollaborativeOperationModes({ className }: { className?: string 
                   : 'color-mix(in srgb, var(--color-err) 12%, transparent)'
               }
               stroke={outcome.separationSatisfied ? ACCENT : ERR}
-              strokeOpacity={0.55}
+              strokeOpacity={outcome.separationSatisfied ? 0.55 : 1}
+              strokeDasharray={
+                outcome.separationSatisfied ? undefined : EDGE_DASH.error
+              }
             />
             <text
               x={f(HUMAN_X - 8)}

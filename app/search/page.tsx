@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 
 const title = 'Search';
@@ -8,11 +9,11 @@ const title = 'Search';
 export const metadata: Metadata = {
   title,
   description:
-    'Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).',
+    `Search ${PUBLIC_IDENTITY}: full-text over article prose plus the structured data layer (methods, companies, datasets).`,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated ' - Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -26,11 +27,10 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <div data-pagefind-ignore className="mx-auto w-full max-w-3xl px-6 py-12">
-      {/* aria-current stands in for the nav marker here: the shell exposes
-          /search through a form, not a link, so no nav entry can carry it
-          (the design contract allows exactly one aria-current per route). */}
+      {/* No aria-current: the shell reaches /search through a form, not a
+          nav link, and a route with no corresponding navigation item exposes
+          none rather than moving the state onto a heading to keep a count. */}
       <h1
-        aria-current="page"
         data-tektur-role="page-h1"
         className="font-display-page text-3xl tracking-tight text-text"
       >

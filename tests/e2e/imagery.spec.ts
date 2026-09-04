@@ -172,7 +172,7 @@ test.describe('licensed imagery', () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE}/`);
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const link = nav.getByRole('link', { name: 'Credits' });
     await expect(link).toBeVisible();
     await link.click();

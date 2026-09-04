@@ -297,7 +297,7 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
     page,
   }) => {
     await page.goto(`${BASE}/`, { waitUntil: 'domcontentloaded' });
-    const nav = page.locator('aside nav[aria-label="robot-wiki taxonomy"]');
+    const nav = page.locator('aside nav[aria-label="Robot Wiki taxonomy"]');
     // Only the active route's group is expanded on load, and "Domain
     // overview" renders inside a group's panel, so a collapsed sidebar does
     // not show it. Expanding one group is what a reader does before they
@@ -306,9 +306,9 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
       .getByRole('button', { name: DOMAIN_META.classical.name })
       .click();
     await expect(nav.getByText('Domain overview').first()).toBeVisible();
-    // innerText reflects text-transform, and the "Domain overview" entry is
-    // styled uppercase, so it arrives here as "DOMAIN OVERVIEW". The reader
-    // types what they read either way, so the comparison is case-folded.
+    // innerText reflects text-transform, so a label the shell ever renders
+    // uppercase arrives here uppercased. The reader types what they read
+    // either way, so the comparison is case-folded.
     const navText = (await nav.innerText()).toLowerCase();
     for (const { query } of LABEL_CASES) {
       expect(

@@ -13,7 +13,9 @@ import { isSyncConflictDuplicate } from './sync-duplicates.ts';
  * articles. Two properties keep it from over-reporting: an imported binding
  * the module never mentions again is not an edge (otherwise every barrel
  * would reach everything it lists), and a re-export table forwards a name to
- * its defining module without making the barrel itself a mount.
+ * its defining module without making the barrel itself a mount. A star
+ * re-export is the exception to the first property: it forwards names this
+ * scan cannot enumerate, so its target is an unconditional dependency.
  */
 export type ModuleImportGraph = {
   root: string;
@@ -27,6 +29,16 @@ export type ModuleImportGraph = {
    * `<Card>`" needs the binding, not just the edge.
    */
   bindingsByModule: ReadonlyMap<string, readonly ImportBinding[]>;
+  /**
+   * The barrels each module's used imports were forwarded through.
+   *
+   * A forwarded binding is attributed to its defining module, which is the
+   * right answer for "which module mounts this component" and the wrong one
+   * for "which modules are evaluated": the barrel runs too, and its own
+   * dependencies are its own. A consumer that cares what a module can reach
+   * rather than what it renders has to add these back.
+   */
+  reexportHopsByModule: ReadonlyMap<string, ReadonlySet<string>>;
   /** Modules reachable from the given entries through used imports. */
   reachableFrom: (entries: Iterable<string>) => Set<string>;
   /**
@@ -64,6 +76,18 @@ const IMPORT_STATEMENT =
   /import\s+(type\s+)?([^'";]*?)\s*from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]/g;
 const REEXPORT_STATEMENT =
   /export\s+(type\s+)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g;
+/**
+ * `export * from './x'` and `export * as ns from './x'`.
+ *
+ * A named re-export forwards one name, so it becomes an edge only when an
+ * importer uses that name. A star re-export forwards everything the target
+ * exports under names this scan cannot enumerate, so the dependency is
+ * unconditional — and treating it as no dependency at all left the target
+ * outside every reachability walk while an importer of the barrel could
+ * still get its values.
+ */
+const STAR_REEXPORT =
+  /export\s+(type\s+)?\*(?:\s+as\s+[A-Za-z_$][\w$]*)?\s*from\s*['"]([^'"]+)['"]/g;
 /**
  * A deferred import is still a dependency: `next/dynamic(() =>
  * import('./robot-scene'))` is how the playground mounts its WebGL scene,
@@ -178,12 +202,17 @@ export function buildModuleImportGraph(
     reexports.set(modulePath, table);
   }
 
-  const followReexport = (modulePath: string, imported: string): string => {
+  const followReexport = (
+    modulePath: string,
+    imported: string,
+    hops?: Set<string>,
+  ): string => {
     let current = modulePath;
     let name = imported;
     for (let hop = 0; hop < 8; hop += 1) {
       const forwarded = reexports.get(current)?.get(name);
       if (!forwarded) return current;
+      hops?.add(current);
       current = forwarded.module;
       name = forwarded.imported;
     }
@@ -192,10 +221,12 @@ export function buildModuleImportGraph(
 
   const edges = new Map<string, Set<string>>();
   const bindingsByModule = new Map<string, ImportBinding[]>();
+  const reexportHopsByModule = new Map<string, Set<string>>();
   for (const [modulePath, text] of textByModule) {
     const used = text.replace(IMPORT_STATEMENT, ' ');
     const targets = new Set<string>();
     const moduleBindings: ImportBinding[] = [];
+    const hops = new Set<string>();
     for (const match of text.matchAll(IMPORT_STATEMENT)) {
       if (match[1]) continue;
       const specifier = match[3] ?? match[4];
@@ -211,7 +242,7 @@ export function buildModuleImportGraph(
       }
       for (const binding of bindings) {
         if (!new RegExp(`\\b${binding.local}\\b`).test(used)) continue;
-        const defining = followReexport(target, binding.imported);
+        const defining = followReexport(target, binding.imported, hops);
         targets.add(defining);
         moduleBindings.push({ ...binding, module: defining });
       }
@@ -220,8 +251,14 @@ export function buildModuleImportGraph(
       const target = resolve(match[1], modulePath);
       if (target !== null) targets.add(target);
     }
+    for (const match of text.matchAll(STAR_REEXPORT)) {
+      if (match[1]) continue;
+      const target = resolve(match[2], modulePath);
+      if (target !== null) targets.add(target);
+    }
     edges.set(modulePath, targets);
     bindingsByModule.set(modulePath, moduleBindings);
+    reexportHopsByModule.set(modulePath, hops);
   }
 
   return {
@@ -230,6 +267,7 @@ export function buildModuleImportGraph(
     textByModule,
     edges,
     bindingsByModule,
+    reexportHopsByModule,
     resolveSpecifier: resolve,
     reachableFrom(entries) {
       const reachable = new Set<string>();

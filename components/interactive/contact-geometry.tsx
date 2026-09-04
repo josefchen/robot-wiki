@@ -19,6 +19,7 @@ import {
   toleranceBandPx,
   type ScenarioId,
 } from '@/lib/contact-geometry';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -82,12 +83,18 @@ function ContactMarker({
         y2={f(y - Math.cos(rad) * tick)}
         stroke={failed ? 'var(--color-err)' : 'var(--color-accent)'}
         strokeWidth={1.5}
+        strokeDasharray={failed ? '2 2' : undefined}
       />
+      {/* A contact that no longer holds is drawn as a broken ring rather than
+          a filled dot, so the failure is a shape and not only a hue. */}
       <circle
         cx={f(x)}
         cy={f(y)}
-        r={3}
-        fill={failed ? 'var(--color-err)' : 'var(--color-accent)'}
+        r={failed ? 4 : 3}
+        fill={failed ? 'none' : 'var(--color-accent)'}
+        stroke={failed ? 'var(--color-err)' : 'none'}
+        strokeWidth={1.5}
+        strokeDasharray={failed ? '2.5 2' : undefined}
       />
     </g>
   );
@@ -244,6 +251,7 @@ function ManipulationScene({ errorMm }: { errorMm: number }) {
         fill={failed ? 'color-mix(in srgb, var(--color-err) 22%, var(--color-surface-2))' : 'var(--color-surface-2)'}
         stroke={failed ? 'var(--color-err)' : 'var(--color-border-strong)'}
         strokeWidth={1.5}
+        strokeDasharray={failed ? EDGE_DASH.error : undefined}
       />
       {/* Grip fingers on the peg top. */}
       <rect

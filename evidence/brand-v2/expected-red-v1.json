@@ -6,20 +6,6 @@
   "failures": [
     {
       "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-ID-001",
-      "expected": "Robot Wiki",
-      "actual": "robot-wiki",
-      "rolloutMilestone": "brand-v2-shell-home"
-    },
-    {
-      "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-ID-002",
-      "expected": "Citation-first encyclopedia of modern robot learning.",
-      "actual": "Robotics encyclopaedia",
-      "rolloutMilestone": "brand-v2-shell-home"
-    },
-    {
-      "suite": "brand-v2 core visual authority",
       "assertionId": "VAL-B2-TYPE-003",
       "expected": "Tektur Variable",
       "actual": "IBM Plex Sans",
@@ -28,8 +14,8 @@
     {
       "suite": "brand-v2 OG authority",
       "assertionId": "VAL-B2-ID-009",
-      "expected": "Robot Wiki social identity",
-      "actual": "robot-wiki social identity",
+      "expected": "Robot Wiki card artwork",
+      "actual": "robot-wiki card artwork drawn by lib/og-card-artwork.ts",
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {
@@ -45,22 +31,13 @@
       "rolloutMilestone": "brand-v2-social-convergence"
     },
     {
-      "suite": "brand-v2 27-row deep executor",
-      "assertionId": "VAL-B2-EVID-010",
-      "expected": "all 27 sealed rows reach every required v2 state and capture",
-      "actual": "v1 routes lack some v2-only state anchors and visual treatments",
-      "failedAnchors": [],
-      "rolloutMilestone": "brand-v2-social-convergence"
-    },
-    {
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",
-      "actual": "v1 home fails identity (exact name, descriptor, and Tektur), purposeful-devices, repetition-frames, palette-type, and material-treatment",
+      "actual": "home now registers a structural signature on every top-level section, so its module repetition and frame depth are measured and bounded; it still fails identity (exact name, descriptor, and Tektur), purposeful-devices, palette-type, and material-treatment",
       "failedAnchors": [
         "identity",
         "purposeful-devices",
-        "repetition-frames",
         "palette-type",
         "material-treatment"
       ],

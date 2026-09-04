@@ -15,6 +15,7 @@ import {
   loopCloses,
   missedTicks,
 } from '@/lib/control-loop';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -244,7 +245,9 @@ export function ControlLoopBudget({
           </g>
         ))}
 
-        {/* The inference bar. */}
+        {/* The inference bar. Its outline is closed while the loop closes and
+            broken once inference overruns the budget, so the verdict is
+            readable from the bar and not only from its hue. */}
         <rect
           data-testid="inference-bar"
           x={CHART.pad.left}
@@ -252,16 +255,10 @@ export function ControlLoopBudget({
           width={f(barW)}
           height={barH}
           fill={closes ? 'var(--color-ok)' : 'var(--color-err)'}
-          opacity={0.22}
-        />
-        <rect
-          x={CHART.pad.left}
-          y={barY}
-          width={f(barW)}
-          height={barH}
-          fill="none"
+          fillOpacity={0.22}
           stroke={closes ? 'var(--color-ok)' : 'var(--color-err)'}
           strokeWidth={1.5}
+          strokeDasharray={closes ? undefined : EDGE_DASH.error}
         />
         {overflowMs > 0 && (
           <text

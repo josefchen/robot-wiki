@@ -352,7 +352,7 @@ test.describe('search excerpt quality', () => {
 /**
  * Third noise sweep (2026-08-14, harden-search-excerpt-credits): figure
  * credit lines and interactive transport labels fused into excerpts —
- * "Deviation feeds itself.Diagram: robot-wiki contributors / ..." and
+ * "Deviation feeds itself.Diagram: Robot Wiki contributors / ..." and
  * "Step backStep forwardReset. step 0 of 10 ...", both measured on the
  * live index. The decision here is per element type, never a blanket
  * rule:
@@ -411,7 +411,7 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
         expect(
           excerpt,
           `excerpt for "${query}" leaks the credit creator`,
-        ).not.toContain('robot-wiki contributors');
+        ).not.toContain('Robot Wiki contributors');
       }
     }
   });

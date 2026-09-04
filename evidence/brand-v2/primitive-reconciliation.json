@@ -246,7 +246,7 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "b4758793414ad3f04e4f766fd326054665335cbc8de583efd8e05a2c16f4efca",
+      "fingerprint": "e3e36b724d40bad82726d345425602d59951eb12d47e58a2cfc13d18b74412d8",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
@@ -314,6 +314,7 @@
         "components/nav/site-shell.tsx",
         "components/search/search-interface.tsx",
         "components/three/trajectory-panel.tsx",
+        "components/ui/action.tsx",
         "components/ui/card.tsx",
         "components/ui/cite.tsx",
         "components/ui/figure.tsx",
@@ -389,13 +390,17 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "f5057c8fefb87b26e8c95396c5b99d9339d4d15a0ebaef0db3ad7e0a917de994",
-      "mountState": "library-only",
+      "fingerprint": "1bc718beaaeb090725ce3d47b9e89dd606945d51da639a20281c21791d3ef695",
+      "mountState": "production",
       "definedIn": [
         "components/ui/action.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "renderedOn": []
+      "ownerRouteOrMount": [
+        "components/ui/action.tsx"
+      ],
+      "renderedOn": [
+        "/"
+      ]
     },
     "control:secondary-action": {
       "kind": "controls",
@@ -752,6 +757,81 @@
         "/market-map/?view=timeline"
       ]
     },
+    "device:active-interval-rail": {
+      "kind": "gridDevices",
+      "fingerprint": "27774b56e20e78f8f0addbeaec1e930672d8cdf07b49483cea1d04a32a90ac91",
+      "mountState": "production",
+      "definedIn": [
+        "components/ui/brand-device.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "components/ui/brand-device.tsx"
+      ],
+      "renderedOn": [
+        "/",
+        "/a-z/",
+        "/adjacent/",
+        "/adjacent/autonomous-vehicles/",
+        "/adjacent/drones/",
+        "/adjacent/space/",
+        "/adjacent/surgical/",
+        "/classical/",
+        "/classical/control/",
+        "/classical/grasp-planning/",
+        "/classical/kinematics/",
+        "/classical/motion-planning/",
+        "/classical/perception/",
+        "/classical/scene-representation/",
+        "/classical/state-estimation/",
+        "/credits/",
+        "/data-hardware/",
+        "/data-hardware/data-bottleneck/",
+        "/data-hardware/datasets/",
+        "/data-hardware/evaluation-crisis/",
+        "/data-hardware/hardware-taxonomy/",
+        "/data-hardware/industrial-deployment/",
+        "/data-hardware/teleop-rigs/",
+        "/frontier/",
+        "/frontier/bear-case/",
+        "/frontier/competing-theses/",
+        "/frontier/dexterity/",
+        "/frontier/generalization/",
+        "/frontier/reliability-gap/",
+        "/frontier/safety-and-assurance/",
+        "/glossary/",
+        "/manipulation/",
+        "/manipulation/action-chunking/",
+        "/manipulation/bc-foundations/",
+        "/manipulation/comparison-matrix/",
+        "/manipulation/cross-embodiment/",
+        "/manipulation/diffusion-policy/",
+        "/manipulation/generalist-policies/",
+        "/manipulation/hierarchical/",
+        "/manipulation/knowledge-insulation/",
+        "/manipulation/pi-line/",
+        "/manipulation/realtime-execution/",
+        "/manipulation/rl-finetuning/",
+        "/manipulation/vla-models/",
+        "/market-map/",
+        "/playground/",
+        "/rl-sim2real/",
+        "/rl-sim2real/humanoid-wbc/",
+        "/rl-sim2real/legged-locomotion/",
+        "/rl-sim2real/parallel-sim-rl/",
+        "/rl-sim2real/reward-design-mpc/",
+        "/rl-sim2real/rl-for-robotics/",
+        "/rl-sim2real/sim2real-transfer/",
+        "/rl-sim2real/why-rl-locomotion/",
+        "/world-models/",
+        "/world-models/generative-sim/",
+        "/world-models/generative-video/",
+        "/world-models/jepa/",
+        "/world-models/latent-dynamics/",
+        "/world-models/taxonomy/",
+        "/market-map/?view=bubble",
+        "/market-map/?view=timeline"
+      ]
+    },
     "device:axis-tick": {
       "kind": "gridDevices",
       "fingerprint": "a79e6d79f404dc24f9016872cb447fa428d2bb0ba020f9d3180fbfe2876a050d",
@@ -777,13 +857,79 @@
     },
     "device:outer-rail": {
       "kind": "gridDevices",
-      "fingerprint": "c2e4a6884ace4dff0bed67f5cbd7857638d5d9a91a0123221271b171d30d2bc0",
-      "mountState": "library-only",
+      "fingerprint": "403cd4ad357e4d856920e3fe4666f2fa5ec9d3f697215f049ca21aa4e5d73b97",
+      "mountState": "production",
       "definedIn": [
         "components/ui/brand-device.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "renderedOn": []
+      "ownerRouteOrMount": [
+        "components/ui/brand-device.tsx"
+      ],
+      "renderedOn": [
+        "/",
+        "/a-z/",
+        "/adjacent/",
+        "/adjacent/autonomous-vehicles/",
+        "/adjacent/drones/",
+        "/adjacent/space/",
+        "/adjacent/surgical/",
+        "/classical/",
+        "/classical/control/",
+        "/classical/grasp-planning/",
+        "/classical/kinematics/",
+        "/classical/motion-planning/",
+        "/classical/perception/",
+        "/classical/scene-representation/",
+        "/classical/state-estimation/",
+        "/credits/",
+        "/data-hardware/",
+        "/data-hardware/data-bottleneck/",
+        "/data-hardware/datasets/",
+        "/data-hardware/evaluation-crisis/",
+        "/data-hardware/hardware-taxonomy/",
+        "/data-hardware/industrial-deployment/",
+        "/data-hardware/teleop-rigs/",
+        "/frontier/",
+        "/frontier/bear-case/",
+        "/frontier/competing-theses/",
+        "/frontier/dexterity/",
+        "/frontier/generalization/",
+        "/frontier/reliability-gap/",
+        "/frontier/safety-and-assurance/",
+        "/glossary/",
+        "/manipulation/",
+        "/manipulation/action-chunking/",
+        "/manipulation/bc-foundations/",
+        "/manipulation/comparison-matrix/",
+        "/manipulation/cross-embodiment/",
+        "/manipulation/diffusion-policy/",
+        "/manipulation/generalist-policies/",
+        "/manipulation/hierarchical/",
+        "/manipulation/knowledge-insulation/",
+        "/manipulation/pi-line/",
+        "/manipulation/realtime-execution/",
+        "/manipulation/rl-finetuning/",
+        "/manipulation/vla-models/",
+        "/market-map/",
+        "/playground/",
+        "/rl-sim2real/",
+        "/rl-sim2real/humanoid-wbc/",
+        "/rl-sim2real/legged-locomotion/",
+        "/rl-sim2real/parallel-sim-rl/",
+        "/rl-sim2real/reward-design-mpc/",
+        "/rl-sim2real/rl-for-robotics/",
+        "/rl-sim2real/sim2real-transfer/",
+        "/rl-sim2real/why-rl-locomotion/",
+        "/search/",
+        "/world-models/",
+        "/world-models/generative-sim/",
+        "/world-models/generative-video/",
+        "/world-models/jepa/",
+        "/world-models/latent-dynamics/",
+        "/world-models/taxonomy/",
+        "/market-map/?view=bubble",
+        "/market-map/?view=timeline"
+      ]
     },
     "device:registration-cross": {
       "kind": "gridDevices",
@@ -874,13 +1020,17 @@
     },
     "surface:bounded-dark-instrument": {
       "kind": "surfaces",
-      "fingerprint": "83927910d67adb0e8e9dd97f277db3a0439ae12279bd40925967126398ca5642",
-      "mountState": "library-only",
+      "fingerprint": "05dfda21b01d36f07a567ee7c22e67ad29f8e49cb4af620cf3ed2247be87032e",
+      "mountState": "production",
       "definedIn": [
         "components/ui/surface.tsx"
       ],
-      "ownerRouteOrMount": [],
-      "renderedOn": []
+      "ownerRouteOrMount": [
+        "components/ui/surface.tsx"
+      ],
+      "renderedOn": [
+        "/"
+      ]
     },
     "surface:flat": {
       "kind": "surfaces",

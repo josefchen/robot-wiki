@@ -91,6 +91,26 @@ const SURFACE_TONE: Record<SurfaceKind, string> = {
   transparent: WARN,
 };
 
+/**
+ * One rule runs through every panel: geometry the sensor did not firmly
+ * establish is drawn broken, geometry it measured is drawn whole. The thin
+ * post and the transparent bottle are the surfaces depth sensing fails on,
+ * and the splats behind the occluder were never measured at all, so all of
+ * them take a dashed edge. It follows the convention the scene already sets
+ * with the dashed occluder shadow, and it is the same statement the warn
+ * tone makes, in a form that survives greyscale.
+ */
+const UNMEASURED_DASH = '2.5 2';
+
+const SURFACE_DASH: Record<SurfaceKind, string | undefined> = {
+  wall: undefined,
+  occluder: undefined,
+  thin: UNMEASURED_DASH,
+  transparent: UNMEASURED_DASH,
+};
+
+const isUncertain = (kind: SurfaceKind) => SURFACE_DASH[kind] !== undefined;
+
 const STATE_TONE: Record<CapabilityState, string> = {
   yes: 'border-accent text-accent',
   partial: 'border-warn text-warn',
@@ -209,6 +229,7 @@ function SamplePanel({
               fill="none"
               stroke={SURFACE_TONE[kind]}
               strokeWidth={1.6}
+              strokeDasharray={SURFACE_DASH[kind]}
             />
           );
         })}
@@ -221,9 +242,10 @@ function SamplePanel({
             width={f(spacingCm * 1.2)}
             height={f(spacingCm * 1.2)}
             fill={SURFACE_TONE[sample.kind]}
-            opacity={0.22}
+            fillOpacity={0.22}
             stroke={SURFACE_TONE[sample.kind]}
-            strokeWidth={0.4}
+            strokeWidth={isUncertain(sample.kind) ? 0.8 : 0.4}
+            strokeDasharray={SURFACE_DASH[sample.kind]}
           />
         ))}
       {samples.map((sample, i) => (
@@ -231,8 +253,11 @@ function SamplePanel({
           key={`p-${i}`}
           cx={f(sample.x)}
           cy={f(sample.y)}
-          r={mode === 'points' ? 1.8 : 1.2}
-          fill={SURFACE_TONE[sample.kind]}
+          r={f((mode === 'points' ? 1.8 : 1.2) * (isUncertain(sample.kind) ? 1.7 : 1))}
+          fill={isUncertain(sample.kind) ? 'none' : SURFACE_TONE[sample.kind]}
+          stroke={isUncertain(sample.kind) ? SURFACE_TONE[sample.kind] : 'none'}
+          strokeWidth={0.7}
+          strokeDasharray={SURFACE_DASH[sample.kind]}
         />
       ))}
     </g>
@@ -253,7 +278,10 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
           rx={f(spacingCm * 0.9)}
           ry={f(spacingCm * 0.55)}
           fill={WARN}
-          opacity={0.3}
+          fillOpacity={0.12}
+          stroke={WARN}
+          strokeWidth={0.8}
+          strokeDasharray={UNMEASURED_DASH}
         />
       ))}
       {samples.map((sample, i) => (
@@ -264,7 +292,10 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
           rx={f(spacingCm * 0.8)}
           ry={f(spacingCm * 0.45)}
           fill={SURFACE_TONE[sample.kind]}
-          opacity={0.5}
+          fillOpacity={isUncertain(sample.kind) ? 0.18 : 0.5}
+          stroke={isUncertain(sample.kind) ? SURFACE_TONE[sample.kind] : 'none'}
+          strokeWidth={0.8}
+          strokeDasharray={SURFACE_DASH[sample.kind]}
         />
       ))}
       {/* Names the invented region from below the occluder, where the shadow
@@ -285,13 +316,13 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
 
 const PANEL_LABEL: Record<RepresentationId, string> = {
   'point-cloud':
-    'Plan view of the scene as a point cloud: one sample per returned ray, nothing at all behind the occluder',
+    'Plan view of the scene as a point cloud: one sample per returned ray, drawn as a filled dot on opaque surfaces and as a hollow dashed ring on the thin post and the transparent bottle, and nothing at all behind the occluder',
   'occupancy-grid':
     'Plan view of the scene as an occupancy grid: free, occupied and unknown cells, with the region behind the occluder held as unknown',
-  tsdf: 'Plan view of the scene as a truncated signed-distance field: a narrow band of voxels straddling each observed surface',
-  mesh: 'Plan view of the scene as a triangle mesh: connected surface runs with a hole where nothing was observed',
+  tsdf: 'Plan view of the scene as a truncated signed-distance field: a narrow band of voxels straddling each observed surface, outlined with a dashed edge over the thin post and the transparent bottle',
+  mesh: 'Plan view of the scene as a triangle mesh: connected surface runs, dashed where the surface is thin or transparent, with a hole where nothing was observed',
   'gaussian-splat':
-    'Plan view of the scene as a Gaussian splat: opaque blobs on the observed surfaces and invented blobs filling the region behind the occluder',
+    'Plan view of the scene as a Gaussian splat: solid blobs on the observed surfaces, and dashed hollow blobs filling the region behind the occluder that were rendered but never measured',
 };
 
 function Panel({

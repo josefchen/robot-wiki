@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import Home from '@/app/page';
+import { PUBLIC_IDENTITY } from '@/lib/identity';
 
 const DOMAIN_ENTRIES = [
   ['Manipulation & Learned Policies', '/manipulation'],
@@ -16,7 +17,7 @@ describe('Home page', () => {
   it('renders the hero with the wiki wordmark and substantive overview prose', () => {
     render(<Home />);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'robot-wiki' }),
+      screen.getByRole('heading', { level: 1, name: PUBLIC_IDENTITY }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/encyclopedia of modern robotics/),
@@ -55,7 +56,11 @@ describe('Home page', () => {
   it('renders the playground entry point with a visual, not text alone', () => {
     render(<Home />);
     const link = screen.getByRole('link', { name: /Kinematics Playground/ });
-    const svg = link.querySelector('svg');
+    // The card is an <article>: the link titles it and the preview figure is
+    // its sibling, because <details> may not nest inside <a>.
+    const card = link.closest('article');
+    expect(card).not.toBeNull();
+    const svg = card!.querySelector('svg');
     expect(svg).not.toBeNull();
     // A real frame: at least three shape elements inside the svg.
     expect(svg!.querySelectorAll('circle, line, path, rect').length).toBeGreaterThanOrEqual(3);

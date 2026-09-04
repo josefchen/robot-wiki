@@ -15,15 +15,20 @@ import {
  * handoff itself is checked, from current source, every time the evidence is
  * written or read.
  *
- * What is proven here: exactly one module in the renderer closure imports an
- * image renderer at all, and inside it the renderer is constructed with the
- * identifier the seal opener returned — not a call, not a spread, not a
+ * What is proven here: exactly one module in the renderer closure can obtain
+ * an image renderer at all, and inside it the renderer is constructed with
+ * the identifier the seal opener returned — not a call, not a spread, not a
  * cloned literal — and that identifier is declared once and mentioned
  * nowhere else, so it cannot be reassigned or edited in place between the
- * two. Anything else, including a wrapper written locally, fails. On the
- * other side of the handoff, the bytes the generator writes are required to
- * be the value that single boundary call returned, so reaching the boundary
- * is not mistaken for having painted through it.
+ * two. Anything else, including a wrapper written locally, fails.
+ *
+ * The other side of the handoff is not read from source at all any more.
+ * Whether the shipped cards are the bytes this boundary produced is settled
+ * on the artefact by `lib/og-card-emitted-bytes.ts`, which re-renders every
+ * corpus card through the boundary and compares the result with the files
+ * on disk. That subsumes the token-level dataflow the generator used to be
+ * held to, and it holds regardless of which module performed the last write
+ * or through which API.
  *
  * The reading is token-based rather than regex-based because the difference
  * between `openSealedCardTree(entry.card)` and a comment or string
@@ -96,31 +101,49 @@ export function classifyModuleSpecifier(
     : 'unrecognized';
 }
 
-export type ModuleImport = {
+export type ModuleDependency = {
   specifier: string;
-  /** `import type ...`, which binds no runtime value. */
+  /**
+   * `import` introduces a module-scope binding this module can call.
+   * `reexport` (`export ... from '...'`) introduces none, but it hands the
+   * specifier's values to every importer of this module, so it is a renderer
+   * capability all the same.
+   */
+  kind: 'import' | 'reexport';
+  /** `import type ...` / `export type ... from`, which bind no value. */
   typeOnly: boolean;
-  /** The local names the statement binds, excluding type-only ones. */
+  /** The names the statement makes available, excluding type-only ones. */
   locals: string[];
 };
 
 /**
- * Every module specifier the source imports, with the value bindings each
- * one introduces.
+ * Every module specifier the source depends on at runtime, with the value
+ * names each one makes available.
+ *
+ * Re-exports are read alongside imports because a module that never imports
+ * a renderer can still be the module an importer gets one from:
+ * `export { ImageResponse } from 'next/og.js'` in a first-party barrel is a
+ * renderer in the closure that an import-only scan does not see at all.
  */
-export function moduleImports(text: string): ModuleImport[] {
+export function moduleDependencies(text: string): ModuleDependency[] {
   const tokens = tokenizeSource(text);
-  const imports: ModuleImport[] = [];
+  const dependencies: ModuleDependency[] = [];
   for (let index = 0; index < tokens.length; index += 1) {
     const token = tokens[index];
-    if (token.kind !== 'identifier' || token.value !== 'import') continue;
+    if (token.kind !== 'identifier') continue;
     if (tokens[index - 1]?.value === '.') continue;
+    if (token.value === 'export') {
+      const reexport = readReexport(tokens, index);
+      if (reexport !== null) dependencies.push(reexport);
+      continue;
+    }
+    if (token.value !== 'import') continue;
     const next = tokens[index + 1];
     if (next === undefined) continue;
     // `import('...')`, including the deferred form inside a callback.
     if (next.value === '(') {
       const specifier = tokens[index + 2];
-      imports.push({
+      dependencies.push({
         // A computed specifier names no module a reader can classify, so it
         // is reported under a name no classifier recognizes rather than
         // dropped.
@@ -128,6 +151,7 @@ export function moduleImports(text: string): ModuleImport[] {
           specifier?.kind === 'string'
             ? specifier.value
             : COMPUTED_IMPORT_SPECIFIER,
+        kind: 'import',
         typeOnly: false,
         locals: [],
       });
@@ -135,7 +159,12 @@ export function moduleImports(text: string): ModuleImport[] {
     }
     // `import './globals.css'`
     if (next.kind === 'string') {
-      imports.push({ specifier: next.value, typeOnly: false, locals: [] });
+      dependencies.push({
+        specifier: next.value,
+        kind: 'import',
+        typeOnly: false,
+        locals: [],
+      });
       continue;
     }
     const typeOnly =
@@ -147,8 +176,9 @@ export function moduleImports(text: string): ModuleImport[] {
       if (current.kind === 'identifier' && current.value === 'from') {
         const specifier = tokens[cursor + 1];
         if (specifier?.kind === 'string') {
-          imports.push({
+          dependencies.push({
             specifier: specifier.value,
+            kind: 'import',
             typeOnly,
             locals: typeOnly ? [] : locals,
           });
@@ -174,7 +204,75 @@ export function moduleImports(text: string): ModuleImport[] {
       cursor += 1;
     }
   }
-  return imports;
+  return dependencies;
+}
+
+/**
+ * The `export ... from '<specifier>'` statement beginning at `index` in its
+ * named, star and namespace forms, or null when the `export` keyword
+ * introduces a local declaration or a local export list instead.
+ *
+ * A clause that opens but never closes throws rather than being skipped: an
+ * export form this cannot finish reading is a re-export target nobody has
+ * classified, which is the fail-open direction.
+ */
+function readReexport(
+  tokens: readonly SourceToken[],
+  index: number,
+): ModuleDependency | null {
+  let cursor = index + 1;
+  let typeOnly = false;
+  const head = tokens[cursor];
+  if (head?.kind === 'identifier' && head.value === 'type') {
+    // `export type { X } from`/`export type * from` bind no runtime value;
+    // `export type X = ...` is not a dependency at all and falls through the
+    // form check below.
+    typeOnly = true;
+    cursor += 1;
+  }
+  const opener = tokens[cursor];
+  if (opener === undefined) return null;
+  const locals: string[] = [];
+  if (opener.value === '*') {
+    cursor += 1;
+    if (tokens[cursor]?.kind === 'identifier' && tokens[cursor].value === 'as') {
+      const alias = tokens[cursor + 1];
+      if (alias?.kind !== 'identifier') {
+        throw new Error(
+          'A namespace re-export names no alias, so its target cannot be read',
+        );
+      }
+      locals.push(alias.value);
+      cursor += 2;
+    }
+  } else if (opener.value === '{') {
+    const close = matchingToken(tokens, cursor, '{', '}');
+    if (close === null) {
+      throw new Error(
+        'An export clause is unterminated, so its re-export target cannot be read',
+      );
+    }
+    for (const entry of namedBindingLocals(tokens.slice(cursor + 1, close))) {
+      locals.push(entry);
+    }
+    cursor = close + 1;
+  } else return null;
+  const from = tokens[cursor];
+  // `export { a, b }` and `export * as ns` without a source re-export
+  // nothing; the star form without `from` is not valid syntax.
+  if (from?.kind !== 'identifier' || from.value !== 'from') return null;
+  const specifier = tokens[cursor + 1];
+  if (specifier?.kind !== 'string') {
+    throw new Error(
+      'A re-export names no string module specifier, so its target cannot be classified',
+    );
+  }
+  return {
+    specifier: specifier.value,
+    kind: 'reexport',
+    typeOnly,
+    locals: typeOnly ? [] : locals,
+  };
 }
 
 /** The value names a `{ ... }` import clause binds, skipping type entries. */
@@ -198,17 +296,24 @@ function namedBindingLocals(clause: readonly SourceToken[]): string[] {
 }
 
 export type ModuleRendererUse = {
-  /** Local names bound from a specifier that can yield a renderer. */
+  /** Names made available from a specifier that can yield a renderer. */
   rendererLocals: string[];
-  /** The specifiers those locals came from. */
+  /** The specifiers those names came from. */
   rendererSpecifiers: string[];
   /** External specifiers that could not be classified either way. */
   unrecognizedSpecifiers: string[];
+  /** Renderer specifiers reached by `export ... from` rather than `import`. */
+  rendererReexports: string[];
 };
 
 /**
- * What the module's runtime imports say about its ability to construct an
- * image renderer.
+ * What the module's runtime dependencies say about its ability to hand out
+ * an image renderer.
+ *
+ * Imports and re-exports both count. An import lets the module construct a
+ * renderer itself; a re-export lets any importer of it construct one, which
+ * is the same capability one hop away and is invisible to a scan that reads
+ * only `import` statements.
  *
  * An unrecognized specifier is reported rather than ignored: the caller
  * fails on it, because a specifier nobody has classified might be another
@@ -218,14 +323,18 @@ export function moduleRendererUse(text: string): ModuleRendererUse {
   const rendererLocals = new Set<string>();
   const rendererSpecifiers = new Set<string>();
   const unrecognizedSpecifiers = new Set<string>();
-  for (const { specifier, typeOnly, locals } of moduleImports(text)) {
+  const rendererReexports = new Set<string>();
+  for (const { specifier, kind, typeOnly, locals } of moduleDependencies(
+    text,
+  )) {
     if (typeOnly) continue;
     const classification = classifyModuleSpecifier(specifier);
     if (classification === 'image-renderer') {
       rendererSpecifiers.add(specifier);
+      if (kind === 'reexport') rendererReexports.add(specifier);
       for (const local of locals) rendererLocals.add(local);
-      // A bare or dynamic import of a renderer module binds no named local,
-      // and still gives the module a renderer.
+      // A bare or dynamic import of a renderer module, and `export * from`
+      // one, name no local and still put a renderer within reach.
       if (locals.length === 0) rendererLocals.add(specifier);
       continue;
     }
@@ -235,6 +344,7 @@ export function moduleRendererUse(text: string): ModuleRendererUse {
     rendererLocals: [...rendererLocals].sort(),
     rendererSpecifiers: [...rendererSpecifiers].sort(),
     unrecognizedSpecifiers: [...unrecognizedSpecifiers].sort(),
+    rendererReexports: [...rendererReexports].sort(),
   };
 }
 
@@ -259,8 +369,13 @@ export function deriveRenderBoundaryHandoff(input: {
 }): RenderBoundaryHandoff {
   const { module, text, sealOpener } = input;
   const tokens = tokenizeSource(text);
-  const imports = moduleImports(text);
-  const { rendererLocals } = moduleRendererUse(text);
+  const dependencies = moduleDependencies(text);
+  const { rendererLocals, rendererReexports } = moduleRendererUse(text);
+  if (rendererReexports.length > 0) {
+    throw new Error(
+      `${module} re-exports ${rendererReexports.join(', ')}; the render boundary must construct its renderer, not forward one`,
+    );
+  }
   if (rendererLocals.length !== 1) {
     throw new Error(
       `${module} binds ${rendererLocals.length} image renderer value(s) (${
@@ -269,7 +384,11 @@ export function deriveRenderBoundaryHandoff(input: {
     );
   }
   const renderer = rendererLocals[0];
-  const opensSeal = imports.some(({ locals }) => locals.includes(sealOpener));
+  // A re-export forwards the name without binding it, so only an `import`
+  // puts the seal opener in scope here.
+  const opensSeal = dependencies.some(
+    ({ kind, locals }) => kind === 'import' && locals.includes(sealOpener),
+  );
   if (!opensSeal) {
     throw new Error(
       `${module} does not import ${sealOpener}, so the tree it renders did not come from the sealed corpus`,
@@ -345,170 +464,3 @@ export function deriveRenderBoundaryHandoff(input: {
   return { module, renderer, sealOpener, finalTree };
 }
 
-/**
- * The file APIs the card generator may hold.
- *
- * Closed for the same reason the renderer specifiers are: a write performed
- * through an unlisted API would carry bytes this derivation never looked at.
- */
-const RECOGNIZED_FILE_APIS: ReadonlySet<string> = new Set([
-  'existsSync',
-  'mkdirSync',
-  'readFileSync',
-  'rmSync',
-  'writeFileSync',
-]);
-const FILE_WRITER = 'writeFileSync';
-const FILE_SYSTEM_SPECIFIERS: ReadonlySet<string> = new Set([
-  'node:fs',
-  'node:fs/promises',
-]);
-
-export type GeneratorEmitHandoff = {
-  module: string;
-  /** The local name the render boundary's renderer is bound to. */
-  boundaryCall: string;
-  /** The identifier the boundary call's bytes are bound to. */
-  emitted: string;
-  /** File writes shipping exactly that value. */
-  writes: number;
-};
-
-/**
- * Reads the generator's emit handoff, or throws describing what it does
- * instead.
- *
- * Reaching the render boundary is not the same as painting through it. The
- * generator could import `renderCorpusCard`, keep an unused reference to it
- * so the import graph still shows the boundary reachable, and write bytes
- * produced somewhere else entirely; an evidence refresh would then record
- * the new closure and re-certify the corpus-derived numbers, because nothing
- * had ever compared the shipped bytes with the boundary's output.
- *
- * So the bytes are followed instead: the boundary local is called exactly
- * once, its result is bound to one `const`, every file write ships that
- * identifier itself, and every other use of it happens after the last write,
- * which leaves no point at which a different value could be substituted or
- * the written one altered.
- */
-export function deriveGeneratorEmitHandoff(input: {
-  module: string;
-  text: string;
-  boundaryLocals: readonly string[];
-}): GeneratorEmitHandoff {
-  const { module, text, boundaryLocals } = input;
-  const tokens = tokenizeSource(text);
-  if (boundaryLocals.length !== 1) {
-    throw new Error(
-      `${module} binds ${boundaryLocals.length} value(s) from the render boundary (${
-        boundaryLocals.join(', ') || 'none'
-      }); the generator must paint through exactly one`,
-    );
-  }
-  const boundaryCall = boundaryLocals[0];
-
-  const fileApis = moduleImports(text)
-    .filter(
-      ({ specifier, typeOnly }) =>
-        !typeOnly && FILE_SYSTEM_SPECIFIERS.has(specifier),
-    )
-    .flatMap(({ locals }) => locals);
-  const unrecognizedApis = fileApis.filter(
-    (local) => !RECOGNIZED_FILE_APIS.has(local),
-  );
-  if (unrecognizedApis.length > 0) {
-    throw new Error(
-      `${module} binds unrecognized file API(s) ${unrecognizedApis.sort().join(', ')}; a card can only be written through ${FILE_WRITER}`,
-    );
-  }
-  if (!fileApis.includes(FILE_WRITER)) {
-    throw new Error(
-      `${module} does not bind ${FILE_WRITER}, so it writes no card through the checked path`,
-    );
-  }
-
-  const isValue = (index: number): boolean =>
-    tokens[index]?.kind === 'identifier' && tokens[index - 1]?.value !== '.';
-  const calls = tokens
-    .map((_, index) => index)
-    .filter(
-      (index) =>
-        tokens[index].value === boundaryCall &&
-        isValue(index) &&
-        tokens[index + 1]?.value === '(',
-    );
-  if (calls.length !== 1) {
-    throw new Error(
-      `${module} calls ${boundaryCall} ${calls.length} times; the shipped bytes must come from exactly one render boundary call`,
-    );
-  }
-  const at = calls[0];
-  if (
-    tokens[at - 1]?.value !== 'await' ||
-    tokens[at - 2]?.value !== '=' ||
-    tokens[at - 4]?.value !== 'const' ||
-    tokens[at - 3]?.kind !== 'identifier'
-  ) {
-    throw new Error(
-      `${module} does not bind the ${boundaryCall} result as \`const <bytes> = await ${boundaryCall}(...)\`, so the value it writes cannot be followed`,
-    );
-  }
-  const emitted = tokens[at - 3].value;
-
-  const writeCalls = tokens
-    .map((_, index) => index)
-    .filter(
-      (index) =>
-        tokens[index].value === FILE_WRITER &&
-        isValue(index) &&
-        tokens[index + 1]?.value === '(',
-    );
-  const writesEmitted: number[] = [];
-  for (const call of writeCalls) {
-    const close = matchingToken(tokens, call + 1, '(', ')');
-    if (close === null) {
-      throw new Error(`${module} has an unterminated ${FILE_WRITER} call`);
-    }
-    const argument = tokens[close - 1];
-    if (
-      argument?.value !== emitted ||
-      !isValue(close - 1) ||
-      tokens[close - 2]?.value !== ','
-    ) {
-      throw new Error(
-        `${module} writes \`${argument?.value ?? 'nothing'}\`; every card write must ship ${emitted}, the value ${boundaryCall} returned`,
-      );
-    }
-    writesEmitted.push(close - 1);
-  }
-  if (writesEmitted.length === 0) {
-    throw new Error(
-      `${module} never writes ${emitted}, so nothing binds the shipped bytes to ${boundaryCall}`,
-    );
-  }
-  const mentions = tokens
-    .map((_, index) => index)
-    .filter((index) => tokens[index].value === emitted && isValue(index));
-  const lastWrite = Math.max(...writesEmitted);
-  for (const mention of mentions) {
-    if (mention === at - 3 || writesEmitted.includes(mention)) continue;
-    const before = tokens[mention - 1]?.value;
-    const after = tokens[mention + 1]?.value;
-    if (before !== '(' && before !== ',') {
-      throw new Error(
-        `${module} uses ${emitted} after \`${before ?? 'nothing'}\`; the rendered bytes may only be passed on as they are`,
-      );
-    }
-    if (after !== ',' && after !== ')') {
-      throw new Error(
-        `${module} follows ${emitted} with \`${after ?? 'nothing'}\`; the rendered bytes may not be indexed, reassigned or read through a member`,
-      );
-    }
-    if (mention < lastWrite) {
-      throw new Error(
-        `${module} passes ${emitted} elsewhere before writing it; the bytes must reach disk before anything else can touch them`,
-      );
-    }
-  }
-  return { module, boundaryCall, emitted, writes: writesEmitted.length };
-}

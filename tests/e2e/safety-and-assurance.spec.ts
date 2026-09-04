@@ -96,7 +96,7 @@ test.describe('safety-and-assurance module', () => {
     ).toBeVisible();
 
     // 1: the sidebar, in the frontier group, carrying the active highlight.
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     const navLink = nav.getByRole('link', { name: TITLE, exact: true });
     await expect(navLink).toHaveAttribute('aria-current', 'page');
     await expect(navLink).toHaveAttribute('href', ROUTE);
@@ -160,7 +160,7 @@ test.describe('safety-and-assurance module', () => {
 
       await expect(
         page
-          .getByRole('navigation', { name: 'robot-wiki taxonomy' })
+          .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
           .getByRole('link', { name: entry.title, exact: true }),
         `${route} sidebar highlight`,
       ).toHaveAttribute('aria-current', 'page');

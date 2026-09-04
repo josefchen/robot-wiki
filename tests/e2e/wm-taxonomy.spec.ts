@@ -24,7 +24,7 @@ test.describe('world-models taxonomy module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'What Is a World Model?' }),
     ).toHaveAttribute('aria-current', 'page');

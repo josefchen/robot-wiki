@@ -1,0 +1,405 @@
+{
+  "version": 1,
+  "fingerprint": "68e1ea498b2de4704d140e02d79b899aa04e63728f85a355f1605e2e87cfdbaf",
+  "viewport": "1440x900",
+  "route": "/",
+  "visibleTextLength": 4018,
+  "documentScrollWidthPx": 1440,
+  "documentClientWidthPx": 1440,
+  "heroLockups": [
+    {
+      "index": 0,
+      "text": "Robot Wiki",
+      "fontFamilyHead": "tektur",
+      "fontSizePx": 92.16,
+      "lineHeightPx": 84.79,
+      "heightPx": 84.78,
+      "renderedLines": 1,
+      "topPx": 73,
+      "bottomPx": 157.78,
+      "descriptorText": "Citation-first encyclopedia of modern robot learning.",
+      "descriptorFontFamilyHead": "IBM Plex Mono"
+    }
+  ],
+  "largestSupportingHeadingPx": 24,
+  "actions": [
+    {
+      "controlId": "control:primary-action",
+      "accessibleName": "Start reading",
+      "href": "/manipulation/action-chunking/",
+      "backgroundColour": "rgb(11, 11, 12)",
+      "colour": "rgb(255, 255, 255)",
+      "topPx": 428.03,
+      "bottomPx": 466.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "How to read this wiki",
+      "href": "#how-to-read",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 428.03,
+      "bottomPx": 466.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Manipulation & Learned Policies",
+      "href": "/manipulation/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 582.03,
+      "bottomPx": 604.53
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "RL, Sim-to-Real & Locomotion",
+      "href": "/rl-sim2real/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 625.53,
+      "bottomPx": 648.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "World Models",
+      "href": "/world-models/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 669.03,
+      "bottomPx": 691.53
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Data, Hardware & Evaluation",
+      "href": "/data-hardware/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 712.53,
+      "bottomPx": 735.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Classical Foundations",
+      "href": "/classical/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 774.03,
+      "bottomPx": 796.53
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Frontier & Open Problems",
+      "href": "/frontier/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 817.53,
+      "bottomPx": 840.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Adjacent Domains",
+      "href": "/adjacent/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 861.03,
+      "bottomPx": 883.53
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Autonomous Vehicles",
+      "href": "/adjacent/autonomous-vehicles/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 863.03,
+      "bottomPx": 881.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 863.03,
+      "bottomPx": 881.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Surgical Robotics",
+      "href": "/adjacent/surgical/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 863.03,
+      "bottomPx": 881.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Space Robotics",
+      "href": "/adjacent/space/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 863.03,
+      "bottomPx": 881.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "frontier essays",
+      "href": "/frontier/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 1036.53,
+      "bottomPx": 1056.53
+    },
+    {
+      "controlId": "control:secondary-action",
+      "accessibleName": "Reset",
+      "href": null,
+      "backgroundColour": "color(srgb 0.973176 0.973882 0.974588)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 1119.03,
+      "bottomPx": 1147.03
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "credits page",
+      "href": "/credits/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 1805.97,
+      "bottomPx": 1825.97
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Wikimedia Commons",
+      "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 2328.3,
+      "bottomPx": 2342.3
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Public domain",
+      "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 45, 51)",
+      "topPx": 2328.3,
+      "bottomPx": 2342.3
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "3D Kinematics Playground",
+      "href": "/playground/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 2767.17,
+      "bottomPx": 2785.17
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Market Map",
+      "href": "/market-map/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(11, 11, 12)",
+      "topPx": 2642.17,
+      "bottomPx": 2660.17
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "Action Chunking (ACT and ALOHA)",
+      "href": "/manipulation/action-chunking/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 3026.17,
+      "bottomPx": 3046.17
+    },
+    {
+      "controlId": "control:link-focus",
+      "accessibleName": "glossary",
+      "href": "/glossary/",
+      "backgroundColour": "rgba(0, 0, 0, 0)",
+      "colour": "rgb(36, 95, 255)",
+      "topPx": 3172.17,
+      "bottomPx": 3192.17
+    }
+  ],
+  "highlights": [
+    {
+      "tag": "mark",
+      "carriers": [
+        "background"
+      ],
+      "text": "cited to a primary source",
+      "nonColourCue": "mark-element",
+      "annotation": "home-premise",
+      "topPx": 354.78,
+      "bottomPx": 376.78
+    }
+  ],
+  "domainEntries": [
+    {
+      "name": "Manipulation & Learned Policies",
+      "href": "/manipulation/",
+      "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
+      "topPx": 572.03,
+      "bottomPx": 615.53,
+      "heightPx": 43.5,
+      "bordered": false
+    },
+    {
+      "name": "RL, Sim-to-Real & Locomotion",
+      "href": "/rl-sim2real/",
+      "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
+      "topPx": 615.53,
+      "bottomPx": 659.03,
+      "heightPx": 43.5,
+      "bordered": false
+    },
+    {
+      "name": "World Models",
+      "href": "/world-models/",
+      "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
+      "topPx": 659.03,
+      "bottomPx": 702.53,
+      "heightPx": 43.5,
+      "bordered": false
+    },
+    {
+      "name": "Data, Hardware & Evaluation",
+      "href": "/data-hardware/",
+      "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
+      "topPx": 702.53,
+      "bottomPx": 764.03,
+      "heightPx": 61.5,
+      "bordered": false
+    },
+    {
+      "name": "Classical Foundations",
+      "href": "/classical/",
+      "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
+      "topPx": 764.03,
+      "bottomPx": 807.53,
+      "heightPx": 43.5,
+      "bordered": false
+    },
+    {
+      "name": "Frontier & Open Problems",
+      "href": "/frontier/",
+      "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
+      "topPx": 807.53,
+      "bottomPx": 851.03,
+      "heightPx": 43.5,
+      "bordered": false
+    },
+    {
+      "name": "frontier essays",
+      "href": "/frontier/",
+      "description": "A 95% per-step success rate sounds strong. Compounded over a 30-step episode it is not. Move the sliders to see how small per-step errors erode end-to-end reliability; the frontier essays develop the argument.",
+      "topPx": 981.53,
+      "bottomPx": 1059.53,
+      "heightPx": 78,
+      "bordered": false
+    },
+    {
+      "name": "Adjacent Domains",
+      "href": "/adjacent/",
+      "description": "Autonomous Vehicles, Drones and Aerial Robotics, Surgical Robotics, and Space Robotics.",
+      "topPx": 851.03,
+      "bottomPx": 893.53,
+      "heightPx": 42.5,
+      "bordered": false
+    }
+  ],
+  "sections": [
+    {
+      "index": 0,
+      "label": "Introduction",
+      "signature": "sheet/display-lockup/primary-action",
+      "derivedSignature": "rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1]",
+      "headingTag": "h1",
+      "headingSizePx": 92.16
+    },
+    {
+      "index": 1,
+      "label": "Domain index",
+      "signature": "ruled-plain/index-heading/row-links",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0]",
+      "headingTag": "h2",
+      "headingSizePx": 24
+    },
+    {
+      "index": 2,
+      "label": "Featured interactive",
+      "signature": "plain/module-heading/live-instrument",
+      "derivedSignature": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0]",
+      "headingTag": "h2",
+      "headingSizePx": 20
+    },
+    {
+      "index": 3,
+      "label": "Real hardware",
+      "signature": "plain/module-heading/credited-figure",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0]",
+      "headingTag": "h2",
+      "headingSizePx": 20
+    },
+    {
+      "index": 4,
+      "label": "Interactive tools",
+      "signature": "plain/module-heading/schematic-pair",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0]",
+      "headingTag": "h2",
+      "headingSizePx": 20
+    },
+    {
+      "index": 5,
+      "label": "How to read this wiki",
+      "signature": "ruled-plain/closing-heading/guidance-prose",
+      "derivedSignature": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0]",
+      "headingTag": "h2",
+      "headingSizePx": 18
+    }
+  ],
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry. Start reading How to read this wiki | Robot Wiki | Domain index | Featured interactive |  |  | Reset | 25%50%75%100%050100steps | Real hardware | A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021. | Interactive tools | 100 mm | 3D Kinematics Playground | Market Map | How to read this wiki | A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform. | Introduction | Per-step success probability in percent, currently 95.0 | Episode length in steps, currently 30 | Line chart of episode success against episode length at 95.0 percent per-step success | Side view of the shipped SO-101 arm at its zero configuration, 6 revolute joints from the base to the gripper",
+  "domainAnchorCounts": {
+    "Manipulation & Learned Policies": 1,
+    "RL, Sim-to-Real & Locomotion": 1,
+    "World Models": 1,
+    "Data, Hardware & Evaluation": 1,
+    "Classical Foundations": 1,
+    "Frontier & Open Problems": 1,
+    "Adjacent Domains": 1
+  },
+  "proseSectionDomainNames": [
+    {
+      "label": "Introduction",
+      "names": [
+        "World Models"
+      ]
+    },
+    {
+      "label": "Featured interactive",
+      "names": []
+    },
+    {
+      "label": "Real hardware",
+      "names": []
+    },
+    {
+      "label": "Interactive tools",
+      "names": []
+    },
+    {
+      "label": "How to read this wiki",
+      "names": []
+    }
+  ],
+  "overviewProse": "Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry.",
+  "progressMetadataMatches": [],
+  "borderedCardCount": 4
+}

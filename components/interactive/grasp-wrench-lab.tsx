@@ -15,6 +15,7 @@ import {
   suggestContactPosition,
   type Vec3,
 } from '@/lib/grasp';
+import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
@@ -372,7 +373,9 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             />
           ))}
 
-          {/* Zero-wrench origin marker: green inside, red on or outside */}
+          {/* Zero-wrench origin marker. The ring is closed and green while the
+              origin is inside the hull and broken and red once it is not, so
+              force closure is readable as a shape and not only as a hue. */}
           <circle
             cx={wrX(origin)}
             cy={wrY(origin)}
@@ -380,8 +383,14 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             fill="var(--color-surface)"
             stroke={stateColor}
             strokeWidth={1.5}
+            strokeDasharray={analysis.forceClosure ? undefined : EDGE_DASH.error}
           />
-          <circle cx={wrX(origin)} cy={wrY(origin)} r={1.5} fill={stateColor} />
+          <circle
+            cx={wrX(origin)}
+            cy={wrY(origin)}
+            r={1.5}
+            fill="var(--color-text)"
+          />
           <text
             x={wrX(origin) + 9}
             y={wrY(origin) - 6}
@@ -414,11 +423,20 @@ export function GraspWrenchLab({ className }: { className?: string }) {
           cone-edge wrench
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span
-            className="inline-block h-2.5 w-2.5 rounded-full border"
-            style={{ borderColor: stateColor }}
-          />
-          zero wrench
+          <svg width={12} height={12} aria-hidden className="inline-block shrink-0">
+            <circle
+              cx={6}
+              cy={6}
+              r={5}
+              fill="none"
+              stroke={stateColor}
+              strokeWidth={1.5}
+              strokeDasharray={
+                analysis.forceClosure ? undefined : EDGE_DASH.error
+              }
+            />
+          </svg>
+          zero wrench{analysis.forceClosure ? ' (inside hull)' : ' (outside hull)'}
         </span>
       </div>
 

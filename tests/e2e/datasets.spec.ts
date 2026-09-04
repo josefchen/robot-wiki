@@ -22,7 +22,7 @@ test.describe('data-hardware datasets module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Major Datasets' }),
     ).toHaveAttribute('aria-current', 'page');

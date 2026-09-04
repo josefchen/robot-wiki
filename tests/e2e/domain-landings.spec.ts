@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { DOMAIN_META, DOMAINS, modulesByDomain, publishedModules } from '../../data/modules';
+import { PUBLIC_IDENTITY } from '../../lib/identity';
 import { settleTransitions } from './settle';
 
 /**
@@ -109,7 +110,7 @@ test.describe('domain landing pages', () => {
       await page.goto('/');
       const sidebar = page.locator('aside');
       const nav = sidebar.getByRole('navigation', {
-        name: 'robot-wiki taxonomy',
+        name: 'Robot Wiki taxonomy',
       });
       const toggle = nav.getByRole('button', {
         name: DOMAIN_META[domain].name,
@@ -222,9 +223,9 @@ test.describe('domain landing pages', () => {
     await expect(page.locator('h1')).toHaveText('Glossary');
     await page
       .locator('aside')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: PUBLIC_IDENTITY })
       .click();
     await page.waitForURL('/');
-    await expect(page.locator('h1')).toContainText('robot-wiki');
+    await expect(page.locator('h1')).toHaveText(PUBLIC_IDENTITY);
   });
 });

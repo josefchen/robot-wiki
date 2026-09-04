@@ -86,7 +86,7 @@ describe('og card vocabulary', () => {
 
   // VAL-DIST-004: the route blocks pin the PLAIN title. The framework's
   // own fallback fills og:title from the templated document title, which
-  // leaves the ' - robot-wiki' suffix on the card and breaks the h1
+  // leaves the ' - Robot Wiki' suffix on the card and breaks the h1
   // match; the helpers must declare the title explicitly so that can
   // never happen.
   it('routeOpenGraph declares the plain title, a website card block, and the site card', () => {
