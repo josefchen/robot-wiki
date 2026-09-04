@@ -23,6 +23,74 @@ import {
 } from '@/lib/brand-v2-token-evidence';
 import { deriveTestTargetInventory } from '@/lib/brand-v2-test-inventory';
 import { TEKTUR_POPULATION_IDS } from '@/lib/tektur-populations';
+import {
+  IDENTITY_RUNTIME_EVIDENCE_PATH,
+  deriveTechnicalIdentifiers,
+  identityEvidenceFingerprint,
+  readIdentityRuntimeEvidence,
+} from '@/lib/brand-v2-identity-evidence';
+import {
+  IDENTITY_DESCRIPTOR_POPULATION_SOURCE,
+  IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE,
+  IDENTITY_TECHNICAL_POPULATION_SOURCE,
+  IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
+  firstPartyVisualAssets,
+  identityDescriptorSurfaces,
+  identityWordmarkRoles,
+} from '@/lib/identity-populations';
+
+/**
+ * The identity populations, rebuilt here from the same derivations the
+ * generator uses. Reading them back out of the committed corpus would make
+ * the corpus its own oracle.
+ */
+function identityPopulations(registry: {
+  metadata: Array<{ routeId: string; ownerPath: string }>;
+  routes: { public: Array<{ path: string }> };
+  assets: Array<{ id: string; path: string; category: string }>;
+}, contract: string): Record<string, string[]> {
+  const siteOwnerPath = registry.metadata.find(
+    ({ routeId }) => routeId === 'route:/',
+  )?.ownerPath;
+  if (!siteOwnerPath) throw new Error('no metadata owner for route:/');
+  const evidence = readIdentityRuntimeEvidence({
+    artifact: JSON.parse(
+      readFileSync(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH), 'utf8'),
+    ),
+    routes: registry.routes.public.map(({ path }) => path),
+    fingerprint: identityEvidenceFingerprint({
+      root: ROOT,
+      metadataOwnerPaths: [
+        ...new Set(registry.metadata.map(({ ownerPath }) => ownerPath)),
+      ],
+      lockupSourcePaths: [
+        'components/nav/site-shell.tsx',
+        'components/nav/site-footer.tsx',
+        'lib/identity.ts',
+        'lib/og-cards.ts',
+      ],
+    }),
+  });
+  const requirement = extractBrandV2Assertions(contract).find(
+    ({ id }) => id === 'VAL-B2-ID-004',
+  )?.requirement;
+  if (!requirement) throw new Error('VAL-B2-ID-004 has no requirement row');
+  return {
+    [IDENTITY_DESCRIPTOR_POPULATION_SOURCE]: identityDescriptorSurfaces(
+      evidence,
+      siteOwnerPath,
+    ).map(({ id }) => id),
+    [IDENTITY_TECHNICAL_POPULATION_SOURCE]: deriveTechnicalIdentifiers(
+      requirement,
+    ).map((literal) => `technical-identifier:${literal}`),
+    [IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE]: identityWordmarkRoles().map(
+      ({ id }) => id,
+    ),
+    [IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE]: firstPartyVisualAssets(
+      registry.assets,
+    ).map(({ id }) => id),
+  };
+}
 
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
@@ -247,6 +315,7 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
             contract,
             css: readFileSync(join(ROOT, AUTHORED_TOKEN_SOURCE), 'utf8'),
           }).map(({ id }) => id),
+          identityPopulations: identityPopulations(registry, contract),
         }),
         map,
         results,

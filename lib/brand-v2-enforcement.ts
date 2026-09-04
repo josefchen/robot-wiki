@@ -417,10 +417,24 @@ export function buildEnforcementPopulationSources(input: {
    * is not a claim about a button, a tab, or a chip (R8a).
    */
   semanticTokenPopulation: readonly string[];
+  /**
+   * Assertion-specific populations for the public-identity assertions. Only
+   * two of the six quantify over routes; descriptor surfaces, the sealed
+   * technical identifiers, the identity wordmark roles, and the first-party
+   * visual assets are each their own population, because recording any of
+   * them against a route would emit a row per route for a claim never
+   * checked against that route (R8a).
+   */
+  identityPopulations: Readonly<Record<string, readonly string[]>>;
 }): Record<string, string[]> {
   const { registry } = input;
   if (input.semanticTokenPopulation.length === 0) {
     throw new Error('The semantic-token population is empty');
+  }
+  for (const [source, ids] of Object.entries(input.identityPopulations)) {
+    if (ids.length === 0) {
+      throw new Error(`The identity population ${source} is empty`);
+    }
   }
   return {
     'app/globals.css#semantic-tokens-and-use-sites': [
@@ -428,6 +442,12 @@ export function buildEnforcementPopulationSources(input: {
     ],
     ...Object.fromEntries(
       Object.entries(input.tekturPopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(input.identityPopulations).map(([source, ids]) => [
         source,
         [...ids],
       ]),

@@ -6,20 +6,6 @@
   "failures": [
     {
       "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-ID-001",
-      "expected": "Robot Wiki",
-      "actual": "robot-wiki",
-      "rolloutMilestone": "brand-v2-shell-home"
-    },
-    {
-      "suite": "brand-v2 core visual authority",
-      "assertionId": "VAL-B2-ID-002",
-      "expected": "Citation-first encyclopedia of modern robot learning.",
-      "actual": "Robotics encyclopaedia",
-      "rolloutMilestone": "brand-v2-shell-home"
-    },
-    {
-      "suite": "brand-v2 core visual authority",
       "assertionId": "VAL-B2-TYPE-003",
       "expected": "Tektur Variable",
       "actual": "IBM Plex Sans",

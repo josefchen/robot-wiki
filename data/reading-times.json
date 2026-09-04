@@ -1,10 +1,10 @@
 {
   "manipulation/bc-foundations": {
-    "words": 1421,
+    "words": 1423,
     "minutes": 7
   },
   "manipulation/action-chunking": {
-    "words": 1637,
+    "words": 1639,
     "minutes": 8
   },
   "manipulation/diffusion-policy": {
@@ -156,7 +156,7 @@
     "minutes": 11
   },
   "frontier/generalization": {
-    "words": 2162,
+    "words": 2165,
     "minutes": 11
   },
   "frontier/competing-theses": {

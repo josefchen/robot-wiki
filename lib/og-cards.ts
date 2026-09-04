@@ -27,7 +27,7 @@
  * walk the registry.
  */
 
-import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 
 /** Card canvas: at least 1200x630, aspect within 0.05 of 1.91:1. */
 export const OG_CARD_WIDTH = 1200;

@@ -13,5 +13,108 @@
     "affectedAssertions",
     "disposition"
   ],
-  "entries": []
+  "entries": [
+    {
+      "id": "brand-v2-id-trajectory-import-errors",
+      "manifest": "market-playground",
+      "memberId": "playground-source:lib/trajectory.ts",
+      "oldHash": "772d715662ee2d6b1eb0a1c547fa8ae342c26ab20666dd723b963816159411b8",
+      "newHash": "c14d24a34d6b99084c70f026a54231cf5a3f1e3ed4c28d9a67716839426a2a0b",
+      "reason": "The reader-facing trajectory import errors now name the public identity Robot Wiki; joint limits, keyframe parsing, and error conditions are byte-for-byte the same behaviour.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001",
+        "VAL-B2-ID-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-covariate-shift-diagram-credit",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:covariate-shift",
+      "oldHash": "d9477b6b2816906b99c326775d2ce6abab6924e71a6b2b9ba709fb7469ad2c06",
+      "newHash": "a226587582a28bb9a290e1a56ee53f55c3c878ea0eef8f684c1db6662caa2bb9",
+      "reason": "The registered credit line for this original diagram reads Robot Wiki (original diagram) instead of the v1 lowercase name; licence, licence URL, retrieval date, dimensions, and the SVG bytes are untouched.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001",
+        "VAL-B2-ID-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-temporal-ensembling-diagram-credit",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:temporal-ensembling",
+      "oldHash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b",
+      "newHash": "16255b25318de56638998b5303ea9d79228fd15984d4df273563af56c6d5f3a7",
+      "reason": "The registered credit line for this original diagram reads Robot Wiki (original diagram) instead of the v1 lowercase name; licence, licence URL, retrieval date, dimensions, and the SVG bytes are untouched.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001",
+        "VAL-B2-ID-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-webgl-unavailable-copy",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/webgl-unavailable.tsx",
+      "oldHash": "3fb43de387c62a85804ed2e01985913b2db7c855876ef736393be72c00f10dcb",
+      "newHash": "3fbda6529a2870fa8b462f6c8541152379a1c54b9b4aade93fa3835fcfe291a6",
+      "reason": "The WebGL fallback sentence names the site through the shared PUBLIC_IDENTITY constant rather than a restated v1 string; the mount, its fallback condition, and the rest of the copy are unchanged.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-domain-metadata-comments",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/domains.ts",
+      "oldHash": "19483f1bf2dde573b1239a045fad460f1e661c48a259eb1d988bbcad5c6e08e6",
+      "newHash": "3b8311660490cb171b2d65a7fed2f36bacac1c5005c3ca0e16fc41a4f799e92e",
+      "reason": "Doc comments in the domain registry describe the site as Robot Wiki; the exported domain records, slugs, ordering, and every emitted metadata value are identical.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-module-metadata-comments",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098",
+      "newHash": "9ace4930fefab50a2592f927669083fcba021105adfdf3ee1778e398d6d08fd4",
+      "reason": "Doc comments in the module registry describe the site as Robot Wiki; the exported module records, slugs, ordering, publish status, and every emitted metadata value are identical.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-id-og-card-site-name",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:lib/og-cards.ts",
+      "oldHash": "ed8896d055cbcc66f2280e2b979ff2585577ccc747b748519c013d8332a3d7f8",
+      "newHash": "f2774789e78bf9f7aaee5dcb182201f1c431d1d356f235420cfccadca9f2822c",
+      "reason": "The Open Graph site name and card alt text derive from PUBLIC_IDENTITY and PUBLIC_DESCRIPTOR; SITE_URL, SITE_CARD_PATH, and the per-article card paths keep their technical robot-wiki spelling.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
+      "responsibleMilestone": "brand-v2-shell-home",
+      "affectedAssertions": [
+        "VAL-B2-ID-003",
+        "VAL-B2-ID-004"
+      ],
+      "disposition": "permanent"
+    }
+  ]
 }

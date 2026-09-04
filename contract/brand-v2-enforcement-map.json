@@ -5889,20 +5889,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-001",
-          "mechanism": "VAL-B2-ID-001 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/a-z/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/space/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/control/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/perception/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/credits/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/glossary/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/market-map/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/playground/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/search/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-001:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-ID-001 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -5919,30 +6219,105 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-001"
+          "result:VAL-B2-ID-001:route:/",
+          "result:VAL-B2-ID-001:route:/a-z/",
+          "result:VAL-B2-ID-001:route:/adjacent/",
+          "result:VAL-B2-ID-001:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-ID-001:route:/adjacent/drones/",
+          "result:VAL-B2-ID-001:route:/adjacent/space/",
+          "result:VAL-B2-ID-001:route:/adjacent/surgical/",
+          "result:VAL-B2-ID-001:route:/classical/",
+          "result:VAL-B2-ID-001:route:/classical/control/",
+          "result:VAL-B2-ID-001:route:/classical/grasp-planning/",
+          "result:VAL-B2-ID-001:route:/classical/kinematics/",
+          "result:VAL-B2-ID-001:route:/classical/motion-planning/",
+          "result:VAL-B2-ID-001:route:/classical/perception/",
+          "result:VAL-B2-ID-001:route:/classical/scene-representation/",
+          "result:VAL-B2-ID-001:route:/classical/state-estimation/",
+          "result:VAL-B2-ID-001:route:/credits/",
+          "result:VAL-B2-ID-001:route:/data-hardware/",
+          "result:VAL-B2-ID-001:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-ID-001:route:/data-hardware/datasets/",
+          "result:VAL-B2-ID-001:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-ID-001:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-ID-001:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-ID-001:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-ID-001:route:/frontier/",
+          "result:VAL-B2-ID-001:route:/frontier/bear-case/",
+          "result:VAL-B2-ID-001:route:/frontier/competing-theses/",
+          "result:VAL-B2-ID-001:route:/frontier/dexterity/",
+          "result:VAL-B2-ID-001:route:/frontier/generalization/",
+          "result:VAL-B2-ID-001:route:/frontier/reliability-gap/",
+          "result:VAL-B2-ID-001:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-ID-001:route:/glossary/",
+          "result:VAL-B2-ID-001:route:/manipulation/",
+          "result:VAL-B2-ID-001:route:/manipulation/action-chunking/",
+          "result:VAL-B2-ID-001:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-ID-001:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-ID-001:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-ID-001:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-ID-001:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-ID-001:route:/manipulation/hierarchical/",
+          "result:VAL-B2-ID-001:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-ID-001:route:/manipulation/pi-line/",
+          "result:VAL-B2-ID-001:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-ID-001:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-ID-001:route:/manipulation/vla-models/",
+          "result:VAL-B2-ID-001:route:/market-map/",
+          "result:VAL-B2-ID-001:route:/playground/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-ID-001:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-ID-001:route:/search/",
+          "result:VAL-B2-ID-001:route:/world-models/",
+          "result:VAL-B2-ID-001:route:/world-models/generative-sim/",
+          "result:VAL-B2-ID-001:route:/world-models/generative-video/",
+          "result:VAL-B2-ID-001:route:/world-models/jepa/",
+          "result:VAL-B2-ID-001:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-ID-001:route:/world-models/taxonomy/"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-ID-002",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/identity-runtime.json#descriptorSurfaces",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-002",
-          "mechanism": "VAL-B2-ID-002 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-002:descriptor-surface:metadata:/#description",
+          "mechanism": "VAL-B2-ID-002 per-member evidence derived from the persisted two-viewport identity sweep of the built export over evidence/brand-v2/identity-runtime.json#descriptorSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-002:descriptor-surface:metadata:/#og:description",
+          "mechanism": "VAL-B2-ID-002 per-member evidence derived from the persisted two-viewport identity sweep of the built export over evidence/brand-v2/identity-runtime.json#descriptorSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-002:descriptor-surface:metadata:/#twitter:description",
+          "mechanism": "VAL-B2-ID-002 per-member evidence derived from the persisted two-viewport identity sweep of the built export over evidence/brand-v2/identity-runtime.json#descriptorSurfaces"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-002:descriptor-surface:rendered:/:home-wordmark:0",
+          "mechanism": "VAL-B2-ID-002 per-member evidence derived from the persisted two-viewport identity sweep of the built export over evidence/brand-v2/identity-runtime.json#descriptorSurfaces"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -5950,7 +6325,7 @@
         "statement": "Every descriptor surface is exactly `Citation-first encyclopedia of modern robot learning.`",
         "expected": "Every descriptor surface is exactly `Citation-first encyclopedia of modern robot learning.`",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 4,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5959,7 +6334,10 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-002"
+          "result:VAL-B2-ID-002:descriptor-surface:metadata:/#description",
+          "result:VAL-B2-ID-002:descriptor-surface:metadata:/#og:description",
+          "result:VAL-B2-ID-002:descriptor-surface:metadata:/#twitter:description",
+          "result:VAL-B2-ID-002:descriptor-surface:rendered:/:home-wordmark:0"
         ]
       }
     },
@@ -5969,20 +6347,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-003",
-          "mechanism": "VAL-B2-ID-003 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/a-z/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/adjacent/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/adjacent/space/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/control/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/perception/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/credits/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/glossary/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/market-map/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/playground/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/search/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-003:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-ID-003 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -5999,30 +6677,100 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-003"
+          "result:VAL-B2-ID-003:route:/",
+          "result:VAL-B2-ID-003:route:/a-z/",
+          "result:VAL-B2-ID-003:route:/adjacent/",
+          "result:VAL-B2-ID-003:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-ID-003:route:/adjacent/drones/",
+          "result:VAL-B2-ID-003:route:/adjacent/space/",
+          "result:VAL-B2-ID-003:route:/adjacent/surgical/",
+          "result:VAL-B2-ID-003:route:/classical/",
+          "result:VAL-B2-ID-003:route:/classical/control/",
+          "result:VAL-B2-ID-003:route:/classical/grasp-planning/",
+          "result:VAL-B2-ID-003:route:/classical/kinematics/",
+          "result:VAL-B2-ID-003:route:/classical/motion-planning/",
+          "result:VAL-B2-ID-003:route:/classical/perception/",
+          "result:VAL-B2-ID-003:route:/classical/scene-representation/",
+          "result:VAL-B2-ID-003:route:/classical/state-estimation/",
+          "result:VAL-B2-ID-003:route:/credits/",
+          "result:VAL-B2-ID-003:route:/data-hardware/",
+          "result:VAL-B2-ID-003:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-ID-003:route:/data-hardware/datasets/",
+          "result:VAL-B2-ID-003:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-ID-003:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-ID-003:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-ID-003:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-ID-003:route:/frontier/",
+          "result:VAL-B2-ID-003:route:/frontier/bear-case/",
+          "result:VAL-B2-ID-003:route:/frontier/competing-theses/",
+          "result:VAL-B2-ID-003:route:/frontier/dexterity/",
+          "result:VAL-B2-ID-003:route:/frontier/generalization/",
+          "result:VAL-B2-ID-003:route:/frontier/reliability-gap/",
+          "result:VAL-B2-ID-003:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-ID-003:route:/glossary/",
+          "result:VAL-B2-ID-003:route:/manipulation/",
+          "result:VAL-B2-ID-003:route:/manipulation/action-chunking/",
+          "result:VAL-B2-ID-003:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-ID-003:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-ID-003:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-ID-003:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-ID-003:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-ID-003:route:/manipulation/hierarchical/",
+          "result:VAL-B2-ID-003:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-ID-003:route:/manipulation/pi-line/",
+          "result:VAL-B2-ID-003:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-ID-003:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-ID-003:route:/manipulation/vla-models/",
+          "result:VAL-B2-ID-003:route:/market-map/",
+          "result:VAL-B2-ID-003:route:/playground/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-ID-003:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-ID-003:route:/search/",
+          "result:VAL-B2-ID-003:route:/world-models/",
+          "result:VAL-B2-ID-003:route:/world-models/generative-sim/",
+          "result:VAL-B2-ID-003:route:/world-models/generative-video/",
+          "result:VAL-B2-ID-003:route:/world-models/jepa/",
+          "result:VAL-B2-ID-003:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-ID-003:route:/world-models/taxonomy/"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-ID-004",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-004",
-          "mechanism": "VAL-B2-ID-004 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-004:technical-identifier:robot-atlas-trajectory",
+          "mechanism": "VAL-B2-ID-004 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-004:technical-identifier:robot-wiki",
+          "mechanism": "VAL-B2-ID-004 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-004:technical-identifier:robot-wiki.com",
+          "mechanism": "VAL-B2-ID-004 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -6030,7 +6778,7 @@
         "statement": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
         "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 3,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -6039,30 +6787,42 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-004"
+          "result:VAL-B2-ID-004:technical-identifier:robot-atlas-trajectory",
+          "result:VAL-B2-ID-004:technical-identifier:robot-wiki",
+          "result:VAL-B2-ID-004:technical-identifier:robot-wiki.com"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-ID-005",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "data/type-roles.json#identityWordmarkRoles",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-005",
-          "mechanism": "VAL-B2-ID-005 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-005:identity-surface:home-wordmark",
+          "mechanism": "VAL-B2-ID-005 per-member evidence derived from the persisted two-viewport identity sweep of the built export over data/type-roles.json#identityWordmarkRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-005:identity-surface:shell-wordmark",
+          "mechanism": "VAL-B2-ID-005 per-member evidence derived from the persisted two-viewport identity sweep of the built export over data/type-roles.json#identityWordmarkRoles"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-005:identity-surface:og-static-instance:home-wordmark",
+          "mechanism": "VAL-B2-ID-005 per-member evidence derived from the persisted two-viewport identity sweep of the built export over data/type-roles.json#identityWordmarkRoles"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -6070,7 +6830,7 @@
         "statement": "Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
         "expected": "Wordmark text renders in Tektur Variable on web identity surfaces (home, desktop shell, and mobile header); OG/X artwork renders the registered static Tektur instance mapped to the approved web role.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 3,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -6079,30 +6839,132 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-005"
+          "result:VAL-B2-ID-005:identity-surface:home-wordmark",
+          "result:VAL-B2-ID-005:identity-surface:shell-wordmark",
+          "result:VAL-B2-ID-005:identity-surface:og-static-instance:home-wordmark"
         ]
       }
     },
     {
       "assertionId": "VAL-B2-ID-006",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "contract/brand-v2-registries.json#assets:first-party-visual",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-006",
-          "mechanism": "VAL-B2-ID-006 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/anymal-anybotics-2022.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/atlas-darpa-frontview-2013.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/covariate-shift.svg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/franka-emika-panda-cebit-2017.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/puma-560-nasa-ames.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/spot-raf-agile-liberty-2021.jpg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:images/temporal-ensembling.svg",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/base_motor_holder_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/base_so101_v2.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/motor_holder_so101_base_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/motor_holder_so101_wrist_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/moving_jaw_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/rotation_pitch_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/sts3215_03a_no_horn_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/sts3215_03a_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/under_arm_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/upper_arm_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/waveshare_mounting_plate_so101_v2.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/wrist_roll_follower_so101_v1.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-006:asset:models/so101/so101.urdf",
+          "mechanism": "VAL-B2-ID-006 per-member evidence derived from the persisted two-viewport identity sweep of the built export over contract/brand-v2-registries.json#assets:first-party-visual"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-identity.spec.ts",
+          "title": "brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports",
+          "mechanism": "Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-identity-evidence.test.ts",
+          "title": "identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence",
+          "mechanism": "Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against."
         }
       ],
       "enforcementMode": "browser-state",
@@ -6110,7 +6972,7 @@
         "statement": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "expected": "The repository introduces no first-party symbol, monogram, mascot, robot-head logo, or alternate brand glyph.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 61,
+        "populationSize": 21,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -6119,7 +6981,27 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-006"
+          "result:VAL-B2-ID-006:asset:images/anymal-anybotics-2022.jpg",
+          "result:VAL-B2-ID-006:asset:images/atlas-darpa-frontview-2013.jpg",
+          "result:VAL-B2-ID-006:asset:images/covariate-shift.svg",
+          "result:VAL-B2-ID-006:asset:images/franka-emika-panda-cebit-2017.jpg",
+          "result:VAL-B2-ID-006:asset:images/puma-560-nasa-ames.jpg",
+          "result:VAL-B2-ID-006:asset:images/spot-raf-agile-liberty-2021.jpg",
+          "result:VAL-B2-ID-006:asset:images/temporal-ensembling.svg",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/base_motor_holder_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/base_so101_v2.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/motor_holder_so101_base_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/motor_holder_so101_wrist_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/moving_jaw_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/rotation_pitch_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/sts3215_03a_no_horn_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/sts3215_03a_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/under_arm_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/upper_arm_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/waveshare_mounting_plate_so101_v2.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/wrist_roll_follower_so101_v1.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/assets/wrist_roll_pitch_so101_v2.glb",
+          "result:VAL-B2-ID-006:asset:models/so101/so101.urdf"
         ]
       }
     },

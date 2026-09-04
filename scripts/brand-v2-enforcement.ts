@@ -15,6 +15,26 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import {
+  IDENTITY_RUNTIME_EVIDENCE_PATH,
+  deriveTechnicalIdentifierOccurrences,
+  deriveTechnicalIdentifiers,
+  identityEvidenceFingerprint,
+  readIdentityRuntimeEvidence,
+  routeVerdicts,
+  technicalIdentifierDestinations,
+} from '../lib/brand-v2-identity-evidence.ts';
+import {
+  IDENTITY_ASSERTION_POPULATION_SOURCES,
+  IDENTITY_DESCRIPTOR_POPULATION_SOURCE,
+  IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE,
+  IDENTITY_TECHNICAL_POPULATION_SOURCE,
+  IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
+  firstPartyVisualAssets,
+  identityDescriptorSurfaces,
+  identityWordmarkRoles,
+} from '../lib/identity-populations.ts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../lib/identity.ts';
 import { deriveTestTargetInventory } from '../lib/brand-v2-test-inventory.ts';
 import { publishedModules } from '../data/modules.ts';
 import {
@@ -35,9 +55,12 @@ import {
   readTokenRuntimeEvidence,
   type SemanticTokenMember,
 } from '../lib/brand-v2-token-evidence.ts';
+import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
+import { FIRST_PARTY_TYPE_ROLES } from '../data/type-roles.ts';
 import {
   TEKTUR_ASSERTION_MODES,
   TEKTUR_DELIVERY_EVIDENCE_PATH,
+  fontFamilyKey,
   measureTekturEvidence,
   tekturAssertionEvidence,
 } from '../lib/brand-v2-tektur-evidence.ts';
@@ -110,7 +133,8 @@ function isMeasured(id: string): boolean {
   return (
     TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
-    TOKEN_ASSERTIONS.has(id)
+    TOKEN_ASSERTIONS.has(id) ||
+    IDENTITY_ASSERTIONS.has(id)
   );
 }
 
@@ -179,6 +203,173 @@ const MIRROR_PARITY = new Map(
   TOKEN_RENDERER.mirrorParity.map((entry) => [entry.token, entry]),
 );
 
+/**
+ * The public-identity assertions, routed to the two-viewport sweep of the
+ * built export that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/identity-runtime.json` through a reader that throws on
+ * a stale fingerprint, a missing route, a missing viewport, an empty page,
+ * or a route with no discovered lockup. A generator that re-read
+ * PUBLIC_IDENTITY here would be comparing a constant with itself; what
+ * decides these rows is what a document rendered.
+ */
+const IDENTITY_ASSERTIONS = new Set([
+  'VAL-B2-ID-001',
+  'VAL-B2-ID-002',
+  'VAL-B2-ID-003',
+  'VAL-B2-ID-004',
+  'VAL-B2-ID-005',
+  'VAL-B2-ID-006',
+]);
+
+const SITE_METADATA_OWNER_PATH = (() => {
+  const site = REGISTRY.metadata.find(
+    (row) => (row as unknown as { routeId?: string }).routeId === 'route:/',
+  ) as unknown as { ownerPath?: string } | undefined;
+  if (!site?.ownerPath) {
+    throw new Error('the metadata registry has no owner for route:/');
+  }
+  return site.ownerPath;
+})();
+
+const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
+  artifact: readJson(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  fingerprint: identityEvidenceFingerprint({
+    root: ROOT,
+    metadataOwnerPaths: [
+      ...new Set(
+        REGISTRY.metadata.map(
+          (row) => (row as unknown as { ownerPath: string }).ownerPath,
+        ),
+      ),
+    ],
+    lockupSourcePaths: [
+      'components/nav/site-shell.tsx',
+      'components/nav/site-footer.tsx',
+      'lib/identity.ts',
+      'lib/og-cards.ts',
+    ],
+  }),
+});
+const IDENTITY_ROUTE_VERDICTS = routeVerdicts(IDENTITY_EVIDENCE);
+const IDENTITY_ROUTE_VERDICT_BY_ID = new Map(
+  [...PUBLIC_ROUTE_PATH_BY_ID].map(([id, path]) => {
+    const verdict = IDENTITY_ROUTE_VERDICTS.get(path);
+    if (!verdict) {
+      throw new Error(`the identity sweep did not visit ${path}`);
+    }
+    return [id, verdict];
+  }),
+);
+const DESCRIPTOR_SURFACES = new Map(
+  identityDescriptorSurfaces(IDENTITY_EVIDENCE, SITE_METADATA_OWNER_PATH).map(
+    (surface) => [surface.id, surface],
+  ),
+);
+/**
+ * A `font-variation-settings` value as sorted `"axis" value` pairs, so a
+ * measured setting and a registered one compare on their axes rather than
+ * on the order the browser happened to serialize them in.
+ */
+function serializeVariationAxes(setting: string): string {
+  return setting
+    .split(',')
+    .map((axis) => axis.trim())
+    .filter((axis) => axis.length > 0)
+    .sort()
+    .join(', ');
+}
+
+const IDENTITY_WORDMARK_ROLES = new Map(
+  identityWordmarkRoles().map((role) => [role.id, role]),
+);
+/**
+ * The runtime face the registered display family is actually published
+ * under, taken from the Tektur reconciliation rather than restated here.
+ * `next/font/local` serves `Tektur Variable` as the family `tektur`, and
+ * that rename is admitted only because a swept document declared the
+ * `@font-face` and its same-origin payload hashed to the registered
+ * binary. Comparing a lockup's computed head against a hardcoded
+ * `Tektur` substring would accept any family whose name contains it.
+ */
+const DISPLAY_RUNTIME_FACE = (() => {
+  const registered = FIRST_PARTY_TYPE_ROLES.filter(({ family }) =>
+    fontFamilyKey(family).startsWith(
+      fontFamilyKey(TEKTUR_FONT_METADATA.family),
+    ),
+  );
+  if (registered.length !== 1) {
+    throw new Error(
+      `${registered.length} first-party type roles name the ${TEKTUR_FONT_METADATA.family} family; the identity lockups need exactly one display role`,
+    );
+  }
+  const display = TEKTUR_MEASUREMENTS.families.approved.find(
+    ({ roleId }) => roleId === registered[0].id,
+  );
+  if (!display) {
+    throw new Error(
+      `The Tektur reconciliation approved no ${registered[0].id} family, so no runtime face is earned for the identity lockups`,
+    );
+  }
+  const runtimeKey = fontFamilyKey(display.runtimeFace);
+  return {
+    registeredFamily: display.family,
+    runtimeKey,
+    earnedBy: display.alias
+      ? ` by an observed @font-face in ${display.alias.declaredBy.join(', ')} delivering ${display.alias.binarySha256.slice(0, 12)} from ${display.alias.deliveredFrom.join(', ')}`
+      : '',
+  };
+})();
+const FIRST_PARTY_VISUAL_ASSETS = new Map(
+  firstPartyVisualAssets(
+    REGISTRY.assets as unknown as Array<{
+      id: string;
+      path: string;
+      category: string;
+    }>,
+  ).map((asset) => [asset.id, asset]),
+);
+const TECHNICAL_IDENTIFIERS = deriveTechnicalIdentifiers(
+  extractBrandV2Assertions(TOKEN_SOURCES.contract).find(
+    ({ id }) => id === 'VAL-B2-ID-004',
+  )?.requirement ??
+    (() => {
+      throw new Error('VAL-B2-ID-004 has no requirement row to derive from');
+    })(),
+);
+const TECHNICAL_IDENTIFIER_BY_MEMBER = new Map(
+  TECHNICAL_IDENTIFIERS.map((literal) => [
+    `technical-identifier:${literal}`,
+    literal,
+  ]),
+);
+
+/** Names that would mark an asset as brand iconography rather than content. */
+const BRAND_SYMBOL_NAME = /logo|monogram|mascot|favicon|wordmark|brand-mark|emblem|crest/i;
+
+const IDENTITY_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [IDENTITY_DESCRIPTOR_POPULATION_SOURCE]: [...DESCRIPTOR_SURFACES.keys()],
+  [IDENTITY_TECHNICAL_POPULATION_SOURCE]: [
+    ...TECHNICAL_IDENTIFIER_BY_MEMBER.keys(),
+  ],
+  [IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE]: [
+    ...IDENTITY_WORDMARK_ROLES.keys(),
+  ],
+  [IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE]: [
+    ...FIRST_PARTY_VISUAL_ASSETS.keys(),
+  ],
+};
+
+/** Every icon slot and in-lockup symbol node the sweep saw, across all routes. */
+const IDENTITY_SYMBOL_SIGHTINGS = IDENTITY_EVIDENCE.observations.flatMap(
+  ({ route, iconDeclarations, symbolNodesInLockups }) =>
+    [...iconDeclarations, ...symbolNodesInLockups].map(
+      (entry) => `${route}: ${entry}`,
+    ),
+);
+
 function populationSources(assertionIds: string[]) {
   const baseline = readJson(
     join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
@@ -190,10 +381,13 @@ function populationSources(assertionIds: string[]) {
     assertionIds,
     tekturPopulations: TEKTUR_POPULATION_IDS,
     semanticTokenPopulation: SEMANTIC_POPULATION.map(({ id }) => id),
+    identityPopulations: IDENTITY_POPULATIONS,
   });
 }
 
 function populationSourceFor(id: string): string {
+  const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
+  if (identitySource) return identitySource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -246,6 +440,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // so both stay browser-state rows rather than becoming source-build ones.
   if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
   if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
+  // An identity row's evidence is what a built page rendered at two
+  // viewports, so it is a browser-state row even where a supporting clause
+  // also counts source occurrences.
+  if (IDENTITY_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -578,7 +776,21 @@ function tokenTargetsFor(id: string): TestTarget[] {
   ];
 }
 
+const IDENTITY_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-identity.spec.ts',
+  'brand-v2 public identity › every public route renders the exact v2 identity at both identity viewports',
+  'Sweeps every registry-derived public route at the desktop-shell and mobile-header viewports, discovers brand lockups structurally by the whole `robot wiki` spelling family before reading any annotation, and records the rendered names, descriptor slots, wordmark families and axes, icon declarations, in-lockup symbol nodes, and prose metadata that decide the six identity rows.',
+);
+const IDENTITY_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-identity-evidence.test.ts',
+  'identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence',
+  'Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
+  if (IDENTITY_ASSERTIONS.has(id)) {
+    return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
+  }
   if (TEKTUR_ASSERTIONS.has(id)) {
     return [
       ...tekturTargetsFor(id),
@@ -1018,6 +1230,243 @@ function semanticTokenResult(
   };
 }
 
+type IdentityEvidence = {
+  actual: string;
+  computed: Record<string, unknown>;
+};
+
+/**
+ * What each identity assertion actually observed about one member. Every
+ * branch reads the persisted sweep (or, for the Open Graph clause of
+ * `VAL-B2-ID-005`, the persisted Tektur measurement) and throws rather than
+ * describe a member it has no observation for. A clause that fails throws
+ * too: this generator has no way to emit a red row, so refusing to write is
+ * how a real defect stops the build.
+ */
+function identityAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const viewports = IDENTITY_EVIDENCE.viewports.join(' and ');
+  if (assertionId === 'VAL-B2-ID-001' || assertionId === 'VAL-B2-ID-003') {
+    const verdict = IDENTITY_ROUTE_VERDICT_BY_ID.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no identity observation`);
+    }
+    const failures =
+      assertionId === 'VAL-B2-ID-001'
+        ? [...verdict.wrongNames, ...verdict.unannotatedLockups]
+        : [...verdict.forbiddenRenders, ...verdict.forbiddenMetadata];
+    if (failures.length > 0) {
+      throw new Error(
+        `${assertionId}: ${verdict.route} failed on ${failures.join('; ')}`,
+      );
+    }
+    const computed = {
+      route: verdict.route,
+      viewports: IDENTITY_EVIDENCE.viewports,
+      lockupsDiscovered: verdict.lockupCount,
+      renderedNames: verdict.renderedNames,
+      forbiddenRenders: verdict.forbiddenRenders,
+      forbiddenMetadata: verdict.forbiddenMetadata,
+      evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+    };
+    return assertionId === 'VAL-B2-ID-001'
+      ? {
+          actual: `${verdict.route} rendered ${verdict.lockupCount} brand lockup(s) across ${viewports}, every one exactly \`${PUBLIC_IDENTITY}\` and every one carrying a registered wordmark role`,
+          computed,
+        }
+      : {
+          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one`,
+          computed,
+        };
+  }
+  if (assertionId === 'VAL-B2-ID-002') {
+    const surface = DESCRIPTOR_SURFACES.get(member);
+    if (!surface) {
+      throw new Error(`${assertionId}: ${member} is not a descriptor surface`);
+    }
+    // A rendered descriptor slot is the descriptor and nothing else; a
+    // metadata field may frame it (og:image:alt names the card it describes),
+    // so the byte sequence must appear verbatim inside it.
+    const exact =
+      surface.kind === 'rendered'
+        ? surface.value === PUBLIC_DESCRIPTOR
+        : surface.value.includes(PUBLIC_DESCRIPTOR);
+    if (!exact) {
+      throw new Error(
+        `${assertionId}: ${member} carries "${surface.value}", not the locked descriptor`,
+      );
+    }
+    return {
+      actual:
+        surface.kind === 'rendered'
+          ? `${surface.id} renders exactly the locked descriptor, byte for byte, on ${surface.route}`
+          : `${surface.id} ships the locked descriptor verbatim from ${surface.sourcePath}`,
+      computed: {
+        surfaceKind: surface.kind,
+        route: surface.route,
+        sourcePath: surface.sourcePath,
+        value: surface.value,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-004') {
+    const literal = TECHNICAL_IDENTIFIER_BY_MEMBER.get(member);
+    if (!literal) {
+      throw new Error(
+        `${assertionId}: ${member} is not a sealed technical identifier`,
+      );
+    }
+    const occurrences = deriveTechnicalIdentifierOccurrences(ROOT, literal);
+    if (occurrences.length === 0) {
+      throw new Error(
+        `${assertionId}: \`${literal}\` no longer occurs in first-party runtime source, so the public-display migration altered a technical identifier`,
+      );
+    }
+    const displayMatches = [
+      ...new Set(
+        IDENTITY_EVIDENCE.observations.flatMap(
+          ({ route, technicalIdentifierVisibleMatches }) =>
+            technicalIdentifierVisibleMatches
+              .filter((line) => line.includes(literal))
+              .map((line) => `${route}: ${line}`),
+        ),
+      ),
+    ];
+    if (displayMatches.length > 0) {
+      throw new Error(
+        `${assertionId}: \`${literal}\` renders as visible product identity on ${displayMatches.join('; ')}`,
+      );
+    }
+    const destinations = technicalIdentifierDestinations(
+      literal,
+      IDENTITY_EVIDENCE,
+    );
+    const files = [...new Set(occurrences.map(({ path }) => path))].sort();
+    return {
+      actual: `\`${literal}\` still resolves ${occurrences.length} comment-free use(s) across ${files.length} first-party runtime file(s)${destinations.length > 0 ? ` and ${destinations.length} live export destination(s)` : ''}, and renders nowhere as visible product identity across ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}`,
+      computed: {
+        literal,
+        occurrences: occurrences.length,
+        files,
+        destinations,
+        displayMatches,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-005') {
+    const role = IDENTITY_WORDMARK_ROLES.get(member);
+    if (!role) {
+      throw new Error(`${assertionId}: ${member} is not an identity surface`);
+    }
+    if (role.kind === 'og-static-instance') {
+      const evidence = tekturAssertionEvidence({
+        assertionId: 'VAL-B2-TYPE-016',
+        populationSource: TEKTUR_OG_MAPPING_POPULATION_SOURCE,
+        member: `og-static-mapping:${role.roleId}`,
+        measurements: TEKTUR_MEASUREMENTS,
+      });
+      return {
+        actual: `the Open Graph renderer's registered static Tektur instance maps to the approved web role \`${role.roleId}\`: ${evidence.actual}`,
+        computed: {
+          ...evidence.observed,
+          roleId: role.roleId,
+          evidence: [evidence.sourcePath],
+          tool: evidence.tool,
+        },
+      };
+    }
+    const sightings = IDENTITY_EVIDENCE.observations.flatMap(
+      ({ route, viewport, brandDisplayTexts }) =>
+        brandDisplayTexts
+          .filter(({ role: rendered }) => rendered === role.roleId)
+          .map((lockup) => ({ route, viewport, ...lockup })),
+    );
+    if (sightings.length === 0) {
+      throw new Error(
+        `${assertionId}: the sweep never rendered the ${role.roleId} lockup, so nothing about it was measured`,
+      );
+    }
+    const families = [
+      ...new Set(sightings.map(({ fontFamilyHead }) => fontFamilyHead)),
+    ].sort();
+    const offFamily = families.filter(
+      (family) => fontFamilyKey(family) !== DISPLAY_RUNTIME_FACE.runtimeKey,
+    );
+    if (offFamily.length > 0) {
+      throw new Error(
+        `${assertionId}: the ${role.roleId} lockup resolved to ${offFamily.join(', ')} rather than the registered ${DISPLAY_RUNTIME_FACE.registeredFamily}`,
+      );
+    }
+    const axes = [
+      ...new Set(
+        sightings.map(({ fontVariationSettings }) => fontVariationSettings),
+      ),
+    ].sort();
+    const registered = `"wdth" ${role.wdth}, "wght" ${role.wght}`;
+    // The browser reports the axes in its own order, so the comparison is
+    // over the parsed axis/value pairs; comparing the serialized strings
+    // would fail a compliant lockup and pass a reordered wrong one.
+    const offAxis = axes.filter(
+      (setting) => serializeVariationAxes(setting) !== registered,
+    );
+    if (offAxis.length > 0) {
+      throw new Error(
+        `${assertionId}: the ${role.roleId} lockup rendered variation settings ${offAxis.join(' | ')} rather than the registered ${registered}`,
+      );
+    }
+    const routes = [...new Set(sightings.map(({ route }) => route))].sort();
+    return {
+      actual: `the ${role.roleId} lockup resolved to ${families.join(', ')}, the runtime face the registered ${DISPLAY_RUNTIME_FACE.registeredFamily} is published under${DISPLAY_RUNTIME_FACE.earnedBy}, at the registered ${registered} on ${routes.length} route(s) across ${viewports}, in ${sightings.length} sighting(s)`,
+      computed: {
+        roleId: role.roleId,
+        cssClass: role.cssClass,
+        definedIn: role.definedIn,
+        registeredFamily: DISPLAY_RUNTIME_FACE.registeredFamily,
+        runtimeFamilyKey: DISPLAY_RUNTIME_FACE.runtimeKey,
+        families,
+        variationSettings: axes,
+        routes,
+        sightings: sightings.length,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-ID-006') {
+    const asset = FIRST_PARTY_VISUAL_ASSETS.get(member);
+    if (!asset) {
+      throw new Error(
+        `${assertionId}: ${member} is not a first-party visual asset`,
+      );
+    }
+    if (BRAND_SYMBOL_NAME.test(asset.path)) {
+      throw new Error(
+        `${assertionId}: ${asset.path} is named as brand iconography`,
+      );
+    }
+    if (IDENTITY_SYMBOL_SIGHTINGS.length > 0) {
+      throw new Error(
+        `${assertionId}: the sweep found ${IDENTITY_SYMBOL_SIGHTINGS.length} symbol slot(s) filled, starting with ${IDENTITY_SYMBOL_SIGHTINGS[0]}`,
+      );
+    }
+    return {
+      actual: `${asset.path} is registered as ${asset.category} content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}, so it fills no identity slot`,
+      computed: {
+        assetPath: asset.path,
+        category: asset.category,
+        iconDeclarationsAcrossSweep: 0,
+        symbolNodesInLockupsAcrossSweep: 0,
+        routesSwept: IDENTITY_EVIDENCE.routes.length,
+        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no identity evidence branch`);
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -1084,6 +1533,19 @@ function resultFor(
             'evidence/brand-v2/primitive-reconciliation.json',
         },
       },
+    };
+  }
+  if (IDENTITY_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = identityAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
@@ -1226,7 +1688,9 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
+            mechanism: IDENTITY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
+              : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
