@@ -3,7 +3,6 @@ import type { ReactNode } from 'react';
 import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from 'next/font/google';
 import localFont from 'next/font/local';
 import { SiteShell } from '@/components/nav/site-shell';
-import { SkipLink } from '@/components/ui/skip-link';
 import { ALLOW_INDEXING, SITE_URL } from '@/lib/site';
 import {
   AUTHOR_NAME,
@@ -96,7 +95,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${tektur.variable} ${plexSans.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <body>
-        <SkipLink />
+        {/* The skip link is the shell's first tab stop and the shell has to
+            be able to take it out of the tab order while the mobile drawer
+            holds focus, so SiteShell mounts it as its own first child. */}
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

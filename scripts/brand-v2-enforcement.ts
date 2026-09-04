@@ -45,6 +45,15 @@ import {
   skipLinkVerdicts,
 } from '../lib/brand-v2-shell-evidence.ts';
 import {
+  MOBILE_SHELL_EVIDENCE_PATH,
+  MOBILE_VIEWPORT,
+  SCRIM_SEPARATION_FLOOR,
+  drawerVerdicts,
+  mobileHeaderVerdicts,
+  mobileShellEvidenceFingerprint,
+  readMobileShellEvidence,
+} from '../lib/brand-v2-mobile-shell-evidence.ts';
+import {
   SHELL_ASSERTION_POPULATION_SOURCES,
   SHELL_NAV_DESTINATION_POPULATION_SOURCE,
   navigationBaselineMembers,
@@ -151,9 +160,25 @@ function isMeasured(id: string): boolean {
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
     TOKEN_ASSERTIONS.has(id) ||
     IDENTITY_ASSERTIONS.has(id) ||
-    SHELL_ASSERTIONS.has(id)
+    SHELL_ASSERTIONS.has(id) ||
+    MOBILE_SHELL_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The two mobile shell assertions, routed to the mobile-viewport sweep of
+ * the built export that decides them.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/mobile-shell.json` through a reader that throws on a
+ * stale fingerprint, a wrong viewport, a missing route, an empty page, a
+ * header the sweep never found, a drawer with no tab stops, a keyboard trace
+ * with no destination, or fewer than all three dismissal paths. Neither is
+ * decidable from source: whether the header omits the descriptor is a fact
+ * about rendered leaf text, and whether the drawer traps focus is a fact
+ * about where a real Tab and a real Shift+Tab left `document.activeElement`.
+ */
+const MOBILE_SHELL_ASSERTIONS = new Set(['VAL-B2-ID-008', 'VAL-B2-SHELL-004']);
 
 /**
  * The desktop shell assertions, routed to the sweep of the built export that
@@ -426,6 +451,20 @@ const SHELL_CURRENT_ROUTE_VERDICTS = currentRouteVerdicts(SHELL_EVIDENCE);
 const SHELL_SKIP_LINK_VERDICTS = skipLinkVerdicts(SHELL_EVIDENCE);
 const SHELL_LEDGER_BY_MEMBER = ledgerByBaselineMember(SHELL_EVIDENCE);
 
+const MOBILE_SHELL_EVIDENCE = readMobileShellEvidence({
+  artifact: readJson(join(ROOT, MOBILE_SHELL_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  fingerprint: mobileShellEvidenceFingerprint({
+    root: ROOT,
+    deviceRegistryRows: REGISTRY.gridDevices as unknown as Array<{
+      id: string;
+      fingerprint: string;
+    }>,
+  }),
+});
+const MOBILE_HEADER_VERDICTS = mobileHeaderVerdicts(MOBILE_SHELL_EVIDENCE);
+const MOBILE_DRAWER_VERDICTS = drawerVerdicts(MOBILE_SHELL_EVIDENCE);
+
 const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
   [SHELL_NAV_DESTINATION_POPULATION_SOURCE]: NAVIGATION_BASELINE.map(
     ({ id }) => id,
@@ -507,8 +546,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // also counts source occurrences.
   if (IDENTITY_ASSERTIONS.has(id)) return 'browser-state';
   // A shell row's evidence is what a built page rendered and what a keyboard
-  // reached on it, so it is a browser-state row.
+  // reached on it, so it is a browser-state row. The mobile rows are the
+  // same kind of reading at the mobile viewport, with the drawer open.
   if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  if (MOBILE_SHELL_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -863,12 +904,26 @@ const SHELL_READER_TARGET = testTarget(
   'Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading.',
 );
 
+const MOBILE_SHELL_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-mobile-shell.spec.ts',
+  'brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions',
+  'Sweeps every registry-derived public route at the mobile-header viewport, discovers the compact lockup structurally by the whole `robot wiki` spelling family before reading any annotation, reads the header leaf text rather than its source, then opens the drawer three times per route: once to press a real Tab off its last stop and a real Shift+Tab off its first and read where focus landed, once to dismiss it with the close control, and once to dismiss it with the scrim, recording which regions the browser made inert and what the scrim composites to against the panel.',
+);
+const MOBILE_SHELL_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-mobile-shell-evidence.test.ts',
+  'mobile shell evidence > refuses stale, incomplete, and unmeasured mobile shell evidence',
+  'Proves the reader that gates both mobile rows throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a header the sweep never found, a drawer with no tab stops, a keyboard trace with no destination and a missing dismissal path, and proves the verdicts fail a one-way trap, an escaped skip link, a descriptor in the header and a scrim that composites to the panel colour.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
   if (IDENTITY_ASSERTIONS.has(id)) {
     return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
   }
   if (SHELL_ASSERTIONS.has(id)) {
     return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
+  }
+  if (MOBILE_SHELL_ASSERTIONS.has(id)) {
+    return [MOBILE_SHELL_SWEEP_TARGET, MOBILE_SHELL_READER_TARGET];
   }
   if (TEKTUR_ASSERTIONS.has(id)) {
     return [
@@ -1658,6 +1713,88 @@ function shellAssertionEvidence(
   throw new Error(`${assertionId} has no shell evidence branch`);
 }
 
+/**
+ * What the mobile sweep recorded for one mobile shell assertion and one
+ * route. Both branches throw on a route the sweep did not visit and on a
+ * route whose reading fails the requirement, because the generator has no
+ * way to write a red row: a header that gained a descriptor or a drawer that
+ * stopped trapping focus has to stop the corpus, not appear in it.
+ */
+function mobileShellAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+  if (assertionId === 'VAL-B2-ID-008') {
+    const verdict = MOBILE_HEADER_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { observation, lockup } = verdict;
+    return {
+      actual: `the compact header on ${route} renders \`${lockup?.text}\` on ${lockup?.lineBoxes} line box in ${lockup?.fontFamilyHead} at ${lockup?.fontSizePx}px inside a ${observation.contentWidthPx}px content box, and the whole header renders ${observation.leafTexts.length} leaf text(s) — ${observation.leafTexts.join(', ')} — so no descriptor, and no prose that could stand in for one, reaches it`,
+      computed: {
+        route,
+        viewport: MOBILE_VIEWPORT.id,
+        headerDisplay: observation.display,
+        headerHeightPx: observation.heightPx,
+        headerContentWidthPx: observation.contentWidthPx,
+        headerLeafTexts: observation.leafTexts,
+        lockupsDiscovered: observation.lockups.length,
+        lockupText: lockup?.text ?? null,
+        lockupRole: lockup?.tekturRole ?? null,
+        lockupFamilyHead: lockup?.fontFamilyHead ?? null,
+        lockupFontSizePx: lockup?.fontSizePx ?? null,
+        lockupLineBoxes: lockup?.lineBoxes ?? null,
+        lockupWidthPx: lockup?.widthPx ?? null,
+        descriptorMatches: observation.descriptorMatches,
+        triggerAccessibleName: observation.trigger?.accessibleName ?? null,
+        triggerAriaControls: observation.trigger?.ariaControls ?? null,
+        evidence: [MOBILE_SHELL_EVIDENCE_PATH],
+      },
+    };
+  }
+  if (assertionId === 'VAL-B2-SHELL-004') {
+    const verdict = MOBILE_DRAWER_VERDICTS.get(route);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not visit ${route}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    const { focus, inert, dismissals, separation } = verdict.observation;
+    return {
+      actual: `the drawer on ${route} opened onto ${focus.focusOnOpen?.label} with ${focus.tabStopCount} tab stops, sent a Tab off its last stop (${focus.last?.label}) to its first (${focus.forwardWrap.focused?.label}) and a Shift+Tab off its first to its last (${focus.backwardWrap.focused?.label}), both inside the dialog, made all ${inert.regions.filter(({ present }) => present).length} background regions inert with no tab stop reachable behind it, and returned focus to its trigger from all three of ${dismissals.map(({ via }) => via).join(', ')}`,
+      computed: {
+        route,
+        viewport: MOBILE_VIEWPORT.id,
+        closedDrawerTabStops: verdict.observation.closedDrawerTabStops,
+        tabStopCount: focus.tabStopCount,
+        firstTabStop: focus.first,
+        lastTabStop: focus.last,
+        focusOnOpen: focus.focusOnOpen,
+        forwardWrap: focus.forwardWrap,
+        backwardWrap: focus.backwardWrap,
+        inertRegions: inert.regions,
+        reachableOutsideDrawer: inert.reachableOutsideDrawer,
+        dismissals,
+        scrimCompositedRgb: separation.scrimCompositedRgb,
+        panelRgb: separation.panelRgb,
+        scrimSeparationRatio: separation.contrastRatio,
+        scrimSeparationFloor: SCRIM_SEPARATION_FLOOR,
+        panelBorderLeftPx: separation.panelBorderLeftPx,
+        panelBorderRightPx: separation.panelBorderRightPx,
+        evidence: [MOBILE_SHELL_EVIDENCE_PATH],
+      },
+    };
+  }
+  throw new Error(`${assertionId} has no mobile shell evidence branch`);
+}
+
 function resultFor(
   assertionId: string,
   populationMemberIds: string[],
@@ -1746,6 +1883,19 @@ function resultFor(
       );
     }
     const evidence = shellAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (MOBILE_SHELL_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = mobileShellAssertionEvidence(assertionId, member);
     return {
       ...common,
       actual: evidence.actual,
@@ -1896,6 +2046,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
               : SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
+              : MOBILE_SHELL_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

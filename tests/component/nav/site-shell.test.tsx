@@ -21,6 +21,24 @@ function renderShell() {
   );
 }
 
+/** The same tab stops the drawer's trap cycles through. */
+const DRAWER_TAB_STOPS =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function drawerTabStops(dialog: HTMLElement): HTMLElement[] {
+  const panel = dialog.querySelector<HTMLElement>(
+    ':scope > div:not([aria-hidden])',
+  );
+  return [...(panel?.querySelectorAll<HTMLElement>(DRAWER_TAB_STOPS) ?? [])];
+}
+
+async function openDrawer(user: ReturnType<typeof userEvent.setup>) {
+  await user.click(
+    screen.getByRole('button', { name: 'Open navigation menu' }),
+  );
+  return screen.getByRole('dialog', { name: 'Site navigation' });
+}
+
 describe('SiteShell', () => {
   beforeEach(() => {
     mockPathname = '/';
@@ -109,6 +127,90 @@ describe('SiteShell', () => {
       screen.getByRole('button', { name: 'Open navigation menu' }),
     );
     expect(screen.getByRole('main')).toHaveAttribute('inert');
+  });
+
+  it('wraps Tab off the last drawer stop back to the first', async () => {
+    const user = userEvent.setup();
+    renderShell();
+    const dialog = await openDrawer(user);
+    const stops = drawerTabStops(dialog);
+    expect(stops.length).toBeGreaterThan(3);
+    stops[stops.length - 1].focus();
+    await user.tab();
+    expect(stops[0]).toHaveFocus();
+  });
+
+  it('wraps Shift+Tab off the first drawer stop back to the last', async () => {
+    const user = userEvent.setup();
+    renderShell();
+    const dialog = await openDrawer(user);
+    const stops = drawerTabStops(dialog);
+    expect(stops.length).toBeGreaterThan(3);
+    stops[0].focus();
+    await user.tab({ shift: true });
+    expect(stops[stops.length - 1]).toHaveFocus();
+  });
+
+  it('pulls a Tab back into the drawer when focus has left it', async () => {
+    const user = userEvent.setup();
+    const { container } = renderShell();
+    const dialog = await openDrawer(user);
+    const stops = drawerTabStops(dialog);
+    container.querySelector<HTMLElement>('a[href="#main-content"]')?.focus();
+    await user.tab();
+    expect(stops[0]).toHaveFocus();
+  });
+
+  it('takes the skip link out of the tab order only while the drawer is open', async () => {
+    const user = userEvent.setup();
+    const { container } = renderShell();
+    const skip = screen.getByRole('link', { name: 'Skip to content' });
+    // The skip link stays the shell's first element, so it is still the
+    // first thing a Tab reaches whenever the drawer is closed.
+    expect(container.firstElementChild).toBe(skip);
+    expect(skip).not.toHaveAttribute('inert');
+    await openDrawer(user);
+    expect(skip).toHaveAttribute('inert');
+    await user.keyboard('{Escape}');
+    expect(skip).not.toHaveAttribute('inert');
+  });
+
+  it('makes every region outside the drawer inert, including the skip link', async () => {
+    const user = userEvent.setup();
+    const { container } = renderShell();
+    await openDrawer(user);
+    for (const selector of [
+      'a[href="#main-content"]',
+      'header',
+      'aside#sidebar-rail',
+      'main#main-content',
+      'footer',
+    ]) {
+      const region = container.querySelector(selector);
+      expect(region, selector).not.toBeNull();
+      expect(region, selector).toHaveAttribute('inert');
+    }
+  });
+
+  it('marks the drawer lockup as the current route on home', async () => {
+    const user = userEvent.setup();
+    renderShell();
+    const dialog = await openDrawer(user);
+    const lockup = within(dialog).getByRole('link', { name: PUBLIC_IDENTITY });
+    expect(lockup).toHaveAttribute('aria-current', 'page');
+    expect(
+      lockup.querySelector('[data-brand-device-id="device:active-interval-rail"]'),
+    ).not.toBeNull();
+  });
+
+  it('leaves the drawer lockup unmarked off home', async () => {
+    mockPathname = '/market-map/';
+    const user = userEvent.setup();
+    renderShell();
+    const dialog = await openDrawer(user);
+    const lockup = within(dialog).getByRole('link', { name: PUBLIC_IDENTITY });
+    expect(lockup).not.toHaveAttribute('aria-current');
+    expect(lockup.querySelector('[data-brand-device-id]')).toBeNull();
   });
 
   it('closes the drawer when a navigation link inside it is followed', async () => {

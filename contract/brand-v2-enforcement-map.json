@@ -7057,20 +7057,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ID-008",
-          "mechanism": "VAL-B2-ID-008 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/a-z/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/adjacent/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/adjacent/space/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/control/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/perception/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/credits/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/glossary/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/market-map/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/playground/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/search/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ID-008:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-ID-008 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-mobile-shell.spec.ts",
+          "title": "brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions",
+          "mechanism": "Sweeps every registry-derived public route at the mobile-header viewport, discovers the compact lockup structurally by the whole `robot wiki` spelling family before reading any annotation, reads the header leaf text rather than its source, then opens the drawer three times per route: once to press a real Tab off its last stop and a real Shift+Tab off its first and read where focus landed, once to dismiss it with the close control, and once to dismiss it with the scrim, recording which regions the browser made inert and what the scrim composites to against the panel."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-mobile-shell-evidence.test.ts",
+          "title": "mobile shell evidence > refuses stale, incomplete, and unmeasured mobile shell evidence",
+          "mechanism": "Proves the reader that gates both mobile rows throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a header the sweep never found, a drawer with no tab stops, a keyboard trace with no destination and a missing dismissal path, and proves the verdicts fail a one-way trap, an escaped skip link, a descriptor in the header and a scrim that composites to the panel colour."
         }
       ],
       "enforcementMode": "browser-state",
@@ -7087,7 +7387,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ID-008"
+          "result:VAL-B2-ID-008:route:/",
+          "result:VAL-B2-ID-008:route:/a-z/",
+          "result:VAL-B2-ID-008:route:/adjacent/",
+          "result:VAL-B2-ID-008:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-ID-008:route:/adjacent/drones/",
+          "result:VAL-B2-ID-008:route:/adjacent/space/",
+          "result:VAL-B2-ID-008:route:/adjacent/surgical/",
+          "result:VAL-B2-ID-008:route:/classical/",
+          "result:VAL-B2-ID-008:route:/classical/control/",
+          "result:VAL-B2-ID-008:route:/classical/grasp-planning/",
+          "result:VAL-B2-ID-008:route:/classical/kinematics/",
+          "result:VAL-B2-ID-008:route:/classical/motion-planning/",
+          "result:VAL-B2-ID-008:route:/classical/perception/",
+          "result:VAL-B2-ID-008:route:/classical/scene-representation/",
+          "result:VAL-B2-ID-008:route:/classical/state-estimation/",
+          "result:VAL-B2-ID-008:route:/credits/",
+          "result:VAL-B2-ID-008:route:/data-hardware/",
+          "result:VAL-B2-ID-008:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-ID-008:route:/data-hardware/datasets/",
+          "result:VAL-B2-ID-008:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-ID-008:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-ID-008:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-ID-008:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-ID-008:route:/frontier/",
+          "result:VAL-B2-ID-008:route:/frontier/bear-case/",
+          "result:VAL-B2-ID-008:route:/frontier/competing-theses/",
+          "result:VAL-B2-ID-008:route:/frontier/dexterity/",
+          "result:VAL-B2-ID-008:route:/frontier/generalization/",
+          "result:VAL-B2-ID-008:route:/frontier/reliability-gap/",
+          "result:VAL-B2-ID-008:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-ID-008:route:/glossary/",
+          "result:VAL-B2-ID-008:route:/manipulation/",
+          "result:VAL-B2-ID-008:route:/manipulation/action-chunking/",
+          "result:VAL-B2-ID-008:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-ID-008:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-ID-008:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-ID-008:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-ID-008:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-ID-008:route:/manipulation/hierarchical/",
+          "result:VAL-B2-ID-008:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-ID-008:route:/manipulation/pi-line/",
+          "result:VAL-B2-ID-008:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-ID-008:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-ID-008:route:/manipulation/vla-models/",
+          "result:VAL-B2-ID-008:route:/market-map/",
+          "result:VAL-B2-ID-008:route:/playground/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-ID-008:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-ID-008:route:/search/",
+          "result:VAL-B2-ID-008:route:/world-models/",
+          "result:VAL-B2-ID-008:route:/world-models/generative-sim/",
+          "result:VAL-B2-ID-008:route:/world-models/generative-video/",
+          "result:VAL-B2-ID-008:route:/world-models/jepa/",
+          "result:VAL-B2-ID-008:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-ID-008:route:/world-models/taxonomy/"
         ]
       }
     },
@@ -10277,20 +10637,320 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-SHELL-004",
-          "mechanism": "VAL-B2-SHELL-004 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/a-z/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/adjacent/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/adjacent/space/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/control/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/perception/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/credits/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/glossary/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/market-map/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/playground/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/search/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-SHELL-004:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-SHELL-004 per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over contract/brand-v2-registries.json#routes.public"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-mobile-shell.spec.ts",
+          "title": "brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions",
+          "mechanism": "Sweeps every registry-derived public route at the mobile-header viewport, discovers the compact lockup structurally by the whole `robot wiki` spelling family before reading any annotation, reads the header leaf text rather than its source, then opens the drawer three times per route: once to press a real Tab off its last stop and a real Shift+Tab off its first and read where focus landed, once to dismiss it with the close control, and once to dismiss it with the scrim, recording which regions the browser made inert and what the scrim composites to against the panel."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-mobile-shell-evidence.test.ts",
+          "title": "mobile shell evidence > refuses stale, incomplete, and unmeasured mobile shell evidence",
+          "mechanism": "Proves the reader that gates both mobile rows throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a header the sweep never found, a drawer with no tab stops, a keyboard trace with no destination and a missing dismissal path, and proves the verdicts fail a one-way trap, an escaped skip link, a descriptor in the header and a scrim that composites to the panel colour."
         }
       ],
       "enforcementMode": "browser-state",
@@ -10307,7 +10967,67 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-SHELL-004"
+          "result:VAL-B2-SHELL-004:route:/",
+          "result:VAL-B2-SHELL-004:route:/a-z/",
+          "result:VAL-B2-SHELL-004:route:/adjacent/",
+          "result:VAL-B2-SHELL-004:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-SHELL-004:route:/adjacent/drones/",
+          "result:VAL-B2-SHELL-004:route:/adjacent/space/",
+          "result:VAL-B2-SHELL-004:route:/adjacent/surgical/",
+          "result:VAL-B2-SHELL-004:route:/classical/",
+          "result:VAL-B2-SHELL-004:route:/classical/control/",
+          "result:VAL-B2-SHELL-004:route:/classical/grasp-planning/",
+          "result:VAL-B2-SHELL-004:route:/classical/kinematics/",
+          "result:VAL-B2-SHELL-004:route:/classical/motion-planning/",
+          "result:VAL-B2-SHELL-004:route:/classical/perception/",
+          "result:VAL-B2-SHELL-004:route:/classical/scene-representation/",
+          "result:VAL-B2-SHELL-004:route:/classical/state-estimation/",
+          "result:VAL-B2-SHELL-004:route:/credits/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/datasets/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-SHELL-004:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-SHELL-004:route:/frontier/",
+          "result:VAL-B2-SHELL-004:route:/frontier/bear-case/",
+          "result:VAL-B2-SHELL-004:route:/frontier/competing-theses/",
+          "result:VAL-B2-SHELL-004:route:/frontier/dexterity/",
+          "result:VAL-B2-SHELL-004:route:/frontier/generalization/",
+          "result:VAL-B2-SHELL-004:route:/frontier/reliability-gap/",
+          "result:VAL-B2-SHELL-004:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-SHELL-004:route:/glossary/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/action-chunking/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/hierarchical/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/pi-line/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-SHELL-004:route:/manipulation/vla-models/",
+          "result:VAL-B2-SHELL-004:route:/market-map/",
+          "result:VAL-B2-SHELL-004:route:/playground/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-SHELL-004:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-SHELL-004:route:/search/",
+          "result:VAL-B2-SHELL-004:route:/world-models/",
+          "result:VAL-B2-SHELL-004:route:/world-models/generative-sim/",
+          "result:VAL-B2-SHELL-004:route:/world-models/generative-video/",
+          "result:VAL-B2-SHELL-004:route:/world-models/jepa/",
+          "result:VAL-B2-SHELL-004:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-SHELL-004:route:/world-models/taxonomy/"
         ]
       }
     },

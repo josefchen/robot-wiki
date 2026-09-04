@@ -316,36 +316,51 @@ test.describe('design chrome discipline', () => {
       const pcs = getComputedStyle(panel);
       const scs = getComputedStyle(scrim);
       const sr = scrim.getBoundingClientRect();
-      // The scrim's separation is its background alpha, which must parse
-      // to exactly 0.8 (80%). Tailwind 4 compiles bg-bg/80 to
-      // color-mix(in oklab, ... 80%), and the computed value resolves
-      // through several notations (rgba, color(srgb r g b / a),
-      // color-mix with a resolved ratio), so every channel is captured
-      // and the alpha is extracted from whichever notation appears.
-      const bg = scs.backgroundColor;
-      let scrimAlpha = 1;
-      const rgba = bg.match(/rgba?\(([^)]+)\)/);
-      if (rgba) {
-        const parts = rgba[1].split(',').map((s) => parseFloat(s));
-        if (parts.length === 4) scrimAlpha = parts[3];
-      } else {
-        const fnAlpha = bg.match(/\/\s*([\d.]+)%?\s*\)/);
-        if (fnAlpha) {
-          scrimAlpha = parseFloat(fnAlpha[1]);
-          if (bg.match(/\/\s*[\d.]+%\s*\)/)) scrimAlpha /= 100;
-        } else {
-          const mix = bg.match(/color-mix\([^)]*?\s([\d.]+)%\s*\)/);
-          if (mix) scrimAlpha = parseFloat(mix[1]) / 100;
+      // What separates the panel is the colour the scrim actually paints
+      // over the page, so it is composited by the browser's own colour
+      // engine rather than parsed out of the notation. Reading the alpha
+      // instead would have called the previous paper-on-paper scrim an 80%
+      // separation when it composited to the panel's own colour and
+      // separated nothing.
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      const ctx = canvas.getContext('2d');
+      const pixel = (fills: string[]): [number, number, number] => {
+        if (!ctx) return [-1, -1, -1];
+        ctx.clearRect(0, 0, 1, 1);
+        for (const fill of fills) {
+          ctx.fillStyle = fill;
+          ctx.fillRect(0, 0, 1, 1);
         }
-      }
+        const data = ctx.getImageData(0, 0, 1, 1).data;
+        return [data[0], data[1], data[2]];
+      };
+      const luminance = (rgb: [number, number, number]) => {
+        const [r, g, b] = rgb.map((channel) => {
+          const value = channel / 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      const pageBg = getComputedStyle(document.body).backgroundColor;
+      const composited = pixel([pageBg, scs.backgroundColor]);
+      const panelRgb = pixel([pcs.backgroundColor]);
+      const light = Math.max(luminance(composited), luminance(panelRgb));
+      const dark = Math.min(luminance(composited), luminance(panelRgb));
       return {
         left: pcs.borderLeftWidth,
         right: pcs.borderRightWidth,
         boxShadow: pcs.boxShadow,
         bg: pcs.backgroundColor,
-        scrimBg: bg,
-        scrimAlpha,
+        scrimBg: scs.backgroundColor,
         scrimOpacity: parseFloat(scs.opacity),
+        canvasRoundTrip: pixel(['rgb(1, 2, 3)']),
+        composited,
+        panelRgb,
+        separation: (light + 0.05) / (dark + 0.05),
         coverage: (sr.width * sr.height) / (innerWidth * innerHeight),
       };
     });
@@ -353,10 +368,15 @@ test.describe('design chrome discipline', () => {
     expect(metrics!.left).toBe('0px');
     expect(metrics!.right).toBe('0px');
     expect(metrics!.boxShadow).toBe('none');
-    // Exact 80% scrim background alpha (VAL-DSSURFACE-020): the parsed
-    // rgba alpha is 0.8, not merely positive, and not the opacity
-    // property (which stays 1; the alpha lives in the colour).
-    expect(metrics!.scrimAlpha).toBeCloseTo(0.8, 3);
+    // A parse failure would composite to the page ground and read as no
+    // separation at all, so the canvas is proved to work first.
+    expect(metrics!.canvasRoundTrip).toEqual([1, 2, 3]);
+    // The scrim carries the boundary on its own, because the panel has no
+    // border and no shadow. WCAG 1.4.11 puts a visible boundary between two
+    // adjacent areas at 3:1, so anything below that is not separating them.
+    expect(metrics!.separation).toBeGreaterThanOrEqual(3);
+    // The alpha lives in the colour, not in the opacity property, so the
+    // panel above it stays fully opaque.
     expect(metrics!.scrimOpacity).toBeCloseTo(1, 3);
     expect(metrics!.coverage).toBeGreaterThanOrEqual(0.9);
     // Opaque panel background keeps the edge legible against the scrim.

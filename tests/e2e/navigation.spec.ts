@@ -133,6 +133,82 @@ test.describe('navigation shell', () => {
     await expect(dialog).not.toBeVisible();
   });
 
+  test('the whole mobile drawer cycle runs on the keyboard alone', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/manipulation/action-chunking/');
+    // VAL-A11Y-020: the skip link is still the first thing a Tab reaches at
+    // mobile width, before the drawer trigger.
+    await page.keyboard.press('Tab');
+    await expect(
+      page.getByRole('link', { name: 'Skip to content' }),
+    ).toBeFocused();
+    await page.keyboard.press('Tab');
+    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    await expect(trigger).toBeFocused();
+    // VAL-A11Y-005: opened, cycled and dismissed without a pointer.
+    await page.keyboard.press('Enter');
+    const dialog = page.getByRole('dialog', { name: 'Site navigation' });
+    await expect(dialog).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: 'Close navigation menu' }),
+    ).toBeFocused();
+
+    // The trap wraps both ways, so a keyboard user cannot fall out of the
+    // drawer into a page they can no longer see.
+    const stops = dialog.locator(
+      'a[href], button:not([disabled]), input:not([disabled])',
+    );
+    const count = await stops.count();
+    expect(count).toBeGreaterThan(3);
+    await stops.nth(count - 1).focus();
+    await page.keyboard.press('Tab');
+    await expect(stops.nth(0)).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(stops.nth(count - 1)).toBeFocused();
+
+    await page.keyboard.press('Escape');
+    await expect(dialog).not.toBeVisible();
+    await expect(trigger).toBeFocused();
+  });
+
+  test('drawer state is exposed to assistive technology and nothing behind it is', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const trigger = page.getByRole('button', { name: 'Open navigation menu' });
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await expect(trigger).toHaveAttribute(
+      'aria-controls',
+      'mobile-nav-drawer',
+    );
+    // VAL-NAV-016: closed means gone, not hidden. A drawer that only moved
+    // off-screen would still be in the tab order and the a11y tree.
+    await expect(page.locator('#mobile-nav-drawer')).toHaveCount(0);
+
+    await trigger.click();
+    const dialog = page.getByRole('dialog', { name: 'Site navigation' });
+    await expect(dialog).toHaveAttribute('aria-modal', 'true');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    const inert = await page.evaluate(() =>
+      [
+        'a[href="#main-content"]',
+        'header',
+        'aside#sidebar-rail',
+        'main#main-content',
+        'footer',
+      ].filter(
+        (selector) =>
+          document.querySelector(selector)?.hasAttribute('inert') !== true,
+      ),
+    );
+    expect(inert, 'regions the open drawer left outside its inert set').toEqual(
+      [],
+    );
+  });
+
   test('featured interactive on home is operable', async ({ page }) => {
     await page.goto('/');
     const readout = page.getByTestId('episode-success-readout');

@@ -445,7 +445,7 @@
       "routeId": "route:/",
       "owner": "route:/",
       "ownerPath": "app/layout.tsx",
-      "ownerSourceFingerprint": "38d94a3b3a6ed002707eeab1588bbb9aa6ad4fe02efa48024bc0184ed34b76ed",
+      "ownerSourceFingerprint": "582f2d0ee3b66b91ca011e9078179f17e30d7e54d22655a5ff77815867aa9d3b",
       "canonical": "https://robot-wiki.com/",
       "title": "Robot Wiki",
       "description": "Citation-first encyclopedia of modern robot learning.",
@@ -465,7 +465,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "03e7b3667ea098879e181e5771085b9971fe83bbaadeeb472c914daf63c57028"
+      "fingerprint": "747b327d4284f5261eb10712fe192dab1308e142e9c893f4507c0d6d7a41f2b7"
     },
     {
       "id": "metadata:/a-z/",
@@ -11838,5 +11838,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "5b079ca6749a1127e1a343d4571466e49e21b1d43d05b6e60e41652a4f9b2405"
+  "rootFingerprint": "c195da1ebcab7a585932348db2c03cf3025ed91412429e9e16ac2ac07af7903e"
 }
