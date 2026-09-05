@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "44b95ad06d83cf9bb5ae6975e9054cb86632bc769ffded191a365b6826eeaa3d",
+  "fingerprint": "c2b9a76c50bad68f43927f9d43b31db987b4eb49850949d387f6e9b2b4f93358",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -2513,7 +2513,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 21506,
+      "visibleTextLength": 21293,
       "header": {
         "present": true,
         "display": "flex",
@@ -5284,7 +5284,7 @@
     },
     {
       "route": "/manipulation/action-chunking/",
-      "visibleTextLength": 12340,
+      "visibleTextLength": 12359,
       "header": {
         "present": true,
         "display": "flex",
@@ -5447,7 +5447,7 @@
     },
     {
       "route": "/manipulation/bc-foundations/",
-      "visibleTextLength": 11823,
+      "visibleTextLength": 11842,
       "header": {
         "present": true,
         "display": "flex",

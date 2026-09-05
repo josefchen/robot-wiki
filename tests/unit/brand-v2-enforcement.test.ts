@@ -119,8 +119,38 @@ function identityPopulations(registry: {
   };
 }
 
+import {
+  FIGURE_RUNTIME_EVIDENCE_PATH,
+  figureEvidenceFingerprint,
+  figureOccurrenceMembers,
+  readFigureRuntimeEvidence,
+  schematicOccurrenceMembers,
+} from '@/lib/brand-v2-figure-evidence';
+import {
+  editorialAssetMembers,
+  firstPartySvgMembers,
+  type AssetRow,
+} from '@/lib/brand-v2-image-record';
+import {
+  EDITORIAL_IMAGE_POPULATION_SOURCE,
+  FIGURE_OCCURRENCE_POPULATION_SOURCE,
+  FIRST_PARTY_SVG_POPULATION_SOURCE,
+  MATERIAL_POPULATION_SOURCE,
+  SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
+} from '@/lib/figure-populations';
+
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
+
+function figureEvidence() {
+  return readFigureRuntimeEvidence({
+    artifact: JSON.parse(
+      readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),
+    ),
+    fingerprint: figureEvidenceFingerprint({ root: ROOT }),
+    root: ROOT,
+  });
+}
 const FIXTURE_TEST_TITLE =
   'brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map';
 
@@ -404,6 +434,21 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
                 fingerprint: articleEvidenceFingerprint({ root: ROOT }),
               }),
             ),
+            // The figure lane's five rendered members and five record
+            // members, merged the way the generator merges them.
+            [FIGURE_OCCURRENCE_POPULATION_SOURCE]:
+              figureOccurrenceMembers(figureEvidence()),
+            [SCHEMATIC_OCCURRENCE_POPULATION_SOURCE]:
+              schematicOccurrenceMembers(figureEvidence()),
+            [EDITORIAL_IMAGE_POPULATION_SOURCE]: editorialAssetMembers(
+              registry.assets as AssetRow[],
+            ),
+            [FIRST_PARTY_SVG_POPULATION_SOURCE]: firstPartySvgMembers(
+              registry.assets as AssetRow[],
+            ),
+            [MATERIAL_POPULATION_SOURCE]: (
+              registry.materials as Array<{ id: string }>
+            ).map(({ id }) => id),
           },
         }),
         map,

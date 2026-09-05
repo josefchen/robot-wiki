@@ -34,13 +34,15 @@
       "manifest": "assets-svg",
       "memberId": "registered-image:covariate-shift",
       "oldHash": "d9477b6b2816906b99c326775d2ce6abab6924e71a6b2b9ba709fb7469ad2c06",
-      "newHash": "a226587582a28bb9a290e1a56ee53f55c3c878ea0eef8f684c1db6662caa2bb9",
-      "reason": "The registered credit line for this original diagram reads Robot Wiki (original diagram) instead of the v1 lowercase name; licence, licence URL, retrieval date, dimensions, and the SVG bytes are untouched.",
-      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
-      "responsibleMilestone": "brand-v2-shell-home",
+      "newHash": "94c9545b91eea390660bbb6e1b04370b2477e4da6fd5408ff247456a2dbc0f23",
+      "reason": "Supersedes the brand-v2-shell-home credit-line delta for this member, which is folded in here because a member carries one delta: the registered credit for the covariate-shift diagram still reads Robot Wiki (original diagram) rather than the v1 lowercase name. On top of that, the registry record now carries figureKind original-schematic, the legal basis owned, its derived attribution sentence, and the preservation policy first-party-restyled-semantics-preserved, and the shipped SVG bytes were repainted from the v1 amber-on-slate palette to the brand-v2 ink, graphite, concrete, and lime foundation. Only fill, stroke, stroke-width, and opacity values changed: the normalized semantic hash under the VAL-B2-VIZ-014 allowlist is byte-identical before and after, so every path, coordinate, dash pattern, font-family, font-size, label string, and the role/aria-label textual alternative are the same drawing.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-ID-001",
-        "VAL-B2-ID-006"
+        "VAL-B2-ID-006",
+        "VAL-B2-IMG-002",
+        "VAL-B2-VIZ-014"
       ],
       "disposition": "permanent"
     },
@@ -49,13 +51,15 @@
       "manifest": "assets-svg",
       "memberId": "registered-image:temporal-ensembling",
       "oldHash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b",
-      "newHash": "16255b25318de56638998b5303ea9d79228fd15984d4df273563af56c6d5f3a7",
-      "reason": "The registered credit line for this original diagram reads Robot Wiki (original diagram) instead of the v1 lowercase name; licence, licence URL, retrieval date, dimensions, and the SVG bytes are untouched.",
-      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki` and the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`",
-      "responsibleMilestone": "brand-v2-shell-home",
+      "newHash": "782ba1e09b3e3f808dd5bc61115c719747ef0b98154ec1faf92dd4f3a063117d",
+      "reason": "Supersedes the brand-v2-shell-home credit-line delta for this member, which is folded in here because a member carries one delta: the registered credit for the temporal-ensembling diagram still reads Robot Wiki (original diagram) rather than the v1 lowercase name. On top of that, the registry record now carries figureKind original-schematic, the legal basis owned, its derived attribution sentence, and the preservation policy first-party-restyled-semantics-preserved, and the shipped SVG bytes were repainted from the v1 amber-on-slate palette to the brand-v2 ink, graphite, concrete, and lime foundation. Only fill, stroke, stroke-width, and opacity values changed: the normalized semantic hash under the VAL-B2-VIZ-014 allowlist is byte-identical before and after, so every path, coordinate, dash pattern, font-family, font-size, label string, and the role/aria-label textual alternative are the same drawing.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-ID-001",
-        "VAL-B2-ID-006"
+        "VAL-B2-ID-006",
+        "VAL-B2-IMG-002",
+        "VAL-B2-VIZ-014"
       ],
       "disposition": "permanent"
     },
@@ -142,6 +146,81 @@
       "responsibleMilestone": "brand-v2-shell-home",
       "affectedAssertions": [
         "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-provenance-anymal-anybotics-2022",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:anymal-anybotics-2022",
+      "oldHash": "cf34f07eb37564df4a5ae84c5edc1d8058c5bc823eee93be52638896ba5e52a5",
+      "newHash": "5eca65ed55e262cc2d3d150060bb656641653917cdeb88796bf38260c2029b06",
+      "reason": "The registry record for the ANYmal C photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-provenance-atlas-darpa-frontview-2013",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:atlas-darpa-frontview-2013",
+      "oldHash": "ae819fbc7f4f852a0dbd7af34c86e0216951b346cc75a8e81da9d3e74ec4f7fa",
+      "newHash": "f2e576dd6b6dec88408ba8bd9209e1043a517cb8a555127acb4c30b23d42afca",
+      "reason": "The registry record for the 2013 Atlas photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-provenance-franka-emika-panda-cebit-2017",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:franka-emika-panda-cebit-2017",
+      "oldHash": "c3a8fc1ed7fb36545ca8b74bee329ede0340ceb6b85ece0f9006a29dda8894ae",
+      "newHash": "58afc08ce70d049581e1b0448536807d5ab8d83cb35b62034b2c676e931f502d",
+      "reason": "The registry record for the Panda at CeBIT photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-provenance-puma-560-nasa-ames",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:puma-560-nasa-ames",
+      "oldHash": "8b04a521e3c49dc4d14b7c0eb9921444ce16c70e4b19b968f1b202877bb822d1",
+      "newHash": "b657d164d01ce2bd6304947ec6fcae5f86298d79c0d20735df80111ad700b93c",
+      "reason": "The registry record for the PUMA 560 photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-provenance-spot-raf-agile-liberty-2021",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:spot-raf-agile-liberty-2021",
+      "oldHash": "757149d9ab2f923e184527ba1699a6e94ed58f9472ac5d613390a07cec68e423",
+      "newHash": "f1c63995d8ca06f8bc1a584b3852531fe72f79aabd04baca9672a66b54e3b761",
+      "reason": "The registry record for the Spot at Agile Liberty photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-IMG-002",
+        "VAL-B2-IMG-008"
       ],
       "disposition": "permanent"
     }

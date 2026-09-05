@@ -43,7 +43,7 @@ const EVIDENCE_CLOSURE_ROOTS = [
  * Modules outside those roots that the closure walk has to be able to see.
  *
  * The MDX registry is a route entry. The rest are the measurement side: the
- * six sweeps that write into `evidence/brand-v2/`, and the fixture and
+ * seven sweeps that write into `evidence/brand-v2/`, and the fixture and
  * probe modules they share. A sweep's own bytes decide what it recorded, so
  * an artifact whose writer changed is exactly as stale as one whose subject
  * changed, and leaving the spec out of its own fingerprint let a rewritten
@@ -56,6 +56,7 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/rendered-text-probe.ts',
   'tests/e2e/brand-v2-article.spec.ts',
   'tests/e2e/brand-v2-article-apparatus.spec.ts',
+  'tests/e2e/brand-v2-figures.spec.ts',
   'tests/e2e/brand-v2-home.spec.ts',
   'tests/e2e/brand-v2-home-tools.spec.ts',
   'tests/e2e/brand-v2-identity.spec.ts',

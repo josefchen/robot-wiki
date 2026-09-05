@@ -2265,9 +2265,9 @@
       "category": "editorial-image",
       "ownershipId": "image:covariate-shift",
       "sourceRegistryId": "covariate-shift",
-      "byteHash": "18adc440eb043fd47c42f8851d73d7253d4a2826d9dadd5d600ec75b989590da",
+      "byteHash": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
       "semanticHash": "c97c004f3f20f29875c097f231da27a87219129e7dd5477c0dcd657f659321ef",
-      "fingerprint": "fa0b3c3375c90f75991c3a3e14b4edd096ef60c6bf3bb2203a892d733b54d9d0"
+      "fingerprint": "4710782ee74cff7b77828f81da16d54b8646f602792d4fde4511e5d32e4fed23"
     },
     {
       "id": "asset:images/franka-emika-panda-cebit-2017.jpg",
@@ -3415,9 +3415,9 @@
       "category": "editorial-image",
       "ownershipId": "image:temporal-ensembling",
       "sourceRegistryId": "temporal-ensembling",
-      "byteHash": "649b4cc247f3625f75222283d706d8468c98b49e2132492c4c3f3004aeee70d7",
+      "byteHash": "8f614edd4d3c99bc0a3e15c9b259b8b30a3d6475b87df8914693717e3bb55296",
       "semanticHash": "1e5c607dd67c845fb6322919ef079487d2af2b74bac1578f282acba7a7fb46d5",
-      "fingerprint": "cb3695bd0bb6e80723f139fa5257502b45c476a7b61340ccf7dc47f234c046dc"
+      "fingerprint": "eca83a77749c021e27281337b3ab7cdfb529ee8ba049bb615687f8a2d9f0053f"
     },
     {
       "id": "asset:models/so101/assets/base_motor_holder_so101_v1.glb",
@@ -11977,5 +11977,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "7782dddfc45688078d634c9aa8a6b00b846d70b67217af47bb6a523bfce6737d"
+  "rootFingerprint": "119a565661fce64f8fec43b9e2a561411a145aae3028afc74c349fd8150017d9"
 }

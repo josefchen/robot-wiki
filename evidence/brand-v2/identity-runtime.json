@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f6d7af4f7edc51da5eb237582c67382c893e75db2907981c4052f4cdcb7a6e87",
+  "fingerprint": "c7164d6532eac35bde3f72b1d817dc67a3f1a7a82430201e948fb50e4baafc93",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -2145,7 +2145,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21728,
+      "visibleTextLength": 21515,
       "route": "/credits/",
       "viewport": "1440x900"
     },
@@ -4304,7 +4304,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12860,
+      "visibleTextLength": 12879,
       "route": "/manipulation/action-chunking/",
       "viewport": "1440x900"
     },
@@ -4431,7 +4431,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12343,
+      "visibleTextLength": 12362,
       "route": "/manipulation/bc-foundations/",
       "viewport": "1440x900"
     },
@@ -9938,7 +9938,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21506,
+      "visibleTextLength": 21293,
       "route": "/credits/",
       "viewport": "375x812"
     },
@@ -12097,7 +12097,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 12340,
+      "visibleTextLength": 12359,
       "route": "/manipulation/action-chunking/",
       "viewport": "375x812"
     },
@@ -12224,7 +12224,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 11823,
+      "visibleTextLength": 11842,
       "route": "/manipulation/bc-foundations/",
       "viewport": "375x812"
     },

@@ -17,8 +17,8 @@
     },
     {
       "path": "images/covariate-shift.svg",
-      "sha256": "18adc440eb043fd47c42f8851d73d7253d4a2826d9dadd5d600ec75b989590da",
-      "byteCount": 2257,
+      "sha256": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
+      "byteCount": 2589,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of covariate shift between demonstration corridor and policy rollout, drawn for the behaviour-cloning articles."
     },
@@ -45,8 +45,8 @@
     },
     {
       "path": "images/temporal-ensembling.svg",
-      "sha256": "649b4cc247f3625f75222283d706d8468c98b49e2132492c4c3f3004aeee70d7",
-      "byteCount": 3284,
+      "sha256": "8f614edd4d3c99bc0a3e15c9b259b8b30a3d6475b87df8914693717e3bb55296",
+      "byteCount": 3875,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article."
     },

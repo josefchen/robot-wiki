@@ -1,5 +1,10 @@
 import { Figure } from '@/components/ui/figure';
-import { getImage, licenceLabel } from '@/data/images';
+import {
+  creditNoun,
+  figureKind,
+  getImage,
+  licenceLabel,
+} from '@/data/images';
 
 /**
  * Registry-backed image resolver. MDX authors write <Image id="..."/> (the
@@ -8,6 +13,11 @@ import { getImage, licenceLabel } from '@/data/images';
  * caption, intrinsic dimensions, and the visible credit (creator, source,
  * licence, links) that the image contract requires. The primitive itself
  * stays untouched.
+ *
+ * The figure's kind comes from the registry rather than from the file
+ * extension. Extension was a lie in both directions: it credited an `.svg`
+ * company mark on /credits as `Diagram: Fox Robotics` and a `.png` mark
+ * beside it as `Photo:`, and it could never have named a schematic as one.
  */
 export function ImageRef({ id }: { id: string }) {
   const image = getImage(id);
@@ -25,10 +35,12 @@ export function ImageRef({ id }: { id: string }) {
       src={image.file}
       alt={image.alt}
       caption={image.caption}
+      figureKind={figureKind(image)}
+      imageId={image.id}
       width={image.width}
       height={image.height}
       credit={{
-        kind: image.file.endsWith('.svg') ? 'Diagram' : 'Photo',
+        kind: creditNoun(image),
         creator: image.creator,
         sourceName: image.sourceName,
         sourceUrl: image.sourceUrl,

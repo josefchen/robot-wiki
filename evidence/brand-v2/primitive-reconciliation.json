@@ -1041,7 +1041,10 @@
         "components/ui/surface.tsx"
       ],
       "renderedOn": [
-        "/"
+        "/",
+        "/credits/",
+        "/manipulation/action-chunking/",
+        "/manipulation/bc-foundations/"
       ]
     },
     "surface:flat": {

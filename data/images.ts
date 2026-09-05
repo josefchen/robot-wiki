@@ -23,13 +23,28 @@
  * and Next.js alike.
  */
 import { LOGO_IMAGES } from './logo-images.ts';
-import type { SiteImage } from './schemas/image.ts';
+import {
+  CREDIT_NOUNS,
+  LEGAL_BASIS_BY_LICENCE,
+  LICENCE_LABELS,
+  attributionSentence,
+  isCompanyMarkFile,
+  type FigureKind,
+  type LegalBasis,
+  type PreservationPolicy,
+  type SiteImage,
+} from './schemas/image.ts';
 
 export type { SiteImage } from './schemas/image.ts';
 
 const ARTICLE_IMAGES: SiteImage[] = [
   {
     id: 'spot-raf-agile-liberty-2021',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
     file: '/images/spot-raf-agile-liberty-2021.jpg',
     alt: 'A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform.',
     caption:
@@ -51,6 +66,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'atlas-darpa-frontview-2013',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: DARPA / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
     file: '/images/atlas-darpa-frontview-2013.jpg',
     alt: 'The 2013 DARPA Atlas humanoid robot stands facing forward with its exposed metal frame, hydraulic lines, and stereo camera head visible.',
     caption:
@@ -72,6 +92,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'puma-560-nasa-ames',
+    figureKind: 'photograph',
+    legalBasis: 'public-domain',
+    attributionText:
+      'Photo: NASA / Dominic Hart / Wikimedia Commons. Licence: Public domain.',
+    preservationPolicy: 'external-bytes-preserved',
     file: '/images/puma-560-nasa-ames.jpg',
     alt: 'A stroboscopic NASA photograph shows a PUMA 560 robot arm in several successive positions as it moves small parts between fixtures on a table.',
     caption:
@@ -90,6 +115,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'anymal-anybotics-2022',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: ANYbotics / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
     file: '/images/anymal-anybotics-2022.jpg',
     alt: 'A red and grey ANYmal quadruped robot stands on a metal grate walkway inside an industrial facility, surrounded by pipes and machinery.',
     caption:
@@ -109,6 +139,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'franka-emika-panda-cebit-2017',
+    figureKind: 'photograph',
+    legalBasis: 'cc-by-sa',
+    attributionText:
+      'Photo: Ims / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    preservationPolicy: 'external-bytes-preserved',
     file: '/images/franka-emika-panda-cebit-2017.jpg',
     alt: 'A white seven-axis Franka Emika Panda robot arm mounted on a demonstration table at CeBIT 2017, guided by hand above trays of small parts.',
     caption:
@@ -128,6 +163,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'covariate-shift',
+    figureKind: 'original-schematic',
+    legalBasis: 'owned',
+    attributionText:
+      'Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.',
+    preservationPolicy: 'first-party-restyled-semantics-preserved',
     file: '/images/covariate-shift.svg',
     alt: 'Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.',
     caption:
@@ -147,6 +187,11 @@ const ARTICLE_IMAGES: SiteImage[] = [
   },
   {
     id: 'temporal-ensembling',
+    figureKind: 'original-schematic',
+    legalBasis: 'owned',
+    attributionText:
+      'Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.',
+    preservationPolicy: 'first-party-restyled-semantics-preserved',
     file: '/images/temporal-ensembling.svg',
     alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.',
     caption:
@@ -172,18 +217,49 @@ export function getImage(id: string): SiteImage | undefined {
   return byId.get(id);
 }
 
-const LICENCE_LABELS: Record<SiteImage['licence'], string> = {
-  cc0: 'CC0 1.0',
-  'cc-by-4.0': 'CC BY 4.0',
-  'cc-by-sa-4.0': 'CC BY-SA 4.0',
-  'public-domain': 'Public domain',
-  'press-kit': 'Press kit',
-  permission: 'Used with permission',
-  unlicensed: 'Unlicensed',
-  unknown: 'Unknown',
-};
-
 /** The display label a credit line and /credits show for a licence. */
 export function licenceLabel(image: SiteImage): string {
   return LICENCE_LABELS[image.licence];
+}
+
+/**
+ * What the entry is. Declared on every editorial image; derived for the
+ * market-map marks, whose hundred-odd rows are owned by `VAL-B2-MAP-010`
+ * and are all the same kind by construction (they live under
+ * `public/images/logos/` because they are company marks).
+ */
+export function figureKind(image: SiteImage): FigureKind {
+  if (image.figureKind) return image.figureKind;
+  if (isCompanyMarkFile(image.file)) return 'official-mark';
+  throw new Error(
+    `${image.id} declares no figureKind and is not a market-map mark`,
+  );
+}
+
+/** The §1.13 legal basis, declared or derived from the recorded licence. */
+export function legalBasis(image: SiteImage): LegalBasis {
+  return image.legalBasis ?? LEGAL_BASIS_BY_LICENCE[image.licence];
+}
+
+/**
+ * The byte/style preservation policy. A mark carries the same promise as an
+ * external photograph: the shipped bytes are the retrieved bytes, and only
+ * the contain-fit placement `VAL-B2-MAP-010` registers may differ.
+ */
+export function preservationPolicy(image: SiteImage): PreservationPolicy {
+  return image.preservationPolicy ?? 'external-bytes-preserved';
+}
+
+/** The noun the visible credit opens with, from what the figure is. */
+export function creditNoun(image: SiteImage): string {
+  return CREDIT_NOUNS[figureKind(image)];
+}
+
+/**
+ * The attribution sentence this entry requires, in the wording the credit
+ * renders. Editorial entries also record it verbatim; the schema refuses a
+ * record that disagrees with this derivation, so the two cannot drift.
+ */
+export function attributionText(image: SiteImage): string {
+  return image.attributionText ?? attributionSentence(image);
 }

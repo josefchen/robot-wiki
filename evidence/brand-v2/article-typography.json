@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "52577580017d9256a90bef4ad158f60526a43aa56a84a7ab09d31570165538eb",
+  "fingerprint": "a34e6f917ae2eef1726ca080b80e288c4f9e4f61bb45a1d958deb01460a86053",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5012,7 +5012,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -7705,7 +7705,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21506,
+      "visibleTextLength": 21293,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7842,6 +7842,18 @@
       "registrationLabels": [
         {
           "text": "Search",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
@@ -15561,7 +15573,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12340,
+      "visibleTextLength": 12359,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16056,7 +16068,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -16093,6 +16105,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -16168,7 +16186,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 11823,
+      "visibleTextLength": 11842,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16645,7 +16663,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -16682,6 +16700,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -24807,7 +24831,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -35999,7 +36023,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -38692,7 +38716,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21728,
+      "visibleTextLength": 21515,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38829,6 +38853,18 @@
       "registrationLabels": [
         {
           "text": "Search",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
           "familyHead": "ibm plex mono",
           "sizePx": 11,
           "trackingEm": 0.14
@@ -46548,7 +46584,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 12860,
+      "visibleTextLength": 12879,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47043,7 +47079,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -47080,6 +47116,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -47155,7 +47197,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 12343,
+      "visibleTextLength": 12362,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47632,7 +47674,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {
@@ -47669,6 +47711,12 @@
           "text": "Citations",
           "familyHead": "ibm plex mono",
           "sizePx": 10,
+          "trackingEm": 0.14
+        },
+        {
+          "text": "Original schematic",
+          "familyHead": "ibm plex mono",
+          "sizePx": 11,
           "trackingEm": 0.14
         }
       ],
@@ -55794,7 +55842,7 @@
           "decorationLine": "underline",
           "decorationStyle": "solid",
           "decorationColour": "color(srgb 0.141176 0.372549 1 / 0.45)",
-          "familyHead": "ibm plex sans",
+          "familyHead": "ibm plex mono",
           "shape": "inline border:0px/solid radius:0px"
         },
         {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a939b82c7630dff90e23b449c5f99fa073685919913ad02fd4ef802122efeeb5",
+  "fingerprint": "5f7e82429a17aeecf172f20424d9ac81efd5c38d5bd0c9de63807cd7da7ee0ab",
   "viewports": [
     "375x812",
     "1440x900"
@@ -17469,7 +17469,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 12340,
+      "visibleTextLength": 12359,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -17915,7 +17915,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 11823,
+      "visibleTextLength": 11842,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -49098,7 +49098,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 12860,
+      "visibleTextLength": 12879,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -49544,7 +49544,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 12343,
+      "visibleTextLength": 12362,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
