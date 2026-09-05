@@ -99,11 +99,24 @@ import {
   titleSheetVerdicts,
 } from '../lib/brand-v2-article-evidence.ts';
 import {
+  APPARATUS_ASSERTION_POPULATION_SOURCES,
   ARTICLE_ASSERTION_POPULATION_SOURCES,
   HOME_WORDMARK_ROLE_ID,
   HOME_WORDMARK_ROLE_POPULATION_SOURCE,
   SECTION_HEADING_POPULATION_SOURCE,
 } from '../lib/article-populations.ts';
+import {
+  APPARATUS_RUNTIME_EVIDENCE_PATH,
+  APPARATUS_VIEWPORTS,
+  apparatusEvidenceFingerprint,
+  breadcrumbTruthVerdicts,
+  citationChipVerdicts,
+  furnitureReachVerdicts,
+  readApparatusRuntimeEvidence,
+  referenceSheetVerdicts,
+  relationshipPreservationVerdicts,
+  termAffordanceVerdicts,
+} from '../lib/brand-v2-apparatus-evidence.ts';
 import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
@@ -227,9 +240,25 @@ function isMeasured(id: string): boolean {
     MOBILE_SHELL_ASSERTIONS.has(id) ||
     HOME_ASSERTIONS.has(id) ||
     HOME_TOOLS_ASSERTIONS.has(id) ||
-    ARTICLE_ASSERTIONS.has(id)
+    ARTICLE_ASSERTIONS.has(id) ||
+    APPARATUS_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The wiki-apparatus preservation assertion, routed to the two-width sweep
+ * of every published article's rendered furniture.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-apparatus.json` through a reader that throws on
+ * a stale fingerprint, the wrong viewports, a route set that disagrees with
+ * the derived relationship graph in either direction, a duplicate
+ * route/viewport pair, an empty page, an article with no breadcrumb trail or
+ * no bibliography, and any missing pair.
+ */
+const APPARATUS_ASSERTIONS = new Set(
+  Object.keys(APPARATUS_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The article-sheet and type-hierarchy assertions, routed to the two-width
@@ -689,6 +718,7 @@ const ARTICLE_EVIDENCE = readArticleRuntimeEvidence({
   fingerprint: articleEvidenceFingerprint({ root: ROOT }),
 });
 
+
 /**
  * One verdict map per assertion, each keyed by the members that assertion
  * quantifies over. The maps are built once so a reading that throws stops
@@ -726,6 +756,44 @@ const ARTICLE_POPULATIONS: Readonly<Record<string, string[]>> = {
   [HOME_WORDMARK_ROLE_POPULATION_SOURCE]: [HOME_WORDMARK_ROLE_ID],
   [SECTION_HEADING_POPULATION_SOURCE]: sectionHeadingMembers(ARTICLE_EVIDENCE),
 };
+
+const ARTICLE_ROUTES = REGISTRY.routes.public
+  .filter(({ routeKind }) => routeKind === 'article')
+  .map(({ path }) => path);
+
+const APPARATUS_EVIDENCE = readApparatusRuntimeEvidence({
+  artifact: readJson(join(ROOT, APPARATUS_RUNTIME_EVIDENCE_PATH)),
+  articleRoutes: ARTICLE_ROUTES,
+  fingerprint: apparatusEvidenceFingerprint({ root: ROOT }),
+  root: ROOT,
+});
+
+const APPARATUS_VERDICTS = {
+  'VAL-B2-ART-010': relationshipPreservationVerdicts(APPARATUS_EVIDENCE, ROOT),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+// The other five apparatus rows are VAL-WIKI, VAL-GLOSS and VAL-NAV, so they
+// have no VAL-B2 row to be recorded in and nothing to turn red. Checking
+// them here is what keeps them enforced against the same sweep: a
+// bibliography that stopped wrapping at 375px, a crumb that lost its
+// non-colour affordance, a furniture link that fell out of the Tab order, a
+// term whose definition target went missing, or a chip that stopped naming
+// its source stops the corpus from being generated at all.
+for (const [assertionId, verdicts] of [
+  ['VAL-WIKI-016', breadcrumbTruthVerdicts(APPARATUS_EVIDENCE, ROOT)],
+  ['VAL-WIKI-006', referenceSheetVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-WIKI-018', furnitureReachVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-GLOSS-004', termAffordanceVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-NAV-022', citationChipVerdicts(APPARATUS_EVIDENCE)],
+] as const) {
+  const failures = [...verdicts.values()].flatMap(({ failures: own }) => own);
+  if (failures.length > 0) {
+    throw new Error(`${assertionId}: ${failures.slice(0, 6).join('; ')}`);
+  }
+}
 
 const HOME_LITERALS = {
   identity: PUBLIC_IDENTITY,
@@ -800,6 +868,8 @@ function populationSourceFor(id: string): string {
   if (homeSource) return homeSource;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
+  const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
+  if (apparatusSource) return apparatusSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -865,6 +935,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // widths, down to the advance of the paragraph's own font, so it is a
   // browser-state row.
   if (ARTICLE_ASSERTIONS.has(id)) return 'browser-state';
+  // The apparatus row's evidence is the rendered furniture of every
+  // published article at two widths, compared against the graph the registry
+  // derives, so it is a browser-state row too.
+  if (APPARATUS_ASSERTIONS.has(id)) return 'browser-state';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -2199,6 +2273,42 @@ function articleAssertionEvidence(
 }
 
 /**
+ * What the apparatus sweep recorded for one article route. Throws on a route
+ * the sweep did not visit and on a route whose reading fails the
+ * requirement: the generator has no way to write a red row, so an article
+ * whose bibliography, curated edges or inbound edges no longer match the
+ * registry has to stop the corpus rather than appear in it.
+ */
+function apparatusAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    APPARATUS_VERDICTS[assertionId as keyof typeof APPARATUS_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no apparatus evidence branch`);
+  }
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+  const verdict = verdicts.get(route);
+  if (!verdict) {
+    throw new Error(`${assertionId}: the apparatus sweep did not measure ${route}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  return {
+    actual: `${route} renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')}`,
+    computed: {
+      member,
+      measured: [{ id: verdict.id, observed: verdict.observed }],
+      viewports: APPARATUS_VIEWPORTS.map(({ id }) => id),
+      evidence: [APPARATUS_RUNTIME_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
  * What the mobile sweep recorded for one mobile shell assertion and one
  * route. Both branches throw on a route the sweep did not visit and on a
  * route whose reading fails the requirement, because the generator has no
@@ -2533,6 +2643,19 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (APPARATUS_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = apparatusAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (HOME_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -2709,6 +2832,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
               : ARTICLE_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
+              : APPARATUS_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)

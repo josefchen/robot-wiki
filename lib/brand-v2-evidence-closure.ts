@@ -55,6 +55,7 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/static-export-server.ts',
   'tests/e2e/rendered-text-probe.ts',
   'tests/e2e/brand-v2-article.spec.ts',
+  'tests/e2e/brand-v2-article-apparatus.spec.ts',
   'tests/e2e/brand-v2-home.spec.ts',
   'tests/e2e/brand-v2-home-tools.spec.ts',
   'tests/e2e/brand-v2-identity.spec.ts',

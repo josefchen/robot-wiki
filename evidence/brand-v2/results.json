@@ -11448,68 +11448,3988 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-010",
+      "resultId": "result:VAL-B2-ART-010:route:/adjacent/autonomous-vehicles/",
       "assertionId": "VAL-B2-ART-010",
-      "populationMemberId": "population:contract/brand-v2-registries.json#routes.public:article",
+      "populationMemberId": "route:/adjacent/autonomous-vehicles/",
       "coveredPopulationMemberIds": [
-        "route:/adjacent/autonomous-vehicles/",
-        "route:/adjacent/drones/",
-        "route:/adjacent/space/",
-        "route:/adjacent/surgical/",
-        "route:/classical/control/",
-        "route:/classical/grasp-planning/",
-        "route:/classical/kinematics/",
-        "route:/classical/motion-planning/",
-        "route:/classical/perception/",
-        "route:/classical/scene-representation/",
-        "route:/classical/state-estimation/",
-        "route:/data-hardware/data-bottleneck/",
-        "route:/data-hardware/datasets/",
-        "route:/data-hardware/evaluation-crisis/",
-        "route:/data-hardware/hardware-taxonomy/",
-        "route:/data-hardware/industrial-deployment/",
-        "route:/data-hardware/teleop-rigs/",
-        "route:/frontier/bear-case/",
-        "route:/frontier/competing-theses/",
-        "route:/frontier/dexterity/",
-        "route:/frontier/generalization/",
-        "route:/frontier/reliability-gap/",
-        "route:/frontier/safety-and-assurance/",
-        "route:/manipulation/action-chunking/",
-        "route:/manipulation/bc-foundations/",
-        "route:/manipulation/comparison-matrix/",
-        "route:/manipulation/cross-embodiment/",
-        "route:/manipulation/diffusion-policy/",
-        "route:/manipulation/generalist-policies/",
-        "route:/manipulation/hierarchical/",
-        "route:/manipulation/knowledge-insulation/",
-        "route:/manipulation/pi-line/",
-        "route:/manipulation/realtime-execution/",
-        "route:/manipulation/rl-finetuning/",
-        "route:/manipulation/vla-models/",
-        "route:/rl-sim2real/humanoid-wbc/",
-        "route:/rl-sim2real/legged-locomotion/",
-        "route:/rl-sim2real/parallel-sim-rl/",
-        "route:/rl-sim2real/reward-design-mpc/",
-        "route:/rl-sim2real/rl-for-robotics/",
-        "route:/rl-sim2real/sim2real-transfer/",
-        "route:/rl-sim2real/why-rl-locomotion/",
-        "route:/world-models/generative-sim/",
-        "route:/world-models/generative-video/",
-        "route:/world-models/jepa/",
-        "route:/world-models/latent-dynamics/",
-        "route:/world-models/taxonomy/"
+        "route:/adjacent/autonomous-vehicles/"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "/adjacent/autonomous-vehicles/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "member": "route:/adjacent/autonomous-vehicles/",
+          "measured": [
+            {
+              "id": "/adjacent/autonomous-vehicles/",
+              "observed": {
+                "references": [
+                  "alvinn-1988",
+                  "dagger-2011",
+                  "waymo-open-dataset-2020",
+                  "vectornet-2020",
+                  "chauffeurnet-2018",
+                  "paden-2016",
+                  "uniad-2023",
+                  "e2e-ad-survey-2024",
+                  "emma-2024",
+                  "rss-2017",
+                  "sae-j3016-2021",
+                  "kalra-paddock-2016",
+                  "ntsb-uber-2019",
+                  "waymo-crash-rates-2025",
+                  "koopman-safe-enough-2026",
+                  "waymo-world-model-2026",
+                  "vla-ad-survey-2026",
+                  "open-x-embodiment-2023",
+                  "genie-3-2025"
+                ],
+                "citationMarkers": [
+                  "alvinn-1988",
+                  "waymo-crash-rates-2025",
+                  "uniad-2023",
+                  "uniad-2023",
+                  "waymo-open-dataset-2020",
+                  "ntsb-uber-2019",
+                  "vectornet-2020",
+                  "paden-2016",
+                  "chauffeurnet-2018",
+                  "chauffeurnet-2018",
+                  "paden-2016",
+                  "e2e-ad-survey-2024",
+                  "uniad-2023",
+                  "emma-2024",
+                  "sae-j3016-2021",
+                  "waymo-crash-rates-2025",
+                  "waymo-world-model-2026",
+                  "waymo-world-model-2026",
+                  "kalra-paddock-2016",
+                  "rss-2017",
+                  "rss-2017",
+                  "koopman-safe-enough-2026",
+                  "waymo-crash-rates-2025",
+                  "ntsb-uber-2019",
+                  "ntsb-uber-2019",
+                  "ntsb-uber-2019",
+                  "ntsb-uber-2019",
+                  "alvinn-1988",
+                  "dagger-2011",
+                  "chauffeurnet-2018",
+                  "emma-2024",
+                  "vla-ad-survey-2026",
+                  "waymo-open-dataset-2020",
+                  "open-x-embodiment-2023",
+                  "paden-2016",
+                  "waymo-world-model-2026",
+                  "genie-3-2025",
+                  "vla-ad-survey-2026",
+                  "rss-2017"
+                ],
+                "seeAlso": [
+                  "frontier/reliability-gap",
+                  "world-models/generative-video",
+                  "manipulation/bc-foundations",
+                  "rl-sim2real/why-rl-locomotion"
+                ],
+                "linkedFrom": [
+                  "world-models/generative-video",
+                  "frontier/safety-and-assurance",
+                  "adjacent/drones",
+                  "adjacent/surgical"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/adjacent/drones/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/adjacent/drones/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/drones/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/adjacent/drones/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/adjacent/drones/",
+          "measured": [
+            {
+              "id": "/adjacent/drones/",
+              "observed": {
+                "references": [
+                  "high-speed-flight-2021",
+                  "swift-drone-racing-2023",
+                  "racing-rl-vs-oc-2023",
+                  "falanga-latency-2019",
+                  "micro-drone-swarm-2022",
+                  "soria-nmpc-swarm-2021",
+                  "vasarhelyi-flocking-2018"
+                ],
+                "citationMarkers": [
+                  "swift-drone-racing-2023",
+                  "high-speed-flight-2021",
+                  "swift-drone-racing-2023",
+                  "swift-drone-racing-2023",
+                  "swift-drone-racing-2023",
+                  "racing-rl-vs-oc-2023",
+                  "racing-rl-vs-oc-2023",
+                  "racing-rl-vs-oc-2023",
+                  "swift-drone-racing-2023",
+                  "falanga-latency-2019",
+                  "falanga-latency-2019",
+                  "falanga-latency-2019",
+                  "falanga-latency-2019",
+                  "high-speed-flight-2021",
+                  "high-speed-flight-2021",
+                  "high-speed-flight-2021",
+                  "swift-drone-racing-2023",
+                  "vasarhelyi-flocking-2018",
+                  "soria-nmpc-swarm-2021",
+                  "micro-drone-swarm-2022",
+                  "micro-drone-swarm-2022",
+                  "falanga-latency-2019",
+                  "swift-drone-racing-2023",
+                  "high-speed-flight-2021",
+                  "swift-drone-racing-2023"
+                ],
+                "seeAlso": [
+                  "adjacent/autonomous-vehicles",
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/legged-locomotion",
+                  "classical/state-estimation"
+                ],
+                "linkedFrom": [
+                  "adjacent/autonomous-vehicles",
+                  "adjacent/surgical"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/adjacent/space/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/adjacent/space/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/space/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/adjacent/space/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/adjacent/space/",
+          "measured": [
+            {
+              "id": "/adjacent/space/",
+              "observed": {
+                "references": [
+                  "aegis-curiosity-2017",
+                  "perseverance-autonomy-2023",
+                  "moxie-completion-2023",
+                  "ingenuity-first-flight-2021",
+                  "ingenuity-mission-end-2024",
+                  "prime-1-lunar-2025",
+                  "ets-vii-ard-2001",
+                  "ets-vii-robot-2001",
+                  "orbital-express-2008",
+                  "canadarm2-csa-2024",
+                  "dextre-csa-2024",
+                  "mev1-servicing-2025",
+                  "adras-j-15m-2024",
+                  "osam1-discontinued-2024"
+                ],
+                "citationMarkers": [
+                  "perseverance-autonomy-2023",
+                  "perseverance-autonomy-2023",
+                  "perseverance-autonomy-2023",
+                  "aegis-curiosity-2017",
+                  "ingenuity-first-flight-2021",
+                  "ingenuity-mission-end-2024",
+                  "moxie-completion-2023",
+                  "prime-1-lunar-2025",
+                  "prime-1-lunar-2025",
+                  "prime-1-lunar-2025",
+                  "ets-vii-ard-2001",
+                  "ets-vii-robot-2001",
+                  "orbital-express-2008",
+                  "canadarm2-csa-2024",
+                  "dextre-csa-2024",
+                  "mev1-servicing-2025",
+                  "mev1-servicing-2025",
+                  "adras-j-15m-2024",
+                  "adras-j-15m-2024",
+                  "osam1-discontinued-2024",
+                  "perseverance-autonomy-2023",
+                  "ingenuity-mission-end-2024",
+                  "osam1-discontinued-2024",
+                  "aegis-curiosity-2017",
+                  "perseverance-autonomy-2023"
+                ],
+                "seeAlso": [
+                  "adjacent/surgical",
+                  "frontier/reliability-gap",
+                  "classical/motion-planning",
+                  "data-hardware/teleop-rigs"
+                ],
+                "linkedFrom": [
+                  "adjacent/surgical"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/adjacent/surgical/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/adjacent/surgical/",
+      "coveredPopulationMemberIds": [
+        "route:/adjacent/surgical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/adjacent/surgical/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/adjacent/surgical/",
+          "measured": [
+            {
+              "id": "/adjacent/surgical/",
+              "observed": {
+                "references": [
+                  "yang-autonomy-2017",
+                  "star-suturing-2016",
+                  "davinci5-clearance-2024",
+                  "intuitive-q4-2025",
+                  "cmr-versius-authorization-2024",
+                  "versius-plus-510k-2025",
+                  "maestro-tavac-2023",
+                  "maestro-commercial-510k-2024",
+                  "scopilot-clearance-2025"
+                ],
+                "citationMarkers": [
+                  "intuitive-q4-2025",
+                  "davinci5-clearance-2024",
+                  "yang-autonomy-2017",
+                  "davinci5-clearance-2024",
+                  "davinci5-clearance-2024",
+                  "intuitive-q4-2025",
+                  "cmr-versius-authorization-2024",
+                  "cmr-versius-authorization-2024",
+                  "cmr-versius-authorization-2024",
+                  "maestro-tavac-2023",
+                  "maestro-tavac-2023",
+                  "scopilot-clearance-2025",
+                  "yang-autonomy-2017",
+                  "cmr-versius-authorization-2024",
+                  "davinci5-clearance-2024",
+                  "star-suturing-2016",
+                  "yang-autonomy-2017",
+                  "yang-autonomy-2017",
+                  "davinci5-clearance-2024",
+                  "scopilot-clearance-2025"
+                ],
+                "seeAlso": [
+                  "frontier/reliability-gap",
+                  "data-hardware/teleop-rigs",
+                  "adjacent/autonomous-vehicles",
+                  "adjacent/drones"
+                ],
+                "linkedFrom": [
+                  "adjacent/drones",
+                  "adjacent/space"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/control/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/control/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/control/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/control/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/control/",
+          "measured": [
+            {
+              "id": "/classical/control/",
+              "observed": {
+                "references": [
+                  "astrom-murray-2008",
+                  "ziegler-nichols-1942",
+                  "kalman-1960",
+                  "tedrake-underactuated",
+                  "garcia-1989",
+                  "mayne-2000",
+                  "qin-badgwell-2003",
+                  "di-carlo-2018",
+                  "mujoco-ilqr-2026",
+                  "khatib-1987",
+                  "sentis-khatib-2005",
+                  "bd-spot-rl-2024",
+                  "hogan-1985",
+                  "raibert-craig-1981",
+                  "mason-1981",
+                  "salisbury-1980",
+                  "pratt-williamson-1995",
+                  "albu-schaffer-2003",
+                  "ott-2010",
+                  "franka-fci-docs",
+                  "ur-force-mode-docs",
+                  "iso-ts-15066",
+                  "han-force-pain-2024"
+                ],
+                "citationMarkers": [
+                  "astrom-murray-2008",
+                  "astrom-murray-2008",
+                  "ziegler-nichols-1942",
+                  "tedrake-underactuated",
+                  "astrom-murray-2008",
+                  "kalman-1960",
+                  "tedrake-underactuated",
+                  "tedrake-underactuated",
+                  "mayne-2000",
+                  "garcia-1989",
+                  "qin-badgwell-2003",
+                  "di-carlo-2018",
+                  "mujoco-ilqr-2026",
+                  "khatib-1987",
+                  "sentis-khatib-2005",
+                  "hogan-1985",
+                  "salisbury-1980",
+                  "ott-2010",
+                  "mason-1981",
+                  "raibert-craig-1981",
+                  "pratt-williamson-1995",
+                  "albu-schaffer-2003",
+                  "franka-fci-docs",
+                  "ur-force-mode-docs",
+                  "han-force-pain-2024",
+                  "iso-ts-15066",
+                  "han-force-pain-2024",
+                  "bd-spot-rl-2024",
+                  "mujoco-ilqr-2026"
+                ],
+                "seeAlso": [
+                  "classical/motion-planning",
+                  "classical/kinematics",
+                  "rl-sim2real/humanoid-wbc",
+                  "rl-sim2real/reward-design-mpc"
+                ],
+                "linkedFrom": [
+                  "classical/motion-planning",
+                  "classical/state-estimation",
+                  "classical/grasp-planning",
+                  "frontier/dexterity",
+                  "frontier/safety-and-assurance"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/grasp-planning/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/grasp-planning/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/grasp-planning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/grasp-planning/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/grasp-planning/",
+          "measured": [
+            {
+              "id": "/classical/grasp-planning/",
+              "observed": {
+                "references": [
+                  "murray-li-sastry-1994",
+                  "nguyen-1988",
+                  "mishra-1987",
+                  "markenscoff-1990",
+                  "cutkosky-1989",
+                  "ferrari-canny-1992",
+                  "bicchi-kumar-2000",
+                  "prattichizzo-trinkle-2016",
+                  "roa-suarez-2015",
+                  "dexnet-2-2017"
+                ],
+                "citationMarkers": [
+                  "murray-li-sastry-1994",
+                  "prattichizzo-trinkle-2016",
+                  "murray-li-sastry-1994",
+                  "cutkosky-1989",
+                  "murray-li-sastry-1994",
+                  "bicchi-kumar-2000",
+                  "nguyen-1988",
+                  "murray-li-sastry-1994",
+                  "markenscoff-1990",
+                  "mishra-1987",
+                  "markenscoff-1990",
+                  "murray-li-sastry-1994",
+                  "nguyen-1988",
+                  "ferrari-canny-1992",
+                  "roa-suarez-2015",
+                  "dexnet-2-2017",
+                  "dexnet-2-2017"
+                ],
+                "seeAlso": [
+                  "classical/kinematics",
+                  "classical/motion-planning",
+                  "rl-sim2real/why-rl-locomotion",
+                  "manipulation/diffusion-policy"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/why-rl-locomotion",
+                  "classical/perception",
+                  "frontier/dexterity"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/kinematics/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/kinematics/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/kinematics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/kinematics/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/kinematics/",
+          "measured": [
+            {
+              "id": "/classical/kinematics/",
+              "observed": {
+                "references": [
+                  "denavit-hartenberg-1955",
+                  "whitney-1969",
+                  "wampler-1986",
+                  "levenberg-1944",
+                  "marquardt-1963",
+                  "modern-robotics-2017",
+                  "so-arm100-repo-2026",
+                  "act-aloha-2023",
+                  "isaac-gr00t-repo-2026"
+                ],
+                "citationMarkers": [
+                  "modern-robotics-2017",
+                  "denavit-hartenberg-1955",
+                  "modern-robotics-2017",
+                  "so-arm100-repo-2026",
+                  "modern-robotics-2017",
+                  "whitney-1969",
+                  "wampler-1986",
+                  "levenberg-1944",
+                  "marquardt-1963",
+                  "so-arm100-repo-2026",
+                  "act-aloha-2023",
+                  "isaac-gr00t-repo-2026"
+                ],
+                "seeAlso": [
+                  "classical/motion-planning",
+                  "data-hardware/hardware-taxonomy",
+                  "rl-sim2real/humanoid-wbc",
+                  "data-hardware/teleop-rigs"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/humanoid-wbc",
+                  "data-hardware/hardware-taxonomy",
+                  "classical/motion-planning",
+                  "classical/control",
+                  "classical/state-estimation",
+                  "classical/grasp-planning"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/motion-planning/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/motion-planning/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/motion-planning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/motion-planning/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/motion-planning/",
+          "measured": [
+            {
+              "id": "/classical/motion-planning/",
+              "observed": {
+                "references": [
+                  "lozano-perez-1983",
+                  "kavraki-1996",
+                  "lavalle-1998",
+                  "lavalle-kuffner-2001",
+                  "karaman-frazzoli-2011",
+                  "gammell-2014",
+                  "ratliff-2009",
+                  "schulman-2013",
+                  "lavalle-2006",
+                  "ompl-2012"
+                ],
+                "citationMarkers": [
+                  "lozano-perez-1983",
+                  "lozano-perez-1983",
+                  "lavalle-2006",
+                  "kavraki-1996",
+                  "lavalle-1998",
+                  "lavalle-kuffner-2001",
+                  "karaman-frazzoli-2011",
+                  "karaman-frazzoli-2011",
+                  "gammell-2014",
+                  "ompl-2012",
+                  "ratliff-2009",
+                  "ratliff-2009",
+                  "schulman-2013",
+                  "schulman-2013"
+                ],
+                "seeAlso": [
+                  "classical/kinematics",
+                  "classical/control",
+                  "rl-sim2real/reward-design-mpc",
+                  "manipulation/hierarchical"
+                ],
+                "linkedFrom": [
+                  "classical/kinematics",
+                  "classical/control",
+                  "classical/state-estimation",
+                  "classical/grasp-planning",
+                  "classical/scene-representation",
+                  "adjacent/space"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/perception/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/perception/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/perception/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/perception/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/perception/",
+          "measured": [
+            {
+              "id": "/classical/perception/",
+              "observed": {
+                "references": [
+                  "zhang-2000-calibration",
+                  "tsai-lenz-1989",
+                  "keselman-2017-realsense",
+                  "realsense-d400-datasheet-2026",
+                  "realsense-tuning-2026",
+                  "azure-kinect-depth-docs-2026",
+                  "photoneo-phoxi-l-2026",
+                  "cleargrasp-2020",
+                  "grounding-dino-2024",
+                  "dinov2-2023",
+                  "segment-anything-2023",
+                  "sam2-2024",
+                  "pointnet-2017",
+                  "pointnet-plus-plus-2017",
+                  "dense-object-nets-2018",
+                  "posecnn-2018",
+                  "foundationpose-2024",
+                  "megapose-2022",
+                  "bop-challenge-2023",
+                  "hinterstoisser-2012",
+                  "espiau-1992",
+                  "chaumette-hutchinson-2006",
+                  "chaumette-hutchinson-2007",
+                  "dexnet-2-2017",
+                  "moka-2024",
+                  "rekep-2024",
+                  "robopoint-2024",
+                  "play2perfect-2026"
+                ],
+                "citationMarkers": [
+                  "realsense-d400-datasheet-2026",
+                  "cleargrasp-2020",
+                  "play2perfect-2026",
+                  "zhang-2000-calibration",
+                  "tsai-lenz-1989",
+                  "realsense-d400-datasheet-2026",
+                  "realsense-tuning-2026",
+                  "keselman-2017-realsense",
+                  "photoneo-phoxi-l-2026",
+                  "azure-kinect-depth-docs-2026",
+                  "cleargrasp-2020",
+                  "realsense-d400-datasheet-2026",
+                  "azure-kinect-depth-docs-2026",
+                  "azure-kinect-depth-docs-2026",
+                  "realsense-tuning-2026",
+                  "realsense-tuning-2026",
+                  "azure-kinect-depth-docs-2026",
+                  "pointnet-2017",
+                  "pointnet-plus-plus-2017",
+                  "grounding-dino-2024",
+                  "dinov2-2023",
+                  "segment-anything-2023",
+                  "sam2-2024",
+                  "moka-2024",
+                  "rekep-2024",
+                  "robopoint-2024",
+                  "dense-object-nets-2018",
+                  "dexnet-2-2017",
+                  "posecnn-2018",
+                  "megapose-2022",
+                  "foundationpose-2024",
+                  "hinterstoisser-2012",
+                  "bop-challenge-2023",
+                  "espiau-1992",
+                  "chaumette-hutchinson-2006",
+                  "chaumette-hutchinson-2007"
+                ],
+                "seeAlso": [
+                  "classical/grasp-planning",
+                  "manipulation/hierarchical",
+                  "classical/state-estimation"
+                ],
+                "linkedFrom": [
+                  "manipulation/hierarchical",
+                  "classical/state-estimation",
+                  "classical/grasp-planning",
+                  "classical/scene-representation"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/scene-representation/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/scene-representation/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/scene-representation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/scene-representation/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/scene-representation/",
+          "measured": [
+            {
+              "id": "/classical/scene-representation/",
+              "observed": {
+                "references": [
+                  "moravec-elfes-1985",
+                  "curless-levoy-1996",
+                  "kinectfusion-2011",
+                  "nerf-2020",
+                  "instant-ngp-2022",
+                  "3dgs-2023",
+                  "dust3r-2024",
+                  "mast3r-2024",
+                  "cadena-2016",
+                  "orb-slam-2015",
+                  "orb-slam3-2021",
+                  "dso-2018",
+                  "lowry-2016-place-recognition",
+                  "imap-2021",
+                  "nice-slam-2022",
+                  "dex-nerf-2021",
+                  "splatsim-2024",
+                  "robogsim-2024",
+                  "occworld-2023",
+                  "dellaert-kaess-2006",
+                  "kaess-2012",
+                  "layered-costmaps-2014",
+                  "nav2-2020",
+                  "pointnet-2017"
+                ],
+                "citationMarkers": [
+                  "curless-levoy-1996",
+                  "moravec-elfes-1985",
+                  "pointnet-2017",
+                  "moravec-elfes-1985",
+                  "curless-levoy-1996",
+                  "kinectfusion-2011",
+                  "nerf-2020",
+                  "instant-ngp-2022",
+                  "3dgs-2023",
+                  "dust3r-2024",
+                  "mast3r-2024",
+                  "splatsim-2024",
+                  "robogsim-2024",
+                  "dex-nerf-2021",
+                  "occworld-2023",
+                  "cadena-2016",
+                  "orb-slam-2015",
+                  "orb-slam3-2021",
+                  "dso-2018",
+                  "lowry-2016-place-recognition",
+                  "dellaert-kaess-2006",
+                  "kaess-2012",
+                  "imap-2021",
+                  "nice-slam-2022",
+                  "layered-costmaps-2014",
+                  "nav2-2020"
+                ],
+                "seeAlso": [
+                  "classical/perception",
+                  "classical/state-estimation",
+                  "world-models/taxonomy"
+                ],
+                "linkedFrom": [
+                  "world-models/taxonomy",
+                  "classical/state-estimation"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/classical/state-estimation/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/classical/state-estimation/",
+      "coveredPopulationMemberIds": [
+        "route:/classical/state-estimation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/classical/state-estimation/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/classical/state-estimation/",
+          "measured": [
+            {
+              "id": "/classical/state-estimation/",
+              "observed": {
+                "references": [
+                  "kalman-1960-filter",
+                  "mcgee-schmidt-1985",
+                  "thrun-2005",
+                  "smith-1990",
+                  "julier-uhlmann-1997",
+                  "kschischang-2001",
+                  "dellaert-kaess-2006",
+                  "kaess-2008",
+                  "kaess-2012",
+                  "cadena-2016",
+                  "forster-2017",
+                  "gtsam-2026"
+                ],
+                "citationMarkers": [
+                  "thrun-2005",
+                  "thrun-2005",
+                  "kalman-1960-filter",
+                  "kalman-1960-filter",
+                  "mcgee-schmidt-1985",
+                  "thrun-2005",
+                  "mcgee-schmidt-1985",
+                  "smith-1990",
+                  "julier-uhlmann-1997",
+                  "thrun-2005",
+                  "kschischang-2001",
+                  "dellaert-kaess-2006",
+                  "kaess-2008",
+                  "kaess-2012",
+                  "gtsam-2026",
+                  "forster-2017",
+                  "cadena-2016"
+                ],
+                "seeAlso": [
+                  "classical/control",
+                  "classical/kinematics",
+                  "classical/perception",
+                  "world-models/latent-dynamics"
+                ],
+                "linkedFrom": [
+                  "classical/control",
+                  "classical/perception",
+                  "classical/scene-representation",
+                  "adjacent/drones"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/data-bottleneck/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/data-bottleneck/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/data-bottleneck/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/data-bottleneck/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/data-bottleneck/",
+          "measured": [
+            {
+              "id": "/data-hardware/data-bottleneck/",
+              "observed": {
+                "references": [
+                  "gpt3-2020",
+                  "llama-3-2024",
+                  "fineweb-2024",
+                  "open-x-embodiment-2023",
+                  "droid-2024",
+                  "agibot-world-2025",
+                  "tri-lbm-2025",
+                  "lin-data-scaling-laws-2024",
+                  "diversity-scaling-2025",
+                  "umi-2024",
+                  "egodex-2025",
+                  "egoscale-2026",
+                  "ego4d-2022"
+                ],
+                "citationMarkers": [
+                  "gpt3-2020",
+                  "llama-3-2024",
+                  "fineweb-2024",
+                  "open-x-embodiment-2023",
+                  "agibot-world-2025",
+                  "droid-2024",
+                  "tri-lbm-2025",
+                  "lin-data-scaling-laws-2024",
+                  "diversity-scaling-2025",
+                  "umi-2024",
+                  "egodex-2025",
+                  "ego4d-2022",
+                  "egoscale-2026",
+                  "agibot-world-2025"
+                ],
+                "seeAlso": [
+                  "data-hardware/datasets",
+                  "data-hardware/teleop-rigs",
+                  "rl-sim2real/parallel-sim-rl"
+                ],
+                "linkedFrom": [
+                  "data-hardware/datasets",
+                  "data-hardware/hardware-taxonomy",
+                  "data-hardware/teleop-rigs",
+                  "data-hardware/evaluation-crisis",
+                  "data-hardware/industrial-deployment",
+                  "frontier/generalization"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/datasets/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/datasets/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/datasets/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/datasets/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/datasets/",
+          "measured": [
+            {
+              "id": "/data-hardware/datasets/",
+              "observed": {
+                "references": [
+                  "open-x-embodiment-2023",
+                  "droid-2024",
+                  "bridgedata-v2-2023",
+                  "agibot-world-2025",
+                  "agibot-world-2026",
+                  "robomind-2024",
+                  "oxe-quality-critique-2026",
+                  "diversity-scaling-2025"
+                ],
+                "citationMarkers": [
+                  "open-x-embodiment-2023",
+                  "droid-2024",
+                  "bridgedata-v2-2023",
+                  "agibot-world-2025",
+                  "robomind-2024",
+                  "agibot-world-2026",
+                  "open-x-embodiment-2023",
+                  "open-x-embodiment-2023",
+                  "open-x-embodiment-2023",
+                  "oxe-quality-critique-2026",
+                  "droid-2024",
+                  "droid-2024",
+                  "droid-2024",
+                  "bridgedata-v2-2023",
+                  "bridgedata-v2-2023",
+                  "bridgedata-v2-2023",
+                  "bridgedata-v2-2023",
+                  "open-x-embodiment-2023",
+                  "agibot-world-2025",
+                  "agibot-world-2025",
+                  "agibot-world-2026",
+                  "robomind-2024",
+                  "robomind-2024",
+                  "diversity-scaling-2025"
+                ],
+                "seeAlso": [
+                  "data-hardware/data-bottleneck",
+                  "manipulation/cross-embodiment",
+                  "data-hardware/teleop-rigs"
+                ],
+                "linkedFrom": [
+                  "manipulation/cross-embodiment",
+                  "rl-sim2real/rl-for-robotics",
+                  "data-hardware/data-bottleneck"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/evaluation-crisis/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/evaluation-crisis/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/evaluation-crisis/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/evaluation-crisis/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/evaluation-crisis/",
+          "measured": [
+            {
+              "id": "/data-hardware/evaluation-crisis/",
+              "observed": {
+                "references": [
+                  "tri-lbm-2025",
+                  "diffusion-policy-2023",
+                  "optimal-stopping-2025",
+                  "libero-2023",
+                  "libero-plus-2025",
+                  "simpler-2024",
+                  "roboarena-2025",
+                  "robochallenge-2025",
+                  "droid-2024"
+                ],
+                "citationMarkers": [
+                  "diffusion-policy-2023",
+                  "tri-lbm-2025",
+                  "tri-lbm-2025",
+                  "tri-lbm-2025",
+                  "optimal-stopping-2025",
+                  "tri-lbm-2025",
+                  "optimal-stopping-2025",
+                  "tri-lbm-2025",
+                  "libero-2023",
+                  "libero-plus-2025",
+                  "libero-plus-2025",
+                  "simpler-2024",
+                  "simpler-2024",
+                  "simpler-2024",
+                  "roboarena-2025",
+                  "droid-2024",
+                  "roboarena-2025",
+                  "robochallenge-2025",
+                  "tri-lbm-2025",
+                  "libero-plus-2025",
+                  "roboarena-2025",
+                  "simpler-2024"
+                ],
+                "seeAlso": [
+                  "manipulation/rl-finetuning",
+                  "data-hardware/data-bottleneck",
+                  "rl-sim2real/sim2real-transfer",
+                  "frontier/reliability-gap"
+                ],
+                "linkedFrom": [
+                  "manipulation/rl-finetuning",
+                  "frontier/reliability-gap",
+                  "frontier/generalization",
+                  "frontier/competing-theses",
+                  "frontier/bear-case"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/hardware-taxonomy/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/hardware-taxonomy/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/hardware-taxonomy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/hardware-taxonomy/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/hardware-taxonomy/",
+          "measured": [
+            {
+              "id": "/data-hardware/hardware-taxonomy/",
+              "observed": {
+                "references": [
+                  "so-arm100-repo-2026",
+                  "seeed-so-arm101-pro-2026",
+                  "lerobot-pricing-2026",
+                  "lerobot-docs-2026",
+                  "trossen-ai-2026",
+                  "act-aloha-2023",
+                  "mobile-aloha-2024",
+                  "droid-2024",
+                  "agibot-world-2025",
+                  "robozaps-humanoids-2026",
+                  "unitree-g1-2026",
+                  "unitree-h2-2026",
+                  "1x-neo-2026",
+                  "bd-atlas-2026",
+                  "figure-03-2025",
+                  "leap-hand-2023",
+                  "tactile-outlook-2025",
+                  "digit-sensor-2020",
+                  "meta-fair-touch-2024",
+                  "anyskin-2024",
+                  "jetson-thor-2026",
+                  "vla-perf-2026"
+                ],
+                "citationMarkers": [
+                  "so-arm100-repo-2026",
+                  "unitree-h2-2026",
+                  "robozaps-humanoids-2026",
+                  "so-arm100-repo-2026",
+                  "seeed-so-arm101-pro-2026",
+                  "lerobot-pricing-2026",
+                  "lerobot-docs-2026",
+                  "trossen-ai-2026",
+                  "trossen-ai-2026",
+                  "act-aloha-2023",
+                  "mobile-aloha-2024",
+                  "lerobot-pricing-2026",
+                  "lerobot-pricing-2026",
+                  "droid-2024",
+                  "robozaps-humanoids-2026",
+                  "robozaps-humanoids-2026",
+                  "unitree-g1-2026",
+                  "robozaps-humanoids-2026",
+                  "unitree-h2-2026",
+                  "1x-neo-2026",
+                  "robozaps-humanoids-2026",
+                  "bd-atlas-2026",
+                  "figure-03-2025",
+                  "robozaps-humanoids-2026",
+                  "robozaps-humanoids-2026",
+                  "leap-hand-2023",
+                  "1x-neo-2026",
+                  "unitree-g1-2026",
+                  "unitree-h2-2026",
+                  "figure-03-2025",
+                  "droid-2024",
+                  "agibot-world-2025",
+                  "tactile-outlook-2025",
+                  "tactile-outlook-2025",
+                  "tactile-outlook-2025",
+                  "digit-sensor-2020",
+                  "tactile-outlook-2025",
+                  "meta-fair-touch-2024",
+                  "anyskin-2024",
+                  "jetson-thor-2026",
+                  "1x-neo-2026",
+                  "vla-perf-2026",
+                  "vla-perf-2026"
+                ],
+                "seeAlso": [
+                  "data-hardware/teleop-rigs",
+                  "data-hardware/data-bottleneck",
+                  "data-hardware/industrial-deployment",
+                  "classical/kinematics"
+                ],
+                "linkedFrom": [
+                  "data-hardware/teleop-rigs",
+                  "data-hardware/industrial-deployment",
+                  "classical/kinematics",
+                  "frontier/safety-and-assurance"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/industrial-deployment/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/industrial-deployment/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/industrial-deployment/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/industrial-deployment/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/industrial-deployment/",
+          "measured": [
+            {
+              "id": "/data-hardware/industrial-deployment/",
+              "observed": {
+                "references": [
+                  "ifr-world-robotics-2025",
+                  "ifr-china-five-year-plan-2026",
+                  "a3-orders-2025",
+                  "symbotic-10k-2025",
+                  "amazon-sequoia-digit-2023",
+                  "amazon-robot-fleet-2026",
+                  "amazon-vulcan-2026",
+                  "acemoglu-restrepo-2020",
+                  "mit-work-future-2020",
+                  "ohno-tps-1988",
+                  "evst-cell-cost-2026",
+                  "kroger-ocado-closures-2025",
+                  "osha-otm-robots",
+                  "ocado-oia-2026",
+                  "technology-org-deployed-2026",
+                  "unitree-profit-2026",
+                  "morgan-stanley-pr-problem-2026",
+                  "figure-8hr-shift-2026",
+                  "goldberg-data-gap-2025",
+                  "bessemer-robotics-2026"
+                ],
+                "citationMarkers": [
+                  "ifr-world-robotics-2025",
+                  "ifr-china-five-year-plan-2026",
+                  "ifr-world-robotics-2025",
+                  "technology-org-deployed-2026",
+                  "evst-cell-cost-2026",
+                  "evst-cell-cost-2026",
+                  "ifr-world-robotics-2025",
+                  "a3-orders-2025",
+                  "amazon-sequoia-digit-2023",
+                  "amazon-robot-fleet-2026",
+                  "amazon-sequoia-digit-2023",
+                  "amazon-vulcan-2026",
+                  "symbotic-10k-2025",
+                  "kroger-ocado-closures-2025",
+                  "ocado-oia-2026",
+                  "evst-cell-cost-2026",
+                  "evst-cell-cost-2026",
+                  "bessemer-robotics-2026",
+                  "ohno-tps-1988",
+                  "evst-cell-cost-2026",
+                  "goldberg-data-gap-2025",
+                  "morgan-stanley-pr-problem-2026",
+                  "figure-8hr-shift-2026",
+                  "osha-otm-robots",
+                  "osha-otm-robots",
+                  "symbotic-10k-2025",
+                  "acemoglu-restrepo-2020",
+                  "mit-work-future-2020",
+                  "unitree-profit-2026"
+                ],
+                "seeAlso": [
+                  "data-hardware/hardware-taxonomy",
+                  "data-hardware/teleop-rigs",
+                  "data-hardware/data-bottleneck"
+                ],
+                "linkedFrom": [
+                  "data-hardware/hardware-taxonomy",
+                  "frontier/bear-case"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/data-hardware/teleop-rigs/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/data-hardware/teleop-rigs/",
+      "coveredPopulationMemberIds": [
+        "route:/data-hardware/teleop-rigs/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/data-hardware/teleop-rigs/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/data-hardware/teleop-rigs/",
+          "measured": [
+            {
+              "id": "/data-hardware/teleop-rigs/",
+              "observed": {
+                "references": [
+                  "act-aloha-2023",
+                  "mobile-aloha-2024",
+                  "trossen-ai-2026",
+                  "lerobot-pricing-2026",
+                  "gello-2023",
+                  "umi-2024",
+                  "droid-2024",
+                  "open-television-2024",
+                  "bunny-visionpro-2024"
+                ],
+                "citationMarkers": [
+                  "gello-2023",
+                  "lerobot-pricing-2026",
+                  "act-aloha-2023",
+                  "mobile-aloha-2024",
+                  "trossen-ai-2026",
+                  "lerobot-pricing-2026",
+                  "gello-2023",
+                  "gello-2023",
+                  "umi-2024",
+                  "umi-2024",
+                  "umi-2024",
+                  "umi-2024",
+                  "droid-2024",
+                  "droid-2024",
+                  "open-television-2024",
+                  "bunny-visionpro-2024"
+                ],
+                "seeAlso": [
+                  "data-hardware/data-bottleneck",
+                  "data-hardware/hardware-taxonomy",
+                  "manipulation/action-chunking"
+                ],
+                "linkedFrom": [
+                  "data-hardware/data-bottleneck",
+                  "data-hardware/datasets",
+                  "data-hardware/hardware-taxonomy",
+                  "data-hardware/industrial-deployment",
+                  "classical/kinematics",
+                  "frontier/competing-theses",
+                  "frontier/safety-and-assurance",
+                  "adjacent/surgical",
+                  "adjacent/space"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/bear-case/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/bear-case/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/bear-case/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/bear-case/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/bear-case/",
+          "measured": [
+            {
+              "id": "/frontier/bear-case/",
+              "observed": {
+                "references": [
+                  "brooks-dexterity-2025",
+                  "brooks-scorecard-2026",
+                  "morgan-stanley-pr-problem-2026",
+                  "technology-org-deployed-2026",
+                  "unitree-profit-2026",
+                  "bessemer-robotics-2026",
+                  "computex-collapse-2026",
+                  "robotics-funding-23b-2026",
+                  "crunchbase-robotics-funding-2026",
+                  "goldberg-data-gap-2025",
+                  "pi05-2025",
+                  "rl-100-2025",
+                  "pistar06-2025",
+                  "roboarena-2025",
+                  "robochallenge-2025",
+                  "manipulationnet-2026",
+                  "sparsh-x-2025",
+                  "touchworld-2026",
+                  "reality-gap-survey-2026",
+                  "egoscale-2026"
+                ],
+                "citationMarkers": [
+                  "pi05-2025",
+                  "brooks-dexterity-2025",
+                  "brooks-scorecard-2026",
+                  "morgan-stanley-pr-problem-2026",
+                  "technology-org-deployed-2026",
+                  "unitree-profit-2026",
+                  "technology-org-deployed-2026",
+                  "bessemer-robotics-2026",
+                  "computex-collapse-2026",
+                  "bessemer-robotics-2026",
+                  "morgan-stanley-pr-problem-2026",
+                  "technology-org-deployed-2026",
+                  "robotics-funding-23b-2026",
+                  "crunchbase-robotics-funding-2026",
+                  "bessemer-robotics-2026",
+                  "brooks-scorecard-2026",
+                  "morgan-stanley-pr-problem-2026",
+                  "goldberg-data-gap-2025",
+                  "brooks-dexterity-2025",
+                  "pi05-2025",
+                  "rl-100-2025",
+                  "pistar06-2025",
+                  "roboarena-2025",
+                  "robochallenge-2025",
+                  "manipulationnet-2026",
+                  "sparsh-x-2025",
+                  "touchworld-2026",
+                  "reality-gap-survey-2026",
+                  "egoscale-2026"
+                ],
+                "seeAlso": [
+                  "frontier/competing-theses",
+                  "frontier/reliability-gap",
+                  "frontier/generalization",
+                  "data-hardware/evaluation-crisis"
+                ],
+                "linkedFrom": [
+                  "frontier/competing-theses"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/competing-theses/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/competing-theses/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/competing-theses/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/competing-theses/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/competing-theses/",
+          "measured": [
+            {
+              "id": "/frontier/competing-theses/",
+              "observed": {
+                "references": [
+                  "brooks-better-lesson-2019",
+                  "sutton-bitter-lesson-2019",
+                  "nucleus-supervised-2026",
+                  "brooks-dexterity-2025",
+                  "goldberg-data-gap-2025",
+                  "karcini-position-2026",
+                  "bessemer-robotics-2026",
+                  "egoscale-2026",
+                  "pi05-2025",
+                  "pi07-2026",
+                  "pistar06-2025",
+                  "rl-100-2025",
+                  "enpire-2026",
+                  "gemini-robotics-er2-2026",
+                  "gemini-robotics-2-2026",
+                  "helix-02-2026",
+                  "figure-8hr-shift-2026",
+                  "saycan-2022",
+                  "vjepa2-2025",
+                  "cosmos-3-2026",
+                  "technology-org-deployed-2026"
+                ],
+                "citationMarkers": [
+                  "cosmos-3-2026",
+                  "pi07-2026",
+                  "egoscale-2026",
+                  "pi07-2026",
+                  "pi05-2025",
+                  "brooks-better-lesson-2019",
+                  "brooks-dexterity-2025",
+                  "goldberg-data-gap-2025",
+                  "karcini-position-2026",
+                  "bessemer-robotics-2026",
+                  "pi07-2026",
+                  "sutton-bitter-lesson-2019",
+                  "brooks-better-lesson-2019",
+                  "bessemer-robotics-2026",
+                  "egoscale-2026",
+                  "pi05-2025",
+                  "pi07-2026",
+                  "brooks-better-lesson-2019",
+                  "brooks-dexterity-2025",
+                  "brooks-better-lesson-2019",
+                  "brooks-dexterity-2025",
+                  "goldberg-data-gap-2025",
+                  "karcini-position-2026",
+                  "saycan-2022",
+                  "gemini-robotics-er2-2026",
+                  "helix-02-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "saycan-2022",
+                  "vjepa2-2025",
+                  "pi07-2026",
+                  "cosmos-3-2026",
+                  "karcini-position-2026",
+                  "pistar06-2025",
+                  "rl-100-2025",
+                  "enpire-2026",
+                  "pistar06-2025",
+                  "rl-100-2025",
+                  "pi07-2026",
+                  "nucleus-supervised-2026",
+                  "pistar06-2025",
+                  "bessemer-robotics-2026",
+                  "technology-org-deployed-2026",
+                  "bessemer-robotics-2026",
+                  "egoscale-2026",
+                  "helix-02-2026",
+                  "figure-8hr-shift-2026",
+                  "gemini-robotics-2-2026",
+                  "brooks-dexterity-2025"
+                ],
+                "seeAlso": [
+                  "frontier/generalization",
+                  "frontier/reliability-gap",
+                  "manipulation/hierarchical",
+                  "world-models/taxonomy"
+                ],
+                "linkedFrom": [
+                  "frontier/dexterity",
+                  "frontier/bear-case"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/dexterity/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/dexterity/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/dexterity/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/dexterity/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/dexterity/",
+          "measured": [
+            {
+              "id": "/frontier/dexterity/",
+              "observed": {
+                "references": [
+                  "brooks-dexterity-2025",
+                  "macefield-touch-2022",
+                  "holson-olympics-2025",
+                  "figure-go-big-2025",
+                  "figure-02-2024",
+                  "helix-02-2026",
+                  "figure-03-2025",
+                  "sanctuary-tactile-2025",
+                  "sanctuary-inhand-2024",
+                  "sanctuary-hydraulic-rl-2025",
+                  "robozaps-phoenix-2026",
+                  "shadow-dexterous-hand-2026",
+                  "shadow-hand-cost-2022",
+                  "droids-optimus-v3-hand-2026",
+                  "teslarati-optimus-hand-2026",
+                  "robozaps-unitree-h2-2026",
+                  "wikipedia-humanoid-hand-2026",
+                  "sparsh-x-2025",
+                  "touchworld-2026",
+                  "tactile-outlook-2025",
+                  "gemini-robotics-2-2026",
+                  "pi-olympics-2025",
+                  "pi07-2026",
+                  "rl-100-2025"
+                ],
+                "citationMarkers": [
+                  "brooks-dexterity-2025",
+                  "macefield-touch-2022",
+                  "brooks-dexterity-2025",
+                  "holson-olympics-2025",
+                  "tactile-outlook-2025",
+                  "brooks-dexterity-2025",
+                  "brooks-dexterity-2025",
+                  "brooks-dexterity-2025",
+                  "figure-go-big-2025",
+                  "sanctuary-tactile-2025",
+                  "sanctuary-tactile-2025",
+                  "robozaps-phoenix-2026",
+                  "helix-02-2026",
+                  "figure-03-2025",
+                  "shadow-dexterous-hand-2026",
+                  "sparsh-x-2025",
+                  "touchworld-2026",
+                  "gemini-robotics-2-2026",
+                  "robozaps-unitree-h2-2026",
+                  "gemini-robotics-2-2026",
+                  "teslarati-optimus-hand-2026",
+                  "droids-optimus-v3-hand-2026",
+                  "robozaps-phoenix-2026",
+                  "shadow-hand-cost-2022",
+                  "robozaps-unitree-h2-2026",
+                  "figure-02-2024",
+                  "holson-olympics-2025",
+                  "sanctuary-inhand-2024",
+                  "robozaps-phoenix-2026",
+                  "sanctuary-hydraulic-rl-2025",
+                  "helix-02-2026",
+                  "shadow-dexterous-hand-2026",
+                  "holson-olympics-2025",
+                  "rl-100-2025",
+                  "pi07-2026",
+                  "pi-olympics-2025",
+                  "pi-olympics-2025"
+                ],
+                "seeAlso": [
+                  "frontier/reliability-gap",
+                  "manipulation/generalist-policies",
+                  "classical/grasp-planning",
+                  "frontier/competing-theses"
+                ],
+                "linkedFrom": [
+                  "classical/control",
+                  "frontier/reliability-gap",
+                  "frontier/generalization",
+                  "frontier/competing-theses",
+                  "frontier/bear-case"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/generalization/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/generalization/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/generalization/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/generalization/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/generalization/",
+          "measured": [
+            {
+              "id": "/frontier/generalization/",
+              "observed": {
+                "references": [
+                  "pi05-2025",
+                  "pi07-2026",
+                  "pi07-blog-2026",
+                  "egoscale-2026",
+                  "isaac-gr00t-repo-2026",
+                  "gemini-robotics-2-2026",
+                  "open-x-embodiment-2023",
+                  "lin-data-scaling-laws-2024",
+                  "goldberg-data-gap-2025",
+                  "brooks-dexterity-2025",
+                  "karcini-position-2026",
+                  "bessemer-robotics-2026"
+                ],
+                "citationMarkers": [
+                  "pi05-2025",
+                  "pi05-2025",
+                  "pi05-2025",
+                  "pi05-2025",
+                  "pi07-blog-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "gemini-robotics-2-2026",
+                  "pi07-blog-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "egoscale-2026",
+                  "egoscale-2026",
+                  "isaac-gr00t-repo-2026",
+                  "egoscale-2026",
+                  "pi07-2026",
+                  "bessemer-robotics-2026",
+                  "goldberg-data-gap-2025",
+                  "brooks-dexterity-2025",
+                  "karcini-position-2026"
+                ],
+                "seeAlso": [
+                  "manipulation/pi-line",
+                  "data-hardware/data-bottleneck",
+                  "manipulation/cross-embodiment",
+                  "frontier/reliability-gap"
+                ],
+                "linkedFrom": [
+                  "manipulation/pi-line",
+                  "frontier/competing-theses",
+                  "frontier/bear-case"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/reliability-gap/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/reliability-gap/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/reliability-gap/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/reliability-gap/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/reliability-gap/",
+          "measured": [
+            {
+              "id": "/frontier/reliability-gap/",
+              "observed": {
+                "references": [
+                  "bessemer-robotics-2026",
+                  "pistar06-blog-2025",
+                  "rl-100-2025",
+                  "asimov-agentic-2026",
+                  "gemini-robotics-2-2026",
+                  "pi07-2026",
+                  "technology-org-deployed-2026",
+                  "figure-8hr-shift-2026"
+                ],
+                "citationMarkers": [
+                  "bessemer-robotics-2026",
+                  "bessemer-robotics-2026",
+                  "bessemer-robotics-2026",
+                  "bessemer-robotics-2026",
+                  "pistar06-blog-2025",
+                  "rl-100-2025",
+                  "rl-100-2025",
+                  "asimov-agentic-2026",
+                  "gemini-robotics-2-2026",
+                  "gemini-robotics-2-2026",
+                  "pi07-2026",
+                  "technology-org-deployed-2026",
+                  "technology-org-deployed-2026",
+                  "figure-8hr-shift-2026",
+                  "technology-org-deployed-2026"
+                ],
+                "seeAlso": [
+                  "data-hardware/evaluation-crisis",
+                  "manipulation/rl-finetuning",
+                  "rl-sim2real/humanoid-wbc",
+                  "frontier/dexterity"
+                ],
+                "linkedFrom": [
+                  "data-hardware/evaluation-crisis",
+                  "data-hardware/industrial-deployment",
+                  "frontier/dexterity",
+                  "frontier/generalization",
+                  "frontier/competing-theses",
+                  "frontier/bear-case",
+                  "frontier/safety-and-assurance",
+                  "adjacent/autonomous-vehicles",
+                  "adjacent/surgical",
+                  "adjacent/space"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/frontier/safety-and-assurance/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/frontier/safety-and-assurance/",
+      "coveredPopulationMemberIds": [
+        "route:/frontier/safety-and-assurance/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/frontier/safety-and-assurance/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/frontier/safety-and-assurance/",
+          "measured": [
+            {
+              "id": "/frontier/safety-and-assurance/",
+              "observed": {
+                "references": [
+                  "iso-12100",
+                  "iso-10218-1-2025",
+                  "iso-10218-2-2025",
+                  "iso-ts-15066",
+                  "marvel-norcross-2017",
+                  "haddadin-2009",
+                  "han-force-pain-2024",
+                  "iso-13849-1-2023",
+                  "iec-61508-1-2010",
+                  "iso-13850-2015",
+                  "iec-60204-1-2016",
+                  "iso-3691-4-2023",
+                  "a3-robot-safety-standards",
+                  "iso-cd-25785-1",
+                  "osha-otm-robots",
+                  "ames-cbf-2019",
+                  "wabersich-safety-filters-2023",
+                  "ul-4600-2023",
+                  "gsn-standard-v3",
+                  "vovk-conformal-2022",
+                  "angelopoulos-conformal-2021",
+                  "knowno-2023",
+                  "sinha-anomaly-2024",
+                  "farid-failure-2022",
+                  "asimov-agentic-2026",
+                  "gemini-robotics-er2-2026",
+                  "koopman-safe-enough-2026",
+                  "rss-2017",
+                  "kalra-paddock-2016"
+                ],
+                "citationMarkers": [
+                  "iso-ts-15066",
+                  "marvel-norcross-2017",
+                  "haddadin-2009",
+                  "han-force-pain-2024",
+                  "iso-12100",
+                  "iso-10218-1-2025",
+                  "iso-10218-2-2025",
+                  "iec-61508-1-2010",
+                  "iso-13849-1-2023",
+                  "iso-13850-2015",
+                  "iec-60204-1-2016",
+                  "iso-3691-4-2023",
+                  "a3-robot-safety-standards",
+                  "iso-cd-25785-1",
+                  "osha-otm-robots",
+                  "kalra-paddock-2016",
+                  "ames-cbf-2019",
+                  "wabersich-safety-filters-2023",
+                  "ul-4600-2023",
+                  "gsn-standard-v3",
+                  "koopman-safe-enough-2026",
+                  "rss-2017",
+                  "vovk-conformal-2022",
+                  "angelopoulos-conformal-2021",
+                  "knowno-2023",
+                  "sinha-anomaly-2024",
+                  "farid-failure-2022",
+                  "asimov-agentic-2026",
+                  "gemini-robotics-er2-2026"
+                ],
+                "seeAlso": [
+                  "data-hardware/teleop-rigs",
+                  "rl-sim2real/humanoid-wbc",
+                  "data-hardware/hardware-taxonomy"
+                ],
+                "linkedFrom": [
+                  "data-hardware/industrial-deployment",
+                  "frontier/reliability-gap"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/action-chunking/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/action-chunking/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/action-chunking/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/action-chunking/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/action-chunking/",
+          "measured": [
+            {
+              "id": "/manipulation/action-chunking/",
+              "observed": {
+                "references": [
+                  "dagger-2011",
+                  "act-aloha-2023",
+                  "mobile-aloha-2024",
+                  "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "pi-real-time-chunking-blog-2025"
+                ],
+                "citationMarkers": [
+                  "dagger-2011",
+                  "dagger-2011",
+                  "act-aloha-2023",
+                  "act-aloha-2023",
+                  "pi-real-time-chunking-blog-2025",
+                  "diffusion-policy-2023",
+                  "real-time-chunking-2025",
+                  "real-time-chunking-2025",
+                  "mobile-aloha-2024"
+                ],
+                "seeAlso": [
+                  "manipulation/bc-foundations",
+                  "manipulation/diffusion-policy",
+                  "manipulation/realtime-execution"
+                ],
+                "linkedFrom": [
+                  "manipulation/bc-foundations",
+                  "manipulation/diffusion-policy",
+                  "manipulation/vla-models",
+                  "manipulation/realtime-execution",
+                  "data-hardware/teleop-rigs",
+                  "classical/kinematics"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/bc-foundations/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/bc-foundations/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/bc-foundations/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/bc-foundations/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/bc-foundations/",
+          "measured": [
+            {
+              "id": "/manipulation/bc-foundations/",
+              "observed": {
+                "references": [
+                  "alvinn-1988",
+                  "dagger-2011",
+                  "hg-dagger-2019",
+                  "pistar06-blog-2025",
+                  "act-aloha-2023",
+                  "diffusion-policy-2023"
+                ],
+                "citationMarkers": [
+                  "alvinn-1988",
+                  "act-aloha-2023",
+                  "dagger-2011",
+                  "dagger-2011",
+                  "pistar06-blog-2025",
+                  "diffusion-policy-2023",
+                  "act-aloha-2023",
+                  "diffusion-policy-2023",
+                  "dagger-2011",
+                  "dagger-2011",
+                  "hg-dagger-2019",
+                  "pistar06-blog-2025"
+                ],
+                "seeAlso": [
+                  "manipulation/action-chunking",
+                  "manipulation/diffusion-policy",
+                  "manipulation/rl-finetuning"
+                ],
+                "linkedFrom": [
+                  "manipulation/action-chunking",
+                  "manipulation/vla-models",
+                  "manipulation/rl-finetuning",
+                  "rl-sim2real/rl-for-robotics",
+                  "rl-sim2real/why-rl-locomotion",
+                  "data-hardware/data-bottleneck",
+                  "adjacent/autonomous-vehicles"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/comparison-matrix/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/comparison-matrix/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/comparison-matrix/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/comparison-matrix/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/comparison-matrix/",
+          "measured": [
+            {
+              "id": "/manipulation/comparison-matrix/",
+              "observed": {
+                "references": [
+                  "rt1-2022",
+                  "act-aloha-2023",
+                  "diffusion-policy-2023",
+                  "rt2-2023",
+                  "open-x-embodiment-2023",
+                  "octo-2024",
+                  "openvla-2024",
+                  "openvla-oft-2025",
+                  "pi0-2024",
+                  "pi0-fast-2025",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "helix-02-2026",
+                  "agibot-go2-2026",
+                  "skild-series-c-2026",
+                  "real-time-chunking-2025",
+                  "knowledge-insulation-paper-2025"
+                ],
+                "citationMarkers": [
+                  "rt2-2023",
+                  "openvla-2024",
+                  "diffusion-policy-2023",
+                  "pi07-2026",
+                  "act-aloha-2023",
+                  "rt1-2022",
+                  "pi0-2024",
+                  "isaac-gr00t-repo-2026",
+                  "gemini-robotics-15-2025",
+                  "pi05-2025",
+                  "diffusion-policy-2023",
+                  "pi0-2024",
+                  "knowledge-insulation-paper-2025",
+                  "pi0-fast-2025",
+                  "pi07-2026",
+                  "real-time-chunking-2025",
+                  "openvla-oft-2025",
+                  "pi06-model-card-2025",
+                  "helix-02-2026",
+                  "pi05-2025",
+                  "gemini-robotics-2-2026",
+                  "pi05-2025",
+                  "gr00t-n1-2025",
+                  "skild-series-c-2026"
+                ],
+                "seeAlso": [
+                  "manipulation/vla-models",
+                  "manipulation/pi-line",
+                  "manipulation/hierarchical"
+                ],
+                "linkedFrom": [
+                  "manipulation/vla-models",
+                  "manipulation/generalist-policies",
+                  "manipulation/hierarchical",
+                  "manipulation/knowledge-insulation"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/cross-embodiment/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/cross-embodiment/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/cross-embodiment/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/cross-embodiment/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/cross-embodiment/",
+          "measured": [
+            {
+              "id": "/manipulation/cross-embodiment/",
+              "observed": {
+                "references": [
+                  "pi0-2024",
+                  "octo-2024",
+                  "open-x-embodiment-2023",
+                  "oxe-quality-critique-2026",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "pi-human-to-robot-2025"
+                ],
+                "citationMarkers": [
+                  "pi0-2024",
+                  "octo-2024",
+                  "pi0-2024",
+                  "open-x-embodiment-2023",
+                  "oxe-quality-critique-2026",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "isaac-gr00t-repo-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "isaac-gr00t-repo-2026",
+                  "pi-human-to-robot-2025"
+                ],
+                "seeAlso": [
+                  "manipulation/vla-models",
+                  "manipulation/generalist-policies",
+                  "data-hardware/datasets"
+                ],
+                "linkedFrom": [
+                  "manipulation/vla-models",
+                  "manipulation/generalist-policies",
+                  "data-hardware/datasets",
+                  "frontier/generalization"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/diffusion-policy/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/diffusion-policy/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/diffusion-policy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/diffusion-policy/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/diffusion-policy/",
+          "measured": [
+            {
+              "id": "/manipulation/diffusion-policy/",
+              "observed": {
+                "references": [
+                  "diffusion-policy-2023",
+                  "act-aloha-2023",
+                  "consistency-policy-2024",
+                  "one-step-diffusion-2024",
+                  "pi0-2024",
+                  "real-time-chunking-2025"
+                ],
+                "citationMarkers": [
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "act-aloha-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "diffusion-policy-2023",
+                  "consistency-policy-2024",
+                  "one-step-diffusion-2024",
+                  "pi0-2024",
+                  "real-time-chunking-2025",
+                  "pi0-2024"
+                ],
+                "seeAlso": [
+                  "manipulation/action-chunking",
+                  "manipulation/pi-line",
+                  "manipulation/vla-models"
+                ],
+                "linkedFrom": [
+                  "manipulation/bc-foundations",
+                  "manipulation/action-chunking",
+                  "manipulation/vla-models",
+                  "manipulation/pi-line",
+                  "manipulation/realtime-execution",
+                  "classical/grasp-planning"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/generalist-policies/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/generalist-policies/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/generalist-policies/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/generalist-policies/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/generalist-policies/",
+          "measured": [
+            {
+              "id": "/manipulation/generalist-policies/",
+              "observed": {
+                "references": [
+                  "gemini-robotics-2025",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "helix-2025",
+                  "helix-02-2026",
+                  "agibot-world-2025",
+                  "agibot-go2-2026",
+                  "skild-series-c-2026",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026",
+                  "pi-human-to-robot-2025"
+                ],
+                "citationMarkers": [
+                  "gemini-robotics-2025",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "gemini-robotics-2-2026",
+                  "gemini-robotics-15-2025",
+                  "gemini-robotics-2-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "helix-2025",
+                  "helix-02-2026",
+                  "helix-02-2026",
+                  "agibot-world-2025",
+                  "agibot-go2-2026",
+                  "agibot-go2-2026",
+                  "agibot-go2-2026",
+                  "skild-series-c-2026",
+                  "isaac-gr00t-repo-2026",
+                  "pi-human-to-robot-2025"
+                ],
+                "seeAlso": [
+                  "manipulation/vla-models",
+                  "manipulation/pi-line",
+                  "manipulation/comparison-matrix"
+                ],
+                "linkedFrom": [
+                  "manipulation/cross-embodiment",
+                  "frontier/dexterity"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/hierarchical/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/hierarchical/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/hierarchical/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/hierarchical/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/hierarchical/",
+          "measured": [
+            {
+              "id": "/manipulation/hierarchical/",
+              "observed": {
+                "references": [
+                  "saycan-2022",
+                  "code-as-policies-2022",
+                  "moka-2024",
+                  "rekep-2024",
+                  "robopoint-2024",
+                  "ecot-2024",
+                  "hi-robot-2025",
+                  "pi05-2025",
+                  "gemini-robotics-15-2025",
+                  "helix-02-2026",
+                  "agibot-go2-2026",
+                  "pi07-2026",
+                  "mem-2026"
+                ],
+                "citationMarkers": [
+                  "saycan-2022",
+                  "code-as-policies-2022",
+                  "moka-2024",
+                  "rekep-2024",
+                  "robopoint-2024",
+                  "ecot-2024",
+                  "pi05-2025",
+                  "hi-robot-2025",
+                  "gemini-robotics-15-2025",
+                  "agibot-go2-2026",
+                  "helix-02-2026",
+                  "pi07-2026",
+                  "mem-2026",
+                  "pi05-2025",
+                  "gemini-robotics-15-2025",
+                  "agibot-go2-2026",
+                  "gemini-robotics-15-2025",
+                  "pi05-2025"
+                ],
+                "seeAlso": [
+                  "manipulation/vla-models",
+                  "manipulation/knowledge-insulation",
+                  "manipulation/comparison-matrix"
+                ],
+                "linkedFrom": [
+                  "manipulation/comparison-matrix",
+                  "manipulation/knowledge-insulation",
+                  "classical/motion-planning",
+                  "classical/perception",
+                  "frontier/competing-theses"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/knowledge-insulation/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/knowledge-insulation/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/knowledge-insulation/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/knowledge-insulation/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/knowledge-insulation/",
+          "measured": [
+            {
+              "id": "/manipulation/knowledge-insulation/",
+              "observed": {
+                "references": [
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-2025",
+                  "pi0-fast-2025",
+                  "pi0-2024",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026",
+                  "rt2-2023"
+                ],
+                "citationMarkers": [
+                  "rt2-2023",
+                  "pi0-2024",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-2025",
+                  "knowledge-insulation-2025",
+                  "knowledge-insulation-paper-2025",
+                  "pi0-fast-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "pi05-2025",
+                  "pi06-model-card-2025",
+                  "pi07-2026"
+                ],
+                "seeAlso": [
+                  "manipulation/pi-line",
+                  "manipulation/vla-models",
+                  "manipulation/hierarchical"
+                ],
+                "linkedFrom": [
+                  "manipulation/pi-line",
+                  "manipulation/hierarchical"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/pi-line/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/pi-line/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/pi-line/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/pi-line/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/pi-line/",
+          "measured": [
+            {
+              "id": "/manipulation/pi-line/",
+              "observed": {
+                "references": [
+                  "pi0-2024",
+                  "pi0-fast-2025",
+                  "pi05-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-2025",
+                  "pi06-model-card-2025",
+                  "pistar06-2025",
+                  "pistar06-blog-2025",
+                  "mem-2026",
+                  "pi07-2026",
+                  "pi07-blog-2026",
+                  "openpi-repo-2024",
+                  "real-time-chunking-2025"
+                ],
+                "citationMarkers": [
+                  "pi0-2024",
+                  "pi0-2024",
+                  "pi0-2024",
+                  "pi0-2024",
+                  "real-time-chunking-2025",
+                  "pi0-2024",
+                  "pi06-model-card-2025",
+                  "pi0-fast-2025",
+                  "pi0-fast-2025",
+                  "pi0-fast-2025",
+                  "knowledge-insulation-2025",
+                  "pi05-2025",
+                  "pi05-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "knowledge-insulation-paper-2025",
+                  "pi06-model-card-2025",
+                  "pi06-model-card-2025",
+                  "pistar06-2025",
+                  "pistar06-blog-2025",
+                  "pistar06-2025",
+                  "mem-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "pi07-2026",
+                  "pi07-blog-2026",
+                  "openpi-repo-2024",
+                  "openpi-repo-2024",
+                  "pi07-2026"
+                ],
+                "seeAlso": [
+                  "manipulation/vla-models",
+                  "manipulation/knowledge-insulation",
+                  "manipulation/realtime-execution",
+                  "frontier/generalization"
+                ],
+                "linkedFrom": [
+                  "manipulation/action-chunking",
+                  "manipulation/diffusion-policy",
+                  "manipulation/vla-models",
+                  "manipulation/generalist-policies",
+                  "manipulation/comparison-matrix",
+                  "manipulation/rl-finetuning",
+                  "manipulation/realtime-execution",
+                  "manipulation/knowledge-insulation",
+                  "frontier/generalization"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/realtime-execution/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/realtime-execution/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/realtime-execution/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/realtime-execution/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/realtime-execution/",
+          "measured": [
+            {
+              "id": "/manipulation/realtime-execution/",
+              "observed": {
+                "references": [
+                  "act-aloha-2023",
+                  "pi0-2024",
+                  "pi06-model-card-2025",
+                  "pi07-2026",
+                  "real-time-chunking-2025",
+                  "training-time-rtc-2025",
+                  "pi-real-time-chunking-blog-2025",
+                  "vla-perf-2026",
+                  "consistency-policy-2024"
+                ],
+                "citationMarkers": [
+                  "real-time-chunking-2025",
+                  "real-time-chunking-2025",
+                  "vla-perf-2026",
+                  "vla-perf-2026",
+                  "vla-perf-2026",
+                  "pi0-2024",
+                  "real-time-chunking-2025",
+                  "act-aloha-2023",
+                  "pi-real-time-chunking-blog-2025",
+                  "real-time-chunking-2025",
+                  "real-time-chunking-2025",
+                  "training-time-rtc-2025",
+                  "pi07-2026",
+                  "vla-perf-2026",
+                  "pi0-2024",
+                  "pi06-model-card-2025",
+                  "pi07-2026",
+                  "consistency-policy-2024"
+                ],
+                "seeAlso": [
+                  "manipulation/action-chunking",
+                  "manipulation/diffusion-policy",
+                  "manipulation/pi-line"
+                ],
+                "linkedFrom": [
+                  "manipulation/action-chunking",
+                  "manipulation/pi-line",
+                  "data-hardware/hardware-taxonomy"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/rl-finetuning/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/rl-finetuning/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/rl-finetuning/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/rl-finetuning/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/rl-finetuning/",
+          "measured": [
+            {
+              "id": "/manipulation/rl-finetuning/",
+              "observed": {
+                "references": [
+                  "dagger-2011",
+                  "dppo-2024",
+                  "conrft-2025",
+                  "pi-rl-2026",
+                  "pistar06-2025",
+                  "pistar06-blog-2025",
+                  "pi06-model-card-2025",
+                  "hil-serl-2024",
+                  "pld-2026",
+                  "rldg-2024",
+                  "rl-vla-generalization-2025",
+                  "pair-vla-2026"
+                ],
+                "citationMarkers": [
+                  "dagger-2011",
+                  "pistar06-blog-2025",
+                  "dppo-2024",
+                  "conrft-2025",
+                  "pi-rl-2026",
+                  "dppo-2024",
+                  "conrft-2025",
+                  "pi-rl-2026",
+                  "pistar06-2025",
+                  "pistar06-2025",
+                  "pistar06-2025",
+                  "pi06-model-card-2025",
+                  "pistar06-2025",
+                  "hil-serl-2024",
+                  "pld-2026",
+                  "rldg-2024",
+                  "rl-vla-generalization-2025",
+                  "pair-vla-2026"
+                ],
+                "seeAlso": [
+                  "manipulation/pi-line",
+                  "manipulation/bc-foundations",
+                  "data-hardware/evaluation-crisis",
+                  "rl-sim2real/rl-for-robotics"
+                ],
+                "linkedFrom": [
+                  "manipulation/bc-foundations",
+                  "rl-sim2real/rl-for-robotics",
+                  "data-hardware/evaluation-crisis",
+                  "frontier/reliability-gap",
+                  "frontier/competing-theses"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/manipulation/vla-models/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/manipulation/vla-models/",
+      "coveredPopulationMemberIds": [
+        "route:/manipulation/vla-models/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/manipulation/vla-models/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/manipulation/vla-models/",
+          "measured": [
+            {
+              "id": "/manipulation/vla-models/",
+              "observed": {
+                "references": [
+                  "rt1-2022",
+                  "rt2-2023",
+                  "open-x-embodiment-2023",
+                  "octo-2024",
+                  "openvla-2024",
+                  "openvla-oft-2025",
+                  "knowledge-insulation-2025",
+                  "oxe-quality-critique-2026",
+                  "act-aloha-2023"
+                ],
+                "citationMarkers": [
+                  "rt1-2022",
+                  "rt1-2022",
+                  "rt2-2023",
+                  "rt2-2023",
+                  "rt2-2023",
+                  "knowledge-insulation-2025",
+                  "open-x-embodiment-2023",
+                  "open-x-embodiment-2023",
+                  "oxe-quality-critique-2026",
+                  "octo-2024",
+                  "octo-2024",
+                  "openvla-2024",
+                  "openvla-2024",
+                  "rt2-2023",
+                  "openvla-2024",
+                  "openvla-oft-2025",
+                  "openvla-oft-2025",
+                  "openvla-oft-2025",
+                  "act-aloha-2023"
+                ],
+                "seeAlso": [
+                  "manipulation/pi-line",
+                  "manipulation/cross-embodiment",
+                  "manipulation/comparison-matrix"
+                ],
+                "linkedFrom": [
+                  "manipulation/diffusion-policy",
+                  "manipulation/pi-line",
+                  "manipulation/generalist-policies",
+                  "manipulation/comparison-matrix",
+                  "manipulation/hierarchical",
+                  "manipulation/cross-embodiment",
+                  "manipulation/knowledge-insulation",
+                  "data-hardware/datasets"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/humanoid-wbc/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/humanoid-wbc/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/humanoid-wbc/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/humanoid-wbc/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/humanoid-wbc/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/humanoid-wbc/",
+              "observed": {
+                "references": [
+                  "phc-2023",
+                  "h2o-2024",
+                  "omnih2o-2024",
+                  "humanplus-2024",
+                  "exbody2-2024",
+                  "asap-2025",
+                  "kungfubot-2025",
+                  "gmt-2025",
+                  "robust-tracking-2026",
+                  "leverb-2025",
+                  "wholebodyvla-2025",
+                  "helix-02-2026",
+                  "gr00t-n1-2025",
+                  "isaac-gr00t-repo-2026",
+                  "groot-wbc-2026",
+                  "gemini-robotics-2-2026"
+                ],
+                "citationMarkers": [
+                  "phc-2023",
+                  "h2o-2024",
+                  "omnih2o-2024",
+                  "humanplus-2024",
+                  "exbody2-2024",
+                  "asap-2025",
+                  "kungfubot-2025",
+                  "gmt-2025",
+                  "robust-tracking-2026",
+                  "helix-02-2026",
+                  "isaac-gr00t-repo-2026",
+                  "groot-wbc-2026",
+                  "leverb-2025",
+                  "wholebodyvla-2025",
+                  "gr00t-n1-2025",
+                  "gemini-robotics-2-2026",
+                  "gemini-robotics-2-2026",
+                  "robust-tracking-2026"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/legged-locomotion",
+                  "rl-sim2real/reward-design-mpc",
+                  "classical/kinematics"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/legged-locomotion",
+                  "rl-sim2real/reward-design-mpc",
+                  "classical/kinematics",
+                  "classical/control",
+                  "frontier/reliability-gap",
+                  "frontier/safety-and-assurance"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/legged-locomotion/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/legged-locomotion/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/legged-locomotion/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/legged-locomotion/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/legged-locomotion/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/legged-locomotion/",
+              "observed": {
+                "references": [
+                  "hwangbo-2019",
+                  "lee-2020",
+                  "miki-2022",
+                  "rudin-2021",
+                  "choi-2023",
+                  "park-2017-bounding",
+                  "h2o-2024",
+                  "asap-2025",
+                  "mit-humanoid-rewards-2023",
+                  "rai-atlas-rl-2025",
+                  "bd-spot-rl-2024",
+                  "bd-atlas-lbm-2025"
+                ],
+                "citationMarkers": [
+                  "hwangbo-2019",
+                  "lee-2020",
+                  "miki-2022",
+                  "rudin-2021",
+                  "choi-2023",
+                  "park-2017-bounding",
+                  "park-2017-bounding",
+                  "h2o-2024",
+                  "asap-2025",
+                  "mit-humanoid-rewards-2023",
+                  "bd-spot-rl-2024",
+                  "rai-atlas-rl-2025",
+                  "bd-atlas-lbm-2025"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/humanoid-wbc",
+                  "rl-sim2real/sim2real-transfer"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/sim2real-transfer",
+                  "rl-sim2real/humanoid-wbc",
+                  "rl-sim2real/reward-design-mpc",
+                  "adjacent/drones"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/parallel-sim-rl/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/parallel-sim-rl/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/parallel-sim-rl/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/parallel-sim-rl/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/parallel-sim-rl/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/parallel-sim-rl/",
+              "observed": {
+                "references": [
+                  "rudin-2021",
+                  "isaac-gym-2021",
+                  "brax-2021",
+                  "mujoco-playground-2025",
+                  "isaac-lab-2025",
+                  "newton-manipulation-blog-2026",
+                  "state-of-simulation-2026"
+                ],
+                "citationMarkers": [
+                  "rudin-2021",
+                  "isaac-gym-2021",
+                  "rudin-2021",
+                  "brax-2021",
+                  "mujoco-playground-2025",
+                  "state-of-simulation-2026",
+                  "isaac-lab-2025",
+                  "isaac-lab-2025",
+                  "isaac-lab-2025",
+                  "state-of-simulation-2026",
+                  "newton-manipulation-blog-2026",
+                  "newton-manipulation-blog-2026",
+                  "newton-manipulation-blog-2026",
+                  "newton-manipulation-blog-2026",
+                  "isaac-lab-2025",
+                  "state-of-simulation-2026"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/sim2real-transfer",
+                  "rl-sim2real/reward-design-mpc"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/rl-for-robotics",
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/sim2real-transfer",
+                  "rl-sim2real/reward-design-mpc",
+                  "data-hardware/data-bottleneck"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/reward-design-mpc/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/reward-design-mpc/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/reward-design-mpc/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/reward-design-mpc/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/reward-design-mpc/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/reward-design-mpc/",
+              "observed": {
+                "references": [
+                  "rudin-2021",
+                  "legged-gym-repo-2021",
+                  "isaac-lab-2025",
+                  "openai-rubiks-cube-2019",
+                  "eureka-2024",
+                  "rda-2026",
+                  "rewards-constraints-2024",
+                  "gain-adaptation-2025",
+                  "stagewise-cmorl-2024",
+                  "mujoco-ilqr-2026",
+                  "lee-2020",
+                  "miki-2022",
+                  "bd-spot-rl-2024",
+                  "bd-atlas-lbm-2025",
+                  "gemini-robotics-2-2026",
+                  "state-of-simulation-2026"
+                ],
+                "citationMarkers": [
+                  "legged-gym-repo-2021",
+                  "rudin-2021",
+                  "rewards-constraints-2024",
+                  "stagewise-cmorl-2024",
+                  "gain-adaptation-2025",
+                  "eureka-2024",
+                  "eureka-2024",
+                  "rda-2026",
+                  "rudin-2021",
+                  "openai-rubiks-cube-2019",
+                  "isaac-lab-2025",
+                  "isaac-lab-2025",
+                  "mujoco-ilqr-2026",
+                  "bd-spot-rl-2024",
+                  "bd-atlas-lbm-2025",
+                  "lee-2020",
+                  "miki-2022",
+                  "gemini-robotics-2-2026",
+                  "mujoco-ilqr-2026",
+                  "state-of-simulation-2026"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/legged-locomotion",
+                  "rl-sim2real/humanoid-wbc",
+                  "rl-sim2real/parallel-sim-rl"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/rl-for-robotics",
+                  "rl-sim2real/parallel-sim-rl",
+                  "rl-sim2real/humanoid-wbc",
+                  "world-models/generative-sim",
+                  "classical/motion-planning",
+                  "classical/control"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/rl-for-robotics/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/rl-for-robotics/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/rl-for-robotics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/rl-for-robotics/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/rl-for-robotics/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/rl-for-robotics/",
+              "observed": {
+                "references": [
+                  "sutton-barto-2018",
+                  "rudin-2021",
+                  "haarnoja-walk-2019",
+                  "qt-opt-2018",
+                  "levine-hand-eye-2018",
+                  "daydreamer-2022",
+                  "ppo-2017",
+                  "sac-2018",
+                  "ddpg-2016",
+                  "td3-2018",
+                  "offline-rl-tutorial-2020",
+                  "cql-2020",
+                  "iql-2022",
+                  "td3-bc-2021",
+                  "q-transformer-2023",
+                  "offline-rl-vs-bc-2022",
+                  "robomimic-2021",
+                  "rlpd-2023",
+                  "her-2017",
+                  "autonomous-rl-2022",
+                  "reset-free-rl-2021",
+                  "real-world-rl-ingredients-2020",
+                  "hil-serl-2024",
+                  "pi-rl-2026",
+                  "pld-2026",
+                  "droid-2024",
+                  "open-x-embodiment-2023"
+                ],
+                "citationMarkers": [
+                  "sutton-barto-2018",
+                  "rudin-2021",
+                  "rudin-2021",
+                  "daydreamer-2022",
+                  "haarnoja-walk-2019",
+                  "qt-opt-2018",
+                  "levine-hand-eye-2018",
+                  "ppo-2017",
+                  "sutton-barto-2018",
+                  "ddpg-2016",
+                  "td3-2018",
+                  "sac-2018",
+                  "rudin-2021",
+                  "haarnoja-walk-2019",
+                  "daydreamer-2022",
+                  "qt-opt-2018",
+                  "levine-hand-eye-2018",
+                  "offline-rl-tutorial-2020",
+                  "cql-2020",
+                  "iql-2022",
+                  "td3-bc-2021",
+                  "q-transformer-2023",
+                  "robomimic-2021",
+                  "offline-rl-vs-bc-2022",
+                  "rlpd-2023",
+                  "hil-serl-2024",
+                  "her-2017",
+                  "real-world-rl-ingredients-2020",
+                  "autonomous-rl-2022",
+                  "reset-free-rl-2021",
+                  "hil-serl-2024",
+                  "pi-rl-2026",
+                  "pld-2026",
+                  "hil-serl-2024",
+                  "droid-2024",
+                  "open-x-embodiment-2023"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/parallel-sim-rl",
+                  "manipulation/rl-finetuning",
+                  "manipulation/bc-foundations"
+                ],
+                "linkedFrom": [
+                  "manipulation/rl-finetuning",
+                  "rl-sim2real/why-rl-locomotion"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/sim2real-transfer/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/sim2real-transfer/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/sim2real-transfer/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/sim2real-transfer/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/sim2real-transfer/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/sim2real-transfer/",
+              "observed": {
+                "references": [
+                  "tobin-2017",
+                  "peng-2018",
+                  "openai-rubiks-cube-2019",
+                  "isaac-lab-2025",
+                  "lee-2020",
+                  "rma-2021",
+                  "hwangbo-2019",
+                  "asap-2025",
+                  "splatsim-2024",
+                  "robogsim-2024",
+                  "reality-gap-survey-2026",
+                  "newton-manipulation-blog-2026"
+                ],
+                "citationMarkers": [
+                  "reality-gap-survey-2026",
+                  "tobin-2017",
+                  "peng-2018",
+                  "openai-rubiks-cube-2019",
+                  "isaac-lab-2025",
+                  "isaac-lab-2025",
+                  "lee-2020",
+                  "rma-2021",
+                  "isaac-lab-2025",
+                  "isaac-lab-2025",
+                  "hwangbo-2019",
+                  "asap-2025",
+                  "asap-2025",
+                  "asap-2025",
+                  "splatsim-2024",
+                  "robogsim-2024",
+                  "newton-manipulation-blog-2026",
+                  "reality-gap-survey-2026"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/legged-locomotion",
+                  "world-models/generative-sim"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/rl-for-robotics",
+                  "rl-sim2real/why-rl-locomotion",
+                  "rl-sim2real/parallel-sim-rl",
+                  "rl-sim2real/legged-locomotion",
+                  "rl-sim2real/humanoid-wbc",
+                  "world-models/generative-sim",
+                  "data-hardware/evaluation-crisis",
+                  "classical/control"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/rl-sim2real/why-rl-locomotion/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/rl-sim2real/why-rl-locomotion/",
+      "coveredPopulationMemberIds": [
+        "route:/rl-sim2real/why-rl-locomotion/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/rl-sim2real/why-rl-locomotion/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/rl-sim2real/why-rl-locomotion/",
+          "measured": [
+            {
+              "id": "/rl-sim2real/why-rl-locomotion/",
+              "observed": {
+                "references": [
+                  "rudin-2021",
+                  "reality-gap-survey-2026",
+                  "isaac-lab-2025",
+                  "lin-humanoid-sim2real-2025",
+                  "openai-rubiks-cube-2019",
+                  "play2perfect-2026",
+                  "gemini-robotics-2-2026"
+                ],
+                "citationMarkers": [
+                  "rudin-2021",
+                  "reality-gap-survey-2026",
+                  "isaac-lab-2025",
+                  "lin-humanoid-sim2real-2025",
+                  "openai-rubiks-cube-2019",
+                  "isaac-lab-2025",
+                  "play2perfect-2026",
+                  "gemini-robotics-2-2026"
+                ],
+                "seeAlso": [
+                  "rl-sim2real/parallel-sim-rl",
+                  "rl-sim2real/sim2real-transfer",
+                  "rl-sim2real/legged-locomotion",
+                  "classical/grasp-planning"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/rl-for-robotics",
+                  "rl-sim2real/parallel-sim-rl",
+                  "rl-sim2real/sim2real-transfer",
+                  "rl-sim2real/legged-locomotion",
+                  "rl-sim2real/reward-design-mpc",
+                  "classical/grasp-planning",
+                  "adjacent/autonomous-vehicles",
+                  "adjacent/drones"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/world-models/generative-sim/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/world-models/generative-sim/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/generative-sim/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/world-models/generative-sim/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/world-models/generative-sim/",
+          "measured": [
+            {
+              "id": "/world-models/generative-sim/",
+              "observed": {
+                "references": [
+                  "robogen-2024",
+                  "holodeck-2024",
+                  "robocasa-2024",
+                  "robocasa365-2026",
+                  "grs-2024",
+                  "isaac-lab-2025",
+                  "world-model-survey-2026",
+                  "eureka-2024"
+                ],
+                "citationMarkers": [
+                  "world-model-survey-2026",
+                  "robogen-2024",
+                  "robogen-2024",
+                  "holodeck-2024",
+                  "holodeck-2024",
+                  "robocasa-2024",
+                  "robocasa-2024",
+                  "robocasa365-2026",
+                  "isaac-lab-2025",
+                  "grs-2024",
+                  "eureka-2024",
+                  "robogen-2024",
+                  "holodeck-2024",
+                  "robocasa-2024"
+                ],
+                "seeAlso": [
+                  "world-models/generative-video",
+                  "rl-sim2real/sim2real-transfer",
+                  "world-models/taxonomy"
+                ],
+                "linkedFrom": [
+                  "rl-sim2real/sim2real-transfer",
+                  "world-models/generative-video",
+                  "classical/motion-planning"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/world-models/generative-video/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/world-models/generative-video/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/generative-video/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/world-models/generative-video/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/world-models/generative-video/",
+          "measured": [
+            {
+              "id": "/world-models/generative-video/",
+              "observed": {
+                "references": [
+                  "cosmos-3-2026",
+                  "genie-3-2025",
+                  "project-genie-2026",
+                  "gr-1-2023",
+                  "gr-2-2024",
+                  "1x-world-model-lab-2026",
+                  "odyssey-2-2025",
+                  "interactive-world-simulator-2026",
+                  "roboworld-2026",
+                  "world-model-survey-2026"
+                ],
+                "citationMarkers": [
+                  "cosmos-3-2026",
+                  "cosmos-3-2026",
+                  "cosmos-3-2026",
+                  "genie-3-2025",
+                  "genie-3-2025",
+                  "genie-3-2025",
+                  "project-genie-2026",
+                  "gr-1-2023",
+                  "gr-2-2024",
+                  "1x-world-model-lab-2026",
+                  "odyssey-2-2025",
+                  "world-model-survey-2026",
+                  "interactive-world-simulator-2026",
+                  "roboworld-2026",
+                  "world-model-survey-2026",
+                  "world-model-survey-2026"
+                ],
+                "seeAlso": [
+                  "world-models/taxonomy",
+                  "world-models/generative-sim",
+                  "world-models/latent-dynamics",
+                  "adjacent/autonomous-vehicles"
+                ],
+                "linkedFrom": [
+                  "world-models/taxonomy",
+                  "world-models/latent-dynamics",
+                  "world-models/jepa",
+                  "world-models/generative-sim",
+                  "adjacent/autonomous-vehicles"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/world-models/jepa/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/world-models/jepa/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/jepa/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/world-models/jepa/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/world-models/jepa/",
+          "measured": [
+            {
+              "id": "/world-models/jepa/",
+              "observed": {
+                "references": [
+                  "vjepa-2024",
+                  "vjepa2-2025",
+                  "jepa-value-planning-2026",
+                  "ami-labs-2026",
+                  "world-model-survey-2026",
+                  "genie-3-2025",
+                  "cosmos-3-2026",
+                  "odyssey-2-2025",
+                  "interactive-world-simulator-2026",
+                  "fast-wam-2026"
+                ],
+                "citationMarkers": [
+                  "vjepa-2024",
+                  "vjepa2-2025",
+                  "vjepa2-2025",
+                  "vjepa2-2025",
+                  "jepa-value-planning-2026",
+                  "ami-labs-2026",
+                  "ami-labs-2026",
+                  "genie-3-2025",
+                  "cosmos-3-2026",
+                  "odyssey-2-2025",
+                  "interactive-world-simulator-2026",
+                  "vjepa-2024",
+                  "vjepa2-2025",
+                  "vjepa2-2025",
+                  "world-model-survey-2026",
+                  "world-model-survey-2026",
+                  "fast-wam-2026"
+                ],
+                "seeAlso": [
+                  "world-models/taxonomy",
+                  "world-models/generative-video",
+                  "world-models/latent-dynamics"
+                ],
+                "linkedFrom": [
+                  "world-models/taxonomy",
+                  "world-models/latent-dynamics"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/world-models/latent-dynamics/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/world-models/latent-dynamics/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/latent-dynamics/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/world-models/latent-dynamics/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/world-models/latent-dynamics/",
+          "measured": [
+            {
+              "id": "/world-models/latent-dynamics/",
+              "observed": {
+                "references": [
+                  "dreamer-2019",
+                  "dreamerv3-2023",
+                  "tdmpc-2022",
+                  "tdmpc2-2023",
+                  "daydreamer-2022",
+                  "robotic-world-model-2025",
+                  "dream-mpc-2026",
+                  "fast-wam-2026",
+                  "world-model-survey-2026"
+                ],
+                "citationMarkers": [
+                  "dreamer-2019",
+                  "dreamer-2019",
+                  "dreamerv3-2023",
+                  "dreamerv3-2023",
+                  "tdmpc-2022",
+                  "tdmpc2-2023",
+                  "tdmpc2-2023",
+                  "daydreamer-2022",
+                  "dreamerv3-2023",
+                  "tdmpc2-2023",
+                  "robotic-world-model-2025",
+                  "dream-mpc-2026",
+                  "fast-wam-2026",
+                  "world-model-survey-2026"
+                ],
+                "seeAlso": [
+                  "world-models/taxonomy",
+                  "world-models/generative-video",
+                  "world-models/jepa"
+                ],
+                "linkedFrom": [
+                  "world-models/taxonomy",
+                  "world-models/generative-video",
+                  "world-models/jepa",
+                  "classical/state-estimation"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-ART-010:route:/world-models/taxonomy/",
+      "assertionId": "VAL-B2-ART-010",
+      "populationMemberId": "route:/world-models/taxonomy/",
+      "coveredPopulationMemberIds": [
+        "route:/world-models/taxonomy/"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Existing article text, citation markers, references, see-also relationships, and linked-from relationships are unchanged by the v2 rollout.",
+      "actual": "/world-models/taxonomy/ renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public:article",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "member": "route:/world-models/taxonomy/",
+          "measured": [
+            {
+              "id": "/world-models/taxonomy/",
+              "observed": {
+                "references": [
+                  "world-model-survey-2026",
+                  "dreamerv3-2023",
+                  "tdmpc2-2023",
+                  "daydreamer-2022",
+                  "cosmos-3-2026",
+                  "genie-3-2025",
+                  "vjepa2-2025",
+                  "worldvla-2025",
+                  "cosmos-policy-2026",
+                  "occworld-2023",
+                  "mujoco-2012",
+                  "3dgs-2023"
+                ],
+                "citationMarkers": [
+                  "world-model-survey-2026",
+                  "world-model-survey-2026",
+                  "dreamerv3-2023",
+                  "daydreamer-2022",
+                  "tdmpc2-2023",
+                  "cosmos-3-2026",
+                  "genie-3-2025",
+                  "vjepa2-2025",
+                  "worldvla-2025",
+                  "cosmos-policy-2026",
+                  "occworld-2023",
+                  "mujoco-2012",
+                  "3dgs-2023"
+                ],
+                "seeAlso": [
+                  "world-models/latent-dynamics",
+                  "world-models/generative-video",
+                  "world-models/jepa",
+                  "classical/scene-representation"
+                ],
+                "linkedFrom": [
+                  "world-models/latent-dynamics",
+                  "world-models/generative-video",
+                  "world-models/jepa",
+                  "world-models/generative-sim",
+                  "classical/scene-representation",
+                  "frontier/competing-theses"
+                ]
+              }
+            }
+          ],
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "evidence": [
+            "evidence/brand-v2/article-apparatus.json"
+          ]
         }
       }
     },

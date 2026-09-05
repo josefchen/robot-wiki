@@ -28,7 +28,7 @@
     "check:brand-v2-enforcement:release:counts": "node scripts/brand-v2-enforcement.ts --check-release --count-only",
     "refresh:brand-v2-evidence": "npm run generate:brand-v2-registries && npm run generate:og-cards && npm run build:ungated && node scripts/prune-export-artifacts.ts && npm run refresh:brand-v2-evidence:browser && npm run refresh:brand-v2-evidence:renderer-parity && npm run generate:brand-v2-enforcement",
     "refresh:brand-v2-evidence:renderer-parity": "vitest run tests/unit/brand-v2-token-evidence.test.ts tests/unit/og-card-shipped-bytes.test.ts",
-    "refresh:brand-v2-evidence:browser": "playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-primitives.spec.ts tests/e2e/brand-v2.spec.ts tests/e2e/brand-v2-tektur-font-delivery.spec.ts tests/e2e/brand-v2-identity.spec.ts tests/e2e/brand-v2-shell.spec.ts tests/e2e/brand-v2-mobile-shell.spec.ts tests/e2e/brand-v2-article.spec.ts tests/e2e/brand-v2-home.spec.ts tests/e2e/brand-v2-home-tools.spec.ts",
+    "refresh:brand-v2-evidence:browser": "playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-primitives.spec.ts tests/e2e/brand-v2.spec.ts tests/e2e/brand-v2-tektur-font-delivery.spec.ts tests/e2e/brand-v2-identity.spec.ts tests/e2e/brand-v2-shell.spec.ts tests/e2e/brand-v2-mobile-shell.spec.ts tests/e2e/brand-v2-article.spec.ts tests/e2e/brand-v2-article-apparatus.spec.ts tests/e2e/brand-v2-home.spec.ts tests/e2e/brand-v2-home-tools.spec.ts",
     "refresh:brand-v2-evidence:focused-mutation": "playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-route-flows.spec.ts -g \"rejects a route profile\" --workers=1",
     "test:propagation": "vitest run --config vitest.propagation.config.mts",
     "test:e2e": "playwright test",

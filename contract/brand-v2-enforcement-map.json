@@ -2071,8 +2071,238 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-010",
-          "mechanism": "VAL-B2-ART-010 pending rollout evidence over contract/brand-v2-registries.json#routes.public:article"
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/adjacent/autonomous-vehicles/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/adjacent/drones/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/adjacent/space/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/adjacent/surgical/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/control/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/grasp-planning/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/kinematics/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/motion-planning/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/perception/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/scene-representation/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/classical/state-estimation/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/data-bottleneck/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/datasets/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/evaluation-crisis/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/hardware-taxonomy/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/industrial-deployment/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/data-hardware/teleop-rigs/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/bear-case/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/competing-theses/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/dexterity/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/generalization/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/reliability-gap/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/frontier/safety-and-assurance/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/action-chunking/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/bc-foundations/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/comparison-matrix/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/cross-embodiment/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/diffusion-policy/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/generalist-policies/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/hierarchical/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/knowledge-insulation/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/pi-line/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/realtime-execution/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/rl-finetuning/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/manipulation/vla-models/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/humanoid-wbc/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/legged-locomotion/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/parallel-sim-rl/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/reward-design-mpc/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/rl-for-robotics/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/sim2real-transfer/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/rl-sim2real/why-rl-locomotion/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/world-models/generative-sim/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/world-models/generative-video/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/world-models/jepa/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/world-models/latent-dynamics/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-010:route:/world-models/taxonomy/",
+          "mechanism": "VAL-B2-ART-010 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over contract/brand-v2-registries.json#routes.public:article"
         },
         {
           "kind": "test",
@@ -2101,7 +2331,53 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-ART-010"
+          "result:VAL-B2-ART-010:route:/adjacent/autonomous-vehicles/",
+          "result:VAL-B2-ART-010:route:/adjacent/drones/",
+          "result:VAL-B2-ART-010:route:/adjacent/space/",
+          "result:VAL-B2-ART-010:route:/adjacent/surgical/",
+          "result:VAL-B2-ART-010:route:/classical/control/",
+          "result:VAL-B2-ART-010:route:/classical/grasp-planning/",
+          "result:VAL-B2-ART-010:route:/classical/kinematics/",
+          "result:VAL-B2-ART-010:route:/classical/motion-planning/",
+          "result:VAL-B2-ART-010:route:/classical/perception/",
+          "result:VAL-B2-ART-010:route:/classical/scene-representation/",
+          "result:VAL-B2-ART-010:route:/classical/state-estimation/",
+          "result:VAL-B2-ART-010:route:/data-hardware/data-bottleneck/",
+          "result:VAL-B2-ART-010:route:/data-hardware/datasets/",
+          "result:VAL-B2-ART-010:route:/data-hardware/evaluation-crisis/",
+          "result:VAL-B2-ART-010:route:/data-hardware/hardware-taxonomy/",
+          "result:VAL-B2-ART-010:route:/data-hardware/industrial-deployment/",
+          "result:VAL-B2-ART-010:route:/data-hardware/teleop-rigs/",
+          "result:VAL-B2-ART-010:route:/frontier/bear-case/",
+          "result:VAL-B2-ART-010:route:/frontier/competing-theses/",
+          "result:VAL-B2-ART-010:route:/frontier/dexterity/",
+          "result:VAL-B2-ART-010:route:/frontier/generalization/",
+          "result:VAL-B2-ART-010:route:/frontier/reliability-gap/",
+          "result:VAL-B2-ART-010:route:/frontier/safety-and-assurance/",
+          "result:VAL-B2-ART-010:route:/manipulation/action-chunking/",
+          "result:VAL-B2-ART-010:route:/manipulation/bc-foundations/",
+          "result:VAL-B2-ART-010:route:/manipulation/comparison-matrix/",
+          "result:VAL-B2-ART-010:route:/manipulation/cross-embodiment/",
+          "result:VAL-B2-ART-010:route:/manipulation/diffusion-policy/",
+          "result:VAL-B2-ART-010:route:/manipulation/generalist-policies/",
+          "result:VAL-B2-ART-010:route:/manipulation/hierarchical/",
+          "result:VAL-B2-ART-010:route:/manipulation/knowledge-insulation/",
+          "result:VAL-B2-ART-010:route:/manipulation/pi-line/",
+          "result:VAL-B2-ART-010:route:/manipulation/realtime-execution/",
+          "result:VAL-B2-ART-010:route:/manipulation/rl-finetuning/",
+          "result:VAL-B2-ART-010:route:/manipulation/vla-models/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/humanoid-wbc/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/legged-locomotion/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/parallel-sim-rl/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/reward-design-mpc/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/rl-for-robotics/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/sim2real-transfer/",
+          "result:VAL-B2-ART-010:route:/rl-sim2real/why-rl-locomotion/",
+          "result:VAL-B2-ART-010:route:/world-models/generative-sim/",
+          "result:VAL-B2-ART-010:route:/world-models/generative-video/",
+          "result:VAL-B2-ART-010:route:/world-models/jepa/",
+          "result:VAL-B2-ART-010:route:/world-models/latent-dynamics/",
+          "result:VAL-B2-ART-010:route:/world-models/taxonomy/"
         ]
       }
     },

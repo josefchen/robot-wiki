@@ -44,5 +44,18 @@ export const ARTICLE_ASSERTION_POPULATION_SOURCES: Readonly<
   'VAL-B2-TYPE-010': ARTICLE_TYPE_ROUTE_POPULATION_SOURCE,
 };
 
+/**
+ * `VAL-B2-ART-010` is a preservation claim about one article's rendered
+ * apparatus, so its members are the article routes. It is kept out of the
+ * map above because it is decided by a different sweep: the typography
+ * evidence measures a painted type scale and has nothing to say about
+ * whether a bibliography still lists the entries the registry derives.
+ */
+export const APPARATUS_ASSERTION_POPULATION_SOURCES: Readonly<
+  Record<string, string>
+> = {
+  'VAL-B2-ART-010': ARTICLE_ROUTE_POPULATION_SOURCE,
+};
+
 /** The one member `VAL-B2-TYPE-006` quantifies over. */
 export const HOME_WORDMARK_ROLE_ID = 'home-wordmark';
