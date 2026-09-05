@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1b2133d50bd000f94b56c0d2e524b44621897ca3e67d09dac1ab930cffc662dd",
+  "fingerprint": "822f6abcb4a0cfc1b5ee4d8ae83682c64222da332866ff775904b545d2e77ba6",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1546,17 +1546,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/autonomous-vehicles/",
@@ -2080,17 +2069,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/drones/",
@@ -2539,17 +2517,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/space/",
@@ -2973,17 +2940,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -3968,17 +3924,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/classical/control/",
@@ -4546,17 +4491,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -5174,17 +5108,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/classical/kinematics/",
@@ -5728,17 +5651,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -6560,17 +6472,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/classical/perception/",
@@ -7217,17 +7118,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/classical/scene-representation/",
@@ -7798,17 +7688,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -8716,17 +8595,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/data-bottleneck/",
@@ -9222,17 +9090,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -9781,17 +9638,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/evaluation-crisis/",
@@ -10296,17 +10142,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -10933,17 +10768,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/industrial-deployment/",
@@ -11388,17 +11212,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -12251,17 +12064,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/bear-case/",
@@ -12959,17 +12761,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/competing-theses/",
@@ -13546,17 +13337,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -14159,17 +13939,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/generalization/",
@@ -14713,17 +14482,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -15400,17 +15158,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -16414,17 +16161,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/action-chunking/",
@@ -17011,17 +16747,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/bc-foundations/",
@@ -17481,17 +17206,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -17964,17 +17678,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -18586,17 +18289,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/diffusion-policy/",
@@ -19177,17 +18869,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/generalist-policies/",
@@ -19741,17 +19422,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/hierarchical/",
@@ -20280,17 +19950,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -21022,17 +20681,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/pi-line/",
@@ -21597,17 +21245,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -22243,17 +21880,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/rl-finetuning/",
@@ -22824,17 +22450,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -24816,17 +24431,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/humanoid-wbc/",
@@ -25300,17 +24904,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -25836,17 +25429,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -26565,17 +26147,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -27319,17 +26890,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/rl-for-robotics/",
@@ -27991,17 +27551,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/sim2real-transfer/",
@@ -28461,17 +28010,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -29397,17 +28935,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/world-models/generative-sim/",
@@ -29940,17 +29467,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 335,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
         }
       ],
       "route": "/world-models/generative-video/",
@@ -30404,17 +29920,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -30917,17 +30422,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -31595,17 +31089,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 335,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -33050,17 +32533,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/autonomous-vehicles/",
@@ -33584,17 +33056,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/drones/",
@@ -34043,17 +33504,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/adjacent/space/",
@@ -34477,17 +33927,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -35472,17 +34911,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/classical/control/",
@@ -36050,17 +35478,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -36678,17 +36095,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/classical/kinematics/",
@@ -37232,17 +36638,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -38064,17 +37459,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/classical/perception/",
@@ -38721,17 +38105,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/classical/scene-representation/",
@@ -39302,17 +38675,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -40220,17 +39582,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/data-bottleneck/",
@@ -40726,17 +40077,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -41285,17 +40625,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/evaluation-crisis/",
@@ -41800,17 +41129,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -42437,17 +41755,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/data-hardware/industrial-deployment/",
@@ -42892,17 +42199,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -43755,17 +43051,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/bear-case/",
@@ -44463,17 +43748,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/competing-theses/",
@@ -45050,17 +44324,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -45663,17 +44926,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/frontier/generalization/",
@@ -46217,17 +45469,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -46904,17 +46145,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -47918,17 +47148,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/action-chunking/",
@@ -48515,17 +47734,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/bc-foundations/",
@@ -48985,17 +48193,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -49468,17 +48665,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -50090,17 +49276,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/diffusion-policy/",
@@ -50681,17 +49856,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/generalist-policies/",
@@ -51245,17 +50409,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/hierarchical/",
@@ -51784,17 +50937,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -52526,17 +51668,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/pi-line/",
@@ -53101,17 +52232,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -53747,17 +52867,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/manipulation/rl-finetuning/",
@@ -54328,17 +53437,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -56320,17 +55418,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/humanoid-wbc/",
@@ -56804,17 +55891,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -57340,17 +56416,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -58069,17 +57134,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -58823,17 +57877,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/rl-for-robotics/",
@@ -59495,17 +58538,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/rl-sim2real/sim2real-transfer/",
@@ -59965,17 +58997,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -60901,17 +59922,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/world-models/generative-sim/",
@@ -61444,17 +60454,6 @@
           "alignmentErrorPx": 0,
           "widthPx": 715,
           "heightPx": 12
-        },
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
         }
       ],
       "route": "/world-models/generative-video/",
@@ -61908,17 +60907,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -62421,17 +61409,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
@@ -63099,17 +62076,6 @@
         }
       ],
       "rules": [
-        {
-          "tag": "hr",
-          "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",
-          "deviceId": "device:section-rule",
-          "anchorSelector": "[data-pagefind-body]",
-          "deviceEdge": "left",
-          "anchorEdge": "left",
-          "alignmentErrorPx": 0,
-          "widthPx": 715,
-          "heightPx": 12
-        },
         {
           "tag": "hr",
           "outline": "<hr aria-hidden=\"true\" data-registration-device=\"true\" data-brand-device-id=\"device:section-rule\" data-brand-anchor-selector=\"[data-pagefind",

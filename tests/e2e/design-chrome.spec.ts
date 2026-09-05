@@ -690,26 +690,67 @@ test.describe('design chrome discipline', () => {
     expect(firstFamily(sidebarWordmark.family)).toBe('tektur');
     expect(sidebarWordmark.text).toBe(PUBLIC_IDENTITY);
 
-    // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
-    // tracking -0.025em; prose h2 22px and h3 18px, Sans 600.
+    // Article h1 and the section ladder under it, as design-system 4.3
+    // bounds them: article h1 34-44px at 375 and 48-64px at 1440, Tektur
+    // at line-height 1.00-1.10 (VAL-B2-ART-001); supporting h2 22-28px
+    // and 26-34px; supporting h3 18-22px and 20-24px, IBM Plex Sans 600.
+    // Bands, not the two literals the pre-v2 scale shipped, because the
+    // size is fluid between the measured viewports. The scale table seals
+    // size, leading, family and weight for these rows and says nothing
+    // about article-h1 tracking, so what is checked here is the direction
+    // display type requires rather than a number no authority holds.
+    const inRange = (
+      value: number,
+      label: string,
+      min: number,
+      max: number,
+    ) => {
+      expect(value, label).toBeGreaterThanOrEqual(min);
+      expect(value, label).toBeLessThanOrEqual(max);
+    };
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(MODULE_ROUTE);
     const articleH1Mobile = await metricsOf('article h1');
-    expect(articleH1Mobile.size).toBeCloseTo(32, 5);
-    expect(articleH1Mobile.lineHeight).toBeCloseTo(35.84, 1);
-    expect(em(articleH1Mobile)).toBeCloseTo(-0.025, 2);
+    inRange(articleH1Mobile.size, 'article h1 size at 375', 34, 44);
+    inRange(
+      articleH1Mobile.lineHeight / articleH1Mobile.size,
+      'article h1 line height at 375',
+      1.0,
+      1.1,
+    );
+    expect(firstFamily(articleH1Mobile.family)).toBe('tektur');
+    expect(articleH1Mobile.weight).toBe('600');
+    expect(em(articleH1Mobile)).toBeLessThan(0);
+    const proseH2Mobile = await metricsOf('article .prose h2');
+    inRange(proseH2Mobile.size, 'prose h2 size at 375', 22, 28);
+    expect(firstFamily(proseH2Mobile.family)).toBe('ibm plex sans');
+    expect(proseH2Mobile.weight).toBe('600');
+    const proseH3Mobile = await metricsOf('article .prose h3');
+    inRange(proseH3Mobile.size, 'prose h3 size at 375', 18, 22);
+    expect(firstFamily(proseH3Mobile.family)).toBe('ibm plex sans');
+    expect(proseH3Mobile.weight).toBe('600');
+
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(MODULE_ROUTE);
     const articleH1Desktop = await metricsOf('article h1');
-    expect(articleH1Desktop.size).toBeCloseTo(40, 5);
-    expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
+    inRange(articleH1Desktop.size, 'article h1 size at 1440', 48, 64);
+    inRange(
+      articleH1Desktop.lineHeight / articleH1Desktop.size,
+      'article h1 line height at 1440',
+      1.0,
+      1.1,
+    );
     expect(firstFamily(articleH1Desktop.family)).toBe('tektur');
     expect(articleH1Desktop.weight).toBe('600');
+    expect(em(articleH1Desktop)).toBeLessThan(0);
     const proseH2 = await metricsOf('article .prose h2');
-    expect(proseH2.size).toBeCloseTo(22, 5);
+    inRange(proseH2.size, 'prose h2 size at 1440', 26, 34);
     expect(firstFamily(proseH2.family)).toBe('ibm plex sans');
+    expect(proseH2.weight).toBe('600');
     const proseH3 = await metricsOf('article .prose h3');
-    expect(proseH3.size).toBeCloseTo(18, 5);
+    inRange(proseH3.size, 'prose h3 size at 1440', 20, 24);
+    expect(firstFamily(proseH3.family)).toBe('ibm plex sans');
+    expect(proseH3.weight).toBe('600');
   });
 
   test('components use only the brand-v2 radius ladder (VAL-B2-SURF-001)', async ({ page }) => {

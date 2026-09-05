@@ -1396,5 +1396,17 @@ export function articleRuleVerdicts(
   if (verdicts.size === 0) {
     throw new Error('no article route was measured for its rules');
   }
+  // Routes are recorded whether or not they draw a rule, so the route set
+  // alone cannot tell a clean corpus from one where the collector stopped
+  // finding rules at all. The corpus-wide count is what separates them.
+  const drawn = [...verdicts.values()].reduce(
+    (total, { observed }) => total + observed.ruleCount,
+    0,
+  );
+  if (drawn === 0) {
+    throw new Error(
+      'no article route drew a single rule, so this family asserted nothing',
+    );
+  }
   return verdicts;
 }
