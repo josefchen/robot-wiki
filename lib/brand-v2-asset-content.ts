@@ -3,40 +3,42 @@ import { existsSync, readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
 /**
- * Per-asset evidence for `VAL-B2-ID-006`, derived from each asset's own
- * bytes.
+ * What a registered first-party visual asset *is*, read out of its own bytes.
  *
- * The reading this replaces classified an asset from its filename and one
- * document-wide observation: it rejected a path matching `/logo|monogram|…/`
- * and then required the sweep to have found no filled icon slot anywhere.
- * Neither clause is about the asset. A newly registered monogram, robot
- * head, mascot or alternate glyph passed as long as it was called something
- * innocent, which is the one thing the row exists to detect, and the global
- * clause emitted the same sentence for all twenty-one members whatever any
- * of them contained.
+ * **This module does not decide whether an asset may ship.** That is the
+ * seal's job (`lib/brand-v2-asset-seal.ts`), and the two must not grow into
+ * each other. The seal answers "did anybody approve these exact bytes"; this
+ * module answers "what is this file", so a sealed asset's row can say
+ * something concrete about it instead of restating its filename.
  *
- * Each asset now answers for itself, and what can honestly be established
- * depends on what the container is:
+ * It used to try to answer both, by recognising the drawn subject: an SVG
+ * failed if its canvas was icon-shaped, or if it carried fewer than two
+ * label runs, on the theory that a mark is small, square and silent while a
+ * diagram is wide and names its parts. A scrutiny reviewer drew a wide,
+ * labelled robot head and it passed. That is not a gap in two thresholds; it
+ * is the general result that recognising a drawn subject is not decidable,
+ * so those clauses are **deleted** rather than tightened. What remains here
+ * are readings that either match a record against the file or fail to, which
+ * a machine can settle:
  *
  * - **Vector and model containers are decoded completely.** SVG is XML, and
  *   a glTF binary carries its scene graph as a JSON chunk, so the element
  *   census, the label text, the node and mesh names and the embedded-image
- *   count are read out of the file. A monogram is distinguishable from a
- *   labelled diagram on those facts.
+ *   count are read out of the file, and a mesh is required to be one the
+ *   shipped kinematic description builds its chain from.
  * - **Raster containers are not decoded past their header.** JPEG pixels
  *   need a decoder this repository does not carry, so the mechanism reads
- *   the frame header and stops. A raster asset therefore cannot be decided
- *   on content at all, and rather than let one pass on a clean filename the
- *   verdict requires it to have an external origin: a registered source URL,
- *   creator, licence and retrieval date, with the decoded frame size
- *   matching the registered one, so the record provably describes this file.
- *   An asset the repository did not author is not a symbol the repository
- *   introduced. A first-party raster has neither content evidence nor an
- *   external origin and **fails**, which is the fail-closed direction.
+ *   the frame header and stops. The content claim therefore rests on the
+ *   registered external origin: a source URL, creator, licence and retrieval
+ *   date, with the decoded frame size matching the registered one, so the
+ *   record provably describes this file. A raster with no external origin is
+ *   recorded as `undecidable` and **fails**, which is the fail-closed
+ *   direction.
  *
  * The limitation that remains is named rather than papered over: within a
  * decoded model, mesh geometry is not classified, so the shape a mesh draws
- * is not read. The related pixel-decode gap for the generated Open Graph
+ * is not read. That is exactly why the seal, and not this module, decides
+ * what ships. The related pixel-decode gap for the generated Open Graph
  * cards is owned by `brand-v2-og-renderer-manifest-and-48-card-corpus` and
  * is deliberately not duplicated here.
  */
@@ -45,26 +47,9 @@ export const ASSET_CONTENT_LIMITATIONS = {
     'JPEG, PNG, GIF and WebP pixels are not decoded; this verdict reads the frame header and rests the content claim on the registered external origin',
   model:
     'glTF mesh geometry is read as counts, names and accessor extents, not as shape: what a mesh draws is not classified',
+  vector:
+    'SVG path and shape geometry is read as an element census and label text, not as a picture: what a drawing depicts is not classified, and the sealed byte approval is what decides whether it may ship',
 } as const;
-
-/** Names that would mark an asset as brand iconography rather than content. */
-export const BRAND_SYMBOL_NAME =
-  /logo|monogram|mascot|favicon|wordmark|brand-mark|emblem|crest/i;
-
-/**
- * The fewest distinct label runs a first-party vector asset must carry.
- *
- * Two, because one is a monogram and none is a glyph. A diagram explains
- * something and says what its parts are; the two shipped diagrams carry five
- * and sixteen. This is the clause that makes the classification about the
- * file rather than its name.
- */
-export const MINIMUM_DIAGRAM_LABELS = 2;
-
-/** Aspect band, and longest edge, at which a canvas is icon-shaped. */
-export const ICON_ASPECT_MIN = 0.8;
-export const ICON_ASPECT_MAX = 1.25;
-export const ICON_MAX_EDGE_PX = 512;
 
 export type AssetFormat =
   | 'svg'
@@ -444,7 +429,8 @@ export type AssetContentInput = {
  * Every clause is about the asset in hand: its own bytes, its own decoded
  * content, its own registered origin, and its own reference sites. Nothing
  * is decided by a document-wide observation, which is what let twenty-one
- * members share one sentence.
+ * members share one sentence, and nothing here is decided by what the file
+ * appears to draw, which is what let a labelled robot head through.
  */
 export function assetContentVerdicts(
   input: AssetContentInput,
@@ -511,9 +497,6 @@ export function assetContentVerdicts(
         `${asset.path} hashes to ${byteHash.slice(0, 12)} but is registered as ${asset.byteHash.slice(0, 12)}, so the registry describes different bytes`,
       );
     }
-    if (BRAND_SYMBOL_NAME.test(asset.path)) {
-      failures.push(`${asset.path} is named as brand iconography`);
-    }
     const formatMatchesExtension =
       decodedFormat !== 'unknown' && decodedFormat === expected;
     if (decodedFormat === 'unknown') {
@@ -544,13 +527,6 @@ export function assetContentVerdicts(
       basis = 'decoded-content';
       const vector = decodeVector(bytes.toString('utf8'));
       decode = vector;
-      const aspect =
-        vector.widthPx && vector.heightPx ? vector.widthPx / vector.heightPx : null;
-      const iconCanvas =
-        aspect !== null &&
-        aspect >= ICON_ASPECT_MIN &&
-        aspect <= ICON_ASPECT_MAX &&
-        Math.max(vector.widthPx ?? 0, vector.heightPx ?? 0) <= ICON_MAX_EDGE_PX;
       if (vector.embeddedRasterCount > 0) {
         failures.push(
           `${asset.path} embeds ${vector.embeddedRasterCount} raster image(s), which this mechanism does not decode, so what it draws is unread`,
@@ -561,19 +537,10 @@ export function assetContentVerdicts(
           `${asset.path} references ${vector.externalReferences.join(', ')} outside itself, so its content is not in the file that was read`,
         );
       }
-      if (vector.textRuns.length < MINIMUM_DIAGRAM_LABELS) {
-        failures.push(
-          `${asset.path} carries ${vector.textRuns.length} label run(s) over ${vector.drawingPrimitives} drawing primitive(s); an explanatory diagram names its parts and a mark does not, and shapes are not classified here`,
-        );
-      }
-      if (iconCanvas) {
-        failures.push(
-          `${asset.path} draws on a ${vector.widthPx}x${vector.heightPx} icon-shaped canvas, which is the geometry a mark is delivered at`,
-        );
-      }
       established.push(
         `decoded ${vector.drawingPrimitives} drawing primitive(s) and ${vector.textRuns.length} label run(s) on a ${vector.widthPx}x${vector.heightPx} canvas, with ${vector.embeddedRasterCount} embedded raster payload(s)`,
       );
+      limitations.push(ASSET_CONTENT_LIMITATIONS.vector);
     } else if (decodedFormat === 'glb') {
       basis = 'decoded-content';
       const model = decodeModel(bytes);

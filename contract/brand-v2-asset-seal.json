@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "path": "images/anymal-anybotics-2022.jpg",
+      "sha256": "65bd6998719c0f2f7c65c492072fb66bb3a78ec501d7e00a1e9555c9cf5d8a5b",
+      "byteCount": 706854,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of an ANYmal quadruped in an industrial facility, credited to ANYbotics under CC BY-SA 4.0 and used to illustrate legged inspection hardware."
+    },
+    {
+      "path": "images/atlas-darpa-frontview-2013.jpg",
+      "sha256": "b473db0480ee8a1854da69855f9e8b61a3e6552a5e1ecfc83895d089467e9caf",
+      "byteCount": 333540,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of the 2013 DARPA Atlas humanoid, a public-domain US government image used to illustrate hydraulic humanoid hardware."
+    },
+    {
+      "path": "images/covariate-shift.svg",
+      "sha256": "18adc440eb043fd47c42f8851d73d7253d4a2826d9dadd5d600ec75b989590da",
+      "byteCount": 2257,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party explanatory diagram of covariate shift between demonstration corridor and policy rollout, drawn for the behaviour-cloning articles."
+    },
+    {
+      "path": "images/franka-emika-panda-cebit-2017.jpg",
+      "sha256": "61ace804a61a2d5b991e54a791b6615d05b99e72e569c119c588ad1aa2c5a908",
+      "byteCount": 277465,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Franka Emika Panda arm at CeBIT 2017, reused under its recorded licence to illustrate collaborative manipulator hardware."
+    },
+    {
+      "path": "images/puma-560-nasa-ames.jpg",
+      "sha256": "4167b56e44518d5c28a233bbd14d145f9bfbe3469acf5a9042bac1f04929417d",
+      "byteCount": 421421,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial stroboscopic photograph of a PUMA 560 arm at NASA Ames, a public-domain image used to illustrate classical industrial manipulation."
+    },
+    {
+      "path": "images/spot-raf-agile-liberty-2021.jpg",
+      "sha256": "571a6949389d5c57db435bb95ab425b3015cce144ebe65f7c628eece583c0327",
+      "byteCount": 326852,
+      "owner": "robot-wiki-editorial",
+      "purpose": "Editorial photograph of a Boston Dynamics Spot quadruped on an airfield, a public-domain US Air Force image used to illustrate fielded legged robots."
+    },
+    {
+      "path": "images/temporal-ensembling.svg",
+      "sha256": "649b4cc247f3625f75222283d706d8468c98b49e2132492c4c3f3004aeee70d7",
+      "byteCount": 3284,
+      "owner": "robot-wiki-editorial",
+      "purpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article."
+    },
+    {
+      "path": "models/so101/assets/base_motor_holder_so101_v1.glb",
+      "sha256": "2452a592eb9fb5d05e5f23328b1b4502607a220442d3c8c11a285200872fce80",
+      "byteCount": 109556,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 base motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/base_so101_v2.glb",
+      "sha256": "3d602953853522d6a5091699142a3754ea7f451b36634bcc64236c16df40fd04",
+      "byteCount": 35688,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 base link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/motor_holder_so101_base_v1.glb",
+      "sha256": "f15fc345016acaa8f599fd9d24bc815b6d54807f1c358603a372bb07ca72735b",
+      "byteCount": 69112,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 base-side motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/motor_holder_so101_wrist_v1.glb",
+      "sha256": "ba8ee6cb2638ef9bacfaa63aa759603c10740c937991267b43ff74e006bf3aeb",
+      "byteCount": 66156,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 wrist-side motor holder mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/moving_jaw_so101_v1.glb",
+      "sha256": "b78ae523c975da9c74ad71caa086723a6de780aa2f142a225b6b37f06a6da484",
+      "byteCount": 86152,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 moving gripper jaw mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/rotation_pitch_so101_v1.glb",
+      "sha256": "8ef260977bfb20859fd2d5b8fc9968973b1a4415bd7fc9aa539548e3ad76c517",
+      "byteCount": 55136,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 shoulder rotation-pitch link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/sts3215_03a_no_horn_v1.glb",
+      "sha256": "ef99525fcedee826a2d5a47cc8d31a13423e32224c473df1617407111e926ad1",
+      "byteCount": 44360,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 STS3215 servo body without horn mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/sts3215_03a_v1.glb",
+      "sha256": "1f3d99c550d1385ed199bf0c42e0a9d52b23ec2aa69712461dd33316414425e5",
+      "byteCount": 49684,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 STS3215 servo body mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/under_arm_so101_v1.glb",
+      "sha256": "e73fa2121ae8fa8302ae96a121b0975eadf8499ffce8bd7416f365630d3c215e",
+      "byteCount": 117612,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 under-arm link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/upper_arm_so101_v1.glb",
+      "sha256": "531d6b8f9670eebfd7d09b67983000d5b3b616fd5d19c4e3ea06455ac3b6ccad",
+      "byteCount": 77472,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 upper-arm link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/waveshare_mounting_plate_so101_v2.glb",
+      "sha256": "bd1dc7b2573c2a9e4dfaf7367d7d9f398f8a7337840cc7cd06785927f85c6dca",
+      "byteCount": 4952,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 Waveshare mounting plate mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/wrist_roll_follower_so101_v1.glb",
+      "sha256": "c728435fba1f51a33a284a213e9f5ab34059e1c2d14bab7d19b28542271231f2",
+      "byteCount": 88084,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 wrist-roll follower link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/assets/wrist_roll_pitch_so101_v2.glb",
+      "sha256": "8cfb052019d607094a3ae9f92c1359e2afd5bea7adc1f525f36208b007180b35",
+      "byteCount": 167936,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 wrist roll-pitch link mesh, referenced by models/so101/so101.urdf and loaded by the 3D playground scene."
+    },
+    {
+      "path": "models/so101/so101.urdf",
+      "sha256": "8cc4e19a494c19dd78fd4e229e48f318e73e346e5045232e6e2ad493ce04bc95",
+      "byteCount": 16231,
+      "owner": "robot-wiki-playground",
+      "purpose": "SO-101 kinematic description: the link, joint and mesh declarations the 3D playground and the build-time reach figures are derived from."
+    }
+  ]
+}

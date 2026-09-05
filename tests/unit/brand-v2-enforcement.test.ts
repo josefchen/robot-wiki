@@ -35,6 +35,7 @@ import {
   IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE,
   IDENTITY_TECHNICAL_POPULATION_SOURCE,
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
+  expectedIdentitySlots,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
   identityLockupSourcePaths,
@@ -74,6 +75,10 @@ function identityPopulations(registry: {
     ),
     routes: registry.routes.public.map(({ path }) => path),
     technicalIdentifiers: sealedTechnicalIdentifiers(ROOT),
+    expectedSlots: expectedIdentitySlots(
+      registry.routes.public.map(({ path }) => path),
+      { root: ROOT },
+    ),
     fingerprint: identityEvidenceFingerprint({
       root: ROOT,
       metadataOwnerPaths: [

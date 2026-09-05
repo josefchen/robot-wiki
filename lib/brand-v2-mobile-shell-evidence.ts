@@ -587,37 +587,66 @@ export function drawerVerdicts(
     // Quantified over the required set, not over the rows the artifact
     // supplied: a sweep that stopped looking at a region used to contribute
     // no row, and a shorter list read as a clean one.
-    const observedRegions = new Map(
-      inert.regions.map((region) => [region.id, region]),
-    );
-    for (const required of REQUIRED_INERT_REGIONS) {
-      const region = observedRegions.get(required.id);
-      if (!region) {
-        failures.push(
-          `${route} recorded no reading for ${required.id} (${required.selector}), so the open drawer's inert set was never checked against it`,
-        );
-        continue;
-      }
-      if (!region.present) {
-        failures.push(
-          `${route} renders no ${required.id} (${required.selector}) to make inert`,
-        );
-        continue;
-      }
-      if (!region.inert) {
-        failures.push(
-          `${route} leaves ${region.id} outside the open drawer's inert set`,
-        );
-      }
+    //
+    // The shape of the recorded rows is settled before any of their values
+    // is read. Building a `Map` keyed by id and then looking each required
+    // id up silently collapses two rows that share an id and keeps the last
+    // one, so an artifact carrying both `{main, inert: false}` and
+    // `{main, inert: true}` read as compliant. Duplicate rows are a
+    // contradiction, not a reading, and a reading has to exist exactly once
+    // before it can decide anything.
+    const recordedIds = inert.regions.map(({ id }) => id);
+    const requiredIds: string[] = REQUIRED_INERT_REGIONS.map(({ id }) => id);
+    const duplicated = [
+      ...new Set(
+        recordedIds.filter((id, index) => recordedIds.indexOf(id) !== index),
+      ),
+    ].sort();
+    const missing = requiredIds.filter((id) => !recordedIds.includes(id));
+    const unexpected = [
+      ...new Set(recordedIds.filter((id) => !requiredIds.includes(id))),
+    ].sort();
+    const structural: string[] = [];
+    if (duplicated.length > 0) {
+      structural.push(
+        `${route} records ${duplicated.join(', ')} more than once in the inert set, so two contradictory readings of one region were supplied`,
+      );
     }
-    const requiredIds = new Set<string>(
-      REQUIRED_INERT_REGIONS.map(({ id }) => id),
-    );
-    for (const region of inert.regions) {
-      if (!requiredIds.has(region.id)) {
-        failures.push(
-          `${route} records ${region.id}, which is not one of the required background regions`,
-        );
+    if (recordedIds.length !== requiredIds.length) {
+      structural.push(
+        `${route} records ${recordedIds.length} inert-region reading(s) against the ${requiredIds.length} required background regions`,
+      );
+    }
+    for (const id of missing) {
+      const required = REQUIRED_INERT_REGIONS.find((row) => row.id === id);
+      structural.push(
+        `${route} recorded no reading for ${id} (${required?.selector ?? 'unknown selector'}), so the open drawer's inert set was never checked against it`,
+      );
+    }
+    for (const id of unexpected) {
+      structural.push(
+        `${route} records ${id}, which is not one of the required background regions`,
+      );
+    }
+    if (structural.length > 0) {
+      failures.push(...structural);
+    } else {
+      const observedRegions = new Map(
+        inert.regions.map((region) => [region.id, region]),
+      );
+      for (const required of REQUIRED_INERT_REGIONS) {
+        const region = observedRegions.get(required.id) as (typeof inert.regions)[number];
+        if (!region.present) {
+          failures.push(
+            `${route} renders no ${required.id} (${required.selector}) to make inert`,
+          );
+          continue;
+        }
+        if (!region.inert) {
+          failures.push(
+            `${route} leaves ${region.id} outside the open drawer's inert set`,
+          );
+        }
       }
     }
     if (inert.reachableOutsideDrawer.length > 0) {

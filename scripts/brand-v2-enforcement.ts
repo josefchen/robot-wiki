@@ -16,11 +16,17 @@ import {
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
+import {
+  ASSET_SEAL_PATH,
+  readAssetSeal,
+  reconcileAssetSeal,
+} from '../lib/brand-v2-asset-seal.ts';
 import { IMAGES } from '../data/images.ts';
 import {
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   deriveTechnicalIdentifierOccurrences,
   identityEvidenceFingerprint,
+  IDENTITY_REQUIRED_STATES,
   readIdentityRuntimeEvidence,
   routeVerdicts,
   sealedTechnicalIdentifiers,
@@ -35,6 +41,7 @@ import {
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
+  expectedIdentitySlots,
   identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '../lib/identity-populations.ts';
@@ -358,10 +365,20 @@ const SITE_METADATA_OWNER_PATH = (() => {
 })();
 
 const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
+/**
+ * What each route is registered to render, derived here from source rather
+ * than read out of the artifact, so the sweep is held to a population it
+ * did not get to choose by what it happened to find.
+ */
+const EXPECTED_IDENTITY_SLOTS = expectedIdentitySlots(
+  [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  { root: ROOT },
+);
 const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
   artifact: readJson(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH)),
   routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
   technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+  expectedSlots: EXPECTED_IDENTITY_SLOTS,
   fingerprint: identityEvidenceFingerprint({
     root: ROOT,
     metadataOwnerPaths: [
@@ -374,7 +391,15 @@ const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
     lockupSourcePaths: identityLockupSourcePaths(),
   }),
 });
-const IDENTITY_ROUTE_VERDICTS = routeVerdicts(IDENTITY_EVIDENCE);
+const IDENTITY_ROUTE_VERDICTS = routeVerdicts(
+  IDENTITY_EVIDENCE,
+  EXPECTED_IDENTITY_SLOTS,
+);
+const IDENTITY_SLOT_POPULATION_SOURCE =
+  'data/type-roles.json#identityWordmarkRoles x used-import-graph';
+const IDENTITY_EXERCISED_STATE_IDS = IDENTITY_REQUIRED_STATES.map(
+  ({ state }) => state,
+);
 const IDENTITY_ROUTE_VERDICT_BY_ID = new Map(
   [...PUBLIC_ROUTE_PATH_BY_ID].map(([id, path]) => {
     const verdict = IDENTITY_ROUTE_VERDICTS.get(path);
@@ -475,6 +500,19 @@ const ASSET_IDENTITY_SOURCE_PATHS = [
   ]),
 ].sort();
 const ASSET_IDENTITY_SOURCE_COUNT = ASSET_IDENTITY_SOURCE_PATHS.length;
+
+/**
+ * The approval half of `VAL-B2-ID-006`: exactly which first-party visual
+ * assets may ship. Reconciled against the census walk of `public/`, so an
+ * asset present in the tree with no sealed entry throws here and stops the
+ * corpus, whatever it depicts. This is what decides the row; the content
+ * verdict below only describes what a sealed asset is.
+ */
+const ASSET_SEAL_VERDICTS = reconcileAssetSeal({
+  root: ROOT,
+  shippedPaths: [...FIRST_PARTY_VISUAL_ASSETS.values()].map(({ path }) => path),
+  seal: readAssetSeal(ROOT),
+});
 
 /**
  * Per-asset content evidence for `VAL-B2-ID-006`, derived from each asset's
@@ -1074,6 +1112,11 @@ const IDENTITY_READER_TARGET = testTarget(
   'identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence',
   'Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against.',
 );
+const ASSET_SEAL_TARGET = testTarget(
+  'tests/unit/brand-v2-asset-seal.test.ts',
+  'first-party visual asset seal > ships exactly the approved asset set',
+  'Reconciles the first-party visual assets discovered by the census walk of public/ against contract/brand-v2-asset-seal.json in both directions and re-hashes every one, and proves the reconciliation refuses an asset present in the tree with no sealed entry, a sealed entry the tree does not ship, and an approved path carrying different bytes — including the wide, labelled robot-head SVG the deleted subject heuristics accepted.',
+);
 
 const SHELL_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2-shell.spec.ts',
@@ -1127,7 +1170,13 @@ function testTargetsFor(id: string): TestTarget[] {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
   }
   if (IDENTITY_ASSERTIONS.has(id)) {
-    return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
+    return [
+      IDENTITY_SWEEP_TARGET,
+      IDENTITY_READER_TARGET,
+      // ID-006 is decided by the byte seal rather than by the sweep, so the
+      // row names the gate that proves the seal refuses an unapproved asset.
+      ...(id === 'VAL-B2-ID-006' ? [ASSET_SEAL_TARGET] : []),
+    ];
   }
   if (SHELL_ASSERTIONS.has(id)) {
     return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
@@ -1600,6 +1649,10 @@ function identityAssertionEvidence(
     const failures =
       assertionId === 'VAL-B2-ID-001'
         ? [
+            // Registration-derived, so a lockup renamed out of the spelling
+            // family is still answered for rather than dropped.
+            ...verdict.missingSlots,
+            ...verdict.renamedSlots,
             ...verdict.wrongNames,
             ...verdict.cssSubstitutedNames,
             ...verdict.unannotatedLockups,
@@ -1613,19 +1666,22 @@ function identityAssertionEvidence(
     const computed = {
       route: verdict.route,
       viewports: IDENTITY_EVIDENCE.viewports,
+      expectedWordmarkRoles: verdict.expectedRoles,
+      slotPopulationSource: IDENTITY_SLOT_POPULATION_SOURCE,
       lockupsDiscovered: verdict.lockupCount,
       renderedNames: verdict.renderedNames,
       forbiddenRenders: verdict.forbiddenRenders,
       forbiddenMetadata: verdict.forbiddenMetadata,
+      statesExercised: IDENTITY_EXERCISED_STATE_IDS,
       evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
     };
     return assertionId === 'VAL-B2-ID-001'
       ? {
-          actual: `${verdict.route} rendered ${verdict.lockupCount} brand lockup(s) across ${viewports}, every one exactly \`${PUBLIC_IDENTITY}\` and every one carrying a registered wordmark role`,
+          actual: `${verdict.route} painted every identity slot its modules are registered to render (${verdict.expectedRoles.join(', ')}) at ${viewports}, each one exactly \`${PUBLIC_IDENTITY}\`, and the ${verdict.lockupCount} lockup(s) also discovered by the whole \`robot wiki\` spelling family are the same string and carry a registered wordmark role`,
           computed,
         }
       : {
-          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one`,
+          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one; the ${IDENTITY_EXERCISED_STATE_IDS.length} identity-bearing states the default load does not reach (${IDENTITY_EXERCISED_STATE_IDS.join(', ')}) were provoked and swept the same way`,
           computed,
         };
   }
@@ -1799,6 +1855,14 @@ function identityAssertionEvidence(
         `${assertionId}: ${member} is not a first-party visual asset`,
       );
     }
+    // The seal decides. A member with no sealed entry never reaches here,
+    // because the reconciliation throws while the corpus is being built.
+    const seal = ASSET_SEAL_VERDICTS.get(asset.path);
+    if (!seal) {
+      throw new Error(
+        `${assertionId}: ${asset.path} has no sealed byte approval, so nobody signed off on shipping it`,
+      );
+    }
     const verdict = ASSET_CONTENT_VERDICTS.get(member);
     if (!verdict) {
       throw new Error(
@@ -1814,10 +1878,16 @@ function identityAssertionEvidence(
       );
     }
     return {
-      actual: `${asset.path} is ${verdict.byteCount} bytes of ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
+      actual: `${asset.path} ships exactly the ${seal.byteCount} bytes sealed at ${seal.sealedSha256.slice(0, 12)} in ${ASSET_SEAL_PATH}, approved by ${seal.owner} for: ${seal.purpose} It decodes as ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
       computed: {
         assetPath: asset.path,
         category: asset.category,
+        sealedBy: seal.owner,
+        sealedPurpose: seal.purpose,
+        sealedSha256: seal.sealedSha256,
+        shippedSha256: seal.shippedSha256,
+        sealedAssetCount: ASSET_SEAL_VERDICTS.size,
+        approvalSource: ASSET_SEAL_PATH,
         byteCount: verdict.byteCount,
         byteHash: verdict.byteHash,
         declaredExtension: verdict.declaredExtension,
@@ -1831,7 +1901,7 @@ function identityAssertionEvidence(
         iconDeclarationsAcrossSweep: 0,
         symbolNodesInLockupsAcrossSweep: 0,
         routesSwept: IDENTITY_EVIDENCE.routes.length,
-        evidence: [asset.path, IDENTITY_RUNTIME_EVIDENCE_PATH],
+        evidence: [asset.path, ASSET_SEAL_PATH, IDENTITY_RUNTIME_EVIDENCE_PATH],
       },
     };
   }
@@ -2438,8 +2508,10 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: IDENTITY_ASSERTIONS.has(id)
-              ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
+            mechanism: id === 'VAL-B2-ID-006'
+              ? `${id} per-member evidence derived from the checked-in byte seal ${ASSET_SEAL_PATH}, reconciled in both directions against ${canonicalPopulationSource} and re-hashed per asset, plus the decoded content description of each sealed asset`
+              : IDENTITY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over ${canonicalPopulationSource}`
               : SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)

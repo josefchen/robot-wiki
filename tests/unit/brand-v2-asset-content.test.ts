@@ -14,6 +14,7 @@ import {
   identitySlotReferences,
   type AssetProvenance,
 } from '@/lib/brand-v2-asset-content';
+import { reconcileAssetSeal } from '@/lib/brand-v2-asset-seal';
 import { IMAGES } from '@/data/images';
 import { firstPartyVisualAssets, identityLockupSourcePaths } from '@/lib/identity-populations';
 
@@ -226,9 +227,12 @@ describe('registered first-party asset verdicts', () => {
     }
   });
 
-  it('refuses a monogram registered under an innocent name', () => {
-    // The exact defect this row could not see: nothing in the path, the
-    // category or the sweep says what these bytes draw.
+  it('describes a monogram registered under an innocent name and leaves the refusal to the seal', () => {
+    // This module used to refuse these bytes for being small, square and
+    // silent. That reading was deleted because it generalises to nothing: a
+    // reviewer's wide, labelled robot head cleared both thresholds. What is
+    // left here describes the file and names the gap, and the byte seal is
+    // what refuses artwork nobody approved — whatever it draws.
     const monogram = Buffer.from(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="30"/><path d="M20 44 L32 20 L44 44 Z"/></svg>',
     );
@@ -259,8 +263,29 @@ describe('registered first-party asset verdicts', () => {
       identitySourcePaths: [],
     });
 
-    expect(verdict.failures.join(' ')).toMatch(/label run/);
-    expect(verdict.failures.join(' ')).toMatch(/icon-shaped canvas/);
+    expect(verdict.decodedFormat).toBe('svg');
+    expect(verdict.failures).toEqual([]);
+    expect(verdict.limitations).toContain(ASSET_CONTENT_LIMITATIONS.vector);
+
+    expect(() =>
+      reconcileAssetSeal({
+        root,
+        shippedPaths: [
+          'images/state-distribution.svg',
+          'models/so101/so101.urdf',
+        ],
+        seal: [
+          {
+            path: 'models/so101/so101.urdf',
+            sha256: hash(MINIMAL_URDF),
+            byteCount: Buffer.byteLength(MINIMAL_URDF),
+            owner: 'robot-wiki-playground',
+            purpose:
+              'Scratch fixture standing in for the approved kinematic description.',
+          },
+        ],
+      }),
+    ).toThrow(/images\/state-distribution\.svg/);
   });
 
   it('refuses a vector whose bytes hide behind a raster name', () => {

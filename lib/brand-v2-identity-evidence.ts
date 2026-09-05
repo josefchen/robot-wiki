@@ -27,12 +27,22 @@ import { isSyncConflictDuplicate } from './sync-duplicates.ts';
  * missing viewport, an empty page, or an unannotated lockup all refuse the
  * evidence instead of returning a weaker claim.
  *
- * Discovery is structural first, annotation second. The sweep finds brand
- * display text by matching every rendered leaf whose text is any spelling in
- * the `robot wiki` family — v1 hyphenated, all-caps, title-hyphenated, and
- * v2 — and only then requires the wordmark role annotation on what it found.
- * A sweep that queried the annotation first could not see an unannotated v1
- * lockup at all, which is the failure the assertion exists to catch.
+ * Discovery is a union of two sources, because either one alone defines the
+ * population out of its own failure mode.
+ *
+ * - **Registration.** `expectedIdentitySlots` says which wordmark role slots
+ *   each route's modules are registered to render, derived from the used-
+ *   import graph and not from a single rendered character. Every owed slot
+ *   must be found and must render exactly `PUBLIC_IDENTITY`.
+ * - **Spelling family.** Every rendered leaf whose text is any spelling in
+ *   the `robot wiki` family — v1 hyphenated, all-caps, title-hyphenated, and
+ *   v2 — is discovered too, and then required to carry a wordmark role.
+ *
+ * The family scan used to be the whole population, which made the population
+ * a function of the text it was measuring: a lockup renamed to something
+ * absurd stopped matching, left the set, and took its own failure with it.
+ * Registration is what survives a rename. The family scan is what survives a
+ * lockup nobody annotated. Neither is dropped.
  */
 export const IDENTITY_RUNTIME_EVIDENCE_PATH =
   'evidence/brand-v2/identity-runtime.json';
@@ -120,9 +130,32 @@ export type IdentityLockupObservation = {
   descriptorTexts: string[];
 };
 
+/**
+ * A registered wordmark role slot as the browser rendered it, found by its
+ * annotation and recorded whatever text it carries.
+ *
+ * The text is the reading, not the filter. A slot that renders `Sprocket
+ * Emporium` is a member of this list exactly as a compliant one is, which
+ * is the whole point: the population cannot be escaped by changing the
+ * thing the population is checked on.
+ */
+export type IdentityRoleSlotObservation = {
+  role: string;
+  selector: string;
+  text: string;
+  domText: string;
+  pseudoText: { before: string; after: string };
+  fontFamilyHead: string;
+  textTransform: string;
+  /** Whether the browser painted it at this viewport. */
+  visible: boolean;
+};
+
 export type IdentityRouteObservation = {
   route: string;
   viewport: IdentityViewportId;
+  /** Every element carrying a wordmark role, whatever it renders. */
+  wordmarkRoleSlots: IdentityRoleSlotObservation[];
   /** Every rendered leaf whose text is in the brand-name family. */
   brandDisplayTexts: IdentityLockupObservation[];
   /** Rendered nodes whose whole text is exactly the locked descriptor. */
@@ -173,6 +206,33 @@ export type TechnicalIdentifierExportWitness = {
   occurrences: number;
 };
 
+/**
+ * One identity-bearing state the default page load does not reach, as the
+ * sweep actually observed it after provoking it.
+ *
+ * Same shape as a route observation plus what produced it, so the residue
+ * scans, the lockup readings and the metadata comparison all apply to the
+ * state unchanged rather than through a second weaker reading.
+ */
+export type IdentityStateObservation = IdentityRouteObservation & {
+  /** Matches the `state` of the `IDENTITY_REQUIRED_STATES` entry. */
+  state: string;
+  /** What the sweep did to make the state paint. */
+  provokedBy: string;
+  /**
+   * The state's whole rendered text. Kept in full for these few
+   * observations, and only these, so the witness string is checked against
+   * what the state actually painted rather than against a length.
+   */
+  renderedText: string;
+  /**
+   * Rendered values of visible form controls. `innerText` does not see a
+   * control's value, so a string that only ever appears inside a textarea
+   * is invisible to every other reading here.
+   */
+  controlValues: Array<{ selector: string; value: string }>;
+};
+
 export type IdentityRuntimeEvidence = {
   version: 1;
   fingerprint: string;
@@ -181,6 +241,8 @@ export type IdentityRuntimeEvidence = {
   routes: string[];
   viewports: string[];
   observations: IdentityRouteObservation[];
+  /** One observation per declared interactive identity state. */
+  stateObservations: IdentityStateObservation[];
   /** One row per sealed technical identifier; none of them may be empty. */
   technicalIdentifierWitnesses: TechnicalIdentifierExportWitness[];
 };
@@ -209,11 +271,12 @@ export type IdentityEvidenceSources = {
  * so a metadata owner that no route reaches is still covered.
  *
  * Note what a closure does not fix: covering a file is not the same as
- * visiting a state. The sweep loads each route once in its default state,
- * so a fallback that only paints when WebGL is unavailable, and an
+ * visiting a state. The route grid loads each route once in its default
+ * state, so a fallback that only paints when WebGL is unavailable, and an
  * instrument state that only exists after interaction, are inside the
- * fingerprint and outside the sweep. That gap is recorded honestly rather
- * than closed here; see `IDENTITY_SWEEP_UNVISITED_STATES`.
+ * fingerprint and outside that grid. They are not left recorded-but-
+ * unvisited: `IDENTITY_REQUIRED_STATES` declares them, the sweep provokes
+ * each one, and the reader refuses evidence that skipped any.
  */
 export function identityEvidenceFingerprint(
   sources: IdentityEvidenceSources,
@@ -239,37 +302,50 @@ export function identityEvidenceFingerprint(
 }
 
 /**
- * Identity-bearing render paths the closure covers but the sweep never
- * observes, named so the rows do not read as a complete sweep.
+ * Identity-bearing states the default page load does not reach, declared so
+ * the sweep has to visit them rather than name them.
  *
- * Covering a file is not the same as visiting a state, and the two halves
- * of that need separate answers. The closure is the drift half: an edit to
- * either module below invalidates the artifact, so a legacy public string
- * added there cannot ride along on stale evidence. It is not the observation
- * half, and claiming it would be the failure this milestone keeps finding —
- * evidence about something adjacent to its subject.
+ * These two used to be a list of states the sweep *did not* visit, sitting
+ * beside rows that still read `passed`. Recording a gap next to a green
+ * result does not change the result, and both gaps turned out to be closable
+ * with a browser rather than with prose: a WebGL context refusal is one
+ * `addInitScript` away, and the trajectory format discriminator is rendered
+ * into a visible textarea by the export control before it is ever
+ * downloaded. So each entry now carries the interaction that produces it and
+ * the string that proves the state actually painted, the sweep drives them,
+ * and `readIdentityRuntimeEvidence` refuses an artifact that skipped one.
  *
- * Both entries are measured rather than assumed. The other paths that look
- * like they belong here do not: the EgoScale legend prints the public
- * identity in the default render (`completion fit (Robot Wiki, R² = …)` is
- * in the shipped `frontier/generalization` document), and `Figure` renders
- * its `data-image-credit` line visibly rather than behind a disclosure, so
- * both are inside the residue scan on the routes that carry them.
+ * The other paths that look like they belong here do not: the EgoScale
+ * legend prints the public identity in the default render (`completion fit
+ * (Robot Wiki, R² = …)` is in the shipped `frontier/generalization`
+ * document), and `Figure` renders its `data-image-credit` line visibly
+ * rather than behind a disclosure, so both are inside the residue scan on
+ * the routes that carry them.
  */
-export const IDENTITY_SWEEP_UNVISITED_STATES = [
+export const IDENTITY_REQUIRED_STATES = [
   {
     state: 'webgl-unavailable-fallback',
+    route: '/playground/',
     definedIn: 'components/three/webgl-unavailable.tsx',
-    reason:
-      'the fallback prints the public identity and paints only when the browser refuses a WebGL context, which the sweep never provokes: the shipped /playground/ document carries none of its text',
+    provokedBy:
+      'HTMLCanvasElement.prototype.getContext returns null before any script runs, so the playground takes its no-WebGL branch',
+    /**
+     * Text only this branch paints. Without it the sweep could record the
+     * default playground render and call the state visited.
+     */
+    witness: 'WebGL is not available',
   },
   {
     state: 'trajectory-export-format-discriminator',
+    route: '/playground/',
     definedIn: 'lib/trajectory.ts',
-    reason:
-      'the robot-atlas-trajectory identifier is written into a downloaded file and never into a document, so no DOM sweep can observe it; VAL-B2-ID-004 covers it through the shipped-bytes witness instead',
+    provokedBy:
+      'the trajectory instrument is driven Record then Add keyframe then Export JSON, which renders the exported document into a visible readonly textarea',
+    witness: 'robot-atlas-trajectory',
   },
 ] as const;
+
+export type IdentityRequiredState = (typeof IDENTITY_REQUIRED_STATES)[number];
 
 export type IdentityEvidenceInput = {
   artifact: unknown;
@@ -277,6 +353,12 @@ export type IdentityEvidenceInput = {
   fingerprint: string;
   /** The sealed identifiers the witness rows must cover, exactly. */
   technicalIdentifiers: string[];
+  /**
+   * The wordmark role slots each route is registered to render, derived
+   * from source by `expectedIdentitySlots` and passed in so the reader
+   * compares the sweep against a population the sweep did not choose.
+   */
+  expectedSlots: ReadonlyArray<{ route: string; roles: string[] }>;
 };
 
 function requireString(value: unknown, label: string): string {
@@ -290,8 +372,11 @@ function requireString(value: unknown, label: string): string {
  * Accepts the persisted sweep only when it is the sweep this tree needs:
  * current fingerprint, both locked strings, exactly the registered public
  * routes in both directions, both viewports for every route, a non-empty
- * rendered page behind every observation, and at least one discovered brand
- * lockup on every route and viewport. Anything else throws.
+ * rendered page behind every observation, every registered wordmark role
+ * slot found on every route and viewport that owes one, at least one
+ * discovered brand lockup on every route and viewport, and one observation
+ * per declared interactive identity state carrying the string that proves
+ * the state painted. Anything else throws.
  */
 export function readIdentityRuntimeEvidence(
   input: IdentityEvidenceInput,
@@ -339,6 +424,22 @@ export function readIdentityRuntimeEvidence(
       'identity runtime evidence does not cover both required viewports',
     );
   }
+  const expectedSlotsByRoute = new Map(
+    input.expectedSlots.map(({ route, roles }) => [route, roles]),
+  );
+  if (expectedSlotsByRoute.size !== input.expectedSlots.length) {
+    throw new Error(
+      'the identity slot expectation names a route twice, so one route carries two populations',
+    );
+  }
+  const unexpectedRoutes = expectedRoutes.filter(
+    (route) => !expectedSlotsByRoute.has(route),
+  );
+  if (unexpectedRoutes.length > 0) {
+    throw new Error(
+      `${unexpectedRoutes.length} swept route(s) have no registered identity slot expectation, starting with ${unexpectedRoutes[0]}, so what they owe is unknown rather than met`,
+    );
+  }
   const observations = artifact.observations ?? [];
   const seen = new Set<string>();
   for (const observation of observations) {
@@ -357,6 +458,20 @@ export function readIdentityRuntimeEvidence(
         `${key} discovered no brand display text; every route renders a shell lockup, so the sweep did not measure what it claims`,
       );
     }
+    // Registration, not text: a slot renamed out of the spelling family is
+    // still owed, and this is the reading that keeps it in the population.
+    const owed = expectedSlotsByRoute.get(observation.route) ?? [];
+    const painted = new Set(
+      (observation.wordmarkRoleSlots ?? [])
+        .filter(({ visible }) => visible)
+        .map(({ role }) => role),
+    );
+    const absent = owed.filter((role) => !painted.has(role));
+    if (absent.length > 0) {
+      throw new Error(
+        `${key} painted no ${absent.join(', ')} slot, though its modules are registered to render it; a lockup that stopped being rendered cannot leave the population by disappearing from it`,
+      );
+    }
   }
   const expectedKeys = expectedRoutes.flatMap((route) =>
     expectedViewports.map((viewport) => `${route}@${viewport}`),
@@ -365,6 +480,50 @@ export function readIdentityRuntimeEvidence(
   if (missing.length > 0) {
     throw new Error(
       `identity runtime evidence is missing ${missing.length} route/viewport observations, starting with ${missing[0]}`,
+    );
+  }
+  const stateObservations = artifact.stateObservations ?? [];
+  for (const required of IDENTITY_REQUIRED_STATES) {
+    const matches = stateObservations.filter(
+      ({ state }) => state === required.state,
+    );
+    if (matches.length !== 1) {
+      throw new Error(
+        `identity runtime evidence records ${matches.length} observations of the ${required.state} state, not 1; a declared state the sweep did not visit cannot leave the rows reading as a complete sweep`,
+      );
+    }
+    const [observed] = matches;
+    if (observed.route !== required.route) {
+      throw new Error(
+        `the ${required.state} state was observed on ${observed.route}, not on ${required.route} where it is defined`,
+      );
+    }
+    // The state has to have painted, not merely been navigated to: without
+    // this the default render of the same route would satisfy the row.
+    const rendered = [
+      observed.renderedText,
+      ...observed.controlValues.map(({ value }) => value),
+    ].join('\n');
+    if (!rendered.includes(required.witness)) {
+      throw new Error(
+        `the ${required.state} observation carries none of ${JSON.stringify(required.witness)}, so ${required.provokedBy} did not put the page into that state`,
+      );
+    }
+    if (observed.visibleTextLength <= 0) {
+      throw new Error(
+        `the ${required.state} observation recorded an empty rendered page`,
+      );
+    }
+  }
+  const declaredStates = new Set<string>(
+    IDENTITY_REQUIRED_STATES.map(({ state }) => state),
+  );
+  const undeclared = stateObservations
+    .map(({ state }) => state)
+    .filter((state) => !declaredStates.has(state));
+  if (undeclared.length > 0) {
+    throw new Error(
+      `identity runtime evidence records undeclared state observation(s): ${[...new Set(undeclared)].sort().join(', ')}`,
     );
   }
   if (input.technicalIdentifiers.length === 0) {
@@ -392,6 +551,15 @@ export type RouteIdentityVerdict = {
   route: string;
   /** Observations for this route, one per viewport. */
   observations: IdentityRouteObservation[];
+  /** Registered wordmark role slots this route owes, from source. */
+  expectedRoles: string[];
+  /** Owed slots the browser did not paint. */
+  missingSlots: string[];
+  /**
+   * Owed slots that painted something other than the locked identity.
+   * Found by annotation, so a rename cannot remove them from the reading.
+   */
+  renamedSlots: string[];
   /** Distinct rendered brand display strings across both viewports. */
   renderedNames: string[];
   /** Lockups whose rendered text is not exactly the locked identity. */
@@ -452,7 +620,9 @@ function forbiddenInMetadata(observation: IdentityRouteObservation): string[] {
  * Why a rendered string is not the stored one, named so a failure points at
  * the declaration that caused it rather than at the wordmark generally.
  */
-function renderCause(lockup: IdentityLockupObservation): string {
+function renderCause(
+  lockup: Pick<IdentityLockupObservation, 'textTransform' | 'pseudoText'>,
+): string {
   const causes: string[] = [];
   if (lockup.textTransform && lockup.textTransform !== 'none') {
     causes.push(`text-transform: ${lockup.textTransform}`);
@@ -468,18 +638,58 @@ function renderCause(lockup: IdentityLockupObservation): string {
 
 export function routeVerdicts(
   evidence: IdentityRuntimeEvidence,
+  expectedSlots: ReadonlyArray<{ route: string; roles: string[] }>,
 ): Map<string, RouteIdentityVerdict> {
+  const expectedByRoute = new Map(
+    expectedSlots.map(({ route, roles }) => [route, roles]),
+  );
   const verdicts = new Map<string, RouteIdentityVerdict>();
   for (const route of evidence.routes) {
     const observations = evidence.observations.filter(
       (observation) => observation.route === route,
     );
+    const expectedRoles = expectedByRoute.get(route);
+    if (!expectedRoles) {
+      throw new Error(
+        `${route} has no registered identity slot expectation, so its verdict would rest on whatever it happened to render`,
+      );
+    }
     const lockups = observations.flatMap(
       (observation) => observation.brandDisplayTexts,
+    );
+    const slots = observations.flatMap((observation) =>
+      observation.wordmarkRoleSlots
+        .filter(({ visible }) => visible)
+        .map((slot) => ({ slot, viewport: observation.viewport })),
     );
     verdicts.set(route, {
       route,
       observations,
+      expectedRoles,
+      missingSlots: [
+        ...new Set(
+          observations.flatMap((observation) =>
+            expectedRoles
+              .filter(
+                (role) =>
+                  !observation.wordmarkRoleSlots.some(
+                    (slot) => slot.visible && slot.role === role,
+                  ),
+              )
+              .map((role) => `${role} paints nowhere at ${observation.viewport}`),
+          ),
+        ),
+      ].sort(),
+      renamedSlots: [
+        ...new Set(
+          slots
+            .filter(({ slot }) => slot.text !== PUBLIC_IDENTITY)
+            .map(({ slot, viewport }) => {
+              const cause = renderCause(slot);
+              return `${slot.selector} renders ${JSON.stringify(slot.text)} at ${viewport}${cause ? ` through ${cause}` : ''}`;
+            }),
+        ),
+      ].sort(),
       renderedNames: [...new Set(lockups.map(({ text }) => text))].sort(),
       wrongNames: [
         ...new Set(
