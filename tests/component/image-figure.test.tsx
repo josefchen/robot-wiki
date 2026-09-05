@@ -93,3 +93,89 @@ describe('ImageRef (registry resolver)', () => {
     expect(screen.queryByRole('img')).toBeNull();
   });
 });
+
+/**
+ * The brand-v2 figure treatment (VAL-B2-ART-004, VAL-B2-ART-005,
+ * VAL-B2-ART-006, VAL-B2-IMG-003). A dark diagram is a bounded instrument
+ * that says what it is; a photograph is not, and neither loses its caption
+ * or its credit to the change.
+ */
+describe('figure treatment by kind', () => {
+  it('mounts a schematic on a bounded dark instrument that identifies itself', () => {
+    render(<ImageRef id="covariate-shift" />);
+    const figure = document.querySelector('figure')!;
+    expect(figure).toHaveAttribute('data-figure-kind', 'original-schematic');
+
+    const surface = figure.querySelector('[data-brand-surface-id]')!;
+    expect(surface).not.toBeNull();
+    expect(surface).toHaveAttribute(
+      'data-brand-surface-id',
+      'surface:bounded-dark-instrument',
+    );
+    expect(surface.querySelector('img')).not.toBeNull();
+
+    const label = figure.querySelector('[data-figure-label]')!;
+    expect(label.textContent).toBe('Original schematic');
+    expect(label.className).toContain('font-mono');
+    // The label is inside the instrument, so it reads as the plate's own
+    // caption rather than as another line of body prose.
+    expect(surface.contains(label)).toBe(true);
+  });
+
+  it('leaves a photograph on the page surface with no schematic claim', () => {
+    render(<ImageRef id="franka-emika-panda-cebit-2017" />);
+    const figure = document.querySelector('figure')!;
+    expect(figure).toHaveAttribute('data-figure-kind', 'photograph');
+    expect(figure.querySelector('[data-brand-surface-id]')).toBeNull();
+    expect(figure.querySelector('[data-figure-label]')).toBeNull();
+  });
+
+  it('keeps the caption and sets the credit in the source-metadata face', () => {
+    render(<ImageRef id="covariate-shift" />);
+    const figure = document.querySelector('figure')!;
+    const caption = figure.querySelector('figcaption')!;
+    expect(caption.textContent).toBe(
+      (getImage('covariate-shift') as SiteImage).caption,
+    );
+    expect(caption.className).toContain('font-sans');
+    const credit = figure.querySelector('[data-image-credit]')!;
+    expect(credit.className).toContain('font-mono');
+  });
+
+  it('opens each credit with the noun the registry declares', () => {
+    const { unmount } = render(<ImageRef id="covariate-shift" />);
+    expect(
+      document.querySelector('[data-image-credit]')!.textContent,
+    ).toMatch(/^Diagram: /);
+    unmount();
+
+    render(<ImageRef id="puma-560-nasa-ames" />);
+    expect(
+      document.querySelector('[data-image-credit]')!.textContent,
+    ).toMatch(/^Photo: /);
+  });
+
+  it('credits a company mark as a logo whatever it ships as', () => {
+    // /credits renders every registered image through this resolver. While
+    // the noun came from the file extension it credited the vector mark as
+    // "Diagram:" and the raster mark beside it as "Photo:".
+    for (const id of ['nvidia-logo', 'physical-intelligence-logo']) {
+      const { unmount } = render(<ImageRef id={id} />);
+      const figure = document.querySelector('figure')!;
+      expect(figure, id).toHaveAttribute('data-figure-kind', 'official-mark');
+      expect(
+        document.querySelector('[data-image-credit]')!.textContent,
+        id,
+      ).toMatch(/^Logo: /);
+      expect(figure.querySelector('[data-figure-label]'), id).toBeNull();
+      unmount();
+    }
+  });
+
+  it('renders the attribution sentence the registry records', () => {
+    render(<ImageRef id="franka-emika-panda-cebit-2017" />);
+    const credit = document.querySelector('[data-image-credit]')!;
+    const rendered = credit.textContent!.replace(/\s+/g, ' ').trim();
+    expect(rendered).toBe(entry.attributionText);
+  });
+});

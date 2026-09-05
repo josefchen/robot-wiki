@@ -44,7 +44,10 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
                 <Link
                   href={item.href}
                   data-brand-control-id="control:link-focus"
-                  className="text-text-dim transition-colors hover:text-accent"
+                  // The underline is the non-colour cue design-system 4.4
+                  // requires: without it an ancestor crumb differs from the
+                  // non-link current crumb by hue alone.
+                  className="text-text-dim underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
                 >
                   {item.label}
                 </Link>

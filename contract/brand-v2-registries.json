@@ -501,7 +501,7 @@
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -523,14 +523,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8ffb94ba016383e9277a747422e4355c5dba5936e50b580183afeaa65c349f91"
+      "fingerprint": "38eb24a7e25e47a6757e58be753dc4127bea1ea369832328beece584a16ba7e8"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
       "routeId": "route:/adjacent/autonomous-vehicles/",
       "owner": "module:adjacent/autonomous-vehicles",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/adjacent/autonomous-vehicles/",
       "title": "Autonomous Vehicles",
       "description": "The AV stack as a robotics problem: perception, prediction, planning, and the long tail.",
@@ -552,14 +552,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ab04ff35a6412e6c86d9078059fde9993d6216eb8d5bcce8ac23b79280aeb77c"
+      "fingerprint": "7e5e2c47af2e44e73ae84934db9222b3a0bba5bb312c935c618c20a2d4904c06"
     },
     {
       "id": "metadata:/adjacent/drones/",
       "routeId": "route:/adjacent/drones/",
       "owner": "module:adjacent/drones",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/adjacent/drones/",
       "title": "Drones and Aerial Robotics",
       "description": "Autonomous flight, aggressive maneuvers, and swarm coordination.",
@@ -581,14 +581,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "87669bbb565b01237885b357162beff08849f2c989562b82c28d20d5caa36f76"
+      "fingerprint": "0ae5e2ba1185751568974d85a0ac9c7ae2bb06e933692ec569129daef23ee829"
     },
     {
       "id": "metadata:/adjacent/space/",
       "routeId": "route:/adjacent/space/",
       "owner": "module:adjacent/space",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/adjacent/space/",
       "title": "Space Robotics",
       "description": "NASA/JPL systems, orbital servicing, and ISRU: robotics where repair is impossible.",
@@ -610,14 +610,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a8e3d3fde7afbda810a715e2504428dc8c1c7864ffb67e73cf72226b95b8225e"
+      "fingerprint": "023b3106440d295277b077d027163ce8090b42a7e8054fb07ec6175bc778725a"
     },
     {
       "id": "metadata:/adjacent/surgical/",
       "routeId": "route:/adjacent/surgical/",
       "owner": "module:adjacent/surgical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/adjacent/surgical/",
       "title": "Surgical Robotics",
       "description": "Intuitive, CMR, and Moon Surgical: the precision and reliability bar for certified robots.",
@@ -639,14 +639,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "467153037a228b6bb86482196e0e225a0dd4c998793ace901011dd969da0ed33"
+      "fingerprint": "4b83f7f8af9052f052a443abe6b7cc72c234eccc8bf7b2e11a0dbbf96072d7f5"
     },
     {
       "id": "metadata:/classical/",
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -668,14 +668,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d4e7f2b5780a25095243efcb6476ee565d30c60c1aadfedb4ba8c38840191f9c"
+      "fingerprint": "477624e664cd549d480d77a61454b55936448d4551cdc4d15641e1a55ec3453b"
     },
     {
       "id": "metadata:/classical/control/",
       "routeId": "route:/classical/control/",
       "owner": "module:classical/control",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/control/",
       "title": "Control",
       "description": "PID, LQR, MPC, and whole-body QP: the classical stack under every learned policy.",
@@ -697,14 +697,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "84814712747532d12ad3311cfe6ff9312884260d25d91fa9d410e8666d009e47"
+      "fingerprint": "9d11533d576f10eeeaff9d2e6be3df5d67d8e71198c27bbf95fda6a92c98b952"
     },
     {
       "id": "metadata:/classical/grasp-planning/",
       "routeId": "route:/classical/grasp-planning/",
       "owner": "module:classical/grasp-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/grasp-planning/",
       "title": "Grasp Planning",
       "description": "Contact mechanics, grasp quality metrics, and force closure.",
@@ -726,14 +726,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8258014c438f919deeb51d128d2ed48988979237af410f8ae30d88b177b65ce7"
+      "fingerprint": "2ed221a52826f35358786b11ba157afc08e0eeb9e093d3545a52bd484774db60"
     },
     {
       "id": "metadata:/classical/kinematics/",
       "routeId": "route:/classical/kinematics/",
       "owner": "module:classical/kinematics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/kinematics/",
       "title": "Kinematics",
       "description": "Forward and inverse kinematics, DH parameters, and the Jacobian; the theory behind the 3D playground.",
@@ -755,14 +755,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8bb6318734b0e059365ba149af0170ddaf6802e73465d8ce68d3dd82dd4234c6"
+      "fingerprint": "82aecea7553c180b61f09fc3a9dd30871627f52820e57a4a05c27a973702b6fc"
     },
     {
       "id": "metadata:/classical/motion-planning/",
       "routeId": "route:/classical/motion-planning/",
       "owner": "module:classical/motion-planning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/motion-planning/",
       "title": "Motion Planning",
       "description": "RRT and its optimal variants, trajectory optimization, and CHOMP/TrajOpt.",
@@ -784,14 +784,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "40770df165bdad4cfe45576ad572735d9c87cad116e2d1d953f6eb3283fab7b4"
+      "fingerprint": "add9d0e1a673d033976bd71fac75c400d434bb809cba2f7951d9fbf9e0854149"
     },
     {
       "id": "metadata:/classical/perception/",
       "routeId": "route:/classical/perception/",
       "owner": "module:classical/perception",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/perception/",
       "title": "Perception for Manipulation",
       "description": "Calibration through 6-DoF pose: the pipeline that finds the object, and its error budget.",
@@ -813,14 +813,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "52eccfb3504028089118526cecba748bdafe8673d6dfa5440232173c29603ec7"
+      "fingerprint": "9f98e253e1d1eed19fd47da7c1eac2ba4c882f8cd10a52ff59f675accc20e016"
     },
     {
       "id": "metadata:/classical/scene-representation/",
       "routeId": "route:/classical/scene-representation/",
       "owner": "module:classical/scene-representation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/scene-representation/",
       "title": "Scene Representation and Mapping",
       "description": "What a robot remembers about the space around it, and why the map that renders best is not the map a planner can use.",
@@ -842,14 +842,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5726e673c04b6ef2a62c82a3c0873ede22f205adee5459866f470a7d34bc4e89"
+      "fingerprint": "42c8289af9a90a705ee62983a17107d2628b8531df1c37d15fb29158b29d9685"
     },
     {
       "id": "metadata:/classical/state-estimation/",
       "routeId": "route:/classical/state-estimation/",
       "owner": "module:classical/state-estimation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/classical/state-estimation/",
       "title": "State Estimation",
       "description": "Kalman filters, factor graphs, and pose estimation from noisy sensors.",
@@ -871,7 +871,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b8b10b07b5d3035003a7642dc8c9d181480efcba63eceb9c5c23e18ac0f940b0"
+      "fingerprint": "adf5941e4a43472fd380946ff413770138827328e5ec0cfae06060d1d97a988e"
     },
     {
       "id": "metadata:/credits/",
@@ -905,7 +905,7 @@
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
@@ -927,14 +927,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "43be16b0c704cfa2e037614c108197f93d01171a7da6c311b5db36678cb02e32"
+      "fingerprint": "84896899d716d10c036af5430fd6939598a838a4745435450d8fbc90237a7471"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
       "routeId": "route:/data-hardware/data-bottleneck/",
       "owner": "module:data-hardware/data-bottleneck",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/data-bottleneck/",
       "title": "The Data Bottleneck",
       "description": "Robot-hours versus LLM tokens: the log-log reality of embodied data and teleop-farm economics.",
@@ -956,14 +956,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9c9360b25f25f52cc432881acb303e4d75b18daebf8fba88d334638bc1dbb56b"
+      "fingerprint": "11d40e6390bbebfb413f6d0ca4c58ff773636a158318eb16304dc2b3ede612ae"
     },
     {
       "id": "metadata:/data-hardware/datasets/",
       "routeId": "route:/data-hardware/datasets/",
       "owner": "module:data-hardware/datasets",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/datasets/",
       "title": "Major Datasets",
       "description": "Open X-Embodiment, DROID, BridgeData V2, AgiBot World, RoboMIND: five datasets compared.",
@@ -985,14 +985,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c94b88a03e1051930f4675436ce9e319ea745804d7d276f22627010844bfbcb8"
+      "fingerprint": "11e6545c389b9d3bd0fcbf7430cd417816c1a24b5fc49892d03e966e47299d31"
     },
     {
       "id": "metadata:/data-hardware/evaluation-crisis/",
       "routeId": "route:/data-hardware/evaluation-crisis/",
       "owner": "module:data-hardware/evaluation-crisis",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/evaluation-crisis/",
       "title": "The Evaluation Crisis",
       "description": "Why N-of-10 trials and unreported variance mislead: 95% per-step success is unusable at 30 steps.",
@@ -1014,14 +1014,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "bdd2824546a93ba8d66cb293ed2446413d819b7c2c49438fed0cc8dff534fcf0"
+      "fingerprint": "90183f7b676ba9ede349ba7c8470e00e56eb4915ea0142d44c660c0886950fce"
     },
     {
       "id": "metadata:/data-hardware/hardware-taxonomy/",
       "routeId": "route:/data-hardware/hardware-taxonomy/",
       "owner": "module:data-hardware/hardware-taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/hardware-taxonomy/",
       "title": "Hardware Taxonomy",
       "description": "Arms, humanoids, hands, sensors, and compute: a buyer's guide from SO-101 to Jetson Thor.",
@@ -1043,14 +1043,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "41d97275f02f786a18cd3fdfc287f3404f37352418842b73364ca54defad99a4"
+      "fingerprint": "24590eb6494613680a5a4743b72359001ae34c1a6b33ba7ca117a9b97bc5bd7a"
     },
     {
       "id": "metadata:/data-hardware/industrial-deployment/",
       "routeId": "route:/data-hardware/industrial-deployment/",
       "owner": "module:data-hardware/industrial-deployment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/industrial-deployment/",
       "title": "Industrial Deployment",
       "description": "The installed base robot learning is trying to enter, and the jam-rate arithmetic that decides whether a 99 percent cell ships.",
@@ -1072,14 +1072,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "18fabc14d6d8d71821d7e86d6d5f4131513f212a8e3f5a9b8c2956808293fde6"
+      "fingerprint": "6923743e2aee3945d29a4b8b0bc078cdd094910c47a00acfe5f9f83f5bf219db"
     },
     {
       "id": "metadata:/data-hardware/teleop-rigs/",
       "routeId": "route:/data-hardware/teleop-rigs/",
       "owner": "module:data-hardware/teleop-rigs",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/data-hardware/teleop-rigs/",
       "title": "Teleoperation Rigs",
       "description": "ALOHA, GELLO, UMI, and VR teleop: cost, data quality, throughput, and the embodiment gap.",
@@ -1101,14 +1101,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "54f4567f08064dc6887fd298bc24d8695b576e5ca5a2bbe92efd916c30b26016"
+      "fingerprint": "607ecdf9d0908feaa784afce29e91b038eb61b95127f761e2160dc96bf8435d7"
     },
     {
       "id": "metadata:/frontier/",
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1130,14 +1130,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "db139eb25ef08dac5e2d9a6ab85df4e1277abb0cb8d846093e03e0bf906c61cd"
+      "fingerprint": "9b88de1385968438877f4a8bb96a618673cf0d1616fa4db34d22cd6c220ba1d3"
     },
     {
       "id": "metadata:/frontier/bear-case/",
       "routeId": "route:/frontier/bear-case/",
       "owner": "module:frontier/bear-case",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/bear-case/",
       "title": "The Bear Case",
       "description": "Why this could be another robotics winter, and the milestones that would prove it wrong.",
@@ -1159,14 +1159,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2caf36eeb963721c212bf538328b3f9cdede4b9eaceebe49eaca37e026ced9d5"
+      "fingerprint": "88ff4f4431f603472a4edc0e206c0f4f945467fbfa322efb66a4f5f27062def0"
     },
     {
       "id": "metadata:/frontier/competing-theses/",
       "routeId": "route:/frontier/competing-theses/",
       "owner": "module:frontier/competing-theses",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/competing-theses/",
       "title": "Competing Theses",
       "description": "End-to-end scaling versus hierarchy versus world models versus RL fine-tuning, with falsification criteria.",
@@ -1188,14 +1188,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "037ea838a76e3bd018457783d41bf33378c3d4e50f72ae9d62185000b382cb5f"
+      "fingerprint": "abf6a0c6870caa42f012b024e6defb4a6c798e741934fdaec2db8be12ab050a7"
     },
     {
       "id": "metadata:/frontier/dexterity/",
       "routeId": "route:/frontier/dexterity/",
       "owner": "module:frontier/dexterity",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/dexterity/",
       "title": "Dexterity",
       "description": "Contact-rich manipulation, the tactile sensing gap, in-hand reorientation, and deformables.",
@@ -1217,14 +1217,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "cecfb787359c583adcc43b7e2d34ced3991677fbeb846ba4d1b40f38005ba51c"
+      "fingerprint": "b86a87f7d1c9f6bc6924c97d3c462f6900b1925ba1e8f38a0a83e21338696128"
     },
     {
       "id": "metadata:/frontier/generalization/",
       "routeId": "route:/frontier/generalization/",
       "owner": "module:frontier/generalization",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/generalization/",
       "title": "Generalization",
       "description": "What the pi0.5 and pi0.7 results demonstrate, and what they do not: the open-world gap.",
@@ -1246,14 +1246,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "01f6705612e88613e6dda7d056835ef31ef56dd94385effa60ed938d8389d652"
+      "fingerprint": "bb549ec7a6a6fd69883beea085cbc827aa585011bb35a2deab1a63cd4abd5c07"
     },
     {
       "id": "metadata:/frontier/reliability-gap/",
       "routeId": "route:/frontier/reliability-gap/",
       "owner": "module:frontier/reliability-gap",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/reliability-gap/",
       "title": "The Reliability Gap",
       "description": "80% is a demo, 99.9% is a product: what deployment numbers actually show.",
@@ -1275,14 +1275,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8d5bc56fcef2f4111ca2a71ebb0e93c308d2926c0b67771f7fd8883ee78d7244"
+      "fingerprint": "5f6ea05ce0a08064cbbaa120bcf2c0802071d915e186ef4217d206821defea91"
     },
     {
       "id": "metadata:/frontier/safety-and-assurance/",
       "routeId": "route:/frontier/safety-and-assurance/",
       "owner": "module:frontier/safety-and-assurance",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/frontier/safety-and-assurance/",
       "title": "Safety and Assurance",
       "description": "Industrial robotics can certify a control system but not a learned policy, so what ships is a verifiable safety layer wrapped around an unverifiable one.",
@@ -1304,7 +1304,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "303acfc8331b5d734972053360632aa1e791b67f6110c21a7cb33f647cf2d5da"
+      "fingerprint": "b6515ae8d02f4d17a1b5f676c8a7847d8f30935df794fb9b6f64ad6bbd648327"
     },
     {
       "id": "metadata:/glossary/",
@@ -1338,7 +1338,7 @@
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -1360,14 +1360,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "42c882cb6e185bef356a7b2e066a4544a1a3a3e91eafba00bd9f29d2af39c379"
+      "fingerprint": "f229dedb0fdadd8eaf46667332dc398bed41cc577338454c5ddc95aa985cc163"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
       "routeId": "route:/manipulation/action-chunking/",
       "owner": "module:manipulation/action-chunking",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/action-chunking/",
       "title": "Action Chunking (ACT and ALOHA)",
       "description": "Predicting action sequences instead of single steps: the CVAE structure, the chunk-size tradeoff, and temporal ensembling.",
@@ -1389,14 +1389,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e72927d5020acc52319ab25e501d40d1bcef5d9f7aadfb3bd96409e51c29be57"
+      "fingerprint": "78dc121c024d821e80c76da157d11dbeb9d32a504714fcc4e6a2ee571f3a9953"
     },
     {
       "id": "metadata:/manipulation/bc-foundations/",
       "routeId": "route:/manipulation/bc-foundations/",
       "owner": "module:manipulation/bc-foundations",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/bc-foundations/",
       "title": "Behavior Cloning Foundations",
       "description": "Covariate shift and compounding error: why naive imitation breaks in closed loop, with DAgger as the standard fix.",
@@ -1418,14 +1418,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "de1dc1e6e9ed5dee977fbcfe61ad6d3c6ac83ce8c973d46e2f157d6e8ae0a963"
+      "fingerprint": "a3a4e9fa0d260b1aa42d5dc272017badff7914d9c279d9b352fa59930353dc23"
     },
     {
       "id": "metadata:/manipulation/comparison-matrix/",
       "routeId": "route:/manipulation/comparison-matrix/",
       "owner": "module:manipulation/comparison-matrix",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/comparison-matrix/",
       "title": "Comparison Matrix",
       "description": "Every major policy across eight architectural axes: action representation, horizon, frequency, backbone, conditioning, cross-embodiment, hierarchy, openness.",
@@ -1447,14 +1447,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "940fb341f91188d5ed23275f25b9cfad65b5f6eeb974595716a904f95a83aa62"
+      "fingerprint": "bc660f440818071c562427920d313a6d0112dc3e65f42de000d9f23b0880be77"
     },
     {
       "id": "metadata:/manipulation/cross-embodiment/",
       "routeId": "route:/manipulation/cross-embodiment/",
       "owner": "module:manipulation/cross-embodiment",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/cross-embodiment/",
       "title": "Cross-Embodiment Transfer",
       "description": "Padded action vectors, motion transfer, and shared relative end-effector frames; the live disagreement.",
@@ -1476,14 +1476,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2f2a3976b125e45f6f11002f0b41fb10835a18b2607fbb4f065168d99ef82aed"
+      "fingerprint": "1bef4f29bf2da452e7581bfcf97bda9ffa099f77ac102839d38347e53568f45b"
     },
     {
       "id": "metadata:/manipulation/diffusion-policy/",
       "routeId": "route:/manipulation/diffusion-policy/",
       "owner": "module:manipulation/diffusion-policy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/diffusion-policy/",
       "title": "Diffusion Policy",
       "description": "Visuomotor control as conditional denoising over action sequences, with receding-horizon execution.",
@@ -1505,14 +1505,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5d78d772a11c15267e7705a4514e404b5a0a0bb8cda8c6432b291a8cb624c061"
+      "fingerprint": "82e98b2a6258aa04729dba94ab73c73896879f4bc3e68f0432a35277b15eb9f1"
     },
     {
       "id": "metadata:/manipulation/generalist-policies/",
       "routeId": "route:/manipulation/generalist-policies/",
       "owner": "module:manipulation/generalist-policies",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/generalist-policies/",
       "title": "Other Generalist Policies",
       "description": "Gemini Robotics, GR00T, Helix, Skild, and GO-2: how to read closed-model vendor claims.",
@@ -1534,14 +1534,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5c0cc6b5c67882248f6ee5a22fe288e9cad24e121c3757a9b0d970c81766c300"
+      "fingerprint": "fceb70d27627e9d29531ffad63891a15b2d05a3f5f78c55318ab477c0f6e25ae"
     },
     {
       "id": "metadata:/manipulation/hierarchical/",
       "routeId": "route:/manipulation/hierarchical/",
       "owner": "module:manipulation/hierarchical",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/hierarchical/",
       "title": "Hierarchical Approaches",
       "description": "SayCan, code-as-policies, and keypoint affordances; why separate planners gave way to internalized hierarchy.",
@@ -1563,14 +1563,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1e2234456a2625cb438d743692b9ca977de7d14dc2884f83f0dd95b1095bc999"
+      "fingerprint": "86f2ee90b3e3469c825ed280be2f2cc8c1ee585fbcc94ac049e8723e1c25c5e0"
     },
     {
       "id": "metadata:/manipulation/knowledge-insulation/",
       "routeId": "route:/manipulation/knowledge-insulation/",
       "owner": "module:manipulation/knowledge-insulation",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/knowledge-insulation/",
       "title": "Knowledge Insulation",
       "description": "Training the VLM backbone on discrete tokens while a flow-matching expert learns actions behind a stop-gradient.",
@@ -1592,14 +1592,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "344758ed39ae4707e6d220037b68a1e478452fd450cf6c2ec0e2315895549dcb"
+      "fingerprint": "8b31d1be5663054bc721d0bb2d2c2cb7e3c40e92eb9e467cdb0f821e77e5efd5"
     },
     {
       "id": "metadata:/manipulation/pi-line/",
       "routeId": "route:/manipulation/pi-line/",
       "owner": "module:manipulation/pi-line",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/pi-line/",
       "title": "The Pi Line",
       "description": "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop.",
@@ -1621,14 +1621,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "59e5a3594cd21d2707f031b71c768d8832350bededae52738ae563a7ae0c7084"
+      "fingerprint": "00a58cab22535e6079072c07f07dbc8e3c497dce355d7aabb832216ff8cf9907"
     },
     {
       "id": "metadata:/manipulation/realtime-execution/",
       "routeId": "route:/manipulation/realtime-execution/",
       "owner": "module:manipulation/realtime-execution",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/realtime-execution/",
       "title": "Real-Time Execution",
       "description": "Temporal ensembling and real-time chunking: the latency budgets that decide whether the control loop closes.",
@@ -1650,14 +1650,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "3b3c74e2fe8b16bb82a28fd6bedbc1c0329c822d9cef9139d34eeda64096bfbc"
+      "fingerprint": "328e5850662b9385f78414fcb667a61e2d2fcc3fa16dac1de1b104972373ae03"
     },
     {
       "id": "metadata:/manipulation/rl-finetuning/",
       "routeId": "route:/manipulation/rl-finetuning/",
       "owner": "module:manipulation/rl-finetuning",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/rl-finetuning/",
       "title": "RL Fine-Tuning of Policies",
       "description": "DPPO, ConRFT, Recap, pi_RL, residual RL, and HIL-SERL: closing the reliability gap with on-policy experience.",
@@ -1679,14 +1679,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "1027ac321bbd02c970289e840b7b81ce2e0edb957a3a9705247b854792d7a38f"
+      "fingerprint": "1d34c9f2b49794aea60cbef6e4fa5031ef79c1cd2fbbe1c6d68d06bd6a6d870b"
     },
     {
       "id": "metadata:/manipulation/vla-models/",
       "routeId": "route:/manipulation/vla-models/",
       "owner": "module:manipulation/vla-models",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/manipulation/vla-models/",
       "title": "Vision-Language-Action Models",
       "description": "RT-1, RT-2, RT-X, Octo, and OpenVLA: web-scale pretraining meets robot control, and the cost of discrete action tokens.",
@@ -1708,7 +1708,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "77c1cbe267f4058963ef9e9567384a20a2074e519091e8f7781ddef4ec7b23e9"
+      "fingerprint": "0e20327b6b04faeeec13ef3cef9885badaa91e0c68c559cd341beb03f8a5cd39"
     },
     {
       "id": "metadata:/market-map/",
@@ -1769,7 +1769,7 @@
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -1791,14 +1791,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0398f729aa9dcc51aaf6c63369924c09f752c810045906e84d32404d7e9a1997"
+      "fingerprint": "d10480b42bc3e4003dbb73e6ff977e43ee9d5fc28f0d4ef3ed455f53501fdfc9"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
       "routeId": "route:/rl-sim2real/humanoid-wbc/",
       "owner": "module:rl-sim2real/humanoid-wbc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/humanoid-wbc/",
       "title": "Humanoid Whole-Body Control",
       "description": "Motion tracking from PHC to ASAP and GMT, and the three decompositions of 2026.",
@@ -1820,14 +1820,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "75d86229f3e64594cba2a03f1aa9ee6b722437a24437efcd2ea6d8e85bb45d21"
+      "fingerprint": "6e4ece5681609dde40fe2648c8b60490ab4ad36d258ce4560d602b4c7bd98f29"
     },
     {
       "id": "metadata:/rl-sim2real/legged-locomotion/",
       "routeId": "route:/rl-sim2real/legged-locomotion/",
       "owner": "module:rl-sim2real/legged-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/legged-locomotion/",
       "title": "Legged Locomotion Lineage",
       "description": "From ANYmal to Unitree and the MIT humanoid line: how learned gaits became the default.",
@@ -1849,14 +1849,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "bae84e49cd4f0c9652397ffca680358ed6e5c1cba1db8342bf112fe30ede3408"
+      "fingerprint": "be09cba705cda1352fa7c9458d308726c8850d72668037355855c6a1889afd9d"
     },
     {
       "id": "metadata:/rl-sim2real/parallel-sim-rl/",
       "routeId": "route:/rl-sim2real/parallel-sim-rl/",
       "owner": "module:rl-sim2real/parallel-sim-rl",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/parallel-sim-rl/",
       "title": "Massively Parallel Sim RL",
       "description": "Isaac Lab, Newton, MJX, and Brax: GPU-parallel environments and the wall-clock economics of training.",
@@ -1878,14 +1878,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "69667a55ee98242f5ee65e8830a10d5a40997cdddaed8dda90f194df488650fb"
+      "fingerprint": "0efd88600aebc9abd843ea5753ca57349d0d7d4a317255725ad38cee4a6fba02"
     },
     {
       "id": "metadata:/rl-sim2real/reward-design-mpc/",
       "routeId": "route:/rl-sim2real/reward-design-mpc/",
       "owner": "module:rl-sim2real/reward-design-mpc",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/reward-design-mpc/",
       "title": "Reward Design and the MPC Debate",
       "description": "LLM-written rewards and curricula; where classical trajectory optimization still wins.",
@@ -1907,14 +1907,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e1a73185735d257f58d5f1561ec56b9ff7b4458cf7e154f06bef9c8b49cc496f"
+      "fingerprint": "c9dd229a6d0042cedc895b97d49f42ddbbd40c836e79998dde6921ba3200f0a0"
     },
     {
       "id": "metadata:/rl-sim2real/rl-for-robotics/",
       "routeId": "route:/rl-sim2real/rl-for-robotics/",
       "owner": "module:rl-sim2real/rl-for-robotics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/rl-for-robotics/",
       "title": "RL for Robotics",
       "description": "Sample efficiency decides which reinforcement learning algorithms a robot can actually be trained with, from PPO in simulation to offline learning on a fixed dataset.",
@@ -1936,14 +1936,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2d0e5055fb207c04161885ecd2f975e846c207631886251cbcec4735cfae258d"
+      "fingerprint": "bceccb932ad1856f098a454bd8e2057823614ff05d76922d9b239a25bfb62521"
     },
     {
       "id": "metadata:/rl-sim2real/sim2real-transfer/",
       "routeId": "route:/rl-sim2real/sim2real-transfer/",
       "owner": "module:rl-sim2real/sim2real-transfer",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/sim2real-transfer/",
       "title": "Sim-to-Real Transfer",
       "description": "Domain randomization, teacher-student distillation, system identification, and real-to-sim correction.",
@@ -1965,14 +1965,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "71ac0d2c264c19da2f5fc5f9847e9af0aad7e965b6e122f10029e630f393e2e1"
+      "fingerprint": "ecb894a89744613e3f1764f7bae5c2536be739534edd355f98c3adc7c172e6b6"
     },
     {
       "id": "metadata:/rl-sim2real/why-rl-locomotion/",
       "routeId": "route:/rl-sim2real/why-rl-locomotion/",
       "owner": "module:rl-sim2real/why-rl-locomotion",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/rl-sim2real/why-rl-locomotion/",
       "title": "Why RL Won Locomotion but Not Manipulation",
       "description": "The MDP simulability gap: contact-rich manipulation resists the simulation that made walking routine.",
@@ -1994,7 +1994,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "38e51c5d9a9bdd0ecf1ef1975dc693a729de76e40a2b6b37fe158410d8f9d864"
+      "fingerprint": "2dd0d8243d960f80d69cba76b4a4fa8b21c14707c1757b3b5bc05aa47b0dcd5a"
     },
     {
       "id": "metadata:/search/",
@@ -2028,7 +2028,7 @@
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -2050,14 +2050,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "469d24d6aabd960450f1d73003271a705e18b9ecb783b2bd99b84700f057801d"
+      "fingerprint": "822328c05cbd6dd6873cf920bdeb7c074fd4226ea3436afb8f521a6088c3aea0"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
       "routeId": "route:/world-models/generative-sim/",
       "owner": "module:world-models/generative-sim",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/generative-sim/",
       "title": "Generative Simulation",
       "description": "Generated content inside real physics engines beats generated dynamics: RoboGen, Holodeck, RoboCasa.",
@@ -2079,14 +2079,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ebdfa22b2c45244f52efcdf61f8c423183475813fbaf65fecc4b2c9bd7490636"
+      "fingerprint": "5875715478f4b75f46cb0f0521d85cd117eaec4a5167b214cbcb0f8cb32ebc62"
     },
     {
       "id": "metadata:/world-models/generative-video/",
       "routeId": "route:/world-models/generative-video/",
       "owner": "module:world-models/generative-video",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/generative-video/",
       "title": "Generative Video World Models",
       "description": "Cosmos, Genie, and GR-2: action-conditioned video prediction and the conditioning-strength problem.",
@@ -2108,14 +2108,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e6ec1d48e806be77aedab8949431e041da1bb1ae4a7a4a37e0ebf5db3f6d941c"
+      "fingerprint": "c060497d7eb171db82531062d10d5f305a260dbac3cfab8d562fcaa26466f2e8"
     },
     {
       "id": "metadata:/world-models/jepa/",
       "routeId": "route:/world-models/jepa/",
       "owner": "module:world-models/jepa",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/jepa/",
       "title": "JEPA and the Non-Generative Counterargument",
       "description": "V-JEPA 2 and LeCun's case that prediction in representation space beats pixel generation.",
@@ -2137,14 +2137,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "def09649e8b52d0161c2cee8295d297420e17603f5ea2dccfed698b9ff3d7a7c"
+      "fingerprint": "3a5db7bb605861827b042ff8eabd699d13526df7f6f5d1fd26eb1f0ad4ba3d1e"
     },
     {
       "id": "metadata:/world-models/latent-dynamics/",
       "routeId": "route:/world-models/latent-dynamics/",
       "owner": "module:world-models/latent-dynamics",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/latent-dynamics/",
       "title": "Latent-Dynamics World Models",
       "description": "Dreamer, TD-MPC2, and DayDreamer: compact learned dynamics for imagination-based control.",
@@ -2166,14 +2166,14 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "6cee601ec68629f2372031e201eeea3a05fefb8d903e128da107c24428acdb0c"
+      "fingerprint": "cd806b06f673265879f247fd0e30231558d85a845b5033731b30964b18f13fe4"
     },
     {
       "id": "metadata:/world-models/taxonomy/",
       "routeId": "route:/world-models/taxonomy/",
       "owner": "module:world-models/taxonomy",
       "ownerPath": "app/(content)/[domain]/[slug]/page.tsx",
-      "ownerSourceFingerprint": "91aa3c5885918a34d5ad3694d2122cc0f1848efddc9da35bd45e6c9527f0212a",
+      "ownerSourceFingerprint": "186f7b69af93d14b55ef7084c62869ce52503c2e4ae4a197d0beffd92f709bda",
       "canonical": "https://robot-wiki.com/world-models/taxonomy/",
       "title": "What Is a World Model?",
       "description": "Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.",
@@ -2195,7 +2195,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "692f2653ecd17a4a37030e5e2ce80abcc8f27f940f1ae919f74b376fe40c9694"
+      "fingerprint": "318e78917407fc55e7886f5acf9075d03619d45be776a1dd5a7efe68ad9d6203"
     },
     {
       "id": "metadata:/404/",
@@ -2265,9 +2265,9 @@
       "category": "editorial-image",
       "ownershipId": "image:covariate-shift",
       "sourceRegistryId": "covariate-shift",
-      "byteHash": "18adc440eb043fd47c42f8851d73d7253d4a2826d9dadd5d600ec75b989590da",
+      "byteHash": "ade5687e7b5f6b0ddce3bda3584e3811a0b3f89bac7a85648b16560f5a5608e8",
       "semanticHash": "c97c004f3f20f29875c097f231da27a87219129e7dd5477c0dcd657f659321ef",
-      "fingerprint": "fa0b3c3375c90f75991c3a3e14b4edd096ef60c6bf3bb2203a892d733b54d9d0"
+      "fingerprint": "4710782ee74cff7b77828f81da16d54b8646f602792d4fde4511e5d32e4fed23"
     },
     {
       "id": "asset:images/franka-emika-panda-cebit-2017.jpg",
@@ -3415,9 +3415,9 @@
       "category": "editorial-image",
       "ownershipId": "image:temporal-ensembling",
       "sourceRegistryId": "temporal-ensembling",
-      "byteHash": "649b4cc247f3625f75222283d706d8468c98b49e2132492c4c3f3004aeee70d7",
+      "byteHash": "8f614edd4d3c99bc0a3e15c9b259b8b30a3d6475b87df8914693717e3bb55296",
       "semanticHash": "1e5c607dd67c845fb6322919ef079487d2af2b74bac1578f282acba7a7fb46d5",
-      "fingerprint": "cb3695bd0bb6e80723f139fa5257502b45c476a7b61340ccf7dc47f234c046dc"
+      "fingerprint": "eca83a77749c021e27281337b3ab7cdfb529ee8ba049bb615687f8a2d9f0053f"
     },
     {
       "id": "asset:models/so101/assets/base_motor_holder_so101_v1.glb",
@@ -6770,6 +6770,7 @@
         "ownerPath": "app/page.tsx",
         "ordinal": 1,
         "props": "className=\"mt-5\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6819,7 +6820,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "edf3055af4c7de6d99ccb6f86df361e4537ed13c8f8b00f08542800226ad2662"
+        "fingerprint": "808010d323c120d5e82cceade3074d955bdc89d82ff16ce24d3b242fb058a58d"
       },
       {
         "id": "mount:/adjacent/drones/:PerceptionLatency:1",
@@ -6828,6 +6829,7 @@
         "ownerPath": "content/adjacent/drones.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6888,7 +6890,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4f437e56c82ddcc529f3a05e622b2ba0abee2efbec26dc24ba51c8fc4292a202"
+        "fingerprint": "fd27b1ffec2405e1021db7a598d34025f74724558a6af112f492b5d4f7909ef4"
       },
       {
         "id": "mount:/classical/control/:ImpedanceContactLab:1",
@@ -6897,6 +6899,7 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6957,7 +6960,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "5f1dae90599281acc877ccef8a57e6c5015df010c70a88e8e40e5ea5b9e2372e"
+        "fingerprint": "ee0aef054f81e6c34a412a84505c1a37be2f5d5b5721d11c3c62e4f50ac6582e"
       },
       {
         "id": "mount:/classical/control/:PendulumController:1",
@@ -6966,6 +6969,7 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7015,7 +7019,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "dbdda3eecf0da82de11b8a0a52be016c9f055274550f74a971a1b30cd96319e7"
+        "fingerprint": "863cdd6ea398d15ff2184cf2ccc7a3b4bf6b66b5fa098f9acc324755c476c43b"
       },
       {
         "id": "mount:/classical/control/:PendulumController:2",
@@ -7024,6 +7028,15 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 2,
         "props": "defaultKp={9.5} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7073,7 +7086,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "c2db8c1cf896967246c931bfb78a8e41556cf60875f0636ef8a90c6c1f069a44"
+        "fingerprint": "5cfb7a179b837f8015a79d02e78b732e43cbaad3d54583b51bc5e2d46c65b70a"
       },
       {
         "id": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
@@ -7082,6 +7095,7 @@
         "ownerPath": "content/classical/grasp-planning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7131,7 +7145,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "bf770962fcc7414b4de491d84dae93e68e475ad621de7fb35068888f991211bb"
+        "fingerprint": "45ac730f6de243b7675ff95d2e80687f7e31ef55e674c5dd833f733958d95f0f"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -7140,6 +7154,7 @@
         "ownerPath": "content/classical/kinematics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7189,7 +7204,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "b719db40b16961ca88bb05bec3c77a9748532be3dbc989eeb4b0caf4e3d84477"
+        "fingerprint": "54675647cb1c397cc978f60a28f4fbd2b917fca1337aeb9323a09530d68008f5"
       },
       {
         "id": "mount:/classical/motion-planning/:RrtExplorer:1",
@@ -7198,6 +7213,7 @@
         "ownerPath": "content/classical/motion-planning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7247,7 +7263,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f6f7ce9ca5157515e70569ec92c52056dc2dd067cfb8c159895fc0b437198671"
+        "fingerprint": "853bcee9c477dab30eaf6d8275ef91bc123a682615983b295e304c2d05df1d0b"
       },
       {
         "id": "mount:/classical/perception/:PerceptionErrorBudget:1",
@@ -7256,6 +7272,7 @@
         "ownerPath": "content/classical/perception.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7316,7 +7333,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c2f6f3e22eed86e50ee2e2e97dd87b90b24f8d8cb116cb7335978efcab9cc08f"
+        "fingerprint": "3aeb5e135621120eabf56bb4a0d1c703b4ec357bcf8269f04308e1c6cb6e8b4b"
       },
       {
         "id": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
@@ -7325,6 +7342,7 @@
         "ownerPath": "content/classical/scene-representation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7385,7 +7403,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4def3ecb89f7c723e84dc3b3856e787b0f931da151c378b3205f3a7f7b9a73b1"
+        "fingerprint": "c53bf0f85d89e8c1ac9cdf557e2073a3f1745d5b4b2bac75697ece9732e90ce7"
       },
       {
         "id": "mount:/classical/state-estimation/:KalmanTracker:1",
@@ -7394,6 +7412,7 @@
         "ownerPath": "content/classical/state-estimation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7443,7 +7462,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a00a3c232a67bc54df36cb21b4af22024917d83baabe125dee073165fe04a598"
+        "fingerprint": "1be46ea44847af1a773f6858fb74fd8441e1af34e6630ad3a44ab55aa8d2b918"
       },
       {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -7452,6 +7471,7 @@
         "ownerPath": "content/data-hardware/data-bottleneck.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7512,7 +7532,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c9dad5b6141f0e593195523bd90632709f4523f4de15b513ad3d26d2d325a438"
+        "fingerprint": "658414b521ef923cbadc0fed2dabab6c069277d1d0f1f30e94b53d2c2b62c7fb"
       },
       {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
@@ -7521,6 +7541,15 @@
         "ownerPath": "content/data-hardware/data-bottleneck.mdx",
         "ordinal": 2,
         "props": "defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7581,7 +7610,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "6eda8564871451f7526c540455ac88014fb6680622681cadc17f727e28536860"
+        "fingerprint": "0b9c760664d3f71e6a1bb956bf23da75b2b16e615ca38327a1e4e1d170a8971a"
       },
       {
         "id": "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -7590,6 +7619,7 @@
         "ownerPath": "content/data-hardware/datasets.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7639,7 +7669,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "176ab5402caf74ce85f9395c0a3cdde880791f2e3d9c44efa04a62502b2592a7"
+        "fingerprint": "bba9db299dce1de4e00b0f1f375b90cb9ce44b6bb05bc65cf7bb406ea5db42fe"
       },
       {
         "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
@@ -7648,6 +7678,7 @@
         "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
         "ordinal": 1,
         "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7697,7 +7728,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "df5a0b0d8a63fa615d816b0dc83b9114cdffdc023109e7811710e5895fbcfbb7"
+        "fingerprint": "8e3883b2e2af605df627ca49399aa65a99790a91e1470ef74d40ea0497db53e2"
       },
       {
         "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
@@ -7706,6 +7737,15 @@
         "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
         "ordinal": 2,
         "props": "defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7755,7 +7795,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "de8941d15d43677174d8e15418629b2f3750b86852fd27d3971cf5deff08b589"
+        "fingerprint": "6eeebffc2550b50513448e36e7d1bc08c503904013018922531a35575a16f34a"
       },
       {
         "id": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
@@ -7764,6 +7804,7 @@
         "ownerPath": "content/data-hardware/hardware-taxonomy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7813,7 +7854,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "54a81d10867949e7bc3f9591fac920c3a790aad98e9157a9f51d61fb2d31a746"
+        "fingerprint": "5163f1f69b01a4de25169960757117531317d52362d332dfb450b5cfe615b9a6"
       },
       {
         "id": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
@@ -7822,6 +7863,7 @@
         "ownerPath": "content/data-hardware/industrial-deployment.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7871,7 +7913,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "198cbf2621adaa07f53cb06856804ac0efe3fba2bdc95a553eda4002187a6e9d"
+        "fingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a"
       },
       {
         "id": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -7880,6 +7922,7 @@
         "ownerPath": "content/data-hardware/teleop-rigs.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7929,7 +7972,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e5555a33cd8d9ecdf5bf4c5a6575bd44b48ad04dd78c29f672f72f8469869c83"
+        "fingerprint": "a85fc3755a7c8041e279b12155e853ea9e5c3ace31f1cf5581c1435b6c3cf6dc"
       },
       {
         "id": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
@@ -7938,6 +7981,7 @@
         "ownerPath": "content/frontier/bear-case.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7987,7 +8031,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "777a8b7a304ae466dffb2180bf4bdcb91451d28ca332c64cfcc1c75df3ef6147"
+        "fingerprint": "cd907606556803a49d78f35b51647827dfe1a496da95ebe73948ca5ab117b57c"
       },
       {
         "id": "mount:/frontier/competing-theses/:ThesisExplorer:1",
@@ -7996,6 +8040,7 @@
         "ownerPath": "content/frontier/competing-theses.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8045,7 +8090,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "51f8cc297a0fc839f4a480d90a21d3bc324488a48f04802a0b78293817ff6bd3"
+        "fingerprint": "f5035e23d2b46373785ed93cbf0fcd52aa92fdd6fa0bc90206979b8b15860570"
       },
       {
         "id": "mount:/frontier/dexterity/:HandComparison:1",
@@ -8054,6 +8099,7 @@
         "ownerPath": "content/frontier/dexterity.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8103,7 +8149,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "93682350947d7c36abaf5b0ebc10c2aff81378b736ab9d28fbdcd5518d9c5947"
+        "fingerprint": "fca5cdbc9b8cd68547650b24fa25198b21f327348dc761ffec8036f69f0addf3"
       },
       {
         "id": "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -8112,6 +8158,7 @@
         "ownerPath": "content/frontier/generalization.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8161,7 +8208,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9831500df684f61c0fccef6947d46a207bf218d599862daff48286911bc070a3"
+        "fingerprint": "1d06a82cd90a3db0c3be1ae8af0eddfa5075b413dba7fc754f5582ace14caedb"
       },
       {
         "id": "mount:/frontier/generalization/:EgoScaleScaling:2",
@@ -8170,6 +8217,15 @@
         "ownerPath": "content/frontier/generalization.mdx",
         "ordinal": 2,
         "props": "defaultHorizonHours={250_000} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8219,7 +8275,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d9f0d9772835961fa0e9bb7be5c16141d3d6a5cfcc73c41b97c8bcead8085319"
+        "fingerprint": "65777481b37f1e651ebfe2ae81b05b4a6c34de911952a74185bd826d11408821"
       },
       {
         "id": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
@@ -8228,6 +8284,7 @@
         "ownerPath": "content/frontier/reliability-gap.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8277,7 +8334,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f5e95e965dacb92aa997326a721592aa6024c10350ce9e4babe10f2322c4557f"
+        "fingerprint": "7f5320d069dcfaee2afdf5862db5aef8f503280cf4e8899478e926d1a8ec4130"
       },
       {
         "id": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
@@ -8286,6 +8343,7 @@
         "ownerPath": "content/frontier/reliability-gap.mdx",
         "ordinal": 1,
         "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"reliability\" className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8335,7 +8393,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "50a353ef2d94f6b956892523edd8a3f0a45796b2beb0bf13679f9e97aff32a51"
+        "fingerprint": "31eecb35fe60df11b490b522cbc717308bad5e9609dc2c11bde2b80248172954"
       },
       {
         "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
@@ -8344,6 +8402,7 @@
         "ownerPath": "content/frontier/safety-and-assurance.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8404,7 +8463,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4fb34bbe744e4c5160c6159d9655706eb1135005965fd231e21ebd931bea7f57"
+        "fingerprint": "f79f3755bcefab0916a124a0a27d05b872a64d652ea2b292b6c965cf6a8ec481"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -8413,6 +8472,7 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8462,7 +8522,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "dd2a48e927bd79ba7be452e831eacd046fd70c42c52f4746dd0f83128c080182"
+        "fingerprint": "121b6f2bd7866a28c2665c8b49c5533f51c547f097b32d831557eb3d745cfe9c"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -8471,6 +8531,7 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8520,7 +8581,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d0c4176f45ac97a25df5e4572906e49ba061032c7d1b969e89bd0be5df52b377"
+        "fingerprint": "9eb4d724b359d8608c4e5a7033b4262c4d7cf1b62fb5398a83d018f2c4d1d4e3"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:2",
@@ -8529,6 +8590,15 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 2,
         "props": "defaultDelayMs={100} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8578,7 +8648,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "0e017ed5909e3bf35609ea76f7e805166b0c04e22fbccc84a2cf457c29ca6b5a"
+        "fingerprint": "5a53b403fc8f5d73ef1c1bd0170476aacac7e9e99efdc0ec0fe12b5c18314c9d"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -8587,6 +8657,7 @@
         "ownerPath": "content/manipulation/bc-foundations.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8647,7 +8718,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "bdf8e8572265b7f848b3fb1d889ad8c12de4bc4ce272e3dfacc7e9b8a1f6bf53"
+        "fingerprint": "18f814ede0d5e9b9fad21a2941d720ef5b4ff8825e1192f9755d3042461126fa"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:2",
@@ -8656,6 +8727,15 @@
         "ownerPath": "content/manipulation/bc-foundations.mdx",
         "ordinal": 2,
         "props": "defaultEpsilon={0.05} defaultSteps={240} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8716,7 +8796,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "463c71b3b8a2215a45e814c381aa11a3f0a8ef93b183922deb61d7ade5fb36c0"
+        "fingerprint": "65388b9d7978289ff8b2a8e08802d7d5e7792606aa76ec7943096d7531af44c1"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
@@ -8725,6 +8805,7 @@
         "ownerPath": "content/manipulation/comparison-matrix.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8774,7 +8855,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9e6ea320c06274d223bc06ff9ed946c156ac4b06be9fc4fd7c081e2c5ead6928"
+        "fingerprint": "d8ff6947b13b344915b7b7d3bf7d47c474e98972ea0566e90ff13a04d1493f2e"
       },
       {
         "id": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
@@ -8783,6 +8864,7 @@
         "ownerPath": "content/manipulation/cross-embodiment.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8832,7 +8914,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f5fc7a61e81ce8e6418cf8f70d0f686c2ac3e90bf6ffb5b3acb1467dfe49b406"
+        "fingerprint": "562a2ea4d247bcfc8701baefc9e10a44de2c15f893d5a29a4411f5fec17cde52"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:DenoisingLoop:1",
@@ -8841,6 +8923,7 @@
         "ownerPath": "content/manipulation/diffusion-policy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8890,7 +8973,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e991a7bf03fca22eae1dfe046819404afc59d4333d87e5246caee9702e3c6be4"
+        "fingerprint": "6a93b8f8c60a7d2946c1946d7d4c224485c0740028f39a7db25d9fa205ca7697"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
@@ -8899,6 +8982,7 @@
         "ownerPath": "content/manipulation/diffusion-policy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8948,7 +9032,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a7c6e8d5b831b5839b7293a5f4128d0689d4301e4c037e81f9904747364cddc0"
+        "fingerprint": "56b592eb9a4ad247235feac00e40669dc988b876309fb2ba3dd690f5a7354409"
       },
       {
         "id": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
@@ -8957,6 +9041,7 @@
         "ownerPath": "content/manipulation/generalist-policies.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9006,7 +9091,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "3ff52e92c5479358c6775fa7d902a7a3c05c85ec8b6b122d806da3ca82cae4a5"
+        "fingerprint": "4996a9f4ff005f510a6cdcd7b5c47da67ac10f85ae54ad2ef83a3b5fe2f64615"
       },
       {
         "id": "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
@@ -9015,6 +9100,7 @@
         "ownerPath": "content/manipulation/hierarchical.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9075,7 +9161,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "47dea703a9714cf2338d7747dd5b32182d94c1b53571fe2946f13dc7c0b5d9b9"
+        "fingerprint": "f0205437f109d1786e3a622ef7ac646bc959e02c1ca000160c8a24806b32756f"
       },
       {
         "id": "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
@@ -9084,6 +9170,7 @@
         "ownerPath": "content/manipulation/knowledge-insulation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9144,7 +9231,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "48dba96023df95b38a27ce4720ff8f725252ce25955f6b4b0e25e802a91f3386"
+        "fingerprint": "068a0f2cc3e797f4871f0f438bdf23ed19500225073e1f619b9d3f355d060623"
       },
       {
         "id": "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
@@ -9153,6 +9240,7 @@
         "ownerPath": "content/manipulation/pi-line.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9213,7 +9301,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "26322d1e096574e2a67c31cb5507618117bd809a2eb8bc061dc5ed56a1093708"
+        "fingerprint": "a0addda93bf4e8f917a24b60c4f057556fa19ca1312bf3eba2e5d7286765b717"
       },
       {
         "id": "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
@@ -9222,6 +9310,7 @@
         "ownerPath": "content/manipulation/pi-line.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9271,7 +9360,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "7b11311963968521ed10b9a1ae980f0e730b791855dad2b798568f4d446c1673"
+        "fingerprint": "ed26cb9ec2424fabcb99c92e158589b5d07b22f9e01522b30a8c11e9dea631d4"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
@@ -9280,6 +9369,7 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9329,7 +9419,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f1ae70a343e34ad83595a5885fe995c1e44a176bb7ec0bb363c4408c9e2589ba"
+        "fingerprint": "95d19f20db0ec5d29765ad5efd95181302478c3ff959e8d9e95f2e37e21d0517"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:2",
@@ -9338,6 +9428,15 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 2,
         "props": "defaultParamsB={1.1} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -9387,7 +9486,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "92fb0078308888f92703ae866fcb213e3f7a2e97b5ca0a3752292c4519160dbf"
+        "fingerprint": "191f8e12523973db2dc02c5831d580a25658e1b406d788e3fe7e7e7e3ef812e7"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
@@ -9396,6 +9495,7 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9445,7 +9545,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9b3b04e33a5e28428c35a209e53821b7cb6d6c6c4d5d9d0ba0f9107f5a9e78fd"
+        "fingerprint": "ee779fe48da239f714c89b337febf2f20483a6873f8cf3e2e62cc8b0702a5cf4"
       },
       {
         "id": "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
@@ -9454,6 +9554,7 @@
         "ownerPath": "content/manipulation/rl-finetuning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9514,7 +9615,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c429c0e33ad1d223e3e1d3c5ca3ab081d12a84f99a25ca378c1da65f99e32c0d"
+        "fingerprint": "7d606c4461784c6a277a14bcafd911298009fa29cb8df46fec5f50b8b545fd58"
       },
       {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
@@ -9523,6 +9624,7 @@
         "ownerPath": "content/manipulation/vla-models.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9583,7 +9685,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "8a8e03ce7bb250a01c76212f69c08645747855eefd7dbb7cc8ce25e224e3a3fc"
+        "fingerprint": "56d6d483218d7aae9d7b9a1e0fa2772c5f2d941377615350bd7ba87590e123c7"
       },
       {
         "id": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
@@ -9592,6 +9694,7 @@
         "ownerPath": "content/rl-sim2real/humanoid-wbc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9641,7 +9744,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d39edbcafd297ecfd6fc1d07212f90c5f645cb38afc6d95bb225fe3acc1e3f2a"
+        "fingerprint": "a609088cf8e411f354d4c6b158eb2d11749669150fe006aff2f174601b63d6ba"
       },
       {
         "id": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
@@ -9650,6 +9753,7 @@
         "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9710,7 +9814,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "0fe33579e85230c3bb2ec3fa38c64bb83be95f470b4d4806f7ad24b874c76796"
+        "fingerprint": "05e66f318e7af25723773c9a3f5e0ea7bee314719d9e362ac3368b98ebef0aca"
       },
       {
         "id": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
@@ -9719,6 +9823,7 @@
         "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9779,7 +9884,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c9d9480fcbabdcf19f28bb02eda8727c59677a1e1b37ac19127eb75ef373f442"
+        "fingerprint": "0fec34a5ff7cb2235fc5a1d1806b16e8a20bef2096f14b53d0e048c801346898"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -9788,6 +9893,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9831,7 +9937,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "51b1592c933fca9c4a7606608da6bd77daa8ebf12356d9d11a7a0a82c79267da"
+        "fingerprint": "29fbe7199c239853f671a5284bfbef313ce68bebc73f08bfd7220d416681d0b7"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
@@ -9840,6 +9946,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9889,7 +9996,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "4c9c9a92bfcd8bc8049ce74d1e1e726e26724b62988a60779359fe9b49bc609d"
+        "fingerprint": "008f5a8dde5250074e677a2b2d56a2480d23074a4b7d2625d3e6b8433216e891"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
@@ -9898,6 +10005,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9947,7 +10055,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "6956b30b4ca3cfe1bcbafb714f1295db3a99682e028b83a910273f8ff11cd709"
+        "fingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -9956,6 +10064,7 @@
         "ownerPath": "content/rl-sim2real/rl-for-robotics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10016,7 +10125,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "e72aa68a8511f2c6f65a72f902b1bd11b4eb4d405c849626c2710cd2277ef716"
+        "fingerprint": "01ee0118515730ae6d40066a37af848c5e7030f588f03486b76fbc6dca39e0cc"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -10025,6 +10134,7 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10074,7 +10184,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "0efeb335906bdc9233d5232974d0ffa27f01fbbfcb38017875cf8d689ad60478"
+        "fingerprint": "53fde30dfdf3df5cd8ec248953a47ab553cd137c238be88f2076a4c41faf5346"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
@@ -10083,6 +10193,15 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 2,
         "props": "defaultRange={0.65} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -10132,7 +10251,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e044bf2fca4c64e551dc63934a14352ba497a4c322f7e8fde8dd5b5bd596c445"
+        "fingerprint": "d4857020441db6a9a5c8bf477e298ed39ec90968a1d4a1ce49cc5a18ac4b6e46"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
@@ -10141,6 +10260,7 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10190,7 +10310,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9fb734207a2799e3cfcd64b9a694b99b37025393f35870200d58d61dcb1df8f6"
+        "fingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
@@ -10199,6 +10319,7 @@
         "ownerPath": "content/rl-sim2real/why-rl-locomotion.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10259,7 +10380,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "387009d4c2894ca58b56b18178b174b7dd7af1db5cf0aaf1364de209fa71c481"
+        "fingerprint": "caae96c4c7a65e889c0246a4522d7bd28b3aa92fe0604afcef989be290006b69"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -10268,6 +10389,7 @@
         "ownerPath": "content/world-models/generative-sim.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10328,7 +10450,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4087949966867cfe2019cc7319537e6c0927c38014eb44d48c358557d6061eca"
+        "fingerprint": "207f0ed7b4bd0ef45f34df5581be8406ff38c630264f6b1ac3cf574e1b370b7e"
       },
       {
         "id": "mount:/world-models/generative-video/:ActionConditioning:1",
@@ -10337,6 +10459,7 @@
         "ownerPath": "content/world-models/generative-video.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10386,7 +10509,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "77af5da32836bd7aafffe39b0a5d6683a367eba96d877877848d4b5b1580776e"
+        "fingerprint": "b530ac909cd052171e83191a920f37706da42e2cc0e49a488ef16f10bdd285c3"
       },
       {
         "id": "mount:/world-models/jepa/:JepaPlanning:1",
@@ -10395,6 +10518,7 @@
         "ownerPath": "content/world-models/jepa.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10455,7 +10579,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4bf08b505ab1bf14705485f9671d264f7c201fa1c91bd70bf89e15e8244908b4"
+        "fingerprint": "5dc2d25f15d7361d1858b1d65d5e7085c36540267b2bb53ed36ac2995bcfa390"
       },
       {
         "id": "mount:/world-models/latent-dynamics/:LatentImagination:1",
@@ -10464,6 +10588,7 @@
         "ownerPath": "content/world-models/latent-dynamics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10524,7 +10649,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "b825408d802fe6a23db3f6d6bb6bb5a1d4d97e71398c3ff9372d89ad35f4c511"
+        "fingerprint": "a82134d61bbd611feb396cd1b8f629f5c5b24c100b20bf42c2d013c4c1b7a746"
       },
       {
         "id": "mount:/world-models/taxonomy/:WmDisambiguator:1",
@@ -10533,6 +10658,7 @@
         "ownerPath": "content/world-models/taxonomy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10582,7 +10708,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "5dd43c45c27e823c341b8f660172788387073b5f1281ac22726753e1889447b8"
+        "fingerprint": "989a89220f19a1652f49c54f31770f12a2528b1fdeee01d1308fa50ad6eea4ff"
       }
     ]
   },
@@ -10733,14 +10859,21 @@
       "ownerSurface": "indexed-content",
       "structuralPurpose": "real-order-or-state",
       "anchorGeometry": {
-        "kind": "baseline",
+        "kind": "edge",
+        "allowedEdges": [
+          "left"
+        ],
         "sequenceRequired": true
       },
       "classification": "semantic",
-      "ariaBehavior": "visible text remains in the accessibility tree",
-      "definedIn": [],
-      "ownerRouteOrMount": [],
-      "mountState": "unwritten",
+      "ariaBehavior": "aria-hidden; the ordered list conveys position in set and the ordinal repeats it visually",
+      "definedIn": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10748,7 +10881,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "d3d30965e579601807da8a867135c19f99b24fb907dc9e0433f42d04702d4b89"
+      "fingerprint": "37af0e19bd3768e54eb2a143c2a830d6c11bea4b0917fb9ffc1273e2c8f116f0"
     },
     {
       "id": "device:dot-grid",
@@ -11146,6 +11279,7 @@
           "wdth": 100,
           "cssClass": "font-display-shell",
           "definedIn": [
+            "components/nav/site-footer.tsx",
             "components/nav/site-shell.tsx"
           ]
         },
@@ -11195,7 +11329,7 @@
       ],
       "ogRoleId": "home-wordmark",
       "assignedStringCount": 57,
-      "fingerprint": "f5e4e9bbbf38b7165503c2799156af65f890e46c5c42e235da976b9d7893fd22"
+      "fingerprint": "4e7056ad7c41c3213feee6740bd7716aa40fe7b4c271d5aa9d7021daabf584ae"
     },
     {
       "id": "type:interface",
@@ -11843,5 +11977,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c6ff487762cdb784dc883cb70d6def1e7c30364634d8e4e693743a0f415ea993"
+  "rootFingerprint": "119a565661fce64f8fec43b9e2a561411a145aae3028afc74c349fd8150017d9"
 }

@@ -301,23 +301,44 @@ test.describe('Inline <Term>', () => {
         }
       }
 
-      // The end-of-line case at 375px: covariate shift sits well past the
-      // middle of the column, so the tooltip shifts left of the term's left
-      // edge instead of overflowing the viewport (and stays inside it).
+      // The end-of-line case at 375px: a term far enough right that a
+      // tooltip aligned to it would run past the viewport must shift left
+      // of the term's own left edge. Which term that is depends on where
+      // the prose measure puts the line breaks, so the case is derived
+      // from the boxes rather than named: every occurrence is asked
+      // whether alignment would overflow, and the page must contain at
+      // least one that says yes, otherwise this proves nothing.
       if (viewport.width === 375) {
         await page.goto(`${BASE}/data-hardware/data-bottleneck/`);
-        const link = termLink(page, 'covariate-shift');
-        await link.scrollIntoViewIfNeeded();
-        await link.focus();
-        const tooltip = await tooltipFor(page, 'covariate-shift');
-        await expect(tooltip).toBeVisible();
-        const [tip, term] = await Promise.all([tooltip.boundingBox(), link.boundingBox()]);
-        expect(tip && term).toBeTruthy();
-        if (tip && term) {
-          expect(tip.x).toBeLessThan(term.x);
+        const occurrences = page.locator('[data-term-id] a.term-link');
+        const count = await occurrences.count();
+        let shifted = 0;
+        for (let i = 0; i < count; i += 1) {
+          const link = occurrences.nth(i);
+          await link.scrollIntoViewIfNeeded();
+          await link.focus();
+          const tooltip = page.locator(
+            `[id="${(await link.getAttribute('aria-describedby'))!}"]`,
+          );
+          await expect(tooltip).toBeVisible();
+          const [tip, term] = await Promise.all([
+            tooltip.boundingBox(),
+            link.boundingBox(),
+          ]);
+          expect(tip && term).toBeTruthy();
+          if (!tip || !term) continue;
+          if (term.x + tip.width <= viewport.width) continue;
+          shifted += 1;
+          expect(tip.x, `tooltip ${i} did not shift left of its term`).toBeLessThan(
+            term.x,
+          );
           expect(tip.x).toBeGreaterThanOrEqual(0);
           expect(tip.x + tip.width).toBeLessThanOrEqual(viewport.width);
         }
+        expect(
+          shifted,
+          'no term on this page sits far enough right to need the shift',
+        ).toBeGreaterThan(0);
       }
 
       // No reflow: revealing a definition never moves surrounding prose.

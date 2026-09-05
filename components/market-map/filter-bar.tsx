@@ -64,7 +64,7 @@ function SelectField({
         id={id}
         value={value}
         onChange={onChange}
-        className="rounded-sm border border-border bg-surface-2 px-2 py-1.5 font-mono text-xs text-text"
+        className="rounded-sm border border-border bg-surface-2 px-2 py-1.5 font-sans text-xs text-text"
       >
         {children}
       </select>
@@ -227,7 +227,7 @@ export function FilterBar({
               aria-pressed={view === id}
               onClick={() => onViewChange(id)}
               className={cx(
-                'cursor-pointer rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
+                'cursor-pointer rounded-sm border px-2.5 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]',
                 view === id
                   ? 'border-accent text-text'
                   : 'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text',
@@ -251,7 +251,7 @@ export function FilterBar({
               data-brand-control-id="control:secondary-action"
               type="button"
               onClick={onClear}
-              className="cursor-pointer font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+              className="cursor-pointer font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
             >
               Clear filters
             </button>
@@ -266,7 +266,7 @@ export function FilterBar({
           aria-expanded={filtersOpen}
           aria-controls="market-map-filters"
           onClick={() => onFiltersOpenChange(!filtersOpen)}
-          className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+          className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
         >
           {filtersOpen ? 'Close filters' : 'Filters'}
         </button>

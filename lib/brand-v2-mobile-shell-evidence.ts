@@ -1,6 +1,6 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { z } from 'zod';
+import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 
 /**
@@ -237,45 +237,31 @@ export type MobileShellEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what the mobile shell renders or
- * how it behaves. Listed rather than derived because these are exactly the
- * modules that build the compact header and the drawer: the shell itself,
- * the skip link it has to be able to remove from the tab order, the taxonomy
- * and search entry that supply the drawer's tab stops, the device component
- * the current-route marker comes from, the stylesheet that owns the tokens
- * the scrim is mixed from, the layout that mounts the shell, and the module
- * registry the taxonomy is built from.
+ * The entry points the mobile shell evidence is about: the layout that
+ * mounts the shell on every route, and the sweep that measures it.
+ *
+ * The closure of those two is the answer to "what can change this reading",
+ * and it is derived rather than listed. The list this replaced named nine
+ * files and missed both `lib/utils.ts`, which composes the class names the
+ * drawer and header render, and the spec itself, so a class-merge change or
+ * a rewritten measurement left the committed artifact looking current.
  */
-export const MOBILE_SHELL_SOURCE_PATHS = [
-  'app/globals.css',
+export const MOBILE_SHELL_CLOSURE_ENTRIES = [
   'app/layout.tsx',
-  'components/nav/nav-tree.tsx',
-  'components/nav/search-box.tsx',
-  'components/nav/site-shell.tsx',
-  'components/nav/site-footer.tsx',
-  'components/ui/brand-device.tsx',
-  'components/ui/skip-link.tsx',
-  'data/modules.ts',
+  'tests/e2e/brand-v2-mobile-shell.spec.ts',
 ] as const;
-
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every mobile shell source plus the registered geometry of the
- * rail device the drawer marks the current route with. Restyling the drawer
- * or loosening the trap without re-running the sweep is then a
+ * bytes of the whole mobile shell closure plus the registered geometry of
+ * the rail device the drawer marks the current route with. Restyling the
+ * drawer or loosening the trap without re-running the sweep is then a
  * stale-evidence failure rather than a silently preserved green row.
  */
 export function mobileShellEvidenceFingerprint(input: {
   root: string;
   deviceRegistryRows: ReadonlyArray<{ id: string; fingerprint: string }>;
 }): string {
-  const parts = [...MOBILE_SHELL_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
-  );
   const devices = [...input.deviceRegistryRows]
     .filter(({ id }) => id.endsWith('rail'))
     .sort((left, right) => left.id.localeCompare(right.id))
@@ -285,8 +271,145 @@ export function mobileShellEvidenceFingerprint(input: {
       'the mobile shell fingerprint covers no rail device: the staleness check would miss a registry edit',
     );
   }
-  return sha256([...parts, ...devices].join('\n'));
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: MOBILE_SHELL_CLOSURE_ENTRIES,
+    facts: devices,
+  }).fingerprint;
 }
+
+const lockupSchema = z.object({
+  tag: z.string(),
+  text: z.string(),
+  href: z.string().nullable(),
+  tekturRole: z.string().nullable(),
+  fontFamilyHead: z.string(),
+  fontSizePx: z.number(),
+  fontWeight: z.number(),
+  lineBoxes: z.number(),
+  widthPx: z.number(),
+  ariaCurrent: z.string().nullable(),
+});
+
+const headerSchema = z.object({
+  present: z.boolean(),
+  display: z.string(),
+  heightPx: z.number(),
+  contentWidthPx: z.number(),
+  leafTexts: z.array(z.string()),
+  pseudoTexts: z.array(
+    z.object({
+      selector: z.string(),
+      position: z.string(),
+      text: z.string(),
+    }),
+  ),
+  lockups: z.array(lockupSchema),
+  descriptorMatches: z.array(z.string()),
+  trigger: z
+    .object({
+      accessibleName: z.string(),
+      ariaExpanded: z.string().nullable(),
+      ariaControls: z.string().nullable(),
+    })
+    .nullable(),
+});
+
+const tabStopSchema = z.object({ tag: z.string(), label: z.string() });
+
+const focusTraceSchema = z.object({
+  focusOnOpen: tabStopSchema.nullable(),
+  focusOnOpenInsideDrawer: z.boolean(),
+  tabStopCount: z.number(),
+  first: tabStopSchema.nullable(),
+  last: tabStopSchema.nullable(),
+  forwardWrap: z.object({
+    focused: tabStopSchema.nullable(),
+    insideDrawer: z.boolean(),
+    landedOnFirstStop: z.boolean(),
+  }),
+  backwardWrap: z.object({
+    focused: tabStopSchema.nullable(),
+    insideDrawer: z.boolean(),
+    landedOnLastStop: z.boolean(),
+  }),
+});
+
+const rgbSchema = z.tuple([z.number(), z.number(), z.number()]);
+
+const routeObservationSchema = z.object({
+  route: z.string(),
+  visibleTextLength: z.number(),
+  header: headerSchema,
+  closedDrawerTabStops: z.number(),
+  triggerExpandedWhenOpen: z.string().nullable(),
+  triggerControlsResolvesWhenOpen: z.boolean(),
+  focus: focusTraceSchema,
+  inert: z.object({
+    regions: z.array(
+      z.object({
+        id: z.string(),
+        present: z.boolean(),
+        inert: z.boolean(),
+      }),
+    ),
+    reachableOutsideDrawer: z.array(z.string()),
+  }),
+  dismissals: z.array(
+    z.object({
+      via: z.enum(['escape', 'close-control', 'scrim']),
+      closed: z.boolean(),
+      focused: tabStopSchema.nullable(),
+      focusedTrigger: z.boolean(),
+    }),
+  ),
+  separation: z.object({
+    scrimBackground: z.string(),
+    pageBackground: z.string(),
+    panelBackground: z.string(),
+    scrimCompositedRgb: rgbSchema,
+    panelRgb: rgbSchema,
+    contrastRatio: z.number(),
+    coverage: z.number(),
+    panelBorderLeftPx: z.number(),
+    panelBorderRightPx: z.number(),
+    panelBoxShadow: z.string(),
+  }),
+  currentRoute: z.object({
+    hasNavigationItem: z.boolean(),
+    exposedAriaCurrent: z.array(
+      z.object({
+        tag: z.string(),
+        href: z.string().nullable(),
+        value: z.string().nullable(),
+        insideDrawer: z.boolean(),
+        accessibleName: z.string(),
+      }),
+    ),
+    markerDeviceId: z.string().nullable(),
+    markerColour: z.string().nullable(),
+    markerAlignmentErrorPx: z.number().nullable(),
+  }),
+});
+
+/**
+ * The complete nested shape of the persisted sweep, leaf by leaf.
+ *
+ * Every clause of `VAL-B2-SHELL-004` is a boolean the drawer either has or
+ * has not: whether focus landed inside it, whether a wrap reached the
+ * opposite edge, whether Escape closed it, whether each background region
+ * went inert. The verdict reads those by truthiness, which is the only
+ * sensible way to read a boolean and a catastrophic way to read a string, so
+ * `z.boolean()` here is what makes `"inert": "false"` an unreadable artifact
+ * rather than a passing one.
+ */
+export const mobileShellEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  viewport: z.string(),
+  routes: z.array(z.string()),
+  observations: z.array(routeObservationSchema),
+});
 
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
@@ -301,20 +424,27 @@ export function readMobileShellEvidence(input: {
   routes: string[];
   fingerprint: string;
 }): MobileShellEvidence {
-  const artifact = input.artifact as Partial<MobileShellEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('mobile shell evidence is not an object');
   }
-  if (artifact.version !== 1) {
-    throw new Error(
-      `mobile shell evidence version ${String(artifact.version)} is not 1`,
-    );
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
+    throw new Error(`mobile shell evidence version ${String(version)} is not 1`);
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'mobile shell evidence is stale: a mobile shell source or a rail device registration changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    mobileShellEvidenceSchema,
+    envelope,
+    'mobile shell evidence',
+  );
   if (artifact.viewport !== MOBILE_VIEWPORT.id) {
     throw new Error(
       `mobile shell evidence was swept at ${String(artifact.viewport)}, not ${MOBILE_VIEWPORT.id}`,
@@ -324,13 +454,13 @@ export function readMobileShellEvidence(input: {
   if (expectedRoutes.length === 0) {
     throw new Error('mobile shell evidence route population is empty');
   }
-  const recordedRoutes = [...(artifact.routes ?? [])].sort();
+  const recordedRoutes = [...artifact.routes].sort();
   if (JSON.stringify(recordedRoutes) !== JSON.stringify(expectedRoutes)) {
     throw new Error(
       `mobile shell evidence covers ${recordedRoutes.length} routes, not the ${expectedRoutes.length} registered public routes`,
     );
   }
-  const observations = artifact.observations ?? [];
+  const { observations } = artifact;
   const seen = new Set<string>();
   for (const observation of observations) {
     const { route } = observation;
@@ -346,11 +476,6 @@ export function readMobileShellEvidence(input: {
     if (!observation.header.present) {
       throw new Error(
         `${route} discovered no compact header, so the sweep did not measure what it claims`,
-      );
-    }
-    if (!Array.isArray(observation.header.pseudoTexts)) {
-      throw new Error(
-        `${route} recorded no pseudo-element reading for the compact header, so a CSS-rendered descriptor was never looked for`,
       );
     }
     if (observation.focus.tabStopCount === 0) {
@@ -382,7 +507,7 @@ export function readMobileShellEvidence(input: {
       `mobile shell evidence is missing ${missing.length} route observations, starting with ${missing[0]}`,
     );
   }
-  return artifact as MobileShellEvidence;
+  return artifact;
 }
 
 /**
@@ -599,37 +724,66 @@ export function drawerVerdicts(
     // Quantified over the required set, not over the rows the artifact
     // supplied: a sweep that stopped looking at a region used to contribute
     // no row, and a shorter list read as a clean one.
-    const observedRegions = new Map(
-      inert.regions.map((region) => [region.id, region]),
-    );
-    for (const required of REQUIRED_INERT_REGIONS) {
-      const region = observedRegions.get(required.id);
-      if (!region) {
-        failures.push(
-          `${route} recorded no reading for ${required.id} (${required.selector}), so the open drawer's inert set was never checked against it`,
-        );
-        continue;
-      }
-      if (!region.present) {
-        failures.push(
-          `${route} renders no ${required.id} (${required.selector}) to make inert`,
-        );
-        continue;
-      }
-      if (!region.inert) {
-        failures.push(
-          `${route} leaves ${region.id} outside the open drawer's inert set`,
-        );
-      }
+    //
+    // The shape of the recorded rows is settled before any of their values
+    // is read. Building a `Map` keyed by id and then looking each required
+    // id up silently collapses two rows that share an id and keeps the last
+    // one, so an artifact carrying both `{main, inert: false}` and
+    // `{main, inert: true}` read as compliant. Duplicate rows are a
+    // contradiction, not a reading, and a reading has to exist exactly once
+    // before it can decide anything.
+    const recordedIds = inert.regions.map(({ id }) => id);
+    const requiredIds: string[] = REQUIRED_INERT_REGIONS.map(({ id }) => id);
+    const duplicated = [
+      ...new Set(
+        recordedIds.filter((id, index) => recordedIds.indexOf(id) !== index),
+      ),
+    ].sort();
+    const missing = requiredIds.filter((id) => !recordedIds.includes(id));
+    const unexpected = [
+      ...new Set(recordedIds.filter((id) => !requiredIds.includes(id))),
+    ].sort();
+    const structural: string[] = [];
+    if (duplicated.length > 0) {
+      structural.push(
+        `${route} records ${duplicated.join(', ')} more than once in the inert set, so two contradictory readings of one region were supplied`,
+      );
     }
-    const requiredIds = new Set<string>(
-      REQUIRED_INERT_REGIONS.map(({ id }) => id),
-    );
-    for (const region of inert.regions) {
-      if (!requiredIds.has(region.id)) {
-        failures.push(
-          `${route} records ${region.id}, which is not one of the required background regions`,
-        );
+    if (recordedIds.length !== requiredIds.length) {
+      structural.push(
+        `${route} records ${recordedIds.length} inert-region reading(s) against the ${requiredIds.length} required background regions`,
+      );
+    }
+    for (const id of missing) {
+      const required = REQUIRED_INERT_REGIONS.find((row) => row.id === id);
+      structural.push(
+        `${route} recorded no reading for ${id} (${required?.selector ?? 'unknown selector'}), so the open drawer's inert set was never checked against it`,
+      );
+    }
+    for (const id of unexpected) {
+      structural.push(
+        `${route} records ${id}, which is not one of the required background regions`,
+      );
+    }
+    if (structural.length > 0) {
+      failures.push(...structural);
+    } else {
+      const observedRegions = new Map(
+        inert.regions.map((region) => [region.id, region]),
+      );
+      for (const required of REQUIRED_INERT_REGIONS) {
+        const region = observedRegions.get(required.id) as (typeof inert.regions)[number];
+        if (!region.present) {
+          failures.push(
+            `${route} renders no ${required.id} (${required.selector}) to make inert`,
+          );
+          continue;
+        }
+        if (!region.inert) {
+          failures.push(
+            `${route} leaves ${region.id} outside the open drawer's inert set`,
+          );
+        }
       }
     }
     if (inert.reachableOutsideDrawer.length > 0) {

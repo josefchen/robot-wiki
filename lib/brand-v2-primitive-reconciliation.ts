@@ -1,3 +1,5 @@
+import { z } from 'zod';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { DEFAULT_MARKET_MAP_VIEW, VIEW_IDS } from './market-map.ts';
 
 /**
@@ -93,6 +95,31 @@ export function derivePrimitiveSweepRouteStates(
   return [...routes, ...viewStates];
 }
 
+/** The complete nested shape of the persisted primitive reconciliation. */
+export const primitiveReconciliationSchema = z.object({
+  version: z.number(),
+  viewport: z.object({ width: z.number(), height: z.number() }),
+  routes: z.array(z.string()),
+  members: z.record(
+    z.string(),
+    z.object({
+      kind: z.enum(
+        PRIMITIVE_REGISTRY_KINDS as unknown as [
+          PrimitiveRegistryKind,
+          ...PrimitiveRegistryKind[],
+        ],
+      ),
+      fingerprint: z.string(),
+      mountState: z.string(),
+      definedIn: z.array(z.string()),
+      ownerRouteOrMount: z.array(z.string()),
+      renderedOn: z.array(z.string()),
+    }),
+  ),
+  unregisteredRendered: z.array(z.string()),
+  unannotatedRendered: z.array(z.string()),
+});
+
 function sortedUnique(values: readonly string[], label: string): string[] {
   const unique = new Set(values);
   if (unique.size !== values.length) {
@@ -113,27 +140,24 @@ export function readPrimitiveReconciliation(input: {
   registry: PrimitiveRegistrySlice;
   routeStates?: readonly string[];
 }): PrimitiveReconciliation {
-  const artifact = input.artifact as PrimitiveReconciliation;
-  if (artifact === null || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (envelope === null || typeof envelope !== 'object') {
     throw new Error('Primitive reconciliation is not an object');
   }
-  if (artifact.version !== 1) {
+  if ((envelope as { version?: unknown }).version !== 1) {
     throw new Error('Unsupported primitive reconciliation version');
   }
+  const artifact = parseEvidenceArtifact(
+    primitiveReconciliationSchema,
+    envelope,
+    'Primitive reconciliation',
+  );
   const viewport = artifact.viewport;
-  if (
-    typeof viewport?.width !== 'number' ||
-    typeof viewport?.height !== 'number' ||
-    viewport.width <= 0 ||
-    viewport.height <= 0
-  ) {
+  if (viewport.width <= 0 || viewport.height <= 0) {
     throw new Error('Primitive reconciliation records no measured viewport');
   }
   const expectedStates =
     input.routeStates ?? derivePrimitiveSweepRouteStates(input.registry);
-  if (!Array.isArray(artifact.routes)) {
-    throw new Error('Primitive reconciliation records no route states');
-  }
   const visited = sortedUnique(artifact.routes, 'routes');
   const required = [...expectedStates].sort();
   if (!sameSequence(visited, required)) {
@@ -146,14 +170,6 @@ export function readPrimitiveReconciliation(input: {
     );
   }
   const visitedStates = new Set(visited);
-  if (
-    !Array.isArray(artifact.unannotatedRendered) ||
-    !Array.isArray(artifact.unregisteredRendered)
-  ) {
-    throw new Error(
-      'Primitive reconciliation records no unannotated/unregistered populations',
-    );
-  }
   if (artifact.unannotatedRendered.length > 0) {
     throw new Error(
       `Primitive reconciliation records ${artifact.unannotatedRendered.length} unannotated rendered members`,
@@ -163,9 +179,6 @@ export function readPrimitiveReconciliation(input: {
     throw new Error(
       `Primitive reconciliation records unregistered rendered members: ${artifact.unregisteredRendered.join(', ')}`,
     );
-  }
-  if (artifact.members === null || typeof artifact.members !== 'object') {
-    throw new Error('Primitive reconciliation records no members');
   }
 
   const registeredIds = new Set<string>();
@@ -202,21 +215,11 @@ export function readPrimitiveReconciliation(input: {
       }
       for (const field of ['definedIn', 'ownerRouteOrMount'] as const) {
         const recorded = member[field];
-        if (!Array.isArray(recorded)) {
-          throw new Error(
-            `Primitive reconciliation records no ${field} for ${row.id}`,
-          );
-        }
         if (!sameSequence(recorded, row[field])) {
           throw new Error(
             `Primitive reconciliation records ${field} ${JSON.stringify(recorded)} for ${row.id}; the registry records ${JSON.stringify(row[field])}`,
           );
         }
-      }
-      if (!Array.isArray(member.renderedOn)) {
-        throw new Error(
-          `Primitive reconciliation records no renderedOn for ${row.id}`,
-        );
       }
       const renderedOn = sortedUnique(
         member.renderedOn,

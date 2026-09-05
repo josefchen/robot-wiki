@@ -34,6 +34,10 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
             key={citation.id}
             id={`ref-${citation.id}`}
             data-reference-id={citation.id}
+            // The same boolean the badge renders from, exposed so a sweep
+            // can read the further-reading set without sniffing the badge's
+            // own words.
+            data-further-reading={furtherReading ? 'true' : 'false'}
             className="grid scroll-mt-16 grid-cols-[1.75rem_minmax(0,1fr)] gap-x-3 rounded-sm px-2 py-1.5 transition-colors target:bg-surface lg:scroll-mt-4 [margin-inline:-0.5rem]"
           >
             <span
@@ -49,7 +53,14 @@ export function References({ entries }: { entries: readonly ResolvedReference[] 
                   target="_blank"
                   rel="noopener noreferrer"
                   data-brand-control-id="control:link-focus"
-                  className="break-words font-sans text-sm font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
+                  data-reference-source-link
+                  // Signal blue plus underline: design-system 4.4 assigns
+                  // that treatment to source links, and the approved article
+                  // reference sets its licence link the same way. Internal
+                  // index rows (See also, Linked from) keep the strong-ink
+                  // treatment 14 allows, so a reader can tell an outbound
+                  // source from a move inside the wiki without reading it.
+                  className="break-words font-sans text-sm font-medium leading-snug text-accent underline decoration-accent/45 underline-offset-[3px] transition-colors hover:decoration-accent"
                 >
                   {citation.title}
                 </a>

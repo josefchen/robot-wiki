@@ -1,9 +1,13 @@
+import { COMPANIES } from '../data/companies.ts';
 import { DOMAINS } from '../data/domains.ts';
-import { DOMAIN_META } from '../data/modules.ts';
+import { glossaryTermsAlphabetical } from '../data/glossary.ts';
+import { DOMAIN_META, publishedModules } from '../data/modules.ts';
 import {
   HOME_COMPOSITION_ANCHORS,
   heroLockupMemberId,
 } from './brand-v2-home-evidence.ts';
+import type { SurfaceCountExpectation } from './brand-v2-home-tools-evidence.ts';
+import { SEGMENT_ORDER } from './market-map.ts';
 
 /**
  * Canonical populations for the three home-composition assertions.
@@ -46,18 +50,94 @@ export const HOME_ASSERTION_POPULATION_SOURCES: Readonly<
  * the glossary. Derived from the taxonomy so an eighth domain becomes an
  * eighth swept surface rather than a route nobody checked.
  */
-export function progressCounterSurfaces(): Array<{
+export type ProgressCounterSurface = {
   id: string;
   path: string;
-}> {
-  const surfaces = [
-    { id: 'route:/', path: '/' },
+  /**
+   * What each counted noun this surface may print has to equal. Every
+   * printed count has to match one of these, and the required ones have to
+   * be printed: a surface whose totals stopped being expressible used to
+   * park them in `unreconciledCounts` and still pass, so an index could
+   * print any number of articles it liked as long as one other count on the
+   * page still reconciled.
+   */
+  countExpectations: SurfaceCountExpectation[];
+};
+
+export function progressCounterSurfaces(): ProgressCounterSurface[] {
+  const published = publishedModules();
+  const glossaryTerms = glossaryTermsAlphabetical();
+  const surfaces: ProgressCounterSurface[] = [
+    {
+      id: 'route:/',
+      path: '/',
+      countExpectations: [
+        {
+          memberId: 'count:/:companies',
+          noun: 'companies',
+          nounPattern: '^compan',
+          expected: COMPANIES.length,
+          required: false,
+        },
+        {
+          memberId: 'count:/:segments',
+          noun: 'market map segments',
+          nounPattern: '^segment',
+          expected: SEGMENT_ORDER.length,
+          required: false,
+        },
+      ],
+    },
     ...DOMAINS.map((domain) => ({
       id: `route:/${domain}/`,
       path: `/${domain}/`,
+      countExpectations: [
+        {
+          memberId: `count:/${domain}/:articles`,
+          noun: 'published articles in this domain',
+          nounPattern: '^(article|module)',
+          expected: published.filter((module) => module.domain === domain)
+            .length,
+          required: false,
+        },
+      ],
     })),
-    { id: 'route:/a-z/', path: '/a-z/' },
-    { id: 'route:/glossary/', path: '/glossary/' },
+    {
+      id: 'route:/a-z/',
+      path: '/a-z/',
+      // Both totals are required, and independently: the A-Z index prints
+      // the whole published corpus and the whole glossary, and one of them
+      // reconciling says nothing about the other.
+      countExpectations: [
+        {
+          memberId: 'count:/a-z/:articles',
+          noun: 'published articles',
+          nounPattern: '^(article|module)',
+          expected: published.length,
+          required: true,
+        },
+        {
+          memberId: 'count:/a-z/:glossary-terms',
+          noun: 'glossary terms',
+          nounPattern: '^(term|entr)',
+          expected: glossaryTerms.length,
+          required: true,
+        },
+      ],
+    },
+    {
+      id: 'route:/glossary/',
+      path: '/glossary/',
+      countExpectations: [
+        {
+          memberId: 'count:/glossary/:terms',
+          noun: 'glossary terms',
+          nounPattern: '^(term|entr)',
+          expected: glossaryTerms.length,
+          required: true,
+        },
+      ],
+    },
   ];
   if (surfaces.length < 3) {
     throw new Error(

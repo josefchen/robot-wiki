@@ -185,8 +185,11 @@ export default async function ModulePage({ params }: { params: Params }) {
     // the generated References bibliography. data-prose-column is the
     // named handle for the article's text column: validators measuring
     // the full-width rules resolve it here instead of by
-    // ancestor heuristics (library/design-system.md).
-    <article data-prose-column className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    // ancestor heuristics (library/design-system.md). The column's measure
+    // and gutters live in app/globals.css, because the cap has to be written
+    // in the same face and size as the prose it caps for `ch` to mean the
+    // same thing on both sides of it.
+    <article data-prose-column className="mx-auto w-full py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -202,7 +205,12 @@ export default async function ModulePage({ params }: { params: Params }) {
         readingTimeMinutes={readingTime}
         citationCount={references.length}
       />
-      <div data-pagefind-body className="prose">
+      {/* The title sheet closes on space, not on a rule. It used to close on
+          a bare border-bottom, which is a rule no registry owns and no anchor
+          aligns; the article's one hairline is the apparatus boundary below,
+          so replacing the border with a second device would have cost the
+          separator the meaning of being the only one. */}
+      <div data-pagefind-body className="prose mt-10">
         <Content />
       </div>
       {hasApparatus ? (

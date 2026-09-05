@@ -3,23 +3,62 @@ import { dirname, join } from 'node:path';
 import { test, expect } from './brand-v2-static-fixture';
 import {
   ACTION_INK_RGB,
+  HIGHLIGHT_ARIA_STATE_CUES,
   HOME_COMPOSITION_ANCHORS,
   HOME_COMPOSITION_EVIDENCE_PATH,
   HOME_ROUTE,
   HOME_VIEWPORT,
+  IMPLICIT_ROLE_BY_TAG,
   SELECTION_LIME_RGB,
   canonicalDomainEntries,
   domainDestinationVerdicts,
   heroLockupVerdicts,
   homeCompositionVerdicts,
   homeEvidenceFingerprint,
+  homeStructureTable,
   readHomeCompositionEvidence,
   type HomeCompositionEvidence,
 } from '../../lib/brand-v2-home-evidence';
+import { readSectionSignatureRegistry } from '../../lib/brand-v2-section-signatures';
 import { canonicalDomainDestinations } from '../../lib/home-populations';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 
 const ROOT = process.cwd();
+const SECTION_SIGNATURES = readSectionSignatureRegistry(ROOT);
+
+/**
+ * Wraps one in-page reading as the artifact this feature persists.
+ *
+ * The structural-variety table is built here rather than in the browser
+ * because half of each row comes from the checked-in signature registry,
+ * which the page has no access to and must not: a section that could read
+ * its own registry entry could also write one. Every construction of the
+ * artifact goes through this, so a planted reading carries the table its own
+ * sections derive rather than a stale one from the clean run.
+ */
+function homeArtifact(
+  collected: Omit<
+    HomeCompositionEvidence,
+    'version' | 'fingerprint' | 'viewport' | 'route' | 'structureTable'
+  >,
+): HomeCompositionEvidence {
+  return {
+    version: 1,
+    fingerprint: homeEvidenceFingerprint({
+      root: ROOT,
+      identity: PUBLIC_IDENTITY,
+      descriptor: PUBLIC_DESCRIPTOR,
+    }),
+    viewport: HOME_VIEWPORT.id,
+    route: HOME_ROUTE,
+    ...collected,
+    structureTable: homeStructureTable({
+      route: HOME_ROUTE,
+      sections: collected.sections,
+      registry: SECTION_SIGNATURES,
+    }),
+  };
+}
 
 /**
  * Reader-facing build-progress and planned-work copy. `VAL-DESIGN-001` and
@@ -49,7 +88,39 @@ type CollectArgs = {
   ink: string;
   progressPatterns: string[];
   domains: Array<{ domain: string; name: string; href: string }>;
+  ariaStateCues: Array<{
+    attribute: string;
+    values: string[];
+    roles: string[] | null;
+  }>;
+  implicitRoleByTag: Record<string, string>;
 };
+
+/**
+ * The cue vocabulary, in the shape `page.evaluate` can carry. A function
+ * serialised into the page cannot close over an imported constant, so the
+ * vocabulary the reader states is passed in rather than restated here.
+ */
+const ARIA_STATE_CUE_ARGS = Object.entries(HIGHLIGHT_ARIA_STATE_CUES).map(
+  ([attribute, cue]) => ({
+    attribute,
+    values: [...cue.values],
+    roles: cue.roles === null ? null : [...cue.roles],
+  }),
+);
+
+function collectArgs(
+  domains: ReadonlyArray<{ domain: string; name: string; href: string }>,
+): CollectArgs {
+  return {
+    lime: SELECTION_LIME_RGB,
+    ink: ACTION_INK_RGB,
+    progressPatterns: PROGRESS_PATTERNS,
+    domains: domains.map(({ domain, name, href }) => ({ domain, name, href })),
+    ariaStateCues: ARIA_STATE_CUE_ARGS,
+    implicitRoleByTag: IMPLICIT_ROLE_BY_TAG,
+  };
+}
 
 /**
  * Runs inside the page. Discovery is structural wherever a structural query
@@ -167,9 +238,35 @@ function collectHome(args: CollectArgs) {
       }
       if (carriers.length === 0) return null;
       const el2 = el as HTMLElement;
-      const ariaState = ['aria-selected', 'aria-pressed', 'aria-current'].find(
-        (attribute) => el.hasAttribute(attribute),
-      );
+      // A state is a cue only when it asserts something. The presence of an
+      // ARIA state attribute used to be enough, so `aria-selected="false"`
+      // counted as a non-colour cue for a highlight that, in greyscale or
+      // forced colours, a reader meets as ordinary text.
+      const role = (
+        el.getAttribute('role') ??
+        args.implicitRoleByTag[el.tagName.toLowerCase()] ??
+        ''
+      ).toLowerCase();
+      const positiveStates: string[] = [];
+      const rejectedStateCues: string[] = [];
+      for (const cue of args.ariaStateCues) {
+        const raw = el.getAttribute(cue.attribute);
+        if (raw === null) continue;
+        const value = raw.trim().toLowerCase();
+        if (!cue.values.includes(value)) {
+          rejectedStateCues.push(
+            `${cue.attribute}="${raw}" asserts no state (positive values: ${cue.values.join(', ')})`,
+          );
+          continue;
+        }
+        if (cue.roles !== null && !cue.roles.includes(role)) {
+          rejectedStateCues.push(
+            `${cue.attribute}="${raw}" sits on role "${role || 'none'}", which does not carry that state`,
+          );
+          continue;
+        }
+        positiveStates.push(`${cue.attribute}=${value}`);
+      }
       const geometry = box(el);
       return {
         tag: el.tagName.toLowerCase(),
@@ -179,7 +276,8 @@ function collectHome(args: CollectArgs) {
         // to this sweep, and a reader in greyscale or forced colours meets
         // nothing at all where it is the only thing beside the lime.
         nonColourCue:
-          el.tagName === 'MARK' ? 'mark-element' : (ariaState ?? null),
+          el.tagName === 'MARK' ? 'mark-element' : (positiveStates[0] ?? null),
+        rejectedStateCues,
         annotation: el2.dataset.brandHighlight ?? null,
         topPx: geometry.topPx,
         bottomPx: geometry.bottomPx,
@@ -444,28 +542,9 @@ test.describe('brand-v2 home composition', () => {
     // group-hover accent baked into a measurement reads as a real colour.
     await page.mouse.move(2, 2);
 
-    const collected = await page.evaluate(collectHome, {
-      lime: SELECTION_LIME_RGB,
-      ink: ACTION_INK_RGB,
-      progressPatterns: PROGRESS_PATTERNS,
-      domains: domains.map(({ domain, name, href }) => ({
-        domain,
-        name,
-        href,
-      })),
-    });
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
 
-    const artifact: HomeCompositionEvidence = {
-      version: 1,
-      fingerprint: homeEvidenceFingerprint({
-        root: ROOT,
-        identity: PUBLIC_IDENTITY,
-        descriptor: PUBLIC_DESCRIPTOR,
-      }),
-      viewport: HOME_VIEWPORT.id,
-      route: HOME_ROUTE,
-      ...collected,
-    };
+    const artifact: HomeCompositionEvidence = homeArtifact(collected);
 
     // Enforced here as well as in the generator, so a red home fails the
     // suite that measured it rather than only the artifact check.
@@ -484,7 +563,11 @@ test.describe('brand-v2 home composition', () => {
     ).toEqual([]);
 
     // VAL-B2-SHELL-006: the six composition anchors, independently.
-    const anchorVerdicts = homeCompositionVerdicts(evidence, literals);
+    const anchorVerdicts = homeCompositionVerdicts(
+      evidence,
+      literals,
+      SECTION_SIGNATURES,
+    );
     expect(anchorVerdicts.map(({ id }) => id)).toEqual([
       ...HOME_COMPOSITION_ANCHORS,
     ]);
@@ -578,31 +661,13 @@ test.describe('brand-v2 home composition', () => {
       }
     });
 
-    const collected = await page.evaluate(collectHome, {
-      lime: SELECTION_LIME_RGB,
-      ink: ACTION_INK_RGB,
-      progressPatterns: PROGRESS_PATTERNS,
-      domains: domains.map(({ domain, name, href }) => ({
-        domain,
-        name,
-        href,
-      })),
-    });
-    const planted = {
-      version: 1 as const,
-      fingerprint: homeEvidenceFingerprint({
-        root: ROOT,
-        identity: PUBLIC_IDENTITY,
-        descriptor: PUBLIC_DESCRIPTOR,
-      }),
-      viewport: HOME_VIEWPORT.id,
-      route: HOME_ROUTE,
-      ...collected,
-    };
-    const verdicts = homeCompositionVerdicts(planted, {
-      identity: PUBLIC_IDENTITY,
-      descriptor: PUBLIC_DESCRIPTOR,
-    });
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    const planted = homeArtifact(collected);
+    const verdicts = homeCompositionVerdicts(
+      planted,
+      { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
+    );
     const failing = verdicts
       .filter(({ failures }) => failures.length > 0)
       .map(({ id }) => id);
@@ -648,16 +713,7 @@ test.describe('brand-v2 home composition', () => {
     // The plant has to have replaced something, or the case proves nothing.
     expect(swapped).toBeGreaterThan(0);
 
-    const collected = await page.evaluate(collectHome, {
-      lime: SELECTION_LIME_RGB,
-      ink: ACTION_INK_RGB,
-      progressPatterns: PROGRESS_PATTERNS,
-      domains: domains.map(({ domain, name, href }) => ({
-        domain,
-        name,
-        href,
-      })),
-    });
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
     const painted = collected.highlights.filter(
       ({ annotation }) => annotation !== null,
     );
@@ -668,18 +724,9 @@ test.describe('brand-v2 home composition', () => {
       expect(highlight.nonColourCue, highlight.text).toBeNull();
     }
     const verdicts = homeCompositionVerdicts(
-      {
-        version: 1 as const,
-        fingerprint: homeEvidenceFingerprint({
-          root: ROOT,
-          identity: PUBLIC_IDENTITY,
-          descriptor: PUBLIC_DESCRIPTOR,
-        }),
-        viewport: HOME_VIEWPORT.id,
-        route: HOME_ROUTE,
-        ...collected,
-      },
+      homeArtifact(collected),
       { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
     );
     const highlightFailures =
       verdicts.find(({ id }) => id === 'anchor:home-lime-highlight')?.failures ??
@@ -687,5 +734,211 @@ test.describe('brand-v2 home composition', () => {
     expect(highlightFailures.join(' ')).toMatch(
       /is an annotation addressed to this sweep/,
     );
+  });
+
+  /**
+   * The plant for the second reading this sweep used to do. A state
+   * attribute was credited for being present, so `aria-selected="false"` —
+   * which asserts the absence of the thing it names, and which a screen
+   * reader announces as nothing — counted as the cue standing between a
+   * lime-only highlight and a reader who cannot see the lime. The same
+   * applies to a state on an element whose role does not carry it.
+   */
+  test('refuses a lime highlight cued by a false or unsupported ARIA state', async ({
+    page,
+    staticBase,
+  }) => {
+    const domains = canonicalDomainDestinations();
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    await page.goto(`${staticBase}${HOME_ROUTE}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    const planted = await page.evaluate((lime) => {
+      const states = [
+        // A false state, on a role that does carry the state when true.
+        { attribute: 'aria-selected', value: 'false', role: 'option' },
+        // A true state, on an element whose role does not carry it.
+        { attribute: 'aria-pressed', value: 'true', role: '' },
+        // A state value outside the attribute's own vocabulary.
+        { attribute: 'aria-current', value: 'false', role: '' },
+      ];
+      let count = 0;
+      for (const mark of [...document.querySelectorAll('main mark')]) {
+        for (const state of states) {
+          const span = document.createElement('span');
+          span.textContent = mark.textContent;
+          span.style.backgroundColor = lime;
+          span.setAttribute(state.attribute, state.value);
+          if (state.role) span.setAttribute('role', state.role);
+          mark.parentElement?.insertBefore(span, mark);
+          count += 1;
+        }
+        mark.remove();
+      }
+      return count;
+    }, SELECTION_LIME_RGB);
+    // The plant has to have replaced something, or the case proves nothing.
+    expect(planted).toBeGreaterThan(0);
+
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    const stated = collected.highlights.filter(
+      ({ rejectedStateCues }) => rejectedStateCues.length > 0,
+    );
+    expect(stated, 'the planted spans still paint the sealed lime').toHaveLength(
+      planted,
+    );
+    for (const highlight of stated) {
+      expect(highlight.nonColourCue, highlight.text).toBeNull();
+    }
+    const verdicts = homeCompositionVerdicts(
+      homeArtifact(collected),
+      { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
+    );
+    const highlightFailures = (
+      verdicts.find(({ id }) => id === 'anchor:home-lime-highlight')?.failures ??
+      []
+    ).join(' ');
+    expect(highlightFailures).toMatch(/aria-selected="false" asserts no state/);
+    expect(highlightFailures).toMatch(
+      /aria-pressed="true" sits on role "none"/,
+    );
+    expect(highlightFailures).toMatch(/aria-current="false" asserts no state/);
+  });
+
+  /**
+   * The plant for the signature reading. A section used to satisfy the
+   * structure anchor by declaring any non-empty string, so a new template
+   * could mint its own purpose by typing one. The purposes now live in a
+   * checked-in registry, and an unregistered string fails.
+   */
+  test('refuses a section signature nobody registered', async ({
+    page,
+    staticBase,
+  }) => {
+    const domains = canonicalDomainDestinations();
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    await page.goto(`${staticBase}${HOME_ROUTE}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    const minted = await page.evaluate(() => {
+      const section = document.querySelector('main > section:last-of-type');
+      if (!(section instanceof HTMLElement)) return null;
+      const previous = section.dataset.brandModuleSignature ?? null;
+      section.dataset.brandModuleSignature = 'plain/module-heading/invented';
+      return {
+        previous,
+        current: section.dataset.brandModuleSignature,
+      };
+    });
+    // A plant that reproduces the original value is not a plant.
+    expect(minted).not.toBeNull();
+    expect(minted!.current).not.toEqual(minted!.previous);
+
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    expect(
+      collected.sections.map(({ signature }) => signature),
+    ).toContain('plain/module-heading/invented');
+    const verdicts = homeCompositionVerdicts(
+      homeArtifact(collected),
+      { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
+    );
+    const structure = (
+      verdicts.find(({ id }) => id === 'anchor:home-board-derived-structure')
+        ?.failures ?? []
+    ).join(' ');
+    expect(structure).toMatch(
+      /declares the signature "plain\/module-heading\/invented", which contract\/brand-v2-section-signature-registry\.json does not register/,
+    );
+    expect(structure).toMatch(
+      /registers "ruled-plain\/closing-heading\/guidance-prose" for \/ .* which no section on that route declares/,
+    );
+  });
+
+  /**
+   * The plant for the structural-variety table. It is the support
+   * `VAL-DESIGN-009` rests on, so it has to be checked against the page it
+   * claims to describe: a row nobody re-derives is prose, and prose can be
+   * edited into agreement with anything.
+   */
+  test('refuses a structural-variety table that disagrees with the sections it describes', async ({
+    page,
+    staticBase,
+  }) => {
+    const domains = canonicalDomainDestinations();
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    await page.goto(`${staticBase}${HOME_ROUTE}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    const artifact = homeArtifact(collected);
+
+    // The accepted half: the unplanted table is the one the sections and the
+    // registry derive, and the anchor that reads it is green.
+    expect(artifact.structureTable.length).toBe(collected.sections.length);
+    expect(
+      artifact.structureTable.map(({ registeredOwner }) => registeredOwner),
+      'every declared signature resolves to a registered owner',
+    ).not.toContain(null);
+    const clean =
+      homeCompositionVerdicts(
+        artifact,
+        { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+        SECTION_SIGNATURES,
+      ).find(({ id }) => id === 'anchor:home-board-derived-structure')
+        ?.failures ?? [];
+    expect(clean).toEqual([]);
+
+    // Rewriting one row's registered owner is a table that states a purpose
+    // the registry never granted.
+    const original = artifact.structureTable[2];
+    const rewritten = { ...original, registeredOwner: 'somebody-else' };
+    expect(rewritten.registeredOwner).not.toEqual(original.registeredOwner);
+    const planted = homeCompositionVerdicts(
+      {
+        ...artifact,
+        structureTable: artifact.structureTable.map((row, index) =>
+          index === 2 ? rewritten : row,
+        ),
+      },
+      { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
+    );
+    const failing = planted
+      .filter(({ failures }) => failures.length > 0)
+      .map(({ id }) => id);
+    expect(failing).toEqual(['anchor:home-board-derived-structure']);
+    expect(
+      planted.flatMap(({ failures }) => failures).join(' '),
+    ).toMatch(/structural-variety row 2 was persisted as .*somebody-else/);
+
+    // And a table in another order is refused before any verdict runs: the
+    // claim is about adjacent sections, so order is part of the reading.
+    const swapped = [...artifact.structureTable];
+    [swapped[0], swapped[1]] = [swapped[1], swapped[0]];
+    expect(swapped[0].label).not.toEqual(artifact.structureTable[0].label);
+    expect(() =>
+      readHomeCompositionEvidence({
+        artifact: { ...artifact, structureTable: swapped },
+        fingerprint: artifact.fingerprint,
+      }),
+    ).toThrow(/structural-variety row 0 describes/);
+    // The accepted half again, through the reader this time.
+    expect(() =>
+      readHomeCompositionEvidence({
+        artifact,
+        fingerprint: artifact.fingerprint,
+      }),
+    ).not.toThrow();
   });
 });

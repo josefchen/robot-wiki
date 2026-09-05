@@ -8,8 +8,22 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { imageSchema, type SiteImage } from '@/data/schemas/image';
-import { IMAGES } from '@/data/images';
+import {
+  attributionSentence,
+  imageSchema,
+  LEGAL_BASIS_BY_LICENCE,
+  type SiteImage,
+} from '@/data/schemas/image';
+import {
+  IMAGES,
+  attributionText,
+  creditNoun,
+  figureKind,
+  getImage,
+  legalBasis,
+  licenceLabel,
+  preservationPolicy,
+} from '@/data/images';
 import { referencedImageIds } from '@/lib/images';
 import { validateContent } from '@/lib/validate-content';
 import { modules } from '@/data/modules';
@@ -37,7 +51,26 @@ const validEntry: SiteImage = {
   retrieved: '2026-08-10',
   width: 1920,
   height: 1280,
+  figureKind: 'photograph',
+  legalBasis: 'cc-by-sa',
+  attributionText: 'Photo: Ims / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+  preservationPolicy: 'external-bytes-preserved',
 };
+
+/**
+ * A variant of the fixture whose §1.13 record stays coherent with whatever
+ * the case changes. Cases below alter one field to test one rule; without
+ * this they would also break the licence/basis and attribution cross-checks
+ * and fail for a reason they are not about.
+ */
+function editorialPhoto(overrides: Partial<SiteImage> = {}): SiteImage {
+  const base = { ...validEntry, ...overrides };
+  return {
+    ...base,
+    legalBasis: LEGAL_BASIS_BY_LICENCE[base.licence],
+    attributionText: attributionSentence(base),
+  };
+}
 
 describe('imageSchema', () => {
   it('accepts a complete registry entry', () => {
@@ -60,27 +93,35 @@ describe('imageSchema', () => {
 
   it('rejects press-kit and permission licences without a recorded grant reference (VAL-IMG-007)', () => {
     for (const licence of ['press-kit', 'permission'] as const) {
-      const parsed = imageSchema.safeParse({ ...validEntry, licence });
+      const parsed = imageSchema.safeParse(editorialPhoto({ licence }));
       expect(parsed.success).toBe(false);
       expect(parsed.error?.message).toMatch(/permissionNote/);
     }
-    const withNote = imageSchema.safeParse({
-      ...validEntry,
-      licence: 'press-kit',
-      permissionNote: 'Editorial reuse granted on the press page.',
-    });
-    expect(withNote.success).toBe(true);
+    const withNote = imageSchema.safeParse(
+      editorialPhoto({
+        licence: 'press-kit',
+        permissionNote: 'Editorial reuse granted on the press page.',
+      }),
+    );
+    expect(withNote.success, withNote.error?.message).toBe(true);
   });
 
   it('accepts unlicensed and unknown official marks when sourceUrl is present', () => {
     for (const licence of ['unlicensed', 'unknown'] as const) {
       const parsed = imageSchema.safeParse({
         ...validEntry,
+        id: 'skild-ai-logo',
+        file: '/images/logos/skild-ai.svg',
+        alt: 'Skild AI wordmark set in a dark grotesque on a transparent field',
+        figureKind: 'official-mark',
+        legalBasis: undefined,
+        attributionText: undefined,
+        preservationPolicy: undefined,
         licence,
         sourceUrl: 'https://www.skild.ai/',
         licenceUrl: 'https://www.skild.ai/',
       });
-      expect(parsed.success, licence).toBe(true);
+      expect(parsed.success, `${licence}: ${parsed.error?.message ?? ''}`).toBe(true);
     }
   });
 
@@ -118,14 +159,17 @@ describe('imageSchema', () => {
   });
 
   it('accepts a logo file under public/images/logos/', () => {
-    expect(
-      imageSchema.safeParse({
-        ...validEntry,
-        id: 'nvidia-logo',
-        file: '/images/logos/nvidia.svg',
-        alt: 'NVIDIA wordmark in the company green on a transparent field',
-      }).success,
-    ).toBe(true);
+    const parsed = imageSchema.safeParse({
+      ...validEntry,
+      id: 'nvidia-logo',
+      file: '/images/logos/nvidia.svg',
+      alt: 'NVIDIA wordmark in the company green on a transparent field',
+      figureKind: 'official-mark',
+      legalBasis: undefined,
+      attributionText: undefined,
+      preservationPolicy: undefined,
+    });
+    expect(parsed.success, parsed.error?.message).toBe(true);
   });
 });
 
@@ -341,7 +385,7 @@ describe('validateContent imagery check', () => {
 
   it('fails on provenance that carries a synthesis marker (VAL-IMG-013)', () => {
     writeArticle(`<Image id="${validEntry.id}" />`);
-    const synthetic: SiteImage = { ...validEntry, sourceName: 'AI-generated render' };
+    const synthetic = editorialPhoto({ sourceName: 'AI-generated render' });
     const issues = validateContent({ ...baseOpts(), images: [synthetic] });
     expect(
       issues.some(
@@ -383,5 +427,132 @@ describe('the shipped registry (VAL-IMG-006, VAL-IMG-013)', () => {
       ],
     });
     expect(issues).toEqual([]);
+  });
+});
+
+/**
+ * The §1.13 provenance record (VAL-B2-IMG-002, VAL-B2-IMG-003,
+ * VAL-B2-IMG-008). Every editorial image has to carry one closed
+ * legal-basis value, the attribution sentence the page renders, and a
+ * preservation policy, and the schema has to refuse a record that
+ * contradicts the licence beside it.
+ */
+describe('§1.13 provenance record', () => {
+  const editorial = IMAGES.filter((image) => !image.file.startsWith('/images/logos/'));
+  const marks = IMAGES.filter((image) => image.file.startsWith('/images/logos/'));
+
+  it('covers every editorial image and leaves the mark path to VAL-B2-MAP-010', () => {
+    expect(editorial.length).toBeGreaterThan(0);
+    expect(marks.length).toBeGreaterThan(0);
+    for (const image of editorial) {
+      expect(image.figureKind, image.id).toBeDefined();
+      expect(image.legalBasis, image.id).toBeDefined();
+      expect(image.attributionText, image.id).toBeDefined();
+      expect(image.preservationPolicy, image.id).toBeDefined();
+      expect(figureKind(image), image.id).not.toBe('official-mark');
+    }
+    for (const image of marks) {
+      expect(figureKind(image), image.id).toBe('official-mark');
+      // A mark with a real reuse grant keeps that grant as its basis; only
+      // the ungranted ones fall to the identification path.
+      if (image.licence === 'unlicensed' || image.licence === 'unknown') {
+        expect(legalBasis(image), image.id).toBe('official-identification-use');
+      }
+    }
+    for (const image of editorial) {
+      expect(legalBasis(image), image.id).not.toBe('official-identification-use');
+    }
+  });
+
+  it('grounds each declared basis in the licence recorded beside it', () => {
+    for (const image of IMAGES) {
+      const grounded = [LEGAL_BASIS_BY_LICENCE[image.licence]];
+      if (figureKind(image) === 'original-schematic') grounded.push('owned');
+      expect(grounded, `${image.id} (${image.licence})`).toContain(legalBasis(image));
+    }
+  });
+
+  it('renders the attribution sentence it records', () => {
+    const panda = getImage('franka-emika-panda-cebit-2017');
+    expect(panda?.attributionText).toBe(
+      'Photo: Ims / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    );
+    for (const image of IMAGES) {
+      expect(attributionText(image), image.id).toBe(
+        `${creditNoun(image)}: ${image.creator} / ${image.sourceName}. Licence: ${licenceLabel(image)}.`,
+      );
+    }
+  });
+
+  it('names the noun from the registry, not the file extension', () => {
+    // The /credits page credited an `.svg` company mark as "Diagram:" and a
+    // raster mark beside it as "Photo:" while extension decided the noun.
+    const mark = marks.find((image) => image.file.endsWith('.svg'));
+    expect(mark && creditNoun(mark)).toBe('Logo');
+    expect(creditNoun(getImage('covariate-shift')!)).toBe('Diagram');
+    expect(creditNoun(getImage('puma-560-nasa-ames')!)).toBe('Photo');
+  });
+
+  it('lets only the two first-party diagrams be restyled in place', () => {
+    const restyled = IMAGES.filter(
+      (image) => preservationPolicy(image) === 'first-party-restyled-semantics-preserved',
+    );
+    expect(restyled.map((image) => image.id).sort()).toEqual([
+      'covariate-shift',
+      'temporal-ensembling',
+    ]);
+    for (const image of restyled) {
+      expect(figureKind(image), image.id).toBe('original-schematic');
+      expect(legalBasis(image), image.id).toBe('owned');
+    }
+    for (const image of IMAGES.filter((i) => !restyled.includes(i))) {
+      expect(preservationPolicy(image), image.id).toBe('external-bytes-preserved');
+    }
+  });
+
+  it('refuses an editorial image that records no legal basis', () => {
+    const parsed = imageSchema.safeParse({ ...validEntry, legalBasis: undefined });
+    expect(parsed.success).toBe(false);
+    expect(parsed.error?.message).toMatch(/must record legalBasis/);
+  });
+
+  it('refuses a basis the licence does not ground', () => {
+    const parsed = imageSchema.safeParse({ ...validEntry, legalBasis: 'owned' });
+    expect(parsed.success).toBe(false);
+    expect(parsed.error?.message).toMatch(
+      /claims legal basis \\?"owned\\?" where licence \\?"cc-by-sa-4\.0/,
+    );
+  });
+
+  it('refuses an editorial image resting on an identification-only licence', () => {
+    for (const licence of ['unlicensed', 'unknown'] as const) {
+      const parsed = imageSchema.safeParse(editorialPhoto({ licence }));
+      expect(parsed.success, licence).toBe(false);
+      expect(parsed.error?.message).toMatch(/official-identification-use is the mark path/);
+    }
+  });
+
+  it('refuses a restyle policy on anything but an original schematic', () => {
+    const parsed = imageSchema.safeParse({
+      ...validEntry,
+      preservationPolicy: 'first-party-restyled-semantics-preserved',
+    });
+    expect(parsed.success).toBe(false);
+    expect(parsed.error?.message).toMatch(/must be external-bytes-preserved/);
+  });
+
+  it('refuses an official-mark kind outside the logo directory', () => {
+    const parsed = imageSchema.safeParse({ ...validEntry, figureKind: 'official-mark' });
+    expect(parsed.success).toBe(false);
+    expect(parsed.error?.message).toMatch(/cannot be an official-mark/);
+  });
+
+  it('refuses attribution text that disagrees with the entry it sits in', () => {
+    const parsed = imageSchema.safeParse({
+      ...validEntry,
+      attributionText: 'Photo: Somebody Else / Wikimedia Commons. Licence: CC BY-SA 4.0.',
+    });
+    expect(parsed.success).toBe(false);
+    expect(parsed.error?.message).toMatch(/records attribution/);
   });
 });

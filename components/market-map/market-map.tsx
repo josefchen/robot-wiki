@@ -162,7 +162,7 @@ export function MarketMap({ companies }: MarketMapProps) {
             data-brand-control-id="control:secondary-action"
             type="button"
             onClick={clearFilters}
-            className="mt-3 cursor-pointer font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+            className="mt-3 cursor-pointer font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
           >
             Clear filters
           </button>
