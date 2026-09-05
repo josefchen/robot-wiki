@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "signatures": [
+    {
+      "route": "/",
+      "signature": "sheet/display-lockup/primary-action",
+      "owner": "brand-v2-home-hero-domain-index-and-structure",
+      "purpose": "The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport."
+    },
+    {
+      "route": "/",
+      "signature": "ruled-plain/index-heading/row-links",
+      "owner": "brand-v2-home-hero-domain-index-and-structure",
+      "purpose": "The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards."
+    },
+    {
+      "route": "/",
+      "signature": "plain/module-heading/live-instrument",
+      "owner": "brand-v2-home-live-tools-and-responsive-convergence",
+      "purpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one."
+    },
+    {
+      "route": "/",
+      "signature": "plain/module-heading/credited-figure",
+      "owner": "brand-v2-home-hero-domain-index-and-structure",
+      "purpose": "The real-hardware figure, a credited photograph whose caption carries its source and licence."
+    },
+    {
+      "route": "/",
+      "signature": "plain/module-heading/schematic-pair",
+      "owner": "brand-v2-home-live-tools-and-responsive-convergence",
+      "purpose": "The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data."
+    },
+    {
+      "route": "/",
+      "signature": "ruled-plain/closing-heading/guidance-prose",
+      "owner": "brand-v2-home-hero-domain-index-and-structure",
+      "purpose": "The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home."
+    }
+  ]
+}

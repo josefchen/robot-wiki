@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Locator, Page } from '@playwright/test';
 import { test, expect, brandV2Registry } from './brand-v2-static-fixture';
@@ -11,6 +11,9 @@ import {
   HOME_TOOLS_VIEWPORT,
   accessibilityProfileVerdicts,
   crossMountVerdicts,
+  deriveCrossContextTable,
+  featuredComponentDefaults,
+  interactiveContainers,
   featuredInstrumentVerdicts,
   homeDesignBoundVerdicts,
   homeToolsEvidenceFingerprint,
@@ -19,19 +22,17 @@ import {
   readHomeToolsEvidence,
   responsiveOverflowVerdicts,
   type AccessibilityProfileObservation,
+  type FeaturedMountRegistration,
   type HomeToolsEvidence,
   type MountObservation,
   type ProgressCounterObservation,
   type RouteWidthObservation,
   type SliderObservation,
+  type SurfaceCountExpectation,
 } from '../../lib/brand-v2-home-tools-evidence';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
 import { progressCounterSurfaces } from '../../lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '../../lib/so101-kinematics';
-import { glossaryTermsAlphabetical } from '../../data/glossary';
-import { publishedModules } from '../../data/modules';
-import { COMPANIES } from '../../data/companies';
-import { SEGMENT_ORDER } from '../../lib/market-map';
 
 const ROOT = process.cwd();
 const READOUT = '[data-testid="episode-success-readout"]';
@@ -70,6 +71,14 @@ const COUNT_PHRASE = /(\d[\d,]*)\s+(?:glossary\s+)?(articles?|modules?|entries|t
  * interactive registry rather than named here. A second mount added to
  * another article joins `VAL-CROSS-015`'s population automatically instead
  * of escaping a hard-coded pair.
+ *
+ * `ownerPath` and `props` come along with each row because they are what the
+ * pairing and the prediction are derived from: the document that mounts an
+ * instance, and the props it is mounted with. Both are generated from the
+ * tree, so neither is something a mount can grant itself. The component's
+ * own declared defaults come from its registered source file, so the value
+ * every mount's opening state is measured against is read where it is
+ * written rather than restated in the instrument.
  */
 function featuredMounts() {
   const home = brandV2Registry.interactive.mounts.filter(
@@ -81,16 +90,38 @@ function featuredMounts() {
     );
   }
   const featured = home[0];
-  const siblings = brandV2Registry.interactive.mounts.filter(
-    (mount) =>
-      mount.sourceId === featured.sourceId && mount.id !== featured.id,
+  const registered = brandV2Registry.interactive.mounts.filter(
+    (mount) => mount.sourceId === featured.sourceId,
   );
+  const siblings = registered.filter((mount) => mount.id !== featured.id);
   if (siblings.length === 0) {
     throw new Error(
       `${featured.sourceId} is mounted only on home, so VAL-CROSS-015 has no second context to compare`,
     );
   }
-  return { featured, siblings };
+  const registrations: FeaturedMountRegistration[] = registered.map(
+    ({ id, route, ownerPath, props, containers }) => ({
+      mountId: id,
+      route,
+      ownerPath,
+      props,
+      containers,
+    }),
+  );
+  const source = brandV2Registry.interactive.sources.find(
+    ({ id }) => id === featured.sourceId,
+  );
+  if (!source?.sourcePath) {
+    throw new Error(
+      `${featured.sourceId} has no registered source path, so the component's declared defaults cannot be read`,
+    );
+  }
+  const component = featuredComponentDefaults({
+    component: source.component,
+    path: source.sourcePath,
+    text: readFileSync(join(ROOT, source.sourcePath), 'utf8'),
+  });
+  return { featured, siblings, registrations, component };
 }
 
 /** The nearest registered surface that holds one mount of the instrument. */
@@ -840,8 +871,6 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
   }) => {
     test.setTimeout(180_000);
     const surfaces = progressCounterSurfaces();
-    const published = publishedModules();
-    const GLOSSARY_TERMS = glossaryTermsAlphabetical();
     const rows: ProgressCounterObservation[] = [];
     for (const surface of surfaces) {
       const response = await page.goto(`${staticBase}${surface.path}`);
@@ -854,59 +883,40 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         ...text.matchAll(pattern),
       ]).map((match) => match[0]);
 
-      const domain = surface.path.replace(/\//g, '');
-      /**
-       * What each printed noun has to equal, derived from the registries the
-       * page builds itself from. The A-Z index prints the whole published
-       * corpus and the whole glossary, and the glossary index prints the
-       * glossary; neither total was expressible before, so both were dropped
-       * and those two surfaces reconciled nothing at all.
-       */
-      const expectedFor = (noun: string): number | null => {
-        if (surface.path === HOME_TOOLS_ROUTE) {
-          if (/^compan/.test(noun)) return COMPANIES.length;
-          if (/^segment/.test(noun)) return SEGMENT_ORDER.length;
-          return null;
-        }
-        if (surface.path === '/glossary/') {
-          return /^(term|entr)/.test(noun) ? GLOSSARY_TERMS.length : null;
-        }
-        if (surface.path === '/a-z/') {
-          if (/^(article|module)/.test(noun)) return published.length;
-          if (/^(term|entr)/.test(noun)) return GLOSSARY_TERMS.length;
-          return null;
-        }
-        if (/^(article|module)/.test(noun)) {
-          const inDomain = published.filter(
-            (module) => module.domain === domain,
-          );
-          return inDomain.length === 0 ? null : inDomain.length;
-        }
-        return null;
-      };
-      const counted = [...text.matchAll(COUNT_PHRASE)].map((match) => ({
-        text: match[0],
-        expected: expectedFor(match[2].toLowerCase()),
-        actual: Number(match[1].replace(/,/g, '')),
-      }));
-      const reconciledCounts = counted
-        .filter(
-          (row): row is typeof row & { expected: number } =>
-            row.expected !== null,
-        )
-        .map(({ text: phrase, expected, actual }) => ({
-          text: phrase,
-          expected,
-          actual,
-        }));
+      // What each printed noun has to equal is declared by the surface
+      // population, not decided here: the sweep that measures a total should
+      // not also be the thing that says what the total was allowed to be.
+      const counted = [...text.matchAll(COUNT_PHRASE)].map((match) => {
+        const noun = match[2].toLowerCase();
+        return {
+          text: match[0],
+          expectation:
+            surface.countExpectations.find(({ nounPattern }) =>
+              new RegExp(nounPattern).test(noun),
+            ) ?? null,
+          actual: Number(match[1].replace(/,/g, '')),
+        };
+      });
 
       rows.push({
         routeId: surface.id,
         route: surface.path,
         matches,
-        reconciledCounts,
+        reconciledCounts: counted
+          .filter(
+            (
+              row,
+            ): row is typeof row & { expectation: SurfaceCountExpectation } =>
+              row.expectation !== null,
+          )
+          .map(({ text: phrase, expectation, actual }) => ({
+            memberId: expectation.memberId,
+            text: phrase,
+            expected: expectation.expected,
+            actual,
+          })),
         unreconciledCounts: counted
-          .filter(({ expected }) => expected === null)
+          .filter(({ expectation }) => expectation === null)
           .map(({ text: phrase }) => phrase),
       });
     }
@@ -915,6 +925,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
 
   test('the measured evidence grants every home tool result', async () => {
     const routes = brandV2Registry.routes.public;
+    const { registrations: mountRegistrations } = featuredMounts();
     const artifact: HomeToolsEvidence = {
       version: 1,
       fingerprint: homeToolsEvidenceFingerprint({
@@ -925,6 +936,13 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       viewport: HOME_TOOLS_VIEWPORT.id,
       featured: evidence.featured!,
       siblingMounts: evidence.siblingMounts!,
+      crossContext: deriveCrossContextTable(
+        {
+          featured: evidence.featured!,
+          siblingMounts: evidence.siblingMounts!,
+        } as HomeToolsEvidence,
+        mountRegistrations,
+      ),
       playground: evidence.playground!,
       responsive: evidence.responsive!,
       accessibility: evidence.accessibility!,
@@ -943,9 +961,62 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     ]);
     expect(featuredVerdicts.flatMap(({ failures }) => failures)).toEqual([]);
 
-    // VAL-CROSS-015: every other registered mount of the same component.
-    const parity = crossMountVerdicts(measured);
-    expect(parity.length).toBe(measured.siblingMounts.length);
+    // VAL-CROSS-015: home paired with the module pages the same component
+    // is registered on, and the shared behaviour of every registered mount.
+    const featuredComponent = featuredMounts();
+    const parity = crossMountVerdicts(
+      measured,
+      featuredComponent.registrations,
+      featuredComponent.component,
+    );
+    expect(parity.length).toBe(measured.siblingMounts.length + 1);
+    expect(
+      parity.filter(({ observed }) => observed.isFeaturedHomeMount === true)
+        .length,
+      'the home mount decided by the same clauses as every other',
+    ).toBe(1);
+    // The pair the locked reset clause is about, and it is measured rather
+    // than asserted: every module-page mount the document does not nest
+    // inside another interactive component carries home's readings.
+    expect(
+      measured.crossContext.pairs.length,
+      'module-page mounts compared with home observation against observation',
+    ).toBeGreaterThan(0);
+    for (const pair of measured.crossContext.pairs) {
+      expect(
+        pair.readouts.map(({ phase, agrees }) => `${phase}:${agrees}`),
+        pair.mountId,
+      ).toEqual([
+        'initial:true',
+        'reset:true',
+        'second-reset:true',
+        'driven:true',
+      ]);
+      expect(
+        [...pair.initialControls, ...pair.resetControls].every(
+          ({ agrees }) => agrees,
+        ),
+        pair.mountId,
+      ).toBe(true);
+    }
+    // And every mount the pair clause does not reach is excluded for a
+    // structural reason the registry generated, never for a prop it wrote.
+    for (const row of measured.crossContext.excluded) {
+      const registration = featuredComponent.registrations.find(
+        ({ mountId }) => mountId === row.mountId,
+      )!;
+      expect(row.containerPath, row.mountId).toEqual(
+        registration.containers.map(({ component }) => component),
+      );
+      expect(
+        interactiveContainers(registration).length > 0 ||
+          !registration.ownerPath.startsWith('content/'),
+        row.mountId,
+      ).toBe(true);
+      expect(
+        parity.find(({ id }) => id === row.mountId)!.observed.clauses,
+      ).toEqual(expect.arrayContaining(row.stillBoundBy));
+    }
     expect(parity.flatMap(({ failures }) => failures)).toEqual([]);
 
     // VAL-DESIGN-013: the playground preview is bound to the shipped model.
@@ -1010,6 +1081,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
    * otherwise these rows are one boolean wearing several names.
    */
   test('the tool verdicts fail independently when their subjects are broken', async () => {
+    const { registrations, component } = featuredMounts();
     const measured = readHomeToolsEvidence({
       artifact: {
         version: 1,
@@ -1018,6 +1090,13 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         viewport: HOME_TOOLS_VIEWPORT.id,
         featured: evidence.featured!,
         siblingMounts: evidence.siblingMounts!,
+        crossContext: deriveCrossContextTable(
+          {
+            featured: evidence.featured!,
+            siblingMounts: evidence.siblingMounts!,
+          } as HomeToolsEvidence,
+          registrations,
+        ),
         playground: evidence.playground!,
         responsive: evidence.responsive!,
         accessibility: evidence.accessibility!,
@@ -1049,18 +1128,299 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       'anchor:playground-entry-textual-alternative',
     ]);
 
-    const plantedParity = crossMountVerdicts({
-      ...measured,
-      siblingMounts: measured.siblingMounts.map((mount) => ({
-        ...mount,
-        drivenReadout: '99.9%',
-      })),
-    });
-    expect(plantedParity.every(({ failures }) => failures.length > 0)).toBe(
-      true,
+    // The accepted half first: the unplanted reading is green through the
+    // same function that has to refuse each plant below.
+    expect(
+      crossMountVerdicts(measured, registrations, component).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+
+    /** A planted sweep, with the cross-context table re-derived from it. */
+    const replant = (
+      change: (evidence: HomeToolsEvidence) => void,
+      mounts: readonly FeaturedMountRegistration[] = registrations,
+    ): HomeToolsEvidence => {
+      const copy = JSON.parse(JSON.stringify(measured)) as HomeToolsEvidence;
+      change(copy);
+      copy.crossContext = deriveCrossContextTable(copy, mounts);
+      return copy;
+    };
+
+    // Clause 3: identical control values, divergent readouts.
+    const plantedParity = crossMountVerdicts(
+      replant((planted) => {
+        for (const mount of planted.siblingMounts) mount.drivenReadout = '99.9%';
+      }),
+      registrations,
+      component,
     );
     expect(
-      crossMountVerdicts(measured).flatMap(({ failures }) => failures),
+      plantedParity
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id)
+        .sort(),
+    ).toEqual(measured.siblingMounts.map(({ mountId }) => mountId).sort());
+
+    // Clause 2, the locked cross-context reset clause, planted one phase at
+    // a time on the article's own calculator. The mount stays internally
+    // consistent with the model in the phases it is not planted on, so only
+    // the cross-context comparison can produce the failure.
+    const paired = measured.crossContext.pairs[0].mountId;
+    for (const [phase, plant, expected] of [
+      ['initialReadout', '61.4%', 'opens 61.4%'],
+      ['resetReadout', '61.4%', 'resets to 61.4%'],
+      ['secondResetReadout', '61.4%', 'resets a second time to 61.4%'],
+    ] as const) {
+      const drifted = replant((planted) => {
+        const mount = planted.siblingMounts.find(
+          ({ mountId }) => mountId === paired,
+        )!;
+        mount[phase] = plant;
+      });
+      expect(drifted.crossContext.pairs[0].readouts.some(({ agrees }) => !agrees))
+        .toBe(true);
+      const failing = crossMountVerdicts(drifted, registrations, component)
+        .filter(({ failures }) => failures.length > 0);
+      expect(failing.map(({ id }) => id), phase).toEqual([paired]);
+      expect(failing[0].failures.join(' '), phase).toContain(
+        'the two contexts do not restore the identical initial state',
+      );
+      expect(failing[0].failures.join(' '), phase).toContain(expected);
+    }
+
+    // The same clause on a control value rather than a readout: a module
+    // page whose calculator opens with a different slider position is a
+    // different initial state even when the readout coincides.
+    const movedControl = replant((planted) => {
+      const mount = planted.siblingMounts.find(
+        ({ mountId }) => mountId === paired,
+      )!;
+      mount.initialSliders[1].value += 1;
+      mount.resetSliders[1].value += 1;
+    });
+    expect(
+      crossMountVerdicts(movedControl, registrations, component)
+        .find(({ id }) => id === paired)!
+        .failures.join(' '),
+    ).toMatch(/opens control 2 .* where home opens it/);
+
+    // The exclusion cannot be self-granted. A `default*` prop on a mount the
+    // document does not nest is exactly the case that used to pass: it is
+    // still compared with home, and now it fails.
+    const selfDeclared = registrations.map((mount) =>
+      mount.mountId === paired
+        ? { ...mount, props: `defaultSteps={14} ${mount.props}` }
+        : mount,
+    );
+    expect(
+      selfDeclared.find(({ mountId }) => mountId === paired)!.props,
+    ).not.toEqual(
+      registrations.find(({ mountId }) => mountId === paired)!.props,
+    );
+    const stillPaired = deriveCrossContextTable(measured, selfDeclared);
+    expect(stillPaired.pairs.map(({ mountId }) => mountId)).toContain(paired);
+    const declaredAway = crossMountVerdicts(
+      { ...measured, crossContext: stillPaired },
+      selfDeclared,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(declaredAway.map(({ id }) => id)).toEqual([paired]);
+    expect(declaredAway[0].failures.join(' ')).toMatch(
+      /where the shared model predicts 48.8%/,
+    );
+
+    // The persisted table is a rendering of the observations, not a place to
+    // write an agreement: a table that disagrees with the mounts is refused.
+    expect(() =>
+      crossMountVerdicts(
+        {
+          ...measured,
+          crossContext: {
+            ...measured.crossContext,
+            excluded: [],
+          },
+        },
+        registrations,
+        component,
+      ),
+    ).toThrow(/not the one the measured mounts derive/);
+
+    // Clause 1: home featuring a configured copy rather than the canonical
+    // one, which is the drift the deleted configuration clause was groping
+    // for. It fails home and nothing else.
+    const configuredHome = registrations.map((mount) =>
+      mount.mountId === measured.featured.mountId
+        ? { ...mount, props: `defaultSteps={14} ${mount.props}` }
+        : mount,
+    );
+    expect(
+      configuredHome.find(
+        ({ mountId }) => mountId === measured.featured.mountId,
+      )!.props,
+    ).not.toEqual(registrations.find(
+      ({ mountId }) => mountId === measured.featured.mountId,
+    )!.props);
+    const configured = crossMountVerdicts(
+      measured,
+      configuredHome,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(configured.map(({ id }) => id)).toEqual([measured.featured.mountId]);
+    expect(configured[0].failures.join(' ')).toMatch(
+      /so the copy a reader meets first is not the component's canonical default/,
+    );
+
+    // Clauses 3 and 4 on the excluded mount. The one mount the pair clause
+    // does not reach is nested inside a component that declares controls of
+    // its own, and it is still fully decided: fabricating its opening state
+    // fails the model, and driving it off the shared inputs fails the
+    // behaviour clause.
+    const nested = registrations.filter(
+      (mount) => interactiveContainers(mount).length > 0,
+    );
+    expect(nested.map(({ mountId }) => mountId)).toEqual(
+      measured.crossContext.excluded.map(({ mountId }) => mountId),
+    );
+    const quiz = nested[0];
+    expect(quiz.ownerPath.startsWith('content/')).toBe(true);
+    expect(
+      crossMountVerdicts(measured, registrations, component).find(
+        ({ id }) => id === quiz.mountId,
+      )!.observed.clauses,
+    ).toEqual([
+      'clause:equivalent-inputs-equivalent-readouts',
+      'clause:model-predicted-from-declared-defaults-and-own-props',
+    ]);
+    const quizPlant = crossMountVerdicts(
+      replant((planted) => {
+        const mount = planted.siblingMounts.find(
+          ({ mountId }) => mountId === quiz.mountId,
+        )!;
+        mount.initialReadout = '61.4%';
+        mount.resetReadout = '61.4%';
+        mount.secondResetReadout = '61.4%';
+      }),
+      registrations,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(quizPlant.map(({ id }) => id)).toEqual([quiz.mountId]);
+    expect(quizPlant[0].failures.join(' ')).toMatch(
+      /opens 61.4% where the shared model predicts/,
+    );
+    const quizBehaviour = crossMountVerdicts(
+      replant((planted) => {
+        const mount = planted.siblingMounts.find(
+          ({ mountId }) => mountId === quiz.mountId,
+        )!;
+        mount.drivenReadout = '12.3%';
+      }),
+      registrations,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(quizBehaviour.map(({ id }) => id)).toEqual([quiz.mountId]);
+    expect(quizBehaviour[0].failures.join(' ')).toMatch(
+      /reads 12.3% where home reads/,
+    );
+
+    // Clause 4's other input: the component's own declared default. Moving
+    // it moves the value every mount that inherits it has to print, which is
+    // what makes the number a reading of the component rather than a copy.
+    const movedDefault = crossMountVerdicts(
+      measured,
+      registrations,
+      { ...component, steps: component.steps - 1 },
+    ).filter(({ failures }) => failures.length > 0);
+    expect(movedDefault.map(({ id }) => id)).toContain(
+      measured.featured.mountId,
+    );
+    expect(movedDefault.map(({ id }) => id)).not.toContain(quiz.mountId);
+
+    // A registered mount nobody measured, and a measured mount nobody
+    // registered, both refuse rather than reading as a complete population.
+    expect(() =>
+      crossMountVerdicts(
+        measured,
+        [
+          ...registrations,
+          {
+            mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
+            route: '/nowhere/',
+            ownerPath: 'content/nowhere.mdx',
+            props: '/',
+            containers: [],
+          },
+        ],
+        component,
+      ),
+    ).toThrow(/which the measured population does not contain/);
+    expect(() =>
+      crossMountVerdicts(
+        measured,
+        registrations.filter(
+          ({ mountId }) => mountId !== measured.siblingMounts[0].mountId,
+        ),
+        component,
+      ),
+    ).toThrow(/which the interactive registry does not register/);
+
+    // VAL-DESIGN-015: one printed total that no expectation explains fails
+    // the surface, even where another total on the same page reconciles.
+    const surfaces = progressCounterSurfaces();
+    const aToZ = surfaces.find(({ id }) => id === 'route:/a-z/')!;
+    const plantedCounts = progressCounterVerdicts(
+      {
+        ...measured,
+        progressCounters: measured.progressCounters.map((row) =>
+          row.routeId === aToZ.id
+            ? { ...row, unreconciledCounts: ['84 citations'] }
+            : row,
+        ),
+      },
+      surfaces,
+    );
+    expect(
+      plantedCounts
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual([aToZ.id]);
+    expect(plantedCounts.flatMap(({ failures }) => failures).join(' ')).toMatch(
+      /prints "84 citations", which no declared expectation explains/,
+    );
+
+    // And each required member is demanded on its own: dropping the glossary
+    // total from the A-Z index used to leave the article total reconciling
+    // alone and the surface passing.
+    const droppedMember = progressCounterVerdicts(
+      {
+        ...measured,
+        progressCounters: measured.progressCounters.map((row) =>
+          row.routeId === aToZ.id
+            ? {
+                ...row,
+                reconciledCounts: row.reconciledCounts.filter(
+                  ({ memberId }) => memberId !== 'count:/a-z/:glossary-terms',
+                ),
+              }
+            : row,
+        ),
+      },
+      surfaces,
+    );
+    expect(
+      droppedMember
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual([aToZ.id]);
+    expect(droppedMember.flatMap(({ failures }) => failures).join(' ')).toMatch(
+      /"count:\/a-z\/:glossary-terms" \(\d+\) went unmeasured/,
+    );
+    // The baseline half: the unplanted artifact is accepted by the same
+    // reader that refused both plants.
+    expect(
+      progressCounterVerdicts(measured, surfaces).flatMap(
+        ({ failures }) => failures,
+      ),
     ).toEqual([]);
 
     const plantedOverflow = responsiveOverflowVerdicts(

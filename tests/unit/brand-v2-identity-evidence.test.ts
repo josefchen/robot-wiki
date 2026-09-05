@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  IDENTITY_REQUIRED_STATES,
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   IDENTITY_VIEWPORTS,
   deriveTechnicalIdentifierOccurrences,
@@ -15,7 +16,10 @@ import {
   type IdentityRuntimeEvidence,
 } from '@/lib/brand-v2-identity-evidence';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
-import { identityLockupSourcePaths } from '@/lib/identity-populations';
+import {
+  expectedIdentitySlots,
+  identityLockupSourcePaths,
+} from '@/lib/identity-populations';
 
 const ROOT = process.cwd();
 
@@ -29,6 +33,8 @@ const REGISTRY = JSON.parse(
 const ROUTES = REGISTRY.routes.public.map(({ path }) => path);
 const LOCKUP_SOURCE_PATHS = identityLockupSourcePaths();
 const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
+/** Derived from source, so no case can borrow the artifact's own idea of it. */
+const EXPECTED_SLOTS = expectedIdentitySlots(ROUTES, { root: ROOT });
 
 function fingerprint(): string {
   return identityEvidenceFingerprint({
@@ -63,6 +69,7 @@ describe('identity runtime evidence', () => {
       artifact: committed(),
       routes: ROUTES,
       technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+      expectedSlots: EXPECTED_SLOTS,
       fingerprint: fingerprint(),
     });
     expect(evidence.identity).toBe(PUBLIC_IDENTITY);
@@ -71,6 +78,123 @@ describe('identity runtime evidence', () => {
     expect(evidence.observations).toHaveLength(
       ROUTES.length * IDENTITY_VIEWPORTS.length,
     );
+    expect(evidence.stateObservations).toHaveLength(
+      IDENTITY_REQUIRED_STATES.length,
+    );
+  });
+
+  it('keeps a renamed lockup in the population instead of losing sight of it', () => {
+    // The input that used to pass. Discovery started from the `robot wiki`
+    // spelling family, so a lockup renamed to something else stopped
+    // matching, left the population, and took its own failure with it:
+    // VAL-B2-ID-001 stayed green over a page whose name was gone.
+    const renamed = mutate((artifact) => {
+      const observation = artifact.observations.find(
+        ({ route }) => route === '/',
+      );
+      if (!observation) throw new Error('the sweep did not visit /');
+      const slot = observation.wordmarkRoleSlots.find(
+        ({ role, visible }) => role === 'home-wordmark' && visible,
+      );
+      if (!slot) throw new Error('/ painted no visible home-wordmark slot');
+      slot.text = 'Sprocket Emporium';
+      slot.domText = 'Sprocket Emporium';
+      observation.brandDisplayTexts = observation.brandDisplayTexts.filter(
+        ({ role }) => role !== 'home-wordmark',
+      );
+    });
+    // The perturbation really did leave the spelling-family reading clean:
+    // this is what made the defect invisible.
+    const home = renamed.observations.find(({ route }) => route === '/');
+    expect(
+      home?.brandDisplayTexts.map(({ text }) => text),
+    ).not.toContain('Sprocket Emporium');
+
+    const verdict = routeVerdicts(
+      readIdentityRuntimeEvidence({
+        artifact: renamed,
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
+        fingerprint: fingerprint(),
+      }),
+      EXPECTED_SLOTS,
+    ).get('/');
+    expect(verdict?.expectedRoles).toContain('home-wordmark');
+    expect(verdict?.renamedSlots.join(' ')).toContain('Sprocket Emporium');
+    // And the other direction: a slot that stops painting is owed and
+    // missing rather than absent from the population.
+    expect(() =>
+      readIdentityRuntimeEvidence({
+        artifact: mutate((artifact) => {
+          for (const observation of artifact.observations) {
+            if (observation.route !== '/') continue;
+            observation.wordmarkRoleSlots =
+              observation.wordmarkRoleSlots.filter(
+                ({ role }) => role !== 'home-wordmark',
+              );
+          }
+        }),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
+        fingerprint: fingerprint(),
+      }),
+    ).toThrow(/painted no home-wordmark slot/);
+    // A route whose expectation is unknown is refused rather than defaulted.
+    expect(() =>
+      readIdentityRuntimeEvidence({
+        artifact: committed(),
+        routes: ROUTES,
+        technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS.filter(({ route }) => route !== '/'),
+        fingerprint: fingerprint(),
+      }),
+    ).toThrow(/no registered identity slot expectation/);
+  });
+
+  it('refuses evidence that skipped a declared identity state', () => {
+    const current = fingerprint();
+    // The input that used to pass: both states were listed as unvisited
+    // beside rows that still read `passed`, so naming the gap changed
+    // nothing about the result.
+    for (const required of IDENTITY_REQUIRED_STATES) {
+      expect(() =>
+        readIdentityRuntimeEvidence({
+          artifact: mutate((artifact) => {
+            artifact.stateObservations = artifact.stateObservations.filter(
+              ({ state }) => state !== required.state,
+            );
+          }),
+          routes: ROUTES,
+          technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+          expectedSlots: EXPECTED_SLOTS,
+          fingerprint: current,
+        }),
+      ).toThrow(
+        new RegExp(`records 0 observations of the ${required.state} state`),
+      );
+      // Navigating to the route is not visiting the state: without the
+      // witness string the default render would have satisfied the row.
+      expect(() =>
+        readIdentityRuntimeEvidence({
+          artifact: mutate((artifact) => {
+            const observed = artifact.stateObservations.find(
+              ({ state }) => state === required.state,
+            );
+            if (!observed) throw new Error(`no ${required.state} observation`);
+            observed.renderedText = observed.renderedText.split(
+              required.witness,
+            ).join('');
+            observed.controlValues = [];
+          }),
+          routes: ROUTES,
+          technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+          expectedSlots: EXPECTED_SLOTS,
+          fingerprint: current,
+        }),
+      ).toThrow(/did not put the page into that state/);
+    }
   });
 
   it('refuses stale, incomplete, and unmeasured identity evidence', () => {
@@ -81,6 +205,7 @@ describe('identity runtime evidence', () => {
         artifact: committed(),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         // A fixed replacement digit silently stops being a mutation
         // whenever the real fingerprint already ends in it.
         fingerprint: `${current.slice(0, 63)}${current.endsWith('0') ? '1' : '0'}`,
@@ -93,6 +218,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/version/);
@@ -103,6 +229,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/measured robot-wiki/);
@@ -113,6 +240,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/descriptor other than the locked one/);
@@ -121,6 +249,7 @@ describe('identity runtime evidence', () => {
         artifact: committed(),
         routes: ROUTES.slice(0, ROUTES.length - 1),
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/registered public routes/);
@@ -129,6 +258,7 @@ describe('identity runtime evidence', () => {
         artifact: committed(),
         routes: [],
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/population is empty/);
@@ -139,6 +269,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/both required viewports/);
@@ -149,6 +280,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/missing 1 route\/viewport observations/);
@@ -159,6 +291,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/empty rendered page/);
@@ -169,6 +302,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/discovered no brand display text/);
@@ -182,9 +316,10 @@ describe('identity runtime evidence', () => {
       }),
       routes: ROUTES,
       technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+      expectedSlots: EXPECTED_SLOTS,
       fingerprint: fingerprint(),
     });
-    const verdict = routeVerdicts(evidence).get(
+    const verdict = routeVerdicts(evidence, EXPECTED_SLOTS).get(
       evidence.observations[0].route,
     );
     expect(verdict?.wrongNames.join(' ')).toContain('robot-wiki');
@@ -204,8 +339,10 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: fingerprint(),
       }),
+      EXPECTED_SLOTS,
     ).get(committed().observations[0].route);
     expect(transformed?.wrongNames.join(' ')).toMatch(
       /renders robot wiki through text-transform: lowercase/,
@@ -221,8 +358,10 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: fingerprint(),
       }),
+      EXPECTED_SLOTS,
     ).get(committed().observations[0].route);
     expect(substituted?.wrongNames).toEqual([]);
     expect(substituted?.cssSubstitutedNames.join(' ')).toMatch(
@@ -244,6 +383,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/carries no file containing/);
@@ -255,6 +395,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/sealed by VAL-B2-ID-004/);
@@ -263,6 +404,7 @@ describe('identity runtime evidence', () => {
         artifact: committed(),
         routes: ROUTES,
         technicalIdentifiers: [],
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: current,
       }),
     ).toThrow(/identifier population is empty/);
@@ -273,6 +415,7 @@ describe('identity runtime evidence', () => {
       artifact: committed(),
       routes: ROUTES,
       technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+      expectedSlots: EXPECTED_SLOTS,
       fingerprint: fingerprint(),
     });
     // A destination that moves to a field the old list did not mention is
@@ -286,6 +429,7 @@ describe('identity runtime evidence', () => {
         }),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: fingerprint(),
       }),
     );
@@ -300,6 +444,7 @@ describe('identity runtime evidence', () => {
           }),
           routes: ROUTES,
           technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+          expectedSlots: EXPECTED_SLOTS,
           fingerprint: fingerprint(),
         }),
       ),
@@ -319,6 +464,7 @@ describe('identity runtime evidence', () => {
         artifact: committed(),
         routes: ROUTES,
         technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+        expectedSlots: EXPECTED_SLOTS,
         fingerprint: fingerprint(),
       }),
       siteOwnerPath as string,

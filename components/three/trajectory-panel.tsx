@@ -8,7 +8,7 @@ interface TrajectoryPanelProps {
 }
 
 const buttonBase =
-  'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40';
+  'rounded-sm border px-3 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40';
 const buttonIdle =
   'border-border text-text-dim hover:border-border-strong hover:text-text disabled:hover:border-border disabled:hover:text-text-dim';
 const buttonAccent = 'border-accent text-accent hover:bg-accent/10';
@@ -246,7 +246,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
               file.text().then((text) => setImportText(text));
               event.target.value = '';
             }}
-            className="mt-1.5 block w-full font-mono text-xs text-text-dim file:mr-3 file:rounded-sm file:border file:border-border file:bg-surface file:px-3 file:py-1 file:font-mono file:text-xs file:text-text-dim file:transition-colors hover:file:border-border-strong hover:file:text-text"
+            className="mt-1.5 block w-full font-mono text-xs text-text-dim file:mr-3 file:rounded-sm file:border file:border-border file:bg-surface file:px-3 file:py-1 file:font-sans file:text-xs file:text-text-dim file:transition-colors hover:file:border-border-strong hover:file:text-text"
           />
         </div>
       </div>

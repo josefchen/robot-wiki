@@ -147,7 +147,7 @@ describe('brand-v2 token evidence', () => {
     expect(artifact.unregisteredPaintedValues).toEqual([]);
     expect(artifact.paintedProperties).toBeGreaterThan(100);
     expect(Object.keys(artifact.paintedByHex).length).toBeGreaterThan(3);
-    expect(readRenderer(artifact)).toBe(artifact);
+    expect(readRenderer(artifact)).toEqual(artifact);
 
     const path = join(ROOT, TOKEN_RENDERER_EVIDENCE_PATH);
     mkdirSync(dirname(path), { recursive: true });
@@ -237,7 +237,7 @@ describe('brand-v2 token evidence', () => {
    */
   it('rejects a self-consistent truncation of the painted colour population', () => {
     const renderer = buildTokenRendererEvidence(SOURCES);
-    expect(readRenderer(renderer)).toBe(renderer);
+    expect(readRenderer(renderer)).toEqual(renderer);
 
     const dropHex = (hex: string): TokenRendererEvidence => {
       const dropped = renderer.paintedByHex[hex];

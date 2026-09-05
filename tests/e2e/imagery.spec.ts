@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, licenceLabel } from '../../data/images';
+import { CREDIT_NOUNS } from '../../data/schemas/image';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { settleTransitions } from './settle';
 
@@ -33,6 +34,16 @@ const IMAGE_ROUTES = [
 
 const GENERIC_ALT =
   /^(image|photo|picture|screenshot|diagram|figure|graphic|illustration|img)$/i;
+
+/**
+ * A credit opens with the noun the registry declares for that kind of image,
+ * so a company mark is never announced as a photograph. Reading the nouns
+ * from the schema keeps this test on the assertion (a credit names its
+ * source) instead of on the two nouns the registry happened to hold.
+ */
+const CREDIT_NOUN_PREFIX = new RegExp(
+  `^(${Object.values(CREDIT_NOUNS).join('|')}): \\S`,
+);
 
 let server: StaticExportServer | null = null;
 
@@ -100,7 +111,7 @@ test.describe('licensed imagery', () => {
         await expect(credit, `credit on ${route}`).toBeVisible();
         const text = (await credit.textContent()) ?? '';
         expect(text, `credit names a source on ${route}`).toMatch(
-          /(Photo|Diagram): \S/,
+          CREDIT_NOUN_PREFIX,
         );
         expect(text, `credit states a licence on ${route}`).toMatch(
           /Licence: \S/,

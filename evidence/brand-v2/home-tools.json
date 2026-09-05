@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5802281ab0272111e2a6743aca2461ed87d86bd3316525cb6f160358eafafcf3",
+  "fingerprint": "e1bfbb5d4ef71a95e9fcacf5ab047e49b799734edefa231cb1cd8c74977a4cab",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -284,6 +284,199 @@
       "revealedByControls": []
     }
   ],
+  "crossContext": {
+    "home": {
+      "mountId": "mount:/:ReliabilityCompounding:1",
+      "route": "/",
+      "initialReadout": "21.5%",
+      "resetReadout": "21.5%",
+      "secondResetReadout": "21.5%",
+      "drivenReadout": "35.8%",
+      "initialSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "resetSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ]
+    },
+    "pairs": [
+      {
+        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+        "route": "/data-hardware/evaluation-crisis/",
+        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+        "readouts": [
+          {
+            "phase": "initial",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "second-reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "driven",
+            "home": "35.8%",
+            "module": "35.8%",
+            "agrees": true
+          }
+        ],
+        "initialControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ],
+        "resetControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ]
+      },
+      {
+        "mountId": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+        "route": "/frontier/reliability-gap/",
+        "ownerPath": "content/frontier/reliability-gap.mdx",
+        "readouts": [
+          {
+            "phase": "initial",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "second-reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "driven",
+            "home": "35.8%",
+            "module": "35.8%",
+            "agrees": true
+          }
+        ],
+        "initialControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ],
+        "resetControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ]
+      }
+    ],
+    "excluded": [
+      {
+        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+        "route": "/data-hardware/evaluation-crisis/",
+        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+        "containerPath": [
+          "PredictThenReveal"
+        ],
+        "reason": "the document nests this mount inside <PredictThenReveal> (components/article/commit-to-reveal.tsx), whose own module declares discrete-options controls, so a reader meets it inside that exercise rather than as the module's own calculator",
+        "stillBoundBy": [
+          "clause:equivalent-inputs-equivalent-readouts",
+          "clause:model-predicted-from-declared-defaults-and-own-props"
+        ]
+      }
+    ]
+  },
   "playground": {
     "href": "/playground/",
     "graphics": [
@@ -2564,7 +2757,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 135
+      "measuredMembers": 136
     }
   ],
   "progressCounters": [
@@ -2574,11 +2767,13 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/:companies",
           "text": "111 companies",
           "expected": 111,
           "actual": 111
         },
         {
+          "memberId": "count:/:segments",
           "text": "6 segments",
           "expected": 6,
           "actual": 6
@@ -2592,6 +2787,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/manipulation/:articles",
           "text": "12 articles",
           "expected": 12,
           "actual": 12
@@ -2605,6 +2801,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/rl-sim2real/:articles",
           "text": "7 articles",
           "expected": 7,
           "actual": 7
@@ -2618,6 +2815,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/world-models/:articles",
           "text": "5 articles",
           "expected": 5,
           "actual": 5
@@ -2631,6 +2829,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/data-hardware/:articles",
           "text": "6 articles",
           "expected": 6,
           "actual": 6
@@ -2644,6 +2843,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/classical/:articles",
           "text": "7 articles",
           "expected": 7,
           "actual": 7
@@ -2657,6 +2857,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/frontier/:articles",
           "text": "6 articles",
           "expected": 6,
           "actual": 6
@@ -2670,6 +2871,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/adjacent/:articles",
           "text": "4 articles",
           "expected": 4,
           "actual": 4
@@ -2683,11 +2885,13 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/a-z/:articles",
           "text": "47 articles",
           "expected": 47,
           "actual": 47
         },
         {
+          "memberId": "count:/a-z/:glossary-terms",
           "text": "119 glossary terms",
           "expected": 119,
           "actual": 119
@@ -2701,6 +2905,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/glossary/:terms",
           "text": "119 terms",
           "expected": 119,
           "actual": 119

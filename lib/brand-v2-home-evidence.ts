@@ -1,6 +1,18 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { z } from 'zod';
+import {
+  SHIPPED_GEOMETRY_MODEL_CLASS,
+  WEB_FONT_BINARY_CLASS,
+  deriveEvidenceClosure,
+} from './brand-v2-evidence-closure.ts';
+import {
+  numberRecordSchema,
+  parseEvidenceArtifact,
+} from './brand-v2-evidence-schema.ts';
+import {
+  SECTION_SIGNATURE_REGISTRY_PATH,
+  reconcileSectionSignatures,
+  type SectionSignature,
+} from './brand-v2-section-signatures.ts';
 
 /**
  * Evidence for the home-composition assertions (`VAL-B2-ID-007`,
@@ -52,6 +64,60 @@ export const HOME_PRIMARY_HEADING_MAX_LINES = 3;
 /** Maximum adjacent top-level sections that may share one signature. */
 export const MAX_ADJACENT_REPEATED_SIGNATURES = 3;
 
+/**
+ * The ARIA states a lime highlight may earn its non-colour cue from, the
+ * values that are positive assertions of those states, and the roles that
+ * may carry each one.
+ *
+ * The reading this replaces credited the mere *presence* of one of these
+ * attributes, so `aria-selected="false"` counted as a cue. A false state is
+ * the absence of the thing it names: a screen reader announces nothing for
+ * it, and a reader in greyscale or forced colours is left with the lime
+ * alone, which is precisely the case the anchor exists to refuse. `mixed` is
+ * positive for a tri-state toggle and is announced as such. `aria-current`
+ * is a global state, so any element may carry it; `aria-selected` and
+ * `aria-pressed` are only announced on the roles that define them, so an
+ * `aria-pressed="true"` on a `<span>` is an attribute with no state behind
+ * it.
+ */
+export const HIGHLIGHT_ARIA_STATE_CUES = {
+  'aria-current': {
+    values: ['page', 'step', 'location', 'date', 'time', 'true'],
+    roles: null,
+  },
+  'aria-selected': {
+    values: ['true'],
+    roles: [
+      'option',
+      'tab',
+      'row',
+      'gridcell',
+      'treeitem',
+      'columnheader',
+      'rowheader',
+    ],
+  },
+  'aria-pressed': { values: ['true', 'mixed'], roles: ['button'] },
+} as const satisfies Record<
+  string,
+  { values: readonly string[]; roles: readonly string[] | null }
+>;
+
+/**
+ * Implicit ARIA roles for the elements a state cue can sit on, so a role
+ * requirement is decided from the element rather than only from an explicit
+ * `role` attribute. Kept to the tags that carry one of the states above; an
+ * unlisted tag has no implicit role here and satisfies no role requirement.
+ */
+export const IMPLICIT_ROLE_BY_TAG: Readonly<Record<string, string>> = {
+  button: 'button',
+  option: 'option',
+  summary: 'button',
+  th: 'columnheader',
+  td: 'cell',
+  tr: 'row',
+};
+
 export type HomeHeroLockup = {
   /** DOM order among the discovered lockups, so a duplicate is nameable. */
   index: number;
@@ -85,12 +151,19 @@ export type HomeHighlightObservation = {
   carriers: string[];
   text: string;
   /**
-   * The cue a reader who cannot perceive the lime still gets. `<mark>` is
-   * itself that cue and an ARIA state is announced; both survive greyscale
-   * and forced colours. A bare `<span>` painted lime has none, and the
-   * verdict refuses it rather than counting the colour twice.
+   * The cue a reader who cannot perceive the lime still gets: the `<mark>`
+   * treatment, which a screen reader announces and forced colours preserve,
+   * or a positive ARIA state on a role that can carry it. Nothing else
+   * counts, and a bare `<span>` painted lime has none.
    */
   nonColourCue: string | null;
+  /**
+   * ARIA state attributes the element carries that are not cues, with the
+   * reason. A false or unsupported state is the absence of the thing it
+   * names, and recording it is what lets the verdict say so by name rather
+   * than reporting a bare "no cue".
+   */
+  rejectedStateCues: string[];
   /**
    * Any `data-brand-highlight` the element carries. Recorded and never
    * credited: an attribute is addressed to the measurement, not to a reader,
@@ -138,6 +211,42 @@ export type HomeSectionObservation = {
   headingSizePx: number | null;
 };
 
+/**
+ * One row of the structural-variety table: what a single top-level section
+ * is, in document order, joining what it declares to what is registered for
+ * that declaration and to what the browser measured it as.
+ *
+ * `VAL-DESIGN-009` ("home sections do not all share one structural template")
+ * is a negative, and a negative is supported by exhibiting the positive
+ * facts it denies rather than by reporting that a search found nothing. The
+ * reading this belongs to already computed every part of that support — the
+ * declared signature, the registry entry behind it, and the measured form —
+ * and then reduced them to a maximum run length and a list of anonymous
+ * equivalence-class labels, so the only way to see which section is which
+ * was to re-run the sweep. Each row is therefore carried whole, in order,
+ * into both the persisted artifact and the generated result.
+ */
+export type HomeStructureRow = {
+  /** Position in document order among `main`'s top-level sections. */
+  index: number;
+  label: string;
+  /** The `data-brand-module-signature` the section declares, if any. */
+  declaredSignature: string | null;
+  /** Who answers for that signature existing, from the registry. */
+  registeredOwner: string | null;
+  /** What that structure is for, from the registry. */
+  registeredPurpose: string | null;
+  /**
+   * The measured surface/heading/action/content reading, verbatim: the form
+   * the repetition bound actually runs over.
+   */
+  derivedStructuralForm: string;
+  /** The same reading as an equivalence-class label, for reading at a glance. */
+  derivedForm: string;
+  /** The surface/heading/action prefix as an equivalence-class label. */
+  derivedSurfaceHeadingActionForm: string;
+};
+
 export type HomeCompositionEvidence = {
   version: 1;
   fingerprint: string;
@@ -154,6 +263,12 @@ export type HomeCompositionEvidence = {
   highlights: HomeHighlightObservation[];
   domainEntries: HomeDomainEntry[];
   sections: HomeSectionObservation[];
+  /**
+   * The ordered structural-variety table, one row per top-level section in
+   * document order, persisted rather than recomputed so the support for
+   * `VAL-DESIGN-009` can be read off the artifact.
+   */
+  structureTable: HomeStructureRow[];
   /** Headings, labels, buttons, captions and first-party alt text. */
   chromeText: string;
   /** Anchor-text occurrences of each canonical domain display name. */
@@ -169,69 +284,237 @@ export type HomeCompositionEvidence = {
 };
 
 /**
- * Every tracked file whose bytes can change what home renders. Listed rather
- * than derived because these are exactly the modules that build the page:
- * the composition itself, the action primitive its black button comes from,
- * the stylesheet that owns the tokens, the layout that mounts the shell, the
- * identity constants the hero prints, and the registry the seven rows and
- * their descriptions are built from.
+ * The entry points the home composition evidence is about: the page itself
+ * and the layout that wraps it, plus the sweep that measures them.
+ *
+ * The closure of those three is what can change this reading, and it is
+ * derived rather than listed. The six-path list this replaces omitted every
+ * transitive rendering input the page actually has — `data/domains.ts`,
+ * which supplies the seven destinations the domain-index rows are measured
+ * against; `components/interactive/reliability-compounding.tsx`, the
+ * featured instrument inside the first composition;
+ * `components/mdx/image-ref.tsx` and `components/ui/figure.tsx`, which
+ * decide how an image lands in the layout; and
+ * `components/nav/site-shell.tsx`, the chrome every home geometry reading is
+ * relative to. Any of those could move the sections, the fold, or the
+ * highlight while the committed artifact still read as current.
  */
-export const HOME_SOURCE_PATHS = [
-  'app/globals.css',
+export const HOME_CLOSURE_ENTRIES = [
   'app/layout.tsx',
   'app/page.tsx',
-  'components/ui/action.tsx',
-  'data/modules.ts',
-  'lib/identity.ts',
+  'tests/e2e/brand-v2-home.spec.ts',
 ] as const;
 
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex');
-}
+/**
+ * The dependency classes home renders from without importing them.
+ *
+ * The import closure alone still could not see two of this page's real
+ * inputs. The wordmark, every heading and the descriptor are drawn with the
+ * checked-in Tektur binary that `app/layout.tsx` names as a path string, and
+ * the hardware card's drawing and all five of its printed figures are
+ * derived from the shipped URDF that `lib/so101-kinematics.ts` reads off
+ * disk. Either could be replaced wholesale while the committed sweep still
+ * read as current, which is the same omission a handwritten path list makes.
+ */
+export const HOME_NON_IMPORT_CLASSES = [
+  WEB_FONT_BINARY_CLASS,
+  SHIPPED_GEOMETRY_MODEL_CLASS,
+] as const;
 
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
- * bytes of every home source plus the exact identity literals the hero has
- * to print. Restyling or rewording the page without re-running the sweep is
- * then a stale-evidence failure rather than a silently preserved green row.
+ * bytes of the whole home closure, the font binary and shipped model it
+ * renders from without importing them, and the exact identity literals the
+ * hero has to print. Restyling or rewording the page without re-running the
+ * sweep is then a stale-evidence failure rather than a silently preserved
+ * green row.
  */
 export function homeEvidenceFingerprint(input: {
   root: string;
   identity: string;
   descriptor: string;
 }): string {
-  const parts = [...HOME_SOURCE_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path), 'utf8'))}`,
+  return deriveEvidenceClosure({
+    root: input.root,
+    entries: HOME_CLOSURE_ENTRIES,
+    nonImportClasses: HOME_NON_IMPORT_CLASSES,
+    facts: [input.identity, input.descriptor],
+  }).fingerprint;
+}
+
+const sectionObservationSchema = z.object({
+  index: z.number(),
+  label: z.string(),
+  signature: z.string().nullable(),
+  derivedSignature: z.string(),
+  derivedSurfaceHeadingAction: z.string(),
+  headingTag: z.string().nullable(),
+  headingSizePx: z.number().nullable(),
+});
+
+const structureRowSchema = z.object({
+  index: z.number(),
+  label: z.string(),
+  declaredSignature: z.string().nullable(),
+  registeredOwner: z.string().nullable(),
+  registeredPurpose: z.string().nullable(),
+  derivedStructuralForm: z.string(),
+  derivedForm: z.string(),
+  derivedSurfaceHeadingActionForm: z.string(),
+});
+
+/** The complete nested shape of the persisted home composition sweep. */
+export const homeCompositionEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  viewport: z.string(),
+  route: z.string(),
+  visibleTextLength: z.number(),
+  documentScrollWidthPx: z.number(),
+  documentClientWidthPx: z.number(),
+  heroLockups: z.array(
+    z.object({
+      index: z.number(),
+      text: z.string(),
+      fontFamilyHead: z.string(),
+      fontSizePx: z.number(),
+      lineHeightPx: z.number(),
+      heightPx: z.number(),
+      renderedLines: z.number(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+      descriptorText: z.string().nullable(),
+      descriptorFontFamilyHead: z.string().nullable(),
+    }),
+  ),
+  largestSupportingHeadingPx: z.number().nullable(),
+  actions: z.array(
+    z.object({
+      controlId: z.string().nullable(),
+      accessibleName: z.string(),
+      href: z.string().nullable(),
+      backgroundColour: z.string(),
+      colour: z.string(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+    }),
+  ),
+  highlights: z.array(
+    z.object({
+      tag: z.string(),
+      carriers: z.array(z.string()),
+      text: z.string(),
+      nonColourCue: z.string().nullable(),
+      rejectedStateCues: z.array(z.string()),
+      annotation: z.string().nullable(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+    }),
+  ),
+  domainEntries: z.array(
+    z.object({
+      name: z.string(),
+      href: z.string(),
+      description: z.string(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+      heightPx: z.number(),
+      bordered: z.boolean(),
+    }),
+  ),
+  sections: z.array(sectionObservationSchema),
+  structureTable: z.array(structureRowSchema),
+  chromeText: z.string(),
+  domainAnchorCounts: numberRecordSchema,
+  proseSectionDomainNames: z.array(
+    z.object({ label: z.string(), names: z.array(z.string()) }),
+  ),
+  overviewProse: z.string(),
+  progressMetadataMatches: z.array(z.string()),
+  borderedCardCount: z.number(),
+});
+
+/**
+ * Builds the ordered structural-variety table from the measured sections and
+ * the signature registry.
+ *
+ * Exported so the sweep can persist exactly the table the verdict
+ * recomputes: the artifact carries the reader-facing evidence, and the
+ * verdict re-derives it from the same two inputs and fails when the two
+ * disagree, so the persisted table cannot be edited into agreement with a
+ * page it no longer describes.
+ */
+export function homeStructureTable(input: {
+  route: string;
+  sections: readonly HomeSectionObservation[];
+  registry: readonly SectionSignature[];
+}): HomeStructureRow[] {
+  const registered = new Map(
+    input.registry
+      .filter(({ route }) => route === input.route)
+      .map((entry) => [entry.signature, entry] as const),
   );
-  return sha256([...parts, input.identity, input.descriptor].join('\n'));
+  const forms = formLabels(
+    input.sections.map(({ derivedSignature }) => derivedSignature),
+  );
+  const surfaceForms = formLabels(
+    input.sections.map(
+      ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
+    ),
+  );
+  return input.sections.map((section, index) => {
+    const entry = section.signature
+      ? (registered.get(section.signature) ?? null)
+      : null;
+    return {
+      index: section.index,
+      label: section.label,
+      declaredSignature: section.signature,
+      registeredOwner: entry?.owner ?? null,
+      registeredPurpose: entry?.purpose ?? null,
+      derivedStructuralForm: section.derivedSignature,
+      derivedForm: forms[index] ?? 'form:0',
+      derivedSurfaceHeadingActionForm: surfaceForms[index] ?? 'form:0',
+    };
+  });
 }
 
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
  * current fingerprint, the declared viewport and route, a non-empty rendered
  * page, at least one discovered hero lockup, at least one discovered domain
- * entry, and at least one top-level section. Anything else throws, because a
- * sweep that found nothing is indistinguishable from a page that renders
- * nothing, and only one of those should produce a result.
+ * entry, at least one top-level section, and a structural-variety table that
+ * describes exactly those sections in their document order. Anything else
+ * throws, because a sweep that found nothing is indistinguishable from a
+ * page that renders nothing, and only one of those should produce a result.
  */
 export function readHomeCompositionEvidence(input: {
   artifact: unknown;
   fingerprint: string;
 }): HomeCompositionEvidence {
-  const artifact = input.artifact as Partial<HomeCompositionEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('home composition evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
     throw new Error(
-      `home composition evidence version ${String(artifact.version)} is not 1`,
+      `home composition evidence version ${String(version)} is not 1`,
     );
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'home composition evidence is stale: a home source or an identity literal changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    homeCompositionEvidenceSchema,
+    envelope,
+    'home composition evidence',
+  );
   if (artifact.viewport !== HOME_VIEWPORT.id) {
     throw new Error(
       `home composition evidence was swept at ${String(artifact.viewport)}, not ${HOME_VIEWPORT.id}`,
@@ -242,27 +525,50 @@ export function readHomeCompositionEvidence(input: {
       `home composition evidence covers ${String(artifact.route)}, not ${HOME_ROUTE}`,
     );
   }
-  if ((artifact.visibleTextLength ?? 0) <= 0) {
+  if (artifact.visibleTextLength <= 0) {
     throw new Error(
       'home composition evidence recorded an empty rendered page, so nothing about it was measured',
     );
   }
-  if ((artifact.heroLockups ?? []).length === 0) {
+  if (artifact.heroLockups.length === 0) {
     throw new Error(
       'home composition evidence discovered no hero lockup: VAL-B2-ID-007 would quantify over an empty population',
     );
   }
-  if ((artifact.domainEntries ?? []).length === 0) {
+  if (artifact.domainEntries.length === 0) {
     throw new Error(
       'home composition evidence discovered no domain entry, so the seven-destination claim was never measured',
     );
   }
-  if ((artifact.sections ?? []).length === 0) {
+  if (artifact.sections.length === 0) {
     throw new Error(
       'home composition evidence discovered no top-level section, so the structure claim was never measured',
     );
   }
-  return artifact as HomeCompositionEvidence;
+  // The table is the reader-facing support for VAL-DESIGN-009, so it has to
+  // be about the sections this artifact measured rather than about whatever
+  // page it was copied from. Order is part of that: the claim is that
+  // adjacent sections differ, and a table in another order says nothing
+  // about adjacency.
+  if (artifact.structureTable.length !== artifact.sections.length) {
+    throw new Error(
+      `home composition evidence carries ${artifact.structureTable.length} structural-variety row(s) for ${artifact.sections.length} measured section(s), so the table does not describe the page. Re-run npm run refresh:brand-v2-evidence.`,
+    );
+  }
+  for (const [position, section] of artifact.sections.entries()) {
+    const row = artifact.structureTable[position];
+    if (
+      row.index !== section.index ||
+      row.label !== section.label ||
+      row.declaredSignature !== section.signature ||
+      row.derivedStructuralForm !== section.derivedSignature
+    ) {
+      throw new Error(
+        `structural-variety row ${position} describes "${row.label}" (${String(row.declaredSignature)}) where the sweep measured "${section.label}" (${String(section.signature)}) in that position`,
+      );
+    }
+  }
+  return artifact;
 }
 
 /** Trailing-slash-insensitive comparison of a route and an href. */
@@ -374,6 +680,7 @@ function insideFirstViewport(box: { topPx: number; bottomPx: number }): boolean 
 export function homeCompositionVerdicts(
   evidence: HomeCompositionEvidence,
   literals: { identity: string; descriptor: string },
+  sectionSignatures: readonly SectionSignature[],
 ): HomeAnchorVerdict[] {
   const hero = evidence.heroLockups[0];
   const supporting = evidence.largestSupportingHeadingPx;
@@ -476,24 +783,33 @@ export function homeCompositionVerdicts(
       );
     }
     if (highlight.nonColourCue === null) {
+      const rejected = highlight.rejectedStateCues ?? [];
       highlightFailures.push(
-        highlight.annotation
-          ? `the highlight on "${highlight.text}" is carried by colour alone: data-brand-highlight="${highlight.annotation}" is an annotation addressed to this sweep, not a cue a reader meets in greyscale or forced colours`
-          : `the highlight on "${highlight.text}" is carried by colour alone, with no semantic or shape cue beside it`,
+        rejected.length > 0
+          ? `the highlight on "${highlight.text}" is carried by colour alone: ${rejected.join('; ')}`
+          : highlight.annotation
+            ? `the highlight on "${highlight.text}" is carried by colour alone: data-brand-highlight="${highlight.annotation}" is an annotation addressed to this sweep, not a cue a reader meets in greyscale or forced colours`
+            : `the highlight on "${highlight.text}" is carried by colour alone, with no semantic or shape cue beside it`,
       );
     }
   }
 
   const signatures = evidence.sections.map(({ signature }) => signature);
   const structureFailures: string[] = [];
-  const unregistered = evidence.sections.filter(
-    ({ signature }) => signature === null || signature.trim().length === 0,
+  // Which signatures may exist, and what each is for, is decided by a
+  // checked-in registry rather than by the string a section types about
+  // itself. Reconciled in both directions, so an unregistered signature and
+  // an approved structure nobody renders are both failures.
+  structureFailures.push(
+    ...reconcileSectionSignatures({
+      route: evidence.route,
+      registry: sectionSignatures,
+      measured: evidence.sections.map(({ label, signature }) => ({
+        label,
+        signature,
+      })),
+    }),
   );
-  if (unregistered.length > 0) {
-    structureFailures.push(
-      `${unregistered.length} top-level home section(s) render no registered structural signature, starting with "${unregistered[0]?.label}"`,
-    );
-  }
   // The bound runs over what the sections measure as, not over what they
   // say about themselves. Two sections built from one template declaring two
   // different `data-brand-module-signature` strings used to count as two
@@ -531,6 +847,44 @@ export function homeCompositionVerdicts(
     if (declared.length > 1) {
       structureFailures.push(
         `sections "${group.map(({ label }) => label).join('", "')}" measure one structural form yet declare ${declared.length} different data-brand-module-signature values (${declared.join(', ')})`,
+      );
+    }
+  }
+  // The ordered support for VAL-DESIGN-009, rebuilt from the sections and
+  // the registry rather than trusted from the artifact, and then compared
+  // with what the artifact carries. Persisting a table nobody re-derives
+  // would make it prose; re-deriving one nobody persists is what the reading
+  // this replaces did, and it left the support unreadable after the run.
+  const structureTable = homeStructureTable({
+    route: evidence.route,
+    sections: evidence.sections,
+    registry: sectionSignatures,
+  });
+  for (const [position, row] of structureTable.entries()) {
+    const persisted = evidence.structureTable[position];
+    if (JSON.stringify(persisted) !== JSON.stringify(row)) {
+      structureFailures.push(
+        `structural-variety row ${position} was persisted as ${JSON.stringify(persisted)} where the sections and ${SECTION_SIGNATURE_REGISTRY_PATH} derive ${JSON.stringify(row)}`,
+      );
+    }
+  }
+  // The claim stated positively: more than one structural form is present.
+  // The run bound alone cannot say this — six sections in three alternating
+  // forms and six sections in one form both keep every run at or under the
+  // bound if the forms alternate, and one form repeated across all of them
+  // is exactly the template VAL-DESIGN-009 forbids.
+  const distinctForms = new Set(
+    structureTable.map(({ derivedForm }) => derivedForm),
+  );
+  if (structureTable.length > 1 && distinctForms.size < 2) {
+    structureFailures.push(
+      `all ${structureTable.length} top-level sections on ${evidence.route} measure one structural form (${structureTable[0]?.derivedStructuralForm ?? 'unknown'}), so the page is one template repeated`,
+    );
+  }
+  for (const row of structureTable) {
+    if (row.declaredSignature !== null && row.registeredOwner === null) {
+      structureFailures.push(
+        `the "${row.label}" section declares "${row.declaredSignature}", which ${SECTION_SIGNATURE_REGISTRY_PATH} gives no owner or purpose, so its row states a structure nobody answers for`,
       );
     }
   }
@@ -601,17 +955,25 @@ export function homeCompositionVerdicts(
       id: 'anchor:home-board-derived-structure',
       observed: {
         signatures,
+        registeredSignatures: sectionSignatures
+          .filter(({ route }) => route === evidence.route)
+          .map(({ signature, owner }) => `${signature} (${owner})`),
+        // One row per top-level section in document order, carrying what it
+        // declares, who registered that declaration and what for, and what
+        // it measured as. This is the support VAL-DESIGN-009 rests on, and
+        // it is emitted whole so the result states which sections differ
+        // and how, rather than only that a maximum run length was not
+        // exceeded.
+        structuralVarietyTable: structureTable,
         // The measured forms as equivalence-class labels rather than as the
         // long strings themselves: which sections measure alike is the fact
         // the bound is about, and it survives an unrelated restyle.
-        derivedForms: formLabels(
-          evidence.sections.map(({ derivedSignature }) => derivedSignature),
+        derivedForms: structureTable.map(({ derivedForm }) => derivedForm),
+        derivedSurfaceHeadingActionForms: structureTable.map(
+          ({ derivedSurfaceHeadingActionForm }) =>
+            derivedSurfaceHeadingActionForm,
         ),
-        derivedSurfaceHeadingActionForms: formLabels(
-          evidence.sections.map(
-            ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
-          ),
-        ),
+        distinctStructuralForms: distinctForms.size,
         maximumAdjacentRepeatedSignatures: run,
         maximumAdjacentSurfaceHeadingRun: surfaceHeadingRun,
         borderedCardCount: evidence.borderedCardCount,

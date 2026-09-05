@@ -15,10 +15,18 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
+import {
+  ASSET_SEAL_PATH,
+  readAssetSeal,
+  reconcileAssetSeal,
+} from '../lib/brand-v2-asset-seal.ts';
+import { IMAGES } from '../data/images.ts';
 import {
   IDENTITY_RUNTIME_EVIDENCE_PATH,
   deriveTechnicalIdentifierOccurrences,
   identityEvidenceFingerprint,
+  IDENTITY_REQUIRED_STATES,
   readIdentityRuntimeEvidence,
   routeVerdicts,
   sealedTechnicalIdentifiers,
@@ -33,6 +41,7 @@ import {
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
+  expectedIdentitySlots,
   identityLockupSourcePaths,
   identityWordmarkRoles,
 } from '../lib/identity-populations.ts';
@@ -69,6 +78,79 @@ import {
   homeEvidenceFingerprint,
   readHomeCompositionEvidence,
 } from '../lib/brand-v2-home-evidence.ts';
+import {
+  ARTICLE_RUNTIME_EVIDENCE_PATH,
+  ARTICLE_VIEWPORTS,
+  articleEvidenceFingerprint,
+  articleRuleVerdicts,
+  articleTitleVerdicts,
+  displayFaceVerdicts,
+  homeWordmarkVerdicts,
+  linkTreatmentVerdicts,
+  proseFaceVerdicts,
+  proseResidueVerdicts,
+  readArticleRuntimeEvidence,
+  readingSheetVerdicts,
+  registrationTrackingVerdicts,
+  roleFaceVerdicts,
+  sectionHeadingMembers,
+  sectionHeadingVerdicts,
+  titleSheetResidueVerdicts,
+  titleSheetVerdicts,
+} from '../lib/brand-v2-article-evidence.ts';
+import {
+  APPARATUS_ASSERTION_POPULATION_SOURCES,
+  ARTICLE_ASSERTION_POPULATION_SOURCES,
+  HOME_WORDMARK_ROLE_ID,
+  HOME_WORDMARK_ROLE_POPULATION_SOURCE,
+  SECTION_HEADING_POPULATION_SOURCE,
+} from '../lib/article-populations.ts';
+import {
+  APPARATUS_RUNTIME_EVIDENCE_PATH,
+  APPARATUS_VIEWPORTS,
+  apparatusEvidenceFingerprint,
+  breadcrumbTruthVerdicts,
+  citationChipVerdicts,
+  furnitureReachVerdicts,
+  readApparatusRuntimeEvidence,
+  referenceSheetVerdicts,
+  relationshipPreservationVerdicts,
+  termAffordanceVerdicts,
+} from '../lib/brand-v2-apparatus-evidence.ts';
+import {
+  FIGURE_RUNTIME_EVIDENCE_PATH,
+  FIGURE_VIEWPORTS,
+  altTextAndDeliveryVerdicts,
+  captionAndCreditVerdicts,
+  darkInstrumentVerdicts,
+  figureEvidenceFingerprint,
+  figureOccurrenceMembers,
+  readFigureRuntimeEvidence,
+  schematicOccurrenceMembers,
+  schematicSelfIdentificationVerdicts,
+} from '../lib/brand-v2-figure-evidence.ts';
+import {
+  editorialAssetMembers,
+  firstPartyImageryVerdicts,
+  firstPartySvgMembers,
+  materialHonestyVerdicts,
+  originalSvgSemanticVerdicts,
+  provenanceRecordVerdicts,
+  reusableContentVerdicts,
+  type AssetRow,
+  type MaterialRow,
+} from '../lib/brand-v2-image-record.ts';
+import {
+  EDITORIAL_IMAGE_POPULATION_SOURCE,
+  FIGURE_ASSERTION_POPULATION_SOURCES,
+  FIGURE_OCCURRENCE_POPULATION_SOURCE,
+  FIGURE_RECORD_ASSERTION_POPULATION_SOURCES,
+  FIGURE_RUNTIME_ASSERTION_POPULATION_SOURCES,
+  FIRST_PARTY_SVG_POPULATION_SOURCE,
+  MATERIAL_POPULATION_SOURCE,
+  SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
+} from '../lib/figure-populations.ts';
+import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
   homeToolsEvidenceFingerprint,
@@ -190,9 +272,80 @@ function isMeasured(id: string): boolean {
     SHELL_ASSERTIONS.has(id) ||
     MOBILE_SHELL_ASSERTIONS.has(id) ||
     HOME_ASSERTIONS.has(id) ||
-    HOME_TOOLS_ASSERTIONS.has(id)
+    HOME_TOOLS_ASSERTIONS.has(id) ||
+    ARTICLE_ASSERTIONS.has(id) ||
+    APPARATUS_ASSERTIONS.has(id) ||
+    FIGURE_RUNTIME_ASSERTIONS.has(id) ||
+    FIGURE_RECORD_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The wiki-apparatus preservation assertion, routed to the two-width sweep
+ * of every published article's rendered furniture.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-apparatus.json` through a reader that throws on
+ * a stale fingerprint, the wrong viewports, a route set that disagrees with
+ * the derived relationship graph in either direction, a duplicate
+ * route/viewport pair, an empty page, an article with no breadcrumb trail or
+ * no bibliography, and any missing pair.
+ */
+const APPARATUS_ASSERTIONS = new Set(
+  Object.keys(APPARATUS_ASSERTION_POPULATION_SOURCES),
+);
+
+/**
+ * The five figure rows a browser decides, routed to the two-width sweep of
+ * every figure-bearing route.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/figures.json` through a reader that throws on a stale
+ * fingerprint, the wrong viewports, a route set that disagrees with the
+ * derived figure graph in either direction, a figure the registry does not
+ * hold, a rendered kind that contradicts the declared one, and a dark plate
+ * under something that is not a schematic. None of the five is decidable
+ * from source: a bounded instrument is a painted background and a painted
+ * border, an inverse label is legible or not against that background, and
+ * whether alt text repeats the caption beside it is a comparison between two
+ * strings that exist together only once the template has run.
+ */
+const FIGURE_RUNTIME_ASSERTIONS = new Set(
+  Object.keys(FIGURE_RUNTIME_ASSERTION_POPULATION_SOURCES),
+);
+
+/**
+ * The five imagery rows the registry and the shipped bytes decide. A licence
+ * is not painted and an SVG's semantic geometry is a property of the file,
+ * so measuring these in a browser would be a category error.
+ */
+const FIGURE_RECORD_ASSERTIONS = new Set(
+  Object.keys(FIGURE_RECORD_ASSERTION_POPULATION_SOURCES),
+);
+
+const FIGURE_ASSERTIONS = new Set([
+  ...FIGURE_RUNTIME_ASSERTIONS,
+  ...FIGURE_RECORD_ASSERTIONS,
+]);
+
+/**
+ * The article-sheet and type-hierarchy assertions, routed to the two-width
+ * sweep of every public route in the built export.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-typography.json` through a reader that throws
+ * on a stale fingerprint, the wrong viewports, a route the registry does not
+ * hold, a registry and sweep that disagree about which routes are articles,
+ * a duplicate route/viewport pair, an empty page, an article with no reading
+ * column, and any missing pair. None of these is decidable from source: a
+ * type scale is a computed size, a measure is a width divided by the advance
+ * of the paragraph's own font, a link treatment is a painted decoration, and
+ * whether a rule lands on its anchor is a difference between two boxes a
+ * browser laid out.
+ */
+const ARTICLE_ASSERTIONS = new Set(
+  Object.keys(ARTICLE_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The three home-composition assertions, routed to the desktop sweep of the
@@ -356,10 +509,20 @@ const SITE_METADATA_OWNER_PATH = (() => {
 })();
 
 const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
+/**
+ * What each route is registered to render, derived here from source rather
+ * than read out of the artifact, so the sweep is held to a population it
+ * did not get to choose by what it happened to find.
+ */
+const EXPECTED_IDENTITY_SLOTS = expectedIdentitySlots(
+  [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  { root: ROOT },
+);
 const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
   artifact: readJson(join(ROOT, IDENTITY_RUNTIME_EVIDENCE_PATH)),
   routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
   technicalIdentifiers: TECHNICAL_IDENTIFIERS,
+  expectedSlots: EXPECTED_IDENTITY_SLOTS,
   fingerprint: identityEvidenceFingerprint({
     root: ROOT,
     metadataOwnerPaths: [
@@ -372,7 +535,15 @@ const IDENTITY_EVIDENCE = readIdentityRuntimeEvidence({
     lockupSourcePaths: identityLockupSourcePaths(),
   }),
 });
-const IDENTITY_ROUTE_VERDICTS = routeVerdicts(IDENTITY_EVIDENCE);
+const IDENTITY_ROUTE_VERDICTS = routeVerdicts(
+  IDENTITY_EVIDENCE,
+  EXPECTED_IDENTITY_SLOTS,
+);
+const IDENTITY_SLOT_POPULATION_SOURCE =
+  'data/type-roles.json#identityWordmarkRoles x used-import-graph';
+const IDENTITY_EXERCISED_STATE_IDS = IDENTITY_REQUIRED_STATES.map(
+  ({ state }) => state,
+);
 const IDENTITY_ROUTE_VERDICT_BY_ID = new Map(
   [...PUBLIC_ROUTE_PATH_BY_ID].map(([id, path]) => {
     const verdict = IDENTITY_ROUTE_VERDICTS.get(path);
@@ -450,15 +621,90 @@ const FIRST_PARTY_VISUAL_ASSETS = new Map(
     }>,
   ).map((asset) => [asset.id, asset]),
 );
+const REGISTERED_ASSET_ROWS = new Map(
+  (
+    REGISTRY.assets as unknown as Array<{
+      id: string;
+      byteHash: string;
+      sourceRegistryId: string | null;
+    }>
+  ).map((row) => [row.id, row]),
+);
+/**
+ * Every source that owns a metadata surface or renders an identity lockup.
+ * An asset referenced from one of these is filling an identity slot whatever
+ * its content, so the role clause is checked per asset against these files.
+ */
+const ASSET_IDENTITY_SOURCE_PATHS = [
+  ...new Set([
+    ...REGISTRY.metadata.map(
+      (row) => (row as unknown as { ownerPath: string }).ownerPath,
+    ),
+    ...identityLockupSourcePaths(),
+  ]),
+].sort();
+const ASSET_IDENTITY_SOURCE_COUNT = ASSET_IDENTITY_SOURCE_PATHS.length;
+
+/**
+ * The approval half of `VAL-B2-ID-006`: exactly which first-party visual
+ * assets may ship. Reconciled against the census walk of `public/`, so an
+ * asset present in the tree with no sealed entry throws here and stops the
+ * corpus, whatever it depicts. This is what decides the row; the content
+ * verdict below only describes what a sealed asset is.
+ */
+const ASSET_SEAL_VERDICTS = reconcileAssetSeal({
+  root: ROOT,
+  shippedPaths: [...FIRST_PARTY_VISUAL_ASSETS.values()].map(({ path }) => path),
+  seal: readAssetSeal(ROOT),
+});
+
+/**
+ * Per-asset content evidence for `VAL-B2-ID-006`, derived from each asset's
+ * own bytes rather than from its filename. The identity-bearing sources are
+ * the same registry-derived set the evidence fingerprint uses, so an asset
+ * wired into a metadata or lockup surface is caught by the role clause on
+ * its own row rather than by a document-wide observation shared by all
+ * twenty-one members.
+ */
+const ASSET_CONTENT_VERDICTS = new Map(
+  assetContentVerdicts({
+    root: ROOT,
+    assets: [...FIRST_PARTY_VISUAL_ASSETS.values()].map((asset) => {
+      const row = REGISTERED_ASSET_ROWS.get(asset.id);
+      if (!row) {
+        throw new Error(`${asset.id} has no registered asset row`);
+      }
+      return {
+        id: asset.id,
+        path: asset.path,
+        category: asset.category,
+        byteHash: row.byteHash,
+        sourceRegistryId: row.sourceRegistryId,
+      };
+    }),
+    provenanceById: new Map(
+      IMAGES.filter((image) => typeof image.width === 'number').map((image) => [
+        image.id,
+        {
+          sourceName: image.sourceName,
+          sourceUrl: image.sourceUrl,
+          creator: image.creator,
+          licence: image.licence,
+          retrieved: image.retrieved,
+          width: image.width as number,
+          height: image.height as number,
+        },
+      ]),
+    ),
+    identitySourcePaths: ASSET_IDENTITY_SOURCE_PATHS,
+  }).map((verdict) => [verdict.id, verdict]),
+);
 const TECHNICAL_IDENTIFIER_BY_MEMBER = new Map(
   TECHNICAL_IDENTIFIERS.map((literal) => [
     `technical-identifier:${literal}`,
     literal,
   ]),
 );
-
-/** Names that would mark an asset as brand iconography rather than content. */
-const BRAND_SYMBOL_NAME = /logo|monogram|mascot|favicon|wordmark|brand-mark|emblem|crest/i;
 
 const IDENTITY_POPULATIONS: Readonly<Record<string, string[]>> = {
   [IDENTITY_DESCRIPTOR_POPULATION_SOURCE]: [...DESCRIPTOR_SURFACES.keys()],
@@ -531,6 +777,92 @@ const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
   ),
 };
 
+const ARTICLE_EVIDENCE = readArticleRuntimeEvidence({
+  artifact: readJson(join(ROOT, ARTICLE_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  articleRoutes: REGISTRY.routes.public
+    .filter(({ routeKind }) => routeKind === 'article')
+    .map(({ path }) => path),
+  fingerprint: articleEvidenceFingerprint({ root: ROOT }),
+});
+
+
+/**
+ * One verdict map per assertion, each keyed by the members that assertion
+ * quantifies over. The maps are built once so a reading that throws stops
+ * the whole corpus rather than one row.
+ */
+const ARTICLE_VERDICTS = {
+  'VAL-B2-ART-001': titleSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-002': readingSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-003': linkTreatmentVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-009': titleSheetResidueVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-003': displayFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-004': proseFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-005': roleFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-006': homeWordmarkVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-007': articleTitleVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-008': proseResidueVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-009': sectionHeadingVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-010': registrationTrackingVerdicts(ARTICLE_EVIDENCE),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+// `VAL-DESIGN-018` has no `VAL-B2` row of its own, so it has nowhere to be
+// recorded and nothing to turn red. Checking it here is what keeps it
+// enforced: an article that drew an unowned rule, or drew a registered one
+// off its anchor, stops the corpus from being generated at all.
+for (const verdict of articleRuleVerdicts(ARTICLE_EVIDENCE).values()) {
+  if (verdict.failures.length > 0) {
+    throw new Error(`VAL-DESIGN-018: ${verdict.failures.join('; ')}`);
+  }
+}
+
+const ARTICLE_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [HOME_WORDMARK_ROLE_POPULATION_SOURCE]: [HOME_WORDMARK_ROLE_ID],
+  [SECTION_HEADING_POPULATION_SOURCE]: sectionHeadingMembers(ARTICLE_EVIDENCE),
+};
+
+const ARTICLE_ROUTES = REGISTRY.routes.public
+  .filter(({ routeKind }) => routeKind === 'article')
+  .map(({ path }) => path);
+
+const APPARATUS_EVIDENCE = readApparatusRuntimeEvidence({
+  artifact: readJson(join(ROOT, APPARATUS_RUNTIME_EVIDENCE_PATH)),
+  articleRoutes: ARTICLE_ROUTES,
+  fingerprint: apparatusEvidenceFingerprint({ root: ROOT }),
+  root: ROOT,
+});
+
+const APPARATUS_VERDICTS = {
+  'VAL-B2-ART-010': relationshipPreservationVerdicts(APPARATUS_EVIDENCE, ROOT),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+// The other five apparatus rows are VAL-WIKI, VAL-GLOSS and VAL-NAV, so they
+// have no VAL-B2 row to be recorded in and nothing to turn red. Checking
+// them here is what keeps them enforced against the same sweep: a
+// bibliography that stopped wrapping at 375px, a crumb that lost its
+// non-colour affordance, a furniture link that fell out of the Tab order, a
+// term whose definition target went missing, or a chip that stopped naming
+// its source stops the corpus from being generated at all.
+for (const [assertionId, verdicts] of [
+  ['VAL-WIKI-016', breadcrumbTruthVerdicts(APPARATUS_EVIDENCE, ROOT)],
+  ['VAL-WIKI-006', referenceSheetVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-WIKI-018', furnitureReachVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-GLOSS-004', termAffordanceVerdicts(APPARATUS_EVIDENCE)],
+  ['VAL-NAV-022', citationChipVerdicts(APPARATUS_EVIDENCE)],
+] as const) {
+  const failures = [...verdicts.values()].flatMap(({ failures: own }) => own);
+  if (failures.length > 0) {
+    throw new Error(`${assertionId}: ${failures.slice(0, 6).join('; ')}`);
+  }
+}
+
 const HOME_LITERALS = {
   identity: PUBLIC_IDENTITY,
   descriptor: PUBLIC_DESCRIPTOR,
@@ -547,10 +879,11 @@ const HOME_HERO_VERDICTS = new Map(
   ]),
 );
 const HOME_ANCHOR_VERDICTS = new Map(
-  homeCompositionVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
-    verdict.id as string,
-    verdict,
-  ]),
+  homeCompositionVerdicts(
+    HOME_EVIDENCE,
+    HOME_LITERALS,
+    readSectionSignatureRegistry(ROOT),
+  ).map((verdict) => [verdict.id as string, verdict]),
 );
 const HOME_DESTINATION_VERDICTS = new Map(
   domainDestinationVerdicts(HOME_EVIDENCE, HOME_DOMAIN_DESTINATIONS).map(
@@ -579,6 +912,55 @@ const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
   ),
 };
 
+const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
+  artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
+  fingerprint: figureEvidenceFingerprint({ root: ROOT }),
+  root: ROOT,
+});
+
+const ASSET_ROWS = REGISTRY.assets as unknown as AssetRow[];
+const MATERIAL_ROWS = (REGISTRY as unknown as { materials: MaterialRow[] })
+  .materials;
+const SEALED_SVG_MEMBERS = (
+  readJson(join(ROOT, 'evidence', 'brand-v2', 'baseline', 'assets-svg.json')) as {
+    members: Array<{ id: string; hash: string }>;
+  }
+).members;
+
+/**
+ * `VAL-B2-ART-006` and `VAL-B2-IMG-003` are two sentences about the same
+ * requirement, so they share one verdict function rather than two near-copies
+ * that could drift apart while both reporting green.
+ */
+const FIGURE_VERDICTS = {
+  'VAL-B2-ART-004': darkInstrumentVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-ART-005': captionAndCreditVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-ART-006': schematicSelfIdentificationVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-IMG-003': schematicSelfIdentificationVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-IMG-005': altTextAndDeliveryVerdicts(FIGURE_EVIDENCE),
+  'VAL-B2-IMG-001': firstPartyImageryVerdicts(ASSET_ROWS),
+  'VAL-B2-IMG-002': provenanceRecordVerdicts(ASSET_ROWS, ROOT),
+  'VAL-B2-IMG-004': materialHonestyVerdicts(MATERIAL_ROWS),
+  'VAL-B2-IMG-008': reusableContentVerdicts(ASSET_ROWS),
+  'VAL-B2-VIZ-014': originalSvgSemanticVerdicts(
+    ASSET_ROWS,
+    ROOT,
+    SEALED_SVG_MEMBERS,
+  ),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+const FIGURE_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [FIGURE_OCCURRENCE_POPULATION_SOURCE]: figureOccurrenceMembers(FIGURE_EVIDENCE),
+  [SCHEMATIC_OCCURRENCE_POPULATION_SOURCE]:
+    schematicOccurrenceMembers(FIGURE_EVIDENCE),
+  [EDITORIAL_IMAGE_POPULATION_SOURCE]: editorialAssetMembers(ASSET_ROWS),
+  [FIRST_PARTY_SVG_POPULATION_SOURCE]: firstPartySvgMembers(ASSET_ROWS),
+  [MATERIAL_POPULATION_SOURCE]: MATERIAL_ROWS.map(({ id }) => id),
+};
+
 function populationSources(assertionIds: string[]) {
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
@@ -590,6 +972,7 @@ function populationSources(assertionIds: string[]) {
     identityPopulations: IDENTITY_POPULATIONS,
     shellPopulations: SHELL_POPULATIONS,
     homePopulations: HOME_POPULATIONS,
+    articlePopulations: { ...ARTICLE_POPULATIONS, ...FIGURE_POPULATIONS },
   });
 }
 
@@ -600,6 +983,12 @@ function populationSourceFor(id: string): string {
   if (shellSource) return shellSource;
   const homeSource = HOME_ASSERTION_POPULATION_SOURCES[id];
   if (homeSource) return homeSource;
+  const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
+  if (articleSource) return articleSource;
+  const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
+  if (apparatusSource) return apparatusSource;
+  const figureSource = FIGURE_ASSERTION_POPULATION_SOURCES[id];
+  if (figureSource) return figureSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -661,6 +1050,21 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // same kind of reading at the mobile viewport, with the drawer open.
   if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
   if (MOBILE_SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  // An article row's evidence is what the shared template rendered at two
+  // widths, down to the advance of the paragraph's own font, so it is a
+  // browser-state row.
+  if (ARTICLE_ASSERTIONS.has(id)) return 'browser-state';
+  // The apparatus row's evidence is the rendered furniture of every
+  // published article at two widths, compared against the graph the registry
+  // derives, so it is a browser-state row too.
+  if (APPARATUS_ASSERTIONS.has(id)) return 'browser-state';
+  // A figure row's evidence is the plate a browser painted under a diagram,
+  // the contrast of the label on it, and the credit and caption as they were
+  // laid out at two widths, so it is a browser-state row.
+  if (FIGURE_RUNTIME_ASSERTIONS.has(id)) return 'browser-state';
+  // The record rows are re-derived from the registry, the shipped bytes and
+  // the sealed baseline manifest, with no page involved.
+  if (FIGURE_RECORD_ASSERTIONS.has(id)) return 'automated-machine';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -1010,6 +1414,11 @@ const IDENTITY_READER_TARGET = testTarget(
   'identity runtime evidence > refuses stale, incomplete, and unmeasured identity evidence',
   'Proves the reader that gates every identity row throws on a stale fingerprint, a missing route, a missing viewport, an empty page, and a route with no discovered lockup, so a green row cannot survive an artifact that did not measure the tree it is committed against.',
 );
+const ASSET_SEAL_TARGET = testTarget(
+  'tests/unit/brand-v2-asset-seal.test.ts',
+  'first-party visual asset seal > ships exactly the approved asset set',
+  'Reconciles the first-party visual assets discovered by the census walk of public/ against contract/brand-v2-asset-seal.json in both directions and re-hashes every one, and proves the reconciliation refuses an asset present in the tree with no sealed entry, a sealed entry the tree does not ship, and an approved path carrying different bytes — including the wide, labelled robot-head SVG the deleted subject heuristics accepted.',
+);
 
 const SHELL_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2-shell.spec.ts',
@@ -1063,7 +1472,13 @@ function testTargetsFor(id: string): TestTarget[] {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
   }
   if (IDENTITY_ASSERTIONS.has(id)) {
-    return [IDENTITY_SWEEP_TARGET, IDENTITY_READER_TARGET];
+    return [
+      IDENTITY_SWEEP_TARGET,
+      IDENTITY_READER_TARGET,
+      // ID-006 is decided by the byte seal rather than by the sweep, so the
+      // row names the gate that proves the seal refuses an unapproved asset.
+      ...(id === 'VAL-B2-ID-006' ? [ASSET_SEAL_TARGET] : []),
+    ];
   }
   if (SHELL_ASSERTIONS.has(id)) {
     return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
@@ -1536,9 +1951,19 @@ function identityAssertionEvidence(
     const failures =
       assertionId === 'VAL-B2-ID-001'
         ? [
+            // Registration-derived, so a lockup renamed out of the spelling
+            // family is still answered for rather than dropped.
+            ...verdict.missingSlots,
+            ...verdict.renamedSlots,
             ...verdict.wrongNames,
             ...verdict.cssSubstitutedNames,
             ...verdict.unannotatedLockups,
+            // Structure-derived, so a lockup that is stripped of its role
+            // *and* renamed past the spelling family is answered for by the
+            // position it is rendered in rather than dropped by both of the
+            // populations above.
+            ...verdict.unannotatedStructuralSlots,
+            ...verdict.misnamedStructuralSlots,
           ]
         : [...verdict.forbiddenRenders, ...verdict.forbiddenMetadata];
     if (failures.length > 0) {
@@ -1549,19 +1974,23 @@ function identityAssertionEvidence(
     const computed = {
       route: verdict.route,
       viewports: IDENTITY_EVIDENCE.viewports,
+      expectedWordmarkRoles: verdict.expectedRoles,
+      slotPopulationSource: IDENTITY_SLOT_POPULATION_SOURCE,
       lockupsDiscovered: verdict.lockupCount,
+      structuralBrandSlots: verdict.structuralSlots,
       renderedNames: verdict.renderedNames,
       forbiddenRenders: verdict.forbiddenRenders,
       forbiddenMetadata: verdict.forbiddenMetadata,
+      statesExercised: IDENTITY_EXERCISED_STATE_IDS,
       evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
     };
     return assertionId === 'VAL-B2-ID-001'
       ? {
-          actual: `${verdict.route} rendered ${verdict.lockupCount} brand lockup(s) across ${viewports}, every one exactly \`${PUBLIC_IDENTITY}\` and every one carrying a registered wordmark role`,
+          actual: `${verdict.route} painted every identity slot its modules are registered to render (${verdict.expectedRoles.join(', ')}) at ${viewports}, each one exactly \`${PUBLIC_IDENTITY}\`; the ${verdict.lockupCount} lockup(s) also discovered by the whole \`robot wiki\` spelling family are the same string and carry a registered wordmark role; and the ${verdict.structuralSlots.length} brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly \`${PUBLIC_IDENTITY}\``,
           computed,
         }
       : {
-          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one`,
+          actual: `${verdict.route} rendered no v1 identity spelling and no v1 descriptor in ${verdict.observations.reduce((total, { visibleTextLength }) => total + visibleTextLength, 0)} characters of visible text across ${viewports}, and no prose metadata field carries one; the ${IDENTITY_EXERCISED_STATE_IDS.length} identity-bearing states the default load does not reach (${IDENTITY_EXERCISED_STATE_IDS.join(', ')}) were provoked and swept the same way`,
           computed,
         };
   }
@@ -1735,10 +2164,22 @@ function identityAssertionEvidence(
         `${assertionId}: ${member} is not a first-party visual asset`,
       );
     }
-    if (BRAND_SYMBOL_NAME.test(asset.path)) {
+    // The seal decides. A member with no sealed entry never reaches here,
+    // because the reconciliation throws while the corpus is being built.
+    const seal = ASSET_SEAL_VERDICTS.get(asset.path);
+    if (!seal) {
       throw new Error(
-        `${assertionId}: ${asset.path} is named as brand iconography`,
+        `${assertionId}: ${asset.path} has no sealed byte approval, so nobody signed off on shipping it`,
       );
+    }
+    const verdict = ASSET_CONTENT_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: ${member} has no decoded content verdict, so its row would rest on its filename`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
     }
     if (IDENTITY_SYMBOL_SIGHTINGS.length > 0) {
       throw new Error(
@@ -1746,14 +2187,30 @@ function identityAssertionEvidence(
       );
     }
     return {
-      actual: `${asset.path} is registered as ${asset.category} content, carries no brand-mark naming, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}, so it fills no identity slot`,
+      actual: `${asset.path} ships exactly the ${seal.byteCount} bytes sealed at ${seal.sealedSha256.slice(0, 12)} in ${ASSET_SEAL_PATH}, approved by ${seal.owner} for: ${seal.purpose} It decodes as ${verdict.decodedFormat} matching its ${verdict.declaredExtension} name and its registered hash ${verdict.byteHash.slice(0, 12)}; ${verdict.established.join('; ')}; no icon, manifest or lockup declaration in the ${ASSET_IDENTITY_SOURCE_COUNT} sources that own a metadata surface or render a lockup names it, and the sweep found no icon declaration and no non-text node inside any lockup on ${IDENTITY_EVIDENCE.routes.length} routes at ${viewports}${verdict.limitations.length > 0 ? `. Not established: ${verdict.limitations.join('; ')}` : ''}`,
       computed: {
         assetPath: asset.path,
         category: asset.category,
+        sealedBy: seal.owner,
+        sealedPurpose: seal.purpose,
+        sealedSha256: seal.sealedSha256,
+        shippedSha256: seal.shippedSha256,
+        sealedAssetCount: ASSET_SEAL_VERDICTS.size,
+        approvalSource: ASSET_SEAL_PATH,
+        byteCount: verdict.byteCount,
+        byteHash: verdict.byteHash,
+        declaredExtension: verdict.declaredExtension,
+        decodedFormat: verdict.decodedFormat,
+        formatMatchesExtension: verdict.formatMatchesExtension,
+        basis: verdict.basis,
+        decoded: verdict.decode,
+        established: verdict.established,
+        limitations: verdict.limitations,
+        identitySourcesChecked: ASSET_IDENTITY_SOURCE_COUNT,
         iconDeclarationsAcrossSweep: 0,
         symbolNodesInLockupsAcrossSweep: 0,
         routesSwept: IDENTITY_EVIDENCE.routes.length,
-        evidence: [IDENTITY_RUNTIME_EVIDENCE_PATH],
+        evidence: [asset.path, ASSET_SEAL_PATH, IDENTITY_RUNTIME_EVIDENCE_PATH],
       },
     };
   }
@@ -1870,6 +2327,180 @@ function shellAssertionEvidence(
     };
   }
   throw new Error(`${assertionId} has no shell evidence branch`);
+}
+
+/**
+ * What the two-width article sweep recorded for one assertion and one
+ * member. Every branch throws on a member the sweep did not measure and on a
+ * member whose reading fails the requirement, because the generator has no
+ * way to write a red row: a sheet that regressed has to stop the corpus, not
+ * appear in it.
+ *
+ * The member is a route path for the row families that quantify over routes,
+ * the registered role id for the wordmark row, and `route#heading-id` for
+ * the section-heading row, which is the key space each verdict map already
+ * uses.
+ */
+function articleAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    ARTICLE_VERDICTS[assertionId as keyof typeof ARTICLE_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no article evidence branch`);
+  }
+  const keys =
+    assertionId === 'VAL-B2-TYPE-006'
+      ? (() => {
+          if (member !== HOME_WORDMARK_ROLE_ID) {
+            throw new Error(
+              `${assertionId}: ${member} is not the registered wordmark role`,
+            );
+          }
+          return [...verdicts.keys()];
+        })()
+      : assertionId === 'VAL-B2-TYPE-009'
+        ? [member]
+        : (() => {
+            const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+            if (!route) {
+              throw new Error(`${assertionId}: ${member} is not a route`);
+            }
+            return [route];
+          })();
+
+  const readings = keys.map((key) => {
+    const verdict = verdicts.get(key);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not measure ${key}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return verdict;
+  });
+  if (readings.length === 0) {
+    throw new Error(
+      `${assertionId}: ${member} resolved to no measured reading, so the row would rest on nothing`,
+    );
+  }
+
+  const where = readings.map(({ id }) => id).join(', ');
+  return {
+    actual: `${where} was measured at ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')} and every clause of ${assertionId} held against the reading`,
+    computed: {
+      member,
+      measured: readings.map(({ id, observed }) => ({ id, observed })),
+      viewports: ARTICLE_VIEWPORTS.map(({ id }) => id),
+      evidence: [ARTICLE_RUNTIME_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
+ * What the figure sweep, the registry census or the sealed baseline recorded
+ * for one member of one figure row. Throws on a member the population does
+ * not hold and on a member whose reading fails the requirement: the
+ * generator has no way to write a red row, so a diagram that lost its plate,
+ * a photograph that lost its credit, or an SVG whose semantics moved has to
+ * stop the corpus rather than appear in it.
+ */
+function figureAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence & { sourcePath?: string } {
+  const verdicts = FIGURE_VERDICTS[assertionId as keyof typeof FIGURE_VERDICTS];
+  if (!verdicts) throw new Error(`${assertionId} has no figure evidence branch`);
+  const verdict = verdicts.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: nothing was measured for ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  if (FIGURE_RUNTIME_ASSERTIONS.has(assertionId)) {
+    return {
+      actual: `${member} ${FIGURE_ASSERTION_ACTUALS[assertionId]}, measured at ${FIGURE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')}`,
+      computed: {
+        member,
+        measured: [{ id: verdict.id, observed: verdict.observed }],
+        viewports: FIGURE_VIEWPORTS.map(({ id }) => id),
+        evidence: [FIGURE_RUNTIME_EVIDENCE_PATH],
+      },
+    };
+  }
+  return {
+    actual: `${member} ${FIGURE_ASSERTION_ACTUALS[assertionId]}`,
+    sourcePath:
+      assertionId === 'VAL-B2-VIZ-014'
+        ? 'evidence/brand-v2/baseline/assets-svg.json'
+        : 'contract/brand-v2-registries.json',
+    computed: {
+      member,
+      measured: [{ id: verdict.id, observed: verdict.observed }],
+    },
+  };
+}
+
+/** What each row means when its member passes, in the row's own terms. */
+const FIGURE_ASSERTION_ACTUALS: Readonly<Record<string, string>> = {
+  'VAL-B2-ART-004':
+    'renders inside the registered bounded dark instrument, with a painted boundary, an inverse label above the 4.5:1 floor, and alt text and a caption that describe the drawing',
+  'VAL-B2-ART-005':
+    'states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both',
+  'VAL-B2-ART-006':
+    'identifies itself as an original schematic, credits itself as a diagram, and links to no published original it does not have',
+  'VAL-B2-IMG-003':
+    'identifies itself as an original schematic, credits itself as a diagram, and links to no published original it does not have',
+  'VAL-B2-IMG-005':
+    'renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport',
+  'VAL-B2-IMG-001':
+    'carries a named creator and a checkable origin, with no synthesis vocabulary anywhere in its record',
+  'VAL-B2-IMG-002':
+    'records one §1.13 legal basis with creator, source URL, retrieval date, attribution text, licence reference and preservation policy, and its recorded content hash is the hash of the file that shipped',
+  'VAL-B2-IMG-004':
+    'declares a deterministic, owned texture treatment that claims to be no sensor reading, scan or measurement',
+  'VAL-B2-IMG-008':
+    'rests on an approved reusable-content basis from the closed enum, never unlicensed and never the mark identification path',
+  'VAL-B2-VIZ-014':
+    'reproduces the sealed normalized semantic baseline exactly, so only allowlisted style attributes moved, and still ships its labels and its textual alternative',
+};
+
+/**
+ * What the apparatus sweep recorded for one article route. Throws on a route
+ * the sweep did not visit and on a route whose reading fails the
+ * requirement: the generator has no way to write a red row, so an article
+ * whose bibliography, curated edges or inbound edges no longer match the
+ * registry has to stop the corpus rather than appear in it.
+ */
+function apparatusAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    APPARATUS_VERDICTS[assertionId as keyof typeof APPARATUS_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no apparatus evidence branch`);
+  }
+  const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+  if (!route) throw new Error(`${assertionId}: ${member} is not a route`);
+  const verdict = verdicts.get(route);
+  if (!verdict) {
+    throw new Error(`${assertionId}: the apparatus sweep did not measure ${route}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  return {
+    actual: `${route} renders the relationship graph the registry derives — the same bibliography ids in the same order, the same curated See also edges, the same derived Linked from edges and the same inline citation markers — measured at ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')}`,
+    computed: {
+      member,
+      measured: [{ id: verdict.id, observed: verdict.observed }],
+      viewports: APPARATUS_VIEWPORTS.map(({ id }) => id),
+      evidence: [APPARATUS_RUNTIME_EVIDENCE_PATH],
+    },
+  };
 }
 
 /**
@@ -2194,6 +2825,52 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (ARTICLE_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = articleAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (APPARATUS_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = apparatusAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
+  if (FIGURE_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = figureAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: FIGURE_RUNTIME_ASSERTIONS.has(assertionId)
+        ? { kind: 'browser-state', computed: evidence.computed }
+        : {
+            kind: 'source-build',
+            sourcePath: evidence.sourcePath ?? 'contract/brand-v2-registries.json',
+            predicate: evidence.actual,
+            observed: evidence.computed,
+          },
+    };
+  }
   if (HOME_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -2360,12 +3037,18 @@ function generate() {
           ...assertionResults.map((assertionResult) => ({
             kind: 'evidence-row' as const,
             evidenceRowId: assertionResult.resultId,
-            mechanism: IDENTITY_ASSERTIONS.has(id)
-              ? `${id} per-member evidence derived from the persisted two-viewport identity sweep of the built export over ${canonicalPopulationSource}`
+            mechanism: id === 'VAL-B2-ID-006'
+              ? `${id} per-member evidence derived from the checked-in byte seal ${ASSET_SEAL_PATH}, reconciled in both directions against ${canonicalPopulationSource} and re-hashed per asset, plus the decoded content description of each sealed asset`
+              : IDENTITY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted identity sweep of the built export, over every registered public route at both identity viewports plus every declared interactive identity state, over ${canonicalPopulationSource}`
               : SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : ARTICLE_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
+              : APPARATUS_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)

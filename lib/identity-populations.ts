@@ -4,6 +4,10 @@ import {
   type DescriptorSurface,
   type IdentityRuntimeEvidence,
 } from './brand-v2-identity-evidence.ts';
+import {
+  deriveTekturRoleOccurrences,
+  type TekturRoleOccurrenceOptions,
+} from './tektur-role-occurrences.ts';
 
 /**
  * Canonical populations for the six public-identity assertions.
@@ -89,6 +93,82 @@ export function identityWordmarkRoles(): IdentityWordmarkRole[] {
       definedIn: ['assets/fonts/tektur/metadata.json'],
     },
   ];
+}
+
+export type IdentitySlotExpectation = {
+  route: string;
+  /** Registered identity wordmark roles this route's modules write. */
+  roles: string[];
+};
+
+/**
+ * Which identity lockups each public route is *registered* to render,
+ * derived from the role annotations its own modules write.
+ *
+ * This is the population the sweep has to account for, and it is built
+ * without reading a single rendered character. The discovery it joins used
+ * to be the whole population: the sweep matched every rendered leaf whose
+ * text was some spelling of `robot wiki` and then decided those. A filter
+ * over the thing being measured cannot see a lockup that stopped saying it —
+ * rename the shell wordmark to `Sprocket Emporium` and it simply leaves the
+ * population, so nothing is wrong with the routes that remain and the row
+ * stays green over a page whose name is gone.
+ *
+ * Registration does not move when the text does. `app/page.tsx` writes
+ * `home-wordmark` and `components/nav/site-shell.tsx` writes
+ * `shell-wordmark`; the used-import graph says which routes reach those
+ * modules, so `/` owes two slots and every other public route owes one,
+ * whatever any of them currently say. The sweep must find every owed slot
+ * and every found slot must render exactly `PUBLIC_IDENTITY`, which fails a
+ * renamed lockup in the first direction and a deleted or unannotated one in
+ * the second.
+ *
+ * The spelling-family scan stays, as the other half of a union rather than
+ * as the source: registration cannot see a lockup nobody annotated, and the
+ * family scan finds exactly those.
+ */
+export function expectedIdentitySlots(
+  routes: readonly string[],
+  options: TekturRoleOccurrenceOptions = {},
+): IdentitySlotExpectation[] {
+  if (routes.length === 0) {
+    throw new Error(
+      'no routes to derive identity slot expectations for: the sweep would owe nothing',
+    );
+  }
+  const registered = new Set(
+    identityWordmarkRoles()
+      .filter(({ kind }) => kind === 'web-role')
+      .map(({ roleId }) => roleId),
+  );
+  const occurrences = deriveTekturRoleOccurrences({ ...options, routes });
+  const unwritten = [...registered]
+    .filter((role) => !occurrences.writtenRoles.includes(role))
+    .sort();
+  if (unwritten.length > 0) {
+    throw new Error(
+      `registered identity wordmark role(s) ${unwritten.join(', ')} are written by no first-party module, so no route could owe them`,
+    );
+  }
+  const expectations = [...routes].sort().map((route) => {
+    const roles = occurrences.rolesByRoute[route];
+    if (!roles) {
+      throw new Error(
+        `${route} has no derived role occurrences, so what it owes is unknown rather than empty`,
+      );
+    }
+    return {
+      route,
+      roles: roles.filter((role) => registered.has(role)).sort(),
+    };
+  });
+  const owing = expectations.filter(({ roles }) => roles.length === 0);
+  if (owing.length > 0) {
+    throw new Error(
+      `${owing.length} public route(s) are registered to render no identity lockup at all, starting with ${owing[0].route}; every route mounts the shell, so the derivation did not measure what it claims`,
+    );
+  }
+  return expectations;
 }
 
 /**

@@ -40,7 +40,13 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
     >
       <span
         data-brand-surface-id="surface:flat"
-        className="inline-flex items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent"
+        // max-w-full + whitespace-normal: the chip is wrapped in a
+        // whitespace-nowrap span at build time to bind it to its trailing
+        // punctuation, and white-space inherits. A long label such as an
+        // organization name then cannot break and pushes the document wider
+        // than a 375px viewport. The binding is what has to hold, not the
+        // label, so the label wraps inside the chip instead.
+        className="inline-flex max-w-full items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 whitespace-normal transition-colors group-hover:border-accent group-focus-within:border-accent"
       >
         <a
           href={href}

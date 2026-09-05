@@ -166,9 +166,36 @@ export function deriveTekturRoleOccurrences(
     }
   }
 
+  /**
+   * The MDX bodies the article template can name with its template-literal
+   * import, which is the set one route's body has to be drawn from. Reading
+   * the family off the graph rather than re-deriving `content/**.mdx` here
+   * is what keeps this route walk honest: if the template stopped importing
+   * its body, or started naming a different tree, the family empties and
+   * the derivation stops instead of silently attributing bodies to routes
+   * that no longer render them.
+   */
+  const articleBodyFamily = new Set(
+    [...graph.computedDependenciesByModule.values()]
+      .flat()
+      .flatMap(({ targets }) => targets)
+      .filter((modulePath) => modulePath.endsWith('.mdx')),
+  );
+  if (articleBodyFamily.size === 0) {
+    throw new Error(
+      'No module names an MDX body with a computed import, so no article route can be attributed a body.',
+    );
+  }
+
   const articleContentModule = (segments: string[]): string[] => {
     const candidate = `content/${segments.join('/')}.mdx`;
-    return graph.modules.includes(candidate) ? [candidate] : [];
+    if (!graph.modules.includes(candidate)) return [];
+    if (!articleBodyFamily.has(candidate)) {
+      throw new Error(
+        `${candidate} exists but no template names it, so the route rendering it reaches no body.`,
+      );
+    }
+    return [candidate];
   };
   const mdxRegistry = graph.modules.filter(
     (modulePath) => modulePath === 'mdx-components.tsx',

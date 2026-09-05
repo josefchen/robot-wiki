@@ -261,15 +261,86 @@ article > hr {
 }
 
 /*
+ * The article reading sheet: measure, reading size and gutter as one system.
+ *
+ * `ch` resolves against the element's own font, so a column capped in `ch`
+ * while wearing the interface face does not cap the prose that fills it —
+ * the two units differ by the ratio of the two `0` advances, and what the
+ * reader gets is not the measure the sheet declares. That is how a column
+ * written `max-w-[65ch]` in IBM Plex Sans around Newsreader prose rendered
+ * 60.2ch at 1440. The column therefore carries the reading face itself and
+ * caps at the measure plus its own gutters, which makes the rendered
+ * paragraph exactly `--prose-measure` wide wherever the viewport allows it.
+ *
+ * The gutter widens with the room available for it rather than staying at
+ * one value: it is the sheet's breathing room on a wide screen and the only
+ * thing between the text and the bezel on a narrow one.
+ */
+:root {
+  --prose-size: 1.1875rem;
+  --prose-leading: 1.7;
+  --prose-measure: 65ch;
+  --article-gutter: 20px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --article-gutter: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --article-gutter: 48px;
+  }
+}
+
+[data-prose-column] {
+  max-width: calc(var(--prose-measure) + 2 * var(--article-gutter));
+  padding-inline: var(--article-gutter);
+  font-family: var(--font-serif);
+  font-size: var(--prose-size);
+}
+
+/*
+ * The article title. Sized against the viewport rather than in breakpoint
+ * steps, so the sealed range holds across the whole span between the two
+ * widths the contract measures and not only at the two.
+ */
+.article-title {
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  /*
+   * The size floor is sealed at 375px, and a title is one long word more
+   * often than any scale allows for: "Counterargument" at that floor is
+   * wider than a 320px reflow column. Breaking the word is the only move
+   * left that does not shrink the title below the sealed size.
+   */
+  overflow-wrap: break-word;
+}
+
+/*
+ * Registration labels: the small mono caps that name a measured value.
+ * One tracking ratio site-wide, so the field labels of an article header,
+ * a search box and an instrument panel are the same class of mark.
+ */
+.registration-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/*
  * Long-form prose (.prose): Newsreader body, IBM Plex Sans headings,
- * IBM Plex Mono inline code. Measure capped at 65ch.
+ * IBM Plex Mono inline code, capped at the sheet's measure.
  */
 .prose {
-  max-width: 65ch;
+  max-width: var(--prose-measure);
   color: var(--color-text);
   font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: var(--prose-size);
+  line-height: var(--prose-leading);
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6) {
@@ -285,23 +356,28 @@ article > hr {
   font-size: 1.875rem;
 }
 
+/*
+ * The section ladder is set against the reading size, not against the root:
+ * a 22px section heading over 17px prose was a step the eye had to look for,
+ * and the same heading over 19px prose is barely a step at all.
+ */
 .prose h2 {
-  margin: 2.5rem 0 0.75rem;
-  font-size: 1.375rem;
+  margin: 2.75rem 0 0.875rem;
+  font-size: 1.625rem;
 }
 
 .prose h3 {
   margin: 2rem 0 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1.3125rem;
 }
 
 .prose h4 {
   margin: 1.5rem 0 0.5rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 
 .prose p {
-  margin: 0 0 1.125rem;
+  margin: 0 0 1.25rem;
 }
 
 .prose a {
@@ -312,21 +388,24 @@ article > hr {
 }
 
 /*
- * rehype-autolink-headings wraps headings in anchors; keep heading color, so
- * a heading does not read as a run of signal-blue prose link. The copy-link control
- * (components/article/heading-permalink.tsx) is what advertises that the
- * heading addresses a section, and the hover underline below confirms the
- * heading text itself is the same target.
+ * rehype-autolink-headings wraps headings in anchors. The heading keeps the
+ * text colour, so it does not read as a run of signal-blue prose link, and
+ * the fact that it addresses a section is carried by two marks that are both
+ * there at rest: a signal-blue rule under the whole heading, and the chain
+ * glyph beside it (components/article/heading-permalink.tsx). One of the two
+ * survives a reader who cannot see the colour, which is what a hover-only
+ * underline in a neutral grey did not.
  */
 .prose :where(h1, h2, h3, h4, h5, h6) a {
   color: inherit;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-signal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
-.prose :where(h2, h3) a:hover {
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-border-strong);
-  text-underline-offset: 4px;
+.prose :where(h1, h2, h3, h4, h5, h6) a:hover {
+  text-decoration-thickness: 3px;
 }
 
 .prose a:hover {

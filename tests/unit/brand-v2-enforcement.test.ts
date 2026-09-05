@@ -35,6 +35,7 @@ import {
   IDENTITY_FIRST_PARTY_ASSET_POPULATION_SOURCE,
   IDENTITY_TECHNICAL_POPULATION_SOURCE,
   IDENTITY_WORDMARK_ROLE_POPULATION_SOURCE,
+  expectedIdentitySlots,
   firstPartyVisualAssets,
   identityDescriptorSurfaces,
   identityLockupSourcePaths,
@@ -53,6 +54,17 @@ import {
   homeHeroLockupMembers,
 } from '@/lib/home-populations';
 import { HOME_COMPOSITION_EVIDENCE_PATH } from '@/lib/brand-v2-home-evidence';
+import {
+  ARTICLE_RUNTIME_EVIDENCE_PATH,
+  articleEvidenceFingerprint,
+  readArticleRuntimeEvidence,
+  sectionHeadingMembers,
+} from '@/lib/brand-v2-article-evidence';
+import {
+  HOME_WORDMARK_ROLE_ID,
+  HOME_WORDMARK_ROLE_POPULATION_SOURCE,
+  SECTION_HEADING_POPULATION_SOURCE,
+} from '@/lib/article-populations';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -74,6 +86,10 @@ function identityPopulations(registry: {
     ),
     routes: registry.routes.public.map(({ path }) => path),
     technicalIdentifiers: sealedTechnicalIdentifiers(ROOT),
+    expectedSlots: expectedIdentitySlots(
+      registry.routes.public.map(({ path }) => path),
+      { root: ROOT },
+    ),
     fingerprint: identityEvidenceFingerprint({
       root: ROOT,
       metadataOwnerPaths: [
@@ -103,8 +119,38 @@ function identityPopulations(registry: {
   };
 }
 
+import {
+  FIGURE_RUNTIME_EVIDENCE_PATH,
+  figureEvidenceFingerprint,
+  figureOccurrenceMembers,
+  readFigureRuntimeEvidence,
+  schematicOccurrenceMembers,
+} from '@/lib/brand-v2-figure-evidence';
+import {
+  editorialAssetMembers,
+  firstPartySvgMembers,
+  type AssetRow,
+} from '@/lib/brand-v2-image-record';
+import {
+  EDITORIAL_IMAGE_POPULATION_SOURCE,
+  FIGURE_OCCURRENCE_POPULATION_SOURCE,
+  FIRST_PARTY_SVG_POPULATION_SOURCE,
+  MATERIAL_POPULATION_SOURCE,
+  SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
+} from '@/lib/figure-populations';
+
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
+
+function figureEvidence() {
+  return readFigureRuntimeEvidence({
+    artifact: JSON.parse(
+      readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),
+    ),
+    fingerprint: figureEvidenceFingerprint({ root: ROOT }),
+    root: ROOT,
+  });
+}
 const FIXTURE_TEST_TITLE =
   'brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map';
 
@@ -360,6 +406,49 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
               homeCompositionAnchorMembers(),
             [HOME_DOMAIN_DESTINATION_POPULATION_SOURCE]:
               canonicalDomainDestinations().map(({ id }) => id),
+          },
+          articlePopulations: {
+            [HOME_WORDMARK_ROLE_POPULATION_SOURCE]: [HOME_WORDMARK_ROLE_ID],
+            [SECTION_HEADING_POPULATION_SOURCE]: sectionHeadingMembers(
+              readArticleRuntimeEvidence({
+                artifact: JSON.parse(
+                  readFileSync(
+                    join(ROOT, ARTICLE_RUNTIME_EVIDENCE_PATH),
+                    'utf8',
+                  ),
+                ),
+                routes: (
+                  registry.routes.public as Array<{
+                    path: string;
+                    routeKind: string;
+                  }>
+                ).map(({ path }) => path),
+                articleRoutes: (
+                  registry.routes.public as Array<{
+                    path: string;
+                    routeKind: string;
+                  }>
+                )
+                  .filter(({ routeKind }) => routeKind === 'article')
+                  .map(({ path }) => path),
+                fingerprint: articleEvidenceFingerprint({ root: ROOT }),
+              }),
+            ),
+            // The figure lane's five rendered members and five record
+            // members, merged the way the generator merges them.
+            [FIGURE_OCCURRENCE_POPULATION_SOURCE]:
+              figureOccurrenceMembers(figureEvidence()),
+            [SCHEMATIC_OCCURRENCE_POPULATION_SOURCE]:
+              schematicOccurrenceMembers(figureEvidence()),
+            [EDITORIAL_IMAGE_POPULATION_SOURCE]: editorialAssetMembers(
+              registry.assets as AssetRow[],
+            ),
+            [FIRST_PARTY_SVG_POPULATION_SOURCE]: firstPartySvgMembers(
+              registry.assets as AssetRow[],
+            ),
+            [MATERIAL_POPULATION_SOURCE]: (
+              registry.materials as Array<{ id: string }>
+            ).map(({ id }) => id),
           },
         }),
         map,

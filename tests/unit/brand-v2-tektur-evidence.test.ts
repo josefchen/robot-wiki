@@ -306,7 +306,7 @@ describe('brand-v2 Tektur delivery evidence', () => {
       missingSchema.familyObservations[0] as { heads?: string[] }
     ).heads = undefined;
     expect(() => measure(missingSchema)).toThrow(
-      /records no font-family head set/,
+      /shape its reader requires.*familyObservations.0.heads/s,
     );
 
     const duplicated = clone();

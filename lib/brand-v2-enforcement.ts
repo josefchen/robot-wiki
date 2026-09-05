@@ -443,6 +443,14 @@ export function buildEnforcementPopulationSources(input: {
    * checked against that route (R8a).
    */
   homePopulations: Readonly<Record<string, readonly string[]>>;
+  /**
+   * Assertion-specific populations for the article-sheet assertions that do
+   * not quantify over routes: the registered wordmark role instance, and the
+   * addressable section headings the reading corpus renders. Recording
+   * either per public route would emit a row per route for a claim never
+   * checked against that route (R8a).
+   */
+  articlePopulations: Readonly<Record<string, readonly string[]>>;
 }): Record<string, string[]> {
   const { registry } = input;
   if (input.semanticTokenPopulation.length === 0) {
@@ -461,6 +469,11 @@ export function buildEnforcementPopulationSources(input: {
   for (const [source, ids] of Object.entries(input.homePopulations)) {
     if (ids.length === 0) {
       throw new Error(`The home population ${source} is empty`);
+    }
+  }
+  for (const [source, ids] of Object.entries(input.articlePopulations)) {
+    if (ids.length === 0) {
+      throw new Error(`The article population ${source} is empty`);
     }
   }
   return {
@@ -487,6 +500,12 @@ export function buildEnforcementPopulationSources(input: {
     ),
     ...Object.fromEntries(
       Object.entries(input.homePopulations).map(([source, ids]) => [
+        source,
+        [...ids],
+      ]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(input.articlePopulations).map(([source, ids]) => [
         source,
         [...ids],
       ]),

@@ -287,6 +287,60 @@ describe('mobile shell evidence', () => {
     ).toMatch(/not one of the required background regions/);
   });
 
+  it('refuses two contradictory readings of one inert region', () => {
+    // The input that used to pass: the verdict built a `Map` keyed by region
+    // id, so a second row for the same region silently replaced the first
+    // and the last one written won. An artifact recording `main` as both
+    // outside and inside the inert set therefore read as compliant, on the
+    // half of the contradiction that happened to come last.
+    const contradiction = drawerFailures((evidence) => {
+      for (const observation of evidence.observations) {
+        const main = observation.inert.regions.find(({ id }) => id === 'main');
+        if (!main) throw new Error('the committed sweep records no main region');
+        observation.inert.regions = [
+          { ...main, inert: false },
+          ...observation.inert.regions,
+        ];
+      }
+    });
+    expect(contradiction).toMatch(
+      /records main more than once in the inert set/,
+    );
+    expect(contradiction).toMatch(
+      /records 6 inert-region reading\(s\) against the 5 required background regions/,
+    );
+    // The contradicting value is never read: the shape is settled first, so
+    // the compliant duplicate cannot answer for the non-compliant one.
+    expect(contradiction).not.toMatch(
+      /leaves main outside the open drawer's inert set/,
+    );
+  });
+
+  it('refuses a duplicate row even when the recorded count still looks right', () => {
+    // The subtler half of the same defect: dropping one required region and
+    // duplicating another keeps the row count at five, so a count check
+    // alone would accept it while one region was never measured.
+    const swapped = drawerFailures((evidence) => {
+      for (const observation of evidence.observations) {
+        const header = observation.inert.regions.find(
+          ({ id }) => id === 'header',
+        );
+        if (!header) throw new Error('the committed sweep records no header');
+        observation.inert.regions = [
+          ...observation.inert.regions.filter(
+            ({ id }) => id !== 'the skip link',
+          ),
+          { ...header },
+        ];
+      }
+    });
+    expect(swapped).toMatch(/records header more than once in the inert set/);
+    expect(swapped).toMatch(/recorded no reading for the skip link/);
+    expect(swapped).not.toMatch(
+      /records \d+ inert-region reading\(s\) against the/,
+    );
+  });
+
   it('fails a descriptor the compact header paints through a pseudo-element', () => {
     // The input that used to pass: `::after { content: ... }` renders the
     // locked descriptor while the DOM stores none of it, so the leaf-text
@@ -332,7 +386,7 @@ describe('mobile shell evidence', () => {
           ).pseudoTexts;
         }),
       ),
-    ).toThrow(/no pseudo-element reading/);
+    ).toThrow(/shape its reader requires.*pseudoTexts/s);
   });
 
   it('fails a dismissal path that does not close or does not restore the trigger', () => {
@@ -458,6 +512,61 @@ describe('mobile shell evidence', () => {
         ),
       }),
     ).not.toBe(fingerprint());
+  });
+
+  it('refuses an artifact whose booleans arrived as strings', () => {
+    // The input that used to pass. `inert` is read by truthiness, which is
+    // the only sensible way to read a boolean, and `"false"` is a true
+    // value: an artifact that reported every background region as the string
+    // "false" satisfied the clause requiring every region to be inert, and
+    // the fingerprint was all that stood between it and a green row. Nothing
+    // downstream could have caught it, because by the time the verdict runs
+    // the type is gone.
+    const shaped = accept(committed());
+    expect(
+      shaped.observations.every(({ inert }) =>
+        inert.regions.every((region) => typeof region.inert === 'boolean'),
+      ),
+      'the committed sweep is accepted, and every region carries a real boolean',
+    ).toBe(true);
+
+    const stringly = mutate((evidence) => {
+      for (const observation of evidence.observations) {
+        for (const region of observation.inert.regions) {
+          (region as unknown as { inert: unknown }).inert = 'false';
+        }
+      }
+    });
+    // The perturbation provably changed the bytes, and the verdict it used
+    // to escape still cannot see it: "false" is truthy, so the clause the
+    // artifact violates reads as satisfied.
+    const planted = stringly.observations[0].inert.regions[0];
+    expect(planted.inert as unknown).toBe('false');
+    expect(Boolean(planted.inert), 'the verdict reads this as inert').toBe(true);
+    expect(() => accept(stringly)).toThrow(
+      /does not have the shape its reader requires/,
+    );
+    expect(() => accept(stringly)).toThrow(/inert/);
+
+    // The same hole one level down, on a field with no verdict of its own to
+    // notice it: a count that arrived as a numeric string.
+    const numeric = mutate((evidence) => {
+      (
+        evidence.observations[0].header as unknown as { heightPx: unknown }
+      ).heightPx = '56';
+    });
+    expect(() => accept(numeric)).toThrow(
+      /does not have the shape its reader requires/,
+    );
+
+    // And a whole sub-object missing rather than mistyped, which the cast
+    // also let through until a verdict happened to dereference it.
+    const truncated = mutate((evidence) => {
+      delete (evidence.observations[0] as unknown as { focus?: unknown }).focus;
+    });
+    expect(() => accept(truncated)).toThrow(
+      /does not have the shape its reader requires/,
+    );
   });
 
   it('derives descriptor fragments and the contrast maths it judges the scrim with', () => {

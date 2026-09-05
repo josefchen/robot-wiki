@@ -123,7 +123,7 @@ export function IkTargetForm({
           type="button"
           data-testid="ik-solve"
           onClick={submit}
-          className="rounded-sm border border-accent px-3 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent/10 active:translate-y-[1px]"
+          className="rounded-sm border border-accent px-3 py-1.5 font-sans text-xs text-accent transition-colors hover:bg-accent/10 active:translate-y-[1px]"
         >
           Solve to target
         </button>
@@ -133,7 +133,7 @@ export function IkTargetForm({
           data-testid="ik-clear"
           onClick={onClear}
           disabled={!hasTarget}
-          className="rounded-sm border border-border px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-text-dim"
+          className="rounded-sm border border-border px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-text-dim"
         >
           Clear target
         </button>
