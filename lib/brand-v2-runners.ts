@@ -27,6 +27,15 @@ export type BrandV2Registry = {
         props: string;
         /** 1-based position among that component's mounts on that route. */
         ordinal: number;
+        /**
+         * The component elements enclosing it in the document, outermost
+         * first, each with the control kinds its own module declares.
+         */
+        containers: Array<{
+          component: string;
+          sourcePath: string | null;
+          controlKinds: string[];
+        }>;
       }
     >;
   };

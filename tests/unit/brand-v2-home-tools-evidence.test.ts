@@ -8,6 +8,8 @@ import {
   HOME_TOOLS_VIEWPORT,
   accessibilityProfileVerdicts,
   crossMountVerdicts,
+  deriveCrossContextTable,
+  interactiveContainers,
   expectedEpisodeSuccessPercent,
   expectedEpisodeSuccessReadout,
   featuredComponentDefaults,
@@ -44,6 +46,11 @@ const REGISTRY = JSON.parse(
       route: string;
       ownerPath: string;
       props: string;
+      containers: Array<{
+        component: string;
+        sourcePath: string | null;
+        controlKinds: string[];
+      }>;
     }>;
   };
 };
@@ -63,11 +70,12 @@ function featuredRegistrations(): FeaturedMountRegistration[] {
   const sourceId = featuredSourceId();
   return REGISTRY.interactive.mounts
     .filter((mount) => mount.sourceId === sourceId)
-    .map(({ id, route, ownerPath, props }) => ({
+    .map(({ id, route, ownerPath, props, containers }) => ({
       mountId: id,
       route,
       ownerPath,
       props,
+      containers,
     }));
 }
 
@@ -140,6 +148,20 @@ function mutate(
 ): HomeToolsEvidence {
   const copy = JSON.parse(JSON.stringify(committed())) as HomeToolsEvidence;
   change(copy);
+  return copy;
+}
+
+/**
+ * A mutation that a re-run sweep would have produced: the observations move
+ * and the cross-context table is re-derived from them, so a plant reaches
+ * the clause it is aimed at rather than tripping the table reconciliation.
+ */
+function replant(
+  change: (evidence: HomeToolsEvidence) => void,
+  mounts: readonly FeaturedMountRegistration[] = MOUNTS,
+): HomeToolsEvidence {
+  const copy = mutate(change);
+  copy.crossContext = deriveCrossContextTable(copy, mounts);
   return copy;
 }
 
@@ -293,29 +315,286 @@ describe('home tools evidence', () => {
       verdicts.filter(({ observed }) => observed.isFeaturedHomeMount === true)
         .map(({ id }) => id),
     ).toEqual([evidence.featured.mountId]);
-    // No row carries a field naming a class of mount, because there is no
-    // longer a class of mount: every row records the same three readings.
+    // Every row records the same readings, the clauses it was decided by,
+    // and where in its document it sits. A row that is not compared with
+    // home has to say so and say why, on the row itself.
     for (const verdict of verdicts) {
       expect(Object.keys(verdict.observed).sort()).toEqual([
+        'clauses',
         'configurationOverrides',
+        'containerPath',
+        'crossContextExclusionReason',
+        'crossContextPaired',
         'driven',
         'homeDriven',
+        'homeInitial',
+        'homeReset',
+        'homeSecondReset',
         'initial',
         'isFeaturedHomeMount',
         'modelInputs',
         'modelPredictedReadout',
+        'onModulePage',
         'ownerPath',
-        'pairedWithHomeAsModulePage',
         'registeredProps',
         'reset',
         'revealedByControls',
         'route',
+        'secondReset',
       ]);
+      // Nothing is decided by fewer than the two clauses every mount is
+      // bound by, so no row can go unchecked.
+      expect(
+        verdict.observed.clauses as string[],
+        verdict.id,
+      ).toEqual(
+        expect.arrayContaining([
+          'clause:equivalent-inputs-equivalent-readouts',
+          'clause:model-predicted-from-declared-defaults-and-own-props',
+        ]),
+      );
+      expect(
+        (verdict.observed.crossContextPaired as boolean) ||
+          (verdict.observed.crossContextExclusionReason as string | null) !==
+            null ||
+          verdict.observed.isFeaturedHomeMount === true,
+        verdict.id,
+      ).toBe(true);
     }
   });
 
+  it('compares each module-page mount with home observation against observation', () => {
+    // The locked reset clause. It is not each mount against its own model:
+    // the artifact carries home's reading and the module page's reading on
+    // one row, and the comparison is between those two observations.
+    const evidence = accept(committed());
+    const table = evidence.crossContext;
+    expect(table.pairs.length).toBeGreaterThan(0);
+    expect(table.home.mountId).toBe(evidence.featured.mountId);
+    for (const pair of table.pairs) {
+      const mount = evidence.siblingMounts.find(
+        ({ mountId }) => mountId === pair.mountId,
+      )!;
+      expect(pair.readouts, pair.mountId).toEqual([
+        {
+          phase: 'initial',
+          home: evidence.featured.initialReadout,
+          module: mount.initialReadout,
+          agrees: true,
+        },
+        {
+          phase: 'reset',
+          home: evidence.featured.resetReadout,
+          module: mount.resetReadout,
+          agrees: true,
+        },
+        {
+          phase: 'second-reset',
+          home: evidence.featured.secondResetReadout,
+          module: mount.secondResetReadout,
+          agrees: true,
+        },
+        {
+          phase: 'driven',
+          home: evidence.featured.drivenReadout,
+          module: mount.drivenReadout,
+          agrees: true,
+        },
+      ]);
+      expect(
+        [...pair.initialControls, ...pair.resetControls].every(
+          ({ agrees }) => agrees,
+        ),
+        pair.mountId,
+      ).toBe(true);
+    }
+  });
+
+  it('fails the pair when a module page opens or resets away from home', () => {
+    // Three plants, one phase each, on the article's own calculator. The
+    // planted mount stays consistent with its own model in the phases it is
+    // not planted on, so only the cross-context comparison can fail.
+    const evidence = accept(committed());
+    const paired = evidence.crossContext.pairs[0].mountId;
+    expect(
+      crossMountVerdicts(evidence, MOUNTS, COMPONENT).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+    for (const phase of [
+      'initialReadout',
+      'resetReadout',
+      'secondResetReadout',
+    ] as const) {
+      const drifted = replant((row) => {
+        row.siblingMounts.find(({ mountId }) => mountId === paired)![phase] =
+          '61.4%';
+      });
+      const failing = crossMountVerdicts(
+        accept(drifted),
+        MOUNTS,
+        COMPONENT,
+      ).filter(({ failures }) => failures.length > 0);
+      expect(failing.map(({ id }) => id), phase).toEqual([paired]);
+      expect(failing[0].failures.join(' '), phase).toContain(
+        'the two contexts do not restore the identical initial state',
+      );
+    }
+    // A control that opens somewhere else is a different initial state even
+    // when the readout happens to coincide.
+    const movedControl = replant((row) => {
+      const mount = row.siblingMounts.find(
+        ({ mountId }) => mountId === paired,
+      )!;
+      mount.initialSliders[1].value += 1;
+      mount.resetSliders[1].value += 1;
+    });
+    expect(
+      crossMountVerdicts(accept(movedControl), MOUNTS, COMPONENT)
+        .find(({ id }) => id === paired)!
+        .failures.join(' '),
+    ).toMatch(/opens control 2 .* where home opens it/);
+  });
+
+  it('does not let a mount declare itself out of the pair', () => {
+    // The exact case that used to pass. A `default*` prop is the mount
+    // speaking about itself; the document does not nest this mount inside
+    // anything, so it stays in the pair and now fails.
+    const evidence = accept(committed());
+    const paired = evidence.crossContext.pairs[0].mountId;
+    const selfDeclared = MOUNTS.map((mount) =>
+      mount.mountId === paired
+        ? { ...mount, props: `defaultSteps={14} ${mount.props}` }
+        : mount,
+    );
+    expect(
+      selfDeclared.find(({ mountId }) => mountId === paired)!.props,
+    ).not.toEqual(MOUNTS.find(({ mountId }) => mountId === paired)!.props);
+    const table = deriveCrossContextTable(evidence, selfDeclared);
+    expect(table.pairs.map(({ mountId }) => mountId)).toContain(paired);
+    expect(table.excluded.map(({ mountId }) => mountId)).not.toContain(paired);
+    const failing = crossMountVerdicts(
+      { ...evidence, crossContext: table },
+      selfDeclared,
+      COMPONENT,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(failing.map(({ id }) => id)).toEqual([paired]);
+    expect(failing[0].failures.join(' ')).toMatch(
+      /where the shared model predicts 48.8%/,
+    );
+  });
+
+  it('excludes a mount only for where the document puts it, and says so', () => {
+    const evidence = accept(committed());
+    const nested = MOUNTS.filter(
+      (mount) => interactiveContainers(mount).length > 0,
+    );
+    expect(nested.length).toBeGreaterThan(0);
+    expect(evidence.crossContext.excluded.map(({ mountId }) => mountId)).toEqual(
+      nested.map(({ mountId }) => mountId),
+    );
+    for (const row of evidence.crossContext.excluded) {
+      const registration = MOUNTS.find(
+        ({ mountId }) => mountId === row.mountId,
+      )!;
+      expect(row.containerPath).toEqual(
+        registration.containers.map(({ component }) => component),
+      );
+      expect(row.containerPath.length).toBeGreaterThan(0);
+      expect(row.reason).toContain(row.containerPath.at(-1)!);
+      expect(row.stillBoundBy).toEqual([
+        'clause:equivalent-inputs-equivalent-readouts',
+        'clause:model-predicted-from-declared-defaults-and-own-props',
+      ]);
+    }
+    // Take the container away and the same mount joins the pair, which is
+    // what makes the exclusion structural rather than a property of the
+    // mount: nothing about the mount itself changed.
+    const unnested = MOUNTS.map((mount) => ({ ...mount, containers: [] }));
+    const table = deriveCrossContextTable(evidence, unnested);
+    expect(table.excluded).toEqual([]);
+    expect(table.pairs.map(({ mountId }) => mountId)).toEqual(
+      evidence.siblingMounts.map(({ mountId }) => mountId),
+    );
+    // And on this tree the quiz really does open elsewhere, so widening the
+    // pair to it fails rather than quietly passing.
+    expect(
+      crossMountVerdicts(
+        { ...evidence, crossContext: table },
+        unnested,
+        COMPONENT,
+      )
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual(nested.map(({ mountId }) => mountId));
+  });
+
+  it('refuses a cross-context table the measured mounts do not derive', () => {
+    const evidence = accept(committed());
+    expect(() =>
+      crossMountVerdicts(
+        {
+          ...evidence,
+          crossContext: { ...evidence.crossContext, excluded: [] },
+        },
+        MOUNTS,
+        COMPONENT,
+      ),
+    ).toThrow(/not the one the measured mounts derive/);
+    // A hand-written agreement is refused too: flipping a recorded
+    // disagreement to `true` no longer matches the observations.
+    expect(() =>
+      crossMountVerdicts(
+        {
+          ...evidence,
+          crossContext: {
+            ...evidence.crossContext,
+            pairs: evidence.crossContext.pairs.map((pair) => ({
+              ...pair,
+              readouts: pair.readouts.map((readout) => ({
+                ...readout,
+                module: '61.4%',
+                agrees: true,
+              })),
+            })),
+          },
+        },
+        MOUNTS,
+        COMPONENT,
+      ),
+    ).toThrow(/not the one the measured mounts derive/);
+  });
+
+  it('refuses evidence that pairs home with nothing or is silent about a mount', () => {
+    expect(() =>
+      accept(mutate((row) => (row.crossContext.pairs = []))),
+    ).toThrow(/would quantify over nothing/);
+    expect(() =>
+      accept(
+        mutate((row) => {
+          row.crossContext.excluded = [];
+          row.crossContext.pairs = row.crossContext.pairs.slice(0, 1);
+        }),
+      ),
+    ).toThrow(/without pairing it with home or naming why it is excluded/);
+    expect(() =>
+      accept(
+        mutate((row) => {
+          row.crossContext.excluded[0].reason = '  ';
+        }),
+      ),
+    ).toThrow(/no recorded reason or no remaining clause/);
+    expect(() =>
+      accept(
+        mutate((row) => {
+          row.crossContext.excluded[0].stillBoundBy = [];
+        }),
+      ),
+    ).toThrow(/no recorded reason or no remaining clause/);
+  });
+
   it('fails a mount that drifts from the one home features', () => {
-    const drifted = mutate((evidence) => {
+    const drifted = replant((evidence) => {
       evidence.siblingMounts[0].drivenReadout = '77.7%';
     });
     const verdicts = crossMountVerdicts(accept(drifted), MOUNTS, COMPONENT);
@@ -373,7 +652,7 @@ describe('home tools evidence', () => {
       ({ id }) => id === quiz.mountId,
     )!;
     expect(verdict.failures).toEqual([]);
-    expect(verdict.observed.pairedWithHomeAsModulePage).toBe(true);
+    expect(verdict.observed.onModulePage).toBe(true);
     expect(verdict.observed.modelPredictedReadout).toBe(
       expectedEpisodeSuccessReadout(mountModelInputs(quiz, COMPONENT)),
     );
@@ -386,7 +665,7 @@ describe('home tools evidence', () => {
     )!;
     expect(gated.revealedByControls.length).toBeGreaterThan(0);
 
-    const fabricated = mutate((row) => {
+    const fabricated = replant((row) => {
       const mount = row.siblingMounts.find(
         ({ mountId }) => mountId === quiz.mountId,
       )!;
@@ -436,7 +715,7 @@ describe('home tools evidence', () => {
     // Clause 3 compares readouts, which only means anything if the mounts
     // were driven to the same values. A mount whose slider clamped the
     // shared input is a mount that was never compared.
-    const clamped = mutate((evidence) => {
+    const clamped = replant((evidence) => {
       const steps = evidence.siblingMounts[0].drivenSliders.find(
         ({ accessibleName }) => /episode length/i.test(accessibleName),
       )!;
@@ -467,6 +746,7 @@ describe('home tools evidence', () => {
             route: '/nowhere/',
             ownerPath: 'content/nowhere.mdx',
             props: '/',
+            containers: [],
           },
         ],
         COMPONENT,
@@ -512,7 +792,7 @@ describe('home tools evidence', () => {
     ).toEqual(['/']);
     const evidence = accept(committed());
     const paired = crossMountVerdicts(evidence, MOUNTS, COMPONENT).filter(
-      ({ observed }) => observed.pairedWithHomeAsModulePage === true,
+      ({ observed }) => observed.onModulePage === true,
     );
     expect(paired.map(({ id }) => id).sort()).toEqual(
       pages.map(({ mountId }) => mountId).sort(),

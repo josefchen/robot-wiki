@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8218c9fd3a3e91ef6c97a6cc918f261e634fd748d94e49f61492963be6111f23",
+  "fingerprint": "5d7521bbeaf9891655f462abdeaa09a8c4453d242f474f3fa60d76ed35e54de7",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -284,6 +284,199 @@
       "revealedByControls": []
     }
   ],
+  "crossContext": {
+    "home": {
+      "mountId": "mount:/:ReliabilityCompounding:1",
+      "route": "/",
+      "initialReadout": "21.5%",
+      "resetReadout": "21.5%",
+      "secondResetReadout": "21.5%",
+      "drivenReadout": "35.8%",
+      "initialSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "resetSliders": [
+        {
+          "accessibleName": "Per-step success probability in percent, currently 95.0",
+          "value": 95,
+          "min": 50,
+          "max": 99.9,
+          "step": 0.1
+        },
+        {
+          "accessibleName": "Episode length in steps, currently 30",
+          "value": 30,
+          "min": 1,
+          "max": 100,
+          "step": 1
+        }
+      ]
+    },
+    "pairs": [
+      {
+        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+        "route": "/data-hardware/evaluation-crisis/",
+        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+        "readouts": [
+          {
+            "phase": "initial",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "second-reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "driven",
+            "home": "35.8%",
+            "module": "35.8%",
+            "agrees": true
+          }
+        ],
+        "initialControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ],
+        "resetControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ]
+      },
+      {
+        "mountId": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+        "route": "/frontier/reliability-gap/",
+        "ownerPath": "content/frontier/reliability-gap.mdx",
+        "readouts": [
+          {
+            "phase": "initial",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "second-reset",
+            "home": "21.5%",
+            "module": "21.5%",
+            "agrees": true
+          },
+          {
+            "phase": "driven",
+            "home": "35.8%",
+            "module": "35.8%",
+            "agrees": true
+          }
+        ],
+        "initialControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ],
+        "resetControls": [
+          {
+            "ordinal": 1,
+            "homeControl": "Per-step success probability in percent, currently 95.0",
+            "moduleControl": "Per-step success probability in percent, currently 95.0",
+            "homeValue": 95,
+            "moduleValue": 95,
+            "agrees": true
+          },
+          {
+            "ordinal": 2,
+            "homeControl": "Episode length in steps, currently 30",
+            "moduleControl": "Episode length in steps, currently 30",
+            "homeValue": 30,
+            "moduleValue": 30,
+            "agrees": true
+          }
+        ]
+      }
+    ],
+    "excluded": [
+      {
+        "mountId": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
+        "route": "/data-hardware/evaluation-crisis/",
+        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+        "containerPath": [
+          "PredictThenReveal"
+        ],
+        "reason": "the document nests this mount inside <PredictThenReveal> (components/article/commit-to-reveal.tsx), whose own module declares discrete-options controls, so a reader meets it inside that exercise rather than as the module's own calculator",
+        "stillBoundBy": [
+          "clause:equivalent-inputs-equivalent-readouts",
+          "clause:model-predicted-from-declared-defaults-and-own-props"
+        ]
+      }
+    ]
+  },
   "playground": {
     "href": "/playground/",
     "graphics": [

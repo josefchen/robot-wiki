@@ -1,4 +1,5 @@
 import {
+  existsSync,
   lstatSync,
   readFileSync,
   readdirSync,
@@ -6,7 +7,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { extname, join, relative } from 'node:path';
+import { dirname, extname, join, relative } from 'node:path';
 import { DOMAINS, DOMAIN_META, publishedModules } from '../data/modules.ts';
 import { IMAGES } from '../data/images.ts';
 import {
@@ -17,6 +18,12 @@ import {
 } from '../data/type-roles.ts';
 import { referencedImageIds } from '../lib/images.ts';
 import { scanAnnotationAssignments } from '../lib/brand-v2-annotation-scan.ts';
+import {
+  componentElementTree,
+  declaredComponentNames,
+  importedNames,
+  maskScriptComments,
+} from '../lib/brand-v2-jsx-elements.ts';
 import {
   configurationFingerprint,
   reconcileNamedSets,
@@ -382,6 +389,214 @@ function stateCases(text: string): StateCase[] {
   return cases;
 }
 
+const MODULE_EXTENSIONS = ['.tsx', '.ts'];
+const MDX_COMPONENTS_PATH = 'mdx-components.tsx';
+
+/**
+ * The state cases that need a user control to exist. `default`, `focus` and
+ * `hover` are emitted for every source and so distinguish nothing; these two
+ * are emitted only when the module's own markup declares a slider or a
+ * discrete option, which is the codebase's existing definition of a
+ * component a reader operates.
+ */
+const CONTROL_CASE_KINDS = new Set(['slider-boundaries', 'discrete-options']);
+
+/** Index of the brace matching `text[open]`, ignoring braces in strings. */
+function matchingBrace(text: string, open: number): number {
+  let depth = 0;
+  let quote: string | null = null;
+  for (let index = open; index < text.length; index += 1) {
+    const char = text[index];
+    if (quote !== null) {
+      if (char === '\\') {
+        index += 1;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{' || char === '(' || char === '[') depth += 1;
+    else if (char === '}' || char === ')' || char === ']') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+/** The comma-separated members of an object body, nesting respected. */
+function topLevelMembers(body: string): string[] {
+  const members: string[] = [];
+  let depth = 0;
+  let quote: string | null = null;
+  let current = '';
+  for (let index = 0; index < body.length; index += 1) {
+    const char = body[index];
+    current += char;
+    if (quote !== null) {
+      if (char === '\\') {
+        current += body[index + 1] ?? '';
+        index += 1;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{' || char === '(' || char === '[') depth += 1;
+    else if (char === '}' || char === ')' || char === ']') depth -= 1;
+    else if (char === ',' && depth === 0) {
+      members.push(current.slice(0, -1));
+      current = '';
+    }
+  }
+  members.push(current);
+  return members.map((member) => member.trim()).filter(Boolean);
+}
+
+/** The first-party module a specifier names, or null for a package. */
+function resolveModuleFile(specifier: string, fromPath: string): string | null {
+  const base = specifier.startsWith('@/')
+    ? join(ROOT, specifier.slice(2))
+    : specifier.startsWith('.')
+      ? join(ROOT, dirname(fromPath), specifier)
+      : null;
+  if (base === null) return null;
+  for (const candidate of [
+    ...MODULE_EXTENSIONS.map((extension) => `${base}${extension}`),
+    ...MODULE_EXTENSIONS.map((extension) => join(base, `index${extension}`)),
+  ]) {
+    if (existsSync(candidate) && statSync(candidate).isFile()) {
+      return relative(ROOT, candidate);
+    }
+  }
+  return null;
+}
+
+/**
+ * The module that declares one component, following the barrel re-exports
+ * `components/ui/index.ts` puts between an author and the real file. Without
+ * the hop every component reached through a barrel resolves to the barrel,
+ * whose own source declares no control at all.
+ */
+function resolveComponentModule(
+  name: string,
+  specifier: string,
+  fromPath: string,
+  seen: Set<string> = new Set(),
+): string | null {
+  const modulePath = resolveModuleFile(specifier, fromPath);
+  if (modulePath === null || seen.has(modulePath)) return modulePath;
+  seen.add(modulePath);
+  const reexport = new RegExp(
+    `export\\s*\\{[^}]*\\b${name}\\b[^}]*\\}\\s*from\\s*['"]([^'"]+)['"]`,
+  ).exec(source(modulePath));
+  if (reexport === null) return modulePath;
+  return (
+    resolveComponentModule(name, reexport[1], modulePath, seen) ?? modulePath
+  );
+}
+
+/**
+ * The components every MDX module renders without importing them, as the
+ * name an author writes mapped to the module that declares it.
+ *
+ * Read from `mdx-components.tsx` rather than listed here, because the names
+ * MDX authors write (`Cite`, `Term`, `Image`) are the keys of that map and
+ * not the identifiers it imports.
+ */
+function mdxGlobalComponentModules(): Map<string, string | null> {
+  // Comments are masked first: an apostrophe in prose ("the block's title
+  // bar") opens a string as far as any brace matcher is concerned.
+  const text = maskScriptComments(source(MDX_COMPONENTS_PATH));
+  const imports = importedNames(text);
+  const signature = /export function useMDXComponents\b/.exec(text);
+  if (signature === null) {
+    throw new Error(
+      `${MDX_COMPONENTS_PATH} exports no useMDXComponents, so the components every MDX module renders without importing cannot be read`,
+    );
+  }
+  const returned = text.indexOf('return {', signature.index);
+  if (returned === -1) {
+    throw new Error(
+      `${MDX_COMPONENTS_PATH} returns no component map from useMDXComponents`,
+    );
+  }
+  const open = text.indexOf('{', returned);
+  const close = matchingBrace(text, open);
+  if (close === -1) {
+    throw new Error(
+      `${MDX_COMPONENTS_PATH} leaves the useMDXComponents map unterminated`,
+    );
+  }
+  const map = new Map<string, string | null>();
+  for (const member of topLevelMembers(text.slice(open + 1, close))) {
+    const key = /^([A-Za-z_$][\w$]*)\s*(:|$)/.exec(member);
+    if (key === null || !/^[A-Z]/.test(key[1])) continue;
+    const value = key[2] === ':' ? member.slice(key[0].length).trim() : key[1];
+    if (!/^[A-Za-z_$][\w$]*$/.test(value)) {
+      map.set(key[1], null);
+      continue;
+    }
+    const specifier = imports.get(value);
+    map.set(
+      key[1],
+      specifier === undefined
+        ? null
+        : resolveComponentModule(value, specifier, MDX_COMPONENTS_PATH),
+    );
+  }
+  if (map.size === 0) {
+    throw new Error(
+      `${MDX_COMPONENTS_PATH} supplies no component to MDX modules, so no mount could ever be read as nested`,
+    );
+  }
+  return map;
+}
+
+/** The control kinds one module's own markup declares. */
+function moduleControlKinds(modulePath: string): string[] {
+  return [...new Set(stateCases(source(modulePath)).map(({ kind }) => kind))]
+    .filter((kind) => CONTROL_CASE_KINDS.has(kind))
+    .sort();
+}
+
+/**
+ * One component element that encloses a mount, with what its own module
+ * declares.
+ *
+ * The `controlKinds` are read from the container's source, never from the
+ * mount: a mount cannot make itself the child of a quiz, and it cannot make
+ * the quiz stop declaring controls either.
+ */
+function containerRecord(
+  name: string,
+  owner: { path: string; imports: Map<string, string>; declared: Set<string> },
+  mdxGlobals: Map<string, string | null>,
+) {
+  const specifier = owner.imports.get(name);
+  const sourcePath = specifier
+    ? resolveComponentModule(name, specifier, owner.path)
+    : owner.declared.has(name)
+      ? owner.path
+      : (mdxGlobals.get(name) ?? null);
+  return {
+    component: name,
+    sourcePath,
+    controlKinds:
+      sourcePath === null || sourcePath.endsWith('.mdx')
+        ? []
+        : moduleControlKinds(sourcePath),
+  };
+}
+
 function interactiveRegistry() {
   const sources = filesUnder(join(ROOT, 'components', 'interactive'))
     .filter((path) => ['.ts', '.tsx'].includes(extname(path)))
@@ -408,39 +623,65 @@ function interactiveRegistry() {
     join(ROOT, 'app', 'page.tsx'),
   ];
   const mounts = [];
+  const mdxGlobals = mdxGlobalComponentModules();
   const importPattern =
     /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
   for (const path of mountFiles) {
     const text = readFileSync(path, 'utf8');
     const relativePath = relative(ROOT, path);
+    const mounted = new Map<string, (typeof sources)[number]>();
     for (const importMatch of text.matchAll(importPattern)) {
       const component = importMatch[1];
       const registeredSource = sourceByComponent.get(component);
       if (!registeredSource) {
         throw new Error(`Mount imports unregistered interactive ${component}`);
       }
-      const mountPattern = new RegExp(`<${component}\\b([^>]*)\\/?\\s*>`, 'g');
-      let match: RegExpExecArray | null;
-      let ordinal = 0;
-      while ((match = mountPattern.exec(text))) {
-        ordinal += 1;
-        const props = match[1].replace(/\s+/g, ' ').trim();
-        const route = relativePath === 'app/page.tsx'
-          ? '/'
-          : `/${relativePath.replace(/^content\//, '').replace(/\.mdx$/, '/')}`;
-        mounts.push(
-          stableRecord({
-            id: `mount:${route}:${component}:${ordinal}`,
-            sourceId: registeredSource.id,
-            route,
-            ownerPath: relativePath,
-            ordinal,
-            props,
-            cases: registeredSource.cases,
-            expectedCaseCount: registeredSource.expectedCaseCount,
-          }),
-        );
-      }
+      mounted.set(component, registeredSource);
+    }
+    if (mounted.size === 0) continue;
+    const owner = {
+      path: relativePath,
+      imports: importedNames(text),
+      declared: declaredComponentNames(text),
+    };
+    // The mount's place in the document, not its attributes. Where an
+    // element sits is a fact the markup states about the page; what it
+    // declares is a fact it states about itself, and only the first can
+    // decide which comparisons a mount is subject to.
+    const componentNames = new Set([
+      ...owner.imports.keys(),
+      ...owner.declared,
+      ...(relativePath.endsWith('.mdx') ? mdxGlobals.keys() : []),
+    ]);
+    const ordinals = new Map<string, number>();
+    for (const occurrence of componentElementTree({
+      text,
+      path: relativePath,
+      componentNames,
+    })) {
+      const registeredSource = mounted.get(occurrence.name);
+      if (!registeredSource) continue;
+      const ordinal = (ordinals.get(occurrence.name) ?? 0) + 1;
+      ordinals.set(occurrence.name, ordinal);
+      const props = occurrence.attributes.replace(/\s+/g, ' ').trim();
+      const route = relativePath === 'app/page.tsx'
+        ? '/'
+        : `/${relativePath.replace(/^content\//, '').replace(/\.mdx$/, '/')}`;
+      mounts.push(
+        stableRecord({
+          id: `mount:${route}:${occurrence.name}:${ordinal}`,
+          sourceId: registeredSource.id,
+          route,
+          ownerPath: relativePath,
+          ordinal,
+          props,
+          containers: occurrence.ancestors.map((name) =>
+            containerRecord(name, owner, mdxGlobals),
+          ),
+          cases: registeredSource.cases,
+          expectedCaseCount: registeredSource.expectedCaseCount,
+        }),
+      );
     }
   }
   mounts.sort((left, right) => left.id.localeCompare(right.id));

@@ -6770,6 +6770,7 @@
         "ownerPath": "app/page.tsx",
         "ordinal": 1,
         "props": "className=\"mt-5\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6819,7 +6820,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "edf3055af4c7de6d99ccb6f86df361e4537ed13c8f8b00f08542800226ad2662"
+        "fingerprint": "808010d323c120d5e82cceade3074d955bdc89d82ff16ce24d3b242fb058a58d"
       },
       {
         "id": "mount:/adjacent/drones/:PerceptionLatency:1",
@@ -6828,6 +6829,7 @@
         "ownerPath": "content/adjacent/drones.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6888,7 +6890,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4f437e56c82ddcc529f3a05e622b2ba0abee2efbec26dc24ba51c8fc4292a202"
+        "fingerprint": "fd27b1ffec2405e1021db7a598d34025f74724558a6af112f492b5d4f7909ef4"
       },
       {
         "id": "mount:/classical/control/:ImpedanceContactLab:1",
@@ -6897,6 +6899,7 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -6957,7 +6960,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "5f1dae90599281acc877ccef8a57e6c5015df010c70a88e8e40e5ea5b9e2372e"
+        "fingerprint": "ee0aef054f81e6c34a412a84505c1a37be2f5d5b5721d11c3c62e4f50ac6582e"
       },
       {
         "id": "mount:/classical/control/:PendulumController:1",
@@ -6966,6 +6969,7 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7015,7 +7019,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "dbdda3eecf0da82de11b8a0a52be016c9f055274550f74a971a1b30cd96319e7"
+        "fingerprint": "863cdd6ea398d15ff2184cf2ccc7a3b4bf6b66b5fa098f9acc324755c476c43b"
       },
       {
         "id": "mount:/classical/control/:PendulumController:2",
@@ -7024,6 +7028,15 @@
         "ownerPath": "content/classical/control.mdx",
         "ordinal": 2,
         "props": "defaultKp={9.5} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7073,7 +7086,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "c2db8c1cf896967246c931bfb78a8e41556cf60875f0636ef8a90c6c1f069a44"
+        "fingerprint": "5cfb7a179b837f8015a79d02e78b732e43cbaad3d54583b51bc5e2d46c65b70a"
       },
       {
         "id": "mount:/classical/grasp-planning/:GraspWrenchLab:1",
@@ -7082,6 +7095,7 @@
         "ownerPath": "content/classical/grasp-planning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7131,7 +7145,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "bf770962fcc7414b4de491d84dae93e68e475ad621de7fb35068888f991211bb"
+        "fingerprint": "45ac730f6de243b7675ff95d2e80687f7e31ef55e674c5dd833f733958d95f0f"
       },
       {
         "id": "mount:/classical/kinematics/:PlanarFkArm:1",
@@ -7140,6 +7154,7 @@
         "ownerPath": "content/classical/kinematics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7189,7 +7204,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "b719db40b16961ca88bb05bec3c77a9748532be3dbc989eeb4b0caf4e3d84477"
+        "fingerprint": "54675647cb1c397cc978f60a28f4fbd2b917fca1337aeb9323a09530d68008f5"
       },
       {
         "id": "mount:/classical/motion-planning/:RrtExplorer:1",
@@ -7198,6 +7213,7 @@
         "ownerPath": "content/classical/motion-planning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7247,7 +7263,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f6f7ce9ca5157515e70569ec92c52056dc2dd067cfb8c159895fc0b437198671"
+        "fingerprint": "853bcee9c477dab30eaf6d8275ef91bc123a682615983b295e304c2d05df1d0b"
       },
       {
         "id": "mount:/classical/perception/:PerceptionErrorBudget:1",
@@ -7256,6 +7272,7 @@
         "ownerPath": "content/classical/perception.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7316,7 +7333,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c2f6f3e22eed86e50ee2e2e97dd87b90b24f8d8cb116cb7335978efcab9cc08f"
+        "fingerprint": "3aeb5e135621120eabf56bb4a0d1c703b4ec357bcf8269f04308e1c6cb6e8b4b"
       },
       {
         "id": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
@@ -7325,6 +7342,7 @@
         "ownerPath": "content/classical/scene-representation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7385,7 +7403,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4def3ecb89f7c723e84dc3b3856e787b0f931da151c378b3205f3a7f7b9a73b1"
+        "fingerprint": "c53bf0f85d89e8c1ac9cdf557e2073a3f1745d5b4b2bac75697ece9732e90ce7"
       },
       {
         "id": "mount:/classical/state-estimation/:KalmanTracker:1",
@@ -7394,6 +7412,7 @@
         "ownerPath": "content/classical/state-estimation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7443,7 +7462,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a00a3c232a67bc54df36cb21b4af22024917d83baabe125dee073165fe04a598"
+        "fingerprint": "1be46ea44847af1a773f6858fb74fd8441e1af34e6630ad3a44ab55aa8d2b918"
       },
       {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -7452,6 +7471,7 @@
         "ownerPath": "content/data-hardware/data-bottleneck.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7512,7 +7532,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c9dad5b6141f0e593195523bd90632709f4523f4de15b513ad3d26d2d325a438"
+        "fingerprint": "658414b521ef923cbadc0fed2dabab6c069277d1d0f1f30e94b53d2c2b62c7fb"
       },
       {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:2",
@@ -7521,6 +7541,15 @@
         "ownerPath": "content/data-hardware/data-bottleneck.mdx",
         "ordinal": 2,
         "props": "defaultRigs={10} defaultRate=\"droid-measured\" className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7581,7 +7610,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "6eda8564871451f7526c540455ac88014fb6680622681cadc17f727e28536860"
+        "fingerprint": "0b9c760664d3f71e6a1bb956bf23da75b2b16e615ca38327a1e4e1d170a8971a"
       },
       {
         "id": "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -7590,6 +7619,7 @@
         "ownerPath": "content/data-hardware/datasets.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7639,7 +7669,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "176ab5402caf74ce85f9395c0a3cdde880791f2e3d9c44efa04a62502b2592a7"
+        "fingerprint": "bba9db299dce1de4e00b0f1f375b90cb9ce44b6bb05bc65cf7bb406ea5db42fe"
       },
       {
         "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
@@ -7648,6 +7678,7 @@
         "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
         "ordinal": 1,
         "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7697,7 +7728,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "df5a0b0d8a63fa615d816b0dc83b9114cdffdc023109e7811710e5895fbcfbb7"
+        "fingerprint": "8e3883b2e2af605df627ca49399aa65a99790a91e1470ef74d40ea0497db53e2"
       },
       {
         "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:2",
@@ -7706,6 +7737,15 @@
         "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
         "ordinal": 2,
         "props": "defaultPerStep={0.95} defaultSteps={14} descriptionVariant=\"prediction\" className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -7755,7 +7795,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "de8941d15d43677174d8e15418629b2f3750b86852fd27d3971cf5deff08b589"
+        "fingerprint": "6eeebffc2550b50513448e36e7d1bc08c503904013018922531a35575a16f34a"
       },
       {
         "id": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
@@ -7764,6 +7804,7 @@
         "ownerPath": "content/data-hardware/hardware-taxonomy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7813,7 +7854,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "54a81d10867949e7bc3f9591fac920c3a790aad98e9157a9f51d61fb2d31a746"
+        "fingerprint": "5163f1f69b01a4de25169960757117531317d52362d332dfb450b5cfe615b9a6"
       },
       {
         "id": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
@@ -7822,6 +7863,7 @@
         "ownerPath": "content/data-hardware/industrial-deployment.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7871,7 +7913,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "198cbf2621adaa07f53cb06856804ac0efe3fba2bdc95a553eda4002187a6e9d"
+        "fingerprint": "5571a2c3d8330674509c9e069e530f047ea085baefa1e597eb44d0e2e169611a"
       },
       {
         "id": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -7880,6 +7922,7 @@
         "ownerPath": "content/data-hardware/teleop-rigs.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7929,7 +7972,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e5555a33cd8d9ecdf5bf4c5a6575bd44b48ad04dd78c29f672f72f8469869c83"
+        "fingerprint": "a85fc3755a7c8041e279b12155e853ea9e5c3ace31f1cf5581c1435b6c3cf6dc"
       },
       {
         "id": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
@@ -7938,6 +7981,7 @@
         "ownerPath": "content/frontier/bear-case.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -7987,7 +8031,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "777a8b7a304ae466dffb2180bf4bdcb91451d28ca332c64cfcc1c75df3ef6147"
+        "fingerprint": "cd907606556803a49d78f35b51647827dfe1a496da95ebe73948ca5ab117b57c"
       },
       {
         "id": "mount:/frontier/competing-theses/:ThesisExplorer:1",
@@ -7996,6 +8040,7 @@
         "ownerPath": "content/frontier/competing-theses.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8045,7 +8090,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "51f8cc297a0fc839f4a480d90a21d3bc324488a48f04802a0b78293817ff6bd3"
+        "fingerprint": "f5035e23d2b46373785ed93cbf0fcd52aa92fdd6fa0bc90206979b8b15860570"
       },
       {
         "id": "mount:/frontier/dexterity/:HandComparison:1",
@@ -8054,6 +8099,7 @@
         "ownerPath": "content/frontier/dexterity.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8103,7 +8149,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "93682350947d7c36abaf5b0ebc10c2aff81378b736ab9d28fbdcd5518d9c5947"
+        "fingerprint": "fca5cdbc9b8cd68547650b24fa25198b21f327348dc761ffec8036f69f0addf3"
       },
       {
         "id": "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -8112,6 +8158,7 @@
         "ownerPath": "content/frontier/generalization.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8161,7 +8208,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9831500df684f61c0fccef6947d46a207bf218d599862daff48286911bc070a3"
+        "fingerprint": "1d06a82cd90a3db0c3be1ae8af0eddfa5075b413dba7fc754f5582ace14caedb"
       },
       {
         "id": "mount:/frontier/generalization/:EgoScaleScaling:2",
@@ -8170,6 +8217,15 @@
         "ownerPath": "content/frontier/generalization.mdx",
         "ordinal": 2,
         "props": "defaultHorizonHours={250_000} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8219,7 +8275,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d9f0d9772835961fa0e9bb7be5c16141d3d6a5cfcc73c41b97c8bcead8085319"
+        "fingerprint": "65777481b37f1e651ebfe2ae81b05b4a6c34de911952a74185bd826d11408821"
       },
       {
         "id": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
@@ -8228,6 +8284,7 @@
         "ownerPath": "content/frontier/reliability-gap.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8277,7 +8334,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f5e95e965dacb92aa997326a721592aa6024c10350ce9e4babe10f2322c4557f"
+        "fingerprint": "7f5320d069dcfaee2afdf5862db5aef8f503280cf4e8899478e926d1a8ec4130"
       },
       {
         "id": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
@@ -8286,6 +8343,7 @@
         "ownerPath": "content/frontier/reliability-gap.mdx",
         "ordinal": 1,
         "props": "minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"reliability\" className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8335,7 +8393,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "50a353ef2d94f6b956892523edd8a3f0a45796b2beb0bf13679f9e97aff32a51"
+        "fingerprint": "31eecb35fe60df11b490b522cbc717308bad5e9609dc2c11bde2b80248172954"
       },
       {
         "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
@@ -8344,6 +8402,7 @@
         "ownerPath": "content/frontier/safety-and-assurance.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8404,7 +8463,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4fb34bbe744e4c5160c6159d9655706eb1135005965fd231e21ebd931bea7f57"
+        "fingerprint": "f79f3755bcefab0916a124a0a27d05b872a64d652ea2b292b6c965cf6a8ec481"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -8413,6 +8472,7 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8462,7 +8522,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "dd2a48e927bd79ba7be452e831eacd046fd70c42c52f4746dd0f83128c080182"
+        "fingerprint": "121b6f2bd7866a28c2665c8b49c5533f51c547f097b32d831557eb3d745cfe9c"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -8471,6 +8531,7 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8520,7 +8581,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d0c4176f45ac97a25df5e4572906e49ba061032c7d1b969e89bd0be5df52b377"
+        "fingerprint": "9eb4d724b359d8608c4e5a7033b4262c4d7cf1b62fb5398a83d018f2c4d1d4e3"
       },
       {
         "id": "mount:/manipulation/action-chunking/:LatencyComparison:2",
@@ -8529,6 +8590,15 @@
         "ownerPath": "content/manipulation/action-chunking.mdx",
         "ordinal": 2,
         "props": "defaultDelayMs={100} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8578,7 +8648,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "0e017ed5909e3bf35609ea76f7e805166b0c04e22fbccc84a2cf457c29ca6b5a"
+        "fingerprint": "5a53b403fc8f5d73ef1c1bd0170476aacac7e9e99efdc0ec0fe12b5c18314c9d"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -8587,6 +8657,7 @@
         "ownerPath": "content/manipulation/bc-foundations.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8647,7 +8718,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "bdf8e8572265b7f848b3fb1d889ad8c12de4bc4ce272e3dfacc7e9b8a1f6bf53"
+        "fingerprint": "18f814ede0d5e9b9fad21a2941d720ef5b4ff8825e1192f9755d3042461126fa"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:2",
@@ -8656,6 +8727,15 @@
         "ownerPath": "content/manipulation/bc-foundations.mdx",
         "ordinal": 2,
         "props": "defaultEpsilon={0.05} defaultSteps={240} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -8716,7 +8796,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "463c71b3b8a2215a45e814c381aa11a3f0a8ef93b183922deb61d7ade5fb36c0"
+        "fingerprint": "65388b9d7978289ff8b2a8e08802d7d5e7792606aa76ec7943096d7531af44c1"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
@@ -8725,6 +8805,7 @@
         "ownerPath": "content/manipulation/comparison-matrix.mdx",
         "ordinal": 1,
         "props": "className=\"my-6 wide-measure\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8774,7 +8855,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9e6ea320c06274d223bc06ff9ed946c156ac4b06be9fc4fd7c081e2c5ead6928"
+        "fingerprint": "d8ff6947b13b344915b7b7d3bf7d47c474e98972ea0566e90ff13a04d1493f2e"
       },
       {
         "id": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
@@ -8783,6 +8864,7 @@
         "ownerPath": "content/manipulation/cross-embodiment.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8832,7 +8914,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f5fc7a61e81ce8e6418cf8f70d0f686c2ac3e90bf6ffb5b3acb1467dfe49b406"
+        "fingerprint": "562a2ea4d247bcfc8701baefc9e10a44de2c15f893d5a29a4411f5fec17cde52"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:DenoisingLoop:1",
@@ -8841,6 +8923,7 @@
         "ownerPath": "content/manipulation/diffusion-policy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8890,7 +8973,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e991a7bf03fca22eae1dfe046819404afc59d4333d87e5246caee9702e3c6be4"
+        "fingerprint": "6a93b8f8c60a7d2946c1946d7d4c224485c0740028f39a7db25d9fa205ca7697"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
@@ -8899,6 +8982,7 @@
         "ownerPath": "content/manipulation/diffusion-policy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -8948,7 +9032,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a7c6e8d5b831b5839b7293a5f4128d0689d4301e4c037e81f9904747364cddc0"
+        "fingerprint": "56b592eb9a4ad247235feac00e40669dc988b876309fb2ba3dd690f5a7354409"
       },
       {
         "id": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
@@ -8957,6 +9041,7 @@
         "ownerPath": "content/manipulation/generalist-policies.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9006,7 +9091,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "3ff52e92c5479358c6775fa7d902a7a3c05c85ec8b6b122d806da3ca82cae4a5"
+        "fingerprint": "4996a9f4ff005f510a6cdcd7b5c47da67ac10f85ae54ad2ef83a3b5fe2f64615"
       },
       {
         "id": "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
@@ -9015,6 +9100,7 @@
         "ownerPath": "content/manipulation/hierarchical.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9075,7 +9161,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "47dea703a9714cf2338d7747dd5b32182d94c1b53571fe2946f13dc7c0b5d9b9"
+        "fingerprint": "f0205437f109d1786e3a622ef7ac646bc959e02c1ca000160c8a24806b32756f"
       },
       {
         "id": "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
@@ -9084,6 +9170,7 @@
         "ownerPath": "content/manipulation/knowledge-insulation.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9144,7 +9231,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "48dba96023df95b38a27ce4720ff8f725252ce25955f6b4b0e25e802a91f3386"
+        "fingerprint": "068a0f2cc3e797f4871f0f438bdf23ed19500225073e1f619b9d3f355d060623"
       },
       {
         "id": "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
@@ -9153,6 +9240,7 @@
         "ownerPath": "content/manipulation/pi-line.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9213,7 +9301,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "26322d1e096574e2a67c31cb5507618117bd809a2eb8bc061dc5ed56a1093708"
+        "fingerprint": "a0addda93bf4e8f917a24b60c4f057556fa19ca1312bf3eba2e5d7286765b717"
       },
       {
         "id": "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
@@ -9222,6 +9310,7 @@
         "ownerPath": "content/manipulation/pi-line.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9271,7 +9360,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "7b11311963968521ed10b9a1ae980f0e730b791855dad2b798568f4d446c1673"
+        "fingerprint": "ed26cb9ec2424fabcb99c92e158589b5d07b22f9e01522b30a8c11e9dea631d4"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
@@ -9280,6 +9369,7 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9329,7 +9419,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f1ae70a343e34ad83595a5885fe995c1e44a176bb7ec0bb363c4408c9e2589ba"
+        "fingerprint": "95d19f20db0ec5d29765ad5efd95181302478c3ff959e8d9e95f2e37e21d0517"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ControlLoopBudget:2",
@@ -9338,6 +9428,15 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 2,
         "props": "defaultParamsB={1.1} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -9387,7 +9486,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "92fb0078308888f92703ae866fcb213e3f7a2e97b5ca0a3752292c4519160dbf"
+        "fingerprint": "191f8e12523973db2dc02c5831d580a25658e1b406d788e3fe7e7e7e3ef812e7"
       },
       {
         "id": "mount:/manipulation/realtime-execution/:ExecutionModes:1",
@@ -9396,6 +9495,7 @@
         "ownerPath": "content/manipulation/realtime-execution.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9445,7 +9545,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9b3b04e33a5e28428c35a209e53821b7cb6d6c6c4d5d9d0ba0f9107f5a9e78fd"
+        "fingerprint": "ee779fe48da239f714c89b337febf2f20483a6873f8cf3e2e62cc8b0702a5cf4"
       },
       {
         "id": "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
@@ -9454,6 +9554,7 @@
         "ownerPath": "content/manipulation/rl-finetuning.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9514,7 +9615,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c429c0e33ad1d223e3e1d3c5ca3ab081d12a84f99a25ca378c1da65f99e32c0d"
+        "fingerprint": "7d606c4461784c6a277a14bcafd911298009fa29cb8df46fec5f50b8b545fd58"
       },
       {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
@@ -9523,6 +9624,7 @@
         "ownerPath": "content/manipulation/vla-models.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9583,7 +9685,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "8a8e03ce7bb250a01c76212f69c08645747855eefd7dbb7cc8ce25e224e3a3fc"
+        "fingerprint": "56d6d483218d7aae9d7b9a1e0fa2772c5f2d941377615350bd7ba87590e123c7"
       },
       {
         "id": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
@@ -9592,6 +9694,7 @@
         "ownerPath": "content/rl-sim2real/humanoid-wbc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9641,7 +9744,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d39edbcafd297ecfd6fc1d07212f90c5f645cb38afc6d95bb225fe3acc1e3f2a"
+        "fingerprint": "a609088cf8e411f354d4c6b158eb2d11749669150fe006aff2f174601b63d6ba"
       },
       {
         "id": "mount:/rl-sim2real/legged-locomotion/:GaitDiagram:1",
@@ -9650,6 +9753,7 @@
         "ownerPath": "content/rl-sim2real/legged-locomotion.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9710,7 +9814,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "0fe33579e85230c3bb2ec3fa38c64bb83be95f470b4d4806f7ad24b874c76796"
+        "fingerprint": "05e66f318e7af25723773c9a3f5e0ea7bee314719d9e362ac3368b98ebef0aca"
       },
       {
         "id": "mount:/rl-sim2real/parallel-sim-rl/:TrainingTimeChart:1",
@@ -9719,6 +9823,7 @@
         "ownerPath": "content/rl-sim2real/parallel-sim-rl.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9779,7 +9884,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c9d9480fcbabdcf19f28bb02eda8727c59677a1e1b37ac19127eb75ef373f442"
+        "fingerprint": "0fec34a5ff7cb2235fc5a1d1806b16e8a20bef2096f14b53d0e048c801346898"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -9788,6 +9893,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9831,7 +9937,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "51b1592c933fca9c4a7606608da6bd77daa8ebf12356d9d11a7a0a82c79267da"
+        "fingerprint": "29fbe7199c239853f671a5284bfbef313ce68bebc73f08bfd7220d416681d0b7"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
@@ -9840,6 +9946,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9889,7 +9996,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "4c9c9a92bfcd8bc8049ce74d1e1e726e26724b62988a60779359fe9b49bc609d"
+        "fingerprint": "008f5a8dde5250074e677a2b2d56a2480d23074a4b7d2625d3e6b8433216e891"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
@@ -9898,6 +10005,7 @@
         "ownerPath": "content/rl-sim2real/reward-design-mpc.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -9947,7 +10055,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "6956b30b4ca3cfe1bcbafb714f1295db3a99682e028b83a910273f8ff11cd709"
+        "fingerprint": "85b61c87055b332c1cec37c8c66344c5328df9a55b1598943ee1409d965107bd"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -9956,6 +10064,7 @@
         "ownerPath": "content/rl-sim2real/rl-for-robotics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10016,7 +10125,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "e72aa68a8511f2c6f65a72f902b1bd11b4eb4d405c849626c2710cd2277ef716"
+        "fingerprint": "01ee0118515730ae6d40066a37af848c5e7030f588f03486b76fbc6dca39e0cc"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -10025,6 +10134,7 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10074,7 +10184,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "0efeb335906bdc9233d5232974d0ffa27f01fbbfcb38017875cf8d689ad60478"
+        "fingerprint": "53fde30dfdf3df5cd8ec248953a47ab553cd137c238be88f2076a4c41faf5346"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:2",
@@ -10083,6 +10193,15 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 2,
         "props": "defaultRange={0.65} className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
         "cases": [
           {
             "id": "default",
@@ -10132,7 +10251,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "e044bf2fca4c64e551dc63934a14352ba497a4c322f7e8fde8dd5b5bd596c445"
+        "fingerprint": "d4857020441db6a9a5c8bf477e298ed39ec90968a1d4a1ce49cc5a18ac4b6e46"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
@@ -10141,6 +10260,7 @@
         "ownerPath": "content/rl-sim2real/sim2real-transfer.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10190,7 +10310,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "9fb734207a2799e3cfcd64b9a694b99b37025393f35870200d58d61dcb1df8f6"
+        "fingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
@@ -10199,6 +10319,7 @@
         "ownerPath": "content/rl-sim2real/why-rl-locomotion.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10259,7 +10380,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "387009d4c2894ca58b56b18178b174b7dd7af1db5cf0aaf1364de209fa71c481"
+        "fingerprint": "caae96c4c7a65e889c0246a4522d7bd28b3aa92fe0604afcef989be290006b69"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -10268,6 +10389,7 @@
         "ownerPath": "content/world-models/generative-sim.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10328,7 +10450,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4087949966867cfe2019cc7319537e6c0927c38014eb44d48c358557d6061eca"
+        "fingerprint": "207f0ed7b4bd0ef45f34df5581be8406ff38c630264f6b1ac3cf574e1b370b7e"
       },
       {
         "id": "mount:/world-models/generative-video/:ActionConditioning:1",
@@ -10337,6 +10459,7 @@
         "ownerPath": "content/world-models/generative-video.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10386,7 +10509,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "77af5da32836bd7aafffe39b0a5d6683a367eba96d877877848d4b5b1580776e"
+        "fingerprint": "b530ac909cd052171e83191a920f37706da42e2cc0e49a488ef16f10bdd285c3"
       },
       {
         "id": "mount:/world-models/jepa/:JepaPlanning:1",
@@ -10395,6 +10518,7 @@
         "ownerPath": "content/world-models/jepa.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10455,7 +10579,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "4bf08b505ab1bf14705485f9671d264f7c201fa1c91bd70bf89e15e8244908b4"
+        "fingerprint": "5dc2d25f15d7361d1858b1d65d5e7085c36540267b2bb53ed36ac2995bcfa390"
       },
       {
         "id": "mount:/world-models/latent-dynamics/:LatentImagination:1",
@@ -10464,6 +10588,7 @@
         "ownerPath": "content/world-models/latent-dynamics.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10524,7 +10649,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "b825408d802fe6a23db3f6d6bb6bb5a1d4d97e71398c3ff9372d89ad35f4c511"
+        "fingerprint": "a82134d61bbd611feb396cd1b8f629f5c5b24c100b20bf42c2d013c4c1b7a746"
       },
       {
         "id": "mount:/world-models/taxonomy/:WmDisambiguator:1",
@@ -10533,6 +10658,7 @@
         "ownerPath": "content/world-models/taxonomy.mdx",
         "ordinal": 1,
         "props": "className=\"my-6\" /",
+        "containers": [],
         "cases": [
           {
             "id": "default",
@@ -10582,7 +10708,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "5dd43c45c27e823c341b8f660172788387073b5f1281ac22726753e1889447b8"
+        "fingerprint": "989a89220f19a1652f49c54f31770f12a2528b1fdeee01d1308fa50ad6eea4ff"
       }
     ]
   },
@@ -11843,5 +11969,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "c6ff487762cdb784dc883cb70d6def1e7c30364634d8e4e693743a0f415ea993"
+  "rootFingerprint": "036bb993b4266d31d14f65376a106fc5ff08357a71a19cf065a22aea4a279cba"
 }
