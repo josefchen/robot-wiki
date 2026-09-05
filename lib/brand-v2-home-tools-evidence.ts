@@ -9,6 +9,7 @@ import {
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
+import { stripComments } from './source-comments.ts';
 
 /**
  * Evidence for home's live tool entry points and its responsive/accessible
@@ -843,16 +844,298 @@ export type FeaturedMountRegistration = {
 const MODULE_PAGE_OWNER_PREFIX = 'content/';
 
 /**
- * Whether a registered mount seeds the instrument itself rather than
- * inheriting the component's own default state.
+ * The component parameter each half of the shared model is seeded from.
  *
- * A `default*` prop in the registration is the whole of it. This is a fact
- * about the registration, not about the render: a mount that passes no
- * default opens on the same state every other such mount opens on, which is
- * what makes "opens like home" a derivable claim rather than an approval.
+ * Naming them binds the model to the component's own parameter list; the
+ * values behind the names are read out of the component source and are
+ * never restated here. A component that stops declaring either parameter is
+ * one this model can no longer be computed for, and that throws rather than
+ * falling back to a number written next to the assertion.
  */
-export function registersOwnDefaultState(props: string): boolean {
-  return /(?:^|\s)default[A-Z]\w*=/.test(props);
+const PER_STEP_PARAMETER = 'defaultPerStep';
+const EPISODE_LENGTH_PARAMETER = 'defaultSteps';
+
+/** Slider values are floats; a control is at its declared value within this. */
+const SLIDER_VALUE_TOLERANCE = 1e-6;
+
+/**
+ * What the featured component declares about its own canonical state, read
+ * from the component's source.
+ *
+ * `configurableParameters` are the parameters the component gives a
+ * canonical default value to, so overriding one is departing from the
+ * canonical render. A parameter the component declares without a default
+ * (`className`) has no canonical value to depart from and is not one.
+ */
+export type FeaturedComponentDefaults = {
+  configurableParameters: string[];
+  /** The declared per-step success probability, in the component's own unit. */
+  perStepFraction: number;
+  /** The declared episode length, in steps. */
+  steps: number;
+};
+
+/** Index of the bracket matching `text[open]`, ignoring brackets in strings. */
+function matchingBracket(text: string, open: number): number {
+  let depth = 0;
+  let quote: string | null = null;
+  for (let index = open; index < text.length; index += 1) {
+    const char = text[index];
+    if (quote !== null) {
+      if (char === '\\') {
+        index += 1;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '{' || char === '(' || char === '[') depth += 1;
+    else if (char === '}' || char === ')' || char === ']') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+/** The top-level members of a destructuring pattern body. */
+function patternMembers(body: string): string[] {
+  const members: string[] = [];
+  let depth = 0;
+  let quote: string | null = null;
+  let current = '';
+  for (let index = 0; index < body.length; index += 1) {
+    const char = body[index];
+    if (quote !== null) {
+      current += char;
+      if (char === '\\') {
+        current += body[index + 1] ?? '';
+        index += 1;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      current += char;
+      continue;
+    }
+    if (char === '{' || char === '(' || char === '[') depth += 1;
+    if (char === '}' || char === ')' || char === ']') depth -= 1;
+    if (char === ',' && depth === 0) {
+      members.push(current);
+      current = '';
+      continue;
+    }
+    current += char;
+  }
+  members.push(current);
+  return members.map((member) => member.trim()).filter(Boolean);
+}
+
+/** A declared default as a number, following one module-level constant. */
+function resolveDeclaredNumber(
+  expression: string,
+  source: string,
+): number | null {
+  if (/^-?\d+(?:\.\d+)?$/.test(expression)) return Number(expression);
+  if (!/^[A-Za-z_$][\w$]*$/.test(expression)) return null;
+  const constant = new RegExp(
+    `\\bconst\\s+${expression}\\s*(?::[^=]+)?=\\s*(-?\\d+(?:\\.\\d+)?)\\s*;`,
+  ).exec(source);
+  return constant === null ? null : Number(constant[1]);
+}
+
+/**
+ * Reads the featured component's declared defaults out of its own source.
+ *
+ * The prediction every mount is held to is computed from these values, so
+ * they are read from the module that declares them rather than copied into
+ * this instrument. Changing `defaultSteps` in the component therefore moves
+ * the value home's rendered readout has to equal, instead of moving nothing
+ * because the instrument carried its own copy of the number.
+ *
+ * Every parse failure throws. A component whose props cannot be read is one
+ * whose canonical default is unknown, and an unknown canonical default must
+ * not resolve to a lenient one.
+ */
+export function featuredComponentDefaults(source: {
+  component: string;
+  path: string;
+  text: string;
+}): FeaturedComponentDefaults {
+  const text = stripComments(source.text);
+  const signature = new RegExp(
+    `export\\s+function\\s+${source.component}\\s*\\(`,
+  ).exec(text);
+  if (signature === null) {
+    throw new Error(
+      `${source.path} exports no function ${source.component}, so the featured component's declared defaults cannot be read`,
+    );
+  }
+  const afterParen = signature.index + signature[0].length;
+  const rest = text.slice(afterParen);
+  const lead = rest.length - rest.trimStart().length;
+  if (rest.trimStart().startsWith('{') === false) {
+    throw new Error(
+      `${source.path} does not destructure ${source.component}'s props, so which parameters carry a canonical default cannot be read`,
+    );
+  }
+  const open = afterParen + lead;
+  const close = matchingBracket(text, open);
+  if (close === -1) {
+    throw new Error(
+      `${source.path} leaves ${source.component}'s parameter pattern unterminated`,
+    );
+  }
+  const members = patternMembers(text.slice(open + 1, close));
+  if (members.length === 0) {
+    throw new Error(
+      `${source.path} declares no parameter for ${source.component}, so nothing carries a canonical default`,
+    );
+  }
+  const configurableParameters: string[] = [];
+  const declared = new Map<string, string>();
+  for (const member of members) {
+    const equals = member.indexOf('=');
+    const name = (equals === -1 ? member : member.slice(0, equals)).trim();
+    if (/^[A-Za-z_$][\w$]*$/.test(name) === false) {
+      throw new Error(
+        `${source.path} declares ${source.component} parameter "${member}", which is not a plain named prop, so what it defaults cannot be read`,
+      );
+    }
+    if (equals === -1) continue;
+    configurableParameters.push(name);
+    declared.set(name, member.slice(equals + 1).trim());
+  }
+  const seeds: Record<string, number> = {};
+  for (const parameter of [PER_STEP_PARAMETER, EPISODE_LENGTH_PARAMETER]) {
+    const expression = declared.get(parameter);
+    if (expression === undefined) {
+      throw new Error(
+        `${source.path} declares no default for ${source.component}'s ${parameter}, so the shared model has no canonical value to predict from`,
+      );
+    }
+    const value = resolveDeclaredNumber(expression, text);
+    if (value === null) {
+      throw new Error(
+        `${source.path} defaults ${source.component}'s ${parameter} to "${expression}", which is not a number the shared model can be computed from`,
+      );
+    }
+    seeds[parameter] = value;
+  }
+  return {
+    configurableParameters,
+    perStepFraction: seeds[PER_STEP_PARAMETER],
+    steps: seeds[EPISODE_LENGTH_PARAMETER],
+  };
+}
+
+/**
+ * The props one mount is registered with, as name/value pairs.
+ *
+ * Scanned rather than matched, because a `=` inside a string or an
+ * expression is not an attribute boundary. A spread throws: props that
+ * cannot be enumerated cannot be reconciled against the component's
+ * parameter list.
+ */
+export function registeredProps(props: string): Map<string, string> {
+  const values = new Map<string, string>();
+  let index = 0;
+  while (index < props.length) {
+    const char = props[index];
+    if (/\s/.test(char)) {
+      index += 1;
+      continue;
+    }
+    // JSX self-closes the mount; the census keeps that punctuation verbatim.
+    if (char === '/' || char === '>') break;
+    if (char === '{') {
+      throw new Error(
+        `the registered props "${props.trim()}" spread an expression, so the props this mount is written with cannot be enumerated`,
+      );
+    }
+    const name = /^[A-Za-z_$][\w$-]*/.exec(props.slice(index));
+    if (name === null) {
+      throw new Error(
+        `the registered props "${props.trim()}" begin an attribute with "${char}"`,
+      );
+    }
+    index += name[0].length;
+    while (index < props.length && /\s/.test(props[index])) index += 1;
+    if (props[index] !== '=') {
+      values.set(name[0], '');
+      continue;
+    }
+    index += 1;
+    while (index < props.length && /\s/.test(props[index])) index += 1;
+    const opener = props[index];
+    if (opener === '"' || opener === "'") {
+      const end = props.indexOf(opener, index + 1);
+      if (end === -1) {
+        throw new Error(
+          `the registered props "${props.trim()}" leave ${name[0]} unterminated`,
+        );
+      }
+      values.set(name[0], props.slice(index + 1, end));
+      index = end + 1;
+      continue;
+    }
+    if (opener === '{') {
+      const end = matchingBracket(props, index);
+      if (end === -1) {
+        throw new Error(
+          `the registered props "${props.trim()}" leave ${name[0]} unterminated`,
+        );
+      }
+      values.set(name[0], props.slice(index + 1, end).trim());
+      index = end + 1;
+      continue;
+    }
+    throw new Error(
+      `the registered props "${props.trim()}" give ${name[0]} a value beginning "${String(opener)}"`,
+    );
+  }
+  return values;
+}
+
+/**
+ * The state the shared model predicts one mount opens on: the component's
+ * declared defaults, overridden by that mount's own registered props.
+ *
+ * Uniform. A mount that overrides a seed moves its own prediction and is
+ * held to the moved one; it is never held to a weaker claim, and never to
+ * none.
+ */
+export function mountModelInputs(
+  registration: FeaturedMountRegistration,
+  component: FeaturedComponentDefaults,
+): { perStepPercent: number; steps: number } {
+  const props = registeredProps(registration.props);
+  const numeric = (parameter: string): number | null => {
+    const raw = props.get(parameter);
+    if (raw === undefined) return null;
+    const value = Number(raw);
+    if (Number.isFinite(value) === false) {
+      throw new Error(
+        `${registration.mountId} registers ${parameter}={${raw}}, which is not a number the shared model can be computed from`,
+      );
+    }
+    return value;
+  };
+  const perStep = numeric(PER_STEP_PARAMETER) ?? component.perStepFraction;
+  return {
+    // The component's parameter is a probability and the control it seeds is
+    // a percentage. The conversion is checked against the rendered control
+    // on every mount, so a component that changed the unit fails loudly.
+    perStepPercent: perStep * 100,
+    steps: numeric(EPISODE_LENGTH_PARAMETER) ?? component.steps,
+  };
 }
 
 /**
@@ -866,8 +1149,15 @@ export function registersOwnDefaultState(props: string): boolean {
  * hand-picked pair would be an approval wearing a derivation's clothes, and
  * checking home against every module-page mount is strictly stronger than
  * checking it against any one of them, so the pair is widened rather than
- * chosen. See the note on `crossMountVerdicts` for the registry field that
- * would make the singular derivable.
+ * chosen.
+ *
+ * The singular no longer decides anything, because the three clauses in
+ * `crossMountVerdicts` are applied to every registered mount on identical
+ * terms. Which module page is "its" one would change what this set is
+ * called and nothing about what any mount has to satisfy. The registry
+ * field that would make the singular derivable is still worth adding, and
+ * is recorded against
+ * `brand-v2-truth-enforcement-and-release-evidence-closeout`.
  */
 export function modulePageMounts(
   registrations: readonly FeaturedMountRegistration[],
@@ -878,48 +1168,54 @@ export function modulePageMounts(
 }
 
 /**
- * Decides `VAL-CROSS-015` per registered mount of the featured component.
+ * Decides `VAL-CROSS-015` over every registered mount of the featured
+ * component, on identical terms.
  *
- * The assertion pairs home with the interactive's module page, and the
- * pairing is derived here from the interactive registry: home is the mount
- * whose owner is the home route's own module, and a module-page mount is one
- * whose owner is a content module. Both halves are registered facts. What
- * they cannot supply is the assertion's singular: this interactive is
- * mounted on two module pages, and nothing in the registry says which is
- * "its" one, so the pair is widened to every module-page mount rather than
- * picked. A `canonicalRoute` (or equivalent) field on the interactive source
- * row would make the singular derivable; until one exists this row is honest
- * about being the stronger claim rather than the stated one.
+ * The assertion pairs home with the interactive's module page, and both
+ * halves are derived from the interactive registry: home is the mount whose
+ * owner is the home route's own module, and a module-page mount is one whose
+ * owner is a content module. The assertion's singular ("its module page")
+ * has no unique referent — this interactive is mounted on two module pages
+ * and no registry field names one as canonical — so the pair is widened to
+ * every module-page mount rather than picked. That gap no longer changes any
+ * outcome: the three clauses below quantify over every mount, so which page
+ * is "its" one would rename the set and alter nothing any mount must satisfy.
  *
- * Three things are asserted, and they are kept apart because conflating them
- * is what produced the exemption this replaced:
+ * Three clauses, each applied to every mount with no branch on anything a
+ * mount says about itself:
  *
- * - **The model.** Every mount, with no exception of any kind, must open
- *   printing what the shared model predicts from its own recorded inputs.
- *   The commit-to-reveal quiz seeded to 95% over 14 steps is held to this
- *   exactly as home is; being seeded differently is not being excused.
+ * - **The canonical featured copy.** Home's mount must register no override
+ *   of a parameter the component gives a canonical default, so home renders
+ *   the component's own default state. This is what actually keeps the
+ *   featured copy from drifting away from the canonical one.
+ * - **The model.** Every mount's opening state and reset state must equal
+ *   what the shared model predicts from the component's declared defaults
+ *   overridden by that mount's own registered props. The commit-to-reveal
+ *   quiz seeded to 95% over 14 steps is included on exactly these terms and
+ *   passes because 48.8% really is what 0.95 over 14 steps compounds to.
  * - **The behaviour.** Every mount driven to the same slider values must
- *   read what home reads, must reset to its own initial state twice over,
- *   and must expose the same controls. This is what "behaves identically"
- *   says, and it is genuinely justified across all mounts of one component.
- * - **The configuration.** A mount whose registration declares no `default*`
- *   prop inherits the component's one default state, so it must open exactly
- *   where home opens. A mount whose registration declares one must not:
- *   opening where home opens would mean the registered seed does nothing.
+ *   read what home reads and expose the same controls. This is what
+ *   "behaves identically" says, and it compares behaviour rather than an
+ *   author's choice of worked example.
  *
- * The reading this replaces asserted configuration parity over every mount
- * and then exempted the seeded quiz through
- * `contract/brand-v2-seeded-mount-registry.json`, a checked-in approval
- * granting one mount an exception to a locked criterion. Nothing grants an
- * exception now: the quiz's seed is read off its own registration, which is
- * generated from the document that mounts it.
+ * Two earlier readings needed an exemption and neither exists now. The first
+ * asserted configuration parity across every mount and bought the seeded
+ * quiz out through `contract/brand-v2-seeded-mount-registry.json`, a
+ * checked-in approval against a locked criterion. The second replaced that
+ * registry with a clause that skipped the initial-state comparison for any
+ * mount whose registration declared a `default*` prop — the same exemption,
+ * granted by the mount's own source instead of by a JSON file, and so
+ * derivable from a property the subject supplies about itself. Comparing
+ * every mount against the model instead removes the need for either: a
+ * differently seeded mount predicts a different value and is held to that
+ * value, which is a requirement rather than an excuse.
  */
 export function crossMountVerdicts(
   evidence: HomeToolsEvidence,
   registrations: readonly FeaturedMountRegistration[],
+  component: FeaturedComponentDefaults,
 ): Verdict[] {
   const home = evidence.featured;
-  const homeInputs = seededInputs(home.initialSliders);
   const byMountId = new Map(
     registrations.map((registration) => [registration.mountId, registration]),
   );
@@ -957,80 +1253,60 @@ export function crossMountVerdicts(
       `the sweep measured ${unregistered.join(', ')}, which the interactive registry does not register`,
     );
   }
-  // A mount that inherits the component default is what home's own initial
-  // state is compared against. If every sibling seeds itself, nothing is
-  // left to compare, and that is a failure rather than a silent pass.
-  const inheritingSiblings = evidence.siblingMounts.filter(
-    (mount) => !registersOwnDefaultState(byMountId.get(mount.mountId)!.props),
-  );
-  const homeInherits = !registersOwnDefaultState(homeRegistration.props);
-  return evidence.siblingMounts.map((mount) => {
+  // Home is a member of its own assertion, not the yardstick standing
+  // outside it, so it is decided by the same three clauses as every mount.
+  const population: MountObservation[] = [home, ...evidence.siblingMounts];
+  return population.map((mount) => {
     const failures: string[] = [];
     const registration = byMountId.get(mount.mountId)!;
-    const seedsItself = registersOwnDefaultState(registration.props);
     const onModulePage = registration.ownerPath.startsWith(
       MODULE_PAGE_OWNER_PREFIX,
     );
-    const mountInputs = seededInputs(mount.initialSliders);
+    const overrides = [...registeredProps(registration.props).keys()].filter(
+      (name) => component.configurableParameters.includes(name),
+    );
+    const predicted = mountModelInputs(registration, component);
+    const predictedReadout = expectedEpisodeSuccessReadout(predicted);
     if (registration.route !== mount.route) {
       failures.push(
         `the interactive registry places ${mount.mountId} on ${registration.route}, where it was measured on ${mount.route}`,
       );
     }
-    if (inheritingSiblings.length === 0) {
+
+    // Clause 1: the featured copy is the canonical one.
+    if (mount.mountId === home.mountId && overrides.length > 0) {
       failures.push(
-        'every registered sibling of the featured instrument seeds its own default state, so no mount is left to compare home\u2019s initial state against',
+        `home features ${mount.mountId} with ${overrides.join(', ')} overridden (${registration.props.trim()}), so the copy a reader meets first is not the component's canonical default`,
       );
     }
-    if (mountInputs === null) {
+
+    // Clause 2: opening and reset state equal the model's prediction.
+    const opening = seededInputs(mount.initialSliders);
+    if (opening === null) {
       failures.push(
-        `${mount.mountId} exposes no identifiable per-step and episode-length controls, so its initial state cannot be compared`,
+        `${mount.mountId} exposes no identifiable per-step and episode-length controls, so its opening state cannot be compared with the model`,
       );
-    } else if (mount.initialReadout !== expectedEpisodeSuccessReadout(mountInputs)) {
-      failures.push(
-        `${mount.mountId} opens reading ${mount.initialReadout} where the shared model predicts ${expectedEpisodeSuccessReadout(mountInputs)} for its own ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps`,
-      );
-    }
-    if (mountInputs !== null && homeInputs === null) {
-      failures.push(
-        'home exposes no identifiable per-step and episode-length controls, so no mount can be compared against it',
-      );
-    } else if (mountInputs !== null && homeInputs !== null) {
-      const opensLikeHome =
-        mountInputs.perStepPercent === homeInputs.perStepPercent &&
-        mountInputs.steps === homeInputs.steps;
-      if (!seedsItself && !homeInherits) {
+    } else {
+      if (
+        Math.abs(opening.perStepPercent - predicted.perStepPercent) >
+          SLIDER_VALUE_TOLERANCE ||
+        opening.steps !== predicted.steps
+      ) {
         failures.push(
-          `${mount.mountId} inherits the component default state while home is registered with one of its own (${homeRegistration.props.trim()}), so home is not the reading of that default to compare it against`,
-        );
-      } else if (!seedsItself && !opensLikeHome) {
-        failures.push(
-          `${mount.mountId} registers no default state of its own and opens at ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps where home opens at ${homeInputs.perStepPercent}% over ${homeInputs.steps}`,
-        );
-      } else if (!seedsItself && mount.initialReadout !== home.initialReadout) {
-        failures.push(
-          `${mount.mountId} registers no default state of its own and opens reading ${mount.initialReadout} where home opens reading ${home.initialReadout}`,
-        );
-      } else if (seedsItself && opensLikeHome) {
-        failures.push(
-          `${mount.mountId} is registered with its own default state (${registration.props.trim()}) and opens exactly where home opens, so the registered seed changes nothing the reader meets`,
+          `${mount.mountId} opens at ${opening.perStepPercent}% per step over ${opening.steps} steps where its own registration and the component's declared defaults predict ${predicted.perStepPercent}% over ${predicted.steps}`,
         );
       }
     }
-    if (mount.drivenReadout !== home.drivenReadout) {
-      failures.push(
-        `at ${CROSS_MOUNT_INPUT.perStepPercent}% per step over ${CROSS_MOUNT_INPUT.steps} steps ${mount.mountId} reads ${mount.drivenReadout} where home reads ${home.drivenReadout}`,
-      );
-    }
-    if (mount.resetReadout !== mount.initialReadout) {
-      failures.push(
-        `${mount.mountId} reset to ${mount.resetReadout} rather than its own initial ${mount.initialReadout}`,
-      );
-    }
-    if (mount.secondResetReadout !== mount.initialReadout) {
-      failures.push(
-        `${mount.mountId} is not deterministic under a second reset (${mount.secondResetReadout})`,
-      );
+    for (const [phase, readout] of [
+      ['opens', mount.initialReadout],
+      ['resets to', mount.resetReadout],
+      ['resets a second time to', mount.secondResetReadout],
+    ] as const) {
+      if (readout !== predictedReadout) {
+        failures.push(
+          `${mount.mountId} ${phase} ${readout} where the shared model predicts ${predictedReadout} from its own ${predicted.perStepPercent}% per step over ${predicted.steps} steps`,
+        );
+      }
     }
     for (const [index, slider] of mount.resetSliders.entries()) {
       const initial = mount.initialSliders[index];
@@ -1039,6 +1315,26 @@ export function crossMountVerdicts(
           `${mount.mountId} reset "${slider.accessibleName}" to ${slider.value} rather than ${initial.value}`,
         );
       }
+    }
+
+    // Clause 3: identical control values produce an identical readout.
+    const driven = seededInputs(mount.drivenSliders);
+    if (driven === null) {
+      failures.push(
+        `${mount.mountId} exposes no identifiable per-step and episode-length controls when driven, so its readout cannot be compared with home\u2019s`,
+      );
+    } else if (
+      driven.perStepPercent !== CROSS_MOUNT_INPUT.perStepPercent ||
+      driven.steps !== CROSS_MOUNT_INPUT.steps
+    ) {
+      failures.push(
+        `${mount.mountId} was driven to ${driven.perStepPercent}% per step over ${driven.steps} steps rather than the shared ${CROSS_MOUNT_INPUT.perStepPercent}% over ${CROSS_MOUNT_INPUT.steps}, so its readout was never compared on the same inputs`,
+      );
+    }
+    if (mount.drivenReadout !== home.drivenReadout) {
+      failures.push(
+        `at ${CROSS_MOUNT_INPUT.perStepPercent}% per step over ${CROSS_MOUNT_INPUT.steps} steps ${mount.mountId} reads ${mount.drivenReadout} where home reads ${home.drivenReadout}`,
+      );
     }
     if (mount.resetControlNames.length !== home.resetControlNames.length) {
       failures.push(
@@ -1057,23 +1353,20 @@ export function crossMountVerdicts(
         driven: mount.drivenReadout,
         homeDriven: home.drivenReadout,
         initial: mount.initialReadout,
-        homeInitial: home.initialReadout,
-        modelPredictedInitial:
-          mountInputs === null
-            ? null
-            : expectedEpisodeSuccessReadout(mountInputs),
+        reset: mount.resetReadout,
+        modelPredictedReadout: predictedReadout,
+        modelInputs: predicted,
         // The derivation, on the row it decided: which document mounts this
         // instance, whether that makes it the module-page half of the pair,
-        // and whether its registration seeds it or leaves it inheriting the
-        // component default. Nothing here is an approval; all three are read
-        // off the generated interactive registry.
+        // the props it is registered with, and which of the component's
+        // canonical defaults those props override. The overrides are what
+        // move this row's prediction, and on home they are the clause.
         ownerPath: registration.ownerPath,
+        isFeaturedHomeMount: mount.mountId === home.mountId,
         pairedWithHomeAsModulePage: onModulePage,
         registeredProps: registration.props.trim(),
-        registersOwnDefaultState: seedsItself,
-        initialStateComparedToHome: !seedsItself,
+        configurationOverrides: overrides,
         revealedByControls: mount.revealedByControls,
-        reset: mount.resetReadout,
       },
       failures,
     };

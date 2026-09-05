@@ -9,16 +9,21 @@ import {
   accessibilityProfileVerdicts,
   crossMountVerdicts,
   expectedEpisodeSuccessPercent,
+  expectedEpisodeSuccessReadout,
+  featuredComponentDefaults,
   featuredInstrumentVerdicts,
   homeDesignBoundVerdicts,
   homeToolsEvidenceFingerprint,
+  mountModelInputs,
   playgroundEntryVerdicts,
   progressCounterVerdicts,
   readHomeToolsEvidence,
+  registeredProps,
   modulePageMounts,
   readoutPercent,
   requiredSweepWidths,
   responsiveOverflowVerdicts,
+  type FeaturedComponentDefaults,
   type FeaturedMountRegistration,
   type HomeToolsEvidence,
 } from '@/lib/brand-v2-home-tools-evidence';
@@ -32,6 +37,7 @@ const REGISTRY = JSON.parse(
 ) as {
   routes: { public: Array<{ id: string; path: string }> };
   interactive: {
+    sources: Array<{ id: string; component: string; sourcePath?: string }>;
     mounts: Array<{
       id: string;
       sourceId: string;
@@ -42,15 +48,21 @@ const REGISTRY = JSON.parse(
   };
 };
 
+/** The registry row for the component home features. */
+function featuredSourceId(): string {
+  const home = REGISTRY.interactive.mounts.find(({ route }) => route === '/');
+  if (!home) throw new Error('home registers no interactive mount');
+  return home.sourceId;
+}
+
 /**
  * Every registered mount of the component home features, derived from the
  * interactive registry exactly as the sweep and the generator derive it.
  */
 function featuredRegistrations(): FeaturedMountRegistration[] {
-  const home = REGISTRY.interactive.mounts.find(({ route }) => route === '/');
-  if (!home) throw new Error('home registers no interactive mount');
+  const sourceId = featuredSourceId();
   return REGISTRY.interactive.mounts
-    .filter(({ sourceId }) => sourceId === home.sourceId)
+    .filter((mount) => mount.sourceId === sourceId)
     .map(({ id, route, ownerPath, props }) => ({
       mountId: id,
       route,
@@ -59,13 +71,54 @@ function featuredRegistrations(): FeaturedMountRegistration[] {
     }));
 }
 
+/**
+ * The component's own declared defaults, read from the file the registry
+ * says declares them rather than restated here.
+ */
+function featuredComponent(): FeaturedComponentDefaults {
+  const source = REGISTRY.interactive.sources.find(
+    ({ id }) => id === featuredSourceId(),
+  );
+  if (!source?.sourcePath) {
+    throw new Error('the featured interactive registers no source path');
+  }
+  return featuredComponentDefaults({
+    component: source.component,
+    path: source.sourcePath,
+    text: readFileSync(join(ROOT, source.sourcePath), 'utf8'),
+  });
+}
+
 const MOUNTS = featuredRegistrations();
+const COMPONENT = featuredComponent();
 
 /** The registration of one measured mount, by id. */
 function registrationOf(mountId: string): FeaturedMountRegistration {
   const found = MOUNTS.find((mount) => mount.mountId === mountId);
   if (!found) throw new Error(`${mountId} is not a registered mount`);
   return found;
+}
+
+/**
+ * The mount whose registration moves it off the component's canonical
+ * default state, selected by the model rather than by the spelling of a
+ * prop, so this fixture cannot drift back into reading a mount's own
+ * declaration as a classification.
+ */
+function reseededMount(): FeaturedMountRegistration {
+  const found = MOUNTS.filter((mount) => {
+    const inputs = mountModelInputs(mount, COMPONENT);
+    return (
+      inputs.steps !== COMPONENT.steps ||
+      inputs.perStepPercent !== COMPONENT.perStepFraction * 100
+    );
+  });
+  if (found.length !== 1) {
+    throw new Error(
+      `${found.length} registered mounts are seeded off the component default; this fixture assumes exactly one`,
+    );
+  }
+  return found[0];
 }
 
 function fingerprint(): string {
@@ -106,7 +159,7 @@ describe('home tools evidence', () => {
       featuredInstrumentVerdicts(evidence).flatMap(({ failures }) => failures),
     ).toEqual([]);
     expect(
-      crossMountVerdicts(evidence, MOUNTS).flatMap(
+      crossMountVerdicts(evidence, MOUNTS, COMPONENT).flatMap(
         ({ failures }) => failures,
       ),
     ).toEqual([]);
@@ -230,138 +283,173 @@ describe('home tools evidence', () => {
     ).toEqual(['anchor:featured-keyboard-operable']);
   });
 
+  it('decides every registered mount, home included, on one set of clauses', () => {
+    const evidence = accept(committed());
+    const verdicts = crossMountVerdicts(evidence, MOUNTS, COMPONENT);
+    expect(verdicts.map(({ id }) => id).sort()).toEqual(
+      MOUNTS.map(({ mountId }) => mountId).sort(),
+    );
+    expect(
+      verdicts.filter(({ observed }) => observed.isFeaturedHomeMount === true)
+        .map(({ id }) => id),
+    ).toEqual([evidence.featured.mountId]);
+    // No row carries a field naming a class of mount, because there is no
+    // longer a class of mount: every row records the same three readings.
+    for (const verdict of verdicts) {
+      expect(Object.keys(verdict.observed).sort()).toEqual([
+        'configurationOverrides',
+        'driven',
+        'homeDriven',
+        'initial',
+        'isFeaturedHomeMount',
+        'modelInputs',
+        'modelPredictedReadout',
+        'ownerPath',
+        'pairedWithHomeAsModulePage',
+        'registeredProps',
+        'reset',
+        'revealedByControls',
+        'route',
+      ]);
+    }
+  });
+
   it('fails a mount that drifts from the one home features', () => {
     const drifted = mutate((evidence) => {
       evidence.siblingMounts[0].drivenReadout = '77.7%';
     });
-    const verdicts = crossMountVerdicts(accept(drifted), MOUNTS);
-    expect(verdicts.filter(({ failures }) => failures.length > 0)).toHaveLength(
-      1,
-    );
-    expect(verdicts[0].failures.join(' ')).toMatch(
+    const verdicts = crossMountVerdicts(accept(drifted), MOUNTS, COMPONENT);
+    const failing = verdicts.filter(({ failures }) => failures.length > 0);
+    expect(failing).toHaveLength(1);
+    expect(failing[0].failures.join(' ')).toMatch(
       new RegExp(`${CROSS_MOUNT_INPUT.steps} steps`),
     );
   });
 
-  it('fails a mount that inherits the component default yet opens elsewhere', () => {
-    const home = committed().featured;
-    const homeSteps = home.initialSliders.find(({ accessibleName }) =>
-      /episode length/i.test(accessibleName),
-    )!.value;
-    const inheriting = MOUNTS.find(
-      (mount) =>
-        mount.mountId !== home.mountId &&
-        !/(?:^|\s)default[A-Z]/.test(mount.props),
-    )!;
-    const drifted = mutate((evidence) => {
-      // A mount whose registration passes no `default*` prop renders the
-      // component's one default state, so it is claiming to open where home
-      // opens. Reseeded to a shorter episode, it no longer does.
-      const sibling = evidence.siblingMounts.find(
-        ({ mountId }) => mountId === inheriting.mountId,
-      )!;
-      for (const sliders of [sibling.initialSliders, sibling.resetSliders]) {
-        const steps = sliders.find(({ accessibleName }) =>
-          /episode length/i.test(accessibleName),
-        )!;
-        steps.value = 14;
-      }
-      sibling.initialReadout = '48.8%';
-      sibling.resetReadout = '48.8%';
-      sibling.secondResetReadout = '48.8%';
-    });
-    const failing = crossMountVerdicts(accept(drifted), MOUNTS).filter(
-      ({ failures }) => failures.length > 0,
-    );
-    expect(failing.map(({ id }) => id)).toEqual([inheriting.mountId]);
-    const reported = failing[0].failures.join(' ');
-    expect(reported).toMatch(
-      /registers no default state of its own and opens at 95% per step over 14 steps/,
-    );
-    expect(reported).toContain(`where home opens at 95% over ${homeSteps}`);
+  it('fails home when it features a configured copy rather than the canonical one', () => {
+    // Clause 1, and the real drift the deleted configuration clause was
+    // groping for: the copy a reader meets first must be the component's own
+    // default render, so home may override none of the parameters the
+    // component gives a canonical value.
+    const evidence = accept(committed());
+    expect(COMPONENT.configurableParameters).toContain('defaultSteps');
+    const homeRegistration = registrationOf(evidence.featured.mountId);
+    expect(
+      [...registeredProps(homeRegistration.props).keys()].filter((name) =>
+        COMPONENT.configurableParameters.includes(name),
+      ),
+    ).toEqual([]);
+    for (const planted of [
+      'defaultSteps={14} className="mt-5" /',
+      'descriptionVariant="evaluation" className="mt-5" /',
+    ]) {
+      expect(planted).not.toEqual(homeRegistration.props);
+      const configured = MOUNTS.map((mount) =>
+        mount.mountId === homeRegistration.mountId
+          ? { ...mount, props: planted }
+          : mount,
+      );
+      const failing = crossMountVerdicts(
+        evidence,
+        configured,
+        COMPONENT,
+      ).filter(({ failures }) => failures.length > 0);
+      expect(failing.map(({ id }) => id), planted).toEqual([
+        homeRegistration.mountId,
+      ]);
+      expect(failing[0].failures.join(' ')).toMatch(
+        /is not the component's canonical default/,
+      );
+    }
   });
 
-  it('holds a registered seed to the model without forcing home defaults on it', () => {
-    // A commit-to-reveal panel is registered with its own default state, so
-    // it is not claiming to open where home opens. Nothing exempts it from
-    // the model: it still has to print what the shared model computes from
-    // the inputs it was actually seeded with.
+  it('holds the reseeded quiz to the model on exactly the terms every mount is held to', () => {
+    // The mount that used to be exempt. It is registered with its own seed,
+    // so the model predicts a different value for it — and it is required to
+    // print that value, which is a requirement rather than an excuse.
     const evidence = accept(committed());
-    const seeded = MOUNTS.find((mount) =>
-      /(?:^|\s)default[A-Z]/.test(mount.props),
-    )!;
-    const verdict = crossMountVerdicts(evidence, MOUNTS).find(
-      ({ id }) => id === seeded.mountId,
+    const quiz = reseededMount();
+    const verdict = crossMountVerdicts(evidence, MOUNTS, COMPONENT).find(
+      ({ id }) => id === quiz.mountId,
     )!;
     expect(verdict.failures).toEqual([]);
-    expect(verdict.observed.registersOwnDefaultState).toBe(true);
-    expect(verdict.observed.initialStateComparedToHome).toBe(false);
     expect(verdict.observed.pairedWithHomeAsModulePage).toBe(true);
+    expect(verdict.observed.modelPredictedReadout).toBe(
+      expectedEpisodeSuccessReadout(mountModelInputs(quiz, COMPONENT)),
+    );
+    // Being behind a disclosure was once the whole criterion, and the round
+    // that closed that replaced the visibility fact with a checked-in
+    // approval. Neither decides anything now, and the disclosure is still
+    // recorded so the reading stays legible.
+    const gated = evidence.siblingMounts.find(
+      ({ mountId }) => mountId === quiz.mountId,
+    )!;
+    expect(gated.revealedByControls.length).toBeGreaterThan(0);
 
     const fabricated = mutate((row) => {
       const mount = row.siblingMounts.find(
-        ({ mountId }) => mountId === seeded.mountId,
+        ({ mountId }) => mountId === quiz.mountId,
       )!;
       mount.initialReadout = '90.0%';
       mount.resetReadout = '90.0%';
       mount.secondResetReadout = '90.0%';
     });
-    const failing = crossMountVerdicts(accept(fabricated), MOUNTS).filter(
-      ({ failures }) => failures.length > 0,
-    );
-    expect(failing).toHaveLength(1);
+    const failing = crossMountVerdicts(
+      accept(fabricated),
+      MOUNTS,
+      COMPONENT,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(failing.map(({ id }) => id)).toEqual([quiz.mountId]);
     expect(failing[0].failures.join(' ')).toMatch(
-      /opens reading 90.0% where the shared model predicts/,
+      /opens 90.0% where the shared model predicts 48.8%/,
     );
   });
 
-  it('reads the seed off the registration rather than off a visibility fact or an approval', () => {
-    // The input that used to pass, and then the input that used to be
-    // needed. Being behind a disclosure was once the whole criterion, and
-    // the round that closed that replaced the visibility fact with a
-    // checked-in approval granting one mount an exception to the criterion.
-    // Neither exists now: whether a mount seeds itself is read off the props
-    // it is registered with, so a mount that reseeds itself while
-    // registering no default fails and no declaration can excuse one.
+  it('predicts each mount from the component default its own props do not override', () => {
+    // Clause 2's other input. The declared default is read from the
+    // component's source, so moving it moves the value every mount that
+    // inherits it has to print — and leaves the reseeded mount, which
+    // overrides it, exactly where it was.
     const evidence = accept(committed());
-    const seeded = registrationOf(
-      MOUNTS.find((mount) => /(?:^|\s)default[A-Z]/.test(mount.props))!.mountId,
-    );
-    const gated = evidence.siblingMounts.find(
-      ({ mountId }) => mountId === seeded.mountId,
-    )!;
-    expect(gated.revealedByControls.length).toBeGreaterThan(0);
-    const stripped = MOUNTS.map((mount) =>
-      mount.mountId === seeded.mountId
-        ? { ...mount, props: 'className="mt-3" /' }
-        : mount,
-    );
-    const failing = crossMountVerdicts(evidence, stripped).filter(
-      ({ failures }) => failures.length > 0,
-    );
-    expect(failing.map(({ id }) => id)).toEqual([seeded.mountId]);
-    expect(failing[0].failures.join(' ')).toMatch(
-      /registers no default state of its own and opens at 95% per step over 14 steps/,
+    const quiz = reseededMount();
+    const inheriting = MOUNTS.filter(
+      ({ mountId }) => mountId !== quiz.mountId,
+    ).map(({ mountId }) => mountId);
+    expect(inheriting).toContain(evidence.featured.mountId);
+    const moved = crossMountVerdicts(evidence, MOUNTS, {
+      ...COMPONENT,
+      steps: COMPONENT.steps - 1,
+    }).filter(({ failures }) => failures.length > 0);
+    expect(moved.map(({ id }) => id).sort()).toEqual([...inheriting].sort());
+    expect(moved[0].failures.join(' ')).toMatch(
+      /where its own registration and the component's declared defaults predict/,
     );
 
-    // And the mirror: a registration that seeds a mount which opens exactly
-    // where home opens is a seed that changes nothing a reader meets.
-    const inheriting = MOUNTS.find(
-      (mount) =>
-        mount.mountId !== evidence.featured.mountId &&
-        !/(?:^|\s)default[A-Z]/.test(mount.props),
-    )!;
-    const overSeeded = MOUNTS.map((mount) =>
-      mount.mountId === inheriting.mountId
-        ? { ...mount, props: `defaultSteps={30} ${mount.props}` }
-        : mount,
-    );
-    const inert = crossMountVerdicts(evidence, overSeeded).filter(
-      ({ failures }) => failures.length > 0,
-    );
-    expect(inert.map(({ id }) => id)).toEqual([inheriting.mountId]);
-    expect(inert[0].failures.join(' ')).toMatch(
-      /opens exactly where home opens, so the registered seed changes nothing/,
+    const rescaled = crossMountVerdicts(evidence, MOUNTS, {
+      ...COMPONENT,
+      perStepFraction: COMPONENT.perStepFraction - 0.01,
+    }).filter(({ failures }) => failures.length > 0);
+    expect(rescaled.map(({ id }) => id).sort()).toEqual([...inheriting].sort());
+  });
+
+  it('fails a mount whose readout was never taken on the shared control values', () => {
+    // Clause 3 compares readouts, which only means anything if the mounts
+    // were driven to the same values. A mount whose slider clamped the
+    // shared input is a mount that was never compared.
+    const clamped = mutate((evidence) => {
+      const steps = evidence.siblingMounts[0].drivenSliders.find(
+        ({ accessibleName }) => /episode length/i.test(accessibleName),
+      )!;
+      steps.value = CROSS_MOUNT_INPUT.steps + 5;
+    });
+    const failing = crossMountVerdicts(
+      accept(clamped),
+      MOUNTS,
+      COMPONENT,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(failing).toHaveLength(1);
+    expect(failing[0].failures.join(' ')).toMatch(
+      /so its readout was never compared on the same inputs/,
     );
   });
 
@@ -370,15 +458,19 @@ describe('home tools evidence', () => {
     // A registered mount nobody measured leaves a member of the population
     // undecided rather than absent.
     expect(() =>
-      crossMountVerdicts(evidence, [
-        ...MOUNTS,
-        {
-          mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
-          route: '/nowhere/',
-          ownerPath: 'content/nowhere.mdx',
-          props: '/',
-        },
-      ]),
+      crossMountVerdicts(
+        evidence,
+        [
+          ...MOUNTS,
+          {
+            mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
+            route: '/nowhere/',
+            ownerPath: 'content/nowhere.mdx',
+            props: '/',
+          },
+        ],
+        COMPONENT,
+      ),
     ).toThrow(/which the measured population does not contain/);
     // And a measured mount nobody registered has no derivation behind it.
     expect(() =>
@@ -387,14 +479,20 @@ describe('home tools evidence', () => {
         MOUNTS.filter(
           ({ mountId }) => mountId !== evidence.siblingMounts[0].mountId,
         ),
+        COMPONENT,
       ),
     ).toThrow(/which the interactive registry does not register/);
+    // Two registrations for one mount would read it against both.
+    expect(() =>
+      crossMountVerdicts(evidence, [...MOUNTS, MOUNTS[0]], COMPONENT),
+    ).toThrow(/names one mount twice/);
     // The pair VAL-CROSS-015 quantifies over is derived, so a registry with
     // no module-page mount pairs home with nothing.
     expect(() =>
       crossMountVerdicts(
         evidence,
         MOUNTS.map((mount) => ({ ...mount, ownerPath: 'app/page.tsx' })),
+        COMPONENT,
       ),
     ).toThrow(/registered on no module page/);
   });
@@ -413,7 +511,7 @@ describe('home tools evidence', () => {
       ),
     ).toEqual(['/']);
     const evidence = accept(committed());
-    const paired = crossMountVerdicts(evidence, MOUNTS).filter(
+    const paired = crossMountVerdicts(evidence, MOUNTS, COMPONENT).filter(
       ({ observed }) => observed.pairedWithHomeAsModulePage === true,
     );
     expect(paired.map(({ id }) => id).sort()).toEqual(
@@ -421,20 +519,94 @@ describe('home tools evidence', () => {
     );
   });
 
-  it('refuses a population where every sibling seeds its own default state', () => {
-    const evidence = accept(committed());
-    expect(
-      crossMountVerdicts(
-        evidence,
-        MOUNTS.map((mount) =>
-          mount.mountId === evidence.featured.mountId
-            ? mount
-            : { ...mount, props: `defaultSteps={14} ${mount.props}` },
-        ),
-      )
-        .flatMap(({ failures }) => failures)
-        .join(' '),
-    ).toMatch(/no mount is left to compare/);
+  it('reads the component defaults from the component, and refuses a source it cannot read', () => {
+    const source = REGISTRY.interactive.sources.find(
+      ({ id }) => id === featuredSourceId(),
+    )!;
+    const text = readFileSync(join(ROOT, source.sourcePath!), 'utf8');
+    const declared = featuredComponentDefaults({
+      component: source.component,
+      path: source.sourcePath!,
+      text,
+    });
+    // `className` carries no default, so it is not a configurable parameter
+    // and home passing it is not a departure from the canonical render.
+    expect(declared.configurableParameters).not.toContain('className');
+    expect(declared.configurableParameters).toEqual(
+      expect.arrayContaining(['defaultPerStep', 'defaultSteps']),
+    );
+    // The declared values are the file's, and the model reads them.
+    const homeInputs = mountModelInputs(
+      registrationOf(committed().featured.mountId),
+      declared,
+    );
+    expect(homeInputs).toEqual({
+      perStepPercent: declared.perStepFraction * 100,
+      steps: declared.steps,
+    });
+    expect(expectedEpisodeSuccessReadout(homeInputs)).toBe(
+      committed().featured.initialReadout,
+    );
+
+    const renamed = text.replace('defaultSteps = ', 'defaultLength = ');
+    expect(renamed).not.toEqual(text);
+    expect(() =>
+      featuredComponentDefaults({
+        component: source.component,
+        path: source.sourcePath!,
+        text: renamed,
+      }),
+    ).toThrow(/declares no default for .* defaultSteps/);
+
+    const computed = text.replace(
+      'defaultSteps = 30',
+      'defaultSteps = someRuntimeValue()',
+    );
+    expect(computed).not.toEqual(text);
+    expect(() =>
+      featuredComponentDefaults({
+        component: source.component,
+        path: source.sourcePath!,
+        text: computed,
+      }),
+    ).toThrow(/which is not a number the shared model can be computed from/);
+
+    expect(() =>
+      featuredComponentDefaults({
+        component: 'NotAComponent',
+        path: source.sourcePath!,
+        text,
+      }),
+    ).toThrow(/exports no function NotAComponent/);
+  });
+
+  it('reads a mount\u2019s registered props as attributes rather than as text', () => {
+    expect([...registeredProps('className="mt-5" /').entries()]).toEqual([
+      ['className', 'mt-5'],
+    ]);
+    expect([
+      ...registeredProps(
+        'defaultPerStep={0.95} defaultSteps={14} descriptionVariant="prediction" className="mt-3" /',
+      ).entries(),
+    ]).toEqual([
+      ['defaultPerStep', '0.95'],
+      ['defaultSteps', '14'],
+      ['descriptionVariant', 'prediction'],
+      ['className', 'mt-3'],
+    ]);
+    // A `=` inside a value is not an attribute boundary, and an expression
+    // holding braces is read whole.
+    expect([
+      ...registeredProps('title="a=b" render={{ a: 1 }} hidden /').entries(),
+    ]).toEqual([
+      ['title', 'a=b'],
+      ['render', '{ a: 1 }'],
+      ['hidden', ''],
+    ]);
+    // Props that cannot be enumerated are refused rather than read as none.
+    expect(() => registeredProps('{...rest} /')).toThrow(
+      /spread an expression/,
+    );
   });
 
   it('checks the readout home opens on against the model too', () => {

@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Locator, Page } from '@playwright/test';
 import { test, expect, brandV2Registry } from './brand-v2-static-fixture';
@@ -11,9 +11,11 @@ import {
   HOME_TOOLS_VIEWPORT,
   accessibilityProfileVerdicts,
   crossMountVerdicts,
+  featuredComponentDefaults,
   featuredInstrumentVerdicts,
   homeDesignBoundVerdicts,
   homeToolsEvidenceFingerprint,
+  mountModelInputs,
   playgroundEntryVerdicts,
   progressCounterVerdicts,
   readHomeToolsEvidence,
@@ -70,9 +72,12 @@ const COUNT_PHRASE = /(\d[\d,]*)\s+(?:glossary\s+)?(articles?|modules?|entries|t
  * of escaping a hard-coded pair.
  *
  * `ownerPath` and `props` come along with each row because they are what the
- * pairing and the seeding are derived from: the document that mounts an
+ * pairing and the prediction are derived from: the document that mounts an
  * instance, and the props it is mounted with. Both are generated from the
- * tree, so neither is something a mount can grant itself.
+ * tree, so neither is something a mount can grant itself. The component's
+ * own declared defaults come from its registered source file, so the value
+ * every mount's opening state is measured against is read where it is
+ * written rather than restated in the instrument.
  */
 function featuredMounts() {
   const home = brandV2Registry.interactive.mounts.filter(
@@ -101,7 +106,20 @@ function featuredMounts() {
       props,
     }),
   );
-  return { featured, siblings, registrations };
+  const source = brandV2Registry.interactive.sources.find(
+    ({ id }) => id === featured.sourceId,
+  );
+  if (!source?.sourcePath) {
+    throw new Error(
+      `${featured.sourceId} has no registered source path, so the component's declared defaults cannot be read`,
+    );
+  }
+  const component = featuredComponentDefaults({
+    component: source.component,
+    path: source.sourcePath,
+    text: readFileSync(join(ROOT, source.sourcePath), 'utf8'),
+  });
+  return { featured, siblings, registrations, component };
 }
 
 /** The nearest registered surface that holds one mount of the instrument. */
@@ -935,8 +953,18 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
 
     // VAL-CROSS-015: home paired with the module pages the same component
     // is registered on, and the shared behaviour of every registered mount.
-    const parity = crossMountVerdicts(measured, featuredMounts().registrations);
-    expect(parity.length).toBe(measured.siblingMounts.length);
+    const featuredComponent = featuredMounts();
+    const parity = crossMountVerdicts(
+      measured,
+      featuredComponent.registrations,
+      featuredComponent.component,
+    );
+    expect(parity.length).toBe(measured.siblingMounts.length + 1);
+    expect(
+      parity.filter(({ observed }) => observed.isFeaturedHomeMount === true)
+        .length,
+      'the home mount decided by the same clauses as every other',
+    ).toBe(1);
     expect(
       parity.filter(
         ({ observed }) => observed.pairedWithHomeAsModulePage === true,
@@ -1046,15 +1074,16 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       'anchor:playground-entry-textual-alternative',
     ]);
 
-    const { registrations } = featuredMounts();
+    const { registrations, component } = featuredMounts();
     // The accepted half first: the unplanted reading is green through the
     // same function that has to refuse each plant below.
     expect(
-      crossMountVerdicts(measured, registrations).flatMap(
+      crossMountVerdicts(measured, registrations, component).flatMap(
         ({ failures }) => failures,
       ),
     ).toEqual([]);
 
+    // Clause 3: identical control values, divergent readouts.
     const plantedParity = crossMountVerdicts(
       {
         ...measured,
@@ -1064,63 +1093,102 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         })),
       },
       registrations,
+      component,
     );
-    expect(plantedParity.every(({ failures }) => failures.length > 0)).toBe(
-      true,
-    );
+    expect(
+      plantedParity
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id)
+        .sort(),
+    ).toEqual(measured.siblingMounts.map(({ mountId }) => mountId).sort());
 
-    // A mount registered with its own default state is held to the model it
-    // was seeded with, and to nothing home says. Stripping that registration
-    // makes it a mount claiming to inherit the component default while
-    // opening somewhere else, which is the reading the deleted exemption
-    // registry used to buy its way out of.
-    const seeded = registrations.find(({ props }) =>
-      /(?:^|\s)default[A-Z]\w*=/.test(props),
-    )!;
-    expect(seeded.ownerPath.startsWith('content/')).toBe(true);
-    const stripped = registrations.map((mount) =>
-      mount.mountId === seeded.mountId
-        ? { ...mount, props: 'className="mt-3" /' }
+    // Clause 1: home featuring a configured copy rather than the canonical
+    // one, which is the drift the deleted configuration clause was groping
+    // for. It fails home and nothing else.
+    const configuredHome = registrations.map((mount) =>
+      mount.mountId === measured.featured.mountId
+        ? { ...mount, props: `defaultSteps={14} ${mount.props}` }
         : mount,
     );
     expect(
-      stripped.find(({ mountId }) => mountId === seeded.mountId)!.props,
-    ).not.toEqual(seeded.props);
-    const unseeded = crossMountVerdicts(measured, stripped).filter(
-      ({ failures }) => failures.length > 0,
-    );
-    expect(unseeded.map(({ id }) => id)).toEqual([seeded.mountId]);
-    expect(unseeded[0].failures.join(' ')).toMatch(
-      /registers no default state of its own and opens at/,
+      configuredHome.find(
+        ({ mountId }) => mountId === measured.featured.mountId,
+      )!.props,
+    ).not.toEqual(registrations.find(
+      ({ mountId }) => mountId === measured.featured.mountId,
+    )!.props);
+    const configured = crossMountVerdicts(
+      measured,
+      configuredHome,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(configured.map(({ id }) => id)).toEqual([measured.featured.mountId]);
+    expect(configured[0].failures.join(' ')).toMatch(
+      /so the copy a reader meets first is not the component's canonical default/,
     );
 
-    // A registration that seeds every sibling leaves nothing for the
-    // configuration half of the pair to mean, so every member fails rather
-    // than every member passing.
-    const swallowed = crossMountVerdicts(
-      measured,
-      registrations.map((mount) =>
-        mount.mountId === measured.featured.mountId
-          ? mount
-          : { ...mount, props: `defaultSteps={14} ${mount.props}` },
-      ),
+    // Clause 2 on the quiz specifically: the mount with its own seed is held
+    // to the model on exactly the terms every other mount is, and the seed
+    // buys it nothing. This is where the deleted exemption used to sit.
+    const quiz = registrations.find((mount) => {
+      const inputs = mountModelInputs(mount, component);
+      return (
+        inputs.steps !== component.steps ||
+        inputs.perStepPercent !== component.perStepFraction * 100
+      );
+    })!;
+    expect(quiz.ownerPath.startsWith('content/')).toBe(true);
+    const quizPlant = crossMountVerdicts(
+      {
+        ...measured,
+        siblingMounts: measured.siblingMounts.map((mount) =>
+          mount.mountId === quiz.mountId
+            ? {
+                ...mount,
+                initialReadout: '61.4%',
+                resetReadout: '61.4%',
+                secondResetReadout: '61.4%',
+              }
+            : mount,
+        ),
+      },
+      registrations,
+      component,
+    ).filter(({ failures }) => failures.length > 0);
+    expect(quizPlant.map(({ id }) => id)).toEqual([quiz.mountId]);
+    expect(quizPlant[0].failures.join(' ')).toMatch(
+      /opens 61.4% where the shared model predicts/,
     );
-    expect(
-      swallowed.flatMap(({ failures }) => failures).join(' '),
-    ).toMatch(/no mount is left to compare home\u2019s initial state against/);
+
+    // Clause 2's other input: the component's own declared default. Moving
+    // it moves the value every mount that inherits it has to print, which is
+    // what makes the number a reading of the component rather than a copy.
+    const movedDefault = crossMountVerdicts(
+      measured,
+      registrations,
+      { ...component, steps: component.steps - 1 },
+    ).filter(({ failures }) => failures.length > 0);
+    expect(movedDefault.map(({ id }) => id)).toContain(
+      measured.featured.mountId,
+    );
+    expect(movedDefault.map(({ id }) => id)).not.toContain(quiz.mountId);
 
     // A registered mount nobody measured, and a measured mount nobody
     // registered, both refuse rather than reading as a complete population.
     expect(() =>
-      crossMountVerdicts(measured, [
-        ...registrations,
-        {
-          mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
-          route: '/nowhere/',
-          ownerPath: 'content/nowhere.mdx',
-          props: '/',
-        },
-      ]),
+      crossMountVerdicts(
+        measured,
+        [
+          ...registrations,
+          {
+            mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
+            route: '/nowhere/',
+            ownerPath: 'content/nowhere.mdx',
+            props: '/',
+          },
+        ],
+        component,
+      ),
     ).toThrow(/which the measured population does not contain/);
     expect(() =>
       crossMountVerdicts(
@@ -1128,6 +1196,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         registrations.filter(
           ({ mountId }) => mountId !== measured.siblingMounts[0].mountId,
         ),
+        component,
       ),
     ).toThrow(/which the interactive registry does not register/);
 
