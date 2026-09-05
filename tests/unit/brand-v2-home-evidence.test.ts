@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   ACTION_INK_RGB,
+  HIGHLIGHT_ARIA_STATE_CUES,
   HOME_COMPOSITION_ANCHORS,
   HOME_COMPOSITION_EVIDENCE_PATH,
   HOME_VIEWPORT,
@@ -14,10 +15,12 @@ import {
   readHomeCompositionEvidence,
   type HomeCompositionEvidence,
 } from '@/lib/brand-v2-home-evidence';
+import { readSectionSignatureRegistry } from '@/lib/brand-v2-section-signatures';
 import { canonicalDomainDestinations } from '@/lib/home-populations';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 
 const ROOT = process.cwd();
+const SECTION_SIGNATURES = readSectionSignatureRegistry(ROOT);
 const LITERALS = {
   identity: PUBLIC_IDENTITY,
   descriptor: PUBLIC_DESCRIPTOR,
@@ -53,7 +56,7 @@ function accept(evidence: HomeCompositionEvidence): HomeCompositionEvidence {
 function failingAnchors(
   change: (evidence: HomeCompositionEvidence) => void,
 ): string[] {
-  return homeCompositionVerdicts(mutate(change), LITERALS)
+  return homeCompositionVerdicts(mutate(change), LITERALS, SECTION_SIGNATURES)
     .filter(({ failures }) => failures.length > 0)
     .map(({ id }) => id as string)
     .sort();
@@ -62,7 +65,7 @@ function failingAnchors(
 function anchorFailures(
   change: (evidence: HomeCompositionEvidence) => void,
 ): string {
-  return homeCompositionVerdicts(mutate(change), LITERALS)
+  return homeCompositionVerdicts(mutate(change), LITERALS, SECTION_SIGNATURES)
     .flatMap(({ failures }) => failures)
     .join(' ');
 }
@@ -74,7 +77,7 @@ describe('home composition evidence', () => {
     expect(evidence.route).toBe('/');
     expect(evidence.heroLockups).toHaveLength(1);
     expect(
-      homeCompositionVerdicts(evidence, LITERALS).map(({ id }) => id),
+      homeCompositionVerdicts(evidence, LITERALS, SECTION_SIGNATURES).map(({ id }) => id),
     ).toEqual([...HOME_COMPOSITION_ANCHORS]);
   });
 
@@ -206,9 +209,11 @@ describe('home composition evidence', () => {
 
   it('fails each composition anchor independently', () => {
     expect(
-      homeCompositionVerdicts(committed(), LITERALS).flatMap(
-        ({ failures }) => failures,
-      ),
+      homeCompositionVerdicts(
+        committed(),
+        LITERALS,
+        SECTION_SIGNATURES,
+      ).flatMap(({ failures }) => failures),
     ).toEqual([]);
     // A hero only 1.2x its largest supporting heading is not dominant.
     expect(
@@ -288,6 +293,108 @@ describe('home composition evidence', () => {
         }
       }),
     ).toMatch(/is an annotation addressed to this sweep/);
+  });
+
+  it('credits only a positive ARIA state on a role that carries it', () => {
+    // The input that used to pass: the collector credited the presence of a
+    // state attribute, so `aria-selected="false"` — the assertion that the
+    // thing it names is *not* the case, and which a screen reader announces
+    // as nothing — counted as the cue standing between a lime-only
+    // highlight and a reader who cannot perceive the lime.
+    expect(
+      anchorFailures((evidence) => {
+        for (const highlight of evidence.highlights) {
+          highlight.tag = 'span';
+          highlight.nonColourCue = null;
+          highlight.annotation = null;
+          highlight.rejectedStateCues = [
+            'aria-selected="false" asserts no state (positive values: true)',
+          ];
+        }
+      }),
+    ).toMatch(/aria-selected="false" asserts no state/);
+    expect(
+      anchorFailures((evidence) => {
+        for (const highlight of evidence.highlights) {
+          highlight.tag = 'span';
+          highlight.nonColourCue = null;
+          highlight.annotation = null;
+          highlight.rejectedStateCues = [
+            'aria-pressed="true" sits on role "none", which does not carry that state',
+          ];
+        }
+      }),
+    ).toMatch(/does not carry that state/);
+    // The vocabulary is a fixed list of states and their positive values,
+    // not "any attribute beginning with aria-".
+    expect(Object.keys(HIGHLIGHT_ARIA_STATE_CUES).sort()).toEqual([
+      'aria-current',
+      'aria-pressed',
+      'aria-selected',
+    ]);
+    expect(HIGHLIGHT_ARIA_STATE_CUES['aria-selected'].values).toEqual(['true']);
+    expect(HIGHLIGHT_ARIA_STATE_CUES['aria-pressed'].roles).toEqual(['button']);
+    // A highlight recorded before the narrowing cannot say what it refused,
+    // so it is not evidence about this claim.
+    expect(() =>
+      accept(
+        mutate((evidence) => {
+          for (const highlight of evidence.highlights) {
+            delete (highlight as { rejectedStateCues?: string[] })
+              .rejectedStateCues;
+          }
+        }),
+      ),
+    ).toThrow(/records no rejectedStateCues/);
+  });
+
+  it('credits only a section signature the registry declares a purpose for', () => {
+    // The input that used to pass: any non-empty authored string satisfied
+    // the anchor, so a new template minted its own registered purpose by
+    // typing one into `data-brand-module-signature`.
+    const evidence = accept(committed());
+    expect(
+      homeCompositionVerdicts(evidence, LITERALS, SECTION_SIGNATURES).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+    const structureFailures = (
+      change: (evidence: HomeCompositionEvidence) => void,
+      registry = SECTION_SIGNATURES,
+    ): string =>
+      homeCompositionVerdicts(mutate(change), LITERALS, registry)
+        .filter(({ id }) => id === 'anchor:home-board-derived-structure')
+        .flatMap(({ failures }) => failures)
+        .join(' ');
+
+    expect(
+      structureFailures((row) => {
+        row.sections[0].signature = 'sheet/display-lockup/minted-here';
+      }),
+    ).toMatch(/which contract\/.*does not register/);
+    // Two-directional: an approved structure nobody renders is equally a
+    // failure, so the registry cannot carry a purpose the page abandoned.
+    expect(
+      structureFailures(() => {}, [
+        ...SECTION_SIGNATURES,
+        {
+          route: '/',
+          signature: 'plain/module-heading/abandoned',
+          owner: 'brand-v2-home-hero-domain-index-and-structure',
+          purpose: 'A structure nobody renders any more on the home route.',
+        },
+      ]),
+    ).toMatch(/which no section on that route declares/);
+    // And a route with no registered signature at all cannot pass by
+    // quantifying over nothing.
+    expect(structureFailures(() => {}, [])).toMatch(
+      /registers no section signature for \//,
+    );
+    // Every registered home signature names an owner and a purpose.
+    for (const signature of SECTION_SIGNATURES) {
+      expect(signature.owner.length, signature.signature).toBeGreaterThan(0);
+      expect(signature.purpose.length, signature.signature).toBeGreaterThan(23);
+    }
   });
 
   it('refuses four identical sections that declare four different signatures', () => {

@@ -49256,7 +49256,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -49273,6 +49273,14 @@
             "plain/module-heading/credited-figure",
             "plain/module-heading/schematic-pair",
             "ruled-plain/closing-heading/guidance-prose"
+          ],
+          "registeredSignatures": [
+            "plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)",
+            "plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)",
+            "plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)",
+            "ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)",
+            "ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)",
+            "sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)"
           ],
           "derivedForms": [
             "form:1",

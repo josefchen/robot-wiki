@@ -1,13 +1,16 @@
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
+  SHIPPED_GEOMETRY_MODEL_CLASS,
+  WEB_FONT_BINARY_CLASS,
   deriveEvidenceClosure,
   evidenceClosureGraph,
   routeEntryModules,
 } from './brand-v2-evidence-closure.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
+import {
+  SEEDED_MOUNT_REGISTRY_PATH,
+  type SeededMountDeclaration,
+} from './brand-v2-seeded-mounts.ts';
 
 /**
  * Evidence for home's live tool entry points and its responsive/accessible
@@ -132,7 +135,10 @@ export type MountObservation = {
    * Disclosures the sweep had to open before the mount was operable. A mount
    * behind an article's commit-to-reveal step is still in the population;
    * recording the path keeps "reachable after one documented action" from
-   * being confused with "reachable immediately".
+   * being confused with "reachable immediately". It is an observation and
+   * not a criterion: whether a mount may open on its own seeded state is
+   * decided by `contract/brand-v2-seeded-mount-registry.json`, because being
+   * behind a disclosure is a visibility fact and not a reason.
    */
   revealedByControls: string[];
 };
@@ -202,17 +208,49 @@ export type AccessibilityProfileObservation = {
   measuredMembers: number;
 };
 
+/**
+ * What one counted noun on one surface has to equal, derived from the
+ * registry the page builds itself from.
+ *
+ * Declared by the population rather than by the sweep, so the expectation a
+ * printed count is measured against cannot be written by the same code that
+ * measures it, and so a surface can state which of its totals are not
+ * optional.
+ */
+export type SurfaceCountExpectation = {
+  /** Population member id, so a required total can be demanded by name. */
+  memberId: string;
+  /** The noun as a failure should name it. */
+  noun: string;
+  /** Which printed nouns this expectation explains, as a regular expression source. */
+  nounPattern: string;
+  /** The registry total a matching printed count must equal. */
+  expected: number;
+  /** Whether the surface must print this count at all. */
+  required: boolean;
+};
+
 export type ProgressCounterObservation = {
   routeId: string;
   route: string;
   matches: string[];
-  /** Registry-derived counts the route printed, with their sourced values. */
-  reconciledCounts: Array<{ text: string; expected: number; actual: number }>;
   /**
-   * Count phrases the route printed that no registry total explains. Kept
-   * visible rather than dropped: a phrase that silently disappears from the
-   * reconciliation is the difference between a checked total and an
-   * unchecked one, and the verdict cannot see a row that was filtered out.
+   * Registry-derived counts the route printed, each naming the expectation
+   * member it reconciles against, with the value that member holds and the
+   * value the page printed.
+   */
+  reconciledCounts: Array<{
+    memberId: string;
+    text: string;
+    expected: number;
+    actual: number;
+  }>;
+  /**
+   * Count phrases the route printed that no declared expectation explains.
+   * Every one of them fails the surface. They used to be recorded here and
+   * left alone, which made the list a place to park a total the derivation
+   * could no longer express: a surface passed as long as some other count
+   * on the page reconciled.
    */
   unreconciledCounts: string[];
 };
@@ -247,15 +285,17 @@ export type HomeToolsEvidence = {
 };
 
 /**
- * Files this sweep depends on that no module imports.
+ * The kinds of rendering input this sweep depends on that no module imports.
  *
- * The shipped kinematic model is read at build time by
- * `lib/so101-kinematics.ts` through a filesystem path rather than an import,
- * so the closure walk cannot see it and every printed figure in the
- * playground entry card comes out of it.
+ * This used to be a one-path list naming the shipped kinematic model, which
+ * covered the file somebody remembered and nothing else: renaming the model,
+ * shipping a second one, or changing the face the shell renders in all left
+ * the fingerprint unmoved. Declaring the classes instead lets the closure
+ * derive their members from the files it already holds.
  */
-export const HOME_TOOLS_UNIMPORTED_PATHS = [
-  'public/models/so101/so101.urdf',
+const HOME_TOOLS_NON_IMPORT_CLASSES = [
+  WEB_FONT_BINARY_CLASS,
+  SHIPPED_GEOMETRY_MODEL_CLASS,
 ] as const;
 
 /**
@@ -278,10 +318,6 @@ export function homeToolsClosureEntries(root: string): string[] {
   ];
 }
 
-function sha256(value: string | Uint8Array): string {
-  return createHash('sha256').update(value).digest('hex');
-}
-
 /**
  * The fingerprint the sweep records and the generator re-derives, over the
  * bytes of every module any public route reaches, the shipped model no
@@ -293,13 +329,11 @@ export function homeToolsEvidenceFingerprint(input: {
   root: string;
   routeIds: readonly string[];
 }): string {
-  const unimported = [...HOME_TOOLS_UNIMPORTED_PATHS].sort().map(
-    (path) => `${path}:${sha256(readFileSync(join(input.root, path)))}`,
-  );
   return deriveEvidenceClosure({
     root: input.root,
     entries: homeToolsClosureEntries(input.root),
-    facts: [...unimported, [...input.routeIds].sort().join(',')],
+    nonImportClasses: HOME_TOOLS_NON_IMPORT_CLASSES,
+    facts: [[...input.routeIds].sort().join(',')],
     computedSpecifiers: [ARTICLE_BODY_COMPUTED_IMPORT],
   }).fingerprint;
 }
@@ -361,6 +395,17 @@ export function readHomeToolsEvidence(input: {
     throw new Error(
       'home tools evidence swept no route for progress counters: VAL-DESIGN-015 would quantify over nothing',
     );
+  }
+  // A reconciliation recorded before totals were named cannot say which
+  // member it settles, so it cannot settle a required one.
+  for (const surface of artifact.progressCounters ?? []) {
+    for (const count of surface.reconciledCounts ?? []) {
+      if (typeof count.memberId !== 'string' || count.memberId.length === 0) {
+        throw new Error(
+          `${surface.route} reconciles "${count.text}" against no named expectation member, so it predates the counted-noun population. Re-run npm run refresh:brand-v2-evidence.`,
+        );
+      }
+    }
   }
   return artifact as HomeToolsEvidence;
 }
@@ -652,30 +697,72 @@ function seededInputs(
  *
  * Identical behaviour covers the state a reader arrives at, not only the
  * state they can drive the instrument to, so a corresponding mount must
- * also open on home's initial inputs and readout. A mount the sweep had to
- * unlock through a disclosure is the exception: a commit-to-reveal panel
- * seeds the instrument to the figure its own prose commits to, and forcing
- * home's defaults on it would make the article's answer text false. That
- * exemption is not a hole, because such a mount still has to print what the
- * shared model predicts from the inputs it was seeded with, which is what
- * separates a documented seed from an instrument that computes something
- * else. It also cannot swallow the assertion: at least one sibling must
- * remain comparable, or there is nothing left for parity to mean.
+ * also open on home's initial inputs and readout. The one exception is a
+ * mount that declares its own seeded configuration in
+ * `contract/brand-v2-seeded-mount-registry.json`, with the reason and an
+ * owner: a commit-to-reveal panel seeds the instrument to the figure its own
+ * published prose commits to, and forcing home's defaults on it would make
+ * that prose false.
+ *
+ * The exemption is granted by that declaration and not by any property of
+ * the mount the markup could acquire by accident. It used to be granted to
+ * any mount the sweep had to open a disclosure to reach, which is a
+ * visibility fact standing in for a pedagogical reason, and which any future
+ * mount behind a `<details>` would have inherited for free. Three things keep
+ * the declaration from becoming a hole: the declared configuration must be
+ * the configuration the mount was measured opening on, a declared mount must
+ * still print what the shared model predicts from its own seed, and at least
+ * one sibling must remain undeclared, or there is nothing left for parity to
+ * mean.
  */
-export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
+export function crossMountVerdicts(
+  evidence: HomeToolsEvidence,
+  declarations: readonly SeededMountDeclaration[],
+): Verdict[] {
   const home = evidence.featured;
   const homeInputs = seededInputs(home.initialSliders);
+  const mountIds = new Set(evidence.siblingMounts.map(({ mountId }) => mountId));
+  const orphaned = declarations
+    .filter(({ mountId }) => !mountIds.has(mountId))
+    .map(({ mountId }) => mountId);
+  if (orphaned.length > 0) {
+    throw new Error(
+      `${SEEDED_MOUNT_REGISTRY_PATH} declares a seeded configuration for ${orphaned.join(', ')}, which the measured population does not contain`,
+    );
+  }
+  const declaredByMount = new Map(
+    declarations.map((declaration) => [declaration.mountId, declaration]),
+  );
   const comparable = evidence.siblingMounts.filter(
-    (mount) => mount.revealedByControls.length === 0,
+    (mount) => !declaredByMount.has(mount.mountId),
   );
   return evidence.siblingMounts.map((mount) => {
     const failures: string[] = [];
-    const disclosureGated = mount.revealedByControls.length > 0;
+    const declaration = declaredByMount.get(mount.mountId) ?? null;
     const mountInputs = seededInputs(mount.initialSliders);
     if (comparable.length === 0) {
       failures.push(
-        'every sibling mount of the featured instrument is behind a disclosure, so no mount is left to compare home\u2019s initial state against',
+        'every sibling mount of the featured instrument declares its own seed, so no mount is left to compare home\u2019s initial state against',
       );
+    }
+    if (declaration !== null) {
+      if (declaration.route !== mount.route) {
+        failures.push(
+          `${SEEDED_MOUNT_REGISTRY_PATH} places ${mount.mountId} on ${declaration.route}, where it is mounted on ${mount.route}`,
+        );
+      }
+      if (mountInputs === null) {
+        failures.push(
+          `${mount.mountId} declares a seed of ${declaration.seededInputs.perStepPercent}% per step over ${declaration.seededInputs.steps} steps, and the mount exposes no identifiable controls to compare it against`,
+        );
+      } else if (
+        mountInputs.perStepPercent !== declaration.seededInputs.perStepPercent ||
+        mountInputs.steps !== declaration.seededInputs.steps
+      ) {
+        failures.push(
+          `${mount.mountId} declares a seed of ${declaration.seededInputs.perStepPercent}% per step over ${declaration.seededInputs.steps} steps and opens at ${mountInputs.perStepPercent}% over ${mountInputs.steps}, so the declaration does not describe the mount it exempts`,
+        );
+      }
     }
     if (mountInputs === null) {
       failures.push(
@@ -686,7 +773,7 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
         `${mount.mountId} opens reading ${mount.initialReadout} where the shared model predicts ${expectedEpisodeSuccessReadout(mountInputs)} for its own ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps`,
       );
     }
-    if (!disclosureGated && mountInputs !== null) {
+    if (declaration === null && mountInputs !== null) {
       if (homeInputs === null) {
         failures.push(
           'home exposes no identifiable per-step and episode-length controls, so no mount can be compared against it',
@@ -751,9 +838,17 @@ export function crossMountVerdicts(evidence: HomeToolsEvidence): Verdict[] {
             ? null
             : expectedEpisodeSuccessReadout(mountInputs),
         // Recorded on the verdict rather than inferred by a reader of the
-        // artifact: a mount exempted from initial-state parity has to name
-        // the disclosure that exempted it.
-        initialStateComparedToHome: !disclosureGated,
+        // artifact: a mount exempted from initial-state parity names the
+        // declaration that exempted it, its reason and its owner.
+        initialStateComparedToHome: declaration === null,
+        seedDeclaration:
+          declaration === null
+            ? null
+            : {
+                seededInputs: declaration.seededInputs,
+                reason: declaration.reason,
+                owner: declaration.owner,
+              },
         revealedByControls: mount.revealedByControls,
         reset: mount.resetReadout,
       },
@@ -971,14 +1066,26 @@ export function accessibilityProfileVerdicts(
 /** Decides `VAL-DESIGN-015` per swept surface. */
 export function progressCounterVerdicts(
   evidence: HomeToolsEvidence,
-  routes: ReadonlyArray<{ id: string; path: string }>,
+  routes: ReadonlyArray<{
+    id: string;
+    path: string;
+    countExpectations: readonly SurfaceCountExpectation[];
+  }>,
 ): Verdict[] {
   if (routes.length === 0) {
     throw new Error(
       'the progress-counter route population is empty: VAL-DESIGN-015 would quantify over nothing',
     );
   }
-  return routes.map(({ id, path }) => {
+  const undeclared = routes.filter(
+    ({ countExpectations }) => countExpectations.length === 0,
+  );
+  if (undeclared.length > 0) {
+    throw new Error(
+      `${undeclared.map(({ path }) => path).join(', ')} declare no counted-noun expectation, so any total they print would be checked against nothing`,
+    );
+  }
+  return routes.map(({ id, path, countExpectations }) => {
     const observation = evidence.progressCounters.find(
       (row) => row.routeId === id,
     );
@@ -1003,10 +1110,45 @@ export function progressCounterVerdicts(
         }`,
       );
     }
+    // A printed count no expectation explains is an unchecked number on a
+    // shipped page, whatever else on that page reconciled.
+    for (const phrase of observation.unreconciledCounts) {
+      failures.push(
+        `${path} prints "${phrase}", which no declared expectation explains, so the number is unchecked`,
+      );
+    }
+    const expectationById = new Map(
+      countExpectations.map((expectation) => [expectation.memberId, expectation]),
+    );
     for (const count of observation.reconciledCounts) {
+      const expectation = expectationById.get(count.memberId);
+      if (!expectation) {
+        failures.push(
+          `${path} reconciles "${count.text}" against "${count.memberId}", which this surface does not declare`,
+        );
+        continue;
+      }
+      if (count.expected !== expectation.expected) {
+        failures.push(
+          `${path} reconciled "${count.text}" against ${count.expected} where the registry holds ${expectation.expected} ${expectation.noun}`,
+        );
+      }
       if (count.expected !== count.actual) {
         failures.push(
           `${path} prints "${count.text}" where the registry holds ${count.expected}`,
+        );
+      }
+    }
+    // Required members are demanded one by one. A surface that prints two
+    // registry totals is making two claims, and one of them reconciling
+    // leaves the other one unmeasured.
+    const reconciledMembers = new Set(
+      observation.reconciledCounts.map(({ memberId }) => memberId),
+    );
+    for (const expectation of countExpectations) {
+      if (expectation.required && !reconciledMembers.has(expectation.memberId)) {
+        failures.push(
+          `${path} prints no ${expectation.noun} count, so "${expectation.memberId}" (${expectation.expected}) went unmeasured`,
         );
       }
     }
@@ -1017,6 +1159,9 @@ export function progressCounterVerdicts(
         matches: observation.matches,
         reconciled: observation.reconciledCounts,
         unreconciled: observation.unreconciledCounts,
+        requiredMembers: countExpectations
+          .filter(({ required }) => required)
+          .map(({ memberId }) => memberId),
       },
       failures,
     };

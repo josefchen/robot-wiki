@@ -1,14 +1,49 @@
-import { describe, expect, it } from 'vitest';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { afterEach, describe, expect, it } from 'vitest';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
+  SHIPPED_GEOMETRY_MODEL_CLASS,
+  WEB_FONT_BINARY_CLASS,
   deriveEvidenceClosure,
   evidenceClosureGraph,
   routeEntryModules,
 } from '@/lib/brand-v2-evidence-closure';
 import { MOBILE_SHELL_CLOSURE_ENTRIES } from '@/lib/brand-v2-mobile-shell-evidence';
-import { HOME_CLOSURE_ENTRIES } from '@/lib/brand-v2-home-evidence';
+import {
+  HOME_CLOSURE_ENTRIES,
+  HOME_NON_IMPORT_CLASSES,
+} from '@/lib/brand-v2-home-evidence';
 
 const ROOT = process.cwd();
+
+const FONT_BINARY = 'public/fonts/Tektur-latin-wdth-wght.woff2';
+const GEOMETRY_MODEL = 'public/models/so101/so101.urdf';
+
+/** Bytes to put back, whatever the assertion in between did. */
+const restore: Array<{ path: string; bytes: Buffer }> = [];
+
+afterEach(() => {
+  while (restore.length > 0) {
+    const entry = restore.pop() as { path: string; bytes: Buffer };
+    writeFileSync(join(ROOT, entry.path), entry.bytes);
+  }
+});
+
+/** Appends a byte to a shipped file, so its digest moves and nothing else. */
+function plantByte(path: string): void {
+  const bytes = readFileSync(join(ROOT, path));
+  restore.push({ path, bytes });
+  writeFileSync(join(ROOT, path), Buffer.concat([bytes, Buffer.from([0x0a])]));
+}
+
+function homeFingerprint(): string {
+  return deriveEvidenceClosure({
+    root: ROOT,
+    entries: HOME_CLOSURE_ENTRIES,
+    nonImportClasses: HOME_NON_IMPORT_CLASSES,
+  }).fingerprint;
+}
 
 describe('evidence closure derivation', () => {
   it('reaches past the entries into what they actually import', () => {
@@ -129,6 +164,77 @@ describe('evidence closure derivation', () => {
         (path) => path.endsWith('.mdx') && !closure.modules.includes(path),
       ),
     ).toEqual([]);
+  });
+
+  it('covers each declared non-import dependency class, and each one separately', () => {
+    // The input that used to pass: the import closure could not see the face
+    // every glyph is drawn with or the geometry every hardware figure is
+    // derived from, so either could be replaced wholesale while the
+    // committed sweep still read as current.
+    const closure = deriveEvidenceClosure({
+      root: ROOT,
+      entries: HOME_CLOSURE_ENTRIES,
+      nonImportClasses: HOME_NON_IMPORT_CLASSES,
+    });
+    const byClass = new Map(
+      closure.nonImportDependencies.map((members) => [
+        members.classId,
+        members.files,
+      ]),
+    );
+    expect(byClass.get(WEB_FONT_BINARY_CLASS.id)).toContain(FONT_BINARY);
+    expect(byClass.get(SHIPPED_GEOMETRY_MODEL_CLASS.id)).toContain(
+      GEOMETRY_MODEL,
+    );
+    // The URDF names the meshes actually drawn, so stopping at the URDF
+    // would hash the description of the robot and none of its shape.
+    expect(
+      (byClass.get(SHIPPED_GEOMETRY_MODEL_CLASS.id) ?? []).filter((path) =>
+        path.endsWith('.glb'),
+      ).length,
+    ).toBeGreaterThan(5);
+    for (const files of byClass.values()) {
+      for (const path of files) expect(closure.files).toContain(path);
+    }
+
+    // The accepted half: the same derivation is stable while nothing moves.
+    const baseline = homeFingerprint();
+    expect(homeFingerprint()).toEqual(baseline);
+
+    // One plant per class, so neither class is carried by the other.
+    plantByte(FONT_BINARY);
+    const withPlantedFont = homeFingerprint();
+    expect(withPlantedFont).not.toEqual(baseline);
+
+    plantByte(GEOMETRY_MODEL);
+    expect(homeFingerprint()).not.toEqual(withPlantedFont);
+  });
+
+  it('refuses a declared class that covers nothing', () => {
+    // A class that resolves no member reads as coverage it does not provide.
+    expect(() =>
+      deriveEvidenceClosure({
+        root: ROOT,
+        entries: HOME_CLOSURE_ENTRIES,
+        nonImportClasses: [
+          { ...WEB_FONT_BINARY_CLASS, extensions: ['.nothing-ships-this'] },
+        ],
+      }),
+    ).toThrow(/covers nothing/);
+  });
+
+  it('leaves the non-import classes out of a closure that does not declare them', () => {
+    const declared = deriveEvidenceClosure({
+      root: ROOT,
+      entries: HOME_CLOSURE_ENTRIES,
+      nonImportClasses: HOME_NON_IMPORT_CLASSES,
+    });
+    const undeclared = deriveEvidenceClosure({
+      root: ROOT,
+      entries: HOME_CLOSURE_ENTRIES,
+    });
+    expect(undeclared.files).not.toContain(FONT_BINARY);
+    expect(declared.fingerprint).not.toEqual(undeclared.fingerprint);
   });
 
   it('derives route entries covering every public segment file', () => {

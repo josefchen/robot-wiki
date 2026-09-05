@@ -20,10 +20,12 @@ import {
   responsiveOverflowVerdicts,
   type HomeToolsEvidence,
 } from '@/lib/brand-v2-home-tools-evidence';
+import { readSeededMountRegistry } from '@/lib/brand-v2-seeded-mounts';
 import { progressCounterSurfaces } from '@/lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '@/lib/so101-kinematics';
 
 const ROOT = process.cwd();
+const SEEDED_MOUNTS = readSeededMountRegistry(ROOT);
 
 const REGISTRY = JSON.parse(
   readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
@@ -67,7 +69,9 @@ describe('home tools evidence', () => {
       featuredInstrumentVerdicts(evidence).flatMap(({ failures }) => failures),
     ).toEqual([]);
     expect(
-      crossMountVerdicts(evidence).flatMap(({ failures }) => failures),
+      crossMountVerdicts(evidence, SEEDED_MOUNTS).flatMap(
+        ({ failures }) => failures,
+      ),
     ).toEqual([]);
     expect(
       accessibilityProfileVerdicts(evidence).flatMap(
@@ -193,7 +197,7 @@ describe('home tools evidence', () => {
     const drifted = mutate((evidence) => {
       evidence.siblingMounts[0].drivenReadout = '77.7%';
     });
-    const verdicts = crossMountVerdicts(accept(drifted));
+    const verdicts = crossMountVerdicts(accept(drifted), SEEDED_MOUNTS);
     expect(verdicts.filter(({ failures }) => failures.length > 0)).toHaveLength(
       1,
     );
@@ -208,8 +212,9 @@ describe('home tools evidence', () => {
       // A sibling nobody has to unlock is a second presentation of the same
       // instrument: it reseeds itself to a shorter episode, which is a
       // different starting state and a different reset for the same tool.
+      const declared = new Set(SEEDED_MOUNTS.map(({ mountId }) => mountId));
       const sibling = evidence.siblingMounts.find(
-        (mount) => mount.revealedByControls.length === 0,
+        (mount) => !declared.has(mount.mountId),
       )!;
       for (const sliders of [sibling.initialSliders, sibling.resetSliders]) {
         const steps = sliders.find(({ accessibleName }) =>
@@ -221,7 +226,7 @@ describe('home tools evidence', () => {
       sibling.resetReadout = '48.8%';
       sibling.secondResetReadout = '48.8%';
     });
-    const failing = crossMountVerdicts(accept(drifted)).filter(
+    const failing = crossMountVerdicts(accept(drifted), SEEDED_MOUNTS).filter(
       ({ failures }) => failures.length > 0,
     );
     expect(failing).toHaveLength(1);
@@ -230,41 +235,33 @@ describe('home tools evidence', () => {
     expect(reported).toContain(`where home opens reading ${home.initialReadout}`);
   });
 
-  it('holds a disclosure-gated seed to the model without forcing home defaults on it', () => {
+  it('holds a declared seed to the model without forcing home defaults on it', () => {
     // A commit-to-reveal panel seeds the instrument to the figure its own
-    // prose commits to, so it is exempt from opening on home's defaults.
-    // The exemption is not a hole: the seed still has to print what the
-    // shared model computes from the inputs it was seeded with.
-    const seeded = mutate((evidence) => {
-      const mount = evidence.siblingMounts[0];
-      mount.revealedByControls = ['Read the reasoning'];
-      const steps = mount.initialSliders.find(({ accessibleName }) =>
-        /episode length/i.test(accessibleName),
-      )!;
-      steps.value = 14;
-      mount.initialReadout = '48.8%';
-      mount.resetReadout = '48.8%';
-      mount.secondResetReadout = '48.8%';
-      const resetSteps = mount.resetSliders.find(({ accessibleName }) =>
-        /episode length/i.test(accessibleName),
-      )!;
-      resetSteps.value = 14;
+    // published prose commits to, so it is exempt from opening on home's
+    // defaults. The exemption is not a hole: the seed still has to print
+    // what the shared model computes from the inputs it was seeded with.
+    const evidence = accept(committed());
+    const declaration = SEEDED_MOUNTS[0];
+    const verdict = crossMountVerdicts(evidence, SEEDED_MOUNTS).find(
+      ({ id }) => id === declaration.mountId,
+    )!;
+    expect(verdict.failures).toEqual([]);
+    expect(verdict.observed.initialStateComparedToHome).toBe(false);
+    expect(verdict.observed.seedDeclaration).toEqual({
+      seededInputs: declaration.seededInputs,
+      reason: declaration.reason,
+      owner: declaration.owner,
     });
-    expect(
-      crossMountVerdicts(accept(seeded)).flatMap(({ failures }) => failures),
-    ).toEqual([]);
-    expect(
-      crossMountVerdicts(accept(seeded))[0].observed.initialStateComparedToHome,
-    ).toBe(false);
 
-    const fabricated = mutate((evidence) => {
-      const mount = evidence.siblingMounts[0];
-      mount.revealedByControls = ['Read the reasoning'];
+    const fabricated = mutate((row) => {
+      const mount = row.siblingMounts.find(
+        ({ mountId }) => mountId === declaration.mountId,
+      )!;
       mount.initialReadout = '90.0%';
       mount.resetReadout = '90.0%';
       mount.secondResetReadout = '90.0%';
     });
-    const failing = crossMountVerdicts(accept(fabricated)).filter(
+    const failing = crossMountVerdicts(accept(fabricated), SEEDED_MOUNTS).filter(
       ({ failures }) => failures.length > 0,
     );
     expect(failing).toHaveLength(1);
@@ -273,14 +270,69 @@ describe('home tools evidence', () => {
     );
   });
 
-  it('refuses a population where every sibling has been exempted', () => {
-    const allGated = mutate((evidence) => {
-      for (const mount of evidence.siblingMounts) {
-        mount.revealedByControls = ['Read the reasoning'];
-      }
-    });
+  it('grants the seeded-state exemption by declaration and not by visibility', () => {
+    // The input that used to pass. Being behind a disclosure was the whole
+    // criterion, so a mount that reseeded itself and happened to sit inside
+    // a `<details>` was exempt from opening on home's state for a reason
+    // nobody had stated. Undeclared, the same mount now fails.
+    const evidence = accept(committed());
+    const declaration = SEEDED_MOUNTS[0];
+    const gated = evidence.siblingMounts.find(
+      ({ mountId }) => mountId === declaration.mountId,
+    )!;
+    expect(gated.revealedByControls.length).toBeGreaterThan(0);
+    const undeclared = crossMountVerdicts(evidence, []).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(undeclared.map(({ id }) => id)).toEqual([declaration.mountId]);
+    expect(undeclared[0].failures.join(' ')).toMatch(
+      /opens at 95% per step over 14 steps/,
+    );
+
+    // A declaration that does not describe the configuration the mount was
+    // measured opening on cannot carry it either.
+    const misdeclared = crossMountVerdicts(evidence, [
+      {
+        ...declaration,
+        seededInputs: { ...declaration.seededInputs, steps: 30 },
+      },
+    ]);
     expect(
-      crossMountVerdicts(accept(allGated))
+      misdeclared.filter(({ failures }) => failures.length > 0).map(({ id }) => id),
+    ).toEqual([declaration.mountId]);
+    expect(misdeclared.flatMap(({ failures }) => failures).join(' ')).toMatch(
+      /declares a seed of 95% per step over 30 steps and opens at 95% over 14/,
+    );
+
+    // A declaration on the wrong route is equally not about this mount.
+    expect(
+      crossMountVerdicts(evidence, [
+        { ...declaration, route: '/frontier/reliability-gap/' },
+      ])
+        .flatMap(({ failures }) => failures)
+        .join(' '),
+    ).toMatch(/places .* on \/frontier\/reliability-gap\//);
+
+    // And a declaration for a mount nobody renders refuses outright.
+    expect(() =>
+      crossMountVerdicts(evidence, [
+        { ...declaration, mountId: 'mount:/nowhere/:ReliabilityCompounding:1' },
+      ]),
+    ).toThrow(/which the measured population does not contain/);
+  });
+
+  it('refuses a population where every sibling has been exempted', () => {
+    const evidence = accept(committed());
+    const declaration = SEEDED_MOUNTS[0];
+    expect(
+      crossMountVerdicts(
+        evidence,
+        evidence.siblingMounts.map((mount) => ({
+          ...declaration,
+          mountId: mount.mountId,
+          route: mount.route,
+        })),
+      )
         .flatMap(({ failures }) => failures)
         .join(' '),
     ).toMatch(/no mount is left to compare/);
@@ -368,6 +420,7 @@ describe('home tools evidence', () => {
     const planted = mutate((evidence) => {
       evidence.progressCounters[0].matches.push('3 of 12 articles');
       evidence.progressCounters[1].reconciledCounts.push({
+        memberId: `count:${evidence.progressCounters[1].route}:articles`,
         text: '99 articles',
         expected: 6,
         actual: 99,
@@ -408,6 +461,102 @@ describe('home tools evidence', () => {
     for (const row of committed().progressCounters) {
       expect(row.reconciledCounts.length, row.route).toBeGreaterThan(0);
     }
+  });
+
+  it('fails a surface that prints any count no expectation explains', () => {
+    // The input that used to pass: one printed total reconciled, a second
+    // one the derivation could not express was moved to unreconciledCounts,
+    // and the surface passed with an unchecked number on a shipped page.
+    const surfaces = progressCounterSurfaces();
+    expect(
+      progressCounterVerdicts(accept(committed()), surfaces).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+    const planted = mutate((evidence) => {
+      const row = evidence.progressCounters.find(
+        ({ route }) => route === '/a-z/',
+      )!;
+      row.unreconciledCounts = ['84 citations'];
+    });
+    const failing = progressCounterVerdicts(accept(planted), surfaces).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(failing.map(({ id }) => id)).toEqual(['route:/a-z/']);
+    expect(failing[0].failures.join(' ')).toMatch(
+      /prints "84 citations", which no declared expectation explains/,
+    );
+  });
+
+  it('requires each declared count member on its own', () => {
+    // `/a-z/` prints the published corpus and the whole glossary. One of
+    // them reconciling used to be enough for the surface, which left the
+    // other total unmeasured.
+    const surfaces = progressCounterSurfaces();
+    const required = surfaces
+      .filter(({ countExpectations }) =>
+        countExpectations.some(({ required: isRequired }) => isRequired),
+      )
+      .map(({ id }) => id);
+    expect(required).toEqual(['route:/a-z/', 'route:/glossary/']);
+    for (const memberId of [
+      'count:/a-z/:articles',
+      'count:/a-z/:glossary-terms',
+    ]) {
+      const dropped = mutate((evidence) => {
+        const row = evidence.progressCounters.find(
+          ({ route }) => route === '/a-z/',
+        )!;
+        row.reconciledCounts = row.reconciledCounts.filter(
+          (count) => count.memberId !== memberId,
+        );
+      });
+      const failing = progressCounterVerdicts(accept(dropped), surfaces).filter(
+        ({ failures }) => failures.length > 0,
+      );
+      expect(failing.map(({ id }) => id), memberId).toEqual(['route:/a-z/']);
+      expect(failing[0].failures.join(' ')).toContain(
+        `"${memberId}" (`,
+      );
+    }
+  });
+
+  it('refuses a reconciliation that names no member or the wrong value', () => {
+    const surfaces = progressCounterSurfaces();
+    const unnamed = mutate((evidence) => {
+      const row = evidence.progressCounters[0];
+      row.reconciledCounts[0] = {
+        ...row.reconciledCounts[0],
+        memberId: '',
+      };
+    });
+    expect(() => accept(unnamed)).toThrow(/no named expectation member/);
+
+    const invented = mutate((evidence) => {
+      const row = evidence.progressCounters[0];
+      row.reconciledCounts[0] = {
+        ...row.reconciledCounts[0],
+        memberId: 'count:/:citations',
+      };
+    });
+    expect(
+      progressCounterVerdicts(accept(invented), surfaces)
+        .flatMap(({ failures }) => failures)
+        .join(' '),
+    ).toMatch(/against "count:\/:citations", which this surface does not declare/);
+
+    const restated = mutate((evidence) => {
+      const row = evidence.progressCounters[0];
+      row.reconciledCounts[0] = {
+        ...row.reconciledCounts[0],
+        expected: row.reconciledCounts[0].actual + 1,
+      };
+    });
+    expect(
+      progressCounterVerdicts(accept(restated), surfaces)
+        .flatMap(({ failures }) => failures)
+        .join(' '),
+    ).toMatch(/where the registry holds \d+ companies/);
   });
 
   it('fails an accessibility profile that measured nothing', () => {

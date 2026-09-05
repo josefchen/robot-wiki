@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2e982b6a2c99ffa96443dc6d3830c87feb1833b08b0011f7e8f25e1be0cf2ed7",
+  "fingerprint": "9ab454437c082d5d517e7ec4f33490f3a866f14a786158b08103ef892c99bc80",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 4018,
@@ -230,6 +230,7 @@
       ],
       "text": "cited to a primary source",
       "nonColourCue": "mark-element",
+      "rejectedStateCues": [],
       "annotation": "home-premise",
       "topPx": 354.78,
       "bottomPx": 376.78

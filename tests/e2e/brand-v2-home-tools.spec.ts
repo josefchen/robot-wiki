@@ -24,16 +24,15 @@ import {
   type ProgressCounterObservation,
   type RouteWidthObservation,
   type SliderObservation,
+  type SurfaceCountExpectation,
 } from '../../lib/brand-v2-home-tools-evidence';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
+import { readSeededMountRegistry } from '../../lib/brand-v2-seeded-mounts';
 import { progressCounterSurfaces } from '../../lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '../../lib/so101-kinematics';
-import { glossaryTermsAlphabetical } from '../../data/glossary';
-import { publishedModules } from '../../data/modules';
-import { COMPANIES } from '../../data/companies';
-import { SEGMENT_ORDER } from '../../lib/market-map';
 
 const ROOT = process.cwd();
+const SEEDED_MOUNTS = readSeededMountRegistry(ROOT);
 const READOUT = '[data-testid="episode-success-readout"]';
 
 /**
@@ -840,8 +839,6 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
   }) => {
     test.setTimeout(180_000);
     const surfaces = progressCounterSurfaces();
-    const published = publishedModules();
-    const GLOSSARY_TERMS = glossaryTermsAlphabetical();
     const rows: ProgressCounterObservation[] = [];
     for (const surface of surfaces) {
       const response = await page.goto(`${staticBase}${surface.path}`);
@@ -854,59 +851,40 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
         ...text.matchAll(pattern),
       ]).map((match) => match[0]);
 
-      const domain = surface.path.replace(/\//g, '');
-      /**
-       * What each printed noun has to equal, derived from the registries the
-       * page builds itself from. The A-Z index prints the whole published
-       * corpus and the whole glossary, and the glossary index prints the
-       * glossary; neither total was expressible before, so both were dropped
-       * and those two surfaces reconciled nothing at all.
-       */
-      const expectedFor = (noun: string): number | null => {
-        if (surface.path === HOME_TOOLS_ROUTE) {
-          if (/^compan/.test(noun)) return COMPANIES.length;
-          if (/^segment/.test(noun)) return SEGMENT_ORDER.length;
-          return null;
-        }
-        if (surface.path === '/glossary/') {
-          return /^(term|entr)/.test(noun) ? GLOSSARY_TERMS.length : null;
-        }
-        if (surface.path === '/a-z/') {
-          if (/^(article|module)/.test(noun)) return published.length;
-          if (/^(term|entr)/.test(noun)) return GLOSSARY_TERMS.length;
-          return null;
-        }
-        if (/^(article|module)/.test(noun)) {
-          const inDomain = published.filter(
-            (module) => module.domain === domain,
-          );
-          return inDomain.length === 0 ? null : inDomain.length;
-        }
-        return null;
-      };
-      const counted = [...text.matchAll(COUNT_PHRASE)].map((match) => ({
-        text: match[0],
-        expected: expectedFor(match[2].toLowerCase()),
-        actual: Number(match[1].replace(/,/g, '')),
-      }));
-      const reconciledCounts = counted
-        .filter(
-          (row): row is typeof row & { expected: number } =>
-            row.expected !== null,
-        )
-        .map(({ text: phrase, expected, actual }) => ({
-          text: phrase,
-          expected,
-          actual,
-        }));
+      // What each printed noun has to equal is declared by the surface
+      // population, not decided here: the sweep that measures a total should
+      // not also be the thing that says what the total was allowed to be.
+      const counted = [...text.matchAll(COUNT_PHRASE)].map((match) => {
+        const noun = match[2].toLowerCase();
+        return {
+          text: match[0],
+          expectation:
+            surface.countExpectations.find(({ nounPattern }) =>
+              new RegExp(nounPattern).test(noun),
+            ) ?? null,
+          actual: Number(match[1].replace(/,/g, '')),
+        };
+      });
 
       rows.push({
         routeId: surface.id,
         route: surface.path,
         matches,
-        reconciledCounts,
+        reconciledCounts: counted
+          .filter(
+            (
+              row,
+            ): row is typeof row & { expectation: SurfaceCountExpectation } =>
+              row.expectation !== null,
+          )
+          .map(({ text: phrase, expectation, actual }) => ({
+            memberId: expectation.memberId,
+            text: phrase,
+            expected: expectation.expected,
+            actual,
+          })),
         unreconciledCounts: counted
-          .filter(({ expected }) => expected === null)
+          .filter(({ expectation }) => expectation === null)
           .map(({ text: phrase }) => phrase),
       });
     }
@@ -944,7 +922,7 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     expect(featuredVerdicts.flatMap(({ failures }) => failures)).toEqual([]);
 
     // VAL-CROSS-015: every other registered mount of the same component.
-    const parity = crossMountVerdicts(measured);
+    const parity = crossMountVerdicts(measured, SEEDED_MOUNTS);
     expect(parity.length).toBe(measured.siblingMounts.length);
     expect(parity.flatMap(({ failures }) => failures)).toEqual([]);
 
@@ -1049,18 +1027,126 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       'anchor:playground-entry-textual-alternative',
     ]);
 
-    const plantedParity = crossMountVerdicts({
-      ...measured,
-      siblingMounts: measured.siblingMounts.map((mount) => ({
-        ...mount,
-        drivenReadout: '99.9%',
-      })),
-    });
+    const plantedParity = crossMountVerdicts(
+      {
+        ...measured,
+        siblingMounts: measured.siblingMounts.map((mount) => ({
+          ...mount,
+          drivenReadout: '99.9%',
+        })),
+      },
+      SEEDED_MOUNTS,
+    );
     expect(plantedParity.every(({ failures }) => failures.length > 0)).toBe(
       true,
     );
     expect(
-      crossMountVerdicts(measured).flatMap(({ failures }) => failures),
+      crossMountVerdicts(measured, SEEDED_MOUNTS).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+
+    // A declaration that does not describe the mount it exempts. The seeded
+    // configuration is the whole reason the exemption exists, so a
+    // declaration naming different inputs cannot carry it.
+    const declared = SEEDED_MOUNTS[0]!;
+    const misdeclared = crossMountVerdicts(measured, [
+      {
+        ...declared,
+        seededInputs: {
+          ...declared.seededInputs,
+          steps: declared.seededInputs.steps + 1,
+        },
+      },
+    ]);
+    expect(
+      misdeclared
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual([declared.mountId]);
+    expect(
+      misdeclared.flatMap(({ failures }) => failures).join(' '),
+    ).toMatch(/does not describe the mount it exempts/);
+
+    // Declarations that swallow the population leave nothing for parity to
+    // mean, so every member fails rather than every member passing.
+    const swallowed = crossMountVerdicts(
+      measured,
+      measured.siblingMounts.map((mount) => ({
+        ...declared,
+        mountId: mount.mountId,
+        route: mount.route,
+      })),
+    );
+    expect(
+      swallowed.flatMap(({ failures }) => failures).join(' '),
+    ).toMatch(/no mount is left to compare home\u2019s initial state against/);
+
+    // A declaration for a mount nobody renders is an approval with no
+    // subject, and it refuses rather than sitting unread.
+    expect(() =>
+      crossMountVerdicts(measured, [
+        { ...declared, mountId: 'mount:/nowhere/:ReliabilityCompounding:1' },
+      ]),
+    ).toThrow(/which the measured population does not contain/);
+
+    // VAL-DESIGN-015: one printed total that no expectation explains fails
+    // the surface, even where another total on the same page reconciles.
+    const surfaces = progressCounterSurfaces();
+    const aToZ = surfaces.find(({ id }) => id === 'route:/a-z/')!;
+    const plantedCounts = progressCounterVerdicts(
+      {
+        ...measured,
+        progressCounters: measured.progressCounters.map((row) =>
+          row.routeId === aToZ.id
+            ? { ...row, unreconciledCounts: ['84 citations'] }
+            : row,
+        ),
+      },
+      surfaces,
+    );
+    expect(
+      plantedCounts
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual([aToZ.id]);
+    expect(plantedCounts.flatMap(({ failures }) => failures).join(' ')).toMatch(
+      /prints "84 citations", which no declared expectation explains/,
+    );
+
+    // And each required member is demanded on its own: dropping the glossary
+    // total from the A-Z index used to leave the article total reconciling
+    // alone and the surface passing.
+    const droppedMember = progressCounterVerdicts(
+      {
+        ...measured,
+        progressCounters: measured.progressCounters.map((row) =>
+          row.routeId === aToZ.id
+            ? {
+                ...row,
+                reconciledCounts: row.reconciledCounts.filter(
+                  ({ memberId }) => memberId !== 'count:/a-z/:glossary-terms',
+                ),
+              }
+            : row,
+        ),
+      },
+      surfaces,
+    );
+    expect(
+      droppedMember
+        .filter(({ failures }) => failures.length > 0)
+        .map(({ id }) => id),
+    ).toEqual([aToZ.id]);
+    expect(droppedMember.flatMap(({ failures }) => failures).join(' ')).toMatch(
+      /"count:\/a-z\/:glossary-terms" \(\d+\) went unmeasured/,
+    );
+    // The baseline half: the unplanted artifact is accepted by the same
+    // reader that refused both plants.
+    expect(
+      progressCounterVerdicts(measured, surfaces).flatMap(
+        ({ failures }) => failures,
+      ),
     ).toEqual([]);
 
     const plantedOverflow = responsiveOverflowVerdicts(

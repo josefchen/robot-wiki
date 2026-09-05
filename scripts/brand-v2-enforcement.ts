@@ -78,6 +78,7 @@ import {
   homeEvidenceFingerprint,
   readHomeCompositionEvidence,
 } from '../lib/brand-v2-home-evidence.ts';
+import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
   homeToolsEvidenceFingerprint,
@@ -649,10 +650,11 @@ const HOME_HERO_VERDICTS = new Map(
   ]),
 );
 const HOME_ANCHOR_VERDICTS = new Map(
-  homeCompositionVerdicts(HOME_EVIDENCE, HOME_LITERALS).map((verdict) => [
-    verdict.id as string,
-    verdict,
-  ]),
+  homeCompositionVerdicts(
+    HOME_EVIDENCE,
+    HOME_LITERALS,
+    readSectionSignatureRegistry(ROOT),
+  ).map((verdict) => [verdict.id as string, verdict]),
 );
 const HOME_DESTINATION_VERDICTS = new Map(
   domainDestinationVerdicts(HOME_EVIDENCE, HOME_DOMAIN_DESTINATIONS).map(

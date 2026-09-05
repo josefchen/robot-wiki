@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "38171e0cf876080ecc2e6568a030f2e16e923458f91ce2a2187fa2588efd8b1b",
+  "fingerprint": "91ebb3e191d725de8e48650b7a9aa13e0930d0c0584639212d2f03ea1d52d3de",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -2574,11 +2574,13 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/:companies",
           "text": "111 companies",
           "expected": 111,
           "actual": 111
         },
         {
+          "memberId": "count:/:segments",
           "text": "6 segments",
           "expected": 6,
           "actual": 6
@@ -2592,6 +2594,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/manipulation/:articles",
           "text": "12 articles",
           "expected": 12,
           "actual": 12
@@ -2605,6 +2608,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/rl-sim2real/:articles",
           "text": "7 articles",
           "expected": 7,
           "actual": 7
@@ -2618,6 +2622,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/world-models/:articles",
           "text": "5 articles",
           "expected": 5,
           "actual": 5
@@ -2631,6 +2636,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/data-hardware/:articles",
           "text": "6 articles",
           "expected": 6,
           "actual": 6
@@ -2644,6 +2650,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/classical/:articles",
           "text": "7 articles",
           "expected": 7,
           "actual": 7
@@ -2657,6 +2664,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/frontier/:articles",
           "text": "6 articles",
           "expected": 6,
           "actual": 6
@@ -2670,6 +2678,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/adjacent/:articles",
           "text": "4 articles",
           "expected": 4,
           "actual": 4
@@ -2683,11 +2692,13 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/a-z/:articles",
           "text": "47 articles",
           "expected": 47,
           "actual": 47
         },
         {
+          "memberId": "count:/a-z/:glossary-terms",
           "text": "119 glossary terms",
           "expected": 119,
           "actual": 119
@@ -2701,6 +2712,7 @@
       "matches": [],
       "reconciledCounts": [
         {
+          "memberId": "count:/glossary/:terms",
           "text": "119 terms",
           "expected": 119,
           "actual": 119
