@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5d7521bbeaf9891655f462abdeaa09a8c4453d242f474f3fa60d76ed35e54de7",
+  "fingerprint": "0ff95706b256ec659cfd1eb681761e77ab84c5bb26b176a4e79ea20e7f170d40",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -2757,7 +2757,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 135
+      "measuredMembers": 136
     }
   ],
   "progressCounters": [

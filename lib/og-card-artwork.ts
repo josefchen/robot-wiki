@@ -21,6 +21,7 @@
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
 import { BRAND_COLORS } from './brand-v2-tokens.ts';
+import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import { OG_DISPLAY_STACK, OG_MONO_STACK } from './og-renderer-fonts.ts';
 import { sanitizeCardText } from './og-cards.ts';
 
@@ -302,7 +303,7 @@ export function articleCardElement(input: CardArtworkInput): CardNode {
                 marginTop: '18px',
               },
               [
-                div({ fontSize: '26px', color: TEXT }, 'robot-wiki'),
+                div({ fontSize: '26px', color: TEXT }, PUBLIC_IDENTITY),
                 div(
                   { fontFamily: MONO, fontSize: '17px', color: DIM },
                   `${input.referenceCount} REFERENCES`,
@@ -353,10 +354,6 @@ export function siteCardElement(): CardNode {
           padding: '52px 48px 44px 60px',
         },
         [
-          // No descriptor here: the canonical lockup table omits the
-          // site descriptor from every Open Graph lockup
-          // (VAL-DSBRAND-002). Factual metadata below carries the
-          // card's information instead.
           div(
             {
               display: 'flex',
@@ -366,10 +363,13 @@ export function siteCardElement(): CardNode {
               maxWidth: '620px',
             },
             [
-              div({ fontSize: '86px', lineHeight: 1.1, color: TEXT, letterSpacing: '-1px' }, 'robot-wiki'),
+              div(
+                { fontSize: '86px', lineHeight: 1.1, color: TEXT, letterSpacing: '-1px' },
+                PUBLIC_IDENTITY,
+              ),
               div(
                 { marginTop: '22px', fontSize: '26px', lineHeight: 1.4, color: DIM },
-                'A citation-first reference to modern robotics for engineers.',
+                PUBLIC_DESCRIPTOR,
               ),
             ],
           ),

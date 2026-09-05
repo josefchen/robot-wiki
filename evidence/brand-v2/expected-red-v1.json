@@ -12,13 +12,6 @@
       "rolloutMilestone": "brand-v2-foundations"
     },
     {
-      "suite": "brand-v2 OG authority",
-      "assertionId": "VAL-B2-ID-009",
-      "expected": "Robot Wiki card artwork",
-      "actual": "robot-wiki card artwork drawn by lib/og-card-artwork.ts",
-      "rolloutMilestone": "brand-v2-social-convergence"
-    },
-    {
       "suite": "brand-v2-reflow-320-200",
       "assertionId": "VAL-B2-EVID-011",
       "expected": "all three sealed accessibility profiles pass every public route",

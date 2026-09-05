@@ -6,6 +6,8 @@ import { publishedModules } from '../../data/modules';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
+  PUBLIC_DESCRIPTOR,
+  PUBLIC_IDENTITY,
   REPOSITORY_URL,
 } from '../../lib/identity';
 import {
@@ -86,6 +88,15 @@ interface LinkMetrics {
   name: string;
 }
 
+interface WordmarkMetrics {
+  text: string;
+  href: string | null;
+  role: string | null;
+  fontFamilyHead: string;
+  fontVariationSettings: string;
+  textTransform: string;
+}
+
 interface FooterMetrics {
   count: number;
   landmarkAncestor: string | null;
@@ -93,12 +104,13 @@ interface FooterMetrics {
   text: string;
   repo: LinkMetrics | null;
   profile: LinkMetrics | null;
+  wordmark: WordmarkMetrics | null;
 }
 
 /** Everything the assertions need about the rendered footer, in one pass. */
 async function footerMetrics(page: Page): Promise<FooterMetrics> {
   return page.evaluate(
-    ([repoUrl, profileUrl]) => {
+    ([repoUrl, profileUrl, identity]) => {
       const footers = Array.from(document.querySelectorAll('footer'));
       const footer = footers[0];
       if (!footer) {
@@ -109,6 +121,7 @@ async function footerMetrics(page: Page): Promise<FooterMetrics> {
           text: '',
           repo: null,
           profile: null,
+          wordmark: null,
         };
       }
       const accessibleName = (a: HTMLAnchorElement) =>
@@ -118,6 +131,17 @@ async function footerMetrics(page: Page): Promise<FooterMetrics> {
       const links = Array.from(footer.querySelectorAll('a'));
       const repo = links.find((a) => a.getAttribute('href') === repoUrl);
       const profile = links.find((a) => a.getAttribute('href') === profileUrl);
+      // Found structurally, by position rather than by the annotation the
+      // assertion is about: the deepest element in the footer whose stored
+      // text is the identity. A slot that dropped its role annotation is
+      // then a reported failure instead of an empty population.
+      const brandNodes = Array.from(footer.querySelectorAll<HTMLElement>('*')).filter(
+        (el) => (el.textContent ?? '').replace(/\s+/g, ' ').trim() === identity,
+      );
+      const wordmarkEl = brandNodes.find(
+        (el) => !brandNodes.some((other) => other !== el && el.contains(other)),
+      );
+      const wordmarkStyle = wordmarkEl ? getComputedStyle(wordmarkEl) : null;
       return {
         count: footers.length,
         landmarkAncestor:
@@ -134,9 +158,22 @@ async function footerMetrics(page: Page): Promise<FooterMetrics> {
               name: accessibleName(profile),
             }
           : null,
+        wordmark:
+          wordmarkEl && wordmarkStyle
+            ? {
+                text: (wordmarkEl.textContent ?? '').replace(/\s+/g, ' ').trim(),
+                href: wordmarkEl.getAttribute('href'),
+                role: wordmarkEl.getAttribute('data-tektur-role'),
+                fontFamilyHead: (wordmarkStyle.fontFamily.split(',')[0] ?? '')
+                  .trim()
+                  .replace(/^["']|["']$/g, ''),
+                fontVariationSettings: wordmarkStyle.fontVariationSettings,
+                textTransform: wordmarkStyle.textTransform,
+              }
+            : null,
       };
     },
-    [REPOSITORY_URL, AUTHOR_PROFILE_URL] as const,
+    [REPOSITORY_URL, AUTHOR_PROFILE_URL, PUBLIC_IDENTITY] as const,
   );
 }
 
@@ -220,6 +257,44 @@ test.describe('rendered footer at both viewports', () => {
           m.profile?.name,
           `${at}: the profile anchor carries the exact author name`,
         ).toBe(AUTHOR_NAME);
+
+        // VAL-DESIGN-022: the footer renders the identity, in the display
+        // family, on every route at both widths. Measured on the shipped
+        // artifact rather than on the component, because a footer that
+        // renders the lockup in the interface family, or renames it with
+        // text-transform, is the same defect as omitting it.
+        expect(
+          m.wordmark,
+          `${at}: the footer renders the ${PUBLIC_IDENTITY} lockup`,
+        ).not.toBeNull();
+        expect(m.wordmark?.text, `${at}: exact identity text`).toBe(
+          PUBLIC_IDENTITY,
+        );
+        expect(m.wordmark?.href, `${at}: the lockup is the "/" destination`).toBe(
+          '/',
+        );
+        expect(
+          m.wordmark?.role,
+          `${at}: the lockup carries its registered Tektur role`,
+        ).toBe('shell-wordmark');
+        expect(
+          m.wordmark?.fontFamilyHead.toLowerCase(),
+          `${at}: the lockup resolves to the display family`,
+        ).toContain('tektur');
+        expect(
+          m.wordmark?.fontVariationSettings,
+          `${at}: the registered display axes`,
+        ).toBe('"wdth" 100, "wght" 600');
+        expect(
+          m.wordmark?.textTransform,
+          `${at}: no case rewriting of the identity`,
+        ).toBe('none');
+        // The chrome lockups omit the descriptor (design-system 3.5); the
+        // home hero owns the only one.
+        expect(
+          collapsed,
+          `${at}: the footer does not repeat the descriptor`,
+        ).not.toContain(PUBLIC_DESCRIPTOR);
       }
     });
   }

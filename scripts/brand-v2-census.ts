@@ -832,9 +832,20 @@ function staticRegistries() {
       id: 'device:sequence-label',
       ownerSurface: 'indexed-content',
       structuralPurpose: 'real-order-or-state',
-      anchorGeometry: { kind: 'baseline', sequenceRequired: true },
+      // The geometry states the edge the rendered gate can actually
+      // measure. `baseline` named an alignment no DOM rectangle exposes,
+      // so it could never be checked; the label instead opens its own list
+      // row, and that shared left edge is what makes the ordinals read as
+      // an index column. `sequenceRequired` still forbids mounting the
+      // device on anything but a real order.
+      anchorGeometry: {
+        kind: 'edge',
+        allowedEdges: ['left'],
+        sequenceRequired: true,
+      },
       classification: 'semantic',
-      ariaBehavior: 'visible text remains in the accessibility tree',
+      ariaBehavior:
+        'aria-hidden; the ordered list conveys position in set and the ordinal repeats it visually',
     },
     {
       id: 'device:dot-grid',

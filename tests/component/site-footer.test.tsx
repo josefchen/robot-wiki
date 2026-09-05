@@ -4,6 +4,7 @@ import { SiteFooter } from '@/components/nav/site-footer';
 import {
   AUTHOR_NAME,
   AUTHOR_PROFILE_URL,
+  PUBLIC_IDENTITY,
   REPOSITORY_URL,
 } from '@/lib/identity';
 
@@ -23,6 +24,29 @@ describe('SiteFooter', () => {
     const { container } = render(<SiteFooter />);
     expect(container.querySelectorAll('footer')).toHaveLength(1);
     expect(screen.getByRole('contentinfo')).toBeDefined();
+  });
+
+  /**
+   * VAL-DESIGN-022: the footer renders the identity. It is an annotated
+   * `shell-wordmark`, not a loose display string, because the identity
+   * sweep discovers footer brand slots structurally and holds each to both
+   * the registered role and the exact identity text.
+   */
+  it('closes the page with the annotated identity lockup linking home', () => {
+    render(<SiteFooter />);
+    const wordmark = screen.getByRole('link', { name: PUBLIC_IDENTITY });
+    expect(wordmark).toHaveAttribute('href', '/');
+    expect(wordmark.textContent).toBe(PUBLIC_IDENTITY);
+    expect(wordmark).toHaveAttribute('data-tektur-role', 'shell-wordmark');
+    expect(wordmark.className).toContain('font-display-shell');
+    // The shared focus control, not a private ring.
+    expect(wordmark).toHaveAttribute(
+      'data-brand-control-id',
+      'control:link-focus',
+    );
+    // Two current-route nodes on "/" is one too many; the sidebar lockup
+    // owns that marking.
+    expect(wordmark.getAttribute('aria-current')).toBeNull();
   });
 
   it('links the author name, verbatim, to the external profile', () => {

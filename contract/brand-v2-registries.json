@@ -501,7 +501,7 @@
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Autonomous vehicles, drones and surgical and space robotics, each in brief.",
@@ -523,7 +523,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8ffb94ba016383e9277a747422e4355c5dba5936e50b580183afeaa65c349f91"
+      "fingerprint": "38eb24a7e25e47a6757e58be753dc4127bea1ea369832328beece584a16ba7e8"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -646,7 +646,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "The kinematics, planning, control and estimation stack that sits under every learned policy.",
@@ -668,7 +668,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d4e7f2b5780a25095243efcb6476ee565d30c60c1aadfedb4ba8c38840191f9c"
+      "fingerprint": "477624e664cd549d480d77a61454b55936448d4551cdc4d15641e1a55ec3453b"
     },
     {
       "id": "metadata:/classical/control/",
@@ -905,7 +905,7 @@
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "The embodied data bottleneck and the machines themselves, with the measurement crisis behind every benchmark claim.",
@@ -927,7 +927,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "43be16b0c704cfa2e037614c108197f93d01171a7da6c311b5db36678cb02e32"
+      "fingerprint": "84896899d716d10c036af5430fd6939598a838a4745435450d8fbc90237a7471"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1108,7 +1108,7 @@
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "The reliability gap that keeps demos out of production, and the competing theses about closing it.",
@@ -1130,7 +1130,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "db139eb25ef08dac5e2d9a6ab85df4e1277abb0cb8d846093e03e0bf906c61cd"
+      "fingerprint": "9b88de1385968438877f4a8bb96a618673cf0d1616fa4db34d22cd6c220ba1d3"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -1338,7 +1338,7 @@
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "From behavior cloning to vision-language-action models: how modern robots learn to act.",
@@ -1360,7 +1360,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "42c882cb6e185bef356a7b2e066a4544a1a3a3e91eafba00bd9f29d2af39c379"
+      "fingerprint": "f229dedb0fdadd8eaf46667332dc398bed41cc577338454c5ddc95aa985cc163"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -1769,7 +1769,7 @@
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning at scale, from massively parallel simulation to the transfer problem.",
@@ -1791,7 +1791,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0398f729aa9dcc51aaf6c63369924c09f752c810045906e84d32404d7e9a1997"
+      "fingerprint": "d10480b42bc3e4003dbb73e6ff977e43ee9d5fc28f0d4ef3ed455f53501fdfc9"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -2028,7 +2028,7 @@
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "63a7f0399b663ab0de94af683dd3950485eacf3b59c9c336bef724b899642b34",
+      "ownerSourceFingerprint": "2b1ecbca1cc008cc980efd2dd0f8f5d764770bf552219afbee0449623d99f3d9",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "Learned simulators and action-conditioned video prediction, with the JEPA counterargument.",
@@ -2050,7 +2050,7 @@
       "icons": [],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "469d24d6aabd960450f1d73003271a705e18b9ecb783b2bd99b84700f057801d"
+      "fingerprint": "822328c05cbd6dd6873cf920bdeb7c074fd4226ea3436afb8f521a6088c3aea0"
     },
     {
       "id": "metadata:/world-models/generative-sim/",
@@ -10859,14 +10859,21 @@
       "ownerSurface": "indexed-content",
       "structuralPurpose": "real-order-or-state",
       "anchorGeometry": {
-        "kind": "baseline",
+        "kind": "edge",
+        "allowedEdges": [
+          "left"
+        ],
         "sequenceRequired": true
       },
       "classification": "semantic",
-      "ariaBehavior": "visible text remains in the accessibility tree",
-      "definedIn": [],
-      "ownerRouteOrMount": [],
-      "mountState": "unwritten",
+      "ariaBehavior": "aria-hidden; the ordered list conveys position in set and the ordinal repeats it visually",
+      "definedIn": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "mountState": "production",
       "pointerBehavior": "none",
       "allowedViewports": [
         "mobile",
@@ -10874,7 +10881,7 @@
         "desktop"
       ],
       "alignmentTolerancePx": 2,
-      "fingerprint": "d3d30965e579601807da8a867135c19f99b24fb907dc9e0433f42d04702d4b89"
+      "fingerprint": "37af0e19bd3768e54eb2a143c2a830d6c11bea4b0917fb9ffc1273e2c8f116f0"
     },
     {
       "id": "device:dot-grid",
@@ -11272,6 +11279,7 @@
           "wdth": 100,
           "cssClass": "font-display-shell",
           "definedIn": [
+            "components/nav/site-footer.tsx",
             "components/nav/site-shell.tsx"
           ]
         },
@@ -11321,7 +11329,7 @@
       ],
       "ogRoleId": "home-wordmark",
       "assignedStringCount": 57,
-      "fingerprint": "f5e4e9bbbf38b7165503c2799156af65f890e46c5c42e235da976b9d7893fd22"
+      "fingerprint": "4e7056ad7c41c3213feee6740bd7716aa40fe7b4c271d5aa9d7021daabf584ae"
     },
     {
       "id": "type:interface",
@@ -11969,5 +11977,5 @@
       "fingerprint": "15ee38c132564d18f5d81533424a38d182939f8b231d9f86296a982ef785268e"
     }
   ],
-  "rootFingerprint": "036bb993b4266d31d14f65376a106fc5ff08357a71a19cf065a22aea4a279cba"
+  "rootFingerprint": "d473e5b32c36c12485bc6a95b32141bf8b20a5e167d6e9034b1c109cab58f5a9"
 }

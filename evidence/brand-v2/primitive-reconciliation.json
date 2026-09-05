@@ -1012,11 +1012,23 @@
     },
     "device:sequence-label": {
       "kind": "gridDevices",
-      "fingerprint": "d3d30965e579601807da8a867135c19f99b24fb907dc9e0433f42d04702d4b89",
-      "mountState": "unwritten",
-      "definedIn": [],
-      "ownerRouteOrMount": [],
-      "renderedOn": []
+      "fingerprint": "37af0e19bd3768e54eb2a143c2a830d6c11bea4b0917fb9ffc1273e2c8f116f0",
+      "mountState": "production",
+      "definedIn": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "ownerRouteOrMount": [
+        "app/(content)/[domain]/page.tsx"
+      ],
+      "renderedOn": [
+        "/adjacent/",
+        "/classical/",
+        "/data-hardware/",
+        "/frontier/",
+        "/manipulation/",
+        "/rl-sim2real/",
+        "/world-models/"
+      ]
     },
     "surface:bounded-dark-instrument": {
       "kind": "surfaces",

@@ -104,7 +104,24 @@ export default async function DomainLandingPage({
               className="border-t border-border py-4 first:border-t-0"
             >
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="font-mono text-xs text-text-dim">
+                {/* The registered sequence label (device:sequence-label).
+                    The ordinal is the reading position the paragraph above
+                    names, not ornament, and it is anchored to the left edge
+                    of its own row so the index column reads as a column.
+                    aria-hidden because the <ol> already conveys position in
+                    set, and announcing "zero three" before "item 3 of 12"
+                    is the same fact twice. */}
+                <span
+                  aria-hidden="true"
+                  data-brand-device-id="device:sequence-label"
+                  data-brand-anchor-selector={`[data-domain-article="${m.domain}/${m.slug}"]`}
+                  data-brand-device-edge="left"
+                  data-brand-anchor-edge="left"
+                  data-brand-motif="sequence-label"
+                  data-brand-purpose="real-order-or-state"
+                  data-brand-owner="app/(content)/[domain]/page.tsx"
+                  className="pointer-events-none font-mono text-[11px] tracking-[0.14em] text-text-dim"
+                >
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <Link
